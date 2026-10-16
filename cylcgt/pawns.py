@@ -252,7 +252,13 @@ def _child(board: Board, pos: Pos, mover: str) -> cgt.Game:
 def sum_safe(board: Board, pos: Pos) -> bool:
     """False if passed-pawn threats of opposite colour live in different
     components; then the disjunctive-sum value may differ from real play
-    (in chess the first passer ends the game; in a sum +BIG and -BIG cancel)."""
+    (in chess the first passer ends the game; in a sum +BIG and -BIG cancel).
+
+    A heuristic, not a certificate: it looks only at the top-level split, so
+    it misses cancellation in sums that appear later in the tree (e.g. W: b2
+    d4 g3 h5 / B: a7 c7 f7 g4 on CYL8 with e.p. off is True here, yet the sum
+    model gets the outcome wrong). The proved test is "hereditarily sum-safe",
+    lemmas.common.hereditarily_safe; see notes/lemmas.md section 2."""
     signs = []
     for c in components(board, pos):
         g = _value(board, c)
