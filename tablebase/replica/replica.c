@@ -20,6 +20,8 @@
  *   replica <plane|cyl|torus> <men> [check]          solve, print statistics
  *   replica <plane|cyl|torus> <men> probe "<pos>"    value and mating line of one
  *                                                     white-to-move position
+ *   replica <plane|cyl|torus> <men> dump <file>      raw int16 tables (w then b)
+ *   replica <plane|cyl|torus> <men> draws            classify the drawn wtm positions
  * <men> are the white men besides the king, e.g. Q, R, BB, BN, RB, QR.
  * A position looks like "Ka1 Rb2 Bc3 kh8" (upper case white, k = black king).
  * "check" re-verifies every value against the Bellman equations and checks that
@@ -533,6 +535,8 @@ static void stats(const Table *T, int subset, const char *label) {
   long legal = 0, won = 0, blegal = 0, blost = 0;
   int maxw = -1, maxb = -1;
   size_t argw = 0, argb = 0;
+  long mates = 0, stalemates = 0;
+  Child ch[64];
   for (size_t idx = 0; idx < T->n; idx++) {
     if (subset) {
       int wk, bk, p[2];
@@ -551,9 +555,12 @@ static void stats(const Table *T, int subset, const char *label) {
     v = T->b[idx];
     if (v != ILLEGAL) {
       blegal++;
+      if (v == 0) mates++;
       if (v >= 0) {
         blost++;
         if (v > maxb) { maxb = v; argb = idx; }
+      } else if (gen_black(T, idx, ch) == 0) {
+        stalemates++;
       }
     }
   }
@@ -566,6 +573,37 @@ static void stats(const Table *T, int subset, const char *label) {
   printf("%-6s K%sK %-9s btm legal %9ld lost %8ld (%8.4f%%) maxDTM %3d moves  e.g. %s b\n",
          topoName, T->name, label, blegal, blost, blegal ? 100.0 * blost / blegal : 0.0,
          maxb >= 0 ? maxb / 2 : 0, pb);
+  printf("%-6s K%sK %-9s btm mates %ld stalemates %ld\n", topoName, T->name, label, mates,
+         stalemates);
+}
+
+/* why are the drawn white-to-move positions drawn? count those where every white
+ * move lets black take a man at once or stalemates him */
+static void draw_reasons(const Table *T) {
+  long draws = 0, forced = 0;
+  size_t other = 0;
+  int haveOther = 0;
+  Child wc[64], bc[64];
+  for (size_t idx = 0; idx < T->n; idx++) {
+    if (T->w[idx] != UNK) continue;
+    draws++;
+    int m = gen_white(T, idx, wc), all = 1;
+    for (int i = 0; i < m && all; i++) {
+      int wk, bk, p[2];
+      decode(T, wc[i].idx, &wk, &bk, p);
+      int k = gen_black(T, wc[i].idx, bc), cap = 0;
+      for (int j = 0; j < k; j++)
+        if (bc[j].T != T) cap = 1;
+      int stalemate = k == 0 && !wattacked(T, bk, wk, p, white_occ(T, wk, p), -1);
+      if (!cap && !stalemate) all = 0;
+    }
+    if (all) forced++;
+    else if (!haveOther) { other = idx; haveOther = 1; }
+  }
+  char buf[64] = "-";
+  if (haveOther) pos_string(T, other, buf);
+  printf("%-6s K%sK draws %ld: white must allow a capture or stalemate in %ld, not in %ld"
+         " (e.g. %s w)\n", topoName, T->name, draws, forced, draws - forced, buf);
 }
 
 /* ---------- probing ---------- */
@@ -660,11 +698,21 @@ int main(int argc, char **argv) {
     }
     return 0;
   }
+  if (argc >= 5 && !strcmp(argv[3], "dump")) { /* raw int16 values, w then b */
+    FILE *f = fopen(argv[4], "wb");
+    if (!f || fwrite(T->w, sizeof(int16_t), T->n, f) != T->n ||
+        fwrite(T->b, sizeof(int16_t), T->n, f) != T->n || fclose(f)) {
+      perror(argv[4]);
+      return 1;
+    }
+    return 0;
+  }
   stats(T, 0, "all");
   if (T->np == 2 && T->t[0] == 'B' && T->t[1] == 'B') {
     stats(T, 1, "opp-col");
     stats(T, 2, "same-col");
   }
+  if (argc >= 4 && !strcmp(argv[3], "draws")) draw_reasons(T);
   if (argc >= 4 && !strcmp(argv[3], "check")) {
     for (int i = 0; i < ncache; i++) run_checks(cache[i]);
   }
