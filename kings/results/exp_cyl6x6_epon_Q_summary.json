@@ -1,0 +1,28 @@
+{
+ "board": "cyl:6x6",
+ "ep": "on",
+ "promote": "Q",
+ "cap": 2,
+ "trebuchet": [
+  "Pa3",
+  "pa4",
+  "Kf4",
+  "kb3"
+ ],
+ "trebuchet_is_mutual_zugzwang": true,
+ "P_files": [
+  "d"
+ ],
+ "components": 42,
+ "counts": {
+  "MISMATCH": 13,
+  "MISMATCH, frozen model agrees with convention (king effect)": 13,
+  "race-at-start": 16,
+  "match": 13
+ },
+ "seconds": 282.7,
+ "kpsolve": [
+  "[kpsolve cyl:6x6 ep=on cap=2: 9019 layers, 3399249888 states, depth 15, 282.4s, capped promotions met (two bounds)]",
+  "[kpsolve cyl:6x6 ep=on cap=2 frozen: 42 layers, 108864 states, depth 3, 0.0s]"
+ ]
+}

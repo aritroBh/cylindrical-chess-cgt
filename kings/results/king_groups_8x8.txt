@@ -1,0 +1,38 @@
+== cyl:8x8
+[kpsolve cyl:8x8 ep=on cap=1: 120 layers, 34013184 states, depth 7, 9.3s, capped promotions met (two bounds)]
+# The paper's king groups, each alone on an 8x8 board, both sides to move.
+# Convention: a mutual zugzwang (value 0) means White to move loses (L) and Black to move loses (W).
+# 5.1 trebuchet (cylinder)
+Kh5 Pa4 kb4 pa5 w - | L L | A: Kh5h6:L Kh5g5:L Kh5a6:L Kh5g6:L Kh5g4:L | B: Kh5h6:L Kh5g5:L Kh5a6:L Kh5g6:L Kh5g4:L
+Kh5 Pa4 kb4 pa5 b - | W W | A: Kb4b3:W Kb4c4:W Kb4c5:W Kb4c3:W Kb4a3:W | B: Kb4b3:W Kb4c4:W Kb4c5:W Kb4c3:W Kb4a3:W
+# 7.2 king group Ke6 d7 / Kd8 e7
+Ke6 Pd7 kd8 pe7 w - | D D | A: Ke6e5:D Ke6f7:L Ke6f5:D Ke6d5:D | B: Ke6e5:D Ke6f7:L Ke6f5:D Ke6d5:D
+Ke6 Pd7 kd8 pe7 b - | W W | A: Kd8c7:W | B: Kd8c7:W
+# 7.3 king group as drawn: Kg8 f7 / Kf6 g7
+Kg8 Pf7 kf6 pg7 w - | W W | A: Kg8h8:L Kg8f8:W Kg8h7:L Pf7f8=Q:W Pf7f8=R:D Pf7f8=B:D Pf7f8=N:D | B: Kg8h8:L Kg8f8:W Kg8h7:L Pf7f8=Q:W Pf7f8=R:D Pf7f8=B:D Pf7f8=N:D
+Kg8 Pf7 kf6 pg7 b - | W W | A: Kf6f5:W Kf6g6:W Kf6e6:W Kf6g5:W Kf6e7:W Kf6e5:W Pg7g6:W Pg7g5:W | B: Kf6f5:W Kf6g6:W Kf6e6:W Kf6g5:W Kf6e7:W Kf6e5:W Pg7g6:W Pg7g5:W
+# 7.3 with the kings the diagram audit conjectures: WK g6, BK f8
+Kg6 Pf7 kf8 pg7 w - | D D | A: Kg6g5:D Kg6h7:L Kg6h5:D Kg6f5:D | B: Kg6g5:D Kg6h7:L Kg6h5:D Kg6f5:D
+Kg6 Pf7 kf8 pg7 b - | W W | A: Kf8e7:W | B: Kf8e7:W
+# the *2 candidate's trebuchet (flat board): WK f5, Pg4 / BK h4, Pg5
+Kf5 Pg4 kh4 pg5 w - | L L | A: Kf5f6:L Kf5e5:L Kf5g6:L Kf5e6:L Kf5e4:L | B: Kf5f6:L Kf5e5:L Kf5g6:L Kf5e6:L Kf5e4:L
+Kf5 Pg4 kh4 pg5 b - | W W | A: Kh4h3:W Kh4a4:W Kh4a5:W Kh4a3:W Kh4g3:W | B: Kh4h3:W Kh4a4:W Kh4a5:W Kh4a3:W Kh4g3:W
+== flat:8x8
+[kpsolve flat:8x8 ep=on cap=1: 120 layers, 34013184 states, depth 7, 8.8s, capped promotions met (two bounds)]
+# The paper's king groups, each alone on an 8x8 board, both sides to move.
+# Convention: a mutual zugzwang (value 0) means White to move loses (L) and Black to move loses (W).
+# 5.1 trebuchet (cylinder)
+Kh5 Pa4 kb4 pa5 w - | L L | A: Kh5h6:L Kh5h4:L Kh5g5:L Kh5g6:L Kh5g4:L | B: Kh5h6:L Kh5h4:L Kh5g5:L Kh5g6:L Kh5g4:L
+Kh5 Pa4 kb4 pa5 b - | L L | A: Kb4b3:L Kb4c4:L Kb4a4:L Kb4c5:L Kb4c3:L Kb4a3:L | B: Kb4b3:L Kb4c4:L Kb4a4:L Kb4c5:L Kb4c3:L Kb4a3:L
+# 7.2 king group Ke6 d7 / Kd8 e7
+Ke6 Pd7 kd8 pe7 w - | D D | A: Ke6e5:D Ke6f7:L Ke6f5:D Ke6d5:D | B: Ke6e5:D Ke6f7:L Ke6f5:D Ke6d5:D
+Ke6 Pd7 kd8 pe7 b - | W W | A: Kd8c7:W | B: Kd8c7:W
+# 7.3 king group as drawn: Kg8 f7 / Kf6 g7
+Kg8 Pf7 kf6 pg7 w - | W W | A: Kg8h8:L Kg8f8:W Kg8h7:L Pf7f8=Q:W Pf7f8=R:W Pf7f8=B:D Pf7f8=N:D | B: Kg8h8:L Kg8f8:W Kg8h7:L Pf7f8=Q:W Pf7f8=R:W Pf7f8=B:D Pf7f8=N:D
+Kg8 Pf7 kf6 pg7 b - | W W | A: Kf6f5:W Kf6g6:W Kf6e6:W Kf6g5:W Kf6e7:W Kf6e5:W Pg7g6:W Pg7g5:W | B: Kf6f5:W Kf6g6:W Kf6e6:W Kf6g5:W Kf6e7:W Kf6e5:W Pg7g6:W Pg7g5:W
+# 7.3 with the kings the diagram audit conjectures: WK g6, BK f8
+Kg6 Pf7 kf8 pg7 w - | D D | A: Kg6g5:D Kg6h7:L Kg6h5:D Kg6f5:D | B: Kg6g5:D Kg6h7:L Kg6h5:D Kg6f5:D
+Kg6 Pf7 kf8 pg7 b - | W W | A: Kf8e7:W | B: Kf8e7:W
+# the *2 candidate's trebuchet (flat board): WK f5, Pg4 / BK h4, Pg5
+Kf5 Pg4 kh4 pg5 w - | L L | A: Kf5f6:L Kf5e5:L Kf5g6:L Kf5e6:L Kf5e4:L | B: Kf5f6:L Kf5e5:L Kf5g6:L Kf5e6:L Kf5e4:L
+Kf5 Pg4 kh4 pg5 b - | W W | A: Kh4h3:W Kh4g3:W | B: Kh4h3:W Kh4g3:W
