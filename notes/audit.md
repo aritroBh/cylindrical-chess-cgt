@@ -23,13 +23,13 @@ king moves. The table below includes those corrections.
 | 4.1 e4/e6 | * | * | ✅ |
 | 4.2 e3/e6 (as drawn) | ↑ | **0** | ❌ the diagram is one rank off. Of five placements tried, only e2/e5 gives the text's {0,\* \| \*} = ↑ |
 | 4.3 tiny | {0‖0\|−1} | tiny(1) = {0‖0\|−1} | ✅ |
-| 5.1 trebuchet (cylinder) | 0 | every king move drops a pawn | ✅ a mutual zugzwang across the seam |
+| 5.1 trebuchet (cylinder) | 0 | every king move drops a pawn | ✅ a mutual zugzwang across the seam, and also in real chess with explicit kings: the side to move loses (two independent king-and-pawn solvers, `atlas/cylinder/kpk` and `kings/kpsolve`) |
 | 7.1 c-file | ±1 | ±1 | ✅ |
 | 7.1 f-file | {{2\|1}\|0} | {{2\|1}\|0}, mean 3/4, temp 3/4 | ✅ |
 | 7.1 a/h files | 1 | **{+W \| \*}** (hot) | ❌ The paper does play h6×a5. Its error is to call a position that White wins either way (an L-position) "1". Sum tests in two independent engines refute "= 1" |
 | 7.1 total | 1 ± 1 + {{2\|1}\|0} | Left wins either way, but not this value | ❌ (follows from the a/h error) |
 | 7.2 pawn part {a,b,h} | ±1 | an infinitesimal-heavy game with ⇑/⇓ parts, mean 0, temp 0; outcome N (R without e.p.) | ❌ |
-| 7.2 king group Ke6, d7 / Kd8, e7 | 0 | every king move drops a pawn (White: Kd5/e5/f5/f7 drop d7; Black: ...Kc7 drops e7, then d8=Q) | ✅ under the convention it **is** a mutual zugzwang, though not the 5.1 pattern. Caveat: by the pawn-only definition both d7 and e7 count as "passed", so the king blockade has to be modelled explicitly |
+| 7.2 king group Ke6, d7 / Kd8, e7 | 0 | every king move drops a pawn (White: Kd5/e5/f5/f7 drop d7; Black: ...Kc7 drops e7, then d8=Q) | ✅ under the convention it **is** a mutual zugzwang, though not the 5.1 pattern. Caveat: by the pawn-only definition both d7 and e7 count as "passed", so the king blockade has to be modelled explicitly. ❌ **In real chess it is not a mutual zugzwang**: with White to move, Kd5, Ke5 or Kf5 **draws** (d7 falls, but the white king catches the e-pawn), and only Kf7 loses; with Black to move, Kc7 is forced and loses. Found by `kings/kpsolve` and confirmed by the Lichess tablebase (flat 8×8, 2026-10-16). So in real chess the group is not 0 in a sum |
 | 7.3 | 2 | already decided: a5 and f7 are passed pawns | ❌ The position is decided at move 0. Four white pawns stand on rank 1 (illegal). The kings have spare moves (Kg8–f8 and Kf6–g6), so the group is not a zugzwang |
 | 7.3 {c,d} sub-game | 1 | **tiny(1)** (e.p. on and off; also after shifting to legal ranks) | ❌ sum tests in two independent engines refute "= 1" |
 | §1 rules text | knight on h1 "can additionally move to a1 and a2" | the extra knight squares are a3 and b2 | ❌ a1 and a2 are extra *king* squares |

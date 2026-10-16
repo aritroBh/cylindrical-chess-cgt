@@ -82,8 +82,10 @@ confirmed it independently. The kings, and diagrams 2.3 and 5.1, were checked ag
 verdicts are in [notes/audit.md](notes/audit.md):
 - **Correct:**
   - 2.1, 2.2, 2.3, 3.2, 4.1, 4.3;
-  - 5.1, the cylinder trébuchet, a mutual zugzwang **only because of the seam**;
-  - the 7.1 c- and f-files, and the 7.2 king zugzwang.
+  - 5.1, the cylinder trébuchet: a mutual zugzwang **only because of the seam**, and a real one with explicit kings (two independent king-and-pawn solvers);
+  - the 7.1 c- and f-files;
+  - the 7.2 king zugzwang, but **only under the convention**. In real chess, White to move draws with Kd5, Ke5 or
+    Kf5, and only Black to move loses (`kings/kpsolve`, confirmed by the Lichess tablebase).
 - **Correct only with en passant:** 3.1.
 - **Wrong:**
   - 4.2 is one rank off.
@@ -155,7 +157,12 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
 - **Cylinder engine.** The only public cylinder fork of Fairy-Stockfish (mtaktikos/CylindricalChess)
   appears, from reading its code, to miss checks, pins and en passant across the seam.
   [engine/FAIRY_CYLINDER.md](engine/FAIRY_CYLINDER.md) gives a corrected design.
-- **Lc0:** being run on the same suite by the [tablebase session](#local_154533a8-61ae-4b6f-bed4-5dcf1d9bafff).
+- **Lc0 v0.32.1 on the suite** (bundled network, Metal; [engine/runs/lc0/analysis.md](engine/runs/lc0/analysis.md)).
+  - **Perfect at 1k, 10k and 100k nodes.** At every budget all 233 best moves win and all 233 evals match the
+    tablebase, in every CGT class. The 1M-node run is still going (114/233 so far, all correct).
+  - **Lc0 never shows the shallow-depth class effect** that Stockfish shows. Caveat: 216 of the 233 positions are
+    wins, so the 17 draws are the real test. Lc0 calls all 17 draws at 1k nodes; Stockfish 19 at 1k rates one +183.
+  - **The suite is too easy for both engines.** That again points to ChessSums beyond 7 men for a real contrast.
 
 ## 6. Other new results (model level unless stated)
 
@@ -208,7 +215,14 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   - the remaining adversarial verification;
   - a completeness review.
 - **A8, explicit kings (loopy CGT):** in the [tablebase session](#local_154533a8-61ae-4b6f-bed4-5dcf1d9bafff),
-  in `kings/`.
+  in `kings/`. First exact results (`kings/kpsolve`, one implementation unless stated):
+  - **The trébuchets hold in real chess.** Both 5.1 and the \*2 candidate's trébuchet are real mutual zugzwangs.
+  - **The 7.2 king group does not.** It is not a mutual zugzwang in real chess (above; confirmed by Lichess).
+  - **6×6 cylinder, one pawn file beside the trébuchet:** 13 of 26 components match the convention, and all 13
+    mismatches are king effects. With the kings frozen, the solver reproduces cylcgt on all 26.
+  - **5×6 flat board:** 23 of 26 match, and the 3 mismatches are king effects.
+  - **E.p. test:** switching between the textbook and e.p.-aware passed test changes no verdict on these
+    single-file boards. The 7×6 cylinder run, where e.p. can matter, is in progress.
 - **Re-running the textbook-test atlases under the e.p.-aware test:**
   - flat 8-rank, count rule: done (§1, §6);
   - the cylinder atlas and the mover/opponent rules: not yet.
