@@ -50,3 +50,21 @@ Then run it for one endgame, giving the board type and the white pieces besides 
 ```bash
 ./egt cyl BN
 ```
+
+## Environments
+
+- `.venv`: the solver, tests and workflows. Only the stdlib and pytest.
+- `.venv-ml`: the ML track (PyTorch with the MPS backend, MLX on Metal), kept separate so that the solver
+  environment stays minimal. Pinned versions are in `ml/requirements-lock.txt`.
+
+Recreate the ML environment:
+
+```bash
+uv venv .venv-ml --python 3.12
+```
+
+Then install the pinned packages into it:
+
+```bash
+uv pip install --python .venv-ml/bin/python -r ml/requirements-lock.txt
+```
