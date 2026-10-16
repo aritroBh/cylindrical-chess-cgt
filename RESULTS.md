@@ -73,7 +73,7 @@ verdicts are in [notes/audit.md](notes/audit.md):
 - The `sum_safe` flag was exact on a 3,600-position family that tests when +BIG and −BIG cancel.
 - **The one defect found** is the en passant convention in §1, above.
 
-## 5. Engines (analysis; nothing installed or run)
+## 5. Engines
 
 - [engine/ENGINES.md](engine/ENGINES.md) makes 16 predictions about how Stockfish and Lc0 search fails on
   zugzwang, tempo battles and nimbers, and designs 8 experiments.
@@ -81,7 +81,27 @@ verdicts are in [notes/audit.md](notes/audit.md):
   - Reverse futility pruning is the predicted zugzwang-blind cut.
 - **Test suite:** `engine/suite/cgt_verified.epd` holds **181 legal 8×8 positions** whose winning moves
   follow from CGT and are confirmed by the Lichess tablebase. `engine/suite/cgt_disagree.epd` holds the 52
-  where CGT and the tablebase disagree. `engine/run_suite.py` runs any UCI engine on both once one is installed.
+  where CGT and the tablebase disagree.
+- **Stockfish 19 on the suite.** Official release `sf_19`, built locally in `engine/vendor/` (git-ignored);
+  1 thread, 64 MB hash, no tablebases. Runs and analysis are in `engine/runs/`.
+  - **It solves all 233 positions at 100k nodes, and 232/233 already at 1k nodes.** At ≤7 men these
+    positions are easy for a modern engine. The CGT-versus-engine contrast has to come from larger sums,
+    beyond the tablebase, where only CGT gives ground truth. That is the ChessSums benchmark.
+  - **At shallow depth, accuracy depends on the CGT value class.** The table gives the share of Stockfish
+    evaluations that match the tablebase result:
+
+| CGT class | n | depth 1 | depth 2 | depth 4 | depth 6 | depth 8 | depth 12 |
+|---|---|---|---|---|---|---|---|
+| hot (±BIG switch) | 68 | 81% | 78% | 91% | 97% | 99% | 100% |
+| number | 57 | 79% | 81% | 84% | 93% | 95% | 98% |
+| switch | 37 | 73% | 78% | 89% | 100% | 100% | 100% |
+| **infinitesimal** | 27 | **30%** | **26%** | **59%** | 85% | 100% | 100% |
+| other tame | 20 | 60% | 50% | 75% | 95% | 100% | 100% |
+| **nimber** | 17 | **53%** | 65% | 88% | 100% | 100% | 100% |
+
+  Infinitesimals and nimbers, which are tempo and parity fights, are the ones the static evaluation
+  misreads at low depth. CGT predicts exactly that. Hot positions and numbers are read correctly early.
+  This is one engine on a small sample, so it is a pilot result.
 - **Cylinder engine:** the only public cylinder fork of Fairy-Stockfish (mtaktikos/CylindricalChess)
   appears, from reading its code, to miss checks, pins and en passant across the seam.
   [engine/FAIRY_CYLINDER.md](engine/FAIRY_CYLINDER.md) gives a corrected design.
