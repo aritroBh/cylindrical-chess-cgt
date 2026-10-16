@@ -1,0 +1,32 @@
+
+=== board: 8x8 cylinder, en passant on ===
+2.1 zero                       claim 0                      -> 0                        outcome P  mean 0  temp number  
+2.2 zero (wrap)                claim 0                      -> 0                        outcome P  mean 0  temp number  illegal-in-chess (pawn on own back rank)
+3.1 one                        claim 1                      -> 1                        outcome L  mean 1  temp number  illegal-in-chess (pawn on own back rank); 3 race lines, race-rule robust {'mover': '1', 'opponent': '1'}
+3.2 two                        claim 2                      -> 2                        outcome L  mean 2  temp number  illegal-in-chess (pawn on own back rank); 3 race lines, race-rule robust {'mover': '2', 'opponent': '2'}
+4.1 star                       claim *                      -> *                        outcome N  mean 0  temp 0  
+4.2 up (as drawn)              claim ↑                      -> 0                        outcome P  mean 0  temp number  
+4.2 up (intended? e2/e5)       claim ↑                      -> ↑                        outcome L  mean 0  temp 0  
+4.3 tiny                       claim {0||0|-1} (tiny-1)     -> tiny(1)                  outcome L  mean 0  temp 0  
+7.1 puzzle 1 (total)           claim 1 ± 1 + {{2|1}|0}      -> {{{+W±1/2 | +W}, {+W±1/2 | +W±1/2} | +W±1, {+W±1/2 | +W}} | {{{3* | 2*} | {1* | *}}, {{3* | 2*} | 1*} | {1* | -1*}, {{1* | *} | -1*}}} outcome L  mean 519/4  temp 129  3 race lines, race-rule robust {'mover': '{{{+W±1/2 | +W}, {+W±1/2 | +W±1/2} | +W±1, {+W±1/2 | +W}} | {{{3* | 2*} | {1* | *}}, {{3* | 2*} | 1*} | {1* | -1*}, {{1* | *} | -1*}}}', 'opponent': '{{{+W±1/2 | +W}, {+W±1/2 | +W±1/2} | +W±1, {+W±1/2 | +W}} | {{{3* | 2*} | {1* | *}}, {{3* | 2*} | 1*} | {1* | -1*}, {{1* | *} | -1*}}}'}
+7.1  c-file                    claim ±1                     -> ±1                       outcome N  mean 0  temp 1  
+7.1  f-file                    claim {{2|1}|0}              -> {3/2±1/2 | 0}            outcome N  mean 3/4  temp 3/4  
+7.1  a/h-files                 claim 1                      -> {+W | *}                 outcome L  mean 129  temp 129  3 race lines, race-rule robust {'mover': '{+W | *}', 'opponent': '{+W | *}'}
+7.2 pawn part (a,b,h files)    claim ±1                     -> {{↑ | {0 | ⇓*}, {↑ | {0 | ⇓*}}} | {{{⇓ | 0}, {{⇓ | 0} | 0} | 0} | 0}} outcome N  mean 0  temp 0  1317 race lines, race-rule robust {'mover': '{{↑ | {0 | ⇓*}, {↑ | {0 | ⇓*}}} | {{{⇓ | 0}, {{⇓ | 0} | 0} | 0} | 0}}', 'opponent': '{{↑ | {0 | ⇓*}, {↑ | {0 | ⇓*}}} | {{{⇓ | 0}, {{⇓ | 0} | 0} | 0} | 0}}'}
+7.3 pawns (kings removed)      claim 2                      -> +W                       outcome L  mean 256  temp number  illegal-in-chess (pawn on own back rank); already has a passed pawn
+
+=== board: 8x8 cylinder, en passant off ===
+2.1 zero                       claim 0                      -> 0                        outcome P  mean 0  temp number  
+2.2 zero (wrap)                claim 0                      -> 0                        outcome P  mean 0  temp number  illegal-in-chess (pawn on own back rank)
+3.1 one                        claim 1                      -> 2                        outcome L  mean 2  temp number  illegal-in-chess (pawn on own back rank); 3 race lines, race-rule robust {'mover': '2', 'opponent': '2'}
+3.2 two                        claim 2                      -> 2                        outcome L  mean 2  temp number  illegal-in-chess (pawn on own back rank); 3 race lines, race-rule robust {'mover': '2', 'opponent': '2'}
+4.1 star                       claim *                      -> *                        outcome N  mean 0  temp 0  
+4.2 up (as drawn)              claim ↑                      -> 0                        outcome P  mean 0  temp number  
+4.2 up (intended? e2/e5)       claim ↑                      -> ↑                        outcome L  mean 0  temp 0  
+4.3 tiny                       claim {0||0|-1} (tiny-1)     -> tiny(1)                  outcome L  mean 0  temp 0  
+7.1 puzzle 1 (total)           claim 1 ± 1 + {{2|1}|0}      -> {{{+W±1/2 | +W}, {+W±1/2 | +W±1/2} | +W±1, {+W±1/2 | +W}} | {{{3* | 2*} | {1* | *}}, {{3* | 2*} | 1*} | {1* | -1*}, {{1* | *} | -1*}}} outcome L  mean 519/4  temp 129  3 race lines, race-rule robust {'mover': '{{{+W±1/2 | +W}, {+W±1/2 | +W±1/2} | +W±1, {+W±1/2 | +W}} | {{{3* | 2*} | {1* | *}}, {{3* | 2*} | 1*} | {1* | -1*}, {{1* | *} | -1*}}}', 'opponent': '{{{+W±1/2 | +W}, {+W±1/2 | +W±1/2} | +W±1, {+W±1/2 | +W}} | {{{3* | 2*} | {1* | *}}, {{3* | 2*} | 1*} | {1* | -1*}, {{1* | *} | -1*}}}'}
+7.1  c-file                    claim ±1                     -> ±1                       outcome N  mean 0  temp 1  
+7.1  f-file                    claim {{2|1}|0}              -> {3/2±1/2 | 0}            outcome N  mean 3/4  temp 3/4  
+7.1  a/h-files                 claim 1                      -> {+W | *}                 outcome L  mean 129  temp 129  3 race lines, race-rule robust {'mover': '{+W | *}', 'opponent': '{+W | *}'}
+7.2 pawn part (a,b,h files)    claim ±1                     -> {{{{{⇑* | 0}, {+W | {{{+W | +W, {+W | -W, {+W | -W, ±+W}}} | +W} | {-W, {+W, {+W, +W* | +W}, {+W, {+W, +W* | +W} | -W} | -W} | -W}}, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W}, {⇑* | 0}} | *, {* | -W}} | 0}, {{{{⇑* | 0}, {+W | {{{+W | +W, {+W | -W, {+W | -W, ±+W}}} | +W} | {-W, {+W, {+W, +W* | +W}, {+W, {+W, +W* | +W} | -W} | -W} | -W}}, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W}, {⇑* | 0}} | *, {* | -W}} | 0} | 0} | 0} | {{⇓, {⇓ | 0} | 0} | 0}} outcome R  mean 0  temp 0  921 race lines, race-rule SENSITIVE {'mover': '{{{{{⇑* | 0} | {* | -W}, ⇓*} | 0}, {{{{⇑* | 0} | {* | -W}, ⇓*} | 0} | 0} | 0} | 0}', 'opponent': '{{{{{⇑* | 0} | {* | -W}} | 0}, {{{{⇑* | 0} | {* | -W}} | 0} | 0} | 0} | 0}'}
+7.3 pawns (kings removed)      claim 2                      -> +W                       outcome L  mean 256  temp number  illegal-in-chess (pawn on own back rank); already has a passed pawn

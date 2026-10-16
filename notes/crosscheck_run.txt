@@ -1,0 +1,134 @@
+| Components | E.p. rule | Agree | Disagree | Total |
+|---|---:|---:|---:|---:|
+| single | on | 554 | 0 | 554 |
+| single | off | 515 | 1 | 516 |
+| multi | on | 824 | 136 | 960 |
+| multi | off | 864 | 134 | 998 |
+| **all** | — | **2757** | **271** | **3028** |
+
+Compared 3,028 positions; 271 disagreements.
+
+First 15 disagreements:
+
+### 1. random #5
+
+- Source: random; board: flat, 8x8; e.p. rule: off
+- Position: `W: a3 g6 / B: f7`
+- Live e.p. state: `none`; starting passers (W, B): `(True, False)`
+- Exact wins: White to move → `W`; Black to move → `W`; class `L`
+- CGT: value `+W±+W`; outcome class `N`
+- Components (2): `W: a3 / B: ; W: g6 / B: f7`
+### 2. random #7
+
+- Source: random; board: cylinder, 8x8; e.p. rule: on
+- Position: `W: b6 e1 e7 / B: a7 d5 e4`
+- Live e.p. state: `none`; starting passers (W, B): `(True, False)`
+- Exact wins: White to move → `W`; Black to move → `W`; class `L`
+- CGT: value `+W±+W`; outcome class `N`
+- Components (2): `W: b6 / B: a7; W: e1 e7 / B: d5 e4`
+### 3. random #9
+
+- Source: random; board: cylinder, 8x8; e.p. rule: off
+- Position: `W: a1 c2 h3 / B: d3 g3 h7`
+- Live e.p. state: `none`; starting passers (W, B): `(False, True)`
+- Exact wins: White to move → `B`; Black to move → `B`; class `R`
+- CGT: value `-W±+W`; outcome class `N`
+- Components (2): `W: a1 h3 / B: g3 h7; W: c2 / B: d3`
+### 4. random #29
+
+- Source: random; board: cylinder, 8x8; e.p. rule: on
+- Position: `W: b3 d1 g6 / B: c3 c4`
+- Live e.p. state: `none`; starting passers (W, B): `(True, False)`
+- Exact wins: White to move → `W`; Black to move → `W`; class `L`
+- CGT: value `{+W, {+W, +W±+W | 0} | 0, +W±+W}`; outcome class `N`
+- Components (2): `W: b3 d1 / B: c3 c4; W: g6 / B: `
+### 5. random #43
+
+- Source: random; board: cylinder, 8x8; e.p. rule: on
+- Position: `W: f3 g5 / B: a1 f6`
+- Live e.p. state: `none`; starting passers (W, B): `(False, True)`
+- Exact wins: White to move → `B`; Black to move → `B`; class `R`
+- CGT: value `-W±+W`; outcome class `N`
+- Components (2): `W:  / B: a1; W: f3 g5 / B: f6`
+### 6. random #44
+
+- Source: random; board: flat, 8x8; e.p. rule: on
+- Position: `W: c2 e4 g1 h2 / B: f4 f8 h5 (ep e3 for B)`
+- Live e.p. state: `target=(4, 3), captured=(4, 4), side=B`; starting passers (W, B): `(True, False)`
+- Exact wins: White to move → `W`; Black to move → `W`; class `L`
+- CGT: value `{+W*, {+W | {+W | +W*}} | 0}`; outcome class `N`
+- Components (2): `W: c2 / B: ; W: e4 g1 h2 / B: f4 f8 h5 (ep e3)`
+### 7. random #67
+
+- Source: random; board: cylinder, 8x8; e.p. rule: off
+- Position: `W: a5 b1 / B: b6 d1 d6 e7 h6`
+- Live e.p. state: `none`; starting passers (W, B): `(False, True)`
+- Exact wins: White to move → `B`; Black to move → `B`; class `R`
+- CGT: value `{↑ | -W}`; outcome class `N`
+- Components (2): `W: a5 b1 / B: b6 h6; W:  / B: d1 d6 e7`
+### 8. random #69
+
+- Source: random; board: cylinder, 8x8; e.p. rule: on
+- Position: `W: a2 e7 f1 / B: b3 e5 g3 g6`
+- Live e.p. state: `none`; starting passers (W, B): `(True, False)`
+- Exact wins: White to move → `W`; Black to move → `W`; class `L`
+- CGT: value `+W±+W`; outcome class `N`
+- Components (2): `W: a2 / B: b3; W: e7 f1 / B: e5 g3 g6`
+### 9. random #72
+
+- Source: random; board: cylinder, 8x8; e.p. rule: on
+- Position: `W: c6 g3 / B: b8 d7`
+- Live e.p. state: `none`; starting passers (W, B): `(True, False)`
+- Exact wins: White to move → `W`; Black to move → `W`; class `L`
+- CGT: value `{+W | 0, +W±+W}`; outcome class `N`
+- Components (2): `W: c6 / B: b8 d7; W: g3 / B: `
+### 10. random #77
+
+- Source: random; board: cylinder, 8x8; e.p. rule: off
+- Position: `W: c2 f1 f6 / B: b6 c7 e7 f5`
+- Live e.p. state: `none`; starting passers (W, B): `(False, False)`
+- Exact wins: White to move → `W`; Black to move → `B`; class `N`
+- CGT: value `{{{{0, +W±+W | 0} | 0}, {{{0, +W±+W | 0} | 0} | 0} | 0} | {{{{-W, -1±+W | -W} | -W}, {{{-W, -1±+W | -W} | -W} | -W} | -W} | {{{-W, -2±+W | -W} | -W}, {{{-W, -2±+W | -W} | -W} | -W} | -W}}}`; outcome class `R`
+- Components (2): `W: c2 / B: b6 c7; W: f1 f6 / B: e7 f5`
+### 11. random #82
+
+- Source: random; board: cylinder, 8x8; e.p. rule: off
+- Position: `W: e6 f5 h4 / B: b5 c4 e8 h5`
+- Live e.p. state: `none`; starting passers (W, B): `(False, True)`
+- Exact wins: White to move → `B`; Black to move → `B`; class `R`
+- CGT: value `1/2±1/2`; outcome class `N`
+- Components (3): `W:  / B: b5 c4; W: e6 f5 / B: e8; W: h4 / B: h5`
+### 12. random #87
+
+- Source: random; board: cylinder, 8x8; e.p. rule: off
+- Position: `W: b3 e8 f1 f2 / B: b5 c8 f8`
+- Live e.p. state: `none`; starting passers (W, B): `(True, False)`
+- Exact wins: White to move → `W`; Black to move → `W`; class `L`
+- CGT: value `251/2±+W`; outcome class `N`
+- Components (2): `W: b3 / B: b5 c8; W: e8 f1 f2 / B: f8`
+### 13. random #97
+
+- Source: random; board: flat, 8x8; e.p. rule: on
+- Position: `W: d2 / B: a6 c3`
+- Live e.p. state: `none`; starting passers (W, B): `(False, True)`
+- Exact wins: White to move → `B`; Black to move → `B`; class `R`
+- CGT: value `-W±+W`; outcome class `N`
+- Components (2): `W:  / B: a6; W: d2 / B: c3`
+### 14. random #105
+
+- Source: random; board: cylinder, 8x8; e.p. rule: on
+- Position: `W: a5 e4 f1 / B: b5 c6 f5 h7 (ep b6 for W)`
+- Live e.p. state: `target=(1, 6), captured=(1, 5), side=W`; starting passers (W, B): `(False, True)`
+- Exact wins: White to move → `B`; Black to move → `B`; class `R`
+- CGT: value `{0 | -W*}`; outcome class `N`
+- Components (2): `W: a5 / B: b5 c6 h7 (ep b6); W: e4 f1 / B: f5`
+### 15. random #121
+
+- Source: random; board: cylinder, 8x8; e.p. rule: off
+- Position: `W: e7 / B: b4 f8`
+- Live e.p. state: `none`; starting passers (W, B): `(False, True)`
+- Exact wins: White to move → `B`; Black to move → `B`; class `R`
+- CGT: value `-W±+W`; outcome class `N`
+- Components (2): `W:  / B: b4; W: e7 / B: f8`
+
+Wrote /Users/aritro/Downloads/Research/Chessendgames/crosscheck/REPORT.md
