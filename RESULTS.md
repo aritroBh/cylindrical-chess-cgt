@@ -212,7 +212,7 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
 - **Re-running the textbook-test atlases under the e.p.-aware test:**
   - flat 8-rank, count rule: done (§1, §6);
   - the cylinder atlas and the mover/opponent rules: not yet.
-- **ML track (C3/C4):** waits for the PyTorch/MLX install.
+- **ML track (C3/C4):** PyTorch 2.14.1 (MPS) and MLX 0.32.4 are installed in `.venv-ml`. Training waits for the ChessSums data (`bench/`).
 
 ## 8. Decisions
 
@@ -220,7 +220,4 @@ Answered 2026-10-16:
 - **E.p.:** respect it (done).
 - **Kings:** model them explicitly (A8 started).
 - **Mentor:** no contact with Prof. Morley yet.
-- **Installs:** Stockfish 19 is built; Lc0 is with the tablebase session.
-
-Still open:
-- **PyTorch/MLX:** confirm here before installing. Each is a download.
+- **Installs:** Stockfish 19 is built; Lc0 v0.32.1 is installed through Homebrew with its bundled network. PyTorch and MLX are in the separate `.venv-ml`.

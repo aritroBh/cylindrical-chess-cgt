@@ -230,7 +230,7 @@ Answered 2026-10-16:
 - **Installs:**
   - Stockfish 19 is built locally.
   - Lc0 is being installed by the tablebase session.
-  - PyTorch/MLX still need a confirmation in the main session.
+  - PyTorch 2.14.1 and MLX 0.32.4 are installed in a separate `.venv-ml`.
 
 Still open:
 1. **Order:** lead with the \*2 result and the cylinder tablebases, or with the ChessSums benchmark?
