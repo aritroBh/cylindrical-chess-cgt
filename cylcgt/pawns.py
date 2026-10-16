@@ -39,6 +39,11 @@ class RaceError(Exception):
 RACE_RULE = "count"
 race_hits: list[str] = []  # positions where the race rule was invoked
 
+# A pawn that has just double-stepped and can still be taken en passant is not
+# yet passed: the opponent's e.p. capture comes first. False restores the
+# textbook test, under which W a2 c2 / B b7 d7 is *2 (see RESULTS.md section 1).
+PASSED_RESPECTS_EP = True
+
 
 def promote_distance(board: "Board", pos: "Pos", side: str) -> int:
     best = None
@@ -47,6 +52,8 @@ def promote_distance(board: "Board", pos: "Pos", side: str) -> int:
     for f, r in mine:
         if not passed(board, Pos(frozenset([(f, r)]) if side == "W" else pos.white,
                                  pos.black if side == "W" else frozenset([(f, r)])), side):
+            continue
+        if ep_capturable(board, pos, side, (f, r)):
             continue
         if side == "W":
             if any((f, s) in occ for s in range(r + 1, board.ranks + 1)):
@@ -108,6 +115,15 @@ class Pos:
         return f"W: {w} / B: {b}" + (f" (ep {name(self.ep[0])})" if self.ep else "")
 
 
+def ep_capturable(board: Board, pos: Pos, side: str, square) -> bool:
+    """True if `side`'s pawn on `square` may be taken en passant right now."""
+    if not (PASSED_RESPECTS_EP and pos.ep and pos.ep[1] == square and pos.ep[2] != side):
+        return False
+    f, r = square
+    theirs = pos.black if side == "W" else pos.white
+    return any((g, r) in theirs for g in (board.nb(f, -1), board.nb(f, 1)) if g is not None)
+
+
 def passed(board: Board, pos: Pos, side: str) -> bool:
     mine, theirs = (pos.white, pos.black) if side == "W" else (pos.black, pos.white)
     for f, r in mine:
@@ -116,7 +132,7 @@ def passed(board: Board, pos: Pos, side: str) -> bool:
             blocked = any(g in files and s > r for g, s in theirs)
         else:
             blocked = any(g in files and s < r for g, s in theirs)
-        if not blocked:
+        if not blocked and not ep_capturable(board, pos, side, (f, r)):
             return True
     return False
 
