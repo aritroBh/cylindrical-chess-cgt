@@ -28,7 +28,7 @@ Each track can yield its own paper. Targets: *Integers* / *Games of No Chance 7*
 | Path | What it is | Status |
 |---|---|---|
 | `cylcgt/cgt.py` | Exact canonical-form CGT: numbers, nimbers, ↑-family, tinies, switches, sums, outcome classes, thermographs (mean, temperature) | Unit-tested (`tests/`) |
-| `cylcgt/pawns.py` | Pawn-only positions on any W-file board, flat or cylindrical; double steps; wrap-around en passant; decomposition into independent components; explicit race rule; `sum_safe()` flag | Cross-checked (below) |
+| `cylcgt/pawns.py` | Pawn-only positions on any W-file board, flat or cylindrical; double steps; wrap-around en passant; decomposition into independent components; explicit race rule; e.p.-aware passed test; `sum_safe()` heuristic (not a certificate; see `notes/lemmas.md` L2.2) | Cross-checked (below) |
 | `cylcgt/verify_paper.py` | Recomputes every pawn-only claim of the 2025 paper | Output in `notes/verify_paper_output.txt` |
 | `cylcgt/explore.py` | Exhaustive enumeration of value spectra, cylinder vs flat | Prototype (~0.6 ms per position) |
 | `cylcgt/dawson.py` | Dawson's chess solved directly from the pawn rules, flat and ring | Prototype |
@@ -62,6 +62,7 @@ Each track can yield its own paper. Targets: *Integers* / *Games of No Chance 7*
    - Elkies (1996) left open whether \*2 occurs on 8×8. Drummond-Cole (2005) found one, but it needs bishops, knights, rooks and queens to freeze the pawns.
    - If this survives with real kings (the trebuchet on the g-file, kings on f/h) under engine and tablebase verification, **it answers an open question.**
    - Risk: the "passed pawn = win" convention may not survive real king play.
+   - **Outcome (2026-10-16): refuted.** The \*2 needs the textbook passed test. Under the adopted e.p.-aware test the value is {2±1 | −2±1}. The real-chess oracle also excludes \*2. See RESULTS.md §1.
 2. **Values that occur only on the cylinder.** Exhaustive 2-vs-2 enumeration on 3–5 files finds values that never occur on flat strips of the same width, e.g. 1/4±1/4, 3/4, and {3/2±1/2 | −3/2±1/2}. Some flat-only values (including that \*2) disappear on the cylinder.
 3. **Mating material without corners** (4-man tablebase). **Replicated:** an independent solver, `tablebase/replica/replica.c`, written and committed before the prototype was read, agrees with the prototype on every position of all 24 tables (about 607 million values) for both sides to move; see `tablebase/replica/REPORT.md`. New tables there: KRRK and KQRK are forced wins on the cylinder (100%, longest mate in 8 and 5 moves).
 
@@ -222,12 +223,20 @@ Each track can yield its own paper. Targets: *Integers* / *Games of No Chance 7*
 | Model errors | Already observed (Codex's referee); the protocol in §4 |
 
 ## 8. Decisions for you
-1. **Order:** lead with the \*2 candidate and the cylinder tablebases (fastest route to a striking, verifiable result), or with the ChessSums benchmark?
-2. **Conventions:** keep "passed pawn = immediate win" (the paper's convention, simple), or move to Mäser on/off or affine normal play (rigorous, slower)?
-3. **Installs:** OK to install Stockfish, Lc0, Rust, PyTorch and MLX? (`git init` is done: a local repo, nothing pushed.)
-4. **Mentor loop:** send Prof. Morley the audit and each paper draft?
+Answered 2026-10-16:
+- **E.p. in the passed test:** respect it. A pawn that can still be taken en passant is not passed (`PASSED_RESPECTS_EP`, done).
+- **Kings:** model them explicitly as loopy games (A8, started in `kings/`).
+- **Mentor loop:** not yet; no contact with Prof. Morley.
+- **Installs:**
+  - Stockfish 19 is built locally.
+  - Lc0 is being installed by the tablebase session.
+  - PyTorch/MLX still need a confirmation in the main session.
+
+Still open:
+1. **Order:** lead with the \*2 result and the cylinder tablebases, or with the ChessSums benchmark?
+2. **Conventions beyond e.p.:** keep "passed pawn = immediate win", or move to Mäser on/off or affine normal play?
 
 ## 9. Next steps once approved
-1. A2: certify or refute the \*2 candidate with real kings.
+1. ~~A2: certify or refute the \*2 candidate with real kings.~~ Refuted 2026-10-16 (RESULTS.md §1). Search for other candidates under the e.p.-aware test continues.
 2. ~~B2: independently replicate the 4-man cylinder and torus tables.~~ Done 2026-10-15 (`tablebase/replica/`).
-3. A1 proofs, and the Rust port for the A3 atlas.
+3. A1 proofs: written (`notes/lemmas.md`) but not yet re-derived by a second model or a human. The Rust port for the A3 atlas is not needed yet: the Python atlas reached ≤5 pawns on widths 3–8 (`atlas/cylinder/`).
