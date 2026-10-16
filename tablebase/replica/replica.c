@@ -320,6 +320,9 @@ static Table *solve_table(const char *men) {
     } else if (prev == 0 && p > maxsub + 2) break;
     prev = c;
   }
+  /* DRAWN only marks some draws early (which ones depends on scan order); merge it */
+  for (size_t i = 0; i < T->n; i++)
+    if (T->b[i] == DRAWN) T->b[i] = UNK;
   if (verbose) fprintf(stderr, "[%s %s: solved in %d passes, longest win %d plies]\n",
                        topoName, men, p, T->maxw);
   return T;
@@ -358,6 +361,7 @@ static void pos_string(const Table *T, size_t idx, char *out) {
 /* ---------- generic move lists (used by checks and lines, not by the solver) ---------- */
 
 typedef struct { const Table *T; size_t idx; char txt[24]; } Child;
+static int wantText; /* move text only for printed lines; sprintf is slow */
 
 static int gen_white(const Table *T, size_t idx, Child *out) {
   int wk, bk, p[2], m = 0;
@@ -370,7 +374,8 @@ static int gen_white(const Table *T, size_t idx, Child *out) {
     out[m].T = T;
     out[m].idx = encode(T->np, n, bk, p);
     sqname(wk, a); sqname(n, c);
-    sprintf(out[m++].txt, "K%s-%s", a, c);
+    if (wantText) sprintf(out[m].txt, "K%s-%s", a, c);
+    m++;
   }
   for (int i = 0; i < T->np; i++) {
     uint64_t dest = 0;
@@ -389,7 +394,8 @@ static int gen_white(const Table *T, size_t idx, Child *out) {
         out[m].T = T;
         out[m].idx = encode(T->np, wk, bk, r);
         sqname(p[i], a); sqname(s, c);
-        sprintf(out[m++].txt, "%c%s-%s", T->t[i], a, c);
+        if (wantText) sprintf(out[m].txt, "%c%s-%s", T->t[i], a, c);
+        m++;
       }
   }
   return m;
@@ -410,12 +416,12 @@ static int gen_black(const Table *T, size_t idx, Child *out) {
     if (cap < 0) {
       out[m].T = T;
       out[m].idx = encode(T->np, wk, n, p);
-      sprintf(out[m].txt, "k%s-%s", a, c);
+      if (wantText) sprintf(out[m].txt, "k%s-%s", a, c);
     } else {
       int q[2] = {p[1 - cap], -1};
       out[m].T = T->sub[cap];
       out[m].idx = T->sub[cap] ? encode(T->sub[cap]->np, wk, n, q) : 0;
-      sprintf(out[m].txt, "kx%c%s", T->t[cap], c);
+      if (wantText) sprintf(out[m].txt, "kx%c%s", T->t[cap], c);
     }
     m++;
   }
@@ -597,6 +603,7 @@ static int parse_pos(const Table *T, const char *str, size_t *idx) {
 /* print a mating line: white takes a fastest mate, black a slowest */
 static void print_line(const Table *T, size_t idx) {
   Child ch[64];
+  wantText = 1;
   int move = 1;
   for (;;) {
     int v = T->w[idx];
