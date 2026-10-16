@@ -260,3 +260,35 @@ makes a faster passer. That flaw is independent of the kings.
 
 A loopy or explicit-king model should be tested first on the 9 king positions of the \*2 tree (1 shown terminal,
 4 nodes, 1 probable terminal and 3 candidate terminals) and the 5 suite positions.
+
+---
+
+## Review notes (added after an adversarial review of this file)
+
+An independent reviewer re-ran both extraction scripts and rechecked every count against the source files.
+Every count matches, but it found the following. Where these notes and the text above conflict, these notes
+win.
+
+1. **Two frozen-king failures were missed.** Their evidence is cached Lichess categories of the positions
+   reached by king moves (8-man categories, which realchess does not trust by default):
+   - **W a4 c4 / B b6 d4**, White to move (`8/8/1p6/5Kp1/P1Pp2Pk/8/8/8 w`): **Ke4 wins**. a5 and Ke6 lose.
+     The "unclear" label above should read "king leaves the trébuchet".
+   - **Node W a5 c5 / B b7 d7**, White to move: the convention says loss, and **Kg6 and Kf6 draw**.
+   - In W a5 c5 / B b7 d5 (White to move), a6, c6 and Ke5 all win. That "unclear" case is not a king case.
+2. **Double counting.** A terminal with an e.p. right and its twin without it share one real position for
+   the side that does not own the right. The 118 wrong (terminal, side) pairs are 110 distinct positions.
+   The king-move tallies in terminal records deduplicate from 243 (150 lose / 89 unknown / 4 draw) to 209
+   (126 / 79 / 4).
+3. **Over-labelled claims.**
+   - The "What A8 can take from this" list mixes probable cases and candidates under the **Data** label.
+     W a5 c4 / B b7 d6 is not a clean king case: c5 and a6 also draw there.
+   - "Most failures come from counter-passers (about 81)" includes 50 rule-based guesses with no record.
+4. **Four node failures trace only to "unclear" terminal draws**, not to counter-passers or e.p.: W a4 c6 /
+   B b7 d7 (Black to move), W a5 c5 / B b7 d7 (White), W a5 c6 / B b7 d7 (Black), W a6 c5 / B b7 d7 (Black).
+5. **Sampling artefact.** "Every one has White to move" carries no information: 271 of the 275 suite positions,
+   and all 94 headline positions, have White to move.
+6. **Most of the 21 "non-losing king move" positions do not change the winning set.** Only 4 of the 20
+   (cgt008, cgt011, cgt019, cgt236) have a king move that *wins*. In the other 16 the king moves only draw,
+   so the set of winning moves is unchanged (consistent with the README's 90/94).
+7. **The source snapshot is stale.** Another workstream rewrote the oracle-all file at 01:57. A re-run now
+   resolves 128 terminals both ways (not 115). The failure list is unchanged.

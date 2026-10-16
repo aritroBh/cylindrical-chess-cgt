@@ -1,0 +1,69 @@
+== cyl_7x6
+# P1a predicted DD naive WW
+Ka5 Pb4 Pc5 Pe2 Pe4 kc6 pb5 pe5 w - | D D | A: Ka5a6:D Ka5g5:D Ka5g6:D Ka5g4:D Pe2e3:D | B: Ka5a6:D Ka5g5:D Ka5g6:D Ka5g4:D Pe2e3:D
+Ka5 Pb4 Pc5 Pe2 Pe4 kc6 pb5 pe5 b - | D D | A:  | B: 
+# P1b predicted DD naive LL
+Kc1 Pb2 Pe2 ka2 pb3 pc2 pe3 pe5 w - | D D | A:  | B: 
+Kc1 Pb2 Pe2 ka2 pb3 pc2 pe3 pe5 b - | D D | A: Ka2a1:D Ka2g2:D Ka2g3:D Ka2g1:D Pe5e4:D | B: Ka2a1:D Ka2g2:D Ka2g3:D Ka2g1:D Pe5e4:D
+# P2 nothing predicted WW naive LW
+Ka5 Pb4 Pc5 kc6 pb5 w - | W W | A: Ka5a6:W Ka5g5:W Ka5g6:W Ka5g4:W | B: Ka5a6:W Ka5g5:W Ka5g6:W Ka5g4:W
+Ka5 Pb4 Pc5 kc6 pb5 b - | W W | A: Kc6d5:W | B: Kc6d5:W
+# P2 Hm1 predicted WW naive LL
+Ka5 Pb4 Pc5 kc6 pb5 Pe2 pe3 pe5 w - | W W | A: Ka5a6:W Ka5g5:W Ka5g6:W Ka5g4:W | B: Ka5a6:W Ka5g5:W Ka5g6:W Ka5g4:W
+Ka5 Pb4 Pc5 kc6 pb5 Pe2 pe3 pe5 b - | W W | A: Kc6d5:W Pe5e4:W | B: Kc6d5:W Pe5e4:W
+# P2 H* predicted WW naive WL
+Ka5 Pb4 Pc5 kc6 pb5 Pe3 pe5 w - | W W | A: Ka5a6:W Ka5g5:W Ka5g6:W Ka5g4:W Pe3e4:D | B: Ka5a6:W Ka5g5:W Ka5g6:W Ka5g4:W Pe3e4:D
+Ka5 Pb4 Pc5 kc6 pb5 Pe3 pe5 b - | W W | A: Kc6d5:W Pe5e4:W | B: Kc6d5:W Pe5e4:W
+# P2 H*2 predicted WW naive WL
+Ka5 Pb4 Pc5 kc6 pb5 Pe2 pe5 w - | W W | A: Ka5a6:W Ka5g5:W Ka5g6:W Ka5g4:W Pe2e3:W Pe2e4:D | B: Ka5a6:W Ka5g5:W Ka5g6:W Ka5g4:W Pe2e3:W Pe2e4:D
+Ka5 Pb4 Pc5 kc6 pb5 Pe2 pe5 b - | W W | A: Kc6d5:W Pe5e4:W Pe5e3:W | B: Kc6d5:W Pe5e4:W Pe5e3:W
+# P2 H0 predicted WW naive LW
+Ka5 Pb4 Pc5 kc6 pb5 Pe3 pe4 w - | W W | A: Ka5a6:W Ka5g5:W Ka5g6:W Ka5g4:W | B: Ka5a6:W Ka5g5:W Ka5g6:W Ka5g4:W
+Ka5 Pb4 Pc5 kc6 pb5 Pe3 pe4 b - | W W | A: Kc6d5:W | B: Kc6d5:W
+# P3 nothing predicted LL naive LW
+Kc1 Pb2 ka2 pb3 pc2 w - | L L | A: Kc1d2:L | B: Kc1d2:L
+Kc1 Pb2 ka2 pb3 pc2 b - | L L | A: Ka2a1:L Ka2g2:L Ka2g3:L Ka2g1:L | B: Ka2a1:L Ka2g2:L Ka2g3:L Ka2g1:L
+# P3 Hp1 predicted LL naive WW
+Kc1 Pb2 ka2 pb3 pc2 Pe2 Pe4 pe5 w - | L L | A: Kc1d2:L Pe2e3:L | B: Kc1d2:L Pe2e3:L
+Kc1 Pb2 ka2 pb3 pc2 Pe2 Pe4 pe5 b - | L L | A: Ka2a1:L Ka2g2:L Ka2g3:L Ka2g1:L | B: Ka2a1:L Ka2g2:L Ka2g3:L Ka2g1:L
+# P3 H* predicted LL naive WL
+Kc1 Pb2 ka2 pb3 pc2 Pe3 pe5 w - | L L | A: Kc1d2:L Pe3e4:L | B: Kc1d2:L Pe3e4:L
+Kc1 Pb2 ka2 pb3 pc2 Pe3 pe5 b - | L L | A: Ka2a1:L Ka2g2:L Ka2g3:L Ka2g1:L Pe5e4:L | B: Ka2a1:L Ka2g2:L Ka2g3:L Ka2g1:L Pe5e4:L
+# P3 H*2 predicted LL naive WL
+Kc1 Pb2 ka2 pb3 pc2 Pe2 pe5 w - | L L | A: Kc1d2:L Pe2e3:L Pe2e4:L | B: Kc1d2:L Pe2e3:L Pe2e4:L
+Kc1 Pb2 ka2 pb3 pc2 Pe2 pe5 b - | L L | A: Ka2a1:L Ka2g2:L Ka2g3:L Ka2g1:L Pe5e4:L Pe5e3:D | B: Ka2a1:L Ka2g2:L Ka2g3:L Ka2g1:L Pe5e4:L Pe5e3:D
+# P3 H0 predicted LL naive LW
+Kc1 Pb2 ka2 pb3 pc2 Pe3 pe4 w - | L L | A: Kc1d2:L | B: Kc1d2:L
+Kc1 Pb2 ka2 pb3 pc2 Pe3 pe4 b - | L L | A: Ka2a1:L Ka2g2:L Ka2g3:L Ka2g1:L | B: Ka2a1:L Ka2g2:L Ka2g3:L Ka2g1:L
+# P4 nothing predicted LW naive LW
+Ka4 Pb3 kc3 pb4 w - | L L | A: Ka4a5:L Ka4g4:L Ka4b5:L Ka4g5:L Ka4g3:L | B: Ka4a5:L Ka4g4:L Ka4b5:L Ka4g5:L Ka4g3:L
+Ka4 Pb3 kc3 pb4 b - | W W | A: Kc3c2:W Kc3d3:W Kc3d4:W Kc3d2:W Kc3b2:W | B: Kc3c2:W Kc3d3:W Kc3d4:W Kc3d2:W Kc3b2:W
+# P4 Hm1 predicted LL naive LL
+Ka4 Pb3 kc3 pb4 Pe2 pe3 pe5 w - | L L | A: Ka4a5:L Ka4g4:L Ka4b5:L Ka4g5:L Ka4g3:L | B: Ka4a5:L Ka4g4:L Ka4b5:L Ka4g5:L Ka4g3:L
+Ka4 Pb3 kc3 pb4 Pe2 pe3 pe5 b - | L L | A: Kc3c2:W Kc3d4:W Kc3d2:W Kc3b2:W Pe5e4:L | B: Kc3c2:L Kc3d4:W Kc3d2:L Kc3b2:W Pe5e4:L
+# P4 Hp1 predicted WW naive WW
+Ka4 Pb3 kc3 pb4 Pe2 Pe4 pe5 w - | W W | A: Ka4a5:L Ka4g4:W Ka4b5:L Ka4g5:W Ka4g3:L Pe2e3:W | B: Ka4a5:L Ka4g4:L Ka4b5:L Ka4g5:L Ka4g3:L Pe2e3:W
+Ka4 Pb3 kc3 pb4 Pe2 Pe4 pe5 b - | W W | A: Kc3c2:W Kc3d4:W Kc3d2:W Kc3b2:W | B: Kc3c2:W Kc3d4:W Kc3d2:W Kc3b2:W
+# P4 H* predicted WL naive WL
+Ka4 Pb3 kc3 pb4 Pe3 pe5 w - | W D | A: Ka4a5:L Ka4g4:L Ka4b5:L Ka4g5:L Ka4g3:L Pe3e4:W | B: Ka4a5:L Ka4g4:L Ka4b5:L Ka4g5:L Ka4g3:L Pe3e4:D
+Ka4 Pb3 kc3 pb4 Pe3 pe5 b - | L L | A: Kc3c2:W Kc3d3:W Kc3d2:W Kc3b2:W Pe5e4:L | B: Kc3c2:W Kc3d3:D Kc3d2:D Kc3b2:W Pe5e4:L
+# P4 H*2 predicted WL naive WL
+Ka4 Pb3 kc3 pb4 Pe2 pe5 w - | W D | A: Ka4a5:L Ka4g4:L Ka4b5:L Ka4g5:L Ka4g3:L Pe2e3:L Pe2e4:W | B: Ka4a5:L Ka4g4:L Ka4b5:L Ka4g5:L Ka4g3:L Pe2e3:L Pe2e4:D
+Ka4 Pb3 kc3 pb4 Pe2 pe5 b - | L L | A: Kc3c2:W Kc3d4:W Kc3d2:W K[kpsolve cyl:7x6 ep=on cap=1: 25055 layers, 2461199832 states, depth 16, 840.9s, capped promotions met (two bounds)]
+c3b2:W Pe5e4:W Pe5e3:L | B: Kc3c2:W Kc3d4:W Kc3d2:L Kc3b2:W Pe5e4:D Pe5e3:L
+# P4 H0 predicted LW naive LW
+Ka4 Pb3 kc3 pb4 Pe3 pe4 w - | L L | A: Ka4a5:L Ka4g4:L Ka4b5:L Ka4g5:L Ka4g3:L | B: Ka4a5:L Ka4g4:L Ka4b5:L Ka4g5:L Ka4g3:L
+Ka4 Pb3 kc3 pb4 Pe3 pe4 b - | W D | A: Kc3c2:W Kc3d3:W Kc3d2:W Kc3b2:W | B: Kc3c2:W Kc3d3:D Kc3d2:D Kc3b2:W
+# P5 bare predicted DW naive LW
+Kc4 Pb5 kb6 pc5 w - | D D | A: Kc4c3:D Kc4d5:L Kc4d3:D Kc4b3:D | B: Kc4c3:D Kc4d5:L Kc4d3:D Kc4b3:D
+Kc4 Pb5 kb6 pc5 b - | W W | A: Kb6a5:W | B: Kb6a5:W
+# P5 +Hp1 predicted WW naive WW
+Kc4 Pb5 kb6 pc5 Pe2 Pe4 pe5 w - | W W | A: Kc4c3:L Kc4d5:L Kc4d3:L Kc4b3:L Pe2e3:W | B: Kc4c3:L Kc4d5:L Kc4d3:L Kc4b3:L Pe2e3:W
+Kc4 Pb5 kb6 pc5 Pe2 Pe4 pe5 b - | W W | A: Kb6a5:W | B: Kb6a5:W
+# P8 6-rank predicted WW naive LW
+Kc6 Pb5 kb4 pc5 w - | W W | A: Kc6d6:L Kc6b6:W Kc6d5:L Pb5b6=Q:W Pb5b6=R:D Pb5b6=B:D Pb5b6=N:D | B: Kc6d6:L Kc6b6:W Kc6d5:L Pb5b6=Q:W Pb5b6=R:D Pb5b6=B:D Pb5b6=N:D
+Kc6 Pb5 kb4 pc5 b - | W W | A: Kb4b3:W Kb4c4:W Kb4a4:W Kb4c3:W Kb4a5:W Kb4a3:W Pc5c4:W Pc5c3:W | B: Kb4b3:W Kb4c4:W Kb4a4:W Kb4c3:W Kb4a5:W Kb4a3:W Pc5c4:W Pc5c3:W
+# P9 predicted WL naive WW
+Ka5 Pb4 Pc5 Pe2 kc6 pb5 pf3 w - | W W | A: Ka5a6:L Ka5g5:L Ka5g6:L Ka5g4:L Pe2e3:L Pe2e4:W Pe2f3:W | B: Ka5a6:L Ka5g5:L Ka5g6:L Ka5g4:L Pe2e3:L Pe2e4:L Pe2f3:W
+Ka5 Pb4 Pc5 Pe2 kc6 pb5 pf3 b - | L L | A: Kc6d5:W Pf3f2:L Pf3e2:L | B: Kc6d5:W Pf3f2:L Pf3e2:L
+== cyl_8x6

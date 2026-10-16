@@ -378,7 +378,9 @@ static int gen_moves(const Pos *p, Child *out) {
     if (!((occ >> t) & 1)) {
       pawn_move(p, s, t, -1, out, &m);
       int t2 = t + dir;
-      if (s / W == start && !((occ >> t2) & 1)) {
+      if (s / W == start && t2 / W == (us == WHITE ? H - 1 : 0) && !((occ >> t2) & 1))
+        pawn_move(p, s, t2, -1, out, &m); /* 4-rank board: the double step promotes, no e.p. */
+      else if (s / W == start && !((occ >> t2) & 1)) {
         Pos q = *p;
         q.ep = -1;
         if (us == WHITE) q.wp = (q.wp & ~BIT(s)) | BIT(t2);

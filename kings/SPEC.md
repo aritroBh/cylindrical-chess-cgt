@@ -35,7 +35,8 @@ Standard chess moves, with these clarifications:
    - White pawns move towards rank H; Black pawns move towards rank 1.
    - Single step to an empty square.
    - Double step from the pawn's second rank (rank 2 for White, rank H−1 for Black) if both
-     squares are empty.
+     squares are empty. On a 4-rank board the double step lands on the last rank: it then promotes
+     (one move per allowed piece) and leaves no e.p. right.
    - A pawn captures diagonally forward. It may capture enemy pawns and enemy officers, never the
      king.
    - A white pawn may never stand on rank 1 or rank H; a black pawn may never stand on rank H or
@@ -70,6 +71,9 @@ Standard chess moves, with these clarifications:
      - everything else is drawn.
 
 ## The officer cap and bounds
+
+(A promotion is capped only if the position *after* it holds more than C officers, so a pawn that
+captures an officer while promoting is not capped at count C.)
 
 Exactness can be expensive, so the solvers take `--cap C`, default 1. This is the maximum number of
 officers (both colours together) a position may hold.
