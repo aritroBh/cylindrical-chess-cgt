@@ -1,0 +1,120 @@
+{
+ "position": "W: a2 c2 / B: b7 d7",
+ "width": 4,
+ "method": "greedy removal; races tried in order precapture first, then by position string; a race is dropped from the kept set if the value stays the same with all non-kept races given to White and, separately, to Black",
+ "ep=on": {
+  "value": "*2",
+  "distinct_race_positions": 224,
+  "certificate_size": 6,
+  "inclusion_minimal": true,
+  "certificate": [
+   {
+    "race_position": "W: a2 / B: c4 d6 after B",
+    "count_rule_winner": "B",
+    "pawns_left": 3,
+    "precapture": false,
+    "men_in_embedding": 7
+   },
+   {
+    "race_position": "W: a2 / B: c4 d7 after B",
+    "count_rule_winner": "B",
+    "pawns_left": 3,
+    "precapture": false,
+    "men_in_embedding": 7
+   },
+   {
+    "race_position": "W: a2 b5 / B: d7 after W",
+    "count_rule_winner": "W",
+    "pawns_left": 3,
+    "precapture": false,
+    "men_in_embedding": 7
+   },
+   {
+    "race_position": "W: a3 / B: c4 d6 after B",
+    "count_rule_winner": "B",
+    "pawns_left": 3,
+    "precapture": false,
+    "men_in_embedding": 7
+   },
+   {
+    "race_position": "W: a3 b5 / B: d6 after W",
+    "count_rule_winner": "W",
+    "pawns_left": 3,
+    "precapture": false,
+    "men_in_embedding": 7
+   },
+   {
+    "race_position": "W: a3 b5 / B: d7 after W",
+    "count_rule_winner": "W",
+    "pawns_left": 3,
+    "precapture": false,
+    "men_in_embedding": 7
+   }
+  ],
+  "all_postcapture": true,
+  "indep_check": {
+   "others_to_W": true,
+   "keep_keys_seen_W": 5,
+   "others_to_B": true,
+   "keep_keys_seen_B": 5
+  }
+ },
+ "ep=off": {
+  "value": "*2",
+  "distinct_race_positions": 206,
+  "certificate_size": 6,
+  "inclusion_minimal": true,
+  "certificate": [
+   {
+    "race_position": "W: a2 / B: c4 d6 after B",
+    "count_rule_winner": "B",
+    "pawns_left": 3,
+    "precapture": false,
+    "men_in_embedding": 7
+   },
+   {
+    "race_position": "W: a2 / B: c4 d7 after B",
+    "count_rule_winner": "B",
+    "pawns_left": 3,
+    "precapture": false,
+    "men_in_embedding": 7
+   },
+   {
+    "race_position": "W: a2 b5 / B: d7 after W",
+    "count_rule_winner": "W",
+    "pawns_left": 3,
+    "precapture": false,
+    "men_in_embedding": 7
+   },
+   {
+    "race_position": "W: a3 / B: c4 d6 after B",
+    "count_rule_winner": "B",
+    "pawns_left": 3,
+    "precapture": false,
+    "men_in_embedding": 7
+   },
+   {
+    "race_position": "W: a3 b5 / B: d6 after W",
+    "count_rule_winner": "W",
+    "pawns_left": 3,
+    "precapture": false,
+    "men_in_embedding": 7
+   },
+   {
+    "race_position": "W: a3 b5 / B: d7 after W",
+    "count_rule_winner": "W",
+    "pawns_left": 3,
+    "precapture": false,
+    "men_in_embedding": 7
+   }
+  ],
+  "all_postcapture": true,
+  "indep_check": {
+   "others_to_W": true,
+   "keep_keys_seen_W": 5,
+   "others_to_B": true,
+   "keep_keys_seen_B": 5
+  }
+ },
+ "wall_s": 755.2
+}

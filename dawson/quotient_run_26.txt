@@ -1,0 +1,74 @@
+  strip 1: quotient grows to |Q| = 2 (1 recalibration round(s))
+n = 1: |Q| = 2, |P| = 1   [grew]  (0.0s)
+n = 2: strip 2 is identical to strip 1; |Q_2| = 2, |P| = 1
+  strip 3: quotient grows to |Q| = 6 (1 recalibration round(s))
+n = 3: |Q| = 6, |P| = 2   [grew]  (0.0s)
+  strip 4: Phi = element 0 by mex interpolation (|Q| = 6)
+n = 4: |Q| = 6, |P| = 2   [interpolated]  (0.0s)
+  strip 5: Phi = element 4 by mex interpolation (|Q| = 6)
+n = 5: |Q| = 6, |P| = 2   [interpolated]  (0.0s)
+  strip 6: Phi = element 3 by mex interpolation (|Q| = 6)
+n = 6: |Q| = 6, |P| = 2   [interpolated]  (0.0s)
+  strip 7: Phi = element 3 by mex interpolation (|Q| = 6)
+n = 7: |Q| = 6, |P| = 2   [interpolated]  (0.0s)
+  strip 8: Phi = element 0 by mex interpolation (|Q| = 6)
+n = 8: |Q| = 6, |P| = 2   [interpolated]  (0.0s)
+    candidate |Q| = 12: least failure {9: 1, 3: 3, 1: 1}
+    freed [3, 9] (|Q*| = 144) -> candidate |Q| = 20
+    candidate |Q| = 20: least failure {9: 1, 5: 3}
+    freed [5, 9] (|Q*| = 192) -> candidate |Q| = 12
+  strip 9: quotient grows to |Q| = 12 (3 recalibration round(s))
+n = 9: |Q| = 12, |P| = 3   [grew]  (0.0s)
+  strip 10: Phi = element 2 by mex interpolation (|Q| = 12)
+n = 10: |Q| = 12, |P| = 3   [interpolated]  (0.0s)
+  strip 11: Phi = existing element 7 after verification (|Q| = 12); 2 candidate(s)
+n = 11: |Q| = 12, |P| = 3   [verified]  (0.0s)
+  strip 12: Phi = element 8 by mex interpolation (|Q| = 12)
+n = 12: |Q| = 12, |P| = 3   [interpolated]  (0.0s)
+  strip 13: quotient grows to |Q| = 24 (1 recalibration round(s))
+n = 13: |Q| = 24, |P| = 5   [grew]  (0.0s)
+  strip 14: Phi = element 0 by mex interpolation (|Q| = 24)
+n = 14: |Q| = 24, |P| = 5   [interpolated]  (0.0s)
+  strip 15: Phi = existing element 3 after verification (|Q| = 24); 6 candidate(s)
+n = 15: |Q| = 24, |P| = 5   [verified]  (0.0s)
+  strip 16: Phi = element 10 by mex interpolation (|Q| = 24)
+n = 16: |Q| = 24, |P| = 5   [interpolated]  (0.0s)
+  strip 17: Phi = element 4 by mex interpolation (|Q| = 24)
+n = 17: |Q| = 24, |P| = 5   [interpolated]  (0.0s)
+  strip 18: Phi = element 8 by mex interpolation (|Q| = 24)
+n = 18: |Q| = 24, |P| = 5   [interpolated]  (0.0s)
+  strip 19: Phi = element 6 by mex interpolation (|Q| = 24)
+n = 19: |Q| = 24, |P| = 5   [interpolated]  (0.0s)
+  strip 20: Phi = existing element 12 after verification (|Q| = 24); 8 candidate(s)
+n = 20: |Q| = 24, |P| = 5   [verified]  (0.0s)
+  strip 21: Phi = element 2 by mex interpolation (|Q| = 24)
+n = 21: |Q| = 24, |P| = 5   [interpolated]  (0.0s)
+  strip 22: Phi = element 14 by mex interpolation (|Q| = 24)
+n = 22: |Q| = 24, |P| = 5   [interpolated]  (0.0s)
+  strip 23: Phi = element 8 by mex interpolation (|Q| = 24)
+n = 23: |Q| = 24, |P| = 5   [interpolated]  (0.0s)
+    candidate |Q| = 48: least failure {24: 1, 20: 1}
+    freed [20, 24] (|Q*| = 576) -> candidate |Q| = 112
+    candidate |Q| = 112: least failure {24: 1, 20: 1, 9: 2}
+    freed [9, 24] (|Q*| = 1344) -> candidate |Q| = 136
+    candidate |Q| = 136: least failure {24: 1, 20: 1, 11: 2}
+    freed [11, 24] (|Q*| = 1728) -> candidate |Q| = 136
+    candidate |Q| = 136: least failure {24: 1, 20: 1, 16: 2}
+    freed [16, 24] (|Q*| = 1728) -> candidate |Q| = 136
+    candidate |Q| = 136: least failure {24: 1, 20: 1, 18: 2}
+    freed [18, 24] (|Q*| = 1728) -> candidate |Q| = 136
+    candidate |Q| = 136: least failure {24: 1, 20: 3}
+    freed [20, 24] (|Q*| = 960) -> candidate |Q| = 112
+    candidate |Q| = 112: least failure {24: 1, 21: 1, 20: 1, 1: 1}
+    freed [21, 24] (|Q*| = 1344) -> candidate |Q| = 176
+    candidate |Q| = 176: least failure {24: 1, 22: 1, 1: 1}
+    freed [22, 24] (|Q*| = 2112) -> candidate |Q| = 176
+    candidate |Q| = 176: least failure {24: 1, 23: 2, 20: 1}
+    freed [23, 24] (|Q*| = 1344) -> candidate |Q| = 144
+  strip 24: quotient grows to |Q| = 144 (10 recalibration round(s))
+n = 24: |Q| = 144, |P| = 23   [grew]  (2.7s)
+  strip 25: Phi = element 18 by mex interpolation (|Q| = 144)
+n = 25: |Q| = 144, |P| = 23   [interpolated]  (2.7s)
+    candidate |Q| = 232: least failure {26: 1, 24: 2, 3: 2, 1: 1}
+    freed [24, 26] (|Q*| = 1728) -> candidate |Q| = 192
+    candidate |Q| = 192: least failure {26: 1, 24: 4, 1: 1}

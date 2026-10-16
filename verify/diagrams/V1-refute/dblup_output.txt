@@ -1,0 +1,7 @@
+sanity {0,up|0} == up+up+* : False
+ep=on rule=count: 3.2 up1 == up+up+* : False; == 2: True; outcome L
+ep=on rule=mover: 3.2 up1 == up+up+* : False; == 2: True; outcome L
+ep=on rule=opponent: 3.2 up1 == up+up+* : False; == 2: True; outcome L
+ep=off rule=count: 3.2 up1 == up+up+* : True; == 2: False; outcome L
+ep=off rule=mover: 3.2 up1 == up+up+* : True; == 2: False; outcome L
+ep=off rule=opponent: 3.2 up1 == up+up+* : True; == 2: False; outcome L

@@ -1,0 +1,98 @@
+## Paper 5.1 trebuchet on the 8-file cylinder
+
+### paper 5.1 (8-file cylinder): WK h5, BK b4, W Pa4, B Pa5
+  WK h5 attacks: a4(seam), a5(seam), a6(seam), g4, g5, g6, h4, h6
+  BK b4 attacks: a3, a4, a5, b3, b5, c3, c4, c5
+  W Pa4 attacks h5(seam), b5; B Pa5 attacks h4(seam), b4
+  W to move: 5 legal moves
+     Kg4 ...Kxa4 -> opponent wins
+     Kg5 ...Kxa4 -> opponent wins
+     Kg6 ...Kxa4 -> opponent wins
+     Kh6 ...Kxa4 -> opponent wins
+     Ka6 ...Kxa4 -> opponent wins
+     => LOST for the side to move (every move drops the pawn into a lost KPK)
+  B to move: 5 legal moves
+     Ka3 ...Kxa5 -> opponent wins
+     Kb3 ...Kxa5 -> opponent wins
+     Kc3 ...Kxa5 -> opponent wins
+     Kc4 ...Kxa5 -> opponent wins
+     Kc5 ...Kxa5 -> opponent wins
+     => LOST for the side to move (every move drops the pawn into a lost KPK)
+  mutual zugzwang (both sides to move lose): True
+
+## Same diagram read on a flat board (no seam)
+
+### paper 5.1 on flat board (flat 8x8): WK h5, BK b4, W Pa4, B Pa5
+  WK h5 attacks: g4, g5, g6, h4, h6
+  BK b4 attacks: a3, a4, a5, b3, b5, c3, c4, c5
+  W Pa4 attacks b5; B Pa5 attacks b4
+  W to move: 5 legal moves
+     Kg4 ...Kxa4 -> opponent wins
+     Kg5 ...Kxa4 -> opponent wins
+     Kg6 ...Kxa4 -> opponent wins
+     Kh4 ...Kxa4 -> opponent wins
+     Kh6 ...Kxa4 -> opponent wins
+     => LOST for the side to move (every move drops the pawn into a lost KPK)
+  B to move: 6 legal moves
+     Ka3 keeps the pawn (no immediate capture)
+     Ka4 captures the enemy pawn (undefended!)
+     Kb3 keeps the pawn (no immediate capture)
+     Kc3 keeps the pawn (no immediate capture)
+     Kc4 keeps the pawn (no immediate capture)
+     Kc5 keeps the pawn (no immediate capture)
+     => NOT shown lost
+  mutual zugzwang (both sides to move lose): False
+
+## Proposed 8x8 embedding trebuchet: W Pg4 / B Pg5, WK f5, BK h4
+
+### g-file trebuchet (flat 8x8): WK f5, BK h4, W Pg4, B Pg5
+  WK f5 attacks: e4, e5, e6, f4, f6, g4, g5, g6
+  BK h4 attacks: g3, g4, g5, h3, h5
+  W Pg4 attacks f5, h5; B Pg5 attacks f4, h4
+  W to move: 5 legal moves
+     Ke4 ...Kxg4 -> opponent wins
+     Ke5 ...Kxg4 -> opponent wins
+     Ke6 ...Kxg4 -> opponent wins
+     Kf6 ...Kxg4 -> opponent wins
+     Kg6 ...Kxg4 -> opponent wins
+     => LOST for the side to move (every move drops the pawn into a lost KPK)
+  B to move: 2 legal moves
+     Kg3 ...Kxg5 -> opponent wins
+     Kh3 ...Kxg5 -> opponent wins
+     => LOST for the side to move (every move drops the pawn into a lost KPK)
+  mutual zugzwang (both sides to move lose): True
+
+### g-file trebuchet (8-file cylinder): WK f5, BK h4, W Pg4, B Pg5
+  WK f5 attacks: e4, e5, e6, f4, f6, g4, g5, g6
+  BK h4 attacks: a3(seam), a4(seam), a5(seam), g3, g4, g5, h3, h5
+  W Pg4 attacks f5, h5; B Pg5 attacks f4, h4
+  W to move: 5 legal moves
+     Ke4 ...Kxg4 -> opponent wins
+     Ke5 ...Kxg4 -> opponent wins
+     Ke6 ...Kxg4 -> opponent wins
+     Kf6 ...Kxg4 -> opponent wins
+     Kg6 ...Kxg4 -> opponent wins
+     => LOST for the side to move (every move drops the pawn into a lost KPK)
+  B to move: 5 legal moves
+     Kg3 ...Kxg5 -> opponent wins
+     Kh3 ...Kxg5 -> opponent wins
+     Ka3 ...Kxg5 -> opponent wins
+     Ka4 ...Kxg5 -> opponent wins
+     Ka5 ...Kxg5 -> opponent wins
+     => LOST for the side to move (every move drops the pawn into a lost KPK)
+  mutual zugzwang (both sides to move lose): True
+
+## Sweep of all trebuchets on the flat 8x8: 60/60 are mutual zugzwangs by the drop-into-lost-KPK test
+   white pawn on rank 2: 12 placements; WTM lost 12, BTM lost 12, both 12
+   white pawn on rank 3: 12 placements; WTM lost 12, BTM lost 12, both 12
+   white pawn on rank 4: 12 placements; WTM lost 12, BTM lost 12, both 12
+   white pawn on rank 5: 12 placements; WTM lost 12, BTM lost 12, both 12
+   white pawn on rank 6: 12 placements; WTM lost 12, BTM lost 12, both 12
+   failures: 
+
+## Sweep of all trebuchets on the 8-file cylinder: 80/80 are mutual zugzwangs by the drop-into-lost-KPK test
+   white pawn on rank 2: 16 placements; WTM lost 16, BTM lost 16, both 16
+   white pawn on rank 3: 16 placements; WTM lost 16, BTM lost 16, both 16
+   white pawn on rank 4: 16 placements; WTM lost 16, BTM lost 16, both 16
+   white pawn on rank 5: 16 placements; WTM lost 16, BTM lost 16, both 16
+   white pawn on rank 6: 16 placements; WTM lost 16, BTM lost 16, both 16

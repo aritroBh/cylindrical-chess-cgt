@@ -1,0 +1,14 @@
+--- split=True
+  L: -> W a4 a6 h2 h3 / B a7 h6: value in ['258']
+  L: -> W a4 h2 h3 h6 / B a7: value in none of the candidates
+  L: -> W a4 a5 h2 h4 / B a7 h6: value in none of the candidates
+  R: -> W a4 a5 h2 h3 / B a6 h6: value in none of the candidates
+  R: -> W a4 a5 h2 h3 / B a7 h5: value in none of the candidates
+  R: -> W a4 h2 h3 / B a5 a7: value in ['*']
+--- split=False
+  L: -> W a4 a6 h2 h3 / B a7 h6: value in ['258']
+  L: -> W a4 h2 h3 h6 / B a7: value in none of the candidates
+  L: -> W a4 a5 h2 h4 / B a7 h6: value in none of the candidates
+  R: -> W a4 a5 h2 h3 / B a6 h6: value in none of the candidates
+  R: -> W a4 a5 h2 h3 / B a7 h5: value in none of the candidates
+  R: -> W a4 h2 h3 / B a5 a7: value in ['*']

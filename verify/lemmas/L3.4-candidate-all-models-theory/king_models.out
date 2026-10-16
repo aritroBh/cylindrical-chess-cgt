@@ -1,0 +1,6 @@
+ep=True  rule=count    root value by king-move model: {'none': '*2', 'minusBIG': '*2', 'pmBIG': '*2', 'stepback': '*2', 'zero_or_lose': '*2'}
+ep=True  rule=mover    root value by king-move model: {'none': '*2', 'minusBIG': '*2', 'pmBIG': '*2', 'stepback': '*2', 'zero_or_lose': '*2'}
+ep=True  rule=opponent root value by king-move model: {'none': '0', 'minusBIG': '0', 'pmBIG': '0', 'stepback': '0', 'zero_or_lose': '0'}
+ep=False rule=count    root value by king-move model: {'none': '*2', 'minusBIG': '*2', 'pmBIG': '*2', 'stepback': '*2', 'zero_or_lose': '*2'}
+ep=False rule=mover    root value by king-move model: {'none': '*2', 'minusBIG': '*2', 'pmBIG': '*2', 'stepback': '*2', 'zero_or_lose': '*2'}
+ep=False rule=opponent root value by king-move model: {'none': '0', 'minusBIG': '0', 'pmBIG': '0', 'stepback': '0', 'zero_or_lose': '0'}

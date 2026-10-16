@@ -1,0 +1,45 @@
+2.1                    W: e4 / B: e5                                           nodes      1  e.p.-capturable-passer nodes 0
+2.2                    W: a2 h1 / B: a3 h4                                     nodes     19  e.p.-capturable-passer nodes 0
+3.1                    W: a3 h1 / B: a4 h5                                     nodes     36  e.p.-capturable-passer nodes 1
+      e.g. W: h4 / B: a3 a4 (ep h3)
+      standard passed():  {'count': '1', 'mover': '1', 'opponent': '1'}
+      e.p.-aware passed(): {'count': '1', 'mover': '1', 'opponent': '1'}
+      outcome (std): {'count': 'L', 'mover': 'L', 'opponent': 'L'}
+      outcome (ep-aware): {'count': 'L', 'mover': 'L', 'opponent': 'L'}
+3.2                    W: a4 h1 / B: a5 h6                                     nodes     62  e.p.-capturable-passer nodes 1
+      e.g. W: h4 / B: a3 a4 (ep h3)
+      standard passed():  {'count': '2', 'mover': '2', 'opponent': '2'}
+      e.p.-aware passed(): {'count': '2', 'mover': '2', 'opponent': '2'}
+      outcome (std): {'count': 'L', 'mover': 'L', 'opponent': 'L'}
+      outcome (ep-aware): {'count': 'L', 'mover': 'L', 'opponent': 'L'}
+4.1                    W: e4 / B: e6                                           nodes      3  e.p.-capturable-passer nodes 0
+4.2                    W: e3 / B: e6                                           nodes      6  e.p.-capturable-passer nodes 0
+4.3                    W: a4 h2 h4 / B: a5 a6 a7 h3                            nodes     91  e.p.-capturable-passer nodes 0
+7.1c                   W: c2 c3 / B: c5 c6                                     nodes      5  e.p.-capturable-passer nodes 0
+7.1f                   W: f3 f4 / B: f7                                        nodes     11  e.p.-capturable-passer nodes 0
+7.1ah                  W: a4 a5 h2 h3 / B: a7 h6                               nodes    495  e.p.-capturable-passer nodes 1
+      e.g. W: h4 / B: a3 a4 (ep h3)
+      standard passed():  {'count': '{+W | *}', 'mover': '{+W | *}', 'opponent': '{+W | *}'}
+      e.p.-aware passed(): {'count': '{+W | *}', 'mover': '{+W | *}', 'opponent': '{+W | *}'}
+      outcome (std): {'count': 'L', 'mover': 'L', 'opponent': 'L'}
+      outcome (ep-aware): {'count': 'L', 'mover': 'L', 'opponent': 'L'}
+7.2abh                 W: a2 b2 h3 / B: a6 b7 h7                               nodes  10112  e.p.-capturable-passer nodes 71
+      e.g. W: a4 b2 / B: b3 h3 h4 (ep a3)
+      e.g. W: a4 b3 / B: b4 h3 h4 (ep a3)
+      e.g. W: a4 b2 / B: b4 h3 h4 (ep a3)
+      e.g. W: a4 / B: h3 h4 (ep a3)
+      standard passed():  {'count': '{{↑ | {0 | ⇓*}, {↑ | {0 | ⇓*}}} | {{{⇓ | 0}, {{⇓ | 0} | 0} | 0} | 0}}', 'mover': '{{↑ | {0 | ⇓*}, {↑ | {0 | ⇓*}}} | {{{⇓ | 0}, {{⇓ | 0} | 0} | 0} | 0}}', 'opponent': '{{↑ | {0 | ⇓*}, {↑ | {0 | ⇓*}}} | {{{⇓ | 0}, {{⇓ | 0} | 0} | 0} | 0}}'}
+      e.p.-aware passed(): {'count': '{{↑ | {0 | ⇓*}, {↑ | {0 | ⇓*}}} | {{{⇓ | 0}, {{⇓ | 0} | 0} | 0} | 0}}', 'mover': '{{↑ | {0 | ⇓*}, {↑ | {0 | ⇓*}}} | {{{⇓ | 0}, {{⇓ | 0} | 0} | 0} | 0}}', 'opponent': '{{↑ | {0 | ⇓*}, {↑ | {0 | ⇓*}}} | {{{⇓ | 0}, {{⇓ | 0} | 0} | 0} | 0}}'}
+      outcome (std): {'count': 'N', 'mover': 'N', 'opponent': 'N'}
+      outcome (ep-aware): {'count': 'N', 'mover': 'N', 'opponent': 'N'}
+7.3                    W: a1 a5 c1 c3 d3 f7 g1 h1 / B: c2 d4 d5 d6 g3 g7 h4    nodes      1  e.p.-capturable-passer nodes 0
+7.3cd                  W: c1 c3 d3 / B: c2 d4 d5 d6                            nodes     86  e.p.-capturable-passer nodes 0
+KEY *2 (4-file flat)   W: a2 c2 / B: b7 d7                                     nodes   1075  e.p.-capturable-passer nodes 40
+      e.g. W: a2 c4 / B: b3 d4 (ep c3)
+      e.g. W: a2 c5 / B: b3 d5 (ep d6)
+      e.g. W: a2 c4 / B: b4 d3 (ep c3)
+      e.g. W: a4 c2 / B: b4 d3 (ep a3)
+      standard passed():  {'count': '*2', 'mover': '*2', 'opponent': '0'}
+      e.p.-aware passed(): {'count': '{2±1 | -2±1}', 'mover': '{2±1 | -2±1}', 'opponent': '0'}
+      outcome (std): {'count': 'N', 'mover': 'N', 'opponent': 'P'}
+      outcome (ep-aware): {'count': 'N', 'mover': 'N', 'opponent': 'P'}

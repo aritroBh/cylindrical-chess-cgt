@@ -1,0 +1,57 @@
+race=count    ep=on  X textbook = {256 | +-256}               outcome(G - H) = P  -> EQUAL
+race=count    ep=on  B5 textbook = 0                          outcome(G - H) = P  -> EQUAL
+race=count    ep=on  G textbook = *2                          outcome(G - H) = P  -> EQUAL
+race=count    ep=on  X textbook = 256 (should fail)           outcome(G - H) = L  -> not equal
+race=count    ep=on  X textbook = +-256 (should fail)         outcome(G - H) = N  -> not equal
+race=count    ep=on  B5 textbook = * (should fail)            outcome(G - H) = N  -> not equal
+race=count    ep=on  X aware = -3                             outcome(G - H) = P  -> EQUAL
+race=count    ep=on  B5 aware = -2+-1                         outcome(G - H) = P  -> EQUAL
+race=count    ep=on  G aware = {2+-1 | -2+-1}                 outcome(G - H) = P  -> EQUAL
+race=count    ep=on  X aware = -2 (should fail)               outcome(G - H) = R  -> not equal
+race=count    ep=on  X aware = -4 (should fail)               outcome(G - H) = L  -> not equal
+race=count    ep=on  B5 aware = -2 (should fail)              outcome(G - H) = N  -> not equal
+race=count    ep=on  B5 aware = {-1|-2} (should fail)         outcome(G - H) = R  -> not equal
+race=count    ep=off X textbook = {256 | +-256}               outcome(G - H) = P  -> EQUAL
+race=count    ep=off B5 textbook = 0                          outcome(G - H) = P  -> EQUAL
+race=count    ep=off G textbook = *2                          outcome(G - H) = P  -> EQUAL
+race=count    ep=off X textbook = 256 (should fail)           outcome(G - H) = L  -> not equal
+race=count    ep=off X textbook = +-256 (should fail)         outcome(G - H) = N  -> not equal
+race=count    ep=off B5 textbook = * (should fail)            outcome(G - H) = N  -> not equal
+race=mover    ep=on  X textbook = {256 | +-256}               outcome(G - H) = P  -> EQUAL
+race=mover    ep=on  B5 textbook = 0                          outcome(G - H) = P  -> EQUAL
+race=mover    ep=on  G textbook = *2                          outcome(G - H) = P  -> EQUAL
+race=mover    ep=on  X textbook = 256 (should fail)           outcome(G - H) = L  -> not equal
+race=mover    ep=on  X textbook = +-256 (should fail)         outcome(G - H) = N  -> not equal
+race=mover    ep=on  B5 textbook = * (should fail)            outcome(G - H) = N  -> not equal
+race=mover    ep=on  X aware = -3                             outcome(G - H) = P  -> EQUAL
+race=mover    ep=on  B5 aware = -2+-1                         outcome(G - H) = P  -> EQUAL
+race=mover    ep=on  G aware = {2+-1 | -2+-1}                 outcome(G - H) = P  -> EQUAL
+race=mover    ep=on  X aware = -2 (should fail)               outcome(G - H) = R  -> not equal
+race=mover    ep=on  X aware = -4 (should fail)               outcome(G - H) = L  -> not equal
+race=mover    ep=on  B5 aware = -2 (should fail)              outcome(G - H) = N  -> not equal
+race=mover    ep=on  B5 aware = {-1|-2} (should fail)         outcome(G - H) = R  -> not equal
+race=mover    ep=off X textbook = {256 | +-256}               outcome(G - H) = P  -> EQUAL
+race=mover    ep=off B5 textbook = 0                          outcome(G - H) = P  -> EQUAL
+race=mover    ep=off G textbook = *2                          outcome(G - H) = P  -> EQUAL
+race=mover    ep=off X textbook = 256 (should fail)           outcome(G - H) = L  -> not equal
+race=mover    ep=off X textbook = +-256 (should fail)         outcome(G - H) = N  -> not equal
+race=mover    ep=off B5 textbook = * (should fail)            outcome(G - H) = N  -> not equal
+race=opponent ep=on  X textbook = {256 | +-256}               outcome(G - H) = P  -> EQUAL
+race=opponent ep=on  B5 textbook = 0                          outcome(G - H) = L  -> not equal
+race=opponent ep=on  G textbook = *2                          outcome(G - H) = N  -> not equal
+race=opponent ep=on  X textbook = 256 (should fail)           outcome(G - H) = L  -> not equal
+race=opponent ep=on  X textbook = +-256 (should fail)         outcome(G - H) = N  -> not equal
+race=opponent ep=on  B5 textbook = * (should fail)            outcome(G - H) = L  -> not equal
+race=opponent ep=on  X aware = -3                             outcome(G - H) = L  -> not equal
+race=opponent ep=on  B5 aware = -2+-1                         outcome(G - H) = L  -> not equal
+race=opponent ep=on  G aware = {2+-1 | -2+-1}                 outcome(G - H) = N  -> not equal
+race=opponent ep=on  X aware = -2 (should fail)               outcome(G - H) = L  -> not equal
+race=opponent ep=on  X aware = -4 (should fail)               outcome(G - H) = L  -> not equal
+race=opponent ep=on  B5 aware = -2 (should fail)              outcome(G - H) = L  -> not equal
+race=opponent ep=on  B5 aware = {-1|-2} (should fail)         outcome(G - H) = L  -> not equal
+race=opponent ep=off X textbook = {256 | +-256}               outcome(G - H) = P  -> EQUAL
+race=opponent ep=off B5 textbook = 0                          outcome(G - H) = L  -> not equal
+race=opponent ep=off G textbook = *2                          outcome(G - H) = N  -> not equal
+race=opponent ep=off X textbook = 256 (should fail)           outcome(G - H) = L  -> not equal
+race=opponent ep=off X textbook = +-256 (should fail)         outcome(G - H) = N  -> not equal
+race=opponent ep=off B5 textbook = * (should fail)            outcome(G - H) = L  -> not equal

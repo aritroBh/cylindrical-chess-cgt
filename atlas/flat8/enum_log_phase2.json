@@ -1,0 +1,52 @@
+{
+ "command": "atlas/flat8/enumerate.py enum --workers 8 --chunk 200 --classes 4:2:4,4:3:3,4:4:2 --out values_phase2.jsonl --log enum_log_phase2.json",
+ "settings": {
+  "ep": true,
+  "RACE_RULE": "count",
+  "ranks": 8,
+  "pawn_ranks": "2-7",
+  "flat": true,
+  "BIG": 256
+ },
+ "classes": [
+  {
+   "width": 4,
+   "nw": 2,
+   "nb": 4,
+   "canonical_positions": 35183,
+   "board_positions": 70196,
+   "cpu_seconds": 545.53
+  },
+  {
+   "width": 4,
+   "nw": 3,
+   "nb": 3,
+   "canonical_positions": 71969,
+   "board_positions": 143938,
+   "cpu_seconds": 1040.98
+  },
+  {
+   "width": 4,
+   "nw": 4,
+   "nb": 2,
+   "canonical_positions": 35183,
+   "board_positions": 70196,
+   "cpu_seconds": 523.8
+  }
+ ],
+ "total_canonical": 142335,
+ "total_board_positions": 284330,
+ "wall_seconds": 317.8,
+ "cpu_seconds_total": 2110.3,
+ "workers": 8,
+ "max_rss_bytes_per_worker": [
+  460472320,
+  465977344,
+  468189184,
+  469483520,
+  473481216,
+  490405888,
+  653262848,
+  663207936
+ ]
+}

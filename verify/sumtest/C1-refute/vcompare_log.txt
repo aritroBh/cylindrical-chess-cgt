@@ -1,0 +1,83 @@
+| board | rule | ep | comparison | n_a | n_b | key-set sym.diff | positions differing | pairs differing |
+|---|---|---|---|---|---|---|---|---|
+| flat3 | count | noep | verifier(P-scope) vs fresh cylcgt | 4310 | 4310 | 0 | 0 | 0 |
+| flat3 | count | ep | verifier(P-scope) vs fresh cylcgt | 4310 | 4310 | 0 | 0 | 0 |
+| flat3 | count | ep | verifier(P-scope) vs worker aware__whole | 4310 | 4310 | 0 | 166 | 1702 |
+| flat3 | count | ep | worker aware__whole vs worker cylcgt file | 4310 | 4310 | 0 | 166 | 1702 |
+| flat3 | mover | noep | verifier(P-scope) vs fresh cylcgt | 4310 | 4310 | 0 | 0 | 0 |
+| flat3 | mover | ep | verifier(P-scope) vs fresh cylcgt | 4310 | 4310 | 0 | 0 | 0 |
+| flat3 | mover | ep | verifier(P-scope) vs worker aware__whole | 4310 | 4310 | 0 | 446 | 3123 |
+| flat3 | mover | ep | worker aware__whole vs worker cylcgt file | 4310 | 4310 | 0 | 446 | 3123 |
+| flat3 | opponent | noep | verifier(P-scope) vs fresh cylcgt | 4310 | 4310 | 0 | 0 | 0 |
+| flat3 | opponent | ep | verifier(P-scope) vs fresh cylcgt | 4310 | 4310 | 0 | 0 | 0 |
+| flat3 | opponent | ep | verifier(P-scope) vs worker aware__whole | 4310 | 4310 | 0 | 154 | 1288 |
+| flat3 | opponent | ep | worker aware__whole vs worker cylcgt file | 4310 | 4310 | 0 | 154 | 1288 |
+| flat4 | count | noep | verifier(P-scope) vs fresh cylcgt | 9390 | 9390 | 0 | 0 | 0 |
+| flat4 | count | ep | verifier(P-scope) vs fresh cylcgt | 9390 | 9390 | 0 | 0 | 0 |
+| flat4 | count | ep | verifier(P-scope) vs worker aware__whole | 9390 | 9390 | 0 | 386 | 4038 |
+| flat4 | count | ep | worker aware__whole vs worker cylcgt file | 9390 | 9390 | 0 | 386 | 4038 |
+| flat4 | mover | noep | verifier(P-scope) vs fresh cylcgt | 9390 | 9390 | 0 | 0 | 0 |
+| flat4 | mover | ep | verifier(P-scope) vs fresh cylcgt | 9390 | 9390 | 0 | 0 | 0 |
+| flat4 | mover | ep | verifier(P-scope) vs worker aware__whole | 9390 | 9390 | 0 | 1412 | 11076 |
+| flat4 | mover | ep | worker aware__whole vs worker cylcgt file | 9390 | 9390 | 0 | 1412 | 11076 |
+| flat4 | opponent | noep | verifier(P-scope) vs fresh cylcgt | 9390 | 9390 | 0 | 0 | 0 |
+| flat4 | opponent | ep | verifier(P-scope) vs fresh cylcgt | 9390 | 9390 | 0 | 0 | 0 |
+| flat4 | opponent | ep | verifier(P-scope) vs worker aware__whole | 9390 | 9390 | 0 | 376 | 3122 |
+| flat4 | opponent | ep | worker aware__whole vs worker cylcgt file | 9390 | 9390 | 0 | 376 | 3122 |
+| cyl3 | count | noep | verifier(P-scope) vs fresh cylcgt | 6210 | 6210 | 0 | 0 | 0 |
+| cyl3 | count | ep | verifier(P-scope) vs fresh cylcgt | 6210 | 6210 | 0 | 0 | 0 |
+| cyl3 | count | ep | verifier(P-scope) vs worker aware__whole | 6210 | 6210 | 0 | 114 | 1119 |
+| cyl3 | count | ep | worker aware__whole vs worker cylcgt file | 6210 | 6210 | 0 | 114 | 1119 |
+| cyl3 | mover | noep | verifier(P-scope) vs fresh cylcgt | 6210 | 6210 | 0 | 0 | 0 |
+| cyl3 | mover | ep | verifier(P-scope) vs fresh cylcgt | 6210 | 6210 | 0 | 0 | 0 |
+| cyl3 | mover | ep | verifier(P-scope) vs worker aware__whole | 6210 | 6210 | 0 | 744 | 4182 |
+| cyl3 | mover | ep | worker aware__whole vs worker cylcgt file | 6210 | 6210 | 0 | 744 | 4182 |
+| cyl3 | opponent | noep | verifier(P-scope) vs fresh cylcgt | 6210 | 6210 | 0 | 0 | 0 |
+| cyl3 | opponent | ep | verifier(P-scope) vs fresh cylcgt | 6210 | 6210 | 0 | 0 | 0 |
+| cyl3 | opponent | ep | verifier(P-scope) vs worker aware__whole | 6210 | 6210 | 0 | 72 | 468 |
+| cyl3 | opponent | ep | worker aware__whole vs worker cylcgt file | 6210 | 6210 | 0 | 72 | 468 |
+| cyl4 | count | noep | verifier(P-scope) vs fresh cylcgt | 13260 | 13260 | 0 | 0 | 0 |
+| cyl4 | count | ep | verifier(P-scope) vs fresh cylcgt | 13260 | 13260 | 0 | 0 | 0 |
+| cyl4 | count | ep | verifier(P-scope) vs worker aware__whole | 13260 | 13260 | 0 | 650 | 6578 |
+| cyl4 | count | ep | worker aware__whole vs worker cylcgt file | 13260 | 13260 | 0 | 650 | 6578 |
+| cyl4 | mover | noep | verifier(P-scope) vs fresh cylcgt | 13260 | 13260 | 0 | 0 | 0 |
+| cyl4 | mover | ep | verifier(P-scope) vs fresh cylcgt | 13260 | 13260 | 0 | 0 | 0 |
+| cyl4 | mover | ep | verifier(P-scope) vs worker aware__whole | 13260 | 13260 | 0 | 1882 | 14278 |
+| cyl4 | mover | ep | worker aware__whole vs worker cylcgt file | 13260 | 13260 | 0 | 1882 | 14278 |
+| cyl4 | opponent | noep | verifier(P-scope) vs fresh cylcgt | 13260 | 13260 | 0 | 0 | 0 |
+| cyl4 | opponent | ep | verifier(P-scope) vs fresh cylcgt | 13260 | 13260 | 0 | 0 | 0 |
+| cyl4 | opponent | ep | verifier(P-scope) vs worker aware__whole | 13260 | 13260 | 0 | 634 | 5178 |
+| cyl4 | opponent | ep | worker aware__whole vs worker cylcgt file | 13260 | 13260 | 0 | 634 | 5178 |
+| cyl5 | count | noep | verifier(P-scope) vs fresh cylcgt | 22025 | 22025 | 0 | 0 | 0 |
+| cyl5 | count | ep | verifier(P-scope) vs fresh cylcgt | 22025 | 22025 | 0 | 0 | 0 |
+| cyl5 | count | ep | verifier(P-scope) vs worker aware__whole | 22025 | 22025 | 0 | 1100 | 11680 |
+| cyl5 | count | ep | worker aware__whole vs worker cylcgt file | 22025 | 22025 | 0 | 1100 | 11680 |
+| cyl5 | mover | noep | verifier(P-scope) vs fresh cylcgt | 22025 | 22025 | 0 | 0 | 0 |
+| cyl5 | mover | ep | verifier(P-scope) vs fresh cylcgt | 22025 | 22025 | 0 | 0 | 0 |
+| cyl5 | mover | ep | verifier(P-scope) vs worker aware__whole | 22025 | 22025 | 0 | 3930 | 32155 |
+| cyl5 | mover | ep | worker aware__whole vs worker cylcgt file | 22025 | 22025 | 0 | 3930 | 32155 |
+| cyl5 | opponent | noep | verifier(P-scope) vs fresh cylcgt | 22025 | 22025 | 0 | 0 | 0 |
+| cyl5 | opponent | ep | verifier(P-scope) vs fresh cylcgt | 22025 | 22025 | 0 | 0 | 0 |
+| cyl5 | opponent | ep | verifier(P-scope) vs worker aware__whole | 22025 | 22025 | 0 | 1110 | 9170 |
+| cyl5 | opponent | ep | worker aware__whole vs worker cylcgt file | 22025 | 22025 | 0 | 1110 | 9170 |
+
+Totals (pairs = (position, X) outcome predictions):
+  fresh cylcgt vs worker cylcgt file            ep=off: compared   2483775 pairs, differing pairs 0, differing positions 0, key mismatches 0
+  fresh cylcgt vs worker cylcgt file            ep=on : compared   2483775 pairs, differing pairs 0, differing positions 0, key mismatches 0
+  verifier(P-scope) vs fresh cylcgt             ep=off: compared   2483775 pairs, differing pairs 0, differing positions 0, key mismatches 0
+  verifier(P-scope) vs fresh cylcgt             ep=on : compared   2483775 pairs, differing pairs 0, differing positions 0, key mismatches 0
+  verifier(P-scope) vs worker aware__whole      ep=on : compared   2483775 pairs, differing pairs 109157, differing positions 13176, key mismatches 0
+  verifier(P-scope) vs worker cylcgt file       ep=off: compared   2483775 pairs, differing pairs 0, differing positions 0, key mismatches 0
+  verifier(P-scope) vs worker cylcgt file       ep=on : compared   2483775 pairs, differing pairs 0, differing positions 0, key mismatches 0
+  verifier(P-scope) vs worker off__comp         ep=off: compared   2483775 pairs, differing pairs 0, differing positions 0, key mismatches 0
+  verifier(P-scope) vs worker off__whole        ep=off: compared   2483775 pairs, differing pairs 0, differing positions 0, key mismatches 0
+  verifier(P-scope) vs worker plain-global__whole ep=on : compared   2483775 pairs, differing pairs 0, differing positions 0, key mismatches 0
+  verifier(P-scope) vs worker plain__comp       ep=on : compared   2483775 pairs, differing pairs 0, differing positions 0, key mismatches 0
+  verifier(P-scope) vs worker plain__whole      ep=on : compared   2483775 pairs, differing pairs 0, differing positions 0, key mismatches 0
+  verifier(global) vs fresh cylcgt              ep=on : compared   2483775 pairs, differing pairs 0, differing positions 0, key mismatches 0
+  worker aware__whole vs worker cylcgt file     ep=on : compared   2483775 pairs, differing pairs 109157, differing positions 13176, key mismatches 0
+  worker off__comp vs worker cylcgt file        ep=off: compared   2483775 pairs, differing pairs 0, differing positions 0, key mismatches 0
+  worker off__whole vs worker cylcgt file       ep=off: compared   2483775 pairs, differing pairs 0, differing positions 0, key mismatches 0
+  worker plain-global__whole vs worker cylcgt file ep=on : compared   2483775 pairs, differing pairs 0, differing positions 0, key mismatches 0
+  worker plain__comp vs worker cylcgt file      ep=on : compared   2483775 pairs, differing pairs 0, differing positions 0, key mismatches 0
+  worker plain__whole vs worker cylcgt file     ep=on : compared   2483775 pairs, differing pairs 0, differing positions 0, key mismatches 0

@@ -1,0 +1,56 @@
+Misere Dawson's chess (octal 0.137), exhaustive over all canonical positions of total <= 45
+  total   0:       1 positions,      0 misere P-positions; cache 1
+  total   1:       1 positions,      1 misere P-positions; cache 2
+  total   2:       1 positions,      0 misere P-positions; cache 3
+  total   3:       2 positions,      1 misere P-positions; cache 5
+  total   4:       3 positions,      0 misere P-positions; cache 8
+  total   5:       4 positions,      2 misere P-positions; cache 12
+  total   6:       6 positions,      2 misere P-positions; cache 18
+  total   7:       8 positions,      3 misere P-positions; cache 26
+  total   8:      11 positions,      2 misere P-positions; cache 37
+  total   9:      15 positions,      6 misere P-positions; cache 52
+  total  10:      20 positions,      6 misere P-positions; cache 72
+  total  11:      26 positions,      8 misere P-positions; cache 98
+  total  12:      35 positions,      7 misere P-positions; cache 133
+  total  13:      45 positions,     13 misere P-positions; cache 178
+  total  14:      58 positions,     18 misere P-positions; cache 236
+  total  15:      75 positions,     24 misere P-positions; cache 311
+  total  16:      96 positions,     22 misere P-positions; cache 407
+  total  17:     121 positions,     32 misere P-positions; cache 528
+  total  18:     154 positions,     41 misere P-positions; cache 682
+  total  19:     193 positions,     54 misere P-positions; cache 875
+  total  20:     242 positions,     62 misere P-positions; cache 1117
+  total  21:     302 positions,     72 misere P-positions; cache 1419
+  total  22:     375 positions,     95 misere P-positions; cache 1794
+  total  23:     463 positions,    122 misere P-positions; cache 2257
+  total  24:     573 positions,    143 misere P-positions; cache 2830
+  total  25:     703 positions,    162 misere P-positions; cache 3533
+  total  26:     861 positions,    201 misere P-positions; cache 4394
+  total  27:    1052 positions,    251 misere P-positions; cache 5446
+  total  28:    1282 positions,    319 misere P-positions; cache 6728
+  total  29:    1555 positions,    358 misere P-positions; cache 8283
+  total  30:    1886 positions,    425 misere P-positions; cache 10169
+  total  31:    2277 positions,    509 misere P-positions; cache 12446
+  total  32:    2745 positions,    641 misere P-positions; cache 15191
+  total  33:    3301 positions,    737 misere P-positions; cache 18492
+  total  34:    3961 positions,    891 misere P-positions; cache 22453
+  total  35:    4740 positions,   1010 misere P-positions; cache 27193
+  total  36:    5667 positions,   1273 misere P-positions; cache 32860
+  total  37:    6754 positions,   1469 misere P-positions; cache 39614
+  total  38:    8038 positions,   1758 misere P-positions; cache 47652
+  total  39:    9548 positions,   1977 misere P-positions; cache 57200
+  total  40:   11323 positions,   2429 misere P-positions; cache 68523
+  total  41:   13398 positions,   2813 misere P-positions; cache 81921
+  total  42:   15836 positions,   3434 misere P-positions; cache 97757
+  total  43:   18678 positions,   3824 misere P-positions; cache 116435
+  total  44:   22001 positions,   4580 misere P-positions; cache 138436
+  total  45:   25873 positions,   5250 misere P-positions; cache 164309
+positions with total <= 45: 164309; misere P-positions: 35047
+single strip n = 0..45 misere outcome: NPPNNNPPNNNPNNNPPNNNPPNNNPNNNPPNNNPPNNNPNNNNPN
+single strips that are misere P: [1, 2, 6, 7, 11, 15, 16, 20, 21, 25, 29, 30, 34, 35, 39, 44]
+single strips with normal g(n) = 0 (normal P): [0, 4, 8, 14, 20, 24, 28, 34, 38, 42]
+single ring n = 3..48 misere outcome (N = first player wins): PNNPPPNNPPPNPPPNNPPPNNPPPNPPPNNPPPNNPPPNPPPPNP
+rings that are misere N (first player wins): [4, 5, 9, 10, 14, 18, 19, 23, 24, 28, 32, 33, 37, 38, 42, 47]
+rings that are normal N (R_n = 1): [3, 7, 11, 17, 23, 27, 31, 37, 41, 45]
+positions where the misere-Nim rule on normal Grundy values fails: 16452
+  smallest: [(1, 9), (11,), (1, 1, 1, 9), (1, 1, 11), (1, 3, 9), (1, 13), (3, 11), (5, 9), (1, 4, 9), (1, 1, 1, 1, 1, 9), (15,), (4, 11), (6, 9), (1, 1, 1, 1, 11), (1, 1, 1, 3, 9)]

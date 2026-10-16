@@ -1,0 +1,132 @@
+=== 1. My transcription vs cylcgt.verify_paper.CLAIMS (pawns only) ===
+2.1: '2.1 zero': MATCH; kings in diagram (not in CLAIMS): none
+2.2: '2.2 zero (wrap)': MATCH; kings in diagram (not in CLAIMS): none
+2.3: NOT IN CLAIMS. mine = W: c1 d2 / B: c4 d3 kings={}
+3.1: '3.1 one': MATCH; kings in diagram (not in CLAIMS): none
+3.2: '3.2 two': MATCH; kings in diagram (not in CLAIMS): none
+4.1: '4.1 star': MATCH; kings in diagram (not in CLAIMS): none
+4.2: '4.2 up (as drawn)': MATCH; kings in diagram (not in CLAIMS): none
+4.2: sub-game '4.2 up (intended? e2/e5)' files e: DIFF  claims=W: e2 / B: e5 mine=W: e3 / B: e6
+4.3: '4.3 tiny': MATCH; kings in diagram (not in CLAIMS): none
+5.1: NOT IN CLAIMS. mine = W: a4 / B: a5 kings={'h5': 'K', 'b4': 'k'}
+7.1: '7.1 puzzle 1 (total)': MATCH; kings in diagram (not in CLAIMS): none
+7.1: sub-game '7.1  c-file' files c: MATCH  claims=W: c2 c3 / B: c5 c6 mine=W: c2 c3 / B: c5 c6
+7.1: sub-game '7.1  f-file' files f: MATCH  claims=W: f3 f4 / B: f7 mine=W: f3 f4 / B: f7
+7.1: sub-game '7.1  a/h-files' files ah: MATCH  claims=W: a4 a5 h2 h3 / B: a7 h6 mine=W: a4 a5 h2 h3 / B: a7 h6
+7.2: '7.2 pawn part (a,b,h files)': DIFF  only-mine W['d7'] B['e7']  only-claims W[] B[]; kings in diagram (not in CLAIMS): {'d8': 'k', 'e6': 'K'}
+7.3: '7.3 pawns (kings removed)': MATCH; kings in diagram (not in CLAIMS): {'g8': 'K', 'f6': 'k'}
+
+=== 2. Solver on my transcriptions (count rule shown; mover/opponent if they differ) ===
+2.1  W: e4 / B: e5  passedW=False passedB=False
+  [cyl ep=on] 2.1: 0  | outcome P mean 0 temp number sum_safe True comps 1 | race nodes 0 race-robust
+  [cyl ep=off] 2.1: 0  | outcome P mean 0 temp number sum_safe True comps 1 | race nodes 0 race-robust
+2.2  W: a2 h1 / B: a3 h4  passedW=False passedB=False
+  [cyl ep=on] 2.2: 0  | outcome P mean 0 temp number sum_safe True comps 1 | race nodes 0 race-robust
+  [cyl ep=off] 2.2: 0  | outcome P mean 0 temp number sum_safe True comps 1 | race nodes 0 race-robust
+3.1  W: a3 h1 / B: a4 h5  passedW=False passedB=False
+  [cyl ep=on] 3.1: 1  | outcome L mean 1 temp number sum_safe True comps 1 | race nodes 1 race-robust
+  [cyl ep=off] 3.1: 2  | outcome L mean 2 temp number sum_safe True comps 1 | race nodes 1 race-robust
+3.2  W: a4 h1 / B: a5 h6  passedW=False passedB=False
+  [cyl ep=on] 3.2: 2  | outcome L mean 2 temp number sum_safe True comps 1 | race nodes 1 race-robust
+  [cyl ep=off] 3.2: 2  | outcome L mean 2 temp number sum_safe True comps 1 | race nodes 1 race-robust
+4.1  W: e4 / B: e6  passedW=False passedB=False
+  [cyl ep=on] 4.1: *  | outcome N mean 0 temp 0 sum_safe True comps 1 | race nodes 0 race-robust
+  [cyl ep=off] 4.1: *  | outcome N mean 0 temp 0 sum_safe True comps 1 | race nodes 0 race-robust
+4.2  W: e3 / B: e6  passedW=False passedB=False
+  [cyl ep=on] 4.2: 0  | outcome P mean 0 temp number sum_safe True comps 1 | race nodes 0 race-robust
+  [cyl ep=off] 4.2: 0  | outcome P mean 0 temp number sum_safe True comps 1 | race nodes 0 race-robust
+4.3  W: a4 h2 h4 / B: a5 a6 a7 h3  passedW=False passedB=False
+  [cyl ep=on] 4.3: tiny(1)  | outcome L mean 0 temp 0 sum_safe True comps 1 | race nodes 0 race-robust
+  [cyl ep=off] 4.3: tiny(1)  | outcome L mean 0 temp 0 sum_safe True comps 1 | race nodes 0 race-robust
+7.1  W: a4 a5 c2 c3 f3 f4 h2 h3 / B: a7 c5 c6 f7 h6  passedW=False passedB=False
+  [cyl ep=on] 7.1: {{{+W±1/2 | +W}, {+W±1/2 | +W±1/2} | +W±1, {+W±1/2 | +W}} | {{{3* | 2*} | {1* | *}}, {{3* | 2*} | 1*} | {1* | -1*}, {{1* | *} | -1*}}}  | outcome L mean 519/4 temp 129 sum_safe True comps 3 | race nodes 1 race-robust
+  [cyl ep=off] 7.1: {{{+W±1/2 | +W}, {+W±1/2 | +W±1/2} | +W±1, {+W±1/2 | +W}} | {{{3* | 2*} | {1* | *}}, {{3* | 2*} | 1*} | {1* | -1*}, {{1* | *} | -1*}}}  | outcome L mean 519/4 temp 129 sum_safe True comps 3 | race nodes 1 race-robust
+
+-- 2.3 (caption omits 'connected': flat board; also cylinder for comparison) --
+2.3  W: c1 d2 / B: c4 d3
+  [flat ep=on] 2.3: 0  | outcome P mean 0 temp number sum_safe True comps 1 | race nodes 0 race-robust
+  [flat ep=off] 2.3: 0  | outcome P mean 0 temp number sum_safe True comps 1 | race nodes 0 race-robust
+  [cyl ep=on] 2.3: 0  | outcome P mean 0 temp number sum_safe True comps 1 | race nodes 0 race-robust
+  [cyl ep=off] 2.3: 0  | outcome P mean 0 temp number sum_safe True comps 1 | race nodes 0 race-robust
+
+-- 4.2 alternatives (which pawn placement matches the text's {0,*|*}) --
+  W: e3 / B: e6: value 0; literal options {* | *}
+  W: e2 / B: e5: value ↑; literal options {*, 0 | *}
+  W: e2 / B: e6: value ⇑*; literal options {*, 0 | ↑}
+  W: e3 / B: e5: value *; literal options {0 | 0}
+  W: e2 / B: e4: value *; literal options {0 | 0}
+
+-- 7.1 sub-games --
+  files c: W: c2 c3 / B: c5 c6
+  [cyl ep=on] 7.1[c]: ±1  | outcome N mean 0 temp 1 sum_safe True comps 1 | race nodes 0 race-robust
+  [cyl ep=off] 7.1[c]: ±1  | outcome N mean 0 temp 1 sum_safe True comps 1 | race nodes 0 race-robust
+  files f: W: f3 f4 / B: f7
+  [cyl ep=on] 7.1[f]: {3/2±1/2 | 0}  | outcome N mean 3/4 temp 3/4 sum_safe True comps 1 | race nodes 0 race-robust
+  [cyl ep=off] 7.1[f]: {3/2±1/2 | 0}  | outcome N mean 3/4 temp 3/4 sum_safe True comps 1 | race nodes 0 race-robust
+  files ah: W: a4 a5 h2 h3 / B: a7 h6
+  [cyl ep=on] 7.1[ah]: {+W | *}  | outcome L mean 129 temp 129 sum_safe True comps 1 | race nodes 1 race-robust
+  [cyl ep=off] 7.1[ah]: {+W | *}  | outcome L mean 129 temp 129 sum_safe True comps 1 | race nodes 1 race-robust
+
+-- 7.2: pawn group a,b,h (kings and d7/e7 omitted: the d7 pawn is king-blocked) --
+  W: a2 b2 h3 / B: a6 b7 h7
+  [cyl ep=on] 7.2[abh]: {{↑ | {0 | ⇓*}, {↑ | {0 | ⇓*}}} | {{{⇓ | 0}, {{⇓ | 0} | 0} | 0} | 0}}  | outcome N mean 0 temp 0 sum_safe True comps 1 | race nodes 439 race-robust
+  [cyl ep=off] 7.2[abh]: {{{{{⇑* | 0}, {+W | {{{+W | +W, {+W | -W, {+W | -W, ±+W}}} | +W} | {-W, {+W, {+W, +W* | +W}, {+W, {+W, +W* | +W} | -W} | -W} | -W}}, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W}, {⇑* | 0}} | *, {* | -W}} | 0}, {{{{⇑* | 0}, {+W | {{{+W | +W, {+W | -W, {+W | -W, ±+W}}} | +W} | {-W, {+W, {+W, +W* | +W}, {+W, {+W, +W* | +W} | -W} | -W} | -W}}, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W}, {⇑* | 0}} | *, {* | -W}} | 0} | 0} | 0} | {{⇓, {⇓ | 0} | 0} | 0}}  | outcome R mean 0 temp 0 sum_safe True comps 1 | race nodes 307 RACE-SENSITIVE
+      mover   -> {{{{{⇑* | 0} | {* | -W}, ⇓*} | 0}, {{{{⇑* | 0} | {* | -W}, ⇓*} | 0} | 0} | 0} | 0}
+      opponent-> {{{{{⇑* | 0} | {* | -W}} | 0}, {{{{⇑* | 0} | {* | -W}} | 0} | 0} | 0} | 0}
+  all 7.2 pawns incl. d7/e7: W: a2 b2 d7 h3 / B: a6 b7 e7 h7 passedW=True passedB=True  (solver sees d7 as passed: it cannot model the Kd8 blockade)
+
+-- 7.3: whole pawn set, and the paper's claimed sub-games --
+  all pawns: W: a1 a5 c1 c3 d3 f7 g1 h1 / B: c2 d4 d5 d6 g3 g7 h4 passedW=True passedB=False
+  [cyl ep=on] 7.3[all pawns]: +W  | outcome L mean 256 temp number sum_safe True comps 2 | race nodes 0 race-robust
+  [cyl ep=off] 7.3[all pawns]: +W  | outcome L mean 256 temp number sum_safe True comps 2 | race nodes 0 race-robust
+  components found by the solver: ['W: a1 a5 f7 g1 h1 / B: g3 g7 h4', 'W: c1 c3 d3 / B: c2 d4 d5 d6']
+  paper's {c,d} sub-game: W: c1 c3 d3 / B: c2 d4 d5 d6
+  [cyl ep=on] 7.3[cd]: tiny(1)  | outcome L mean 0 temp 0 sum_safe True comps 1 | race nodes 0 race-robust
+  [cyl ep=off] 7.3[cd]: tiny(1)  | outcome L mean 0 temp 0 sum_safe True comps 1 | race nodes 0 race-robust
+  paper's {g,h,a} sub-game without the trebuchet g7: W: a1 a5 g1 h1 / B: g3 h4 passedW=True
+  [cyl ep=on] 7.3[gha]: +W  | outcome L mean 256 temp number sum_safe True comps 1 | race nodes 0 race-robust
+  [cyl ep=off] 7.3[gha]: +W  | outcome L mean 256 temp number sum_safe True comps 1 | race nodes 0 race-robust
+  same without the a5 runner: W: a1 g1 h1 / B: g3 h4
+  [cyl ep=on] 7.3[gha - a5]: {{+W | +W*} | +W, {{+W | +W*}, +W±+W | -W}}  | outcome L mean 256 temp 0 sum_safe True comps 1 | race nodes 39 RACE-SENSITIVE
+      mover   -> {{+W | +W*} | +W, {{+W | +W*}, +W±+W | -W}}
+      opponent-> {+W, +W* | +W}
+  [cyl ep=off] 7.3[gha - a5]: {{+W | +W*} | +W, {{+W | +W*}, +W±+W | -W}}  | outcome L mean 256 temp 0 sum_safe True comps 1 | race nodes 39 RACE-SENSITIVE
+      mover   -> {{+W | +W*} | +W, {{+W | +W*}, +W±+W | -W}}
+      opponent-> {+W, +W* | +W}
+
+=== 3. King groups on the 8x8 cylinder (legal king moves; what each one allows) ===
+5.1:  W in check=False B in check=False
+  W king legal moves: ['g4', 'g5', 'g6', 'h6', 'a6']
+     Kg4: enemy king may then capture [('a4', 'P')]
+     Kg5: enemy king may then capture [('a4', 'P')]
+     Kg6: enemy king may then capture [('a4', 'P')]
+     Kh6: enemy king may then capture [('a4', 'P')]
+     Ka6: enemy king may then capture [('a4', 'P')]
+  B king legal moves: ['a3', 'b3', 'c3', 'c4', 'c5']
+     Ka3: enemy king may then capture [('a5', 'p')]
+     Kb3: enemy king may then capture [('a5', 'p')]
+     Kc3: enemy king may then capture [('a5', 'p')]
+     Kc4: enemy king may then capture [('a5', 'p')]
+     Kc5: enemy king may then capture [('a5', 'p')]
+7.2 king group (Ke6,Pd7 / Kd8,Pe7):  W in check=False B in check=False
+  W king legal moves: ['d5', 'e5', 'f5', 'f7']
+     Kd5: enemy king may then capture [('d7', 'P')]
+     Ke5: enemy king may then capture [('d7', 'P')]
+     Kf5: enemy king may then capture [('d7', 'P')]
+     Kf7: enemy king may then capture [('d7', 'P')]
+  B king legal moves: ['c7']
+     Kc7: enemy king may then capture [('e7', 'p')]
+7.3 king group (Kg8,Pf7 / Kf6,Pg7):  W in check=False B in check=False
+  W king legal moves: ['f8', 'h7', 'h8']
+     Kf8: enemy king may then capture nothing
+     Kh7: enemy king may then capture [('f7', 'P')]
+     Kh8: enemy king may then capture [('f7', 'P')]
+  B king legal moves: ['e5', 'e6', 'e7', 'f5', 'g5', 'g6']
+     Ke5: enemy king may then capture [('g7', 'p')]
+     Ke6: enemy king may then capture [('g7', 'p')]
+     Ke7: enemy king may then capture [('g7', 'p')]
+     Kf5: enemy king may then capture [('g7', 'p')]
+     Kg5: enemy king may then capture [('g7', 'p')]
+     Kg6: enemy king may then capture nothing
+  white pawn f7 can advance to f8
+  black pawn g7 can advance to g6

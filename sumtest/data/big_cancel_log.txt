@@ -1,0 +1,14 @@
+ep=off rule=count: 3600 positions (plain passer test)
+    ('comp==cylcgt', True) 3600
+    ('whole==cylcgt', False, 'unsafe') 100
+    ('whole==cylcgt', True, 'safe') 3500
+    example ('W: a2 d2 / B: b3 e3', False, '0', 'NNNNNNNNNNNNNNN', 'PNNNLRNLLRLRNNL')
+    example ('W: a2 d3 / B: b3 e4', False, '0', 'NNNNNNNNNNNNNNN', 'PNNNLRNLLRLRNNL')
+    example ('W: a2 d4 / B: b3 e5', False, '0', 'NNNNNNNNNNNNNNN', 'PNNNLRNLLRLRNNL')
+ep=on rule=count: 3600 positions (plain passer test)
+    ('comp==cylcgt', True) 3600
+    ('whole==cylcgt', False, 'unsafe') 100
+    ('whole==cylcgt', True, 'safe') 3500
+    example ('W: a2 d2 / B: b3 e3', False, '0', 'NNNNNNNNNNNNNNN', 'PNNNLRNLLRLRNNL')
+    example ('W: a2 d3 / B: b3 e4', False, '0', 'NNNNNNNNNNNNNNN', 'PNNNLRNLLRLRNNL')
+    example ('W: a2 d4 / B: b3 e5', False, '0', 'NNNNNNNNNNNNNNN', 'PNNNLRNLLRLRNNL')

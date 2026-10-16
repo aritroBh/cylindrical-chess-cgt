@@ -1,0 +1,8 @@
+ep=True: indep  M == miny(1): True
+        indep  G == tiny(1): True
+        cylcgt value(M) = miny(1); value(G+M) = 0, outcome P, sum_safe True
+        crosscheck whole-board outcome of G+M: P
+ep=False: indep  M == miny(1): True
+        indep  G == tiny(1): True
+        cylcgt value(M) = miny(1); value(G+M) = 0, outcome P, sum_safe True
+        crosscheck whole-board outcome of G+M: P

@@ -1,0 +1,21 @@
+order count,mover,opponent
+ep=False count    S4,W4,WF4,S8,W8,WF8=['*2', '*2', '*2', '*2', '*2', '*2'] nodes=225 S!=W nodes=0 non-interior=8 WF!=W nodes=8 split nodes=0
+ep=False mover    S4,W4,WF4,S8,W8,WF8=['*2', '*2', '*2', '*2', '*2', '*2'] nodes=225 S!=W nodes=0 non-interior=12 WF!=W nodes=14 split nodes=0
+ep=False opponent S4,W4,WF4,S8,W8,WF8=['0', '0', '0', '0', '0', '0'] nodes=225 S!=W nodes=0 non-interior=8 WF!=W nodes=8 split nodes=0
+ep=True  count    S4,W4,WF4,S8,W8,WF8=['*2', '*2', '*2', '*2', '*2', '*2'] nodes=405 S!=W nodes=0 non-interior=10 WF!=W nodes=10 split nodes=0
+ep=True  mover    S4,W4,WF4,S8,W8,WF8=['*2', '*2', '*2', '*2', '*2', '*2'] nodes=405 S!=W nodes=0 non-interior=14 WF!=W nodes=16 split nodes=0
+ep=True  opponent S4,W4,WF4,S8,W8,WF8=['0', '0', '0', '0', '0', '0'] nodes=405 S!=W nodes=0 non-interior=10 WF!=W nodes=10 split nodes=0
+order opponent,mover,count
+ep=False opponent S4,W4,WF4,S8,W8,WF8=['0', '0', '0', '0', '0', '0'] nodes=225 S!=W nodes=0 non-interior=8 WF!=W nodes=8 split nodes=0
+ep=False mover    S4,W4,WF4,S8,W8,WF8=['*2', '*2', '*2', '*2', '*2', '*2'] nodes=225 S!=W nodes=0 non-interior=12 WF!=W nodes=14 split nodes=0
+ep=False count    S4,W4,WF4,S8,W8,WF8=['*2', '*2', '*2', '*2', '*2', '*2'] nodes=225 S!=W nodes=0 non-interior=8 WF!=W nodes=8 split nodes=0
+ep=True  opponent S4,W4,WF4,S8,W8,WF8=['0', '0', '0', '0', '0', '0'] nodes=405 S!=W nodes=0 non-interior=10 WF!=W nodes=10 split nodes=0
+ep=True  mover    S4,W4,WF4,S8,W8,WF8=['*2', '*2', '*2', '*2', '*2', '*2'] nodes=405 S!=W nodes=0 non-interior=14 WF!=W nodes=16 split nodes=0
+ep=True  count    S4,W4,WF4,S8,W8,WF8=['*2', '*2', '*2', '*2', '*2', '*2'] nodes=405 S!=W nodes=0 non-interior=10 WF!=W nodes=10 split nodes=0
+order mover,opponent,count
+ep=False mover    S4,W4,WF4,S8,W8,WF8=['*2', '*2', '*2', '*2', '*2', '*2'] nodes=225 S!=W nodes=0 non-interior=12 WF!=W nodes=14 split nodes=0
+ep=False opponent S4,W4,WF4,S8,W8,WF8=['0', '0', '0', '0', '0', '0'] nodes=225 S!=W nodes=0 non-interior=8 WF!=W nodes=8 split nodes=0
+ep=False count    S4,W4,WF4,S8,W8,WF8=['*2', '*2', '*2', '*2', '*2', '*2'] nodes=225 S!=W nodes=0 non-interior=8 WF!=W nodes=8 split nodes=0
+ep=True  mover    S4,W4,WF4,S8,W8,WF8=['*2', '*2', '*2', '*2', '*2', '*2'] nodes=405 S!=W nodes=0 non-interior=14 WF!=W nodes=16 split nodes=0
+ep=True  opponent S4,W4,WF4,S8,W8,WF8=['0', '0', '0', '0', '0', '0'] nodes=405 S!=W nodes=0 non-interior=10 WF!=W nodes=10 split nodes=0
+ep=True  count    S4,W4,WF4,S8,W8,WF8=['*2', '*2', '*2', '*2', '*2', '*2'] nodes=405 S!=W nodes=0 non-interior=10 WF!=W nodes=10 split nodes=0

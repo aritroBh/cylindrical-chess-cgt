@@ -1,0 +1,78 @@
+reference order : 0 * *2 *3 up down up* dup* 1/2 -1/2 1 -1 {1|0} +-1 tiny1
+*2 + X vector   : NNPNLRLLLRLRLNN
+H  + X vector   : NNNNNNNNNNLRNNN  (H = {{3|1}|{-1|-3}} = {2+-1 | -2+-1})
+H == -H (same interned tree): True
+H-1 outcome (need not L/P for non-reversibility): R
+
+| board | race | e.p. | passer test | scope | vector | =*2 vec | =H vec | G+*2 | G+H | G+*2 (equality *2) | races | ep-caps |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 4flat | count | off | plain | local | NNPNLRLLLRLRLNN | yes | no | P | N | G=*2 | 1815 | - |
+| 4flat | count | on | plain | local | NNPNLRLLLRLRLNN | yes | no | P | N | G=*2 | 1882 | - |
+| 4flat | count | on | plain | global | NNPNLRLLLRLRLNN | yes | no | P | N | G=*2 | 1882 | - |
+| 4flat | count | on | aware | local | NNNNNNNNNNLRNNN | no | yes | N | P | G!=*2; G=H | 1844 | - |
+| 4flat | count | on | aware | global | NNNNNNNNNNLRNNN | no | yes | N | P | G!=*2; G=H | 1844 | - |
+| 4flat | mover | off | plain | local | NNPNLRLLLRLRLNN | yes | no | P | N | G=*2 | 1501 | - |
+| 4flat | mover | on | plain | local | NNPNLRLLLRLRLNN | yes | no | P | N | G=*2 | 1568 | - |
+| 4flat | mover | on | plain | global | NNPNLRLLLRLRLNN | yes | no | P | N | G=*2 | 1568 | - |
+| 4flat | mover | on | aware | local | NNNNNNNNNNLRNNN | no | yes | N | P | G!=*2; G=H | 1942 | - |
+| 4flat | mover | on | aware | global | NNNNNNNNNNLRNNN | no | yes | N | P | G!=*2; G=H | 1942 | - |
+| 4flat | opponent | off | plain | local | PNNNLRNLLRLRNNL | no | no | N | N | G!=*2 | 1499 | - |
+| 4flat | opponent | on | plain | local | PNNNLRNLLRLRNNL | no | no | N | N | G!=*2 | 1562 | - |
+| 4flat | opponent | on | plain | global | PNNNLRNLLRLRNNL | no | no | N | N | G!=*2 | 1562 | - |
+| 4flat | opponent | on | aware | local | PNNNLRNLLRLRNNL | no | no | N | N | G!=*2 | 1696 | - |
+| 4flat | opponent | on | aware | global | PNNNLRNLLRLRNNL | no | no | N | N | G!=*2 | 1696 | - |
+| 8flat | count | off | plain | local | NNPNLRLLLRLRLNN | yes | no | P | N | G=*2 | 1815 | - |
+| 8flat | count | on | plain | local | NNPNLRLLLRLRLNN | yes | no | P | N | G=*2 | 1882 | - |
+| 8flat | count | on | plain | global | NNPNLRLLLRLRLNN | yes | no | P | N | G=*2 | 1882 | - |
+| 8flat | count | on | aware | local | NNNNNNNNNNLRNNN | no | yes | N | P | G!=*2; G=H | 1844 | - |
+| 8flat | count | on | aware | global | NNNNNNNNNNLRNNN | no | yes | N | P | G!=*2; G=H | 1844 | - |
+| 8flat | mover | off | plain | local | NNPNLRLLLRLRLNN | yes | no | P | N | G=*2 | 1501 | - |
+| 8flat | mover | on | plain | local | NNPNLRLLLRLRLNN | yes | no | P | N | G=*2 | 1568 | - |
+| 8flat | mover | on | plain | global | NNPNLRLLLRLRLNN | yes | no | P | N | G=*2 | 1568 | - |
+| 8flat | mover | on | aware | local | NNNNNNNNNNLRNNN | no | yes | N | P | G!=*2; G=H | 1942 | - |
+| 8flat | mover | on | aware | global | NNNNNNNNNNLRNNN | no | yes | N | P | G!=*2; G=H | 1942 | - |
+| 8flat | opponent | off | plain | local | PNNNLRNLLRLRNNL | no | no | N | N | G!=*2 | 1499 | - |
+| 8flat | opponent | on | plain | local | PNNNLRNLLRLRNNL | no | no | N | N | G!=*2 | 1562 | - |
+| 8flat | opponent | on | plain | global | PNNNLRNLLRLRNNL | no | no | N | N | G!=*2 | 1562 | - |
+| 8flat | opponent | on | aware | local | PNNNLRNLLRLRNNL | no | no | N | N | G!=*2 | 1696 | - |
+| 8flat | opponent | on | aware | global | PNNNLRNLLRLRNNL | no | no | N | N | G!=*2 | 1696 | - |
+| 8cyl | count | off | plain | local | NNPNLRLLLRLRLNN | yes | no | P | N | G=*2 | 1815 | - |
+| 8cyl | count | on | plain | local | NNPNLRLLLRLRLNN | yes | no | P | N | G=*2 | 1882 | - |
+| 8cyl | count | on | plain | global | NNPNLRLLLRLRLNN | yes | no | P | N | G=*2 | 1882 | - |
+| 8cyl | count | on | aware | local | NNNNNNNNNNLRNNN | no | yes | N | P | G!=*2; G=H | 1844 | - |
+| 8cyl | count | on | aware | global | NNNNNNNNNNLRNNN | no | yes | N | P | G!=*2; G=H | 1844 | - |
+| 8cyl | mover | off | plain | local | NNPNLRLLLRLRLNN | yes | no | P | N | G=*2 | 1501 | - |
+| 8cyl | mover | on | plain | local | NNPNLRLLLRLRLNN | yes | no | P | N | G=*2 | 1568 | - |
+| 8cyl | mover | on | plain | global | NNPNLRLLLRLRLNN | yes | no | P | N | G=*2 | 1568 | - |
+| 8cyl | mover | on | aware | local | NNNNNNNNNNLRNNN | no | yes | N | P | G!=*2; G=H | 1942 | - |
+| 8cyl | mover | on | aware | global | NNNNNNNNNNLRNNN | no | yes | N | P | G!=*2; G=H | 1942 | - |
+| 8cyl | opponent | off | plain | local | PNNNLRNLLRLRNNL | no | no | N | N | G!=*2 | 1499 | - |
+| 8cyl | opponent | on | plain | local | PNNNLRNLLRLRNNL | no | no | N | N | G!=*2 | 1562 | - |
+| 8cyl | opponent | on | plain | global | PNNNLRNLLRLRNNL | no | no | N | N | G!=*2 | 1562 | - |
+| 8cyl | opponent | on | aware | local | PNNNLRNLLRLRNNL | no | no | N | N | G!=*2 | 1696 | - |
+| 8cyl | opponent | on | aware | global | PNNNLRNLLRLRNNL | no | no | N | N | G!=*2 | 1696 | - |
+| 5cyl | count | off | plain | local | NNPNLRLLLRLRLNN | yes | no | P | N | G=*2 | 1815 | - |
+| 5cyl | count | on | plain | local | NNPNLRLLLRLRLNN | yes | no | P | N | G=*2 | 1882 | - |
+| 5cyl | count | on | plain | global | NNPNLRLLLRLRLNN | yes | no | P | N | G=*2 | 1882 | - |
+| 5cyl | count | on | aware | local | NNNNNNNNNNLRNNN | no | yes | N | P | G!=*2; G=H | 1844 | - |
+| 5cyl | count | on | aware | global | NNNNNNNNNNLRNNN | no | yes | N | P | G!=*2; G=H | 1844 | - |
+| 5cyl | mover | off | plain | local | NNPNLRLLLRLRLNN | yes | no | P | N | G=*2 | 1501 | - |
+| 5cyl | mover | on | plain | local | NNPNLRLLLRLRLNN | yes | no | P | N | G=*2 | 1568 | - |
+| 5cyl | mover | on | plain | global | NNPNLRLLLRLRLNN | yes | no | P | N | G=*2 | 1568 | - |
+| 5cyl | mover | on | aware | local | NNNNNNNNNNLRNNN | no | yes | N | P | G!=*2; G=H | 1942 | - |
+| 5cyl | mover | on | aware | global | NNNNNNNNNNLRNNN | no | yes | N | P | G!=*2; G=H | 1942 | - |
+| 5cyl | opponent | off | plain | local | PNNNLRNLLRLRNNL | no | no | N | N | G!=*2 | 1499 | - |
+| 5cyl | opponent | on | plain | local | PNNNLRNLLRLRNNL | no | no | N | N | G!=*2 | 1562 | - |
+| 5cyl | opponent | on | plain | global | PNNNLRNLLRLRNNL | no | no | N | N | G!=*2 | 1562 | - |
+| 5cyl | opponent | on | aware | local | PNNNLRNLLRLRNNL | no | no | N | N | G!=*2 | 1696 | - |
+| 5cyl | opponent | on | aware | global | PNNNLRNLLRLRNNL | no | no | N | N | G!=*2 | 1696 | - |
+
+Mechanism checks (4-file flat, count, e.p. on, local scope):
+  [plain] after 1...b7-b5:  P? alone=P  +(2+-1)=L   (P alone => 0; P with +(2+-1) => -2+-1)
+  [plain] after 1.c2-c4:    P? alone=P  +(-2+-1)=R   (P alone => 0; P with +(-2+-1) => 2+-1)
+  [plain] X=W a2 c2/B b4 d7: +3=L   (P => X = -3)
+  [plain] X then a2-a4 resolves to: L
+  [aware] after 1...b7-b5:  P? alone=R  +(2+-1)=P   (P alone => 0; P with +(2+-1) => -2+-1)
+  [aware] after 1.c2-c4:    P? alone=L  +(-2+-1)=P   (P alone => 0; P with +(-2+-1) => 2+-1)
+  [aware] X=W a2 c2/B b4 d7: +3=P   (P => X = -3)
+  [aware] X then a2-a4 resolves to: unresolved, ep=('W', (0, 3), (0, 4))

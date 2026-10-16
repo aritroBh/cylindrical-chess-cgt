@@ -1,0 +1,24 @@
+A1-A3: {'samples': 400, 'equal': 306, 'differ': 94, 'differ_with_violation': 94, 'interior_hered': 267, 'robust_tested': 127}
+A4 ep=True  count    S4,W4,WF4,S8,W8,WF8 = ['*2', '*2', '*2', '*2', '*2', '*2']  hereditarily BIG-interior: False
+A4 ep=True  mover    S4,W4,WF4,S8,W8,WF8 = ['*2', '*2', '*2', '*2', '*2', '*2']  hereditarily BIG-interior: False
+A4 ep=True  opponent S4,W4,WF4,S8,W8,WF8 = ['0', '0', '0', '0', '0', '0']  hereditarily BIG-interior: False
+A4 ep=False count    S4,W4,WF4,S8,W8,WF8 = ['*2', '*2', '*2', '*2', '*2', '*2']  hereditarily BIG-interior: False
+A4 ep=False mover    S4,W4,WF4,S8,W8,WF8 = ['*2', '*2', '*2', '*2', '*2', '*2']  hereditarily BIG-interior: False
+A4 ep=False opponent S4,W4,WF4,S8,W8,WF8 = ['0', '0', '0', '0', '0', '0']  hereditarily BIG-interior: False
+A4 crosscheck/minimax.py outcome (files, e.p., class): [(4, True, 'N'), (8, True, 'N'), (4, False, 'N'), (8, False, 'N')]
+B1 ep=True: 405 non-terminal configurations x 2 sides, 2493 king moves checked, 670 terminal configurations; king destinations {'W': ['e4', 'e5', 'e6', 'f6', 'g6'], 'B': ['g3', 'h3']}
+B1 ep=False: 225 non-terminal configurations x 2 sides, 1395 king moves checked, 610 terminal configurations; king destinations {'W': ['e4', 'e5', 'e6', 'f6', 'g6'], 'B': ['g3', 'h3']}
+B2 bare trebuchet, W to move: B forces a KQK leaf in 14 plies: Kf5-e4 Kh4xg4 Ke4-e3 Kg4-g3 Ke3-e4 g5-g4 Ke4-f5 Kg3-f3 Kf5-g5 g4-g3 Kg5-h4 g3-g2 Kh4-g5 g2-g1=Q (KQK leaf)
+B2 bare trebuchet, B to move: W forces a KQK leaf in 14 plies: Kh4-h3 Kf5xg5 Kh3-g3 Kg5-f5 Kg3-h4 Kf5-f4 Kh4-h3 g4-g5 Kh3-h4 g5-g6 Kh4-h3 g6-g7 Kh3-h4 g7-g8=Q (KQK leaf)
+B3 cylinder trebuchet, W to move: K on h5 attacks ['a4', 'a5', 'a6', 'g4', 'g5', 'g6', 'h4', 'h6']; king moves (move, pawn then en prise) [('Kh5-g5', True), ('Kh5-g4', True), ('Kh5-a6', True), ('Kh5-h6', True), ('Kh5-g6', True)]; pawn moves []
+B3 cylinder trebuchet, B to move: K on b4 attacks ['a3', 'a4', 'a5', 'b3', 'b5', 'c3', 'c4', 'c5']; king moves (move, pawn then en prise) [('Kb4-c4', True), ('Kb4-a3', True), ('Kb4-c3', True), ('Kb4-c5', True), ('Kb4-b3', True)]; pawn moves []
+B3 same diagram on a flat board, king moves: [('W', ['Kh5-h4', 'Kh5-g5', 'Kh5-g4', 'Kh5-h6', 'Kh5-g6']), ('B', ['Kb4-c4', 'Kb4xa4', 'Kb4-a3', 'Kb4-c3', 'Kb4-c5', 'Kb4-b3'])]
+B4 ep=True: race nodes (child, mover) = 224, of which a frozen king is inside an enemy passer's square: 125
+B4 ep=True: single-passer children (child, mover) = 566, of which the frozen enemy king is inside the square: 108
+B4 ep=False: race nodes (child, mover) = 206, of which a frozen king is inside an enemy passer's square: 116
+B4 ep=False: single-passer children (child, mover) = 524, of which the frozen enemy king is inside the square: 99
+FAILURES: 0
+
+real	0m7.373s
+user	0m7.275s
+sys	0m0.041s

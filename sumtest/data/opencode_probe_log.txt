@@ -1,0 +1,35 @@
+# OpenCode probes, 2026-10-15 ~23:00-23:19 CDT, opencode v2.0.25, prompt: 'Reply with exactly the word OK and nothing else. Do not use any tools.'
+## first probe: omniroute/auto/best-coding
+Error: [400]: Upstream request failed: Model is unavailable. [oc/deepseek-v4-flash-free (400), oc/hy3-free (400), oc/north-mini-code-free (400)]
+## batch 1
+== omniroute/auto/pro-coding
+> build · auto/pro-coding
+Error: [400]: Upstream request failed: Model is unavailable. [oc/deepseek-v4-flash-free (400), oc/hy3-free (400), oc/north-mini-code-free (400)]
+== omniroute/auto/best-reasoning
+Error: [400]: Upstream request failed: Model is unavailable. [oc/deepseek-v4-flash-free (400), oc/hy3-free (400), oc/north-mini-code-free (400)]
+== omniroute/aug/gpt5.5
+> build · aug/gpt5.5
+> build · aug/gpt5.5
+> build · aug/gpt5.5
+Error: Stream ended before producing a non-ping SSE event
+== omniroute/aug/kimi-k2.7
+> build · aug/kimi-k2.7
+> build · aug/kimi-k2.7
+> build · aug/kimi-k2.7
+Error: Stream ended before producing a non-ping SSE event
+[exited with code 0]
+## batch 2 (parallel)
+omniroute/aug/glm-5.2, aug/gpt5.6-luna, aug/gemini-3.1-pro-preview: Error: Stream ended before producing a non-ping SSE event
+omniroute/auto/glm: Error: Stream ended before producing a non-ping SSE event [aug/glm-5.2 (502)]
+omniroute/auto/coding:reliable: Error: [400]: Upstream request failed: Model is unavailable. [oc/deepseek-v4-flash-free (400), oc/hy3-free (400), oc/north-mini-code-free (400)]
+opencode/deepseek-v4.1-flash-free: Error: Rate limit exceeded. Please try again later.
+## batch 3 (parallel)
+probe_omniroute_anthropic_claude-sonnet-5.txt:    1 Error: No active credentials for provider: anthropic 
+probe_omniroute_auto_cheap.txt:    1 > build · auto/cheap    1 Error: [400]: Upstream request failed: Model is unavailable. [oc/hy3-free (400), oc/deepseek-v4-flash-free (400), oc/north-mini-code-free (400)] 
+probe_omniroute_oc_big-pickle.txt:   10 > build · oc/big-pickle 
+probe_omniroute_oc_mimo-v2.5-free.txt:    1 Error: [410]: Model mimo-v2.5-free has been deprecated. Use mimo-v2.6-flash-free instead. 
+probe_opencode_big-pickle.txt:    1 Error: Rate limit exceeded. Please try again later. 
+probe_opencode_nemotron-3-ultra-free.txt:    1 Error: Rate limit exceeded. Please try again later. 
+## omniroute/oc/big-pickle with --format json, 90 s: six step_start events, no text, no error; killed by timeout
+## opencode/mimo-v2.6-flash-free: Error: Rate limit exceeded. Please try again later.
+## OmniRoute server itself: GET http://localhost:20128/v1/models -> HTTP 200

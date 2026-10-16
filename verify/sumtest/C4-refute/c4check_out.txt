@@ -1,0 +1,104 @@
+race=count    ep=on  test=textbook split=False
+   X  = {256 | +-256}                  equals ['{256|+-256}']  outcome L
+   B5 = 0                              equals ['0']  outcome P
+   G  = *2                             equals ['*2']  outcome N
+   race nodes visited: 184
+race=count    ep=on  test=textbook split=True
+   X  = {256 | +-256}                  equals ['{256|+-256}']  outcome L
+   B5 = 0                              equals ['0']  outcome P
+   G  = *2                             equals ['*2']  outcome N
+   race nodes visited: 184
+race=count    ep=on  test=aware split=False
+   X  = -3                             equals ['-3']  outcome R
+   B5 = -2+-1                          equals ['-2+-1']  outcome R
+   G  = {2+-1 | -2+-1}                 equals ['{2+-1|-2+-1}']  outcome N
+   race nodes visited: 210
+race=count    ep=on  test=aware split=True
+   X  = -3                             equals ['-3']  outcome R
+   B5 = -2+-1                          equals ['-2+-1']  outcome R
+   G  = {2+-1 | -2+-1}                 equals ['{2+-1|-2+-1}']  outcome N
+   race nodes visited: 210
+race=count    ep=off test=textbook split=False
+   X  = {256 | +-256}                  equals ['{256|+-256}']  outcome L
+   B5 = 0                              equals ['0']  outcome P
+   G  = *2                             equals ['*2']  outcome N
+   race nodes visited: 166
+race=count    ep=off test=textbook split=True
+   X  = {256 | +-256}                  equals ['{256|+-256}']  outcome L
+   B5 = 0                              equals ['0']  outcome P
+   G  = *2                             equals ['*2']  outcome N
+   race nodes visited: 166
+race=mover    ep=on  test=textbook split=False
+   X  = {256 | +-256}                  equals ['{256|+-256}']  outcome L
+   B5 = 0                              equals ['0']  outcome P
+   G  = *2                             equals ['*2']  outcome N
+   race nodes visited: 184
+race=mover    ep=on  test=textbook split=True
+   X  = {256 | +-256}                  equals ['{256|+-256}']  outcome L
+   B5 = 0                              equals ['0']  outcome P
+   G  = *2                             equals ['*2']  outcome N
+   race nodes visited: 184
+race=mover    ep=on  test=aware split=False
+   X  = -3                             equals ['-3']  outcome R
+   B5 = -2+-1                          equals ['-2+-1']  outcome R
+   G  = {2+-1 | -2+-1}                 equals ['{2+-1|-2+-1}']  outcome N
+   race nodes visited: 210
+race=mover    ep=on  test=aware split=True
+   X  = -3                             equals ['-3']  outcome R
+   B5 = -2+-1                          equals ['-2+-1']  outcome R
+   G  = {2+-1 | -2+-1}                 equals ['{2+-1|-2+-1}']  outcome N
+   race nodes visited: 210
+race=mover    ep=off test=textbook split=False
+   X  = {256 | +-256}                  equals ['{256|+-256}']  outcome L
+   B5 = 0                              equals ['0']  outcome P
+   G  = *2                             equals ['*2']  outcome N
+   race nodes visited: 166
+race=mover    ep=off test=textbook split=True
+   X  = {256 | +-256}                  equals ['{256|+-256}']  outcome L
+   B5 = 0                              equals ['0']  outcome P
+   G  = *2                             equals ['*2']  outcome N
+   race nodes visited: 166
+race=opponent ep=on  test=textbook split=False
+   X  = {256 | +-256}                  equals ['{256|+-256}']  outcome L
+   B5 = 1/2                            equals []  outcome L
+   G  = 0                              equals ['0']  outcome P
+   race nodes visited: 184
+race=opponent ep=on  test=textbook split=True
+   X  = {256 | +-256}                  equals ['{256|+-256}']  outcome L
+   B5 = 1/2                            equals []  outcome L
+   G  = 0                              equals ['0']  outcome P
+   race nodes visited: 184
+race=opponent ep=on  test=aware split=False
+   X  = 0                              equals ['0']  outcome P
+   B5 = *                              equals []  outcome N
+   G  = 0                              equals ['0']  outcome P
+   race nodes visited: 210
+race=opponent ep=on  test=aware split=True
+   X  = 0                              equals ['0']  outcome P
+   B5 = *                              equals []  outcome N
+   G  = 0                              equals ['0']  outcome P
+   race nodes visited: 210
+race=opponent ep=off test=textbook split=False
+   X  = {256 | +-256}                  equals ['{256|+-256}']  outcome L
+   B5 = 1/2                            equals []  outcome L
+   G  = 0                              equals ['0']  outcome P
+   race nodes visited: 166
+race=opponent ep=off test=textbook split=True
+   X  = {256 | +-256}                  equals ['{256|+-256}']  outcome L
+   B5 = 1/2                            equals []  outcome L
+   G  = 0                              equals ['0']  outcome P
+   race nodes visited: 166
+
+Mechanism detail (count rule, ep on):
+  test=textbook  Left option ([(0, 3), (2, 2)], [(1, 4), (3, 7)], None) -> +-256
+  test=textbook  Left option ([(0, 4), (2, 2)], [(1, 4), (3, 7)], ((0, 3), (0, 4), 'B')) -> 256
+  test=textbook  Left option ([(0, 2), (2, 3)], [(1, 4), (3, 7)], None) -> {256, {256, {256, {256, +-256 | -256, +-256} | -256, +-256} | -256, +-256} | -256, +-256}
+  test=textbook  Left option ([(0, 2), (2, 4)], [(1, 4), (3, 7)], ((2, 3), (2, 4), 'B')) -> {0, {256, {256, +-256 | -256, +-256} | -256, +-256} | -256}
+  test=aware  Left option ([(0, 3), (2, 2)], [(1, 4), (3, 7)], None) -> +-256
+  test=aware  Left option ([(0, 4), (2, 2)], [(1, 4), (3, 7)], ((0, 3), (0, 4), 'B')) -> +-256
+  test=aware  Left option ([(0, 2), (2, 3)], [(1, 4), (3, 7)], None) -> {256, +-256 | -256, {256, {256, {256, +-256 | -256, +-256} | -256, +-256} | -256, +-256}}
+  test=aware  Left option ([(0, 2), (2, 4)], [(1, 4), (3, 7)], ((2, 3), (2, 4), 'B')) -> {0, {256, {256, +-256 | -256, +-256} | -256, +-256} | -256}
+     after a2-a4, Right [(0, 4), (2, 2)] / [(1, 4), (3, 6)] -> 256
+     after a2-a4, Right [(0, 4), (2, 2)] / [(1, 4), (3, 5)] -> 256
+     after a2-a4, Right [(0, 4), (2, 2)] / [(1, 3), (3, 7)] -> 256
+     after a2-a4, Right [(2, 2)] / [(0, 3), (3, 7)] -> -256

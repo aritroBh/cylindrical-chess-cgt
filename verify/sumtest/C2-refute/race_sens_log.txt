@@ -1,0 +1,18 @@
+
+=== count, ep=False: base {'0': 'N', '*': 'N', '*2': 'P', '*3': 'N'}; 69 distinct race states
+count winner == mover in 37/69 race states
+race states whose single flip destroys G+*2=P: 4
+   W: a2 b5 / B: d7 ep=None last_mover=W count_winner=W -> after flip {'0': 'R', '*': 'N', '*2': 'R', '*3': 'R'}
+   W: a2 / B: c4 d7 ep=None last_mover=B count_winner=B -> after flip {'0': 'L', '*': 'N', '*2': 'L', '*3': 'L'}
+   W: a3 b5 / B: d6 ep=None last_mover=W count_winner=W -> after flip {'0': 'R', '*': 'N', '*2': 'R', '*3': 'R'}
+   W: a3 / B: c4 d6 ep=None last_mover=B count_winner=B -> after flip {'0': 'L', '*': 'N', '*2': 'L', '*3': 'L'}
+count with ties to the MOVER: {'0': 'N', '*': 'N', '*2': 'P', '*3': 'N'}
+
+=== count, ep=True: base {'0': 'N', '*': 'N', '*2': 'P', '*3': 'N'}; 77 distinct race states
+count winner == mover in 37/77 race states
+race states whose single flip destroys G+*2=P: 4
+   W: a2 b5 / B: d7 ep=None last_mover=W count_winner=W -> after flip {'0': 'R', '*': 'N', '*2': 'R', '*3': 'R'}
+   W: a2 / B: c4 d7 ep=None last_mover=B count_winner=B -> after flip {'0': 'L', '*': 'N', '*2': 'L', '*3': 'L'}
+   W: a3 b5 / B: d6 ep=None last_mover=W count_winner=W -> after flip {'0': 'R', '*': 'N', '*2': 'R', '*3': 'R'}
+   W: a3 / B: c4 d6 ep=None last_mover=B count_winner=B -> after flip {'0': 'L', '*': 'N', '*2': 'L', '*3': 'L'}
+count with ties to the MOVER: {'0': 'N', '*': 'N', '*2': 'P', '*3': 'N'}

@@ -1,0 +1,10 @@
+W a2 c2 / B b7 d7, 4 files flat, 8 ranks (independent model)
+count    ep off                   value=*2                           mean=0 temp=0  direct: G+0=N G+*=N G+*2=P G+*3=N
+count    ep on, textbook passer   value=*2                           mean=0 temp=0  direct: G+0=N G+*=N G+*2=P G+*3=N
+count    ep on, ep-aware passer   value={2±1 | -2±1}                 mean=0 temp=2  direct: G+0=N G+*=N G+*2=N G+*3=N
+mover    ep off                   value=*2                           mean=0 temp=0  direct: G+0=N G+*=N G+*2=P G+*3=N
+mover    ep on, textbook passer   value=*2                           mean=0 temp=0  direct: G+0=N G+*=N G+*2=P G+*3=N
+mover    ep on, ep-aware passer   value={2±1 | -2±1}                 mean=0 temp=2  direct: G+0=N G+*=N G+*2=N G+*3=N
+opponent ep off                   value=0                            mean=0 temp=None  direct: G+0=P G+*=N G+*2=N G+*3=N
+opponent ep on, textbook passer   value=0                            mean=0 temp=None  direct: G+0=P G+*=N G+*2=N G+*3=N
+opponent ep on, ep-aware passer   value=0                            mean=0 temp=None  direct: G+0=P G+*=N G+*2=N G+*3=N

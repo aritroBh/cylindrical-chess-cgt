@@ -1,0 +1,75 @@
+{
+ "position": "W: a2 c2 / B: b7 d7",
+ "width": 4,
+ "ep=on": {
+  "base_value": "*2",
+  "distinct_race_positions": 224,
+  "single_flips_that_change_value": 4,
+  "flips": [
+   {
+    "race_position": "W: a2 / B: c4 d7 after B",
+    "count_rule_winner": "B",
+    "value_if_flipped": "↑",
+    "pawns_left": 3,
+    "precapture": false
+   },
+   {
+    "race_position": "W: a2 b5 / B: d7 after W",
+    "count_rule_winner": "W",
+    "value_if_flipped": "↓",
+    "pawns_left": 3,
+    "precapture": false
+   },
+   {
+    "race_position": "W: a3 / B: c4 d6 after B",
+    "count_rule_winner": "B",
+    "value_if_flipped": "↑",
+    "pawns_left": 3,
+    "precapture": false
+   },
+   {
+    "race_position": "W: a3 b5 / B: d6 after W",
+    "count_rule_winner": "W",
+    "value_if_flipped": "↓",
+    "pawns_left": 3,
+    "precapture": false
+   }
+  ]
+ },
+ "ep=off": {
+  "base_value": "*2",
+  "distinct_race_positions": 206,
+  "single_flips_that_change_value": 4,
+  "flips": [
+   {
+    "race_position": "W: a2 / B: c4 d7 after B",
+    "count_rule_winner": "B",
+    "value_if_flipped": "↑",
+    "pawns_left": 3,
+    "precapture": false
+   },
+   {
+    "race_position": "W: a2 b5 / B: d7 after W",
+    "count_rule_winner": "W",
+    "value_if_flipped": "↓",
+    "pawns_left": 3,
+    "precapture": false
+   },
+   {
+    "race_position": "W: a3 / B: c4 d6 after B",
+    "count_rule_winner": "B",
+    "value_if_flipped": "↑",
+    "pawns_left": 3,
+    "precapture": false
+   },
+   {
+    "race_position": "W: a3 b5 / B: d6 after W",
+    "count_rule_winner": "W",
+    "value_if_flipped": "↓",
+    "pawns_left": 3,
+    "precapture": false
+   }
+  ]
+ },
+ "wall_s": 209.6
+}

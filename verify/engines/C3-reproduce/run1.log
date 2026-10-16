@@ -1,0 +1,23 @@
+33 distinct race nodes at depth 1 (tablebase result known)
+tablebase result for the mover: {'draw': 2, 'loss': 22, 'win': 9}
+  rule count    : correct 30/33
+  rule mover    : correct 9/33
+  rule opponent : correct 22/33
+
+by (mover distance - opponent distance):
+  d_mover - d_opp = -4: {'win': 1}
+  d_mover - d_opp = -3: {'win': 5}
+  d_mover - d_opp = -1: {'loss': 1, 'win': 3}
+  d_mover - d_opp = +0: {'draw': 1}
+  d_mover - d_opp = +1: {'draw': 1, 'loss': 14}
+  d_mover - d_opp = +2: {'loss': 6}
+  d_mover - d_opp = +3: {'loss': 1}
+
+by trebuchet:
+  A4: {('draw', False): 2, ('loss', True): 17, ('win', True): 9, ('loss', False): 1}
+  B4: {('loss', True): 4}
+
+misses of the count rule:
+  8/p7/8/5Kp1/6Pk/2p5/1P6/8 w - - 0 1  bxc3   -> W: c3 / B: a7                d_mover=5 d_opp=5 tb=draw
+  8/8/8/3p1Kp1/6Pk/1p6/2P5/8 w - - 0 1  cxb3   -> W: b3 / B: d5                d_mover=5 d_opp=4 tb=draw
+  8/8/8/1p1p1Kp1/2P3Pk/8/8/8 w - - 0 1  c5     -> W: c5 / B: b5 d5             d_mover=3 d_opp=4 tb=loss

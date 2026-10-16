@@ -1,0 +1,46 @@
+== 1. family re-enumeration with cylcgt.passed filter ==
+flat3 mine-family 4310 worker-keys 4310 cylcgt-keys 4310 sets equal: True
+flat4 mine-family 9390 worker-keys 9390 cylcgt-keys 9390 sets equal: True
+cyl3 mine-family 6210 worker-keys 6210 cylcgt-keys 6210 sets equal: True
+cyl4 mine-family 13260 worker-keys 13260 cylcgt-keys 13260 sets equal: True
+cyl5 mine-family 22025 worker-keys 22025 cylcgt-keys 22025 sets equal: True
+total 55195
+
+== 2. crosscheck.minimax (Codex) outcome_class vs X=0 column, count rule ==
+flat3 noep n 4310 crosscheck!=worker 0 crosscheck!=cylcgt 0 {'P': 624, 'N': 2226, 'L': 730, 'R': 730}
+flat3 ep n 4310 crosscheck!=worker 0 crosscheck!=cylcgt 0 {'P': 628, 'N': 2234, 'L': 724, 'R': 724}
+flat4 noep n 9390 crosscheck!=worker 0 crosscheck!=cylcgt 0 {'P': 1423, 'N': 5125, 'L': 1421, 'R': 1421}
+flat4 ep n 9390 crosscheck!=worker 0 crosscheck!=cylcgt 0 {'P': 1429, 'N': 5133, 'L': 1414, 'R': 1414}
+cyl3 noep n 6210 crosscheck!=worker 0 crosscheck!=cylcgt 0 {'P': 765, 'N': 3393, 'L': 1026, 'R': 1026}
+cyl3 ep n 6210 crosscheck!=worker 0 crosscheck!=cylcgt 0 {'P': 771, 'N': 3399, 'L': 1020, 'R': 1020}
+cyl4 noep n 13260 crosscheck!=worker 0 crosscheck!=cylcgt 0 {'P': 1714, 'N': 7522, 'L': 2012, 'R': 2012}
+cyl4 ep n 13260 crosscheck!=worker 0 crosscheck!=cylcgt 0 {'P': 1722, 'N': 7522, 'L': 2008, 'R': 2008}
+cyl5 noep n 22025 crosscheck!=worker 0 crosscheck!=cylcgt 0 {'P': 3160, 'N': 12795, 'L': 3035, 'R': 3035}
+cyl5 ep n 22025 crosscheck!=worker 0 crosscheck!=cylcgt 0 {'P': 3170, 'N': 12795, 'L': 3030, 'R': 3030}
+
+== 3. sensitivity of the C1 comparison ==
+flat3 noep distinct vectors(count) 89 constant vectors 1706 of 4310 cross-rule differing positions {'count/mover': 797, 'count/opponent': 704, 'mover/opponent': 1230}
+flat3 ep distinct vectors(count) 86 constant vectors 1736 of 4310 cross-rule differing positions {'count/mover': 731, 'count/opponent': 708, 'mover/opponent': 1166}
+    flat3 count e.p. on vs off differing positions (cylcgt): 230
+    flat3 mover e.p. on vs off differing positions (cylcgt): 246
+    flat3 opponent e.p. on vs off differing positions (cylcgt): 184
+flat4 noep distinct vectors(count) 95 constant vectors 3823 of 9390 cross-rule differing positions {'count/mover': 2004, 'count/opponent': 1506, 'mover/opponent': 2828}
+flat4 ep distinct vectors(count) 94 constant vectors 3875 of 9390 cross-rule differing positions {'count/mover': 1904, 'count/opponent': 1514, 'mover/opponent': 2732}
+    flat4 count e.p. on vs off differing positions (cylcgt): 382
+    flat4 mover e.p. on vs off differing positions (cylcgt): 398
+    flat4 opponent e.p. on vs off differing positions (cylcgt): 290
+cyl3 noep distinct vectors(count) 97 constant vectors 2589 of 6210 cross-rule differing positions {'count/mover': 1458, 'count/opponent': 744, 'mover/opponent': 1794}
+cyl3 ep distinct vectors(count) 95 constant vectors 2625 of 6210 cross-rule differing positions {'count/mover': 1224, 'count/opponent': 720, 'mover/opponent': 1590}
+    cyl3 count e.p. on vs off differing positions (cylcgt): 330
+    cyl3 mover e.p. on vs off differing positions (cylcgt): 546
+    cyl3 opponent e.p. on vs off differing positions (cylcgt): 330
+cyl4 noep distinct vectors(count) 91 constant vectors 6030 of 13260 cross-rule differing positions {'count/mover': 3028, 'count/opponent': 2872, 'mover/opponent': 4288}
+cyl4 ep distinct vectors(count) 88 constant vectors 6126 of 13260 cross-rule differing positions {'count/mover': 2892, 'count/opponent': 2888, 'mover/opponent': 4160}
+    cyl4 count e.p. on vs off differing positions (cylcgt): 654
+    cyl4 mover e.p. on vs off differing positions (cylcgt): 654
+    cyl4 opponent e.p. on vs off differing positions (cylcgt): 470
+cyl5 noep distinct vectors(count) 95 constant vectors 9835 of 22025 cross-rule differing positions {'count/mover': 5135, 'count/opponent': 4010, 'mover/opponent': 7090}
+cyl5 ep distinct vectors(count) 94 constant vectors 9945 of 22025 cross-rule differing positions {'count/mover': 4965, 'count/opponent': 4030, 'mover/opponent': 6930}
+    cyl5 count e.p. on vs off differing positions (cylcgt): 760
+    cyl5 mover e.p. on vs off differing positions (cylcgt): 760
+    cyl5 opponent e.p. on vs off differing positions (cylcgt): 530

@@ -1,0 +1,17 @@
+PASS *+*=0
+PASS *2+*2=0
+PASS *+*2=*3
+PASS up+down=0
+PASS 1/2+1/2=1
+PASS +-1 + +-1 = 0
+PASS {0,*|0,*} canonical = *2
+PASS {1|0} not number
+PASS 3 + (-3) = 0
+PASS 256 + (-255) = 1
+PASS up* = {0,*|0}
+PASS outcome(up)=L
+PASS outcome(*2)=N
+PASS -2+-1 + 2+-1 = 0
+PASS 1-file a4/a6 = *
+PASS 1-file a2/a5 = up
+PASS W a2/B b3 decided: a2xb3 or b3xa2

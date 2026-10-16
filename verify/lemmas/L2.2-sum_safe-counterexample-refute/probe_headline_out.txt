@@ -1,0 +1,27 @@
+headline W: b2 d4 g3 h5 / B: a7 c7 f7 g4 8x8 cyl e.p. off, count
+  W moves:
+    W: b2 d4 g3 h6 / B: a7 c7 f7 g4: comps=1 oS=N oW=L  <-- differ
+    W: b3 d4 g3 h5 / B: a7 c7 f7 g4: comps=1 oS=R oW=N  <-- differ
+    W: b4 d4 g3 h5 / B: a7 c7 f7 g4: comps=1 oS=N oW=N
+    W: b2 d5 g3 h5 / B: a7 c7 f7 g4: comps=1 oS=R oW=L  <-- differ
+  B moves:
+    W: b2 d4 g3 h5 / B: a6 c7 f7 g4: comps=1 oS=N oW=N
+    W: b2 d4 g3 h5 / B: a5 c7 f7 g4: terminal/race pw=True pb=False
+    W: b2 d4 g3 h5 / B: a7 c7 f6 g4: comps=1 oS=R oW=N  <-- differ
+    W: b2 d4 g3 h5 / B: a7 c7 f5 g4: comps=1 oS=R oW=R
+    W: b2 d4 g3 h5 / B: a7 c6 f7 g4: comps=1 oS=N oW=N
+    W: b2 d4 g3 h5 / B: a7 c5 f7 g4: comps=1 oS=N oW=N
+  reachable positions (e.p. off, any order, stop at passer): 3050; race events: 957
+nested node W: b5 d4 g3 / B: c6 f6 g4 h6
+   component files ['b', 'c', 'd']: W: b5 d4 / B: c6 threats=['+', '-']
+   component files ['f', 'g', 'h']: W: g3 / B: f6 g4 h6 threats=['+', '-']
+   oS=R oW=L
+robustness of the headline:
+   ep=off rule=count: oS=R oW=N
+   ep=off rule=mover: oS=N oW=N
+   ep=off rule=opponent: oS=R oW=N
+   ep=on rule=count: oS=R oW=N
+   ep=on rule=mover: oS=N oW=N
+   ep=on rule=opponent: oS=R oW=N
+   BIG=64 ep=off count: oS=R oW=N
+   BIG=1000 ep=off count: oS=R oW=N

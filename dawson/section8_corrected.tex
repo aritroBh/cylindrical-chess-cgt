@@ -1,0 +1,69 @@
+% Proposed replacement for Section 8 of prior_work/main.tex.
+% Every number below is reproduced by the commands in dawson/REPORT.md.
+% Needs \usepackage{amsmath,amsthm} and a \newtheorem{lemma}{Lemma}.
+
+\section*{8. Dawson's Chess and Its Cylinder Variant}
+
+\textbf{Rules.} Dawson's Chess, invented by T.~R.~Dawson in 1935, is played on a
+$3\times n$ board. White has a pawn on every square of the first rank and Black on every
+square of the third rank; the second rank is empty. Pawns move and capture as in chess: one
+square straight forward onto an empty square, or one square diagonally forward onto an
+enemy pawn. Captures are compulsory. A pawn never reaches its last rank (see below), so
+promotion never arises, and there are no double steps or en passant captures.
+Dawson posed the game in \emph{mis\`ere} form: the player who makes the last move loses.
+The \emph{normal-play} form, in which the player who makes the last move wins, was solved
+by Guy and Smith (1956). They showed that it is the octal game $\mathbf{0.137}$.
+
+\textbf{Why it is an octal game.} Suppose a player advances the pawn on a file whose
+neighbouring files are still untouched. The opponent must capture it, the mover must
+recapture, and so on. After four forced captures the two neighbouring files are empty, the
+middle file holds two blocked pawns, and the opponent is to move. If only one neighbouring
+file is untouched, the sequence lasts three plies and that neighbour is emptied. If
+neither is untouched, the pawn simply advances and is blocked. Empty files and blocked
+files never change again. A row of $n$ untouched files therefore behaves exactly like a
+row of $n$ pins in which a move removes one pin together with its surviving neighbours.
+Both players have the same moves, so the game is impartial. A strip of $n$ files is
+equivalent to Dawson's Kayles ($\mathbf{0.07}$) with $n+1$ pins.
+
+\textbf{Grundy values.} Let $g(n)$ be the Grundy value of a strip of $n$ untouched files.
+The end file of a strip removes two files, and an interior file removes three. Hence
+$g(0)=0$, $g(1)=1$, and for $n\ge 2$
+\[
+g(n)=\operatorname{mex}\Bigl(\{\,g(n-2)\,\}\ \cup\ \{\,g(a)\oplus g(b)\;:\;a,b\ge 0,\ a+b=n-3\,\}\Bigr).
+\]
+The term $g(n-2)$ (an end file) and the value $g(1)=1$ are both essential. Without them
+the recurrence would give $g(1)=g(2)=0$, calling the $3\times1$ and $3\times2$ boards
+second-player wins; in fact the first player's push ends both games. It would also give
+$g(4)\neq0$, whereas the $3\times4$ board is a second-player win. The values for
+$n=0,\dots,33$ are
+\[
+0\,1\,1\,2\,0\,3\,1\,1\,0\,3\,3\,2\,2\,4\,0\,5\,2\,2\,3\,3\,0\,1\,1\,3\,0\,2\,1\,1\,0\,4\,5\,2\,7\,4 .
+\]
+The sequence is periodic with period $34$: $g(n+34)=g(n)$ for all $n\ge 52$. The only
+$n$ with $g(n)\ne g(n+34)$ are $14, 16, 31, 34, 51$. The first player wins the $3\times n$
+board iff $g(n)\neq 0$, so the losing first-move boards are
+$n = 0,4,8,14,20,24,28,34,38,42,54,58,62,72,76,\dots$.
+
+\textbf{The cylinder.} Glue the $a$- and last files of the $3\times n$ board ($n\ge 3$).
+\begin{lemma}[Ring rule]
+On the full $3\times n$ cylinder with $n\ge 3$, every first move, after its forced captures,
+leaves a strip of exactly $n-3$ untouched files, with the opponent to move. Hence the ring
+has Grundy value $R_n=\operatorname{mex}\{g(n-3)\}$. That is, $R_n=1$ if $g(n-3)=0$ and
+$R_n=0$ otherwise.
+\end{lemma}
+\begin{proof}
+On a full ring every file has two distinct untouched neighbours. The forced sequence above
+empties both and blocks the pushed file. The remaining $n-3$ files are untouched, and they
+are consecutive on the cylinder. They are bounded on both sides by empty files. Empty and
+blocked files never change again, so the remaining files form an ordinary strip. All
+first moves are equivalent under rotation, so the full ring has only this one option.
+\end{proof}
+So the first player wins the cylinder iff $g(n-3)=0$, i.e.\ for
+$n=3,7,11,17,23,27,31,37,41,45,57,61,65,75,79,\dots$. This set is periodic with period
+$34$ for $n\ge 38$; the last exception is $n=37$.
+
+\textbf{Mis\`ere play.} Dawson's original mis\`ere question is still open. The
+mis\`ere form is wild, and no complete solution is known. Plambeck and Siegel (2008)
+computed the partial mis\`ere quotient of Dawson's Kayles for heaps up to $33$ (strips up to
+$32$): it has $638$ elements, $109$ of them in the P-portion. On the cylinder, the first
+player wins the mis\`ere game iff the strip of $n-3$ files is a mis\`ere P-position.

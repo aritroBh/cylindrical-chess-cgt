@@ -1,0 +1,31 @@
+{
+ "command": "atlas/flat8/indep_scan.py --max-pawns 6 --workers 6 --rule mover --ep on --strict-ep --out census/indep_mover_epon_strict.json",
+ "rule": "mover",
+ "ep": "on",
+ "strict_ep": true,
+ "compared_with_db": false,
+ "kmax": 4,
+ "selected": 231071,
+ "agree": null,
+ "disagree": null,
+ "disagree_single_component": 0,
+ "disagree_sums_not_sum_safe": 0,
+ "first_disagreements": [],
+ "indep_nimber_counts": {
+  "0": 6569,
+  "1": 3527,
+  "none": 220974,
+  "2": 1
+ },
+ "indep_nimbers_ge2": [
+  [
+   "W: a2 c2 / B: b7 d7",
+   4,
+   [
+    2
+   ]
+  ]
+ ],
+ "wall_s": 44.6,
+ "cpu_s": 140.4
+}

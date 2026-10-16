@@ -1,0 +1,37 @@
+== e.p. on: 405 non-terminal positions, 224 race nodes (child incl. ep field, mover)
+   race nodes after dropping the ep field: 206 (18 of them have an ep twin)
+   count verdict == mover on 122
+   base value (count rule): *2
+   single flips that change the value:
+      ('W: a2 / B: c4 d7', 'B', 'B', '↑')
+      ('W: a2 b5 / B: d7', 'W', 'W', '↓')
+      ('W: a3 / B: c4 d6', 'B', 'B', '↑')
+      ('W: a3 b5 / B: d6', 'W', 'W', '↓')
+   matches claimed list: True
+   flipping ep-twin groups together, groups that change the value: []
+   4 critical won by mover, all others lost by mover: *2
+   4 critical lost by mover, rest count: 0
+   all mover: *2  all opponent: 0
+   random rest, seed 1, 200 trials: {'*2': 145, '↑': 26, '↓': 27, '0': 2}
+   random rest, seed 2, 200 trials: {'*2': 157, '↑': 22, '↓': 15, '0': 6}
+   random rest, seed 3, 200 trials: {'*2': 136, '↑': 28, '↓': 32, '0': 4}
+   random rest, seed 12345, 1000 trials: {'*2': 769, '↑': 113, '↓': 98, '0': 20}
+== e.p. off: 225 non-terminal positions, 206 race nodes (child incl. ep field, mover)
+   race nodes after dropping the ep field: 206 (0 of them have an ep twin)
+   count verdict == mover on 122
+   base value (count rule): *2
+   single flips that change the value:
+      ('W: a2 / B: c4 d7', 'B', 'B', '↑')
+      ('W: a2 b5 / B: d7', 'W', 'W', '↓')
+      ('W: a3 / B: c4 d6', 'B', 'B', '↑')
+      ('W: a3 b5 / B: d6', 'W', 'W', '↓')
+   matches claimed list: True
+   flipping ep-twin groups together, groups that change the value: []
+   4 critical won by mover, all others lost by mover: *2
+   4 critical lost by mover, rest count: 0
+   all mover: *2  all opponent: 0
+   random rest, seed 1, 200 trials: {'↓': 20, '*2': 145, '↑': 32, '0': 3}
+   random rest, seed 2, 200 trials: {'*2': 161, '↓': 21, '↑': 14, '0': 4}
+   random rest, seed 3, 200 trials: {'*2': 165, '↑': 14, '↓': 19, '0': 2}
+   random rest, seed 12345, 1000 trials: {'*2': 767, '↓': 119, '0': 15, '↑': 99}
+PYTHONPATH=. .venv/bin/python $D/indep.py  4.95s user 0.03s system 67% cpu 7.432 total

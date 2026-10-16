@@ -1,0 +1,3600 @@
+{
+ "definition_checks": {
+  "definition_used": "up^2 = {0 | down*} (CGSuite source by A. Siegel: G^n = {0 | H - G^->(n-1)} with G = up = {0|*}, H = *, G^->1 = up)",
+  "up_power_1_is_up": true,
+  "up2_canonical": "{0 | ↓*}",
+  "up2_equals_{0|down*}": true,
+  "up3_canonical": "{0 | {0 | 0, ↓*}}",
+  "up2_positive": true,
+  "up_plus_up2_equals_{up|*}": true,
+  "n_up2_lt_up_for_n_1_to_64": true,
+  "first_failure": null,
+  "up3_positive_and_n_up3_lt_up2_for_n_1_to_32": true
+ },
+ "results": [
+  {
+   "position": "W: a2 b2 b6 / B: a6 b7 c6",
+   "width": 3,
+   "target": "tiny(1)",
+   "pawns": 6,
+   "men_with_trebuchet": 10,
+   "settings": {
+    "count/ep=on": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 13,
+     "race_positions_distinct": 11,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 1,
+      "4": 10
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "count/ep=off": {
+     "value": "↑",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 11,
+     "race_positions_distinct": 11,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 1,
+      "4": 10
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "mover/ep=on": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 13,
+     "race_positions_distinct": 11,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 1,
+      "4": 10
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "mover/ep=off": {
+     "value": "↑",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 11,
+     "race_positions_distinct": 11,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 1,
+      "4": 10
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "opponent/ep=on": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 13,
+     "race_positions_distinct": 11,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 1,
+      "4": 10
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "opponent/ep=off": {
+     "value": "↑",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 11,
+     "race_positions_distinct": 11,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 1,
+      "4": 10
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allW/ep=on": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 13,
+     "race_positions_distinct": 11,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 1,
+      "4": 10
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "allW/ep=off": {
+     "value": "↑",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 11,
+     "race_positions_distinct": 11,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 1,
+      "4": 10
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allB/ep=on": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 13,
+     "race_positions_distinct": 11,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 1,
+      "4": 10
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "allB/ep=off": {
+     "value": "↑",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 11,
+     "race_positions_distinct": 11,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 1,
+      "4": 10
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    }
+   },
+   "value_by_setting": "count/ep=tiny(1); count/noep=↑; mover/ep=tiny(1); mover/noep=↑; opponent/ep=tiny(1); opponent/noep=↑",
+   "robust_6": false,
+   "race_assignment_independent": false,
+   "race_nodes": 13,
+   "precapture_race_nodes": 0,
+   "race_positions_distinct": 11,
+   "precapture_race_positions_distinct": 0,
+   "indep_all_agree": true,
+   "wall_s": 5.0,
+   "robust_ep_on_3rules": true,
+   "assignment_independent_ep_on": true,
+   "legal_necessary_conditions": true,
+   "min_captures_white": 1,
+   "min_captures_black": 0
+  },
+  {
+   "position": "W: a3 b2 c4 / B: a6 c5 c7",
+   "width": 3,
+   "target": "tiny(1)",
+   "pawns": 6,
+   "men_with_trebuchet": 10,
+   "settings": {
+    "count/ep=on": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 55,
+     "race_positions_distinct": 36,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 7,
+      "3": 7,
+      "4": 16,
+      "5": 6
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "count/ep=off": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 42,
+     "race_positions_distinct": 35,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 6,
+      "3": 7,
+      "4": 16,
+      "5": 6
+     },
+     "indep_equals_target": true,
+     "indep_agrees": true
+    },
+    "mover/ep=on": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 55,
+     "race_positions_distinct": 36,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 7,
+      "3": 7,
+      "4": 16,
+      "5": 6
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "mover/ep=off": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 42,
+     "race_positions_distinct": 35,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 6,
+      "3": 7,
+      "4": 16,
+      "5": 6
+     },
+     "indep_equals_target": true,
+     "indep_agrees": true
+    },
+    "opponent/ep=on": {
+     "value": "0",
+     "outcome": "P",
+     "equals_target": false,
+     "race_edges": 55,
+     "race_positions_distinct": 36,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 7,
+      "3": 7,
+      "4": 16,
+      "5": 6
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "opponent/ep=off": {
+     "value": "0",
+     "outcome": "P",
+     "equals_target": false,
+     "race_edges": 42,
+     "race_positions_distinct": 35,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 6,
+      "3": 7,
+      "4": 16,
+      "5": 6
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allW/ep=on": {
+     "value": "1/2",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 55,
+     "race_positions_distinct": 36,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 7,
+      "3": 7,
+      "4": 16,
+      "5": 6
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "allW/ep=off": {
+     "value": "1/2",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 42,
+     "race_positions_distinct": 35,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 6,
+      "3": 7,
+      "4": 16,
+      "5": 6
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allB/ep=on": {
+     "value": "0",
+     "outcome": "P",
+     "equals_target": false,
+     "race_edges": 55,
+     "race_positions_distinct": 36,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 7,
+      "3": 7,
+      "4": 16,
+      "5": 6
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "allB/ep=off": {
+     "value": "0",
+     "outcome": "P",
+     "equals_target": false,
+     "race_edges": 42,
+     "race_positions_distinct": 35,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 6,
+      "3": 7,
+      "4": 16,
+      "5": 6
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    }
+   },
+   "value_by_setting": "count/ep=tiny(1); count/noep=tiny(1); mover/ep=tiny(1); mover/noep=tiny(1); opponent/ep=0; opponent/noep=0",
+   "robust_6": false,
+   "race_assignment_independent": false,
+   "race_nodes": 55,
+   "precapture_race_nodes": 0,
+   "race_positions_distinct": 36,
+   "precapture_race_positions_distinct": 0,
+   "indep_all_agree": true,
+   "wall_s": 4.8,
+   "robust_ep_on_3rules": false,
+   "assignment_independent_ep_on": false,
+   "legal_necessary_conditions": true,
+   "min_captures_white": 0,
+   "min_captures_black": 1
+  },
+  {
+   "position": "W: a3 b2 c4 / B: a5 c6 c7",
+   "width": 3,
+   "target": "tiny(1)",
+   "pawns": 6,
+   "men_with_trebuchet": 10,
+   "settings": {
+    "count/ep=on": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 72,
+     "race_positions_distinct": 46,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 10,
+      "3": 2,
+      "4": 22,
+      "5": 12
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "count/ep=off": {
+     "value": "{1* | -1/2±1/2}",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 56,
+     "race_positions_distinct": 42,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 9,
+      "3": 2,
+      "4": 19,
+      "5": 12
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "mover/ep=on": {
+     "value": "{{+W | {+W, ±+W | -W, ±+W}, {0 | {0, 1/2±1/2 | {-W, {-W, -W* | -W, -W*} | -W, -W*}}}, {+W | {-W, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W} | -W, {-W, {-W, -W* | -W, -W*} | -W, -W*}}}} | -1/2±1/2}",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 72,
+     "race_positions_distinct": 46,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 10,
+      "3": 2,
+      "4": 22,
+      "5": 12
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "mover/ep=off": {
+     "value": "{1*, {+W | {+W, ±+W | -W, ±+W}, {0 | {0, 1/2±1/2 | {-W, {-W, -W* | -W, -W*} | -W, -W*}}}, {+W | {-W, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W} | -W, {-W, {-W, -W* | -W, -W*} | -W, -W*}}}} | -1/2±1/2}",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 56,
+     "race_positions_distinct": 42,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 9,
+      "3": 2,
+      "4": 19,
+      "5": 12
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "opponent/ep=on": {
+     "value": "{+W±1/2 | 1}",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 72,
+     "race_positions_distinct": 46,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 10,
+      "3": 2,
+      "4": 22,
+      "5": 12
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "opponent/ep=off": {
+     "value": "{+W±1/2 | 1}",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 56,
+     "race_positions_distinct": 42,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 9,
+      "3": 2,
+      "4": 19,
+      "5": 12
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allW/ep=on": {
+     "value": "{+W±1/2 | 1}",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 72,
+     "race_positions_distinct": 46,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 10,
+      "3": 2,
+      "4": 22,
+      "5": 12
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "allW/ep=off": {
+     "value": "{+W±1/2 | 1}",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 56,
+     "race_positions_distinct": 42,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 9,
+      "3": 2,
+      "4": 19,
+      "5": 12
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allB/ep=on": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 72,
+     "race_positions_distinct": 46,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 10,
+      "3": 2,
+      "4": 22,
+      "5": 12
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "allB/ep=off": {
+     "value": "{1* | -1/2±1/2}",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 56,
+     "race_positions_distinct": 42,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 9,
+      "3": 2,
+      "4": 19,
+      "5": 12
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    }
+   },
+   "value_by_setting": "count/ep=tiny(1); count/noep={1* | -1/2±1/2}; mover/ep={{+W | {+W, ±+W | -W, ±+W}, {0 | {0, 1/2±1/2 | {-W, {-W, -W* | -W, -W*} | -W, -W*}}}, {+W | {-W, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W} | -W, {-W, {-W, -W* | -W, -W*} | -W, -W*}}}} | -1/2±1/2}; mover/noep={1*, {+W | {+W, ±+W | -W, ±+W}, {0 | {0, 1/2±1/2 | {-W, {-W, -W* | -W, -W*} | -W, -W*}}}, {+W | {-W, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W} | -W, {-W, {-W, -W* | -W, -W*} | -W, -W*}}}} | -1/2±1/2}; opponent/ep={+W±1/2 | 1}; opponent/noep={+W±1/2 | 1}",
+   "robust_6": false,
+   "race_assignment_independent": false,
+   "race_nodes": 72,
+   "precapture_race_nodes": 0,
+   "race_positions_distinct": 46,
+   "precapture_race_positions_distinct": 0,
+   "indep_all_agree": true,
+   "wall_s": 4.3,
+   "robust_ep_on_3rules": false,
+   "assignment_independent_ep_on": false,
+   "legal_necessary_conditions": true,
+   "min_captures_white": 0,
+   "min_captures_black": 1
+  },
+  {
+   "position": "W: a4 b2 c4 / B: a7 b7 c7",
+   "width": 3,
+   "target": "tiny(1)",
+   "pawns": 6,
+   "men_with_trebuchet": 10,
+   "settings": {
+    "count/ep=on": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 195,
+     "race_positions_distinct": 134,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 44,
+      "3": 20,
+      "4": 58,
+      "5": 12
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "count/ep=off": {
+     "value": "-1/8",
+     "outcome": "R",
+     "equals_target": false,
+     "race_edges": 138,
+     "race_positions_distinct": 133,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 44,
+      "3": 19,
+      "4": 58,
+      "5": 12
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "mover/ep=on": {
+     "value": "{0 | -1/2±1/2, {{+W | 0, {0, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W} | -W}} | 0}}",
+     "outcome": "N",
+     "equals_target": false,
+     "race_edges": 195,
+     "race_positions_distinct": 134,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 44,
+      "3": 20,
+      "4": 58,
+      "5": 12
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "mover/ep=off": {
+     "value": "{-1/4 | -1*}",
+     "outcome": "R",
+     "equals_target": false,
+     "race_edges": 138,
+     "race_positions_distinct": 133,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 44,
+      "3": 19,
+      "4": 58,
+      "5": 12
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "opponent/ep=on": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 195,
+     "race_positions_distinct": 134,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 44,
+      "3": 20,
+      "4": 58,
+      "5": 12
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "opponent/ep=off": {
+     "value": "-1/8",
+     "outcome": "R",
+     "equals_target": false,
+     "race_edges": 138,
+     "race_positions_distinct": 133,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 44,
+      "3": 19,
+      "4": 58,
+      "5": 12
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allW/ep=on": {
+     "value": "{0 | {{0 | ↓*, {0, {+W | ↓}, {+W±+W, {+W | *} | -W} | -W}} | -1}}",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 195,
+     "race_positions_distinct": 134,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 44,
+      "3": 20,
+      "4": 58,
+      "5": 12
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "allW/ep=off": {
+     "value": "{0 | {{{{{+W | {+W, ±+W | -W}, {*, {+W | *} | *, {* | -W}}} | 0, -W±+W}, {+W | {+W, {+W, ±+W | -W} | -W}, {{*, {+W | *} | *, {* | -W}} | 0}} | {↓* | -W}} | 0} | -1}}",
+     "outcome": "N",
+     "equals_target": false,
+     "race_edges": 138,
+     "race_positions_distinct": 133,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 44,
+      "3": 19,
+      "4": 58,
+      "5": 12
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allB/ep=on": {
+     "value": "{0 | -1/2±1/2, {{+W | 0, {0, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W} | -W}} | 0}}",
+     "outcome": "N",
+     "equals_target": false,
+     "race_edges": 195,
+     "race_positions_distinct": 134,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 44,
+      "3": 20,
+      "4": 58,
+      "5": 12
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "allB/ep=off": {
+     "value": "{-1/4 | -1*}",
+     "outcome": "R",
+     "equals_target": false,
+     "race_edges": 138,
+     "race_positions_distinct": 133,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 44,
+      "3": 19,
+      "4": 58,
+      "5": 12
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    }
+   },
+   "value_by_setting": "count/ep=tiny(1); count/noep=-1/8; mover/ep={0 | -1/2±1/2, {{+W | 0, {0, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W} | -W}} | 0}}; mover/noep={-1/4 | -1*}; opponent/ep=tiny(1); opponent/noep=-1/8",
+   "robust_6": false,
+   "race_assignment_independent": false,
+   "race_nodes": 195,
+   "precapture_race_nodes": 0,
+   "race_positions_distinct": 134,
+   "precapture_race_positions_distinct": 0,
+   "indep_all_agree": true,
+   "wall_s": 69.8,
+   "robust_ep_on_3rules": false,
+   "assignment_independent_ep_on": false,
+   "legal_necessary_conditions": true,
+   "min_captures_white": 0,
+   "min_captures_black": 0
+  },
+  {
+   "position": "W: a3 b2 c4 / B: a7 c5 d7",
+   "width": 4,
+   "target": "tiny(1)",
+   "pawns": 6,
+   "men_with_trebuchet": 10,
+   "settings": {
+    "count/ep=on": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 302,
+     "race_positions_distinct": 196,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 16,
+      "3": 5,
+      "4": 122,
+      "5": 53
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "count/ep=off": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 202,
+     "race_positions_distinct": 180,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 16,
+      "3": 5,
+      "4": 110,
+      "5": 49
+     },
+     "indep_equals_target": true,
+     "indep_agrees": true
+    },
+    "mover/ep=on": {
+     "value": "⇓*",
+     "outcome": "R",
+     "equals_target": false,
+     "race_edges": 302,
+     "race_positions_distinct": 196,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 16,
+      "3": 5,
+      "4": 122,
+      "5": 53
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "mover/ep=off": {
+     "value": "⇓*",
+     "outcome": "R",
+     "equals_target": false,
+     "race_edges": 202,
+     "race_positions_distinct": 180,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 16,
+      "3": 5,
+      "4": 110,
+      "5": 49
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "opponent/ep=on": {
+     "value": "{↓, ⇓* | 0}",
+     "outcome": "R",
+     "equals_target": false,
+     "race_edges": 302,
+     "race_positions_distinct": 196,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 16,
+      "3": 5,
+      "4": 122,
+      "5": 53
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "opponent/ep=off": {
+     "value": "{↓, ⇓* | 0}",
+     "outcome": "R",
+     "equals_target": false,
+     "race_edges": 202,
+     "race_positions_distinct": 180,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 16,
+      "3": 5,
+      "4": 110,
+      "5": 49
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allW/ep=on": {
+     "value": "1/2",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 302,
+     "race_positions_distinct": 196,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 16,
+      "3": 5,
+      "4": 122,
+      "5": 53
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "allW/ep=off": {
+     "value": "1/2",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 202,
+     "race_positions_distinct": 180,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 16,
+      "3": 5,
+      "4": 110,
+      "5": 49
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allB/ep=on": {
+     "value": "⇓*",
+     "outcome": "R",
+     "equals_target": false,
+     "race_edges": 302,
+     "race_positions_distinct": 196,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 16,
+      "3": 5,
+      "4": 122,
+      "5": 53
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "allB/ep=off": {
+     "value": "⇓*",
+     "outcome": "R",
+     "equals_target": false,
+     "race_edges": 202,
+     "race_positions_distinct": 180,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 16,
+      "3": 5,
+      "4": 110,
+      "5": 49
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    }
+   },
+   "value_by_setting": "count/ep=tiny(1); count/noep=tiny(1); mover/ep=⇓*; mover/noep=⇓*; opponent/ep={↓, ⇓* | 0}; opponent/noep={↓, ⇓* | 0}",
+   "robust_6": false,
+   "race_assignment_independent": false,
+   "race_nodes": 302,
+   "precapture_race_nodes": 0,
+   "race_positions_distinct": 196,
+   "precapture_race_positions_distinct": 0,
+   "indep_all_agree": true,
+   "wall_s": 14.9,
+   "robust_ep_on_3rules": false,
+   "assignment_independent_ep_on": false,
+   "legal_necessary_conditions": true,
+   "min_captures_white": 0,
+   "min_captures_black": 0
+  },
+  {
+   "position": "W: a2 a5 c2 / B: a7 b7 c7",
+   "width": 3,
+   "target": "tiny(1)",
+   "pawns": 6,
+   "men_with_trebuchet": 10,
+   "settings": {
+    "count/ep=on": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 503,
+     "race_positions_distinct": 286,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 22,
+      "3": 80,
+      "4": 165,
+      "5": 19
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "count/ep=off": {
+     "value": "{{0 | {{{+W | 0, -1/2±1/2, ±+W} | 0} | {-W, {{+W | +W*} | -W} | -W}}} | -1*}",
+     "outcome": "R",
+     "equals_target": false,
+     "race_edges": 317,
+     "race_positions_distinct": 272,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 20,
+      "3": 80,
+      "4": 153,
+      "5": 19
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "mover/ep=on": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 503,
+     "race_positions_distinct": 286,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 22,
+      "3": 80,
+      "4": 165,
+      "5": 19
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "mover/ep=off": {
+     "value": "{{{+W | -1/2±1/2, -1/2} | -1/2} | -1*}",
+     "outcome": "R",
+     "equals_target": false,
+     "race_edges": 317,
+     "race_positions_distinct": 272,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 20,
+      "3": 80,
+      "4": 153,
+      "5": 19
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "opponent/ep=on": {
+     "value": "1/16",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 503,
+     "race_positions_distinct": 286,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 22,
+      "3": 80,
+      "4": 165,
+      "5": 19
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "opponent/ep=off": {
+     "value": "{{0 | {{{+W | 0, -1/2±1/2, ±+W} | 0} | {-W, {{+W | +W*} | -W}, {-W, {{+W | +W*} | -W} | -W} | -W}}} | -1*}",
+     "outcome": "R",
+     "equals_target": false,
+     "race_edges": 317,
+     "race_positions_distinct": 272,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 20,
+      "3": 80,
+      "4": 153,
+      "5": 19
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allW/ep=on": {
+     "value": "1",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 503,
+     "race_positions_distinct": 286,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 22,
+      "3": 80,
+      "4": 165,
+      "5": 19
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "allW/ep=off": {
+     "value": "{{0 | {{{+W | 0, -1/2±1/2, ±+W} | 0} | {-W, {{+W | +W*} | -W}, {-W, {{+W | +W*} | -W} | -W} | -W}}} | -1*}",
+     "outcome": "R",
+     "equals_target": false,
+     "race_edges": 317,
+     "race_positions_distinct": 272,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 20,
+      "3": 80,
+      "4": 153,
+      "5": 19
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allB/ep=on": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 503,
+     "race_positions_distinct": 286,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 22,
+      "3": 80,
+      "4": 165,
+      "5": 19
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "allB/ep=off": {
+     "value": "{-1 | -1*}",
+     "outcome": "R",
+     "equals_target": false,
+     "race_edges": 317,
+     "race_positions_distinct": 272,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 20,
+      "3": 80,
+      "4": 153,
+      "5": 19
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    }
+   },
+   "value_by_setting": "count/ep=tiny(1); count/noep={{0 | {{{+W | 0, -1/2±1/2, ±+W} | 0} | {-W, {{+W | +W*} | -W} | -W}}} | -1*}; mover/ep=tiny(1); mover/noep={{{+W | -1/2±1/2, -1/2} | -1/2} | -1*}; opponent/ep=1/16; opponent/noep={{0 | {{{+W | 0, -1/2±1/2, ±+W} | 0} | {-W, {{+W | +W*} | -W}, {-W, {{+W | +W*} | -W} | -W} | -W}}} | -1*}",
+   "robust_6": false,
+   "race_assignment_independent": false,
+   "race_nodes": 503,
+   "precapture_race_nodes": 0,
+   "race_positions_distinct": 286,
+   "precapture_race_positions_distinct": 0,
+   "indep_all_agree": true,
+   "wall_s": 57.7,
+   "robust_ep_on_3rules": false,
+   "assignment_independent_ep_on": false,
+   "legal_necessary_conditions": true,
+   "min_captures_white": 1,
+   "min_captures_black": 0
+  },
+  {
+   "position": "W: b2 b4 c2 / B: a6 c6 d6",
+   "width": 4,
+   "target": "tiny(1)",
+   "pawns": 6,
+   "men_with_trebuchet": 10,
+   "settings": {
+    "count/ep=on": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 620,
+     "race_positions_distinct": 458,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 13,
+      "3": 71,
+      "4": 152,
+      "5": 222
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "count/ep=off": {
+     "value": "↑",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 469,
+     "race_positions_distinct": 438,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 12,
+      "3": 71,
+      "4": 148,
+      "5": 207
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "mover/ep=on": {
+     "value": "1",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 620,
+     "race_positions_distinct": 458,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 13,
+      "3": 71,
+      "4": 152,
+      "5": 222
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "mover/ep=off": {
+     "value": "1",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 469,
+     "race_positions_distinct": 438,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 12,
+      "3": 71,
+      "4": 148,
+      "5": 207
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "opponent/ep=on": {
+     "value": "{0 | {↑ | *}}",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 620,
+     "race_positions_distinct": 458,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 13,
+      "3": 71,
+      "4": 152,
+      "5": 222
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "opponent/ep=off": {
+     "value": "{0 | ⇑}",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 469,
+     "race_positions_distinct": 438,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 12,
+      "3": 71,
+      "4": 148,
+      "5": 207
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allW/ep=on": {
+     "value": "1",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 620,
+     "race_positions_distinct": 458,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 13,
+      "3": 71,
+      "4": 152,
+      "5": 222
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "allW/ep=off": {
+     "value": "1",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 469,
+     "race_positions_distinct": 438,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 12,
+      "3": 71,
+      "4": 148,
+      "5": 207
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allB/ep=on": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 620,
+     "race_positions_distinct": 458,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 13,
+      "3": 71,
+      "4": 152,
+      "5": 222
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "allB/ep=off": {
+     "value": "↑",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 469,
+     "race_positions_distinct": 438,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 12,
+      "3": 71,
+      "4": 148,
+      "5": 207
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    }
+   },
+   "value_by_setting": "count/ep=tiny(1); count/noep=↑; mover/ep=1; mover/noep=1; opponent/ep={0 | {↑ | *}}; opponent/noep={0 | ⇑}",
+   "robust_6": false,
+   "race_assignment_independent": false,
+   "race_nodes": 620,
+   "precapture_race_nodes": 0,
+   "race_positions_distinct": 458,
+   "precapture_race_positions_distinct": 0,
+   "indep_all_agree": true,
+   "wall_s": 46.4,
+   "robust_ep_on_3rules": false,
+   "assignment_independent_ep_on": false,
+   "legal_necessary_conditions": true,
+   "min_captures_white": 1,
+   "min_captures_black": 0
+  },
+  {
+   "position": "W: a3 b2 c2 / B: a7 c6 d7",
+   "width": 4,
+   "target": "tiny(1)",
+   "pawns": 6,
+   "men_with_trebuchet": 10,
+   "settings": {
+    "count/ep=on": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 1475,
+     "race_positions_distinct": 830,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 48,
+      "3": 15,
+      "4": 452,
+      "5": 315
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "count/ep=off": {
+     "value": "{0 | {0, ↓* | ⇓*}}",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 946,
+     "race_positions_distinct": 781,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 48,
+      "3": 14,
+      "4": 425,
+      "5": 294
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "mover/ep=on": {
+     "value": "{0 | {0 | {{-1* | -1} | -1}}}",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 1475,
+     "race_positions_distinct": 830,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 48,
+      "3": 15,
+      "4": 452,
+      "5": 315
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "mover/ep=off": {
+     "value": "1/4",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 946,
+     "race_positions_distinct": 781,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 48,
+      "3": 14,
+      "4": 425,
+      "5": 294
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "opponent/ep=on": {
+     "value": "{0 | {{↓, ⇓* | 0} | {{-1* | -1} | -1}}}",
+     "outcome": "N",
+     "equals_target": false,
+     "race_edges": 1475,
+     "race_positions_distinct": 830,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 48,
+      "3": 15,
+      "4": 452,
+      "5": 315
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "opponent/ep=off": {
+     "value": "↓*",
+     "outcome": "N",
+     "equals_target": false,
+     "race_edges": 946,
+     "race_positions_distinct": 781,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 48,
+      "3": 14,
+      "4": 425,
+      "5": 294
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allW/ep=on": {
+     "value": "3/4",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 1475,
+     "race_positions_distinct": 830,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 48,
+      "3": 15,
+      "4": 452,
+      "5": 315
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "allW/ep=off": {
+     "value": "3/4",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 946,
+     "race_positions_distinct": 781,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 48,
+      "3": 14,
+      "4": 425,
+      "5": 294
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allB/ep=on": {
+     "value": "{0 | {⇓* | {{-1* | -1} | -1}}}",
+     "outcome": "N",
+     "equals_target": false,
+     "race_edges": 1475,
+     "race_positions_distinct": 830,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 48,
+      "3": 15,
+      "4": 452,
+      "5": 315
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "allB/ep=off": {
+     "value": "↓*",
+     "outcome": "N",
+     "equals_target": false,
+     "race_edges": 946,
+     "race_positions_distinct": 781,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 48,
+      "3": 14,
+      "4": 425,
+      "5": 294
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    }
+   },
+   "value_by_setting": "count/ep=tiny(1); count/noep={0 | {0, ↓* | ⇓*}}; mover/ep={0 | {0 | {{-1* | -1} | -1}}}; mover/noep=1/4; opponent/ep={0 | {{↓, ⇓* | 0} | {{-1* | -1} | -1}}}; opponent/noep=↓*",
+   "robust_6": false,
+   "race_assignment_independent": false,
+   "race_nodes": 1475,
+   "precapture_race_nodes": 0,
+   "race_positions_distinct": 830,
+   "precapture_race_positions_distinct": 0,
+   "indep_all_agree": true,
+   "wall_s": 157.5,
+   "robust_ep_on_3rules": false,
+   "assignment_independent_ep_on": false,
+   "legal_necessary_conditions": true,
+   "min_captures_white": 0,
+   "min_captures_black": 0
+  },
+  {
+   "position": "W: b2 b5 c4 / B: a7 c7 d7",
+   "width": 4,
+   "target": "tiny(1)",
+   "pawns": 6,
+   "men_with_trebuchet": 10,
+   "settings": {
+    "count/ep=on": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 925,
+     "race_positions_distinct": 621,
+     "precapture_race_edges": 13,
+     "precapture_race_positions_distinct": 8,
+     "by_pawns_left": {
+      "2": 10,
+      "3": 73,
+      "4": 206,
+      "5": 324,
+      "6": 8
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "count/ep=off": {
+     "value": "-1",
+     "outcome": "R",
+     "equals_target": false,
+     "race_edges": 633,
+     "race_positions_distinct": 580,
+     "precapture_race_edges": 8,
+     "precapture_race_positions_distinct": 8,
+     "by_pawns_left": {
+      "2": 9,
+      "3": 73,
+      "4": 199,
+      "5": 291,
+      "6": 8
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "mover/ep=on": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 925,
+     "race_positions_distinct": 621,
+     "precapture_race_edges": 13,
+     "precapture_race_positions_distinct": 8,
+     "by_pawns_left": {
+      "2": 10,
+      "3": 73,
+      "4": 206,
+      "5": 324,
+      "6": 8
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "mover/ep=off": {
+     "value": "-1",
+     "outcome": "R",
+     "equals_target": false,
+     "race_edges": 633,
+     "race_positions_distinct": 580,
+     "precapture_race_edges": 8,
+     "precapture_race_positions_distinct": 8,
+     "by_pawns_left": {
+      "2": 9,
+      "3": 73,
+      "4": 199,
+      "5": 291,
+      "6": 8
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "opponent/ep=on": {
+     "value": "↑",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 925,
+     "race_positions_distinct": 621,
+     "precapture_race_edges": 13,
+     "precapture_race_positions_distinct": 8,
+     "by_pawns_left": {
+      "2": 10,
+      "3": 73,
+      "4": 206,
+      "5": 324,
+      "6": 8
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "opponent/ep=off": {
+     "value": "-1",
+     "outcome": "R",
+     "equals_target": false,
+     "race_edges": 633,
+     "race_positions_distinct": 580,
+     "precapture_race_edges": 8,
+     "precapture_race_positions_distinct": 8,
+     "by_pawns_left": {
+      "2": 9,
+      "3": 73,
+      "4": 199,
+      "5": 291,
+      "6": 8
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allW/ep=on": {
+     "value": "↑",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 925,
+     "race_positions_distinct": 621,
+     "precapture_race_edges": 13,
+     "precapture_race_positions_distinct": 8,
+     "by_pawns_left": {
+      "2": 10,
+      "3": 73,
+      "4": 206,
+      "5": 324,
+      "6": 8
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "allW/ep=off": {
+     "value": "-1",
+     "outcome": "R",
+     "equals_target": false,
+     "race_edges": 633,
+     "race_positions_distinct": 580,
+     "precapture_race_edges": 8,
+     "precapture_race_positions_distinct": 8,
+     "by_pawns_left": {
+      "2": 9,
+      "3": 73,
+      "4": 199,
+      "5": 291,
+      "6": 8
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allB/ep=on": {
+     "value": "0",
+     "outcome": "P",
+     "equals_target": false,
+     "race_edges": 925,
+     "race_positions_distinct": 621,
+     "precapture_race_edges": 13,
+     "precapture_race_positions_distinct": 8,
+     "by_pawns_left": {
+      "2": 10,
+      "3": 73,
+      "4": 206,
+      "5": 324,
+      "6": 8
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "allB/ep=off": {
+     "value": "-1",
+     "outcome": "R",
+     "equals_target": false,
+     "race_edges": 633,
+     "race_positions_distinct": 580,
+     "precapture_race_edges": 8,
+     "precapture_race_positions_distinct": 8,
+     "by_pawns_left": {
+      "2": 9,
+      "3": 73,
+      "4": 199,
+      "5": 291,
+      "6": 8
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    }
+   },
+   "value_by_setting": "count/ep=tiny(1); count/noep=-1; mover/ep=tiny(1); mover/noep=-1; opponent/ep=↑; opponent/noep=-1",
+   "robust_6": false,
+   "race_assignment_independent": false,
+   "race_nodes": 925,
+   "precapture_race_nodes": 13,
+   "race_positions_distinct": 621,
+   "precapture_race_positions_distinct": 8,
+   "indep_all_agree": true,
+   "wall_s": 41.0,
+   "robust_ep_on_3rules": false,
+   "assignment_independent_ep_on": false,
+   "legal_necessary_conditions": true,
+   "min_captures_white": 1,
+   "min_captures_black": 0
+  },
+  {
+   "position": "W: a3 c2 c5 / B: a7 b7 d7",
+   "width": 4,
+   "target": "tiny(1)",
+   "pawns": 6,
+   "men_with_trebuchet": 10,
+   "settings": {
+    "count/ep=on": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 1009,
+     "race_positions_distinct": 621,
+     "precapture_race_edges": 36,
+     "precapture_race_positions_distinct": 24,
+     "by_pawns_left": {
+      "2": 23,
+      "3": 70,
+      "4": 146,
+      "5": 358,
+      "6": 24
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "count/ep=off": {
+     "value": "{↓ | -2}",
+     "outcome": "R",
+     "equals_target": false,
+     "race_edges": 703,
+     "race_positions_distinct": 566,
+     "precapture_race_edges": 24,
+     "precapture_race_positions_distinct": 24,
+     "by_pawns_left": {
+      "2": 22,
+      "3": 70,
+      "4": 136,
+      "5": 314,
+      "6": 24
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "mover/ep=on": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 1009,
+     "race_positions_distinct": 621,
+     "precapture_race_edges": 36,
+     "precapture_race_positions_distinct": 24,
+     "by_pawns_left": {
+      "2": 23,
+      "3": 70,
+      "4": 146,
+      "5": 358,
+      "6": 24
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "mover/ep=off": {
+     "value": "-W*",
+     "outcome": "R",
+     "equals_target": false,
+     "race_edges": 703,
+     "race_positions_distinct": 566,
+     "precapture_race_edges": 24,
+     "precapture_race_positions_distinct": 24,
+     "by_pawns_left": {
+      "2": 22,
+      "3": 70,
+      "4": 136,
+      "5": 314,
+      "6": 24
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "opponent/ep=on": {
+     "value": "↑",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 1009,
+     "race_positions_distinct": 621,
+     "precapture_race_edges": 36,
+     "precapture_race_positions_distinct": 24,
+     "by_pawns_left": {
+      "2": 23,
+      "3": 70,
+      "4": 146,
+      "5": 358,
+      "6": 24
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "opponent/ep=off": {
+     "value": "{↓ | -2}",
+     "outcome": "R",
+     "equals_target": false,
+     "race_edges": 703,
+     "race_positions_distinct": 566,
+     "precapture_race_edges": 24,
+     "precapture_race_positions_distinct": 24,
+     "by_pawns_left": {
+      "2": 22,
+      "3": 70,
+      "4": 136,
+      "5": 314,
+      "6": 24
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allW/ep=on": {
+     "value": "↑",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 1009,
+     "race_positions_distinct": 621,
+     "precapture_race_edges": 36,
+     "precapture_race_positions_distinct": 24,
+     "by_pawns_left": {
+      "2": 23,
+      "3": 70,
+      "4": 146,
+      "5": 358,
+      "6": 24
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "allW/ep=off": {
+     "value": "{↓ | -2}",
+     "outcome": "R",
+     "equals_target": false,
+     "race_edges": 703,
+     "race_positions_distinct": 566,
+     "precapture_race_edges": 24,
+     "precapture_race_positions_distinct": 24,
+     "by_pawns_left": {
+      "2": 22,
+      "3": 70,
+      "4": 136,
+      "5": 314,
+      "6": 24
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allB/ep=on": {
+     "value": "0",
+     "outcome": "P",
+     "equals_target": false,
+     "race_edges": 1009,
+     "race_positions_distinct": 621,
+     "precapture_race_edges": 36,
+     "precapture_race_positions_distinct": 24,
+     "by_pawns_left": {
+      "2": 23,
+      "3": 70,
+      "4": 146,
+      "5": 358,
+      "6": 24
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "allB/ep=off": {
+     "value": "-W*",
+     "outcome": "R",
+     "equals_target": false,
+     "race_edges": 703,
+     "race_positions_distinct": 566,
+     "precapture_race_edges": 24,
+     "precapture_race_positions_distinct": 24,
+     "by_pawns_left": {
+      "2": 22,
+      "3": 70,
+      "4": 136,
+      "5": 314,
+      "6": 24
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    }
+   },
+   "value_by_setting": "count/ep=tiny(1); count/noep={↓ | -2}; mover/ep=tiny(1); mover/noep=-W*; opponent/ep=↑; opponent/noep={↓ | -2}",
+   "robust_6": false,
+   "race_assignment_independent": false,
+   "race_nodes": 1009,
+   "precapture_race_nodes": 36,
+   "race_positions_distinct": 621,
+   "precapture_race_positions_distinct": 24,
+   "indep_all_agree": true,
+   "wall_s": 99.4,
+   "robust_ep_on_3rules": false,
+   "assignment_independent_ep_on": false,
+   "legal_necessary_conditions": true,
+   "min_captures_white": 1,
+   "min_captures_black": 0
+  },
+  {
+   "position": "W: a6 b2 c2 / B: a7 b6 d6",
+   "width": 4,
+   "target": "tiny(1)",
+   "pawns": 6,
+   "men_with_trebuchet": 10,
+   "settings": {
+    "count/ep=on": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 60,
+     "race_positions_distinct": 44,
+     "precapture_race_edges": 49,
+     "precapture_race_positions_distinct": 36,
+     "by_pawns_left": {
+      "2": 1,
+      "4": 7,
+      "6": 36
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "count/ep=off": {
+     "value": "↑",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 46,
+     "race_positions_distinct": 41,
+     "precapture_race_edges": 36,
+     "precapture_race_positions_distinct": 33,
+     "by_pawns_left": {
+      "2": 1,
+      "4": 7,
+      "6": 33
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "mover/ep=on": {
+     "value": "↑",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 60,
+     "race_positions_distinct": 44,
+     "precapture_race_edges": 49,
+     "precapture_race_positions_distinct": 36,
+     "by_pawns_left": {
+      "2": 1,
+      "4": 7,
+      "6": 36
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "mover/ep=off": {
+     "value": "↑",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 46,
+     "race_positions_distinct": 41,
+     "precapture_race_edges": 36,
+     "precapture_race_positions_distinct": 33,
+     "by_pawns_left": {
+      "2": 1,
+      "4": 7,
+      "6": 33
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "opponent/ep=on": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 60,
+     "race_positions_distinct": 44,
+     "precapture_race_edges": 49,
+     "precapture_race_positions_distinct": 36,
+     "by_pawns_left": {
+      "2": 1,
+      "4": 7,
+      "6": 36
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "opponent/ep=off": {
+     "value": "↑",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 46,
+     "race_positions_distinct": 41,
+     "precapture_race_edges": 36,
+     "precapture_race_positions_distinct": 33,
+     "by_pawns_left": {
+      "2": 1,
+      "4": 7,
+      "6": 33
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allW/ep=on": {
+     "value": "⇑",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 60,
+     "race_positions_distinct": 44,
+     "precapture_race_edges": 49,
+     "precapture_race_positions_distinct": 36,
+     "by_pawns_left": {
+      "2": 1,
+      "4": 7,
+      "6": 36
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "allW/ep=off": {
+     "value": "1/2",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 46,
+     "race_positions_distinct": 41,
+     "precapture_race_edges": 36,
+     "precapture_race_positions_distinct": 33,
+     "by_pawns_left": {
+      "2": 1,
+      "4": 7,
+      "6": 33
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allB/ep=on": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 60,
+     "race_positions_distinct": 44,
+     "precapture_race_edges": 49,
+     "precapture_race_positions_distinct": 36,
+     "by_pawns_left": {
+      "2": 1,
+      "4": 7,
+      "6": 36
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "allB/ep=off": {
+     "value": "↑",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 46,
+     "race_positions_distinct": 41,
+     "precapture_race_edges": 36,
+     "precapture_race_positions_distinct": 33,
+     "by_pawns_left": {
+      "2": 1,
+      "4": 7,
+      "6": 33
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    }
+   },
+   "value_by_setting": "count/ep=tiny(1); count/noep=↑; mover/ep=↑; mover/noep=↑; opponent/ep=tiny(1); opponent/noep=↑",
+   "robust_6": false,
+   "race_assignment_independent": false,
+   "race_nodes": 60,
+   "precapture_race_nodes": 49,
+   "race_positions_distinct": 44,
+   "precapture_race_positions_distinct": 36,
+   "indep_all_agree": true,
+   "wall_s": 3.3,
+   "robust_ep_on_3rules": false,
+   "assignment_independent_ep_on": false,
+   "legal_necessary_conditions": true,
+   "min_captures_white": 0,
+   "min_captures_black": 0
+  },
+  {
+   "position": "W: a2 b2 c2 / B: a7 b6 d4",
+   "width": 4,
+   "target": "tiny(1)",
+   "pawns": 6,
+   "men_with_trebuchet": 10,
+   "settings": {
+    "count/ep=on": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 716,
+     "race_positions_distinct": 536,
+     "precapture_race_edges": 231,
+     "precapture_race_positions_distinct": 165,
+     "by_pawns_left": {
+      "2": 24,
+      "3": 38,
+      "4": 69,
+      "5": 240,
+      "6": 165
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "count/ep=off": {
+     "value": "↑",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 538,
+     "race_positions_distinct": 448,
+     "precapture_race_edges": 165,
+     "precapture_race_positions_distinct": 120,
+     "by_pawns_left": {
+      "2": 22,
+      "3": 38,
+      "4": 66,
+      "5": 202,
+      "6": 120
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "mover/ep=on": {
+     "value": "1",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 716,
+     "race_positions_distinct": 536,
+     "precapture_race_edges": 231,
+     "precapture_race_positions_distinct": 165,
+     "by_pawns_left": {
+      "2": 24,
+      "3": 38,
+      "4": 69,
+      "5": 240,
+      "6": 165
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "mover/ep=off": {
+     "value": "1",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 538,
+     "race_positions_distinct": 448,
+     "precapture_race_edges": 165,
+     "precapture_race_positions_distinct": 120,
+     "by_pawns_left": {
+      "2": 22,
+      "3": 38,
+      "4": 66,
+      "5": 202,
+      "6": 120
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "opponent/ep=on": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 716,
+     "race_positions_distinct": 536,
+     "precapture_race_edges": 231,
+     "precapture_race_positions_distinct": 165,
+     "by_pawns_left": {
+      "2": 24,
+      "3": 38,
+      "4": 69,
+      "5": 240,
+      "6": 165
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "opponent/ep=off": {
+     "value": "↑",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 538,
+     "race_positions_distinct": 448,
+     "precapture_race_edges": 165,
+     "precapture_race_positions_distinct": 120,
+     "by_pawns_left": {
+      "2": 22,
+      "3": 38,
+      "4": 66,
+      "5": 202,
+      "6": 120
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allW/ep=on": {
+     "value": "1",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 716,
+     "race_positions_distinct": 536,
+     "precapture_race_edges": 231,
+     "precapture_race_positions_distinct": 165,
+     "by_pawns_left": {
+      "2": 24,
+      "3": 38,
+      "4": 69,
+      "5": 240,
+      "6": 165
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "allW/ep=off": {
+     "value": "1",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 538,
+     "race_positions_distinct": 448,
+     "precapture_race_edges": 165,
+     "precapture_race_positions_distinct": 120,
+     "by_pawns_left": {
+      "2": 22,
+      "3": 38,
+      "4": 66,
+      "5": 202,
+      "6": 120
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allB/ep=on": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 716,
+     "race_positions_distinct": 536,
+     "precapture_race_edges": 231,
+     "precapture_race_positions_distinct": 165,
+     "by_pawns_left": {
+      "2": 24,
+      "3": 38,
+      "4": 69,
+      "5": 240,
+      "6": 165
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "allB/ep=off": {
+     "value": "↑",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 538,
+     "race_positions_distinct": 448,
+     "precapture_race_edges": 165,
+     "precapture_race_positions_distinct": 120,
+     "by_pawns_left": {
+      "2": 22,
+      "3": 38,
+      "4": 66,
+      "5": 202,
+      "6": 120
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    }
+   },
+   "value_by_setting": "count/ep=tiny(1); count/noep=↑; mover/ep=1; mover/noep=1; opponent/ep=tiny(1); opponent/noep=↑",
+   "robust_6": false,
+   "race_assignment_independent": false,
+   "race_nodes": 716,
+   "precapture_race_nodes": 231,
+   "race_positions_distinct": 536,
+   "precapture_race_positions_distinct": 165,
+   "indep_all_agree": true,
+   "wall_s": 91.5,
+   "robust_ep_on_3rules": false,
+   "assignment_independent_ep_on": false,
+   "legal_necessary_conditions": true,
+   "min_captures_white": 0,
+   "min_captures_black": 0
+  },
+  {
+   "position": "W: a2 b2 c2 / B: a6 b6 d7",
+   "width": 4,
+   "target": "tiny(1)",
+   "pawns": 6,
+   "men_with_trebuchet": 10,
+   "settings": {
+    "count/ep=on": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 2538,
+     "race_positions_distinct": 1626,
+     "precapture_race_edges": 1154,
+     "precapture_race_positions_distinct": 720,
+     "by_pawns_left": {
+      "2": 31,
+      "3": 68,
+      "4": 200,
+      "5": 607,
+      "6": 720
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "count/ep=off": {
+     "value": "{1/4 | {0 | {{{{+W | -W±+W, {* | -1}} | 0} | 0} | 0}}}",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 1639,
+     "race_positions_distinct": 1474,
+     "precapture_race_edges": 720,
+     "precapture_race_positions_distinct": 630,
+     "by_pawns_left": {
+      "2": 28,
+      "3": 68,
+      "4": 191,
+      "5": 557,
+      "6": 630
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "mover/ep=on": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 2538,
+     "race_positions_distinct": 1626,
+     "precapture_race_edges": 1154,
+     "precapture_race_positions_distinct": 720,
+     "by_pawns_left": {
+      "2": 31,
+      "3": 68,
+      "4": 200,
+      "5": 607,
+      "6": 720
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "mover/ep=off": {
+     "value": "↑",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 1639,
+     "race_positions_distinct": 1474,
+     "precapture_race_edges": 720,
+     "precapture_race_positions_distinct": 630,
+     "by_pawns_left": {
+      "2": 28,
+      "3": 68,
+      "4": 191,
+      "5": 557,
+      "6": 630
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "opponent/ep=on": {
+     "value": "{{0 | {0 | ↓*}} | {0 | {{{⇓*, {+W | {↓ | -W}, {* | -W, -W*}} | 0} | 0} | 0}}}",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 2538,
+     "race_positions_distinct": 1626,
+     "precapture_race_edges": 1154,
+     "precapture_race_positions_distinct": 720,
+     "by_pawns_left": {
+      "2": 31,
+      "3": 68,
+      "4": 200,
+      "5": 607,
+      "6": 720
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "opponent/ep=off": {
+     "value": "1/32",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 1639,
+     "race_positions_distinct": 1474,
+     "precapture_race_edges": 720,
+     "precapture_race_positions_distinct": 630,
+     "by_pawns_left": {
+      "2": 28,
+      "3": 68,
+      "4": 191,
+      "5": 557,
+      "6": 630
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allW/ep=on": {
+     "value": "{1/2 | {{0 | {255/2±+W, {+W | {±+W, {{+W | +W, ±+W} | *} | -W, {-W, {+W | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}} | -W}}, {{+W | +W, ±+W, {+W | +W, ±+W}} | *}}, {0 | {+W±+W, {{+W | +W, ±+W, {+W | +W, ±+W}} | *} | {-W, {+W | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}} | -W}}} | -1}} | {{{{{+W | {±+W, {{+W | +W, ±+W} | 0} | -W}, {{+W | +W, ±+W, {+W | +W, ±+W}} | 0}} | 0} | 0} | 0} | 0}}}",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 2538,
+     "race_positions_distinct": 1626,
+     "precapture_race_edges": 1154,
+     "precapture_race_positions_distinct": 720,
+     "by_pawns_left": {
+      "2": 31,
+      "3": 68,
+      "4": 200,
+      "5": 607,
+      "6": 720
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "allW/ep=off": {
+     "value": "3/8±1/8",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 1639,
+     "race_positions_distinct": 1474,
+     "precapture_race_edges": 720,
+     "precapture_race_positions_distinct": 630,
+     "by_pawns_left": {
+      "2": 28,
+      "3": 68,
+      "4": 191,
+      "5": 557,
+      "6": 630
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allB/ep=on": {
+     "value": "tiny(1)",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 2538,
+     "race_positions_distinct": 1626,
+     "precapture_race_edges": 1154,
+     "precapture_race_positions_distinct": 720,
+     "by_pawns_left": {
+      "2": 31,
+      "3": 68,
+      "4": 200,
+      "5": 607,
+      "6": 720
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "allB/ep=off": {
+     "value": "tiny(1/2)",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 1639,
+     "race_positions_distinct": 1474,
+     "precapture_race_edges": 720,
+     "precapture_race_positions_distinct": 630,
+     "by_pawns_left": {
+      "2": 28,
+      "3": 68,
+      "4": 191,
+      "5": 557,
+      "6": 630
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    }
+   },
+   "value_by_setting": "count/ep=tiny(1); count/noep={1/4 | {0 | {{{{+W | -W±+W, {* | -1}} | 0} | 0} | 0}}}; mover/ep=tiny(1); mover/noep=↑; opponent/ep={{0 | {0 | ↓*}} | {0 | {{{⇓*, {+W | {↓ | -W}, {* | -W, -W*}} | 0} | 0} | 0}}}; opponent/noep=1/32",
+   "robust_6": false,
+   "race_assignment_independent": false,
+   "race_nodes": 2538,
+   "precapture_race_nodes": 1154,
+   "race_positions_distinct": 1626,
+   "precapture_race_positions_distinct": 720,
+   "indep_all_agree": true,
+   "wall_s": 166.9,
+   "robust_ep_on_3rules": false,
+   "assignment_independent_ep_on": false,
+   "legal_necessary_conditions": true,
+   "min_captures_white": 0,
+   "min_captures_black": 0
+  },
+  {
+   "position": "W: a4 b4 c4 / B: a6 b7 c7",
+   "width": 3,
+   "target": "up-second {0|v*}",
+   "pawns": 6,
+   "men_with_trebuchet": 10,
+   "settings": {
+    "count/ep=on": {
+     "value": "{0 | ↓*}",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 70,
+     "race_positions_distinct": 65,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 15,
+      "3": 10,
+      "4": 33,
+      "5": 7
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "count/ep=off": {
+     "value": "0",
+     "outcome": "P",
+     "equals_target": false,
+     "race_edges": 67,
+     "race_positions_distinct": 65,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 15,
+      "3": 10,
+      "4": 33,
+      "5": 7
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "mover/ep=on": {
+     "value": "{0, {{+W | ↓*} | 0, ↓*} | {{+W | 0, {0, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W} | -W}} | 0}}",
+     "outcome": "N",
+     "equals_target": false,
+     "race_edges": 70,
+     "race_positions_distinct": 65,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 15,
+      "3": 10,
+      "4": 33,
+      "5": 7
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "mover/ep=off": {
+     "value": "{{{+W, +W±+W | 0, -W±+W}, {+W | 0, {+W, ±+W | -W}, {+W, {+W, {+W, ±+W | -W} | -W} | -W, {+W | -W, {+W | -W, ±+W}}}} | 0} | ⇓*}",
+     "outcome": "R",
+     "equals_target": false,
+     "race_edges": 67,
+     "race_positions_distinct": 65,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 15,
+      "3": 10,
+      "4": 33,
+      "5": 7
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "opponent/ep=on": {
+     "value": "{0 | ↓*}",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 70,
+     "race_positions_distinct": 65,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 15,
+      "3": 10,
+      "4": 33,
+      "5": 7
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "opponent/ep=off": {
+     "value": "0",
+     "outcome": "P",
+     "equals_target": false,
+     "race_edges": 67,
+     "race_positions_distinct": 65,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 15,
+      "3": 10,
+      "4": 33,
+      "5": 7
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allW/ep=on": {
+     "value": "{0 | ↓*}",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 70,
+     "race_positions_distinct": 65,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 15,
+      "3": 10,
+      "4": 33,
+      "5": 7
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "allW/ep=off": {
+     "value": "0",
+     "outcome": "P",
+     "equals_target": false,
+     "race_edges": 67,
+     "race_positions_distinct": 65,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 15,
+      "3": 10,
+      "4": 33,
+      "5": 7
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allB/ep=on": {
+     "value": "{0, {{+W | ↓*} | 0, ↓*} | {{+W | 0, {0, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W} | -W}} | 0}}",
+     "outcome": "N",
+     "equals_target": false,
+     "race_edges": 70,
+     "race_positions_distinct": 65,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 15,
+      "3": 10,
+      "4": 33,
+      "5": 7
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "allB/ep=off": {
+     "value": "{{miny(+W) | 0} | 0}",
+     "outcome": "R",
+     "equals_target": false,
+     "race_edges": 67,
+     "race_positions_distinct": 65,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 15,
+      "3": 10,
+      "4": 33,
+      "5": 7
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    }
+   },
+   "value_by_setting": "count/ep={0 | ↓*}; count/noep=0; mover/ep={0, {{+W | ↓*} | 0, ↓*} | {{+W | 0, {0, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W} | -W}} | 0}}; mover/noep={{{+W, +W±+W | 0, -W±+W}, {+W | 0, {+W, ±+W | -W}, {+W, {+W, {+W, ±+W | -W} | -W} | -W, {+W | -W, {+W | -W, ±+W}}}} | 0} | ⇓*}; opponent/ep={0 | ↓*}; opponent/noep=0",
+   "robust_6": false,
+   "race_assignment_independent": false,
+   "race_nodes": 70,
+   "precapture_race_nodes": 0,
+   "race_positions_distinct": 65,
+   "precapture_race_positions_distinct": 0,
+   "indep_all_agree": true,
+   "wall_s": 18.0,
+   "robust_ep_on_3rules": false,
+   "assignment_independent_ep_on": false,
+   "legal_necessary_conditions": true,
+   "min_captures_white": 0,
+   "min_captures_black": 0
+  },
+  {
+   "position": "W: a2 b2 d2 / B: b6 c5 d7",
+   "width": 4,
+   "target": "up-second {0|v*}",
+   "pawns": 6,
+   "men_with_trebuchet": 10,
+   "settings": {
+    "count/ep=on": {
+     "value": "{0 | ↓*}",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 2250,
+     "race_positions_distinct": 1333,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 50,
+      "3": 15,
+      "4": 644,
+      "5": 624
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "count/ep=off": {
+     "value": "1/2",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 1443,
+     "race_positions_distinct": 1236,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 50,
+      "3": 14,
+      "4": 608,
+      "5": 564
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "mover/ep=on": {
+     "value": "5/16±3/16",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 2250,
+     "race_positions_distinct": 1333,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 50,
+      "3": 15,
+      "4": 644,
+      "5": 624
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "mover/ep=off": {
+     "value": "1",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 1443,
+     "race_positions_distinct": 1236,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 50,
+      "3": 14,
+      "4": 608,
+      "5": 564
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "opponent/ep=on": {
+     "value": "{1/2 | ↓*}",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 2250,
+     "race_positions_distinct": 1333,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 50,
+      "3": 15,
+      "4": 644,
+      "5": 624
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "opponent/ep=off": {
+     "value": "{1/2 | {1/2 | ±1/2}}",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 1443,
+     "race_positions_distinct": 1236,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 50,
+      "3": 14,
+      "4": 608,
+      "5": 564
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allW/ep=on": {
+     "value": "5/16±3/16",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 2250,
+     "race_positions_distinct": 1333,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 50,
+      "3": 15,
+      "4": 644,
+      "5": 624
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "allW/ep=off": {
+     "value": "1",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 1443,
+     "race_positions_distinct": 1236,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 50,
+      "3": 14,
+      "4": 608,
+      "5": 564
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allB/ep=on": {
+     "value": "{0 | ↓*}",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 2250,
+     "race_positions_distinct": 1333,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 50,
+      "3": 15,
+      "4": 644,
+      "5": 624
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "allB/ep=off": {
+     "value": "1/2",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 1443,
+     "race_positions_distinct": 1236,
+     "precapture_race_edges": 0,
+     "precapture_race_positions_distinct": 0,
+     "by_pawns_left": {
+      "2": 50,
+      "3": 14,
+      "4": 608,
+      "5": 564
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    }
+   },
+   "value_by_setting": "count/ep={0 | ↓*}; count/noep=1/2; mover/ep=5/16±3/16; mover/noep=1; opponent/ep={1/2 | ↓*}; opponent/noep={1/2 | {1/2 | ±1/2}}",
+   "robust_6": false,
+   "race_assignment_independent": false,
+   "race_nodes": 2250,
+   "precapture_race_nodes": 0,
+   "race_positions_distinct": 1333,
+   "precapture_race_positions_distinct": 0,
+   "indep_all_agree": true,
+   "wall_s": 215.3,
+   "robust_ep_on_3rules": false,
+   "assignment_independent_ep_on": false,
+   "legal_necessary_conditions": true,
+   "min_captures_white": 0,
+   "min_captures_black": 0
+  },
+  {
+   "position": "W: a3 c5 d4 / B: a7 b7 d7",
+   "width": 4,
+   "target": "up-second {0|v*}",
+   "pawns": 6,
+   "men_with_trebuchet": 10,
+   "settings": {
+    "count/ep=on": {
+     "value": "{0 | ↓*}",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 549,
+     "race_positions_distinct": 339,
+     "precapture_race_edges": 32,
+     "precapture_race_positions_distinct": 21,
+     "by_pawns_left": {
+      "2": 14,
+      "3": 24,
+      "4": 44,
+      "5": 236,
+      "6": 21
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "count/ep=off": {
+     "value": "{0 | {{{+W* | 0} | 0} | 0}}",
+     "outcome": "N",
+     "equals_target": false,
+     "race_edges": 404,
+     "race_positions_distinct": 323,
+     "precapture_race_edges": 21,
+     "precapture_race_positions_distinct": 18,
+     "by_pawns_left": {
+      "2": 13,
+      "3": 24,
+      "4": 40,
+      "5": 228,
+      "6": 18
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "mover/ep=on": {
+     "value": "{0 | ↓*}",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 549,
+     "race_positions_distinct": 339,
+     "precapture_race_edges": 32,
+     "precapture_race_positions_distinct": 21,
+     "by_pawns_left": {
+      "2": 14,
+      "3": 24,
+      "4": 44,
+      "5": 236,
+      "6": 21
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "mover/ep=off": {
+     "value": "-1/2",
+     "outcome": "R",
+     "equals_target": false,
+     "race_edges": 404,
+     "race_positions_distinct": 323,
+     "precapture_race_edges": 21,
+     "precapture_race_positions_distinct": 18,
+     "by_pawns_left": {
+      "2": 13,
+      "3": 24,
+      "4": 40,
+      "5": 228,
+      "6": 18
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "opponent/ep=on": {
+     "value": "{0 | ↓*}",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 549,
+     "race_positions_distinct": 339,
+     "precapture_race_edges": 32,
+     "precapture_race_positions_distinct": 21,
+     "by_pawns_left": {
+      "2": 14,
+      "3": 24,
+      "4": 44,
+      "5": 236,
+      "6": 21
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "opponent/ep=off": {
+     "value": "-1",
+     "outcome": "R",
+     "equals_target": false,
+     "race_edges": 404,
+     "race_positions_distinct": 323,
+     "precapture_race_edges": 21,
+     "precapture_race_positions_distinct": 18,
+     "by_pawns_left": {
+      "2": 13,
+      "3": 24,
+      "4": 40,
+      "5": 228,
+      "6": 18
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allW/ep=on": {
+     "value": "{0 | ↓*}",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 549,
+     "race_positions_distinct": 339,
+     "precapture_race_edges": 32,
+     "precapture_race_positions_distinct": 21,
+     "by_pawns_left": {
+      "2": 14,
+      "3": 24,
+      "4": 44,
+      "5": 236,
+      "6": 21
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "allW/ep=off": {
+     "value": "{0 | {{{+W* | 0} | 0} | 0}}",
+     "outcome": "N",
+     "equals_target": false,
+     "race_edges": 404,
+     "race_positions_distinct": 323,
+     "precapture_race_edges": 21,
+     "precapture_race_positions_distinct": 18,
+     "by_pawns_left": {
+      "2": 13,
+      "3": 24,
+      "4": 40,
+      "5": 228,
+      "6": 18
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allB/ep=on": {
+     "value": "{0 | ↓*}",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 549,
+     "race_positions_distinct": 339,
+     "precapture_race_edges": 32,
+     "precapture_race_positions_distinct": 21,
+     "by_pawns_left": {
+      "2": 14,
+      "3": 24,
+      "4": 44,
+      "5": 236,
+      "6": 21
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "allB/ep=off": {
+     "value": "-2",
+     "outcome": "R",
+     "equals_target": false,
+     "race_edges": 404,
+     "race_positions_distinct": 323,
+     "precapture_race_edges": 21,
+     "precapture_race_positions_distinct": 18,
+     "by_pawns_left": {
+      "2": 13,
+      "3": 24,
+      "4": 40,
+      "5": 228,
+      "6": 18
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    }
+   },
+   "value_by_setting": "count/ep={0 | ↓*}; count/noep={0 | {{{+W* | 0} | 0} | 0}}; mover/ep={0 | ↓*}; mover/noep=-1/2; opponent/ep={0 | ↓*}; opponent/noep=-1",
+   "robust_6": false,
+   "race_assignment_independent": false,
+   "race_nodes": 549,
+   "precapture_race_nodes": 32,
+   "race_positions_distinct": 339,
+   "precapture_race_positions_distinct": 21,
+   "indep_all_agree": true,
+   "wall_s": 34.2,
+   "robust_ep_on_3rules": true,
+   "assignment_independent_ep_on": true,
+   "legal_necessary_conditions": true,
+   "min_captures_white": 0,
+   "min_captures_black": 0
+  },
+  {
+   "position": "W: a2 b2 d5 / B: a6 c5 d7",
+   "width": 4,
+   "target": "up-second {0|v*}",
+   "pawns": 6,
+   "men_with_trebuchet": 10,
+   "settings": {
+    "count/ep=on": {
+     "value": "{0 | ↓*}",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 171,
+     "race_positions_distinct": 118,
+     "precapture_race_edges": 90,
+     "precapture_race_positions_distinct": 60,
+     "by_pawns_left": {
+      "2": 10,
+      "5": 48,
+      "6": 60
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "count/ep=off": {
+     "value": "{0 | ↓*}",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 120,
+     "race_positions_distinct": 109,
+     "precapture_race_edges": 60,
+     "precapture_race_positions_distinct": 51,
+     "by_pawns_left": {
+      "2": 10,
+      "5": 48,
+      "6": 51
+     },
+     "indep_equals_target": true,
+     "indep_agrees": true
+    },
+    "mover/ep=on": {
+     "value": "1/2±1/4",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 171,
+     "race_positions_distinct": 118,
+     "precapture_race_edges": 90,
+     "precapture_race_positions_distinct": 60,
+     "by_pawns_left": {
+      "2": 10,
+      "5": 48,
+      "6": 60
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "mover/ep=off": {
+     "value": "1/2±1/4",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 120,
+     "race_positions_distinct": 109,
+     "precapture_race_edges": 60,
+     "precapture_race_positions_distinct": 51,
+     "by_pawns_left": {
+      "2": 10,
+      "5": 48,
+      "6": 51
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "opponent/ep=on": {
+     "value": "⇑*",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 171,
+     "race_positions_distinct": 118,
+     "precapture_race_edges": 90,
+     "precapture_race_positions_distinct": 60,
+     "by_pawns_left": {
+      "2": 10,
+      "5": 48,
+      "6": 60
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "opponent/ep=off": {
+     "value": "⇑*",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 120,
+     "race_positions_distinct": 109,
+     "precapture_race_edges": 60,
+     "precapture_race_positions_distinct": 51,
+     "by_pawns_left": {
+      "2": 10,
+      "5": 48,
+      "6": 51
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allW/ep=on": {
+     "value": "1",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 171,
+     "race_positions_distinct": 118,
+     "precapture_race_edges": 90,
+     "precapture_race_positions_distinct": 60,
+     "by_pawns_left": {
+      "2": 10,
+      "5": 48,
+      "6": 60
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "allW/ep=off": {
+     "value": "1",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 120,
+     "race_positions_distinct": 109,
+     "precapture_race_edges": 60,
+     "precapture_race_positions_distinct": 51,
+     "by_pawns_left": {
+      "2": 10,
+      "5": 48,
+      "6": 51
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allB/ep=on": {
+     "value": "{0 | ↓*}",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 171,
+     "race_positions_distinct": 118,
+     "precapture_race_edges": 90,
+     "precapture_race_positions_distinct": 60,
+     "by_pawns_left": {
+      "2": 10,
+      "5": 48,
+      "6": 60
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "allB/ep=off": {
+     "value": "{0 | ↓*}",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 120,
+     "race_positions_distinct": 109,
+     "precapture_race_edges": 60,
+     "precapture_race_positions_distinct": 51,
+     "by_pawns_left": {
+      "2": 10,
+      "5": 48,
+      "6": 51
+     },
+     "indep_equals_target": true,
+     "indep_agrees": true
+    }
+   },
+   "value_by_setting": "count/ep={0 | ↓*}; count/noep={0 | ↓*}; mover/ep=1/2±1/4; mover/noep=1/2±1/4; opponent/ep=⇑*; opponent/noep=⇑*",
+   "robust_6": false,
+   "race_assignment_independent": false,
+   "race_nodes": 171,
+   "precapture_race_nodes": 90,
+   "race_positions_distinct": 118,
+   "precapture_race_positions_distinct": 60,
+   "indep_all_agree": true,
+   "wall_s": 8.1,
+   "robust_ep_on_3rules": false,
+   "assignment_independent_ep_on": false,
+   "legal_necessary_conditions": true,
+   "min_captures_white": 0,
+   "min_captures_black": 0
+  },
+  {
+   "position": "W: a2 b2 d4 / B: a7 c6 d7",
+   "width": 4,
+   "target": "up-second {0|v*}",
+   "pawns": 6,
+   "men_with_trebuchet": 10,
+   "settings": {
+    "count/ep=on": {
+     "value": "{0 | ↓*}",
+     "outcome": "L",
+     "equals_target": true,
+     "race_edges": 1742,
+     "race_positions_distinct": 959,
+     "precapture_race_edges": 209,
+     "precapture_race_positions_distinct": 130,
+     "by_pawns_left": {
+      "2": 16,
+      "3": 63,
+      "4": 148,
+      "5": 602,
+      "6": 130
+     },
+     "indep_equals_target": true,
+     "indep_equals_target_strict_ep": true,
+     "indep_agrees": true
+    },
+    "count/ep=off": {
+     "value": "{0 | {0 | {0, * | {↓, {+W | ↓} | -W}}}}",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 1072,
+     "race_positions_distinct": 865,
+     "precapture_race_edges": 130,
+     "precapture_race_positions_distinct": 112,
+     "by_pawns_left": {
+      "2": 15,
+      "3": 63,
+      "4": 136,
+      "5": 539,
+      "6": 112
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "mover/ep=on": {
+     "value": "{0, ↓* | 0, {0, {{+W | +W, {+W | +W, ±+W}} | -W} | -W}}",
+     "outcome": "N",
+     "equals_target": false,
+     "race_edges": 1742,
+     "race_positions_distinct": 959,
+     "precapture_race_edges": 209,
+     "precapture_race_positions_distinct": 130,
+     "by_pawns_left": {
+      "2": 16,
+      "3": 63,
+      "4": 148,
+      "5": 602,
+      "6": 130
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "mover/ep=off": {
+     "value": "{0, ↓* | 0, {0, {{+W | +W, {+W | +W, ±+W}} | -W} | -W}}",
+     "outcome": "N",
+     "equals_target": false,
+     "race_edges": 1072,
+     "race_positions_distinct": 865,
+     "precapture_race_edges": 130,
+     "precapture_race_positions_distinct": 112,
+     "by_pawns_left": {
+      "2": 15,
+      "3": 63,
+      "4": 136,
+      "5": 539,
+      "6": 112
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "opponent/ep=on": {
+     "value": "{1 | {1 | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}}}",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 1742,
+     "race_positions_distinct": 959,
+     "precapture_race_edges": 209,
+     "precapture_race_positions_distinct": 130,
+     "by_pawns_left": {
+      "2": 16,
+      "3": 63,
+      "4": 148,
+      "5": 602,
+      "6": 130
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "opponent/ep=off": {
+     "value": "{1 | {1 | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}}}",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 1072,
+     "race_positions_distinct": 865,
+     "precapture_race_edges": 130,
+     "precapture_race_positions_distinct": 112,
+     "by_pawns_left": {
+      "2": 15,
+      "3": 63,
+      "4": 136,
+      "5": 539,
+      "6": 112
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allW/ep=on": {
+     "value": "{1 | {1 | {*, {+W | *} | -W}}}",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 1742,
+     "race_positions_distinct": 959,
+     "precapture_race_edges": 209,
+     "precapture_race_positions_distinct": 130,
+     "by_pawns_left": {
+      "2": 16,
+      "3": 63,
+      "4": 148,
+      "5": 602,
+      "6": 130
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "allW/ep=off": {
+     "value": "{1 | {1 | {*, {+W | *} | -W}}}",
+     "outcome": "L",
+     "equals_target": false,
+     "race_edges": 1072,
+     "race_positions_distinct": 865,
+     "precapture_race_edges": 130,
+     "precapture_race_positions_distinct": 112,
+     "by_pawns_left": {
+      "2": 15,
+      "3": 63,
+      "4": 136,
+      "5": 539,
+      "6": 112
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    },
+    "allB/ep=on": {
+     "value": "{0 | -W±+W, {-W | {-W | {-W, {-W, ±+W | -W}, {-W, {-W, ±+W | -W}, {+W, ±+W | -W, {+W | -W, -W*}, {-W, ±+W | -W, -W*}} | -W} | -W, {-W, {-W, ±+W | -W} | -W}}}, {-W | {-W | {-W, {-W, ±+W | -W}, {-W, {-W, ±+W | -W}, {+W, ±+W | -W, {+W | -W, -W*}, {-W, ±+W | -W, -W*}} | -W} | -W, {-W, {-W, ±+W | -W} | -W}}}}}}",
+     "outcome": "N",
+     "equals_target": false,
+     "race_edges": 1742,
+     "race_positions_distinct": 959,
+     "precapture_race_edges": 209,
+     "precapture_race_positions_distinct": 130,
+     "by_pawns_left": {
+      "2": 16,
+      "3": 63,
+      "4": 148,
+      "5": 602,
+      "6": 130
+     },
+     "indep_equals_target": false,
+     "indep_equals_target_strict_ep": false,
+     "indep_agrees": true
+    },
+    "allB/ep=off": {
+     "value": "{0 | -W±+W, {-2 | {-W | {-W, {-W, ±+W | -W}, {-W, {-W, ±+W | -W}, {+W, ±+W | -W, {+W | -W, -W*}, {-W, ±+W | -W, -W*}} | -W} | -W, {-W, {-W, ±+W | -W} | -W}}}}}",
+     "outcome": "N",
+     "equals_target": false,
+     "race_edges": 1072,
+     "race_positions_distinct": 865,
+     "precapture_race_edges": 130,
+     "precapture_race_positions_distinct": 112,
+     "by_pawns_left": {
+      "2": 15,
+      "3": 63,
+      "4": 136,
+      "5": 539,
+      "6": 112
+     },
+     "indep_equals_target": false,
+     "indep_agrees": true
+    }
+   },
+   "value_by_setting": "count/ep={0 | ↓*}; count/noep={0 | {0 | {0, * | {↓, {+W | ↓} | -W}}}}; mover/ep={0, ↓* | 0, {0, {{+W | +W, {+W | +W, ±+W}} | -W} | -W}}; mover/noep={0, ↓* | 0, {0, {{+W | +W, {+W | +W, ±+W}} | -W} | -W}}; opponent/ep={1 | {1 | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}}}; opponent/noep={1 | {1 | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}}}",
+   "robust_6": false,
+   "race_assignment_independent": false,
+   "race_nodes": 1742,
+   "precapture_race_nodes": 209,
+   "race_positions_distinct": 959,
+   "precapture_race_positions_distinct": 130,
+   "indep_all_agree": true,
+   "wall_s": 91.7,
+   "robust_ep_on_3rules": false,
+   "assignment_independent_ep_on": false,
+   "legal_necessary_conditions": true,
+   "min_captures_white": 0,
+   "min_captures_black": 0
+  }
+ ]
+}

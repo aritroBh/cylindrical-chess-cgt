@@ -1,0 +1,54 @@
+Position W: c1 c3 d3 / B: c2 d4 d5 d6
+Hand check of the move list at the root (from own generator):
+   W: -> W: c1 c4 d3 / B: c2 d4 d5 d6
+   W: -> W: c1 d3 d4 / B: c2 d5 d6
+   B: -> W: c1 d3 / B: c2 c3 d5 d6
+
+term     race      ep   wrap   BIG | canonical value        | ==tiny(1) ==1 | sum G+miny(1) G+(-1) G+* G+down | races doubles epcaps positions
+----------------------------------------------------------------------------------------------------------------------------------------------
+passed   count     True False   16 | tiny(1)                | True      False | P             R      N   R      |     0       0      0        37
+passed   count     True False  256 | tiny(1)                | True      False | P             R      N   R      |     0       0      0        37
+passed   count     True True    16 | tiny(1)                | True      False | P             R      N   R      |     0       0      0        37
+passed   count     True True   256 | tiny(1)                | True      False | P             R      N   R      |     0       0      0        37
+passed   count     False False   16 | tiny(1)                | True      False | P             R      N   R      |     0       0      0        37
+passed   count     False False  256 | tiny(1)                | True      False | P             R      N   R      |     0       0      0        37
+passed   count     False True    16 | tiny(1)                | True      False | P             R      N   R      |     0       0      0        37
+passed   count     False True   256 | tiny(1)                | True      False | P             R      N   R      |     0       0      0        37
+passed   mover     True False   16 | tiny(1)                | True      False | P             R      N   R      |     0       0      0        37
+passed   mover     True False  256 | tiny(1)                | True      False | P             R      N   R      |     0       0      0        37
+passed   mover     True True    16 | tiny(1)                | True      False | P             R      N   R      |     0       0      0        37
+passed   mover     True True   256 | tiny(1)                | True      False | P             R      N   R      |     0       0      0        37
+passed   mover     False False   16 | tiny(1)                | True      False | P             R      N   R      |     0       0      0        37
+passed   mover     False False  256 | tiny(1)                | True      False | P             R      N   R      |     0       0      0        37
+passed   mover     False True    16 | tiny(1)                | True      False | P             R      N   R      |     0       0      0        37
+passed   mover     False True   256 | tiny(1)                | True      False | P             R      N   R      |     0       0      0        37
+passed   opponent  True False   16 | tiny(1)                | True      False | P             R      N   R      |     0       0      0        37
+passed   opponent  True False  256 | tiny(1)                | True      False | P             R      N   R      |     0       0      0        37
+passed   opponent  True True    16 | tiny(1)                | True      False | P             R      N   R      |     0       0      0        37
+passed   opponent  True True   256 | tiny(1)                | True      False | P             R      N   R      |     0       0      0        37
+passed   opponent  False False   16 | tiny(1)                | True      False | P             R      N   R      |     0       0      0        37
+passed   opponent  False False  256 | tiny(1)                | True      False | P             R      N   R      |     0       0      0        37
+passed   opponent  False True    16 | tiny(1)                | True      False | P             R      N   R      |     0       0      0        37
+passed   opponent  False True   256 | tiny(1)                | True      False | P             R      N   R      |     0       0      0        37
+promote  n/a       True False   16 | tiny(1)                | True      False | P             R      N   R      |     0      14      1       176
+promote  n/a       True False  256 | tiny(1)                | True      False | P             R      N   R      |     0      14      1       176
+promote  n/a       True True    16 | tiny(1)                | True      False | P             R      N   R      |     0      14      1       176
+promote  n/a       True True   256 | tiny(1)                | True      False | P             R      N   R      |     0      14      1       176
+promote  n/a       False False   16 | tiny(1)                | True      False | P             R      N   R      |     0      14      0       162
+promote  n/a       False False  256 | tiny(1)                | True      False | P             R      N   R      |     0      14      0       162
+promote  n/a       False True    16 | tiny(1)                | True      False | P             R      N   R      |     0      14      0       162
+promote  n/a       False True   256 | tiny(1)                | True      False | P             R      N   R      |     0      14      0       162
+
+Root options under the project convention (term=passed, race=count, ep on, flat, BIG=256):
+   W: -> W: c1 c4 d3 / B: c2 d4 d5 d6             value {0 | {{ | -256} | { | -256}}}
+   W: -> W: c1 d3 d4 / B: c2 d5 d6                value 0
+   B: -> W: c1 d3 / B: c2 c3 d5 d6                value {0 | -1}
+Options of A = after c3-c4:
+   W: -> W: c1 c5 d3 / B: c2 d4 d5 d6             value {256 | { | { | -256}}}
+   W: -> W: c1 d3 d5 / B: c2 d4 d6                value 0
+   B: -> W: c1 d3 / B: c2 c4 d4 d6                value {{ | -256} | { | -256}}
+A3 = after c3-c4 d5xc4: value {{ | -256} | { | -256}}; A3 == -BIG+*: False; A3 <= tiny(1): True
+Value of A: {0 | {{ | -256} | { | -256}}}; reversibility check A^R=A3 <= G: True
+
+Interpretation: G == tiny(1) iff G + miny(1) is P (second-player win).
+If G were 1: G+(-1) would be P and G+* would be L. If G = tiny(1): G+(-1) is R, G+* is N, G+down is N? (tiny(1) + down: computed above, not predicted here).

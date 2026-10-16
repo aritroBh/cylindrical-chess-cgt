@@ -1,0 +1,18 @@
+(a) Y reachable from X: True | #reachable: 3967
+    components of Y: ['W: b5 d4 / B: c6', 'W: g3 / B: f6 g4 h6']
+    threats per component (common.threats): [[-1, 1], [-1, 1]]
+    threats per component (indep.tau): [[-1, 1], [-1, 1]]
+    o(S(Y)) pawns: R  indep: R
+    o(W(Y)) common: L  indep: L
+(b) W has 4 moves; children with o(S)!=o(W): 3
+       ('W: b2 d4 g3 h6 / B: a7 c7 f7 g4', 'N', 'L', 'N', 'L', 'DIFF')
+       ('W: b3 d4 g3 h5 / B: a7 c7 f7 g4', 'R', 'N', 'R', 'N', 'DIFF')
+       ('W: b4 d4 g3 h5 / B: a7 c7 f7 g4', 'N', 'N', 'N', 'N', 'same')
+       ('W: b2 d5 g3 h5 / B: a7 c7 f7 g4', 'R', 'L', 'R', 'L', 'DIFF')
+(b) B has 6 moves; children with o(S)!=o(W): 1
+       ('W: b2 d4 g3 h5 / B: a6 c7 f7 g4', 'N', 'N', 'N', 'N', 'same')
+       ('W: b2 d4 g3 h5 / B: a5 c7 f7 g4', 'terminal', 1)
+       ('W: b2 d4 g3 h5 / B: a7 c7 f6 g4', 'R', 'N', 'R', 'N', 'DIFF')
+       ('W: b2 d4 g3 h5 / B: a7 c7 f5 g4', 'R', 'R', 'R', 'R', 'same')
+       ('W: b2 d4 g3 h5 / B: a7 c6 f7 g4', 'N', 'N', 'N', 'N', 'same')
+       ('W: b2 d4 g3 h5 / B: a7 c5 f7 g4', 'N', 'N', 'N', 'N', 'same')

@@ -1,0 +1,17 @@
+--- cylinder ep=on rule=count
+  (a) 7.3{c,d} = tiny(1): True | = 1: False
+  (d) 2.2 up1 W: a3 h2 / B: a4 h5: equals ['0']
+  (d) 3.2 up1 W: a5 h2 / B: a6 h7: equals ['2']
+  (f) 7.2abh: G < 1/16: True | G > -1/16: True
+--- cylinder ep=on rule=mover
+  (a) 7.3{c,d} = tiny(1): True | = 1: False
+  (d) 2.2 up1 W: a3 h2 / B: a4 h5: equals ['0']
+  (d) 3.2 up1 W: a5 h2 / B: a6 h7: equals ['2']
+  (f) 7.2abh: G < 1/16: True | G > -1/16: True
+--- cylinder ep=on rule=opponent
+  (a) 7.3{c,d} = tiny(1): True | = 1: False
+  (d) 2.2 up1 W: a3 h2 / B: a4 h5: equals ['0']
+  (d) 3.2 up1 W: a5 h2 / B: a6 h7: equals ['2']
+  (f) 7.2abh: G < 1/16: True | G > -1/16: True
+  (c) flat ep=on 2.3 = 0: True
+  (d) flat ep=on 2.3 up1 W: c2 d3 / B: c5 d4 equals ['0']

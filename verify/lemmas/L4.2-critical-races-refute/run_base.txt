@@ -1,0 +1,28 @@
+=== e.p. on: 1075 reachable nodes, 224 race keys (child incl. ep field, mover)
+    race keys ignoring the ep field: 206; keys with >1 ep variant: 18
+    count verdict = mover on 122 keys
+    base W(count) = *2 | minimax check base == *2: True
+    W(mover) = *2
+    W(opponent) = 0
+    single flips that change W: 4
+        ('W: a2 / B: c4 d7', 'B', 'B', '^')
+        ('W: a2 b5 / B: d7', 'W', 'W', 'v')
+        ('W: a3 / B: c4 d6', 'B', 'B', '^')
+        ('W: a3 b5 / B: d6', 'W', 'W', 'v')
+    group flips (all ep variants of one configuration, 18 groups with >1 variant) that change W: []
+    crit won by mover, others lost by mover: *2 | minimax ==*2: True
+    crit lost by mover, others count: 0 | minimax ==0: True
+=== e.p. off: 835 reachable nodes, 206 race keys (child incl. ep field, mover)
+    race keys ignoring the ep field: 206; keys with >1 ep variant: 0
+    count verdict = mover on 122 keys
+    base W(count) = *2 | minimax check base == *2: True
+    W(mover) = *2
+    W(opponent) = 0
+    single flips that change W: 4
+        ('W: a2 / B: c4 d7', 'B', 'B', '^')
+        ('W: a2 b5 / B: d7', 'W', 'W', 'v')
+        ('W: a3 / B: c4 d6', 'B', 'B', '^')
+        ('W: a3 b5 / B: d6', 'W', 'W', 'v')
+    group flips (all ep variants of one configuration, 0 groups with >1 variant) that change W: []
+    crit won by mover, others lost by mover: *2 | minimax ==*2: True
+    crit lost by mover, others count: 0 | minimax ==0: True

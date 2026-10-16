@@ -1,0 +1,22 @@
+selected 275, missing/non-200 0, root/move perspective inconsistencies 0
+33 depth-1 race nodes; distinct (fen,uci): 33
+tb result for mover: {'draw': 2, 'loss': 22, 'win': 9}
+  count     30/33
+  opponent  22/33
+  mover     9/33
+by trebuchet: {'A4': 29, 'B4': 4}
+by tier: {'T3-race-sensitive': 29, 'X3-B4-of-T3-race': 4}
+parent component pawn counts: {3: 24, 2: 9}
+distinct parent components: 24 ; distinct (component, move): 29
+by d_mover-d_opp:
+  -4: {'win': 1}
+  -3: {'win': 5}
+  -1: {'loss': 1, 'win': 3}
+  +0: {'draw': 1}
+  +1: {'draw': 1, 'loss': 14}
+  +2: {'loss': 6}
+  +3: {'loss': 1}
+count misses:
+  8/p7/8/5Kp1/6Pk/2p5/1P6/8 w - - 0 1 b2c3 comp=W: b2 / B: a7 c3 dm=5 do=5 tb=draw (draw)
+  8/8/8/3p1Kp1/6Pk/1p6/2P5/8 w - - 0 1 c2b3 comp=W: c2 / B: b3 d5 dm=5 do=4 tb=draw (draw)
+  8/8/8/1p1p1Kp1/2P3Pk/8/8/8 w - - 0 1 c4c5 comp=W: c4 / B: b5 d5 dm=3 do=4 tb=loss (win)

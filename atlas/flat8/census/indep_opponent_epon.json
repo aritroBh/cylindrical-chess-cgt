@@ -1,0 +1,38 @@
+{
+ "command": "atlas/flat8/indep_scan.py --max-pawns 6 --workers 6 --rule opponent --ep on --out census/indep_opponent_epon.json",
+ "rule": "opponent",
+ "ep": "on",
+ "strict_ep": false,
+ "compared_with_db": false,
+ "kmax": 4,
+ "selected": 231071,
+ "agree": null,
+ "disagree": null,
+ "disagree_single_component": 0,
+ "disagree_sums_not_sum_safe": 0,
+ "first_disagreements": [],
+ "indep_nimber_counts": {
+  "0": 6386,
+  "1": 4008,
+  "none": 220675,
+  "2": 2
+ },
+ "indep_nimbers_ge2": [
+  [
+   "W: a2 b3 c3 / B: a6 b5 b7",
+   3,
+   [
+    2
+   ]
+  ],
+  [
+   "W: a3 b2 b4 / B: a7 b6 c6",
+   3,
+   [
+    2
+   ]
+  ]
+ ],
+ "wall_s": 41.4,
+ "cpu_s": 138.6
+}

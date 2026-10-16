@@ -1,0 +1,19 @@
+ok  tiny(1) > 0: got True, want True
+ok  tiny(1) < up? (tiny(1) is smaller than up): got True, want True
+ok  neg(tiny(1)) is miny(1): got True, want True
+ok  {0,{0|-257*} || 0|-1} canonicalises to tiny(1): got True, want True
+ok  {0|-1} is not tiny(1) and not 0: got (False, False), want (False, False)
+ok  pawn(-1) value: got -1, want -1
+ok  pawn(*) value: got *, want *
+ok  pawn(-1) + 1 is P: got P, want P
+ok  pawn(-1) + 0 is R: got R, want R
+ok  pawn(*) + * is P: got P, want P
+ok  pawn(*) + 0 is N: got N, want N
+ok  pawn(*) + tiny(1) is N: got N, want N
+ok  pawn(-1) + tiny(1) is R: got R, want R
+ok  G + 0 is L: got L, want L
+ok  G + miny(1) is P: got P, want P
+ok  G + (-1) is R (would be P if G = 1): got R, want R
+ok  G + miny(2) is L (tiny(1) > tiny(2)), so the sum test can tell tinies apart: got L, want L
+ok  G + down is R (tiny(1) < up): got R, want R
+all ok

@@ -1,0 +1,20 @@
+ep-aware variant: False
+positions: 275 | my count-rule win set != worker pred_win: []
+mover-result categories over all moves of all 275 positions: {'win': 434, 'loss': 1047, 'draw': 195}
+
+GROUP tame & race-insensitive (my minimax) & A-trebuchet: 94 {'A4': 68, 'A2': 4, 'A3': 11, 'A5': 6, 'A6': 5} {'T1-tame-win': 42, 'T2-tame-loss': 19, 'T5-trebuchet-variants': 12, 'X2-tame-win-more': 21}
+  stm: {'W': 94}
+  [count] root 92/94  pawn-win-set 94/94 (both empty in 19)  full-win-set 90/94  every-move-exact 70/94
+     pawn moves predicted to lose: 59, of which TB draw: 5
+     ROOT MISS ('cgt052', '8/8/3p4/3p1Kp1/6Pk/8/2P5/8 w - - 0 1', 'pred', 'loss', 'tb', 'draw', {'c2c3': 'draw'})
+     ROOT MISS ('cgt055', '8/2p5/2p5/2P2Kp1/6Pk/8/8/8 w - - 0 1', 'pred', 'loss', 'tb', 'draw', {'f5e6': 'draw'})
+     FULL-SET MISS ('cgt008', '8/3p4/3P4/5Kp1/3P2Pk/8/8/8 w - - 0 1', ['f5f6'], [])
+     FULL-SET MISS ('cgt011', '8/3p4/3P4/5Kp1/6Pk/3P4/8/8 w - - 0 1', ['f5f6'], [])
+     FULL-SET MISS ('cgt019', '8/2p5/8/3P1Kp1/6Pk/8/3P4/8 w - - 0 1', ['f5e6'], [])
+     FULL-SET MISS ('cgt236', '8/3p4/3P1Kp1/6Pk/8/8/3P4/8 w - - 0 1', ['f6e5', 'f6e7', 'f6f7', 'f6g7'], [])
+  [mover] root 92/94  pawn-win-set 94/94 (both empty in 19)  full-win-set 90/94  every-move-exact 70/94
+     pawn moves predicted to lose: 59, of which TB draw: 5
+  [opponent] root 92/94  pawn-win-set 94/94 (both empty in 19)  full-win-set 90/94  every-move-exact 70/94
+     pawn moves predicted to lose: 59, of which TB draw: 5
+  TB roots in group: {'win': 75, 'loss': 17, 'draw': 2}
+  CGT predicts stm wins in 75 of 94

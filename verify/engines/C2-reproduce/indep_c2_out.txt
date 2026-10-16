@@ -1,0 +1,44 @@
+raw cache files: 285
+selected positions: 275 distinct FENs: 275
+king-move set mismatches vs my generator / SAN: 0
+big-A        n= 30 king-move results (for mover): {'loss': 95, 'draw': 24, 'win': 25} total=144
+big-B        n= 10 king-move results (for mover): {'loss': 20} total=20
+big-rs-A     n= 44 king-move results (for mover): {'win': 58, 'draw': 33, 'loss': 122} total=213
+big-rs-B     n=  8 king-move results (for mover): {'loss': 14, 'draw': 2} total=16
+tame-A       n= 94 king-move results (for mover): {'loss': 401, 'draw': 41, 'win': 7} total=449
+tame-B       n= 54 king-move results (for mover): {'loss': 115, 'draw': 5} total=120
+tame-rs-A    n= 28 king-move results (for mover): {'loss': 84, 'draw': 47, 'win': 6} total=137
+tame-rs-B    n=  7 king-move results (for mover): {'draw': 4, 'loss': 10} total=14
+
+== tame-A: non-losing king moves
+  stm: {'W': 94} tiers: {'T1': 42, 'T2': 19, 'T5': 12, 'X2': 21} trebs: {'A2': 4, 'A3': 11, 'A4': 68, 'A5': 6, 'A6': 5}
+  cgt002 T1 A4 W W: c3 / B: d6            root=win   {'f5e6': 'draw'}
+  cgt007 T1 A4 W W: b3 b4 / B: c6         root=win   {'f5e5': 'draw', 'f5e6': 'draw'}
+  cgt008 T1 A4 W W: d4 d6 / B: d7         root=win   {'f5f6': 'win', 'f5e5': 'draw', 'f5g6': 'draw'}
+  cgt010 T1 A4 W W: d4 d5 / B: d7         root=win   {'f5e5': 'draw', 'f5f6': 'draw'}
+  cgt011 T1 A4 W W: d3 d6 / B: d7         root=win   {'f5f6': 'win', 'f5e5': 'draw', 'f5g6': 'draw'}
+  cgt013 T1 A4 W W: c3 c5 / B: b7         root=win   {'f5e5': 'draw', 'f5e6': 'draw'}
+  cgt014 T1 A4 W W: a3 a5 / B: b7         root=win   {'f5e5': 'draw', 'f5e6': 'draw'}
+  cgt015 T1 A4 W W: b2 b4 / B: c6         root=win   {'f5e5': 'draw', 'f5e6': 'draw'}
+  cgt016 T1 A4 W W: d2 d4 / B: c6         root=win   {'f5e5': 'draw', 'f5e6': 'draw'}
+  cgt017 T1 A4 W W: b2 b6 / B: b7         root=win   {'f5e5': 'draw', 'f5e6': 'draw'}
+  cgt019 T1 A4 W W: d2 d5 / B: c7         root=win   {'f5e6': 'win'}
+  cgt020 T1 A4 W W: b2 b5 / B: c7         root=win   {'f5e4': 'draw', 'f5e5': 'draw', 'f5e6': 'draw', 'f5f6': 'draw'}
+  cgt022 T1 A4 W W: b3 b4 / B: c7         root=win   {'f5e6': 'draw'}
+  cgt025 T1 A4 W W: c2 c4 / B: d7         root=win   {'f5e5': 'draw', 'f5f6': 'draw'}
+  cgt055 T2 A4 W W: c5 / B: c6 c7         root=draw  {'f5e6': 'draw'}
+  cgt221 X2 A4 W W: c2 / B: d5            root=win   {'f5e5': 'draw', 'f5e6': 'draw'}
+  cgt236 X2 A5 W W: d2 d6 / B: d7         root=win   {'f6e5': 'win', 'f6e7': 'win', 'f6f7': 'win', 'f6g7': 'win'}
+  cgt237 X2 A4 W W: c2 c5 / B: b7         root=win   {'f5e5': 'draw', 'f5e6': 'draw'}
+  cgt238 X2 A6 W W: a2 a5 / B: b7         root=win   {'f7e6': 'draw', 'f7e7': 'draw', 'f7e8': 'draw', 'f7f8': 'draw'}
+  cgt254 X2 A6 W W: c2 c4 / B: c7         root=win   {'f7e6': 'draw', 'f7e7': 'draw', 'f7e8': 'draw'}
+  cgt259 X2 A5 W W: c2 / B: c6            root=win   {'f6e5': 'draw', 'f6e6': 'draw', 'f6e7': 'draw'}
+  positions with a non-losing king move: 21 / 94
+
+== tame-B: non-losing king moves
+  stm: {'W': 50, 'B': 4} tiers: {'T5': 15, 'T6': 4, 'X1': 14, 'X2': 21} trebs: {'B2': 6, 'B3': 7, 'B4': 26, 'B5': 8, 'B6': 7}
+  cgt202 T6 B4 B W: b2 / B: b3 b6         root=win   {'f4e3': 'draw', 'f4e4': 'draw'}
+  cgt207 X1 B4 W W: d4 d6 / B: d7         root=win   {'h5g6': 'draw'}
+  cgt209 X1 B4 W W: d3 d6 / B: d7         root=win   {'h5g6': 'draw'}
+  cgt228 X2 B6 W W: c4 c5 / B: c7         root=win   {'h7g8': 'draw'}
+  positions with a non-losing king move: 4 / 54

@@ -1,0 +1,61 @@
+candidate: W: a2 c2 / B: b7 d7  | 8x8: W: a2 c2 g4 / B: b7 d7 g5
+
+== e.p. on ==
+ tree stats 4-file: {'reachable': 1075, 'nonterminal': 405, 'multi_live_component_nodes': 0, 'ep_capture_edges': 12, 'race_edges': 398, 'race_children': 224}
+ tree stats 8x8   : {'reachable': 1075, 'nonterminal': 405, 'multi_live_component_nodes': 0, 'ep_capture_edges': 12, 'race_edges': 398, 'race_children': 224}
+ rule=count    B-engine values: {'S4': '*2', 'W4': '*2', 'WF4': '*2', 'S8': '*2', 'W8': '*2', 'WF8': '*2'}  (split events in S: 4f=0, 8f=0)
+   A: board=4f kings=False outcome of G+*0,G+*1,G+*2,G+*3 = ('N', 'N', 'P', 'N')
+   A: board=4f kings=True  outcome of G+*0,G+*1,G+*2,G+*3 = ('N', 'N', 'P', 'N')
+   A: board=8f kings=False outcome of G+*0,G+*1,G+*2,G+*3 = ('N', 'N', 'P', 'N')
+   A: board=8f kings=True  outcome of G+*0,G+*1,G+*2,G+*3 = ('N', 'N', 'P', 'N')
+ rule=mover    B-engine values: {'S4': '*2', 'W4': '*2', 'WF4': '*2', 'S8': '*2', 'W8': '*2', 'WF8': '*2'}  (split events in S: 4f=0, 8f=0)
+   A: board=4f kings=False outcome of G+*0,G+*1,G+*2,G+*3 = ('N', 'N', 'P', 'N')
+   A: board=4f kings=True  outcome of G+*0,G+*1,G+*2,G+*3 = ('N', 'N', 'P', 'N')
+   A: board=8f kings=False outcome of G+*0,G+*1,G+*2,G+*3 = ('N', 'N', 'P', 'N')
+   A: board=8f kings=True  outcome of G+*0,G+*1,G+*2,G+*3 = ('N', 'N', 'P', 'N')
+ rule=opponent B-engine values: {'S4': '0', 'W4': '0', 'WF4': '0', 'S8': '0', 'W8': '0', 'WF8': '0'}  (split events in S: 4f=0, 8f=0)
+   A: board=4f kings=False outcome of G+*0,G+*1,G+*2,G+*3 = ('P', 'N', 'N', 'N')
+   A: board=4f kings=True  outcome of G+*0,G+*1,G+*2,G+*3 = ('P', 'N', 'N', 'N')
+   A: board=8f kings=False outcome of G+*0,G+*1,G+*2,G+*3 = ('P', 'N', 'N', 'N')
+   A: board=8f kings=True  outcome of G+*0,G+*1,G+*2,G+*3 = ('P', 'N', 'N', 'N')
+
+== e.p. off ==
+ tree stats 4-file: {'reachable': 835, 'nonterminal': 225, 'multi_live_component_nodes': 0, 'ep_capture_edges': 0, 'race_edges': 224, 'race_children': 206}
+ tree stats 8x8   : {'reachable': 835, 'nonterminal': 225, 'multi_live_component_nodes': 0, 'ep_capture_edges': 0, 'race_edges': 224, 'race_children': 206}
+ rule=count    B-engine values: {'S4': '*2', 'W4': '*2', 'WF4': '*2', 'S8': '*2', 'W8': '*2', 'WF8': '*2'}  (split events in S: 4f=0, 8f=0)
+   A: board=4f kings=False outcome of G+*0,G+*1,G+*2,G+*3 = ('N', 'N', 'P', 'N')
+   A: board=4f kings=True  outcome of G+*0,G+*1,G+*2,G+*3 = ('N', 'N', 'P', 'N')
+   A: board=8f kings=False outcome of G+*0,G+*1,G+*2,G+*3 = ('N', 'N', 'P', 'N')
+   A: board=8f kings=True  outcome of G+*0,G+*1,G+*2,G+*3 = ('N', 'N', 'P', 'N')
+ rule=mover    B-engine values: {'S4': '*2', 'W4': '*2', 'WF4': '*2', 'S8': '*2', 'W8': '*2', 'WF8': '*2'}  (split events in S: 4f=0, 8f=0)
+   A: board=4f kings=False outcome of G+*0,G+*1,G+*2,G+*3 = ('N', 'N', 'P', 'N')
+   A: board=4f kings=True  outcome of G+*0,G+*1,G+*2,G+*3 = ('N', 'N', 'P', 'N')
+   A: board=8f kings=False outcome of G+*0,G+*1,G+*2,G+*3 = ('N', 'N', 'P', 'N')
+   A: board=8f kings=True  outcome of G+*0,G+*1,G+*2,G+*3 = ('N', 'N', 'P', 'N')
+ rule=opponent B-engine values: {'S4': '0', 'W4': '0', 'WF4': '0', 'S8': '0', 'W8': '0', 'WF8': '0'}  (split events in S: 4f=0, 8f=0)
+   A: board=4f kings=False outcome of G+*0,G+*1,G+*2,G+*3 = ('P', 'N', 'N', 'N')
+   A: board=4f kings=True  outcome of G+*0,G+*1,G+*2,G+*3 = ('P', 'N', 'N', 'N')
+   A: board=8f kings=False outcome of G+*0,G+*1,G+*2,G+*3 = ('P', 'N', 'N', 'N')
+   A: board=8f kings=True  outcome of G+*0,G+*1,G+*2,G+*3 = ('P', 'N', 'N', 'N')
+
+== BIG robustness (W, 4 files) ==
+ BIG=32 ep=True count: W=*2 WF=*2
+ BIG=32 ep=True mover: W=*2 WF=*2
+ BIG=32 ep=True opponent: W=0 WF=0
+ BIG=32 ep=False count: W=*2 WF=*2
+ BIG=32 ep=False mover: W=*2 WF=*2
+ BIG=32 ep=False opponent: W=0 WF=0
+ BIG=64 ep=True count: W=*2 WF=*2
+ BIG=64 ep=True mover: W=*2 WF=*2
+ BIG=64 ep=True opponent: W=0 WF=0
+ BIG=64 ep=False count: W=*2 WF=*2
+ BIG=64 ep=False mover: W=*2 WF=*2
+ BIG=64 ep=False opponent: W=0 WF=0
+ BIG=1000 ep=True count: W=*2 WF=*2
+ BIG=1000 ep=True mover: W=*2 WF=*2
+ BIG=1000 ep=True opponent: W=0 WF=0
+ BIG=1000 ep=False count: W=*2 WF=*2
+ BIG=1000 ep=False mover: W=*2 WF=*2
+ BIG=1000 ep=False opponent: W=0 WF=0
+
+time 2.7s

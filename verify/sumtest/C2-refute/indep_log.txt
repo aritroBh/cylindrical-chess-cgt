@@ -1,0 +1,24 @@
+pos=W: a2 c2 / B: b7 d7 files=4 wrap=False
+ref order: 0 * *2 *3 up down up* dup* 1/2 -1/2 1 -1 {1|0} +-1 tiny1
+*2 vector : NNPNLRLLLRLRLNN
+race   credit ep  aware scope  | G G+* G+*2 G+*3 G+hyb | vector          | =*2vec | races | states
+count    True  False False global | N N   P    N    N    | NNPNLRLLLRLRLNN | yes    |    74 | 4578
+count    True  True  False global | N N   P    N    N    | NNPNLRLLLRLRLNN | yes    |    82 | 4606
+count    True  True  False local  | N N   P    N    N    | NNPNLRLLLRLRLNN | yes    |    82 | 4606
+count    True  True  True  global | N N   N    N    P    | NNNNNNNNNNLRNNN | no     |   106 | 4569
+count    True  True  True  local  | N N   N    N    P    | NNNNNNNNNNLRNNN | no     |   106 | 4569
+count    False False False global | N N   P    N    N    | NNPNLRLLLRLRLNN | yes    |    74 | 4578
+count    False True  False global | N N   P    N    N    | NNPNLRLLLRLRLNN | yes    |    82 | 4606
+count    False True  False local  | N N   P    N    N    | NNPNLRLLLRLRLNN | yes    |    82 | 4606
+count    False True  True  global | N N   N    N    P    | NNNNNNNNNNLRNNN | no     |   106 | 4569
+count    False True  True  local  | N N   N    N    P    | NNNNNNNNNNLRNNN | no     |   106 | 4569
+mover    True  False False global | N N   P    N    N    | NNPNLRLLLRLRLNN | yes    |    50 | 4373
+mover    True  True  False global | N N   P    N    N    | NNPNLRLLLRLRLNN | yes    |    56 | 4401
+mover    True  True  False local  | N N   P    N    N    | NNPNLRLLLRLRLNN | yes    |    56 | 4401
+mover    True  True  True  global | N N   N    N    P    | NNNNNNNNNNLRNNN | no     |    89 | 4730
+mover    True  True  True  local  | N N   N    N    P    | NNNNNNNNNNLRNNN | no     |    89 | 4730
+opponent True  False False global | P N   N    N    N    | PNNNLRNLLRLRNNL | no     |    80 | 4047
+opponent True  True  False global | P N   N    N    N    | PNNNLRNLLRLRNNL | no     |    89 | 4074
+opponent True  True  False local  | P N   N    N    N    | PNNNLRNLLRLRNNL | no     |    89 | 4074
+opponent True  True  True  global | P N   N    N    N    | PNNNLRNLLRLRNNL | no     |   123 | 4225
+opponent True  True  True  local  | P N   N    N    N    | PNNNLRNLLRLRNNL | no     |   123 | 4227

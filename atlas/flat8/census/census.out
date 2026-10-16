@@ -1,0 +1,887 @@
+0/771 chunks, 0s
+20/771 chunks, 1s
+40/771 chunks, 1s
+60/771 chunks, 2s
+80/771 chunks, 2s
+100/771 chunks, 3s
+120/771 chunks, 4s
+140/771 chunks, 6s
+160/771 chunks, 7s
+180/771 chunks, 7s
+200/771 chunks, 8s
+220/771 chunks, 8s
+240/771 chunks, 9s
+260/771 chunks, 10s
+280/771 chunks, 11s
+300/771 chunks, 11s
+320/771 chunks, 13s
+340/771 chunks, 14s
+360/771 chunks, 15s
+380/771 chunks, 15s
+400/771 chunks, 16s
+420/771 chunks, 17s
+440/771 chunks, 19s
+460/771 chunks, 24s
+480/771 chunks, 26s
+500/771 chunks, 29s
+520/771 chunks, 30s
+540/771 chunks, 31s
+560/771 chunks, 32s
+580/771 chunks, 33s
+600/771 chunks, 33s
+620/771 chunks, 34s
+640/771 chunks, 34s
+660/771 chunks, 35s
+680/771 chunks, 36s
+700/771 chunks, 37s
+720/771 chunks, 38s
+740/771 chunks, 39s
+760/771 chunks, 39s
+{
+ "command": "atlas/flat8/indep_scan.py --max-pawns 6 --workers 6 --out indep_scan.json",
+ "rule": "count",
+ "ep": "on",
+ "strict_ep": false,
+ "compared_with_db": true,
+ "kmax": 4,
+ "selected": 231071,
+ "agree": 231071,
+ "disagree": 0,
+ "disagree_single_component": 0,
+ "disagree_sums_not_sum_safe": 0,
+ "indep_nimber_counts": {
+  "0": 6470,
+  "1": 3891,
+  "none": 220709,
+  "2": 1
+ },
+ "indep_nimbers_ge2": [
+  [
+   "W: a2 c2 / B: b7 d7",
+   4,
+   [
+    2
+   ]
+  ]
+ ],
+ "wall_s": 39.0,
+ "cpu_s": 146.1
+}
+first disagreements: []
+0/771 chunks, 0s
+20/771 chunks, 0s
+40/771 chunks, 1s
+60/771 chunks, 1s
+80/771 chunks, 2s
+100/771 chunks, 3s
+120/771 chunks, 3s
+140/771 chunks, 5s
+160/771 chunks, 6s
+180/771 chunks, 6s
+200/771 chunks, 7s
+220/771 chunks, 8s
+240/771 chunks, 8s
+260/771 chunks, 9s
+280/771 chunks, 10s
+300/771 chunks, 11s
+320/771 chunks, 12s
+340/771 chunks, 13s
+360/771 chunks, 14s
+380/771 chunks, 14s
+400/771 chunks, 15s
+420/771 chunks, 16s
+440/771 chunks, 17s
+460/771 chunks, 20s
+480/771 chunks, 21s
+500/771 chunks, 23s
+520/771 chunks, 24s
+540/771 chunks, 25s
+560/771 chunks, 25s
+580/771 chunks, 26s
+600/771 chunks, 27s
+620/771 chunks, 27s
+640/771 chunks, 28s
+660/771 chunks, 28s
+680/771 chunks, 29s
+700/771 chunks, 30s
+720/771 chunks, 30s
+740/771 chunks, 31s
+760/771 chunks, 31s
+{
+ "command": "atlas/flat8/indep_scan.py --max-pawns 6 --workers 6 --rule count --ep off --out census/indep_count_epoff.json",
+ "rule": "count",
+ "ep": "off",
+ "strict_ep": false,
+ "compared_with_db": false,
+ "kmax": 4,
+ "selected": 231071,
+ "agree": null,
+ "disagree": null,
+ "disagree_single_component": 0,
+ "disagree_sums_not_sum_safe": 0,
+ "indep_nimber_counts": {
+  "0": 6416,
+  "1": 4013,
+  "none": 220641,
+  "2": 1
+ },
+ "indep_nimbers_ge2": [
+  [
+   "W: a2 c2 / B: b7 d7",
+   4,
+   [
+    2
+   ]
+  ]
+ ],
+ "wall_s": 31.2,
+ "cpu_s": 124.1
+}
+first disagreements: []
+0/771 chunks, 0s
+20/771 chunks, 1s
+40/771 chunks, 1s
+60/771 chunks, 2s
+80/771 chunks, 2s
+100/771 chunks, 3s
+120/771 chunks, 4s
+140/771 chunks, 6s
+160/771 chunks, 7s
+180/771 chunks, 7s
+200/771 chunks, 8s
+220/771 chunks, 9s
+240/771 chunks, 9s
+260/771 chunks, 10s
+280/771 chunks, 10s
+300/771 chunks, 11s
+320/771 chunks, 13s
+340/771 chunks, 14s
+360/771 chunks, 15s
+380/771 chunks, 16s
+400/771 chunks, 17s
+420/771 chunks, 18s
+440/771 chunks, 19s
+460/771 chunks, 24s
+480/771 chunks, 26s
+500/771 chunks, 29s
+520/771 chunks, 31s
+540/771 chunks, 32s
+560/771 chunks, 33s
+580/771 chunks, 34s
+600/771 chunks, 35s
+620/771 chunks, 35s
+640/771 chunks, 36s
+660/771 chunks, 37s
+680/771 chunks, 38s
+700/771 chunks, 39s
+720/771 chunks, 40s
+740/771 chunks, 40s
+760/771 chunks, 41s
+{
+ "command": "atlas/flat8/indep_scan.py --max-pawns 6 --workers 6 --rule mover --ep on --out census/indep_mover_epon.json",
+ "rule": "mover",
+ "ep": "on",
+ "strict_ep": false,
+ "compared_with_db": false,
+ "kmax": 4,
+ "selected": 231071,
+ "agree": null,
+ "disagree": null,
+ "disagree_single_component": 0,
+ "disagree_sums_not_sum_safe": 0,
+ "indep_nimber_counts": {
+  "0": 6569,
+  "1": 3527,
+  "none": 220974,
+  "2": 1
+ },
+ "indep_nimbers_ge2": [
+  [
+   "W: a2 c2 / B: b7 d7",
+   4,
+   [
+    2
+   ]
+  ]
+ ],
+ "wall_s": 41.0,
+ "cpu_s": 138.9
+}
+first disagreements: []
+0/771 chunks, 0s
+20/771 chunks, 0s
+40/771 chunks, 1s
+60/771 chunks, 2s
+80/771 chunks, 2s
+100/771 chunks, 3s
+120/771 chunks, 4s
+140/771 chunks, 6s
+160/771 chunks, 7s
+180/771 chunks, 7s
+200/771 chunks, 8s
+220/771 chunks, 9s
+240/771 chunks, 9s
+260/771 chunks, 10s
+280/771 chunks, 10s
+300/771 chunks, 11s
+320/771 chunks, 13s
+340/771 chunks, 14s
+360/771 chunks, 15s
+380/771 chunks, 15s
+400/771 chunks, 16s
+420/771 chunks, 17s
+440/771 chunks, 18s
+460/771 chunks, 21s
+480/771 chunks, 22s
+500/771 chunks, 25s
+520/771 chunks, 26s
+540/771 chunks, 27s
+560/771 chunks, 27s
+580/771 chunks, 28s
+600/771 chunks, 29s
+620/771 chunks, 29s
+640/771 chunks, 30s
+660/771 chunks, 31s
+680/771 chunks, 32s
+700/771 chunks, 33s
+720/771 chunks, 33s
+740/771 chunks, 34s
+760/771 chunks, 34s
+{
+ "command": "atlas/flat8/indep_scan.py --max-pawns 6 --workers 6 --rule mover --ep off --out census/indep_mover_epoff.json",
+ "rule": "mover",
+ "ep": "off",
+ "strict_ep": false,
+ "compared_with_db": false,
+ "kmax": 4,
+ "selected": 231071,
+ "agree": null,
+ "disagree": null,
+ "disagree_single_component": 0,
+ "disagree_sums_not_sum_safe": 0,
+ "indep_nimber_counts": {
+  "0": 6353,
+  "1": 3510,
+  "none": 221206,
+  "2": 2
+ },
+ "indep_nimbers_ge2": [
+  [
+   "W: a2 c2 / B: b7 d7",
+   4,
+   [
+    2
+   ]
+  ],
+  [
+   "W: a3 b2 d3 / B: a6 c7 d6",
+   4,
+   [
+    2
+   ]
+  ]
+ ],
+ "wall_s": 34.3,
+ "cpu_s": 114.9
+}
+first disagreements: []
+0/771 chunks, 0s
+20/771 chunks, 0s
+40/771 chunks, 1s
+60/771 chunks, 2s
+80/771 chunks, 2s
+100/771 chunks, 3s
+120/771 chunks, 4s
+140/771 chunks, 7s
+160/771 chunks, 7s
+180/771 chunks, 8s
+200/771 chunks, 9s
+220/771 chunks, 9s
+240/771 chunks, 10s
+260/771 chunks, 11s
+280/771 chunks, 12s
+300/771 chunks, 13s
+320/771 chunks, 14s
+340/771 chunks, 16s
+360/771 chunks, 16s
+380/771 chunks, 17s
+400/771 chunks, 18s
+420/771 chunks, 19s
+440/771 chunks, 21s
+460/771 chunks, 26s
+480/771 chunks, 28s
+500/771 chunks, 31s
+520/771 chunks, 32s
+540/771 chunks, 33s
+560/771 chunks, 34s
+580/771 chunks, 35s
+600/771 chunks, 36s
+620/771 chunks, 36s
+640/771 chunks, 37s
+660/771 chunks, 38s
+680/771 chunks, 39s
+700/771 chunks, 39s
+720/771 chunks, 40s
+740/771 chunks, 41s
+760/771 chunks, 41s
+{
+ "command": "atlas/flat8/indep_scan.py --max-pawns 6 --workers 6 --rule opponent --ep on --out census/indep_opponent_epon.json",
+ "rule": "opponent",
+ "ep": "on",
+ "strict_ep": false,
+ "compared_with_db": false,
+ "kmax": 4,
+ "selected": 231071,
+ "agree": null,
+ "disagree": null,
+ "disagree_single_component": 0,
+ "disagree_sums_not_sum_safe": 0,
+ "indep_nimber_counts": {
+  "0": 6386,
+  "1": 4008,
+  "none": 220675,
+  "2": 2
+ },
+ "indep_nimbers_ge2": [
+  [
+   "W: a2 b3 c3 / B: a6 b5 b7",
+   3,
+   [
+    2
+   ]
+  ],
+  [
+   "W: a3 b2 b4 / B: a7 b6 c6",
+   3,
+   [
+    2
+   ]
+  ]
+ ],
+ "wall_s": 41.4,
+ "cpu_s": 138.6
+}
+first disagreements: []
+0/771 chunks, 0s
+20/771 chunks, 0s
+40/771 chunks, 1s
+60/771 chunks, 1s
+80/771 chunks, 2s
+100/771 chunks, 3s
+120/771 chunks, 3s
+140/771 chunks, 5s
+160/771 chunks, 6s
+180/771 chunks, 7s
+200/771 chunks, 8s
+220/771 chunks, 8s
+240/771 chunks, 9s
+260/771 chunks, 9s
+280/771 chunks, 10s
+300/771 chunks, 11s
+320/771 chunks, 12s
+340/771 chunks, 14s
+360/771 chunks, 15s
+380/771 chunks, 15s
+400/771 chunks, 16s
+420/771 chunks, 17s
+440/771 chunks, 19s
+460/771 chunks, 22s
+480/771 chunks, 24s
+500/771 chunks, 27s
+520/771 chunks, 28s
+540/771 chunks, 29s
+560/771 chunks, 29s
+580/771 chunks, 30s
+600/771 chunks, 31s
+620/771 chunks, 31s
+640/771 chunks, 32s
+660/771 chunks, 33s
+680/771 chunks, 33s
+700/771 chunks, 34s
+720/771 chunks, 35s
+740/771 chunks, 35s
+760/771 chunks, 36s
+{
+ "command": "atlas/flat8/indep_scan.py --max-pawns 6 --workers 6 --rule opponent --ep off --out census/indep_opponent_epoff.json",
+ "rule": "opponent",
+ "ep": "off",
+ "strict_ep": false,
+ "compared_with_db": false,
+ "kmax": 4,
+ "selected": 231071,
+ "agree": null,
+ "disagree": null,
+ "disagree_single_component": 0,
+ "disagree_sums_not_sum_safe": 0,
+ "indep_nimber_counts": {
+  "0": 6387,
+  "1": 4122,
+  "none": 220562
+ },
+ "indep_nimbers_ge2": [],
+ "wall_s": 36.0,
+ "cpu_s": 118.8
+}
+first disagreements: []
+0/771 chunks, 0s
+20/771 chunks, 0s
+40/771 chunks, 1s
+60/771 chunks, 1s
+80/771 chunks, 2s
+100/771 chunks, 3s
+120/771 chunks, 4s
+140/771 chunks, 6s
+160/771 chunks, 7s
+180/771 chunks, 8s
+200/771 chunks, 9s
+220/771 chunks, 9s
+240/771 chunks, 10s
+260/771 chunks, 11s
+280/771 chunks, 11s
+300/771 chunks, 12s
+320/771 chunks, 14s
+340/771 chunks, 15s
+360/771 chunks, 15s
+380/771 chunks, 16s
+400/771 chunks, 17s
+420/771 chunks, 19s
+440/771 chunks, 21s
+460/771 chunks, 28s
+480/771 chunks, 31s
+500/771 chunks, 37s
+520/771 chunks, 39s
+540/771 chunks, 40s
+560/771 chunks, 42s
+580/771 chunks, 43s
+600/771 chunks, 44s
+620/771 chunks, 45s
+640/771 chunks, 46s
+660/771 chunks, 47s
+680/771 chunks, 49s
+700/771 chunks, 50s
+720/771 chunks, 50s
+740/771 chunks, 51s
+760/771 chunks, 52s
+{
+ "command": "atlas/flat8/indep_scan.py --max-pawns 6 --workers 6 --rule allW --ep on --out census/indep_allW_epon.json",
+ "rule": "allW",
+ "ep": "on",
+ "strict_ep": false,
+ "compared_with_db": false,
+ "kmax": 4,
+ "selected": 231071,
+ "agree": null,
+ "disagree": null,
+ "disagree_single_component": 0,
+ "disagree_sums_not_sum_safe": 0,
+ "indep_nimber_counts": {
+  "0": 6310,
+  "1": 3662,
+  "none": 221099
+ },
+ "indep_nimbers_ge2": [],
+ "wall_s": 52.2,
+ "cpu_s": 136.8
+}
+first disagreements: []
+0/771 chunks, 0s
+20/771 chunks, 1s
+40/771 chunks, 2s
+60/771 chunks, 2s
+80/771 chunks, 3s
+100/771 chunks, 4s
+120/771 chunks, 5s
+140/771 chunks, 9s
+160/771 chunks, 10s
+180/771 chunks, 11s
+200/771 chunks, 12s
+220/771 chunks, 13s
+240/771 chunks, 14s
+260/771 chunks, 15s
+280/771 chunks, 17s
+300/771 chunks, 19s
+320/771 chunks, 21s
+340/771 chunks, 24s
+360/771 chunks, 26s
+380/771 chunks, 27s
+400/771 chunks, 28s
+420/771 chunks, 30s
+440/771 chunks, 33s
+460/771 chunks, 40s
+480/771 chunks, 43s
+500/771 chunks, 48s
+520/771 chunks, 50s
+540/771 chunks, 52s
+560/771 chunks, 53s
+580/771 chunks, 54s
+600/771 chunks, 55s
+620/771 chunks, 56s
+640/771 chunks, 58s
+660/771 chunks, 59s
+680/771 chunks, 61s
+700/771 chunks, 62s
+720/771 chunks, 63s
+740/771 chunks, 64s
+760/771 chunks, 65s
+{
+ "command": "atlas/flat8/indep_scan.py --max-pawns 6 --workers 6 --rule allW --ep off --out census/indep_allW_epoff.json",
+ "rule": "allW",
+ "ep": "off",
+ "strict_ep": false,
+ "compared_with_db": false,
+ "kmax": 4,
+ "selected": 231071,
+ "agree": null,
+ "disagree": null,
+ "disagree_single_component": 0,
+ "disagree_sums_not_sum_safe": 0,
+ "indep_nimber_counts": {
+  "0": 6203,
+  "1": 3700,
+  "none": 221168
+ },
+ "indep_nimbers_ge2": [],
+ "wall_s": 65.3,
+ "cpu_s": 118.7
+}
+first disagreements: []
+0/771 chunks, 0s
+20/771 chunks, 1s
+40/771 chunks, 2s
+60/771 chunks, 3s
+80/771 chunks, 4s
+100/771 chunks, 6s
+120/771 chunks, 7s
+140/771 chunks, 11s
+160/771 chunks, 13s
+180/771 chunks, 14s
+200/771 chunks, 15s
+220/771 chunks, 16s
+240/771 chunks, 17s
+260/771 chunks, 18s
+280/771 chunks, 19s
+300/771 chunks, 21s
+320/771 chunks, 23s
+340/771 chunks, 25s
+360/771 chunks, 27s
+380/771 chunks, 28s
+400/771 chunks, 29s
+420/771 chunks, 31s
+440/771 chunks, 33s
+460/771 chunks, 41s
+480/771 chunks, 43s
+500/771 chunks, 50s
+520/771 chunks, 52s
+540/771 chunks, 54s
+560/771 chunks, 55s
+580/771 chunks, 57s
+600/771 chunks, 58s
+620/771 chunks, 59s
+640/771 chunks, 60s
+660/771 chunks, 62s
+680/771 chunks, 63s
+700/771 chunks, 65s
+720/771 chunks, 65s
+740/771 chunks, 66s
+760/771 chunks, 67s
+{
+ "command": "atlas/flat8/indep_scan.py --max-pawns 6 --workers 6 --rule allB --ep on --out census/indep_allB_epon.json",
+ "rule": "allB",
+ "ep": "on",
+ "strict_ep": false,
+ "compared_with_db": false,
+ "kmax": 4,
+ "selected": 231071,
+ "agree": null,
+ "disagree": null,
+ "disagree_single_component": 0,
+ "disagree_sums_not_sum_safe": 0,
+ "indep_nimber_counts": {
+  "0": 6310,
+  "1": 3662,
+  "none": 221099
+ },
+ "indep_nimbers_ge2": [],
+ "wall_s": 67.0,
+ "cpu_s": 137.9
+}
+first disagreements: []
+0/771 chunks, 0s
+20/771 chunks, 1s
+40/771 chunks, 1s
+60/771 chunks, 2s
+80/771 chunks, 3s
+100/771 chunks, 4s
+120/771 chunks, 5s
+140/771 chunks, 9s
+160/771 chunks, 11s
+180/771 chunks, 12s
+200/771 chunks, 13s
+220/771 chunks, 14s
+240/771 chunks, 14s
+260/771 chunks, 16s
+280/771 chunks, 17s
+300/771 chunks, 18s
+320/771 chunks, 20s
+340/771 chunks, 22s
+360/771 chunks, 23s
+380/771 chunks, 24s
+400/771 chunks, 25s
+420/771 chunks, 26s
+440/771 chunks, 28s
+460/771 chunks, 33s
+480/771 chunks, 37s
+500/771 chunks, 42s
+520/771 chunks, 43s
+540/771 chunks, 45s
+560/771 chunks, 46s
+580/771 chunks, 48s
+600/771 chunks, 48s
+620/771 chunks, 49s
+640/771 chunks, 50s
+660/771 chunks, 52s
+680/771 chunks, 53s
+700/771 chunks, 55s
+720/771 chunks, 56s
+740/771 chunks, 57s
+760/771 chunks, 57s
+{
+ "command": "atlas/flat8/indep_scan.py --max-pawns 6 --workers 6 --rule allB --ep off --out census/indep_allB_epoff.json",
+ "rule": "allB",
+ "ep": "off",
+ "strict_ep": false,
+ "compared_with_db": false,
+ "kmax": 4,
+ "selected": 231071,
+ "agree": null,
+ "disagree": null,
+ "disagree_single_component": 0,
+ "disagree_sums_not_sum_safe": 0,
+ "indep_nimber_counts": {
+  "0": 6203,
+  "1": 3700,
+  "none": 221168
+ },
+ "indep_nimbers_ge2": [],
+ "wall_s": 57.6,
+ "cpu_s": 123.0
+}
+first disagreements: []
+0/771 chunks, 0s
+20/771 chunks, 1s
+40/771 chunks, 2s
+60/771 chunks, 3s
+80/771 chunks, 4s
+100/771 chunks, 5s
+120/771 chunks, 6s
+140/771 chunks, 9s
+160/771 chunks, 10s
+180/771 chunks, 11s
+200/771 chunks, 12s
+220/771 chunks, 12s
+240/771 chunks, 13s
+260/771 chunks, 14s
+280/771 chunks, 15s
+300/771 chunks, 17s
+320/771 chunks, 19s
+340/771 chunks, 21s
+360/771 chunks, 21s
+380/771 chunks, 22s
+400/771 chunks, 24s
+420/771 chunks, 25s
+440/771 chunks, 27s
+460/771 chunks, 32s
+480/771 chunks, 34s
+500/771 chunks, 38s
+520/771 chunks, 40s
+540/771 chunks, 41s
+560/771 chunks, 42s
+580/771 chunks, 43s
+600/771 chunks, 44s
+620/771 chunks, 44s
+640/771 chunks, 45s
+660/771 chunks, 46s
+680/771 chunks, 47s
+700/771 chunks, 48s
+720/771 chunks, 49s
+740/771 chunks, 50s
+760/771 chunks, 50s
+{
+ "command": "atlas/flat8/indep_scan.py --max-pawns 6 --workers 6 --rule count --ep on --strict-ep --out census/indep_count_epon_strict.json",
+ "rule": "count",
+ "ep": "on",
+ "strict_ep": true,
+ "compared_with_db": false,
+ "kmax": 4,
+ "selected": 231071,
+ "agree": null,
+ "disagree": null,
+ "disagree_single_component": 0,
+ "disagree_sums_not_sum_safe": 0,
+ "indep_nimber_counts": {
+  "0": 6470,
+  "1": 3891,
+  "none": 220709,
+  "2": 1
+ },
+ "indep_nimbers_ge2": [
+  [
+   "W: a2 c2 / B: b7 d7",
+   4,
+   [
+    2
+   ]
+  ]
+ ],
+ "wall_s": 50.4,
+ "cpu_s": 142.3
+}
+first disagreements: []
+0/771 chunks, 0s
+20/771 chunks, 1s
+40/771 chunks, 2s
+60/771 chunks, 2s
+80/771 chunks, 3s
+100/771 chunks, 4s
+120/771 chunks, 5s
+140/771 chunks, 7s
+160/771 chunks, 8s
+180/771 chunks, 9s
+200/771 chunks, 9s
+220/771 chunks, 10s
+240/771 chunks, 10s
+260/771 chunks, 11s
+280/771 chunks, 12s
+300/771 chunks, 13s
+320/771 chunks, 14s
+340/771 chunks, 15s
+360/771 chunks, 16s
+380/771 chunks, 17s
+400/771 chunks, 18s
+420/771 chunks, 19s
+440/771 chunks, 21s
+460/771 chunks, 27s
+480/771 chunks, 29s
+500/771 chunks, 32s
+520/771 chunks, 34s
+540/771 chunks, 35s
+560/771 chunks, 36s
+580/771 chunks, 37s
+600/771 chunks, 38s
+620/771 chunks, 39s
+640/771 chunks, 39s
+660/771 chunks, 41s
+680/771 chunks, 42s
+700/771 chunks, 43s
+720/771 chunks, 43s
+740/771 chunks, 44s
+760/771 chunks, 44s
+{
+ "command": "atlas/flat8/indep_scan.py --max-pawns 6 --workers 6 --rule mover --ep on --strict-ep --out census/indep_mover_epon_strict.json",
+ "rule": "mover",
+ "ep": "on",
+ "strict_ep": true,
+ "compared_with_db": false,
+ "kmax": 4,
+ "selected": 231071,
+ "agree": null,
+ "disagree": null,
+ "disagree_single_component": 0,
+ "disagree_sums_not_sum_safe": 0,
+ "indep_nimber_counts": {
+  "0": 6569,
+  "1": 3527,
+  "none": 220974,
+  "2": 1
+ },
+ "indep_nimbers_ge2": [
+  [
+   "W: a2 c2 / B: b7 d7",
+   4,
+   [
+    2
+   ]
+  ]
+ ],
+ "wall_s": 44.6,
+ "cpu_s": 140.4
+}
+first disagreements: []
+0/771 chunks, 0s
+20/771 chunks, 1s
+40/771 chunks, 1s
+60/771 chunks, 2s
+80/771 chunks, 3s
+100/771 chunks, 4s
+120/771 chunks, 5s
+140/771 chunks, 8s
+160/771 chunks, 9s
+180/771 chunks, 9s
+200/771 chunks, 10s
+220/771 chunks, 11s
+240/771 chunks, 11s
+260/771 chunks, 12s
+280/771 chunks, 13s
+300/771 chunks, 14s
+320/771 chunks, 16s
+340/771 chunks, 17s
+360/771 chunks, 18s
+380/771 chunks, 19s
+400/771 chunks, 21s
+420/771 chunks, 22s
+440/771 chunks, 24s
+460/771 chunks, 29s
+480/771 chunks, 31s
+500/771 chunks, 34s
+520/771 chunks, 35s
+540/771 chunks, 36s
+560/771 chunks, 37s
+580/771 chunks, 38s
+600/771 chunks, 39s
+620/771 chunks, 40s
+640/771 chunks, 40s
+660/771 chunks, 41s
+680/771 chunks, 42s
+700/771 chunks, 43s
+720/771 chunks, 44s
+740/771 chunks, 44s
+760/771 chunks, 45s
+{
+ "command": "atlas/flat8/indep_scan.py --max-pawns 6 --workers 6 --rule opponent --ep on --strict-ep --out census/indep_opponent_epon_strict.json",
+ "rule": "opponent",
+ "ep": "on",
+ "strict_ep": true,
+ "compared_with_db": false,
+ "kmax": 4,
+ "selected": 231071,
+ "agree": null,
+ "disagree": null,
+ "disagree_single_component": 0,
+ "disagree_sums_not_sum_safe": 0,
+ "indep_nimber_counts": {
+  "0": 6386,
+  "1": 4008,
+  "none": 220675,
+  "2": 2
+ },
+ "indep_nimbers_ge2": [
+  [
+   "W: a2 b3 c3 / B: a6 b5 b7",
+   3,
+   [
+    2
+   ]
+  ],
+  [
+   "W: a3 b2 b4 / B: a7 b6 c6",
+   3,
+   [
+    2
+   ]
+  ]
+ ],
+ "wall_s": 44.8,
+ "cpu_s": 142.0
+}
+first disagreements: []
+CENSUS_DONE

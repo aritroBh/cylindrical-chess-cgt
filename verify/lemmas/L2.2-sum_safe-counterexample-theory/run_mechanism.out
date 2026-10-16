@@ -1,0 +1,18 @@
+W has 4 moves
+   W: b2 d4 g3 h6 / B: a7 c7 f7 g4               comps=1 o(S)=N o(W)=L   <-- differ
+   W: b2 d5 g3 h5 / B: a7 c7 f7 g4               comps=1 o(S)=R o(W)=L   <-- differ
+   W: b3 d4 g3 h5 / B: a7 c7 f7 g4               comps=1 o(S)=R o(W)=N   <-- differ
+   W: b4 d4 g3 h5 / B: a7 c7 f7 g4               comps=1 o(S)=N o(W)=N
+   children where o(S) != o(W): 3
+B has 6 moves
+   W: b2 d4 g3 h5 / B: a5 c7 f7 g4               comps=1 o(S)=L o(W)=L
+   W: b2 d4 g3 h5 / B: a6 c7 f7 g4               comps=1 o(S)=N o(W)=N
+   W: b2 d4 g3 h5 / B: a7 c5 f7 g4               comps=1 o(S)=N o(W)=N
+   W: b2 d4 g3 h5 / B: a7 c6 f7 g4               comps=1 o(S)=N o(W)=N
+   W: b2 d4 g3 h5 / B: a7 c7 f5 g4               comps=1 o(S)=R o(W)=R
+   W: b2 d4 g3 h5 / B: a7 c7 f6 g4               comps=1 o(S)=R o(W)=N   <-- differ
+   children where o(S) != o(W): 1
+mechanism node reachable from X: True
+mechanism node components and threat sets: [('W: b5 d4 / B: c6', [-1, 1]), ('W: g3 / B: f6 g4 h6', [-1, 1])]
+mechanism node o(S) = R  o(W) = L
+reachable non-pairwise-safe split nodes: 312  of which o(S) != o(W): 274

@@ -1,0 +1,65 @@
+cached records: 285
+suite positions found structurally: 276
+all move categories in cache: {'loss': 434, 'win': 1074, 'draw': 229}
+
+tame, race-insensitive, A: 94 positions; roots {'win': 75, 'loss': 17, 'draw': 2}
+   king moves 449: {'loss': 401, 'draw': 41, 'win': 7}; positions with a non-losing king move: 21
+   king-move results by TB root: {'win': {'loss': 313, 'draw': 40, 'win': 7}, 'loss': {'loss': 81}, 'draw': {'loss': 7, 'draw': 1}}
+
+tame, race-insensitive, B: 55 positions; roots {'win': 52, 'draw': 3}
+   king moves 125: {'loss': 118, 'draw': 7}; positions with a non-losing king move: 5
+   king-move results by TB root: {'win': {'loss': 111, 'draw': 5}, 'draw': {'draw': 2, 'loss': 7}}
+
+tame, race-insensitive, B, White to move: 50 positions; roots {'win': 48, 'draw': 2}
+   king moves 100: {'loss': 97, 'draw': 3}; positions with a non-losing king move: 3
+   king-move results by TB root: {'win': {'loss': 93, 'draw': 3}, 'draw': {'loss': 4}}
+
+tame, race-insensitive, B, Black to move: 5 positions; roots {'win': 4, 'draw': 1}
+   king moves 25: {'loss': 21, 'draw': 4}; positions with a non-losing king move: 2
+   king-move results by TB root: {'win': {'loss': 18, 'draw': 2}, 'draw': {'draw': 2, 'loss': 3}}
+
+BIG, race-insensitive: 40 positions; roots {'win': 30, 'loss': 9, 'draw': 1}
+   king moves 164: {'loss': 115, 'draw': 24, 'win': 25}; positions with a non-losing king move: 12
+   king-move results by TB root: {'win': {'loss': 83, 'draw': 24, 'win': 25}, 'loss': {'loss': 28}, 'draw': {'loss': 4}}
+
+race-sensitive A: 72 positions; roots {'win': 51, 'loss': 12, 'draw': 9}
+   king moves 350: {'loss': 206, 'draw': 80, 'win': 64}; positions with a non-losing king move: 40
+   king-move results by TB root: {'win': {'loss': 120, 'draw': 63, 'win': 64}, 'loss': {'loss': 60}, 'draw': {'draw': 17, 'loss': 26}}
+
+race-sensitive B: 15 positions; roots {'draw': 3, 'loss': 4, 'win': 8}
+   king moves 30: {'draw': 6, 'loss': 24}; positions with a non-losing king move: 4
+   king-move results by TB root: {'draw': {'draw': 2, 'loss': 4}, 'loss': {'loss': 8}, 'win': {'loss': 12, 'draw': 4}}
+
+ALL: 276 positions; roots {'win': 216, 'draw': 18, 'loss': 42}
+   king moves 1118: {'loss': 864, 'draw': 158, 'win': 96}; positions with a non-losing king move: 82
+   king-move results by TB root: {'win': {'loss': 639, 'draw': 136, 'win': 96}, 'draw': {'draw': 22, 'loss': 48}, 'loss': {'loss': 177}}
+
+A-group (tame, race-insensitive) positions with non-losing king moves:
+   ('A', 4) 8/2p5/8/1P3Kp1/6Pk/8/1P6/8 w - - 0 1 3 root win {'f5e4': 'draw', 'f5e5': 'draw', 'f5e6': 'draw', 'f5f6': 'draw'}
+   ('A', 4) 8/1p6/8/2P2Kp1/6Pk/2P5/8/8 w - - 0 1 2 root win {'f5e5': 'draw', 'f5e6': 'draw'}
+   ('A', 6) 8/1p3Kp1/6Pk/P7/8/8/P7/8 w - - 0 1 3 root win {'f7e6': 'draw', 'f7e7': 'draw', 'f7e8': 'draw', 'f7f8': 'draw'}
+   ('A', 4) 8/2p5/8/3P1Kp1/6Pk/8/3P4/8 w - - 0 1 3 root win {'f5e6': 'win'}
+   ('A', 4) 8/8/2p5/5Kp1/1P4Pk/8/1P6/8 w - - 0 1 2 root win {'f5e5': 'draw', 'f5e6': 'draw'}
+   ('A', 4) 8/1p6/8/P4Kp1/6Pk/P7/8/8 w - - 0 1 2 root win {'f5e5': 'draw', 'f5e6': 'draw'}
+   ('A', 4) 8/8/8/3p1Kp1/6Pk/8/2P5/8 w - - 0 1 * root win {'f5e5': 'draw', 'f5e6': 'draw'}
+   ('A', 4) 8/3p4/8/3P1Kp1/3P2Pk/8/8/8 w - - 0 1 1/2±1/2 root win {'f5e5': 'draw', 'f5f6': 'draw'}
+   ('A', 4) 8/3p4/8/5Kp1/2P3Pk/8/2P5/8 w - - 0 1 5/2±1/2 root win {'f5e5': 'draw', 'f5f6': 'draw'}
+   ('A', 4) 8/3p4/3P4/5Kp1/3P2Pk/8/8/8 w - - 0 1 1 root win {'f5f6': 'win', 'f5e5': 'draw', 'f5g6': 'draw'}
+   ('A', 4) 8/8/2p5/5Kp1/3P2Pk/8/3P4/8 w - - 0 1 2 root win {'f5e5': 'draw', 'f5e6': 'draw'}
+   ('A', 4) 8/8/2p5/5Kp1/1P4Pk/1P6/8/8 w - - 0 1 1 root win {'f5e5': 'draw', 'f5e6': 'draw'}
+   ('A', 5) 8/3p4/3P1Kp1/6Pk/8/8/3P4/8 w - - 0 1 3 root win {'f6e5': 'win', 'f6e7': 'win', 'f6f7': 'win', 'f6g7': 'win'}
+   ('A', 6) 8/2p2Kp1/6Pk/8/2P5/8/2P5/8 w - - 0 1 {5/2±1/2 | 1} root win {'f7e6': 'draw', 'f7e7': 'draw', 'f7e8': 'draw'}
+   ('A', 4) 8/1p6/1P6/5Kp1/6Pk/8/1P6/8 w - - 0 1 3 root win {'f5e5': 'draw', 'f5e6': 'draw'}
+   ('A', 4) 8/8/3p4/5Kp1/6Pk/2P5/8/8 w - - 0 1 * root win {'f5e6': 'draw'}
+   ('A', 4) 8/3p4/3P4/5Kp1/6Pk/3P4/8/8 w - - 0 1 2 root win {'f5f6': 'win', 'f5e5': 'draw', 'f5g6': 'draw'}
+   ('A', 4) 8/2p5/8/5Kp1/1P4Pk/1P6/8/8 w - - 0 1 3/2±1/2 root win {'f5e6': 'draw'}
+   ('A', 4) 8/2p5/2p5/2P2Kp1/6Pk/8/8/8 w - - 0 1 0 root draw {'f5e6': 'draw'}
+   ('A', 4) 8/1p6/8/2P2Kp1/6Pk/8/2P5/8 w - - 0 1 3 root win {'f5e5': 'draw', 'f5e6': 'draw'}
+   ('A', 5) 8/8/2p2Kp1/6Pk/8/8/2P5/8 w - - 0 1 ⇑* root win {'f6e5': 'draw', 'f6e6': 'draw', 'f6e7': 'draw'}
+
+B-group (tame, race-insensitive) positions with non-losing king moves:
+   ('B', 4) b 8/8/1p6/6pK/5kP1/1p6/1P6/8 b - - 0 1 -2 root win {'f4e3': 'draw', 'f4e4': 'draw'}
+   ('B', 4) w 8/3p4/3P4/6pK/3P1kP1/8/8/8 w - - 0 1 1 root win {'h5g6': 'draw'}
+   ('B', 4) w 8/3p4/3P4/6pK/5kP1/3P4/8/8 w - - 0 1 2 root win {'h5g6': 'draw'}
+   ('B', 6) w 8/2p3pK/5kP1/2P5/2P5/8/8/8 w - - 0 1 1/2±1/2 root win {'h7g8': 'draw'}
+   ('B', 3) b 8/8/3p4/3P4/6pK/5kP1/8/8 b - - 0 1 0 root draw {'f3e3': 'draw', 'f3e4': 'draw'}

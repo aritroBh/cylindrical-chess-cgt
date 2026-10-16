@@ -1,0 +1,66 @@
+--- cylinder ep=on rule=count
+  (a) 7.3{c,d} = tiny(1): True | = 1: False
+  (d) 2.2 up1 W: a3 h2 / B: a4 h5: equals ['0']
+  (d) 3.2 up1 W: a5 h2 / B: a6 h7: equals ['2']
+  (f) 7.2abh: G < 1/16: True | G > -1/16: True
+--- cylinder ep=on rule=mover
+  (a) 7.3{c,d} = tiny(1): True | = 1: False
+  (d) 2.2 up1 W: a3 h2 / B: a4 h5: equals ['0']
+  (d) 3.2 up1 W: a5 h2 / B: a6 h7: equals ['2']
+  (f) 7.2abh: G < 1/16: True | G > -1/16: True
+--- cylinder ep=on rule=opponent
+  (a) 7.3{c,d} = tiny(1): True | = 1: False
+  (d) 2.2 up1 W: a3 h2 / B: a4 h5: equals ['0']
+  (d) 3.2 up1 W: a5 h2 / B: a6 h7: equals ['2']
+  (f) 7.2abh: G < 1/16: True | G > -1/16: True
+  (c) flat ep=on 2.3 = 0: True
+  (d) flat ep=on 2.3 up1 W: c2 d3 / B: c5 d4 equals ['0']
+  (e) 7.2abh ep=on: outcome of G+0: {'count': 'N', 'mover': 'N', 'opponent': 'N'} same
+  (e) 7.2abh ep=on: outcome of G+*: {'count': 'R', 'mover': 'R', 'opponent': 'R'} same
+  (e) 7.2abh ep=on: outcome of G+up: {'count': 'N', 'mover': 'N', 'opponent': 'N'} same
+  (e) 7.2abh ep=on: outcome of G+down: {'count': 'R', 'mover': 'R', 'opponent': 'R'} same
+  (e) 7.2abh ep=on: outcome of G+up*: {'count': 'R', 'mover': 'R', 'opponent': 'R'} same
+  (e) 7.2abh ep=on: outcome of G+down*: {'count': 'R', 'mover': 'R', 'opponent': 'R'} same
+  (e) 7.2abh ep=on: outcome of G+*2: {'count': 'R', 'mover': 'R', 'opponent': 'R'} same
+  (e) 7.2abh ep=on: outcome of G++-1: {'count': 'N', 'mover': 'N', 'opponent': 'N'} same
+  (e) 7.2abh ep=on: outcome of G+1/2: {'count': 'L', 'mover': 'L', 'opponent': 'L'} same
+  (e) 7.2abh ep=on: outcome of G+-1/2: {'count': 'R', 'mover': 'R', 'opponent': 'R'} same
+  (e) 7.2abh ep=on: outcome of G+{0|-256}: {'count': 'R', 'mover': 'R', 'opponent': 'R'} same
+  (e) 7.2abh ep=on: outcome of G+{256|0}: {'count': 'L', 'mover': 'L', 'opponent': 'L'} same
+  (e) 7.2abh ep=on: outcome of G+1: {'count': 'L', 'mover': 'L', 'opponent': 'L'} same
+  (e) 7.2abh ep=on: outcome of G+-1: {'count': 'R', 'mover': 'R', 'opponent': 'R'} same
+--- cylinder ep=off rule=count
+  (a) 7.3{c,d} = tiny(1): True | = 1: False
+  (d) 2.2 up1 W: a3 h2 / B: a4 h5: equals ['1']
+  (d) 3.2 up1 W: a5 h2 / B: a6 h7: equals []
+  (f) 7.2abh: G < 1/16: True | G > -1/16: True
+--- cylinder ep=off rule=mover
+  (a) 7.3{c,d} = tiny(1): True | = 1: False
+  (d) 2.2 up1 W: a3 h2 / B: a4 h5: equals ['1']
+  (d) 3.2 up1 W: a5 h2 / B: a6 h7: equals []
+  (f) 7.2abh: G < 1/16: True | G > -1/16: True
+--- cylinder ep=off rule=opponent
+  (a) 7.3{c,d} = tiny(1): True | = 1: False
+  (d) 2.2 up1 W: a3 h2 / B: a4 h5: equals ['1']
+  (d) 3.2 up1 W: a5 h2 / B: a6 h7: equals []
+  (f) 7.2abh: G < 1/16: True | G > -1/16: True
+  (c) flat ep=off 2.3 = 0: True
+  (d) flat ep=off 2.3 up1 W: c2 d3 / B: c5 d4 equals ['1']
+  (e) 7.2abh ep=off: outcome of G+0: {'count': 'R', 'mover': 'R', 'opponent': 'R'} same
+  (e) 7.2abh ep=off: outcome of G+*: {'count': 'R', 'mover': 'R', 'opponent': 'R'} same
+  (e) 7.2abh ep=off: outcome of G+up: {'count': 'R', 'mover': 'R', 'opponent': 'R'} same
+  (e) 7.2abh ep=off: outcome of G+down: {'count': 'R', 'mover': 'R', 'opponent': 'R'} same
+  (e) 7.2abh ep=off: outcome of G+up*: {'count': 'R', 'mover': 'R', 'opponent': 'R'} same
+  (e) 7.2abh ep=off: outcome of G+down*: {'count': 'R', 'mover': 'R', 'opponent': 'R'} same
+  (e) 7.2abh ep=off: outcome of G+*2: {'count': 'R', 'mover': 'R', 'opponent': 'R'} same
+  (e) 7.2abh ep=off: outcome of G++-1: {'count': 'N', 'mover': 'N', 'opponent': 'N'} same
+  (e) 7.2abh ep=off: outcome of G+1/2: {'count': 'L', 'mover': 'L', 'opponent': 'L'} same
+  (e) 7.2abh ep=off: outcome of G+-1/2: {'count': 'R', 'mover': 'R', 'opponent': 'R'} same
+  (e) 7.2abh ep=off: outcome of G+{0|-256}: {'count': 'R', 'mover': 'R', 'opponent': 'R'} same
+  (e) 7.2abh ep=off: outcome of G+{256|0}: {'count': 'N', 'mover': 'N', 'opponent': 'N'} same
+  (e) 7.2abh ep=off: outcome of G+1: {'count': 'L', 'mover': 'L', 'opponent': 'L'} same
+  (e) 7.2abh ep=off: outcome of G+-1: {'count': 'R', 'mover': 'R', 'opponent': 'R'} same
+
+real	0m23.851s
+user	0m7.467s
+sys	0m0.047s

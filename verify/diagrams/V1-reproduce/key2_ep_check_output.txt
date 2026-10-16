@@ -1,0 +1,8 @@
+ep=on  standard  | count: G=*2 G+up={0 | *3} outcome(G+up)=L | mover: G=*2 G+up={0 | *3} outcome(G+up)=L | opponent: G=0 G+up=↑ outcome(G+up)=L
+           crosscheck minimax (count rule): outcome(G)=N outcome(G+up)=L
+ep=on  ep-aware  | count: G={2±1 | -2±1} G+up={{{3 | 3*} | {1 | 1*}} | {{-1  outcome(G+up)=N | mover: G={2±1 | -2±1} G+up={{{3 | 3*} | {1 | 1*}} | {{-1  outcome(G+up)=N | opponent: G=0 G+up=↑ outcome(G+up)=L
+           crosscheck minimax (count rule): outcome(G)=N outcome(G+up)=N
+ep=off standard  | count: G=*2 G+up={0 | *3} outcome(G+up)=L | mover: G=*2 G+up={0 | *3} outcome(G+up)=L | opponent: G=0 G+up=↑ outcome(G+up)=L
+           crosscheck minimax (count rule): outcome(G)=N outcome(G+up)=L
+ep=off ep-aware  | count: G=*2 G+up={0 | *3} outcome(G+up)=L | mover: G=*2 G+up={0 | *3} outcome(G+up)=L | opponent: G=0 G+up=↑ outcome(G+up)=L
+           crosscheck minimax (count rule): outcome(G)=N outcome(G+up)=L

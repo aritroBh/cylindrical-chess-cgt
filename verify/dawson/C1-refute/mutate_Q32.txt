@@ -1,0 +1,31 @@
+(e) Q x Z2 non-reduced certificate:
+    monoid: N=1276, identity=0, commutative and associative (all 2077552576 triples)
+    phi generates 1276 of 1276 elements
+    |Q| = 1276, |P| = 218
+    P-check passed (94540 option checks)
+    indistinguishability classes: 638 (reduced iff 638 == 1276)
+    FAIL: not reduced
+    N-check passed: every nonempty position with Phi not in P has a move to Phi in P
+    RESULT: FAIL (not reduced; )
+P->N flip: 109 mutants, 109 rejected, 0 accepted
+      96 x FAIL (N-check; )
+      13 x FAIL (not reduced; N-check; )
+    N-counterexamples re-checked directly: 109, bogus: 0
+      e.g. genuine N-failure at position [31, 31] (total 62)
+      e.g. genuine N-failure at position [29, 15, 15, 10] (total 69)
+      e.g. genuine N-failure at position [4] (total 4)
+N->P flip: 120 mutants, 120 rejected, 0 accepted
+     116 x FAIL (P-check; )
+       4 x FAIL (P-check; not reduced; )
+    N-counterexamples re-checked directly: 0, bogus: 0
+phi change: 124 mutants, 124 rejected, 0 accepted
+      88 x FAIL (P-check; N-check; )
+      28 x FAIL (phi not onto; P-check; not reduced; N-check; )
+       8 x FAIL (phi not onto; P-check; N-check; )
+    N-counterexamples re-checked directly: 124, bogus: 0
+      e.g. genuine N-failure at position [4] (total 4)
+      e.g. genuine N-failure at position [4] (total 4)
+      e.g. genuine N-failure at position [4] (total 4)
+table change: 20 mutants, 20 rejected, 0 accepted
+      20 x FAIL: not associative
+    N-counterexamples re-checked directly: 0, bogus: 0

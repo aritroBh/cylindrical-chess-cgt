@@ -1,0 +1,17 @@
+ep=True  files=4 rule=count    o(G+*k) for k=0..3: {'*0': 'N', '*1': 'N', '*2': 'P', '*3': 'N'}  => G = *2
+ep=True  files=4 rule=mover    o(G+*k) for k=0..3: {'*0': 'N', '*1': 'N', '*2': 'P', '*3': 'N'}  => G = *2
+ep=True  files=4 rule=opponent o(G+*k) for k=0..3: {'*0': 'P', '*1': 'N', '*2': 'N', '*3': 'N'}  => G = *0
+ep=True  files=8 rule=count    o(G+*k) for k=0..3: {'*0': 'N', '*1': 'N', '*2': 'P', '*3': 'N'}  => G = *2
+ep=True  files=8 rule=mover    o(G+*k) for k=0..3: {'*0': 'N', '*1': 'N', '*2': 'P', '*3': 'N'}  => G = *2
+ep=True  files=8 rule=opponent o(G+*k) for k=0..3: {'*0': 'P', '*1': 'N', '*2': 'N', '*3': 'N'}  => G = *0
+ep=False files=4 rule=count    o(G+*k) for k=0..3: {'*0': 'N', '*1': 'N', '*2': 'P', '*3': 'N'}  => G = *2
+ep=False files=4 rule=mover    o(G+*k) for k=0..3: {'*0': 'N', '*1': 'N', '*2': 'P', '*3': 'N'}  => G = *2
+ep=False files=4 rule=opponent o(G+*k) for k=0..3: {'*0': 'P', '*1': 'N', '*2': 'N', '*3': 'N'}  => G = *0
+ep=False files=8 rule=count    o(G+*k) for k=0..3: {'*0': 'N', '*1': 'N', '*2': 'P', '*3': 'N'}  => G = *2
+ep=False files=8 rule=mover    o(G+*k) for k=0..3: {'*0': 'N', '*1': 'N', '*2': 'P', '*3': 'N'}  => G = *2
+ep=False files=8 rule=opponent o(G+*k) for k=0..3: {'*0': 'P', '*1': 'N', '*2': 'N', '*3': 'N'}  => G = *0
+ep=True: reachable 1075, non-terminal 405, non-terminal with >=2 components: 0
+   8x8 root components: 2
+ep=False: reachable 835, non-terminal 225, non-terminal with >=2 components: 0
+   8x8 root components: 2
+time 0.4s

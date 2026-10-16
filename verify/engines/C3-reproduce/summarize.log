@@ -1,0 +1,54 @@
+
+## tame (no +-BIG in canonical form), race-insensitive, A-trebuchets: 94 positions
+  count     root 92/94 (98%)  pawn-move win set 94/94 (100%) full win set 90/94 (96%)  every move exact 70/94 (74%)
+  mover     root 92/94 (98%)  pawn-move win set 94/94 (100%) full win set 90/94 (96%)  every move exact 70/94 (74%)
+  opponent  root 92/94 (98%)  pawn-move win set 94/94 (100%) full win set 90/94 (96%)  every move exact 70/94 (74%)
+  tablebase root: {'win': 75, 'loss': 17, 'draw': 2}
+  all king moves lose (as the model assumes): 73/94 (78%)
+  king-move results over all king moves: {'loss': 401, 'draw': 41, 'win': 7}
+
+## tame, race-insensitive, B-trebuchets: 54 positions
+  count     root 52/54 (96%)  pawn-move win set 50/54 (93%)  full win set 50/54 (93%)  every move exact 46/54 (85%)
+  mover     root 52/54 (96%)  pawn-move win set 50/54 (93%)  full win set 50/54 (93%)  every move exact 46/54 (85%)
+  opponent  root 52/54 (96%)  pawn-move win set 50/54 (93%)  full win set 50/54 (93%)  every move exact 46/54 (85%)
+  tablebase root: {'win': 52, 'draw': 2}
+  all king moves lose (as the model assumes): 50/54 (93%)
+  king-move results over all king moves: {'loss': 115, 'draw': 5}
+
+## BIG-valued, race-insensitive: 40 positions
+  count     root 39/40 (98%)  pawn-move win set 40/40 (100%) full win set 35/40 (88%)  every move exact 27/40 (68%)
+  mover     root 39/40 (98%)  pawn-move win set 40/40 (100%) full win set 35/40 (88%)  every move exact 27/40 (68%)
+  opponent  root 39/40 (98%)  pawn-move win set 40/40 (100%) full win set 35/40 (88%)  every move exact 27/40 (68%)
+  tablebase root: {'win': 30, 'loss': 9, 'draw': 1}
+  all king moves lose (as the model assumes): 28/40 (70%)
+  king-move results over all king moves: {'loss': 115, 'draw': 24, 'win': 25}
+
+## race-sensitive (CGT win set depends on RACE_RULE), A-trebuchets: 72 positions
+  count     root 60/72 (83%)  pawn-move win set 60/72 (83%)  full win set 46/72 (64%)  every move exact 26/72 (36%)
+  mover     root 34/72 (47%)  pawn-move win set 25/72 (35%)  full win set 22/72 (31%)  every move exact 7/72 (10%)
+  opponent  root 57/72 (79%)  pawn-move win set 44/72 (61%)  full win set 28/72 (39%)  every move exact 19/72 (26%)
+  tablebase root: {'win': 51, 'draw': 9, 'loss': 12}
+  all king moves lose (as the model assumes): 32/72 (44%)
+  king-move results over all king moves: {'win': 64, 'draw': 80, 'loss': 206}
+
+## race-sensitive, B-trebuchets: 15 positions
+  count     root 12/15 (80%)  pawn-move win set 14/15 (93%)  full win set 14/15 (93%)  every move exact 9/15 (60%)
+  mover     root 8/15 (53%)   pawn-move win set 8/15 (53%)   full win set 8/15 (53%)   every move exact 3/15 (20%)
+  opponent  root 11/15 (73%)  pawn-move win set 6/15 (40%)   full win set 6/15 (40%)   every move exact 5/15 (33%)
+  tablebase root: {'win': 8, 'draw': 3, 'loss': 4}
+  all king moves lose (as the model assumes): 11/15 (73%)
+  king-move results over all king moves: {'loss': 24, 'draw': 6}
+
+## tame, race-insensitive positions by value class (count rule)
+  infinitesimal  n= 29 root 29/29 (100%) pawn set 29/29 (100%) full win set 29/29 (100%)
+  nimber         n= 10 root 9/10 (90%)   pawn set 9/10 (90%)   full win set 9/10 (90%)
+  number         n= 47 root 45/47 (96%)  pawn set 44/47 (94%)  full win set 40/47 (85%)
+  other-tame     n= 22 root 22/22 (100%) pawn set 22/22 (100%) full win set 22/22 (100%)
+  switch         n= 40 root 39/40 (98%)  pawn set 40/40 (100%) full win set 40/40 (100%)
+
+## files
+  cgt_verified.epd: 181 positions
+  cgt_disagree.epd: 52 positions
+  verified by value class: {'nimber': 16, 'switch': 36, 'number': 37, 'other-tame': 20, 'infinitesimal': 27, 'hot-BIG': 44, 'decided': 1}
+  verified with a unique solution: 126 ; only-slow-winning-move: 38
+  max pawn-play length in verified positions: {1: 32, 2: 27, 3: 67, 4: 29, 5: 11, 6: 15}

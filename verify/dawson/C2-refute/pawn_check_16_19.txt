@@ -1,0 +1,55 @@
+paper 1x1 rule: legal first moves = 1
+paper 1x2 rule: legal first moves = 0
+paper 1x3 rule: legal first moves = 0
+paper 1x4 rule: legal first moves = 0
+paper 1x5 rule: legal first moves = 0
+paper 1x6 rule: legal first moves = 0
+paper 1x7 rule: legal first moves = 0
+flat 3x1  first player wins: W-first True B-first True | g=1 pred True | paperG=0 pred False
+flat 3x2  first player wins: W-first True B-first True | g=1 pred True | paperG=0 pred False
+flat 3x3  first player wins: W-first True B-first True | g=2 pred True | paperG=1 pred True
+flat 3x4  first player wins: W-first False B-first False | g=0 pred False | paperG=1 pred True
+flat 3x5  first player wins: W-first True B-first True | g=3 pred True | paperG=1 pred True
+flat 3x6  first player wins: W-first True B-first True | g=1 pred True | paperG=2 pred True
+flat 3x7  first player wins: W-first True B-first True | g=1 pred True | paperG=2 pred True
+flat 3x8  first player wins: W-first False B-first False | g=0 pred False | paperG=0 pred False
+flat 3x9  first player wins: W-first True B-first True | g=3 pred True | paperG=3 pred True
+flat 3x10 first player wins: W-first True B-first True | g=3 pred True | paperG=3 pred True
+flat 3x11 first player wins: W-first True B-first True | g=2 pred True | paperG=1 pred True
+flat 3x12 first player wins: W-first True B-first True | g=2 pred True | paperG=1 pred True
+flat 3x13 first player wins: W-first True B-first True | g=4 pred True | paperG=1 pred True
+flat 3x14 first player wins: W-first False B-first False | g=0 pred False | paperG=0 pred False
+flat 3x15 first player wins: W-first True B-first True | g=5 pred True | paperG=4 pred True
+flat 3x16 first player wins: W-first True B-first True | g=2 pred True | paperG=3 pred True
+cyl  3x3  first player wins: W-first True B-first True | correct pred True | paper pred True
+cyl  3x4  first player wins: W-first False B-first False | correct pred False | paper pred True
+cyl  3x5  first player wins: W-first False B-first False | correct pred False | paper pred True
+cyl  3x6  first player wins: W-first False B-first False | correct pred False | paper pred False
+cyl  3x7  first player wins: W-first True B-first True | correct pred True | paper pred False
+cyl  3x8  first player wins: W-first False B-first False | correct pred False | paper pred False
+cyl  3x9  first player wins: W-first False B-first False | correct pred False | paper pred False
+cyl  3x10 first player wins: W-first False B-first False | correct pred False | paper pred False
+cyl  3x11 first player wins: W-first True B-first True | correct pred True | paper pred True
+cyl  3x12 first player wins: W-first False B-first False | correct pred False | paper pred False
+cyl  3x13 first player wins: W-first False B-first False | correct pred False | paper pred False
+cyl  3x14 first player wins: W-first False B-first False | correct pred False | paper pred False
+cyl  3x15 first player wins: W-first False B-first False | correct pred False | paper pred False
+cyl  3x16 first player wins: W-first False B-first False | correct pred False | paper pred False
+sum test n=1 : values v with strip(n)+ref(v) a P-position: [1] ; g(n)=1 
+sum test n=2 : values v with strip(n)+ref(v) a P-position: [1] ; g(n)=1 
+sum test n=3 : values v with strip(n)+ref(v) a P-position: [2] ; g(n)=2 
+sum test n=4 : values v with strip(n)+ref(v) a P-position: [0] ; g(n)=0 
+sum test n=5 : values v with strip(n)+ref(v) a P-position: [3] ; g(n)=3 
+sum test n=6 : values v with strip(n)+ref(v) a P-position: [1] ; g(n)=1 
+sum test n=7 : values v with strip(n)+ref(v) a P-position: [1] ; g(n)=1 
+sum test n=8 : values v with strip(n)+ref(v) a P-position: [0] ; g(n)=0 
+sum test n=9 : values v with strip(n)+ref(v) a P-position: [3] ; g(n)=3 
+sum test n=10: values v with strip(n)+ref(v) a P-position: [3] ; g(n)=3 
+sum test n=11: values v with strip(n)+ref(v) a P-position: [2] ; g(n)=2 
+sum test n=12: values v with strip(n)+ref(v) a P-position: [2] ; g(n)=2 
+sum test n=13: values v with strip(n)+ref(v) a P-position: [] ; g(n)=4 (no ref fits board)
+sum test n=14: values v with strip(n)+ref(v) a P-position: [0] ; g(n)=0 
+sum test n=15: values v with strip(n)+ref(v) a P-position: [] ; g(n)=5 (no ref fits board)
+sum test n=16: values v with strip(n)+ref(v) a P-position: [] ; g(n)=2 (no ref fits board)
+sum-test mismatches: 0
+flags: {'promotion': 0, 'dbl_step_geom': 393377} time 3.3s

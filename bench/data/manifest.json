@@ -1,0 +1,210 @@
+{
+ "seed": 20261015,
+ "scale": 1.0,
+ "component_filter": {
+  "candidates": 5290,
+  "drop: canonical form contains a +-BIG threat": 1161,
+  "drop: value depends on race rule": 2898,
+  "drop: some child value depends on race rule / e.p.": 326,
+  "drop: value is +-BIG": 194,
+  "drop: value depends on race rule and e.p.": 118,
+  "drop: value depends on e.p.": 50,
+  "drop: an e.p. capture can occur in the game tree": 25,
+  "kept": 518,
+  "orbits": 171,
+  "heldout orbits (value class)": 3,
+  "heldout orbits (structure)": 17,
+  "heldout components": 59,
+  "distinct values": 42
+ },
+ "splits": {
+  "train": {
+   "rows": 20000,
+   "rows_8file": 14271,
+   "k": {
+    "1": 3000,
+    "2": 7000,
+    "3": 10000
+   },
+   "outcome": {
+    "L": 5000,
+    "N": 5000,
+    "P": 5000,
+    "R": 5000
+   },
+   "kind": {
+    "cold-other": 353,
+    "hot-other": 5327,
+    "integer": 6913,
+    "number": 633,
+    "number+nimber": 1905,
+    "number+ups(+nimber)": 1801,
+    "switch": 3068
+   },
+   "cylinder": 10197,
+   "board_files": {
+    "8": 14271,
+    "9": 752,
+    "10": 1289,
+    "11": 1662,
+    "12": 1092,
+    "13": 511,
+    "14": 289,
+    "15": 112,
+    "16": 18,
+    "17": 4
+   },
+   "rows_with_winning_move": {
+    "W": 10000,
+    "B": 10000
+   },
+   "max_value_len": 252,
+   "outcome_quota_shortfall": {},
+   "sha256": "80642ce319d3c6e9b28358842f74f70696daf9d51dfa0e056c170ca5479cd5cb",
+   "sha256_8file": "0e0a99a92614bbc566014512324711f691a4be6ce6d985c25ebb8ebce1200f1d"
+  },
+  "val": {
+   "rows": 2000,
+   "rows_8file": 1440,
+   "k": {
+    "1": 300,
+    "2": 700,
+    "3": 1000
+   },
+   "outcome": {
+    "L": 500,
+    "N": 500,
+    "P": 500,
+    "R": 500
+   },
+   "kind": {
+    "cold-other": 25,
+    "hot-other": 508,
+    "integer": 706,
+    "number": 57,
+    "number+nimber": 213,
+    "number+ups(+nimber)": 201,
+    "switch": 290
+   },
+   "cylinder": 1027,
+   "board_files": {
+    "8": 1440,
+    "9": 66,
+    "10": 125,
+    "11": 158,
+    "12": 118,
+    "13": 67,
+    "14": 16,
+    "15": 6,
+    "16": 3,
+    "17": 1
+   },
+   "rows_with_winning_move": {
+    "W": 1000,
+    "B": 1000
+   },
+   "max_value_len": 190,
+   "outcome_quota_shortfall": {},
+   "sha256": "5958b8edca3d5e4a9ec9424db4292ca577f569baed1bb9234d75b41b8b1c8017",
+   "sha256_8file": "6860172c851e2f68d73d7640c678b371d39686d2330d0fc2b7d13fe2f61196bd"
+  },
+  "test": {
+   "rows": 2000,
+   "rows_8file": 344,
+   "k": {
+    "4": 667,
+    "5": 667,
+    "6": 666
+   },
+   "outcome": {
+    "L": 501,
+    "N": 500,
+    "P": 498,
+    "R": 501
+   },
+   "kind": {
+    "cold-other": 50,
+    "hot-other": 1047,
+    "integer": 562,
+    "number": 14,
+    "number+nimber": 57,
+    "number+ups(+nimber)": 118,
+    "switch": 152
+   },
+   "cylinder": 895,
+   "board_files": {
+    "8": 344,
+    "9": 13,
+    "10": 24,
+    "11": 63,
+    "12": 77,
+    "13": 123,
+    "14": 147,
+    "15": 178,
+    "16": 174,
+    "17": 212,
+    "18": 164,
+    "19": 149,
+    "20": 118,
+    "21": 101,
+    "22": 54,
+    "23": 33,
+    "24": 12,
+    "25": 10,
+    "26": 4
+   },
+   "rows_with_winning_move": {
+    "W": 1001,
+    "B": 1001
+   },
+   "max_value_len": 400,
+   "outcome_quota_shortfall": {},
+   "sha256": "f37a14fadefae45414a4266b7913aa2c5a89760ba618b7994b7eb0ddc7191266",
+   "sha256_8file": "54b8b8f841c5c58ca39df3cd6320ea0f0660f7565e73cbda3ad9bc6eb2c8dcbe"
+  },
+  "test_heldout": {
+   "rows": 2000,
+   "rows_8file": 1574,
+   "k": {
+    "1": 400,
+    "2": 800,
+    "3": 800
+   },
+   "outcome": {
+    "L": 500,
+    "N": 500,
+    "P": 500,
+    "R": 500
+   },
+   "kind": {
+    "cold-other": 16,
+    "hot-other": 406,
+    "integer": 634,
+    "number": 16,
+    "number+nimber": 169,
+    "number+ups(+nimber)": 573,
+    "switch": 186
+   },
+   "cylinder": 1008,
+   "board_files": {
+    "8": 1574,
+    "9": 49,
+    "10": 111,
+    "11": 132,
+    "12": 79,
+    "13": 41,
+    "14": 13,
+    "15": 1
+   },
+   "rows_with_winning_move": {
+    "W": 1000,
+    "B": 1000
+   },
+   "max_value_len": 134,
+   "outcome_quota_shortfall": {},
+   "sha256": "e03e4ab82e18348e14946cea865c441fd9bf02de8243f13966872f074d9684ca",
+   "sha256_8file": "c25ee3e57f1c42246fd7cc1f17d3124faab8e00217e62099125bfe1879a80a23"
+  }
+ },
+ "components_sha256": "e192b59f38414a8efc6a18108baa2b91ee84933b8739f2a450458a510dd27b57"
+}

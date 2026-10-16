@@ -1,0 +1,28 @@
+1. engine sanity: ok (*2+*2=0, *2+*=*3, {-256|}=0, {0,*|0,*}=*2)
+2. ep=True  count   : non-terminal nodes with W<=-BIG or W>=BIG: 10  e.g. W: a2 c2 / B: b4 d7
+2. ep=True  mover   : non-terminal nodes with W<=-BIG or W>=BIG: 14  e.g. W: a2 c2 / B: b4 d7
+2. ep=True  opponent: non-terminal nodes with W<=-BIG or W>=BIG: 10  e.g. W: a2 c2 / B: b4 d7
+2. ep=False count   : non-terminal nodes with W<=-BIG or W>=BIG: 8  e.g. W: a2 c2 / B: b4 d7
+2. ep=False mover   : non-terminal nodes with W<=-BIG or W>=BIG: 12  e.g. W: a2 c2 / B: b4 d7
+2. ep=False opponent: non-terminal nodes with W<=-BIG or W>=BIG: 8  e.g. W: a2 c2 / B: b4 d7
+3. chess-expiry e.p. ep=True  count    4f: outcome of X+*0..*3 = ['N', 'N', 'P', 'N']
+3. chess-expiry e.p. ep=True  count    8f: outcome of X+*0..*3 = ['N', 'N', 'P', 'N']
+3. chess-expiry e.p. ep=True  mover    4f: outcome of X+*0..*3 = ['N', 'N', 'P', 'N']
+3. chess-expiry e.p. ep=True  mover    8f: outcome of X+*0..*3 = ['N', 'N', 'P', 'N']
+3. chess-expiry e.p. ep=True  opponent 4f: outcome of X+*0..*3 = ['P', 'N', 'N', 'N']
+3. chess-expiry e.p. ep=True  opponent 8f: outcome of X+*0..*3 = ['P', 'N', 'N', 'N']
+3. chess-expiry e.p. ep=False count    4f: outcome of X+*0..*3 = ['N', 'N', 'P', 'N']
+3. chess-expiry e.p. ep=False count    8f: outcome of X+*0..*3 = ['N', 'N', 'P', 'N']
+3. chess-expiry e.p. ep=False mover    4f: outcome of X+*0..*3 = ['N', 'N', 'P', 'N']
+3. chess-expiry e.p. ep=False mover    8f: outcome of X+*0..*3 = ['N', 'N', 'P', 'N']
+3. chess-expiry e.p. ep=False opponent 4f: outcome of X+*0..*3 = ['P', 'N', 'N', 'N']
+3. chess-expiry e.p. ep=False opponent 8f: outcome of X+*0..*3 = ['P', 'N', 'N', 'N']
+4. 8x8 CYLINDER pawn model ep=True  count   : S=*2 W=*2 WF=*2
+4. 8x8 CYLINDER pawn model ep=True  mover   : S=*2 W=*2 WF=*2
+4. 8x8 CYLINDER pawn model ep=True  opponent: S=0 W=0 WF=0
+4. 4-file ring C4 ep=True  count: W={{{{0|}|}|{0|}}|{{|0}|{|{|0}}}}
+4. 8x8 CYLINDER pawn model ep=False count   : S=*2 W=*2 WF=*2
+4. 8x8 CYLINDER pawn model ep=False mover   : S=*2 W=*2 WF=*2
+4. 8x8 CYLINDER pawn model ep=False opponent: S=0 W=0 WF=0
+4. 4-file ring C4 ep=False count: W={{0|{0|}}|{{|0}|0}}
+5. W+*h vs WF+*h (h<=3, both to move) over 1890 (node,ep,rule) cases: 0 mismatches

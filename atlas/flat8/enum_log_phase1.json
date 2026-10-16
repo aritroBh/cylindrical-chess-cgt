@@ -1,0 +1,466 @@
+{
+ "command": "atlas/flat8/enumerate.py enum --workers 6 --chunk 200 --six-widths 1,2,3 --out values_phase1.jsonl --log enum_log_phase1.json",
+ "settings": {
+  "ep": true,
+  "RACE_RULE": "count",
+  "ranks": 8,
+  "pawn_ranks": "2-7",
+  "flat": true,
+  "BIG": 256
+ },
+ "classes": [
+  {
+   "width": 1,
+   "nw": 1,
+   "nb": 1,
+   "canonical_positions": 15,
+   "board_positions": 15,
+   "cpu_seconds": 0.0
+  },
+  {
+   "width": 1,
+   "nw": 1,
+   "nb": 2,
+   "canonical_positions": 20,
+   "board_positions": 20,
+   "cpu_seconds": 0.0
+  },
+  {
+   "width": 1,
+   "nw": 2,
+   "nb": 1,
+   "canonical_positions": 20,
+   "board_positions": 20,
+   "cpu_seconds": 0.0
+  },
+  {
+   "width": 1,
+   "nw": 1,
+   "nb": 3,
+   "canonical_positions": 15,
+   "board_positions": 15,
+   "cpu_seconds": 0.0
+  },
+  {
+   "width": 1,
+   "nw": 2,
+   "nb": 2,
+   "canonical_positions": 30,
+   "board_positions": 30,
+   "cpu_seconds": 0.0
+  },
+  {
+   "width": 1,
+   "nw": 3,
+   "nb": 1,
+   "canonical_positions": 15,
+   "board_positions": 15,
+   "cpu_seconds": 0.0
+  },
+  {
+   "width": 1,
+   "nw": 1,
+   "nb": 4,
+   "canonical_positions": 6,
+   "board_positions": 6,
+   "cpu_seconds": 0.0
+  },
+  {
+   "width": 1,
+   "nw": 2,
+   "nb": 3,
+   "canonical_positions": 18,
+   "board_positions": 18,
+   "cpu_seconds": 0.0
+  },
+  {
+   "width": 1,
+   "nw": 3,
+   "nb": 2,
+   "canonical_positions": 18,
+   "board_positions": 18,
+   "cpu_seconds": 0.0
+  },
+  {
+   "width": 1,
+   "nw": 4,
+   "nb": 1,
+   "canonical_positions": 6,
+   "board_positions": 6,
+   "cpu_seconds": 0.0
+  },
+  {
+   "width": 1,
+   "nw": 1,
+   "nb": 5,
+   "canonical_positions": 1,
+   "board_positions": 1,
+   "cpu_seconds": 0.0
+  },
+  {
+   "width": 1,
+   "nw": 2,
+   "nb": 4,
+   "canonical_positions": 4,
+   "board_positions": 4,
+   "cpu_seconds": 0.0
+  },
+  {
+   "width": 1,
+   "nw": 3,
+   "nb": 3,
+   "canonical_positions": 6,
+   "board_positions": 6,
+   "cpu_seconds": 0.0
+  },
+  {
+   "width": 1,
+   "nw": 4,
+   "nb": 2,
+   "canonical_positions": 4,
+   "board_positions": 4,
+   "cpu_seconds": 0.0
+  },
+  {
+   "width": 1,
+   "nw": 5,
+   "nb": 1,
+   "canonical_positions": 1,
+   "board_positions": 1,
+   "cpu_seconds": 0.0
+  },
+  {
+   "width": 2,
+   "nw": 1,
+   "nb": 1,
+   "canonical_positions": 15,
+   "board_positions": 30,
+   "cpu_seconds": 0.01
+  },
+  {
+   "width": 2,
+   "nw": 1,
+   "nb": 2,
+   "canonical_positions": 75,
+   "board_positions": 150,
+   "cpu_seconds": 0.06
+  },
+  {
+   "width": 2,
+   "nw": 2,
+   "nb": 1,
+   "canonical_positions": 75,
+   "board_positions": 150,
+   "cpu_seconds": 0.08
+  },
+  {
+   "width": 2,
+   "nw": 1,
+   "nb": 3,
+   "canonical_positions": 185,
+   "board_positions": 370,
+   "cpu_seconds": 0.16
+  },
+  {
+   "width": 2,
+   "nw": 2,
+   "nb": 2,
+   "canonical_positions": 385,
+   "board_positions": 755,
+   "cpu_seconds": 0.64
+  },
+  {
+   "width": 2,
+   "nw": 3,
+   "nb": 1,
+   "canonical_positions": 185,
+   "board_positions": 370,
+   "cpu_seconds": 0.23
+  },
+  {
+   "width": 2,
+   "nw": 1,
+   "nb": 4,
+   "canonical_positions": 290,
+   "board_positions": 580,
+   "cpu_seconds": 0.38
+  },
+  {
+   "width": 2,
+   "nw": 2,
+   "nb": 3,
+   "canonical_positions": 890,
+   "board_positions": 1780,
+   "cpu_seconds": 2.57
+  },
+  {
+   "width": 2,
+   "nw": 3,
+   "nb": 2,
+   "canonical_positions": 890,
+   "board_positions": 1780,
+   "cpu_seconds": 2.71
+  },
+  {
+   "width": 2,
+   "nw": 4,
+   "nb": 1,
+   "canonical_positions": 290,
+   "board_positions": 580,
+   "cpu_seconds": 0.61
+  },
+  {
+   "width": 2,
+   "nw": 1,
+   "nb": 5,
+   "canonical_positions": 313,
+   "board_positions": 626,
+   "cpu_seconds": 0.58
+  },
+  {
+   "width": 2,
+   "nw": 2,
+   "nb": 4,
+   "canonical_positions": 1302,
+   "board_positions": 2584,
+   "cpu_seconds": 4.89
+  },
+  {
+   "width": 2,
+   "nw": 3,
+   "nb": 3,
+   "canonical_positions": 1958,
+   "board_positions": 3916,
+   "cpu_seconds": 9.2
+  },
+  {
+   "width": 2,
+   "nw": 4,
+   "nb": 2,
+   "canonical_positions": 1302,
+   "board_positions": 2584,
+   "cpu_seconds": 6.08
+  },
+  {
+   "width": 2,
+   "nw": 5,
+   "nb": 1,
+   "canonical_positions": 313,
+   "board_positions": 626,
+   "cpu_seconds": 0.81
+  },
+  {
+   "width": 3,
+   "nw": 1,
+   "nb": 1,
+   "canonical_positions": 0,
+   "board_positions": 0,
+   "cpu_seconds": 0.0
+  },
+  {
+   "width": 3,
+   "nw": 1,
+   "nb": 2,
+   "canonical_positions": 35,
+   "board_positions": 55,
+   "cpu_seconds": 0.08
+  },
+  {
+   "width": 3,
+   "nw": 2,
+   "nb": 1,
+   "canonical_positions": 35,
+   "board_positions": 55,
+   "cpu_seconds": 0.08
+  },
+  {
+   "width": 3,
+   "nw": 1,
+   "nb": 3,
+   "canonical_positions": 225,
+   "board_positions": 395,
+   "cpu_seconds": 0.66
+  },
+  {
+   "width": 3,
+   "nw": 2,
+   "nb": 2,
+   "canonical_positions": 915,
+   "board_positions": 1775,
+   "cpu_seconds": 3.83
+  },
+  {
+   "width": 3,
+   "nw": 3,
+   "nb": 1,
+   "canonical_positions": 225,
+   "board_positions": 395,
+   "cpu_seconds": 0.63
+  },
+  {
+   "width": 3,
+   "nw": 1,
+   "nb": 4,
+   "canonical_positions": 760,
+   "board_positions": 1415,
+   "cpu_seconds": 4.6
+  },
+  {
+   "width": 3,
+   "nw": 2,
+   "nb": 3,
+   "canonical_positions": 4478,
+   "board_positions": 8786,
+   "cpu_seconds": 29.7
+  },
+  {
+   "width": 3,
+   "nw": 3,
+   "nb": 2,
+   "canonical_positions": 4478,
+   "board_positions": 8786,
+   "cpu_seconds": 34.3
+  },
+  {
+   "width": 3,
+   "nw": 4,
+   "nb": 1,
+   "canonical_positions": 760,
+   "board_positions": 1415,
+   "cpu_seconds": 3.97
+  },
+  {
+   "width": 3,
+   "nw": 1,
+   "nb": 5,
+   "canonical_positions": 1727,
+   "board_positions": 3300,
+   "cpu_seconds": 17.78
+  },
+  {
+   "width": 3,
+   "nw": 2,
+   "nb": 4,
+   "canonical_positions": 12790,
+   "board_positions": 25275,
+   "cpu_seconds": 111.77
+  },
+  {
+   "width": 3,
+   "nw": 3,
+   "nb": 3,
+   "canonical_positions": 22055,
+   "board_positions": 43693,
+   "cpu_seconds": 195.16
+  },
+  {
+   "width": 3,
+   "nw": 4,
+   "nb": 2,
+   "canonical_positions": 12790,
+   "board_positions": 25275,
+   "cpu_seconds": 119.63
+  },
+  {
+   "width": 3,
+   "nw": 5,
+   "nb": 1,
+   "canonical_positions": 1727,
+   "board_positions": 3300,
+   "cpu_seconds": 14.04
+  },
+  {
+   "width": 4,
+   "nw": 1,
+   "nb": 1,
+   "canonical_positions": 0,
+   "board_positions": 0,
+   "cpu_seconds": 0.0
+  },
+  {
+   "width": 4,
+   "nw": 1,
+   "nb": 2,
+   "canonical_positions": 0,
+   "board_positions": 0,
+   "cpu_seconds": 0.0
+  },
+  {
+   "width": 4,
+   "nw": 2,
+   "nb": 1,
+   "canonical_positions": 0,
+   "board_positions": 0,
+   "cpu_seconds": 0.0
+  },
+  {
+   "width": 4,
+   "nw": 1,
+   "nb": 3,
+   "canonical_positions": 0,
+   "board_positions": 0,
+   "cpu_seconds": 0.0
+  },
+  {
+   "width": 4,
+   "nw": 2,
+   "nb": 2,
+   "canonical_positions": 1035,
+   "board_positions": 2025,
+   "cpu_seconds": 3.2
+  },
+  {
+   "width": 4,
+   "nw": 3,
+   "nb": 1,
+   "canonical_positions": 0,
+   "board_positions": 0,
+   "cpu_seconds": 0.0
+  },
+  {
+   "width": 4,
+   "nw": 1,
+   "nb": 4,
+   "canonical_positions": 0,
+   "board_positions": 0,
+   "cpu_seconds": 0.0
+  },
+  {
+   "width": 4,
+   "nw": 2,
+   "nb": 3,
+   "canonical_positions": 8027,
+   "board_positions": 16054,
+   "cpu_seconds": 60.67
+  },
+  {
+   "width": 4,
+   "nw": 3,
+   "nb": 2,
+   "canonical_positions": 8027,
+   "board_positions": 16054,
+   "cpu_seconds": 56.97
+  },
+  {
+   "width": 4,
+   "nw": 4,
+   "nb": 1,
+   "canonical_positions": 0,
+   "board_positions": 0,
+   "cpu_seconds": 0.0
+  }
+ ],
+ "total_canonical": 88736,
+ "total_board_positions": 175113,
+ "wall_seconds": 122.6,
+ "cpu_seconds_total": 686.1,
+ "workers": 6,
+ "max_rss_bytes_per_worker": [
+  267419648,
+  267485184,
+  275644416,
+  282804224,
+  288997376,
+  301973504
+ ]
+}

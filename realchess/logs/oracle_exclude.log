@@ -1,0 +1,71 @@
+{"iter": 3, "goal": "exclude", "attempted": 68, "G_lo": "{0 | {-W | {-W | -W*}}, {0 | {-W | {-W | -W*}}}}", "G_hi": "{{{+W* | +W} | +W}, {{{+W* | +W} | +W} | 0} | 0}", "requests": 0, "certificate": {"draw=White win": {"left": false, "right": false}, "draw=Black win": {"left": false, "right": false}}}
+[probe] 200 8/3p4/8/5Kp1/6Pk/2p5/P7/8 b - - 0 1
+[probe] 200 8/3p4/8/5Kp1/6Pk/p7/2P5/8 b - - 0 1
+[probe] 200 8/3p4/8/5Kp1/p5Pk/2P5/8/8 b - - 0 1
+{"iter": 4, "goal": "exclude", "attempted": 71, "G_lo": "{0 | {-W | {-W | -W*}}, {0 | {-W | {-W | -W*}}}}", "G_hi": "{{{+W* | +W} | +W} | 0}", "requests": 3, "certificate": {"draw=White win": {"left": false, "right": true}, "draw=Black win": {"left": false, "right": true}}}
+{
+ "component": "W: a2 c2 / B: b7 d7",
+ "mode": "pure",
+ "dry_run": false,
+ "status": "complete",
+ "goal": "exclude",
+ "target": "*2",
+ "terminals_total": 670,
+ "terminals_attempted": 71,
+ "terminals_resolved_both_sides": 65,
+ "terminals_partial": [
+  "W: a2 c4 / B: b7 d4 (ep c3)",
+  "W: a2 c5 / B: b7 d5 (ep d6)",
+  "W: a3 c4 / B: b5 d4 (ep c3)",
+  "W: a4 c2 / B: b4 d7 (ep a3)",
+  "W: a5 c2 / B: b5 d7 (ep b6)",
+  "W: a5 c4 / B: b5 d6 (ep b6)"
+ ],
+ "class_counts": {
+  "R": 29,
+  "L": 31,
+  "N": 3,
+  "D": 2
+ },
+ "new_requests_this_run": 3,
+ "seconds_this_run": 343.0,
+ "categories_seen_this_run": {
+  "loss": 3,
+  "win": 3
+ },
+ "draw=White win": {
+  "value_if_unresolved_take_model_class": "{1* | -1/2}",
+  "narrow_bounds": [
+   "{0 | {-W | {-W | -W*}}, {0 | {-W | {-W | -W*}}}}",
+   "{{{+W* | +W} | +W} | 0}"
+  ],
+  "narrow_pinned": false,
+  "wide_bounds": [
+   "{0 | {-W | {-W | -W*}}, {0 | {-W | {-W | -W*}}}}",
+   "{{{+W* | +W} | +W} | 0}"
+  ],
+  "wide_pinned": false,
+  "certificate_not_target": {
+   "left": false,
+   "right": true
+  }
+ },
+ "draw=Black win": {
+  "value_if_unresolved_take_model_class": "\u00b11/2",
+  "narrow_bounds": [
+   "{0 | {-W | {-W | -W*}}, {0 | {-W | {-W | -W*}}}}",
+   "{{{+W* | +W} | +W} | 0}"
+  ],
+  "narrow_pinned": false,
+  "wide_bounds": [
+   "{0 | {-W | {-W | -W*}}, {0 | {-W | {-W | -W*}}}}",
+   "{{{+W* | +W} | +W} | 0}"
+  ],
+  "wide_pinned": false,
+  "certificate_not_target": {
+   "left": false,
+   "right": true
+  }
+ }
+}
+non-L/R terminals: 5 disagreements with count model: 1

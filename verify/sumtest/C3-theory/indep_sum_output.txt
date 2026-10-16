@@ -1,0 +1,68 @@
+rule | ep | passer test | ep scope | board | 15-vector | G+*2 | G+H (H={2+-1|-2+-1}) | G alone
+count | off | textbook | component | 4flat | NNPNLRLLLRLRLNN | P | N | N
+count | off | textbook | component | 8flat | NNPNLRLLLRLRLNN | P | N | N
+count | off | textbook | component | 8cyl | NNPNLRLLLRLRLNN | P | N | N
+count | off | textbook | component | 5cyl | NNPNLRLLLRLRLNN | P | N | N
+count | on | textbook | component | 4flat | NNPNLRLLLRLRLNN | P | N | N
+count | on | textbook | component | 8flat | NNPNLRLLLRLRLNN | P | N | N
+count | on | textbook | component | 8cyl | NNPNLRLLLRLRLNN | P | N | N
+count | on | textbook | component | 5cyl | NNPNLRLLLRLRLNN | P | N | N
+count | on | textbook | global | 4flat | NNPNLRLLLRLRLNN | P | N | N
+count | on | textbook | global | 8flat | NNPNLRLLLRLRLNN | P | N | N
+count | on | textbook | global | 8cyl | NNPNLRLLLRLRLNN | P | N | N
+count | on | textbook | global | 5cyl | NNPNLRLLLRLRLNN | P | N | N
+count | on | aware | component | 4flat | NNNNNNNNNNLRNNN | N | P | N
+count | on | aware | component | 8flat | NNNNNNNNNNLRNNN | N | P | N
+count | on | aware | component | 8cyl | NNNNNNNNNNLRNNN | N | P | N
+count | on | aware | component | 5cyl | NNNNNNNNNNLRNNN | N | P | N
+count | on | aware | global | 4flat | NNNNNNNNNNLRNNN | N | P | N
+count | on | aware | global | 8flat | NNNNNNNNNNLRNNN | N | P | N
+count | on | aware | global | 8cyl | NNNNNNNNNNLRNNN | N | P | N
+count | on | aware | global | 5cyl | NNNNNNNNNNLRNNN | N | P | N
+mover | off | textbook | component | 4flat | NNPNLRLLLRLRLNN | P | N | N
+mover | off | textbook | component | 8flat | NNPNLRLLLRLRLNN | P | N | N
+mover | off | textbook | component | 8cyl | NNPNLRLLLRLRLNN | P | N | N
+mover | off | textbook | component | 5cyl | NNPNLRLLLRLRLNN | P | N | N
+mover | on | textbook | component | 4flat | NNPNLRLLLRLRLNN | P | N | N
+mover | on | textbook | component | 8flat | NNPNLRLLLRLRLNN | P | N | N
+mover | on | textbook | component | 8cyl | NNPNLRLLLRLRLNN | P | N | N
+mover | on | textbook | component | 5cyl | NNPNLRLLLRLRLNN | P | N | N
+mover | on | textbook | global | 4flat | NNPNLRLLLRLRLNN | P | N | N
+mover | on | textbook | global | 8flat | NNPNLRLLLRLRLNN | P | N | N
+mover | on | textbook | global | 8cyl | NNPNLRLLLRLRLNN | P | N | N
+mover | on | textbook | global | 5cyl | NNPNLRLLLRLRLNN | P | N | N
+mover | on | aware | component | 4flat | NNNNNNNNNNLRNNN | N | P | N
+mover | on | aware | component | 8flat | NNNNNNNNNNLRNNN | N | P | N
+mover | on | aware | component | 8cyl | NNNNNNNNNNLRNNN | N | P | N
+mover | on | aware | component | 5cyl | NNNNNNNNNNLRNNN | N | P | N
+mover | on | aware | global | 4flat | NNNNNNNNNNLRNNN | N | P | N
+mover | on | aware | global | 8flat | NNNNNNNNNNLRNNN | N | P | N
+mover | on | aware | global | 8cyl | NNNNNNNNNNLRNNN | N | P | N
+mover | on | aware | global | 5cyl | NNNNNNNNNNLRNNN | N | P | N
+opponent | off | textbook | component | 4flat | PNNNLRNLLRLRNNL | N | N | P
+opponent | off | textbook | component | 8flat | PNNNLRNLLRLRNNL | N | N | P
+opponent | off | textbook | component | 8cyl | PNNNLRNLLRLRNNL | N | N | P
+opponent | off | textbook | component | 5cyl | PNNNLRNLLRLRNNL | N | N | P
+opponent | on | textbook | component | 4flat | PNNNLRNLLRLRNNL | N | N | P
+opponent | on | textbook | component | 8flat | PNNNLRNLLRLRNNL | N | N | P
+opponent | on | textbook | component | 8cyl | PNNNLRNLLRLRNNL | N | N | P
+opponent | on | textbook | component | 5cyl | PNNNLRNLLRLRNNL | N | N | P
+opponent | on | textbook | global | 4flat | PNNNLRNLLRLRNNL | N | N | P
+opponent | on | textbook | global | 8flat | PNNNLRNLLRLRNNL | N | N | P
+opponent | on | textbook | global | 8cyl | PNNNLRNLLRLRNNL | N | N | P
+opponent | on | textbook | global | 5cyl | PNNNLRNLLRLRNNL | N | N | P
+opponent | on | aware | component | 4flat | PNNNLRNLLRLRNNL | N | N | P
+opponent | on | aware | component | 8flat | PNNNLRNLLRLRNNL | N | N | P
+opponent | on | aware | component | 8cyl | PNNNLRNLLRLRNNL | N | N | P
+opponent | on | aware | component | 5cyl | PNNNLRNLLRLRNNL | N | N | P
+opponent | on | aware | global | 4flat | PNNNLRNLLRLRNNL | N | N | P
+opponent | on | aware | global | 8flat | PNNNLRNLLRLRNNL | N | N | P
+opponent | on | aware | global | 8cyl | PNNNLRNLLRLRNNL | N | N | P
+opponent | on | aware | global | 5cyl | PNNNLRNLLRLRNNL | N | N | P
+
+[aware] X=W a2 c2/B b4 d7: X+3 -> P (P iff X=-3); X alone -> R
+[aware] Y=W a2 c2/B b5 d7: Y+(2+-1) -> P (P iff Y=-2+-1); Y alone -> R (P iff Y=0)
+[aware] Y'=W a2 c4/B b7 d7: Y'+(-2+-1) -> P (P iff Y'=2+-1); Y' alone -> L
+[textbook] X=W a2 c2/B b4 d7: X+3 -> L (P iff X=-3); X alone -> L
+[textbook] Y=W a2 c2/B b5 d7: Y+(2+-1) -> L (P iff Y=-2+-1); Y alone -> P (P iff Y=0)
+[textbook] Y'=W a2 c4/B b7 d7: Y'+(-2+-1) -> R (P iff Y'=2+-1); Y' alone -> P

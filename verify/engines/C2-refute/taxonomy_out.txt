@@ -1,0 +1,20 @@
+positions in the worker's 275-selection found in the cache: 275
+disagreement positions: 52 Counter({'win': 35, 'draw': 17})
+TB-loss roots where CGT(count) predicts a win (excluded from both EPD files): 0
+    22  ['extra-king-win']
+    12  ['root']
+     5  ['pred-pawn-not-win', 'root']
+     4  ['pred-pawn-not-win']
+     4  ['extra-king-win', 'extra-pawn-win']
+     2  ['extra-king-win', 'extra-pawn-win', 'root']
+     1  ['extra-pawn-win']
+     1  ['extra-king-win', 'root']
+     1  ['extra-king-win', 'pred-pawn-not-win']
+ONLY extra TB-winning king moves (root agrees, pawn win set agrees): 22
+   of which also have drawing king moves: 6 ; drawing pawn moves: 3
+   by group: Counter({'BIG/race-sens/A': 13, 'BIG/A': 5, 'tame/A': 4})
+root differs: 20 ; pred pawn not win: 10 ; extra pawn win: 7 ; extra king win (any): 30
+disagreements with at least one non-losing king move: 40
+   ...whose pawn moves are all predicted exactly (win/loss, no pawn draws): 23
+race-sensitive among the disagreements: 36
+all 275: positions with a non-losing king move: 81

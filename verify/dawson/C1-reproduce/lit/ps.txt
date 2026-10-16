@@ -1,0 +1,1550 @@
+arXiv:math/0609825v5 [math.CO] 14 Aug 2007
+                                                      Misère Quotients for Impartial Games
+                                                    Thane E. Plambeck                        Aaron N. Siegel
+                                                       2341 Tasso St.                 Institute for Advanced Study
+                                                    Palo Alto, CA 94301                      1 Einstein Drive
+                                                                                           Princeton, NJ 08540
+                                                                           November 26, 2024
+
+                                             Dedicated to Richard K. Guy on the occasion of his 90th birthday, 30 September 2006.
+
+
+                                                                                  Abstract
+                                                       We announce misère-play solutions to several previously-unsolved com-
+                                                   binatorial games. The solutions are described in terms of misère quo-
+                                                   tients—commutative monoids that encode the additive structure of spe-
+                                                   cific misère-play games. We also introduce several advances in the struc-
+                                                   ture theory of misère quotients, including a connection between the com-
+                                                   binatorial structure of normal and misère play.
+
+
+                                             1    Introduction
+                                             In 1935, T. R. Dawson, the prolific composer of fairy chess problems, invented
+                                             a little game now known as Dawson’s Chess [9]. The game is played on a 3 × n
+                                             chessboard, with equal facing rows of black and white pawns. The 3×14 starting
+                                             position is shown in Figure 1. The pieces move and capture as ordinary chess
+                                             pawns, and captures, if available, are mandatory. The mandatory-capture rule
+                                             ensures that each pawn will advance at most one rank before being captured
+                                             or blocked by an opposing pawn. Thus the players will eventually run out of
+                                             moves, and whoever makes the last move loses.
+                                                 Dawson invested considerable effort in finding a perfect strategy (on arbi-
+                                             trarily large boards), but he was hampered by his unfortunate choice of winning
+                                             condition. Had he asserted, instead, that whoever makes the last move wins,
+
+
+                                                              OPOPOPOPOPOPOP
+                                                              0Z0Z0Z0Z0Z0Z0Z
+                                                              opopopopopopop
+                                                        Figure 1: The starting position in 3 × 14 Dawson’s Chess.
+
+
+                                                                                       1
+he might have solved the game. Instead, the problem has remained open for
+over 70 years.
+    This is no accident: combinatorial games with misère play—in which the last
+player to move loses—tend to be vastly more complicated than their normal-
+play (last-player-winning) counterparts. Many authors have attempted to solve
+Dawson’s Chess, and a variety of related misère-play games, only to be met with
+fierce resistance.
+    In this paper, we present strategies for several previously-unsolved misère-
+play games. The solutions were obtained using a combination of new theoretical
+advances and powerful computational techniques. These advances also shed
+light on the question of just why misère play is so much harder than normal
+play. Although Dawson’s Chess remains open, we have pushed the analysis
+further than ever before; and there is significant hope that our techniques can
+be improved to obtain a full solution.
+
+Impartial Combinatorial Games
+A combinatorial game is impartial if both players have exactly the same moves
+available at all times.1 A complete theory of normal-play impartial games
+was convincingly developed in the 1930s, independently by R. P. Sprague and
+P. M. Grundy [29, 30]. They showed that every position in every impartial game
+is equivalent (in normal play) to a single-heap position in the game Nim.
+    In the 1956 issue of the Proceedings of the Cambridge Philosophical Society,
+there appeared two papers, back-to-back, that highlighted the sharp differences
+between normal and misère play. The first was a seminal article by Richard
+K. Guy and Cedric A. B. Smith, The G-Values of Various Games [17], in which
+the authors introduced a broad class of impartial games known as octal games.
+Guy and Smith applied the Sprague–Grundy theory to obtain complete normal-
+play solutions to dozens of such games, including Dawson’s Chess.2 Their anal-
+ysis was such an enormous success that it left little to be discovered about octal
+games in normal play.
+    The second article was by Grundy and Smith [15], and concerned impartial
+games with misère play. In contrast to the Guy–Smith paper, it has a somewhat
+dispiriting introduction:
+
+          Various authors have discussed the ‘disjunctive compound’ of games
+      with the last player winning (Grundy [14]; Guy and Smith [17]; Smith [28]).
+      We attempt here to analyse the disjunctive compound with the last player
+      losing, though unfortunately with less complete success . . . .
+   1 Although Dawson’s Chess appears to distinguish between Black and White, the reader
+
+might wish to verify that this is illusory: the mandatory-capture rule guarantees that their
+moves are, in fact, equivalent.
+   2 In fact, in 1947 Guy succeeded Dawson as endgames editor of the British Chess Magazine,
+
+and he credits Dawson’s Chess as a motivating influence: “It may be of historical interest to
+note that Dawson showed the problem to me around 1947. Fortunately, I forgot that Dawson
+proposed it as a losing game, was able to analyze the normal-play version and rediscover the
+Sprague–Grundy theory.” [16]
+
+
+
+                                             2
+    At the source of the “less complete success” was the apparent lack of a
+natural analogue of the Sprague–Grundy theory in misère play—in particular,
+the almost negligible canonical simplification of most misère-play impartial game
+trees. Grundy and Smith speculated that improvements might be lurking, but
+their efforts to produce additional simplication rules were unsuccessful. Finally,
+in 1976 Conway proved through an intricate argument [6, Theorem 77] that no
+such improvements exist. Thirty years later, he offered the following remarks.
+        The result I am most proud of in misère impartial combinatorial
+     games is that the Grundy and Smith reduction rules are in fact the only
+     ones available in general in the global semigroup of all misère games . . . .
+     Grundy quite specifically did not believe that this would be the case. [7]
+
+    Conway’s result shows that the complications observed by Grundy and Smith
+are intrinsic. Yet for many misère games, including many octal games, there is
+a path forward. The Grundy–Smith equivalence can be localized to the set of
+all positions that arise in the play of a particular game. This associates to every
+game Γ a certain commutative monoid Q, the misère quotient of Γ. Together
+with a small amount of additional information, one can recover from Q a perfect
+winning strategy for Γ. The monoid Q therefore serves as a local misère analogue
+of the Sprague–Grundy theory.
+    The main ideas behind the quotient construction are described in [18, 19],
+and we’ll review them in the next section; but they only set the stage for the
+goals of this paper:
+  1. To record what’s been discovered about the misère play of particular
+     games, in the spirit of Guy and Smith;
+  2. To develop a structure theory for misère quotients; and
+  3. To identify new problems and areas of interest in the structure of misère
+     play.
+    Henceforth, we will assume that the reader is familiar with the classical
+Sprague–Grundy theory. To a lesser extent, we will also assume familiarity with
+the canonical theory of misère games. See Winning Ways [4, Chapters 4 and 13]
+for an outstanding introduction to both topics. Readers looking for a gentle
+introduction to misère quotients may consult the unpublished lecture notes [26],
+which include most of the necessary background.
+    Section 2 of this paper is an informal exposition of the misère quotient con-
+struction. In Sections 3 and 4, we formalize the construction and develop a
+rudimentary structure theory. Section 5 dives a bit more deeply into the gen-
+eral structure of misère quotients, and in Section 6 we discuss a connection
+between the combinatorial structure of normal and misère play.
+    Finally, Appendix A summarizes the solutions to various octal games, ob-
+tained using the techniques of this paper. Several interesting counterexamples
+are also presented there. A supplementary appendix, available online on the
+arXiv [21], contains further details regarding these solutions as well as descrip-
+tions of the algorithms used to calculate them.
+
+                                           3
+2    Misère Quotients
+Let G be an impartial game. We denote by o+ (G) the normal-play outcome
+of G. Thus o+ (G) = P if second player (the previous player) can force a win,
+assuming normal play; otherwise, o+ (G) = N , indicating that first player (the
+next player) can force a win. Likewise, we denote by o− (G) the misère-play
+outcome of G. We say that G is a normal P-position if o+ (G) = P, etc.
+   Now let G and H be impartial games. We define
+
+      G =+ H if o+ (G + X) = o+ (H + X), for every impartial game X.
+
+      G =− H if o− (G + X) = o− (H + X), for every impartial game X.
+It is customary to write simply G = H instead of G =− H when we are firmly
+in the context of misère games.
+    A major goal of combinatorial game theory is to understand the structure
+of the equivalence classes of games modulo equality. As mentioned in the intro-
+duction, Sprague and Grundy completed this program convincingly for normal
+play.
+Fact 2.1 (Sprague–Grundy Theorem). Let G be any impartial game. Then for
+some Nim-heap ∗n, we have G =+ ∗n.
+    The Sprague–Grundy Theorem yields a remarkably simple structure for the
+normal-play equivalence classes of impartial games. In misère play, however,
+the situation is vastly more complex. For example, consider just those impartial
+games born by day 6. In normal play, there are precisely seven of them, up to
+equivalence: 0, ∗, ∗2, . . . , ∗6. By contrast, Conway has shown that in misère play
+there are more than 24171779 [6].
+    The solution to this problem is to localize the definition of equality. Let A
+be some fixed set of games, closed under addition, and suppose that whenever
+G ∈ A , then every option of G is also in A . (Typically, A will be the set of
+all positions that arise in some fixed game Γ, such as Dawson’s Chess.) Then
+define, for all G, H ∈ A ,
+
+            G ≡A H if o− (G + X) = o− (H + X), for every X ∈ A .
+
+It is easily seen that ≡A is an equivalence relation. It is furthermore a con-
+gruence: if G ≡A H and K ∈ A , then since A is closed under sums, we have
+G + K ≡A H + K. Consequently, addition modulo ≡A defines a monoid Q:
+
+                                  Q = A / ≡A .
+
+Moreover, if G ≡A H, then necessarily o− (G) = o− (H) (taking X = 0 in the
+definition of equivalence). Therefore each x ∈ Q has a well-defined outcome,
+and we can put
+                      P = {[G]≡A : G ∈ A , o− (G) = P}.
+The structure (Q, P) is the misère quotient of A , and we denote it by Q(A ).
+We will refer to P as the P-portion of Q(A ).
+
+                                         4
+    As we will see, the misère quotient of A is often finite, even when A is
+infinite. In such cases, our reduction makes the theory tractable, as follows. Let
+Φ : A → Q be the quotient map, defined by Φ(G) = [G]≡A . Suppose we can
+identify a set of generators H ⊂ A , together with the images Φ(H) ∈ Q of each
+generator H ∈ H . (For example, A might be the set of all Dawson’s Chess
+positions, and H the set of Dawson’s Chess positions consisting of a single
+contiguous row of pawns.) Given a position G ∈ A , we can write G as a sum
+of generators, G = H1 + H2 + · · · + Hk , and compute the images x1 = Φ(H1 ),
+x2 = Φ(H2 ), . . ., xk = Φ(Hk ). Then we simply check whether
+
+                               x1 · x2 · · · · · xk ∈ P,
+
+and this determines o− (G). The problem of finding the outcome of the (possibly
+quite complicated) sum G is therefore reduced to a small number of operations
+on the finite multiplication table Q.
+    In this paper, we are principally concerned with octal games [4, 17], in which
+the positions are sums of heaps of tokens. If Γ is an octal game, we will usually
+denote by Hn a Γ-heap of size n. We denote by A the set of all positions
+of Γ (the “heap algebra”) and by H the set of single-heap positions. When
+convenient, we will regard A as a free commutative monoid on the countable
+generating set H . Finally, it will be useful to write Hn = {H1 , . . . , Hn } and
+An = hHn i, the submonoid of A generated by Hn . We refer to Q(An ) as the
+nth partial quotient of Γ. For convenience, we will sometimes write Q(Γ) and
+Qn (Γ) in place of Q(A ) and Q(An ), respectively.
+    To present the solution to Γ, it suffices to specify three things: the monoid Q,
+the P-portion P, and the quotient map Φ : A → Q. Since Φ is a monoid
+homomorphism, we need only specify the values Φ(Hn ) for each n. We can use
+this information to reconstruct perfect play for Γ, as described above.
+    In this paper we will describe several such solutions to various octal games.
+These solutions were obtained with the help of MisereSolver [25], our soft-
+ware for computing misère quotients, which is described in detail in the supple-
+ment [21]. The one missing ingredient is the Guy–Smith–Plambeck Periodicity
+Theorem, which enables one to compute (Q, P, Φ) in terms of some finite partial
+quotient Q(An ). For the record, we state the theorem here.
+Fact 2.2 (Periodicity Theorem [17, 18]). Let Γ be an octal game, let d be the
+index of its last non-zero code digit, and let A be the free commutative monoid
+on the set of heaps H = {H1 , H2 , H3 , . . .}. Let (Q, P) be the misère quotient
+of A , with quotient map Φ : A → Q. Suppose that
+
+         Φ(Hn+p ) = Φ(Hn ), for all n such that n0 ≤ n < 2n0 + p + d.
+
+Then
+                        Φ(Hn+p ) = Φ(Hn ) for all n ≥ n0 .
+   Therefore, if we compute a partial quotient Q(An0 +2p+d ) that satisfies the
+hypotheses of the Periodicity Theorem, then we obtain a complete solution for Γ,
+with Q(A ) ∼
+           = Q(An0 +2p+d ).
+
+                                          5
+                       1      2     3      4         5    6 7        8 9    10
+                0+     a      a     1      a         a     b b       a b     b
+               10+     a      a     1      c         c     b b       d b     e
+               20+     c      c     f      c         c     b g       d h     i
+               30+    ab2    abg    f     abg       abe   b3 h       d h    h
+               40+    ab2    abe    f2    abg       abg   b3 h       d h    h
+               50+    ab2    abg    f2    abg       abg   b3 b3      d b3   b3
+               60+    ab2    abg    f2    abg       abg   b3 b3      d b3   b3
+               70+    ab2    ab2    f2    ab2       ab2   b3 b3      d b3   b3
+               80+    ab2    ab2    f2    ab2       ab2     ···
+
+      Q∼
+       = ha, b, c, d, e, f, g, h, i | a2 = 1, b4 = b2 , bc = ab3 , c2 = b2 ,
+         b2 d = d, cd = ad, d3 = ad2 , b2 e = b3 , de = bd, be2 = ace,
+         ce2 = abe, e4 = e2 , bf = b3 , df = d, ef = ace, cf 2 = cf ,
+         f 3 = f 2 , b2 g = b3 , cg = ab3 , dg = bd, eg = be, f g = b3 ,
+         g 2 = bg, bh = bg, ch = ab3 , dh = bd, eh = bg, f h = b3 ,
+         gh = bg, h2 = b2 , bi = bg, ci = ab3 , di = bd, ei = be,
+         f i = b3 , gi = bg, hi = b2 , i2 = b2 i
+      P = {a, b2 , bd, d2 , ae, ae2 , ae3 , af, af 2 , ag, ah, ai}
+
+
+                 Figure 2: The misère quotient of Guiles (0.15).
+
+
+Example: Misère Guiles
+Guiles is the octal game 0.15. It was previously unsolved (despite non-trivial
+effort), but MisereSolver can nonetheless dispense a complete solution in under
+one second. A presentation for the misère quotient (Q, P) is shown in Figure 2,
+together with the single-heap values of the quotient map Φ. The monoid Q
+has 42 elements; 12 of these are in P.
+
+The Tame Quotients
+In a sense, the simplest misère quotients are those that arise in Nim. Put
+T0 = Q(0), and for each n ≥ 1 define
+
+                                     Tn = Q(∗2n−1 ).
+
+Finally, put
+                                T∞ = Q(0, ∗, ∗2, ∗3, . . .),
+the quotient of misère Nim.
+    The quotients Tn are extremely common, and they correlate with an im-
+portant property of misère games known as tameness. Roughly speaking, an
+impartial game is said to be tame if its misère-play strategy can be described
+in terms of the misère-play strategy of Nim. There are several ways to formal-
+ize the definition; Conway [4, 6] uses a modification of Grundy values known
+
+                                                6
+as genus symbols. For the purposes of this paper, we simply define a set of
+games A to be tame if its misère quotient is isomorphic to Tn for some n.3
+Otherwise, we say that A is wild.
+   It is worthwhile to write down explicit presentations for the Tn :
+   T1   ∼
+        = ha | a2 = 1i
+   T2   ∼
+        = ha, b | a2 = 1, b3 = bi
+   Tn ∼
+      = ha, b1 , b2 , . . . , bn−1 | a2 = 1, b31 = b1 , b32 = b2 , . . . , b3n−1 = bn−1 ,
+                                      b21 = b22 = b23 = · · · = b2n−1 i
+   T∞ ∼
+      = ha, b1 , b2 , . . . | a = 1, b31 = b1 , b32 = b2 , . . . ,
+                                 2
+
+                               b21 = b22 = b23 = · · ·i
+    Now T1 ∼= Z2 (as a monoid). For n ≥ 2, the structure of Tn is best described
+as follows. Note that b21 = b22 = · · · = b2n−1 ; let z be this value. Then every
+x ∈ Tn satisfies zx = x, except for x = 1, a. If we let
+                                Kn = {x ∈ Tn : zx = x},
+then Kn is a group with identity z, and we have Tn = Kn ∪ {1, a}. Furthermore,
+Kn ∼ = Zn2 , with generators za, b1 , b2 , . . . , bn−1 . The remaining two elements
+{1, a} form a separate copy of Z2 . Therefore |Tn | = 2n + 2.
+    Likewise, we can define K∞ in the same way, and we have
+                                             M
+                                 K∞ ∼   =           Z2 ,
+                                                  N
+
+and T∞ = K∞ ∪ {1, a}.
+    Readers familiar with Conway’s genus theory will recognize 1 and a as the
+fickle units, and z and az as the firm units.
+    T2 , in particular, is especially common; for example, it is the quotient of
+0.23, 0.31 (“Stalking”) and 0.52.
+
+The Smallest Wild Quotient
+The smallest wild misère quotient is an eight-element monoid that we denote
+by R8 :
+         R8 = ha, b, c | a2 = 1, b3 = b, bc = ab, c2 = b2 i;          P = {a, b2 }.
+In Section 4 of this paper, we will prove that T0 , T1 and T2 are the only quotients
+smaller than R8 . It is also possible to show that R8 is the unique misère quotient
+of order 8 (up to isomorphism), though this is more difficult; see [27].
+    Many octal games have misère quotient R8 , including 0.75 (Section A.2),
+0.512, and 4.56.
+   3 The two definitions are equivalent: A is tame (in the quotient sense) if and only if every
+
+G ∈ A is tame (in Conway’s sense). See [27] for a proof of this fact, and [18, 19] for further
+discussion of the relationship between misère quotients and genus symbols.
+  Note also that the definition of “tame” in Winning Ways [4] is somewhat more general
+than Conway’s original definition [6] (“hereditarily tame”). However, our hereditary closure
+assumption on A guarantees that the two definitions coincide for our purposes.
+
+
+                                              7
+3     Bipartite Monoids
+In this section we introduce an algebraic framework for the misère quotient
+construction.
+Definition 3.1. A bipartite monoid is a pair (Q, P), where Q is a monoid and
+P ⊂ Q is an identified subset of Q.
+   For example, let A be a set of impartial games, closed under addition. Let
+B ⊂ A be the set of normal-play P-positions in A . Then (A , B) is a bipartite
+monoid. If instead we take B to be the set of misère-play P-positions, we get
+a different bipartite monoid.
+   We will be largely concerned with quotients of bipartite monoids. The dis-
+cussion can be framed categorically, as follows.
+Definition 3.2. Let (Q, P), (Q′ , P ′ ) be bipartite monoids. A homomorphism
+f : (Q, P) → (Q′ , P ′ ) is a monoid homomorphism Q → Q′ such that
+                               x ∈ P ⇐⇒ f (x) ∈ P ′
+for all x ∈ Q.
+   Then (Q′ , P ′ ) is a quotient of (Q, P) if there exists a surjective homomor-
+phism (Q, P) → (Q′ , P ′ ).
+Definition 3.3. Let (Q, P) be a bipartite monoid. Two elements x, y ∈ Q are
+indistinguishable if, for all z ∈ Q, we have
+                                xz ∈ P ⇐⇒ yz ∈ P.
+    Our motivation for this definition comes from the game-theoretic interpre-
+tation. For example, let A be the set of all impartial games, and let B consist
+of all normal P-positions. Then X, Y ∈ A are indistinguishable if and only if
+X + Z and Y + Z have the same outcomes, for all Z. Thus indistinguishability
+coincides with Grundy equivalence.
+Definition 3.4. A bipartite monoid (Q, P) is reduced if its elements are
+pairwise distinguishable. We write r.b.m. as shorthand for reduced bipartite
+monoid.
+    Every bipartite monoid (Q, P) has a quotient that is reduced, and there is
+a simple procedure for constructing this r.b.m. Fix (Q, P), and define, for all
+x, y ∈ Q,
+                    x ρ y ⇐⇒ x and y are indistinguishable.
+Now ρ is a congruence: it is an equivalence relation, and if v ρ w and x ρ y, then
+vx ρ wy. Thus the equivalence classes mod ρ form a monoid Q′ . Moreover, if
+x ρ y, then x ∈ P ⇔ y ∈ P (taking z = 1 in the definition of indistinguishabil-
+ity). Therefore, the set P ′ = {[x]ρ : x ∈ P} is well-defined, and it is easily seen
+that (Q′ , P ′ ) is a quotient of (Q, P). Finally, (Q′ , P ′ ) must be reduced: if [x]ρ
+and [y]ρ are indistinguishable in (Q′ , P ′ ), then x and y are indistinguishable in
+(Q, P), whereupon [x]ρ = [y]ρ .
+
+                                          8
+Definition 3.5. Let (Q, P) be a bipartite monoid. The reduction of (Q, P) is
+the r.b.m. (Q′ , P ′ ) defined by Q′ = Q/ρ, P ′ = {[x]ρ : x ∈ P}.
+Example. Let A be a set of impartial games, closed under addition, and let B
+be the set of normal-play P-positions in A . Let (Q, P) be the reduction of
+(A , B).
+   • If the Grundy values in A are bounded, say {0, 1, . . . , 2n − 1}, then by
+     the Sprague–Grundy Theorem Q ∼ = Zn2 .
+   • If the Grundy values in A are unbounded, then
+                                       M
+                                  Q∼ =    Z2 .
+                                                  N
+
+
+In either case, P = {0}, and if Φ : A → Q is the quotient map, then Φ(X) is
+the Grundy value of X (in binary).
+Example. Let A be the set of all impartial games, and let B be the set of all
+misère P-positions. Then X ρ Y if and only if X =− Y (if and only if X and Y
+have the same misère canonical form).
+   We now show that the reduction of (Q, P) is the unique reduced quotient of
+(Q, P), up to isomorphism.
+Proposition 3.6. Let (Q, P) and (S, R) be bipartite monoids, with reductions
+(Q′ , P ′ ) and (S ′ , R′ ), respectively. Suppose that (S, R) is a quotient of (Q, P),
+i.e., there exists a surjective homomorphism f : (Q, P) → (S, R). Then there is
+an isomorphism i : (Q′ , P ′ ) ∼   = (S ′ , R′ ) making the following diagram commute:
+
+                                     Q           / / Q′
+
+                                    f                 i
+                                                     
+                                        S        / / S′
+
+Proof. Since f is a surjective homomorphism of bipartite monoids, we have
+
+              [x] = [y] iff xz ∈ P ⇔ yz ∈ P for all z ∈ Q
+                        iff f (xz) ∈ R ⇔ f (yz) ∈ R for all z ∈ Q
+                         iff f (x)w ∈ R ⇔ f (y)w ∈ R for all w ∈ S
+                         iff [f (x)] = [f (y)].
+
+Therefore we can define i : Q′ → S ′ by i([x]) = [f (x)], and the conclusions are
+apparent.
+
+Corollary 3.7. A r.b.m. has no proper quotients (in the category of bipartite
+monoids).
+
+
+
+                                             9
+4     The Structure of Misère Quotients
+Let A be a set of impartial games. We say that A is hereditarily closed if,
+whenever G ∈ A and G′ is an option of G, then also G′ ∈ A . When A is both
+closed under addition and hereditarily closed, we simply say that A is closed.
+We denote by cl(A ) the closure of an arbitrary set A (that is, the smallest
+closed superset of A ).
+Definition 4.1. Let A be a closed set of impartial games, and let B be the
+set of all misère P-positions in A . Then the misère quotient of A , denoted
+Q(A ), is the reduction (Q, P) of (A , B).
+    For convenience, we will sometimes write Q(A ) in place of Q(cl(A )), even
+when A is not closed. Likewise, if G is a single game, we may write Q(G) in
+place of Q(cl({G})).
+    Some aspects of the theory can be generalized to sets that are closed under
+addition, but are not hereditarily closed. However, virtually all sets of games
+that are interesting to us will be hereditarily closed. For example, if A is the
+set of positions that arise in some specified heap game Γ, then A is necessarily
+closed, since all options are to sums of smaller heaps. Thus there is not much
+harm in taking closure to be a basic assumption. Furthermore, giving up closure
+would require us to loosen the theory considerably.
+    Notice, for example, that closure implies that 0 ∈ A . Furthermore, if A is
+non-trivial, then it must contain a game of birthday exactly 1. The only such
+game is ∗, so necessarily ∗ ∈ A . This gives our first proposition:
+Proposition 4.2. Every non-trivial misère quotient contains an element a 6= 1
+satisfying a2 = 1.
+Proof. Let a = Φ(∗). Since ∗ + ∗ = 0, we have ∗ + ∗ ≡A 0; therefore a2 = 1.
+Furthermore, 0 is an N -position and ∗ is a P-position, so a 6= 1.
+    Now we rattle off some elementary facts about Φ-values:
+Proposition 4.3. Let (Q, P) = Q(A ) be a non-trivial misère quotient and fix
+x ∈ Q. Then there is some y ∈ Q with xy ∈ P.
+Proof. If x = 1, then xΦ(∗) = Φ(∗) ∈ P. Otherwise, fix some G ∈ A with
+x = Φ(G), and consider G + G. If Φ(G + G) ∈ P, then we can simply put y = x.
+If Φ(G + G) 6∈ P, then G + G is an N -position. Since x 6= 1, we have G 6= 0,
+so there is some G′ with G + G′ a P-position. But then Φ(G + G′ ) ∈ P, so we
+can put y = Φ(G′ ).
+Corollary 4.4. Let (Q, P) = Q(A ), let Φ : A → Q be the quotient map, and
+fix G ∈ A . If G′ is an option of G, then Φ(G′ ) 6= Φ(G).
+Proof. Since G has an option, A must be nontrivial, so by Proposition 4.3 there
+is some y ∈ Q with Φ(G)y ∈ P. Fix H with Φ(H) = y, so that G + H is a
+P-position. Then necessarily G′ + H is an N -position, so Φ(G′ )y 6∈ P, and y
+distinguishes Φ(G′ ) from Φ(G).
+
+                                      10
+   We now establish some interesting results regarding the order of a misère
+quotient Q. We first show that, except for the trivial quotient Q(0), every
+misère quotient has even order.
+Theorem 4.5. Let (Q, P) be a misère quotient. If (Q, P) is finite and non-
+trivial, then |Q| is even.
+Proof. Write (Q, P) = Q(A ) for some closed set of games A , and let Φ : A → Q
+be the quotient map. Since A is non-trivial, we have ∗ ∈ A . Put a = Φ(∗),
+and define f : Q → Q by f (x) = ax.
+    Now for every G ∈ A , we know that G + ∗ ∈ A . Since G is an option of
+G + ∗, Corollary 4.4 gives Φ(G) 6= Φ(G + ∗). But Φ(G + ∗) = aΦ(G), so we
+conclude that f (x) 6= x for all x ∈ Q. Furthermore, since ∗ + ∗ = 0, we have
+f (f (x)) = x for all x ∈ Q. Therefore f induces a perfect pairing of elements
+of Q.
+   Next we show that there is no misère quotient of order 4, and that the
+quotients of orders 1, 2 and 6 are unique (up to isomorphism).
+Lemma 4.6. Let A be a closed set of games, let (Q, P) = Q(A ), and let
+B ⊂ A be a closed subset. Then there is a submonoid R of Q such that
+
+                     Q(B) is the reduction of (R, P ∩ R).
+
+Proof. Let Φ : A → Q be the quotient map and put R = {Φ(G) : G ∈ B}.
+Since B is closed, R is a submonoid of Q. Furthermore, the restriction
+
+                                Φ↾B:B→R
+
+is a surjective homomorphism of bipartite monoids. Therefore the reduction of
+(R, P ∩ R) is also a quotient of B. By uniqueness (Proposition 3.6), it must be
+the misère quotient of B.
+Lemma 4.7. Let A , B be closed sets of games. Suppose that every G ∈ A is
+canonically equal to some H ∈ B, and vice versa. Then Q(A ) ∼
+                                                            = Q(B).
+Proof. Let S be the monoid of canonical equivalence classes of misère games, and
+let R ⊂ S be the set of canonical P-positions. (Thus (S, R) is the reduction
+of the universe of misère games.) By assumption on A and B, the natural
+homomorphisms A → S and B → S have the same image. Let Q ⊂ S be
+this image and let P = Q ∩ R. Let (Q′ , P ′ ) be the reduction of (Q, P). Then
+(Q′ , P ′ ) is a quotient of both A and B, so by Proposition 3.6, we have
+
+                          Q(A ) ∼
+                                = (Q′ , P ′ ) ∼
+                                              = Q(B).
+
+Lemma 4.8. Let A be a non-empty closed set of games. Then either:
+  (i) Every G ∈ A satisfies either G = 0 or G = ∗; or
+ (ii) There exists a G ∈ A with G = ∗2.
+
+
+                                       11
+Proof. Suppose (i) fails. Then there is some G ∈ A with G 6= 0, ∗. Choose
+such G with minimal birthday. Then every G′ satisfies either G′ = 0 or G′ = ∗.
+Thus either G = {0}, or G = {∗}, or G = {0, ∗}. But the first two possibilities
+imply G = ∗ and G = 0, respectively; by assumption on G, neither is true, so
+G = {0, ∗} = ∗2.
+Theorem 4.9. Let A be a non-empty closed set of games. Then either:
+    (i) Q(A ) ∼
+              = T0 ; or
+ (ii) Q(A ) ∼
+            = T1 ; or
+(iii) There exists a closed subset B ⊂ A such that Q(B) ∼
+                                                        = T2 .
+Proof. Case 1 : Every G ∈ A satisfies either G = 0 or G = ∗. If A = {0}, then
+Q(A ) = T0 , by definition. Otherwise, A must contain a game of birthday ex-
+actly 1; ∗ is the only such game, so ∗ ∈ A . By Lemma 4.7, Q(A ) ∼
+                                                                 = Q(∗) = T1 .
+Case 2 : Otherwise, by Lemma 4.8, there is some G ∈ A with G = ∗2. Choose
+such G with minimal birthday and let B = cl({G}). By minimality of G,
+every element of B is equal to some element of cl({∗, ∗2}). By Lemma 4.7,
+Q(B) ∼= Q(∗, ∗2) = T2 .
+Corollary 4.10. There is no misère quotient of order 4, and exactly one each
+of orders 1, 2 and 6 (up to isomorphism).
+Proof. Let (Q, P) = Q(A ) be a misère quotient. Consider each possibility in
+Theorem 4.9. In case (i), |Q| = 1. In case (ii), |Q| = 2. Finally, in case (iii),
+there is some B ⊂ A with Q(B) ∼   = T2 . By Lemma 4.6, there is some R < Q
+whose reduction is T2 . Therefore
+
+                               6 = |T2 | ≤ |R| ≤ |Q|.
+
+Furthermore, if |Q| = 6, then both inequalities collapse and
+
+                            T2 ∼
+                               = (R, P ∩ R) = (Q, P).
+
+    In fact, there is also just one quotient of order 8, but this is harder to
+establish. See [27] for a proof.
+
+
+5      Transition Algebras and the Mex Function
+Let A be a set of games with quotient (Q, P) = Q(A ), and let G be a game
+with opts(G) ⊂ A . Consider the set Φ′′ G ⊂ Q defined by
+
+                      Φ′′ G = {Φ(G′ ) : G′ is an option of G}.
+
+What can we say about the extension Q(A ∪ {G})? In normal play, we know
+that Q(A ∪ {G}) ∼  = Q(A ) if and only if Φ′′ G excludes at least one Grundy
+value in A . Furthermore, in that case we necessarily have Φ(G) = mex(Φ′′ G).
+
+                                        12
+    In this section we investigate analogous questions in misère play: Given just
+Φ′′ G, can we determine whether Q(A ∪ {G}) ∼   = Q(A )? If so, can we determine
+Φ(G), again given just Φ′′ G?
+    The answer to both of these questions is yes, but we need more information
+than is contained in the quotient Q(A ). The primary goal of this section is to
+introduce an intermediate structure T = T (A )—the transition algebra of A —
+that carries exactly the right information to answer these questions. As we will
+see, there exists a partial function F : Pow(Q) → Q, depending only on T , such
+that whenever opts(G) ⊂ A :
+  (i) F (Φ′′ G) is defined iff Q(A ∪ {G}) ∼
+                                          = Q(A ); and
+ (ii) When F (Φ′′ G) is defined, then Φ(G) = F (Φ′′ G).
+We call F the mex function for T .
+    Transition algebras appear to be necessary: there exist sets of games A
+and B, with Q(A ) ∼  = Q(B), whose mex functions are nonisomorphic. Further,
+T is finite whenever Q is finite, so transition algebras indeed provide a useful
+simplification (as compared to working directly with A ). They have several
+other applications as well: in attacking the classification problem 4 [27], and in
+the design of algorithms for computing misère quotients [21].
+    For the rest of this section, fix a closed set of games A with misère quotient
+(Q, P) = Q(A ) and quotient map Φ : A → Q. We begin with an auxiliary
+definition.
+Definition 5.1. Let x ∈ Q. Then the meximal set of x in Q is given by
+
+         Mx = {y ∈ Q : there is no z ∈ Q such that both xz, yz ∈ P}.
+
+Example. Let Q = T2 = ha, b | a2 = 1, b3 = bi, let P = {a, b2 }, and let
+x = b2 . Then Mx = {b, ab, ab2}. Let G = ∗2 + ∗2 and H = ∗2 + ∗2 + ∗ + ∗.
+We have Φ(G) = Φ(H) = x (and in fact, G = H canonically). However,
+Φ′′ G = {b, ab} ( Mx , while Φ′′ H = {b, ab, ab2} = Mx .
+   Meximal sets are motivated by the following lemma.
+Lemma 5.2. Let G ∈ A and put x = Φ(G). Then Φ′′ G ⊂ Mx .
+Proof. Suppose (for contradiction) that there is some y ∈ Φ′′ G with y 6∈ Mx .
+By definition of Mx , there must be some z such that both xz, yz ∈ P. Fix
+G′ ∈ opts(G) and X ∈ A such that Φ(G′ ) = y and Φ(X) = z. Then G + X
+and G′ + X are both P-positions, a contradiction.
+   We will soon show a converse: if Φ′′ G = Mx , then necessarily Φ(G) = x.
+First we introduce the transition algebra of A .
+  4 That is, the problem of determining the number of nonisomorphic quotients of order n.
+
+
+
+
+                                           13
+Definition 5.3. The transition algebra of A is the set of pairs
+
+                       T (A ) = {(Φ(G), Φ′′ G) : G ∈ A }.
+
+We define the map Ψ : A → T (A ) by Ψ(G) = (Φ(G), Φ′′ G).
+Remark. Since T ⊂ Q × Pow(Q), we have that |T | ≤ |Q| · 2|Q| . In particular,
+if Q is finite, then so is T .
+    The image Ψ(G) of a game G identifies not just Φ(G), but also the Φ-values
+of all options of G. Thus Ψ(G) determines all possible transitions from G to its
+options, as projected down to the misère quotient. The following lemma shows
+that T has a commutative monoid structure with identity (1, ∅).
+Lemma 5.4. If (x, E), (y, F ) ∈ T , then so is (xy, yE ∪ xF ).
+Proof. If Ψ(G) = (x, E) and Ψ(H) = (y, F ), then Ψ(G+H) = (xy, yE ∪xF ).
+    The projection map T → Q given by (x, E) 7→ x is a monoid homomorphism,
+and this makes T into a bipartite monoid with reduction Q. Further, it is
+trivially verified that Ψ is a homomorphism of bipartite monoids, and therefore
+(by Proposition 3.6) the following diagram commutes:
+
+                                      Ψ / / T (A )
+                                A E
+                                   EE
+                                     EE
+                                       E
+                                    Φ EE"
+                                             " 
+                                            Q(A )
+
+    Transition algebras have several important uses. The first is given by the
+following lemma, which establishes the existence of the mex function F and
+shows that it depends only on T .
+Theorem 5.5 (Generalized Mex Rule). Let T = T (A ) and let G be a nonzero
+game with opts(G) ⊂ A . The following are equivalent, for x ∈ Q.
+ (a) Q(A ∪ {G}) ∼
+                = Q(A ) and Φ(G) = x.
+ (b) The following two conditions are satisfied:
+       (i) Φ′′ G ⊂ Mx ; and
+      (ii) For each (y, E) ∈ T and each n ≥ 0 such that xn+1 y 6∈ P, we have
+           either: xn+1 y ′ ∈ P for some y ′ ∈ E; or else xn x′ y ∈ P for some
+           x′ ∈ Φ′′ G.
+Proof. (a) ⇒ (b): (i) is just Lemma 5.2. For (ii), fix (y, E) ∈ T and n ≥ 0, and
+suppose xn+1 y 6∈ P. Fix Y ∈ A such that Ψ(Y ) = (y, E). Then (n+ 1)·G+ Y is
+an N -position, so either (n+1)·G+Y ′ is a P-position, or else n·G+G′ +Y is a
+P-position. But these imply, in turn, that xn+1 Φ(Y ′ ) ∈ P and xn Φ(G′ )y ∈ P.
+
+
+                                       14
+(b) ⇒ (a): Fix H ∈ A with Φ(H) = x, and write B = cl(A ∪ {G}). We will
+show that
+                   o− (G + X) = o− (H + X), for all X ∈ B.                   (†)
+This implies that G ≡B H, so that Q(B) ∼   = Q(A ) and Φ(G) = x.
+    Assume (for contradiction) that (†) fails, and fix K ∈ B with o− (G + K) 6=
+o− (H + K). Since B = cl(A ∪{G}), we can write K = n·G+ Y , for some n ≥ 0
+and Y ∈ A . Choose such K with n minimal; and having done so, choose K
+to minimize the birthday of Y . In particular, this implies that no option of K
+witnesses the failure of (†). We now have two cases.
+Case 1 : G + K is an N -position, but H + K is a P-position. Now G + K ′
+cannot be a P-position, for any option K ′ of K: for then minimality of K
+would imply that H + K ′ is also a P-position, contradicting the assumption
+on H + K. Therefore n = 0 (so that K ∈ A ), and G′ + K is a P-position for
+some option G′ of G. We conclude that
+
+            Φ(H)Φ(K) = xΦ(K) ∈ P             and      Φ(G′ )Φ(K) ∈ P.
+
+Thus Φ(G′ ) 6∈ Mx , contradicting condition (b)(i).
+Case 2 : G + K is a P-position, but H + K is an N -position. Observe that,
+by (repeated application of) the minimality of n, we have
+
+                o− (n · G + X) = o− (n · H + X), for all X ∈ A .                 (‡)
+
+Now H + n · G + Y = H + K is an N -position and H + Y ∈ A , so by (‡) we
+have that H + n · H + Y is an N -position. Put (y, E) = Ψ(Y ). By assumption,
+Φ(H + n · H + Y ) = xn+1 y 6∈ P. To complete the proof, we show that this
+contradicts condition (b)(ii).
+    First, if y ′ ∈ E, then y ′ = Φ(Y ′ ) for some option Y ′ of Y . But since G + K
+is a P-position, we know that G + n · G + Y ′ is an N -position. By minimality
+of K, this implies H + n · G + Y ′ is an N -position, and by (‡), H + n · H + Y ′
+is also an N -position. Therefore xn+1 y ′ 6∈ P. So y ′ cannot fulfill condition
+(b)(ii).
+    Finally, suppose x′ ∈ Φ′′ G, and write x′ = Φ(G′ ). Then G′ + n · G + Y is an
+N -position. But G′ + Y ∈ A , so by (‡) we know that G′ + n · H + Y is also
+an N -position. Therefore xn x′ y 6∈ P, so x′ cannot fulfill condition (b)(ii). This
+completes the proof.
+Corollary 5.6 (Mex Interpolation Principle). Let G be a game with opts(G) ⊂
+A , and suppose that
+                           Φ′′ H ⊂ Φ′′ G ⊂ Mx ,
+for some H ∈ A (H not identically 0) with Φ(H) = x. Then Q(A ∪ {G}) ∼     =
+Q(A ) and Φ(G) = x.
+Proof. It suffices to show that G satisfies conditions (i) and (ii) in the General-
+ized Mex Rule. (i) is assumed. Now condition (ii) must hold for H (again by
+the Generalized Mex Rule); since Φ′′ H ⊂ Φ′′ G, it must hold for G as well.
+
+                                        15
+       {a, b, ab}          {1, a, ab, b2, ab2 }                  {b, ab, ab2}
+
+
+          {a}           {1, a}             {b2 , ab2 }     {b}      {ab}        {ab2 }
+
+           1                         b                                b2
+       {1, b, ab}           {1, a, b, b2, ab2 }                   {b, ab, b2}
+
+
+          {1}          {1, a, b}          {b, b2 , ab2 }             {b2 }
+
+           a                         ab                              ab2
+
+Figure 3: Schematic of the mex function for T (∗2). Each of the six elements
+of T2 is shown together with its meximal set and antichain of lower bounds.
+
+Corollary 5.7. Assume A is nontrivial, and let G be a game with opts(G) ⊂ A
+and Φ′′ G = Mx . Then necessarily Q(A ∪ {G}) ∼ = Q(A ) and Φ(G) = x.
+Proof. Fix H ∈ A with Φ(H) = x. Since A is nontrivial, we may choose
+an H that is not identically zero: if x = 1 then we can choose H = ∗ + ∗.
+By Lemma 5.2, we have Φ′′ H ⊂ Mx . Now the corollary follows from the
+Interpolation Principle.
+   The Interpolation Principle yields substantial information about the mex
+function F for T . For a fixed x ∈ Q, consider the collection
+                Ξ = F −1 (x) = {E ⊂ Q : E 6= ∅ and F (E) = x},
+ordered by inclusion. (Note that the clause E 6= ∅ only matters when x = 1, since
+necessarily F (∅) = 1.) By the Interpolation Principle, we know that Mx ∈ Ξ,
+and by Lemma 5.2 it serves as an absolute upper bound for Ξ. Now let Λ be
+the antichain of minimal elements of Ξ. Again by the Interpolation Principle,
+Ξ is completely determined by Λ and Mx : indeed,
+                    Ξ = {E ⊂ Q : L ⊂ E ⊂ Mx , for some L ∈ Λ}.
+Therefore Ξ has the structure of an upward-closed subset of the complete Bool-
+ean lattice on Mx . As an example, Figure 3 illustrates the structure of Ξ in
+T (∗2) for each of the six elements x ∈ T2 = Q(∗2).
+    It is a remarkable fact that the upper bound Mx depends only on Q. By
+contrast, the set Λ of lower bounds might depend on the fine structure of T .
+    We conclude with a note of caution. The Generalized Mex Rule asserts only
+that Q(A ∪ {G}) ∼   = Q(A ). It need not be the case that T (A ∪ {G}) = T (A ).
+Furthermore, the mex function F + for T (A ∪ {G}) need not be the same as the
+mex function F for T (A ): it is possible that dom(F + ) ( dom(F ). However,
+we can conclude that F = F + in the special case of interpolation:
+
+                                             16
+Proposition 5.8 (Mex Interpolation Principle, Strong Form). Let G be a game
+with opts(G) ⊂ A , and suppose that
+
+                               Φ′′ H ⊂ Φ′′ G ⊂ Mx ,
+
+for some H ∈ A (H 6= 0) with Φ(H) = x. Let F and F + be the mex functions
+for T (A ) and T (A ∪ {G}), respectively. Then F = F + .
+Proof. We must show that, for each D ⊂ Q and w ∈ Q,
+
+                           F (D) = w    iff   F + (D) = w.
+
+Now by the Generalized Mex Rule, F (D) = w iff D ⊂ Mw and
+
+    For each (y, E) ∈ T (A ) and each n ≥ 0 such that wn+1 y 6∈ P, either:
+                                                                           (†)
+    wn+1 y ′ ∈ P for some y ′ ∈ E; or else wn w′ y ∈ P for some w′ ∈ D.
+
+Likewise, F + (D) = w iff D ⊂ Mw and
+
+    For each (y, E) ∈ T (A ∪ {G}) and each n ≥ 0 such that wn+1 y 6∈ P,
+                                                                                (‡)
+    either: wn+1 y ′ ∈ P for some y ′ ∈ E; or else wn w′ y ∈ P for some w′ ∈ D.
+
+Now T (A ) ⊂ T (A ∪ {G}), so (‡) ⇒ (†). To prove that (†) ⇒ (‡), it suffices to
+show the following: whenever (y, E) ∈ T (A ∪ {G}), then there is some E ′ ⊂ E
+with (y, E ′ ) ∈ T (A ). But this is a simple consequence of the assumptions on G:
+for any Y ∈ A and n ≥ 0, we have Φ(n·H + Y ) = Φ(n·G+ Y ), and furthermore
+Φ′′ (n · H + Y ) ⊂ Φ′′ (n · G + Y ). This completes the proof.
+   Finally, note that if Q(A ∪ {G}) 6= Q(A ), then the content of Q(A ∪ {G})
+cannot be determined on the basis of Φ′′ G alone: it is sensitive to the most
+minute structural details of cl(A ∪ {G}).
+
+
+6      The Kernel and Normal Play
+The strategy for misère Nim has been known since Bouton [5], and it is usually
+formulated as follows:
+
+                Play normal Nim until your move would leave a
+               position consisting entirely of heaps of size 1. Then
+                 play to leave an odd number of heaps of size 1.
+
+    In this section we introduce a suitable generalization of this strategy to a wide
+class of games. First we recall some basic facts from commutative semigroup
+theory. Proofs of these results can be found in a standard reference such as [13].
+    Let Q be a monoid and fix x, y ∈ Q. We say that x divides y, and write x|y,
+if xz = y for some z ∈ Q. x and y are mutually divisible if x|y and y|x. It is
+easy to see that mutual divisibility is a congruence. The congruence class of x
+is called the mutual divisibility class of x.
+
+                                         17
+    An idempotent is an element x ∈ Q such that x2 = x. If x is an idempotent,
+then its mutual divisibility class G is a group with identity x. Furthermore, G
+is maximal among groups contained in Q.
+    If Q is finite, then we can enumerate its idempotents z1 , z2 , . . . , zk . The
+mutual divisibility class K of their product z = z1 z2 · · · zk is called the kernel
+of Q. Multiplication by z defines a surjective homomorphism Q → K, and any
+surjective homomorphism from Q onto a group G factors through this map.
+Thus K is the group of differences obtained by adjoining formal inverses to Q.
+Proposition 6.1. Let (Q, P) = Q(A ) be a finite misère quotient and let K be
+the kernel of Q. Then K ∩ P is nonempty.
+Proof. Let z be the identity of K. If z ∈ P, then we are done. Otherwise, fix G
+with Φ(G) = z. Then Φ(G + G) = z 2 = z. Now G + G is an N -position, so
+some option G + G′ must be a P-position. But
+
+                            Φ(G + G′ ) = zΦ(G′ ) ∈ K.
+
+Definition 6.2. A finite r.b.m. (Q, P) is said to be regular if |K ∩ P| = 1, and
+normal if K ∩ P = {z}.
+Definition 6.3. The quotient map Φ : A → Q is said to be faithful if
+
+    Φ(G) = Φ(H) =⇒ G and H have the same normal-play Grundy value.
+
+If Φ is faithful and (Q, P) is regular (resp. normal), then we say that Φ is
+faithfully regular (resp. faithfully normal).
+    There do exist irregular quotients; see Appendix A for an example. However,
+they are extremely rare, and in fact most known quotients are normal (including
+all known full solutions for octal games). We are not aware of any example of an
+unfaithful quotient map. Note that faithfulness depends only on the transition
+algebra T (A ), so it is a slightly more robust property than appears at first
+glance.
+Theorem 6.4. Let A be a closed set of games with finite regular misère quotient
+(Q, P) and faithful quotient map Φ : A → Q. Let K be the kernel of Q and
+let z be the identity of K. Then for all G, H ∈ A , we have
+
+   zΦ(G) = zΦ(H) ⇐⇒ G and H have the same normal-play Grundy value.
+
+Proof. For the forward direction, suppose zΦ(G) = zΦ(H). Fix Z ∈ A with
+Φ(Z) = z. Then Φ(G + Z) = Φ(H + Z). Since Φ is faithful, we know that G + Z
+and H + Z have the same Grundy value. Therefore so do G and H.
+   To complete the proof, we must show that if G, H ∈ A have the same
+Grundy value, then zΦ(G) = zΦ(H).
+   First of all, since Q is regular, we know that K ∩ P contains a unique ele-
+ment y. Fix Y with Φ(Y ) = y and let r be the Grundy value of Y . Suppose
+G ∈ A is any game of Grundy value r; we will show that zΦ(G) = y.
+
+                                        18
+   Fix Z ∈ A with Φ(Z) = z, and put X = G + Z + Z. Since z is an
+idempotent, we have Φ(X) = zΦ(G). Furthermore, every option of X has the
+form G′ + Z + Z or G + Z ′ + Z, so Φ′′ X ⊂ K. But since X has Grundy value r,
+none of its options can have Grundy value r, so y 6∈ Φ′′ X. Since y is the unique
+element of K ∩ P, we infer that (Φ′′ X) ∩ P = ∅, whence X is a P-position.
+Thus Φ(X) = zΦ(G) ∈ P, and by uniqueness of y we conclude that zΦ(G) = y.
+   Now fix any G, H ∈ A and suppose G and H have the same Grundy value.
+Then G + G + Y and G + H + Y both have Grundy value r, so by the above
+argument, zΦ(G + G + Y ) = zΦ(G + H + Y ) = y. Put x = Φ(G + Y ); then
+
+        zΦ(G + G + Y ) = zxΦ(G)      and zΦ(G + H + Y ) = zxΦ(H).
+
+Since K is a group, there is some w with wx = z, and it follows that zΦ(G) =
+zΦ(H), as needed.
+    Theorem 6.4 yields a one-to-one correspondence between elements of K and
+normal-play Grundy values of games in A . It follows that the normal-play
+structure of A is exactly captured by the kernel K.
+    For example, in Section 2 we described the structure of the partial quotients
+for Nim: if n ≥ 2, then Q(∗2n−1 ) = {1, a} ∪ Kn , where Kn ∼      = Zn2 . Now if
+          n−1
+G ∈ cl(∗2     ), then Φ(G) ∈ Kn if and only if G contains at least one Nim-heap
+of size ≥ 2. Otherwise, Φ(G) = 1 or a. Thus positions with at least one heap
+of size ≥ 2 map down to normal play, while positions with all heaps of size ≤ 1
+require more delicate consideration; and we recover Bouton’s strategy for misère
+Nim. This points the way to the promised generalization, which works for all
+faithfully normal games Γ:
+      Play normal Γ until your move would leave a position outside of K.
+        Then pay attention to the fine structure of the misère quotient.
+    The difference, of course, is that for misère Nim this “fine structure” is
+painfully simple, while for arbitrary Γ it can be quite complicated indeed.
+    When Γ is faithfully regular but abnormal, Grundy values still carry suffi-
+cient information to play optimally inside K, but the actual winning moves are
+different than in normal play. For example, if K ∩ P = {az}, where a = Φ(∗),
+then the winning move inside K is to any position of Grundy value 1.
+    Regularity also has strong consequences for the structure of (Q, P).
+Lemma 6.5. Let (Q, P) = Q(A ) be a finite regular misère quotient with faithful
+quotient map Φ : A → Q. Let K be the kernel of Q and let z be the identity
+of K.
+ (a) If x ∈ Q is an idempotent and Φ(G) = x, then G has Grundy value 0.
+ (b) K ∼
+       = Zn2 , for some n.
+ (c) Suppose A is the set of positions in some heap game Γ. If Γ is misère-play
+     periodic, then it is normal-play periodic, and its normal period divides its
+     misère period.
+
+
+                                       19
+Proof. (a) G + G necessarily has Grundy value 0. But Φ(G + G) = x2 = x, so
+
+                           zΦ(G) = zx = zΦ(G + G),
+
+whence by Theorem 6.4 G has Grundy value 0.
+(b) Let x ∈ K and fix any G with Φ(G) = x. Then G + G has Grundy value 0,
+so by Theorem 6.4 zΦ(0) = zΦ(G + G). Therefore z = zx2 = x2 . Since x was
+arbitrary, this shows that every element of K has order 2.
+(c) Suppose that Γ is misère-play periodic. Then for some n0 , p, we have
+Φ(Hn+p ) = Φ(Hn ) for all n ≥ n0 . Therefore zΦ(Hn+p ) = zΦ(Hn ) for all
+n ≥ n0 . By Theorem 6.4, Hn+p and Hn have the same Grundy value, for all
+n ≥ n0 , and the conclusion follows.
+
+
+A     The Φ-Values of Various Games
+We summarize extensive computations obtained using MisereSolver [25], an
+extension to the CGSuite computer algebra system [24]. The algorithms that
+drive MisereSolver are described in the supplement [21].
+    Many of the games presented here were previously unsolved. Several others
+had been solved using other methods, but the misère quotient techniques yield
+cleaner solutions with much less effort. We have noted in the text each case in
+which we are aware of a prior solution.
+
+A.1     General comments
+Many details omitted. The quotients presented in this paper represent rela-
+tively simple examples. The most complicated quotients we’ve computed involve
+thousands of elements, and to write out their minimal presentations would re-
+quire several largely unenlightening pages. Such presentations are available on
+our website [20], and they’re easily reproducible with MisereSolver [25], so we’ve
+omitted them for most quotients with more than 50 elements.
+Notation for misère canonical forms. Several of the most interesting exam-
+ples have the form Q(G), for some specific game G in misère canonical form. To
+describe such games, we use a slightly modified form of the notation introduced
+by Conway [6, Chapter 12]. The notation ∗n, where n is a single-digit number,
+represents (as always) a Nim-heap of size n. If G, H, K are misère canonical
+forms, stripped of their preceding ∗’s, then ∗GHK is the game whose options
+are to ∗G, ∗H and ∗K. Parentheses are used to denote sub-options: ∗(GH)K
+has options to ∗GH and ∗K. Finally, ∗G# denotes the game whose only option
+is to ∗G.
+    For example, ∗2#320 has four options: 0, ∗2, ∗3, and the game ∗2# whose
+only option is to ∗2.
+Partial quotients and infinite quotients. In Section 2, we defined the nth
+partial quotient Qn (Γ), obtained by requiring all heaps to have size at most n. It
+
+
+                                        20
+appears that many octal games have some infinite partial quotients. Currently,
+MisereSolver is limited to computations on finite misère quotients; when Qn (Γ)
+is infinite, the software goes into an infinite loop at heap size n, analyzing
+successively larger finite approximations to Qn .
+    Unfortunately, it is often difficult to prove by hand that a quotient is infinite.
+This means that in most cases, we can only speculate whether a quotient is truly
+infinite, or whether we just haven’t run MisereSolver for long enough. (However,
+see Section A.7 for a proof that Q5 (0.31011) is infinite.)
+    Figure 6 gives the largest known partial quotient for every unsolved two-
+digit octal game. In each case, we are reasonably sure that the next partial
+quotient is infinite, but a solution to the following problem would give us more
+confidence.
+Open Problem. Specify an algorithm to determine whether a given quotient
+Q(A ) is infinite.
+    A classical theorem of Rédei [13, 22] implies that every finitely generated
+commutative monoid is finitely presented. Since each partial quotient Qn (Γ) is
+necessarily finitely generated, there is hope that our techniques can be extended
+to obtain solutions for many octal games with infinite partial quotients.
+Open Problem. Specify an algorithm to compute a presentation for the (pos-
+sibly infinite) quotient Q(A ), whenever A is finitely generated.
+
+A.2     Wild Octal Games with Known Solutions
+We now summarize the wild two- and three-digit octal games whose misère-
+play solutions are known. The results are tabulated in Figure 4. Each row of
+the table shows a game code (or a schema of equivalent codes), together with
+the period, preperiod, and quotient order of the misère solution. We have also
+included an appropriate attribution in each case where we are aware of a prior
+solution.
+    Comments and historical notes on some individual games follow.
+Guiles. The game 0.15 is named Guiles in honor of Richard Guy (the name
+is short for “Guy’s Kayles”). Its misère quotient was discussed in Section 2; it
+has 42 elements, with a P-portion of size 12. See Figure 2, and also [19].
+Kayles. William L. Sibert tells the interesting story of his discovery of the
+complete analysis of misère Kayles (0.77) in [23]. In [8], Sibert’s original solution
+is reformulated and simplified considerably. The misère quotient of Kayles, a
+monoid with 40 elements, is discussed at length in [18, Section 11.5] and [19]. For
+completeness, we reproduce the solution in the supplement [21]. Other octals
+with misère quotient isomorphic to Kayles include 0.074-0.077 and 0.440-
+0.443 (duplicate Kayles), as well as 0.044 and 0.046 (triplicate Kayles).
+Allemang’s Games. Allemang gives solutions for the wild octals 0.26, 0.53,
+0.72, 0.75 and 4.7 in terms of his generalized genus theory [1, 2]. 0.53 and 0.72
+have quotients of orders 16 and 24, respectively. Q(0.75) ∼ = R8 ; see Section 2.
+
+
+                                         21
+        Code      pd        ppd   |Q|   Comments           Solved By
+        0.15      10         66    42   Guiles, §A.2
+        0.26̇0̄         †          ∞                       Allemang [2]
+        0.340̇      8         7    12   §A.2; Q ∼ = S12    Flanigan [4]
+        0.44̈0̄    24       143    40   Duplicate 0.77     Sibert [8]
+        0.530̇      9        21    16   §A.2               Allemang [2]
+        0.570̇          †          ∞    Duplicate 4.7      Allemang [2]
+        0.710̇      6         3    36   §A.2               Flanigan [4]
+        0.720̄      4        16    24   §A.2               Allemang [2]
+        0.750̄      2         8     8   §A.2; Q ∼ = R8     Allemang [2]
+        0.770̇     12        71    40   Kayles, §A.2       Sibert [8]
+        4.4̈0̄     12        71    40   Cousins of 0.77    Sibert [8]
+        4.70̇           †          ∞    Knots, §A.2        Allemang [2]
+        0.044̈     24       142    40   Duplicate 0.77     Sibert [8]
+        0.074̄     24       142    40   Duplicate 0.77     Sibert [8]
+                                        7
+        0.115      14        92    42   5 -plicate 0.15
+        0.123       5         5    20                      Plambeck [18]
+        0.144      10        12    30
+        0.152      48        25    34
+        0.153      14        32    16
+        0.157           †          ∞    Triplicate 4.7     Allemang [2]
+        0.24̇1̈    10      4       36   Cousins of 0.317
+        0.315̈     10      4       36
+        0.351       8      4       22                      Plambeck
+        0.512̇      6     16        8   Q∼
+                                         = R8
+        0.64̄4̄   442   3255      172
+        0.712̇      6      3       14   Q∼
+                                         = R14
+        0.716̇      2     22       14   Q∼
+                                         = R14
+        4.56̇       4     11        8   Q∼
+                                         = R8
+        4.74̇       2      8        8   Q∼
+                                         = R8
+
+d˙ means “d or d + 1”; d¨ means “d or d + 2”; d means “d, d + 1, d + 2 or d + 3”
+        † Algebraic periodic; see Section A.2 and the supplement [21].
+
+Figure 4: Wild two- and three-digit octal games with known misère quotients.
+
+
+
+
+                                         22
+         1       2        3       4     5       6       7     8       9     10   11     12
+   0+    1       a        a       b      b     ab       c     c       d      e    f     g
+  12+    h        b       i      ab2    j       k        l    m       n      o    p      q
+  24+    r      abo      anq     b3     s       t      abm   cq 2     u    cjk    v     w
+  36+    x       b3       y      agt    z      b2 i     α     β       b3    γ     δ    b4 c
+  48+   bco     abζ       ε      b3     ζ     ab3 c grx       η      abζ   abζ   b3    ab3 c
+  60+    θ       b3      b4 c    ab4   cf θ   b4 c ab3 c     ab3 c    b3    b3   ab4   b4 c
+  72+   b4 c    ab4      ab3 c   b3     b3    ab3 c b4 c     b4 c    ab4   ab4   b3    ab3 c
+  84+   ab3 c    b3      b4 c    ab4   ab4    b4 c ab3 c     ab3 c    b3    b3   ab4   b4 c
+  96+   b4 c    ab4      ab3 c   b3     b3    ab3 c b4 c     b4 c    ab4   ab4   b3    ab3 c
+ 108+   ab3 c    b3      b4 c    ab4   ab4          ···
+
+Figure 5: The values of 0.4107 have eventual period 24, despite many initial
+irregularities.
+
+
+0.26 and 4.7 are algebraic periodic in the vague sense described in Section A.5;
+see Figures 8 and 9 for their presentations, and [21] for correctness proofs.
+    Allemang’s solution to 0.26 is slightly flawed5 ; we give a corrected analysis
+in [21]. His solution to 0.54 is also incorrect, but this appears somewhat more
+difficult to repair. See Section A.3 for further discussion of 0.54.
+    4.7 has several duplicates and triplicates; these are listed in Figure 4. In
+addition, the games 0.516̇ and 0.574̇ appear to have the same misère quotient
+as 4.7, but we do not include solutions here.
+Flanigan’s Games. Complete analyses of misère 0.34 and 0.71 are due to
+Jim Flanigan [4]. The game 0.34 has period eight (in both normal and misère
+play) and quotient order 12. Although the normal-play Grundy sequence of
+0.71 has period two, its misère period is six. |Q(0.71)| = 36.
+Lemon Drops. The game 0.56 is called Lemon Drops in Winning Ways [4].
+It’s tame, so the normal-play period of 144 [12] remains the same in misère play.
+0.123. This game is studied exhaustively in [18]. Its misère quotient has or-
+der 20.
+0.241. The normal-play period of 0.241 is 2, while its misère-play period is 10.
+0.71, discussed above, exhibits similar behavior. Note that by Lemma 6.5, the
+normal period of any faithfully regular octal game always divides its misère
+period.
+0.644. This game has misère period 442 and preperiod 3255, the same as in
+normal play. This is the largest known misère period for a wild octal game.
+Q(0.644) has order 172. The misère quotient “grows” for the last time at heap
+333—that is, Q = Q333 , while Q 6= Q332 . Intriguingly, the (normal) Grundy
+function also attains its maximum G -value of 64 at heap 333. This behavior is
+explained in the forthcoming paper [27].
+0.4107. A great variety of misère quotients can be found among the four-
+digit octals; we include here just one particularly striking example. 0.4107 has
+  5 For example, H
+                     13 +H17 +H31 is a P-position, but is misidentified in [1] as an N -position.
+
+
+
+                                               23
+period 24, preperiod 66, and quotient order 506. Its quotient has a minimal set
+of 34 generators
+                     {a, b, c, . . . , x, y, z, α, β, γ, δ, ε, ζ, η, θ}.
+The Φ-values are shown in Figure 5. There are many irregular values among the
+smaller heaps, until finally a pattern abruptly emerges at heap size 66. (See [20]
+for the full quotient presentation.)
+    The sudden emergence of periodic behavior, after so much irregularity, is
+extraordinary. One wonders how many other solutions lurk just beyond the
+reach of our computational resources.
+
+A.3     Unsolved Two- and Three-Digit Octals
+We now briefly discuss some of the most important unsolved octal games. Fig-
+ure 6 lists the normal-play period of each unsolved two-digit octal. Also listed
+is the largest n for which the partial quotient Qn is known, together with the
+order |Qn |.
+    We suspect that every unsolved two-digit octal has an infinite misère quo-
+tient. 0.54 is likely to be algebraic periodic in the sense of Section A.5; in
+the remaining cases, we suspect that the listed value of n represents the last
+finite partial quotient. Validating or refuting these suspicions will require more
+sophisticated techniques (or extremely diligent effort).
+    The unsolved three-digit octals are too numerous to list in a table of this
+
+
+             Code       N pd     n    |Qn |   Comments
+             0.04        —      44     864    Treblecross, §A.3
+             0.06        —      15      48
+             0.0̇7         34   33     638    Dawson’s Kayles, §A.3
+             0.14        —      20      96
+             0.16      149459   17     434
+             0.35           6   35    3182
+             0.36        —      20     304    §A.3
+             0.37        —      15     304    §A.3
+             0.40̄         34   34     638    Cousins of 0.07
+             0.45̈         20   26     550
+             0.54           7        †        §A.3
+             0.60̄       —      16     304    Officers [4]
+             0.64̄       —      13     346
+             0.74        —      14      74
+             0.76        —      11      34
+
+d˙ means “d or d + 1”; d¨ means “d or d + 2”; d means “d, d + 1, d + 2 or d + 3”
+                     † 0.54 appears to be algebraic periodic.
+
+                     Figure 6: Unsolved two-digit octal games.
+
+
+                                        24
+form; they are summarized compactly in the supplement [21], and on our web-
+site [20] in more detail. Some specific comments follow.
+Treblecross. 0.04 is a cousin of Treblecross, the game of “one-dimensional
+Tic-Tac-Toe” [4].
+Dawson’s Kayles. Guy and Smith [17] first observed that Dawson’s Chess is
+equivalent to the octal game 0.137. It is a cousin of the two-digit octal 0.07,
+which is commonly known as Dawson’s Kayles.
+    Guy and Smith showed that normal-play Dawson’s Kayles (and therefore
+Dawson’s Chess as well) has a period 34 Grundy sequence. Unpublished work
+by Ferguson [10], based on Conway’s genus theory, analyzed misère play of 0.07
+to heap size 24. Using MisereSolver, we can extend the analysis to heap size 33:
+the partial quotient Q33 (0.07) has order 638, with a P-portion of size 109. The
+full presentation is too messy to justify its inclusion here, but it can be found
+online [20] or reproduced with MisereSolver.
+    The games 0.40̄0̄ (in the schema notation of Figure 6) are all equivalent to
+Dawson’s Kayles.
+0.36 and 0.37. The largest known partial quotients of 0.36 and 0.37 are
+isomorphic: Q20 (0.36) ∼= Q15 (0.37). However, their Φ-values are somewhat
+different. To what extent does this similarity continue?
+0.54. Allemang [2] gives an incorrect solution to the game 0.54. It appears to
+be algebraic periodic, with an infinite misère quotient. However, its quotient
+seems to be more complicated than those of 0.26 and 4.7; better techniques for
+identifying algebraic periodicity are needed. The three-digit octal game 0.145
+exhibits similar (but not identical) behavior.
+0.316. |Q23 (0.316)| = 8704. This is the largest known finite partial quotient
+of an unsolved three-digit octal.
+0.414. The partial quotients Qn (0.41̈4̇) grow surprisingly slowly as n in-
+creases. For this reason, MisereSolver can quickly compute many corresponding
+Φ-values. Other wild games with similar behavior include 0.64̄4̄, 0.764̄, 0.776̇,
+and 4.44̄. Among these, only 0.64̄4̄ has been solved. Since none of the others
+have known normal -play solutions [11], it seems unlikely that their misère-play
+solutions are forthcoming.
+    Nonetheless, it is interesting to study this type of behavior. There is a
+close relationship between slow-growing partial quotients and small P-portions;
+see [27] for details.
+
+A.4     Quaternary Games
+A quaternary game is an octal game whose code digits are restricted to 0, 1,
+2 and 3. Thus heaps may never be split, and the only available moves are
+to remove some number of tokens from a heap. Despite these severe rules re-
+strictions, many quaternary games exhibit interesting and surprisingly intricate
+misère quotients.
+
+
+
+                                       25
+      Code     pd   ppd    |Q|        Code      pd   ppd    |Q|     Comments
+    0.0122̇     7     8     20       0.20̇12    5     4      20
+    0.1023      7     6     20       0.3101     2     5      14
+    0.1032      7     8     20       0.3102           —            |Q11 | = 74
+    0.1033      7     7     20       0.3103     5     3      20
+    0.1231      5     5     20       0.3112     5     6      20
+    0.1232̇     6     6     46       0.3122           —             |Q6 | = 52
+    0.1321      5     6     20       0.3123           —            |Q11 | = 328
+    0.1323      6     7     46       0.3131     2     7      12
+    0.1331      5     5     20       0.3312           —            |Q13 | = 264
+
+          Figure 7: The twenty-one wild four-digit quaternary games.
+
+    There are twenty-one wild four-digit quaternaries. Of these, seventeen have
+known solutions; these are summarized in Figure 7. Only 0.3102, 0.3122,
+0.3123, and 0.3312 remain unsolved. The first author has offered a reward of
+$200 for the solution to 0.3102, and $25 each for the others. It appears likely
+that their misère quotients are infinite, so the solutions might be quite difficult
+to obtain. Figure 7 lists their largest known partial quotients.
+
+A.5     Algebraic Periodicity
+According to the Periodicity Theorem (Fact 2.2), the full misère quotient Q(Γ)
+can sometimes be obtained from a finite number of partial quotients. In order
+to apply the Perodicity Theorem, the partial quotients must “stabilize” after a
+certain point, so that Qn (Γ) = Q(Γ) for all sufficiently large n.
+    Many misère games show another, more intriguing type of limiting behavior.
+Such games have progressively larger partial quotients that exhibit a strong
+algebraic regularity. When this regularity continues indefinitely, the full quotient
+can be deduced from a finite number of partial quotients; but unlike in the
+“stable” case, the full quotient is infinite, whereas every partial quotient is
+finite. We’ve christened this behavior “algebraic periodicity,” but we can’t give a
+precise definition because we don’t fully understand how to describe it in general.
+    Two examples, the octal games 0.26 and 4.7, are shown in Figures 8 and 9.
+Since we do not have any computational methods for verifying algebraic pe-
+riodicity, we must resort to manual proofs of these figures. The proofs are
+unenlightening, so we’ve relegated them to the supplement [21].
+    Algebraic periodicity is a rich area for further study. Many other games
+show this type of behavior, including 0.54, 0.145, 0.157, 0.175, 0.355, 0.357,
+0.516, 0.724, and 0.734. We suspect that a general method for identifying and
+generalizing algebraic-periodic behavior—if one can be found—would quickly
+dispense solutions to many of them.
+Open Problem. Give a precise definition of algebraic periodicity (that includes
+at least some of the cases listed above), and prove an analogue of the Periodicity
+Theorem for algebraic periodic games.
+
+
+                                        26
+                                                                       1      2      3         4
+   Q∼                                                           0+     1      a       b       ab
+    = ha, b, cn | a2 = 1, bn+1 cn = b2n+3 ,
+                  (cm cn = bm+2 cn )m≤n i                       4+     1      a       b       ab
+                                                                8+     c0    ac0     c1      ab3
+                                                               12+     c2    abc1    c3     abc2
+  P = {a, (b2m )m≥1 , (bm cn )m≤n and m+n odd }                16+     c4    abc3    c5     abc4
+                                                               20+     c6    abc5          ···
+
+                 Figure 8: Presentation and quotient map for 0.26.
+
+                                                                                      1      2
+    Q∼
+     = ha, b, c, dn | a2 = 1, bc = ab3 , c2 = b4 ,                            0+      a      b
+                      bn+1 dn = an+1 b2n+5 , cdn = ab2 dn ,                   2+      a      b
+                      dm dn = am+1 bm+4 dn i                                  4+       c    b3
+                                                                              6+      d0    d1
+         P = {a, (b2m )m≥1 , (bm dn )m odd, n even, m<n ,                     8+      d2    d3
+              (abm dn )m even, n odd, m<n }                                  10+      d4    d5
+                                                                             12+      d6    ···
+
+                  Figure 9: Presentation and quotient map for 4.7.
+
+
+A.6      Elements with Unusual Periods
+If Q is a monoid and x ∈ Q, then the period of x is the least k ≥ 1 such that
+xn+k = xn , for some n. If no such k exists, then we say that x has period ∞.
+Note that if Q is finite, then x must have finite period.
+    In normal play, every position G satisfies the equation G+G = 0. Therefore,
+in a normal quotient, every element has period at most two. For a long time,
+we believed that the same is true for misère quotients. However, there do exist
+finite misère quotients with larger-period elements, though they are exceedingly
+rare.
+    A striking example is given by G = ∗(2# 210)(2#30)3#21. It can be described
+as a coin-sliding game with heaps of tokens placed on the vertices of the tree
+shown in Figure 10. In this game, the players take turns sliding a single coin
+“down” the tree along a single edge. The game ends when all coins have reached
+leaf nodes of G, and whoever makes the last move loses.
+    Q(G) is a misère quotient of 200 elements; it has the following presentation:
+
+           Q(G) ∼
+                = ha, b, c, d, e | a2 = 1, b4 = b2 , b2 c2 = c2 , c3 = abc2 ,
+                                   c2 d = ac2 , d2 = c2 , c2 e2 = c2 , e6 = 1i
+
+ P = {a, b2 , abc, ab3 c, c2 , bd, b3 d, ae, ab2 de, cde, b3 cde, ae2 , b2 e2 , abce2 , ab3 ce2 ,
+      bde2 , ae3 , bde3 , b3 de3 , ae4 , b2 e4 , abce4 , ab3 ce4 , ab2 de4 , bcde4 , b3 cde4 , ae5 }
+   The most striking feature of this quotient is the generator e of period 6. In
+particular, e2 has period 3, an odd number.
+
+                                                27
+Figure 10: Ready for a game of misère coin-sliding on G = ∗(2# 210)(2#30)3# 21.
+
+
+    There also exist quotients with period-4 elements. For example, let H =
+∗(2# 1)(2# 0)4310. Then Q(H) is a quotient of order 120 containing an element
+of period 4. It is the smallest known quotient containing an element with period
+larger than 2.
+Open Problem. Exhibit a misère quotient containing an element of period 8
+(or any finite period other than 1, 2, 3, 4, or 6).
+Question. Are there any restrictions on the possible periods of misère quotient
+elements?
+Question. What is the smallest quotient containing an element of period > 2?
+
+A.7     The Sad Affair of ∗(2# 0)0
+We now show that Q(∗(2# 0)0) is infinite. It can be verified computationally
+that all games with smaller game trees have finite quotients, so in some sense
+∗(2# 0)0 is the simplest game that yields an infinite quotient. This fact makes
+it worthy of significant attention.
+    ∗(2# 0)0 arises in various quaternary games; for example, it is the canonical
+form of an 0.31011-heap of size 5. It can also be represented as the coin-sliding
+game shown in Figure 11. Stacks of coins are arranged on the boxes to form
+a starting position. On her turn, a player may slide one coin one space in
+the direction of an arrow. This might cause the coin to drop off the board,
+whereupon it is removed from the game. It is easily seen that a single coin on
+the rightmost box has canonical form ∗(2# 0)0.
+    For the remainder of this section, write
+
+          A = ∗;    B = ∗2;     C = ∗2# ;   D = ∗2# 0;   E = ∗(2# 0)0;
+
+
+
+
+                A    ⇐     B      ⇐     C    ⇐     D     ⇐     E
+
+                ⇓           ⇓                      ⇓           ⇓
+    Figure 11: A simple coin-sliding game with an infinite misère quotient.
+
+
+                                       28
+and put A = cl(E). Then each game in A has the form
+
+                            iA + jB + kC + lD + mE,
+
+for some quintuple of integers (i, j, k, l, m). (These correspond to the number of
+coins on each successive box in Figure 11, left-to-right.)
+    When k ≥ 3, the P-positions admit a simple description: G is a P-position
+iff both i + l and j + m are even. When k ≤ 2, however, the P-positions
+are highly erratic. The outcomes for l < 14 and m < 18 are summarized in
+Figure 12. Each of the twelve grids represents the outcomes for a particular
+triple (i, j, k). Within each grid, there is a black dot at (row m, column l) iff
+G = iA + jB + kC + lD + mE is a P-position. The outcomes for l ≥ 14 and
+m ≥ 18 can be obtained through the following simple recurrence:
+
+       Let G = iA + jB + kC + lD + mE, with l ≥ 4 or m ≥ 12. Then:
+
+                    o− (G + 2D + 2E) = o− (G);
+                          o− (G + 2D) = o− (G) if m < 3;                          (†)
+                          o− (G + 2E) = o− (G) if l < 3.
+    Figure 12 illustrates some striking features about this game. Most prominent
+is the diagonal of P-positions in the (0, 0, 0) diagram, along the line m = l + 7.
+In fact, it is this diagonal (and its echo in several other cases) that makes the
+quotient infinite. In addition, there are many strange anomalies, such as the P-
+position at (i, j, k, l, m) = (1, 1, 2, 0, 3). Such anomalies are difficult to explain
+as anything other than combinatorial chaos. It is remarkable that such a simple
+game gives rise to so much complexity.
+    A comparison with normal play is instructive. It is easily checked that
+A, B, C, D, E have Grundy values 1, 2, 0, 1, 2, respectively. Therefore G is a
+normal P-position iff both i + l and j + m are even. Note that this coincides
+with the misère condition when k ≥ 3. This is explained by our discussion of
+normality in Section 6: put z = Φ(3C); then x 7→ zx is a surjective homomor-
+phism from Q(E) onto the group Z2 × Z2 . Since z is an idempotent and zQ is a
+group, z must be the kernel identity of Q. Thus we have a beautiful illustration
+of the generalized misère strategy described in Section 6: follow normal play
+unless your move would leave fewer than three coins on box C.
+    We now prove the correctness of Figure 12 (and of the asserted outcomes
+when k, l, m are large). For each G ∈ A , denote by o∗ (G) the asserted outcome
+of G; as always, o− (G) denotes the true outcome of G.
+Lemma A.1. Let G = iA + jB + kC + lD + mE.
+ (a) If j ≥ 2, then o∗ (G + 2B) = o∗ (G).
+
+ (b) If k ≥ 3, then o∗ (G + C) = o∗ (G).
+Proof. (a) is by inspection of Figure 12; (b) is automatic from the description
+of o∗ .
+
+
+                                         29
+       m         k=0                                  m           k=1                                     m                   k=2
+       ↓                                              ↓                                                   ↓
+     l→ 0 1 2 3 4 5 6 7 8 9 0 1 2 3                       01234567890123                                      01234567890123
+       0 x s s s s s s                                0   s s     s       s       s       s       s       0   s       s       s       s       s       s       s
+       1 ❝                                            1                                                   1
+       2   s s s s s s                                2     s     s       s       s       s       s       2   s       s       s       s       s       s       s
+       3     s                                        3   s                                               3
+       4 s       s s s s s                            4     s     s       s       s       s       s       4   s       s       s       s       s       s       s
+       5   s                                          5                                                   5
+       6     s   s s s s s                            6   s s     s       s       s       s       s       6   s       s       s       s       s       s       s
+i even 7 s s s s s s s                                7                                                   7
+       8                                              8     s     s       s       s       s       s       8   s       s       s       s       s       s       s
+j even 9 s s s s s s s                                9   s                                               9
+       0                                              0           s       s       s       s       s       0   s       s       s       s       s       s       s
+       1         s                                    1   s s                                             1
+       2 s s       s s s s                            2                   s       s       s       s       2   s       s       s       s       s       s       s
+       3            s                                 3   s s     s                                       3
+       4 s s s         s s s                          4                           s       s       s       4   s       s       s       s       s       s       s
+       5                 s                            5   s s     s s                                     5
+       6 s s s s           s s                        6                                   s       s       6   s       s       s       s       s       s       s
+       7                    s                         7   s s     s s s                                   7
+        l→     01234567890123                             01234567890123                                      01234567890123
+             0 ❝     s s s s s s                      0     s s s s s                         s       s   0       s       s       s       s       s       s       s
+             1 x ❝                                    1                                                   1
+             2     s     s s s s s                    2   s s s s s                           s       s   2       s       s       s       s       s       s       s
+             3 s     s                                3     s                                             3
+             4   s       s   s s s s                  4       s s s s                         s       s   4       s       s       s       s       s       s       s
+             5     s                                  5   s                                               5
+             6 s     s   s   s s s s                  6     s s s s s                         s       s   6       s       s       s       s       s       s       s
+i odd        7   s                                    7                                                   7
+             8     s     s   s   s s s                8   s s s s s                           s       s   8               s       s       s       s       s       s
+j even       9 s     s                                9                                                   9   s
+             0         s     s   s s s                0   s s s s s                           s       s   0                       s       s       s       s       s
+             1 s s       s                            1                                                   1   s       s
+             2             s     s s s                2   s s s s s                           s       s   2                               s       s       s       s
+             3 s s s         s                        3                                                   3   s       s s
+             4                 s     s s              4   s s s s s                           s       s   4                                       s       s       s
+             5 s s s s           s                    5                                                   5   s       s s s
+             6                     s   s              6   s s s s s                           s       s   6                                               s       s
+             7 s s s s s             s                7                                                   7   s       s s s s
+        l→       01234567890123                           01234567890123                                      01234567890123
+             0    s                                   0                                                   0
+             1       s s s s          s       s       1   s s s s s s                             s       1   s s             s       s       s       s       s
+             2   s                                    2                                                   2
+             3     s s s s            s       s       3        s s s s                            s       3     s             s       s       s       s       s
+             4                                        4    s                                              4
+             5   s      s s s         s       s       5      s s s s s                            s       5   s s             s       s       s       s       s
+             6     s                                  6                                                   6
+i even       7       s s s s          s       s       7      s s s s s                            s       7   s s             s       s       s       s       s
+             8   s                                    8                                                   8
+j odd        9     s s s s            s       s       9    s s s s s                              s       9     s             s       s       s       s       s
+             0       s                                0                                                   0
+             1         s s s          s       s       1    s s s s s                              s       1                   s       s       s       s       s
+             2     s s                                2                                                   2       s
+             3           s s          s       s       3    s s s s s                              s       3                           s       s       s       s
+             4     s s s                              4                                                   4       s s
+             5             s          s       s       5    s s s s s                              s       5                                   s       s       s
+             6     s s s s                            6                                                   6       s s s
+             7                    s           s       7    s s s s s                              s       7                                           s       s
+        l→       01234567890123                           01234567890123                                      01234567890123
+             0                                        0                                                   0
+             1    x     s s   s   s       s       s   1     s s       s       s       s       s       s   1       s s             s       s       s       s       s
+             2                                        2                                                   2
+             3            s   s   s       s       s   3       s       s       s       s       s       s   3   s     s             s       s       s       s       s
+             4        s                               4   s                                               4
+             5          s s   s   s       s       s   5     s s       s       s       s       s       s   5       s s             s       s       s       s       s
+             6                                        6                                                   6
+i odd        7          s s   s   s       s       s   7   s s         s       s       s       s       s   7       s s             s       s       s       s       s
+             8                                        8     s                                             8
+j odd        9            s   s   s       s       s   9               s       s       s       s       s   9       s s             s       s       s       s       s
+             0    s                                   0     s s                                           0
+             1                s   s       s       s   1                       s       s       s       s   1       s s             s       s       s       s       s
+             2      s                                 2     s s       s                                   2
+             3    s               s       s       s   3                               s       s       s   3       s s             s       s       s       s       s
+             4        s                               4     s s       s s                                 4
+             5    s s                     s       s   5                                       s       s   5       s s             s       s       s       s       s
+             6          s                             6     s s       s s s                               6
+             7    s s s                           s   7                                               s   7       s s             s       s       s       s       s
+
+                      • = P;              x = P iff j ≥ 2;                            ◦ = P iff j < 2
+
+    Figure 12: Schematic of the P-positions for cl(∗(2# 0)0) with k ≤ 2.
+
+
+                                                             30
+Theorem A.2. o− (G) = o∗ (G) for all G ∈ A .
+Proof. Note that o∗ (0) = N . Thus it suffices to show the following, for each
+G 6= 0:
+             o∗ (G) = P ⇐⇒ No option G′ satisfies o∗ (G′ ) = P.            (‡)
+    Suppose instead (for contradiction) that (‡) fails for some G ∈ A . Choose
+G = iA + jB + kC + lD + mE to be a counterexample with minimal birthday.
+Since A + A = 0 (canonically), we know that i = 0 or 1.
+    Now (‡) can be verified computationally when j < 5, k < 5, l < 7, and
+m < 15. Therefore we may safely assume that at least one of these inequalities
+fails. There are five cases.
+Case 1 : j ≥ 5. Then fix H with G = H + 2B. Since j − 2 ≥ 2, Lemma A.1(a)
+gives o∗ (G) = o∗ (H). Furthermore, every option G′ of G can be written as
+G′ = H ′ + 2B. Since j − 2 ≥ 3, we can write H ′ = j ′ B + X, for j ′ ≥ 2. Thus
+Lemma A.1(a) gives o∗ (H ′ + 2B) = o∗ (H ′ ). Therefore
+
+              {o∗ (G′ ) : G′ ∈ opts(G)} = {o∗ (H ′ ) : H ′ ∈ opts(H)}.
+
+It follows that (‡) fails for H as well, contradicting minimality of G.
+   The remaining cases are all very similar.
+Case 2 : k ≥ 5. Then fix H with G = H+C. Since k−1 ≥ 4, Lemma A.1(b) gives
+o∗ (G) = o∗ (H), but also {o∗ (G′ ) : G′ ∈ opts(G)} = {o∗ (H ′ ) : H ′ ∈ opts(H)},
+contradicting minimality of G.
+Case 3 : l ≥ 7 but m < 3. Then fix H with G = H + 2D. Since l − 2 ≥ 5, the
+recurrence (†) gives o∗ (G) = o∗ (H), etc., as in previous cases.
+Case 4 : m ≥ 15 but l < 3. Then fix H with G = H + 2E, and proceed as in
+Case 3.
+Case 5 : l ≥ 7 or m ≥ 15, and l, m ≥ 3. Then fix H with G = H + 2D + 2E,
+and proceed as in Case 3.
+Corollary A.3. Q(E) is infinite.
+Proof. If l ≥ 3 is odd, then lD + mE is a P-position iff m = l + 7. Thus the
+games (2n + 3) · D are pairwise distinguishable.
+
+A.8     Irregular and Abnormal Quotients
+In Section 6 we defined a quotient to be regular if |K ∩ P| = 1, and normal
+if K ∩ P = {z}. Irregular quotients are difficult to find; the smallest known
+example is Q12 (0.324), with |K ∩ P| = 4. Simpler examples almost certainly
+exist, but better techniques are needed in order to detect them.
+
+
+
+
+                                        31
+Acknowledgements
+The authors wish to thank Dan Hoey for many helpful comments and sugges-
+tions, and the referees for their extremely careful and insightful reading of the
+manuscript.
+
+
+References
+ [1] D. T. Allemang. Machine computation with finite games. Master’s thesis,
+     Trinity College, Cambridge, 1984.
+     http://www.miseregames.org/allemang/.
+ [2] D. T. Allemang. Generalized genus sequences for misère octal games. In-
+     ternat. J. Game Theory, 30(4):539–556, 2002.
+ [3] D. T. Allemang. Solving misère games quickly without search. Unpublished
+     research, 2002.
+ [4] E. R. Berlekamp, J. H. Conway, and R. K. Guy. Winning Ways for Your
+     Mathematical Plays. A. K. Peters, Ltd., Natick, MA, second edition, 2001.
+ [5] C. L. Bouton. Nim, a game with a complete mathematical theory. Ann. of
+     Math., 3(2):35–39, 1902.
+ [6] J. H. Conway. On Numbers and Games. A. K. Peters, Ltd., Natick, MA,
+     second edition, 2001.
+ [7] J. H. Conway. Personal communication, April 2006.
+ [8] J. H. Conway and W. L. Sibert. Mathematical Kayles. Internat. J. Game
+     Theory, 20(3):237–246, 1992.
+ [9] T. R. Dawson. Caissa’s wild roses, 1935. In Five Classics of Fairy Chess.
+     Dover Publications, Inc., 1973.
+[10] T. S. Ferguson. A note on Dawson’s Chess. Unpublished,
+     http://www.miseregames.org/docs/DawsonChess.pdf.
+[11] A. Flammenkamp. Sprague-Grundy values of octal games.
+     http://wwwhomes.uni-bielefeld.de/achim/octal.html.
+[12] A. Gangolli and T. E. Plambeck. A note on periodicity in some octal games.
+     Internat. J. Game Theory, 18(3):311–320, 1989.
+[13] P. A. Grillet. Commutative Semigroups. Number 2 in Advances in Mathe-
+     matics. Springer, 2001.
+[14] P. M. Grundy. Mathematics and games. Eureka, 2:6–8, 1939.
+[15] P. M. Grundy and C. A. B. Smith. Disjunctive games with the last player
+     losing. Proc. Cambridge Philos. Soc., 52:527–533, 1956.
+
+                                       32
+[16] R. K. Guy. Personal communication, August 2006.
+[17] R. K. Guy and C. A. B. Smith. The G-values of various games. Proc.
+     Cambridge Philos. Soc., 52:514–526, 1956.
+[18] T. E. Plambeck. Taming the wild in impartial combinatorial games. IN-
+     TEGERS: The Electr. J. Combin. Number Thy., 5(#G05), 2005.
+     http://arxiv.org/abs/math/0501315.
+[19] T. E. Plambeck. Advances in losing. In M. Albert and R. J. Nowakowski,
+     editors, Games of No Chance 3, MSRI Publications. Cambridge University
+     Press, Cambridge, forthcoming. http://arxiv.org/abs/math/0603027.
+[20] T. E. Plambeck and A. N. Siegel. Misère Games on the Web.
+     http://www.miseregames.org/.
+[21] T. E. Plambeck and A. N. Siegel. Misère quotients for impartial games
+     (supplementary material), 2007. http://arxiv.org/abs/0705.2404.
+[22] L. Rédei. The Theory of Finitely Generated Commutative Semigroups.
+     Pergamon, 1965.
+[23] W. L. Sibert. The game of misère Kayles: The “safe number” vs. “unsafe
+     number” theory. Unpublished manuscript, October 1989.
+[24] A. N. Siegel. Combinatorial Game Suite. http://www.cgsuite.org/.
+[25] A. N. Siegel. MisereSolver. http://www.cgsuite.org/.
+[26] A. N. Siegel. Misère Games and Misère Quotients. Lecture notes.
+     http://arxiv.org/abs/math/0612616.
+[27] A. N. Siegel. The structure and classification of misère quotients. Forth-
+     coming. http://arxiv.org/abs/math/0703070.
+[28] C. A. B. Smith. Compound two-person deterministic games. Unpublished
+     manuscript.
+[29] R. P. Sprague. Über mathematische Kampfspiele. Tôhoku Math. J., 41:438–
+     444, 1935–36.
+[30] R. P. Sprague. Über zwei Abarten von Nim. Tôhoku Math. J., 43:351–359,
+     1937.
+[31] R. P. Sprague. Bemerkungen über eine spezielle Abelsche Gruppe. Math.
+     Z., 51:82–84, 1947.
+
+
+
+
+                                      33
+

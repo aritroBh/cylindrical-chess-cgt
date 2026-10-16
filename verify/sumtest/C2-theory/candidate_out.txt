@@ -1,0 +1,30 @@
+Position W: a2 c2 / B: b7 d7, 4 files, flat, 8 ranks
+Reference order: 0 * *2 *3 up down up* dup* 1/2 -1/2 1 -1 {1|0} +-1 tiny1
+*2 + X vector    : NNPNLRLLLRLRLNN
+
+| race rule | en passant | mode | G | G+* | G+*2 | G+*3 | G = *2 ? | full vector | equals *2's vector | race nodes | states |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| count | off | whole | N | N | P | N | yes | NNPNLRLLLRLRLNN | yes | 224 | 225 |
+| count | off | comp | N | N | P | N | yes | NNPNLRLLLRLRLNN | yes | 224 | 225 |
+| count | on, plain passer, e.p. right local to G | whole | N | N | P | N | yes | NNPNLRLLLRLRLNN | yes | 243 | 231 |
+| count | on, plain passer, e.p. right local to G | comp | N | N | P | N | yes | NNPNLRLLLRLRLNN | yes | 243 | 231 |
+| count | on, plain passer, e.p. right expires on any move | whole | N | N | P | N | yes | NNPNLRLLLRLRLNN | yes | 243 | 231 |
+| count | on, e.p.-aware passer, local | whole | N | N | N | N | no | NNNNNNNNNNLRNNN | no | 253 | 246 |
+| count | on, e.p.-aware passer, local | comp | N | N | N | N | no | NNNNNNNNNNLRNNN | no | 253 | 246 |
+| count | on, e.p.-aware passer, expires on any move | whole | N | N | N | N | no | NNNNNNNNNNLRNNN | no | 253 | 246 |
+| mover | off | whole | N | N | P | N | yes | NNPNLRLLLRLRLNN | yes | 224 | 225 |
+| mover | off | comp | N | N | P | N | yes | NNPNLRLLLRLRLNN | yes | 224 | 225 |
+| mover | on, plain passer, e.p. right local to G | whole | N | N | P | N | yes | NNPNLRLLLRLRLNN | yes | 243 | 231 |
+| mover | on, plain passer, e.p. right local to G | comp | N | N | P | N | yes | NNPNLRLLLRLRLNN | yes | 243 | 231 |
+| mover | on, plain passer, e.p. right expires on any move | whole | N | N | P | N | yes | NNPNLRLLLRLRLNN | yes | 243 | 231 |
+| mover | on, e.p.-aware passer, local | whole | N | N | N | N | no | NNNNNNNNNNLRNNN | no | 252 | 246 |
+| mover | on, e.p.-aware passer, local | comp | N | N | N | N | no | NNNNNNNNNNLRNNN | no | 252 | 246 |
+| mover | on, e.p.-aware passer, expires on any move | whole | N | N | N | N | no | NNNNNNNNNNLRNNN | no | 252 | 246 |
+| opponent | off | whole | P | N | N | N | no | PNNNLRNLLRLRNNL | no | 224 | 225 |
+| opponent | off | comp | P | N | N | N | no | PNNNLRNLLRLRNNL | no | 224 | 225 |
+| opponent | on, plain passer, e.p. right local to G | whole | P | N | N | N | no | PNNNLRNLLRLRNNL | no | 235 | 228 |
+| opponent | on, plain passer, e.p. right local to G | comp | P | N | N | N | no | PNNNLRNLLRLRNNL | no | 235 | 228 |
+| opponent | on, plain passer, e.p. right expires on any move | whole | P | N | N | N | no | PNNNLRNLLRLRNNL | no | 235 | 228 |
+| opponent | on, e.p.-aware passer, local | whole | P | N | N | N | no | PNNNLRNLLRLRNNL | no | 267 | 250 |
+| opponent | on, e.p.-aware passer, local | comp | P | N | N | N | no | PNNNLRNLLRLRNNL | no | 267 | 250 |
+| opponent | on, e.p.-aware passer, expires on any move | whole | P | N | N | N | no | PNNNLRNLLRLRNNL | no | 267 | 250 |

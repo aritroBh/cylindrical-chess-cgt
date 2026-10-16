@@ -1,0 +1,13 @@
+== the 9 listed cases (project code) ==
+8x8 wrap=True ep=False W: b2 d4 g3 h5 / B: a7 c7 f7 g4 count: ncomp=1 sum_safe=True o(pawns.value)=R alt=N crosscheck=N
+8x8 wrap=True ep=False W: b3 f4 g5 / B: a5 b6 f5 h6 count: ncomp=1 sum_safe=True o(pawns.value)=N alt=L crosscheck=L
+8x8 wrap=True ep=False W: b2 c5 d4 f3 / B: c7 d6 e7 g6 count: ncomp=1 sum_safe=True o(pawns.value)=L alt=N crosscheck=N
+8x8 wrap=True ep=True W: a2 c4 e4 h2 / B: a6 b5 d7 e7 count: ncomp=1 sum_safe=True o(pawns.value)=R alt=N crosscheck=N
+8x8 wrap=True ep=True W: a5 b6 d2 e2 / B: a7 c7 e7 count: ncomp=1 sum_safe=True o(pawns.value)=L alt=N crosscheck=N
+8x7 wrap=True ep=False W: c2 g2 h4 / B: a5 b6 f5 g6 count: ncomp=1 sum_safe=True o(pawns.value)=R alt=N crosscheck=None
+7x6 wrap=False ep=True W: b2 d3 f2 / B: c4 c5 e5 g5 count: ncomp=1 sum_safe=True o(pawns.value)=N alt=R crosscheck=None
+8x8 wrap=True ep=True W: a3 e2 e4 h6 / B: a4 a5 f5 g7 opponent: ncomp=1 sum_safe=True o(pawns.value)=N alt=L crosscheck=None
+6x8 wrap=False ep=False W: b2 d4 f4 / B: b7 c5 e5 e7 opponent: ncomp=1 sum_safe=True o(pawns.value)=R alt=N crosscheck=None
+== random validation ==
+{'S_agree': 600, 'W_agree_alt': 600, 'multi': 75, 'S!=W': 13, 'single': 525, 'W_agree_xc': 65}
+disagreements: 0

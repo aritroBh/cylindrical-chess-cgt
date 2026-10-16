@@ -1,0 +1,37 @@
+== sum tests (independent minimax) ==
+ep=True  files=4 rule=count    W : o(G+*k), k=0..3: {0: 'N', 1: 'N', 2: 'P', 3: 'N'} -> G = *2 OK
+ep=True  files=4 rule=count    WF: o(G+*k), k=0..3: {0: 'N', 1: 'N', 2: 'P', 3: 'N'} -> G = *2 OK
+ep=True  files=4 rule=mover    W : o(G+*k), k=0..3: {0: 'N', 1: 'N', 2: 'P', 3: 'N'} -> G = *2 OK
+ep=True  files=4 rule=mover    WF: o(G+*k), k=0..3: {0: 'N', 1: 'N', 2: 'P', 3: 'N'} -> G = *2 OK
+ep=True  files=4 rule=opponent W : o(G+*k), k=0..3: {0: 'P', 1: 'N', 2: 'N', 3: 'N'} -> G = 0 OK
+ep=True  files=4 rule=opponent WF: o(G+*k), k=0..3: {0: 'P', 1: 'N', 2: 'N', 3: 'N'} -> G = 0 OK
+ep=True  files=8 rule=count    W : o(G+*k), k=0..3: {0: 'N', 1: 'N', 2: 'P', 3: 'N'} -> G = *2 OK
+ep=True  files=8 rule=count    WF: o(G+*k), k=0..3: {0: 'N', 1: 'N', 2: 'P', 3: 'N'} -> G = *2 OK
+ep=True  files=8 rule=mover    W : o(G+*k), k=0..3: {0: 'N', 1: 'N', 2: 'P', 3: 'N'} -> G = *2 OK
+ep=True  files=8 rule=mover    WF: o(G+*k), k=0..3: {0: 'N', 1: 'N', 2: 'P', 3: 'N'} -> G = *2 OK
+ep=True  files=8 rule=opponent W : o(G+*k), k=0..3: {0: 'P', 1: 'N', 2: 'N', 3: 'N'} -> G = 0 OK
+ep=True  files=8 rule=opponent WF: o(G+*k), k=0..3: {0: 'P', 1: 'N', 2: 'N', 3: 'N'} -> G = 0 OK
+ep=False files=4 rule=count    W : o(G+*k), k=0..3: {0: 'N', 1: 'N', 2: 'P', 3: 'N'} -> G = *2 OK
+ep=False files=4 rule=count    WF: o(G+*k), k=0..3: {0: 'N', 1: 'N', 2: 'P', 3: 'N'} -> G = *2 OK
+ep=False files=4 rule=mover    W : o(G+*k), k=0..3: {0: 'N', 1: 'N', 2: 'P', 3: 'N'} -> G = *2 OK
+ep=False files=4 rule=mover    WF: o(G+*k), k=0..3: {0: 'N', 1: 'N', 2: 'P', 3: 'N'} -> G = *2 OK
+ep=False files=4 rule=opponent W : o(G+*k), k=0..3: {0: 'P', 1: 'N', 2: 'N', 3: 'N'} -> G = 0 OK
+ep=False files=4 rule=opponent WF: o(G+*k), k=0..3: {0: 'P', 1: 'N', 2: 'N', 3: 'N'} -> G = 0 OK
+ep=False files=8 rule=count    W : o(G+*k), k=0..3: {0: 'N', 1: 'N', 2: 'P', 3: 'N'} -> G = *2 OK
+ep=False files=8 rule=count    WF: o(G+*k), k=0..3: {0: 'N', 1: 'N', 2: 'P', 3: 'N'} -> G = *2 OK
+ep=False files=8 rule=mover    W : o(G+*k), k=0..3: {0: 'N', 1: 'N', 2: 'P', 3: 'N'} -> G = *2 OK
+ep=False files=8 rule=mover    WF: o(G+*k), k=0..3: {0: 'N', 1: 'N', 2: 'P', 3: 'N'} -> G = *2 OK
+ep=False files=8 rule=opponent W : o(G+*k), k=0..3: {0: 'P', 1: 'N', 2: 'N', 3: 'N'} -> G = 0 OK
+ep=False files=8 rule=opponent WF: o(G+*k), k=0..3: {0: 'P', 1: 'N', 2: 'N', 3: 'N'} -> G = 0 OK
+== tree facts (4-file strip) ==
+ep=True: reachable 1075, non-terminal 405, non-terminal with >=2 components 0
+   rule=count   : non-terminal nodes with W<=-BIG or W>=BIG: 10
+   rule=mover   : non-terminal nodes with W<=-BIG or W>=BIG: 14
+   rule=opponent: non-terminal nodes with W<=-BIG or W>=BIG: 10
+   W: a2 c5 / B: b7 d7 reachable: True  <=-BIG (count): True
+ep=False: reachable 835, non-terminal 225, non-terminal with >=2 components 0
+   rule=count   : non-terminal nodes with W<=-BIG or W>=BIG: 8
+   rule=mover   : non-terminal nodes with W<=-BIG or W>=BIG: 12
+   rule=opponent: non-terminal nodes with W<=-BIG or W>=BIG: 8
+   W: a2 c5 / B: b7 d7 reachable: True  <=-BIG (count): True
+ALL OK

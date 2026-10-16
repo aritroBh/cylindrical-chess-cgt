@@ -1,0 +1,153 @@
+## positions whose value differs from count/ep-on
+| atoms | positions | mover/epon | opponent/epon | count/epoff | mover/epoff | opponent/epoff |
+| flat-atom n=1 pawns=2 | 15 | 0 (0) | 0 (0) | 0 (0) | 0 (0) | 0 (0) |
+| flat-atom n=1 pawns=3 | 40 | 0 (0) | 0 (0) | 0 (0) | 0 (0) | 0 (0) |
+| flat-atom n=1 pawns=4 | 60 | 0 (0) | 0 (0) | 0 (0) | 0 (0) | 0 (0) |
+| flat-atom n=2 pawns=2 | 15 | 6 (4) | 0 (0) | 0 (0) | 6 (4) | 0 (0) |
+| flat-atom n=2 pawns=3 | 150 | 62 (0) | 60 (0) | 0 (0) | 62 (0) | 60 (0) |
+| flat-atom n=2 pawns=4 | 755 | 148 (6) | 102 (0) | 40 (28) | 184 (28) | 142 (28) |
+| flat-atom n=3 pawns=3 | 70 | 50 (0) | 42 (0) | 0 (0) | 50 (0) | 42 (0) |
+| flat-atom n=3 pawns=4 | 1245 | 679 (80) | 528 (136) | 42 (42) | 687 (88) | 532 (140) |
+| flat-atom n=4 pawns=4 | 465 | 197 (32) | 140 (34) | 0 (0) | 197 (32) | 140 (34) |
+| ring n=3 pawns=3 | 70 | 36 (0) | 36 (0) | 0 (0) | 36 (0) | 36 (0) |
+| ring n=3 pawns=4 | 865 | 423 (60) | 334 (56) | 24 (20) | 447 (76) | 348 (68) |
+| ring n=3 pawns=5 | 5970 | 2546 (90) | 1538 (20) | 530 (30) | 2792 (122) | 1900 (50) |
+| ring n=4 pawns=4 | 225 | 98 (10) | 78 (4) | 13 (13) | 111 (23) | 91 (17) |
+| ring n=4 pawns=5 | 4404 | 2794 (68) | 2146 (12) | 302 (50) | 2888 (108) | 2258 (56) |
+| ring n=5 pawns=5 | 1034 | 334 (0) | 436 (0) | 22 (0) | 334 (0) | 436 (0) |
+
+## non-W count/ep-on values of ring atoms whose witnesses change under another combo
+  *                                                  32/69 witnesses change; e.g. C4 W: a2 b4 c2 / B: b6 d4: {'count/epoff': '{+W | 0, {+W, {+W, {+W, {+W, ±+W | -W} |', 'mover/epoff': '{+W | 0, {+W, {+W, {+W, {+W, ±+W | -W} |', 'opponent/epoff': '{+W | +W, {+W, {+W, {+W, {+W, ±+W | -W} '}
+  -1                                                 42/88 witnesses change; e.g. C4 W: a2 b3 c2 / B: b4 d6: {'opponent/epon': '{{{+W, {+W, +W* | +W} | +W} | +W}, {+W, ', 'count/epoff': '+W*', 'mover/epoff': '+W*', 'opponent/epoff': '{+W, +W* | +W}'}
+  -1*                                                10/17 witnesses change; e.g. C3 W: a2 b2 / B: c4 c5 c6: {'count/epoff': '0', 'mover/epoff': '0', 'opponent/epoff': '0'}
+  -1/2                                               5/7 witnesses change; e.g. C3 W: a2 b2 / B: a6 c5: {'mover/epon': '1/4', 'opponent/epon': '↑*', 'mover/epoff': '3/4', 'opponent/epoff': '↑*'}
+  -1/2±1/2                                           8/13 witnesses change; e.g. C3 W: a2 b4 / B: b6 c4 c7: {'count/epoff': '-3/2', 'mover/epoff': '-3/2', 'opponent/epoff': '-3/2'}
+  -1/4±1/4                                           3/3 witnesses change; e.g. C3 W: a2 b3 / B: a5 c6: {'mover/epon': '⇑*', 'opponent/epon': '{0 | *2}', 'mover/epoff': '⇑*', 'opponent/epoff': '{0 | *2}'}
+  -11/2±3/2                                          1/1 witnesses change; e.g. C3 W: a2 b2 / B: a5 a7 c7: {'mover/epon': '-7/2', 'mover/epoff': '-11/4'}
+  -11/4±5/4                                          3/3 witnesses change; e.g. C3 W: a2 b2 / B: a5 a6 c5: {'mover/epon': '-1', 'mover/epoff': '-1'}
+  -13/4±7/4                                          2/2 witnesses change; e.g. C3 W: a2 b3 / B: a6 c6 c7: {'mover/epon': '-9/4±3/4', 'opponent/epon': '-7/2±3/2', 'mover/epoff': '-9/4±3/4', 'opponent/epoff': '-7/2±3/2'}
+  -1±1                                               1/2 witnesses change; e.g. C4 W: a4 c4 / B: a6 b7 d7: {'opponent/epon': '{-1 | -W, {-W, {-W, {+W | -W, ±+W}, {{+W', 'count/epoff': '-3', 'mover/epoff': '-3', 'opponent/epoff': '-W*'}
+  -2                                                 35/55 witnesses change; e.g. C4 W: a2 b3 c2 / B: b4 d7: {'opponent/epon': '{{+W, {+W, +W* | +W, +W*, {+W, +W* | +W,', 'count/epoff': '{+W | +W, +W*}', 'mover/epoff': '{+W | +W, +W*}', 'opponent/epoff': '+W*'}
+  -2*                                                8/9 witnesses change; e.g. C3 W: a2 b2 / B: c4 c5 c7: {'count/epoff': '-1', 'mover/epoff': '-1', 'opponent/epoff': '-1'}
+  -3                                                 17/28 witnesses change; e.g. C3 W: a2 b2 / B: a4 a5 c5: {'mover/epon': '{0 | -2, {{{+W | 0, -1/2±1/2} | 0} | -W}', 'mover/epoff': '{0 | -2, {{{+W | 0, -1/2±1/2} | 0} | -W}'}
+  -3*                                                1/1 witnesses change; e.g. C4 W: a2 b4 / B: c7 d4 d7: {'mover/epon': '-4', 'opponent/epon': '{-W | {-W | {-W | {-W | {-W, {+W, +W±+W ', 'mover/epoff': '-4', 'opponent/epoff': '{-W | {-W | {-W | {-W | {-W, {+W, +W±+W '}
+  -3/2                                               4/5 witnesses change; e.g. C3 W: a2 b4 / B: a6 a7 c7: {'mover/epon': '-2', 'mover/epoff': '-2'}
+  -3/2±1/2                                           9/13 witnesses change; e.g. C3 W: a2 b3 / B: b5 b7 c4: {'mover/epon': '{-1, {5/2±1/2 | -2} | {-3/2±1/2 | -W}}', 'mover/epoff': '{-1, {5/2±1/2 | -2} | {-3/2±1/2 | -W}}'}
+  -3/2±3/2                                           3/4 witnesses change; e.g. C3 W: a2 b3 / B: b5 c6 c7: {'mover/epoff': '-5/4±5/4'}
+  -3/4                                               1/1 witnesses change; e.g. C3 W: a2 b3 / B: a5 c7: {'mover/epon': '0', 'opponent/epon': '{0 | *2, {0 | *2}}', 'mover/epoff': '0', 'opponent/epoff': '{0 | *2, {0 | *2}}'}
+  -4                                                 11/17 witnesses change; e.g. C3 W: a2 b2 / B: a4 a5 c6: {'mover/epon': '-1*', 'mover/epoff': '-1*'}
+  -5                                                 11/12 witnesses change; e.g. C3 W: a2 b2 / B: a4 a5 c7: {'mover/epon': '-2*', 'mover/epoff': '-2*'}
+  -5/2±1/2                                           4/4 witnesses change; e.g. C4 W: a2 b3 / B: c6 d6 d7: {'opponent/epon': '{-2 | {-W | {{* | {-W | {-W | -W, {-W | ', 'opponent/epoff': '{-2 | {-W | {{* | {-W | {-W | -W, {-W | '}
+  -5/2±3/2                                           4/5 witnesses change; e.g. C3 W: a2 b3 / B: a5 c6 c7: {'mover/epon': '{-1 | -3*}', 'mover/epoff': '{-1 | -3*}'}
+  -5/4±3/4                                           1/1 witnesses change; e.g. C3 W: a2 b2 / B: c5 c6 c7: {'count/epoff': '{-1/2 | -1*}', 'mover/epoff': '{-1/2 | -1*}', 'opponent/epoff': '{-1/2 | -1*}'}
+  -6                                                 5/5 witnesses change; e.g. C3 W: a2 b2 / B: a4 a6 c7: {'mover/epon': '-2', 'mover/epoff': '-2'}
+  -7                                                 1/1 witnesses change; e.g. C3 W: a2 b2 / B: a4 a7 c7: {'mover/epon': '-3', 'mover/epoff': '-9/4'}
+  -7/2±3/2                                           6/6 witnesses change; e.g. C3 W: a2 b2 / B: a5 a6 c6: {'mover/epon': '-3/2', 'mover/epoff': '-3/2'}
+  -9/2±3/2                                           4/4 witnesses change; e.g. C3 W: a2 b2 / B: a5 a6 c7: {'mover/epon': '-5/2', 'mover/epoff': '-2*'}
+  0                                                  71/162 witnesses change; e.g. C4 W: a2 a3 b2 / B: c5 d5: {'mover/epon': '{+W | {+W | +W, {+W, ±+W | -W, {+W, {+W ', 'opponent/epon': '{{+W | +W, {+W, {+W | {-W* | -W}} | -W}}', 'mover/epoff': '{+W | {+W | +W, {+W, ±+W | -W, {+W, {+W ', 'opponent/epoff': '{{+W | +W, {+W, {+W | {-W* | -W}} | -W}}'}
+  1                                                  42/88 witnesses change; e.g. C4 W: a2 a3 b2 / B: c4 d5: {'mover/epon': '{+W | {+W, {+W, {+W, +W* | +W} | -W, {+W', 'opponent/epon': '+W', 'mover/epoff': '{+W | {+W, {+W, {+W, +W* | +W} | -W, {+W', 'opponent/epoff': '+W'}
+  1*                                                 10/17 witnesses change; e.g. C4 W: a2 a3 b4 / B: c7 d5: {'mover/epon': '0', 'mover/epoff': '0'}
+  1/2                                                5/7 witnesses change; e.g. C3 W: a2 b2 / B: a6 c4: {'mover/epoff': '1'}
+  1/2±1/2                                            8/13 witnesses change; e.g. C4 W: a2 a3 b2 / B: c6 d5: {'mover/epon': '+W', 'opponent/epon': '3', 'mover/epoff': '+W', 'opponent/epoff': '3'}
+  1/4±1/4                                            3/3 witnesses change; e.g. C3 W: a2 b2 / B: c5 c6: {'opponent/epon': '1±1', 'count/epoff': '1/2*', 'mover/epoff': '3/4', 'opponent/epoff': '5/4±3/4'}
+  11/2±3/2                                           1/1 witnesses change; e.g. C3 W: a2 a4 b2 / B: a7 c7: {'mover/epon': '7/2', 'mover/epoff': '11/4'}
+  11/4±5/4                                           3/3 witnesses change; e.g. C3 W: a2 a3 b2 / B: a7 c6: {'mover/epon': '3±1', 'mover/epoff': '3±1'}
+  13/4±7/4                                           2/2 witnesses change; e.g. C3 W: a2 a3 b2 / B: b6 c7: {'mover/epon': '11/4±5/4', 'opponent/epon': '7/2±3/2', 'mover/epoff': '11/4±5/4', 'opponent/epoff': '7/2±3/2'}
+  1±1                                                1/2 witnesses change; e.g. C4 W: a2 b3 c2 / B: b5 d5: {'opponent/epon': '{+W, {+W | +W, {+W | +W, {+W, ±+W | -W},', 'count/epoff': '3', 'mover/epoff': '3', 'opponent/epoff': '+W*'}
+  2                                                  35/55 witnesses change; e.g. C4 W: a2 a3 b3 / B: c6 d6: {'opponent/epon': '+W±127', 'opponent/epoff': '+W±127'}
+  2*                                                 8/9 witnesses change; e.g. C4 W: a2 a4 b2 / B: c5 d6: {'mover/epon': '3', 'opponent/epon': '{+W | +W, +W±+W}', 'mover/epoff': '3', 'opponent/epoff': '{+W | +W, +W±+W}'}
+  3                                                  17/28 witnesses change; e.g. C4 W: a2 a5 b2 / B: c4 d7: {'mover/epon': '{+W | +W, {+W, {+W, {+W, ±+W | -W} | -W}', 'opponent/epon': '{{{+W, {+W, {+W, {+W, {+W, {+W, +W* | +W', 'mover/epoff': '{+W | +W, {+W, {+W, {+W, ±+W | -W} | -W}', 'opponent/epoff': '{{{+W, {+W, {+W, {+W, {+W, {+W, +W* | +W'}
+  3*                                                 1/1 witnesses change; e.g. C4 W: a2 a5 b2 / B: c5 d7: {'mover/epon': '4', 'opponent/epon': '{{{{{+W, {+W, {+W, {+W, +W* | +W} | +W} ', 'mover/epoff': '4', 'opponent/epoff': '{{{{{+W, {+W, {+W, {+W, +W* | +W} | +W} '}
+  3/2                                                4/5 witnesses change; e.g. C3 W: a2 a3 b2 / B: a7 c5: {'mover/epon': '2', 'mover/epoff': '2'}
+  3/2±1/2                                            9/13 witnesses change; e.g. C4 W: a2 a3 b2 / B: c4 d6: {'mover/epon': '{+W | {+W, {+W, +W* | +W} | -W, {+W, {+W', 'opponent/epon': '+W*', 'mover/epoff': '{+W | {+W, {+W, +W* | +W} | -W, {+W, {+W', 'opponent/epoff': '+W*'}
+  3/2±3/2                                            3/4 witnesses change; e.g. C4 W: a3 a4 c4 / B: b7 d7: {'mover/epon': '1±1', 'mover/epoff': '1±1'}
+  3/4                                                1/1 witnesses change; e.g. C3 W: a2 b4 / B: b7 c6: {'mover/epon': '0', 'opponent/epon': '{*2, {*2 | 0} | 0}', 'mover/epoff': '0', 'opponent/epoff': '{*2, {*2 | 0} | 0}'}
+  4                                                  11/17 witnesses change; e.g. C4 W: a2 a4 c5 / B: b7 d7: {'mover/epon': '3', 'mover/epoff': '3'}
+  5                                                  11/12 witnesses change; e.g. C4 W: a2 a3 c5 / B: b7 d7: {'mover/epon': '4', 'count/epoff': '5/2±3/2', 'mover/epoff': '2±1', 'opponent/epoff': '5/2±3/2'}
+  5/2±1/2                                            4/4 witnesses change; e.g. C4 W: a2 a3 b3 / B: c6 d7: {'opponent/epon': '{{{{{+W, {+W, {+W, {+W, {+W, +W* | +W} |', 'opponent/epoff': '{{{{{+W, {+W, {+W, {+W, {+W, +W* | +W} |'}
+  5/2±3/2                                            4/5 witnesses change; e.g. C4 W: a2 a4 c4 / B: b7 d7: {'mover/epon': '2±1', 'mover/epoff': '2±1'}
+  5/4±3/4                                            1/1 witnesses change; e.g. C3 W: a2 a3 a4 / B: b7 c7: {'count/epoff': '{1* | 1/2}', 'mover/epoff': '{1* | 1/2}', 'opponent/epoff': '{1* | 1/2}'}
+  6                                                  5/5 witnesses change; e.g. C4 W: a2 a5 c2 / B: b7 d7: {'mover/epon': '5', 'count/epoff': '3±1', 'mover/epoff': '5/2±1/2', 'opponent/epoff': '3±1'}
+  7                                                  1/1 witnesses change; e.g. C3 W: a2 a5 b2 / B: a7 c7: {'mover/epon': '3', 'mover/epoff': '9/4'}
+  7/2±3/2                                            6/6 witnesses change; e.g. C4 W: a2 a3 c4 / B: b7 d7: {'mover/epon': '3±1', 'count/epoff': '1', 'mover/epoff': '1', 'opponent/epoff': '1'}
+  9/2±3/2                                            4/4 witnesses change; e.g. C4 W: a2 a4 c2 / B: b7 d7: {'mover/epon': '4±1', 'count/epoff': '2', 'mover/epoff': '2', 'opponent/epoff': '2'}
+  {* | -1*}                                          2/3 witnesses change; e.g. C4 W: a2 c4 / B: a4 b7 d7: {'count/epoff': '-2*', 'mover/epoff': '{-1* | -3/2}', 'opponent/epoff': '-2*'}
+  {* | -1/2}                                         2/2 witnesses change; e.g. C3 W: a2 b3 / B: a6 c5: {'mover/epon': '0', 'opponent/epon': '{0 | *2}', 'mover/epoff': '0', 'opponent/epoff': '{0 | *2}'}
+  {* | -4}                                           1/1 witnesses change; e.g. C3 W: a2 b4 / B: b6 b7 c5: {'mover/epon': '{*, {3, 253/2±+W | -3} | -4}', 'mover/epoff': '{*, {3, 253/2±+W | -3} | -4}'}
+  {* | -7/2±3/2}                                     1/1 witnesses change; e.g. C4 W: a2 c2 / B: b6 b7 d6: {'mover/epon': '{* | -3±1}', 'count/epoff': '{* | -1}', 'mover/epoff': '{* | -1}', 'opponent/epoff': '{* | -1}'}
+  {*, ↓ | -1}                                        1/1 witnesses change; e.g. C3 W: a3 b3 / B: a7 c5: {'mover/epon': '⇓*', 'opponent/epon': '0', 'mover/epoff': '⇓*', 'opponent/epoff': '0'}
+  {-1 | -2*}                                         1/1 witnesses change; e.g. C4 W: a2 c2 / B: a3 b6 d7: {'mover/epoff': '-1*'}
+  {-1 | -5/2±1/2}                                    1/1 witnesses change; e.g. C4 W: a2 b5 / B: c7 d6 d7: {'mover/epon': '{{+W, {+W, {+W, ±+W | -W, ±+W} | -W, {+W', 'opponent/epon': '{-W | {-W, {+W, ±+W | -W} | {{-W | -W, {', 'mover/epoff': '{{+W, {+W, {+W, ±+W | -W, ±+W} | -W, {+W', 'opponent/epoff': '{-W | {-W, {+W, ±+W | -W} | {{-W | -W, {'}
+  {-1 | -9/2±3/2}                                    1/1 witnesses change; e.g. C3 W: a2 b2 / B: a6 a7 c6: {'mover/epon': '-7/4±3/4', 'mover/epoff': '-7/4±3/4'}
+  {-1 | {-2, -3/2±1/2 | -4}}                         1/1 witnesses change; e.g. C3 W: a2 b2 / B: a6 a7 c4: {'count/epoff': '{-1 | {-1, -3/2±1/2 | -4}}', 'mover/epoff': '{-1 | {-1, -3/2±1/2 | -4}}', 'opponent/epoff': '{-1 | {-1, -3/2±1/2 | -4}}'}
+  {-1* | -2*}                                        1/2 witnesses change; e.g. C4 W: a2 b4 / B: c7 d5 d6: {'mover/epon': '-5/2±1/2', 'opponent/epon': '{-3/2±1/2 | {-W | {-W | {-W | -W, {-W | ', 'mover/epoff': '-5/2±1/2', 'opponent/epoff': '{-3/2±1/2 | {-W | {-W | {-W | -W, {-W | '}
+  {-1/2 | -9/2±3/2}                                  1/1 witnesses change; e.g. C4 W: a2 c2 / B: b6 b7 d7: {'mover/epon': '{-1/2 | -4±1}', 'count/epoff': '-5/4±3/4', 'mover/epoff': '-5/4±3/4', 'opponent/epoff': '-5/4±3/4'}
+  {-1/2±1/2 | -2*}                                   1/1 witnesses change; e.g. C4 W: a2 c2 / B: a3 b7 d7: {'count/epoff': '{-2 | -2*}', 'mover/epoff': '-5/4', 'opponent/epoff': '{-2 | -2*}'}
+  {-1/2±1/2 | -2}                                    2/2 witnesses change; e.g. C4 W: a2 c3 / B: a3 b7 d7: {'count/epoff': '-2*', 'mover/epoff': '-7/4±1/4', 'opponent/epoff': '-2*'}
+  {-2 | -5/2±1/2}                                    1/1 witnesses change; e.g. C3 W: a2 b4 / B: a6 c6 c7: {'opponent/epon': '-2', 'opponent/epoff': '-2'}
+  {-2 | {-2 | -5/2±1/2}}                             1/1 witnesses change; e.g. C3 W: a2 b4 / B: a7 c6 c7: {'opponent/epon': '-3', 'opponent/epoff': '-3'}
+  {-2* | -3*}                                        1/1 witnesses change; e.g. C4 W: a2 b4 / B: c7 d5 d7: {'mover/epon': '-7/2±1/2', 'opponent/epon': '{-W±+W, {-W | {-W, {+W, {+W, ±+W | -W} |', 'mover/epoff': '-7/2±1/2', 'opponent/epoff': '{-W±+W, {-W | {-W, {+W, {+W, ±+W | -W} |'}
+  {-2, -3/2±1/2 | -4}                                1/1 witnesses change; e.g. C3 W: a2 b2 / B: a5 a7 c4: {'count/epoff': '{-1, -3/2±1/2 | -4}', 'mover/epoff': '{-1, -3/2±1/2 | -4}', 'opponent/epoff': '{-1, -3/2±1/2 | -4}'}
+  {-3/2 | -11/2±3/2}                                 1/1 witnesses change; e.g. C3 W: a2 b2 / B: a6 a7 c7: {'mover/epon': '-11/4±3/4', 'mover/epoff': '-19/8±3/8'}
+  {0 | -1*}                                          2/2 witnesses change; e.g. C4 W: a2 b4 / B: c6 c7 d7: {'mover/epon': '{-W | {-W | {-W, {+W, ±+W | -W} | -W}}}', 'opponent/epon': '-2', 'mover/epoff': '{-W | {-W | {-W, {+W, ±+W | -W} | -W}}}', 'opponent/epoff': '-2'}
+  {0 | -2*}                                          1/1 witnesses change; e.g. C4 W: a3 b4 / B: c7 d6 d7: {'mover/epon': '-4', 'opponent/epon': '{{-W | {-W, {+W | -W, {{+W | +W*} | -W}}', 'mover/epoff': '-4', 'opponent/epoff': '{{-W | {-W, {+W | -W, {{+W | +W*} | -W}}'}
+  {0 | {-2* | -3*}}                                  1/1 witnesses change; e.g. C4 W: a2 b4 / B: c7 d6 d7: {'mover/epon': '-3', 'opponent/epon': '{{-W | {-W, {+W | -W, {{+W | +W*} | -W}}', 'mover/epoff': '-3', 'opponent/epoff': '{{-W | {-W, {+W | -W, {{+W | +W*} | -W}}'}
+  {0 | ⇓*}                                           2/2 witnesses change; e.g. C3 W: a2 b2 / B: a5 c7: {'mover/epon': '-1/8±1/8', 'opponent/epon': '{{0 | *2, {0 | *2}} | ⇓*}', 'count/epoff': '↓*', 'mover/epoff': '1/4', 'opponent/epoff': '*2'}
+  {0, * | -1}                                        1/1 witnesses change; e.g. C3 W: a3 b3 / B: a6 c5: {'mover/epon': '↑*', 'opponent/epon': '↑', 'mover/epoff': '↑*', 'opponent/epoff': '↑'}
+  {1 | *, ↑}                                         1/1 witnesses change; e.g. C3 W: a2 b4 / B: a6 c6: {'mover/epon': '⇑*', 'opponent/epon': '0', 'mover/epoff': '⇑*', 'opponent/epoff': '0'}
+  {1 | -3/2±1/2}                                     1/1 witnesses change; e.g. C4 W: a2 c2 / B: b6 d7: {'count/epoff': '1/4±3/4', 'mover/epoff': '1/4±3/4', 'opponent/epoff': '1/4±3/4'}
+  {1 | 0, *}                                         1/1 witnesses change; e.g. C3 W: a3 b4 / B: a6 c6: {'mover/epon': '↓*', 'opponent/epon': '↓', 'mover/epoff': '↓*', 'opponent/epoff': '↓'}
+  {1* | *}                                           2/3 witnesses change; e.g. C4 W: a2 b4 c2 / B: b6 d5: {'count/epoff': '{2 | 1/2±1/2}', 'mover/epoff': '1', 'opponent/epoff': '2*'}
+  {1* | 0}                                           2/2 witnesses change; e.g. C4 W: a2 a3 b2 / B: c7 d5: {'mover/epon': '{{{+W | +W, {+W | -W, ±+W}} | +W} | +W}', 'opponent/epon': '2', 'mover/epoff': '{{{+W | +W, {+W | -W, ±+W}} | +W} | +W}', 'opponent/epoff': '2'}
+  {1/2 | *}                                          2/2 witnesses change; e.g. C3 W: a2 b4 / B: a6 c7: {'mover/epon': '0', 'opponent/epon': '{*, ↑ | 0, *}', 'mover/epoff': '0', 'opponent/epoff': '{*, ↑ | 0, *}'}
+  {1/2 | {1/2 | *}, {1/2 | ↑}}                       1/1 witnesses change; e.g. C3 W: a2 b4 / B: a7 c7: {'mover/epon': '*', 'opponent/epon': '{0, ↓* | 0, *}', 'mover/epoff': '*', 'opponent/epoff': '{0, ↓* | 0, *}'}
+  {1/2 | ↑}                                          1/1 witnesses change; e.g. C3 W: a2 b4 / B: a7 c6: {'mover/epon': '{0 | ↑, ⇑*}', 'opponent/epon': '{*2, {*2 | 0} | 0}', 'mover/epoff': '{0 | ↑, ⇑*}', 'opponent/epoff': '{*2, {*2 | 0} | 0}'}
+  {1/2±1/2 | -2}                                     1/1 witnesses change; e.g. C4 W: a3 c3 / B: b7 d7: {'count/epoff': '{↓ | -2}', 'mover/epoff': '{↓ | -2}', 'opponent/epoff': '{↓ | -2}'}
+  {1/2±1/2, {1 | *, ↑} | -1/4±1/4, {* | -1/2}}       1/1 witnesses change; e.g. C3 W: a2 b3 / B: a6 c6: {'mover/epon': '{⇑* | 0}', 'opponent/epon': '{0 | {0 | *2}}', 'mover/epoff': '{⇑* | 0}', 'opponent/epoff': '{0 | {0 | *2}}'}
+  {1/4±1/4, {1/2 | *} | -1/2±1/2, {*, ↓ | -1}}       1/1 witnesses change; e.g. C3 W: a3 b3 / B: a7 c6: {'mover/epon': '{0 | ⇓*}', 'opponent/epon': '{{*2 | 0} | 0}', 'mover/epoff': '{0 | ⇓*}', 'opponent/epoff': '{{*2 | 0} | 0}'}
+  {11/2±3/2 | 3/2}                                   1/1 witnesses change; e.g. C3 W: a2 a3 b2 / B: a7 c7: {'mover/epon': '11/4±3/4', 'mover/epoff': '19/8±3/8'}
+  {2 | -1/2±1/2}                                     1/1 witnesses change; e.g. C4 W: a2 c2 / B: b6 d6: {'count/epoff': '{2 | ↑}', 'mover/epoff': '{2 | ↑}', 'opponent/epoff': '{2 | ↑}'}
+  {2 | 1/2±1/2}                                      2/2 witnesses change; e.g. C4 W: a2 b5 c2 / B: b6 d6: {'count/epoff': '2*', 'mover/epoff': '{2 | 1*}', 'opponent/epoff': '2*'}
+  {2 | ↓}                                            1/1 witnesses change; e.g. C3 W: a3 b3 / B: c6 c7: {'mover/epon': '-1/4±1/4', 'opponent/epon': '1±1', 'mover/epoff': '-1/4±1/4', 'opponent/epoff': '1±1'}
+  {2* | 0}                                           1/1 witnesses change; e.g. C4 W: a2 a3 b2 / B: c5 d6: {'mover/epon': '4', 'opponent/epon': '{{{+W, {+W, {+W, {+W, +W* | +W} | +W} | ', 'mover/epoff': '4', 'opponent/epoff': '{{{+W, {+W, {+W, {+W, +W* | +W} | +W} | '}
+  {2* | 1*}                                          1/2 witnesses change; e.g. C4 W: a2 b3 b4 / B: c7 d5: {'mover/epon': '5/2±1/2', 'opponent/epon': '{{{{+W, {+W, {+W, {+W, +W* | +W} | +W} |', 'mover/epoff': '5/2±1/2', 'opponent/epoff': '{{{{+W, {+W, {+W, {+W, +W* | +W} | +W} |'}
+  {2* | 1/2±1/2}                                     1/1 witnesses change; e.g. C4 W: a2 b6 c2 / B: b7 d7: {'count/epoff': '{2* | 2}', 'mover/epoff': '5/4', 'opponent/epoff': '{2* | 2}'}
+  {2* | 1}                                           1/1 witnesses change; e.g. C4 W: a2 b6 c3 / B: b7 d7: {'mover/epoff': '1*'}
+  {2* | {1* | *}}                                    1/1 witnesses change; e.g. C4 W: a2 b5 c2 / B: b7 d6: {'count/epoff': '2', 'mover/epoff': '{2* | {3/2 | 1*}}', 'opponent/epoff': '2'}
+  {3 | {0 | ⇓*}}                                     1/1 witnesses change; e.g. C3 W: a2 b2 / B: c6 c7: {'mover/epon': '{1 | -1/8±1/8}', 'opponent/epon': '{3 | {1 | ⇓*}}', 'count/epoff': '{3 | *}', 'mover/epoff': '{1 | *}', 'opponent/epoff': '{3 | 1/2±1/2}'}
+  {3* | 2*}                                          1/1 witnesses change; e.g. C4 W: a2 a4 b2 / B: c5 d7: {'mover/epon': '7/2±1/2', 'opponent/epon': '{+W | +W±+W, {{+W | +W, {+W | -W, {+W | ', 'mover/epoff': '7/2±1/2', 'opponent/epoff': '{+W | +W±+W, {{+W | +W, {+W | -W, {+W | '}
+  {3/2±1/2 | -1}                                     1/1 witnesses change; e.g. C4 W: a2 c3 / B: b7 d7: {'count/epoff': '-1/4±3/4', 'mover/epoff': '-1/4±3/4', 'opponent/epoff': '-1/4±3/4'}
+  {3/2±1/2 | -3/2±1/2}                               1/1 witnesses change; e.g. C4 W: a2 c2 / B: b7 d7: {'count/epoff': '±1/2', 'mover/epoff': '±1/2', 'opponent/epoff': '±1/2'}
+  {3/4 | {* | -1/2}}                                 1/1 witnesses change; e.g. C3 W: a2 b3 / B: b7 c6: {'mover/epon': '*', 'opponent/epon': '0', 'mover/epoff': '*', 'opponent/epoff': '0'}
+  {3/4 | {{* | -1/2}, {↓ | -1/2} | -1/2}}            1/1 witnesses change; e.g. C3 W: a2 b2 / B: a7 c6: {'mover/epon': '↑', 'opponent/epon': '{0 | {0, * | 0, ↑*}}', 'mover/epoff': '↑', 'opponent/epoff': '{0 | {0, * | 0, ↑*}}'}
+  {4 | *}                                            1/1 witnesses change; e.g. C3 W: a2 a3 b4 / B: a5 c7: {'mover/epon': '{4 | *, {3 | -3, -253/2±+W}}', 'mover/epoff': '{4 | *, {3 | -3, -253/2±+W}}'}
+  {4 | 2, 3/2±1/2}                                   1/1 witnesses change; e.g. C3 W: a2 a4 b5 / B: a7 c7: {'count/epoff': '{4 | 1, 3/2±1/2}', 'mover/epoff': '{4 | 1, 3/2±1/2}', 'opponent/epoff': '{4 | 1, 3/2±1/2}'}
+  {5 | {3 | *}, 5/2}                                 1/1 witnesses change; e.g. C3 W: a2 a4 b4 / B: a7 c7: {'mover/epon': '2', 'mover/epoff': '2'}
+  {5/2±1/2 | 1}                                      1/1 witnesses change; e.g. C4 W: a2 a3 b2 / B: c4 d7: {'mover/epon': '{{+W | {+W, +W* | +W}, {+W | {+W, +W* | ', 'opponent/epon': '{{{+W | {+W, {+W, +W* | +W} | +W}, {+W |', 'mover/epoff': '{{+W | {+W, +W* | +W}, {+W | {+W, +W* | ', 'opponent/epoff': '{{{+W | {+W, {+W, +W* | +W} | +W}, {+W |'}
+  {5/2±1/2 | 2}                                      1/1 witnesses change; e.g. C3 W: a2 a3 b3 / B: b7 c5: {'opponent/epon': '2', 'opponent/epoff': '2'}
+  {6 | {{5/2±1/2 | 2} | 2}}                          1/1 witnesses change; e.g. C3 W: a2 a3 b2 / B: b7 c6: {'mover/epon': '{4 | {{5/2±1/2 | 2} | 2}}', 'opponent/epon': '9/2±3/2', 'mover/epoff': '{4 | {{5/2±1/2 | 2} | 2}}', 'opponent/epoff': '9/2±3/2'}
+  {7/2±3/2 | *}                                      1/1 witnesses change; e.g. C4 W: a2 a3 c3 / B: b7 d7: {'mover/epon': '{3±1 | *}', 'count/epoff': '{1 | *}', 'mover/epoff': '{1 | *}', 'opponent/epoff': '{1 | *}'}
+  {9/2±3/2 | 1/2}                                    1/1 witnesses change; e.g. C4 W: a2 a3 c2 / B: b7 d7: {'mover/epon': '{4±1 | 1/2}', 'count/epoff': '5/4±3/4', 'mover/epoff': '5/4±3/4', 'opponent/epoff': '5/4±3/4'}
+  {9/2±3/2 | 1}                                      1/1 witnesses change; e.g. C3 W: a2 a3 b3 / B: a7 c7: {'mover/epon': '7/4±3/4', 'mover/epoff': '7/4±3/4'}
+  {{* | -1*} | -2*}                                  1/1 witnesses change; e.g. C4 W: a2 c3 / B: a4 b7 d7: {'count/epoff': '-2', 'mover/epoff': '{{-1* | -3/2} | -2*}', 'opponent/epoff': '-2'}
+  {{* | -1/2}, {↓ | -1/2} | -1/2}                    1/1 witnesses change; e.g. C3 W: a2 b2 / B: a7 c5: {'mover/epon': '*', 'opponent/epon': '{0, * | 0, ↑*}', 'mover/epoff': '*', 'opponent/epoff': '{0, * | 0, ↑*}'}
+  {{* | -3}, -5/2 | -5}                              1/1 witnesses change; e.g. C3 W: a2 b2 / B: a5 a7 c5: {'mover/epon': '-2', 'mover/epoff': '-2'}
+  {{-2 | {-2 | -5/2±1/2}} | -6}                      1/1 witnesses change; e.g. C3 W: a2 b3 / B: a7 c6 c7: {'mover/epon': '{{-2 | {-2 | -5/2±1/2}} | -4}', 'opponent/epon': '-9/2±3/2', 'mover/epoff': '{{-2 | {-2 | -5/2±1/2}} | -4}', 'opponent/epoff': '-9/2±3/2'}
+  {{1* | 1} | ↓}                                     1/1 witnesses change; e.g. C4 W: a2 b4 c2 / B: b7 d5: {'count/epoff': '{2* | 1/2±1/2}', 'mover/epoff': '{{3/2 | 1*} | 1, 1/2±1/2}', 'opponent/epoff': '{2* | 2}'}
+  {{1/2 | *} | -3/4}                                 1/1 witnesses change; e.g. C3 W: a2 b3 / B: a6 c7: {'mover/epon': '*', 'opponent/epon': '0', 'mover/epoff': '*', 'opponent/epoff': '0'}
+  {{1/2 | {1/2 | *}, {1/2 | ↑}} | -3/4}              1/1 witnesses change; e.g. C3 W: a2 b3 / B: a7 c7: {'mover/epon': '↓', 'opponent/epon': '{{0, ↓* | 0, *} | 0}', 'mover/epoff': '↓', 'opponent/epoff': '{{0, ↓* | 0, *} | 0}'}
+  {{1/2 | {1/2 | *}, {1/2 | ↑}} | {{* | -1/2}, {↓ |  1/1 witnesses change; e.g. C3 W: a2 b2 / B: a7 c7: {'mover/epon': '0', 'opponent/epon': '0', 'mover/epoff': '0', 'opponent/epoff': '0'}
+  {{1/2 | ↑} | {↓ | -1/2}}                           1/1 witnesses change; e.g. C3 W: a2 b3 / B: a7 c6: {'mover/epon': '{{0 | ↑, ⇑*} | {↓, ⇓* | 0}}', 'opponent/epon': '0', 'mover/epoff': '{{0 | ↑, ⇑*} | {↓, ⇓* | 0}}', 'opponent/epoff': '0'}
+  {{3* | 2*} | 0}                                    1/1 witnesses change; e.g. C4 W: a2 a3 b2 / B: c5 d7: {'mover/epon': '3', 'opponent/epon': '{{+W | +W±+W, {{+W | +W, {+W | -W, {+W |', 'mover/epoff': '3', 'opponent/epoff': '{{+W | +W±+W, {{+W | +W, {+W | -W, {+W |'}
+  {{4 | 2, 3/2±1/2} | 1}                             1/1 witnesses change; e.g. C3 W: a2 a3 b5 / B: a7 c7: {'count/epoff': '{{4 | 1, 3/2±1/2} | 1}', 'mover/epoff': '{{4 | 1, 3/2±1/2} | 1}', 'opponent/epoff': '{{4 | 1, 3/2±1/2} | 1}'}
+  {{5/2±1/2 | 2} | 2}                                1/1 witnesses change; e.g. C3 W: a2 a3 b2 / B: b7 c5: {'opponent/epon': '3', 'opponent/epoff': '3'}
+  {{⇑* | 0} | -3}                                    1/1 witnesses change; e.g. C3 W: a2 a3 / B: b7 c7: {'mover/epon': '{1/8±1/8 | -1}', 'opponent/epon': '{{⇑* | -1} | -3}', 'count/epoff': '{* | -3}', 'mover/epoff': '{* | -1}', 'opponent/epoff': '{-1/2±1/2 | -3}'}
+  {↑ | -2}                                           1/1 witnesses change; e.g. C3 W: a2 a3 / B: b6 c6: {'mover/epon': '1/4±1/4', 'opponent/epon': '-1±1', 'mover/epoff': '1/4±1/4', 'opponent/epoff': '-1±1'}
+  {↑ | {-1 | -1*}}                                   1/1 witnesses change; e.g. C4 W: a2 c4 / B: a5 b7 d7: {'count/epoff': '{-1/2±1/2 | -2*}', 'mover/epoff': '{-1, -1/2±1/2 | {-1* | -3/2}}', 'opponent/epoff': '{-2 | -2*}'}
+  {↓ | -1/2}                                         1/1 witnesses change; e.g. C3 W: a2 b3 / B: a7 c5: {'mover/epon': '{↓, ⇓* | 0}', 'opponent/epon': '{0 | *2, {0 | *2}}', 'mover/epoff': '{↓, ⇓* | 0}', 'opponent/epoff': '{0 | *2, {0 | *2}}'}
+  {⇑* | 0}                                           2/2 witnesses change; e.g. C3 W: a2 a4 / B: b7 c7: {'mover/epon': '1/8±1/8', 'opponent/epon': '{⇑* | -1}', 'count/epoff': '*', 'mover/epoff': '*', 'opponent/epoff': '-1/2±1/2'}
+  ±1                                                 2/4 witnesses change; e.g. C3 W: a2 b3 / B: b5 c6: {'count/epoff': '1/4±3/4', 'mover/epoff': '1*', 'opponent/epoff': '{1 | *, ↓}'}
+  ↑                                                  5/8 witnesses change; e.g. C3 W: a2 b5 / B: a5 b6 c7: {'count/epoff': '{-W | -W±1/2}', 'mover/epoff': '{-W | -W±1/2}', 'opponent/epoff': '{-W | -W±1/2}'}
+  ↓                                                  5/8 witnesses change; e.g. C4 W: a2 b4 c2 / B: b7 d4: {'count/epoff': '{+W | 0, {+W, {+W, {+W, {+W, {+W, {+W, ±', 'mover/epoff': '{{{+W | +W, ±+W, {+W | +W, ±+W}} | +W} |', 'opponent/epoff': '{+W | +W, {+W, {+W, {+W, {+W, {+W, {+W, '}
+  ⇑*                                                 3/3 witnesses change; e.g. C4 W: a2 c5 / B: a6 b7 d7: {'count/epoff': '{-W, {+W, {+W | -W, {+W | -W, ±+W}} | -W', 'mover/epoff': '{-W, {+W, {+W | -W, {+W | -W, ±+W}} | -W', 'opponent/epoff': '{{+W, {+W | -W, {+W | -W, ±+W}} | -W, {+'}
+  ⇓*                                                 3/3 witnesses change; e.g. C4 W: a2 b3 c2 / B: b7 d4: {'count/epoff': '{+W | +W, {+W, {+W, {+W, {+W, {+W, {+W, ', 'mover/epoff': '{+W | +W, {+W, {+W, {+W, {+W, {+W, {+W, ', 'opponent/epoff': '{+W | {+W, {+W, {+W, {+W, {+W, {+W, {+W,'}
