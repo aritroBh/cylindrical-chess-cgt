@@ -44,11 +44,12 @@ Each track can yield its own paper. Targets: *Integers* / *Games of No Chance 7*
 - **Correct only because of wrap-around en passant**, which the paper never mentions: 3.1 is `1` with e.p. and `2` without.
 - **Wrong:**
   - **4.2 as drawn is `0`, not ↑.** The diagram is one rank off: W e2 / B e5 gives ↑.
-  - **The 7.1 a/h component is a hot game, `{win | *}`, not `1`.** The wrap captures a5×h6 and h6×a5 were missed.
+  - **The 7.1 a/h component is a hot game, `{win | *}`, not `1`.** The paper plays h6×a5 correctly; its error is calling a position White wins either way "1". Two independent engines refute "= 1" by sum tests.
+  - **7.3's {c,d} sub-game is tiny(1), not 1** (blind re-audit, `notes/diagram_audit.md`).
   - **7.2's pawn group is not ±1**, and its value depends on en passant. Its analysis also omits the double steps and plays ...b5 twice.
   - **7.3 is already decided at move 0** by the passed pawns on a5 and f7.
 - **Modelling gaps:**
-  - The "trebuchet" king groups in 7.2 and 7.3 are not mutual zugzwangs: both kings have spare tempo moves.
+  - The 7.3 king group is not a mutual zugzwang: Kg8–f8 and Kf6–g6 are spare moves. The 7.2 group (Ke6, d7 / Kd8, e7) **is** one under the convention, as is 5.1 across the seam (corrected by the blind diagram re-audit).
   - Pawns stand on the 1st rank, which is illegal.
   - Races and en passant inside sums are left undefined.
   - §8's Dawson rule permits no first move. The correct model is octal 0.137, and the paper's path recurrence omits the end moves.
@@ -62,7 +63,7 @@ Each track can yield its own paper. Targets: *Integers* / *Games of No Chance 7*
    - If this survives with real kings (the trebuchet on the g-file, kings on f/h) under engine and tablebase verification, **it answers an open question.**
    - Risk: the "passed pawn = win" convention may not survive real king play.
 2. **Values that occur only on the cylinder.** Exhaustive 2-vs-2 enumeration on 3–5 files finds values that never occur on flat strips of the same width, e.g. 1/4±1/4, 3/4, and {3/2±1/2 | −3/2±1/2}. Some flat-only values (including that \*2) disappear on the cylinder.
-3. **Mating material without corners** (4-man tablebase; one implementation; the flat-board sanity check passes):
+3. **Mating material without corners** (4-man tablebase). **Replicated:** an independent solver, `tablebase/replica/replica.c`, written and committed before the prototype was read, agrees with the prototype on every position of all 24 tables (about 607 million values) for both sides to move; see `tablebase/replica/REPORT.md`. New tables there: KRRK and KQRK are forced wins on the cylinder (100%, longest mate in 8 and 5 moves).
 
 | Material | Flat 8×8 | Cylinder 8×8 | Torus 8×8 |
 |---|---|---|---|
@@ -223,10 +224,10 @@ Each track can yield its own paper. Targets: *Integers* / *Games of No Chance 7*
 ## 8. Decisions for you
 1. **Order:** lead with the \*2 candidate and the cylinder tablebases (fastest route to a striking, verifiable result), or with the ChessSums benchmark?
 2. **Conventions:** keep "passed pawn = immediate win" (the paper's convention, simple), or move to Mäser on/off or affine normal play (rigorous, slower)?
-3. **Installs:** OK to install Stockfish, Lc0, Rust, PyTorch and MLX, and to `git init`?
+3. **Installs:** OK to install Stockfish, Lc0, Rust, PyTorch and MLX? (`git init` is done: a local repo, nothing pushed.)
 4. **Mentor loop:** send Prof. Morley the audit and each paper draft?
 
 ## 9. Next steps once approved
 1. A2: certify or refute the \*2 candidate with real kings.
-2. B2: independently replicate the 4-man cylinder and torus tables (Codex, after its quota resets).
+2. ~~B2: independently replicate the 4-man cylinder and torus tables.~~ Done 2026-10-15 (`tablebase/replica/`).
 3. A1 proofs, and the Rust port for the A3 atlas.

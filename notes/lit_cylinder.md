@@ -32,7 +32,7 @@
 | KRBK | 100%, 16 | 99.7%, 13 | 0.02% |
 
   - These contradict Muller on the bishop pair (forced on the cylinder) and agree with him on B+N.
-  - **Status: one implementation only.** Independent replication is required (plan B2).
+  - **Status: replicated.** An independent solver (`tablebase/replica/replica.c`) agrees on every position of all 24 tables, for both sides to move; see `tablebase/replica/REPORT.md`.
 - **Classic combinatorics on these surfaces:**
   - Toroidal n-queens exist iff gcd(n,6)=1 (Pólya 1918).
   - Queens graphs on the torus: Burger–Cockayne–Mynhardt 2001.
