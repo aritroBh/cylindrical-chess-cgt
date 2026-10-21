@@ -68,7 +68,7 @@ for task in $tasks; do
   log="delegate/logs/$task.log"; text="$(prompt $BRIEF[$task])"
   (
     $cmd "$text" > "$log" 2>&1 < /dev/null
-    if grep -qiE "usage limit|RESOURCE_EXHAUSTED|Rate limit exceeded|Endpoint is unavailable|billing|quota reached|only try 10 times" "$log"; then
+    if tail -c 2000 "$log" | grep -qiE "usage limit|RESOURCE_EXHAUSTED|Rate limit exceeded|Endpoint is unavailable|billing|quota reached|only try 10 times"; then
       echo "\n=== $(date): $tool failed to start; falling back to $fb" >> "$log"
       $fb "$text" >> "$log" 2>&1 < /dev/null
     fi
