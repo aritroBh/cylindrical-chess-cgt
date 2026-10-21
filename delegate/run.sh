@@ -32,18 +32,20 @@ cmd_for() {
 typeset -A TOOLS MODELS BRIEF
 # default tool and model per task (free models where possible; reassigned 2026-10-21 after quota failures)
 TOOLS=(T1 codex T2 kilo T3 opencode T4 opencode T5 opencode T6 opencode T7 kilo
-       T8 codex T9 opencode T10 opencode T11 opencode T12 kilo T13 opencode T14 kilo T15 kilo)
+       T8 codex T9 opencode T10 opencode T11 opencode T12 kilo T13 opencode T14 kilo T15 kilo T1b opencode T8b opencode)
 # free models verified working on 2026-10-21 (aihubmix free tier = 10 tries; opencode deepseek rate-limited)
 MODELS=(T1 "" T2 kilo/nvidia/nemotron-3-ultra-550b-a55b:free T3 omniroute/auto/coding:free
         T4 omniroute/auto/coding:free T5 omniroute/auto/best-free T6 opencode/beam-free
         T7 kilo/kilo-auto/free T8 "" T9 omniroute/auto/coding:free T10 omniroute/oc/nemotron-3-ultra-free
         T11 omniroute/auto/best-free T12 kilo/minimax/minimax-m3.1-flash:free T13 opencode/beam-free
-        T14 kilo/nvidia/nemotron-3-ultra-550b-a55b:free T15 kilo/kilo-auto/free)
+        T14 kilo/nvidia/nemotron-3-ultra-550b-a55b:free T15 kilo/kilo-auto/free
+        T1b omniroute/auto/coding:free T8b omniroute/oc/nemotron-3-ultra-free)
 BRIEF=(T1 T1_codex_independent_verify.md T2 T2_qwen_proof_check.md T3 T3_agy_elkies_targets.md
        T4 T4_opencode_cylinder_ep_aware.md T5 T5_cursor_ml_chesssums.md T6 T6_muse_ml_dawson.md
        T7 T7_kilo_completeness_review.md T8 T8_star2_frontier_search.md T9 T9_mobius_klein.md
        T10 T10_pawn_tablebases_cylinder.md T11 T11_thermography_atomic.md T12 T12_odd_cylinders_opposition.md
-       T13 T13_engines_on_chesssums.md T14 T14_dawson_variants.md T15 T15_novelty_literature.md)
+       T13 T13_engines_on_chesssums.md T14 T14_dawson_variants.md T15 T15_novelty_literature.md
+       T1b T1b_free_independent_verify.md T8b T8b_star2_frontier_search.md)
 ALL=(T1 T2 T3 T4 T5 T6 T7 T8 T9 T10 T11 T12 T13 T14 T15)
 
 tasks=()
