@@ -1,0 +1,283 @@
+{
+ "component": "W: a2 b2 b3 / B: a5 a6 b6",
+ "tree": "e.p.-aware",
+ "internal_nodes": 697,
+ "terminals": 471,
+ "model_values": {
+  "count": "1/8",
+  "mover": "1/8",
+  "opponent": "1/8"
+ },
+ "policies": {
+  "free": {
+   "fill_stats": {
+    "free": 933,
+    "resolved": 9
+   },
+   "switch, draw = Black win": {
+    "G_lo": "-5/4",
+    "G_hi": "5/4",
+    "pinned": false,
+    "outcome_G_lo": "R",
+    "outcome_G_hi": "L",
+    "excludes *2": false,
+    "excludes 0": false,
+    "excludes model value under count": false,
+    "excludes model value under mover": false,
+    "excludes model value under opponent": false
+   },
+   "switch, draw = White win": {
+    "G_lo": "-5/4",
+    "G_hi": "5/4",
+    "pinned": false,
+    "outcome_G_lo": "R",
+    "outcome_G_hi": "L",
+    "excludes *2": false,
+    "excludes 0": false,
+    "excludes model value under count": false,
+    "excludes model value under mover": false,
+    "excludes model value under opponent": false
+   },
+   "switch, draw = 0": {
+    "G_lo": "-5/4",
+    "G_hi": "5/4",
+    "pinned": false,
+    "outcome_G_lo": "R",
+    "outcome_G_hi": "L",
+    "excludes *2": false,
+    "excludes 0": false,
+    "excludes model value under count": false,
+    "excludes model value under mover": false,
+    "excludes model value under opponent": false
+   },
+   "free (only L/R fixed)": {
+    "G_lo": "-5/4",
+    "G_hi": "5/4",
+    "pinned": false,
+    "outcome_G_lo": "R",
+    "outcome_G_hi": "L",
+    "excludes *2": false,
+    "excludes 0": false,
+    "excludes model value under count": false,
+    "excludes model value under mover": false,
+    "excludes model value under opponent": false
+   }
+  },
+  "one-sided model-filled, races free": {
+   "fill_stats": {
+    "model-filled one-sided": 925,
+    "free": 8,
+    "resolved": 9
+   },
+   "switch, draw = Black win": {
+    "G_lo": "1/8",
+    "G_hi": "1/8",
+    "pinned": true,
+    "outcome_G_lo": "L",
+    "outcome_G_hi": "L",
+    "excludes *2": true,
+    "excludes 0": true,
+    "excludes model value under count": false,
+    "excludes model value under mover": false,
+    "excludes model value under opponent": false,
+    "value": "1/8",
+    "mean": "1/8",
+    "temperature": "number"
+   },
+   "switch, draw = White win": {
+    "G_lo": "1/8",
+    "G_hi": "1/8",
+    "pinned": true,
+    "outcome_G_lo": "L",
+    "outcome_G_hi": "L",
+    "excludes *2": true,
+    "excludes 0": true,
+    "excludes model value under count": false,
+    "excludes model value under mover": false,
+    "excludes model value under opponent": false,
+    "value": "1/8",
+    "mean": "1/8",
+    "temperature": "number"
+   },
+   "switch, draw = 0": {
+    "G_lo": "1/8",
+    "G_hi": "1/8",
+    "pinned": true,
+    "outcome_G_lo": "L",
+    "outcome_G_hi": "L",
+    "excludes *2": true,
+    "excludes 0": true,
+    "excludes model value under count": false,
+    "excludes model value under mover": false,
+    "excludes model value under opponent": false,
+    "value": "1/8",
+    "mean": "1/8",
+    "temperature": "number"
+   },
+   "free (only L/R fixed)": {
+    "G_lo": "1/8",
+    "G_hi": "1/8",
+    "pinned": true,
+    "outcome_G_lo": "L",
+    "outcome_G_hi": "L",
+    "excludes *2": true,
+    "excludes 0": true,
+    "excludes model value under count": false,
+    "excludes model value under mover": false,
+    "excludes model value under opponent": false,
+    "value": "1/8",
+    "mean": "1/8",
+    "temperature": "number"
+   }
+  },
+  "all unknown sides model-filled (races: count)": {
+   "fill_stats": {
+    "model-filled one-sided": 925,
+    "model-filled race (count)": 8,
+    "resolved": 9
+   },
+   "switch, draw = Black win": {
+    "G_lo": "1/8",
+    "G_hi": "1/8",
+    "pinned": true,
+    "outcome_G_lo": "L",
+    "outcome_G_hi": "L",
+    "excludes *2": true,
+    "excludes 0": true,
+    "excludes model value under count": false,
+    "excludes model value under mover": false,
+    "excludes model value under opponent": false,
+    "value": "1/8",
+    "mean": "1/8",
+    "temperature": "number"
+   },
+   "switch, draw = White win": {
+    "G_lo": "1/8",
+    "G_hi": "1/8",
+    "pinned": true,
+    "outcome_G_lo": "L",
+    "outcome_G_hi": "L",
+    "excludes *2": true,
+    "excludes 0": true,
+    "excludes model value under count": false,
+    "excludes model value under mover": false,
+    "excludes model value under opponent": false,
+    "value": "1/8",
+    "mean": "1/8",
+    "temperature": "number"
+   },
+   "switch, draw = 0": {
+    "G_lo": "1/8",
+    "G_hi": "1/8",
+    "pinned": true,
+    "outcome_G_lo": "L",
+    "outcome_G_hi": "L",
+    "excludes *2": true,
+    "excludes 0": true,
+    "excludes model value under count": false,
+    "excludes model value under mover": false,
+    "excludes model value under opponent": false,
+    "value": "1/8",
+    "mean": "1/8",
+    "temperature": "number"
+   },
+   "free (only L/R fixed)": {
+    "G_lo": "1/8",
+    "G_hi": "1/8",
+    "pinned": true,
+    "outcome_G_lo": "L",
+    "outcome_G_hi": "L",
+    "excludes *2": true,
+    "excludes 0": true,
+    "excludes model value under count": false,
+    "excludes model value under mover": false,
+    "excludes model value under opponent": false,
+    "value": "1/8",
+    "mean": "1/8",
+    "temperature": "number"
+   }
+  },
+  "all unknown sides model-filled (races: opponent)": {
+   "fill_stats": {
+    "model-filled one-sided": 925,
+    "model-filled race (opponent)": 8,
+    "resolved": 9
+   },
+   "switch, draw = Black win": {
+    "G_lo": "1/8",
+    "G_hi": "1/8",
+    "pinned": true,
+    "outcome_G_lo": "L",
+    "outcome_G_hi": "L",
+    "excludes *2": true,
+    "excludes 0": true,
+    "excludes model value under count": false,
+    "excludes model value under mover": false,
+    "excludes model value under opponent": false,
+    "value": "1/8",
+    "mean": "1/8",
+    "temperature": "number"
+   },
+   "switch, draw = White win": {
+    "G_lo": "1/8",
+    "G_hi": "1/8",
+    "pinned": true,
+    "outcome_G_lo": "L",
+    "outcome_G_hi": "L",
+    "excludes *2": true,
+    "excludes 0": true,
+    "excludes model value under count": false,
+    "excludes model value under mover": false,
+    "excludes model value under opponent": false,
+    "value": "1/8",
+    "mean": "1/8",
+    "temperature": "number"
+   },
+   "switch, draw = 0": {
+    "G_lo": "1/8",
+    "G_hi": "1/8",
+    "pinned": true,
+    "outcome_G_lo": "L",
+    "outcome_G_hi": "L",
+    "excludes *2": true,
+    "excludes 0": true,
+    "excludes model value under count": false,
+    "excludes model value under mover": false,
+    "excludes model value under opponent": false,
+    "value": "1/8",
+    "mean": "1/8",
+    "temperature": "number"
+   },
+   "free (only L/R fixed)": {
+    "G_lo": "1/8",
+    "G_hi": "1/8",
+    "pinned": true,
+    "outcome_G_lo": "L",
+    "outcome_G_hi": "L",
+    "excludes *2": true,
+    "excludes 0": true,
+    "excludes model value under count": false,
+    "excludes model value under mover": false,
+    "excludes model value under opponent": false,
+    "value": "1/8",
+    "mean": "1/8",
+    "temperature": "number"
+   }
+  }
+ },
+ "sides_resolved_by_kind_and_men": {
+  "one-sided 5-man open": 16,
+  "one-sided 6-man open": 41,
+  "one-sided 6-man resolved": 1,
+  "one-sided 7-man open": 228,
+  "one-sided 7-man resolved": 4,
+  "one-sided 8-man open": 414,
+  "one-sided 9-man open": 226,
+  "race 6-man open": 8,
+  "race 6-man resolved": 4
+ },
+ "one_sided_real_vs_model": {
+  "agree (7 men)": 4,
+  "draw (6 men)": 1
+ }
+}

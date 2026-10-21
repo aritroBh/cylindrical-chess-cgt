@@ -1,8 +1,9 @@
 #!/bin/zsh
-# Launch the delegated tasks on external AI CLIs, headless, in the background.
-# Usage: delegate/run.sh [T1 T2 ...]                (no tasks = all, each on its default tool)
-#        TOOL=opencode delegate/run.sh T2 T3 T6     (run the named tasks on another tool)
-#        MODEL=<provider/model> ...                  (optional model override where the tool supports it)
+# Launch delegated tasks on external AI CLIs, headless, in the background.
+# Usage: delegate/run.sh [TASK ...]           tasks T1..T15, "wave2" (every non-codex task) or "codex" (T1 T8); no args = all
+#        TOOL=opencode delegate/run.sh T2    override the tool for the named tasks
+#        MODEL=<provider/model> ...          override the model
+#        FORCE=1 ...                         relaunch even if the task's previous process is still running
 # Logs: delegate/logs/<task>.log; PIDs: delegate/logs/<task>.pid
 ROOT=/Users/aritro/Downloads/Research/Chessendgames
 cd "$ROOT" || exit 1
@@ -10,32 +11,57 @@ mkdir -p delegate/logs
 
 prompt() { cat delegate/COMMON.md; echo; echo "---"; echo; cat "delegate/briefs/$1"; }
 
-# the command for each tool; the prompt is appended as the last argument
+# the command for each tool (model $2 optional); the prompt is appended as the last argument
 cmd_for() {
+  local m=$2
   case $1 in
-    codex)        echo codex exec -s workspace-write -c approval_policy=never -C "$ROOT" ${MODEL:+-m $MODEL} ;;
-    qwen)         echo qwen --approval-mode yolo ${MODEL:+-m $MODEL} -p ;;
-    agy)          echo agy --dangerously-skip-permissions ${MODEL:+--model $MODEL} -p ;;
-    opencode)     echo opencode run --auto ${MODEL:+-m $MODEL} ;;
-    cursor-agent) echo cursor-agent --force ${MODEL:+--model $MODEL} -p ;;
-    muse)         echo muse exec --approval-mode never ${MODEL:+--model $MODEL} ;;
-    kilo)         echo kilo run --auto ${MODEL:+-m $MODEL} ;;
+    codex)        echo codex exec -s workspace-write -c approval_policy=never -C "$ROOT" ${m:+-m $m} ;;
+    qwen)         echo qwen --approval-mode yolo ${m:+-m $m} -p ;;
+    agy)          echo agy --dangerously-skip-permissions ${m:+--model $m} -p ;;
+    opencode)     echo opencode run --auto ${m:+-m $m} ;;
+    cursor-agent) echo cursor-agent --force ${m:+--model $m} -p ;;
+    muse)         echo muse exec --approval-mode never ${m:+--model $m} ;;
+    kilo)         echo kilo run --auto ${m:+-m $m} ;;
     *) echo "unknown tool $1" >&2; return 1 ;;
   esac
 }
 
-typeset -A DEFAULT BRIEF
-DEFAULT=(T1 codex T2 qwen T3 agy T4 opencode T5 cursor-agent T6 muse T7 kilo)
+typeset -A TOOLS MODELS BRIEF
+# default tool and model per task (free models where possible; reassigned 2026-10-21 after quota failures)
+TOOLS=(T1 codex T2 opencode T3 opencode T4 opencode T5 opencode T6 opencode T7 kilo
+       T8 codex T9 opencode T10 opencode T11 opencode T12 opencode T13 opencode T14 kilo T15 kilo)
+MODELS=(T1 "" T2 aihubmix/qwen3.8-max-free T3 aihubmix/coding-kimi-k3-free T4 aihubmix/coding-glm-5.3-free
+        T5 opencode/deepseek-v4.1-flash-free T6 aihubmix/coding-minimax-m3-free
+        T7 kilo/nvidia/nemotron-3-ultra-550b-a55b:free T8 ""
+        T9 aihubmix/coding-kimi-k3-free T10 aihubmix/coding-glm-5.3-free T11 aihubmix/qwen3.8-max-free
+        T12 aihubmix/nemotron-3-ultra-550b-a55b-free T13 opencode/deepseek-v4.1-flash-free
+        T14 kilo/minimax/minimax-m3.1-flash:free T15 kilo/kilo-auto/free)
 BRIEF=(T1 T1_codex_independent_verify.md T2 T2_qwen_proof_check.md T3 T3_agy_elkies_targets.md
        T4 T4_opencode_cylinder_ep_aware.md T5 T5_cursor_ml_chesssums.md T6 T6_muse_ml_dawson.md
-       T7 T7_kilo_completeness_review.md)
+       T7 T7_kilo_completeness_review.md T8 T8_star2_frontier_search.md T9 T9_mobius_klein.md
+       T10 T10_pawn_tablebases_cylinder.md T11 T11_thermography_atomic.md T12 T12_odd_cylinders_opposition.md
+       T13 T13_engines_on_chesssums.md T14 T14_dawson_variants.md T15 T15_novelty_literature.md)
+ALL=(T1 T2 T3 T4 T5 T6 T7 T8 T9 T10 T11 T12 T13 T14 T15)
 
-tasks=("$@")
-(( ${#tasks} )) || tasks=(T1 T2 T3 T4 T5 T6 T7)
+tasks=()
+for a in "$@"; do
+  case $a in
+    wave2) tasks+=(T2 T3 T4 T5 T6 T7 T9 T10 T11 T12 T13 T14 T15) ;;
+    codex) tasks+=(T1 T8) ;;
+    *) tasks+=($a) ;;
+  esac
+done
+(( ${#tasks} )) || tasks=($ALL)
+
 for task in $tasks; do
-  tool=${TOOL:-$DEFAULT[$task]}
-  cmd=($(cmd_for $tool)) || continue
+  [[ -n $BRIEF[$task] ]] || { echo "unknown task $task" >&2; continue; }
+  if [[ -z $FORCE && -f delegate/logs/$task.pid ]] && ps -p $(<delegate/logs/$task.pid) >/dev/null 2>&1; then
+    echo "skip $task: still running (pid $(<delegate/logs/$task.pid)); FORCE=1 to relaunch"; continue
+  fi
+  tool=${TOOL:-$TOOLS[$task]}
+  model=${MODEL:-$MODELS[$task]}
+  cmd=($(cmd_for $tool $model)) || continue
   nohup $cmd "$(prompt $BRIEF[$task])" > "delegate/logs/$task.log" 2>&1 < /dev/null &
   echo $! > "delegate/logs/$task.pid"
-  echo "launched $task (pid $!): $tool"
+  echo "launched $task (pid $!): $tool ${model:-default}"
 done
