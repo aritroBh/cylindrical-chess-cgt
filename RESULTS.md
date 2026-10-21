@@ -224,6 +224,32 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   trébuchet freeze lemma and the ring reduction are proved. The tests in `lemmas/` found no counterexample to
   any of them.
 
+## 6b. New on 2026-10-21
+
+- **Toward a real-chess 1/8** (`realchess/targets18/`). Position: the robust 1/8, `W a2 b2 b3 / B a5 a6 b6`,
+  beside the trébuchet, FEN `8/8/pp6/p4Kp1/6Pk/1P6/PP6/8 w`.
+  - **Small end positions.** All 306 sides with at most 7 men are resolved against the tablebase: 283 agree with
+    the model, 5 disagree and 2 are draws.
+  - **Bounds.** With only these exact results fixed, the oracle value lies in [−1/2, 3/4].
+  - **The decisive set.** A greedy minimal-support search shows the value is **exactly 1/8** whenever 8
+    unresolved end positions (5 with 8 men, 3 with 9) go as the model predicts. The other 312 open ones may be
+    anything.
+  - **Status.** Resolving those 8 by tablebase-backed search is running. The same pipeline is queued for ↑²\*
+    and tiny(1).
+- **Paper.** A full draft is in `paper/` (Overleaf-ready; `paper/main.pdf`, 18 pages): "Pawn Endgames Without
+  Edges: Exact Combinatorial Game Values, Real-Chess Certification, and Tablebases on the Cylindrical
+  Chessboard".
+- **Wave 2 of delegated research** (`delegate/briefs/T8–T15`), launched with `delegate/run.sh wave2` and, after
+  the codex quota resets, `delegate/run.sh codex`:
+  - T8: the \*2 frontier search;
+  - T9: Möbius strip and Klein bottle boards;
+  - T10: king-and-pawn tablebases on the cylinder;
+  - T11: thermography and atomic weights;
+  - T12: odd-circumference cylinders;
+  - T13: engines on ChessSums;
+  - T14: Dawson variants;
+  - T15: novelty check.
+
 ## 7. Pending
 
 **Verification gaps.** 35 adversarial verifiers were cut off by the Claude usage limit. Not verified:
