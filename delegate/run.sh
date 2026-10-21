@@ -28,14 +28,14 @@ cmd_for() {
 
 typeset -A TOOLS MODELS BRIEF
 # default tool and model per task (free models where possible; reassigned 2026-10-21 after quota failures)
-TOOLS=(T1 codex T2 opencode T3 opencode T4 opencode T5 opencode T6 opencode T7 kilo
-       T8 codex T9 opencode T10 opencode T11 opencode T12 opencode T13 opencode T14 kilo T15 kilo)
-MODELS=(T1 "" T2 aihubmix/qwen3.8-max-free T3 aihubmix/coding-kimi-k3-free T4 aihubmix/coding-glm-5.3-free
-        T5 opencode/deepseek-v4.1-flash-free T6 aihubmix/coding-minimax-m3-free
-        T7 kilo/nvidia/nemotron-3-ultra-550b-a55b:free T8 ""
-        T9 aihubmix/coding-kimi-k3-free T10 aihubmix/coding-glm-5.3-free T11 aihubmix/qwen3.8-max-free
-        T12 aihubmix/nemotron-3-ultra-550b-a55b-free T13 opencode/deepseek-v4.1-flash-free
-        T14 kilo/minimax/minimax-m3.1-flash:free T15 kilo/kilo-auto/free)
+TOOLS=(T1 codex T2 kilo T3 opencode T4 opencode T5 opencode T6 opencode T7 kilo
+       T8 codex T9 opencode T10 opencode T11 opencode T12 kilo T13 opencode T14 kilo T15 kilo)
+# free models verified working on 2026-10-21 (aihubmix free tier = 10 tries; opencode deepseek rate-limited)
+MODELS=(T1 "" T2 kilo/nvidia/nemotron-3-ultra-550b-a55b:free T3 omniroute/auto/coding:free
+        T4 omniroute/auto/coding:free T5 omniroute/auto/best-free T6 opencode/beam-free
+        T7 kilo/kilo-auto/free T8 "" T9 omniroute/auto/coding:free T10 omniroute/oc/nemotron-3-ultra-free
+        T11 omniroute/auto/best-free T12 kilo/minimax/minimax-m3.1-flash:free T13 opencode/beam-free
+        T14 kilo/nvidia/nemotron-3-ultra-550b-a55b:free T15 kilo/kilo-auto/free)
 BRIEF=(T1 T1_codex_independent_verify.md T2 T2_qwen_proof_check.md T3 T3_agy_elkies_targets.md
        T4 T4_opencode_cylinder_ep_aware.md T5 T5_cursor_ml_chesssums.md T6 T6_muse_ml_dawson.md
        T7 T7_kilo_completeness_review.md T8 T8_star2_frontier_search.md T9 T9_mobius_klein.md
