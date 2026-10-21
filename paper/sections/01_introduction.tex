@@ -1,0 +1,70 @@
+\section{Introduction}\label{sec:intro}
+
+Combinatorial game theory (CGT) assigns to a two-player game of perfect information a \emph{value} that
+predicts the winner of any sum of such games \citep{ONAG,WinningWays,Siegel2013}. Chess is not a normal-play
+game: the game can be drawn, and kings interact across the whole board. Even so, \citet{Elkies1996} showed
+that pawn endgames are approximately sums of independent local fights, and that these fights realise numbers,
+nimbers, infinitesimals such as $\up$ and $\tinyg{1}$, and hot switches. The approximation rests on two
+conventions:
+\begin{itemize}
+\item a side that obtains a passed pawn wins outright, which is valued as a large number $\pm\BIG$;
+\item a mutual zugzwang of the kings, the \emph{tr\'ebuchet}, contributes $0$.
+\end{itemize}
+\citet{Elkies2002} extended the zoo to higher nimbers on large boards and asked which values occur on the
+ordinary $8\times8$ board. \citet{DrummondCole2005} found a $\nim{2}$ on $8\times8$, but it needs officers
+(bishops, knights, rooks, queens) to immobilise the pawns. Whether $\nim{2}$ occurs with \emph{kings and
+pawns only} remains open.
+
+\paragraph{The cylindrical board.}
+In \emph{cylinder chess} files a and h are adjacent \citep{Pritchard}. The board has no edges and every file is
+equivalent. Our earlier study \citep{Bhattacharjee2025} computed Elkies-style values on the cylinder. This
+paper revisits that work with exact software, and pushes it in four directions where, as far as we could
+determine, nothing has been published:
+\begin{itemize}
+\item CGT values of pawn endgames on cyclic boards;
+\item real-chess certification of Elkies-style values;
+\item exact validity conditions for the frozen-king convention;
+\item endgame tablebases on the cylinder and the torus.
+\end{itemize}
+
+\paragraph{Contributions.}
+\begin{enumerate}[leftmargin=*]
+\item \textbf{A precise model} (\cref{sec:model}).
+  \begin{itemize}
+  \item The textbook passed-pawn test lets a pawn that has just double-stepped past an enemy pawn count as
+    passed before the legal en passant capture. We replace it with an e.p.-aware test.
+  \item Proved: decomposition into components, the cut lemma for cylinders, and a hereditary sum-safety
+    theorem.
+  \item A counterexample to the sum-safety test used before.
+  \end{itemize}
+\item \textbf{A corrected audit} of the 2025 paper (\cref{sec:audit}), checked three ways.
+\item \textbf{Value atlases.} $1.2$ million cylinder and flat positions and $231{,}071$ flat $8$-rank positions,
+  with the values that occur only on the cylinder (\cref{sec:atlas}).
+\item \textbf{The $\nim{2}$ question} (\cref{sec:star2}).
+  \begin{itemize}
+  \item The census result described in the abstract.
+  \item The real-chess oracle value, a method that certifies or refutes a model value with tablebases and
+    monotonicity.
+  \item Its application to every $\nim{2}$ candidate.
+  \end{itemize}
+\item \textbf{Robust small values.} $1/8$, $\upsec{+}\star$ and $\tinyg{1}$ in reachable positions, with a
+  partial real-chess certification of $1/8$ (\cref{sec:targets}).
+\item \textbf{Explicit kings} (\cref{sec:kings}). When the frozen tr\'ebuchet is exact, where it fails, and the
+  loopy values of spare king moves.
+\item \textbf{Cylinder and torus tablebases} (\cref{sec:tablebases}). Two independent solvers agree on about
+  $607$ million values.
+\item \textbf{Dawson's chess} on the cylinder (\cref{sec:dawson}). The ring rule, and a reproduction of the
+  misère quotient.
+\item \textbf{Engines and learning} (\cref{sec:engines}). Stockfish and Lc0 on CGT-labelled positions, and the
+  ChessSums benchmark.
+\end{enumerate}
+
+\paragraph{Evidence labels.}
+Much of this work is computational, so every claim carries one of four labels (\cref{sec:methods}):
+\begin{itemize}
+\item \status{proved}: a written proof;
+\item \status{checked-2}: two independent implementations agree;
+\item \status{computed-1}: one implementation;
+\item \status{conjecture}.
+\end{itemize}
+Negative results are reported as plainly as positive ones.

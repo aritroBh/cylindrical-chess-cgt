@@ -1,0 +1,63 @@
+\section{The model, made precise}\label{sec:model}
+
+All values in this paper are computed by \file{cylcgt}. It is an exact canonical-form CGT engine with a pawn
+solver for flat and cylindrical boards of any width. It handles double steps, wrap-around captures, en passant,
+decomposition into components and the three race rules. \Cref{sec:methods} describes how it was validated.
+
+\subsection{En passant and the passed-pawn test}
+Elkies' convention needs a test for ``passed''. The \emph{textbook} test calls a pawn passed if no enemy pawn
+stands ahead of it on its own file or an adjacent file. This is unsound when en passant is legal.
+\begin{example}\label{ex:ep}
+White a2, Black b4. After 1.a4 the a-pawn has no enemy pawn ahead of it, so the textbook test calls it passed
+and scores the position $+\BIG$. But Black may reply 1\dots b4$\times$a3 e.p.
+\end{example}
+\begin{definition}[e.p.-aware passed test]\label{def:epaware}
+A pawn is \emph{passed} if no enemy pawn stands ahead of it on its own file or an adjacent file, \emph{and} it
+cannot be captured en passant on the opponent's next move. The pawn may be captured if it has just made a
+double step, the square it skipped is the e.p.\ target, and an enemy pawn stands beside it.
+\end{definition}
+From \cref{sec:atlas} on, all results use \cref{def:epaware} unless they are marked \emph{textbook}. This
+choice changes $21{,}441$ of the $231{,}071$ values in our flat census (\cref{sec:star2}), $4{,}068$ of them in
+outcome. It is the change that removes the $\nim{2}$ candidate.
+
+\subsection{Components and the cut lemma}
+\begin{lemma}[components; \status{proved}]\label{lem:components}
+An empty file stays empty. On $\flatb{n}$ the components are intervals of occupied files. On $\cyl{n}$ they
+are arcs, or one \emph{ring} occupying every file. An arc component is isomorphic, as a game, to the same
+pawns on a flat strip of its own width.
+\end{lemma}
+\begin{theorem}[cut lemma; \status{proved}, \status{checked-2}]\label{thm:cut}
+A position on $\cyl{n}$ with an empty file has the same value as the flat position on $\flatb{n-1}$ obtained
+by cutting the cylinder at that file. Hence every value that occurs on $\cyl{n}$ but not on $\flatb{n}$ is the
+value of a ring position, and a ring on $\cyl{n}$ needs at least $n$ pawns.
+\end{theorem}
+\begin{proof}[Proof sketch]
+The empty file can never be entered, since pawns change file only by capturing a pawn already on the target
+file. So no move ever crosses it. Cutting there changes no legal move and no passed-pawn test.
+\end{proof}
+The cut lemma explains why, with at most five pawns, cylinders of width $5$ to $8$ add no values beyond the
+flat strips (\cref{sec:atlas}).
+
+\subsection{When is the $\pm\BIG$ sum model right?}
+In chess the first passed pawn ends the game. In a CGT sum, $+\BIG$ in one component and $-\BIG$ in another
+cancel. Write $S(X)$ for the sum model of a position $X$, and $W(X)$ for the whole-board game, which ends at
+the first passed pawn anywhere.
+\begin{definition}
+$X$ is \emph{hereditarily sum-safe} (HSS) if no non-terminal position reachable from $X$ has two different
+components carrying passed-pawn threats of opposite sign.
+\end{definition}
+\begin{theorem}[\status{proved}; tested on $1{,}500$ random positions]\label{thm:hss}
+Suppose $X$ is HSS, no position with two or more components carries a usable en passant right
+(condition (E)), and $\BIG$ exceeds the number of moves either side can make. Then $S(X)$ and $W(X)$ have the
+same outcome.
+\end{theorem}
+\begin{proposition}[\status{checked-2}]\label{prop:sumsafe}
+The earlier sum-safety test inspects only the top-level components, and it is not sufficient. On $\cyl{8}$ with
+en passant off, $\pos{W b2 d4 g3 h5 / B a7 c7 f7 g4}$ passes that test, yet $S$ predicts $\Rout$ while $W$
+is $\Nout$. The failure comes from cancellation inside sums that appear later in the game tree.
+\end{proposition}
+\begin{proposition}[\status{computed-1}]
+Without (E) the sum can be wrong, even in outcome. On the flat $6\times6$ board,
+$\pos{W a4 f4 / B b4 e5}$ with Black's e.p.\ right on a3 is the whole-board game
+$\game{0}{-4,\,-3\pm2}$ ($\Nout$), while the sum of its components is $\game{-1\star}{-5\star}$ ($\Rout$).
+\end{proposition}

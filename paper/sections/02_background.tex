@@ -1,0 +1,47 @@
+\section{Background}\label{sec:background}
+
+\subsection{Games and values}
+A game $G=\game{G^L}{G^R}$ lists the positions Left (White) and Right (Black) can move to. Under
+\emph{normal play} a player who cannot move loses. The disjunctive sum $G+H$ lets the player to move choose one
+component. Every short game has a unique \emph{canonical form}, obtained by deleting dominated options and
+bypassing reversible ones, and $G=H$ iff $G-H$ is a second-player win. The outcome classes are:
+\begin{itemize}
+\item $\Lout$: Left wins whoever starts;
+\item $\Rout$: Right wins whoever starts;
+\item $\Nout$: the first player wins;
+\item $\Pout$: the second player wins.
+\end{itemize}
+We use the following values \citep{WinningWays,Siegel2013}:
+\begin{itemize}
+\item \textbf{numbers}: the integers, and dyadic rationals such as $1/2=\game{0}{1}$;
+\item \textbf{nimbers} $\nim{k}$: $\star=\game{0}{0}$ and $\nim{2}=\game{0,\star}{0,\star}$;
+\item \textbf{ups}: $\up=\game{0}{\star}$ and $\dup=\up+\up$;
+\item \textbf{up-second} $\upsec=\game{0}{\down\star}$, which is positive but smaller than every positive
+  multiple of $\up$;
+\item \textbf{tinies}: $\tinyg{x}=\ggame{0}{0\mid -x}$;
+\item \textbf{switches} $\pm x=\game{x}{-x}$.
+\end{itemize}
+A game has a \emph{mean} $m(G)$ and a \emph{temperature} $t(G)$, both read from its thermograph. Positive
+infinitesimals such as $\up$, $\upsec$ and $\tinyg{1}$ have mean and temperature $0$, but they still decide sums.
+
+\subsection{Elkies' conventions}\label{sec:conventions}
+\begin{convention}\label{conv:big}
+A position in which exactly one side has a passed pawn is worth $\pm\BIG$, with $\BIG=256$; it exceeds every
+tempo count that occurs. If a move gives \emph{both} sides a passed pawn, the result is decided by a
+\emph{race rule}:
+\begin{itemize}
+\item \emph{count}: the side that needs fewer moves to promote wins, with ties to the side that moves next;
+\item \emph{mover}: the side that made the move wins;
+\item \emph{opponent}: the other side wins.
+\end{itemize}
+\end{convention}
+Pawns change file only by capturing, so an empty file stays empty forever. The pawns between two empty files
+therefore form an independent \emph{component}, and a position is approximately the sum of its components.
+A king group in mutual zugzwang, such as the \emph{tr\'ebuchet}, is taken to contribute $0$: whoever is forced
+to move a king there loses a pawn and the game. Elkies used these conventions to realise $\up$, $\dup\star$,
+$\tinyg{1}$, $\pm1$ and many fractions on ordinary boards.
+
+\subsection{The cylinder}
+On the cylinder $\cyl{n}\times 8$ the files are $\mathbb{Z}/n$. Kings, pawn captures, knights and sliders
+cross the seam between files h and a. A slider may not use a full loop of a rank as a null move
+(\cref{sec:tablebases}). En passant works across the seam. We write $\flatb{n}$ for the flat board with $n$ files.

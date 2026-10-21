@@ -1,0 +1,29 @@
+Elkies showed that king-and-pawn endgames realise a rich zoo of combinatorial game values once a
+passed pawn is scored as a decisive $\pm\BIG$ and a mutual-zugzwang king group is treated as~$0$.
+We study this programme on the \emph{cylindrical} chessboard, where files a and h are glued and the board has
+no edges, and we ask which of its conclusions survive real chess.
+\begin{enumerate}[label=(\roman*),leftmargin=*]
+\item \textbf{The model, made exact.} We show that the textbook passed-pawn test is unsound under en passant
+  and adopt an \emph{e.p.-aware} test. We prove a cut lemma (a cylinder with an empty file is a flat strip),
+  so every cylinder-only value comes from a \emph{ring}. We give a hereditary condition under which the
+  $\pm\BIG$ sum model predicts the true winner, and a counterexample to the condition used before.
+\item \textbf{The $\nim{2}$ question.} Elkies asked whether $\nim{2}$ occurs in a chess position with only
+  kings and pawns. In an exhaustive census of $231{,}071$ flat positions (widths $\le 4$, at most $6$ pawns),
+  the only $\nim{2}$ is an artefact of the textbook test. Under the e.p.-aware test no $\nim{k}$ with
+  $k\ge2$ occurs. We introduce the \emph{real-chess oracle value}, which replaces every model terminal by its
+  tablebase outcome and bounds the result by monotonicity. With it we show that the candidate's real value is
+  never $\nim{2}$, and we refute a second candidate outright.
+\item \textbf{Elkies' small values.} The value $1/8$ occurs robustly: it is the same under all nine race and
+  en passant conventions, in a reachable $10$-man king-and-pawn position. So do $\upsec{+}\star$ and
+  $\tinyg{1}$. For the $1/8$ position, all $306$ tablebase-resolvable end positions are now settled.
+\item \textbf{Kings.} We state conditions under which ``pawn components plus a frozen tr\'ebuchet'' equals
+  chess. The paper's own king group 7.2 is not a mutual zugzwang in real chess (confirmed by the Lichess
+  tablebase). Spare king tempo moves give loopy values (\textsf{on}, \textsf{off}, \textsf{dud}).
+\item \textbf{Mating without corners.} We give independently replicated $4$-man tablebases on the cylinder and
+  the torus. On the cylinder king and rook cannot force mate, king, bishop and knight cannot either, and two
+  bishops on opposite colours always can, contradicting a published claim.
+\item \textbf{Dawson's chess and engines.} We prove that a full $3\times n$ Dawson cylinder is a first-player
+  win iff $g(n-3)=0$, and we correct the earlier treatment. We also report a pilot of Stockfish and Lc0 on
+  CGT-labelled positions, and the ChessSums benchmark.
+\end{enumerate}
+Every computational claim carries an evidence label, and the code and data are public.

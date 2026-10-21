@@ -1,0 +1,51 @@
+\section{Engines and learning}\label{sec:engines}
+
+\paragraph{A CGT test suite.} We built $233$ legal $8\times8$ positions with at most $7$ men, each of a known
+CGT class. All were checked against the Lichess tablebase: in $181$ the CGT-predicted winning moves are
+confirmed, and in the other $52$ CGT and the tablebase disagree.
+
+\paragraph{Stockfish~19} (official build, $1$ thread, no tablebases).
+\begin{itemize}
+\item It solves all $233$ positions at $10^5$ nodes, and $232$ already at $10^3$.
+\item At shallow fixed depth, accuracy depends on the CGT class, as CGT predicts (\cref{tab:sf}). Infinitesimals
+  and nimbers are tempo and parity fights that the static evaluation misreads; hot positions and numbers are
+  read correctly early.
+\end{itemize}
+
+\paragraph{Lc0} (bundled network, Metal backend).
+\begin{itemize}
+\item It is perfect at $10^3$, $10^4$ and $10^5$ nodes in every class, including all $17$ draws.
+\item The suite is therefore too easy to separate the engines. A real contrast needs sums beyond $7$ men, where
+  only CGT supplies the ground truth.
+\end{itemize}
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{@{}lrrrrrrr@{}}
+\toprule
+CGT class & $n$ & depth 1 & 2 & 4 & 6 & 8 & 12 \\
+\midrule
+hot ($\pm\BIG$ switch) & 68 & 81\% & 78\% & 91\% & 97\% & 99\% & 100\% \\
+number & 57 & 79\% & 81\% & 84\% & 93\% & 95\% & 98\% \\
+switch & 37 & 73\% & 78\% & 89\% & 100\% & 100\% & 100\% \\
+\textbf{infinitesimal} & 27 & \textbf{30\%} & \textbf{26\%} & \textbf{59\%} & 85\% & 100\% & 100\% \\
+\textbf{nimber} & 17 & \textbf{53\%} & 65\% & 88\% & 100\% & 100\% & 100\% \\
+\bottomrule
+\end{tabular}
+\caption{Stockfish~19: share of evaluations that match the tablebase result, by CGT class and search depth.}
+\label{tab:sf}
+\end{table}
+
+\paragraph{ChessSums.} A benchmark of pawn-endgame sums with exact ground truth, for evaluating engines and
+language models.
+\begin{itemize}
+\item \textbf{Components.} The library has $418$ components with $37$ distinct values, each with the same value
+  under both passed-pawn tests, all race rules and en passant on or off.
+\item \textbf{Data.} $26{,}000$ rows. Every outcome was confirmed by whole-board alpha--beta, and $4{,}887$ also by
+  an independent minimax.
+\item \textbf{Splits.} Training uses at most three components and testing four to six; some component types are
+  held out.
+\item \textbf{Baseline cost.} Whole-board alpha--beta that ignores the decomposition grows by a factor of about
+  $4$--$9$ in nodes per added component, while the CGT sum stays instant.
+\item \textbf{Reward.} A draft reward function for reinforcement-learning fine-tuning is included.
+\end{itemize}

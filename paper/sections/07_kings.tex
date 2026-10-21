@@ -1,0 +1,77 @@
+\section{Explicit kings: when is the frozen tr\'ebuchet exact?}\label{sec:kings}
+
+The convention treats a king group as $0$; \citet{Maeser2002} already warned that this is heuristic, and \citet{Siegel2009cycles} studied loopy chess positions. We put the kings back with an exact king-and-pawn solver,
+\file{kpsolve}. It plays real chess with kings, pawns, en passant, all four promotions and stalemate, and no
+fifty-move rule. An independent reference solver agrees with it on all $1{,}418{,}480$ positions of $18$
+small-board runs. On every comparable position it is consistent with the Lichess tablebase
+(\status{checked-2}).
+
+\subsection{Validity conditions}
+\begin{theorem}[\status{proved}; reviewed]\label{thm:validity}
+Let a position consist of pawn components and a king group. Its chess outcome equals the normal-play outcome
+of the pawn components if all of the following hold:
+\begin{enumerate}[label=(V\arabic*)]
+\item the kings never interact with the pawn components, and nobody is ever stalemated;
+\item every \emph{decisive event} (the appearance of a passed pawn) really wins;
+\item every move inside the king group is decisively punished.
+\end{enumerate}
+The step from there to the $\pm\BIG$ arithmetic needs one more condition:
+\begin{enumerate}[label=(V\arabic*),resume]
+\item no two components carry passed-pawn threats of opposite sign, and $\BIG$ exceeds every tempo count.
+\end{enumerate}
+\end{theorem}
+(V3) has a local certificate: the punishing side promotes within $T$ moves even if the defender may pass,
+while the defender cannot promote within $T$ moves.
+\begin{itemize}
+\item With $T=1$ the certificate holds in every context.
+\item With $T\ge2$ it fails in some context.
+\end{itemize}
+Real tr\'ebuchets have $T\approx5$--$7$, so their ``zero'' is \emph{context-dependent}: it is valid only beside
+slow or locked components.
+
+\subsection{Spare tempo moves are loopy}
+A king that can shuttle forever without loss is not $0$ but a loopy game:
+\begin{itemize}
+\item $\textsf{on}=\game{\textsf{on}}{}$ if only White can shuttle;
+\item $\textsf{off}=\game{}{\textsf{off}}$ if only Black can;
+\item $\textsf{dud}$ if both can.
+\end{itemize}
+Since $\textsf{on}$ exceeds every number, $\BIG$ included, the $\BIG$ arithmetic breaks down completely there.
+\begin{theorem}[\status{proved}]\label{thm:loopy}
+\begin{itemize}
+\item If only White can pass, Black wins iff Black can force a decisive event against a passing White;
+  otherwise White wins.
+\item If both sides can pass, a side wins iff it can force a decisive event against a passing opponent;
+  otherwise the game is drawn.
+\end{itemize}
+\end{theorem}
+
+\subsection{The paper's king groups in real chess}
+\begin{table}[ht]
+\centering\small
+\begin{tabularx}{\textwidth}{@{}l l l l X@{}}
+\toprule
+Group & Board & White to move & Black to move & Verdict \\
+\midrule
+5.1: Kh5 Pa4 / Kb4 Pa5 & cylinder & Black wins & White wins & real mutual zugzwang (\status{checked-2}) \\
+\cref{fig:candidate}: Kf5 Pg4 / Kh4 Pg5 & flat & Black wins & White wins & real mutual zugzwang (Lichess) \\
+7.2: Ke6 Pd7 / Kd8 Pe7 & flat & \textbf{draw} & White wins & \textbf{not} a zugzwang (Lichess) \\
+\bottomrule
+\end{tabularx}
+\caption{King groups standing alone. The convention reads each as $0$.}
+\label{tab:kings}
+\end{table}
+In 7.2, White to move draws with Kd5, Ke5 or Kf5: the d7 pawn falls, but the white king catches the e-pawn.
+Only Kf7 loses. The audit's statement that 7.2 is a mutual zugzwang is therefore true only inside the
+convention.
+
+\subsection{How often does the convention fail?}
+In sweeps over every small pawn component beside a tr\'ebuchet, on $6\times6$ and $7\times6$ cylinders and a
+$5\times6$ flat board, $159$ of $500$ testable components get the wrong outcome (\status{computed-1}).
+\begin{itemize}
+\item In $107$ the kings alone are the cause: with frozen kings the solver reproduces \file{cylcgt} exactly.
+\item The other $52$, all on $7\times6$, are failures of the pawn convention itself: $18$ through en passant,
+  and $34$ because a passed pawn does not actually win its race.
+\end{itemize}
+Small boards are a stress test, since the kings are never far from the pawns. On $8\times8$ the failure rate is
+lower but not zero (\cref{sec:star2}).

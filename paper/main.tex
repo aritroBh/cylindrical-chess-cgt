@@ -11,7 +11,9 @@
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{enumitem}
-\usepackage{xskak}            % loads chessboard; available on Overleaf / TeX Live
+% chess diagrams: xskak/chessboard are in TeX Live (Overleaf). Elsewhere a placeholder box is drawn.
+\IfFileExists{xskak.sty}{\usepackage{xskak}\newif\ifchess\chesstrue}{%
+  \IfFileExists{chessboard.sty}{\usepackage{chessboard}\newif\ifchess\chesstrue}{\newif\ifchess\chessfalse}}
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
 \usepackage[capitalise,noabbrev]{cleveref}
@@ -38,7 +40,7 @@
 \newcommand{\dup}{\mathord{\Uparrow}}
 \newcommand{\ddown}{\mathord{\Downarrow}}
 \newcommand{\upsec}{\mathord{\uparrow^{2}}}          % up-second, {0 | down*}
-\newcommand{\tiny}[1]{\operatorname{tiny}(#1)}
+\newcommand{\tinyg}[1]{\operatorname{tiny}(#1)}
 \renewcommand{\star}{\mathord{\ast}}
 \newcommand{\nim}[1]{\mathord{\ast #1}}
 \newcommand{\BIG}{\mathsf{B}}
@@ -49,13 +51,17 @@
 \newcommand{\Nout}{\mathcal{N}}
 \newcommand{\Pout}{\mathcal{P}}
 \newcommand{\cyl}[1]{C_{#1}}
-\newcommand{\flat}[1]{F_{#1}}
+\newcommand{\flatb}[1]{F_{#1}}
 \newcommand{\pos}[1]{\texttt{#1}}                        % pawn position, e.g. \pos{W a2 c2 / B b7 d7}
 \newcommand{\fen}[1]{\texttt{\small #1}}
 \newcommand{\status}[1]{\textsc{#1}}                    % evidence label
 \newcommand{\file}[1]{\texttt{#1}}
 
-\setchessboard{smallboard,showmover=false,boardfontsize=14pt,labelfontsize=6pt}
+\ifchess
+  \setchessboard{smallboard,showmover=false}
+\else
+  \newcommand{\chessboard}[1][]{\fbox{\parbox[c][3.2cm][c]{3.6cm}{\centering\small chess diagram\\(compile on Overleaf)}}}
+\fi
 
 % ---------------------------------------------------------------- title
 \title{Pawn Endgames Without Edges:\\

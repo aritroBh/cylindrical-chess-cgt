@@ -1,0 +1,37 @@
+\section{Dawson's chess on the cylinder}\label{sec:dawson}
+
+Dawson's chess \citep{Dawson1935} is played on a $3\times n$ board:
+\begin{itemize}
+\item White pawns fill rank~1, Black pawns fill rank~3, and rank~2 is empty;
+\item pawns move as in chess, and captures are compulsory;
+\item a player who cannot move loses (normal play).
+\end{itemize}
+\citet{GuySmith1956} identified normal play with the octal game $0.137$. Its Grundy values $g(n)$ have
+period $34$, with last exception $n=51$ (classical; reproduced for $n\le300$, \status{checked-2}).
+
+\paragraph{Correction.} The 2025 paper's \S8 is wrong in three ways (\status{checked-2}):
+\begin{itemize}
+\item its move rule allows no first move;
+\item its recurrence omits the end-file move and $g(1)=1$, and agrees with the true $g$ at only $31$ of the
+  values $n=0,\dots,300$;
+\item its cylinder predictions are therefore wrong for $56$ values of $n\le300$.
+\end{itemize}
+
+\begin{theorem}[ring rule; \status{proved}, machine-checked for $n\le22$]\label{thm:ring}
+On the full $3\times n$ cylinder with $n\ge3$, every first move forces exactly five plies of captures on the
+pushed file~$f$. All lines end in the same position: files $f\pm1$ empty, a blocked pair on $f$, and a full flat
+strip of $n-3$ files with the opponent to move. Hence the ring's Grundy value is $\operatorname{mex}\{g(n-3)\}$,
+and the first player wins iff $g(n-3)=0$, that is for
+$n=3,7,11,17,23,27,31,37,41,45,57,\dots$
+\end{theorem}
+
+\paragraph{Misère play.} Dawson posed the game in misère form, where the last player to move loses. That
+version is still unsolved.
+\begin{itemize}
+\item An independent implementation of the Plambeck--Siegel quotient algorithm \citep{PlambeckSiegel2008}
+  reproduces their partial quotient for strips of length $\le32$ exactly: order $638$, with $109$ P-positions.
+  It agrees with exhaustive search on $7.4$ million positions (\status{checked-2}).
+\item The next quotient did not converge within our budget.
+\item The partizan values that a direct solver produces for each board are not additive (for example $D_5=\star$
+  while $g(5)=3$). The additive invariant is the impartial macro-move value.
+\end{itemize}

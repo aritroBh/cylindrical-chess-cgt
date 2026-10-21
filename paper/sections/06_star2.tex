@@ -1,0 +1,81 @@
+\section{The $\nim{2}$ question}\label{sec:star2}
+
+\begin{question}[\citealp{Elkies1996,Elkies2002}]
+Is there an $8\times8$ chess position with only kings and pawns whose value is $\nim{2}$?
+\end{question}
+
+\subsection{A candidate, and why it fails}
+In the flat census (widths $\le4$, $\le6$ pawns, count rule, e.p.\ on, textbook test), exactly one component
+has value $\nim{k}$ with $k\ge2$: the component $\pos{W a2 c2 / B b7 d7}$ (\cref{fig:candidate}).
+\begin{itemize}
+\item \textbf{Robustness (textbook test).} It is $\nim{2}$ under the count and mover rules, with en passant on
+  or off, and $0$ under the opponent rule. Only $4$ of its race positions change the value when flipped alone.
+\item \textbf{Embedding.} The game tree never splits into components before a passed pawn appears, so the sum
+  model equals the whole-board game (\status{proved}). The embedding with the g-file tr\'ebuchet has no checks
+  and no stalemates, and every king move drops that side's g-pawn (\status{proved}; checked exhaustively).
+\item \textbf{The e.p.-aware test.} The value becomes $\game{2\pm1}{-2\pm1}$ (\status{checked-2}). The reason
+  is that after a2--a4 Black has b4$\times$a3 e.p.
+\end{itemize}
+
+\begin{figure}[ht]
+\centering
+\chessboard[setfen=8/1p1p4/8/5Kp1/6Pk/8/P1P5/8]
+\caption{The $\nim{2}$ candidate: \fen{8/1p1p4/8/5Kp1/6Pk/8/P1P5/8}.}
+\label{fig:candidate}
+\end{figure}
+
+\begin{theorem}[census; \status{checked-2}]\label{thm:census}
+Under the e.p.-aware test (count rule, e.p.\ on), no position in the flat census has value $\nim{k}$ with
+$k\ge2$. The nimber column has $6{,}724$ zeros, $4{,}042$ stars and no $\nim{2}$.
+\end{theorem}
+Two independent programs agree on the outcome and nimber of all $231{,}071$ records under both tests: the CGT
+engine and a C solver that tests whether $G+\nim{k}$ is a second-player win. No $\nim{3}$ or higher occurs
+under any of the nine settings. Every $\nim{2}$ that occurs under some setting has $4$ or $6$ pawns, so none
+fits in a $7$-man tablebase together with the tr\'ebuchet.
+
+\subsection{The real-chess oracle value}
+A model value is a statement about a convention. To test it against chess we keep the pawn-move tree of the
+model and replace only its leaves.
+\begin{definition}[real-chess oracle value]\label{def:oracle}
+Let $X$ be a component, embedded in an $8\times8$ position beside a king freeze.
+\begin{itemize}
+\item Every \emph{terminal} of the model tree, the first position in which some side has a passed pawn, is
+  replaced by a game built from its real results $r_W, r_B$ (White moving first, Black moving first):
+  \begin{itemize}
+  \item $\Lout\mapsto+\BIG$ and $\Rout\mapsto-\BIG$;
+  \item $\Nout$, $\Pout$ and draws are given a \emph{treatment}: a game in $[-2\BIG,2\BIG]$.
+  \end{itemize}
+\item The canonical value of the resulting tree is the \emph{oracle value} $O(X)$.
+\end{itemize}
+\end{definition}
+\begin{lemma}[sandwich; \status{proved}]
+Raising an option never lowers a game. So if the unresolved terminals are set to $-2\BIG$ and $+2\BIG$, the two
+resulting values bound $O(X)$ for every treatment and every unknown outcome. When the bounds coincide, $O(X)$ is
+certified.
+\end{lemma}
+The oracle value separates two questions: is the pawn convention right at the leaves, and is the king freeze
+right? The second is the subject of \cref{sec:kings}.
+
+\begin{theorem}[\status{checked-2} at the leaves; values \status{computed-1}]\label{thm:oracle-cand}
+For the candidate embedded as in \cref{fig:candidate}:
+\begin{enumerate}[label=(\alph*)]
+\item In real chess the root is a win for the side to move, with either side to move ($\Nout$, proved by
+  explicit certificates). With Black to move only 1\dots b5 wins. With White to move 1.c4 wins and every king
+  move loses.
+\item In the e.p.-aware tree, $O(X)\ne\nim{2}$ and $O(X)\ne0$ under \emph{every} treatment: the bounds force
+  Left's stop to be at least $1$ and Right's at most $-1$.
+\item If draws count as wins for Black, $O(X)=\game{2\pm1}{-2\pm1}$ exactly, in both trees.
+\end{enumerate}
+\end{theorem}
+\noindent So the textbook $\nim{2}$ does not survive real chess. Of the other candidates, each a $\nim{2}$ under
+one non-default rule and each needing $10$ men:
+\begin{itemize}
+\item $\pos{W a3 b3 c2 / B b5 b7 c6}$ is refuted: its oracle value is positive under every treatment
+  (\status{checked-2});
+\item for three others the tablebase contradicts the race verdicts that their $\nim{2}$ needs, but their
+  oracle values cannot be pinned with $7$-man tablebases.
+\end{itemize}
+
+\paragraph{Status of the question.} Within flat components of width $\le4$ with at most six pawns, no
+$\nim{2}$ survives either the adopted convention or real chess. The question remains open beyond that
+scope; \cref{sec:open} lists the next searches.

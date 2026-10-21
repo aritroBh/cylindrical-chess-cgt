@@ -1,0 +1,46 @@
+\section{Verification and reproducibility}\label{sec:methods}
+
+\paragraph{Evidence labels.}
+\begin{itemize}
+\item \status{proved}: a written proof. Proofs were drafted with AI assistance and checked by the author;
+  independent re-derivation is in progress.
+\item \status{checked-2}: two independently written programs agree. ``Independent'' means written from the
+  rules alone, without reading the other's code.
+\item \status{computed-1}: a single implementation.
+\item \status{conjecture}: neither proved nor computed.
+\end{itemize}
+
+\paragraph{Cross-checks of the CGT engine.}
+\begin{itemize}
+\item A brute-force sum solver agrees with \file{cylcgt} on $4{,}967{,}550$ outcome predictions, and on
+  $2{,}483{,}775$ more under the e.p.-aware test. These cover $55{,}195$ positions on $3$--$5$ files, three
+  race rules, and fifteen reference games $X$ (the prediction is $\mathrm{outcome}(G+X)$).
+\item A whole-board minimax agrees on all $1{,}070$ single-component positions tested.
+\item The independent C solver of \cref{sec:star2} agrees on all $231{,}071$ census records.
+\end{itemize}
+
+\paragraph{Real chess.}
+\begin{itemize}
+\item \textbf{Tablebase.} All positions with at most $7$ men were probed in the Lichess tablebase (Syzygy),
+  with every response cached.
+\item \textbf{Move generator.} Our legal-move generator matches Lichess's move lists on $160$ of $160$ test
+  positions, covering en passant, promotions, pins, checks, mates and stalemates.
+\item \textbf{Larger positions.} Positions with $8$ or more men were resolved by exhaustive search with tablebase
+  look-ups at every capture.
+\end{itemize}
+
+\paragraph{Use of AI tools.} The software, the searches and the first drafts of several proofs were produced
+with AI coding assistants (Claude, Codex and others) under the author's direction. Every headline number has
+an exact reproduce command in the accompanying repository, and the label of each claim records how strongly it
+was checked.
+
+\paragraph{Code and data.} Everything is in the project repository (to be released with the paper):
+\begin{itemize}
+\item \file{cylcgt/}: the CGT engine;
+\item \file{atlas/}: the value atlases;
+\item \file{realchess/}: the oracle value;
+\item \file{kings/}: explicit kings;
+\item \file{tablebase/}: the tablebases;
+\item \file{dawson/}: Dawson's chess;
+\item \file{engine/} and \file{bench/}: engines and ChessSums.
+\end{itemize}

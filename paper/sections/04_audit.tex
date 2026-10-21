@@ -1,0 +1,38 @@
+\section{The 2025 paper, re-audited}\label{sec:audit}
+
+Every pawn-only claim of \citet{Bhattacharjee2025} was recomputed. Each diagram was re-transcribed blind and
+compared with a pixel scan. Each verdict below was then checked by three independent reviewers.
+\Cref{tab:audit} shows the corrected verdicts. None of them changes when the textbook passed test is replaced
+by the e.p.-aware test.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabularx}{\textwidth}{@{}l l l X@{}}
+\toprule
+Pos. & Claimed & Computed & Verdict \\
+\midrule
+2.1 e4/e5 & $0$ & $0$ & correct \\
+2.2 a2,h1/a3,h4 & $0$ & $0$ & correct (the pawn on h1 is illegal in chess) \\
+3.1 a3,h1/a4,h5 & $1$ & $1$ with e.p., $2$ without & correct only through wrap-around en passant \\
+3.2 a4,h1/a5,h6 & $2$ & $2$ & value correct; the stated option list is not \\
+4.1 e4/e6 & $\star$ & $\star$ & correct \\
+4.2 e3/e6 & $\up$ & $0$ & the diagram is one rank off; e2/e5 gives $\up$ \\
+4.3 & $\tinyg{1}$ & $\tinyg{1}$ & correct \\
+5.1 tr\'ebuchet & $0$ & mutual zugzwang & correct, only because of the seam; real in chess (\cref{sec:kings}) \\
+7.1 c-file & $\pm1$ & $\pm1$ & correct \\
+7.1 f-file & $\game{\game{2}{1}}{0}$ & same & correct (mean $3/4$) \\
+7.1 a/h-files & $1$ & $\game{+\BIG}{\star}$ & wrong: the position is hot \\
+7.2 pawns & $\pm1$ & infinitesimal, mean $0$ & wrong \\
+7.2 kings & $0$ & zugzwang in the model only & \textbf{not} a mutual zugzwang in chess (\cref{sec:kings}) \\
+7.3 & $2$ & decided at move $0$ & wrong: a5 and f7 are already passed \\
+7.3 \{c,d\} & $1$ & $\tinyg{1}$ & wrong \\
+\S1 rules & knight h1$\to$a1, a2 & a3, b2 & wrong: a1 and a2 are extra \emph{king} squares \\
+\S8 Dawson & recurrence & see \cref{sec:dawson} & wrong: no first move exists under the stated rule \\
+\bottomrule
+\end{tabularx}
+\caption{Audit of the pawn-only claims of the 2025 paper (\status{checked-2}).}
+\label{tab:audit}
+\end{table}
+
+What stands is the method: decomposition, canonical values, and the use of numbers, infinitesimals and
+temperature. The f-file, c-file, $\tinyg{1}$, $\star$ and tr\'ebuchet computations are right.

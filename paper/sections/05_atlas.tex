@@ -1,0 +1,115 @@
+\section{Value atlases: the flat board and the cylinder}\label{sec:atlas}
+
+\subsection{Scope}
+\begin{itemize}
+\item \textbf{Cylinder atlas.} Every canonical pawn position with $w+b\le5$ pawns on $\cyl{n}$ and $\flatb{n}$,
+  $n=3,\dots,8$, with $8$ ranks: $1{,}223{,}689$ positions and $10{,}369$ distinct values (textbook test).
+\item \textbf{Flat census.} The $8$-rank flat census used for the $\nim{2}$ search (\cref{sec:star2}) covers
+  widths $1$ to $4$ and $w+b\le6$: $231{,}071$ records, standing for $459{,}443$ board positions.
+\end{itemize}
+
+\subsection{What the cylinder adds}
+By \cref{thm:cut}, cylinder-only values come from rings, so with at most five pawns they live on
+$\cyl{3}$, $\cyl{4}$ and $\cyl{5}$.
+\begin{itemize}
+\item \textbf{Cylinder-only values} (\status{computed-1}; outcomes \status{checked-2} by an independent minimax).
+  $53$ values free of $\BIG$ occur on some cylinder of width $\le8$ but on no flat strip of width $\le8$:
+  \begin{itemize}
+  \item $40$ come from $3$-file rings, for example $3/4$ at $\pos{W a2 b4 / B b7 c6}$ and $1/4\pm1/4$ at
+    $\pos{W a2 b2 / B c5 c6}$;
+  \item $13$ come from $4$-file rings, for example $\game{3/2\pm1/2}{-3/2\pm1/2}$ at $\pos{W a2 c2 / B b7 d7}$.
+  \end{itemize}
+\item \textbf{The converse is empty.} No value occurs on a flat strip and on no cylinder.
+\end{itemize}
+\begin{remark}[a correction found by review]
+The atlas first claimed that no cylinder-only value is robust to the race rule. An independent re-computation
+refuted this:
+\begin{itemize}
+\item the $3$-file ring values do depend on the race rule ($3/4$ becomes $0$ under \emph{mover});
+\item the $4$-file ring values do not, and change only when en passant is switched off.
+\end{itemize}
+No value is cylinder-only under all six race/e.p.\ settings.
+\end{remark}
+
+\subsection{Value classes}
+With at most five pawns (textbook test, count rule):
+\begin{itemize}
+\item \textbf{Nimbers:} $\star$ and $\nim{2}$ only.
+\item \textbf{Ups:} $\up$, $\up\star$, $\dup$ and $\dup\star$ occur as single components.
+\item \textbf{Fractions:} $\pm1/2$, $\pm1/4$, $\pm3/2$ and $\pm5/2$ on both boards; $\pm3/4$ only on $3$-file rings.
+\item \textbf{Temperature:} without $\BIG$ the highest temperature is $3$, from $\pos{W a2 b4 / B a5 b7}=\pm3$,
+  on every width of both boards.
+\end{itemize}
+These classes include the paper's own examples. The six-pawn census adds $1/8$, $1/16$, $1/32$, $\upsec$ and
+$\upsec\star$ (\cref{sec:targets}).
+
+\section{Elkies' small values}\label{sec:targets}
+
+Elkies realised $\up$, $\tinyg{1}$ and many fractions, and asked which smaller values occur on an $8\times8$
+board. \Cref{tab:targets} counts exact occurrences in the flat census under both passed-pawn tests. An
+independent C solver, which shares no code with \file{cylcgt}, confirms every listed identity by testing
+$G-T=0$ (\status{checked-2}).
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{@{}lccl@{}}
+\toprule
+Target & textbook & e.p.-aware & robust example (all nine settings) \\
+\midrule
+$1/8$ & $13$ & $9$ & $\pos{W a2 a3 b2 / B a6 b5 b6}$ and its mirror $\pos{W a2 b2 b3 / B a5 a6 b6}$ \\
+$1/16$ & $3$ & $2$ & --- \\
+$1/32$ & $1$ & $0$ & --- \\
+$\upsec=\game{0}{\down\star}$ & $5$ & $2$ & --- \\
+$\upsec\star=\game{0,\star}{\down}$ & $10$ & $10$ & $\pos{W a2 b2 b6 / B a6 b7 c5}$ \\
+$\tinyg{1}$ & $13$ & $16$ & $\pos{W a2 b2 b6 / B a6 b7 c6}$ (e.p.\ on) \\
+$\tinyg{x}$, $x\notin\mathbb{Z}$ & $0$ & $0$ & --- \\
+\bottomrule
+\end{tabular}
+\caption{Elkies targets in the flat census (widths $\le4$, $\le6$ pawns, count rule, e.p.\ on). ``Nine
+settings'' means the three race rules $\times$ \{e.p.\ off, textbook, e.p.-aware\}.}
+\label{tab:targets}
+\end{table}
+
+\begin{theorem}[\status{checked-2}]\label{thm:eighth}
+In Elkies' model, $\pos{W a2 b2 b3 / B a5 a6 b6}$ has value exactly $1/8$. This holds under every race rule,
+with en passant off, textbook or e.p.-aware, and for \emph{every} assignment of outcomes to its race positions.
+\end{theorem}
+The mirror image $\pos{W a2 a3 b2 / B a6 b5 b6}$ has an unreachable pawn structure, but this one is reachable
+in a legal game: c2$\times$b3, a7--a5, b7$\times$a6, c7$\times$b6. Embedded beside the tr\'ebuchet it gives the
+$10$-man position in \cref{fig:eighth}.
+
+\begin{figure}[ht]
+\centering
+\begin{minipage}{0.45\textwidth}\centering
+\chessboard[setfen=8/8/pp6/p4Kp1/6Pk/1P6/PP6/8]\\[2pt]
+{\small $1/8$ (model): \fen{8/8/pp6/p4Kp1/6Pk/1P6/PP6/8}}
+\end{minipage}\hfill
+\begin{minipage}{0.45\textwidth}\centering
+\chessboard[setfen=8/1p6/pP6/2p2Kp1/6Pk/8/PP6/8]\\[2pt]
+{\small $\upsec\star$ (model): \fen{8/1p6/pP6/2p2Kp1/6Pk/8/PP6/8}}
+\end{minipage}
+\caption{Robust small values beside the tr\'ebuchet (W Pg4 / B Pg5, WK f5, BK h4).}
+\label{fig:eighth}
+\end{figure}
+
+\paragraph{Two textbook results do not survive the e.p.-aware test.}
+\begin{itemize}
+\item The earlier ``best reachable $1/8$'', $\pos{W a2 b2 d2 / B a5 c4 d7}$, becomes $-3/2\pm3/2$.
+\item The best $\upsec$, $\pos{W a3 c5 d4 / B a7 b7 d7}$, becomes $\game{3/4}{\down\star}$.
+\end{itemize}
+In both, the value relied on a double step that the textbook test called passed.
+
+\subsection{Towards a real-chess $1/8$}\label{sec:eighth-real}
+The real-chess oracle value (\cref{def:oracle}) of the $1/8$ position was computed as follows.
+\begin{itemize}
+\item \textbf{Small end positions.} All $306$ end-position sides with at most $7$ men were resolved against the
+  Lichess tablebase. $283$ agree with the model, $5$ disagree, and $2$ are draws.
+\item \textbf{Bounds from those alone.} With only these exact results fixed, the value lies in
+  $[-1/2,\,3/4]$.
+\item \textbf{The decisive set.} A greedy search over the $320$ end positions that remain open shows the
+  value is \emph{exactly} $1/8$ whenever $8$ of them, $5$ with $8$ men and $3$ with $9$, have the outcome the
+  model predicts. The other $312$ may be anything at all.
+\item \textbf{Status.} Resolving those $8$ end positions by tablebase-backed search is in progress; see
+  \cref{sec:open}. If it succeeds, this is a king-and-pawn $8\times8$ position whose real-chess oracle value is
+  certified to be $1/8$, a value Elkies' constructions did not reach.
+\end{itemize}

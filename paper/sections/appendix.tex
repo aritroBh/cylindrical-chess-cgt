@@ -1,0 +1,21 @@
+\section{Positions referenced in the text}\label{app:positions}
+
+Pawn lists name the White pawns, then the Black pawns. Embedded positions add the tr\'ebuchet W Pg4 / B Pg5, WK
+f5, BK h4, and are given as FEN with White to move.
+
+\begin{center}\small
+\begin{tabularx}{\textwidth}{@{}l l X@{}}
+\toprule
+Role & Pawns & FEN / remark \\
+\midrule
+$\nim{2}$ candidate (textbook) & \pos{W a2 c2 / B b7 d7} & \fen{8/1p1p4/8/5Kp1/6Pk/8/P1P5/8 w} \\
+refuted candidate & \pos{W a3 b3 c2 / B b5 b7 c6} & \fen{8/1p6/2p5/1p3Kp1/6Pk/PP6/2P5/8 w} \\
+robust $1/8$ & \pos{W a2 b2 b3 / B a5 a6 b6} & \fen{8/8/pp6/p4Kp1/6Pk/1P6/PP6/8 w} \\
+robust $\upsec\star$ & \pos{W a2 b2 b6 / B a6 b7 c5} & \fen{8/1p6/pP6/2p2Kp1/6Pk/8/PP6/8 w} \\
+$\tinyg{1}$ & \pos{W a2 b2 b6 / B a6 b7 c6} & e.p.\ on, every race rule \\
+7.2 king group & --- & \fen{3k4/3Pp3/4K3/8/8/8/8/8}: White to move draws \\
+5.1 tr\'ebuchet (cylinder) & --- & \fen{8/8/8/p6K/Pk6/8/8/8}: mutual zugzwang across the seam \\
+sum-safety counterexample & \pos{W b2 d4 g3 h5 / B a7 c7 f7 g4} & $\cyl{8}$, e.p.\ off \\
+\bottomrule
+\end{tabularx}
+\end{center}

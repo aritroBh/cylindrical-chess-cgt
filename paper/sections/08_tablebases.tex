@@ -1,0 +1,45 @@
+\section{Mating without corners: tablebases on the cylinder and the torus}\label{sec:tablebases}
+
+Without corners or edges, can the standard material still force mate? We computed all $4$-man pawnless
+tablebases on the plane, the cylinder (files a and h glued) and the torus (also ranks $1$ and $8$ glued), using the Lichess tablebase only for comparison on the plane \citep{Lichess}.
+\begin{itemize}
+\item \textbf{Rules.} Sliders stop when their ray returns to their own square, so there is no null move round a
+  rank. There is no castling and no fifty-move rule. Stalemate is a draw.
+\item \textbf{Verification.} Two independently written retrograde solvers agree on every position of all $24$
+  tables, about $607$ million values with either side to move. One of them also checks the Bellman equations
+  and the board symmetries on every position (\status{checked-2}). On the plane both reproduce the known
+  maxima: KQK $10$, KRK $16$, KBBK $19$, KBNK $33$.
+\end{itemize}
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+& \multicolumn{2}{c}{plane} & \multicolumn{2}{c}{cylinder} & \multicolumn{2}{c}{torus} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+Material & won & max & won & max & won & max \\
+\midrule
+KQK & $100\%$ & $10$ & $100\%$ & $10$ & $0$ & --- \\
+KRK & $100\%$ & $16$ & $\mathbf{2.80\%}$ & $3$ & $0$ & --- \\
+KBBK (opposite colours) & $99.98\%$ & $19$ & $\mathbf{100\%}$ & $\mathbf{14}$ & $0$ & --- \\
+KBNK & $99.51\%$ & $33$ & $\mathbf{0.0245\%}$ & $2$ & $0$ & --- \\
+KNNK & $0.0107\%$ & $1$ & $0.0077\%$ & $1$ & $0$ & --- \\
+KRBK & $100\%$ & $16$ & $99.74\%$ & $13$ & $0.0218\%$ & $1$ \\
+KRRK & $100\%$ & $7$ & $100\%$ & $8$ & $100\%$ & $7$ \\
+KQRK & $100\%$ & $6$ & $100\%$ & $5$ & $100\%$ & $5$ \\
+\bottomrule
+\end{tabular}
+\caption{Share of legal positions won with White to move, and the longest forced mate in moves.}
+\label{tab:tb}
+\end{table}
+
+\paragraph{Findings.}
+\begin{itemize}
+\item \textbf{KRK and KBNK are draws on the cylinder.} Without an edge to drive the king against, the rook and
+  the bishop-knight pair cannot force mate. The few wins are positions that are already almost mates.
+\item \textbf{Two bishops on opposite colours win every position on the cylinder}, in at most $14$ moves. This
+  contradicts a published claim by H.\,G.~Muller that the bishop pair cannot force mate there \citep{MullerCylinder}.
+\item \textbf{On the torus no single officer can mate, nor any pair below two rooks.} Some mates of the
+  bishop pair exist on the torus but can never arise in play. Only KRRK and KQRK win.
+\end{itemize}
+We found no earlier tablebase for these boards.
