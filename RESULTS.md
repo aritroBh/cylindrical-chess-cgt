@@ -1,4 +1,4 @@
-# Results so far (2026-10-16)
+# Results so far (2026-10-21)
 
 Plan: [RESEARCH_PLAN.md](RESEARCH_PLAN.md). This page lists what the 2026-10-15/16 run established and how
 strongly.
@@ -10,10 +10,9 @@ strongly.
 
 **Conventions (decided 2026-10-16).**
 - A pawn that can still be taken en passant is **not** passed: `cylcgt.pawns.PASSED_RESPECTS_EP = True`.
-  - The fix is on branch `ep-aware-passed`. It will be merged into `main` when the resumed workflow ends; until
-    then the main checkout still runs the old test, so that earlier claims stay reproducible.
+  - Merged into `main` on 2026-10-21 (commit d3d080e). `PASSED_RESPECTS_EP = False` restores the old test.
   - Results below that predate this switch are marked *(textbook test)*.
-- Kings are to be modelled explicitly (plan item A8, in progress).
+- Kings are modelled explicitly in `kings/` (plan item A8; see §7).
 
 ## 1. The \*2 question (Elkies' open problem): the candidate does not survive
 
@@ -27,7 +26,8 @@ The candidate was `W a2 c2 / B b7 d7` on files a–d, frozen by a trébuchet (W 
 | Sum model vs whole-board game | equal: the tree never splits into components before a passer (Theorem 2.3) | proved |
 | 8×8 embedding geometry (kings f5/h4) | no checks, no stalemate, every king move drops that side's g-pawn | proved; exhaustive check |
 | Real chess, both sides to move (Lichess 7-man tablebase + exact search) | the side to move wins (outcome N), as \*2 predicts | proved by certificate (`realchess/results/cert_root_*.json`) |
-| Real-chess value: the pawn tree with tablebase results at its end positions | **excluded from being \*2.** Of 65 end positions resolved, 3 are first-player wins and 2 are draws. The model scores all 5 as won for one side, and one flips from a Black win to a White win | computed once (`realchess/results/comp_Wa2c2_Bb7d7_oracle_pure.json`); *final real-chess report pending* |
+| Real-chess oracle value: the pawn tree with tablebase results at its end positions | **never \*2 (or 0) in the adopted e.p.-aware tree, however draws and unresolved end positions are treated**: the bounds force Left stop ≥ 1 and Right stop ≤ −1. Counting draws as Black wins, it is **exactly {2±1 \| −2±1}** in both trees. In the textbook tree \*2 is excluded only when draws count as wins for one side | values computed once; end-position results checked two ways ([realchess/REPORT.md](realchess/REPORT.md)) |
+| Real-chess root move tables | Black to move: only 1...b5 wins (complete). White to move: 1.c4 wins; 1.a3, 1.c3 and all king moves lose; 1.a4 unresolved. The model predicts exactly c4 and b5 | checked two ways |
 | The same FEN on the 8-file cylinder | the freeze fails: 1.a3 checks Kh4 across the seam. No \*k (k ≥ 2) with ≤ 5 pawns can be frozen on the 8-file cylinder (0 of 40 placements) | computed once (`atlas/cylinder/`) |
 
 **Why it fails.** The convention "first passed pawn wins" breaks in three places:
@@ -48,9 +48,19 @@ The candidate was `W a2 c2 / B b7 d7` on files a–d, frozen by a trébuchet (W 
   - 21,441 of the 231,071 values change, 4,068 of them in outcome.
   - So within flat boards of ≤4 files and ≤6 pawns, the only route to \*2 was the e.p. artefact.
 
-**What this means.** A \*2 made only of kings and pawns on 8×8 is still open. The negative result is
-publishable: it shows exactly where the convention breaks. Real-chess certification of other candidates is
-*pending*.
+**The other \*2 candidates** ([realchess/certify/REPORT.md](realchess/certify/REPORT.md)). Each is \*2 only
+under one non-default rule, and each needs 10 men.
+- `W a3 b3 c2 / B b5 b7 c6` is **refuted**: its real-chess oracle value is > 0 under every treatment (checked two
+  ways).
+- For three others the tablebase contradicts the race verdicts their \*2 depends on. Their oracle values cannot
+  be settled with 7-man tablebases.
+- No \*k candidate fits in 7 men or fewer.
+- An independent C solver (`atlas/flat8/rerun/`, no shared code) agrees with cylcgt on all 231,071 records under
+  both passed tests (checked two ways).
+
+**What this means.** A \*2 made only of kings and pawns on 8×8 is **still open**. Within the searched space
+(flat, ≤4 files, ≤6 pawns) no candidate survives the e.p.-aware convention, and none survives real chess. The
+negative result is publishable: it shows exactly where the convention breaks.
 
 ## 2. Mating without corners: 4-man tablebases on the cylinder and torus (verified)
 
@@ -181,8 +191,12 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   - **Two textbook-test results did not survive the switch:**
     - The "best reachable 1/8", `W a2 b2 d2 / B a5 c4 d7`, becomes −3/2±3/2.
     - The best ↑², `W a3 c5 d4 / B a7 b7 d7`, becomes {3/4 \| ↓\*}.
-  - The surviving positions pass necessary 8×8 legality conditions only. Their robustness to the race rule under the
-    new test has not been checked yet.
+  - **The most robust target is 1/8.** `W a2 a3 b2 / B a6 b5 b6` is 1/8 under all 9 settings (3 race rules × e.p.
+    off / textbook / aware) and every race outcome (checked two ways, `atlas/flat8/rerun/`). Its mirror
+    `W a2 b2 b3 / B a5 a6 b6` has the same value and a reachable pawn structure. 8×8 FEN with the trébuchet:
+    `8/8/pp6/p4Kp1/6Pk/1P6/PP6/8 w` (10 men). This is model-level only, not real-chess certified.
+  - ↑²\* at `W a2 b2 b6 / B a6 b7 c5` is equally robust.
+  - The other surviving positions pass necessary 8×8 legality conditions only.
   - tiny(x) for non-integer x and tiny(1↑) do not occur under either test. tiny(2) appears under the e.p.-aware test.
 - **Cylinder value atlas** ([atlas/cylinder/REPORT.md](atlas/cylinder/REPORT.md); computed once, outcomes
   cross-checked by an independent minimax):
@@ -190,7 +204,12 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   - **Cut lemma (proved):** cutting a cylinder at an empty file gives a flat board with the same value. So
     cylinder-only values come only from rings, positions with a pawn on every file.
   - **Cylinder-only values:** 53 values occur only on cylinders, among them 3/4 and 1/4±1/4. All come from 3- and
-    4-file rings, and none is robust to the race rule.
+    4-file rings.
+  - **Corrected by a verifier:** the atlas claimed that none of these values is robust to the race rule.
+    - The 3-file ring values do depend on the race rule.
+    - The 4-file ring values, such as {3/2±1/2 \| −3/2±1/2}, do not; they change only when e.p. is switched off.
+    - No value is cylinder-only under all six race/e.p. settings.
+  - All of this uses the textbook passed test. The re-run under the e.p.-aware test is pending.
 - **Dawson's chess** ([dawson/REPORT.md](dawson/REPORT.md)):
   - **Cylinder ring rule (proved; checked for n ≤ 22).** The first player on a full 3×n cylinder wins iff
     g(n−3) = 0.
@@ -207,26 +226,38 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
 
 ## 7. Pending
 
-- **Workflow `wf_3dfce063-f42`:**
-  - the final real-chess report;
-  - real-chess certification of other candidates;
-  - the Elkies-target certification;
-  - the ChessSums benchmark and RL reward (`bench/`);
-  - the remaining adversarial verification;
-  - a completeness review.
-- **A8, explicit kings (loopy CGT):** in the [tablebase session](#local_154533a8-61ae-4b6f-bed4-5dcf1d9bafff),
-  in `kings/`. First exact results (`kings/kpsolve`, one implementation unless stated):
-  - **The trébuchets hold in real chess.** Both 5.1 and the \*2 candidate's trébuchet are real mutual zugzwangs.
-  - **The 7.2 king group does not.** It is not a mutual zugzwang in real chess (above; confirmed by Lichess).
-  - **6×6 cylinder, one pawn file beside the trébuchet:** 13 of 26 components match the convention, and all 13
-    mismatches are king effects. With the kings frozen, the solver reproduces cylcgt on all 26.
-  - **5×6 flat board:** 23 of 26 match, and the 3 mismatches are king effects.
-  - **E.p. test:** switching between the textbook and e.p.-aware passed test changes no verdict on these
-    single-file boards. The 7×6 cylinder run, where e.p. can matter, is in progress.
-- **Re-running the textbook-test atlases under the e.p.-aware test:**
-  - flat 8-rank, count rule: done (§1, §6);
-  - the cylinder atlas and the mover/opponent rules: not yet.
-- **ML track (C3/C4):** PyTorch 2.14.1 (MPS) and MLX 0.32.4 are installed in `.venv-ml`. Training waits for the ChessSums data (`bench/`).
+**Verification gaps.** 35 adversarial verifiers were cut off by the Claude usage limit. Not verified:
+- the real-chess oracle values;
+- the certification of the other candidates;
+- the flat-board claims C1, C2 and C4–C6;
+- three cylinder-atlas claims;
+- two lemma checks.
+
+The completeness critic did not run either. The rest of the verdicts are in each REPORT.md claim table.
+
+**Delegated to external AI CLIs** (briefs in `delegate/`; outputs go to the directories named there):
+- independent non-Claude re-verification of the §1 headline results;
+- re-deriving the `notes/lemmas.md` proofs;
+- the Elkies-target certification (`atlas/targets/`, left partial);
+- the cylinder atlas under the e.p.-aware test;
+- ML baselines on ChessSums and Dawson's chess (`.venv-ml`);
+- a completeness review.
+
+**ChessSums v2 is ready** ([bench/REPORT.md](bench/REPORT.md)).
+- **Library:** 418 components, each with the same value under both passed tests, all race rules and e.p. on/off.
+- **Data:** 26,000 rows. Their outcomes were confirmed by whole-board alpha-beta, and 4,887 also by Codex's minimax.
+- **Baseline cost:** alpha-beta that ignores the decomposition grows about 4–9× in nodes per added component.
+
+**A8, explicit kings** ([kings/REPORT.md](kings/REPORT.md)):
+- **The convention often fails on small boards.** 159 of 500 testable components mismatch: 107 because of the
+  kings, and 52 because of the pawn convention itself.
+- **When it is exact.** Conditions (V1)–(V4) are given (Theorem 1.14, proved by one model and reviewed).
+  - A king that can shuttle without loss is a loopy game (`on`, `off`, `dud`), not 0.
+  - The trébuchet's zero is context-dependent.
+- **Solver check.** `kings/kpsolve` agrees with an independent solver on 1,418,480 positions.
+- **Real chess.** Both trébuchets are real mutual zugzwangs. The 7.2 king group is not (confirmed by Lichess).
+
+**Lc0** at 1M nodes stopped at 114/233 positions, all correct.
 
 ## 8. Decisions
 
@@ -235,3 +266,4 @@ Answered 2026-10-16:
 - **Kings:** model them explicitly (A8 started).
 - **Mentor:** no contact with Prof. Morley yet.
 - **Installs:** Stockfish 19 is built; Lc0 v0.32.1 is installed through Homebrew with its bundled network. PyTorch and MLX are in the separate `.venv-ml`.
+- **Repository:** local only, with no remote and nothing pushed. It stays private.
