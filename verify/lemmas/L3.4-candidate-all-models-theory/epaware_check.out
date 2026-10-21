@@ -1,0 +1,29 @@
+test=textbook   ep=True  files=4 rule=count    o(X + R): {'*0': 'N', '*1': 'N', '*2': 'P', '*3': 'N', '{2+-1|-2+-1}': 'N'}  => X = *2
+test=textbook   ep=True  files=4 rule=mover    o(X + R): {'*0': 'N', '*1': 'N', '*2': 'P', '*3': 'N', '{2+-1|-2+-1}': 'N'}  => X = *2
+test=textbook   ep=True  files=4 rule=opponent o(X + R): {'*0': 'P', '*1': 'N', '*2': 'N', '*3': 'N', '{2+-1|-2+-1}': 'N'}  => X = *0
+test=textbook   ep=True  files=8 rule=count    o(X + R): {'*0': 'N', '*1': 'N', '*2': 'P', '*3': 'N', '{2+-1|-2+-1}': 'N'}  => X = *2
+test=textbook   ep=True  files=8 rule=mover    o(X + R): {'*0': 'N', '*1': 'N', '*2': 'P', '*3': 'N', '{2+-1|-2+-1}': 'N'}  => X = *2
+test=textbook   ep=True  files=8 rule=opponent o(X + R): {'*0': 'P', '*1': 'N', '*2': 'N', '*3': 'N', '{2+-1|-2+-1}': 'N'}  => X = *0
+test=textbook   ep=False files=4 rule=count    o(X + R): {'*0': 'N', '*1': 'N', '*2': 'P', '*3': 'N', '{2+-1|-2+-1}': 'N'}  => X = *2
+test=textbook   ep=False files=4 rule=mover    o(X + R): {'*0': 'N', '*1': 'N', '*2': 'P', '*3': 'N', '{2+-1|-2+-1}': 'N'}  => X = *2
+test=textbook   ep=False files=4 rule=opponent o(X + R): {'*0': 'P', '*1': 'N', '*2': 'N', '*3': 'N', '{2+-1|-2+-1}': 'N'}  => X = *0
+test=textbook   ep=False files=8 rule=count    o(X + R): {'*0': 'N', '*1': 'N', '*2': 'P', '*3': 'N', '{2+-1|-2+-1}': 'N'}  => X = *2
+test=textbook   ep=False files=8 rule=mover    o(X + R): {'*0': 'N', '*1': 'N', '*2': 'P', '*3': 'N', '{2+-1|-2+-1}': 'N'}  => X = *2
+test=textbook   ep=False files=8 rule=opponent o(X + R): {'*0': 'P', '*1': 'N', '*2': 'N', '*3': 'N', '{2+-1|-2+-1}': 'N'}  => X = *0
+   [textbook] ep=True: reachable 1075, non-terminal 405, non-terminal with >=2 components: 0
+   [textbook] ep=False: reachable 835, non-terminal 225, non-terminal with >=2 components: 0
+test=e.p.-aware ep=True  files=4 rule=count    o(X + R): {'*0': 'N', '*1': 'N', '*2': 'N', '*3': 'N', '{2+-1|-2+-1}': 'P'}  => X = {2+-1|-2+-1}
+test=e.p.-aware ep=True  files=4 rule=mover    o(X + R): {'*0': 'N', '*1': 'N', '*2': 'N', '*3': 'N', '{2+-1|-2+-1}': 'P'}  => X = {2+-1|-2+-1}
+test=e.p.-aware ep=True  files=4 rule=opponent o(X + R): {'*0': 'P', '*1': 'N', '*2': 'N', '*3': 'N', '{2+-1|-2+-1}': 'N'}  => X = *0
+test=e.p.-aware ep=True  files=8 rule=count    o(X + R): {'*0': 'N', '*1': 'N', '*2': 'N', '*3': 'N', '{2+-1|-2+-1}': 'P'}  => X = {2+-1|-2+-1}
+test=e.p.-aware ep=True  files=8 rule=mover    o(X + R): {'*0': 'N', '*1': 'N', '*2': 'N', '*3': 'N', '{2+-1|-2+-1}': 'P'}  => X = {2+-1|-2+-1}
+test=e.p.-aware ep=True  files=8 rule=opponent o(X + R): {'*0': 'P', '*1': 'N', '*2': 'N', '*3': 'N', '{2+-1|-2+-1}': 'N'}  => X = *0
+test=e.p.-aware ep=False files=4 rule=count    o(X + R): {'*0': 'N', '*1': 'N', '*2': 'P', '*3': 'N', '{2+-1|-2+-1}': 'N'}  => X = *2
+test=e.p.-aware ep=False files=4 rule=mover    o(X + R): {'*0': 'N', '*1': 'N', '*2': 'P', '*3': 'N', '{2+-1|-2+-1}': 'N'}  => X = *2
+test=e.p.-aware ep=False files=4 rule=opponent o(X + R): {'*0': 'P', '*1': 'N', '*2': 'N', '*3': 'N', '{2+-1|-2+-1}': 'N'}  => X = *0
+test=e.p.-aware ep=False files=8 rule=count    o(X + R): {'*0': 'N', '*1': 'N', '*2': 'P', '*3': 'N', '{2+-1|-2+-1}': 'N'}  => X = *2
+test=e.p.-aware ep=False files=8 rule=mover    o(X + R): {'*0': 'N', '*1': 'N', '*2': 'P', '*3': 'N', '{2+-1|-2+-1}': 'N'}  => X = *2
+test=e.p.-aware ep=False files=8 rule=opponent o(X + R): {'*0': 'P', '*1': 'N', '*2': 'N', '*3': 'N', '{2+-1|-2+-1}': 'N'}  => X = *0
+   [aware] ep=True: reachable 1155, non-terminal 423, non-terminal with >=2 components: 0
+   [aware] ep=False: reachable 835, non-terminal 225, non-terminal with >=2 components: 0
+time 2.0s

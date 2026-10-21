@@ -1,0 +1,42 @@
+H = {2±1 | -2±1} | mean 0 | temp 2
+H == -H: True
+outcome(H+H): P (P means H+H=0)
+outcome(H + *2): N
+H vector: NNNNNNNNNNLRNNN
+*2 vector: NNPNLRLLLRLRLNN
+  outcome(H - (-2)): L
+  outcome(H - (-1)): L
+  outcome(H - (0)): N
+  outcome(H - (1)): R
+  outcome(H - (2)): R
+
+BIG=    8 rule=count    test=aware: {2±1 | -2±1}  (brute vector = cgt prediction)
+BIG=    8 rule=count    test=textbook: *2  (brute vector = cgt prediction)
+BIG=    8 rule=mover    test=aware: {2±1 | -2±1}  (brute vector = cgt prediction)
+BIG=    8 rule=mover    test=textbook: *2  (brute vector = cgt prediction)
+BIG=    8 rule=opponent test=aware: 0  (brute vector = cgt prediction)
+BIG=    8 rule=opponent test=textbook: 0  (brute vector = cgt prediction)
+BIG=   16 rule=count    test=aware: {2±1 | -2±1}  (brute vector = cgt prediction)
+BIG=   16 rule=count    test=textbook: *2  (brute vector = cgt prediction)
+BIG=   16 rule=mover    test=aware: {2±1 | -2±1}  (brute vector = cgt prediction)
+BIG=   16 rule=mover    test=textbook: *2  (brute vector = cgt prediction)
+BIG=   16 rule=opponent test=aware: 0  (brute vector = cgt prediction)
+BIG=   16 rule=opponent test=textbook: 0  (brute vector = cgt prediction)
+BIG=   64 rule=count    test=aware: {2±1 | -2±1}  (brute vector = cgt prediction)
+BIG=   64 rule=count    test=textbook: *2  (brute vector = cgt prediction)
+BIG=   64 rule=mover    test=aware: {2±1 | -2±1}  (brute vector = cgt prediction)
+BIG=   64 rule=mover    test=textbook: *2  (brute vector = cgt prediction)
+BIG=   64 rule=opponent test=aware: 0  (brute vector = cgt prediction)
+BIG=   64 rule=opponent test=textbook: 0  (brute vector = cgt prediction)
+BIG=  256 rule=count    test=aware: {2±1 | -2±1}  (brute vector = cgt prediction)
+BIG=  256 rule=count    test=textbook: *2  (brute vector = cgt prediction)
+BIG=  256 rule=mover    test=aware: {2±1 | -2±1}  (brute vector = cgt prediction)
+BIG=  256 rule=mover    test=textbook: *2  (brute vector = cgt prediction)
+BIG=  256 rule=opponent test=aware: 0  (brute vector = cgt prediction)
+BIG=  256 rule=opponent test=textbook: 0  (brute vector = cgt prediction)
+BIG= 1024 rule=count    test=aware: {2±1 | -2±1}  (brute vector = cgt prediction)
+BIG= 1024 rule=count    test=textbook: *2  (brute vector = cgt prediction)
+BIG= 1024 rule=mover    test=aware: {2±1 | -2±1}  (brute vector = cgt prediction)
+BIG= 1024 rule=mover    test=textbook: *2  (brute vector = cgt prediction)
+BIG= 1024 rule=opponent test=aware: 0  (brute vector = cgt prediction)
+BIG= 1024 rule=opponent test=textbook: 0  (brute vector = cgt prediction)

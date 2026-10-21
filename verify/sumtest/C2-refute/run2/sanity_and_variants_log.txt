@@ -1,0 +1,48 @@
+Reference vectors (game alone + X):
+  0      PNNNLRNLLRLRNNL
+  *      NPNNNNLLLRLRLNN
+  *2     NNPNLRLLLRLRLNN
+  *3     NNNPLRLLLRLRLNN
+  up     LNLLLPLLLRLRLNL
+  down   RNRRPRNNLRLRNNR
+  up*    NLLLLNLLLRLRLNN
+  dup*   LLLLLNLLLRLRLNL
+  1/2    LLLLLLLLLPLRLNL
+  -1/2   RRRRRRRRPRLRNNR
+  1      LLLLLLLLLLLPLNL
+  -1     RRRRRRRRRRPRNNR
+  {1|0}  NLLLLNLLLNLNLLN
+  +-1    NNNNNNNNNNNNLPN
+  tiny1  LNNNLRNLLRLRNNL
+*2+*2 outcome: P (expect P)
+up+down outcome: P (expect P)
+1/2+1/2-1 outcome: P (expect P)
++-1 + +-1 outcome: P (expect P)
+1-file W: a4 / B: a6: NPNNNNLLLRLRLNN  equals *'s vector: True
+1-file W: a2 / B: a5: LNLLLPLLLRLRLNL  equals up's vector: True
+1-file W: a4 / B: a5: PNNNLRNLLRLRNNL  equals 0's vector: True
+2-file W a2 / B b3: NNNNNNNNNNNNNNN (expect all N: +-BIG)
+
+Candidate under variants:
+count (spec) ep=False aware=False local                      NNPNLRLLLRLRLNN  -> *2
+race=ties_mover ep=False aware=False local                   NNPNLRLLLRLRLNN  -> *2
+race=no_credit ep=False aware=False local                    NNPNLRLLLRLRLNN  -> *2
+race=white ep=False aware=False local                        LNLLLPLLLRLRLNL  -> other
+race=black ep=False aware=False local                        RNRRPRNNLRLRNNR  -> other
+count (spec) ep=True aware=False local                       NNPNLRLLLRLRLNN  -> *2
+race=ties_mover ep=True aware=False local                    NNPNLRLLLRLRLNN  -> *2
+race=no_credit ep=True aware=False local                     NNPNLRLLLRLRLNN  -> *2
+race=white ep=True aware=False local                         LNLLLPLLLRLRLNL  -> other
+race=black ep=True aware=False local                         RNRRPRNNLRLRNNR  -> other
+count (spec) ep=True aware=False global                      NNPNLRLLLRLRLNN  -> *2
+race=ties_mover ep=True aware=False global                   NNPNLRLLLRLRLNN  -> *2
+race=no_credit ep=True aware=False global                    NNPNLRLLLRLRLNN  -> *2
+race=white ep=True aware=False global                        LNLLLPLLLRLRLNL  -> other
+race=black ep=True aware=False global                        RNRRPRNNLRLRNNR  -> other
+
+opponent, ep on, strict-aware (any live right), local        PNNNLRNLLRLRNNL  -> 0
+count, ep on, strict-aware (any live right), local           NNNNNNNNNNLRNNN  -> other
+mover, ep on, strict-aware (any live right), local           NNNNNNNNNNLRNNN  -> other
+opponent, ep on, strict-aware (any live right), global       PNNNLRNLLRLRNNL  -> 0
+count, ep on, strict-aware (any live right), global          NNNNNNNNNNLRNNN  -> other
+mover, ep on, strict-aware (any live right), global          NNNNNNNNNNLRNNN  -> other

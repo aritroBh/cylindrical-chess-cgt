@@ -296,6 +296,30 @@ def tag_of(comp: Pos) -> str:
 
 
 # ---------------------------------------------------------------- stages
+class OfflineOracle:
+    """Cache-only oracle: a position that no cached record answers is simply
+    unknown (interval [-1, 1]); nothing is ever fetched."""
+
+    def __init__(self, prober: Prober):
+        self.pr = prober
+        self.max_new = 0
+        self.misses = set()
+
+    def cached(self, fen):
+        return self.pr.cached(fen)
+
+    def __call__(self, fen):
+        rec = self.pr.cached(fen)
+        if rec is not None:
+            return rec
+        self.misses.add(fen)
+        return {"fen": fen, "status": 200, "data": None}
+
+    @property
+    def new_requests(self):
+        return 0
+
+
 def build(args):
     comp = Pos.parse(args.component)
     for f, _ in comp.white | comp.black:
@@ -308,11 +332,19 @@ def build(args):
     elif args.dry_run:
         oracle = FakeOracle(model, args.max_new)
         cached = oracle.cached
+    elif args.offline:
+        oracle = OfflineOracle(Prober(0, args.ledger, offline=True))
+        cached = oracle.cached
     else:
         prober = Prober(args.cap, args.ledger, tag=f"A2-{args.stage}", verbose=args.verbose)
         oracle = RealOracle(prober, args.max_new)
         cached = oracle.cached
     region = lambda pos: "model" if is_model_internal(pos, model) else "off"
+    kb = None
+    if (not args.dry_run or args.hybrid) and not args.no_kb:
+        from .kb import default_kb
+        kb = default_kb()
+    oracle.kb = kb
     return comp, model, oracle, cached, region
 
 
@@ -367,7 +399,7 @@ def stage_roots(args):
     out = {"component": comp_str(comp), "trebuchet": C.TREBUCHET, "mode": args.mode,
            "dry_run": args.dry_run, "roots": {}}
     s = Searcher(oracle, mode=args.mode, order_hint=make_order(model, cached), region=region,
-                 cached=cached)
+                 cached=cached, kb=oracle.kb)
     t0 = time.time()
     status = "complete"
     for stm in ("W", "B"):
@@ -396,7 +428,7 @@ def stage_roots(args):
     # every model-internal node in the TT
     out["model_nodes"] = model_node_table(s, model, comp)
     if not args.dry_run:
-        write_json(os.path.join(RESULTS, f"{tag_of(comp)}_roots_{args.mode}.json"), out)
+        write_json(os.path.join(RESULTS, f"{tag_of(comp)}_roots_{args.mode}{args.label}.json"), out)
     summary = {k: v for k, v in out.items() if k not in ("model_nodes", "unresolved_leaves", "special_categories")}
     summary["roots"] = {k: {"result": v.get("result"), "interval": v.get("interval")} for k, v in out["roots"].items()}
     print(json.dumps(summary, indent=1, default=str))
@@ -439,7 +471,7 @@ def stage_nodes(args):
     comp, model, oracle, cached, region = build(args)
     internal, terms, edges = C.enumerate_tree(model.board, comp)
     s = Searcher(oracle, mode=args.mode, order_hint=make_order(model, cached), region=region,
-                 cached=cached)
+                 cached=cached, kb=oracle.kb)
     targets = []
     seen = set()
     for p in internal:
@@ -484,14 +516,149 @@ def stage_nodes(args):
     agree = {rule: sum(1 for r in table if rule in r["agrees_with"]) for rule in RULES}
     out["agreement_with_rule"] = agree
     if not args.dry_run:
-        write_json(os.path.join(RESULTS, f"{tag_of(comp)}_nodes_{args.mode}.json"), out)
+        write_json(os.path.join(RESULTS, f"{tag_of(comp)}_nodes_{args.mode}{args.label}.json"), out)
     print(json.dumps({k: v for k, v in out.items() if k not in ("nodes", "special_categories")}, indent=1))
     return out, s
 
 
+def stage_kings(args):
+    """King-move audit. For every embedded internal model node (both sides to
+    move), every king move is tested: does it lose for the mover?
+      1. immediate refutation: a reply whose result (a <= 7-man position, so
+         exact tablebase data from the cache or one probe of the 8-man child)
+         is a loss for the king's side;
+      2. otherwise a bounded search of the child (off-model ply budget --ext).
+    Each king move is reported as 'loses' (with the refuting reply), 'draws',
+    'wins' or 'unresolved' (flagged)."""
+    comp, model, oracle, cached, region = build(args)
+    internal, terms, edges = C.enumerate_tree(model.board, comp)
+    s = Searcher(oracle, mode=args.mode, order_hint=make_order(model, cached), region=region,
+                 cached=cached, kb=oracle.kb)
+    targets, seen = [], set()
+    only = {mg.normal_fen(f) for f in (args.fen or [])}
+    for p in sorted(internal, key=str):
+        for stm in "WB":
+            pos = C.embed(p, stm)
+            k = mg.normal_fen(pos)
+            if only and k not in only:
+                continue
+            if k not in seen and not mg.validity_errors(pos):
+                seen.add(k)
+                targets.append(pos)
+    t0 = time.time()
+    rows, tally = [], Counter()
+    status = "complete"
+    try:
+        for pos in targets:
+            for m in mg.legal_moves(pos):
+                if pos.board[m.frm].upper() != "K":
+                    continue
+                child = mg.make(pos, m)
+                ref, how = None, None
+                for r in mg.legal_moves(child):
+                    if not mg.is_capture(child, r):
+                        continue
+                    lo, hi = s.capture_child(child, r)  # value for the king's side, to move
+                    if lo == hi == -1:
+                        ref, how = r.uci(), "immediate (tablebase)"
+                        break
+                if ref is not None:
+                    v = (-1, -1)
+                else:
+                    iv = deepen(s, child, args.ext)
+                    v = (-iv[1], -iv[0])
+                    if v[0] == v[1] == -1:
+                        r0 = refutation_of(s, child)
+                        ref, how = (r0[0] if r0 else None), f"search (ext<={args.ext})"
+                verdict = {(-1, -1): "loses", (0, 0): "draws", (1, 1): "wins"}.get(tuple(v), "unresolved")
+                tally[verdict] += 1
+                rows.append({"fen": mg.normal_fen(pos), "component": str(model.comp(pos)),
+                             "king_move": m.uci(), "verdict": verdict, "value_for_mover": v,
+                             "refutation": ref, "how": how})
+    except CapReached as e:
+        status = f"stopped: {e}"
+    out = {"component": comp_str(comp), "mode": args.mode, "ext": args.ext, "status": status,
+           "nodes": len(targets), "king_moves": len(rows), "tally": dict(tally),
+           "non_losing": [r for r in rows if r["verdict"] in ("draws", "wins")],
+           "unresolved_nodes": sorted({r["fen"] for r in rows if r["verdict"] == "unresolved"}),
+           "new_requests": oracle.new_requests, "seconds": round(time.time() - t0, 1),
+           "rows": rows}
+    if not args.dry_run:
+        write_json(os.path.join(RESULTS, f"{tag_of(comp)}_kings_{args.mode}{args.label}.json"), out)
+    print(json.dumps({k: v for k, v in out.items() if k not in ("rows", "unresolved_nodes", "non_losing")},
+                     indent=1))
+    print("non-losing king moves:", len(out["non_losing"]))
+    for r in out["non_losing"][:40]:
+        print("  ", r["fen"], r["king_move"], r["verdict"])
+    return out
+
+
+def stage_resolve(args):
+    """Real-chess result of arbitrary positions (--fen, repeatable), each
+    with its full move table: every legal move, the result for the mover and
+    how it was established. Budget: --max-new in total, --per-target each."""
+    comp, model, oracle, cached, region = build(args)
+    s = Searcher(oracle, mode=args.mode, order_hint=make_order(model, cached), region=region,
+                 cached=cached, kb=oracle.kb)
+    out = {"mode": args.mode, "ext": args.ext, "positions": []}
+    glob = oracle.max_new
+    t0 = time.time()
+    for fen in args.fen or []:
+        pos = mg.parse_fen(fen)
+        oracle.max_new = min(glob, oracle.new_requests + args.per_target)
+        status = "complete"
+        try:
+            iv = deepen(s, pos, args.ext)
+        except CapReached as e:
+            status = f"budget: {e}"
+            h = s.tt.get(mg.normal_fen(pos))
+            iv = (h[0], h[1]) if h else (-1, 1)
+        finally:
+            oracle.max_new = glob
+        table = []
+        for m in mg.legal_moves(pos):
+            child = mg.make(pos, m)
+            if child.men() <= 7:
+                lo, hi = s.capture_child(pos, m, allow_probe=False) if mg.is_capture(pos, m) \
+                    else (cat_iv(s, child))
+                how = "tablebase"
+            else:
+                h = s.tt.get(mg.normal_fen(child))
+                lo, hi = (h[0], h[1]) if h else (-1, 1)
+                how = "search" if h else "unexplored"
+            v = (-hi, -lo)
+            table.append({"move": m.uci(), "piece": pos.board[m.frm].upper(),
+                          "result_for_mover": VAL_NAME[v[0]] if v[0] == v[1] else "unresolved",
+                          "interval_for_mover": v, "how": how})
+        out["positions"].append({"fen": mg.normal_fen(pos), "status": status, "interval": iv,
+                                 "result_for_side_to_move": VAL_NAME[iv[0]] if iv[0] == iv[1] else "unresolved",
+                                 "in_model": C.only_component_and_trebuchet(pos),
+                                 "component": str(model.comp(pos)) if C.only_component_and_trebuchet(pos) else None,
+                                 "moves": table})
+    out["new_requests"] = oracle.new_requests
+    out["seconds"] = round(time.time() - t0, 1)
+    if args.out:
+        write_json(args.out, out)
+    print(json.dumps(out, indent=1, default=str))
+    return out
+
+
+def cat_iv(s, pos):
+    """Interval for a <= 7-man position from the KB / cache only (no probe)."""
+    from .search import cat_interval
+    if s.kb is not None:
+        c = s.kb.category(pos)
+        if c is not None:
+            return cat_interval(c, s.mode)
+    rec = s.cached(mg.normal_fen(pos)) if s.cached else None
+    if rec and rec.get("data"):
+        return cat_interval(rec["data"].get("category"), s.mode)
+    return (-1, 1)
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("stage", choices=["roots", "nodes", "oracle"])
+    ap.add_argument("stage", choices=["roots", "nodes", "oracle", "oracle-all", "kings", "resolve"])
     ap.add_argument("--component", default="W: a2 c2 / B: b7 d7")
     ap.add_argument("--cap", type=int, default=1200, help="hard cap on the ledger (total requests)")
     ap.add_argument("--ledger", default=DEFAULT_LEDGER)
@@ -502,6 +669,18 @@ def main(argv=None):
     ap.add_argument("--hybrid", action="store_true",
                     help="with --dry-run: use cached real records where available")
     ap.add_argument("--verbose", action="store_true")
+    ap.add_argument("--offline", action="store_true",
+                    help="never touch the network: positions no cached record answers stay unknown")
+    ap.add_argument("--fen", action="append",
+                    help="kings: only these node FENs; resolve: the positions to solve (repeatable)")
+    ap.add_argument("--out", default=None, help="resolve: write the JSON here")
+    ap.add_argument("--use-l8", action="store_true",
+                    help="also use Lichess's own categories of 8-man positions as leaves "
+                         "(off by default: they come from the server's shallow look-ahead)")
+    ap.add_argument("--label", default="",
+                    help="suffix for the results file name, e.g. '_offline'")
+    ap.add_argument("--no-kb", action="store_true",
+                    help="do not use the offline index of all cached records (realchess/kb.py)")
     ap.add_argument("--select", default="auto", help="oracle stage: 'auto' (bounds-driven) or 'all'")
     ap.add_argument("--goal", choices=["exclude", "pin"], default="exclude",
                     help="oracle stage: certify value != target (cheap) or pin the exact value")
@@ -517,9 +696,16 @@ def main(argv=None):
         stage_roots(args)
     elif args.stage == "nodes":
         stage_nodes(args)
-    else:
+    elif args.stage == "oracle":
         from .oracle_value import stage_oracle
         stage_oracle(args, build)
+    elif args.stage == "oracle-all":
+        from .oracle_value import stage_oracle_all
+        stage_oracle_all(args, build)
+    elif args.stage == "resolve":
+        stage_resolve(args)
+    else:
+        stage_kings(args)
 
 
 if __name__ == "__main__":

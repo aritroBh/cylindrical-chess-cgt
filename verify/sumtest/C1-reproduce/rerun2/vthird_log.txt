@@ -1,0 +1,40 @@
+third-solver flat3 mover    ep=False positions=4310 keys_equal=True positions_differing=0 pairs_differing=0
+third-solver flat3 opponent ep=False positions=4310 keys_equal=True positions_differing=0 pairs_differing=0
+third-solver flat3 count    ep=False positions=4310 keys_equal=True positions_differing=0 pairs_differing=0
+third-solver flat3 mover    ep=True  positions=4310 keys_equal=True positions_differing=0 pairs_differing=0
+third-solver flat3 opponent ep=True  positions=4310 keys_equal=True positions_differing=0 pairs_differing=0
+third-solver flat3 count    ep=True  positions=4310 keys_equal=True positions_differing=0 pairs_differing=0
+third-solver flat4 opponent ep=False positions=9390 keys_equal=True positions_differing=0 pairs_differing=0
+third-solver flat4 mover    ep=False positions=9390 keys_equal=True positions_differing=0 pairs_differing=0
+third-solver flat4 count    ep=False positions=9390 keys_equal=True positions_differing=0 pairs_differing=0
+third-solver cyl3  count    ep=False positions=6210 keys_equal=True positions_differing=0 pairs_differing=0
+third-solver cyl3  opponent ep=False positions=6210 keys_equal=True positions_differing=0 pairs_differing=0
+third-solver cyl3  mover    ep=False positions=6210 keys_equal=True positions_differing=0 pairs_differing=0
+third-solver cyl3  mover    ep=True  positions=6210 keys_equal=True positions_differing=0 pairs_differing=0
+third-solver flat4 opponent ep=True  positions=9390 keys_equal=True positions_differing=0 pairs_differing=0
+third-solver cyl3  count    ep=True  positions=6210 keys_equal=True positions_differing=0 pairs_differing=0
+third-solver flat4 count    ep=True  positions=9390 keys_equal=True positions_differing=0 pairs_differing=0
+third-solver flat4 mover    ep=True  positions=9390 keys_equal=True positions_differing=0 pairs_differing=0
+third-solver cyl3  opponent ep=True  positions=6210 keys_equal=True positions_differing=0 pairs_differing=0
+third-solver cyl4  count    ep=False positions=13260 keys_equal=True positions_differing=0 pairs_differing=0
+third-solver cyl4  mover    ep=False positions=13260 keys_equal=True positions_differing=0 pairs_differing=0
+third-solver cyl4  opponent ep=False positions=13260 keys_equal=True positions_differing=0 pairs_differing=0
+third-solver cyl4  mover    ep=True  positions=13260 keys_equal=True positions_differing=0 pairs_differing=0
+third-solver cyl4  count    ep=True  positions=13260 keys_equal=True positions_differing=0 pairs_differing=0
+third-solver cyl4  opponent ep=True  positions=13260 keys_equal=True positions_differing=0 pairs_differing=0
+third-solver cyl5  mover    ep=False positions=22025 keys_equal=True positions_differing=0 pairs_differing=0
+third-solver cyl5  count    ep=False positions=22025 keys_equal=True positions_differing=0 pairs_differing=0
+third-solver cyl5  opponent ep=False positions=22025 keys_equal=True positions_differing=0 pairs_differing=0
+third-solver cyl5  count    ep=True  positions=22025 keys_equal=True positions_differing=0 pairs_differing=0
+third-solver cyl5  opponent ep=True  positions=22025 keys_equal=True positions_differing=0 pairs_differing=0
+third-solver cyl5  mover    ep=True  positions=22025 keys_equal=True positions_differing=0 pairs_differing=0
+own enumeration counts: {'flat3': 4310, 'flat4': 9390, 'cyl3': 6210, 'cyl4': 13260, 'cyl5': 22025} total 55195
+third solver vs cylcgt: predictions 4967550 differing 0
+
+(c) worker solver with race_double=False vs cylcgt (count rule only matters):
+   rule=count ep=False positions differing: 144
+   rule=count ep=True positions differing: 144
+   rule=mover ep=False positions differing: 0
+   rule=mover ep=True positions differing: 0
+   rule=opponent ep=False positions differing: 0
+   rule=opponent ep=True positions differing: 0

@@ -1,6 +1,7 @@
 # Cylinder support for Fairy-Stockfish: state of the art and a design
 
-*Workstream engine-analysis, 2026-10-15. This is a design document. Nothing here was compiled or run.*
+*Workstream engine-analysis, 2026-10-15; Stockfish references updated 2026-10-16 to Stockfish 19 (tag `sf_19`),
+read from the local checkout. This is a design document. No Fairy-Stockfish or fork code was compiled or run.*
 
 ## 1. Where things stand
 
@@ -168,8 +169,15 @@ rejects any step that changes file by more than about 2. For a cylinder, build a
   - Reflection cannot also be fixed by the king alone. Either leave it free or break the tie with a second piece.
   - Every lateral king move changes the frame, so it forces an accumulator refresh. HalfKA already refreshes on
     king-bucket changes, so the cost is similar.
-- **Pawn-pair and threat features**, if ported from current Stockfish (§2.6 of `ENGINES.md`): the pawn-pair band
-  must wrap, so that the a- and h-files are adjacent.
+- **Pawn-pair and threat features**, if ported from Stockfish 19 (`ENGINES.md` §2.6).
+  - The pawn-pair band is `PawnPairBB[s] = (file | shift(file, EAST) | shift(file, WEST)) & ~(Rank1BB | Rank8BB) &
+    ~square_bb(s)` (`bitboard.h:130-144`).
+  - On the cylinder the two `shift` calls must be the wrap shifts of §2.1. Otherwise a- and h-pawns never form a
+    pair, and passed-pawn structure across the seam is invisible to the first layer.
+  - `FullThreats::OrientTBL` (`nnue/features/full_threats.h:47`) mirrors the board by the half the king stands
+    in. Reflection is still a symmetry of the cylinder, so this stays valid, but it becomes redundant once
+    features are made translation-canonical as above.
+  - Threat features need the seam-aware attack tables of §2.2-§2.3.
 - **Training data.** No cylinder games exist.
   - Bootstrap by self-play with the corrected classical evaluation, using Fairy-Stockfish's training-data
     generator and the `variant-nnue-pytorch` trainer.
@@ -179,6 +187,11 @@ rejects any step that changes file by more than about 2. For a cylinder, build a
 
 ### 2.8 Search
 - No changes are needed apart from a correct `checkers()`.
+- In Stockfish 19, null-move pruning and the Step-15 shallow-depth pruning are guarded by `non_pawn_material(us)`,
+  so they are inert in king-and-pawn positions until a promotion (`ENGINES.md` §2.0). I did not check whether
+  Fairy-Stockfish, which forks an older search, has the same guards. Cylinder K+P endgames, such as every
+  position of the 2025 paper, would then be searched mainly under reverse futility pruning, the cut measured
+  as zugzwang-relevant in `ENGINES.md` §5.2.
 - Two warnings carry over from `ENGINES.md` §2.1 and §2.3. Null-move pruning and reverse futility pruning are
   zugzwang-blind. On the cylinder the null move is *not* available in the rules, because rays stop before the
   origin square. So any pruning that assumes a pass is available is as wrong here as on the flat board.
@@ -186,6 +199,14 @@ rejects any step that changes file by more than about 2. For a cylinder, build a
 ---
 
 ## 3. Perft and validation plan (plan B1)
+
+**Status (2026-10-16).** Step 1 now has a prototype in [`perft/`](perft/README.md): two reference generators
+(C and Python, both by one author). They reproduce published flat-board perft, agree with each other on the
+cylinder, and pass the rotation and mirror invariants of step 4 on 150 random positions.
+- Cylinder start-position perft: **20, 392, 9,162, 211,036, 5,633,208, 149,017,571** (depths 1-6).
+- Depth 2 is below the flat 400 because of helix pins across the seam: after 1.c3, Qd1 pins f7.
+- Six of the seam positions of step 2 are tabulated there.
+- What is still missing is agreement with an implementation by another author (steps 1 and 5).
 
 1. **Reference generator.** An independent mailbox generator in pure Python: a cylinder version of
    `realchess/movegen.py`'s design, with modular file arithmetic and legality by "make the move, then is the king

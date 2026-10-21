@@ -1,0 +1,61 @@
+W: a2 c2 / B: b7 d7 w 4 men 8 robust6 False
+   textbook count/epon                        *2  race 398/184  precap 256/114  census-agree True
+   textbook count/epoff                       *2  race 224/166  precap 154/96  census-agree True
+   textbook mover/epon                        *2  race 398/184  precap 256/114  census-agree True
+   textbook mover/epoff                       *2  race 224/166  precap 154/96  census-agree True
+   textbook opponent/epon                      0  race 398/184  precap 256/114  census-agree True
+   textbook opponent/epoff                      0  race 224/166  precap 154/96  census-agree True
+   aware    count/epon              {2±1 | -2±1}  race 424/210  precap 258/116  census-agree True
+   aware    mover/epon              {2±1 | -2±1}  race 424/210  precap 258/116  census-agree True
+   aware    opponent/epon                      0  race 424/210  precap 258/116  census-agree True
+W: a3 b2 b4 / B: a7 b6 c6 w 3 men 10 robust6 False
+   textbook count/epon    {{↑*, {+W | *, {2 | {-W | {-W | -W, {-W | -W, {-W | -W, {-W | -W, -W*}}}}}}} | 0, *, {*, {+W, {+W, {+W, {+W, +W* | +W} | +W} | +W} | ↓*} | -2*}} | 0}  race 176/84  precap 0/0  census-agree True
+   textbook count/epoff           {{↑* | 0} | 0}  race 127/80  precap 0/0  census-agree True
+   textbook mover/epon    {{↑*, {+W | *, {2 | {-W | {-W | -W, {-W | -W, {-W | -W, -W*}}}}}} | 0, *, {*, {+W, {+W, {+W, +W* | +W} | +W} | ↓*} | -2*}} | 0}  race 176/84  precap 0/0  census-agree True
+   textbook mover/epoff           {{↑* | 0} | 0}  race 127/80  precap 0/0  census-agree True
+   textbook opponent/epon                     *2  race 176/84  precap 0/0  census-agree True
+   textbook opponent/epoff                     ↓*  race 127/80  precap 0/0  census-agree True
+   aware    count/epon    {{↑*, {+W | *, {2 | {-W | {-W | -W, {-W | -W, {-W | -W, {-W | -W, -W*}}}}}}} | 0, *, {*, {+W, {+W, {+W, {+W, +W* | +W} | +W} | +W} | ↓*} | -2*}} | 0}  race 171/79  precap 0/0  census-agree True
+   aware    mover/epon    {{↑*, {+W | *, {2 | {-W | {-W | -W, {-W | -W, {-W | -W, -W*}}}}}} | 0, *, {*, {+W, {+W, {+W, +W* | +W} | +W} | ↓*} | -2*}} | 0}  race 171/79  precap 0/0  census-agree True
+   aware    opponent/epon                     *2  race 171/79  precap 0/0  census-agree True
+W: a3 b2 c2 / B: a4 b6 c5 w 3 men 10 robust6 False
+   textbook count/epon                         *  race 47/35  precap 0/0  census-agree True
+   textbook count/epoff                      1/4  race 45/35  precap 0/0  census-agree True
+   textbook mover/epon    {{{1 | 1*} | ↑, -255/2±+W} | 0}  race 47/35  precap 0/0  census-agree True
+   textbook mover/epoff                      1/4  race 45/35  precap 0/0  census-agree True
+   textbook opponent/epon                     ↑*  race 47/35  precap 0/0  census-agree True
+   textbook opponent/epoff                    1/4  race 45/35  precap 0/0  census-agree True
+   aware    count/epon                  -1/4±1/4  race 49/33  precap 0/0  census-agree True
+   aware    mover/epon    {{{1 | 1*} | ↑, -255/2±+W} | 0}  race 49/33  precap 0/0  census-agree True
+   aware    opponent/epon                     *2  race 49/33  precap 0/0  census-agree True
+W: a3 b2 d3 / B: a6 c7 d6 w 4 men 10 robust6 False
+   textbook count/epon    {{3/2±1/2 | 0}, {3/2±1/2, {2 | 1/2±1/2} | {*, {+W | *} | -W}, {1 | {0, {+W | *, {* | -W}} | -1}}, {1/2±1/2, {+W | {1 | *}, {{1 | *} | -W}} | -1/2±1/2, {{* | -1}, {+W | {* | -1}} | -W}}} | {0 | -3/2±1/2}, {{+W | *, {* | -W}}, {{1 | 0, {*, {+W | *} | -W}} | -1}, {1/2±1/2, {+W | {1 | *}, {{1 | *} | -W}} | -1/2±1/2, {{* | -1}, {+W | {* | -1}} | -W}} | -3/2±1/2, {-1/2±1/2 | -2}}}  race 612/220  precap 42/24  census-agree True
+   textbook count/epoff   {{3/2±1/2 | 0}, {3/2±1/2 | {*, {+W | *} | -W}, {*, {+W | {1 | *}, {{1 | *} | -W}} | *, {{* | -1}, {+W | {* | -1}} | -W}}} | {0 | -3/2±1/2}, {{+W | *, {* | -W}}, {*, {+W | {1 | *}, {{1 | *} | -W}} | *, {{* | -1}, {+W | {* | -1}} | -W}} | -3/2±1/2}}  race 416/212  precap 30/18  census-agree True
+   textbook mover/epon    {0, {3/2±1/2 | 0} | 0, {0 | -3/2±1/2}}  race 612/220  precap 42/24  census-agree True
+   textbook mover/epoff                       *2  race 416/212  precap 30/18  census-agree True
+   textbook opponent/epon {{0 | {*, {+W | *} | -W, {-W, {+W, ±+W, {+W, {+W, ±+W | -W} | -W, ±+W} | -W, -W±+W}, {-W, {+W, ±+W, {+W, {+W, ±+W | -W} | -W, ±+W} | -W, -W±+W} | -W} | -W}}, {{{+W, {+W | +W, ±+W} | +W, ±+W, {+W | +W, ±+W, {+W | +W, ±+W}}} | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}} | {{+W, {+W | +W, ±+W, {+W | +W, ±+W}} | *, {* | -W}} | {-W, ±+W, {-W, ±+W, {-W, ±+W | -W} | -W} | -W, {-W, ±+W | -W}}}}} | {{+W, {+W | +W, {+W, +W±+W | -W, ±+W, {+W, ±+W | -W, {+W | -W, ±+W}}}, {+W | +W, {+W, +W±+W | -W, ±+W, {+W, ±+W | -W, {+W | -W, ±+W}}}}} | *, {* | -W}}, {{{+W, {+W | +W, ±+W} | +W, ±+W, {+W | +W, ±+W, {+W | +W, ±+W}}} | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}} | {{+W, {+W | +W, ±+W, {+W | +W, ±+W}} | *, {* | -W}} | {-W, ±+W, {-W, ±+W, {-W, ±+W | -W} | -W} | -W, {-W, ±+W | -W}}}} | 0}}  race 612/220  precap 42/24  census-agree True
+   textbook opponent/epoff {{0 | {*, {+W | *} | -W, {-W, {+W, ±+W, {+W, {+W, ±+W | -W} | -W, ±+W} | -W, -W±+W}, {-W, {+W, ±+W, {+W, {+W, ±+W | -W} | -W, ±+W} | -W, -W±+W} | -W} | -W}}, {{{+W, {+W | +W, ±+W} | +W, ±+W, {+W | +W, ±+W, {+W | +W, ±+W}}} | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}} | {{+W, {+W | +W, ±+W, {+W | +W, ±+W}} | *, {* | -W}} | {-W, ±+W, {-W, ±+W, {-W, ±+W | -W} | -W} | -W, {-W, ±+W | -W}}}}} | {{+W, {+W | +W, {+W, +W±+W | -W, ±+W, {+W, ±+W | -W, {+W | -W, ±+W}}}, {+W | +W, {+W, +W±+W | -W, ±+W, {+W, ±+W | -W, {+W | -W, ±+W}}}}} | *, {* | -W}}, {{{+W, {+W | +W, ±+W} | +W, ±+W, {+W | +W, ±+W, {+W | +W, ±+W}}} | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}} | {{+W, {+W | +W, ±+W, {+W | +W, ±+W}} | *, {* | -W}} | {-W, ±+W, {-W, ±+W, {-W, ±+W | -W} | -W} | -W, {-W, ±+W | -W}}}} | 0}}  race 416/212  precap 30/18  census-agree True
+   aware    count/epon    {{{+W | 1, ±+W, {+W | {1 | *}, {{1 | *} | -W}}} | 0}, {{+W | 1, ±+W, {+W | {1 | *}, {{1 | *} | -W}}}, {+W | 1/2±1/2, {+W, {+W, ±+W | -W} | -W}} | {*, {+W | *} | -W}, {1 | {0, {+W | *, {* | -W}} | -1}}, {1/2±1/2, {+W | {1 | *}, {{1 | *} | -W}} | -1/2±1/2, {{* | -1}, {+W | {* | -1}} | -W}}} | {0 | {-1, ±+W, {{* | -1}, {+W | {* | -1}} | -W} | -W}}, {{+W | *, {* | -W}}, {{1 | 0, {*, {+W | *} | -W}} | -1}, {1/2±1/2, {+W | {1 | *}, {{1 | *} | -W}} | -1/2±1/2, {{* | -1}, {+W | {* | -1}} | -W}} | {-1, ±+W, {{* | -1}, {+W | {* | -1}} | -W} | -W}, {-1/2±1/2, {+W | -W, {+W | -W, ±+W}} | -W}}}  race 630/212  precap 34/12  census-agree True
+   aware    mover/epon    {0, {3/2±1/2 | 0} | 0, {0 | -3/2±1/2}}  race 630/212  precap 34/12  census-agree True
+   aware    opponent/epon {{0 | {*, {+W | *} | -W, {-W, {+W, ±+W, {+W, {+W, ±+W | -W} | -W, ±+W} | -W, -W±+W}, {-W, {+W, ±+W, {+W, {+W, ±+W | -W} | -W, ±+W} | -W, -W±+W} | -W} | -W}}, {{{+W, {+W | +W, ±+W} | +W, ±+W, {+W | +W, ±+W, {+W | +W, ±+W}}} | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}} | {{+W, {+W | +W, ±+W, {+W | +W, ±+W}} | *, {* | -W}} | {-W, ±+W, {-W, ±+W, {-W, ±+W | -W} | -W} | -W, {-W, ±+W | -W}}}}} | {{+W, {+W | +W, {+W, +W±+W | -W, ±+W, {+W, ±+W | -W, {+W | -W, ±+W}}}, {+W | +W, {+W, +W±+W | -W, ±+W, {+W, ±+W | -W, {+W | -W, ±+W}}}}} | *, {* | -W}}, {{{+W, {+W | +W, ±+W} | +W, ±+W, {+W | +W, ±+W, {+W | +W, ±+W}}} | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}} | {{+W, {+W | +W, ±+W, {+W | +W, ±+W}} | *, {* | -W}} | {-W, ±+W, {-W, ±+W, {-W, ±+W | -W} | -W} | -W, {-W, ±+W | -W}}}} | 0}}  race 630/212  precap 34/12  census-agree True
+W: a3 b3 c2 / B: b5 b7 c6 w 3 men 10 robust6 False
+   textbook count/epon    {0 | {0, *, {2* | *, {↑* | -W, {-W | -W, {-W | -W, {-W | -W, -W*}}}}} | ↓*, {*, {{{+W, {+W, {+W, {+W, +W* | +W} | +W} | +W} | +W} | +W} | -2} | -W}}}  race 176/84  precap 0/0  census-agree True
+   textbook count/epoff           {0 | {0 | ↓*}}  race 127/80  precap 0/0  census-agree True
+   textbook mover/epon    {0 | {0, *, {2* | *, {↑* | -W, {-W | -W, {-W | -W, -W*}}}} | ↓*, {*, {{{+W, {+W, {+W, +W* | +W} | +W} | +W} | +W} | -2} | -W}}}  race 176/84  precap 0/0  census-agree True
+   textbook mover/epoff           {0 | {0 | ↓*}}  race 127/80  precap 0/0  census-agree True
+   textbook opponent/epon                     *2  race 176/84  precap 0/0  census-agree True
+   textbook opponent/epoff                     ↑*  race 127/80  precap 0/0  census-agree True
+   aware    count/epon    {0 | {0, *, {2* | *, {↑* | -W, {-W | -W, {-W | -W, {-W | -W, -W*}}}}} | ↓*, {*, {{{+W, {+W, {+W, {+W, +W* | +W} | +W} | +W} | +W} | +W} | -2} | -W}}}  race 171/79  precap 0/0  census-agree True
+   aware    mover/epon    {0 | {0, *, {2* | *, {↑* | -W, {-W | -W, {-W | -W, -W*}}}} | ↓*, {*, {{{+W, {+W, {+W, +W* | +W} | +W} | +W} | +W} | -2} | -W}}}  race 171/79  precap 0/0  census-agree True
+   aware    opponent/epon                     *2  race 171/79  precap 0/0  census-agree True
+W: a5 b3 c4 / B: a6 b7 c7 w 3 men 10 robust6 False
+   textbook count/epon                         *  race 47/35  precap 0/0  census-agree True
+   textbook count/epoff                     -1/4  race 45/35  precap 0/0  census-agree True
+   textbook mover/epon    {0 | {↓, 255/2±+W | {-1* | -1}}}  race 47/35  precap 0/0  census-agree True
+   textbook mover/epoff                     -1/4  race 45/35  precap 0/0  census-agree True
+   textbook opponent/epon                     ↓*  race 47/35  precap 0/0  census-agree True
+   textbook opponent/epoff                   -1/4  race 45/35  precap 0/0  census-agree True
+   aware    count/epon                   1/4±1/4  race 49/33  precap 0/0  census-agree True
+   aware    mover/epon    {0 | {↓, 255/2±+W | {-1* | -1}}}  race 49/33  precap 0/0  census-agree True
+   aware    opponent/epon                     *2  race 49/33  precap 0/0  census-agree True
+aware module: {'file': '/private/tmp/claude-501/-Users-aritro--claude-spares-spare-E0JaXy/57318271-9bbf-42b4-b8cf-b9d442308061/scratchpad/ep-wt/cylcgt/pawns.py', 'PASSED_RESPECTS_EP': True}

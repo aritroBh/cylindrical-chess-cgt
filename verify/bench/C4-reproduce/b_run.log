@@ -1,0 +1,63 @@
+cylcgt: /Users/aritro/Downloads/Research/Chessendgames/cylcgt/pawns.py | bench: /Users/aritro/Downloads/Research/Chessendgames/verify/bench/C4-reproduce/run/bench/verify.py
+A: {'A1 single outcome, ep=on (agree)': 418, 'A1 single outcome, ep=on (total)': 418, 'A1 single outcome, ep=off (agree)': 418, 'A1 single outcome, ep=off (total)': 418, 'A2 c + r(-v) is P, r from another orbit (agree)': 406, 'A2 c + r(-v) is P, r from another orbit (total)': 406, 'A2 c + r(-v) is P, r from same orbit only (agree)': 12, 'A2 c + r(-v) is P, r from same orbit only (total)': 12, 'A3 random pair outcome (agree)': 300, 'A3 random pair outcome (total)': 300} bad: [] [44s]
+  500/9000 rows, 0 disagreements [153s]
+  1000/9000 rows, 0 disagreements [200s]
+  1500/9000 rows, 0 disagreements [244s]
+  2000/9000 rows, 0 disagreements [285s]
+  2500/9000 rows, 0 disagreements [334s]
+  3000/9000 rows, 0 disagreements [370s]
+  3500/9000 rows, 0 disagreements [413s]
+  4000/9000 rows, 0 disagreements [455s]
+  4500/9000 rows, 0 disagreements [496s]
+  5000/9000 rows, 0 disagreements [542s]
+  5500/9000 rows, 0 disagreements [663s]
+  6000/9000 rows, 0 disagreements [749s]
+  6500/9000 rows, 0 disagreements [829s]
+  7000/9000 rows, 0 disagreements [895s]
+  7500/9000 rows, 0 disagreements [922s]
+  8000/9000 rows, 0 disagreements [955s]
+  8500/9000 rows, 0 disagreements [984s]
+  9000/9000 rows, 0 disagreements [1010s]
+{
+ "A": {
+  "A1 single outcome, ep=on (agree)": 418,
+  "A1 single outcome, ep=on (total)": 418,
+  "A1 single outcome, ep=off (agree)": 418,
+  "A1 single outcome, ep=off (total)": 418,
+  "A2 c + r(-v) is P, r from another orbit (agree)": 406,
+  "A2 c + r(-v) is P, r from another orbit (total)": 406,
+  "A2 c + r(-v) is P, r from same orbit only (agree)": 12,
+  "A2 c + r(-v) is P, r from same orbit only (total)": 12,
+  "A3 random pair outcome (agree)": 300,
+  "A3 random pair outcome (total)": 300
+ },
+ "A_bad": [],
+ "B": {
+  "B test rule=count (agree)": 2000,
+  "B test rule=count (total)": 2000,
+  "B test rule=mover (agree)": 250,
+  "B test rule=mover (total)": 250,
+  "B test rule=opponent (agree)": 250,
+  "B test rule=opponent (total)": 250,
+  "B test_heldout rule=count (agree)": 2000,
+  "B test_heldout rule=count (total)": 2000,
+  "B test_heldout rule=mover (agree)": 250,
+  "B test_heldout rule=mover (total)": 250,
+  "B test_heldout rule=opponent (agree)": 250,
+  "B test_heldout rule=opponent (total)": 250,
+  "B train rule=count (agree)": 3000,
+  "B train rule=count (total)": 3000,
+  "B train rule=mover (agree)": 250,
+  "B train rule=mover (total)": 250,
+  "B train rule=opponent (agree)": 250,
+  "B train rule=opponent (total)": 250,
+  "B val rule=count (agree)": 2000,
+  "B val rule=count (total)": 2000,
+  "B val rule=mover (agree)": 250,
+  "B val rule=mover (total)": 250,
+  "B val rule=opponent (agree)": 250,
+  "B val rule=opponent (total)": 250
+ },
+ "B_bad": [],
+ "seconds": 1011
+}

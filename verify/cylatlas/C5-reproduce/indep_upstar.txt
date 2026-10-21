@@ -1,0 +1,8 @@
+cyl3 opponent ep=1 W: a2 b3 / B: a5 c6 == up*3: True
+cyl3 opponent ep=0 W: a2 b3 / B: a5 c6 == up*3: True
+cyl3 opponent ep=1 W: a2 b3 / B: a6 c6 == dbl-up*2: True
+cyl3 opponent ep=0 W: a2 b3 / B: a6 c6 == dbl-up*2: True
+cyl3 opponent ep=1 W: a2 b3 / B: a5 c6 == control up*: False
+cyl3 opponent ep=0 W: a2 b3 / B: a5 c6 == control up*: False
+cyl3 opponent ep=1 W: a2 b3 / B: a5 c6 == control up: False
+cyl3 opponent ep=0 W: a2 b3 / B: a5 c6 == control up: False

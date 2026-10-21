@@ -1,0 +1,68 @@
+{
+ "component": "W: a3 b3 c2 / B: b5 b7 c6",
+ "passed_test": "textbook",
+ "prior": "count",
+ "treatment": "switch, draw = Black win",
+ "target": "*2",
+ "value_with_prior": "{0 | {0, *, {2* | *, {\u2191* | -W, {-W | -W, {-W | -W, {-W | -W, -W*}}}}} | \u2193*, {*, {{{+W, {+W, {+W, {+W, +W* | +W} | +W} | +W} | +W} | +W} | -2} | -W}}}",
+ "internal": 1384,
+ "terminals": 1703,
+ "terminals_by_men": {
+  "5": 13,
+  "6": 34,
+  "7": 287,
+  "8": 717,
+  "9": 562,
+  "10": 90
+ },
+ "lower": {
+  "needed": 5,
+  "needed_by_men": {
+   "7": 3,
+   "8": 2
+  },
+  "terminals": [
+   {
+    "terminal": "W: a3 b5 / B: c5",
+    "men": 7,
+    "prior_rw_rb": [
+     1,
+     1
+    ]
+   },
+   {
+    "terminal": "W: b3 b6 / B: b4",
+    "men": 7,
+    "prior_rw_rb": [
+     1,
+     1
+    ]
+   },
+   {
+    "terminal": "W: b5 c4 / B: c5",
+    "men": 7,
+    "prior_rw_rb": [
+     1,
+     1
+    ]
+   },
+   {
+    "terminal": "W: b3 c4 c5 / B: b5",
+    "men": 8,
+    "prior_rw_rb": [
+     1,
+     1
+    ]
+   },
+   {
+    "terminal": "W: b3 c5 / B: b4 b5 (ep b6)",
+    "men": 8,
+    "prior_rw_rb": [
+     1,
+     1
+    ]
+   }
+  ]
+ },
+ "upper": "test fails even with every terminal at the prior"
+}

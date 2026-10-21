@@ -1,0 +1,21 @@
+building component library ...
+  race rule count: done (59s)
+  race rule mover: done (130s)
+  race rule opponent: done (192s)
+  train k=1: 3000 rows, outcomes {'L': 750, 'N': 750, 'P': 750, 'R': 750}, attempts 10244
+  train k=2: 7000 rows, outcomes {'L': 1750, 'N': 1750, 'P': 1750, 'R': 1750}, attempts 28496
+  train k=3: 10000 rows, outcomes {'L': 2500, 'N': 2500, 'P': 2500, 'R': 2500}, attempts 97010
+train: 20000 rows (16324 on 8 files)  [296s]
+  val k=1: 300 rows, outcomes {'L': 75, 'N': 75, 'P': 75, 'R': 75}, attempts 9344
+  val k=2: 700 rows, outcomes {'L': 175, 'N': 175, 'P': 175, 'R': 175}, attempts 2944
+  val k=3: 1000 rows, outcomes {'L': 250, 'N': 250, 'P': 250, 'R': 250}, attempts 10342
+val: 2000 rows (1626 on 8 files)  [297s]
+  test k=4: 667 rows, outcomes {'L': 167, 'N': 167, 'P': 166, 'R': 167}, attempts 13323
+  test k=5: 667 rows, outcomes {'L': 167, 'N': 167, 'P': 166, 'R': 167}, attempts 19836
+  test k=6: 666 rows, outcomes {'L': 167, 'N': 166, 'P': 166, 'R': 167}, attempts 34910
+test: 2000 rows (364 on 8 files)  [406s]
+  test_heldout k=1: 400 rows, outcomes {'L': 100, 'N': 100, 'P': 100, 'R': 100}, attempts 3519
+  test_heldout k=2: 800 rows, outcomes {'L': 200, 'N': 200, 'P': 200, 'R': 200}, attempts 3649
+  test_heldout k=3: 800 rows, outcomes {'L': 200, 'N': 200, 'P': 200, 'R': 200}, attempts 6463
+test_heldout: 2000 rows (1642 on 8 files)  [407s]
+done in 407s; manifest at /Users/aritro/Downloads/Research/Chessendgames/bench/data/manifest.json

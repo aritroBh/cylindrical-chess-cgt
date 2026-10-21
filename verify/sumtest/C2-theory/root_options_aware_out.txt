@@ -1,0 +1,30 @@
+ep off: G = *2
+   W-> W a3 c2 / B b7 d7            {* | -1}
+   W-> W a4 c2 / B b7 d7            *
+   W-> W a2 c3 / B b7 d7            -1/2±1/2
+   W-> W a2 c4 / B b7 d7            0
+   B-> W a2 c2 / B b7 d6            {1 | *}
+   B-> W a2 c2 / B b7 d5            *
+   B-> W a2 c2 / B b6 d7            1/2±1/2
+   B-> W a2 c2 / B b5 d7            0
+   X = W a2 c2 / B b4 d7 (no ep): {256 | ±256};  after a2-a4 in X: 256
+ep on, textbook: G = *2
+   W-> W a3 c2 / B b7 d7            {* | -1}
+   W-> W a4 c2 / B b7 d7 +ep        *
+   W-> W a2 c3 / B b7 d7            -1/2±1/2
+   W-> W a2 c4 / B b7 d7 +ep        0
+   B-> W a2 c2 / B b7 d6            {1 | *}
+   B-> W a2 c2 / B b7 d5 +ep        *
+   B-> W a2 c2 / B b6 d7            1/2±1/2
+   B-> W a2 c2 / B b5 d7 +ep        0
+   X = W a2 c2 / B b4 d7 (no ep): {256 | ±256};  after a2-a4 in X: 256
+ep on, ep-aware: G = {2±1 | -2±1}
+   W-> W a3 c2 / B b7 d7            {1±1 | -1}
+   W-> W a4 c2 / B b7 d7 +ep        *
+   W-> W a2 c3 / B b7 d7            {2±1 | -1}
+   W-> W a2 c4 / B b7 d7 +ep        2±1
+   B-> W a2 c2 / B b7 d6            {1 | -1±1}
+   B-> W a2 c2 / B b7 d5 +ep        *
+   B-> W a2 c2 / B b6 d7            {1 | -2±1}
+   B-> W a2 c2 / B b5 d7 +ep        -2±1
+   X = W a2 c2 / B b4 d7 (no ep): -3;  after a2-a4 in X: ±256

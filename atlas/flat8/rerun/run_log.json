@@ -1,0 +1,46 @@
+{
+ "workstream": "A2-search rerun, 2026-10-16",
+ "machine": "14 cores, shared; load average 18 at start, 120-205 during most of the run (other sessions)",
+ "compute": {
+  "pilot estimate (enumerate.py estimate)": {
+   "cpu_s": 165,
+   "wall_s": 63,
+   "cold_cache_extrapolation_cpu_s": 28288
+  },
+  "phase 1 database, w+b<=5 all widths + w+b=6 widths 1-3 (enumerate.py enum)": {
+   "cpu_s": 780,
+   "wall_s": 294,
+   "records": 88736
+  },
+  "C census, 9 settings, all 231,071 roots (nimscan)": {
+   "cpu_s": 0.7
+  },
+  "verified import of width-4 w+b=6 (enumerate.py import-prior)": {
+   "cpu_s": 220,
+   "wall_s": 194,
+   "recomputed_sample": 1500
+  },
+  "robust (nimber candidates), run twice": {
+   "cpu_s_approx": 80,
+   "wall_s": 232
+  },
+  "robust (7 target positions)": {
+   "wall_s": 204
+  },
+  "targets scan with cylcgt recomputation, killed": {
+   "cpu_s_approx": 120,
+   "wall_s": 600
+  },
+  "targets scan, gtest, reach, census compare, checks": {
+   "cpu_s_approx": 40
+  },
+  "total_cpu_min_approx": 24,
+  "total_compute_wall_min_approx": 27
+ },
+ "skipped_or_reduced": [
+  "Width 4, w+b=6 (142,335 records): NOT recomputed in full. 140,835 records are imported from ../values.jsonl (prior run, same cylcgt code) after checks: the position set and multiplicities equal this script's own enumeration exactly; a random sample of 1,500 (seed 20261016) was recomputed here and matched in every field; the independent C census matches outcome and nimber column for all 142,335. Records carry source = 'prior-run import (verified sample)'. Reason: machine load average 120-200 from other sessions; full recompute ~2,000 cpu-s.",
+  "The cylcgt re-computation step of `analyze.py targets` (confirming each show-string hit by game identity) was killed after ~10 min wall at ~13% CPU share; replaced by the C G+(-T) test under all settings (`analyze.py gtest`).",
+  "Non-nimber targets were searched only under the database setting (count rule, e.p. on, textbook test). A position that is 1/8 or up-second only under another setting would not be found. Nimbers *k, k <= 15, were censused under all 9 settings.",
+  "No real-chess (king) verification of anything here."
+ ]
+}

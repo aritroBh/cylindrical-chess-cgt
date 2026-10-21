@@ -25,6 +25,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import random
 import subprocess
 import sys
@@ -45,6 +46,7 @@ class Solver:
         self.W, self.wrap, self.use_tt = files, wrap, tt
         self.node_cap, self.time_cap = node_cap, time_cap
         self.nodes = 0
+        self.ep_events = 0   # double steps leaving a passed pawn that may be taken e.p. (see ab.c)
         self.tt: dict = {}
         self.t_end = None
 
@@ -129,6 +131,12 @@ class Solver:
                 return v
         best = -1
         for nw, nbk, e in self.children(white, black, ep, side_white):
+            if e is not None:  # double step: is the pawn passed, and could the opponent take it e.p.?
+                f, r2 = e[1]
+                foes = nbk if side_white else nw
+                if any(g is not None and (g, r2) in foes for g in (self.nb(f, -1), self.nb(f, 1))) \
+                        and self.passed({(f, r2)}, foes, side_white):
+                    self.ep_events += 1
             wp = self.passed(nw, nbk, True)
             bp = self.passed(nbk, nw, False)
             if wp != bp:
@@ -152,6 +160,7 @@ class Solver:
     def solve(self, white, black, side_white):
         """+1 if the side to move wins. Raises NodeCap past the budget."""
         self.nodes = 0
+        self.ep_events = 0
         self.tt = {}
         self.t_end = None if self.time_cap is None else time.process_time() + self.time_cap
         return self.negamax(frozenset(white), frozenset(black), None, side_white)
@@ -174,7 +183,8 @@ AB_BIN = ROOT / "ab"
 
 def c_solve(jobs, binary=AB_BIN):
     """Run ab.c on jobs [(files, wrap, white, black, side_white, tt, node_cap, time_cap)].
-    Returns [(result, nodes, seconds)] with result 1 / -1 / 0 (= cap reached)."""
+    Returns [(result, nodes, seconds, ep_events)] with result 1 / -1 / 0 (= cap reached);
+    ep_events == 0 means the e.p.-aware passed test would give the same search (see ab.c)."""
     if not Path(binary).exists():
         raise FileNotFoundError(f"{binary} missing: build it with  cc -O2 -o bench/ab bench/ab.c")
     lines = []
@@ -186,8 +196,8 @@ def c_solve(jobs, binary=AB_BIN):
     r = subprocess.run([str(binary)], input="\n".join(lines) + "\n", capture_output=True, text=True, check=True)
     out = []
     for line in r.stdout.strip().splitlines():
-        v, n, t = line.split()
-        out.append((int(v), int(n), float(t)))
+        v, n, t, e = line.split()
+        out.append((int(v), int(n), float(t), int(e)))
     assert len(out) == len(jobs)
     return out
 
@@ -270,17 +280,18 @@ def cgt_fresh(inst):
 
 def _search(inst, variant, side, engine, node_cap, time_cap):
     if engine == "c":
-        v, n, t = c_solve([(inst["files"], inst["wrap"], inst["white"], inst["black"], side,
-                            variant == "tt", node_cap, time_cap)])[0]
-        return {"solved": v != 0, "win": v == 1, "nodes": n, "seconds": t} if v else \
-            {"solved": False, "nodes": n, "seconds": t}
+        v, n, t, e = c_solve([(inst["files"], inst["wrap"], inst["white"], inst["black"], side,
+                               variant == "tt", node_cap, time_cap)])[0]
+        return {"solved": v != 0, "win": v == 1, "nodes": n, "seconds": t, "ep_events": e} if v else \
+            {"solved": False, "nodes": n, "seconds": t, "ep_events": e}
     s = Solver(inst["files"], inst["wrap"], tt=(variant == "tt"), node_cap=node_cap, time_cap=time_cap)
     t = time.process_time()
     try:
         v = s.solve(inst["white"], inst["black"], side)
-        return {"solved": True, "win": v == 1, "nodes": s.nodes, "seconds": time.process_time() - t}
+        return {"solved": True, "win": v == 1, "nodes": s.nodes, "seconds": time.process_time() - t,
+                "ep_events": s.ep_events}
     except NodeCap:
-        return {"solved": False, "nodes": s.nodes, "seconds": time.process_time() - t}
+        return {"solved": False, "nodes": s.nodes, "seconds": time.process_time() - t, "ep_events": s.ep_events}
 
 
 def measure(inst, engine, node_cap, time_cap):
@@ -394,9 +405,31 @@ def scaling_tables(rows, meta):
                     cells.append(f"{_median(ratios):.1f} (n={len(ratios)})" if ratios else "—")
                 out.append("| " + " | ".join(cells) + " |")
             out.append("")
+            out += ["Least-squares fit of ln(median nodes) against k, over k >= 3 where the median is finite "
+                    "(unsolved searches count as infinite in the median):", ""]
+            for v, label in (("plain", "plain α-β"), ("tt", "α-β+TT")):
+                pts = []
+                for k in sorted({r["k"] for r in rs_all}):
+                    if k < 3:
+                        continue
+                    ss = [r[f"{v}_{sd}"] for r in rs_all if r["k"] == k for sd in "WB"]
+                    m = _median([x["nodes"] if x.get("solved") else float("inf") for x in ss])
+                    if m != float("inf"):
+                        pts.append((k, math.log(m)))
+                if len(pts) >= 2:
+                    kb = sum(k for k, _ in pts) / len(pts)
+                    yb = sum(y for _, y in pts) / len(pts)
+                    slope = sum((k - kb) * (y - yb) for k, y in pts) / sum((k - kb) ** 2 for k, _ in pts)
+                    out.append(f"- {label}: about x{math.exp(slope):.1f} nodes per added component "
+                               f"(k = {pts[0][0]}..{pts[-1][0]}, {len(pts)} points)")
+            out.append("")
     agree = [r[f"{v}_agrees"] for r in rows for v in ("plain", "tt") if f"{v}_agrees" in r]
     out += [f"Outcome agreement between the searches and CGT wherever both searches of an instance finished: "
             f"{sum(agree)}/{len(agree)}."]
+    eps = [r[f"{v}_{s}"].get("ep_events") for r in rows for v in ("plain", "tt") for s in "WB"]
+    if all(e is not None for e in eps):
+        out += ["", f"Double steps that left a passed pawn the opponent could take en passant, over all {len(eps)} "
+                f"searches: {sum(eps)} (0 means the e.p.-aware passed test would give identical searches)."]
     return "\n".join(out) + "\n"
 
 

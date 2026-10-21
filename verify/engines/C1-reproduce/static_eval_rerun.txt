@@ -1,0 +1,27 @@
+positions: 275; twins legal: 275
+
+## 1. Static eval sign vs tablebase root (originals; draws excluded)
+| group | n (win/loss roots) | TB root = win | final eval sign right | raw NNUE sign right |
+|---|---|---|---|---|
+| all | 258 | 216 | 190 (74%) | 190 (74%) |
+| tempo-insensitive (L/R) | 184 | 152 | 161 (88%) | 161 (88%) |
+| tempo-sensitive (N/P) | 74 | 64 | 29 (39%) | 29 (39%) |
+| CGT outcome L | 149 | 149 | 128 (86%) | 128 (86%) |
+| CGT outcome N | 61 | 61 | 18 (30%) | 18 (30%) |
+| CGT outcome P | 13 | 3 | 11 (85%) | 11 (85%) |
+| CGT outcome R | 35 | 3 | 33 (94%) | 33 (94%) |
+| tame, race-insensitive: infinitesimal | 29 | 27 | 16 (55%) | 16 (55%) |
+| tame, race-insensitive: nimber | 9 | 9 | 2 (22%) | 2 (22%) |
+| tame, race-insensitive: number | 45 | 35 | 43 (96%) | 43 (96%) |
+| tame, race-insensitive: other-tame | 22 | 20 | 13 (59%) | 13 (59%) |
+| tame, race-insensitive: switch | 39 | 36 | 28 (72%) | 28 (72%) |
+
+## 2. Side-to-move flip: delta = eval(White to move) - eval(Black to move), White POV, pawns
+CGT says: N -> White wins only when White moves (delta should be large +);
+P -> the mover loses (delta should be large -); L/R -> same winner (delta ~ 0).
+| CGT outcome class | n | median delta (final) | share delta > 0 | median delta (raw NNUE) |
+|---|---|---|---|---|
+| N | 65 | -0.30 | 25/65 | -0.30 |
+| P | 21 | -0.89 | 1/21 | -0.96 |
+| L | 150 | -0.42 | 32/150 | -0.44 |
+| R | 39 | -0.02 | 19/39 | -0.01 |

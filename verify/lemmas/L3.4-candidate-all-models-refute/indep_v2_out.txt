@@ -1,0 +1,21 @@
+Independent check of L3.4 (verifier script, no project imports)
+
+== e.p. on ==
+4-file: reachable 1075, non-terminal 405, non-terminal with >=2 components: 0
+8x8 (+g4/g5): reachable 1075, non-terminal 405, non-terminal with >2 components: 0
+race events (child, mover) on 4 files: 224
+  count            outcomes of model+*k for k=0,1,2,3: W4:NNPN  WF4:NNPN  S4:NNPN  W8:NNPN  WF8:NNPN  S8:NNPN
+  mover            outcomes of model+*k for k=0,1,2,3: W4:NNPN  WF4:NNPN  S4:NNPN  W8:NNPN  WF8:NNPN  S8:NNPN
+  opponent         outcomes of model+*k for k=0,1,2,3: W4:PNNN  WF4:PNNN  S4:PNNN  W8:PNNN  WF8:PNNN  S8:PNNN
+  count_tie_mover  outcomes of model+*k for k=0,1,2,3: W4:NNPN  WF4:NNPN  S4:NNPN  W8:NNPN  WF8:NNPN  S8:NNPN
+
+== e.p. off ==
+4-file: reachable 835, non-terminal 225, non-terminal with >=2 components: 0
+8x8 (+g4/g5): reachable 835, non-terminal 225, non-terminal with >2 components: 0
+race events (child, mover) on 4 files: 206
+  count            outcomes of model+*k for k=0,1,2,3: W4:NNPN  WF4:NNPN  S4:NNPN  W8:NNPN  WF8:NNPN  S8:NNPN
+  mover            outcomes of model+*k for k=0,1,2,3: W4:NNPN  WF4:NNPN  S4:NNPN  W8:NNPN  WF8:NNPN  S8:NNPN
+  opponent         outcomes of model+*k for k=0,1,2,3: W4:PNNN  WF4:PNNN  S4:PNNN  W8:PNNN  WF8:PNNN  S8:PNNN
+  count_tie_mover  outcomes of model+*k for k=0,1,2,3: W4:NNPN  WF4:NNPN  S4:NNPN  W8:NNPN  WF8:NNPN  S8:NNPN
+
+Reading: value = *2 iff the k=2 letter is P; value = 0 iff the k=0 letter is P.

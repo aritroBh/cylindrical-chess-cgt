@@ -1,0 +1,15 @@
+0.137 vs 0.07 shifted: equal for n<=3000: True
+g(0..33): 0 1 1 2 0 3 1 1 0 3 3 2 2 4 0 5 2 2 3 3 0 1 1 3 0 2 1 1 0 4 5 2 7 4
+max g up to 3000: 9
+n with g(n)!=g(n+34), n<=2966: [14, 16, 31, 34, 51]
+periodicity theorem hypothesis g(n+34)=g(n) for 52<=n<141: True
+ring first-player wins n<=200: [3, 7, 11, 17, 23, 27, 31, 37, 41, 45, 57, 61, 65, 75, 79, 91, 95, 99, 109, 113, 125, 129, 133, 143, 147, 159, 163, 167, 177, 181, 193, 197]
+claimed prefix matches: True
+n with R(n)!=R(n+34): [17, 37]
+  period 1 on n>=38: fails, first at n=40
+  period 2 on n>=38: fails, first at n=39
+  period 17 on n>=38: fails, first at n=40
+  period 34 on n>=38: holds
+direct check [g(m)=0]==[g(m+34)=0] for 35<=m<=51: True
+R(37), R(71): 1 0  g(34), g(68): 0 8
+raw forced-line lemma (White first; Black by colour symmetry) n=3..60 all files, 100..300 three files: True

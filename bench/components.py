@@ -17,7 +17,21 @@ only if all of the following hold:
      makes every sum of kept components `sum_safe`;
   5. no en-passant capture is ever available anywhere in the component's game
      tree, so the per-component e.p. approximation of cylcgt never matters and
-     real-chess e.p. semantics coincide with the model.
+     real-chess e.p. semantics coincide with the model;
+  5'. (added 2026-10-16 with the e.p.-aware passed test) at the positions
+     where the textbook test ENDS the game, no double-stepped pawn is both
+     passed (textbook) and capturable en passant.
+     Why: the "textbook" passed test (cylcgt on main) and the adopted
+     "e.p.-aware" test (a pawn that can still be taken e.p. is not passed;
+     cylcgt.pawns.PASSED_RESPECTS_EP on branch ep-aware-passed) can disagree
+     only about a pawn that has just double-stepped and can be taken e.p.,
+     and only if the textbook test calls that pawn passed (the promotion
+     distance used in races skips the same pawns). At a position that the
+     textbook test does not end, no pawn is passed, so filter 5' only has to
+     look at the leaves. With 5' no reachable position is judged differently,
+     so both tests build the same game tree, and every kept component (and
+     every child of it) has the same value under both.
+     bench/conventions.py re-checks this by direct computation.
 Sanity checks (asserted, not filters): the value is unchanged when the strip
 is embedded in a wider flat board or in a cylinder with one empty file;
 mirroring the files gives the same value; swapping colours (and flipping
@@ -85,8 +99,33 @@ def has_big(g: cgt.Game) -> bool:
     return False
 
 
-def ep_relevant(w: int, p: Pos) -> bool:
-    """Is an en-passant capture ever available in the component's game tree?"""
+def _ep_available(b: Board, q: Pos) -> bool:
+    """Can the side holding the e.p. right in q capture en passant right now?"""
+    if not (q.ep and b.ep):
+        return False
+    side = q.ep[2]
+    return set(pawns.moves(b, q, side)) != set(pawns.moves(b, Pos(q.white, q.black, None), side))
+
+
+def _ep_passer(b: Board, q: Pos) -> bool:
+    """Has a pawn just double-stepped that the textbook test calls passed and
+    that the opponent can take en passant? (the e.p.-aware test disagrees)"""
+    if not _ep_available(b, q):
+        return False
+    sq_, mover = q.ep[1], ("W" if q.ep[2] == "B" else "B")
+    alone = Pos(frozenset([sq_]), q.black) if mover == "W" else Pos(q.white, frozenset([sq_]))
+    return _textbook_passed(b, alone, mover)
+
+
+def ep_relevant(w: int, p: Pos, at_terminals: bool = False) -> bool:
+    """at_terminals=False (filter 5): is an en-passant capture ever available
+    in the component's game tree? The tree is the one cylcgt searches under
+    the textbook passed test: it is not expanded below a position where a side
+    has a passed pawn, and such leaves are not examined.
+    at_terminals=True (filters 5 and 5'): also True if at such a leaf the
+    pawn that has just double-stepped is passed and can be taken e.p., the
+    only case in which the e.p.-aware passed test judges a position
+    differently (it would not call that pawn passed)."""
     b = Board(w, RANKS, False, True)
     seen, stack = set(), [p]
     while stack:
@@ -94,15 +133,27 @@ def ep_relevant(w: int, p: Pos) -> bool:
         if q in seen:
             continue
         seen.add(q)
-        if pawns.passed(b, q, "W") or pawns.passed(b, q, "B"):
+        if _textbook_passed(b, q, "W") or _textbook_passed(b, q, "B"):
+            if at_terminals and _ep_passer(b, q):
+                return True
             continue
+        if _ep_available(b, q):
+            return True
         for side in "WB":
-            kids = pawns.moves(b, q, side)
-            if q.ep and q.ep[2] == side:
-                if set(kids) != set(pawns.moves(b, Pos(q.white, q.black, None), side)):
-                    return True
-            stack.extend(kids)
+            stack.extend(pawns.moves(b, q, side))
     return False
+
+
+def _textbook_passed(b: Board, q: Pos, side: str) -> bool:
+    """pawns.passed with the textbook test, whichever cylcgt is imported."""
+    flag = getattr(pawns, "PASSED_RESPECTS_EP", None)
+    if flag is None:
+        return pawns.passed(b, q, side)
+    pawns.PASSED_RESPECTS_EP = False
+    try:
+        return pawns.passed(b, q, side)
+    finally:
+        pawns.PASSED_RESPECTS_EP = flag
 
 
 def mirror(w, p: Pos) -> Pos:
@@ -133,6 +184,23 @@ def _children(w, p, ep):
 
 
 def build(verbose=True):
+    """Certify the library. Values are always computed with the textbook passed
+    test, so the output does not depend on which cylcgt is on the path (on the
+    ep-aware-passed branch the flag is set to False for the duration); filter
+    5' makes the kept components independent of that choice anyway."""
+    flag = getattr(pawns, "PASSED_RESPECTS_EP", None)
+    if flag is not None:
+        pawns.PASSED_RESPECTS_EP = False
+        pawns._value.cache_clear()
+    try:
+        return _build(verbose)
+    finally:
+        if flag is not None:
+            pawns.PASSED_RESPECTS_EP = flag
+            pawns._value.cache_clear()
+
+
+def _build(verbose=True):
     t0 = time.time()
     cands = candidates()
     stats = Counter(candidates=len(cands))
@@ -189,6 +257,9 @@ def build(verbose=True):
             continue
         if ep_relevant(w, p):
             stats["drop: an e.p. capture can occur in the game tree"] += 1
+            continue
+        if ep_relevant(w, p, at_terminals=True):
+            stats["drop: a double step can make a passer that may be taken e.p. (e.p.-aware test differs)"] += 1
             continue
         kept.append((w, p, g, kv[0]))
     stats["kept"] = len(kept)

@@ -1,0 +1,155 @@
+{
+ "component": "W: a2 c2 / B: b7 d7",
+ "board": "4 files (a-d), 8 ranks, flat",
+ "textbook": {
+  "cylcgt_file": "/Users/aritro/Downloads/Research/Chessendgames/cylcgt/pawns.py",
+  "PASSED_RESPECTS_EP": "absent (textbook)",
+  "values": {
+   "ep=on,rule=count": {
+    "value": "*2",
+    "outcome": "N",
+    "race_hits": 398,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=on,rule=mover": {
+    "value": "*2",
+    "outcome": "N",
+    "race_hits": 398,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=on,rule=opponent": {
+    "value": "0",
+    "outcome": "P",
+    "race_hits": 398,
+    "mean": "0",
+    "temperature": "number"
+   },
+   "ep=off,rule=count": {
+    "value": "*2",
+    "outcome": "N",
+    "race_hits": 224,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=off,rule=mover": {
+    "value": "*2",
+    "outcome": "N",
+    "race_hits": 224,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=off,rule=opponent": {
+    "value": "0",
+    "outcome": "P",
+    "race_hits": 224,
+    "mean": "0",
+    "temperature": "number"
+   }
+  }
+ },
+ "ep_aware": {
+  "cylcgt_file": "/private/tmp/claude-501/-Users-aritro--claude-spares-spare-E0JaXy/57318271-9bbf-42b4-b8cf-b9d442308061/scratchpad/ep-wt/cylcgt/pawns.py",
+  "PASSED_RESPECTS_EP": true,
+  "values": {
+   "ep=on,rule=count": {
+    "value": "{2\u00b11 | -2\u00b11}",
+    "outcome": "N",
+    "race_hits": 424,
+    "mean": "0",
+    "temperature": "2"
+   },
+   "ep=on,rule=mover": {
+    "value": "{2\u00b11 | -2\u00b11}",
+    "outcome": "N",
+    "race_hits": 424,
+    "mean": "0",
+    "temperature": "2"
+   },
+   "ep=on,rule=opponent": {
+    "value": "0",
+    "outcome": "P",
+    "race_hits": 424,
+    "mean": "0",
+    "temperature": "number"
+   },
+   "ep=off,rule=count": {
+    "value": "*2",
+    "outcome": "N",
+    "race_hits": 224,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=off,rule=mover": {
+    "value": "*2",
+    "outcome": "N",
+    "race_hits": 224,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=off,rule=opponent": {
+    "value": "0",
+    "outcome": "P",
+    "race_hits": 224,
+    "mean": "0",
+    "temperature": "number"
+   }
+  }
+ },
+ "control_epaware_worktree_flag_off": {
+  "cylcgt_file": "/private/tmp/claude-501/-Users-aritro--claude-spares-spare-E0JaXy/57318271-9bbf-42b4-b8cf-b9d442308061/scratchpad/ep-wt/cylcgt/pawns.py",
+  "PASSED_RESPECTS_EP": false,
+  "values": {
+   "ep=on,rule=count": {
+    "value": "*2",
+    "outcome": "N",
+    "race_hits": 398,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=on,rule=mover": {
+    "value": "*2",
+    "outcome": "N",
+    "race_hits": 398,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=on,rule=opponent": {
+    "value": "0",
+    "outcome": "P",
+    "race_hits": 398,
+    "mean": "0",
+    "temperature": "number"
+   },
+   "ep=off,rule=count": {
+    "value": "*2",
+    "outcome": "N",
+    "race_hits": 224,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=off,rule=mover": {
+    "value": "*2",
+    "outcome": "N",
+    "race_hits": 224,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=off,rule=opponent": {
+    "value": "0",
+    "outcome": "P",
+    "race_hits": 224,
+    "mean": "0",
+    "temperature": "number"
+   }
+  }
+ },
+ "control_matches_textbook": true,
+ "distinct_values": [
+  "*2",
+  "0",
+  "{2\u00b11 | -2\u00b11}"
+ ],
+ "benchmark_eligible": false
+}

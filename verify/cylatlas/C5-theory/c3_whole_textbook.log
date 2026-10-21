@@ -1,0 +1,8 @@
+cyl3 W: a2 b3 / B: a5 c5 e.p.=on   count: -1/2 ; mover: ↑ ; opponent: *2
+cyl3 W: a2 b3 / B: a5 c5 e.p.=off  count: -1/2 ; mover: ↑ ; opponent: *2
+cyl3 W: a4 b4 / B: a7 c6 e.p.=on   count: 1/2 ; mover: ↓ ; opponent: *2
+cyl3 W: a4 b4 / B: a7 c6 e.p.=off  count: 1/2 ; mover: ↓ ; opponent: *2
+cyl3 W: a2 b2 / B: a5 c7 e.p.=on   count: {0 | ⇓*} ; mover: -1/8±1/8 ; opponent: {{0 | *2, {0 | *2}} | ⇓*}
+cyl3 W: a2 b2 / B: a5 c7 e.p.=off  count: ↓* ; mover: 1/4 ; opponent: *2
+cyl3 W: a2 b4 / B: b7 c7 e.p.=on   count: {⇑* | 0} ; mover: 1/8±1/8 ; opponent: {⇑* | {*2, {*2 | 0} | 0}}
+cyl3 W: a2 b4 / B: b7 c7 e.p.=off  count: ↑* ; mover: -1/4 ; opponent: *2

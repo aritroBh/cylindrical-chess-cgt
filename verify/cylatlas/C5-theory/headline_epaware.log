@@ -1,0 +1,58 @@
+cylcgt.pawns: /private/tmp/claude-501/-Users-aritro--claude-spares-spare-E0JaXy/57318271-9bbf-42b4-b8cf-b9d442308061/scratchpad/ep-wt/cylcgt/pawns.py
+PASSED_RESPECTS_EP = True
+
+flat 4 W: a2 c2 / B: b7 d7
+   count    ep=on   {2±1 | -2±1}                             outcome=N races=424
+   mover    ep=on   {2±1 | -2±1}                             outcome=N races=424
+   opponent ep=on   0                                        outcome=P races=424
+   count    ep=off  *2                                       outcome=N races=224
+   mover    ep=off  *2                                       outcome=N races=224
+   opponent ep=off  0                                        outcome=P races=224
+
+cyl 4 W: a2 c2 / B: b7 d7
+   count    ep=on   {2±1 | -2±1}                             outcome=N races=72
+   mover    ep=on   {2±1 | -2±1}                             outcome=N races=72
+   opponent ep=on   {2±1 | -2±1}                             outcome=N races=72
+   count    ep=off  ±1/2                                     outcome=N races=8
+   mover    ep=off  ±1/2                                     outcome=N races=8
+   opponent ep=off  ±1/2                                     outcome=N races=8
+
+cyl 3 W: a2 b3 / B: a5 c5
+   count    ep=on   -1/2                                     outcome=R races=32
+   mover    ep=on   ↓*                                       outcome=N races=32
+   opponent ep=on   *2                                       outcome=N races=32
+   count    ep=off  -1/2                                     outcome=R races=35
+   mover    ep=off  ↑                                        outcome=L races=35
+   opponent ep=off  *2                                       outcome=N races=35
+
+flat 3 W: a2 b3 / B: a5 c5
+   count    ep=on   {0 | {-W, -W* | -W}}                     outcome=N races=32
+   mover    ep=on   2                                        outcome=L races=32
+   opponent ep=on   tiny(+W)                                 outcome=L races=32
+   count    ep=off  {0 | {-W, -W* | -W}}                     outcome=N races=29
+   mover    ep=off  2                                        outcome=L races=29
+   opponent ep=off  tiny(+W)                                 outcome=L races=29
+
+Translations of W a2 c2 / B b7 d7 (count, e.p. on):
+   flat 4: {2±1 | -2±1}
+   flat 5: {2±1 | -2±1}
+   flat 6: {2±1 | -2±1}
+   flat 7: {2±1 | -2±1}
+   flat 8: {2±1 | -2±1}
+   flat 9: {2±1 | -2±1}
+   cyl 4: {2±1 | -2±1}
+   cyl 5: {2±1 | -2±1}
+   cyl 6: {2±1 | -2±1}
+   cyl 7: {2±1 | -2±1}
+   cyl 8: {2±1 | -2±1}
+   cyl 9: {2±1 | -2±1}
+   flat 8 W: e2 g2 / B: f7 h7: {2±1 | -2±1}
+   flat 8 W: c2 e2 / B: d7 f7: {2±1 | -2±1}
+   flat 8 W: b2 d2 / B: a7 c7: {2±1 | -2±1}
+
+BIG invariance (count, e.p. on):
+   BIG=32: flat4: {2±1 | -2±1} ; cyl4: {2±1 | -2±1} ; cyl3: -1/2 ; cyl3/opponent: *2
+   BIG=64: flat4: {2±1 | -2±1} ; cyl4: {2±1 | -2±1} ; cyl3: -1/2 ; cyl3/opponent: *2
+   BIG=256: flat4: {2±1 | -2±1} ; cyl4: {2±1 | -2±1} ; cyl3: -1/2 ; cyl3/opponent: *2
+   BIG=1024: flat4: {2±1 | -2±1} ; cyl4: {2±1 | -2±1} ; cyl3: -1/2 ; cyl3/opponent: *2
+   BIG=4096: flat4: {2±1 | -2±1} ; cyl4: {2±1 | -2±1} ; cyl3: -1/2 ; cyl3/opponent: *2

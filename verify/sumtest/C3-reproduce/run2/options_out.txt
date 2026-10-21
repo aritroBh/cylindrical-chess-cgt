@@ -1,0 +1,56 @@
+=== race=count conv=textbook: G = *2
+   W -> W: a3 c2 / B: b7 d7                      value {* | -1}
+   W -> W: a4 c2 / B: b7 d7                      value *
+   W -> W: a2 c3 / B: b7 d7                      value -1/2±1/2
+   W -> W: a2 c4 / B: b7 d7                      value 0
+   B -> W: a2 c2 / B: b7 d6                      value {1 | *}
+   B -> W: a2 c2 / B: b7 d5                      value *
+   B -> W: a2 c2 / B: b6 d7                      value 1/2±1/2
+   B -> W: a2 c2 / B: b5 d7                      value 0
+   X = W a2 c2 / B b4 d7 : {256 | ±256}
+      W -> W: a3 c2 / B: b4 d7                      value ±256
+      W -> +BIG                                     value 256
+      W -> W: a2 c3 / B: b4 d7                      value {256, {256, {256, {256, ±256 | -256, ±256} | -256, ±256} | -256, ±256} | -256, ±256}
+      W -> W: a2 c4 / B: b4 d7 [ep B may take on c3] value {0, {256, {256, ±256 | -256, ±256} | -256, ±256} | -256}
+=== race=count conv=aware: G = {2±1 | -2±1}
+   W -> W: a3 c2 / B: b7 d7                      value {1±1 | -1}
+   W -> W: a4 c2 / B: b7 d7                      value *
+   W -> W: a2 c3 / B: b7 d7                      value {2±1 | -1}
+   W -> W: a2 c4 / B: b7 d7                      value 2±1
+   B -> W: a2 c2 / B: b7 d6                      value {1 | -1±1}
+   B -> W: a2 c2 / B: b7 d5                      value *
+   B -> W: a2 c2 / B: b6 d7                      value {1 | -2±1}
+   B -> W: a2 c2 / B: b5 d7                      value -2±1
+   X = W a2 c2 / B b4 d7 : -3
+      W -> W: a3 c2 / B: b4 d7                      value ±256
+      W -> W: a4 c2 / B: b4 d7 [ep B may take on a3] value ±256
+      W -> W: a2 c3 / B: b4 d7                      value {256, ±256 | -256, {256, {256, {256, ±256 | -256, ±256} | -256, ±256} | -256, ±256}}
+      W -> W: a2 c4 / B: b4 d7 [ep B may take on c3] value {0, {256, {256, ±256 | -256, ±256} | -256, ±256} | -256}
+=== race=mover conv=textbook: G = *2
+   W -> W: a3 c2 / B: b7 d7                      value {* | -1}
+   W -> W: a4 c2 / B: b7 d7                      value *
+   W -> W: a2 c3 / B: b7 d7                      value -1/2±1/2
+   W -> W: a2 c4 / B: b7 d7                      value 0
+   B -> W: a2 c2 / B: b7 d6                      value {1 | *}
+   B -> W: a2 c2 / B: b7 d5                      value *
+   B -> W: a2 c2 / B: b6 d7                      value 1/2±1/2
+   B -> W: a2 c2 / B: b5 d7                      value 0
+   X = W a2 c2 / B b4 d7 : {256 | ±256}
+      W -> W: a3 c2 / B: b4 d7                      value ±256
+      W -> +BIG                                     value 256
+      W -> W: a2 c3 / B: b4 d7                      value {{256 | {256, ±256 | -256, ±256}, {256, {256, ±256 | -256, ±256} | -256, ±256}} | -256, ±256}
+      W -> W: a2 c4 / B: b4 d7 [ep B may take on c3] value {256, ±256 | -256, ±256, {256, ±256 | -256, ±256}}
+=== race=mover conv=aware: G = {2±1 | -2±1}
+   W -> W: a3 c2 / B: b7 d7                      value {1±1 | -1}
+   W -> W: a4 c2 / B: b7 d7                      value *
+   W -> W: a2 c3 / B: b7 d7                      value {2±1 | -1}
+   W -> W: a2 c4 / B: b7 d7                      value 2±1
+   B -> W: a2 c2 / B: b7 d6                      value {1 | -1±1}
+   B -> W: a2 c2 / B: b7 d5                      value *
+   B -> W: a2 c2 / B: b6 d7                      value {1 | -2±1}
+   B -> W: a2 c2 / B: b5 d7                      value -2±1
+   X = W a2 c2 / B b4 d7 : -3
+      W -> W: a3 c2 / B: b4 d7                      value ±256
+      W -> W: a4 c2 / B: b4 d7 [ep B may take on a3] value ±256
+      W -> W: a2 c3 / B: b4 d7                      value {256, ±256 | -256, {256, {256, {256, ±256 | -256, ±256} | -256, ±256} | -256, ±256}}
+      W -> W: a2 c4 / B: b4 d7 [ep B may take on c3] value {0, {256, {256, ±256 | -256, ±256} | -256, ±256} | -256}

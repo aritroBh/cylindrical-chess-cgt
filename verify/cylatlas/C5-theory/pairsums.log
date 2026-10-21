@@ -1,0 +1,12 @@
+atoms loaded: 40105
+
+[textbook] atoms whose value is *k, k>=2: 1
+    ('flat', 4, 'W: a2 c2 / B: b7 d7', '*2')
+[textbook] non-W flat atoms: 3704; distinct values: 329 (one narrowest witness each)
+   witness pairs summing to *2 with 6 pawns: 1 value-pairs, e.g. [('W: a2 / B: a3', 'W: a2 c2 / B: b7 d7')]
+   witness pairs summing to *3 with 6 pawns: 1 value-pairs, e.g. [('W: a5 / B: a7', 'W: a2 c2 / B: b7 d7')]
+
+[e.p.-aware] atoms whose value is *k, k>=2: 0
+[e.p.-aware] non-W flat atoms: 3908; distinct values: 324 (one narrowest witness each)
+   no pair of non-W flat atoms sums to *k (k>=2)
+PYTHONPATH=. .venv/bin/python verify/cylatlas/C5-theory/pairsums.py  117.94s user 0.24s system 49% cpu 4:00.27 total

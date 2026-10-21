@@ -1,0 +1,18 @@
+{"round": 0, "requests_so_far": 0, "ledger": 282, "resolved_sides": 12, "model_filled_terminals": 1698, "unresolvable_sides": 0, "lower_needs": {"7": 2, "8": 2}, "upper_with_model_fill": false, "plan_test": "lower", "sides_to_resolve": 8, "resolved": [["W: b3 b6 / B: b4", "B", 1, 7], ["W: b3 b6 / B: b4", "W", 1, 7], ["W: b5 c4 / B: c5", "B", 1, 7], ["W: b5 c4 / B: c5", "W", 1, 7], ["W: b3 c4 c5 / B: b5", "B", 1, 8], ["W: b3 c4 c5 / B: b5", "W", 1, 8], ["W: b3 c5 / B: b4 b5 (ep b6)", "B", 1, 8], ["W: b3 c5 / B: b4 b5 (ep b6)", "W", 1, 8]]}
+{"round": 1, "requests_so_far": 6, "ledger": 321, "resolved_sides": 22, "model_filled_terminals": 1694, "unresolvable_sides": 0, "certified": {"certified": true, "test": "lower", "statement": "*2 excluded with every non-L/R terminal free (lower test)"}}
+{
+ "component": "W: a3 b3 c2 / B: b5 b7 c6",
+ "tree": "textbook",
+ "treatment": "free (only L/R fixed)",
+ "target": "*2",
+ "status": "certified",
+ "result": {
+  "certified": true,
+  "test": "lower",
+  "statement": "*2 excluded with every non-L/R terminal free (lower test)"
+ },
+ "unresolvable_sides": [],
+ "new_requests_this_run": 6,
+ "ledger": 321,
+ "seconds": 42.6
+}

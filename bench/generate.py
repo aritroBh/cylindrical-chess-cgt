@@ -34,6 +34,9 @@ from .components import BIG, build, public
 
 DATA = Path(__file__).resolve().parent / "data"
 MAX_FILES = 26          # file letters a..z
+# 1 = git 28d790f (518 components, textbook passed test only);
+# 2 = 2026-10-16, filter 5' added so that the e.p.-aware passed test gives the same truth.
+LIBRARY_VERSION = 2
 OUTCOMES = ("L", "R", "N", "P")
 
 SPLITS = [
@@ -276,7 +279,9 @@ def main(argv=None):
         for c in comps:
             f.write(json.dumps(public(c), ensure_ascii=False) + "\n")
     seen = set()
-    manifest = {"seed": a.seed, "scale": a.scale,
+    manifest = {"library_version": LIBRARY_VERSION, "seed": a.seed, "scale": a.scale,
+                "passed_test": "textbook and e.p.-aware give identical ground truth on every row (filter 5', "
+                               "bench/components.py; re-checked by bench/conventions.py)",
                 "component_filter": {k: v for k, v in cstats.items() if k != "seconds"}, "splits": {}}
     for si, (name, size, kshare, pool, need_held) in enumerate(SPLITS):
         rng = random.Random(a.seed * 1000 + si)

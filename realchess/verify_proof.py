@@ -30,9 +30,10 @@ DECISIVE = {"win": "win", "loss": "loss", "cursed-win": "win", "blessed-loss": "
 
 
 class Prover:
-    def __init__(self, cache_dir=None, fifty=False):
+    def __init__(self, cache_dir=None, fifty=False, kb=None):
         kw = {"cache_dir": cache_dir} if cache_dir else {}
         self.pr = Prober(0, offline=True, **kw)
+        self.kb = kb  # optional realchess.kb.KB: also read the imported (read-only) caches
         self.fifty = fifty  # if True, cursed-win/blessed-loss are NOT decisive
         self.memo = {}
         self.failed = {}
@@ -51,6 +52,12 @@ class Prover:
             c = self._cat(rec["data"].get("category"))
             if c:
                 return c, {"source": "root category", "fen": rec["fen"]}
+        if self.kb is not None and child.men() <= 7:
+            c = self._cat(self.kb.category(child))
+            if c:
+                prov = self.kb.provenance(child)
+                return c, {"source": "kb " + prov[0], "fen": prov[1],
+                           **({"uci": prov[2]} if len(prov) > 2 else {})}
         prec = self.pr.cached(mg.normal_fen(parent))
         if prec and prec.get("data"):
             for mv in prec["data"].get("moves", []):
@@ -132,9 +139,14 @@ def main():
     ap.add_argument("--depth", type=int, default=40)
     ap.add_argument("--fifty", action="store_true", help="cursed-win/blessed-loss count as draws")
     ap.add_argument("--out")
+    ap.add_argument("--kb", action="store_true", help="also use the imported read-only caches (realchess/kb.py)")
     a = ap.parse_args()
     sys.setrecursionlimit(100000)
-    P = Prover(fifty=a.fifty)
+    kb = None
+    if a.kb:
+        from .kb import default_kb
+        kb = default_kb()
+    P = Prover(fifty=a.fifty, kb=kb)
     cert = P.prove(mg.parse_fen(a.fen), a.claim, a.depth)
     ok = cert is not None
     info = {"fen": mg.normal_fen(a.fen), "claim": a.claim, "proved": ok, "fifty": a.fifty}

@@ -1,0 +1,16 @@
+flat8 ep=True race=count: G+*h second-player win for h in ['*2']; races=297
+flat8 ep=True race=mover: G+*h second-player win for h in ['*2']; races=229
+flat8 ep=True race=opponent: G+*h second-player win for h in ['0']; races=352
+   with checks scored as wins: (WhiteFirstWins, BlackFirstWins) by heap {0: (True, True), 1: (True, True), 2: (False, False), 3: (True, True)}
+flat8 ep=False race=count: G+*h second-player win for h in ['*2']; races=235
+flat8 ep=False race=mover: G+*h second-player win for h in ['*2']; races=169
+flat8 ep=False race=opponent: G+*h second-player win for h in ['0']; races=263
+   with checks scored as wins: (WhiteFirstWins, BlackFirstWins) by heap {0: (True, True), 1: (True, True), 2: (False, False), 3: (True, True)}
+cyl8 ep=True race=count: G+*h second-player win for h in ['*2']; races=297
+cyl8 ep=True race=mover: G+*h second-player win for h in ['*2']; races=229
+cyl8 ep=True race=opponent: G+*h second-player win for h in ['0']; races=352
+   with checks scored as wins: (WhiteFirstWins, BlackFirstWins) by heap {0: (True, False), 1: (True, False), 2: (True, False), 3: (True, False)}
+cyl8 ep=False race=count: G+*h second-player win for h in ['*2']; races=235
+cyl8 ep=False race=mover: G+*h second-player win for h in ['*2']; races=169
+cyl8 ep=False race=opponent: G+*h second-player win for h in ['0']; races=263
+   with checks scored as wins: (WhiteFirstWins, BlackFirstWins) by heap {0: (True, False), 1: (True, False), 2: (True, False), 3: (True, False)}

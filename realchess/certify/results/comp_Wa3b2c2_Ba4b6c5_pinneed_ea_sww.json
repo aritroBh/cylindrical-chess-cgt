@@ -1,0 +1,545 @@
+{
+ "component": "W: a3 b2 c2 / B: a4 b6 c5",
+ "tree": "e.p.-aware",
+ "treatment": "switch, draw = White win",
+ "race_rule_fill": "count",
+ "no_l8_rows": false,
+ "resolved_sides": 34,
+ "filled_terminals": 423,
+ "value_with_fill": "*2",
+ "fill_pinned": true,
+ "needed": 35,
+ "needed_by_men": {
+  "6": 2,
+  "7": 7,
+  "8": 10,
+  "9": 16
+ },
+ "needed_terminals": [
+  {
+   "terminal": "W:  / B: b4 c5",
+   "men": 6,
+   "race": false,
+   "assumed_rw_rb": [
+    -1,
+    -1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/8/2p2Kp1/1p4Pk/8/8/8 w - - 0 1",
+   "fen_B": "8/8/8/2p2Kp1/1p4Pk/8/8/8 b - - 0 1"
+  },
+  {
+   "terminal": "W: a3 / B: c5",
+   "men": 6,
+   "race": true,
+   "assumed_rw_rb": [
+    -1,
+    -1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/8/2p2Kp1/6Pk/P7/8/8 w - - 0 1",
+   "fen_B": "8/8/8/2p2Kp1/6Pk/P7/8/8 b - - 0 1"
+  },
+  {
+   "terminal": "W: a3 / B: b3 b5",
+   "men": 7,
+   "race": false,
+   "assumed_rw_rb": [
+    -1,
+    -1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/8/1p3Kp1/6Pk/Pp6/8/8 w - - 0 1",
+   "fen_B": "8/8/8/1p3Kp1/6Pk/Pp6/8/8 b - - 0 1"
+  },
+  {
+   "terminal": "W: a3 / B: b3 b6",
+   "men": 7,
+   "race": false,
+   "assumed_rw_rb": [
+    -1,
+    -1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/1p6/5Kp1/6Pk/Pp6/8/8 w - - 0 1",
+   "fen_B": "8/8/1p6/5Kp1/6Pk/Pp6/8/8 b - - 0 1"
+  },
+  {
+   "terminal": "W: a3 c4 / B: b4",
+   "men": 7,
+   "race": false,
+   "assumed_rw_rb": [
+    1,
+    1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/8/5Kp1/1pP3Pk/P7/8/8 w - - 0 1",
+   "fen_B": "8/8/8/5Kp1/1pP3Pk/P7/8/8 b - - 0 1"
+  },
+  {
+   "terminal": "W: a4 / B: b4 b6",
+   "men": 7,
+   "race": false,
+   "assumed_rw_rb": [
+    -1,
+    -1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/1p6/5Kp1/Pp4Pk/8/8/8 w - - 0 1",
+   "fen_B": "8/8/1p6/5Kp1/Pp4Pk/8/8/8 b - - 0 1"
+  },
+  {
+   "terminal": "W: a4 c4 / B: b4",
+   "men": 7,
+   "race": true,
+   "assumed_rw_rb": [
+    -1,
+    -1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/8/5Kp1/PpP3Pk/8/8/8 w - - 0 1",
+   "fen_B": "8/8/8/5Kp1/PpP3Pk/8/8/8 b - - 0 1"
+  },
+  {
+   "terminal": "W: b3 / B: a4 c3",
+   "men": 7,
+   "race": false,
+   "assumed_rw_rb": [
+    -1,
+    -1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/8/5Kp1/p5Pk/1Pp5/8/8 w - - 0 1",
+   "fen_B": "8/8/8/5Kp1/p5Pk/1Pp5/8/8 b - - 0 1"
+  },
+  {
+   "terminal": "W: b4 / B: a4 c3 (ep b3)",
+   "men": 7,
+   "race": false,
+   "assumed_rw_rb": [
+    -1,
+    -1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/8/5Kp1/pP4Pk/2p5/8/8 w - - 0 1",
+   "fen_B": "8/8/8/5Kp1/pP4Pk/2p5/8/8 b - b3 0 1"
+  },
+  {
+   "terminal": "W: a3 b4 / B: b5 c4",
+   "men": 8,
+   "race": false,
+   "assumed_rw_rb": [
+    -1,
+    -1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/8/1p3Kp1/1Pp3Pk/P7/8/8 w - - 0 1",
+   "fen_B": "8/8/8/1p3Kp1/1Pp3Pk/P7/8/8 b - - 0 1"
+  },
+  {
+   "terminal": "W: a3 b5 / B: b6 c5",
+   "men": 8,
+   "race": false,
+   "assumed_rw_rb": [
+    -1,
+    -1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/1p6/1Pp2Kp1/6Pk/P7/8/8 w - - 0 1",
+   "fen_B": "8/8/1p6/1Pp2Kp1/6Pk/P7/8/8 b - - 0 1"
+  },
+  {
+   "terminal": "W: a4 / B: b6 c2 c5",
+   "men": 8,
+   "race": false,
+   "assumed_rw_rb": [
+    -1,
+    -1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/1p6/2p2Kp1/P5Pk/8/2p5/8 w - - 0 1",
+   "fen_B": "8/8/1p6/2p2Kp1/P5Pk/8/2p5/8 b - - 0 1"
+  },
+  {
+   "terminal": "W: a4 b3 / B: b4 c5",
+   "men": 8,
+   "race": false,
+   "assumed_rw_rb": [
+    1,
+    1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/8/2p2Kp1/Pp4Pk/1P6/8/8 w - - 0 1",
+   "fen_B": "8/8/8/2p2Kp1/Pp4Pk/1P6/8/8 b - - 0 1"
+  },
+  {
+   "terminal": "W: a4 b3 / B: b6 c3",
+   "men": 8,
+   "race": false,
+   "assumed_rw_rb": [
+    -1,
+    -1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/1p6/5Kp1/P5Pk/1Pp5/8/8 w - - 0 1",
+   "fen_B": "8/8/1p6/5Kp1/P5Pk/1Pp5/8/8 b - - 0 1"
+  },
+  {
+   "terminal": "W: a4 b4 / B: b5 c4",
+   "men": 8,
+   "race": false,
+   "assumed_rw_rb": [
+    -1,
+    -1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/8/1p3Kp1/PPp3Pk/8/8/8 w - - 0 1",
+   "fen_B": "8/8/8/1p3Kp1/PPp3Pk/8/8/8 b - - 0 1"
+  },
+  {
+   "terminal": "W: b3 c2 / B: a3 b4",
+   "men": 8,
+   "race": false,
+   "assumed_rw_rb": [
+    -1,
+    -1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/8/5Kp1/1p4Pk/pP6/2P5/8 w - - 0 1",
+   "fen_B": "8/8/8/5Kp1/1p4Pk/pP6/2P5/8 b - - 0 1"
+  },
+  {
+   "terminal": "W: c2 / B: a4 b3 c4",
+   "men": 8,
+   "race": false,
+   "assumed_rw_rb": [
+    -1,
+    -1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/8/5Kp1/p1p3Pk/1p6/2P5/8 w - - 0 1",
+   "fen_B": "8/8/8/5Kp1/p1p3Pk/1p6/2P5/8 b - - 0 1"
+  },
+  {
+   "terminal": "W: c2 / B: a4 b3 c5",
+   "men": 8,
+   "race": false,
+   "assumed_rw_rb": [
+    -1,
+    -1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/8/2p2Kp1/p5Pk/1p6/2P5/8 w - - 0 1",
+   "fen_B": "8/8/8/2p2Kp1/p5Pk/1p6/2P5/8 b - - 0 1"
+  },
+  {
+   "terminal": "W: c2 / B: a5 b3 c3",
+   "men": 8,
+   "race": false,
+   "assumed_rw_rb": [
+    -1,
+    -1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/8/p4Kp1/6Pk/1pp5/2P5/8 w - - 0 1",
+   "fen_B": "8/8/8/p4Kp1/6Pk/1pp5/2P5/8 b - - 0 1"
+  },
+  {
+   "terminal": "W: a3 a4 c2 / B: b4 c5",
+   "men": 9,
+   "race": false,
+   "assumed_rw_rb": [
+    1,
+    1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/8/2p2Kp1/Pp4Pk/P7/2P5/8 w - - 0 1",
+   "fen_B": "8/8/8/2p2Kp1/Pp4Pk/P7/2P5/8 b - - 0 1"
+  },
+  {
+   "terminal": "W: a3 b2 b5 / B: a4 c5",
+   "men": 9,
+   "race": false,
+   "assumed_rw_rb": [
+    1,
+    1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/8/1Pp2Kp1/p5Pk/P7/1P6/8 w - - 0 1",
+   "fen_B": "8/8/8/1Pp2Kp1/p5Pk/P7/1P6/8 b - - 0 1"
+  },
+  {
+   "terminal": "W: a3 b3 / B: a4 c3 c5",
+   "men": 9,
+   "race": false,
+   "assumed_rw_rb": [
+    -1,
+    -1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/8/2p2Kp1/p5Pk/PPp5/8/8 w - - 0 1",
+   "fen_B": "8/8/8/2p2Kp1/p5Pk/PPp5/8/8 b - - 0 1"
+  },
+  {
+   "terminal": "W: a3 b4 / B: a4 c3 c5 (ep b3)",
+   "men": 9,
+   "race": false,
+   "assumed_rw_rb": [
+    -1,
+    -1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/8/2p2Kp1/pP4Pk/P1p5/8/8 w - - 0 1",
+   "fen_B": "8/8/8/2p2Kp1/pP4Pk/P1p5/8/8 b - b3 0 1"
+  },
+  {
+   "terminal": "W: a3 b4 / B: a4 c4 c5 (ep b3)",
+   "men": 9,
+   "race": false,
+   "assumed_rw_rb": [
+    -1,
+    -1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/8/2p2Kp1/pPp3Pk/P7/8/8 w - - 0 1",
+   "fen_B": "8/8/8/2p2Kp1/pPp3Pk/P7/8/8 b - b3 0 1"
+  },
+  {
+   "terminal": "W: a3 c2 c4 / B: a4 b4",
+   "men": 9,
+   "race": false,
+   "assumed_rw_rb": [
+    1,
+    1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/8/5Kp1/ppP3Pk/P7/2P5/8 w - - 0 1",
+   "fen_B": "8/8/8/5Kp1/ppP3Pk/P7/2P5/8 b - - 0 1"
+  },
+  {
+   "terminal": "W: a3 c3 / B: b3 b5 c4",
+   "men": 9,
+   "race": false,
+   "assumed_rw_rb": [
+    -1,
+    -1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/8/1p3Kp1/2p3Pk/PpP5/8/8 w - - 0 1",
+   "fen_B": "8/8/8/1p3Kp1/2p3Pk/PpP5/8/8 b - - 0 1"
+  },
+  {
+   "terminal": "W: a3 c3 / B: b3 b5 c5",
+   "men": 9,
+   "race": false,
+   "assumed_rw_rb": [
+    -1,
+    -1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/8/1pp2Kp1/6Pk/PpP5/8/8 w - - 0 1",
+   "fen_B": "8/8/8/1pp2Kp1/6Pk/PpP5/8/8 b - - 0 1"
+  },
+  {
+   "terminal": "W: a3 c3 / B: b3 b6 c4",
+   "men": 9,
+   "race": false,
+   "assumed_rw_rb": [
+    -1,
+    -1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/1p6/5Kp1/2p3Pk/PpP5/8/8 w - - 0 1",
+   "fen_B": "8/8/1p6/5Kp1/2p3Pk/PpP5/8/8 b - - 0 1"
+  },
+  {
+   "terminal": "W: a3 c3 / B: b3 b6 c5",
+   "men": 9,
+   "race": false,
+   "assumed_rw_rb": [
+    -1,
+    -1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/1p6/2p2Kp1/6Pk/PpP5/8/8 w - - 0 1",
+   "fen_B": "8/8/1p6/2p2Kp1/6Pk/PpP5/8/8 b - - 0 1"
+  },
+  {
+   "terminal": "W: a3 c4 / B: b3 b5 c5 (ep c3)",
+   "men": 9,
+   "race": false,
+   "assumed_rw_rb": [
+    -1,
+    -1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/8/1pp2Kp1/2P3Pk/Pp6/8/8 w - - 0 1",
+   "fen_B": "8/8/8/1pp2Kp1/2P3Pk/Pp6/8/8 b - - 0 1"
+  },
+  {
+   "terminal": "W: a3 c4 / B: b3 b6 c5",
+   "men": 9,
+   "race": false,
+   "assumed_rw_rb": [
+    -1,
+    -1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/1p6/2p2Kp1/2P3Pk/Pp6/8/8 w - - 0 1",
+   "fen_B": "8/8/1p6/2p2Kp1/2P3Pk/Pp6/8/8 b - - 0 1"
+  },
+  {
+   "terminal": "W: a3 c4 / B: b3 b6 c5 (ep c3)",
+   "men": 9,
+   "race": false,
+   "assumed_rw_rb": [
+    -1,
+    -1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/1p6/2p2Kp1/2P3Pk/Pp6/8/8 w - - 0 1",
+   "fen_B": "8/8/1p6/2p2Kp1/2P3Pk/Pp6/8/8 b - - 0 1"
+  },
+  {
+   "terminal": "W: b2 b4 c2 / B: a4 c4",
+   "men": 9,
+   "race": false,
+   "assumed_rw_rb": [
+    1,
+    1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/8/5Kp1/pPp3Pk/8/1PP5/8 w - - 0 1",
+   "fen_B": "8/8/8/5Kp1/pPp3Pk/8/1PP5/8 b - - 0 1"
+  },
+  {
+   "terminal": "W: b2 b4 c3 / B: a4 c4",
+   "men": 9,
+   "race": false,
+   "assumed_rw_rb": [
+    1,
+    1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/8/5Kp1/pPp3Pk/2P5/1P6/8 w - - 0 1",
+   "fen_B": "8/8/8/5Kp1/pPp3Pk/2P5/1P6/8 b - - 0 1"
+  },
+  {
+   "terminal": "W: b3 c2 / B: a3 a4 c5",
+   "men": 9,
+   "race": false,
+   "assumed_rw_rb": [
+    -1,
+    -1
+   ],
+   "known_rw_rb": [
+    null,
+    null
+   ],
+   "fen_W": "8/8/8/2p2Kp1/p5Pk/pP6/2P5/8 w - - 0 1",
+   "fen_B": "8/8/8/2p2Kp1/p5Pk/pP6/2P5/8 b - - 0 1"
+  }
+ ]
+}

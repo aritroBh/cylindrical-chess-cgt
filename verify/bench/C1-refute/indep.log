@@ -1,0 +1,24 @@
+candidates 5290
+textbook count ep=True done [2s]
+textbook count ep=False done [4s]
+textbook mover ep=True done [5s]
+textbook mover ep=False done [7s]
+textbook opponent ep=True done [8s]
+textbook opponent ep=False done [10s]
+drops {'big': 1355, 'root varies': 3066, 'child varies': 326, 'ep available': 25} v1 518 [10s]
+aware count ep=True done [11s]
+aware count ep=False done [11s]
+aware mover ep=True done [11s]
+aware mover ep=False done [11s]
+aware opponent ep=True done [12s]
+aware opponent ep=False done [12s]
+v1 size 518
+v1 components changing (any setting, root or child): 48
+per setting [components changed, of which root changes]: {'count,ep=True': [48, 28], 'mover,ep=True': [32, 20], 'opponent,ep=True': [48, 28]}
+root changes under count, e.p. on: 28
+root changes under any setting: 28
+halves in v1: 20
+halves all among changed: True []
+v1 values: [('0', 170), ('*', 116), ('-1', 24), ('1', 24), ('^', 20), ('v', 20), ('-2', 16), ('2', 16), ('1/2', 8), ('-1/2', 8), ('-3', 6), ('{-1 | -2}', 6), ('{2 | 1}', 6), ('3', 6), ('{0 | 0, *}', 6), ('{0, * | 0}', 6), ('{1 | -1}', 4), ('{0 | ^}', 3), ('{v | 0}', 3), ('{0 | -1}', 3), ('{-2 | -3}', 3), ('{-1 | {-2 | -3}}', 3), ('{1 | 0}', 3), ('{{3 | 2} | 1}', 3), ('{3 | 2}', 3), ('-4', 3), ('{0 | -2}', 3), ('{-2 | -4}', 3), ('{2 | 0}', 3), ('{4 | 2}', 3), ('4', 3), ('{3 | -3}', 2), ('1/2*', 2), ('-1/2*', 2), ('{0 | {-1 | -2}}', 1), ('{-1 | {-1 | {-2 | -3}}}', 1), ('{{{3 | 2} | 1} | 1}', 1), ('{{2 | 1} | 0}', 1), ('{-1 | -3}', 1), ('{0 | {-2 | -4}}', 1), ('{{4 | 2} | 0}', 1), ('{3 | 1}', 1)]
+v1 non-integer-number(ish) values: {'1/2': 8, '1/2*': 2, '-1/2': 8, '-1/2*': 2}
+done [12s]

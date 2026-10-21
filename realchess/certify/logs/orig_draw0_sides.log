@@ -1,0 +1,300 @@
+{
+ "mode": "pure",
+ "ext": 6,
+ "positions": [
+  {
+   "fen": "8/3p4/Pp6/2P2Kp1/6Pk/8/8/8 b - - 0 1",
+   "status": "budget: --max-new 25 reached",
+   "interval": [
+    -1,
+    1
+   ],
+   "result_for_side_to_move": "unresolved",
+   "in_model": true,
+   "component": "W: a6 c5 / B: b6 d7",
+   "moves": [
+    {
+     "move": "h4g3",
+     "piece": "K",
+     "result_for_mover": "loss",
+     "interval_for_mover": [
+      -1,
+      -1
+     ],
+     "how": "search"
+    },
+    {
+     "move": "h4h3",
+     "piece": "K",
+     "result_for_mover": "loss",
+     "interval_for_mover": [
+      -1,
+      -1
+     ],
+     "how": "search"
+    },
+    {
+     "move": "b6b5",
+     "piece": "P",
+     "result_for_mover": "unresolved",
+     "interval_for_mover": [
+      -1,
+      1
+     ],
+     "how": "search"
+    },
+    {
+     "move": "b6c5",
+     "piece": "P",
+     "result_for_mover": "loss",
+     "interval_for_mover": [
+      -1,
+      -1
+     ],
+     "how": "tablebase"
+    },
+    {
+     "move": "d7d6",
+     "piece": "P",
+     "result_for_mover": "loss",
+     "interval_for_mover": [
+      -1,
+      -1
+     ],
+     "how": "search"
+    },
+    {
+     "move": "d7d5",
+     "piece": "P",
+     "result_for_mover": "loss",
+     "interval_for_mover": [
+      -1,
+      -1
+     ],
+     "how": "search"
+    }
+   ]
+  },
+  {
+   "fen": "8/8/8/5Kp1/1pPp2Pk/8/P7/8 w - - 0 1",
+   "status": "budget: --max-new 50 reached",
+   "interval": [
+    0,
+    1
+   ],
+   "result_for_side_to_move": "unresolved",
+   "in_model": true,
+   "component": "W: a2 c4 / B: b4 d4",
+   "moves": [
+    {
+     "move": "a2a3",
+     "piece": "P",
+     "result_for_mover": "loss",
+     "interval_for_mover": [
+      -1,
+      -1
+     ],
+     "how": "search"
+    },
+    {
+     "move": "a2a4",
+     "piece": "P",
+     "result_for_mover": "loss",
+     "interval_for_mover": [
+      -1,
+      -1
+     ],
+     "how": "search"
+    },
+    {
+     "move": "c4c5",
+     "piece": "P",
+     "result_for_mover": "unresolved",
+     "interval_for_mover": [
+      -1,
+      1
+     ],
+     "how": "search"
+    },
+    {
+     "move": "f5g6",
+     "piece": "K",
+     "result_for_mover": "unresolved",
+     "interval_for_mover": [
+      -1,
+      0
+     ],
+     "how": "search"
+    },
+    {
+     "move": "f5f6",
+     "piece": "K",
+     "result_for_mover": "unresolved",
+     "interval_for_mover": [
+      -1,
+      0
+     ],
+     "how": "search"
+    },
+    {
+     "move": "f5e6",
+     "piece": "K",
+     "result_for_mover": "loss",
+     "interval_for_mover": [
+      -1,
+      -1
+     ],
+     "how": "search"
+    },
+    {
+     "move": "f5e5",
+     "piece": "K",
+     "result_for_mover": "unresolved",
+     "interval_for_mover": [
+      -1,
+      0
+     ],
+     "how": "search"
+    },
+    {
+     "move": "f5e4",
+     "piece": "K",
+     "result_for_mover": "draw",
+     "interval_for_mover": [
+      0,
+      0
+     ],
+     "how": "search"
+    }
+   ]
+  },
+  {
+   "fen": "8/3p4/8/PpP2Kp1/6Pk/8/8/8 b - - 0 1",
+   "status": "budget: --max-new 75 reached",
+   "interval": [
+    -1,
+    1
+   ],
+   "result_for_side_to_move": "unresolved",
+   "in_model": true,
+   "component": "W: a5 c5 / B: b5 d7",
+   "moves": [
+    {
+     "move": "h4g3",
+     "piece": "K",
+     "result_for_mover": "loss",
+     "interval_for_mover": [
+      -1,
+      -1
+     ],
+     "how": "search"
+    },
+    {
+     "move": "h4h3",
+     "piece": "K",
+     "result_for_mover": "loss",
+     "interval_for_mover": [
+      -1,
+      -1
+     ],
+     "how": "search"
+    },
+    {
+     "move": "b5b4",
+     "piece": "P",
+     "result_for_mover": "unresolved",
+     "interval_for_mover": [
+      -1,
+      1
+     ],
+     "how": "search"
+    },
+    {
+     "move": "d7d6",
+     "piece": "P",
+     "result_for_mover": "loss",
+     "interval_for_mover": [
+      -1,
+      -1
+     ],
+     "how": "search"
+    },
+    {
+     "move": "d7d5",
+     "piece": "P",
+     "result_for_mover": "loss",
+     "interval_for_mover": [
+      -1,
+      -1
+     ],
+     "how": "search"
+    }
+   ]
+  },
+  {
+   "fen": "8/3p4/P7/1pP2Kp1/6Pk/8/8/8 b - - 0 1",
+   "status": "budget: --max-new 100 reached",
+   "interval": [
+    -1,
+    1
+   ],
+   "result_for_side_to_move": "unresolved",
+   "in_model": true,
+   "component": "W: a6 c5 / B: b5 d7",
+   "moves": [
+    {
+     "move": "h4g3",
+     "piece": "K",
+     "result_for_mover": "loss",
+     "interval_for_mover": [
+      -1,
+      -1
+     ],
+     "how": "search"
+    },
+    {
+     "move": "h4h3",
+     "piece": "K",
+     "result_for_mover": "loss",
+     "interval_for_mover": [
+      -1,
+      -1
+     ],
+     "how": "search"
+    },
+    {
+     "move": "b5b4",
+     "piece": "P",
+     "result_for_mover": "unresolved",
+     "interval_for_mover": [
+      -1,
+      1
+     ],
+     "how": "search"
+    },
+    {
+     "move": "d7d6",
+     "piece": "P",
+     "result_for_mover": "loss",
+     "interval_for_mover": [
+      -1,
+      -1
+     ],
+     "how": "search"
+    },
+    {
+     "move": "d7d5",
+     "piece": "P",
+     "result_for_mover": "loss",
+     "interval_for_mover": [
+      -1,
+      -1
+     ],
+     "how": "search"
+    }
+   ]
+  }
+ ],
+ "new_requests": 100,
+ "seconds": 164.5
+}

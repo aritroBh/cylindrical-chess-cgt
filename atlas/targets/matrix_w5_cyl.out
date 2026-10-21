@@ -1,0 +1,80 @@
+== w5: targets by setting (cyl board; number of positions) ==
+kind                                 label                                 cnt/T    cnt/A  cnt/off    mov/T    mov/A  mov/off    opp/T    opp/A  opp/off    wht/T    wht/A  wht/off    blk/T    blk/A  blk/off
+*2                                   *2                                        0        0        0        0        0        0       21       21       21        0       10        0        0       10        0
+dyadic den>=8                        -1/16                                     0        0        0        0        0        5        0        0        5        0        0        0        0        0        5
+dyadic den>=8                        -1/8                                      5        0        5       25        0       40       10        0       10        5        0        5        0        0       15
+dyadic den>=8                        -11/8                                     0        0        0        0        0        5        0        0        0        0        0        0        0        0        0
+dyadic den>=8                        -15/16                                    5        5        5        0        0        0        0        0        0        0        0        0        0        0        0
+dyadic den>=8                        -3/8                                      0        0        0        7        0        7        0        0        0        0        0        0        5        0       10
+dyadic den>=8                        -5/8                                      0        0        0        0        0        0        0        0        0        0        0        0       10        0       15
+dyadic den>=8                        -7/8                                      5        5        5        0        0        0        0        0        0        0        0        0       20        5       15
+dyadic den>=8                        1/16                                      0        0        0        0        0        5        0        0        5        0        0        5        0        0        0
+dyadic den>=8                        1/8                                       5        0        5       25        0       40       10        0       10        0        0       15        5        0        5
+dyadic den>=8                        11/8                                      0        0        0        0        0        5        0        0        0        0        0        0        0        0        0
+dyadic den>=8                        15/16                                     5        5        5        0        0        0        0        0        0        0        0        0        0        0        0
+dyadic den>=8                        3/8                                       0        0        0        7        0        7        0        0        0        5        0       10        0        0        0
+dyadic den>=8                        5/8                                       0        0        0        0        0        0        0        0        0       10        0       15        0        0        0
+dyadic den>=8                        7/8                                       5        5        5        0        0        0        0        0        0       20        5       15        0        0        0
+fractional tiny (number subscript)   -1 + miny(1/2)                            0        0        5        0        0        0        2        0        7        0        0        0        0        0        0
+fractional tiny (number subscript)   -1 + miny(1/4)                            0        0        0        0        0        0        0        0        0        0        0        0        0        0        5
+fractional tiny (number subscript)   -1/2 + miny(1/2)                          0        0        0        0        0        0        2        0        2        0        0        0        0        0        0
+fractional tiny (number subscript)   1 + tiny(1/2)                             0        0        5        0        0        0        2        0        7        0        0        0        0        0        0
+fractional tiny (number subscript)   1 + tiny(1/4)                             0        0        0        0        0        0        0        0        0        0        0        5        0        0        0
+fractional tiny (number subscript)   1/2 + tiny(1/2)                           0        0        0        0        0        0        2        0        2        0        0        0        0        0        0
+fractional tiny (number subscript)   miny(1/2)                                 5        5        5        0        0        0        0        0        0        5        5        5        0        0        0
+fractional tiny (number subscript)   tiny(1/2)                                 5        5        5        0        0        0        0        0        0        0        0        0        5        5        5
+tiny, non-number subscript           -1 + miny(1*)                             3        0        0        3        0        0        0        0        0        0        0        0        6        6        3
+tiny, non-number subscript           -1 + miny({1 | 1, 1*})                    0        0        0        0        0        0        0        0        0        0        0        0        3        3        3
+tiny, non-number subscript           -1/2 + miny({1/2 | 1/2, 1/2*})            0        0        0        0        5        0        0        0        0        0        0        0        0        0        0
+tiny, non-number subscript           -1/2 + miny({1/2* | 1/2})                 0        0        0        0        0        0        0        0        0        0        0        0        5        0        5
+tiny, non-number subscript           -2 + miny(1*)                             0        0        0        0        0        0        0        0        0        0        0        0        3        0        3
+tiny, non-number subscript           -2 + miny(3/2*)                           0        0        0        0        0        0        0        0        0        0        0        0        3        0        3
+tiny, non-number subscript           -2 + miny({2* | 1})                       0        0        0        0        0        0        0        0        0        0        0        0        0        3        0
+tiny, non-number subscript           -2 + miny({{2* | 2} | 3/2})               0        0        0        0        0        0        0        0        0        0        0        0        0        3        0
+tiny, non-number subscript           -3 + miny({2 | 2*})                       3        0        3        3        0        3        0        0        0        0        0        0        3        0        3
+tiny, non-number subscript           -4 + miny(11/4*)                          2        0        2        2        0        2        0        0        0        0        0        0        2        0        2
+tiny, non-number subscript           -4 + miny(27/8±5/8)                       0        0        0        0        2        0        0        0        0        0        0        0        0        2        0
+tiny, non-number subscript           -4 + miny(4*)                             0        2        0        0        0        0        0        0        0        0        0        0        0        0        0
+tiny, non-number subscript           1 + tiny(1*)                              3        0        0        3        0        0        0        0        0        6        6        3        0        0        0
+tiny, non-number subscript           1 + tiny({1 | 1, 1*})                     0        0        0        0        0        0        0        0        0        3        3        3        0        0        0
+tiny, non-number subscript           1/2 + tiny({1/2 | 1/2, 1/2*})             0        0        0        0        5        0        0        0        0        0        0        0        0        0        0
+tiny, non-number subscript           1/2 + tiny({1/2* | 1/2})                  0        0        0        0        0        0        0        0        0        5        0        5        0        0        0
+tiny, non-number subscript           2 + tiny(1*)                              0        0        0        0        0        0        0        0        0        3        0        3        0        0        0
+tiny, non-number subscript           2 + tiny(3/2*)                            0        0        0        0        0        0        0        0        0        3        0        3        0        0        0
+tiny, non-number subscript           2 + tiny({2* | 1})                        0        0        0        0        0        0        0        0        0        0        3        0        0        0        0
+tiny, non-number subscript           2 + tiny({{2* | 2} | 3/2})                0        0        0        0        0        0        0        0        0        0        3        0        0        0        0
+tiny, non-number subscript           3 + tiny({2 | 2*})                        3        0        3        3        0        3        0        0        0        3        0        3        0        0        0
+tiny, non-number subscript           4 + tiny(11/4*)                           2        0        2        2        0        2        0        0        0        2        0        2        0        0        0
+tiny, non-number subscript           4 + tiny(27/8±5/8)                        0        0        0        0        2        0        0        0        0        0        2        0        0        0        0
+tiny, non-number subscript           4 + tiny(4*)                              0        2        0        0        0        0        0        0        0        0        0        0        0        0        0
+tiny, non-number subscript           miny(1*)                                  4        8        4        0        0        0        7       11        7        4        8        4        0        0        0
+tiny, non-number subscript           miny(5/2±1/2)                             0        0        0        0        0        0        0        0        0        0        5        0        0        0        0
+tiny, non-number subscript           miny({0 | ⇑})                             0        0        0        0        0        0        0        0        0        0        0        5        0        0        0
+tiny, non-number subscript           miny({0, ↓* | 0, ↓*})                     0        0        5        0        0        0        0        0        5        0        0        5        0        0        0
+tiny, non-number subscript           miny({{1 | *} | 0, *})                    0        3        0        0        0        0        0        0        0        0        0        0        0        0        0
+tiny, non-number subscript           miny(⇑*)                                  0        0        0        0        0        0        0        0        0        0        0        0        5        0        0
+tiny, non-number subscript           tiny(1*)                                  4        8        4        0        0        0        7       11        7        0        0        0        4        8        4
+tiny, non-number subscript           tiny(5/2±1/2)                             0        0        0        0        0        0        0        0        0        0        0        0        0        5        0
+tiny, non-number subscript           tiny({0 | ⇑})                             0        0        0        0        0        0        0        0        0        0        0        0        0        0        5
+tiny, non-number subscript           tiny({0, ↓* | 0, ↓*})                     0        0        5        0        0        0        0        0        5        0        0        0        0        0        5
+tiny, non-number subscript           tiny({{1 | *} | 0, *})                    0        3        0        0        0        0        0        0        0        0        0        0        0        0        0
+tiny, non-number subscript           tiny(⇑*)                                  0        0        0        0        0        0        0        0        0        5        0        0        0        0        0
+up-second family                     2·↑ + 2·↑²                                0        0        0        0        0        0        5        0        0        0        0        0        0        0        0
+up-second family                     2·↑ + ↑²                                  0        0        0        0        5        0        0        0        0        0        0        0        0        0        0
+up-second family                     2·↓ + 2·↓²                                0        0        0        0        0        0        5        0        0        0        0        0        0        0        0
+up-second family                     2·↓ + ↓²                                  0        0        0        0        5        0        0        0        0        0        0        0        0        0        0
+up-second family                     ↑ + 2·↑² + *                              0        0        0        0        0        0        0        0        0        3        3        0        0        0        0
+up-second family                     ↑ + ↑²                                    0        0        0        0        0        0       10        8        7        0        0        0        7        3        7
+up-second family                     ↑ + ↑² + *                                0        0        0        0        0        0        5        0        5        0        5        0        0        0        0
+up-second family                     ↑ + ↑³ + *                                0        0        0        0        0        0        0        5        0        0        0        0        0        0        0
+up-second family                     ↑²                                        5        0        0        0        9        5       23       32       24        9       12        4        5        0        0
+up-second family                     ↑² + *                                    3        3        3        7        3        0        5        5        5        6        0        3        3        3        3
+up-second family                     ↓ + 2·↓² + *                              0        0        0        0        0        0        0        0        0        0        0        0        3        3        0
+up-second family                     ↓ + ↓²                                    0        0        0        0        0        0       10        8        7        7        3        7        0        0        0
+up-second family                     ↓ + ↓² + *                                0        0        0        0        0        0        5        0        5        0        0        0        0        5        0
+up-second family                     ↓ + ↓³ + *                                0        0        0        0        0        0        0        5        0        0        0        0        0        0        0
+up-second family                     ↓²                                        5        0        0        0        9        5       23       32       24        5        0        0        9       12        4
+up-second family                     ↓² + *                                    3        3        3        7        3        0        5        5        5        3        3        3        6        0        3
+
+Targets whose value is identical under all 15 settings:
+   none

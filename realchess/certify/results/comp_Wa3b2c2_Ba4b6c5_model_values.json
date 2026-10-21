@@ -1,0 +1,158 @@
+{
+ "component": "W: a3 b2 c2 / B: a4 b6 c5",
+ "board": "4 files (a-d), 8 ranks, flat",
+ "textbook": {
+  "cylcgt_file": "/Users/aritro/Downloads/Research/Chessendgames/cylcgt/pawns.py",
+  "PASSED_RESPECTS_EP": "absent (textbook)",
+  "values": {
+   "ep=on,rule=count": {
+    "value": "*",
+    "outcome": "N",
+    "race_hits": 47,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=on,rule=mover": {
+    "value": "{{{1 | 1*} | \u2191, -255/2\u00b1+W} | 0}",
+    "outcome": "N",
+    "race_hits": 47,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=on,rule=opponent": {
+    "value": "\u2191*",
+    "outcome": "N",
+    "race_hits": 47,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=off,rule=count": {
+    "value": "1/4",
+    "outcome": "L",
+    "race_hits": 45,
+    "mean": "1/4",
+    "temperature": "number"
+   },
+   "ep=off,rule=mover": {
+    "value": "1/4",
+    "outcome": "L",
+    "race_hits": 45,
+    "mean": "1/4",
+    "temperature": "number"
+   },
+   "ep=off,rule=opponent": {
+    "value": "1/4",
+    "outcome": "L",
+    "race_hits": 45,
+    "mean": "1/4",
+    "temperature": "number"
+   }
+  }
+ },
+ "ep_aware": {
+  "cylcgt_file": "/private/tmp/claude-501/-Users-aritro--claude-spares-spare-E0JaXy/57318271-9bbf-42b4-b8cf-b9d442308061/scratchpad/ep-wt/cylcgt/pawns.py",
+  "PASSED_RESPECTS_EP": true,
+  "values": {
+   "ep=on,rule=count": {
+    "value": "-1/4\u00b11/4",
+    "outcome": "N",
+    "race_hits": 49,
+    "mean": "-1/4",
+    "temperature": "1/4"
+   },
+   "ep=on,rule=mover": {
+    "value": "{{{1 | 1*} | \u2191, -255/2\u00b1+W} | 0}",
+    "outcome": "N",
+    "race_hits": 49,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=on,rule=opponent": {
+    "value": "*2",
+    "outcome": "N",
+    "race_hits": 49,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=off,rule=count": {
+    "value": "1/4",
+    "outcome": "L",
+    "race_hits": 45,
+    "mean": "1/4",
+    "temperature": "number"
+   },
+   "ep=off,rule=mover": {
+    "value": "1/4",
+    "outcome": "L",
+    "race_hits": 45,
+    "mean": "1/4",
+    "temperature": "number"
+   },
+   "ep=off,rule=opponent": {
+    "value": "1/4",
+    "outcome": "L",
+    "race_hits": 45,
+    "mean": "1/4",
+    "temperature": "number"
+   }
+  }
+ },
+ "control_epaware_worktree_flag_off": {
+  "cylcgt_file": "/private/tmp/claude-501/-Users-aritro--claude-spares-spare-E0JaXy/57318271-9bbf-42b4-b8cf-b9d442308061/scratchpad/ep-wt/cylcgt/pawns.py",
+  "PASSED_RESPECTS_EP": false,
+  "values": {
+   "ep=on,rule=count": {
+    "value": "*",
+    "outcome": "N",
+    "race_hits": 47,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=on,rule=mover": {
+    "value": "{{{1 | 1*} | \u2191, -255/2\u00b1+W} | 0}",
+    "outcome": "N",
+    "race_hits": 47,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=on,rule=opponent": {
+    "value": "\u2191*",
+    "outcome": "N",
+    "race_hits": 47,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=off,rule=count": {
+    "value": "1/4",
+    "outcome": "L",
+    "race_hits": 45,
+    "mean": "1/4",
+    "temperature": "number"
+   },
+   "ep=off,rule=mover": {
+    "value": "1/4",
+    "outcome": "L",
+    "race_hits": 45,
+    "mean": "1/4",
+    "temperature": "number"
+   },
+   "ep=off,rule=opponent": {
+    "value": "1/4",
+    "outcome": "L",
+    "race_hits": 45,
+    "mean": "1/4",
+    "temperature": "number"
+   }
+  }
+ },
+ "control_matches_textbook": true,
+ "distinct_values": [
+  "*",
+  "*2",
+  "-1/4\u00b11/4",
+  "1/4",
+  "{{{1 | 1*} | \u2191, -255/2\u00b1+W} | 0}",
+  "\u2191*"
+ ],
+ "benchmark_eligible": false
+}

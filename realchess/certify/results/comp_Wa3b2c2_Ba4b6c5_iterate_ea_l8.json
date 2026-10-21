@@ -1,0 +1,83 @@
+{
+ "component": "W: a3 b2 c2 / B: a4 b6 c5",
+ "tree": "e.p.-aware",
+ "treatment": "free (only L/R fixed)",
+ "target": "*2",
+ "status": "not excludable with the model fill and the unresolvable sides free",
+ "result": null,
+ "unresolvable_sides": [
+  "8/8/8/2p2Kp1/Pp4Pk/1P6/8/8 b - - 0 1",
+  "8/8/8/2p2Kp1/Pp4Pk/1P6/8/8 w - - 0 1",
+  "8/8/8/2p2Kp1/Pp4Pk/P7/2P5/8 b - - 0 1",
+  "8/8/8/2p2Kp1/Pp4Pk/P7/2P5/8 w - - 0 1"
+ ],
+ "log": [
+  {
+   "round": 0,
+   "requests_so_far": 0,
+   "ledger": 264,
+   "resolved_sides": 26,
+   "model_filled_terminals": 398,
+   "unresolvable_sides": 0,
+   "lower_needs": {
+    "8": 2,
+    "9": 1
+   },
+   "upper_with_model_fill": false,
+   "plan_test": "lower",
+   "sides_to_resolve": 6,
+   "resolved": [
+    [
+     "W: a4 b3 / B: b4 c5",
+     "B",
+     null,
+     8
+    ],
+    [
+     "W: a4 b3 / B: b4 c5",
+     "W",
+     null,
+     8
+    ],
+    [
+     "W: a5 b3 / B: b5 c4",
+     "B",
+     -1,
+     8
+    ],
+    [
+     "W: a5 b3 / B: b5 c4",
+     "W",
+     1,
+     8
+    ],
+    [
+     "W: a3 a4 c2 / B: b4 c5",
+     "B",
+     null,
+     9
+    ],
+    [
+     "W: a3 a4 c2 / B: b4 c5",
+     "W",
+     null,
+     9
+    ]
+   ]
+  },
+  {
+   "round": 1,
+   "requests_so_far": 82,
+   "ledger": 358,
+   "resolved_sides": 28,
+   "model_filled_terminals": 395,
+   "unresolvable_sides": 4,
+   "lower_with_model_fill": false,
+   "upper_with_model_fill": false,
+   "status": "not excludable with the model fill and the unresolvable sides free"
+  }
+ ],
+ "new_requests_this_run": 82,
+ "ledger": 358,
+ "seconds": 102.2
+}

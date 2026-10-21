@@ -1,0 +1,23 @@
+flat4 ep=on count    W: a2 c2 / B: b7 d7    == *2                      : True
+flat4 ep=on mover    W: a2 c2 / B: b7 d7    == *2                      : True
+flat4 ep=on opponent W: a2 c2 / B: b7 d7    == 0                       : True
+flat4 ep=off count    W: a2 c2 / B: b7 d7    == *2                      : True
+flat4 ep=off mover    W: a2 c2 / B: b7 d7    == *2                      : True
+flat4 ep=off opponent W: a2 c2 / B: b7 d7    == 0                       : True
+cyl4 ep=on count    W: a2 c2 / B: b7 d7    == {3/2+-1/2|-3/2+-1/2}    : True
+cyl4 ep=on mover    W: a2 c2 / B: b7 d7    == {3/2+-1/2|-3/2+-1/2}    : True
+cyl4 ep=on opponent W: a2 c2 / B: b7 d7    == {3/2+-1/2|-3/2+-1/2}    : True
+cyl4 ep=off count    W: a2 c2 / B: b7 d7    == +-1/2                   : True
+cyl3 ep=on opponent W: a2 b3 / B: a5 c5    == *2                      : True
+cyl3 ep=off opponent W: a2 b3 / B: a5 c5    == *2                      : True
+cyl3 ep=on count    W: a2 b3 / B: a5 c5    == -1/2                    : True
+cyl3 ep=on mover    W: a2 b3 / B: a5 c5    == up                      : True
+cyl3 ep=on opponent W: a4 b4 / B: a7 c6    == *2                      : True
+flat4 ep=on count    W: a2 c2 / B: b7 d7    == (control: not *)        : False
+flat4 ep=on count    W: a2 c2 / B: b7 d7    == (control: not *3)       : False
+flat4 ep=on count    W: a2 c2 / B: b7 d7    == (control: not 0)        : False
+cyl4 ep=on count    W: a2 c2 / B: b7 d7    == (control: not *2)       : False
+race accounting flat4 ep=on W: a2 c2 / B: b7 d7: race edges=398, distinct race children (with ep flag)=184, distinct race placements=166, non-terminal states reached=405
+race accounting flat4 ep=off W: a2 c2 / B: b7 d7: race edges=224, distinct race children (with ep flag)=166, distinct race placements=166, non-terminal states reached=225
+race accounting cyl3 ep=on W: a2 b3 / B: a5 c5: race edges=36, distinct race children (with ep flag)=21, distinct race placements=19, non-terminal states reached=68
+race accounting cyl4 ep=on W: a2 c2 / B: b7 d7: race edges=8, distinct race children (with ep flag)=8, distinct race placements=8, non-terminal states reached=527

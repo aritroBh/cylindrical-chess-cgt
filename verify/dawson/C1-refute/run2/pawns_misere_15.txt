@@ -1,0 +1,17 @@
+n=1: checked 4 start positions so far, mismatches 0, promotions seen 0, cache 6
+n=2: checked 12 start positions so far, mismatches 0, promotions seen 0, cache 26
+n=3: checked 26 start positions so far, mismatches 0, promotions seen 0, cache 70
+n=4: checked 48 start positions so far, mismatches 0, promotions seen 0, cache 162
+n=5: checked 80 start positions so far, mismatches 0, promotions seen 0, cache 350
+n=6: checked 124 start positions so far, mismatches 0, promotions seen 0, cache 936
+n=7: checked 182 start positions so far, mismatches 0, promotions seen 0, cache 2382
+n=8: checked 256 start positions so far, mismatches 0, promotions seen 0, cache 5178
+n=9: checked 348 start positions so far, mismatches 0, promotions seen 0, cache 9848
+n=10: checked 460 start positions so far, mismatches 0, promotions seen 0, cache 18346
+n=11: checked 594 start positions so far, mismatches 0, promotions seen 0, cache 41134
+n=12: checked 752 start positions so far, mismatches 0, promotions seen 0, cache 93862
+n=13: checked 936 start positions so far, mismatches 0, promotions seen 0, cache 171366
+n=14: checked 1148 start positions so far, mismatches 0, promotions seen 0, cache 271452
+n=15: checked 1390 start positions so far, mismatches 0, promotions seen 0, cache 540686
+RESULT: 1390 (board, empty-file set, side) cases on flat 3xn, n <= 15, <= 2 empty files; mismatches 0 []
+timeout 1500 python3 -I pawns_misere.py cert_Q32.txt 15  2.01s user 0.06s system 22% cpu 9.136 total

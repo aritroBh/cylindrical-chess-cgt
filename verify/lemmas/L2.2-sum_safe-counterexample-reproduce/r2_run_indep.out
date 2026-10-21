@@ -1,0 +1,29 @@
+OK  8x8 cyl ep=off count    W: b2 d4 g3 h5 / B: a7 c7 f7 g4: components=1 o(S)=R (BIG64 R, BIG1000 R) o(W)=N  claimed R/N  0.3s
+OK  8x8 cyl ep=off count    W: b3 f4 g5 / B: a5 b6 f5 h6: components=1 o(S)=N (BIG64 N, BIG1000 N) o(W)=L  claimed N/L  0.0s
+OK  8x8 cyl ep=off count    W: b2 c5 d4 f3 / B: c7 d6 e7 g6: components=1 o(S)=L (BIG64 L, BIG1000 L) o(W)=N  claimed L/N  3.0s
+OK  8x8 cyl ep=on count    W: a2 c4 e4 h2 / B: a6 b5 d7 e7: components=1 o(S)=R (BIG64 R, BIG1000 R) o(W)=N  claimed R/N  7.0s
+OK  8x8 cyl ep=on count    W: a5 b6 d2 e2 / B: a7 c7 e7: components=1 o(S)=L (BIG64 L, BIG1000 L) o(W)=N  claimed L/N  1.5s
+OK  8x7 cyl ep=off count    W: c2 g2 h4 / B: a5 b6 f5 g6: components=1 o(S)=R (BIG64 R, BIG1000 R) o(W)=N  claimed R/N  0.3s
+OK  7x6 flat ep=on count    W: b2 d3 f2 / B: c4 c5 e5 g5: components=1 o(S)=N (BIG64 N, BIG1000 N) o(W)=R  claimed N/R  0.2s
+OK  8x8 cyl ep=on opponent W: a3 e2 e4 h6 / B: a4 a5 f5 g7: components=1 o(S)=N (BIG64 N, BIG1000 N) o(W)=L  claimed N/L  0.0s
+OK  6x8 flat ep=off opponent W: b2 d4 f4 / B: b7 c5 e5 e7: components=1 o(S)=R (BIG64 R, BIG1000 R) o(W)=N  claimed R/N  0.5s
+
+headline component files: [0, 1, 2, 3, 5, 6, 7] -> ['W: b2 d4 g3 h5 / B: a7 c7 f7 g4']
+   W -> W: b2 d4 g3 h6 / B: a7 c7 f7 g4: o(S)=N o(W)=L DIFF
+   W -> W: b2 d5 g3 h5 / B: a7 c7 f7 g4: o(S)=R o(W)=L DIFF
+   W -> W: b3 d4 g3 h5 / B: a7 c7 f7 g4: o(S)=R o(W)=N DIFF
+   W -> W: b4 d4 g3 h5 / B: a7 c7 f7 g4: o(S)=N o(W)=N 
+  W: 4 moves, 3 children with o(S) != o(W)
+   B -> W: b2 d4 g3 h5 / B: a5 c7 f7 g4: terminal (W passer True, B passer False)
+   B -> W: b2 d4 g3 h5 / B: a6 c7 f7 g4: o(S)=N o(W)=N 
+   B -> W: b2 d4 g3 h5 / B: a7 c5 f7 g4: o(S)=N o(W)=N 
+   B -> W: b2 d4 g3 h5 / B: a7 c6 f7 g4: o(S)=N o(W)=N 
+   B -> W: b2 d4 g3 h5 / B: a7 c7 f5 g4: o(S)=R o(W)=R 
+   B -> W: b2 d4 g3 h5 / B: a7 c7 f6 g4: o(S)=R o(W)=N DIFF
+  B: 6 moves, 1 children with o(S) != o(W)
+
+mechanism node W: b5 d4 g3 / B: c6 f6 g4 h6 reachable from headline: True (|reachable| = 3967)
+   components: [('W: b5 d4 / B: c6', [-1, 1]), ('W: g3 / B: f6 g4 h6', [-1, 1])]
+   o(S) = R  o(W) = L
+
+ALL ROWS OK

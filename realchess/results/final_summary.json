@@ -1,0 +1,1430 @@
+{
+ "component": "W: a2 c2 / B: b7 d7",
+ "requests": {
+  "ledger_total": 1199,
+  "cap": 1200,
+  "by_tag": {
+   "cli": 1,
+   "movegen-validation": 160,
+   "A2-roots": 105,
+   "A2-oracle": 525,
+   "A2-nodes": 380,
+   "A2-kings": 6,
+   "A2-resolve": 22
+  },
+  "by_status": {
+   "200": 1198,
+   "429": 1
+  }
+ },
+ "knowledge_base": {
+  "records": 1512,
+  "records_by_dir": {
+   "realchess/cache": 1205,
+   "engine/suite/tbcache": 285,
+   "verify/engines/C2-refute/tbcache": 1,
+   "verify/engines/C3-refute/tbcache": 3,
+   "verify/engines/C3-reproduce/tbcache": 2,
+   "verify/engines/C4-theory/tbcache": 16
+  },
+  "answered_positions": 7691,
+  "answered_by_men": {
+   "2": 1,
+   "3": 81,
+   "4": 259,
+   "5": 357,
+   "6": 1022,
+   "7": 3694,
+   "8": 2277
+  },
+  "categories": {
+   "win": 4588,
+   "loss": 2245,
+   "draw": 858
+  },
+  "special_50_move_categories": 0,
+  "conflicts": 0
+ },
+ "movegen_validation": {
+  "positions": 160,
+  "http_200": 160,
+  "exact_match": 160
+ },
+ "model_values": {
+  "textbook": {
+   "ep=on,rule=count": "*2",
+   "ep=on,rule=mover": "*2",
+   "ep=on,rule=opponent": "0",
+   "ep=off,rule=count": "*2",
+   "ep=off,rule=mover": "*2",
+   "ep=off,rule=opponent": "0"
+  },
+  "ep_aware": {
+   "ep=on,rule=count": "{2\u00b11 | -2\u00b11}",
+   "ep=on,rule=mover": "{2\u00b11 | -2\u00b11}",
+   "ep=on,rule=opponent": "0",
+   "ep=off,rule=count": "*2",
+   "ep=off,rule=mover": "*2",
+   "ep=off,rule=opponent": "0"
+  },
+  "control_matches_textbook": true,
+  "benchmark_eligible": false
+ },
+ "roots": {
+  "W_to_move": "win",
+  "B_to_move": "win",
+  "real_outcome_class": "N",
+  "certificates": {
+   "w": {
+    "fen": "8/1p1p4/8/5Kp1/6Pk/8/P1P5/8 w - - 0 1",
+    "claim": "win",
+    "proved": true,
+    "fifty": false,
+    "nodes": 30,
+    "leaves": 20,
+    "max_depth": 6,
+    "cited_records": 16
+   },
+   "b": {
+    "fen": "8/1p1p4/8/5Kp1/6Pk/8/P1P5/8 b - - 0 1",
+    "claim": "win",
+    "proved": true,
+    "fifty": false,
+    "nodes": 40,
+    "leaves": 30,
+    "max_depth": 6,
+    "cited_records": 24
+   }
+  },
+  "move_table_textbook": {
+   "w": [
+    [
+     "a2a3",
+     "unresolved",
+     "{* | -1}"
+    ],
+    [
+     "a2a4",
+     "unresolved",
+     "*"
+    ],
+    [
+     "c2c3",
+     "unresolved",
+     "-1/2\u00b11/2"
+    ],
+    [
+     "c2c4",
+     "win",
+     "0"
+    ],
+    [
+     "f5g6",
+     "loss",
+     "king move (outside the pawn model; the model assumes it loses)"
+    ],
+    [
+     "f5f6",
+     "loss",
+     "king move (outside the pawn model; the model assumes it loses)"
+    ],
+    [
+     "f5e5",
+     "loss",
+     "king move (outside the pawn model; the model assumes it loses)"
+    ],
+    [
+     "f5e4",
+     "loss",
+     "king move (outside the pawn model; the model assumes it loses)"
+    ]
+   ],
+   "b": [
+    [
+     "h4g3",
+     "loss",
+     "king move (outside the pawn model; the model assumes it loses)"
+    ],
+    [
+     "h4h3",
+     "loss",
+     "king move (outside the pawn model; the model assumes it loses)"
+    ],
+    [
+     "b7b6",
+     "loss",
+     "1/2\u00b11/2"
+    ],
+    [
+     "b7b5",
+     "win",
+     "0"
+    ],
+    [
+     "d7d6",
+     "loss",
+     "{1 | *}"
+    ],
+    [
+     "d7d5",
+     "loss",
+     "*"
+    ]
+   ]
+  },
+  "move_table_epaware": {
+   "w": [
+    [
+     "a2a3",
+     "unresolved",
+     "{1\u00b11 | -1}"
+    ],
+    [
+     "a2a4",
+     "unresolved",
+     "*"
+    ],
+    [
+     "c2c3",
+     "unresolved",
+     "{2\u00b11 | -1}"
+    ],
+    [
+     "c2c4",
+     "win",
+     "2\u00b11"
+    ],
+    [
+     "f5g6",
+     "loss",
+     "king move (outside the pawn model; the model assumes it loses)"
+    ],
+    [
+     "f5f6",
+     "loss",
+     "king move (outside the pawn model; the model assumes it loses)"
+    ],
+    [
+     "f5e5",
+     "loss",
+     "king move (outside the pawn model; the model assumes it loses)"
+    ],
+    [
+     "f5e4",
+     "loss",
+     "king move (outside the pawn model; the model assumes it loses)"
+    ]
+   ],
+   "b": [
+    [
+     "h4g3",
+     "loss",
+     "king move (outside the pawn model; the model assumes it loses)"
+    ],
+    [
+     "h4h3",
+     "loss",
+     "king move (outside the pawn model; the model assumes it loses)"
+    ],
+    [
+     "b7b6",
+     "loss",
+     "{1 | -2\u00b11}"
+    ],
+    [
+     "b7b5",
+     "win",
+     "-2\u00b11"
+    ],
+    [
+     "d7d6",
+     "loss",
+     "{1 | -1\u00b11}"
+    ],
+    [
+     "d7d5",
+     "loss",
+     "*"
+    ]
+   ]
+  },
+  "king_moves": [
+   [
+    "w",
+    "f5g6",
+    "loses",
+    "h4g4"
+   ],
+   [
+    "w",
+    "f5f6",
+    "loses",
+    "h4g4"
+   ],
+   [
+    "w",
+    "f5e5",
+    "loses",
+    "h4g4"
+   ],
+   [
+    "w",
+    "f5e4",
+    "loses",
+    "h4g4"
+   ],
+   [
+    "b",
+    "h4g3",
+    "loses",
+    "f5g5"
+   ],
+   [
+    "b",
+    "h4h3",
+    "loses",
+    "f5g5"
+   ]
+  ]
+ },
+ "nodes": {
+  "targets": 462,
+  "targets_done": 462,
+  "ext": 4,
+  "class_counts": {
+   "R": 6,
+   "N": 89,
+   "unresolved": 106,
+   "draw(W-first:draw,B-first:win)": 4,
+   "L": 10,
+   "draw(W-first:draw,B-first:loss)": 2,
+   "draw(W-first:win,B-first:draw)": 7,
+   "P": 1
+  },
+  "positions_with_real_result": 295,
+  "real_results": {
+   "loss": 30,
+   "win": 252,
+   "draw": 13
+  },
+  "vs_model_textbook": {
+   "per_position": {
+    "count": {
+     "DISAGREE": 19,
+     "agree": 263,
+     "real draw (model says loss)": 4,
+     "real draw (model says win)": 9
+    },
+    "mover": {
+     "DISAGREE": 21,
+     "agree": 261,
+     "real draw (model says win)": 10,
+     "real draw (model says loss)": 3
+    },
+    "opponent": {
+     "DISAGREE": 43,
+     "agree": 239,
+     "real draw (model says loss)": 4,
+     "real draw (model says win)": 9
+    }
+   },
+   "per_configuration": {
+    "n": 119,
+    "real_classes": {
+     "R": 6,
+     "N": 89,
+     "D": 13,
+     "L": 10,
+     "P": 1
+    },
+    "agree": {
+     "count": 91,
+     "mover": 90,
+     "opponent": 85
+    }
+   }
+  },
+  "vs_model_e.p.-aware": {
+   "per_position": {
+    "count": {
+     "DISAGREE": 14,
+     "agree": 268,
+     "real draw (model says loss)": 4,
+     "real draw (model says win)": 9
+    },
+    "mover": {
+     "DISAGREE": 16,
+     "agree": 266,
+     "real draw (model says loss)": 4,
+     "real draw (model says win)": 9
+    },
+    "opponent": {
+     "DISAGREE": 35,
+     "agree": 247,
+     "real draw (model says loss)": 4,
+     "real draw (model says win)": 9
+    }
+   },
+   "per_configuration": {
+    "n": 119,
+    "real_classes": {
+     "R": 6,
+     "N": 89,
+     "D": 13,
+     "L": 10,
+     "P": 1
+    },
+    "agree": {
+     "count": 92,
+     "mover": 91,
+     "opponent": 85
+    }
+   }
+  },
+  "independent_prover": {
+   "draw (not re-provable by this prover)": 13,
+   "loss: proved=True, opposite proved=False": 30,
+   "win: proved=True, opposite proved=False": 252
+  },
+  "vs_lichess_8man_category": {
+   "agree": 201,
+   "no Lichess category": 94
+  }
+ },
+ "king_audit": {
+  "nodes": 462,
+  "king_moves": 1431,
+  "tally": {
+   "loses": 133,
+   "unresolved": 1292,
+   "draws": 6
+  },
+  "non_losing": [
+   [
+    "8/3p4/8/2P2Kp1/1p4Pk/8/P7/8 w - - 0 1",
+    "f5g6",
+    "draws"
+   ],
+   [
+    "8/3p4/8/1pP2Kp1/6Pk/P7/8/8 w - - 0 1",
+    "f5g6",
+    "draws"
+   ],
+   [
+    "8/3p4/8/1pP2Kp1/6Pk/P7/8/8 w - b6 0 1",
+    "f5g6",
+    "draws"
+   ],
+   [
+    "8/1p6/8/P2p1Kp1/6Pk/2P5/8/8 w - - 0 1",
+    "f5e6",
+    "draws"
+   ],
+   [
+    "8/1p6/8/P2p1Kp1/6Pk/2P5/8/8 w - - 0 1",
+    "f5e5",
+    "draws"
+   ],
+   [
+    "8/1p6/3p4/P4Kp1/2P3Pk/8/8/8 w - - 0 1",
+    "f5f6",
+    "draws"
+   ]
+  ]
+ },
+ "oracle": {
+  "textbook_offline": {
+   "passed_test": "textbook",
+   "uses_lichess_8man_categories": false,
+   "internal_nodes": 405,
+   "terminals_total": 670,
+   "sides_resolved": 601,
+   "terminals_resolved_both_sides": 128,
+   "terminals_partial": 345,
+   "terminals_unresolved": 197,
+   "class_counts": {
+    "R": 42,
+    "N": 23,
+    "L": 60,
+    "D": 3
+   },
+   "model_values": {
+    "count": "*2",
+    "mover": "*2",
+    "opponent": "0"
+   },
+   "non_LR_terminals": [
+    [
+     "W: a2 / B: c5 d7",
+     "N"
+    ],
+    [
+     "W: a3 / B: c5 d6",
+     "N"
+    ],
+    [
+     "W: a3 / B: c5 d7",
+     "N"
+    ],
+    [
+     "W: a4 / B: b7 c6",
+     "draw(W-first:draw,B-first:B wins)"
+    ],
+    [
+     "W: a4 / B: c4 d6",
+     "N"
+    ],
+    [
+     "W: a4 / B: c4 d7",
+     "N"
+    ],
+    [
+     "W: a4 d3 / B: b5",
+     "N"
+    ],
+    [
+     "W: a5 / B: b7 c5",
+     "draw(W-first:draw,B-first:B wins)"
+    ],
+    [
+     "W: a6 / B: b7 c5",
+     "N"
+    ],
+    [
+     "W: b4 c2 / B: d3",
+     "N"
+    ],
+    [
+     "W: c4 / B: a6 d5",
+     "N"
+    ],
+    [
+     "W: c4 / B: a6 d6",
+     "draw(W-first:draw,B-first:B wins)"
+    ],
+    [
+     "W: a2 c5 / B: b6 d5",
+     "N"
+    ],
+    [
+     "W: a2 c5 / B: b6 d5 (ep d6)",
+     "N"
+    ],
+    [
+     "W: a3 c5 / B: b6 d5",
+     "N"
+    ],
+    [
+     "W: a3 c5 / B: b6 d5 (ep d6)",
+     "N"
+    ],
+    [
+     "W: a4 c2 / B: b4 d5 (ep a3)",
+     "N"
+    ],
+    [
+     "W: a4 c2 / B: b4 d6 (ep a3)",
+     "N"
+    ],
+    [
+     "W: a4 c3 / B: b4 d5",
+     "N"
+    ],
+    [
+     "W: a4 c3 / B: b4 d5 (ep a3)",
+     "N"
+    ],
+    [
+     "W: a4 c4 / B: b6 d4 (ep c3)",
+     "N"
+    ],
+    [
+     "W: a5 c3 / B: b5 d4",
+     "N"
+    ],
+    [
+     "W: a5 c3 / B: b5 d4 (ep b6)",
+     "N"
+    ],
+    [
+     "W: a5 c4 / B: b6 d4",
+     "N"
+    ],
+    [
+     "W: a5 c4 / B: b6 d4 (ep c3)",
+     "N"
+    ],
+    [
+     "W: a6 c2 / B: b6 d3",
+     "N"
+    ]
+   ],
+   "LR_terminals_disagreeing_with_model": {
+    "count": [
+     "W: a4 c5 / B: b6 d5",
+     "W: a4 c5 / B: b6 d5 (ep d6)",
+     "W: a6 c5 / B: b7 d5",
+     "W: a6 c5 / B: b7 d5 (ep d6)"
+    ],
+    "mover": [
+     "W: a4 / B: c5 d7",
+     "W: a4 c5 / B: b6 d5",
+     "W: a4 c5 / B: b6 d5 (ep d6)",
+     "W: a6 c5 / B: b7 d5",
+     "W: a6 c5 / B: b7 d5 (ep d6)"
+    ],
+    "opponent": [
+     "W: a2 / B: c3 d5",
+     "W: a2 / B: c3 d6",
+     "W: a2 / B: c3 d7",
+     "W: a2 / B: c4 d6",
+     "W: a2 / B: c4 d7",
+     "W: a2 b5 / B: d6",
+     "W: a2 b5 / B: d7",
+     "W: a2 b6 / B: d7",
+     "W: a3 / B: c4 d5",
+     "W: a3 / B: c4 d6",
+     "W: a3 / B: c4 d7",
+     "W: a3 b5 / B: d5",
+     "W: a3 b5 / B: d6",
+     "W: a3 b5 / B: d7",
+     "W: a3 b6 / B: d7",
+     "W: a4 b6 / B: d7",
+     "W: a4 c5 / B: b6 d5",
+     "W: a4 c5 / B: b6 d5 (ep d6)",
+     "W: a6 c5 / B: b7 d5",
+     "W: a6 c5 / B: b7 d5 (ep d6)"
+    ]
+   },
+   "sandwich": {
+    "switch, draw = Black win": {
+     "excludes *2": false,
+     "excludes 0": true,
+     "excludes model value under count (*2)": false,
+     "excludes model value under mover (*2)": false,
+     "excludes model value under opponent (0)": true,
+     "pinned": false
+    },
+    "switch, draw = White win": {
+     "excludes *2": false,
+     "excludes 0": true,
+     "excludes model value under count (*2)": false,
+     "excludes model value under mover (*2)": false,
+     "excludes model value under opponent (0)": true,
+     "pinned": false
+    },
+    "switch, draw = 0": {
+     "excludes *2": false,
+     "excludes 0": true,
+     "excludes model value under count (*2)": false,
+     "excludes model value under mover (*2)": false,
+     "excludes model value under opponent (0)": true,
+     "pinned": false
+    },
+    "free (only L/R fixed)": {
+     "excludes *2": false,
+     "excludes 0": true,
+     "excludes model value under count (*2)": false,
+     "excludes model value under mover (*2)": false,
+     "excludes model value under opponent (0)": true,
+     "pinned": false
+    }
+   },
+   "pin_certificates": {
+    "switch, draw = 0": {
+     "not_attempted": "not attempted: 10 essential open sides > --max-open 6",
+     "essential_open_sides": 10
+    },
+    "switch, draw = Black win": {
+     "cases": 256,
+     "pinned_cases": 256,
+     "values": [
+      "{2\u00b11 | -2\u00b11}"
+     ],
+     "lo": [
+      "{2\u00b11 | -2\u00b11}"
+     ],
+     "hi": [
+      "{2\u00b11 | -2\u00b11}"
+     ],
+     "essential_open_sides": [
+      [
+       "W: a2 c4 / B: b4 d4 (ep c3)",
+       "W",
+       8
+      ],
+      [
+       "W: a2 c5 / B: b7 d5 (ep d6)",
+       "B",
+       8
+      ],
+      [
+       "W: a3 c5 / B: b7 d5 (ep d6)",
+       "B",
+       8
+      ],
+      [
+       "W: a4 c2 / B: b4 d4 (ep a3)",
+       "W",
+       8
+      ],
+      [
+       "W: a4 c2 / B: b4 d7 (ep a3)",
+       "W",
+       8
+      ],
+      [
+       "W: a4 c5 / B: b7 d5 (ep d6)",
+       "B",
+       8
+      ],
+      [
+       "W: a5 c5 / B: b5 d7 (ep b6)",
+       "B",
+       8
+      ],
+      [
+       "W: a5 c5 / B: b7 d5 (ep d6)",
+       "B",
+       8
+      ]
+     ],
+     "value_certified": "{2\u00b11 | -2\u00b11}"
+    }
+   },
+   "terminals8_independent_prover": {
+    "win: proved=True, opposite proved=False": 141,
+    "loss: proved=True, opposite proved=False": 7
+   },
+   "terminals8_vs_lichess_8man_category": {
+    "agree": 125,
+    "no Lichess category": 23
+   },
+   "ep_partial_enumeration_certificates": [
+    {
+     "input": "comp_Wa2c2_Bb7d7_oracleall_pure_textbook_offline.json",
+     "treatment": "switch, draw = White win",
+     "test": "upper",
+     "target": "*2",
+     "ambiguous_partials": 165,
+     "enumerated": [
+      "W: a2 c4 / B: b7 d4 (ep c3)",
+      "W: a2 c5 / B: b7 d5 (ep d6)",
+      "W: a3 c4 / B: b5 d4 (ep c3)",
+      "W: a3 c5 / B: b7 d5 (ep d6)",
+      "W: a4 c2 / B: b4 d7 (ep a3)",
+      "W: a4 c5 / B: b7 d5 (ep d6)",
+      "W: a5 c2 / B: b5 d7 (ep b6)",
+      "W: a5 c4 / B: b5 d6 (ep b6)",
+      "W: a5 c4 / B: b5 d7 (ep b6)"
+     ],
+     "combinations": 512,
+     "excludes_target": true,
+     "seconds": 61.8
+    },
+    {
+     "input": "comp_Wa2c2_Bb7d7_oracleall_pure_textbook_offline.json",
+     "treatment": "switch, draw = White win",
+     "test": "lower",
+     "target": "*2",
+     "ambiguous_partials": 165,
+     "enumerated": [
+      "W: a2 c4 / B: b7 d4 (ep c3)",
+      "W: a2 c5 / B: b7 d5 (ep d6)",
+      "W: a3 c4 / B: b5 d4 (ep c3)",
+      "W: a3 c5 / B: b7 d5 (ep d6)",
+      "W: a4 c2 / B: b4 d7 (ep a3)",
+      "W: a4 c5 / B: b7 d5 (ep d6)",
+      "W: a5 c2 / B: b5 d7 (ep b6)",
+      "W: a5 c4 / B: b5 d6 (ep b6)",
+      "W: a5 c4 / B: b5 d7 (ep b6)"
+     ],
+     "combinations": 512,
+     "excludes_target": true,
+     "seconds": 62.2
+    },
+    {
+     "input": "comp_Wa2c2_Bb7d7_oracleall_pure_textbook_offline.json",
+     "treatment": "switch, draw = Black win",
+     "test": "upper",
+     "target": "*2",
+     "ambiguous_partials": 162,
+     "enumerated": [
+      "W: a2 c4 / B: b7 d4 (ep c3)",
+      "W: a2 c5 / B: b7 d5 (ep d6)",
+      "W: a3 c4 / B: b5 d4 (ep c3)",
+      "W: a3 c5 / B: b7 d5 (ep d6)",
+      "W: a4 c2 / B: b4 d7 (ep a3)",
+      "W: a4 c5 / B: b7 d5 (ep d6)",
+      "W: a5 c2 / B: b5 d7 (ep b6)",
+      "W: a5 c4 / B: b5 d6 (ep b6)",
+      "W: a5 c4 / B: b5 d7 (ep b6)"
+     ],
+     "combinations": 512,
+     "excludes_target": true,
+     "seconds": 62.2
+    },
+    {
+     "input": "comp_Wa2c2_Bb7d7_oracleall_pure_textbook_offline.json",
+     "treatment": "switch, draw = Black win",
+     "test": "lower",
+     "target": "*2",
+     "ambiguous_partials": 162,
+     "enumerated": [
+      "W: a2 c4 / B: b7 d4 (ep c3)",
+      "W: a2 c5 / B: b7 d5 (ep d6)",
+      "W: a3 c4 / B: b5 d4 (ep c3)",
+      "W: a3 c5 / B: b7 d5 (ep d6)",
+      "W: a4 c2 / B: b4 d7 (ep a3)",
+      "W: a4 c5 / B: b7 d5 (ep d6)",
+      "W: a5 c2 / B: b5 d7 (ep b6)",
+      "W: a5 c4 / B: b5 d6 (ep b6)",
+      "W: a5 c4 / B: b5 d7 (ep b6)"
+     ],
+     "combinations": 512,
+     "excludes_target": true,
+     "seconds": 62.4
+    }
+   ]
+  },
+  "epaware_offline": {
+   "passed_test": "e.p.-aware",
+   "uses_lichess_8man_categories": false,
+   "internal_nodes": 423,
+   "terminals_total": 732,
+   "sides_resolved": 626,
+   "terminals_resolved_both_sides": 126,
+   "terminals_partial": 374,
+   "terminals_unresolved": 232,
+   "class_counts": {
+    "R": 42,
+    "N": 21,
+    "L": 60,
+    "D": 3
+   },
+   "model_values": {
+    "count": "{2\u00b11 | -2\u00b11}",
+    "mover": "{2\u00b11 | -2\u00b11}",
+    "opponent": "0"
+   },
+   "non_LR_terminals": [
+    [
+     "W: a2 / B: c5 d7",
+     "N"
+    ],
+    [
+     "W: a3 / B: c5 d6",
+     "N"
+    ],
+    [
+     "W: a3 / B: c5 d7",
+     "N"
+    ],
+    [
+     "W: a4 / B: b7 c6",
+     "draw(W-first:draw,B-first:B wins)"
+    ],
+    [
+     "W: a4 / B: c4 d6",
+     "N"
+    ],
+    [
+     "W: a4 / B: c4 d7",
+     "N"
+    ],
+    [
+     "W: a4 d3 / B: b5",
+     "N"
+    ],
+    [
+     "W: a5 / B: b7 c5",
+     "draw(W-first:draw,B-first:B wins)"
+    ],
+    [
+     "W: a6 / B: b7 c5",
+     "N"
+    ],
+    [
+     "W: b4 c2 / B: d3",
+     "N"
+    ],
+    [
+     "W: c4 / B: a6 d5",
+     "N"
+    ],
+    [
+     "W: c4 / B: a6 d6",
+     "draw(W-first:draw,B-first:B wins)"
+    ],
+    [
+     "W: a2 c5 / B: b6 d5",
+     "N"
+    ],
+    [
+     "W: a3 c5 / B: b6 d5",
+     "N"
+    ],
+    [
+     "W: a4 c3 / B: b4 d5",
+     "N"
+    ],
+    [
+     "W: a4 c3 / B: b4 d5 (ep d6)",
+     "N"
+    ],
+    [
+     "W: a4 c4 / B: b6 d4 (ep c3)",
+     "N"
+    ],
+    [
+     "W: a5 c3 / B: b4 d5",
+     "N"
+    ],
+    [
+     "W: a5 c3 / B: b4 d6",
+     "N"
+    ],
+    [
+     "W: a5 c3 / B: b5 d4",
+     "N"
+    ],
+    [
+     "W: a5 c3 / B: b5 d4 (ep b6)",
+     "N"
+    ],
+    [
+     "W: a5 c4 / B: b6 d4",
+     "N"
+    ],
+    [
+     "W: a5 c4 / B: b6 d4 (ep c3)",
+     "N"
+    ],
+    [
+     "W: a6 c2 / B: b6 d3",
+     "N"
+    ]
+   ],
+   "LR_terminals_disagreeing_with_model": {
+    "count": [
+     "W: a4 c5 / B: b6 d5",
+     "W: a4 c5 / B: b6 d5 (ep a3)",
+     "W: a6 c5 / B: b7 d4",
+     "W: a6 c5 / B: b7 d5"
+    ],
+    "mover": [
+     "W: a4 / B: c5 d7",
+     "W: a4 c5 / B: b6 d5",
+     "W: a4 c5 / B: b6 d5 (ep a3)",
+     "W: a6 c5 / B: b7 d4",
+     "W: a6 c5 / B: b7 d5"
+    ],
+    "opponent": [
+     "W: a2 / B: c3 d5",
+     "W: a2 / B: c3 d6",
+     "W: a2 / B: c3 d7",
+     "W: a2 / B: c4 d6",
+     "W: a2 / B: c4 d7",
+     "W: a2 b5 / B: d6",
+     "W: a2 b5 / B: d7",
+     "W: a2 b6 / B: d7",
+     "W: a3 / B: c4 d5",
+     "W: a3 / B: c4 d6",
+     "W: a3 / B: c4 d7",
+     "W: a3 b5 / B: d5",
+     "W: a3 b5 / B: d6",
+     "W: a3 b5 / B: d7",
+     "W: a3 b6 / B: d7",
+     "W: a4 b6 / B: d7",
+     "W: a4 c5 / B: b6 d5",
+     "W: a4 c5 / B: b6 d5 (ep a3)",
+     "W: a6 c5 / B: b7 d4",
+     "W: a6 c5 / B: b7 d5"
+    ]
+   },
+   "sandwich": {
+    "switch, draw = Black win": {
+     "excludes *2": true,
+     "excludes 0": true,
+     "excludes model value under count ({2\u00b11 | -2\u00b11})": false,
+     "excludes model value under mover ({2\u00b11 | -2\u00b11})": false,
+     "excludes model value under opponent (0)": true,
+     "pinned": false
+    },
+    "switch, draw = White win": {
+     "excludes *2": true,
+     "excludes 0": true,
+     "excludes model value under count ({2\u00b11 | -2\u00b11})": false,
+     "excludes model value under mover ({2\u00b11 | -2\u00b11})": false,
+     "excludes model value under opponent (0)": true,
+     "pinned": false
+    },
+    "switch, draw = 0": {
+     "excludes *2": true,
+     "excludes 0": true,
+     "excludes model value under count ({2\u00b11 | -2\u00b11})": false,
+     "excludes model value under mover ({2\u00b11 | -2\u00b11})": false,
+     "excludes model value under opponent (0)": true,
+     "pinned": false
+    },
+    "free (only L/R fixed)": {
+     "excludes *2": true,
+     "excludes 0": true,
+     "excludes model value under count ({2\u00b11 | -2\u00b11})": false,
+     "excludes model value under mover ({2\u00b11 | -2\u00b11})": false,
+     "excludes model value under opponent (0)": true,
+     "pinned": false
+    }
+   },
+   "pin_certificates": {
+    "switch, draw = 0": {
+     "cases": 81,
+     "pinned_cases": 27,
+     "values": [
+      "{5/2\u00b13/2 | -2\u00b11}"
+     ],
+     "lo": [
+      "{2\u00b11 | -2\u00b11}",
+      "{5/2\u00b13/2 | -2\u00b11}"
+     ],
+     "hi": [
+      "{5/2\u00b13/2 | -2\u00b11}"
+     ],
+     "essential_open_sides": [
+      [
+       "W: a2 c4 / B: b4 d4 (ep c3)",
+       "W",
+       8
+      ],
+      [
+       "W: a5 c5 / B: b5 d7 (ep b6)",
+       "B",
+       8
+      ],
+      [
+       "W: a6 c5 / B: b5 d7 (ep b6)",
+       "B",
+       8
+      ],
+      [
+       "W: a6 c5 / B: b6 d7",
+       "B",
+       8
+      ]
+     ],
+     "value_certified": null
+    },
+    "switch, draw = Black win": {
+     "cases": 9,
+     "pinned_cases": 9,
+     "values": [
+      "{2\u00b11 | -2\u00b11}"
+     ],
+     "lo": [
+      "{2\u00b11 | -2\u00b11}"
+     ],
+     "hi": [
+      "{2\u00b11 | -2\u00b11}"
+     ],
+     "essential_open_sides": [
+      [
+       "W: a2 c4 / B: b4 d4 (ep c3)",
+       "W",
+       8
+      ],
+      [
+       "W: a5 c5 / B: b5 d7 (ep b6)",
+       "B",
+       8
+      ]
+     ],
+     "value_certified": "{2\u00b11 | -2\u00b11}"
+    },
+    "switch, draw = White win": {
+     "not_attempted": "not attempted: 58 essential open sides > --max-open 6",
+     "essential_open_sides": 58
+    }
+   },
+   "terminals8_independent_prover": {
+    "win: proved=True, opposite proved=False": 149,
+    "loss: proved=True, opposite proved=False": 7
+   },
+   "terminals8_vs_lichess_8man_category": {
+    "agree": 135,
+    "no Lichess category": 21
+   }
+  },
+  "epaware_offline_l8": {
+   "passed_test": "e.p.-aware",
+   "uses_lichess_8man_categories": true,
+   "internal_nodes": 423,
+   "terminals_total": 732,
+   "sides_resolved": 696,
+   "terminals_resolved_both_sides": 159,
+   "terminals_partial": 378,
+   "terminals_unresolved": 195,
+   "class_counts": {
+    "R": 42,
+    "N": 44,
+    "L": 70,
+    "D": 3
+   },
+   "model_values": {
+    "count": "{2\u00b11 | -2\u00b11}",
+    "mover": "{2\u00b11 | -2\u00b11}",
+    "opponent": "0"
+   },
+   "non_LR_terminals": [
+    [
+     "W: a2 / B: c5 d7",
+     "N"
+    ],
+    [
+     "W: a3 / B: c5 d6",
+     "N"
+    ],
+    [
+     "W: a3 / B: c5 d7",
+     "N"
+    ],
+    [
+     "W: a4 / B: b7 c6",
+     "draw(W-first:draw,B-first:B wins)"
+    ],
+    [
+     "W: a4 / B: c4 d6",
+     "N"
+    ],
+    [
+     "W: a4 / B: c4 d7",
+     "N"
+    ],
+    [
+     "W: a4 d3 / B: b5",
+     "N"
+    ],
+    [
+     "W: a5 / B: b7 c5",
+     "draw(W-first:draw,B-first:B wins)"
+    ],
+    [
+     "W: a6 / B: b7 c5",
+     "N"
+    ],
+    [
+     "W: b4 c2 / B: d3",
+     "N"
+    ],
+    [
+     "W: c4 / B: a6 d5",
+     "N"
+    ],
+    [
+     "W: c4 / B: a6 d6",
+     "draw(W-first:draw,B-first:B wins)"
+    ],
+    [
+     "W: a2 c5 / B: b3 d5",
+     "N"
+    ],
+    [
+     "W: a2 c5 / B: b3 d5 (ep d6)",
+     "N"
+    ],
+    [
+     "W: a2 c5 / B: b6 d5",
+     "N"
+    ],
+    [
+     "W: a2 c6 / B: b3 d6",
+     "N"
+    ],
+    [
+     "W: a3 c5 / B: b4 d5",
+     "N"
+    ],
+    [
+     "W: a3 c5 / B: b4 d5 (ep d6)",
+     "N"
+    ],
+    [
+     "W: a3 c5 / B: b6 d5",
+     "N"
+    ],
+    [
+     "W: a3 c6 / B: b4 d6",
+     "N"
+    ],
+    [
+     "W: a4 c2 / B: b3 d5",
+     "N"
+    ],
+    [
+     "W: a4 c2 / B: b3 d5 (ep a3)",
+     "N"
+    ],
+    [
+     "W: a4 c2 / B: b3 d6",
+     "N"
+    ],
+    [
+     "W: a4 c2 / B: b3 d6 (ep a3)",
+     "N"
+    ],
+    [
+     "W: a4 c2 / B: b3 d7",
+     "N"
+    ],
+    [
+     "W: a4 c2 / B: b3 d7 (ep a3)",
+     "N"
+    ],
+    [
+     "W: a4 c3 / B: b4 d5",
+     "N"
+    ],
+    [
+     "W: a4 c3 / B: b4 d5 (ep d6)",
+     "N"
+    ],
+    [
+     "W: a4 c3 / B: b4 d6",
+     "N"
+    ],
+    [
+     "W: a4 c3 / B: b4 d7",
+     "N"
+    ],
+    [
+     "W: a4 c4 / B: b6 d4 (ep c3)",
+     "N"
+    ],
+    [
+     "W: a4 c5 / B: b5 d5",
+     "N"
+    ],
+    [
+     "W: a4 c5 / B: b5 d5 (ep b6)",
+     "N"
+    ],
+    [
+     "W: a4 c5 / B: b5 d5 (ep d6)",
+     "N"
+    ],
+    [
+     "W: a5 c2 / B: b5 d3",
+     "N"
+    ],
+    [
+     "W: a5 c2 / B: b5 d3 (ep b6)",
+     "N"
+    ],
+    [
+     "W: a5 c3 / B: b4 d5",
+     "N"
+    ],
+    [
+     "W: a5 c3 / B: b4 d6",
+     "N"
+    ],
+    [
+     "W: a5 c3 / B: b5 d4",
+     "N"
+    ],
+    [
+     "W: a5 c3 / B: b5 d4 (ep b6)",
+     "N"
+    ],
+    [
+     "W: a5 c4 / B: b6 d4",
+     "N"
+    ],
+    [
+     "W: a5 c4 / B: b6 d4 (ep c3)",
+     "N"
+    ],
+    [
+     "W: a6 c2 / B: b6 d3",
+     "N"
+    ],
+    [
+     "W: a6 c3 / B: b5 d4 (ep b6)",
+     "N"
+    ],
+    [
+     "W: a6 c3 / B: b7 d3",
+     "N"
+    ],
+    [
+     "W: a6 c4 / B: b7 d4",
+     "N"
+    ],
+    [
+     "W: a6 c4 / B: b7 d4 (ep c3)",
+     "N"
+    ]
+   ],
+   "LR_terminals_disagreeing_with_model": {
+    "count": [
+     "W: a4 c5 / B: b6 d5",
+     "W: a4 c5 / B: b6 d5 (ep a3)",
+     "W: a4 c5 / B: b7 d5",
+     "W: a4 c5 / B: b7 d5 (ep a3)",
+     "W: a5 c5 / B: b7 d5",
+     "W: a5 c6 / B: b7 d5",
+     "W: a5 c6 / B: b7 d5 (ep d6)",
+     "W: a6 c5 / B: b7 d4",
+     "W: a6 c5 / B: b7 d5"
+    ],
+    "mover": [
+     "W: a4 / B: c5 d7",
+     "W: a4 c5 / B: b6 d5",
+     "W: a4 c5 / B: b6 d5 (ep a3)",
+     "W: a4 c5 / B: b7 d5",
+     "W: a4 c5 / B: b7 d5 (ep a3)",
+     "W: a5 c5 / B: b7 d5",
+     "W: a5 c6 / B: b7 d5",
+     "W: a5 c6 / B: b7 d5 (ep d6)",
+     "W: a6 c5 / B: b7 d4",
+     "W: a6 c5 / B: b7 d5"
+    ],
+    "opponent": [
+     "W: a2 / B: c3 d5",
+     "W: a2 / B: c3 d6",
+     "W: a2 / B: c3 d7",
+     "W: a2 / B: c4 d6",
+     "W: a2 / B: c4 d7",
+     "W: a2 b5 / B: d6",
+     "W: a2 b5 / B: d7",
+     "W: a2 b6 / B: d7",
+     "W: a3 / B: c4 d5",
+     "W: a3 / B: c4 d6",
+     "W: a3 / B: c4 d7",
+     "W: a3 b5 / B: d5",
+     "W: a3 b5 / B: d6",
+     "W: a3 b5 / B: d7",
+     "W: a3 b6 / B: d7",
+     "W: a4 b6 / B: d7",
+     "W: a4 c5 / B: b6 d5",
+     "W: a4 c5 / B: b6 d5 (ep a3)",
+     "W: a4 c5 / B: b7 d5",
+     "W: a4 c5 / B: b7 d5 (ep a3)",
+     "W: a5 c5 / B: b7 d5",
+     "W: a5 c6 / B: b7 d5",
+     "W: a5 c6 / B: b7 d5 (ep d6)",
+     "W: a6 c5 / B: b7 d4",
+     "W: a6 c5 / B: b7 d5"
+    ]
+   },
+   "sandwich": {
+    "switch, draw = Black win": {
+     "excludes *2": true,
+     "excludes 0": true,
+     "excludes model value under count ({2\u00b11 | -2\u00b11})": false,
+     "excludes model value under mover ({2\u00b11 | -2\u00b11})": false,
+     "excludes model value under opponent (0)": true,
+     "pinned": false
+    },
+    "switch, draw = White win": {
+     "excludes *2": true,
+     "excludes 0": true,
+     "excludes model value under count ({2\u00b11 | -2\u00b11})": false,
+     "excludes model value under mover ({2\u00b11 | -2\u00b11})": false,
+     "excludes model value under opponent (0)": true,
+     "pinned": false
+    },
+    "switch, draw = 0": {
+     "excludes *2": true,
+     "excludes 0": true,
+     "excludes model value under count ({2\u00b11 | -2\u00b11})": false,
+     "excludes model value under mover ({2\u00b11 | -2\u00b11})": false,
+     "excludes model value under opponent (0)": true,
+     "pinned": false
+    },
+    "free (only L/R fixed)": {
+     "excludes *2": true,
+     "excludes 0": true,
+     "excludes model value under count ({2\u00b11 | -2\u00b11})": false,
+     "excludes model value under mover ({2\u00b11 | -2\u00b11})": false,
+     "excludes model value under opponent (0)": true,
+     "pinned": false
+    }
+   },
+   "pin_certificates": {
+    "switch, draw = 0": {
+     "cases": 81,
+     "pinned_cases": 27,
+     "values": [
+      "{5/2\u00b13/2 | -2\u00b11}"
+     ],
+     "lo": [
+      "{2\u00b11 | -2\u00b11}",
+      "{5/2\u00b13/2 | -2\u00b11}"
+     ],
+     "hi": [
+      "{5/2\u00b13/2 | -2\u00b11}"
+     ],
+     "essential_open_sides": [
+      [
+       "W: a2 c4 / B: b4 d4 (ep c3)",
+       "W",
+       8
+      ],
+      [
+       "W: a5 c5 / B: b5 d7 (ep b6)",
+       "B",
+       8
+      ],
+      [
+       "W: a6 c5 / B: b5 d7 (ep b6)",
+       "B",
+       8
+      ],
+      [
+       "W: a6 c5 / B: b6 d7",
+       "B",
+       8
+      ]
+     ],
+     "value_certified": null
+    },
+    "switch, draw = Black win": {
+     "cases": 9,
+     "pinned_cases": 9,
+     "values": [
+      "{2\u00b11 | -2\u00b11}"
+     ],
+     "lo": [
+      "{2\u00b11 | -2\u00b11}"
+     ],
+     "hi": [
+      "{2\u00b11 | -2\u00b11}"
+     ],
+     "essential_open_sides": [
+      [
+       "W: a2 c4 / B: b4 d4 (ep c3)",
+       "W",
+       8
+      ],
+      [
+       "W: a5 c5 / B: b5 d7 (ep b6)",
+       "B",
+       8
+      ]
+     ],
+     "value_certified": "{2\u00b11 | -2\u00b11}"
+    }
+   },
+   "terminals8_independent_prover": {
+    "win: proved=True, opposite proved=False": 149,
+    "win: proved=False, opposite proved=False": 59,
+    "loss: proved=False, opposite proved=False": 11,
+    "loss: proved=True, opposite proved=False": 7
+   },
+   "terminals8_vs_lichess_8man_category": {
+    "agree": 186,
+    "no Lichess category": 40
+   }
+  }
+ }
+}

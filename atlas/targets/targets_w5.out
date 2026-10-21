@@ -1,0 +1,45 @@
+== w5: 80163 positions, flat board ==
+Nimbers *k (k>=2) by setting:
+   *2 under black/epoff: 1  e.g. ['W: a2 c2 e2 / B: a3 b7 d7']
+   *2 under count/epoff: 2  e.g. ['W: a2 c2 d2 / B: b5 c7 e7', 'W: b4 c2 e2 / B: a7 c7 d7']
+   *2 under white/epoff: 1  e.g. ['W: a6 b2 d2 / B: a7 c7 e7']
+
+Targets under the textbook passed test (count rule, e.p. on), flat board:
+   [fractional tiny (number subscript)] miny(1/2): 1 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: a3 c3 d2 / B: b6 c7 e7 (w5, 6 pawns; other test: miny(1))
+   [fractional tiny (number subscript)] tiny(1/2): 1 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: b3 c2 e2 / B: a6 c6 d7 (w5, 6 pawns; other test: tiny(1))
+   [tiny, non-number subscript] -1 + miny({1 | 1, 1*}): 2 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: a2 b3 d3 / B: a7 c5 e7 (w5, 6 pawns; other test: {{↓* | -1} | -1})
+   [tiny, non-number subscript] 1 + tiny({1 | 1, 1*}): 2 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: a2 c4 e2 / B: a7 b6 d6 (w5, 6 pawns; other test: {1 | {1 | ↑*}})
+   [tiny, non-number subscript] miny(1*): 2 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: a4 c3 e2 / B: b7 d7 e4 (w5, 6 pawns; other test: {{1* | 0} | 0})
+   [tiny, non-number subscript] tiny(1*): 2 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: a4 c2 e2 / B: b7 d6 e4 (w5, 6 pawns; other test: {0 | {0 | -1*}})
+   [up-second family] -1 + ↑²: 1 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: a3 c3 d2 / B: b7 d6 e7 (w5, 6 pawns; other test: {-1 | {-1 | -1, -1*}})
+   [up-second family] 1 + ↓²: 1 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: a2 b3 d2 / B: b7 c6 e6 (w5, 6 pawns; other test: {{1, 1* | 1} | 1})
+   [up-second family] ↑ + ↑²: 2 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: a4 b3 d2 / B: b7 c7 e6 (w5, 6 pawns; other test: {↑ | *})
+   [up-second family] ↑²: 3 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: a4 b2 e2 / B: b7 c6 d6 (w5, 6 pawns; other test: {0 | ↓*})
+   [up-second family] ↑² + *: 6 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: a4 b2 e2 / B: b6 c6 d6 (w5, 6 pawns; other test: {*, 0 | ↓})
+   [up-second family] ↓ + ↓²: 2 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: a2 b2 e2 / B: b6 c7 d6 (w5, 6 pawns; other test: {* | {-1 | {-1 | {-W | {-W | {-W, {+W, {+W, {+W, ±+W | -W} | -W} | -W, {+W, {+W, ±+W | -W} | -W}} | -W}}}}}})
+   [up-second family] ↓²: 3 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: a3 c4 d2 / B: a7 b7 e5 (w5, 6 pawns; other test: {↑* | 0})
+   [up-second family] ↓² + *: 6 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: a3 c4 d2 / B: a7 b7 e4 (w5, 6 pawns; other test: {↑ | *, 0})
+
+Targets under the aware passed test (count rule, e.p. on), flat board:
+   [fractional tiny (number subscript)] -1 + miny(1/2): 1 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: a2 c3 e2 / B: a7 b7 d5 (w5, 6 pawns; other test: {-1/2±1/2 | -1})
+   [fractional tiny (number subscript)] 1 + tiny(1/2): 1 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: b4 d2 e2 / B: a7 c6 e7 (w5, 6 pawns; other test: {1 | 1/2±1/2})
+   [tiny, non-number subscript] -1 + miny(3±1): 1 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: a3 b3 e3 / B: a7 c7 d6 (w5, 6 pawns; other test: {-1/2±1/2 | -1})
+   [tiny, non-number subscript] -1 + miny({1 | 1, 1*}): 2 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: a2 b3 d3 / B: a7 c5 e7 (w5, 6 pawns; other test: {{↓* | -1} | -1})
+   [tiny, non-number subscript] 1 + tiny(3±1): 1 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: b3 c2 e2 / B: a6 d6 e6 (w5, 6 pawns; other test: {1 | 1/2±1/2})
+   [tiny, non-number subscript] 1 + tiny({1 | 1, 1*}): 2 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: a2 c4 e2 / B: a7 b6 d6 (w5, 6 pawns; other test: {1 | {1 | ↑*}})
+   [tiny, non-number subscript] miny(1*): 7 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: a2 b4 d3 / B: a4 c7 e7 (w5, 6 pawns; other test: -1/2)
+   [tiny, non-number subscript] miny(3±1): 1 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: a3 d3 e2 / B: b6 c7 e7 (w5, 6 pawns; other test: miny(1))
+   [tiny, non-number subscript] tiny(1*): 7 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: a2 c2 d2 / B: a4 b6 e5 (w5, 6 pawns; other test: 1/2)
+   [tiny, non-number subscript] tiny(3±1): 1 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: b3 c2 e2 / B: a6 d6 e7 (w5, 6 pawns; other test: tiny(1))
+   [up-second family] -1 + ↑²: 1 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: a3 c3 d2 / B: b7 d6 e7 (w5, 6 pawns; other test: {-1 | {-1 | -1, -1*}})
+   [up-second family] 1 + ↓²: 1 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: a2 b3 d2 / B: b7 c6 e6 (w5, 6 pawns; other test: {{1, 1* | 1} | 1})
+   [up-second family] ↑ + ↑²: 1 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: a4 b3 d2 / B: b7 c7 e6 (w5, 6 pawns; other test: {↑ | *})
+   [up-second family] ↑²: 3 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: a4 b2 e2 / B: b7 c6 d6 (w5, 6 pawns; other test: {0 | ↓*})
+   [up-second family] ↑² + *: 7 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: a2 c2 d2 / B: b5 d7 e4 (w5, 6 pawns; other test: 1/2)
+   [up-second family] ↓ + ↓²: 1 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: a3 c2 d2 / B: b7 d6 e5 (w5, 6 pawns; other test: {* | ↓})
+   [up-second family] ↓²: 3 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: a3 c4 d2 / B: a7 b7 e5 (w5, 6 pawns; other test: {↑* | 0})
+   [up-second family] ↓² + *: 7 positions; same under all 15 settings: 0; under the 9 core settings: 0; smallest W: a3 c4 d2 / B: a7 b7 e4 (w5, 6 pawns; other test: {↑ | *, 0})
+
+Integer-subscript tinies/minies (textbook): {'-1 + miny(1)': 3, '-1 + miny(2)': 1, '-1 + miny(3)': 1, '-1 + tiny(1)': 1, '-1 + tiny(2)': 1, '-2 + miny(1)': 1, '1 + miny(1)': 1, '1 + miny(2)': 1, '1 + tiny(1)': 3, '1 + tiny(2)': 1, '1 + tiny(3)': 1, '2 + tiny(1)': 1, 'miny(1)': 6, 'miny(2)': 1, 'tiny(1)': 6, 'tiny(2)': 1}
+
+Integer-subscript tinies/minies (aware): {'-1 + miny(1)': 5, '-1 + miny(2)': 1, '-1 + miny(3)': 1, '-1 + tiny(2)': 2, '-2 + miny(1)': 2, '-2 + tiny(2)': 1, '1 + miny(2)': 2, '1 + tiny(1)': 5, '1 + tiny(2)': 1, '1 + tiny(3)': 1, '2 + miny(2)': 1, '2 + tiny(1)': 2, 'miny(1)': 8, 'miny(2)': 2, 'tiny(1)': 8, 'tiny(2)': 2}

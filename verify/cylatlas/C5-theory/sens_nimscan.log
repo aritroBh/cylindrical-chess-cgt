@@ -1,0 +1,98 @@
+== parts_sens
+  ('count', 0): rows=15383 pure *k>=2: 1
+       ('flat', 4, 'W: a2 c2 / B: b7 d7', '*2', 1)
+  ('count', 1): rows=15383 pure *k>=2: 1
+       ('flat', 4, 'W: a2 c2 / B: b7 d7', '*2', 1)
+  ('mover', 0): rows=15383 pure *k>=2: 1
+       ('flat', 4, 'W: a2 c2 / B: b7 d7', '*2', 1)
+  ('mover', 1): rows=15383 pure *k>=2: 1
+       ('flat', 4, 'W: a2 c2 / B: b7 d7', '*2', 1)
+  ('opponent', 0): rows=15383 pure *k>=2: 4
+       ('cyl', 3, 'W: a2 b2 / B: a5 c7', '*2', 1)
+       ('cyl', 3, 'W: a2 b3 / B: a5 c5', '*2', 1)
+       ('cyl', 3, 'W: a2 b4 / B: b7 c7', '*2', 1)
+       ('cyl', 3, 'W: a4 b4 / B: a7 c6', '*2', 1)
+      part: ('ups', '↑*3')
+      part: ('ups', '↓*3')
+      part: ('ups', '⇑*2')
+      part: ('ups', '⇓*2')
+  ('opponent', 1): rows=15383 pure *k>=2: 2
+       ('cyl', 3, 'W: a2 b3 / B: a5 c5', '*2', 1)
+       ('cyl', 3, 'W: a4 b4 / B: a7 c6', '*2', 1)
+      part: ('ups', '↑*3')
+      part: ('ups', '↓*3')
+      part: ('ups', '⇑*2')
+      part: ('ups', '⇓*2')
+== parts_sens_all
+  ('count', 0): rows=111295 pure *k>=2: 19
+       ('cyl', 5, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('cyl', 6, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('cyl', 7, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('cyl', 8, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('flat', 4, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('flat', 5, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('flat', 5, 'W: b2 d2 / B: a7 c7', '*2', 1)
+       ('flat', 6, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('flat', 6, 'W: b2 d2 / B: a7 c7', '*2', 1)
+       ('flat', 6, 'W: b2 d2 / B: c7 e7', '*2', 1)
+       ('flat', 7, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('flat', 7, 'W: b2 d2 / B: a7 c7', '*2', 1)
+       ...
+  ('count', 1): rows=111295 pure *k>=2: 19
+       ('cyl', 5, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('cyl', 6, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('cyl', 7, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('cyl', 8, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('flat', 4, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('flat', 5, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('flat', 5, 'W: b2 d2 / B: a7 c7', '*2', 1)
+       ('flat', 6, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('flat', 6, 'W: b2 d2 / B: a7 c7', '*2', 1)
+       ('flat', 6, 'W: b2 d2 / B: c7 e7', '*2', 1)
+       ('flat', 7, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('flat', 7, 'W: b2 d2 / B: a7 c7', '*2', 1)
+       ...
+  ('mover', 0): rows=111295 pure *k>=2: 19
+       ('cyl', 5, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('cyl', 6, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('cyl', 7, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('cyl', 8, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('flat', 4, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('flat', 5, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('flat', 5, 'W: b2 d2 / B: a7 c7', '*2', 1)
+       ('flat', 6, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('flat', 6, 'W: b2 d2 / B: a7 c7', '*2', 1)
+       ('flat', 6, 'W: b2 d2 / B: c7 e7', '*2', 1)
+       ('flat', 7, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('flat', 7, 'W: b2 d2 / B: a7 c7', '*2', 1)
+       ...
+  ('mover', 1): rows=111295 pure *k>=2: 19
+       ('cyl', 5, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('cyl', 6, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('cyl', 7, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('cyl', 8, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('flat', 4, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('flat', 5, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('flat', 5, 'W: b2 d2 / B: a7 c7', '*2', 1)
+       ('flat', 6, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('flat', 6, 'W: b2 d2 / B: a7 c7', '*2', 1)
+       ('flat', 6, 'W: b2 d2 / B: c7 e7', '*2', 1)
+       ('flat', 7, 'W: a2 c2 / B: b7 d7', '*2', 1)
+       ('flat', 7, 'W: b2 d2 / B: a7 c7', '*2', 1)
+       ...
+  ('opponent', 0): rows=111295 pure *k>=2: 4
+       ('cyl', 3, 'W: a2 b2 / B: a5 c7', '*2', 1)
+       ('cyl', 3, 'W: a2 b3 / B: a5 c5', '*2', 1)
+       ('cyl', 3, 'W: a2 b4 / B: b7 c7', '*2', 1)
+       ('cyl', 3, 'W: a4 b4 / B: a7 c6', '*2', 1)
+      part: ('ups', '↑*3')
+      part: ('ups', '↓*3')
+      part: ('ups', '⇑*2')
+      part: ('ups', '⇓*2')
+  ('opponent', 1): rows=111295 pure *k>=2: 2
+       ('cyl', 3, 'W: a2 b3 / B: a5 c5', '*2', 1)
+       ('cyl', 3, 'W: a4 b4 / B: a7 c6', '*2', 1)
+      part: ('ups', '↑*3')
+      part: ('ups', '↓*3')
+      part: ('ups', '⇑*2')
+      part: ('ups', '⇓*2')

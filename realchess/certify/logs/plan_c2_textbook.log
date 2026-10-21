@@ -1,0 +1,26 @@
+{
+ "component": "W: a3 b3 c2 / B: b5 b7 c6",
+ "passed_test": "textbook",
+ "prior": "count",
+ "treatment": "switch, draw = Black win",
+ "target": "*2",
+ "value_with_prior": "{0 | {0, *, {2* | *, {\u2191* | -W, {-W | -W, {-W | -W, {-W | -W, -W*}}}}} | \u2193*, {*, {{{+W, {+W, {+W, {+W, +W* | +W} | +W} | +W} | +W} | +W} | -2} | -W}}}",
+ "internal": 1384,
+ "terminals": 1703,
+ "terminals_by_men": {
+  "5": 13,
+  "6": 34,
+  "7": 287,
+  "8": 717,
+  "9": 562,
+  "10": 90
+ },
+ "lower": {
+  "needed": 5,
+  "needed_by_men": {
+   "7": 3,
+   "8": 2
+  }
+ },
+ "upper": "test fails even with every terminal at the prior"
+}

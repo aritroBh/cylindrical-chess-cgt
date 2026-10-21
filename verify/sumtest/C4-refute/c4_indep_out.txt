@@ -1,0 +1,80 @@
+BIG = 256; 4-file flat board, 8 ranks
+[count    | e.p. off          ] X = {256 | ±256}   b5 = 0          root = {0, * | 0, *}            race nodes = 224
+[count    | e.p. on, textbook ] X = {256 | ±256}   b5 = 0          root = {0, * | 0, *}            race nodes = 262
+[count    | e.p. on, aware    ] X = -3             b5 = -2±1       root = {2±1 | -2±1}             race nodes = 290
+[mover    | e.p. off          ] X = {256 | ±256}   b5 = 0          root = {0, * | 0, *}            race nodes = 224
+[mover    | e.p. on, textbook ] X = {256 | ±256}   b5 = 0          root = {0, * | 0, *}            race nodes = 262
+[mover    | e.p. on, aware    ] X = -3             b5 = -2±1       root = {2±1 | -2±1}             race nodes = 290
+[opponent | e.p. off          ] X = {256 | ±256}   b5 = 1/2        root = 0                        race nodes = 224
+[opponent | e.p. on, textbook ] X = {256 | ±256}   b5 = 1/2        root = 0                        race nodes = 262
+[opponent | e.p. on, aware    ] X = 0              b5 = *          root = 0                        race nodes = 290
+
+== X = W: a2 c2 / B: b4 d7, e.p. on, textbook test, count rule ==
+  value: {256 | ±256}
+   L: -> W: a3 c2 / B: b4 d7                      = ±256
+   L: -> W: a4 c2 / B: b4 d7  (ep a3)             = 256 (resolved)
+   L: -> W: a2 c3 / B: b4 d7                      = {256, {256, {256, {256, ±256 | -256, ±256} | -256, ±256} | -256, ±256} | -256, ±256}
+   L: -> W: a2 c4 / B: b4 d7  (ep c3)             = {{256, {256, ±256 | -256, ±256} | -256, ±256}, 0 | -256}
+        R: -> W: a2 c4 / B: b4 d6                  = 0
+        R: -> W: a2 c4 / B: b4 d5                  = {256, ±256 | -256, ±256}
+        R: -> W: a2 c4 / B: b3 d7                  = {256, {256, ±256 | -256, ±256} | -256, ±256}
+        R: -> W: a2 / B: c3 d7                     = -256 (resolved)
+        L: -> W: a3 c4 / B: b4 d7                  = {256, {256, ±256 | -256, ±256} | -256, ±256}
+        L: -> W: a4 c4 / B: b4 d7  (ep a3)         = -256 (resolved)
+        L: -> W: a2 c5 / B: b4 d7                  = 0
+   R: -> W: a2 c2 / B: b4 d6                      = {256 | {256, ±256 | -256, {256, ±256 | -256, {256, ±256 | -256, ±256}}}}
+   R: -> W: a2 c2 / B: b4 d5                      = {256 | {256, ±256 | -256, {256, ±256 | -256, ±256}}}
+   R: -> W: a2 c2 / B: b3 d7                      = ±256
+  b5 position W: a2 c2 / B: b5 d7: 0
+  root W: a2 c2 / B: b7 d7: {0, * | 0, *}
+   root R: -> W: a2 c2 / B: b7 d6                      = {1 | *}
+   root R: -> W: a2 c2 / B: b7 d5                      = *
+   root R: -> W: a2 c2 / B: b6 d7                      = 1/2±1/2
+   root R: -> W: a2 c2 / B: b5 d7                      = 0
+   root L: -> W: a3 c2 / B: b7 d7                      = {* | -1}
+   root L: -> W: a4 c2 / B: b7 d7                      = *
+   root L: -> W: a2 c3 / B: b7 d7                      = -1/2±1/2
+   root L: -> W: a2 c4 / B: b7 d7                      = 0
+
+== X = W: a2 c2 / B: b4 d7, e.p. on, aware test, count rule ==
+  value: -3
+   L: -> W: a3 c2 / B: b4 d7                      = ±256
+   L: -> W: a4 c2 / B: b4 d7  (ep a3)             = ±256
+        R: -> W: a4 c2 / B: b4 d6                  = 256 (resolved)
+        R: -> W: a4 c2 / B: b4 d5                  = 256 (resolved)
+        R: -> W: a4 c2 / B: b3 d7                  = 256 (resolved)
+        R: -> W: c2 / B: a3 d7                     = -256 (resolved)
+        L: -> W: a5 c2 / B: b4 d7                  = 256 (resolved)
+        L: -> W: a4 c3 / B: b4 d7                  = 256 (resolved)
+        L: -> W: a4 c4 / B: b4 d7  (ep c3)         = -256 (resolved)
+   L: -> W: a2 c3 / B: b4 d7                      = {256, ±256 | -256, {256, {256, {256, ±256 | -256, ±256} | -256, ±256} | -256, ±256}}
+   L: -> W: a2 c4 / B: b4 d7  (ep c3)             = {{256, {256, ±256 | -256, ±256} | -256, ±256}, 0 | -256}
+        R: -> W: a2 c4 / B: b4 d6                  = 0
+        R: -> W: a2 c4 / B: b4 d5                  = {256, ±256 | -256, ±256}
+        R: -> W: a2 c4 / B: b3 d7                  = {256, {256, ±256 | -256, ±256} | -256, ±256}
+        R: -> W: a2 / B: c3 d7                     = -256 (resolved)
+        L: -> W: a3 c4 / B: b4 d7                  = {256, {256, ±256 | -256, ±256} | -256, ±256}
+        L: -> W: a4 c4 / B: b4 d7  (ep a3)         = -256 (resolved)
+        L: -> W: a2 c5 / B: b4 d7                  = 0
+   R: -> W: a2 c2 / B: b4 d6                      = -2
+   R: -> W: a2 c2 / B: b4 d5                      = -1
+   R: -> W: a2 c2 / B: b3 d7                      = ±256
+  b5 position W: a2 c2 / B: b5 d7: -2±1
+  root W: a2 c2 / B: b7 d7: {2±1 | -2±1}
+   root R: -> W: a2 c2 / B: b7 d6                      = {1 | -1±1}
+   root R: -> W: a2 c2 / B: b7 d5                      = *
+   root R: -> W: a2 c2 / B: b6 d7                      = {1 | -2±1}
+   root R: -> W: a2 c2 / B: b5 d7                      = -2±1
+   root L: -> W: a3 c2 / B: b7 d7                      = {1±1 | -1}
+   root L: -> W: a4 c2 / B: b7 d7                      = *
+   root L: -> W: a2 c3 / B: b7 d7                      = {2±1 | -1}
+   root L: -> W: a2 c4 / B: b7 d7                      = 2±1
+
+== Method B: exact brute-force outcome of position + (-V) [+ control] ==
+   if position == V:  P for +0,  N for +*,  L for +1
+  X    textbook: X - ({BIG | ±BIG}) + [0, *, 1] -> ['P', 'N', 'L']
+  X    aware   : X - (-3) + [0, *, 1] -> ['P', 'N', 'L']
+  b5   aware   : b5 - (-2±1) + [0, *, 1] -> ['P', 'N', 'L']
+  b5   textbook: b5 - (0) + [0, *, 1] -> ['P', 'N', 'L']
+  root textbook: root - (*2) + [0, *, 1] -> ['P', 'N', 'L']
+  root aware   : root - (*2) + [0, *, 1] -> ['N', 'N', 'N']

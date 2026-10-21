@@ -1,0 +1,9 @@
+textbook ep=on  count   : outcome N  =*2 True  =0 False  ={2+-1|-2+-1} False
+textbook ep=on  mover   : outcome N  =*2 True  =0 False  ={2+-1|-2+-1} False
+textbook ep=on  opponent: outcome P  =*2 False  =0 True  ={2+-1|-2+-1} False
+textbook ep=off count   : outcome N  =*2 True  =0 False  ={2+-1|-2+-1} False
+textbook ep=off mover   : outcome N  =*2 True  =0 False  ={2+-1|-2+-1} False
+textbook ep=off opponent: outcome P  =*2 False  =0 True  ={2+-1|-2+-1} False
+epaware  ep=on  count   : outcome N  =*2 False  =0 False  ={2+-1|-2+-1} True
+epaware  ep=on  mover   : outcome N  =*2 False  =0 False  ={2+-1|-2+-1} True
+epaware  ep=on  opponent: outcome P  =*2 False  =0 True  ={2+-1|-2+-1} False

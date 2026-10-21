@@ -1,0 +1,83 @@
+{
+ "component": "W: a3 b3 c2 / B: b5 b7 c6",
+ "tree": "e.p.-aware",
+ "no_l8_rows": true,
+ "terminals": 1703,
+ "internal_nodes": 1384,
+ "fixed_LR_terminals": 8,
+ "tests": {
+  "lower": {
+   "cgt": true,
+   "direct_minimax": true,
+   "bound": "{0 | {0 | -2, -1\u00b11}}",
+   "bound_outcome_cgt": "L",
+   "bound_outcome_direct": {
+    "White first wins": true,
+    "Black first wins": false
+   },
+   "meaning": "G_lo > 0: every admissible oracle value is positive (White wins the pawn tree whoever starts)",
+   "support_size": 5,
+   "support_cgt": true,
+   "support_direct": true,
+   "support": [
+    {
+     "terminal": "W: a3 b5 / B: c5",
+     "men": 7,
+     "class": "L",
+     "fen_W": "8/8/8/1Pp2Kp1/6Pk/P7/8/8 w - - 0 1",
+     "how_W": "tablebase (<=7 men), no Lichess 8-man categories",
+     "fen_B": "8/8/8/1Pp2Kp1/6Pk/P7/8/8 b - - 0 1",
+     "how_B": "tablebase (<=7 men), no Lichess 8-man categories"
+    },
+    {
+     "terminal": "W: b3 b6 / B: b4",
+     "men": 7,
+     "class": "L",
+     "fen_W": "8/8/1P6/5Kp1/1p4Pk/1P6/8/8 w - - 0 1",
+     "how_W": "tablebase (<=7 men), no Lichess 8-man categories",
+     "fen_B": "8/8/1P6/5Kp1/1p4Pk/1P6/8/8 b - - 0 1",
+     "how_B": "tablebase (<=7 men), no Lichess 8-man categories"
+    },
+    {
+     "terminal": "W: b5 c4 / B: c5",
+     "men": 7,
+     "class": "L",
+     "fen_W": "8/8/8/1Pp2Kp1/2P3Pk/8/8/8 w - - 0 1",
+     "how_W": "tablebase (<=7 men), no Lichess 8-man categories",
+     "fen_B": "8/8/8/1Pp2Kp1/2P3Pk/8/8/8 b - - 0 1",
+     "how_B": "tablebase (<=7 men), no Lichess 8-man categories"
+    },
+    {
+     "terminal": "W: b3 c4 c5 / B: b5",
+     "men": 8,
+     "class": "L",
+     "fen_W": "8/8/8/1pP2Kp1/2P3Pk/1P6/8/8 w - - 0 1",
+     "how_W": "search (8 men, ext<=6), no Lichess 8-man categories",
+     "fen_B": "8/8/8/1pP2Kp1/2P3Pk/1P6/8/8 b - - 0 1",
+     "how_B": "search (8 men, ext<=6), no Lichess 8-man categories"
+    },
+    {
+     "terminal": "W: b3 c5 / B: b4 b5 (ep b6)",
+     "men": 8,
+     "class": "L",
+     "fen_W": "8/8/8/1pP2Kp1/1p4Pk/1P6/8/8 w - b6 0 1",
+     "how_W": "search (8 men, ext<=6), no Lichess 8-man categories",
+     "fen_B": "8/8/8/1pP2Kp1/1p4Pk/1P6/8/8 b - - 0 1",
+     "how_B": "search (8 men, ext<=6), no Lichess 8-man categories"
+    }
+   ]
+  },
+  "upper": {
+   "cgt": false,
+   "direct_minimax": false,
+   "bound": "{5 | 2*}",
+   "bound_outcome_cgt": "L",
+   "bound_outcome_direct": {
+    "White first wins": true,
+    "Black first wins": false
+   }
+  }
+ },
+ "sanity_random_assignments": 10,
+ "sanity_disagreements": 0
+}

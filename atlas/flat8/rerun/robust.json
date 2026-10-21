@@ -1,0 +1,693 @@
+{
+ "rows": [
+  {
+   "position": "W: a2 c2 / B: b7 d7",
+   "width": 4,
+   "npawns": 4,
+   "men_with_trebuchet": 8,
+   "textbook": {
+    "count/epon": {
+     "value": "*2",
+     "nim": 2,
+     "race_edges": 398,
+     "race_positions": 184,
+     "race_position_mover_pairs": 224,
+     "precapture_race_edges": 256,
+     "precapture_race_positions": 114,
+     "precapture_race_position_mover_pairs": 154
+    },
+    "count/epoff": {
+     "value": "*2",
+     "nim": 2,
+     "race_edges": 224,
+     "race_positions": 166,
+     "race_position_mover_pairs": 206,
+     "precapture_race_edges": 154,
+     "precapture_race_positions": 96,
+     "precapture_race_position_mover_pairs": 136
+    },
+    "mover/epon": {
+     "value": "*2",
+     "nim": 2,
+     "race_edges": 398,
+     "race_positions": 184,
+     "race_position_mover_pairs": 224,
+     "precapture_race_edges": 256,
+     "precapture_race_positions": 114,
+     "precapture_race_position_mover_pairs": 154
+    },
+    "mover/epoff": {
+     "value": "*2",
+     "nim": 2,
+     "race_edges": 224,
+     "race_positions": 166,
+     "race_position_mover_pairs": 206,
+     "precapture_race_edges": 154,
+     "precapture_race_positions": 96,
+     "precapture_race_position_mover_pairs": 136
+    },
+    "opponent/epon": {
+     "value": "0",
+     "nim": 0,
+     "race_edges": 398,
+     "race_positions": 184,
+     "race_position_mover_pairs": 224,
+     "precapture_race_edges": 256,
+     "precapture_race_positions": 114,
+     "precapture_race_position_mover_pairs": 154
+    },
+    "opponent/epoff": {
+     "value": "0",
+     "nim": 0,
+     "race_edges": 224,
+     "race_positions": 166,
+     "race_position_mover_pairs": 206,
+     "precapture_race_edges": 154,
+     "precapture_race_positions": 96,
+     "precapture_race_position_mover_pairs": 136
+    }
+   },
+   "robust_textbook_6": false,
+   "census_agrees_textbook": {
+    "count/epon": true,
+    "count/epoff": true,
+    "mover/epon": true,
+    "mover/epoff": true,
+    "opponent/epon": true,
+    "opponent/epoff": true
+   },
+   "aware": {
+    "count/epon": {
+     "value": "{2±1 | -2±1}",
+     "nim": null,
+     "race_edges": 424,
+     "race_positions": 210,
+     "race_position_mover_pairs": 252,
+     "precapture_race_edges": 258,
+     "precapture_race_positions": 116,
+     "precapture_race_position_mover_pairs": 158
+    },
+    "mover/epon": {
+     "value": "{2±1 | -2±1}",
+     "nim": null,
+     "race_edges": 424,
+     "race_positions": 210,
+     "race_position_mover_pairs": 252,
+     "precapture_race_edges": 258,
+     "precapture_race_positions": 116,
+     "precapture_race_position_mover_pairs": 158
+    },
+    "opponent/epon": {
+     "value": "0",
+     "nim": 0,
+     "race_edges": 424,
+     "race_positions": 210,
+     "race_position_mover_pairs": 252,
+     "precapture_race_edges": 258,
+     "precapture_race_positions": 116,
+     "precapture_race_position_mover_pairs": 158
+    }
+   },
+   "census_agrees_aware": {
+    "count/epon": true,
+    "mover/epon": true,
+    "opponent/epon": true
+   }
+  },
+  {
+   "position": "W: a3 b2 b4 / B: a7 b6 c6",
+   "width": 3,
+   "npawns": 6,
+   "men_with_trebuchet": 10,
+   "textbook": {
+    "count/epon": {
+     "value": "{{↑*, {+W | *, {2 | {-W | {-W | -W, {-W | -W, {-W | -W, {-W | -W, -W*}}}}}}} | 0, *, {*, {+W, {+W, {+W, {+W, +W* | +W} | +W} | +W} | ↓*} | -2*}} | 0}",
+     "nim": null,
+     "race_edges": 176,
+     "race_positions": 84,
+     "race_position_mover_pairs": 116,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "count/epoff": {
+     "value": "{{↑* | 0} | 0}",
+     "nim": null,
+     "race_edges": 127,
+     "race_positions": 80,
+     "race_position_mover_pairs": 112,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "mover/epon": {
+     "value": "{{↑*, {+W | *, {2 | {-W | {-W | -W, {-W | -W, {-W | -W, -W*}}}}}} | 0, *, {*, {+W, {+W, {+W, +W* | +W} | +W} | ↓*} | -2*}} | 0}",
+     "nim": null,
+     "race_edges": 176,
+     "race_positions": 84,
+     "race_position_mover_pairs": 116,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "mover/epoff": {
+     "value": "{{↑* | 0} | 0}",
+     "nim": null,
+     "race_edges": 127,
+     "race_positions": 80,
+     "race_position_mover_pairs": 112,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "opponent/epon": {
+     "value": "*2",
+     "nim": 2,
+     "race_edges": 176,
+     "race_positions": 84,
+     "race_position_mover_pairs": 116,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "opponent/epoff": {
+     "value": "↓*",
+     "nim": null,
+     "race_edges": 127,
+     "race_positions": 80,
+     "race_position_mover_pairs": 112,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    }
+   },
+   "robust_textbook_6": false,
+   "census_agrees_textbook": {
+    "count/epon": true,
+    "count/epoff": true,
+    "mover/epon": true,
+    "mover/epoff": true,
+    "opponent/epon": true,
+    "opponent/epoff": true
+   },
+   "aware": {
+    "count/epon": {
+     "value": "{{↑*, {+W | *, {2 | {-W | {-W | -W, {-W | -W, {-W | -W, {-W | -W, -W*}}}}}}} | 0, *, {*, {+W, {+W, {+W, {+W, +W* | +W} | +W} | +W} | ↓*} | -2*}} | 0}",
+     "nim": null,
+     "race_edges": 171,
+     "race_positions": 79,
+     "race_position_mover_pairs": 111,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "mover/epon": {
+     "value": "{{↑*, {+W | *, {2 | {-W | {-W | -W, {-W | -W, {-W | -W, -W*}}}}}} | 0, *, {*, {+W, {+W, {+W, +W* | +W} | +W} | ↓*} | -2*}} | 0}",
+     "nim": null,
+     "race_edges": 171,
+     "race_positions": 79,
+     "race_position_mover_pairs": 111,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "opponent/epon": {
+     "value": "*2",
+     "nim": 2,
+     "race_edges": 171,
+     "race_positions": 79,
+     "race_position_mover_pairs": 111,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    }
+   },
+   "census_agrees_aware": {
+    "count/epon": true,
+    "mover/epon": true,
+    "opponent/epon": true
+   }
+  },
+  {
+   "position": "W: a3 b2 c2 / B: a4 b6 c5",
+   "width": 3,
+   "npawns": 6,
+   "men_with_trebuchet": 10,
+   "textbook": {
+    "count/epon": {
+     "value": "*",
+     "nim": 1,
+     "race_edges": 47,
+     "race_positions": 35,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "count/epoff": {
+     "value": "1/4",
+     "nim": null,
+     "race_edges": 45,
+     "race_positions": 35,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "mover/epon": {
+     "value": "{{{1 | 1*} | ↑, -255/2±+W} | 0}",
+     "nim": null,
+     "race_edges": 47,
+     "race_positions": 35,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "mover/epoff": {
+     "value": "1/4",
+     "nim": null,
+     "race_edges": 45,
+     "race_positions": 35,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "opponent/epon": {
+     "value": "↑*",
+     "nim": null,
+     "race_edges": 47,
+     "race_positions": 35,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "opponent/epoff": {
+     "value": "1/4",
+     "nim": null,
+     "race_edges": 45,
+     "race_positions": 35,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    }
+   },
+   "robust_textbook_6": false,
+   "census_agrees_textbook": {
+    "count/epon": true,
+    "count/epoff": true,
+    "mover/epon": true,
+    "mover/epoff": true,
+    "opponent/epon": true,
+    "opponent/epoff": true
+   },
+   "aware": {
+    "count/epon": {
+     "value": "-1/4±1/4",
+     "nim": null,
+     "race_edges": 49,
+     "race_positions": 33,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "mover/epon": {
+     "value": "{{{1 | 1*} | ↑, -255/2±+W} | 0}",
+     "nim": null,
+     "race_edges": 49,
+     "race_positions": 33,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "opponent/epon": {
+     "value": "*2",
+     "nim": 2,
+     "race_edges": 49,
+     "race_positions": 33,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    }
+   },
+   "census_agrees_aware": {
+    "count/epon": true,
+    "mover/epon": true,
+    "opponent/epon": true
+   }
+  },
+  {
+   "position": "W: a3 b2 d3 / B: a6 c7 d6",
+   "width": 4,
+   "npawns": 6,
+   "men_with_trebuchet": 10,
+   "textbook": {
+    "count/epon": {
+     "value": "{{3/2±1/2 | 0}, {3/2±1/2, {2 | 1/2±1/2} | {*, {+W | *} | -W}, {1 | {0, {+W | *, {* | -W}} | -1}}, {1/2±1/2, {+W | {1 | *}, {{1 | *} | -W}} | -1/2±1/2, {{* | -1}, {+W | {* | -1}} | -W}}} | {0 | -3/2±1/2}, {{+W | *, {* | -W}}, {{1 | 0, {*, {+W | *} | -W}} | -1}, {1/2±1/2, {+W | {1 | *}, {{1 | *} | -W}} | -1/2±1/2, {{* | -1}, {+W | {* | -1}} | -W}} | -3/2±1/2, {-1/2±1/2 | -2}}}",
+     "nim": null,
+     "race_edges": 612,
+     "race_positions": 220,
+     "race_position_mover_pairs": 320,
+     "precapture_race_edges": 42,
+     "precapture_race_positions": 24,
+     "precapture_race_position_mover_pairs": 30
+    },
+    "count/epoff": {
+     "value": "{{3/2±1/2 | 0}, {3/2±1/2 | {*, {+W | *} | -W}, {*, {+W | {1 | *}, {{1 | *} | -W}} | *, {{* | -1}, {+W | {* | -1}} | -W}}} | {0 | -3/2±1/2}, {{+W | *, {* | -W}}, {*, {+W | {1 | *}, {{1 | *} | -W}} | *, {{* | -1}, {+W | {* | -1}} | -W}} | -3/2±1/2}}",
+     "nim": null,
+     "race_edges": 416,
+     "race_positions": 212,
+     "race_position_mover_pairs": 312,
+     "precapture_race_edges": 30,
+     "precapture_race_positions": 18,
+     "precapture_race_position_mover_pairs": 24
+    },
+    "mover/epon": {
+     "value": "{0, {3/2±1/2 | 0} | 0, {0 | -3/2±1/2}}",
+     "nim": null,
+     "race_edges": 612,
+     "race_positions": 220,
+     "race_position_mover_pairs": 320,
+     "precapture_race_edges": 42,
+     "precapture_race_positions": 24,
+     "precapture_race_position_mover_pairs": 30
+    },
+    "mover/epoff": {
+     "value": "*2",
+     "nim": 2,
+     "race_edges": 416,
+     "race_positions": 212,
+     "race_position_mover_pairs": 312,
+     "precapture_race_edges": 30,
+     "precapture_race_positions": 18,
+     "precapture_race_position_mover_pairs": 24
+    },
+    "opponent/epon": {
+     "value": "{{0 | {*, {+W | *} | -W, {-W, {+W, ±+W, {+W, {+W, ±+W | -W} | -W, ±+W} | -W, -W±+W}, {-W, {+W, ±+W, {+W, {+W, ±+W | -W} | -W, ±+W} | -W, -W±+W} | -W} | -W}}, {{{+W, {+W | +W, ±+W} | +W, ±+W, {+W | +W, ±+W, {+W | +W, ±+W}}} | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}} | {{+W, {+W | +W, ±+W, {+W | +W, ±+W}} | *, {* | -W}} | {-W, ±+W, {-W, ±+W, {-W, ±+W | -W} | -W} | -W, {-W, ±+W | -W}}}}} | {{+W, {+W | +W, {+W, +W±+W | -W, ±+W, {+W, ±+W | -W, {+W | -W, ±+W}}}, {+W | +W, {+W, +W±+W | -W, ±+W, {+W, ±+W | -W, {+W | -W, ±+W}}}}} | *, {* | -W}}, {{{+W, {+W | +W, ±+W} | +W, ±+W, {+W | +W, ±+W, {+W | +W, ±+W}}} | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}} | {{+W, {+W | +W, ±+W, {+W | +W, ±+W}} | *, {* | -W}} | {-W, ±+W, {-W, ±+W, {-W, ±+W | -W} | -W} | -W, {-W, ±+W | -W}}}} | 0}}",
+     "nim": null,
+     "race_edges": 612,
+     "race_positions": 220,
+     "race_position_mover_pairs": 320,
+     "precapture_race_edges": 42,
+     "precapture_race_positions": 24,
+     "precapture_race_position_mover_pairs": 30
+    },
+    "opponent/epoff": {
+     "value": "{{0 | {*, {+W | *} | -W, {-W, {+W, ±+W, {+W, {+W, ±+W | -W} | -W, ±+W} | -W, -W±+W}, {-W, {+W, ±+W, {+W, {+W, ±+W | -W} | -W, ±+W} | -W, -W±+W} | -W} | -W}}, {{{+W, {+W | +W, ±+W} | +W, ±+W, {+W | +W, ±+W, {+W | +W, ±+W}}} | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}} | {{+W, {+W | +W, ±+W, {+W | +W, ±+W}} | *, {* | -W}} | {-W, ±+W, {-W, ±+W, {-W, ±+W | -W} | -W} | -W, {-W, ±+W | -W}}}}} | {{+W, {+W | +W, {+W, +W±+W | -W, ±+W, {+W, ±+W | -W, {+W | -W, ±+W}}}, {+W | +W, {+W, +W±+W | -W, ±+W, {+W, ±+W | -W, {+W | -W, ±+W}}}}} | *, {* | -W}}, {{{+W, {+W | +W, ±+W} | +W, ±+W, {+W | +W, ±+W, {+W | +W, ±+W}}} | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}} | {{+W, {+W | +W, ±+W, {+W | +W, ±+W}} | *, {* | -W}} | {-W, ±+W, {-W, ±+W, {-W, ±+W | -W} | -W} | -W, {-W, ±+W | -W}}}} | 0}}",
+     "nim": null,
+     "race_edges": 416,
+     "race_positions": 212,
+     "race_position_mover_pairs": 312,
+     "precapture_race_edges": 30,
+     "precapture_race_positions": 18,
+     "precapture_race_position_mover_pairs": 24
+    }
+   },
+   "robust_textbook_6": false,
+   "census_agrees_textbook": {
+    "count/epon": true,
+    "count/epoff": true,
+    "mover/epon": true,
+    "mover/epoff": true,
+    "opponent/epon": true,
+    "opponent/epoff": true
+   },
+   "aware": {
+    "count/epon": {
+     "value": "{{{+W | 1, ±+W, {+W | {1 | *}, {{1 | *} | -W}}} | 0}, {{+W | 1, ±+W, {+W | {1 | *}, {{1 | *} | -W}}}, {+W | 1/2±1/2, {+W, {+W, ±+W | -W} | -W}} | {*, {+W | *} | -W}, {1 | {0, {+W | *, {* | -W}} | -1}}, {1/2±1/2, {+W | {1 | *}, {{1 | *} | -W}} | -1/2±1/2, {{* | -1}, {+W | {* | -1}} | -W}}} | {0 | {-1, ±+W, {{* | -1}, {+W | {* | -1}} | -W} | -W}}, {{+W | *, {* | -W}}, {{1 | 0, {*, {+W | *} | -W}} | -1}, {1/2±1/2, {+W | {1 | *}, {{1 | *} | -W}} | -1/2±1/2, {{* | -1}, {+W | {* | -1}} | -W}} | {-1, ±+W, {{* | -1}, {+W | {* | -1}} | -W} | -W}, {-1/2±1/2, {+W | -W, {+W | -W, ±+W}} | -W}}}",
+     "nim": null,
+     "race_edges": 630,
+     "race_positions": 212,
+     "race_position_mover_pairs": 316,
+     "precapture_race_edges": 34,
+     "precapture_race_positions": 12,
+     "precapture_race_position_mover_pairs": 18
+    },
+    "mover/epon": {
+     "value": "{0, {3/2±1/2 | 0} | 0, {0 | -3/2±1/2}}",
+     "nim": null,
+     "race_edges": 630,
+     "race_positions": 212,
+     "race_position_mover_pairs": 316,
+     "precapture_race_edges": 34,
+     "precapture_race_positions": 12,
+     "precapture_race_position_mover_pairs": 18
+    },
+    "opponent/epon": {
+     "value": "{{0 | {*, {+W | *} | -W, {-W, {+W, ±+W, {+W, {+W, ±+W | -W} | -W, ±+W} | -W, -W±+W}, {-W, {+W, ±+W, {+W, {+W, ±+W | -W} | -W, ±+W} | -W, -W±+W} | -W} | -W}}, {{{+W, {+W | +W, ±+W} | +W, ±+W, {+W | +W, ±+W, {+W | +W, ±+W}}} | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}} | {{+W, {+W | +W, ±+W, {+W | +W, ±+W}} | *, {* | -W}} | {-W, ±+W, {-W, ±+W, {-W, ±+W | -W} | -W} | -W, {-W, ±+W | -W}}}}} | {{+W, {+W | +W, {+W, +W±+W | -W, ±+W, {+W, ±+W | -W, {+W | -W, ±+W}}}, {+W | +W, {+W, +W±+W | -W, ±+W, {+W, ±+W | -W, {+W | -W, ±+W}}}}} | *, {* | -W}}, {{{+W, {+W | +W, ±+W} | +W, ±+W, {+W | +W, ±+W, {+W | +W, ±+W}}} | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}} | {{+W, {+W | +W, ±+W, {+W | +W, ±+W}} | *, {* | -W}} | {-W, ±+W, {-W, ±+W, {-W, ±+W | -W} | -W} | -W, {-W, ±+W | -W}}}} | 0}}",
+     "nim": null,
+     "race_edges": 630,
+     "race_positions": 212,
+     "race_position_mover_pairs": 316,
+     "precapture_race_edges": 34,
+     "precapture_race_positions": 12,
+     "precapture_race_position_mover_pairs": 18
+    }
+   },
+   "census_agrees_aware": {
+    "count/epon": true,
+    "mover/epon": true,
+    "opponent/epon": true
+   }
+  },
+  {
+   "position": "W: a3 b3 c2 / B: b5 b7 c6",
+   "width": 3,
+   "npawns": 6,
+   "men_with_trebuchet": 10,
+   "textbook": {
+    "count/epon": {
+     "value": "{0 | {0, *, {2* | *, {↑* | -W, {-W | -W, {-W | -W, {-W | -W, -W*}}}}} | ↓*, {*, {{{+W, {+W, {+W, {+W, +W* | +W} | +W} | +W} | +W} | +W} | -2} | -W}}}",
+     "nim": null,
+     "race_edges": 176,
+     "race_positions": 84,
+     "race_position_mover_pairs": 116,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "count/epoff": {
+     "value": "{0 | {0 | ↓*}}",
+     "nim": null,
+     "race_edges": 127,
+     "race_positions": 80,
+     "race_position_mover_pairs": 112,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "mover/epon": {
+     "value": "{0 | {0, *, {2* | *, {↑* | -W, {-W | -W, {-W | -W, -W*}}}} | ↓*, {*, {{{+W, {+W, {+W, +W* | +W} | +W} | +W} | +W} | -2} | -W}}}",
+     "nim": null,
+     "race_edges": 176,
+     "race_positions": 84,
+     "race_position_mover_pairs": 116,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "mover/epoff": {
+     "value": "{0 | {0 | ↓*}}",
+     "nim": null,
+     "race_edges": 127,
+     "race_positions": 80,
+     "race_position_mover_pairs": 112,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "opponent/epon": {
+     "value": "*2",
+     "nim": 2,
+     "race_edges": 176,
+     "race_positions": 84,
+     "race_position_mover_pairs": 116,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "opponent/epoff": {
+     "value": "↑*",
+     "nim": null,
+     "race_edges": 127,
+     "race_positions": 80,
+     "race_position_mover_pairs": 112,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    }
+   },
+   "robust_textbook_6": false,
+   "census_agrees_textbook": {
+    "count/epon": true,
+    "count/epoff": true,
+    "mover/epon": true,
+    "mover/epoff": true,
+    "opponent/epon": true,
+    "opponent/epoff": true
+   },
+   "aware": {
+    "count/epon": {
+     "value": "{0 | {0, *, {2* | *, {↑* | -W, {-W | -W, {-W | -W, {-W | -W, -W*}}}}} | ↓*, {*, {{{+W, {+W, {+W, {+W, +W* | +W} | +W} | +W} | +W} | +W} | -2} | -W}}}",
+     "nim": null,
+     "race_edges": 171,
+     "race_positions": 79,
+     "race_position_mover_pairs": 111,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "mover/epon": {
+     "value": "{0 | {0, *, {2* | *, {↑* | -W, {-W | -W, {-W | -W, -W*}}}} | ↓*, {*, {{{+W, {+W, {+W, +W* | +W} | +W} | +W} | +W} | -2} | -W}}}",
+     "nim": null,
+     "race_edges": 171,
+     "race_positions": 79,
+     "race_position_mover_pairs": 111,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "opponent/epon": {
+     "value": "*2",
+     "nim": 2,
+     "race_edges": 171,
+     "race_positions": 79,
+     "race_position_mover_pairs": 111,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    }
+   },
+   "census_agrees_aware": {
+    "count/epon": true,
+    "mover/epon": true,
+    "opponent/epon": true
+   }
+  },
+  {
+   "position": "W: a5 b3 c4 / B: a6 b7 c7",
+   "width": 3,
+   "npawns": 6,
+   "men_with_trebuchet": 10,
+   "textbook": {
+    "count/epon": {
+     "value": "*",
+     "nim": 1,
+     "race_edges": 47,
+     "race_positions": 35,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "count/epoff": {
+     "value": "-1/4",
+     "nim": null,
+     "race_edges": 45,
+     "race_positions": 35,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "mover/epon": {
+     "value": "{0 | {↓, 255/2±+W | {-1* | -1}}}",
+     "nim": null,
+     "race_edges": 47,
+     "race_positions": 35,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "mover/epoff": {
+     "value": "-1/4",
+     "nim": null,
+     "race_edges": 45,
+     "race_positions": 35,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "opponent/epon": {
+     "value": "↓*",
+     "nim": null,
+     "race_edges": 47,
+     "race_positions": 35,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "opponent/epoff": {
+     "value": "-1/4",
+     "nim": null,
+     "race_edges": 45,
+     "race_positions": 35,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    }
+   },
+   "robust_textbook_6": false,
+   "census_agrees_textbook": {
+    "count/epon": true,
+    "count/epoff": true,
+    "mover/epon": true,
+    "mover/epoff": true,
+    "opponent/epon": true,
+    "opponent/epoff": true
+   },
+   "aware": {
+    "count/epon": {
+     "value": "1/4±1/4",
+     "nim": null,
+     "race_edges": 49,
+     "race_positions": 33,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "mover/epon": {
+     "value": "{0 | {↓, 255/2±+W | {-1* | -1}}}",
+     "nim": null,
+     "race_edges": 49,
+     "race_positions": 33,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "opponent/epon": {
+     "value": "*2",
+     "nim": 2,
+     "race_edges": 49,
+     "race_positions": 33,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    }
+   },
+   "census_agrees_aware": {
+    "count/epon": true,
+    "mover/epon": true,
+    "opponent/epon": true
+   }
+  }
+ ],
+ "aware_module": {
+  "file": "/private/tmp/claude-501/-Users-aritro--claude-spares-spare-E0JaXy/57318271-9bbf-42b4-b8cf-b9d442308061/scratchpad/ep-wt/cylcgt/pawns.py",
+  "PASSED_RESPECTS_EP": true
+ },
+ "wall_s": 138.6
+}

@@ -62,3 +62,19 @@ def test_verified_bm_equals_fresh_cgt_prediction():
                 wins.add(uci)
         assert wins == set(" ".join(ops["c2"]).split()), fen4
         assert cgt.show(pawns.value(C.B4, comp))  # value is computable
+
+
+def test_predictions_unchanged_under_ep_aware_passed_test():
+    """The suite was built with the textbook passed test; the adopted e.p.-aware test (computed with
+    sumtest's independent generator) must give the same count-rule winning sets for all 275 positions."""
+    import json
+    import ep_aware_check as E
+    from sumtest.sumsolver import Geometry, Rules
+
+    geo = Geometry(4, False)
+    rules = Rules(geo, ep=True, ep_aware=True, race_rule="count")
+    val = E.make_val(rules)
+    recs = json.load(open(os.path.join(HERE, "suite", "results.json")))
+    for r in recs:
+        new = E.predicted_wins(geo, rules, val, r["component"], r["stm"] == "W")
+        assert new == set(r["rules"]["count"]["pred_win"]), r["id"]

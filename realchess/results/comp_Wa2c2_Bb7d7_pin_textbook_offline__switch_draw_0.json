@@ -1,0 +1,63 @@
+{
+ "input": "comp_Wa2c2_Bb7d7_oracleall_pure_textbook_offline.json",
+ "treatment": "switch, draw = 0",
+ "passed_test": "textbook",
+ "greedy": {
+  "guess_value_unknown_sides_from_model": "{5/2\u00b13/2 | -2\u00b11}",
+  "incomplete_terminals": 542,
+  "essential_open_sides": [
+   [
+    "W: a2 c4 / B: b4 d4 (ep c3)",
+    "W",
+    8
+   ],
+   [
+    "W: a2 c5 / B: b7 d5 (ep d6)",
+    "B",
+    8
+   ],
+   [
+    "W: a3 c5 / B: b7 d5 (ep d6)",
+    "B",
+    8
+   ],
+   [
+    "W: a4 c2 / B: b4 d4 (ep a3)",
+    "W",
+    8
+   ],
+   [
+    "W: a4 c2 / B: b4 d7 (ep a3)",
+    "W",
+    8
+   ],
+   [
+    "W: a4 c5 / B: b7 d5 (ep d6)",
+    "B",
+    8
+   ],
+   [
+    "W: a5 c5 / B: b5 d7 (ep b6)",
+    "B",
+    8
+   ],
+   [
+    "W: a5 c5 / B: b7 d5 (ep d6)",
+    "B",
+    8
+   ],
+   [
+    "W: a6 c5 / B: b5 d7 (ep b6)",
+    "B",
+    8
+   ],
+   [
+    "W: a6 c5 / B: b6 d7",
+    "B",
+    8
+   ]
+  ]
+ },
+ "certificate": "not attempted: 10 essential open sides > --max-open 6",
+ "seconds": 141.5
+}

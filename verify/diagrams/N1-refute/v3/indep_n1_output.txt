@@ -1,0 +1,53 @@
+Position W: c1 c3 d3 / B: c2 d4 d5 d6
+library sanity: tiny(1) = {0 | {0 | -1}}  >0: True  <up: True
+
+board ep  race     term     BIG | canonical value        =tiny1 =1 | sum-search: G  G+miny1  G-1  G+*  G+down | 2step epcap races
+---------------------------------------------------------------------------------------------------------------------------------
+cyl   on  count    passed    16 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |     0     0     0  ok
+cyl   on  count    passed   256 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |     0     0     0  ok
+cyl   on  count    promote   16 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |    14     1     0  ok
+cyl   on  count    promote  256 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |    14     1     0  ok
+cyl   on  mover    passed    16 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |     0     0     0  ok
+cyl   on  mover    passed   256 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |     0     0     0  ok
+cyl   on  opponent passed    16 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |     0     0     0  ok
+cyl   on  opponent passed   256 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |     0     0     0  ok
+cyl   off count    passed    16 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |     0     0     0  ok
+cyl   off count    passed   256 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |     0     0     0  ok
+cyl   off count    promote   16 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |    14     0     0  ok
+cyl   off count    promote  256 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |    14     0     0  ok
+cyl   off mover    passed    16 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |     0     0     0  ok
+cyl   off mover    passed   256 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |     0     0     0  ok
+cyl   off opponent passed    16 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |     0     0     0  ok
+cyl   off opponent passed   256 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |     0     0     0  ok
+flat  on  count    passed    16 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |     0     0     0  ok
+flat  on  count    passed   256 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |     0     0     0  ok
+flat  on  count    promote   16 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |    14     1     0  ok
+flat  on  count    promote  256 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |    14     1     0  ok
+flat  on  mover    passed    16 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |     0     0     0  ok
+flat  on  mover    passed   256 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |     0     0     0  ok
+flat  on  opponent passed    16 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |     0     0     0  ok
+flat  on  opponent passed   256 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |     0     0     0  ok
+flat  off count    passed    16 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |     0     0     0  ok
+flat  off count    passed   256 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |     0     0     0  ok
+flat  off count    promote   16 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |    14     0     0  ok
+flat  off count    promote  256 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |    14     0     0  ok
+flat  off mover    passed    16 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |     0     0     0  ok
+flat  off mover    passed   256 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |     0     0     0  ok
+flat  off opponent passed    16 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |     0     0     0  ok
+flat  off opponent passed   256 | {0 | {0 | -1}}         True   False|             L  P        R    N    R      |     0     0     0  ok
+
+Expected if G = tiny(1): G alone L, G+miny(1) P, G-1 R, G+* N, G+down R.  If G = 1: G-1 would be P and G+* L.
+ALL VARIANTS CONSISTENT WITH tiny(1): True
+
+Root options (cyl, ep on, count, passed, BIG=256), canonical values from engine (A):
+  W: c3 -> c4       value {0 | {{ | -256} | { | -256}}}
+       then W: W c1 c5 d3 / B c2 d4 d5 d6  -> {256 | { | { | -256}}}
+       then W: W c1 d3 d5 / B c2 d4 d6  -> 0
+       then B: W c1 d3 / B c2 c4 d4 d6  -> {{ | -256} | { | -256}}
+  W: c3 -> d4       value 0
+  B: d4 -> c3       value {0 | -1}
+       then W: W c1 d4 / B c2 c3 d5 d6  -> 0
+       then B: W c1 d3 / B c2 c3 d4 d6  -> -1
+
+ after c3-c4 equals {0 | -257*}: True   equals {0 | -256*}: False
+ after d4xc3 equals {0|-1}: True

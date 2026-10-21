@@ -1,0 +1,74 @@
+positions 233 Counter({'win': 216, 'draw': 17}) Counter({'w': 229, 'b': 4})
+classes Counter({'hot-BIG': 68, 'number': 57, 'switch': 37, 'infinitesimal': 27, 'other-tame': 20, 'nimber': 17, 'decided': 7})
+base: n=233 errors=0 missing-iterations=0 ids-match=True max_depth=16
+NMP: n=233 errors=0 missing-iterations=0 ids-match=True max_depth=16
+SHALLOW: n=233 errors=0 missing-iterations=0 ids-match=True max_depth=16
+RFP: n=233 errors=0 missing-iterations=0 ids-match=True max_depth=16
+RAZOR: n=233 errors=0 missing-iterations=0 ids-match=True max_depth=16
+SE: n=233 errors=0 missing-iterations=0 ids-match=True max_depth=16
+PROBCUT: n=233 errors=0 missing-iterations=0 ids-match=True max_depth=16
+LMR: n=233 errors=0 missing-iterations=0 ids-match=True max_depth=16
+CORR: n=233 errors=0 missing-iterations=0 ids-match=True max_depth=16
+IIR: n=233 errors=0 missing-iterations=0 ids-match=True max_depth=16
+
+Eval-ok counts base vs RFP (thr 150): {1: (163, 163), 2: (163, 163), 3: (178, 198), 4: (195, 210), 6: (222, 228), 8: (229, 232)}
+
+Threshold sensitivity, base -> RFP, at d3 and d4:
+  thr   1: d3 203 -> 210;  d4 211 -> 213
+  thr  50: d3 194 -> 213;  d4 214 -> 215
+  thr 100: d3 185 -> 208;  d4 208 -> 213
+  thr 150: d3 178 -> 198;  d4 195 -> 210
+  thr 200: d3 169 -> 179;  d4 190 -> 206
+  thr 300: d3 149 -> 155;  d4 162 -> 175
+
+By tablebase root (wins vs draws), base -> RFP:
+  win (n=216): d2 153->153; d3 165->184; d4 180->196; d6 206->211
+  draw (n=17): d2 10->10; d3 13->14; d4 15->14; d6 16->17
+
+By CGT class, absolute counts base -> RFP (gain):
+  decided        n=  7: d3 7->7 (+0); d4 6->7 (+1)
+  hot-BIG        n= 68: d3 57->63 (+6); d4 62->64 (+2)
+  infinitesimal  n= 27: d3 12->18 (+6); d4 16->19 (+3)
+  nimber         n= 17: d3 12->15 (+3); d4 15->17 (+2)
+  number         n= 57: d3 49->49 (+0); d4 48->50 (+2)
+  other-tame     n= 20: d3 11->12 (+1); d4 15->17 (+2)
+  switch         n= 37: d3 30->34 (+4); d4 33->36 (+3)
+  total gain {3: 20, 4: 15}
+
+d3: RFP-off right & base wrong: 20; base right & RFP-off wrong: 0; net 20
+   gains by class Counter({'hot-BIG': 6, 'infinitesimal': 6, 'switch': 4, 'nimber': 3, 'other-tame': 1})  losses by class Counter()
+   gains by tb Counter({'win': 19, 'draw': 1})  losses by tb Counter()
+
+d4: RFP-off right & base wrong: 16; base right & RFP-off wrong: 1; net 15
+   gains by class Counter({'switch': 3, 'hot-BIG': 3, 'infinitesimal': 3, 'nimber': 2, 'number': 2, 'other-tame': 2, 'decided': 1})  losses by class Counter({'hot-BIG': 1})
+   gains by tb Counter({'win': 16})  losses by tb Counter({'draw': 1})
+
+Nodes at fixed depth, RFP / base:
+  d2: total-sum ratio 1.217; per-position geo-mean 1.131; median 1.000; base total 7087
+  d3: total-sum ratio 1.505; per-position geo-mean 1.392; median 1.286; base total 14223
+  d4: total-sum ratio 1.715; per-position geo-mean 1.584; median 1.438; base total 27501
+  d6: total-sum ratio 2.010; per-position geo-mean 1.960; median 1.997; base total 89552
+  d8: total-sum ratio 2.387; per-position geo-mean 2.136; median 2.044; base total 221535
+  d16: total-sum ratio 1.188; per-position geo-mean 1.276; median 1.287; base total 24767478
+  top d4 extra-node contributors: [('cgt238', 113, 541), ('cgt041', 341, 768), ('cgt195', 145, 568), ('cgt107', 138, 547), ('cgt007', 198, 575)]
+
+Equal-cost (nodes to stable right verdict), variant vs base:
+  base     thr 150: n=233 geo 1.000 cheaper/dearer/same 0/0/233
+  NMP      thr 150: n=233 geo 0.998 cheaper/dearer/same 1/1/231
+  SHALLOW  thr 150: n=233 geo 1.007 cheaper/dearer/same 1/2/230
+  RFP      thr 150: n=233 geo 0.945 cheaper/dearer/same 32/42/159
+  RAZOR    thr 150: n=233 geo 0.956 cheaper/dearer/same 6/16/211
+  SE       thr 150: n=233 geo 1.022 cheaper/dearer/same 8/8/217
+  PROBCUT  thr 150: n=233 geo 0.970 cheaper/dearer/same 13/41/179
+  LMR      thr 150: n=233 geo 1.101 cheaper/dearer/same 29/38/166
+  CORR     thr 150: n=233 geo 0.963 cheaper/dearer/same 33/24/176
+  IIR      thr 150: n=233 geo 0.968 cheaper/dearer/same 7/3/223
+
+RFP equal-cost sensitivity to threshold:
+  thr 50: n=233 geo 0.941 cheaper/dearer 28/29
+  thr 100: n=233 geo 0.976 cheaper/dearer 30/35
+  thr 150: n=233 geo 0.945 cheaper/dearer 32/42
+  thr 200: n=233 geo 0.964 cheaper/dearer 35/52
+  thr 300: n=233 geo 1.072 cheaper/dearer 39/65
+
+Cost ranges per variant: total nodes d4 ratio, per-position geo-mean d4, nodes-to-solve geo, equal-cost geo

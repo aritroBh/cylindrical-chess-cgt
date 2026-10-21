@@ -1,0 +1,290 @@
+{
+ "flat": [
+  {
+   "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+   "ref": [
+    20,
+    400,
+    8902,
+    197281,
+    4865609
+   ],
+   "c": [
+    20,
+    400,
+    8902,
+    197281,
+    4865609
+   ],
+   "py": [
+    20,
+    400,
+    8902
+   ],
+   "ok": true
+  },
+  {
+   "fen": "r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 1",
+   "ref": [
+    48,
+    2039,
+    97862,
+    4085603
+   ],
+   "c": [
+    48,
+    2039,
+    97862,
+    4085603
+   ],
+   "py": [
+    48,
+    2039
+   ],
+   "ok": true
+  },
+  {
+   "fen": "8/2p5/3p4/KP5r/1R3p1k/8/4P1P1/8 w - - 0 1",
+   "ref": [
+    14,
+    191,
+    2812,
+    43238,
+    674624
+   ],
+   "c": [
+    14,
+    191,
+    2812,
+    43238,
+    674624
+   ],
+   "py": [
+    14,
+    191,
+    2812
+   ],
+   "ok": true
+  },
+  {
+   "fen": "r3k2r/Pppp1ppp/1b3nbN/nP6/BBP1P3/q4N2/Pp1P2PP/R2Q1RK1 w kq - 0 1",
+   "ref": [
+    6,
+    264,
+    9467,
+    422333
+   ],
+   "c": [
+    6,
+    264,
+    9467,
+    422333
+   ],
+   "py": [
+    6,
+    264,
+    9467
+   ],
+   "ok": true
+  },
+  {
+   "fen": "rnbq1k1r/pp1Pbppp/2p5/8/2B5/8/PPP1NnPP/RNBQK2R w KQ - 1 8",
+   "ref": [
+    44,
+    1486,
+    62379,
+    2103487
+   ],
+   "c": [
+    44,
+    1486,
+    62379,
+    2103487
+   ],
+   "py": [
+    44,
+    1486,
+    62379
+   ],
+   "ok": true
+  }
+ ],
+ "cylinder": [
+  {
+   "label": "start",
+   "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+   "c": [
+    20,
+    392,
+    9162,
+    211036,
+    5633208,
+    149017571
+   ],
+   "py": [
+    20,
+    392,
+    9162,
+    211036
+   ],
+   "agree": true
+  },
+  {
+   "label": "kiwipete",
+   "fen": "r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 1",
+   "c": [
+    51,
+    2599,
+    135626,
+    6664502
+   ],
+   "py": [
+    51,
+    2599,
+    135626
+   ],
+   "agree": true
+  }
+ ],
+ "seam": [
+  {
+   "label": "rook on a rank, both routes",
+   "fen": "7k/8/8/8/8/8/8/R3K3 w - - 0 1",
+   "cyl_c": [
+    18,
+    62,
+    1134,
+    6365
+   ],
+   "cyl_py": [
+    18,
+    62,
+    1134
+   ],
+   "flat_c": [
+    15,
+    42,
+    762,
+    4046
+   ],
+   "agree": true
+  },
+  {
+   "label": "one bishop, double check along two helices",
+   "fen": "8/8/8/4k3/8/8/8/B3K3 b - - 0 1",
+   "cyl_c": [
+    4,
+    72,
+    397,
+    6938
+   ],
+   "cyl_py": [
+    4,
+    72,
+    397
+   ],
+   "flat_c": [
+    6,
+    72,
+    439,
+    6143
+   ],
+   "agree": true
+  },
+  {
+   "label": "e.p. across the seam (a5xh6)",
+   "fen": "4k3/8/8/P6p/8/8/8/4K3 w - h6 0 1",
+   "cyl_c": [
+    7,
+    41,
+    299,
+    2211
+   ],
+   "cyl_py": [
+    7,
+    41,
+    299
+   ],
+   "flat_c": [
+    6,
+    36,
+    269,
+    2019
+   ],
+   "agree": true
+  },
+  {
+   "label": "castling forbidden by an attack across the seam",
+   "fen": "4k3/8/8/8/8/b7/8/4K2R w K - 0 1",
+   "cyl_c": [
+    18,
+    298,
+    4612,
+    73919
+   ],
+   "cyl_py": [
+    18,
+    298,
+    4612
+   ],
+   "flat_c": [
+    15,
+    165,
+    2741,
+    32644
+   ],
+   "agree": true
+  },
+  {
+   "label": "helix pin after 1.c3 (f7 pinned by Qd1)",
+   "fen": "rnbqkbnr/pppppppp/8/8/8/2P5/PP1PPPPP/RNBQKBNR b KQkq - 0 1",
+   "cyl_c": [
+    18,
+    425,
+    9208,
+    260754
+   ],
+   "cyl_py": [
+    18,
+    425,
+    9208
+   ],
+   "flat_c": [
+    20,
+    420,
+    9272,
+    222861
+   ],
+   "agree": true
+  },
+  {
+   "label": "pawn capture across the seam, with promotion (h7xa8)",
+   "fen": "r3k3/7P/8/8/8/8/8/4K3 w - - 0 1",
+   "cyl_c": [
+    13,
+    145,
+    1802,
+    24875
+   ],
+   "cyl_py": [
+    13,
+    145,
+    1802
+   ],
+   "flat_c": [
+    9,
+    110,
+    1128,
+    18004
+   ],
+   "agree": true
+  }
+ ],
+ "symmetry": {
+  "positions": 150,
+  "transforms_each": 15,
+  "depth": 3,
+  "violations": [],
+  "c_vs_py_depth2_disagreements": []
+ }
+}

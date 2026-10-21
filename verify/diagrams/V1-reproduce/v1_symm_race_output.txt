@@ -1,0 +1,84 @@
+=== A. exact identity with the claimed values ===
+2.1     ep=on  0                                                            outcome P  vs claim: IDENTICAL  race edges 0 distinct race positions 0  |numbers|>=128 in tree: []
+2.1     ep=off 0                                                            outcome P  vs claim: IDENTICAL  race edges 0 distinct race positions 0  |numbers|>=128 in tree: []
+2.2     ep=on  0                                                            outcome P  vs claim: IDENTICAL  race edges 0 distinct race positions 0  |numbers|>=128 in tree: []
+2.2     ep=off 0                                                            outcome P  vs claim: IDENTICAL  race edges 0 distinct race positions 0  |numbers|>=128 in tree: []
+3.1     ep=on  1                                                            outcome L  vs claim: IDENTICAL  race edges 1 distinct race positions 1  |numbers|>=128 in tree: []
+3.1     ep=off 2                                                            outcome L  vs claim: IDENTICAL  race edges 1 distinct race positions 1  |numbers|>=128 in tree: []
+3.2     ep=on  2                                                            outcome L  vs claim: IDENTICAL  race edges 1 distinct race positions 1  |numbers|>=128 in tree: []
+3.2     ep=off 2                                                            outcome L  vs claim: IDENTICAL  race edges 1 distinct race positions 1  |numbers|>=128 in tree: []
+4.1     ep=on  *                                                            outcome N  vs claim: IDENTICAL  race edges 0 distinct race positions 0  |numbers|>=128 in tree: []
+4.1     ep=off *                                                            outcome N  vs claim: IDENTICAL  race edges 0 distinct race positions 0  |numbers|>=128 in tree: []
+4.2     ep=on  0                                                            outcome P  vs claim: IDENTICAL  race edges 0 distinct race positions 0  |numbers|>=128 in tree: []
+4.2     ep=off 0                                                            outcome P  vs claim: IDENTICAL  race edges 0 distinct race positions 0  |numbers|>=128 in tree: []
+4.3     ep=on  tiny(1)                                                      outcome L  vs claim: IDENTICAL  race edges 0 distinct race positions 0  |numbers|>=128 in tree: []
+4.3     ep=off tiny(1)                                                      outcome L  vs claim: IDENTICAL  race edges 0 distinct race positions 0  |numbers|>=128 in tree: []
+7.1c    ep=on  ±1                                                           outcome N  vs claim: IDENTICAL  race edges 0 distinct race positions 0  |numbers|>=128 in tree: []
+7.1c    ep=off ±1                                                           outcome N  vs claim: IDENTICAL  race edges 0 distinct race positions 0  |numbers|>=128 in tree: []
+7.1f    ep=on  {3/2±1/2 | 0}                                                outcome N  vs claim: IDENTICAL  race edges 0 distinct race positions 0  |numbers|>=128 in tree: []
+7.1f    ep=off {3/2±1/2 | 0}                                                outcome N  vs claim: IDENTICAL  race edges 0 distinct race positions 0  |numbers|>=128 in tree: []
+7.1ah   ep=on  {+W | *}                                                     outcome L  vs claim: n/a  race edges 1 distinct race positions 1  |numbers|>=128 in tree: [Fraction(258, 1)]
+7.1ah   ep=off {+W | *}                                                     outcome L  vs claim: n/a  race edges 1 distinct race positions 1  |numbers|>=128 in tree: [Fraction(258, 1)]
+7.2abh  ep=on  {{↑ | {0 | ⇓*}, {↑ | {0 | ⇓*}}} | {{{⇓ | 0}, {{⇓ | 0} | 0} | outcome N  vs claim: n/a  race edges 439 distinct race positions 214  |numbers|>=128 in tree: []
+7.2abh  ep=off {{{{{⇑* | 0}, {+W | {{{+W | +W, {+W | -W, {+W | -W, ±+W}}} | outcome R  vs claim: n/a  race edges 307 distinct race positions 206  |numbers|>=128 in tree: [Fraction(-256, 1), Fraction(256, 1)]
+7.3     ep=on  +W                                                           outcome L  vs claim: IDENTICAL  race edges 0 distinct race positions 0  |numbers|>=128 in tree: [Fraction(256, 1)]
+7.3     ep=off +W                                                           outcome L  vs claim: IDENTICAL  race edges 0 distinct race positions 0  |numbers|>=128 in tree: [Fraction(256, 1)]
+7.3cd   ep=on  tiny(1)                                                      outcome L  vs claim: IDENTICAL  race edges 0 distinct race positions 0  |numbers|>=128 in tree: []
+7.3cd   ep=off tiny(1)                                                      outcome L  vs claim: IDENTICAL  race edges 0 distinct race positions 0  |numbers|>=128 in tree: []
+
+=== B. symmetry checks (count rule) ===
+2.1     ep=on  rotations all equal: True  reflection equal: True  colour-reversal = -G: True
+2.1     ep=off rotations all equal: True  reflection equal: True  colour-reversal = -G: True
+2.2     ep=on  rotations all equal: True  reflection equal: True  colour-reversal = -G: True
+2.2     ep=off rotations all equal: True  reflection equal: True  colour-reversal = -G: True
+3.1     ep=on  rotations all equal: True  reflection equal: True  colour-reversal = -G: True
+3.1     ep=off rotations all equal: True  reflection equal: True  colour-reversal = -G: True
+3.2     ep=on  rotations all equal: True  reflection equal: True  colour-reversal = -G: True
+3.2     ep=off rotations all equal: True  reflection equal: True  colour-reversal = -G: True
+4.1     ep=on  rotations all equal: True  reflection equal: True  colour-reversal = -G: True
+4.1     ep=off rotations all equal: True  reflection equal: True  colour-reversal = -G: True
+4.2     ep=on  rotations all equal: True  reflection equal: True  colour-reversal = -G: True
+4.2     ep=off rotations all equal: True  reflection equal: True  colour-reversal = -G: True
+4.3     ep=on  rotations all equal: True  reflection equal: True  colour-reversal = -G: True
+4.3     ep=off rotations all equal: True  reflection equal: True  colour-reversal = -G: True
+7.1c    ep=on  rotations all equal: True  reflection equal: True  colour-reversal = -G: True
+7.1c    ep=off rotations all equal: True  reflection equal: True  colour-reversal = -G: True
+7.1f    ep=on  rotations all equal: True  reflection equal: True  colour-reversal = -G: True
+7.1f    ep=off rotations all equal: True  reflection equal: True  colour-reversal = -G: True
+7.1ah   ep=on  rotations all equal: True  reflection equal: True  colour-reversal = -G: True
+7.1ah   ep=off rotations all equal: True  reflection equal: True  colour-reversal = -G: True
+7.2abh  ep=on  rotations all equal: True  reflection equal: True  colour-reversal = -G: True
+7.2abh  ep=off rotations all equal: True  reflection equal: True  colour-reversal = -G: True
+7.3     ep=on  rotations all equal: True  reflection equal: True  colour-reversal = -G: True
+7.3     ep=off rotations all equal: True  reflection equal: True  colour-reversal = -G: True
+7.3cd   ep=on  rotations all equal: True  reflection equal: True  colour-reversal = -G: True
+7.3cd   ep=off rotations all equal: True  reflection equal: True  colour-reversal = -G: True
+symmetry failures: 0
+
+=== C. outcome under extremal race resolution (all races won by W / by B) ===
+2.1     ep=on  {'count': 'P', 'mover': 'P', 'opponent': 'P', 'allW': 'P', 'allB': 'P'}  race edges 0  outcome race-independent
+2.1     ep=off {'count': 'P', 'mover': 'P', 'opponent': 'P', 'allW': 'P', 'allB': 'P'}  race edges 0  outcome race-independent
+2.2     ep=on  {'count': 'P', 'mover': 'P', 'opponent': 'P', 'allW': 'P', 'allB': 'P'}  race edges 0  outcome race-independent
+2.2     ep=off {'count': 'P', 'mover': 'P', 'opponent': 'P', 'allW': 'P', 'allB': 'P'}  race edges 0  outcome race-independent
+3.1     ep=on  {'count': 'L', 'mover': 'L', 'opponent': 'L', 'allW': 'L', 'allB': 'L'}  race edges 1  outcome race-independent
+3.1     ep=off {'count': 'L', 'mover': 'L', 'opponent': 'L', 'allW': 'L', 'allB': 'L'}  race edges 1  outcome race-independent
+3.2     ep=on  {'count': 'L', 'mover': 'L', 'opponent': 'L', 'allW': 'L', 'allB': 'L'}  race edges 1  outcome race-independent
+3.2     ep=off {'count': 'L', 'mover': 'L', 'opponent': 'L', 'allW': 'L', 'allB': 'L'}  race edges 1  outcome race-independent
+4.1     ep=on  {'count': 'N', 'mover': 'N', 'opponent': 'N', 'allW': 'N', 'allB': 'N'}  race edges 0  outcome race-independent
+4.1     ep=off {'count': 'N', 'mover': 'N', 'opponent': 'N', 'allW': 'N', 'allB': 'N'}  race edges 0  outcome race-independent
+4.2     ep=on  {'count': 'P', 'mover': 'P', 'opponent': 'P', 'allW': 'P', 'allB': 'P'}  race edges 0  outcome race-independent
+4.2     ep=off {'count': 'P', 'mover': 'P', 'opponent': 'P', 'allW': 'P', 'allB': 'P'}  race edges 0  outcome race-independent
+4.3     ep=on  {'count': 'L', 'mover': 'L', 'opponent': 'L', 'allW': 'L', 'allB': 'L'}  race edges 0  outcome race-independent
+4.3     ep=off {'count': 'L', 'mover': 'L', 'opponent': 'L', 'allW': 'L', 'allB': 'L'}  race edges 0  outcome race-independent
+7.1c    ep=on  {'count': 'N', 'mover': 'N', 'opponent': 'N', 'allW': 'N', 'allB': 'N'}  race edges 0  outcome race-independent
+7.1c    ep=off {'count': 'N', 'mover': 'N', 'opponent': 'N', 'allW': 'N', 'allB': 'N'}  race edges 0  outcome race-independent
+7.1f    ep=on  {'count': 'N', 'mover': 'N', 'opponent': 'N', 'allW': 'N', 'allB': 'N'}  race edges 0  outcome race-independent
+7.1f    ep=off {'count': 'N', 'mover': 'N', 'opponent': 'N', 'allW': 'N', 'allB': 'N'}  race edges 0  outcome race-independent
+7.1ah   ep=on  {'count': 'L', 'mover': 'L', 'opponent': 'L', 'allW': 'L', 'allB': 'L'}  race edges 1  outcome race-independent
+7.1ah   ep=off {'count': 'L', 'mover': 'L', 'opponent': 'L', 'allW': 'L', 'allB': 'L'}  race edges 1  outcome race-independent
+7.2abh  ep=on  {'count': 'N', 'mover': 'N', 'opponent': 'N', 'allW': 'N', 'allB': 'N'}  race edges 439  outcome race-independent
+7.2abh  ep=off {'count': 'R', 'mover': 'R', 'opponent': 'R', 'allW': 'R', 'allB': 'R'}  race edges 307  outcome race-independent
+7.3     ep=on  {'count': 'L', 'mover': 'L', 'opponent': 'L', 'allW': 'L', 'allB': 'L'}  race edges 0  outcome race-independent
+7.3     ep=off {'count': 'L', 'mover': 'L', 'opponent': 'L', 'allW': 'L', 'allB': 'L'}  race edges 0  outcome race-independent
+7.3cd   ep=on  {'count': 'L', 'mover': 'L', 'opponent': 'L', 'allW': 'L', 'allB': 'L'}  race edges 0  outcome race-independent
+7.3cd   ep=off {'count': 'L', 'mover': 'L', 'opponent': 'L', 'allW': 'L', 'allB': 'L'}  race edges 0  outcome race-independent

@@ -1,0 +1,42 @@
+== the 9 table rows: threshold S, brute-force S, W, and S with globally expiring e.p. ==
+8x8 cyl ep=off       W: b2 d4 g3 h5 / B: a7 c7 f7 g4    count    comps=1 oS=R oS2=R oW=N oS_globalEP=- claimed S=R W=N MATCH [0.0s]
+8x8 cyl ep=off       W: b3 f4 g5 / B: a5 b6 f5 h6       count    comps=1 oS=N oS2=N oW=L oS_globalEP=- claimed S=N W=L MATCH [0.0s]
+8x8 cyl ep=off       W: b2 c5 d4 f3 / B: c7 d6 e7 g6    count    comps=1 oS=L oS2=L oW=N oS_globalEP=- claimed S=L W=N MATCH [0.5s]
+8x8 cyl ep=on        W: a2 c4 e4 h2 / B: a6 b5 d7 e7    count    comps=1 oS=R oS2=R oW=N oS_globalEP=R claimed S=R W=N MATCH [4.5s]
+8x8 cyl ep=on        W: a5 b6 d2 e2 / B: a7 c7 e7       count    comps=1 oS=L oS2=L oW=N oS_globalEP=L claimed S=L W=N MATCH [0.9s]
+8x7 cyl ep=off       W: c2 g2 h4 / B: a5 b6 f5 g6       count    comps=1 oS=R oS2=R oW=N oS_globalEP=- claimed S=R W=N MATCH [0.1s]
+7x6 flat ep=on       W: b2 d3 f2 / B: c4 c5 e5 g5       count    comps=1 oS=N oS2=N oW=R oS_globalEP=N claimed S=N W=R MATCH [0.2s]
+8x8 cyl ep=on        W: a3 e2 e4 h6 / B: a4 a5 f5 g7    opponent comps=1 oS=N oS2=N oW=L oS_globalEP=N claimed S=N W=L MATCH [0.0s]
+6x8 flat ep=off      W: b2 d4 f4 / B: b7 c5 e5 e7       opponent comps=1 oS=R oS2=R oW=N oS_globalEP=- claimed S=R W=N MATCH [0.0s]
+
+== headline: other race rules, BIG, e.p. on ==
+  ep=False rule=count: oS=R oW=N
+  ep=False rule=mover: oS=N oW=N
+  ep=False rule=opponent: oS=R oW=N
+  ep=True rule=count: oS=R oW=N
+  ep=True rule=mover: oS=N oW=N
+  ep=True rule=opponent: oS=R oW=N
+  BIG=64 ep=off count: oS=R oS2=R oW=N
+  BIG=1000 ep=off count: oS=R oS2=R oW=N
+
+== headline root: passers / components ==
+  passer W False passer B False component files [['a', 'b', 'c', 'd', 'f', 'g', 'h']]
+
+== headline root children ==
+  W -> W: b2 d4 g3 h6 / B: a7 c7 f7 g4: comps=1 oS=N oW=L  <-- differ
+  W -> W: b3 d4 g3 h5 / B: a7 c7 f7 g4: comps=1 oS=R oW=N  <-- differ
+  W -> W: b4 d4 g3 h5 / B: a7 c7 f7 g4: comps=1 oS=N oW=N
+  W -> W: b2 d5 g3 h5 / B: a7 c7 f7 g4: comps=1 oS=R oW=L  <-- differ
+  B -> W: b2 d4 g3 h5 / B: a6 c7 f7 g4: comps=1 oS=N oW=N
+  B -> W: b2 d4 g3 h5 / B: a5 c7 f7 g4: terminal (W passer True, B passer False)
+  B -> W: b2 d4 g3 h5 / B: a7 c7 f6 g4: comps=1 oS=R oW=N  <-- differ
+  B -> W: b2 d4 g3 h5 / B: a7 c7 f5 g4: comps=1 oS=R oW=R
+  B -> W: b2 d4 g3 h5 / B: a7 c6 f7 g4: comps=1 oS=N oW=N
+  B -> W: b2 d4 g3 h5 / B: a7 c5 f7 g4: comps=1 oS=N oW=N
+
+== mechanism node W: b5 d4 g3 / B: c6 f6 g4 h6 ==
+  component ['b', 'c', 'd']: W: b5 d4 / B: c6 threats ['+', '-']
+  component ['f', 'g', 'h']: W: g3 / B: f6 g4 h6 threats ['+', '-']
+  oS=R oS2=R oW=L
+  reachable from headline (either side, any order): True; reachable positions 3967
+  race-creating moves among reachable non-terminal positions: 1025

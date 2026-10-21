@@ -1,0 +1,2596 @@
+{
+ "tests": [
+  {
+   "position": "W: a2 c2 / B: b7 d7",
+   "width": 4,
+   "target": "*2",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": false,
+    "mover/epon": true,
+    "mover/epoff": true,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "mover/epon": true,
+    "mover/epoff": true,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon/aware": false,
+    "opponent/epon/aware": false
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a3 b2 b4 / B: a7 b6 c6",
+   "width": 3,
+   "target": "*2",
+   "C_equal": {
+    "count/epon": false,
+    "count/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": true,
+    "opponent/epoff": false,
+    "opponent/epon/aware": true,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": false,
+    "count/epoff": false,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "opponent/epon": true,
+    "opponent/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon/aware": false,
+    "opponent/epon/aware": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a3 b2 b4 / B: a7 b6 c6",
+   "width": 3,
+   "target": "-1.up+-2.up2+*",
+   "C_equal": {
+    "count/epon": false,
+    "count/epoff": true,
+    "count/epon/aware": false,
+    "mover/epon": false,
+    "mover/epoff": true,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": false,
+    "allBlack/epoff": true,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": false,
+    "count/epoff": true,
+    "mover/epon": false,
+    "mover/epoff": true,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon/aware": false,
+    "opponent/epon/aware": false
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a3 b2 c2 / B: a4 b6 c5",
+   "width": 3,
+   "target": "*2",
+   "C_equal": {
+    "count/epon": false,
+    "count/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": true,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": false,
+    "count/epoff": false,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon/aware": false,
+    "opponent/epon/aware": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a3 b2 d3 / B: a6 c7 d6",
+   "width": 4,
+   "target": "*2",
+   "C_equal": {
+    "count/epon": false,
+    "count/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon": false,
+    "mover/epoff": true,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": false,
+    "count/epoff": false,
+    "mover/epon": false,
+    "mover/epoff": true,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon/aware": false,
+    "opponent/epon/aware": false
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a3 b3 c2 / B: b5 b7 c6",
+   "width": 3,
+   "target": "*2",
+   "C_equal": {
+    "count/epon": false,
+    "count/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": true,
+    "opponent/epoff": false,
+    "opponent/epon/aware": true,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": false,
+    "count/epoff": false,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "opponent/epon": true,
+    "opponent/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon/aware": false,
+    "opponent/epon/aware": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a3 b3 c2 / B: b5 b7 c6",
+   "width": 3,
+   "target": "1.up+2.up2+*",
+   "C_equal": {
+    "count/epon": false,
+    "count/epoff": true,
+    "count/epon/aware": false,
+    "mover/epon": false,
+    "mover/epoff": true,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": true,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": false,
+    "count/epoff": true,
+    "mover/epon": false,
+    "mover/epoff": true,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon/aware": false,
+    "opponent/epon/aware": false
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a5 b3 c4 / B: a6 b7 c7",
+   "width": 3,
+   "target": "*2",
+   "C_equal": {
+    "count/epon": false,
+    "count/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": true,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": false,
+    "count/epoff": false,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon/aware": false,
+    "opponent/epon/aware": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 a3 b2 / B: a6 b5 b6",
+   "width": 2,
+   "target": "1/8",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": true,
+    "mover/epoff": true,
+    "mover/epon/aware": true,
+    "opponent/epon": true,
+    "opponent/epoff": true,
+    "opponent/epon/aware": true,
+    "allWhite/epon": true,
+    "allWhite/epoff": true,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": true,
+    "allBlack/epoff": true,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "mover/epon": true,
+    "mover/epoff": true,
+    "opponent/epon": true,
+    "opponent/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon/aware": true,
+    "opponent/epon/aware": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 b6 / B: a6 b7 c5",
+   "width": 3,
+   "target": "1.up2+*",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": true,
+    "mover/epoff": true,
+    "mover/epon/aware": true,
+    "opponent/epon": true,
+    "opponent/epoff": true,
+    "opponent/epon/aware": true,
+    "allWhite/epon": true,
+    "allWhite/epoff": true,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": true,
+    "allBlack/epoff": true,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "mover/epon": true,
+    "mover/epoff": true,
+    "opponent/epon": true,
+    "opponent/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon/aware": true,
+    "opponent/epon/aware": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 d2 / B: a5 c4 d7",
+   "width": 4,
+   "target": "1/8",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon": true,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": true,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": true,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "mover/epon": true,
+    "mover/epoff": false,
+    "opponent/epon": true,
+    "opponent/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon/aware": false,
+    "opponent/epon/aware": false
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 d5 / B: a6 c5 d7",
+   "width": 4,
+   "target": "1.up2",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": true,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "count/epon/aware": true,
+    "mover/epon/aware": false,
+    "opponent/epon/aware": false
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 c2 d5 / B: a4 b6 d7",
+   "width": 4,
+   "target": "tiny(1*)",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": true,
+    "opponent/epoff": true,
+    "opponent/epon/aware": true,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": true,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "opponent/epon": true,
+    "opponent/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon/aware": false,
+    "opponent/epon/aware": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a3 c5 d4 / B: a7 b7 d7",
+   "width": 4,
+   "target": "1.up2",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon": true,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": true,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": true,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "mover/epon": true,
+    "mover/epoff": false,
+    "opponent/epon": true,
+    "opponent/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon/aware": false,
+    "opponent/epon/aware": false
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a4 b4 c2 / B: a7 c6 d6",
+   "width": 4,
+   "target": "1/8",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": true,
+    "opponent/epon": true,
+    "opponent/epoff": true,
+    "opponent/epon/aware": true,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "opponent/epon": true,
+    "opponent/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon/aware": true,
+    "opponent/epon/aware": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 a4 c3 / B: a3 b7 d7",
+   "width": 4,
+   "target": "-3/8",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": false,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": true,
+    "opponent/epoff": true,
+    "opponent/epon/aware": false,
+    "allWhite/epon": true,
+    "allWhite/epoff": true,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a3 a4 b3 / B: a7 b6 b7",
+   "width": 2,
+   "target": "-1/8",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": true,
+    "mover/epoff": true,
+    "mover/epon/aware": true,
+    "opponent/epon": true,
+    "opponent/epoff": true,
+    "opponent/epon/aware": true,
+    "allWhite/epon": true,
+    "allWhite/epoff": true,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": true,
+    "allBlack/epoff": true,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a3 a5 c3 / B: a7 b7 c7",
+   "width": 3,
+   "target": "-1/8",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": true,
+    "opponent/epoff": false,
+    "opponent/epon/aware": true,
+    "allWhite/epon": true,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a3 b3 b4 / B: a6 b7 c7",
+   "width": 3,
+   "target": "-1/8",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": true,
+    "mover/epon": true,
+    "mover/epoff": false,
+    "mover/epon/aware": true,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": true,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 c3 / B: b7 c7 d7",
+   "width": 4,
+   "target": "-1/8",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": false,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": true,
+    "opponent/epoff": true,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 d2 / B: a4 a7 c6",
+   "width": 4,
+   "target": "-1/8",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon": true,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 d3 / B: a7 b5 c5",
+   "width": 4,
+   "target": "-1/8",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": true,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b5 d4 / B: a7 c7 d7",
+   "width": 4,
+   "target": "-1/8",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon": true,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": true,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": true,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 c3 d3 / B: a5 b5 c7",
+   "width": 4,
+   "target": "-1/8",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": true,
+    "opponent/epon": true,
+    "opponent/epoff": true,
+    "opponent/epon/aware": true,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a3 b2 c2 / B: a7 b5 d5",
+   "width": 4,
+   "target": "-1/8",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": true,
+    "opponent/epoff": true,
+    "opponent/epon/aware": true,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": true,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a3 b2 c3 / B: a6 b5 d7",
+   "width": 4,
+   "target": "-1/8",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": true,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a3 b2 d3 / B: a6 b5 c5",
+   "width": 4,
+   "target": "-1/8",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": true,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a3 b3 c2 / B: a6 b5 d7",
+   "width": 4,
+   "target": "-1/8",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": true,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a4 c2 d5 / B: a7 b7 c7",
+   "width": 4,
+   "target": "-1/8",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": true,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 a3 b2 / B: a6 b5 b6",
+   "width": 2,
+   "target": "1/8",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": true,
+    "mover/epoff": true,
+    "mover/epon/aware": true,
+    "opponent/epon": true,
+    "opponent/epoff": true,
+    "opponent/epon/aware": true,
+    "allWhite/epon": true,
+    "allWhite/epoff": true,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": true,
+    "allBlack/epoff": true,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 c2 / B: a4 a6 c6",
+   "width": 3,
+   "target": "1/8",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": true,
+    "opponent/epoff": false,
+    "opponent/epon/aware": true,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 c3 / B: b5 b6 c6",
+   "width": 3,
+   "target": "1/8",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": true,
+    "mover/epon": true,
+    "mover/epoff": false,
+    "mover/epon/aware": true,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 a5 c3 / B: a7 b7 d7",
+   "width": 4,
+   "target": "1/8",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon": true,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": true,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 c2 / B: a5 c7 d4",
+   "width": 4,
+   "target": "1/8",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 c2 / B: b6 c7 d7",
+   "width": 4,
+   "target": "1/8",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": false,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": true,
+    "opponent/epoff": true,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 d2 / B: a5 c4 d7",
+   "width": 4,
+   "target": "1/8",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon": true,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": true,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": true,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b4 c4 / B: a7 b7 d6",
+   "width": 4,
+   "target": "1/8",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": true,
+    "allWhite/epoff": true,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b4 d4 / B: a6 b7 c7",
+   "width": 4,
+   "target": "1/8",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": true,
+    "opponent/epoff": true,
+    "opponent/epon/aware": true,
+    "allWhite/epon": true,
+    "allWhite/epoff": true,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 c4 d3 / B: b6 c7 d6",
+   "width": 4,
+   "target": "1/8",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": true,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 c4 d3 / B: b7 c6 d6",
+   "width": 4,
+   "target": "1/8",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": true,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a3 b4 c4 / B: a6 b7 d6",
+   "width": 4,
+   "target": "1/8",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": true,
+    "allWhite/epoff": true,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a4 b4 c2 / B: a7 c6 d6",
+   "width": 4,
+   "target": "1/8",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": true,
+    "opponent/epon": true,
+    "opponent/epoff": true,
+    "opponent/epon/aware": true,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 c2 d6 / B: b6 d5 d7",
+   "width": 4,
+   "target": "3/8",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": false,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": true,
+    "opponent/epoff": true,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": true,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b3 b4 / B: a6 b7 c7",
+   "width": 3,
+   "target": "-1/16",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": true,
+    "mover/epon": true,
+    "mover/epoff": false,
+    "mover/epon/aware": true,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": true,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 d3 / B: a6 b5 c5",
+   "width": 4,
+   "target": "-1/16",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a4 b2 d4 / B: b7 c7 d7",
+   "width": 4,
+   "target": "-1/16",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": true,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 c3 / B: b5 b6 c7",
+   "width": 3,
+   "target": "1/16",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": true,
+    "mover/epon": true,
+    "mover/epoff": false,
+    "mover/epon/aware": true,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 c2 / B: a5 c7 d5",
+   "width": 4,
+   "target": "1/16",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a3 b4 c4 / B: a7 b7 d6",
+   "width": 4,
+   "target": "1/16",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": true,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 d4 / B: b7 c7 d7",
+   "width": 4,
+   "target": "-1/32",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": true,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 c2 / B: a5 c7 d7",
+   "width": 4,
+   "target": "1/32",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 / B: a6 c5",
+   "width": 3,
+   "target": "1.up2+*",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": true,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 b6 / B: a6 b7 c5",
+   "width": 3,
+   "target": "1.up2+*",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": true,
+    "mover/epoff": true,
+    "mover/epon/aware": true,
+    "opponent/epon": true,
+    "opponent/epoff": true,
+    "opponent/epon/aware": true,
+    "allWhite/epon": true,
+    "allWhite/epoff": true,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": true,
+    "allBlack/epoff": true,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 c3 / B: a5 b5 c6",
+   "width": 3,
+   "target": "1.up2+*",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": true,
+    "mover/epon": true,
+    "mover/epoff": false,
+    "mover/epon/aware": true,
+    "opponent/epon": true,
+    "opponent/epoff": false,
+    "opponent/epon/aware": true,
+    "allWhite/epon": true,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": true,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 c6 / B: a6 c5 c7",
+   "width": 3,
+   "target": "1.up2+*",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": true,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 d5 / B: a6 c5 c7",
+   "width": 4,
+   "target": "1.up2+*",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": true,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 d5 / B: a6 c5 d6",
+   "width": 4,
+   "target": "1.up2+*",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": true,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 d6 / B: a6 c5 d7",
+   "width": 4,
+   "target": "1.up2+*",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": true,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a3 b2 c2 / B: a5 c7 d4",
+   "width": 4,
+   "target": "1.up2+*",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": true,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a3 c4 d4 / B: a6 b6 d7",
+   "width": 4,
+   "target": "1.up2+*",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": true,
+    "allWhite/epoff": true,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a6 b2 c2 / B: a7 b6 d5",
+   "width": 4,
+   "target": "1.up2+*",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": true,
+    "opponent/epon": true,
+    "opponent/epoff": true,
+    "opponent/epon/aware": true,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": true,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a3 c4 / B: a7 b7",
+   "width": 3,
+   "target": "-1.up2+*",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": true,
+    "allWhite/epoff": true,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 a4 c3 / B: a3 b7 c7",
+   "width": 3,
+   "target": "-1.up2+*",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": true,
+    "allWhite/epoff": true,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a3 b2 c4 / B: a7 b3 b7",
+   "width": 3,
+   "target": "-1.up2+*",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": true,
+    "mover/epoff": true,
+    "mover/epon/aware": true,
+    "opponent/epon": true,
+    "opponent/epoff": true,
+    "opponent/epon/aware": true,
+    "allWhite/epon": true,
+    "allWhite/epoff": true,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": true,
+    "allBlack/epoff": true,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a3 b4 c4 / B: a6 b7 c7",
+   "width": 3,
+   "target": "-1.up2+*",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": true,
+    "mover/epon": true,
+    "mover/epoff": false,
+    "mover/epon/aware": true,
+    "opponent/epon": true,
+    "opponent/epoff": false,
+    "opponent/epon/aware": true,
+    "allWhite/epon": true,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": true,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b3 d4 / B: a3 b7 c7",
+   "width": 4,
+   "target": "-1.up2+*",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": true,
+    "opponent/epon": true,
+    "opponent/epoff": true,
+    "opponent/epon/aware": true,
+    "allWhite/epon": true,
+    "allWhite/epoff": true,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b4 d3 / B: a3 c7 d7",
+   "width": 4,
+   "target": "-1.up2+*",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": true,
+    "allWhite/epoff": true,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 c3 d3 / B: a5 b5 d6",
+   "width": 4,
+   "target": "-1.up2+*",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": true,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a3 b4 d3 / B: a4 c7 d7",
+   "width": 4,
+   "target": "-1.up2+*",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": true,
+    "allWhite/epoff": true,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a3 c2 c4 / B: a7 b7 d4",
+   "width": 4,
+   "target": "-1.up2+*",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": true,
+    "allWhite/epoff": true,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a4 c2 d5 / B: a6 b7 c7",
+   "width": 4,
+   "target": "-1.up2+*",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": true,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": true,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 b4 / B: a7 b7 c6",
+   "width": 3,
+   "target": "1.up+1.up2+*",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": true,
+    "mover/epon": true,
+    "mover/epoff": false,
+    "mover/epon/aware": true,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a3 c2 c4 / B: b7 c7 d7",
+   "width": 4,
+   "target": "1.up+1.up2+*",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": true,
+    "mover/epon": true,
+    "mover/epoff": false,
+    "mover/epon/aware": true,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 c3 / B: a5 b5 c5",
+   "width": 3,
+   "target": "-1.up2",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": true,
+    "opponent/epoff": false,
+    "opponent/epon/aware": true,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 d2 / B: a6 c4 d5",
+   "width": 4,
+   "target": "-1.up2",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon": true,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": true,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": true,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b3 d2 / B: a5 c7 d7",
+   "width": 4,
+   "target": "-1.up2",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b4 c3 / B: a7 c7 d7",
+   "width": 4,
+   "target": "-1.up2",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": true,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b4 d3 / B: a4 c7 d7",
+   "width": 4,
+   "target": "-1.up2",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": true,
+    "allWhite/epoff": true,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 c3 / B: a7 b5 b7",
+   "width": 3,
+   "target": "-1.up+-1.up2+*",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": true,
+    "mover/epon": true,
+    "mover/epoff": false,
+    "mover/epon/aware": true,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": true,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 c2 / B: b5 b7 d6",
+   "width": 4,
+   "target": "-1.up+-1.up2+*",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": true,
+    "mover/epon": true,
+    "mover/epoff": false,
+    "mover/epon/aware": true,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a4 b4 c4 / B: a6 b7 c7",
+   "width": 3,
+   "target": "1.up2",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": true,
+    "opponent/epoff": false,
+    "opponent/epon/aware": true,
+    "allWhite/epon": true,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 d2 / B: b6 c5 d7",
+   "width": 4,
+   "target": "1.up2",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 d4 / B: a7 c6 d7",
+   "width": 4,
+   "target": "1.up2",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 d5 / B: a6 c5 d7",
+   "width": 4,
+   "target": "1.up2",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": true,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a3 c5 d4 / B: a7 b7 d7",
+   "width": 4,
+   "target": "1.up2",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": false,
+    "mover/epon": true,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": true,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": true,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 a5 d2 / B: a7 b7 c6",
+   "width": 4,
+   "target": "1.up+1.up2",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b5 d2 / B: b6 c7 d7",
+   "width": 4,
+   "target": "1.up+1.up2",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a3 b2 c2 / B: a6 c7 d7",
+   "width": 4,
+   "target": "1.up+1.up2",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": false,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 c2 / B: a7 c4 d7",
+   "width": 4,
+   "target": "-2.up+-2.up2+*",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 c3 / B: a4 a7 d7",
+   "width": 4,
+   "target": "-1.up+-1.up2",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 c3 / B: a7 c4 d7",
+   "width": 4,
+   "target": "-1.up+-1.up2",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b2 d3 / B: b7 c7 d6",
+   "width": 4,
+   "target": "-1.up+-1.up2",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": false,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 b5 d2 / B: b7 c7 d7",
+   "width": 4,
+   "target": "2.up+2.up2+*",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": false,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": false,
+    "opponent/epoff": false,
+    "opponent/epon/aware": false,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 c2 d5 / B: a4 b6 d7",
+   "width": 4,
+   "target": "tiny(1*)",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": true,
+    "opponent/epoff": true,
+    "opponent/epon/aware": true,
+    "allWhite/epon": false,
+    "allWhite/epoff": false,
+    "allWhite/epon/aware": false,
+    "allBlack/epon": true,
+    "allBlack/epoff": true,
+    "allBlack/epon/aware": true
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  },
+  {
+   "position": "W: a2 c3 d5 / B: a4 b7 d7",
+   "width": 4,
+   "target": "miny(1*)",
+   "C_equal": {
+    "count/epon": true,
+    "count/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon": false,
+    "mover/epoff": false,
+    "mover/epon/aware": false,
+    "opponent/epon": true,
+    "opponent/epoff": true,
+    "opponent/epon/aware": true,
+    "allWhite/epon": true,
+    "allWhite/epoff": true,
+    "allWhite/epon/aware": true,
+    "allBlack/epon": false,
+    "allBlack/epoff": false,
+    "allBlack/epon/aware": false
+   },
+   "cylcgt_equal": {
+    "count/epon": true
+   },
+   "all_agree": true
+  }
+ ],
+ "agree": 215,
+ "total": 215
+}

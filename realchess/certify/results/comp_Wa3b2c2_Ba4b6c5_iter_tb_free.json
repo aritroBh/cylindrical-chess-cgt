@@ -1,0 +1,78 @@
+{
+ "component": "W: a3 b2 c2 / B: a4 b6 c5",
+ "tree": "textbook",
+ "treatment": "free (only L/R fixed)",
+ "target": "*2",
+ "status": "stopped: --max-new",
+ "result": null,
+ "unresolvable_sides": [
+  "8/8/8/1Pp2Kp1/p5Pk/P7/1P6/8 b - - 0 1",
+  "8/8/8/1Pp2Kp1/p5Pk/P7/1P6/8 w - - 0 1",
+  "8/8/8/5Kp1/ppP3Pk/8/1P6/8 w - - 0 1",
+  "8/8/8/5Kp1/ppP3Pk/P7/2P5/8 b - - 0 1"
+ ],
+ "log": [
+  {
+   "round": 0,
+   "requests_so_far": 0,
+   "ledger": 367,
+   "resolved_sides": 32,
+   "model_filled_terminals": 415,
+   "unresolvable_sides": 0,
+   "lower_needs": {
+    "8": 2,
+    "9": 4
+   },
+   "upper_with_model_fill": false,
+   "plan_test": "lower",
+   "sides_to_resolve": 12,
+   "resolved": [
+    [
+     "W: b2 c2 c5 / B: a3",
+     "B",
+     -1,
+     8
+    ],
+    [
+     "W: b2 c2 c5 / B: a3",
+     "W",
+     1,
+     8
+    ],
+    [
+     "W: b2 c4 / B: a4 b4 (ep c3)",
+     "B",
+     -1,
+     8
+    ],
+    [
+     "W: b2 c4 / B: a4 b4 (ep c3)",
+     "W",
+     null,
+     8
+    ],
+    [
+     "W: a3 b2 b5 / B: a4 c5",
+     "B",
+     null,
+     9
+    ],
+    [
+     "W: a3 b2 b5 / B: a4 c5",
+     "W",
+     null,
+     9
+    ],
+    [
+     "W: a3 c2 c4 / B: a4 b4",
+     "B",
+     null,
+     9
+    ]
+   ]
+  }
+ ],
+ "new_requests_this_run": 70,
+ "ledger": 518,
+ "seconds": 163.0
+}

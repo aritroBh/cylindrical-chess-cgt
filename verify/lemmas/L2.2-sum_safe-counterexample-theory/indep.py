@@ -1,23 +1,14 @@
-"""Independent, CGT-free re-implementation (theory-lens verifier, claim L2.2).
+"""Independent re-implementation (theory-lens verifier, L2.2) of
+  * the whole-board convention game W  (first passer ends everything; races by rule),
+  * the sum model S of cylcgt.pawns.value, evaluated WITHOUT any CGT code, by
+    alternating-play search on the sum game form F = (live components, frozen integer k),
+  * a variant S_glob of S in which e.p. rights are global (expire after any move),
+    to separate the "stale e.p. right" effect (L1.7) from nested +-BIG cancellation,
+  * threat sets and the HSS test.
+Nothing here imports cylcgt, lemmas or crosscheck.
 
-Written from the rules in notes/lemmas.md section 0 (M1-M4, passer test, race rules).
-Imports nothing from cylcgt/, crosscheck/ or lemmas/.
-
-Two games, both evaluated by plain alternating-play minimax:
-
-  Wg  whole-board convention game: the first position in which exactly one side has a
-      passer is terminal (that side wins); a move that gives both sides passers is a race,
-      scored by the race rule; e.p. rights are global (they die after any other move).
-
-  Sg  the sum model as a game FORM, played literally: state = (multiset of live components,
-      integer n). A live component that acquires a passer (or a race) is removed and +-BIG
-      (or the race score) is added to n. Otherwise the moved component is replaced by its
-      own sub-components. n is a number game: Left may move n -> n-1 when n > 0, Right
-      n -> n+1 when n < 0. E.p. rights live inside their component (the sum convention),
-      so a right survives moves made in other components.
-
-Positions: (frozenset white squares, frozenset black squares, ep) with squares (file, rank),
-file 0 = a, ep = (target, captured_square, side_allowed) or None.
+Usage (from project root):
+  .venv/bin/python verify/lemmas/L2.2-sum_safe-counterexample-theory/indep.py
 """
 from __future__ import annotations
 
@@ -25,68 +16,121 @@ import sys
 from functools import lru_cache
 
 sys.setrecursionlimit(100000)
-
-FILES = "abcdefgh"
-
-
-class B:
-    def __init__(self, n, m, cyl, ep):
-        self.n, self.m, self.cyl, self.ep = n, m, cyl, ep
-
-    def adj(self, f):
-        out = []
-        for d in (-1, 1):
-            g = f + d
-            if self.cyl:
-                out.append(g % self.n)
-            elif 0 <= g < self.n:
-                out.append(g)
-        return out
-
-    def key(self):
-        return (self.n, self.m, self.cyl, self.ep)
+BIG = 256
+EP_AWARE = False  # True: a pawn that may still be taken e.p. is not passed (project convention of 2026-10-16)
+FL = "abcdefghijklmnopqrstuvwxyz"
 
 
 def parse(text):
     w, b = text.split("/")
-    sqs = lambda s: frozenset((FILES.index(t[0]), int(t[1:])) for t in s.split(":")[1].split())
-    return (sqs(w), sqs(b), None)
+    sq = lambda t: (FL.index(t[0]), int(t[1:]))
+    return (frozenset(sq(t) for t in w.split(":")[1].split()),
+            frozenset(sq(t) for t in b.split(":")[1].split()), None)
 
 
 def show(p):
-    nm = lambda s: " ".join(sorted(f"{FILES[f]}{r}" for f, r in s))
-    return f"W: {nm(p[0])} / B: {nm(p[1])}" + (f" (ep {p[2]})" if p[2] else "")
+    n = lambda s: f"{FL[s[0]]}{s[1]}"
+    return "W: " + " ".join(sorted(map(n, p[0]))) + " / B: " + " ".join(sorted(map(n, p[1]))) + \
+        (f" (ep {n(p[2][0])} for {p[2][2]})" if p[2] else "")
 
 
-def pawn_passed(bd, p, side, sq):
-    f, r = sq
-    files = {f, *bd.adj(f)}
-    enemy = p[1] if side == "W" else p[0]
-    if side == "W":
-        return not any(g in files and s > r for g, s in enemy)
-    return not any(g in files and s < r for g, s in enemy)
+class Bd:
+    def __init__(self, nf, nr, wrap, ep):
+        self.nf, self.nr, self.wrap, self.ep = nf, nr, wrap, ep
+
+    def adj(self, f):
+        out = []
+        for g in (f - 1, f + 1):
+            if self.wrap:
+                out.append(g % self.nf)
+            elif 0 <= g < self.nf:
+                out.append(g)
+        return out
+
+    def key(self):
+        return (self.nf, self.nr, self.wrap, self.ep)
+
+
+def gen(bd, p, side):
+    """children of p after a move by side; side's own e.p. right (if any) is usable."""
+    W_, B_, ep = p
+    mine, theirs = (W_, B_) if side == "W" else (B_, W_)
+    d = 1 if side == "W" else -1
+    start = 2 if side == "W" else bd.nr - 1
+    occ = W_ | B_
+    right = ep if (ep is not None and ep[2] == side) else None
+    res = []
+
+    def put(m, t, e=None):
+        res.append((m, t, e) if side == "W" else (t, m, e))
+    for (f, r) in mine:
+        r1 = r + d
+        if r1 < 1 or r1 > bd.nr:
+            continue
+        rest = mine - {(f, r)}
+        if (f, r1) not in occ:
+            put(rest | {(f, r1)}, theirs)
+            r2 = r + 2 * d
+            if r == start and 1 <= r2 <= bd.nr and (f, r2) not in occ:
+                e = ((f, r1), (f, r2), "B" if side == "W" else "W") if bd.ep else None
+                put(rest | {(f, r2)}, theirs, e)
+        for g in bd.adj(f):
+            t = (g, r1)
+            if t in theirs:
+                put(rest | {t}, theirs - {t})
+            elif right is not None and right[0] == t:
+                put(rest | {t}, theirs - {right[1]})
+    out = []
+    for m, t, e in res:
+        x = (frozenset(m), frozenset(t), e)
+        if x not in out:
+            out.append(x)
+    return out
+
+
+def ep_capt(bd, p, side, sq):
+    ep = p[2]
+    if not (EP_AWARE and ep is not None and ep[1] == sq and ep[2] != side):
+        return False
+    theirs = p[1] if side == "W" else p[0]
+    return any((g, sq[1]) in theirs for g in bd.adj(sq[0]))
 
 
 def has_passer(bd, p, side):
-    mine = p[0] if side == "W" else p[1]
-    return any(pawn_passed(bd, p, side, q) for q in mine)
+    W_, B_, _ = p
+    mine, theirs = (W_, B_) if side == "W" else (B_, W_)
+    for (f, r) in mine:
+        if ep_capt(bd, p, side, (f, r)):
+            continue
+        fs = {f, *bd.adj(f)}
+        if side == "W":
+            if not any(g in fs and s > r for g, s in theirs):
+                return True
+        else:
+            if not any(g in fs and s < r for g, s in theirs):
+                return True
+    return False
 
 
-def dist(bd, p, side):
-    mine = p[0] if side == "W" else p[1]
-    best = 10 ** 6
-    for f, r in mine:
-        if not pawn_passed(bd, p, side, (f, r)):
+def pdist(bd, p, side):
+    W_, B_, _ = p
+    mine = W_ if side == "W" else B_
+    best = 10 ** 9
+    for (f, r) in mine:
+        if ep_capt(bd, p, side, (f, r)):
+            continue
+        single = (frozenset([(f, r)]), B_, None) if side == "W" else (W_, frozenset([(f, r)]), None)
+        if not has_passer(bd, single, side):
             continue
         if side == "W":
-            if any(g == f and s > r for g, s in mine):
+            if any(g == f and s > r for g, s in W_ | B_):
                 continue
-            d = bd.m - r - (1 if r == 2 else 0)
+            dd = bd.nr - r - (1 if r == 2 else 0)
         else:
-            if any(g == f and s < r for g, s in mine):
+            if any(g == f and s < r for g, s in W_ | B_):
                 continue
-            d = r - 1 - (1 if r == bd.m - 1 else 0)
-        best = min(best, d)
+            dd = r - 1 - (1 if r == bd.nr - 1 else 0)
+        best = min(best, dd)
     return best
 
 
@@ -96,157 +140,166 @@ def race_winner(bd, p, mover, rule):
         return mover
     if rule == "opponent":
         return other
-    return other if dist(bd, p, other) <= dist(bd, p, mover) else mover
+    return other if pdist(bd, p, other) <= pdist(bd, p, mover) else mover
 
 
-def gen(bd, p, side):
-    """All positions after one move of `side`. Only a right owned by `side` is usable."""
-    W, Bk, ep = p
-    mine, theirs = (W, Bk) if side == "W" else (Bk, W)
-    occ = W | Bk
-    d = 1 if side == "W" else -1
-    start = 2 if side == "W" else bd.m - 1
-    other = "B" if side == "W" else "W"
-    usable = ep if (ep and ep[2] == side) else None
-    out = set()
-
-    def put(nm, nt, e=None):
-        out.add((frozenset(nm), frozenset(nt), e) if side == "W" else (frozenset(nt), frozenset(nm), e))
-
-    for (f, r) in mine:
-        r1 = r + d
-        if not 1 <= r1 <= bd.m:
-            continue
-        rest = mine - {(f, r)}
-        if (f, r1) not in occ:
-            put(rest | {(f, r1)}, theirs)
-            r2 = r + 2 * d
-            if r == start and 1 <= r2 <= bd.m and (f, r2) not in occ:
-                put(rest | {(f, r2)}, theirs, ((f, r1), (f, r2), other) if bd.ep else None)
-        for g in bd.adj(f):
-            t = (g, r1)
-            if t in theirs:
-                put(rest | {t}, theirs - {t})
-            elif usable and usable[0] == t:
-                put(rest | {t}, theirs - {usable[1]})
-    return out
+def term(bd, p):
+    w, b = has_passer(bd, p, "W"), has_passer(bd, p, "B")
+    if w and b:
+        return 0
+    if w:
+        return 1
+    if b:
+        return -1
+    return None
 
 
 def comps(bd, p):
-    W, Bk, ep = p
-    occ = sorted({f for f, _ in W | Bk})
-    if not occ:
-        return []
+    W_, B_, ep = p
+    files = sorted({f for f, _ in W_ | B_})
     groups = []
-    for f in occ:
+    for f in files:
         if groups and f == groups[-1][-1] + 1:
             groups[-1].append(f)
         else:
             groups.append([f])
-    if bd.cyl and len(groups) > 1 and groups[0][0] == 0 and groups[-1][-1] == bd.n - 1:
+    if bd.wrap and len(groups) > 1 and groups[0][0] == 0 and groups[-1][-1] == bd.nf - 1:
         groups[0] = groups.pop() + groups[0]
-    res = []
+    out = []
     for g in groups:
-        fs = set(g)
-        e = ep if (ep and ep[0][0] in fs) else None
-        res.append((frozenset(q for q in W if q[0] in fs), frozenset(q for q in Bk if q[0] in fs), e))
-    return res
+        s = set(g)
+        e = ep if (ep is not None and ep[0][0] in s) else None
+        out.append((frozenset(q for q in W_ if q[0] in s), frozenset(q for q in B_ if q[0] in s), e))
+    return out
 
 
-def make_solvers(bd: B, rule: str, BIG: int):
-    @lru_cache(maxsize=None)
-    def Wg(p, tm):
-        """winner ('W'/'B') of the whole-board game with `tm` to move; p non-terminal."""
-        other = "B" if tm == "W" else "W"
-        for c in gen(bd, p, tm):
-            wp, bp = has_passer(bd, c, "W"), has_passer(bd, c, "B")
-            if wp and bp:
-                res = race_winner(bd, c, tm, rule)
-            elif wp:
-                res = "W"
-            elif bp:
-                res = "B"
+# ------------------------------------------------------------------ W (whole board)
+_BD = {}
+
+
+def _bd(k):
+    return _BD[k]
+
+
+@lru_cache(maxsize=None)
+def w_win(bk, p, side, rule):
+    bd = _bd(bk)
+    t = term(bd, p)
+    assert t != 0
+    if t is not None:
+        return "W" if t == 1 else "B"
+    other = "B" if side == "W" else "W"
+    for c in gen(bd, p, side):
+        tc = term(bd, c)
+        if tc == 0:
+            r = race_winner(bd, c, side, rule)
+        elif tc is not None:
+            r = "W" if tc == 1 else "B"
+        else:
+            r = w_win(bk, c, other, rule)
+        if r == side:
+            return side
+    return other
+
+
+def outcome(fn, *args):
+    a = fn(*args, "W") == "W"  # White moves first, White wins?
+    b = fn(*args, "B") == "W"
+    return "L" if a and b else "R" if (not a and not b) else ("N" if a else "P")
+
+
+def oW(bd, p, rule="count"):
+    _BD[bd.key()] = bd
+    return outcome(lambda pp, s: w_win(bd.key(), pp, s, rule), p)
+
+
+# ------------------------------------------------------------------ S via the sum form F
+def canon(cs):
+    return tuple(sorted(cs, key=lambda c: (sorted(c[0]), sorted(c[1]), str(c[2]))))
+
+
+def strip(bd, cs):
+    """glob mode: remove every e.p. right; a component whose pawn was 'not passed'
+    only because of a right (EP_AWARE) now freezes to +-BIG."""
+    out, dk = [], 0
+    for c in cs:
+        c2 = (c[0], c[1], None)
+        t = term(bd, c2)
+        if t is None:
+            out.append(c2)
+        else:
+            assert t != 0
+            dk += t * BIG
+    return out, dk
+
+
+@lru_cache(maxsize=None)
+def s_win(bk, cs, k, side, rule, glob):
+    """winner of F = sum of live components cs + integer k, `side` to move.
+    glob=False: e.p. rights local to components (pawns.value semantics).
+    glob=True : every right expires after any move anywhere."""
+    bd = _bd(bk)
+    other = "B" if side == "W" else "W"
+    sgn = 1 if side == "W" else -1
+    # move in the integer
+    if (side == "W" and k > 0) or (side == "B" and k < 0):
+        ncs, dk = (cs, 0) if not glob else strip(bd, cs)
+        if s_win(bk, canon(ncs), k - sgn + dk, other, rule, glob) == side:
+            return side
+    for i, z in enumerate(cs):
+        rest = list(cs[:i] + cs[i + 1:])
+        dk = 0
+        if glob:
+            rest, dk = strip(bd, rest)
+        # pawns._value: the other side's right in z expires when side moves in z
+        zz = z if (z[2] is None or z[2][2] == side) else (z[0], z[1], None)
+        for c in gen(bd, zz, side):
+            t = term(bd, c)
+            if t == 0:
+                kk = k + dk + (BIG if race_winner(bd, c, side, rule) == "W" else -BIG)
+                ncs = canon(rest)
+            elif t is not None:
+                kk = k + dk + t * BIG
+                ncs = canon(rest)
             else:
-                res = Wg(c, other)
-            if res == tm:
-                return tm
-        return other
-
-    def strip(p):
-        return (p[0], p[1], None)
-
-    @lru_cache(maxsize=None)
-    def Sg(state, n, tm):
-        """winner of the sum-model game form. state: sorted tuple of live components."""
-        other = "B" if tm == "W" else "W"
-        # integer move
-        if tm == "W" and n > 0 and Sg(state, n - 1, other) == "W":
-            return "W"
-        if tm == "B" and n < 0 and Sg(state, n + 1, other) == "B":
-            return "B"
-        for i, c in enumerate(state):
-            rest = state[:i] + state[i + 1:]
-            # a right of the other side expires when tm moves in THIS component (local rights)
-            src = c if (c[2] and c[2][2] == tm) else strip(c) if c[2] else c
-            for ch in gen(bd, src, tm):
-                wp, bp = has_passer(bd, ch, "W"), has_passer(bd, ch, "B")
-                if wp and bp:
-                    w = race_winner(bd, ch, tm, rule)
-                    nn, ns = n + (BIG if w == "W" else -BIG), rest
-                elif wp:
-                    nn, ns = n + BIG, rest
-                elif bp:
-                    nn, ns = n - BIG, rest
-                else:
-                    nn, ns = n, rest + tuple(comps(bd, ch))
-                ns = tuple(sorted(ns, key=repr))
-                if Sg(ns, nn, other) == tm:
-                    return tm
-        return other
-
-    def outcome(fn_first, fn_second):
-        a, b = fn_first, fn_second
-        if a == "W" and b == "W":
-            return "L"
-        if a == "B" and b == "B":
-            return "R"
-        return "N" if a == "W" else "P"
-
-    def oW(p):
-        return outcome(Wg(p, "W"), Wg(p, "B"))
-
-    def oS(p):
-        # top level of pawns.value: a global passer check first, then split
-        wp, bp = has_passer(bd, p, "W"), has_passer(bd, p, "B")
-        assert not (wp or bp)
-        st = tuple(sorted(comps(bd, p), key=repr))
-        return outcome(Sg(st, 0, "W"), Sg(st, 0, "B"))
-
-    return oW, oS, Wg, Sg
+                kk = k + dk
+                ncs = canon(rest + comps(bd, c))
+            if s_win(bk, ncs, kk, other, rule, glob) == side:
+                return side
+    return other
 
 
-def threats(bd, p, memo):
-    if p in memo:
-        return memo[p]
-    s = set()
+def oS(bd, p, rule="count", glob=False):
+    _BD[bd.key()] = bd
+    t = term(bd, p)
+    if t in (1, -1):
+        return "L" if t == 1 else "R"
+    cs = canon(comps(bd, p))
+    return outcome(lambda c, s: s_win(bd.key(), c, 0, s, rule, glob), cs)
+
+
+# ------------------------------------------------------------------ threats, HSS
+@lru_cache(maxsize=None)
+def tau(bk, p):
+    bd = _bd(bk)
+    out = set()
     if has_passer(bd, p, "W"):
-        s.add(1)
+        out.add(1)
     if has_passer(bd, p, "B"):
-        s.add(-1)
-    if not s:
+        out.add(-1)
+    if not out:
         for side in ("W", "B"):
             src = p if (p[2] is None or p[2][2] == side) else (p[0], p[1], None)
             for c in gen(bd, src, side):
-                s |= threats(bd, c, memo)
-    memo[p] = frozenset(s)
-    return memo[p]
+                out |= tau(bk, c)
+    return frozenset(out)
 
 
 def reach(bd, p):
     seen, st = {p}, [p]
     while st:
         x = st.pop()
-        if has_passer(bd, x, "W") or has_passer(bd, x, "B"):
+        if term(bd, x) is not None:
             continue
         for side in ("W", "B"):
             src = x if (x[2] is None or x[2][2] == side) else (x[0], x[1], None)
@@ -255,3 +308,44 @@ def reach(bd, p):
                     seen.add(c)
                     st.append(c)
     return seen
+
+
+def unsafe_nodes(bd, p):
+    _BD[bd.key()] = bd
+    out = []
+    for y in reach(bd, p):
+        if term(bd, y) is not None:
+            continue
+        cc = comps(bd, y)
+        ts = [tau(bd.key(), c) for c in cc]
+        if any(1 in a and -1 in b for i, a in enumerate(ts) for j, b in enumerate(ts) if i != j):
+            out.append(y)
+    return out
+
+
+ROWS = [
+    (Bd(8, 8, True, False), "W: b2 d4 g3 h5 / B: a7 c7 f7 g4", "count", "R", "N"),
+    (Bd(8, 8, True, False), "W: b3 f4 g5 / B: a5 b6 f5 h6", "count", "N", "L"),
+    (Bd(8, 8, True, False), "W: b2 c5 d4 f3 / B: c7 d6 e7 g6", "count", "L", "N"),
+    (Bd(8, 8, True, True), "W: a2 c4 e4 h2 / B: a6 b5 d7 e7", "count", "R", "N"),
+    (Bd(8, 8, True, True), "W: a5 b6 d2 e2 / B: a7 c7 e7", "count", "L", "N"),
+    (Bd(8, 7, True, False), "W: c2 g2 h4 / B: a5 b6 f5 g6", "count", "R", "N"),
+    (Bd(7, 6, False, True), "W: b2 d3 f2 / B: c4 c5 e5 g5", "count", "N", "R"),
+    (Bd(8, 8, True, True), "W: a3 e2 e4 h6 / B: a4 a5 f5 g7", "opponent", "N", "L"),
+    (Bd(6, 8, False, False), "W: b2 d4 f4 / B: b7 c5 e5 e7", "opponent", "R", "N"),
+]
+
+if __name__ == "__main__":
+    import time
+    only = sys.argv[1:] and int(sys.argv[1])
+    for i, (bd, txt, rule, cS, cW) in enumerate(ROWS):
+        if only and i + 1 != only:
+            continue
+        t0 = time.time()
+        p = parse(txt)
+        nc = len(comps(bd, p))
+        s = oS(bd, p, rule)
+        w = oW(bd, p, rule)
+        sg = oS(bd, p, rule, glob=True) if bd.ep else "-"
+        print(f"row {i+1}: {bd.key()} {txt} [{rule}] comps={nc} | indep o(S)={s} (claimed {cS}) "
+              f"o(W)={w} (claimed {cW}) o(S_glob-ep)={sg} | {time.time()-t0:.1f}s", flush=True)

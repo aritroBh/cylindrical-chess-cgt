@@ -1,0 +1,59 @@
+flat4 count    plain: X={256 | ±256}   Y(b5)=0          G=*2
+flat4 count    aware: X=-3             Y(b5)=-2±1       G={2±1 | -2±1}
+flat4 mover    plain: X={256 | ±256}   Y(b5)=0          G=*2
+flat4 mover    aware: X=-3             Y(b5)=-2±1       G={2±1 | -2±1}
+flat4 opponent plain: X={256 | ±256}   Y(b5)=1/2        G=0
+flat4 opponent aware: X=0              Y(b5)=*          G=0
+cyl4 count    plain: X=-2             Y(b5)=-3/2±1/2   G={3/2±1/2 | -3/2±1/2}
+cyl4 count    aware: X=-3             Y(b5)=-2±1       G={2±1 | -2±1}
+cyl4 mover    plain: X=-2             Y(b5)=-3/2±1/2   G={3/2±1/2 | -3/2±1/2}
+cyl4 mover    aware: X=-3             Y(b5)=-2±1       G={2±1 | -2±1}
+cyl4 opponent plain: X=-2             Y(b5)=-3/2±1/2   G={3/2±1/2 | -3/2±1/2}
+cyl4 opponent aware: X=-3             Y(b5)=-2±1       G={2±1 | -2±1}
+
+options of X, flat4 count plain:
+      W -> W: a3 c2 / B: b4 d7 : ±256
+      W -> W: a4 c2 / B: b4 d7 [ep a3 for B] : 256
+      W -> W: a2 c3 / B: b4 d7 : {256, {256, {256, {256, ±256 | -256, ±256} | -256, ±256} | -256, ±256} | -256, ±256}
+      W -> W: a2 c4 / B: b4 d7 [ep c3 for B] : {0, {256, {256, ±256 | -256, ±256} | -256, ±256} | -256}
+      B -> W: a2 c2 / B: b4 d6 : {256 | {256, ±256 | -256, {256, ±256 | -256, {256, ±256 | -256, ±256}}}}
+      B -> W: a2 c2 / B: b4 d5 : {256 | {256, ±256 | -256, {256, ±256 | -256, ±256}}}
+      B -> W: a2 c2 / B: b3 d7 : ±256
+   after a2-a4: W: a4 c2 / B: b4 d7 [ep a3 for B] W passers [(0, 4)] B passers []
+  options of G, flat4 count plain:
+      W -> W: a3 c2 / B: b7 d7 : {* | -1}
+      W -> W: a4 c2 / B: b7 d7 : *
+      W -> W: a2 c3 / B: b7 d7 : -1/2±1/2
+      W -> W: a2 c4 / B: b7 d7 : 0
+      B -> W: a2 c2 / B: b7 d6 : {1 | *}
+      B -> W: a2 c2 / B: b7 d5 : *
+      B -> W: a2 c2 / B: b6 d7 : 1/2±1/2
+      B -> W: a2 c2 / B: b5 d7 : 0
+
+options of X, flat4 count aware:
+      W -> W: a3 c2 / B: b4 d7 : ±256
+      W -> W: a4 c2 / B: b4 d7 [ep a3 for B] : ±256
+      W -> W: a2 c3 / B: b4 d7 : {256, ±256 | -256, {256, {256, {256, ±256 | -256, ±256} | -256, ±256} | -256, ±256}}
+      W -> W: a2 c4 / B: b4 d7 [ep c3 for B] : {0, {256, {256, ±256 | -256, ±256} | -256, ±256} | -256}
+      B -> W: a2 c2 / B: b4 d6 : -2
+      B -> W: a2 c2 / B: b4 d5 : -1
+      B -> W: a2 c2 / B: b3 d7 : ±256
+   after a2-a4: W: a4 c2 / B: b4 d7 [ep a3 for B] W passers [] B passers []
+   value of the a2-a4 node: ±256
+     B reply W: a4 c2 / B: b4 d6 : 256
+     B reply W: a4 c2 / B: b4 d5 : 256
+     B reply W: a4 c2 / B: b3 d7 : 256
+     B reply W: c2 / B: a3 d7 : -256
+  options of G, flat4 count aware:
+      W -> W: a3 c2 / B: b7 d7 : {1±1 | -1}
+      W -> W: a4 c2 / B: b7 d7 : *
+      W -> W: a2 c3 / B: b7 d7 : {2±1 | -1}
+      W -> W: a2 c4 / B: b7 d7 : 2±1
+      B -> W: a2 c2 / B: b7 d6 : {1 | -1±1}
+      B -> W: a2 c2 / B: b7 d5 : *
+      B -> W: a2 c2 / B: b6 d7 : {1 | -2±1}
+      B -> W: a2 c2 / B: b5 d7 : -2±1
+
+flat4 count NO e.p.: X={256 | ±256} Y=0 G=*2
+
+flat4 opponent NO e.p.: X={256 | ±256} Y=1/2 G=0

@@ -1,0 +1,78 @@
+=== e.p. on: 224 race nodes (child, mover)
+  [W] baseline count: root *2 (outcome N); single flips changing it: 4
+       W: a2 / B: c4 d7       ep=None mover B verdict B -> ↑ (outcome L)
+       W: a2 b5 / B: d7       ep=None mover W verdict W -> ↓ (outcome R)
+       W: a3 / B: c4 d6       ep=None mover B verdict B -> ↑ (outcome L)
+       W: a3 b5 / B: d6       ep=None mover W verdict W -> ↓ (outcome R)
+  [W] baseline mover: root *2 (outcome N); single flips changing it: 6
+       W: a2 / B: c4 d6       ep=None mover B verdict B -> ↑ (outcome L)
+       W: a2 / B: c4 d7       ep=None mover B verdict B -> ↑ (outcome L)
+       W: a2 b5 / B: d7       ep=None mover W verdict W -> ↓ (outcome R)
+       W: a3 / B: c4 d6       ep=None mover B verdict B -> ↑ (outcome L)
+       W: a3 b5 / B: d6       ep=None mover W verdict W -> ↓ (outcome R)
+       W: a3 b5 / B: d7       ep=None mover W verdict W -> ↓ (outcome R)
+  [W] baseline opponent: root 0 (outcome P); single flips changing it: 2
+       W: a3 / B: c4 d6       ep=None mover B verdict W -> ↓ (outcome R)
+       W: a3 b5 / B: d6       ep=None mover W verdict B -> ↑ (outcome L)
+  [WF] baseline count: root *2 (outcome N); single flips changing it: 4
+       W: a2 / B: c4 d7       ep=None mover B verdict B -> ↑ (outcome L)
+       W: a2 b5 / B: d7       ep=None mover W verdict W -> ↓ (outcome R)
+       W: a3 / B: c4 d6       ep=None mover B verdict B -> ↑ (outcome L)
+       W: a3 b5 / B: d6       ep=None mover W verdict W -> ↓ (outcome R)
+  [WF] baseline mover: root *2 (outcome N); single flips changing it: 6
+       W: a2 / B: c4 d6       ep=None mover B verdict B -> ↑ (outcome L)
+       W: a2 / B: c4 d7       ep=None mover B verdict B -> ↑ (outcome L)
+       W: a2 b5 / B: d7       ep=None mover W verdict W -> ↓ (outcome R)
+       W: a3 / B: c4 d6       ep=None mover B verdict B -> ↑ (outcome L)
+       W: a3 b5 / B: d6       ep=None mover W verdict W -> ↓ (outcome R)
+       W: a3 b5 / B: d7       ep=None mover W verdict W -> ↓ (outcome R)
+  [WF] baseline opponent: root 0 (outcome P); single flips changing it: 2
+       W: a3 / B: c4 d6       ep=None mover B verdict W -> ↓ (outcome R)
+       W: a3 b5 / B: d6       ep=None mover W verdict B -> ↑ (outcome L)
+  critical set W == critical set WF: True
+  [W] 4 lost by mover, rest count: 0; 4 won, rest lost by mover: *2; all won by mover: *2; all lost by mover: 0
+  [W] 4 won by mover, rest uniform random (200, seed 1, sorted order): {'*2': 145, '0': 2, '↑': 26, '↓': 27}
+  [WF] 4 lost by mover, rest count: 0; 4 won, rest lost by mover: *2; all won by mover: *2; all lost by mover: 0
+  [WF] 4 won by mover, rest uniform random (200, seed 1, sorted order): {'*2': 145, '0': 2, '↑': 26, '↓': 27}
+  distinct (white, black, mover) configurations: 206; groups with e.p. twins: 18; race nodes carrying an e.p. field: 44; of those in twin groups with a usable right: 18
+  race nodes whose e.p. right is usable by the side to move: 22
+  any critical race carries an e.p. field: False
+=== e.p. off: 206 race nodes (child, mover)
+  [W] baseline count: root *2 (outcome N); single flips changing it: 4
+       W: a2 / B: c4 d7       ep=None mover B verdict B -> ↑ (outcome L)
+       W: a2 b5 / B: d7       ep=None mover W verdict W -> ↓ (outcome R)
+       W: a3 / B: c4 d6       ep=None mover B verdict B -> ↑ (outcome L)
+       W: a3 b5 / B: d6       ep=None mover W verdict W -> ↓ (outcome R)
+  [W] baseline mover: root *2 (outcome N); single flips changing it: 6
+       W: a2 / B: c4 d6       ep=None mover B verdict B -> ↑ (outcome L)
+       W: a2 / B: c4 d7       ep=None mover B verdict B -> ↑ (outcome L)
+       W: a2 b5 / B: d7       ep=None mover W verdict W -> ↓ (outcome R)
+       W: a3 / B: c4 d6       ep=None mover B verdict B -> ↑ (outcome L)
+       W: a3 b5 / B: d6       ep=None mover W verdict W -> ↓ (outcome R)
+       W: a3 b5 / B: d7       ep=None mover W verdict W -> ↓ (outcome R)
+  [W] baseline opponent: root 0 (outcome P); single flips changing it: 2
+       W: a3 / B: c4 d6       ep=None mover B verdict W -> ↓ (outcome R)
+       W: a3 b5 / B: d6       ep=None mover W verdict B -> ↑ (outcome L)
+  [WF] baseline count: root *2 (outcome N); single flips changing it: 4
+       W: a2 / B: c4 d7       ep=None mover B verdict B -> ↑ (outcome L)
+       W: a2 b5 / B: d7       ep=None mover W verdict W -> ↓ (outcome R)
+       W: a3 / B: c4 d6       ep=None mover B verdict B -> ↑ (outcome L)
+       W: a3 b5 / B: d6       ep=None mover W verdict W -> ↓ (outcome R)
+  [WF] baseline mover: root *2 (outcome N); single flips changing it: 6
+       W: a2 / B: c4 d6       ep=None mover B verdict B -> ↑ (outcome L)
+       W: a2 / B: c4 d7       ep=None mover B verdict B -> ↑ (outcome L)
+       W: a2 b5 / B: d7       ep=None mover W verdict W -> ↓ (outcome R)
+       W: a3 / B: c4 d6       ep=None mover B verdict B -> ↑ (outcome L)
+       W: a3 b5 / B: d6       ep=None mover W verdict W -> ↓ (outcome R)
+       W: a3 b5 / B: d7       ep=None mover W verdict W -> ↓ (outcome R)
+  [WF] baseline opponent: root 0 (outcome P); single flips changing it: 2
+       W: a3 / B: c4 d6       ep=None mover B verdict W -> ↓ (outcome R)
+       W: a3 b5 / B: d6       ep=None mover W verdict B -> ↑ (outcome L)
+  critical set W == critical set WF: True
+  [W] 4 lost by mover, rest count: 0; 4 won, rest lost by mover: *2; all won by mover: *2; all lost by mover: 0
+  [W] 4 won by mover, rest uniform random (200, seed 1, sorted order): {'*2': 145, '0': 3, '↑': 32, '↓': 20}
+  [WF] 4 lost by mover, rest count: 0; 4 won, rest lost by mover: *2; all won by mover: *2; all lost by mover: 0
+  [WF] 4 won by mover, rest uniform random (200, seed 1, sorted order): {'*2': 145, '0': 3, '↑': 32, '↓': 20}
+  distinct (white, black, mover) configurations: 206; groups with e.p. twins: 0; race nodes carrying an e.p. field: 0; of those in twin groups with a usable right: 0
+  race nodes whose e.p. right is usable by the side to move: 0
+  any critical race carries an e.p. field: False

@@ -1,0 +1,20 @@
+== "W: a2 c2 / B: b4 d7" --files 4
+value          : -3
+mean, temp     : -3 None
+brute outcomes : RRRRRRRRRRRRRRR
+cgt predicted  : RRRRRRRRRRRRRRR (agree)
+== "W: a2 c2 / B: b4 d7" --files 4 --plain
+value          : {256 | ±256}
+mean, temp     : 256 0
+brute outcomes : LLLLLLLLLLLLLLL
+cgt predicted  : LLLLLLLLLLLLLLL (agree)
+== "W: a2 c2 / B: b5 d7" --files 4
+value          : -2±1
+mean, temp     : -2 1
+brute outcomes : RRRRRRRRRRNRRRR
+cgt predicted  : RRRRRRRRRRNRRRR (agree)
+== "W: a2 c2 / B: b5 d7" --files 4 --plain
+value          : 0
+mean, temp     : 0 None
+brute outcomes : PNNNLRNLLRLRNNL
+cgt predicted  : PNNNLRNLLRLRNNL (agree)

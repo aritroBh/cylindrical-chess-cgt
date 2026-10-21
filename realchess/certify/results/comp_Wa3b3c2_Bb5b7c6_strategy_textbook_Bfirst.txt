@@ -1,0 +1,89 @@
+B -> W: a3 b3 c2 / B: b5 b6 c6
+  W -> W: a3 b3 c4 / B: b5 b6 c6 (ep c3)
+    B -> W: a3 b3 c4 / B: b5 b6 c5
+      W -> W: a3 b3 b5 / B: b6 c5
+        B -> W: a3 b3 b5 / B: b6 c4
+          W -> W: a3 b5 c4 / B: b6
+            B has no pawn move (zugzwang in the model)
+    B -> W: a3 b3 c4 / B: b4 b6 c6
+      W -> W: b3 b4 c4 / B: b6 c6
+        B -> W: b3 b4 c4 / B: b5 c6
+          W -> W: b3 b4 c5 / B: b5 c6
+            B has no pawn move (zugzwang in the model)
+        B -> W: b3 b4 c4 / B: b6 c5
+          W -> W: b3 b5 c4 / B: b6 c5
+            B has no pawn move (zugzwang in the model)
+    B -> W: a3 b3 / B: b6 c4 c6
+      W -> W: a3 c4 / B: b6 c6
+        B -> W: a3 c4 / B: b5 c6
+          W -> W: a3 c5 / B: b5 c6
+            B -> W: a3 c5 / B: b4 c6
+              W -> W: b4 c5 / B: c6
+                B has no pawn move (zugzwang in the model)
+        B -> W: a3 c4 / B: b6 c5
+          W -> W: a4 c4 / B: b6 c5
+            B -> W: a4 c4 / B: b5 c5
+              W -> W: b5 c4 / B: c5  [support terminal, class L]
+B -> W: a3 b3 c2 / B: b5 b7 c5
+  W -> W: a3 b3 c4 / B: b5 b7 c5 (ep c3)
+    B -> W: a3 b3 c4 / B: b5 b6 c5
+      W -> W: a3 b3 b5 / B: b6 c5
+        B -> W: a3 b3 b5 / B: b6 c4
+          W -> W: a3 b5 c4 / B: b6
+            B has no pawn move (zugzwang in the model)
+    B -> W: a3 b3 c4 / B: b4 b7 c5
+      W -> W: b3 b4 c4 / B: b7 c5
+        B -> W: b3 b4 c4 / B: b6 c5
+          W -> W: b3 b5 c4 / B: b6 c5
+            B has no pawn move (zugzwang in the model)
+        B -> W: b3 b4 c4 / B: b5 c5 (ep b6)
+          W -> W: b3 c4 c5 / B: b5  [support terminal, class L]
+        B -> W: b3 c4 / B: b4 b7
+          W -> W: b3 c5 / B: b4 b7
+            B -> W: b3 c5 / B: b4 b6
+              W -> W: b3 b6 / B: b4  [support terminal, class L]
+            B -> W: b3 c5 / B: b4 b5 (ep b6)  [support terminal, class L]
+    B -> W: a3 b3 / B: b7 c4 c5
+      W -> W: a3 c4 / B: b7 c5
+        B -> W: a3 c4 / B: b6 c5
+          W -> W: a4 c4 / B: b6 c5
+            B -> W: a4 c4 / B: b5 c5
+              W -> W: b5 c4 / B: c5  [support terminal, class L]
+        B -> W: a3 c4 / B: b5 c5 (ep b6)
+          W -> W: a3 b5 / B: c5  [support terminal, class L]
+B -> W: a3 b3 c2 / B: b4 b7 c6
+  W -> W: b3 b4 c2 / B: b7 c6
+    B -> W: b3 b4 c2 / B: b6 c6
+      W -> W: b3 b5 c2 / B: b6 c6
+        B -> W: b3 b5 c2 / B: b6 c5
+          W -> W: b3 b5 c3 / B: b6 c5
+            B -> W: b3 b5 c3 / B: b6 c4
+              W -> W: b4 b5 c3 / B: b6 c4
+                B has no pawn move (zugzwang in the model)
+        B -> W: b3 c2 / B: b5 b6
+          W -> W: b4 c2 / B: b5 b6
+            B has no pawn move (zugzwang in the model)
+    B -> W: b3 b4 c2 / B: b5 c6 (ep b6)
+      W -> W: b3 b4 c4 / B: b5 c6 (ep c3)
+        B -> W: b3 b4 c4 / B: b5 c5
+          W -> W: b3 c4 c5 / B: b5  [support terminal, class L]
+        B -> W: b3 b4 / B: c4 c6
+          W -> W: b4 c4 / B: c6
+            B -> W: b4 c4 / B: c5
+              W -> W: b5 c4 / B: c5  [support terminal, class L]
+    B -> W: b3 b4 c2 / B: b7 c5
+      W -> W: b3 b5 c2 / B: b7 c5
+        B -> W: b3 b5 c2 / B: b6 c5
+          W -> W: b3 b5 c3 / B: b6 c5
+            B -> W: b3 b5 c3 / B: b6 c4
+              W -> W: b4 b5 c3 / B: b6 c4
+                B has no pawn move (zugzwang in the model)
+        B -> W: b3 b5 c2 / B: b7 c4
+          W -> W: b3 b6 c2 / B: b7 c4
+            B -> W: b3 b6 c2 / B: b7 c3
+              W -> W: b4 b6 c2 / B: b7 c3
+                B has no pawn move (zugzwang in the model)
+            B -> W: b6 c2 / B: b3 b7
+              W -> W: b3 b6 / B: b7
+                B has no pawn move (zugzwang in the model)
+{"first": "B", "strategy_nodes": 57, "support_terminals_reached": ["W: a3 b5 / B: c5", "W: b3 b6 / B: b4", "W: b3 c4 c5 / B: b5", "W: b3 c5 / B: b4 b5 (ep b6)", "W: b5 c4 / B: c5"], "black_zugzwang_nodes": ["W: a3 b5 c4 / B: b6", "W: b3 b4 c5 / B: b5 c6", "W: b3 b5 c4 / B: b6 c5", "W: b3 b6 / B: b7", "W: b4 b5 c3 / B: b6 c4", "W: b4 b6 c2 / B: b7 c3", "W: b4 c2 / B: b5 b6", "W: b4 c5 / B: c6"]}

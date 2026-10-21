@@ -1,0 +1,34 @@
+v1 size 518 build s 419
+v1 kinds {'integer': 268, 'number+nimber': 120, 'number+ups(+nimber)': 58, 'switch': 44, 'hot-other': 10, 'cold-other': 2, 'number': 16}
+v1 values {'0': 170, '*': 116, '-1': 24, '1': 24, '^': 20, 'v': 20, '-2': 16, '2': 16, '1/2': 8, '-1/2': 8, '-3': 6, '-3/2+-1/2': 6, '3/2+-1/2': 6, '3': 6, 'v*': 6, '^*': 6, '+-1': 4, '^^*': 3, 'vv*': 3, '-1/2+-1/2': 3, '-5/2+-1/2': 3, '{-1 | -5/2+-1/2}': 3, '1/2+-1/2': 3, '{5/2+-1/2 | 1}': 3, '5/2+-1/2': 3, '-4': 3, '-1+-1': 3, '-3+-1': 3, '1+-1': 3, '3+-1': 3, '4': 3, '+-3': 2, '1/2*': 2, '-1/2*': 2, '{0 | -3/2+-1/2}': 1, '{-1 | {-1 | -5/2+-1/2}}': 1, '{{5/2+-1/2 | 1} | 1}': 1, '{3/2+-1/2 | 0}': 1, '-2+-1': 1, '{0 | -3+-1}': 1, '{3+-1 | 0}': 1, '2+-1': 1}
+v1 kind=number: Counter({'1/2': 8, '-1/2': 8})
+aware False done 481
+aware True done 544
+{
+ "v1 size": 518,
+ "differs in some setting (root or child)": 48,
+ "differs by setting": {
+  "count,on": 48,
+  "mover,on": 32,
+  "opponent,on": 48
+ },
+ "root differs by setting": {
+  "count,on": 28,
+  "mover,on": 20,
+  "opponent,on": 28
+ },
+ "root differs in some setting": 28,
+ "e.p.-off setting differences (any)": 0,
+ "v1 components valued +-1/2 or +-1/2*": 20,
+ "... of which change": 20,
+ "v1 kind counts": {
+  "integer": 268,
+  "number+nimber": 120,
+  "number+ups(+nimber)": 58,
+  "switch": 44,
+  "hot-other": 10,
+  "cold-other": 2,
+  "number": 16
+ },
+ "seconds": 549
+}

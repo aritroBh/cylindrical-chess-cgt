@@ -1,0 +1,20 @@
+=== 1. My transcription vs cylcgt.verify_paper.CLAIMS (pawns only) ===
+2.1: '2.1 zero': MATCH; kings in diagram (not in CLAIMS): none
+2.2: '2.2 zero (wrap)': MATCH; kings in diagram (not in CLAIMS): none
+2.3: NOT IN CLAIMS. mine = W: c1 d2 / B: c4 d3 kings={}
+3.1: '3.1 one': MATCH; kings in diagram (not in CLAIMS): none
+3.2: '3.2 two': MATCH; kings in diagram (not in CLAIMS): none
+4.1: '4.1 star': MATCH; kings in diagram (not in CLAIMS): none
+4.2: '4.2 up (as drawn)': MATCH; kings in diagram (not in CLAIMS): none
+4.2: sub-game '4.2 up (intended? e2/e5)' files e: DIFF  claims=W: e2 / B: e5 mine=W: e3 / B: e6
+4.3: '4.3 tiny': MATCH; kings in diagram (not in CLAIMS): none
+5.1: NOT IN CLAIMS. mine = W: a4 / B: a5 kings={'h5': 'K', 'b4': 'k'}
+7.1: '7.1 puzzle 1 (total)': MATCH; kings in diagram (not in CLAIMS): none
+7.1: sub-game '7.1  c-file' files c: MATCH  claims=W: c2 c3 / B: c5 c6 mine=W: c2 c3 / B: c5 c6
+7.1: sub-game '7.1  f-file' files f: MATCH  claims=W: f3 f4 / B: f7 mine=W: f3 f4 / B: f7
+7.1: sub-game '7.1  a/h-files' files ah: MATCH  claims=W: a4 a5 h2 h3 / B: a7 h6 mine=W: a4 a5 h2 h3 / B: a7 h6
+7.2: '7.2 pawn part (a,b,h files)': DIFF  only-mine W['d7'] B['e7']  only-claims W[] B[]; kings in diagram (not in CLAIMS): {'d8': 'k', 'e6': 'K'}
+7.3: '7.3 pawns (kings removed)': MATCH; kings in diagram (not in CLAIMS): {'g8': 'K', 'f6': 'k'}
+
+=== 2. Solver on my transcriptions (count rule shown; mover/opponent if they differ) ===
+2.1  W: e4 / B: e5  passedW=False passedB=False

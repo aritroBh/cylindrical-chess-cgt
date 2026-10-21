@@ -1,0 +1,46 @@
+cylcgt: /private/tmp/claude-501/-Users-aritro--claude-spares-spare-E0JaXy/57318271-9bbf-42b4-b8cf-b9d442308061/scratchpad/ep-wt/cylcgt/pawns.py | bench: /Users/aritro/Downloads/Research/Chessendgames/verify/bench/C4-reproduce/run/bench/conventions.py | crosscheck: None
+  500/9000 rows, 0 disagreements [119s]
+  1000/9000 rows, 0 disagreements [159s]
+  1500/9000 rows, 0 disagreements [195s]
+  2000/9000 rows, 0 disagreements [228s]
+  2500/9000 rows, 0 disagreements [260s]
+  3000/9000 rows, 0 disagreements [287s]
+  3500/9000 rows, 0 disagreements [315s]
+  4000/9000 rows, 0 disagreements [341s]
+  4500/9000 rows, 0 disagreements [362s]
+  5000/9000 rows, 0 disagreements [383s]
+  5500/9000 rows, 0 disagreements [504s]
+  6000/9000 rows, 0 disagreements [612s]
+  6500/9000 rows, 0 disagreements [694s]
+  7000/9000 rows, 0 disagreements [761s]
+  7500/9000 rows, 0 disagreements [779s]
+  8000/9000 rows, 0 disagreements [798s]
+  8500/9000 rows, 0 disagreements [816s]
+  9000/9000 rows, 0 disagreements [832s]
+{
+ "instances": {
+  "test (agree)": 2000,
+  "test (total)": 2000,
+  "test_heldout (agree)": 2000,
+  "test_heldout (total)": 2000,
+  "train (agree)": 3000,
+  "train (total)": 3000,
+  "val (agree)": 2000,
+  "val (total)": 2000
+ },
+ "disagreements": [],
+ "ep_capturable_true_calls_by_split": {
+  "train": 0,
+  "val": 0,
+  "test": 0,
+  "test_heldout": 0
+ },
+ "PASSED_RESPECTS_EP_after_task": {
+  "True": 9000
+ },
+ "RACE_RULE_after_task": {
+  "count": 9000
+ },
+ "worker_pids": 6,
+ "seconds": 832
+}

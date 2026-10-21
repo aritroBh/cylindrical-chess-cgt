@@ -1,0 +1,157 @@
+{
+ "component": "W: a3 b2 b4 / B: a7 b6 c6",
+ "board": "4 files (a-d), 8 ranks, flat",
+ "textbook": {
+  "cylcgt_file": "/Users/aritro/Downloads/Research/Chessendgames/cylcgt/pawns.py",
+  "PASSED_RESPECTS_EP": "absent (textbook)",
+  "values": {
+   "ep=on,rule=count": {
+    "value": "{{\u2191*, {+W | *, {2 | {-W | {-W | -W, {-W | -W, {-W | -W, {-W | -W, -W*}}}}}}} | 0, *, {*, {+W, {+W, {+W, {+W, +W* | +W} | +W} | +W} | \u2193*} | -2*}} | 0}",
+    "outcome": "R",
+    "race_hits": 176,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=on,rule=mover": {
+    "value": "{{\u2191*, {+W | *, {2 | {-W | {-W | -W, {-W | -W, {-W | -W, -W*}}}}}} | 0, *, {*, {+W, {+W, {+W, +W* | +W} | +W} | \u2193*} | -2*}} | 0}",
+    "outcome": "R",
+    "race_hits": 176,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=on,rule=opponent": {
+    "value": "*2",
+    "outcome": "N",
+    "race_hits": 176,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=off,rule=count": {
+    "value": "{{\u2191* | 0} | 0}",
+    "outcome": "R",
+    "race_hits": 127,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=off,rule=mover": {
+    "value": "{{\u2191* | 0} | 0}",
+    "outcome": "R",
+    "race_hits": 127,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=off,rule=opponent": {
+    "value": "\u2193*",
+    "outcome": "N",
+    "race_hits": 127,
+    "mean": "0",
+    "temperature": "0"
+   }
+  }
+ },
+ "ep_aware": {
+  "cylcgt_file": "/private/tmp/claude-501/-Users-aritro--claude-spares-spare-E0JaXy/57318271-9bbf-42b4-b8cf-b9d442308061/scratchpad/ep-wt/cylcgt/pawns.py",
+  "PASSED_RESPECTS_EP": true,
+  "values": {
+   "ep=on,rule=count": {
+    "value": "{{\u2191*, {+W | *, {2 | {-W | {-W | -W, {-W | -W, {-W | -W, {-W | -W, -W*}}}}}}} | 0, *, {*, {+W, {+W, {+W, {+W, +W* | +W} | +W} | +W} | \u2193*} | -2*}} | 0}",
+    "outcome": "R",
+    "race_hits": 171,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=on,rule=mover": {
+    "value": "{{\u2191*, {+W | *, {2 | {-W | {-W | -W, {-W | -W, {-W | -W, -W*}}}}}} | 0, *, {*, {+W, {+W, {+W, +W* | +W} | +W} | \u2193*} | -2*}} | 0}",
+    "outcome": "R",
+    "race_hits": 171,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=on,rule=opponent": {
+    "value": "*2",
+    "outcome": "N",
+    "race_hits": 171,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=off,rule=count": {
+    "value": "{{\u2191* | 0} | 0}",
+    "outcome": "R",
+    "race_hits": 127,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=off,rule=mover": {
+    "value": "{{\u2191* | 0} | 0}",
+    "outcome": "R",
+    "race_hits": 127,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=off,rule=opponent": {
+    "value": "\u2193*",
+    "outcome": "N",
+    "race_hits": 127,
+    "mean": "0",
+    "temperature": "0"
+   }
+  }
+ },
+ "control_epaware_worktree_flag_off": {
+  "cylcgt_file": "/private/tmp/claude-501/-Users-aritro--claude-spares-spare-E0JaXy/57318271-9bbf-42b4-b8cf-b9d442308061/scratchpad/ep-wt/cylcgt/pawns.py",
+  "PASSED_RESPECTS_EP": false,
+  "values": {
+   "ep=on,rule=count": {
+    "value": "{{\u2191*, {+W | *, {2 | {-W | {-W | -W, {-W | -W, {-W | -W, {-W | -W, -W*}}}}}}} | 0, *, {*, {+W, {+W, {+W, {+W, +W* | +W} | +W} | +W} | \u2193*} | -2*}} | 0}",
+    "outcome": "R",
+    "race_hits": 176,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=on,rule=mover": {
+    "value": "{{\u2191*, {+W | *, {2 | {-W | {-W | -W, {-W | -W, {-W | -W, -W*}}}}}} | 0, *, {*, {+W, {+W, {+W, +W* | +W} | +W} | \u2193*} | -2*}} | 0}",
+    "outcome": "R",
+    "race_hits": 176,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=on,rule=opponent": {
+    "value": "*2",
+    "outcome": "N",
+    "race_hits": 176,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=off,rule=count": {
+    "value": "{{\u2191* | 0} | 0}",
+    "outcome": "R",
+    "race_hits": 127,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=off,rule=mover": {
+    "value": "{{\u2191* | 0} | 0}",
+    "outcome": "R",
+    "race_hits": 127,
+    "mean": "0",
+    "temperature": "0"
+   },
+   "ep=off,rule=opponent": {
+    "value": "\u2193*",
+    "outcome": "N",
+    "race_hits": 127,
+    "mean": "0",
+    "temperature": "0"
+   }
+  }
+ },
+ "control_matches_textbook": true,
+ "distinct_values": [
+  "*2",
+  "{{\u2191* | 0} | 0}",
+  "{{\u2191*, {+W | *, {2 | {-W | {-W | -W, {-W | -W, {-W | -W, -W*}}}}}} | 0, *, {*, {+W, {+W, {+W, +W* | +W} | +W} | \u2193*} | -2*}} | 0}",
+  "{{\u2191*, {+W | *, {2 | {-W | {-W | -W, {-W | -W, {-W | -W, {-W | -W, -W*}}}}}}} | 0, *, {*, {+W, {+W, {+W, {+W, +W* | +W} | +W} | +W} | \u2193*} | -2*}} | 0}",
+  "\u2193*"
+ ],
+ "benchmark_eligible": false
+}

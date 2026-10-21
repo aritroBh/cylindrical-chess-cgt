@@ -1,0 +1,108 @@
+cached 200-records found: 1579
+ledger used so far: 0 cap 40
+N/P rows: 86 | originals with TB: 86 | twins with TB (cache): 78
+[probe] 200 8/8/8/3p1Kp1/3p2Pk/2P5/8/8 b - - 0 1
+[probe] 200 8/8/8/1p3Kp1/6Pk/p7/1P6/8 b - - 0 1
+[probe] 200 8/8/3p1Kp1/3p2Pk/8/3P4/8/8 b - - 0 1
+[probe] 200 8/8/1p6/1p6/8/6pK/1P3kP1/8 b - - 0 1
+[probe] 200 8/1p6/8/8/1P3Kp1/1P4Pk/8/8 b - - 0 1
+[probe] 200 8/3p4/6pK/5kP1/3P4/3P4/8/8 b - - 0 1
+[probe] 200 8/8/p7/1p4pK/5kP1/8/1P6/8 b - - 0 1
+[probe] 200 8/8/8/6pK/p4kP1/p7/1P6/8 b - - 0 1
+fetched this run: 8 | twins with TB now: 86
+
+## TB-judged flip (cursed-win/blessed-loss counted as draw)
+model class -> TB class (pairs with both results): {('N', 'L'): 3, ('N', 'N'): 52, ('N', 'draw-involved(0,-1)'): 4, ('N', 'draw-involved(1,0)'): 6, ('P', 'L'): 3, ('P', 'P'): 9, ('P', 'draw-involved(-1,0)'): 1, ('P', 'draw-involved(0,1)'): 8}
+sf {('N', 'TB dir = model dir', 'right'): 25, ('N', 'TB dir = model dir', 'wrong'): 37, ('N', 'TB no direction'): 3, ('P', 'TB dir = model dir', 'right'): 17, ('P', 'TB dir = model dir', 'wrong'): 1, ('P', 'TB no direction'): 3}
+lc {('N', 'TB dir = model dir', 'right'): 60, ('N', 'TB dir = model dir', 'wrong'): 2, ('N', 'TB no direction'): 3, ('P', 'TB dir = model dir', 'right'): 17, ('P', 'TB dir = model dir', 'wrong'): 1, ('P', 'TB no direction'): 3}
+
+## TB-judged flip (cursed-win/blessed-loss counted as win/loss)
+model class -> TB class (pairs with both results): {('N', 'L'): 3, ('N', 'N'): 52, ('N', 'draw-involved(0,-1)'): 4, ('N', 'draw-involved(1,0)'): 6, ('P', 'L'): 3, ('P', 'P'): 9, ('P', 'draw-involved(-1,0)'): 1, ('P', 'draw-involved(0,1)'): 8}
+sf {('N', 'TB dir = model dir', 'right'): 25, ('N', 'TB dir = model dir', 'wrong'): 37, ('N', 'TB no direction'): 3, ('P', 'TB dir = model dir', 'right'): 17, ('P', 'TB dir = model dir', 'wrong'): 1, ('P', 'TB no direction'): 3}
+lc {('N', 'TB dir = model dir', 'right'): 60, ('N', 'TB dir = model dir', 'wrong'): 2, ('N', 'TB no direction'): 3, ('P', 'TB dir = model dir', 'right'): 17, ('P', 'TB dir = model dir', 'wrong'): 1, ('P', 'TB no direction'): 3}
+cgt001 N * W: b3 / B: a6 A4 W | TB orig: win twin: win | dSF -2.59 dLc0 +777
+cgt002 N * W: c3 / B: d6 A4 W | TB orig: win twin: draw | dSF -1.06 dLc0 +117
+cgt003 N * W: c2 / B: b5 A4 W | TB orig: win twin: win | dSF -2.03 dLc0 +265
+cgt004 N * W: a2 / B: b5 A4 W | TB orig: win twin: win | dSF -3.56 dLc0 +248
+cgt005 N -1/2±1/2 W: a2 / B: a4 a5 A4 W | TB orig: win twin: win | dSF -2.09 dLc0 -99
+cgt006 N -1/2±1/2 W: d4 / B: d6 d7 A4 W | TB orig: win twin: win | dSF -0.08 dLc0 +145
+cgt009 N 1/2±1/2 W: c2 c3 / B: c5 A4 W | TB orig: win twin: win | dSF -1.57 dLc0 +171
+cgt010 N 1/2±1/2 W: d4 d5 / B: d7 A4 W | TB orig: win twin: loss | dSF -0.42 dLc0 +53
+cgt029 N {0 | -3/2±1/2} W: a2 / B: a5 a6 A4 W | TB orig: win twin: win | dSF -1.08 dLc0 +12
+cgt030 N {0 | -3/2±1/2} W: c2 / B: c5 c6 A4 W | TB orig: win twin: win | dSF -0.77 dLc0 +474
+cgt031 N {3/2±1/2 | 0} W: a3 a4 / B: a7 A4 W | TB orig: win twin: win | dSF -0.11 dLc0 +393
+cgt032 N {3/2±1/2 | 0} W: c3 c4 / B: c7 A4 W | TB orig: win twin: win | dSF -0.59 dLc0 +185
+cgt055 P 0 W: c5 / B: c6 c7 A4 W | TB orig: draw twin: loss | dSF -0.76 dLc0 -489
+cgt056 P 0 W: b4 / B: a6 A4 W | TB orig: loss twin: loss | dSF -4.22 dLc0 -777
+cgt057 P 0 W: c2 / B: c7 A4 W | TB orig: loss twin: loss | dSF -1.21 dLc0 +27
+cgt062 N {+W, {+W, +W* | +W}, {+W, {+W, +W* | +W} | -W} | -W} W: a2 c5 / B: b6 A4 W | TB orig: win twin: loss | dSF -0.11 dLc0 +9319
+cgt063 N {+W, {+W, +W* | +W}, {+W, {+W, +W* | +W} | -W} | -W} W: b5 d2 / B: c6 A4 W | TB orig: win twin: win | dSF +0.78 dLc0 +9524
+cgt064 N {+W, {+W, +W* | +W}, {+W, {+W, +W* | +W} | -W} | -W} W: a5 c2 / B: b6 A4 W | TB orig: win twin: draw | dSF +0.58 dLc0 +9202
+cgt065 N {+W, {+W, +W* | +W}, {+W, {+W, +W* | +W} | -W} | -W} W: b2 d5 / B: c6 A4 W | TB orig: win twin: loss | dSF -0.20 dLc0 +9890
+cgt075 N -W±+W W: c4 / B: b5 c7 A4 W | TB orig: win twin: win | dSF +0.69 dLc0 +8762
+cgt085 N -W±+W W: c2 / B: b3 b4 A4 W | TB orig: win twin: win | dSF +1.04 dLc0 +11330
+cgt087 N -W±+W W: b2 / B: a3 a4 A4 W | TB orig: win twin: win | dSF +0.66 dLc0 +10790
+cgt088 N -W±+W W: a2 / B: b3 b4 A4 W | TB orig: win twin: win | dSF -0.89 dLc0 +10434
+cgt090 P 0 W: b2 / B: a4 A4 W | TB orig: loss twin: loss | dSF -0.69 dLc0 -1131
+cgt091 P 0 W: c2 / B: b4 A4 W | TB orig: loss twin: loss | dSF -1.90 dLc0 -636
+cgt092 P 0 W: a2 / B: b4 A4 W | TB orig: loss twin: loss | dSF -2.80 dLc0 -804
+cgt093 P 0 W: b2 / B: c4 A4 W | TB orig: loss twin: loss | dSF -0.97 dLc0 -399
+cgt094 P 0 W: d2 / B: c4 A4 W | TB orig: loss twin: draw | dSF -0.63 dLc0 -350
+cgt095 P 0 W: c2 / B: d4 A4 W | TB orig: loss twin: loss | dSF -0.86 dLc0 -335
+cgt096 N * W: c4 / B: b7 A4 W | TB orig: win twin: win | dSF -0.86 dLc0 +149
+cgt097 N * W: d4 / B: c7 A4 W | TB orig: win twin: draw | dSF -0.37 dLc0 +45
+cgt098 N * W: a4 / B: b7 A4 W | TB orig: win twin: win | dSF -2.59 dLc0 +31
+cgt099 N * W: c4 / B: d7 A4 W | TB orig: win twin: draw | dSF -0.30 dLc0 +15
+cgt100 N * W: b4 / B: c7 A4 W | TB orig: win twin: draw | dSF -1.52 dLc0 -12
+cgt101 N * W: b4 / B: a7 A4 W | TB orig: win twin: win | dSF -2.73 dLc0 +340
+cgt102 N -W±+W W: d3 / B: c6 d5 A4 W | TB orig: draw twin: win | dSF +0.42 dLc0 +1956
+cgt103 N ±+W W: b5 / B: a6 b6 A4 W | TB orig: win twin: win | dSF +0.79 dLc0 +2844
+cgt104 N ±+W W: c5 / B: c6 d6 A4 W | TB orig: win twin: win | dSF +0.29 dLc0 +2788
+cgt105 N ±+W W: d5 / B: c6 d6 A4 W | TB orig: win twin: win | dSF +0.48 dLc0 +1140
+cgt106 N ±+W W: c4 / B: b5 d5 A4 W | TB orig: win twin: win | dSF +1.79 dLc0 +6393
+cgt107 N ±+W W: a5 / B: a6 b6 A4 W | TB orig: win twin: win | dSF +0.90 dLc0 +2881
+cgt108 N ±+W W: a4 / B: a5 b5 A4 W | TB orig: win twin: win | dSF +0.55 dLc0 +8545
+cgt109 N {0 | -W±1/2} W: b2 / B: a6 b5 A4 W | TB orig: draw twin: win | dSF +0.12 dLc0 +4517
+cgt111 N ±+W W: c5 / B: b6 A4 W | TB orig: win twin: win | dSF +0.32 dLc0 +6318
+cgt114 N ±+W W: a6 / B: b7 A4 W | TB orig: win twin: win | dSF +0.63 dLc0 +6291
+cgt117 N {+W, {+W, ±+W | -W} | -W} W: b2 d4 / B: c5 A4 W | TB orig: win twin: draw | dSF -0.48 dLc0 +8122
+cgt118 P 0 W: a4 b3 / B: a5 A4 W | TB orig: win twin: loss | dSF -1.12 dLc0 -809
+cgt119 P 0 W: c4 d3 / B: c5 A4 W | TB orig: draw twin: loss | dSF -0.89 dLc0 -622
+cgt120 P 0 W: c3 d4 / B: d5 A4 W | TB orig: win twin: loss | dSF -0.01 dLc0 -388
+cgt121 P 0 W: b4 c3 / B: b5 A4 W | TB orig: win twin: loss | dSF -0.77 dLc0 -790
+cgt122 P 0 W: a3 b4 / B: b5 A4 W | TB orig: draw twin: loss | dSF -0.79 dLc0 -1158
+cgt123 P 0 W: b3 c4 / B: c5 A4 W | TB orig: draw twin: loss | dSF -0.91 dLc0 -628
+cgt124 P 0 W: b3 d3 / B: c5 A4 W | TB orig: draw twin: loss | dSF -1.29 dLc0 -458
+cgt125 P 0 W: a3 c3 / B: b5 A4 W | TB orig: draw twin: loss | dSF -1.88 dLc0 -831
+cgt134 N -W±+W W: b3 / B: b6 c4 A4 W | TB orig: win twin: win | dSF +0.63 dLc0 +11860
+cgt135 N -W±+W W: a2 / B: a5 b3 A4 W | TB orig: win twin: win | dSF +0.76 dLc0 +11665
+cgt138 N -W±+W W: c2 / B: d3 d6 A4 W | TB orig: win twin: win | dSF +1.74 dLc0 +11332
+cgt141 N -W±+W W: c3 / B: d4 d5 A4 W | TB orig: win twin: win | dSF +0.59 dLc0 +8881
+cgt143 N -W±+W W: c3 / B: b4 c6 A4 W | TB orig: win twin: win | dSF +1.00 dLc0 +10683
+cgt146 N -W±+W W: c2 / B: b3 b6 A4 W | TB orig: win twin: win | dSF +0.19 dLc0 +11586
+cgt150 N -W±+W W: b2 / B: a3 b5 A4 W | TB orig: win twin: win | dSF +0.77 dLc0 +10246
+cgt153 N -W±+W W: d2 / B: c3 c6 A4 W | TB orig: win twin: win | dSF +0.99 dLc0 +10523
+cgt204 N * W: b3 / B: c6 B4 B | TB orig: win twin: win | dSF -2.90 dLc0 +445
+cgt205 N * W: c3 / B: d6 B4 W | TB orig: win twin: win | dSF -0.84 dLc0 +139
+cgt208 N 1/2±1/2 W: d4 d5 / B: d7 B4 W | TB orig: win twin: win | dSF -0.10 dLc0 +117
+cgt219 N * W: a5 / B: a7 B5 W | TB orig: win twin: win | dSF -2.58 dLc0 +31
+cgt220 N * W: d4 / B: d6 B3 W | TB orig: draw twin: win | dSF -0.13 dLc0 +80
+cgt221 N * W: c2 / B: d5 A4 W | TB orig: win twin: win | dSF -0.46 dLc0 +104
+cgt222 N * W: b2 / B: c5 A3 W | TB orig: win twin: win | dSF -2.70 dLc0 +205
+cgt223 N -1/2±1/2 W: d3 / B: d5 d6 A5 W | TB orig: win twin: win | dSF -0.30 dLc0 +359
+cgt224 N -1/2±1/2 W: d2 / B: d4 d5 B5 W | TB orig: win twin: win | dSF -1.10 dLc0 +70
+cgt227 N 1/2±1/2 W: a2 a3 / B: a5 B2 W | TB orig: win twin: win | dSF -0.26 dLc0 +74
+cgt228 N 1/2±1/2 W: c4 c5 / B: c7 B6 W | TB orig: win twin: win | dSF -0.38 dLc0 +50
+cgt247 N {0 | -3/2±1/2} W: d2 / B: d5 d6 A3 W | TB orig: win twin: win | dSF -0.67 dLc0 +71
+cgt248 N {0 | -3/2±1/2} W: b2 / B: b5 b6 B2 W | TB orig: win twin: win | dSF -1.01 dLc0 +255
+cgt249 N {3/2±1/2 | 0} W: b3 b4 / B: b7 A3 W | TB orig: win twin: win | dSF -2.73 dLc0 +791
+cgt250 N {3/2±1/2 | 0} W: d3 d4 / B: d7 B5 W | TB orig: win twin: win | dSF -0.67 dLc0 +70
+cgt261 N {+W, {+W, +W* | +W}, {+W, {+W, +W* | +W} | -W} | -W} W: b2 d5 / B: c6 B4 W | TB orig: win twin: win | dSF +1.03 dLc0 +9096
+cgt262 P 0 W: c4 d3 / B: c5 B4 W | TB orig: draw twin: loss | dSF -0.79 dLc0 -170
+cgt263 P 0 W: b3 d3 / B: c5 B4 W | TB orig: loss twin: loss | dSF -0.72 dLc0 -182
+cgt266 N {+W, {+W, ±+W | -W} | -W} W: b2 d4 / B: c5 B4 W | TB orig: win twin: win | dSF +0.65 dLc0 +3934
+cgt268 N * W: b4 / B: a7 B4 W | TB orig: win twin: win | dSF -3.56 dLc0 +244
+cgt270 P 0 W: c3 d4 / B: d5 B4 W | TB orig: draw twin: loss | dSF +0.11 dLc0 -405
+cgt272 P 0 W: a2 / B: b4 B4 W | TB orig: loss twin: loss | dSF -2.45 dLc0 -700
+cgt273 N {0 | -W±1/2} W: b2 / B: a6 b5 B4 W | TB orig: draw twin: win | dSF -0.46 dLc0 +1896
+cgt274 N -W±+W W: b2 / B: a3 a4 B4 W | TB orig: win twin: win | dSF -0.31 dLc0 +10959

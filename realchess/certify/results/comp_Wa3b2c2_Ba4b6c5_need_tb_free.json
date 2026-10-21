@@ -1,0 +1,107 @@
+{
+ "component": "W: a3 b2 c2 / B: a4 b6 c5",
+ "tree": "textbook",
+ "treatment": "free (only L/R fixed)",
+ "target": "*2",
+ "model_filled_terminals": 396,
+ "model_filled_by_men": {
+  "6": 25,
+  "7": 55,
+  "8": 162,
+  "9": 154
+ },
+ "lower": {
+  "needed": 6,
+  "needed_by_men": {
+   "8": 2,
+   "9": 4
+  },
+  "terminals": [
+   {
+    "terminal": "W: b2 c2 c5 / B: a3",
+    "men": 8,
+    "model_rw_rb": [
+     1,
+     1
+    ],
+    "real_rw_rb": [
+     null,
+     null
+    ],
+    "fen_W": "8/8/8/2P2Kp1/6Pk/p7/1PP5/8 w - - 0 1",
+    "fen_B": "8/8/8/2P2Kp1/6Pk/p7/1PP5/8 b - - 0 1"
+   },
+   {
+    "terminal": "W: b2 c4 / B: a4 b4 (ep c3)",
+    "men": 8,
+    "model_rw_rb": [
+     1,
+     1
+    ],
+    "real_rw_rb": [
+     null,
+     null
+    ],
+    "fen_W": "8/8/8/5Kp1/ppP3Pk/8/1P6/8 w - - 0 1",
+    "fen_B": "8/8/8/5Kp1/ppP3Pk/8/1P6/8 b - c3 0 1"
+   },
+   {
+    "terminal": "W: a3 b2 b5 / B: a4 c5",
+    "men": 9,
+    "model_rw_rb": [
+     1,
+     1
+    ],
+    "real_rw_rb": [
+     null,
+     null
+    ],
+    "fen_W": "8/8/8/1Pp2Kp1/p5Pk/P7/1P6/8 w - - 0 1",
+    "fen_B": "8/8/8/1Pp2Kp1/p5Pk/P7/1P6/8 b - - 0 1"
+   },
+   {
+    "terminal": "W: a3 c2 c4 / B: a4 b4",
+    "men": 9,
+    "model_rw_rb": [
+     1,
+     1
+    ],
+    "real_rw_rb": [
+     null,
+     null
+    ],
+    "fen_W": "8/8/8/5Kp1/ppP3Pk/P7/2P5/8 w - - 0 1",
+    "fen_B": "8/8/8/5Kp1/ppP3Pk/P7/2P5/8 b - - 0 1"
+   },
+   {
+    "terminal": "W: b2 b4 c2 / B: a4 c4",
+    "men": 9,
+    "model_rw_rb": [
+     1,
+     1
+    ],
+    "real_rw_rb": [
+     null,
+     null
+    ],
+    "fen_W": "8/8/8/5Kp1/pPp3Pk/8/1PP5/8 w - - 0 1",
+    "fen_B": "8/8/8/5Kp1/pPp3Pk/8/1PP5/8 b - - 0 1"
+   },
+   {
+    "terminal": "W: b2 b4 c3 / B: a4 c4",
+    "men": 9,
+    "model_rw_rb": [
+     1,
+     1
+    ],
+    "real_rw_rb": [
+     null,
+     null
+    ],
+    "fen_W": "8/8/8/5Kp1/pPp3Pk/2P5/1P6/8 w - - 0 1",
+    "fen_B": "8/8/8/5Kp1/pPp3Pk/2P5/1P6/8 b - - 0 1"
+   }
+  ]
+ },
+ "upper": "does not hold even with the model fill"
+}

@@ -1,0 +1,227 @@
+{
+ "mode": "pure",
+ "ext": 4,
+ "positions": [
+  {
+   "fen": "8/1p1p4/8/5Kp1/6Pk/P7/2P5/8 b - - 0 1",
+   "status": "complete",
+   "interval": [
+    1,
+    1
+   ],
+   "result_for_side_to_move": "win",
+   "in_model": true,
+   "component": "W: a3 c2 / B: b7 d7",
+   "moves": [
+    {
+     "move": "h4g3",
+     "piece": "K",
+     "result_for_mover": "unresolved",
+     "interval_for_mover": [
+      -1,
+      1
+     ],
+     "how": "unexplored"
+    },
+    {
+     "move": "h4h3",
+     "piece": "K",
+     "result_for_mover": "unresolved",
+     "interval_for_mover": [
+      -1,
+      1
+     ],
+     "how": "unexplored"
+    },
+    {
+     "move": "b7b6",
+     "piece": "P",
+     "result_for_mover": "unresolved",
+     "interval_for_mover": [
+      -1,
+      1
+     ],
+     "how": "search"
+    },
+    {
+     "move": "b7b5",
+     "piece": "P",
+     "result_for_mover": "win",
+     "interval_for_mover": [
+      1,
+      1
+     ],
+     "how": "search"
+    },
+    {
+     "move": "d7d6",
+     "piece": "P",
+     "result_for_mover": "unresolved",
+     "interval_for_mover": [
+      -1,
+      1
+     ],
+     "how": "search"
+    },
+    {
+     "move": "d7d5",
+     "piece": "P",
+     "result_for_mover": "unresolved",
+     "interval_for_mover": [
+      -1,
+      1
+     ],
+     "how": "search"
+    }
+   ]
+  },
+  {
+   "fen": "8/1p1p4/8/5Kp1/P5Pk/8/2P5/8 b - - 0 1",
+   "status": "budget: --max-new 23 reached",
+   "interval": [
+    -1,
+    1
+   ],
+   "result_for_side_to_move": "unresolved",
+   "in_model": true,
+   "component": "W: a4 c2 / B: b7 d7",
+   "moves": [
+    {
+     "move": "h4g3",
+     "piece": "K",
+     "result_for_mover": "unresolved",
+     "interval_for_mover": [
+      -1,
+      1
+     ],
+     "how": "unexplored"
+    },
+    {
+     "move": "h4h3",
+     "piece": "K",
+     "result_for_mover": "unresolved",
+     "interval_for_mover": [
+      -1,
+      1
+     ],
+     "how": "unexplored"
+    },
+    {
+     "move": "b7b6",
+     "piece": "P",
+     "result_for_mover": "unresolved",
+     "interval_for_mover": [
+      0,
+      1
+     ],
+     "how": "search"
+    },
+    {
+     "move": "b7b5",
+     "piece": "P",
+     "result_for_mover": "loss",
+     "interval_for_mover": [
+      -1,
+      -1
+     ],
+     "how": "search"
+    },
+    {
+     "move": "d7d6",
+     "piece": "P",
+     "result_for_mover": "unresolved",
+     "interval_for_mover": [
+      -1,
+      1
+     ],
+     "how": "search"
+    },
+    {
+     "move": "d7d5",
+     "piece": "P",
+     "result_for_mover": "unresolved",
+     "interval_for_mover": [
+      -1,
+      1
+     ],
+     "how": "search"
+    }
+   ]
+  },
+  {
+   "fen": "8/1p1p4/8/5Kp1/6Pk/2P5/P7/8 b - - 0 1",
+   "status": "complete",
+   "interval": [
+    1,
+    1
+   ],
+   "result_for_side_to_move": "win",
+   "in_model": true,
+   "component": "W: a2 c3 / B: b7 d7",
+   "moves": [
+    {
+     "move": "h4g3",
+     "piece": "K",
+     "result_for_mover": "unresolved",
+     "interval_for_mover": [
+      -1,
+      1
+     ],
+     "how": "unexplored"
+    },
+    {
+     "move": "h4h3",
+     "piece": "K",
+     "result_for_mover": "unresolved",
+     "interval_for_mover": [
+      -1,
+      1
+     ],
+     "how": "unexplored"
+    },
+    {
+     "move": "b7b6",
+     "piece": "P",
+     "result_for_mover": "unresolved",
+     "interval_for_mover": [
+      -1,
+      1
+     ],
+     "how": "search"
+    },
+    {
+     "move": "b7b5",
+     "piece": "P",
+     "result_for_mover": "win",
+     "interval_for_mover": [
+      1,
+      1
+     ],
+     "how": "search"
+    },
+    {
+     "move": "d7d6",
+     "piece": "P",
+     "result_for_mover": "unresolved",
+     "interval_for_mover": [
+      -1,
+      1
+     ],
+     "how": "search"
+    },
+    {
+     "move": "d7d5",
+     "piece": "P",
+     "result_for_mover": "unresolved",
+     "interval_for_mover": [
+      -1,
+      1
+     ],
+     "how": "search"
+    }
+   ]
+  }
+ ],
+ "new_requests": 27,
+ "seconds": 59.9
+}

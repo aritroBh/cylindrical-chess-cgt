@@ -1,0 +1,21 @@
+board 5x6 cyl ep=on nw=3 nb=3 roots=62910 done=62910 time=342.9s
+    ('HSS', 'E', 'nontriv', 'agree') 28395
+    ('HSS', 'E', 'triv', 'agree') 157545
+    ('HSS', 'notE', 'nontriv', 'DISAGREE') 180
+    ('HSS', 'notE', 'nontriv', 'agree') 1215
+    ('HSS', 'notE', 'triv', 'agree') 1395
+    below_bound_probe 28395
+    checked_BIG256 185940
+COUNTEREXAMPLES (HSS & E & oS != oW, BIG > max M): 0
+HSS & not-E disagreements (tests necessity of E): 180
+    notE ('W: a2 b3 d2 / B: a3 b4 d4 (ep a4 for W)', 'count', 'L', 'N')
+    notE ('W: a2 b3 d2 / B: a3 b4 d4 (ep a4 for W)', 'mover', 'L', 'N')
+    notE ('W: a2 b3 d2 / B: a3 b4 d4 (ep a4 for W)', 'opponent', 'L', 'N')
+    notE ('W: a2 b3 d2 / B: a3 b4 d5 (ep a4 for W)', 'count', 'L', 'N')
+    notE ('W: a2 b3 d2 / B: a3 b4 d5 (ep a4 for W)', 'mover', 'L', 'N')
+    notE ('W: a2 b3 d2 / B: a3 b4 d5 (ep a4 for W)', 'opponent', 'L', 'N')
+    notE ('W: a2 b3 d3 / B: a3 b4 d5 (ep a4 for W)', 'count', 'L', 'N')
+    notE ('W: a2 b3 d3 / B: a3 b4 d5 (ep a4 for W)', 'mover', 'L', 'N')
+    notE ('W: a2 b3 d3 / B: a3 b4 d5 (ep a4 for W)', 'opponent', 'L', 'N')
+    notE ('W: a2 c2 d3 / B: a4 c3 d4 (ep c4 for W)', 'count', 'L', 'N')
+HSS & E & nontrivial disagreements at BIG = max M (one below the hypothesis): 0

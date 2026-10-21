@@ -1,0 +1,44 @@
+FLAT boards (raw pawn minimax). cols: n states normalW normalB misereW misereB promo_legal dbl_quiet dbl_capt
+flat  0          2  N:loss/loss  M:win/win  0 0 0
+flat  1          4  N:win/win  M:loss/loss  0 0 0
+flat  2         14  N:win/win  M:loss/loss  0 0 4
+flat  3         38  N:win/win  M:win/win  0 0 16
+flat  4         82  N:loss/loss  M:win/win  0 0 36
+flat  5        172  N:win/win  M:win/win  0 0 80
+flat  6        362  N:win/win  M:loss/loss  0 0 172
+flat  7        778  N:win/win  M:loss/loss  0 0 384
+flat  8       1654  N:loss/loss  M:win/win  0 0 836
+flat  9       3472  N:win/win  M:win/win  0 0 1792
+flat 10       7222  N:win/win  M:win/win  0 0 3780
+flat 11      15002  N:win/win  M:loss/loss  0 0 7952
+flat 12      31138  N:win/win  M:win/win  0 0 16684
+flat 13      64494  N:win/win  M:win/win  0 0 34896
+flat 14     133162  N:loss/loss  M:win/win  0 0 72652
+flat 15     274262  N:win/win  M:loss/loss  0 0 150720
+flat 16     563962  N:win/win  M:loss/loss  0 0 311892
+flat 17    1158260  N:win/win  M:win/win  0 0 644224
+flat 18    2375794  N:win/win  M:win/win  0 0 1328236
+flat 19    4866766  N:win/win  M:win/win  0 0 2733552
+flat 20    9957566  N:loss/loss  M:loss/loss  0 0 5616500
+RING boards. cols: n states normalW normalB misereW misereB | lemma(W,B) lines | flat(n-3) normal/misere first-player | ringrule_normal ringrule_misere | promo_legal dbl_quiet dbl_capt
+ring  3         62  N:win/win  M:loss/loss | lemma 1,1 lines 12,12 | flat0 loss/win | 1 1 | 0 0 36
+ring  4         90  N:loss/loss  M:win/win | lemma 1,1 lines 16,16 | flat1 win/loss | 1 1 | 0 0 48
+ring  5        162  N:loss/loss  M:win/win | lemma 1,1 lines 20,20 | flat2 win/loss | 1 1 | 0 0 80
+ring  6        326  N:loss/loss  M:loss/loss | lemma 1,1 lines 24,24 | flat3 win/win | 1 1 | 0 0 168
+ring  7        660  N:win/win  M:loss/loss | lemma 1,1 lines 28,28 | flat4 loss/win | 1 1 | 0 0 336
+ring  8       1402  N:loss/loss  M:loss/loss | lemma 1,1 lines 32,32 | flat5 win/win | 1 1 | 0 0 736
+ring  9       2918  N:loss/loss  M:win/win | lemma 1,1 lines 36,36 | flat6 win/loss | 1 1 | 0 0 1548
+ring 10       6022  N:loss/loss  M:win/win | lemma 1,1 lines 40,40 | flat7 win/loss | 1 1 | 0 0 3240
+ring 11      12344  N:win/win  M:loss/loss | lemma 1,1 lines 44,44 | flat8 loss/win | 1 1 | 0 0 6688
+ring 12      25390  N:loss/loss  M:loss/loss | lemma 1,1 lines 48,48 | flat9 win/win | 1 1 | 0 0 13872
+ring 13      52262  N:loss/loss  M:loss/loss | lemma 1,1 lines 52,52 | flat10 win/win | 1 1 | 0 0 28756
+ring 14     107438  N:loss/loss  M:win/win | lemma 1,1 lines 56,56 | flat11 win/loss | 1 1 | 0 0 59528
+ring 15     220282  N:loss/loss  M:loss/loss | lemma 1,1 lines 60,60 | flat12 win/win | 1 1 | 0 0 122760
+ring 16     450954  N:loss/loss  M:loss/loss | lemma 1,1 lines 64,64 | flat13 win/win | 1 1 | 0 0 252608
+ring 17     922490  N:win/win  M:loss/loss | lemma 1,1 lines 68,68 | flat14 loss/win | 1 1 | 0 0 519112
+ring 18    1886006  N:loss/loss  M:win/win | lemma 1,1 lines 72,72 | flat15 win/loss | 1 1 | 0 0 1065816
+ring 19    3852556  N:loss/loss  M:win/win | lemma 1,1 lines 76,76 | flat16 win/loss | 1 1 | 0 0 2185608
+ring 20    7862050  N:loss/loss  M:loss/loss | lemma 1,1 lines 80,80 | flat17 win/win | 1 1 | 0 0 4476080
+ring 21   16030786  N:loss/loss  M:loss/loss | lemma 1,1 lines 84,84 | flat18 win/win | 1 1 | 0 0 9156252
+ring 22   32664722  N:loss/loss  M:loss/loss | lemma 1,1 lines 88,88 | flat19 win/win | 1 1 | 0 0 18712408
+ring 23   66517934  N:win/win  M:win/win | lemma 1,1 lines 92,92 | flat20 loss/loss | 1 1 | 0 0 38210360

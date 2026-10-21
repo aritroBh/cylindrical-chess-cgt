@@ -1,0 +1,64 @@
+{
+ "KEY-FACT W a2 c2 / B b7 d7 (4 flat files)": {
+  "textbook/count/ep-on": "*2",
+  "textbook/count/ep-off": "*2",
+  "textbook/mover/ep-on": "*2",
+  "textbook/mover/ep-off": "*2",
+  "textbook/opponent/ep-on": "0",
+  "textbook/opponent/ep-off": "0",
+  "aware/count/ep-on": "{2+-1 | -2+-1}",
+  "aware/count/ep-off": "*2",
+  "aware/mover/ep-on": "{2+-1 | -2+-1}",
+  "aware/mover/ep-off": "*2",
+  "aware/opponent/ep-on": "0",
+  "aware/opponent/ep-off": "0"
+ },
+ "worker-listed changing v1 components": 48,
+ "... my trees differ": 48,
+ "... my values differ (count, e.p. on)": 48,
+ "examples (mine textbook, mine aware, worker textbook, worker aware)": [
+  [
+   "W: a2 c2 / B: a3 b5",
+   "1",
+   "*",
+   "1",
+   "*"
+  ],
+  [
+   "W: a2 c2 / B: a3 b6",
+   "1/2",
+   "{0 | *}",
+   "1/2",
+   "^"
+  ],
+  [
+   "W: a2 c2 / B: a3 b7",
+   "0",
+   "0",
+   "0",
+   "0"
+  ],
+  [
+   "W: a2 c2 / B: a4 b6",
+   "{1/2 | 1/2}",
+   "{*, 0 | {* | -1}}",
+   "1/2*",
+   "{*, 0 | {* | -1}}"
+  ],
+  [
+   "W: a2 c2 / B: a4 b7",
+   "*",
+   "*",
+   "*",
+   "*"
+  ],
+  [
+   "W: a2 c2 / B: b5 c3",
+   "1",
+   "*",
+   "1",
+   "*"
+  ]
+ ],
+ "seconds": 1.3
+}

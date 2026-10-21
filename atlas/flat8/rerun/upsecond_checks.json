@@ -1,0 +1,14 @@
+{
+ "up2_canonical_show": "{0 | ↓*}",
+ "up2 > 0": true,
+ "up2 < up": true,
+ "up2 != double-up (up+up)": true,
+ "up + up2 == {up | *} (= up^{->2})": true,
+ "up3 == {0 | * - up^{->2}} is positive": true,
+ "up3 < up2": true,
+ "n.up2 < up for n = 1..64": true,
+ "first n with n.up2 >= up": null,
+ "up2 < 2^-k for k = 0..20": true,
+ "up2 + * == {0, * | down}": true,
+ "up2 is fuzzy with *": true
+}

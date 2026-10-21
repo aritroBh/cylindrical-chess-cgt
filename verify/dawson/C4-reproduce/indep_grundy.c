@@ -1,65 +1,54 @@
-/* Independent verifier for claim C4 (verify/dawson/C4-reproduce).
- * Written from the game definitions, not from dawson/octal.py or cylcgt/dawson.py.
- *
- * Game A ("pins"): a row of n pins; a move picks pin i (0-based) and removes it together
- *   with whichever of pins i-1, i+1 exist. Left remainder: max(i-1,0) pins; right
- *   remainder: max(n-i-2,0) pins.  This is octal 0.137.
- * Game B (Dawson's Kayles 0.07): a row of m pins; a move removes two ADJACENT pins
- *   j, j+1 (0 <= j <= m-2); remainders j and m-j-2.
- * Prints: g_A(0..N), checks g_A(n) == g_B(n+1), lists every n <= N-34 with
- * g_A(n) != g_A(n+34), the Guy-Smith certificate for (n0=52, p=34, k=3), and least
- * eventual period on [N/2, N].
- * Usage: ./indep_grundy N
- */
+/* Independent check (verifier C4): Grundy values of Dawson's chess rows,
+   written from the file-push rule, NOT from octal-digit parsing.
+   A row of n untouched files; a push on file i (1..n) removes files
+   i-1, i, i+1 (those that exist) and leaves rows of lengths L=max(i-2,0)
+   and R=max(n-i-1,0).  Also computes Dawson's Kayles (0.07: remove two
+   adjacent pins from a row, leaving rows a, b with a+b=m-2) to check the
+   shift g_chess(n) = g_kayles(n+1). */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-static int mexset(const unsigned char *seen, int lim) { int m = 0; while (m < lim && seen[m]) m++; return m; }
-
-int main(int argc, char **argv) {
-    int N = argc > 1 ? atoi(argv[1]) : 300;
-    int *gA = calloc(N + 2, sizeof(int)), *gB = calloc(N + 3, sizeof(int));
-    unsigned char seen[1024];
-    for (int n = 0; n <= N; n++) {
-        memset(seen, 0, sizeof seen);
-        for (int i = 0; i < n; i++) {
-            int a = i - 1 > 0 ? i - 1 : 0;
-            int b = n - i - 2 > 0 ? n - i - 2 : 0;
-            int x = gA[a] ^ gA[b];
-            if (x >= 1024) { fprintf(stderr, "overflow\n"); return 1; }
-            seen[x] = 1;
-        }
-        gA[n] = mexset(seen, 1024);
+#define MAXN 5001
+static int gc[MAXN+2], gk[MAXN+3];
+static int mex(char *seen, int lim){ int m=0; while(m<lim && seen[m]) m++; return m; }
+int main(int argc, char **argv){
+  int N = argc>1 ? atoi(argv[1]) : 300;
+  if (N > MAXN) N = MAXN;
+  char seen[1024];
+  gc[0]=0;
+  for (int n=1;n<=N;n++){
+    memset(seen,0,sizeof seen);
+    for (int i=1;i<=n;i++){
+      int L = i-2; if (L<0) L=0;
+      int R = n-i-1; if (R<0) R=0;
+      seen[gc[L]^gc[R]] = 1;
     }
-    for (int m = 0; m <= N + 1; m++) {
-        memset(seen, 0, sizeof seen);
-        for (int j = 0; j + 1 < m; j++) { int x = gB[j] ^ gB[m - j - 2]; seen[x] = 1; }
-        gB[m] = mexset(seen, 1024);
-    }
-    int shift_ok = 1, maxg = 0;
-    for (int n = 0; n <= N; n++) { if (gA[n] != gB[n + 1]) shift_ok = 0; if (gA[n] > maxg) maxg = gA[n]; }
-    printf("N=%d\n", N);
-    printf("gA(0..33):  "); for (int n = 0; n <= 33 && n <= N; n++) printf("%d ", gA[n]); printf("\n");
-    printf("gA(52..85): "); for (int n = 52; n <= 85 && n <= N; n++) printf("%d ", gA[n]); printf("\n");
-    printf("max gA(n), n<=N: %d\n", maxg);
-    printf("gA(n)==gB(n+1) for all n<=N: %s\n", shift_ok ? "yes" : "NO");
-    printf("n<=N-34 with gA(n)!=gA(n+34):");
-    int last = -1;
-    for (int n = 0; n + 34 <= N; n++) if (gA[n] != gA[n + 34]) { printf(" %d", n); last = n; }
-    printf("\nlast exception: %d\n", last);
-    /* Guy-Smith certificate: g(n+p)=g(n) for n0 <= n < 2 n0 + p + k */
-    int n0 = 52, p = 34, k = 3, cert = 1, hi = 2 * n0 + p + k;
-    if (hi - 1 + p > N) { printf("certificate range exceeds data\n"); cert = 0; }
-    else for (int n = n0; n < hi; n++) if (gA[n] != gA[n + p]) cert = 0;
-    printf("Guy-Smith certificate n0=52 p=34 k=3 (check %d<=n<%d, uses g up to %d): %s\n", n0, hi, hi - 1 + p, cert ? "PASS" : "FAIL");
-    /* least period on second half */
-    for (int q = 1; q <= 34; q++) {
-        int ok = 1;
-        for (int n = N / 2; n + q <= N; n++) if (gA[n] != gA[n + q]) { ok = 0; break; }
-        if (ok) { printf("least period on [N/2,N]: %d\n", q); break; }
-    }
-    /* g=0 list n<=200 */
-    printf("gA(n)=0, n<=200:"); for (int n = 0; n <= 200 && n <= N; n++) if (!gA[n]) printf(" %d", n); printf("\n");
-    return 0;
+    gc[n]=mex(seen,1024);
+  }
+  gk[0]=0;
+  for (int m=1;m<=N+1;m++){
+    memset(seen,0,sizeof seen);
+    for (int a=0;a+2<=m;a++){ int b=m-2-a; seen[gk[a]^gk[b]]=1; }
+    gk[m]=mex(seen,1024);
+  }
+  int shift_ok=1;
+  for (int n=0;n<=N;n++) if (gc[n]!=gk[n+1]) { shift_ok=0; printf("shift mismatch n=%d\n",n); }
+  printf("N=%d shift_ok=%d\n",N,shift_ok);
+  int mx=0; for(int n=0;n<=N;n++) if(gc[n]>mx) mx=gc[n];
+  printf("max g(0..%d) = %d\n",N,mx);
+  printf("g(0..33):"); for(int n=0;n<=33;n++) printf(" %d",gc[n]); printf("\n");
+  printf("g(52..85):"); for(int n=52;n<=85;n++) printf(" %d",gc[n]); printf("\n");
+  /* exceptions for p=34 */
+  printf("n with g(n)!=g(n+34), n+34<=N:");
+  for(int n=0;n+34<=N;n++) if(gc[n]!=gc[n+34]) printf(" %d",n);
+  printf("\n");
+  /* least eventual period: for each p, last n with g(n)!=g(n+p) */
+  for (int p=1;p<=68;p++){
+    int last=-1; for(int n=0;n+p<=N;n++) if(gc[n]!=gc[n+p]) last=n;
+    if (last < N/2) printf("p=%d last exception=%d (data to n+p<=%d)\n",p,last,N);
+  }
+  /* full listing to a file */
+  FILE *f=fopen(argc>2?argv[2]:"/dev/null","w");
+  if(f){ for(int n=0;n<=N;n++) fprintf(f,"%d %d\n",n,gc[n]); fclose(f);}  
+  return 0;
 }

@@ -1,0 +1,10 @@
+V2 (singles only)   rule=count   : value {2±1 | -2±1}  outcome N
+V2 (singles only)   rule=mover   : value {3/2±1/2 | -3/2±1/2}  outcome N
+V2 (singles only)   rule=opponent: value 0  outcome P
+V1 (singles+races) rule=count   : value {2±1 | -2±1}  outcome N
+V1 (singles+races) rule=mover   : value {2±1 | -2±1}  outcome N
+V1 (singles+races) rule=opponent: value 0  outcome P
+control (no contested nodes) rule=count   : value *2
+control (no contested nodes) rule=mover   : value *2
+control (no contested nodes) rule=opponent: value 0
+PYTHONPATH=. .venv/bin/python $D/ep_passer_cgt.py  0.17s user 0.01s system 34% cpu 0.504 total

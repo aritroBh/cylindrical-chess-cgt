@@ -1,0 +1,4 @@
+0.137 strip n  ==  0.07 heap n+1 (option sets agree under the shift) for n = 1..59
+Dawson's Kayles positions with heaps 2..33, total pins <= 44: 75036 checked against the quotient, disagreements: 0
+single 0.07 heaps m <= 34 that are misere P: [2, 3, 7, 8, 12, 16, 17, 21, 22, 26, 30, 31]
+PYTHONPATH=. .venv/bin/python $V/kayles_check.py dawson/quotient_Q32.pkl 44  0.66s user 0.01s system 18% cpu 3.695 total

@@ -1,0 +1,152 @@
+--- a/src/search.cpp	2026-10-16 00:03:47
++++ b/src/search.cpp	2026-10-16 01:21:02
+@@ -51,6 +51,54 @@
+ #include "ucioption.h"
+ 
+ namespace Stockfish {
++
++// ---- CGT ablation switches (engine/ablation/; not part of Stockfish) ----
++#ifdef ABL_NMP
++constexpr bool ablNMP = true;
++#else
++constexpr bool ablNMP = false;
++#endif
++#ifdef ABL_RFP
++constexpr bool ablRFP = true;
++#else
++constexpr bool ablRFP = false;
++#endif
++#ifdef ABL_RAZOR
++constexpr bool ablRazor = true;
++#else
++constexpr bool ablRazor = false;
++#endif
++#ifdef ABL_SHALLOW
++constexpr bool ablShallow = true;
++#else
++constexpr bool ablShallow = false;
++#endif
++#ifdef ABL_SE
++constexpr bool ablSE = true;
++#else
++constexpr bool ablSE = false;
++#endif
++#ifdef ABL_PROBCUT
++constexpr bool ablProbCut = true;
++#else
++constexpr bool ablProbCut = false;
++#endif
++#ifdef ABL_LMR
++constexpr bool ablLMR = true;
++#else
++constexpr bool ablLMR = false;
++#endif
++#ifdef ABL_CORR
++constexpr bool ablCorr = true;
++#else
++constexpr bool ablCorr = false;
++#endif
++#ifdef ABL_IIR
++constexpr bool ablIIR = true;
++#else
++constexpr bool ablIIR = false;
++#endif
++// -------------------------------------------------------------------------
+ 
+ static constexpr std::array<int, 16> lmrDivisor = {3637, 2787, 2761, 2939, 3171, 3347, 3147, 2762,
+                                                    2772, 3106, 3107, 3060, 3112, 2991, 3090, 3542};
+@@ -83,6 +131,8 @@
+ // optimized for require verifications at longer time controls.
+ 
+ int correction_value(const Worker& w, const Position& pos, const Stack* const ss) {
++    if (ablCorr)
++        return 0;
+     const Color us     = pos.side_to_move();
+     const auto  m      = (ss - 1)->currentMove;
+     const auto& shared = w.sharedHistory;
+@@ -988,12 +1038,12 @@
+ 
+     // Step 8. Razoring
+     // If eval is really low, skip search entirely and return the qsearch value
+-    if (!PvNode && eval < alpha - 482 * depth * depth)
++    if (!ablRazor && !PvNode && eval < alpha - 482 * depth * depth)
+         return qsearch<NonPV>(pos, ss, alpha, beta);
+ 
+     // Step 9. Futility pruning: child node
+     // The depth condition is important for mate finding. It should NOT be tuned.
+-    if (!ss->ttPv && depth < (seekMate ? 6 : 19) && eval >= beta && (!ttData.move || ttCapture)
++    if (!ablRFP && !ss->ttPv && depth < (seekMate ? 6 : 19) && eval >= beta && (!ttData.move || ttCapture)
+         && !is_loss(beta) && !is_win(eval))
+     {
+         Value futilityMult = std::min(45 + depth * 4, 85);
+@@ -1008,7 +1058,7 @@
+     }
+ 
+     // Step 10. Null move search with verification search
+-    if (cutNode && ss->staticEval >= beta - 13 * depth - 47 * improving + 365 && !excludedMove
++    if (!ablNMP && cutNode && ss->staticEval >= beta - 13 * depth - 47 * improving + 365 && !excludedMove
+         && pos.non_pawn_material(us) && ss->ply >= nmpMinPly && beta >= -2000)
+     {
+         assert((ss - 1)->currentMove != Move::null());
+@@ -1048,14 +1098,14 @@
+     // Step 11. Internal iterative reductions
+     // At sufficient depth, reduce depth for PV/Cut nodes without a TTMove.
+     // (*Scaler) Making IIR more aggressive scales poorly.
+-    if (!ss->followPV && !allNode && depth >= 6 && !ttData.move)
++    if (!ablIIR && !ss->followPV && !allNode && depth >= 6 && !ttData.move)
+         depth--;
+ 
+     // Step 12. ProbCut
+     // If we have a good enough capture (or queen promotion) and a reduced search
+     // returns a value much above beta, we can (almost) safely prune the previous move.
+     probCutBeta = beta + 241 - 64 * improving;
+-    if (depth >= 3 && !is_decisive(beta) && !(is_valid(ttData.value) && ttData.value < probCutBeta))
++    if (!ablProbCut && depth >= 3 && !is_decisive(beta) && !(is_valid(ttData.value) && ttData.value < probCutBeta))
+     {
+         assert(probCutBeta < VALUE_INFINITE && probCutBeta > beta);
+ 
+@@ -1099,7 +1149,7 @@
+ 
+     // Step 13. A small ProbCut idea
+     probCutBeta = beta + 428;
+-    if ((ttData.bound & BOUND_LOWER) && ttData.depth >= depth - 4 && ttData.value >= probCutBeta
++    if (!ablProbCut && (ttData.bound & BOUND_LOWER) && ttData.depth >= depth - 4 && ttData.value >= probCutBeta
+         && !is_decisive(beta) && is_valid(ttData.value) && !is_decisive(ttData.value))
+         return probCutBeta;
+ 
+@@ -1163,7 +1213,7 @@
+ 
+         // Step 15. Pruning at shallow depths.
+         // Depth conditions are important for mate finding.
+-        if (!rootNode && pos.non_pawn_material(us) && !is_loss(bestValue))
++        if (!ablShallow && !rootNode && pos.non_pawn_material(us) && !is_loss(bestValue))
+         {
+             // Skip quiet moves if movecount exceeds our threshold
+             if (moveCount >= (3 + depth * depth) / (2 - improving))
+@@ -1243,7 +1293,7 @@
+         //
+         // (*Scaler) Generally, higher singularBeta (i.e closer to ttValue)
+         // and lower extension margins scale well.
+-        if (!rootNode && move == ttData.move && !excludedMove && depth >= 6 + ss->ttPv
++        if (!ablSE && !rootNode && move == ttData.move && !excludedMove && depth >= 6 + ss->ttPv
+             && is_valid(ttData.value) && !is_decisive(ttData.value) && (ttData.bound & BOUND_LOWER)
+             && ttData.depth >= depth - 3 && !is_shuffling(move, ss, pos) && !seekMate)
+         {
+@@ -1359,7 +1409,7 @@
+             r += r * 276 / (256 * depth + 268);
+ 
+         // Apply the computed LMR
+-        if (depth >= 2 && moveCount > 1)
++        if (!ablLMR && depth >= 2 && moveCount > 1)
+         {
+             // In general we want to cap the LMR depth search at newDepth, but when
+             // reduction is negative, we allow this move a limited search extension
+@@ -1400,7 +1450,7 @@
+ 
+             // If expected reduction is high, we reduce search depth here
+             value = -search<NonPV>(pos, ss + 1, -(alpha + 1), -alpha,
+-                                   newDepth - (r > 5234) - (r > 5487 && newDepth > 2), !cutNode);
++                                   newDepth - (ablLMR ? 0 : (r > 5234) + (r > 5487 && newDepth > 2)), !cutNode);
+         }
+ 
+         // Step 20. For PV nodes only, do a full PV search on the first move

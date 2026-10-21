@@ -10,8 +10,15 @@
  * Input (stdin), one job per line:
  *   files wrap side tt node_cap time_cap nW f r f r ... nB f r f r ...
  *   (side 1 = White to move; files 0-based; ranks 1..8)
- * Output, one line per job:  result nodes cpu_seconds (time_cap is also CPU seconds)
+ * Output, one line per job:  result nodes cpu_seconds ep_events (time_cap is also CPU seconds)
  *   result 1 = side to move wins, -1 = loses, 0 = cap reached (unsolved)
+ *   ep_events = double steps made during the search after which the moved pawn
+ *   is passed (textbook test) and an enemy pawn stands beside it, so that the
+ *   opponent could take a passed pawn en passant. This search uses the
+ *   textbook passed test. The e.p.-aware test (a pawn that can still be taken
+ *   e.p. is not passed) judges a position differently only right after such a
+ *   double step, so ep_events == 0 certifies that the e.p.-aware search would
+ *   visit the same nodes and return the same result.
  */
 #include <stdint.h>
 #include <stdio.h>
@@ -24,7 +31,7 @@
 
 static int W, WRAP;
 static signed char sq[MAXF][R + 2]; /* 0 empty, 1 white, 2 black */
-static long long nodes, node_cap;
+static long long nodes, node_cap, ep_events;
 static double t_end;
 static int use_tt, capped;
 static uint64_t Z[MAXF][R + 2][3], ZSIDE, ZEP[MAXF][R + 2];
@@ -93,6 +100,18 @@ static void refresh(int f) {
         if (sq[f][r] == 1) { if (r > maxW[f]) maxW[f] = r; if (r < minW[f]) minW[f] = r; }
         else if (sq[f][r] == 2) { if (r > maxB[f]) maxB[f] = r; if (r < minB[f]) minB[f] = r; }
     }
+}
+
+/* textbook test for one pawn: no enemy pawn ahead on its own or an adjacent file */
+static int pawn_passed(int color, int f, int r) {
+    int fs[3] = {f, nb(f, -1), nb(f, 1)};
+    for (int i = 0; i < 3; i++) {
+        int g = fs[i];
+        if (g < 0) continue;
+        if (color == 1 && maxB[g] > r) return 0;
+        if (color == 2 && minW[g] < r) return 0;
+    }
+    return 1;
 }
 
 static int passer_on_file(int color, int g) {
@@ -198,6 +217,12 @@ static int negamax(int side_white, int epf, int epr, int epcf, int epcr) {
         sq[(int)m.tf][(int)m.tr] = me;
         refresh(m.ff);
         if (m.tf != m.ff) refresh(m.tf);
+        if (m.epf >= 0) { /* double step: is the pawn passed, and could the opponent take it en passant? */
+            int a = nb(m.tf, -1), b = nb(m.tf, 1);
+            if (((a >= 0 && sq[a][(int)m.tr] == them) || (b >= 0 && sq[b][(int)m.tr] == them))
+                && pawn_passed(me, m.tf, m.tr))
+                ep_events++;
+        }
         int wp, bp, v;
         if (full_mode) { wp = has_passer(1); bp = has_passer(2); }
         else { wp = passer_near(1, m.ff, m.tf); bp = passer_near(2, m.ff, m.tf); }
@@ -246,11 +271,11 @@ int main(void) {
         full_mode = has_passer(1) || has_passer(2);
         use_tt = tt;
         if (use_tt) { memset(tt_key, 0, sizeof(uint64_t) << TTBITS); memset(tt_val, 0, (size_t)1 << TTBITS); }
-        nodes = 0; capped = 0;
+        nodes = 0; capped = 0; ep_events = 0;
         double t0 = now();
         t_end = tcap > 0 ? t0 + tcap : 0;
         int v = negamax(side, -1, -1, -1, -1);
-        printf("%d %lld %.6f\n", capped ? 0 : v, nodes, now() - t0);
+        printf("%d %lld %.6f %lld\n", capped ? 0 : v, nodes, now() - t0, ep_events);
         fflush(stdout);
     }
     return 0;

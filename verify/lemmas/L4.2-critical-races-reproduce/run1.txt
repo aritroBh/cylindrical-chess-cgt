@@ -12,7 +12,7 @@ Example 4.3: king next to the promotion square: the new queen is taken
    position W: Kh8 Pa7 / B: Kb7 Ph3, W to move; promotion distances (W, B) = (1, 2)
    race rules predict: {'count': 'W', 'mover': 'B', 'opponent': 'W'}
    chess: forced win found for W within None plies, for B within 6 plies
-   line: a7-a8=Q Kb7xa8 Kh8-g7 h3-h2 Kg7-h7 h2-h1=Q (KQK leaf)
+   line: Kh8-g7 h3-h2 Kg7-h7 h2-h1=Q Kh7-g8 Kb7xa7 (KQK leaf)
 Example 4.4: promotion with check: a skewer wins the first queen
    position W: Kd5 Pa7 / B: Kb6 Ph2, W to move; promotion distances (W, B) = (1, 1)
    race rules predict: {'count': 'W', 'mover': 'B', 'opponent': 'W'}
@@ -22,7 +22,7 @@ Example 4.6: the new queen stops the other pawn (count right, 'mover' wrong)
    position W: Ka4 Pg7 / B: Ka6 Pg2, W to move; promotion distances (W, B) = (1, 1)
    race rules predict: {'count': 'W', 'mover': 'B', 'opponent': 'W'}
    chess: forced win found for W within 3 plies, for B within None plies
-   line: g7-g8=Q Ka6-a7 Qg8xg2 (KQK leaf)
+   line: g7-g8=Q g2-g1=Q Qg8xg1 (KQK leaf)
 Example 4.5: both sides queen (Q vs Q); the count rule calls it a White win
    position W: Ka3 Pc7 / B: Kh6 Pf2, W to move; promotion distances (W, B) = (1, 1)
    race rules predict: {'count': 'W', 'mover': 'B', 'opponent': 'W'}
@@ -35,7 +35,7 @@ Example 4.5: both sides queen (Q vs Q); the count rule calls it a White win
        ('W: a3 b5 / B: d6', 'W', 'W', '↓')
        ('W: a3 / B: c4 d6', 'B', 'B', '↑')
     critical races won by the mover, all other races lost by the mover: *2
-    critical races won by the mover, other races random (200 trials): {'*2': 146, '↓': 28, '0': 4, '↑': 22}
+    critical races won by the mover, other races random (200 trials): {'*2': 158, '↑': 18, '0': 7, '↓': 17}
 4.7 *2 candidate, e.p. off: value under count = *2; 206 distinct race nodes (child, mover); count verdict = mover on 122
     single race verdicts whose flip changes the value (child, mover, count verdict, new value):
        ('W: a2 b5 / B: d7', 'W', 'W', '↓')
@@ -43,6 +43,6 @@ Example 4.5: both sides queen (Q vs Q); the count rule calls it a White win
        ('W: a3 b5 / B: d6', 'W', 'W', '↓')
        ('W: a3 / B: c4 d6', 'B', 'B', '↑')
     critical races won by the mover, all other races lost by the mover: *2
-    critical races won by the mover, other races random (200 trials): {'*2': 154, '↑': 23, '0': 2, '↓': 21}
+    critical races won by the mover, other races random (200 trials): {'*2': 156, '↓': 18, '↑': 23, '0': 3}
 FAILURES: 0 []
-PYTHONPATH=. .venv/bin/python lemmas/test_L4_races.py  60.10s user 0.57s system 62% cpu 1:36.48 total
+PYTHONPATH=. .venv/bin/python lemmas/test_L4_races.py  50.54s user 0.33s system 30% cpu 2:46.17 total

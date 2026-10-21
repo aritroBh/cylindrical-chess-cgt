@@ -1,0 +1,4 @@
+flat4 count ep=on passed-test=textbook: W a2 c2 / B b7 d7 == *2: True
+flat4 count ep=on passed-test=textbook: W a2 c2 / B b7 d7 == {2+-1|-2+-1}: False
+flat4 count ep=on passed-test=ep-aware: W a2 c2 / B b7 d7 == *2: False
+flat4 count ep=on passed-test=ep-aware: W a2 c2 / B b7 d7 == {2+-1|-2+-1}: True

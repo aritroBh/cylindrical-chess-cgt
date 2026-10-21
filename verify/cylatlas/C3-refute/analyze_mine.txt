@@ -1,0 +1,88 @@
+## My T1 (value counts; w+b<=5, count rule, e.p. on)
+| n | cyl values | flat values | cyl-only nonW / W | flat-only nonW / W |
+| 3 | 2614 | 4116 | 42 / 1229 | 198 / 2575 |
+| 4 | 5550 | 7130 | 13 / 995 | 41 / 2547 |
+| 5 | 7336 | 7922 | 0 / 166 | 0 / 752 |
+| 6 | 7922 | 7964 | 0 / 0 | 0 / 42 |
+| 7 | 7964 | 7964 | 0 / 0 | 0 / 0 |
+| 8 | 7964 | 7964 | 0 / 0 | 0 / 0 |
+
+flat8 == union flats: True; cyl8 == flat8: True; cyl7 == flat7: True
+cyl-only (union): 2405 values, 53 without W
+flat-only (union): 0
+by smallest cylinder width: {3: 40, 4: 13}
+  n=3  -3/4   ('ring3_p4', 'W: a2 b3 / B: a5 c7')
+  n=3  3/4   ('ring3_p4', 'W: a2 b4 / B: b7 c6')
+  n=3  {*1,0|-1}   ('ring3_p4', 'W: a3 b3 / B: a6 c5')
+  n=3  {*1,{*1|0}|-1}   ('ring3_p4', 'W: a3 b3 / B: a7 c5')
+  n=3  {*1|-1/2}   ('ring3_p4', 'W: a2 b3 / B: a6 c5')
+  n=3  {*1|-4}   ('ring3_p5', 'W: a2 b4 / B: b6 b7 c5')
+  n=3  {-1|{-2,{-1|-2}|-4}}   ('ring3_p5', 'W: a2 b2 / B: a6 a7 c4')
+  n=3  {-2,{-1|-2}|-4}   ('ring3_p5', 'W: a2 b2 / B: a5 a7 c4')
+  n=3  {-3/2|-5}   ('ring3_p5', 'W: a2 b3 / B: a6 c6 c7')
+  n=3  {-3/2|{-4|-7}}   ('ring3_p5', 'W: a2 b2 / B: a6 a7 c7')
+  n=3  {-5/2,{*1|-3}|-5}   ('ring3_p5', 'W: a2 b2 / B: a5 a7 c5')
+  n=3  {0|-1/2}   ('ring3_p4', 'W: a2 b3 / B: a5 c6')
+  n=3  {1/2|*1}   ('ring3_p4', 'W: a2 b4 / B: a6 c7')
+  n=3  {1/2|0}   ('ring3_p4', 'W: a2 b2 / B: c5 c6')
+  n=3  {1/2|{0|*1}}   ('ring3_p4', 'W: a2 b4 / B: a7 c6')
+  n=3  {1/2|{1/2|*1},{1/2|{0|*1}}}   ('ring3_p4', 'W: a2 b4 / B: a7 c7')
+  n=3  {1|*1,0}   ('ring3_p4', 'W: a3 b4 / B: a6 c6')
+  n=3  {1|*1,{0|*1}}   ('ring3_p4', 'W: a2 b4 / B: a6 c6')
+  n=3  {2|{*1|0}}   ('ring3_p4', 'W: a3 b3 / B: c6 c7')
+  n=3  {3/4|{*1|-1/2}}   ('ring3_p4', 'W: a2 b3 / B: b7 c6')
+  n=3  {3/4|{{*1|-1/2},{{*1|0}|-1/2}|-1/2}}   ('ring3_p4', 'W: a2 b2 / B: a7 c6')
+  n=3  {3|{0|{{*1|0}|0}}}   ('ring3_p4', 'W: a2 b2 / B: c6 c7')
+  n=3  {4|*1}   ('ring3_p5', 'W: a2 a3 b4 / B: a5 c7')
+  n=3  {4|2,{2|1}}   ('ring3_p5', 'W: a2 a4 b5 / B: a7 c7')
+  n=3  {5|3/2}   ('ring3_p5', 'W: a2 a3 b2 / B: b6 c7')
+  n=3  {5|5/2,{3|*1}}   ('ring3_p5', 'W: a2 a4 b4 / B: a7 c7')
+  n=3  {6|{{{3|2}|2}|2}}   ('ring3_p5', 'W: a2 a3 b2 / B: b7 c6')
+  n=3  {{*1|-1/2},{{*1|0}|-1/2}|-1/2}   ('ring3_p4', 'W: a2 b2 / B: a7 c5')
+  n=3  {{*1|0}|-1/2}   ('ring3_p4', 'W: a2 b3 / B: a7 c5')
+  n=3  {{-2|{-2|{-2|-3}}}|-6}   ('ring3_p5', 'W: a2 b3 / B: a7 c6 c7')
+  n=3  {{0|*1}|-2}   ('ring3_p4', 'W: a2 a3 / B: b6 c6')
+  n=3  {{1/2|*1},{1/2|0}|{*1,{*1|0}|-1},{0|-1}}   ('ring3_p4', 'W: a3 b3 / B: a7 c6')
+  n=3  {{1/2|*1}|-3/4}   ('ring3_p4', 'W: a2 b3 / B: a6 c7')
+  n=3  {{1/2|{0|*1}}|{{*1|0}|-1/2}}   ('ring3_p4', 'W: a2 b3 / B: a7 c6')
+  n=3  {{1/2|{1/2|*1},{1/2|{0|*1}}}|-3/4}   ('ring3_p4', 'W: a2 b3 / B: a7 c7')
+  n=3  {{1/2|{1/2|*1},{1/2|{0|*1}}}|{{*1|-1/2},{{*1|0}|-1/2}|-1/2}}   ('ring3_p4', 'W: a2 b2 / B: a7 c7')
+  n=3  {{1|*1,{0|*1}},{1|0}|{*1|-1/2},{0|-1/2}}   ('ring3_p4', 'W: a2 b3 / B: a6 c6')
+  n=3  {{4|2,{2|1}}|1}   ('ring3_p5', 'W: a2 a3 b5 / B: a7 c7')
+  n=3  {{7|4}|3/2}   ('ring3_p5', 'W: a2 a3 b2 / B: a7 c7')
+  n=3  {{{0|{0|*1}}|0}|-3}   ('ring3_p4', 'W: a2 a3 / B: b7 c7')
+  n=4  {*1,0|-2}   ('ring4_p5', 'W: a2 c3 / B: b6 b7 d6')
+  n=4  {-1/2|{-3|-6}}   ('ring4_p5', 'W: a2 c2 / B: b6 b7 d7')
+  n=4  {-1|{-2|-2}}   ('ring4_p5', 'W: a2 c2 / B: a3 b6 d7')
+  n=4  {1|{-1|-2}}   ('ring4_p4', 'W: a2 c2 / B: b6 d7')
+  n=4  {2|*1,0}   ('ring4_p5', 'W: a2 a3 c3 / B: b6 d7')
+  n=4  {{*1|{-1|-1}}|{-2|-2}}   ('ring4_p5', 'W: a2 c3 / B: a4 b7 d7')
+  n=4  {{0|-1}|{-2|-2}}   ('ring4_p5', 'W: a2 c2 / B: a3 b7 d7')
+  n=4  {{2|1}|-1}   ('ring4_p4', 'W: a2 c3 / B: b7 d7')
+  n=4  {{2|1}|{-1|-2}}   ('ring4_p4', 'W: a2 c2 / B: b7 d7')
+  n=4  {{2|2}|1}   ('ring4_p5', 'W: a2 b6 c3 / B: b7 d7')
+  n=4  {{2|2}|{1|0}}   ('ring4_p5', 'W: a2 b6 c2 / B: b7 d7')
+  n=4  {{2|2}|{{1|1}|*1}}   ('ring4_p5', 'W: a2 b5 c2 / B: b7 d6')
+  n=4  {{6|3}|1/2}   ('ring4_p5', 'W: a2 a3 c2 / B: b7 d7')
+
+## exact comparison of value-key sets with the worker's values.jsonl
+cyl3: mine=2614 worker=2614 equal=True only_mine=0 only_worker=0
+flat3: mine=4116 worker=4116 equal=True only_mine=0 only_worker=0
+cyl4: mine=5550 worker=5550 equal=True only_mine=0 only_worker=0
+flat4: mine=7130 worker=7130 equal=True only_mine=0 only_worker=0
+cyl5: mine=7336 worker=7336 equal=True only_mine=0 only_worker=0
+flat5: mine=7922 worker=7922 equal=True only_mine=0 only_worker=0
+cyl6: mine=7922 worker=7922 equal=True only_mine=0 only_worker=0
+flat6: mine=7964 worker=7964 equal=True only_mine=0 only_worker=0
+cyl7: mine=7964 worker=7964 equal=True only_mine=0 only_worker=0
+flat7: mine=7964 worker=7964 equal=True only_mine=0 only_worker=0
+cyl8: mine=7964 worker=7964 equal=True only_mine=0 only_worker=0
+flat8: mine=7964 worker=7964 equal=True only_mine=0 only_worker=0
+worker cyl-only nonW: 53; mine: 53; identical key sets: True
+has-W flags agree on all common keys: True
+
+## sensitivity: exclude 'unsafe' flat sums (one summand can reach +W and the other -W)
+cyl-only nonW with safe sums only: 53 (vs 53)
+nonW ring values present on flat strips only as two-component sums: 2
+   (4, '{{0|*1}|{-1|{-1|-1}}}', 'W: a2 / B: a5 + W: a2 / B: a4 a5', 3)
+   (4, '{{{1|1}|1}|{*1|0}}', 'W: a4 / B: a7 + W: a2 a3 / B: a5', 3)

@@ -1,0 +1,12 @@
+N/P (count rule) whose class differs under some other rule: 46 of 86
+transitions count->(mover,opponent): Counter({('N', 'N', 'N'): 37, ('P', 'P', 'L'): 11, ('N', 'N', 'R'): 9, ('N', 'R', 'N'): 8, ('N', 'N', 'L'): 7, ('P', 'L', 'P'): 7, ('N', 'L', 'N'): 4, ('P', 'P', 'P'): 3})
+rule count    N: n= 65 SF right  25  Lc0 right  63
+rule count    P: n= 21 SF right  20  Lc0 right  20
+rule mover    N: n= 66 SF right  37  Lc0 right  64
+rule mover    P: n= 20 SF right  15  Lc0 right  15
+rule opponent N: n= 49 SF right  13  Lc0 right  47
+rule opponent P: n= 10 SF right  10  Lc0 right   9
+rule-INsensitive N: n=37 SF right 12 Lc0 right 36
+rule-INsensitive P: n=3 SF right 3 Lc0 right 2
+L SF delta mean -0.52 median -0.42; |orig eval| median 1.98
+R SF delta mean -0.20 median -0.02; |orig eval| median 3.10

@@ -1,0 +1,328 @@
+[oracle-all] 100/670 terminals
+[oracle-all] 200/670 terminals
+[oracle-all] 300/670 terminals
+[oracle-all] 400/670 terminals
+[oracle-all] 500/670 terminals
+[oracle-all] 600/670 terminals
+{
+ "component": "W: a2 c2 / B: b7 d7",
+ "passed_test": "textbook",
+ "mode": "pure",
+ "ext": 4,
+ "uses_lichess_8man_categories": false,
+ "offline": true,
+ "status": "complete",
+ "internal_nodes": 405,
+ "terminals_total": 670,
+ "terminals_by_men": {
+  "8": 300,
+  "7": 370
+ },
+ "sides_resolved": 601,
+ "terminals_resolved_both_sides": 128,
+ "terminals_partial": 345,
+ "terminals_unresolved": 197,
+ "class_counts": {
+  "R": 42,
+  "N": 23,
+  "L": 60,
+  "D": 3
+ },
+ "LR_terminals_disagreeing_with_model": {
+  "count": [
+   "W: a4 c5 / B: b6 d5",
+   "W: a4 c5 / B: b6 d5 (ep d6)",
+   "W: a6 c5 / B: b7 d5",
+   "W: a6 c5 / B: b7 d5 (ep d6)"
+  ],
+  "mover": [
+   "W: a4 / B: c5 d7",
+   "W: a4 c5 / B: b6 d5",
+   "W: a4 c5 / B: b6 d5 (ep d6)",
+   "W: a6 c5 / B: b7 d5",
+   "W: a6 c5 / B: b7 d5 (ep d6)"
+  ],
+  "opponent": [
+   "W: a2 / B: c3 d5",
+   "W: a2 / B: c3 d6",
+   "W: a2 / B: c3 d7",
+   "W: a2 / B: c4 d6",
+   "W: a2 / B: c4 d7",
+   "W: a2 b5 / B: d6",
+   "W: a2 b5 / B: d7",
+   "W: a2 b6 / B: d7",
+   "W: a3 / B: c4 d5",
+   "W: a3 / B: c4 d6",
+   "W: a3 / B: c4 d7",
+   "W: a3 b5 / B: d5",
+   "W: a3 b5 / B: d6",
+   "W: a3 b5 / B: d7",
+   "W: a3 b6 / B: d7",
+   "W: a4 b6 / B: d7",
+   "W: a4 c5 / B: b6 d5",
+   "W: a4 c5 / B: b6 d5 (ep d6)",
+   "W: a6 c5 / B: b7 d5",
+   "W: a6 c5 / B: b7 d5 (ep d6)"
+  ]
+ },
+ "model_values": {
+  "count": "*2",
+  "mover": "*2",
+  "opponent": "0"
+ },
+ "new_requests": 0,
+ "kb_hits": 2305,
+ "seconds": 114.5,
+ "bounds": {
+  "switch, draw = Black win": {
+   "G_lo": "{0 | -2\u00b11}",
+   "G_hi": "{2\u00b11 | 0}",
+   "pinned": false,
+   "outcome_G_lo": "N",
+   "outcome_G_hi": "N",
+   "excludes *2": false,
+   "excludes *2 (how)": {
+    "by_lower_bound": false,
+    "by_upper_bound": false
+   },
+   "excludes 0": true,
+   "excludes 0 (how)": {
+    "by_lower_bound": true,
+    "by_upper_bound": true
+   },
+   "excludes model value under count (*2)": false,
+   "excludes model value under count (*2) (how)": {
+    "by_lower_bound": false,
+    "by_upper_bound": false
+   },
+   "excludes model value under mover (*2)": false,
+   "excludes model value under mover (*2) (how)": {
+    "by_lower_bound": false,
+    "by_upper_bound": false
+   },
+   "excludes model value under opponent (0)": true,
+   "excludes model value under opponent (0) (how)": {
+    "by_lower_bound": true,
+    "by_upper_bound": true
+   },
+   "ambiguous_partial_terminals": 162,
+   "excludes *2 (enumerating 162 ambiguous partials, 5846006549323611672814739330865132078623730171904 combinations)": null,
+   "excludes model value under count (*2) (enumerating 162 ambiguous partials, 5846006549323611672814739330865132078623730171904 combinations)": null,
+   "excludes model value under mover (*2) (enumerating 162 ambiguous partials, 5846006549323611672814739330865132078623730171904 combinations)": null,
+   "indicative_value_unresolved_sides_from_model": "{2\u00b11 | -2\u00b11}"
+  },
+  "switch, draw = White win": {
+   "G_lo": "{0 | -2\u00b11}",
+   "G_hi": "{{+W*, {{{{+W, +W* | +W, +W*} | +W} | +W} | 1} | 0}, {+W, +W* | 1, {+W, \u00b1+W | -W}} | 0}",
+   "pinned": false,
+   "outcome_G_lo": "N",
+   "outcome_G_hi": "N",
+   "excludes *2": false,
+   "excludes *2 (how)": {
+    "by_lower_bound": false,
+    "by_upper_bound": false
+   },
+   "excludes 0": true,
+   "excludes 0 (how)": {
+    "by_lower_bound": true,
+    "by_upper_bound": true
+   },
+   "excludes model value under count (*2)": false,
+   "excludes model value under count (*2) (how)": {
+    "by_lower_bound": false,
+    "by_upper_bound": false
+   },
+   "excludes model value under mover (*2)": false,
+   "excludes model value under mover (*2) (how)": {
+    "by_lower_bound": false,
+    "by_upper_bound": false
+   },
+   "excludes model value under opponent (0)": true,
+   "excludes model value under opponent (0) (how)": {
+    "by_lower_bound": true,
+    "by_upper_bound": true
+   },
+   "ambiguous_partial_terminals": 165,
+   "excludes *2 (enumerating 165 ambiguous partials, 46768052394588893382517914646921056628989841375232 combinations)": null,
+   "excludes model value under count (*2) (enumerating 165 ambiguous partials, 46768052394588893382517914646921056628989841375232 combinations)": null,
+   "excludes model value under mover (*2) (enumerating 165 ambiguous partials, 46768052394588893382517914646921056628989841375232 combinations)": null,
+   "indicative_value_unresolved_sides_from_model": "{{{+W | {+W | -W, \u00b1+W}} | 1, {+W | -W, \u00b1+W}} | -2\u00b11}"
+  },
+  "switch, draw = 0": {
+   "G_lo": "{0 | -2\u00b11}",
+   "G_hi": "{5/2\u00b13/2 | 0}",
+   "pinned": false,
+   "outcome_G_lo": "N",
+   "outcome_G_hi": "N",
+   "excludes *2": false,
+   "excludes *2 (how)": {
+    "by_lower_bound": false,
+    "by_upper_bound": false
+   },
+   "excludes 0": true,
+   "excludes 0 (how)": {
+    "by_lower_bound": true,
+    "by_upper_bound": true
+   },
+   "excludes model value under count (*2)": false,
+   "excludes model value under count (*2) (how)": {
+    "by_lower_bound": false,
+    "by_upper_bound": false
+   },
+   "excludes model value under mover (*2)": false,
+   "excludes model value under mover (*2) (how)": {
+    "by_lower_bound": false,
+    "by_upper_bound": false
+   },
+   "excludes model value under opponent (0)": true,
+   "excludes model value under opponent (0) (how)": {
+    "by_lower_bound": true,
+    "by_upper_bound": true
+   },
+   "ambiguous_partial_terminals": 155,
+   "excludes *2 (enumerating 155 ambiguous partials, 89907201863535854420702290135762284537312963394702682637089810488324824507 combinations)": null,
+   "excludes model value under count (*2) (enumerating 155 ambiguous partials, 89907201863535854420702290135762284537312963394702682637089810488324824507 combinations)": null,
+   "excludes model value under mover (*2) (enumerating 155 ambiguous partials, 89907201863535854420702290135762284537312963394702682637089810488324824507 combinations)": null,
+   "indicative_value_unresolved_sides_from_model": "{5/2\u00b13/2 | -2\u00b11}"
+  },
+  "free (only L/R fixed)": {
+   "G_lo": "{0 | {-1 | {-W | {-W | {-W | {-W, -W* | -W, -W*}}}, {-W | {-W | {-W | {-W, -W* | -W, -W*}}}}}}}",
+   "G_hi": "{{{{{+W, {+W, +W* | +W, +W*} | +W, +W*} | +W}, {{{+W, {+W, +W* | +W, +W*} | +W, +W*} | +W} | +W} | +W} | +W} | 0}",
+   "pinned": false,
+   "outcome_G_lo": "N",
+   "outcome_G_hi": "N",
+   "excludes *2": false,
+   "excludes *2 (how)": {
+    "by_lower_bound": false,
+    "by_upper_bound": false
+   },
+   "excludes 0": true,
+   "excludes 0 (how)": {
+    "by_lower_bound": true,
+    "by_upper_bound": true
+   },
+   "excludes model value under count (*2)": false,
+   "excludes model value under count (*2) (how)": {
+    "by_lower_bound": false,
+    "by_upper_bound": false
+   },
+   "excludes model value under mover (*2)": false,
+   "excludes model value under mover (*2) (how)": {
+    "by_lower_bound": false,
+    "by_upper_bound": false
+   },
+   "excludes model value under opponent (0)": true,
+   "excludes model value under opponent (0) (how)": {
+    "by_lower_bound": true,
+    "by_upper_bound": true
+   },
+   "ambiguous_partial_terminals": 0
+  }
+ },
+ "non_LR_terminals": [
+  [
+   "W: a2 / B: c5 d7",
+   "N"
+  ],
+  [
+   "W: a3 / B: c5 d6",
+   "N"
+  ],
+  [
+   "W: a3 / B: c5 d7",
+   "N"
+  ],
+  [
+   "W: a4 / B: b7 c6",
+   "draw(W-first:draw,B-first:B wins)"
+  ],
+  [
+   "W: a4 / B: c4 d6",
+   "N"
+  ],
+  [
+   "W: a4 / B: c4 d7",
+   "N"
+  ],
+  [
+   "W: a4 d3 / B: b5",
+   "N"
+  ],
+  [
+   "W: a5 / B: b7 c5",
+   "draw(W-first:draw,B-first:B wins)"
+  ],
+  [
+   "W: a6 / B: b7 c5",
+   "N"
+  ],
+  [
+   "W: b4 c2 / B: d3",
+   "N"
+  ],
+  [
+   "W: c4 / B: a6 d5",
+   "N"
+  ],
+  [
+   "W: c4 / B: a6 d6",
+   "draw(W-first:draw,B-first:B wins)"
+  ],
+  [
+   "W: a2 c5 / B: b6 d5",
+   "N"
+  ],
+  [
+   "W: a2 c5 / B: b6 d5 (ep d6)",
+   "N"
+  ],
+  [
+   "W: a3 c5 / B: b6 d5",
+   "N"
+  ],
+  [
+   "W: a3 c5 / B: b6 d5 (ep d6)",
+   "N"
+  ],
+  [
+   "W: a4 c2 / B: b4 d5 (ep a3)",
+   "N"
+  ],
+  [
+   "W: a4 c2 / B: b4 d6 (ep a3)",
+   "N"
+  ],
+  [
+   "W: a4 c3 / B: b4 d5",
+   "N"
+  ],
+  [
+   "W: a4 c3 / B: b4 d5 (ep a3)",
+   "N"
+  ],
+  [
+   "W: a4 c4 / B: b6 d4 (ep c3)",
+   "N"
+  ],
+  [
+   "W: a5 c3 / B: b5 d4",
+   "N"
+  ],
+  [
+   "W: a5 c3 / B: b5 d4 (ep b6)",
+   "N"
+  ],
+  [
+   "W: a5 c4 / B: b6 d4",
+   "N"
+  ],
+  [
+   "W: a5 c4 / B: b6 d4 (ep c3)",
+   "N"
+  ],
+  [
+   "W: a6 c2 / B: b6 d3",
+   "N"
+  ]
+ ]
+}

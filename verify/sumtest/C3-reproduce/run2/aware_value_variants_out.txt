@@ -1,0 +1,45 @@
+== --files 4 --race mover
+value          : {2±1 | -2±1}
+mean, temp     : 0 2
+brute outcomes : NNNNNNNNNNLRNNN
+cgt predicted  : NNNNNNNNNNLRNNN (agree)
+== --files 4 --race opponent
+value          : 0
+mean, temp     : 0 None
+brute outcomes : PNNNLRNLLRLRNNL
+cgt predicted  : PNNNLRNLLRLRNNL (agree)
+== --files 4 --plain
+value          : *2
+mean, temp     : 0 0
+brute outcomes : NNPNLRLLLRLRLNN
+cgt predicted  : NNPNLRLLLRLRLNN (agree)
+== --files 4 --no-ep
+value          : *2
+mean, temp     : 0 0
+brute outcomes : NNPNLRLLLRLRLNN
+cgt predicted  : NNPNLRLLLRLRLNN (agree)
+== --files 8
+value          : {2±1 | -2±1}
+mean, temp     : 0 2
+brute outcomes : NNNNNNNNNNLRNNN
+cgt predicted  : NNNNNNNNNNLRNNN (agree)
+== --files 8 --wrap
+value          : {2±1 | -2±1}
+mean, temp     : 0 2
+brute outcomes : NNNNNNNNNNLRNNN
+cgt predicted  : NNNNNNNNNNLRNNN (agree)
+== --files 8 --race mover
+value          : {2±1 | -2±1}
+mean, temp     : 0 2
+brute outcomes : NNNNNNNNNNLRNNN
+cgt predicted  : NNNNNNNNNNLRNNN (agree)
+== --files 8 --wrap --race mover
+value          : {2±1 | -2±1}
+mean, temp     : 0 2
+brute outcomes : NNNNNNNNNNLRNNN
+cgt predicted  : NNNNNNNNNNLRNNN (agree)
+== --files 5 --wrap
+value          : {2±1 | -2±1}
+mean, temp     : 0 2
+brute outcomes : NNNNNNNNNNLRNNN
+cgt predicted  : NNNNNNNNNNLRNNN (agree)

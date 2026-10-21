@@ -1,0 +1,250 @@
+{
+ "textbook": {
+  "component": "W: a3 b3 c2 / B: b5 b7 c6",
+  "cylcgt_file": "/Users/aritro/Downloads/Research/Chessendgames/cylcgt/pawns.py",
+  "passed_test": "textbook",
+  "ep": true,
+  "internal_nodes": 1384,
+  "terminals": 1703,
+  "internal_by_men": {
+   "6": 20,
+   "7": 72,
+   "8": 437,
+   "9": 559,
+   "10": 296
+  },
+  "terminals_by_men": {
+   "5": 13,
+   "6": 34,
+   "7": 287,
+   "8": 717,
+   "9": 562,
+   "10": 90
+  },
+  "race_terminals": 84,
+  "race_terminals_by_men": {
+   "6": 16,
+   "7": 29,
+   "8": 39
+  },
+  "race_entries": 116,
+  "value_count": "{0 | {0, *, {2* | *, {\u2191* | -W, {-W | -W, {-W | -W, {-W | -W, -W*}}}}} | \u2193*, {*, {{{+W, {+W, {+W, {+W, +W* | +W} | +W} | +W} | +W} | +W} | -2} | -W}}}",
+  "value_mover": "{0 | {0, *, {2* | *, {\u2191* | -W, {-W | -W, {-W | -W, -W*}}}} | \u2193*, {*, {{{+W, {+W, {+W, +W* | +W} | +W} | +W} | +W} | -2} | -W}}}",
+  "value_opponent": "*2",
+  "cylcgt_value_count_matches": true,
+  "cylcgt_value_mover_matches": true,
+  "cylcgt_value_opponent_matches": true,
+  "reference_rule": "opponent",
+  "reference_value": "*2",
+  "race_entries_ref_vs_count_disagree": 47,
+  "single_flip_critical_race_entries": [
+   {
+    "terminal": "W: c4 / B: b4",
+    "entered_by": "B",
+    "men": 6,
+    "ref_winner": "W",
+    "count_winner": "B",
+    "value_if_flipped": "\u2193"
+   },
+   {
+    "terminal": "W: c5 / B: b5",
+    "entered_by": "B",
+    "men": 6,
+    "ref_winner": "W",
+    "count_winner": "W",
+    "value_if_flipped": "\u2193*"
+   },
+   {
+    "terminal": "W: a3 / B: c4 c5",
+    "entered_by": "B",
+    "men": 7,
+    "ref_winner": "W",
+    "count_winner": "B",
+    "value_if_flipped": "\u2193"
+   },
+   {
+    "terminal": "W: a3 b5 / B: c5",
+    "entered_by": "W",
+    "men": 7,
+    "ref_winner": "B",
+    "count_winner": "W",
+    "value_if_flipped": "{0 | {0, *, {2* | *, {\u2191* | -W, {-W | -W, {-W | -W, {-W | -W, -W*}}}}} | \u2193*, {*, {{{+W, {+W, {+W, {+W, +W* | +W} | +W} | +W} | +W} | +W} | -2} | -W}}}"
+   },
+   {
+    "terminal": "W: a4 / B: c5 c6",
+    "entered_by": "B",
+    "men": 7,
+    "ref_winner": "W",
+    "count_winner": "W",
+    "value_if_flipped": "\u2193*"
+   }
+  ],
+  "all_races_free_bounds": [
+   "-1/2",
+   "{0 | {0, *, {2* | *, {\u2191* | -W, {-W | -W, {-W | -W, -W*}}}} | \u2193*, {*, {{{+W, {+W, {+W, {+W, +W* | +W} | +W} | +W} | +W} | +W} | -2} | -W}}}"
+  ],
+  "all_races_free_excludes_star2": false,
+  "pinning_race_set_size": 5,
+  "pinning_race_set": [
+   {
+    "terminal": "W: c4 / B: b4",
+    "entered_by": "B",
+    "men": 6,
+    "ref_winner": "W",
+    "count_winner": "B"
+   },
+   {
+    "terminal": "W: c5 / B: b5",
+    "entered_by": "B",
+    "men": 6,
+    "ref_winner": "W",
+    "count_winner": "W"
+   },
+   {
+    "terminal": "W: a3 / B: c4 c5",
+    "entered_by": "B",
+    "men": 7,
+    "ref_winner": "W",
+    "count_winner": "B"
+   },
+   {
+    "terminal": "W: a3 b5 / B: c5",
+    "entered_by": "W",
+    "men": 7,
+    "ref_winner": "B",
+    "count_winner": "W"
+   },
+   {
+    "terminal": "W: a4 / B: c5 c6",
+    "entered_by": "B",
+    "men": 7,
+    "ref_winner": "W",
+    "count_winner": "W"
+   }
+  ]
+ },
+ "ep_aware": {
+  "component": "W: a3 b3 c2 / B: b5 b7 c6",
+  "cylcgt_file": "/private/tmp/claude-501/-Users-aritro--claude-spares-spare-E0JaXy/57318271-9bbf-42b4-b8cf-b9d442308061/scratchpad/ep-wt/cylcgt/pawns.py",
+  "passed_test": "e.p.-aware",
+  "ep": true,
+  "internal_nodes": 1384,
+  "terminals": 1703,
+  "internal_by_men": {
+   "6": 20,
+   "7": 72,
+   "8": 437,
+   "9": 559,
+   "10": 296
+  },
+  "terminals_by_men": {
+   "5": 13,
+   "6": 34,
+   "7": 287,
+   "8": 717,
+   "9": 562,
+   "10": 90
+  },
+  "race_terminals": 79,
+  "race_terminals_by_men": {
+   "6": 13,
+   "7": 29,
+   "8": 37
+  },
+  "race_entries": 111,
+  "value_count": "{0 | {0, *, {2* | *, {\u2191* | -W, {-W | -W, {-W | -W, {-W | -W, -W*}}}}} | \u2193*, {*, {{{+W, {+W, {+W, {+W, +W* | +W} | +W} | +W} | +W} | +W} | -2} | -W}}}",
+  "value_mover": "{0 | {0, *, {2* | *, {\u2191* | -W, {-W | -W, {-W | -W, -W*}}}} | \u2193*, {*, {{{+W, {+W, {+W, +W* | +W} | +W} | +W} | +W} | -2} | -W}}}",
+  "value_opponent": "*2",
+  "cylcgt_value_count_matches": true,
+  "cylcgt_value_mover_matches": true,
+  "cylcgt_value_opponent_matches": true,
+  "reference_rule": "opponent",
+  "reference_value": "*2",
+  "race_entries_ref_vs_count_disagree": 47,
+  "single_flip_critical_race_entries": [
+   {
+    "terminal": "W: c4 / B: b4",
+    "entered_by": "B",
+    "men": 6,
+    "ref_winner": "W",
+    "count_winner": "B",
+    "value_if_flipped": "\u2193"
+   },
+   {
+    "terminal": "W: c5 / B: b5",
+    "entered_by": "B",
+    "men": 6,
+    "ref_winner": "W",
+    "count_winner": "W",
+    "value_if_flipped": "\u2193*"
+   },
+   {
+    "terminal": "W: a3 / B: c4 c5",
+    "entered_by": "B",
+    "men": 7,
+    "ref_winner": "W",
+    "count_winner": "B",
+    "value_if_flipped": "\u2193"
+   },
+   {
+    "terminal": "W: a3 b5 / B: c5",
+    "entered_by": "W",
+    "men": 7,
+    "ref_winner": "B",
+    "count_winner": "W",
+    "value_if_flipped": "{0 | {0, *, {2* | *, {\u2191* | -W, {-W | -W, {-W | -W, {-W | -W, -W*}}}}} | \u2193*, {*, {{{+W, {+W, {+W, {+W, +W* | +W} | +W} | +W} | +W} | +W} | -2} | -W}}}"
+   },
+   {
+    "terminal": "W: a4 / B: c5 c6",
+    "entered_by": "B",
+    "men": 7,
+    "ref_winner": "W",
+    "count_winner": "W",
+    "value_if_flipped": "\u2193*"
+   }
+  ],
+  "all_races_free_bounds": [
+   "-1/2",
+   "{0 | {0, *, {2* | *, {\u2191* | -W, {-W | -W, {-W | -W, -W*}}}} | \u2193*, {*, {{{+W, {+W, {+W, {+W, +W* | +W} | +W} | +W} | +W} | +W} | -2} | -W}}}"
+  ],
+  "all_races_free_excludes_star2": false,
+  "pinning_race_set_size": 5,
+  "pinning_race_set": [
+   {
+    "terminal": "W: c4 / B: b4",
+    "entered_by": "B",
+    "men": 6,
+    "ref_winner": "W",
+    "count_winner": "B"
+   },
+   {
+    "terminal": "W: c5 / B: b5",
+    "entered_by": "B",
+    "men": 6,
+    "ref_winner": "W",
+    "count_winner": "W"
+   },
+   {
+    "terminal": "W: a3 / B: c4 c5",
+    "entered_by": "B",
+    "men": 7,
+    "ref_winner": "W",
+    "count_winner": "B"
+   },
+   {
+    "terminal": "W: a3 b5 / B: c5",
+    "entered_by": "W",
+    "men": 7,
+    "ref_winner": "B",
+    "count_winner": "W"
+   },
+   {
+    "terminal": "W: a4 / B: c5 c6",
+    "entered_by": "B",
+    "men": 7,
+    "ref_winner": "W",
+    "count_winner": "W"
+   }
+  ]
+ }
+}

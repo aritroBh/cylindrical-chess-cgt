@@ -1,0 +1,267 @@
+{
+ "component": "W: a2 c2 / B: b7 d7",
+ "tree": "e.p.-aware",
+ "no_l8_rows": false,
+ "terminals": 732,
+ "internal_nodes": 423,
+ "fixed_LR_terminals": 102,
+ "tests": {
+  "lower": {
+   "cgt": true,
+   "direct_minimax": true,
+   "bound": "{3/2\u00b11/2 | {-1 | {-W | {-W | {-W | {-W, -W* | -W, -W*}}}, {-W | {-W | {-W | {-W, -W* | -W, -W*}}}}}}}",
+   "bound_outcome_cgt": "N",
+   "bound_outcome_direct": {
+    "White first wins": true,
+    "Black first wins": true
+   },
+   "support_size": 13,
+   "support_cgt": true,
+   "support_direct": true,
+   "support": [
+    {
+     "terminal": "W: a2 b5 / B: d6",
+     "men": 7,
+     "class": "L",
+     "fen_W": "8/8/3p4/1P3Kp1/6Pk/8/P7/8 w - - 0 1",
+     "how_W": "tablebase (<=7 men)",
+     "fen_B": "8/8/3p4/1P3Kp1/6Pk/8/P7/8 b - - 0 1",
+     "how_B": "tablebase (<=7 men)"
+    },
+    {
+     "terminal": "W: a2 b5 / B: d7",
+     "men": 7,
+     "class": "L",
+     "fen_W": "8/3p4/8/1P3Kp1/6Pk/8/P7/8 w - - 0 1",
+     "how_W": "tablebase (<=7 men)",
+     "fen_B": "8/3p4/8/1P3Kp1/6Pk/8/P7/8 b - - 0 1",
+     "how_B": "tablebase (<=7 men)"
+    },
+    {
+     "terminal": "W: a2 b6 / B: d7",
+     "men": 7,
+     "class": "L",
+     "fen_W": "8/3p4/1P6/5Kp1/6Pk/8/P7/8 w - - 0 1",
+     "how_W": "tablebase (<=7 men)",
+     "fen_B": "8/3p4/1P6/5Kp1/6Pk/8/P7/8 b - - 0 1",
+     "how_B": "tablebase (<=7 men)"
+    },
+    {
+     "terminal": "W: a2 d5 / B: b7",
+     "men": 7,
+     "class": "L",
+     "fen_W": "8/1p6/8/3P1Kp1/6Pk/8/P7/8 w - - 0 1",
+     "how_W": "tablebase (<=7 men)",
+     "fen_B": "8/1p6/8/3P1Kp1/6Pk/8/P7/8 b - - 0 1",
+     "how_B": "tablebase (<=7 men)"
+    },
+    {
+     "terminal": "W: a2 d6 / B: b7",
+     "men": 7,
+     "class": "L",
+     "fen_W": "8/1p6/3P4/5Kp1/6Pk/8/P7/8 w - - 0 1",
+     "how_W": "tablebase (<=7 men)",
+     "fen_B": "8/1p6/3P4/5Kp1/6Pk/8/P7/8 b - - 0 1",
+     "how_B": "tablebase (<=7 men)"
+    },
+    {
+     "terminal": "W: a4 / B: c5 d7",
+     "men": 7,
+     "class": "L",
+     "fen_W": "8/3p4/8/2p2Kp1/P5Pk/8/8/8 w - - 0 1",
+     "how_W": "tablebase (<=7 men)",
+     "fen_B": "8/3p4/8/2p2Kp1/P5Pk/8/8/8 b - - 0 1",
+     "how_B": "tablebase (<=7 men)"
+    },
+    {
+     "terminal": "W: a4 b6 / B: d7",
+     "men": 7,
+     "class": "L",
+     "fen_W": "8/3p4/1P6/5Kp1/P5Pk/8/8/8 w - - 0 1",
+     "how_W": "tablebase (<=7 men)",
+     "fen_B": "8/3p4/1P6/5Kp1/P5Pk/8/8/8 b - - 0 1",
+     "how_B": "tablebase (<=7 men)"
+    },
+    {
+     "terminal": "W: a4 d5 / B: b6",
+     "men": 7,
+     "class": "L",
+     "fen_W": "8/8/1p6/3P1Kp1/P5Pk/8/8/8 w - - 0 1",
+     "how_W": "tablebase (<=7 men)",
+     "fen_B": "8/8/1p6/3P1Kp1/P5Pk/8/8/8 b - - 0 1",
+     "how_B": "tablebase (<=7 men)"
+    },
+    {
+     "terminal": "W: a4 d6 / B: b6",
+     "men": 7,
+     "class": "L",
+     "fen_W": "8/8/1p1P4/5Kp1/P5Pk/8/8/8 w - - 0 1",
+     "how_W": "tablebase (<=7 men)",
+     "fen_B": "8/8/1p1P4/5Kp1/P5Pk/8/8/8 b - - 0 1",
+     "how_B": "tablebase (<=7 men)"
+    },
+    {
+     "terminal": "W: a4 d6 / B: b7",
+     "men": 7,
+     "class": "L",
+     "fen_W": "8/1p6/3P4/5Kp1/P5Pk/8/8/8 w - - 0 1",
+     "how_W": "tablebase (<=7 men)",
+     "fen_B": "8/1p6/3P4/5Kp1/P5Pk/8/8/8 b - - 0 1",
+     "how_B": "tablebase (<=7 men)"
+    },
+    {
+     "terminal": "W: b5 c4 / B: d6",
+     "men": 7,
+     "class": "L",
+     "fen_W": "8/8/3p4/1P3Kp1/2P3Pk/8/8/8 w - - 0 1",
+     "how_W": "tablebase (<=7 men)",
+     "fen_B": "8/8/3p4/1P3Kp1/2P3Pk/8/8/8 b - - 0 1",
+     "how_B": "tablebase (<=7 men)"
+    },
+    {
+     "terminal": "W: b5 c4 / B: d7",
+     "men": 7,
+     "class": "L",
+     "fen_W": "8/3p4/8/1P3Kp1/2P3Pk/8/8/8 w - - 0 1",
+     "how_W": "tablebase (<=7 men)",
+     "fen_B": "8/3p4/8/1P3Kp1/2P3Pk/8/8/8 b - - 0 1",
+     "how_B": "tablebase (<=7 men)"
+    },
+    {
+     "terminal": "W: b5 c5 / B: d7",
+     "men": 7,
+     "class": "L",
+     "fen_W": "8/3p4/8/1PP2Kp1/6Pk/8/8/8 w - - 0 1",
+     "how_W": "tablebase (<=7 men)",
+     "fen_B": "8/3p4/8/1PP2Kp1/6Pk/8/8/8 b - - 0 1",
+     "how_B": "tablebase (<=7 men)"
+    }
+   ]
+  },
+  "upper": {
+   "cgt": true,
+   "direct_minimax": true,
+   "bound": "{{{{{+W, {+W, +W* | +W, +W*} | +W, +W*} | +W}, {{{+W, {+W, +W* | +W, +W*} | +W, +W*} | +W} | +W} | +W} | +W} | -3/2\u00b11/2}",
+   "bound_outcome_cgt": "N",
+   "bound_outcome_direct": {
+    "White first wins": true,
+    "Black first wins": true
+   },
+   "support_size": 12,
+   "support_cgt": true,
+   "support_direct": true,
+   "support": [
+    {
+     "terminal": "W: a2 / B: c3 d7",
+     "men": 7,
+     "class": "R",
+     "fen_W": "8/3p4/8/5Kp1/6Pk/2p5/P7/8 w - - 0 1",
+     "how_W": "tablebase (<=7 men)",
+     "fen_B": "8/3p4/8/5Kp1/6Pk/2p5/P7/8 b - - 0 1",
+     "how_B": "tablebase (<=7 men)"
+    },
+    {
+     "terminal": "W: a2 / B: c4 d6",
+     "men": 7,
+     "class": "R",
+     "fen_W": "8/8/3p4/5Kp1/2p3Pk/8/P7/8 w - - 0 1",
+     "how_W": "tablebase (<=7 men)",
+     "fen_B": "8/8/3p4/5Kp1/2p3Pk/8/P7/8 b - - 0 1",
+     "how_B": "tablebase (<=7 men)"
+    },
+    {
+     "terminal": "W: a2 / B: c4 d7",
+     "men": 7,
+     "class": "R",
+     "fen_W": "8/3p4/8/5Kp1/2p3Pk/8/P7/8 w - - 0 1",
+     "how_W": "tablebase (<=7 men)",
+     "fen_B": "8/3p4/8/5Kp1/2p3Pk/8/P7/8 b - - 0 1",
+     "how_B": "tablebase (<=7 men)"
+    },
+    {
+     "terminal": "W: a3 / B: c4 d5",
+     "men": 7,
+     "class": "R",
+     "fen_W": "8/8/8/3p1Kp1/2p3Pk/P7/8/8 w - - 0 1",
+     "how_W": "tablebase (<=7 men)",
+     "fen_B": "8/8/8/3p1Kp1/2p3Pk/P7/8/8 b - - 0 1",
+     "how_B": "tablebase (<=7 men)"
+    },
+    {
+     "terminal": "W: a3 / B: c4 d6",
+     "men": 7,
+     "class": "R",
+     "fen_W": "8/8/3p4/5Kp1/2p3Pk/P7/8/8 w - - 0 1",
+     "how_W": "tablebase (<=7 men)",
+     "fen_B": "8/8/3p4/5Kp1/2p3Pk/P7/8/8 b - - 0 1",
+     "how_B": "tablebase (<=7 men)"
+    },
+    {
+     "terminal": "W: a3 / B: c4 d7",
+     "men": 7,
+     "class": "R",
+     "fen_W": "8/3p4/8/5Kp1/2p3Pk/P7/8/8 w - - 0 1",
+     "how_W": "tablebase (<=7 men)",
+     "fen_B": "8/3p4/8/5Kp1/2p3Pk/P7/8/8 b - - 0 1",
+     "how_B": "tablebase (<=7 men)"
+    },
+    {
+     "terminal": "W: c2 / B: a3 d7",
+     "men": 7,
+     "class": "R",
+     "fen_W": "8/3p4/8/5Kp1/6Pk/p7/2P5/8 w - - 0 1",
+     "how_W": "tablebase (<=7 men)",
+     "fen_B": "8/3p4/8/5Kp1/6Pk/p7/2P5/8 b - - 0 1",
+     "how_B": "tablebase (<=7 men)"
+    },
+    {
+     "terminal": "W: c2 / B: a4 d6",
+     "men": 7,
+     "class": "R",
+     "fen_W": "8/8/3p4/5Kp1/p5Pk/8/2P5/8 w - - 0 1",
+     "how_W": "tablebase (<=7 men)",
+     "fen_B": "8/8/3p4/5Kp1/p5Pk/8/2P5/8 b - - 0 1",
+     "how_B": "tablebase (<=7 men)"
+    },
+    {
+     "terminal": "W: c2 / B: a4 d7",
+     "men": 7,
+     "class": "R",
+     "fen_W": "8/3p4/8/5Kp1/p5Pk/8/2P5/8 w - - 0 1",
+     "how_W": "tablebase (<=7 men)",
+     "fen_B": "8/3p4/8/5Kp1/p5Pk/8/2P5/8 b - - 0 1",
+     "how_B": "tablebase (<=7 men)"
+    },
+    {
+     "terminal": "W: c3 / B: a4 d5",
+     "men": 7,
+     "class": "R",
+     "fen_W": "8/8/8/3p1Kp1/p5Pk/2P5/8/8 w - - 0 1",
+     "how_W": "tablebase (<=7 men)",
+     "fen_B": "8/8/8/3p1Kp1/p5Pk/2P5/8/8 b - - 0 1",
+     "how_B": "tablebase (<=7 men)"
+    },
+    {
+     "terminal": "W: c3 / B: a4 d6",
+     "men": 7,
+     "class": "R",
+     "fen_W": "8/8/3p4/5Kp1/p5Pk/2P5/8/8 w - - 0 1",
+     "how_W": "tablebase (<=7 men)",
+     "fen_B": "8/8/3p4/5Kp1/p5Pk/2P5/8/8 b - - 0 1",
+     "how_B": "tablebase (<=7 men)"
+    },
+    {
+     "terminal": "W: c3 / B: a4 d7",
+     "men": 7,
+     "class": "R",
+     "fen_W": "8/3p4/8/5Kp1/p5Pk/2P5/8/8 w - - 0 1",
+     "how_W": "tablebase (<=7 men)",
+     "fen_B": "8/3p4/8/5Kp1/p5Pk/2P5/8/8 b - - 0 1",
+     "how_B": "tablebase (<=7 men)"
+    }
+   ]
+  }
+ },
+ "sanity_random_assignments": 20,
+ "sanity_disagreements": 0
+}

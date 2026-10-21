@@ -1,0 +1,27 @@
+T4 Board(files=8, ranks=8, wrap=True, ep=False) W: b2 d4 g3 h5 / B: a7 c7 f7 g4: components=1 sum_safe=True HSS=False o(S)=R o(W)=N minimax=N crosscheck=N
+      nested node with opposite threats in two components: (7, 'W: b5 d4 g3 / B: c6 f6 g4 h6', 'R', 'L', [('W: b5 d4 / B: c6', [-1, 1]), ('W: g3 / B: f6 g4 h6', [-1, 1])])
+      nested node with opposite threats in two components: (7, 'W: b3 d4 g3 / B: c7 f4 g4 h4', 'N', 'R', [('W: b3 d4 / B: c7', [-1, 1]), ('W: g3 / B: f4 g4 h4', [-1, 1])])
+T4 Board(files=8, ranks=8, wrap=True, ep=True) W: a5 b6 d2 e2 / B: a7 c7 e7: components=1 sum_safe=True HSS=False o(S)=L o(W)=N minimax=N crosscheck=N
+      nested node with opposite threats in two components: (6, 'W: a6 b6 e2 / B: a7 d6 e3', 'R', 'L', [('W: a6 b6 / B: a7', [-1, 1]), ('W: e2 / B: d6 e3', [-1, 1])])
+      nested node with opposite threats in two components: (6, 'W: a6 b6 e2 / B: a7 d5 e5', 'N', 'L', [('W: a6 b6 / B: a7', [-1, 1]), ('W: e2 / B: d5 e5', [-1, 1])])
+T4 Board(files=8, ranks=8, wrap=True, ep=False) W: b3 f4 g5 / B: a5 b6 f5 h6: components=1 sum_safe=True HSS=False o(S)=N o(W)=L minimax=L crosscheck=L
+      nested node with opposite threats in two components: (6, 'W: b3 f4 / B: a4 b6 f5 g5', 'R', 'N', [('W: b3 / B: a4 b6', [-1, 1]), ('W: f4 / B: f5 g5', [-1, 1])])
+      nested node with opposite threats in two components: (6, 'W: b4 f4 / B: a5 b5 f5 g5', 'P', 'N', [('W: b4 / B: a5 b5', [-1, 1]), ('W: f4 / B: f5 g5', [-1, 1])])
+T4 Board(files=8, ranks=7, wrap=True, ep=False) W: c2 g2 h4 / B: a5 b6 f5 g6: components=1 sum_safe=True HSS=False o(S)=R o(W)=N minimax=N crosscheck=None
+      nested node with opposite threats in two components: (6, 'W: a5 c5 g2 / B: b6 f3 g6', 'L', 'N', [('W: a5 c5 / B: b6', [-1, 1]), ('W: g2 / B: f3 g6', [-1, 1])])
+      nested node with opposite threats in two components: (6, 'W: c2 g2 / B: b3 f5 g3 h4', 'R', 'N', [('W: c2 / B: b3', [-1, 1]), ('W: g2 / B: f5 g3 h4', [-1, 1])])
+T5 cross-check disagreements re-examined: 10; all sum_safe False, HSS False, o(W) = exact
+T1-T3 on 1500 random non-terminal positions:
+    ('multi', 'sum_safe', 'HSS', 'agree') 148
+    ('multi', 'sum_safe', 'notHSS', 'agree') 77
+    ('multi', 'unsafe', 'notHSS', 'DISAGREE') 45
+    ('multi', 'unsafe', 'notHSS', 'agree') 30
+    ('single', 'sum_safe', 'HSS', 'agree') 1149
+    ('single', 'sum_safe', 'notHSS', 'DISAGREE') 3
+    ('single', 'sum_safe', 'notHSS', 'agree') 48
+    xc_checked 158
+T3 sum_safe() True but outcome wrong: 3
+     ('Board(files=7, ranks=6, wrap=False, ep=True)', 'W: b2 d3 f2 / B: c4 c5 e5 g5', 'count', 'N', 'R')
+     ('Board(files=8, ranks=8, wrap=True, ep=True)', 'W: a3 e2 e4 h6 / B: a4 a5 f5 g7', 'opponent', 'N', 'L')
+     ('Board(files=6, ranks=8, wrap=False, ep=False)', 'W: b2 d4 f4 / B: b7 c5 e5 e7', 'opponent', 'R', 'N')
+FAILURES: 0

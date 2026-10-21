@@ -1,0 +1,206 @@
+{
+ "library_version": 2,
+ "seed": 20261015,
+ "scale": 1.0,
+ "passed_test": "textbook and e.p.-aware give identical ground truth on every row (filter 5', bench/components.py; re-checked by bench/conventions.py)",
+ "component_filter": {
+  "candidates": 5290,
+  "drop: canonical form contains a +-BIG threat": 1161,
+  "drop: value depends on race rule": 2898,
+  "drop: some child value depends on race rule / e.p.": 326,
+  "drop: a double step can make a passer that may be taken e.p. (e.p.-aware test differs)": 100,
+  "drop: value is +-BIG": 194,
+  "drop: value depends on race rule and e.p.": 118,
+  "drop: value depends on e.p.": 50,
+  "drop: an e.p. capture can occur in the game tree": 25,
+  "kept": 418,
+  "orbits": 144,
+  "heldout orbits (value class)": 3,
+  "heldout orbits (structure)": 14,
+  "heldout components": 51,
+  "distinct values": 37
+ },
+ "splits": {
+  "train": {
+   "rows": 20000,
+   "rows_8file": 16324,
+   "k": {
+    "1": 3000,
+    "2": 7000,
+    "3": 10000
+   },
+   "outcome": {
+    "L": 5000,
+    "N": 5000,
+    "P": 5000,
+    "R": 5000
+   },
+   "kind": {
+    "cold-other": 442,
+    "hot-other": 5297,
+    "integer": 7358,
+    "number+nimber": 1897,
+    "number+ups(+nimber)": 1950,
+    "switch": 3056
+   },
+   "cylinder": 10238,
+   "board_files": {
+    "8": 16324,
+    "9": 571,
+    "10": 984,
+    "11": 1159,
+    "12": 560,
+    "13": 268,
+    "14": 100,
+    "15": 32,
+    "16": 2
+   },
+   "rows_with_winning_move": {
+    "W": 10000,
+    "B": 10000
+   },
+   "max_value_len": 217,
+   "outcome_quota_shortfall": {},
+   "sha256": "52da58b5de5629c2c5b0f11c255dcd3462402f0ac91b6b0608291683c7abf4a7",
+   "sha256_8file": "842f105c3bab511eb93839a6a0d9308849b3f32fbbb0bf973dcfc91297aa8342"
+  },
+  "val": {
+   "rows": 2000,
+   "rows_8file": 1626,
+   "k": {
+    "1": 300,
+    "2": 700,
+    "3": 1000
+   },
+   "outcome": {
+    "L": 500,
+    "N": 500,
+    "P": 500,
+    "R": 500
+   },
+   "kind": {
+    "cold-other": 36,
+    "hot-other": 531,
+    "integer": 738,
+    "number+nimber": 204,
+    "number+ups(+nimber)": 215,
+    "switch": 276
+   },
+   "cylinder": 1051,
+   "board_files": {
+    "8": 1626,
+    "9": 61,
+    "10": 110,
+    "11": 100,
+    "12": 56,
+    "13": 34,
+    "14": 10,
+    "15": 2,
+    "16": 1
+   },
+   "rows_with_winning_move": {
+    "W": 1000,
+    "B": 1000
+   },
+   "max_value_len": 156,
+   "outcome_quota_shortfall": {},
+   "sha256": "9308dad421b8b3c34586fd840e41704b0e9c1dd5ea915806b5eb747680535abd",
+   "sha256_8file": "46e5a104b0503e0361d589b6963d8f522bcdc1898d9378a7efe0dc3ab275a406"
+  },
+  "test": {
+   "rows": 2000,
+   "rows_8file": 364,
+   "k": {
+    "4": 667,
+    "5": 667,
+    "6": 666
+   },
+   "outcome": {
+    "L": 501,
+    "N": 500,
+    "P": 498,
+    "R": 501
+   },
+   "kind": {
+    "cold-other": 55,
+    "hot-other": 1020,
+    "integer": 575,
+    "number+nimber": 63,
+    "number+ups(+nimber)": 122,
+    "switch": 165
+   },
+   "cylinder": 892,
+   "board_files": {
+    "8": 364,
+    "9": 13,
+    "10": 43,
+    "11": 92,
+    "12": 134,
+    "13": 170,
+    "14": 175,
+    "15": 217,
+    "16": 226,
+    "17": 160,
+    "18": 142,
+    "19": 103,
+    "20": 74,
+    "21": 38,
+    "22": 24,
+    "23": 15,
+    "24": 8,
+    "25": 2
+   },
+   "rows_with_winning_move": {
+    "W": 1001,
+    "B": 1001
+   },
+   "max_value_len": 424,
+   "outcome_quota_shortfall": {},
+   "sha256": "4e6f478d08059982859d7b08f82384d02b8d7b23c60176ff0e025448c3e95025",
+   "sha256_8file": "d44f1847b649ee44ed8a2f69dd0c66cc68440d174a9afe7f03352b30ccd100b9"
+  },
+  "test_heldout": {
+   "rows": 2000,
+   "rows_8file": 1642,
+   "k": {
+    "1": 400,
+    "2": 800,
+    "3": 800
+   },
+   "outcome": {
+    "L": 500,
+    "N": 500,
+    "P": 500,
+    "R": 500
+   },
+   "kind": {
+    "cold-other": 25,
+    "hot-other": 388,
+    "integer": 658,
+    "number+nimber": 170,
+    "number+ups(+nimber)": 553,
+    "switch": 206
+   },
+   "cylinder": 1018,
+   "board_files": {
+    "8": 1642,
+    "9": 59,
+    "10": 80,
+    "11": 112,
+    "12": 58,
+    "13": 28,
+    "14": 13,
+    "15": 8
+   },
+   "rows_with_winning_move": {
+    "W": 1000,
+    "B": 1000
+   },
+   "max_value_len": 178,
+   "outcome_quota_shortfall": {},
+   "sha256": "1f9746d02258a7d8c30ab346b64da144a5e7098e31911dae1535266774d7d33e",
+   "sha256_8file": "1e72fc3818701271ac3b4afedfcbf411b40d243c24ee5be7375fd2dc19df7810"
+  }
+ },
+ "components_sha256": "499a6114f3e90dbd7637177f4749eb281b3b61f8055d4fe77f21e1816ec2e1ff"
+}

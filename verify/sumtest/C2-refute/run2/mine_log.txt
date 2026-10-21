@@ -1,0 +1,20 @@
+reference order: 0 * *2 *3 up down up* dup* 1/2 -1/2 1 -1 {1|0} +-1 tiny1
+0 + X vector  (G empty): PNNNLRNLLRLRNNL
+*2 + X vector (G empty): NNPNLRLLLRLRLNN
+G = W: a2 c2 / B: b7 d7, 4 files, flat, 8 ranks
+race     ep   test      scope  | G  G+* G+*2 G+*3 | vector          | =*2 | =0  | race states | split non-terminal states
+count    off  textbook  local  | N  N   P    N    | NNPNLRLLLRLRLNN | yes | no  |          74 | 0
+count    on   textbook  local  | N  N   P    N    | NNPNLRLLLRLRLNN | yes | no  |          83 | 0
+count    on   textbook  global | N  N   P    N    | NNPNLRLLLRLRLNN | yes | no  |          83 | 0
+count    on   aware     local  | N  N   N    N    | NNNNNNNNNNLRNNN | no  | no  |         104 | 0
+count    on   aware     global | N  N   N    N    | NNNNNNNNNNLRNNN | no  | no  |         104 | 0
+mover    off  textbook  local  | N  N   P    N    | NNPNLRLLLRLRLNN | yes | no  |          49 | 0
+mover    on   textbook  local  | N  N   P    N    | NNPNLRLLLRLRLNN | yes | no  |          56 | 0
+mover    on   textbook  global | N  N   P    N    | NNPNLRLLLRLRLNN | yes | no  |          56 | 0
+mover    on   aware     local  | N  N   N    N    | NNNNNNNNNNLRNNN | no  | no  |          89 | 0
+mover    on   aware     global | N  N   N    N    | NNNNNNNNNNLRNNN | no  | no  |          89 | 0
+opponent off  textbook  local  | P  N   N    N    | PNNNLRNLLRLRNNL | no  | yes |          80 | 0
+opponent on   textbook  local  | P  N   N    N    | PNNNLRNLLRLRNNL | no  | yes |          89 | 0
+opponent on   textbook  global | P  N   N    N    | PNNNLRNLLRLRNNL | no  | yes |          89 | 0
+opponent on   aware     local  | P  N   N    N    | PNNNLRNLLRLRNNL | no  | yes |         123 | 0
+opponent on   aware     global | P  N   N    N    | PNNNLRNLLRLRNNL | no  | yes |         123 | 0

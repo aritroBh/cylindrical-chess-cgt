@@ -1,0 +1,812 @@
+{
+ "scope": "flat 8-rank boards, widths 1-4, pawns on ranks 2-7, w,b >= 1, w+b <= 6 (all widths), no passed pawn at the root; 231,071 canonical positions (459,443 board positions)",
+ "nimber_census_by_setting_C": {
+  "count/epon": {
+   "0": 6470,
+   "1": 3891,
+   "2": 1
+  },
+  "count/epoff": {
+   "0": 6416,
+   "1": 4013,
+   "2": 1
+  },
+  "count/epon/aware": {
+   "0": 6724,
+   "1": 4042
+  },
+  "mover/epon": {
+   "0": 6569,
+   "1": 3527,
+   "2": 1
+  },
+  "mover/epoff": {
+   "0": 6353,
+   "1": 3510,
+   "2": 2
+  },
+  "mover/epon/aware": {
+   "0": 7295,
+   "1": 4184
+  },
+  "opponent/epon": {
+   "0": 6386,
+   "1": 4008,
+   "2": 2
+  },
+  "opponent/epoff": {
+   "0": 6387,
+   "1": 4122
+  },
+  "opponent/epon/aware": {
+   "0": 6608,
+   "1": 4217,
+   "2": 4
+  }
+ },
+ "census_vs_cylcgt": {
+  "rerun_textbook_count_epon": {
+   "path": "/Users/aritro/Downloads/Research/Chessendgames/atlas/flat8/rerun/values.jsonl",
+   "db_records": 231071,
+   "common": 231071,
+   "only_in_db": 0,
+   "only_in_census": 0,
+   "only_in_census_examples": [],
+   "only_in_db_examples": [],
+   "outcome_mismatch": 0,
+   "outcome_mismatch_examples": [],
+   "nim_mismatch": 0,
+   "nim_mismatch_examples": []
+  },
+  "prior_textbook_count_epon": {
+   "path": "/Users/aritro/Downloads/Research/Chessendgames/atlas/flat8/rerun/../values.jsonl",
+   "db_records": 231071,
+   "common": 231071,
+   "only_in_db": 0,
+   "only_in_census": 0,
+   "only_in_census_examples": [],
+   "only_in_db_examples": [],
+   "outcome_mismatch": 0,
+   "outcome_mismatch_examples": [],
+   "nim_mismatch": 0,
+   "nim_mismatch_examples": []
+  },
+  "parent_aware_count_epon": {
+   "path": "/Users/aritro/Downloads/Research/Chessendgames/atlas/flat8/rerun/../values_aware.jsonl",
+   "db_records": 231071,
+   "common": 231071,
+   "only_in_db": 0,
+   "only_in_census": 0,
+   "only_in_census_examples": [],
+   "only_in_db_examples": [],
+   "outcome_mismatch": 0,
+   "outcome_mismatch_examples": [],
+   "nim_mismatch": 0,
+   "nim_mismatch_examples": []
+  }
+ },
+ "nimbers_k_ge_2_any_setting": [
+  {
+   "position": "W: a2 c2 / B: b7 d7",
+   "width": 4,
+   "npawns": 4,
+   "men_with_trebuchet": 8,
+   "fen_white_to_move": "8/1p1p4/8/5Kp1/6Pk/8/P1P5/8 w - - 0 1",
+   "fen_black_to_move": "8/1p1p4/8/5Kp1/6Pk/8/P1P5/8 b - - 0 1",
+   "value_by_setting_textbook": {
+    "count/epon": "*2",
+    "count/epoff": "*2",
+    "mover/epon": "*2",
+    "mover/epoff": "*2",
+    "opponent/epon": "0",
+    "opponent/epoff": "0"
+   },
+   "value_by_setting_ep_aware": {
+    "count/epon": "{2±1 | -2±1}",
+    "mover/epon": "{2±1 | -2±1}",
+    "opponent/epon": "0"
+   },
+   "settings_with_nimber_k_ge_2": {
+    "textbook_of_6": 4,
+    "ep_aware_of_3": 0
+   },
+   "robust_all_6_textbook": false,
+   "race_nodes_count_epon": {
+    "race_edges": 398,
+    "race_positions": 184,
+    "race_position_mover_pairs": 224,
+    "precapture_race_edges": 256,
+    "precapture_race_positions": 114,
+    "precapture_race_position_mover_pairs": 154
+   },
+   "race_nodes_by_setting": {
+    "count/epon": {
+     "race_edges": 398,
+     "race_positions": 184,
+     "race_position_mover_pairs": 224,
+     "precapture_race_edges": 256,
+     "precapture_race_positions": 114,
+     "precapture_race_position_mover_pairs": 154
+    },
+    "count/epoff": {
+     "race_edges": 224,
+     "race_positions": 166,
+     "race_position_mover_pairs": 206,
+     "precapture_race_edges": 154,
+     "precapture_race_positions": 96,
+     "precapture_race_position_mover_pairs": 136
+    },
+    "mover/epon": {
+     "race_edges": 398,
+     "race_positions": 184,
+     "race_position_mover_pairs": 224,
+     "precapture_race_edges": 256,
+     "precapture_race_positions": 114,
+     "precapture_race_position_mover_pairs": 154
+    },
+    "mover/epoff": {
+     "race_edges": 224,
+     "race_positions": 166,
+     "race_position_mover_pairs": 206,
+     "precapture_race_edges": 154,
+     "precapture_race_positions": 96,
+     "precapture_race_position_mover_pairs": 136
+    },
+    "opponent/epon": {
+     "race_edges": 398,
+     "race_positions": 184,
+     "race_position_mover_pairs": 224,
+     "precapture_race_edges": 256,
+     "precapture_race_positions": 114,
+     "precapture_race_position_mover_pairs": 154
+    },
+    "opponent/epoff": {
+     "race_edges": 224,
+     "race_positions": 166,
+     "race_position_mover_pairs": 206,
+     "precapture_race_edges": 154,
+     "precapture_race_positions": 96,
+     "precapture_race_position_mover_pairs": 136
+    },
+    "count/epon/aware": {
+     "race_edges": 424,
+     "race_positions": 210,
+     "race_position_mover_pairs": 252,
+     "precapture_race_edges": 258,
+     "precapture_race_positions": 116,
+     "precapture_race_position_mover_pairs": 158
+    },
+    "mover/epon/aware": {
+     "race_edges": 424,
+     "race_positions": 210,
+     "race_position_mover_pairs": 252,
+     "precapture_race_edges": 258,
+     "precapture_race_positions": 116,
+     "precapture_race_position_mover_pairs": 158
+    },
+    "opponent/epon/aware": {
+     "race_edges": 424,
+     "race_positions": 210,
+     "race_position_mover_pairs": 252,
+     "precapture_race_edges": 258,
+     "precapture_race_positions": 116,
+     "precapture_race_position_mover_pairs": 158
+    }
+   },
+   "C_census_agrees": {
+    "count/epon": true,
+    "count/epoff": true,
+    "mover/epon": true,
+    "mover/epoff": true,
+    "opponent/epon": true,
+    "opponent/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon/aware": true,
+    "opponent/epon/aware": true
+   }
+  },
+  {
+   "position": "W: a3 b2 b4 / B: a7 b6 c6",
+   "width": 3,
+   "npawns": 6,
+   "men_with_trebuchet": 10,
+   "fen_white_to_move": "8/p7/1pp5/5Kp1/1P4Pk/P7/1P6/8 w - - 0 1",
+   "fen_black_to_move": "8/p7/1pp5/5Kp1/1P4Pk/P7/1P6/8 b - - 0 1",
+   "value_by_setting_textbook": {
+    "count/epon": "{{↑*, {+W | *, {2 | {-W | {-W | -W, {-W | -W, {-W | -W, {-W | -W, -W*}}}}}}} | 0, *, {*, {+W, {+W, {+W, {+W, +W* | +W} | +W} | +W} | ↓*} | -2*}} | 0}",
+    "count/epoff": "{{↑* | 0} | 0}",
+    "mover/epon": "{{↑*, {+W | *, {2 | {-W | {-W | -W, {-W | -W, {-W | -W, -W*}}}}}} | 0, *, {*, {+W, {+W, {+W, +W* | +W} | +W} | ↓*} | -2*}} | 0}",
+    "mover/epoff": "{{↑* | 0} | 0}",
+    "opponent/epon": "*2",
+    "opponent/epoff": "↓*"
+   },
+   "value_by_setting_ep_aware": {
+    "count/epon": "{{↑*, {+W | *, {2 | {-W | {-W | -W, {-W | -W, {-W | -W, {-W | -W, -W*}}}}}}} | 0, *, {*, {+W, {+W, {+W, {+W, +W* | +W} | +W} | +W} | ↓*} | -2*}} | 0}",
+    "mover/epon": "{{↑*, {+W | *, {2 | {-W | {-W | -W, {-W | -W, {-W | -W, -W*}}}}}} | 0, *, {*, {+W, {+W, {+W, +W* | +W} | +W} | ↓*} | -2*}} | 0}",
+    "opponent/epon": "*2"
+   },
+   "settings_with_nimber_k_ge_2": {
+    "textbook_of_6": 1,
+    "ep_aware_of_3": 1
+   },
+   "robust_all_6_textbook": false,
+   "race_nodes_count_epon": {
+    "race_edges": 176,
+    "race_positions": 84,
+    "race_position_mover_pairs": 116,
+    "precapture_race_edges": 0,
+    "precapture_race_positions": 0,
+    "precapture_race_position_mover_pairs": 0
+   },
+   "race_nodes_by_setting": {
+    "count/epon": {
+     "race_edges": 176,
+     "race_positions": 84,
+     "race_position_mover_pairs": 116,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "count/epoff": {
+     "race_edges": 127,
+     "race_positions": 80,
+     "race_position_mover_pairs": 112,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "mover/epon": {
+     "race_edges": 176,
+     "race_positions": 84,
+     "race_position_mover_pairs": 116,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "mover/epoff": {
+     "race_edges": 127,
+     "race_positions": 80,
+     "race_position_mover_pairs": 112,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "opponent/epon": {
+     "race_edges": 176,
+     "race_positions": 84,
+     "race_position_mover_pairs": 116,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "opponent/epoff": {
+     "race_edges": 127,
+     "race_positions": 80,
+     "race_position_mover_pairs": 112,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "count/epon/aware": {
+     "race_edges": 171,
+     "race_positions": 79,
+     "race_position_mover_pairs": 111,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "mover/epon/aware": {
+     "race_edges": 171,
+     "race_positions": 79,
+     "race_position_mover_pairs": 111,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "opponent/epon/aware": {
+     "race_edges": 171,
+     "race_positions": 79,
+     "race_position_mover_pairs": 111,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    }
+   },
+   "C_census_agrees": {
+    "count/epon": true,
+    "count/epoff": true,
+    "mover/epon": true,
+    "mover/epoff": true,
+    "opponent/epon": true,
+    "opponent/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon/aware": true,
+    "opponent/epon/aware": true
+   }
+  },
+  {
+   "position": "W: a3 b3 c2 / B: b5 b7 c6",
+   "width": 3,
+   "npawns": 6,
+   "men_with_trebuchet": 10,
+   "fen_white_to_move": "8/1p6/2p5/1p3Kp1/6Pk/PP6/2P5/8 w - - 0 1",
+   "fen_black_to_move": "8/1p6/2p5/1p3Kp1/6Pk/PP6/2P5/8 b - - 0 1",
+   "value_by_setting_textbook": {
+    "count/epon": "{0 | {0, *, {2* | *, {↑* | -W, {-W | -W, {-W | -W, {-W | -W, -W*}}}}} | ↓*, {*, {{{+W, {+W, {+W, {+W, +W* | +W} | +W} | +W} | +W} | +W} | -2} | -W}}}",
+    "count/epoff": "{0 | {0 | ↓*}}",
+    "mover/epon": "{0 | {0, *, {2* | *, {↑* | -W, {-W | -W, {-W | -W, -W*}}}} | ↓*, {*, {{{+W, {+W, {+W, +W* | +W} | +W} | +W} | +W} | -2} | -W}}}",
+    "mover/epoff": "{0 | {0 | ↓*}}",
+    "opponent/epon": "*2",
+    "opponent/epoff": "↑*"
+   },
+   "value_by_setting_ep_aware": {
+    "count/epon": "{0 | {0, *, {2* | *, {↑* | -W, {-W | -W, {-W | -W, {-W | -W, -W*}}}}} | ↓*, {*, {{{+W, {+W, {+W, {+W, +W* | +W} | +W} | +W} | +W} | +W} | -2} | -W}}}",
+    "mover/epon": "{0 | {0, *, {2* | *, {↑* | -W, {-W | -W, {-W | -W, -W*}}}} | ↓*, {*, {{{+W, {+W, {+W, +W* | +W} | +W} | +W} | +W} | -2} | -W}}}",
+    "opponent/epon": "*2"
+   },
+   "settings_with_nimber_k_ge_2": {
+    "textbook_of_6": 1,
+    "ep_aware_of_3": 1
+   },
+   "robust_all_6_textbook": false,
+   "race_nodes_count_epon": {
+    "race_edges": 176,
+    "race_positions": 84,
+    "race_position_mover_pairs": 116,
+    "precapture_race_edges": 0,
+    "precapture_race_positions": 0,
+    "precapture_race_position_mover_pairs": 0
+   },
+   "race_nodes_by_setting": {
+    "count/epon": {
+     "race_edges": 176,
+     "race_positions": 84,
+     "race_position_mover_pairs": 116,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "count/epoff": {
+     "race_edges": 127,
+     "race_positions": 80,
+     "race_position_mover_pairs": 112,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "mover/epon": {
+     "race_edges": 176,
+     "race_positions": 84,
+     "race_position_mover_pairs": 116,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "mover/epoff": {
+     "race_edges": 127,
+     "race_positions": 80,
+     "race_position_mover_pairs": 112,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "opponent/epon": {
+     "race_edges": 176,
+     "race_positions": 84,
+     "race_position_mover_pairs": 116,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "opponent/epoff": {
+     "race_edges": 127,
+     "race_positions": 80,
+     "race_position_mover_pairs": 112,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "count/epon/aware": {
+     "race_edges": 171,
+     "race_positions": 79,
+     "race_position_mover_pairs": 111,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "mover/epon/aware": {
+     "race_edges": 171,
+     "race_positions": 79,
+     "race_position_mover_pairs": 111,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "opponent/epon/aware": {
+     "race_edges": 171,
+     "race_positions": 79,
+     "race_position_mover_pairs": 111,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    }
+   },
+   "C_census_agrees": {
+    "count/epon": true,
+    "count/epoff": true,
+    "mover/epon": true,
+    "mover/epoff": true,
+    "opponent/epon": true,
+    "opponent/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon/aware": true,
+    "opponent/epon/aware": true
+   }
+  },
+  {
+   "position": "W: a3 b2 c2 / B: a4 b6 c5",
+   "width": 3,
+   "npawns": 6,
+   "men_with_trebuchet": 10,
+   "fen_white_to_move": "8/8/1p6/2p2Kp1/p5Pk/P7/1PP5/8 w - - 0 1",
+   "fen_black_to_move": "8/8/1p6/2p2Kp1/p5Pk/P7/1PP5/8 b - - 0 1",
+   "value_by_setting_textbook": {
+    "count/epon": "*",
+    "count/epoff": "1/4",
+    "mover/epon": "{{{1 | 1*} | ↑, -255/2±+W} | 0}",
+    "mover/epoff": "1/4",
+    "opponent/epon": "↑*",
+    "opponent/epoff": "1/4"
+   },
+   "value_by_setting_ep_aware": {
+    "count/epon": "-1/4±1/4",
+    "mover/epon": "{{{1 | 1*} | ↑, -255/2±+W} | 0}",
+    "opponent/epon": "*2"
+   },
+   "settings_with_nimber_k_ge_2": {
+    "textbook_of_6": 0,
+    "ep_aware_of_3": 1
+   },
+   "robust_all_6_textbook": false,
+   "race_nodes_count_epon": {
+    "race_edges": 47,
+    "race_positions": 35,
+    "race_position_mover_pairs": 45,
+    "precapture_race_edges": 0,
+    "precapture_race_positions": 0,
+    "precapture_race_position_mover_pairs": 0
+   },
+   "race_nodes_by_setting": {
+    "count/epon": {
+     "race_edges": 47,
+     "race_positions": 35,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "count/epoff": {
+     "race_edges": 45,
+     "race_positions": 35,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "mover/epon": {
+     "race_edges": 47,
+     "race_positions": 35,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "mover/epoff": {
+     "race_edges": 45,
+     "race_positions": 35,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "opponent/epon": {
+     "race_edges": 47,
+     "race_positions": 35,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "opponent/epoff": {
+     "race_edges": 45,
+     "race_positions": 35,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "count/epon/aware": {
+     "race_edges": 49,
+     "race_positions": 33,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "mover/epon/aware": {
+     "race_edges": 49,
+     "race_positions": 33,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "opponent/epon/aware": {
+     "race_edges": 49,
+     "race_positions": 33,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    }
+   },
+   "C_census_agrees": {
+    "count/epon": true,
+    "count/epoff": true,
+    "mover/epon": true,
+    "mover/epoff": true,
+    "opponent/epon": true,
+    "opponent/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon/aware": true,
+    "opponent/epon/aware": true
+   }
+  },
+  {
+   "position": "W: a5 b3 c4 / B: a6 b7 c7",
+   "width": 3,
+   "npawns": 6,
+   "men_with_trebuchet": 10,
+   "fen_white_to_move": "8/1pp5/p7/P4Kp1/2P3Pk/1P6/8/8 w - - 0 1",
+   "fen_black_to_move": "8/1pp5/p7/P4Kp1/2P3Pk/1P6/8/8 b - - 0 1",
+   "value_by_setting_textbook": {
+    "count/epon": "*",
+    "count/epoff": "-1/4",
+    "mover/epon": "{0 | {↓, 255/2±+W | {-1* | -1}}}",
+    "mover/epoff": "-1/4",
+    "opponent/epon": "↓*",
+    "opponent/epoff": "-1/4"
+   },
+   "value_by_setting_ep_aware": {
+    "count/epon": "1/4±1/4",
+    "mover/epon": "{0 | {↓, 255/2±+W | {-1* | -1}}}",
+    "opponent/epon": "*2"
+   },
+   "settings_with_nimber_k_ge_2": {
+    "textbook_of_6": 0,
+    "ep_aware_of_3": 1
+   },
+   "robust_all_6_textbook": false,
+   "race_nodes_count_epon": {
+    "race_edges": 47,
+    "race_positions": 35,
+    "race_position_mover_pairs": 45,
+    "precapture_race_edges": 0,
+    "precapture_race_positions": 0,
+    "precapture_race_position_mover_pairs": 0
+   },
+   "race_nodes_by_setting": {
+    "count/epon": {
+     "race_edges": 47,
+     "race_positions": 35,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "count/epoff": {
+     "race_edges": 45,
+     "race_positions": 35,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "mover/epon": {
+     "race_edges": 47,
+     "race_positions": 35,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "mover/epoff": {
+     "race_edges": 45,
+     "race_positions": 35,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "opponent/epon": {
+     "race_edges": 47,
+     "race_positions": 35,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "opponent/epoff": {
+     "race_edges": 45,
+     "race_positions": 35,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "count/epon/aware": {
+     "race_edges": 49,
+     "race_positions": 33,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "mover/epon/aware": {
+     "race_edges": 49,
+     "race_positions": 33,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    },
+    "opponent/epon/aware": {
+     "race_edges": 49,
+     "race_positions": 33,
+     "race_position_mover_pairs": 45,
+     "precapture_race_edges": 0,
+     "precapture_race_positions": 0,
+     "precapture_race_position_mover_pairs": 0
+    }
+   },
+   "C_census_agrees": {
+    "count/epon": true,
+    "count/epoff": true,
+    "mover/epon": true,
+    "mover/epoff": true,
+    "opponent/epon": true,
+    "opponent/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon/aware": true,
+    "opponent/epon/aware": true
+   }
+  },
+  {
+   "position": "W: a3 b2 d3 / B: a6 c7 d6",
+   "width": 4,
+   "npawns": 6,
+   "men_with_trebuchet": 10,
+   "fen_white_to_move": "8/2p5/p2p4/5Kp1/6Pk/P2P4/1P6/8 w - - 0 1",
+   "fen_black_to_move": "8/2p5/p2p4/5Kp1/6Pk/P2P4/1P6/8 b - - 0 1",
+   "value_by_setting_textbook": {
+    "count/epon": "{{3/2±1/2 | 0}, {3/2±1/2, {2 | 1/2±1/2} | {*, {+W | *} | -W}, {1 | {0, {+W | *, {* | -W}} | -1}}, {1/2±1/2, {+W | {1 | *}, {{1 | *} | -W}} | -1/2±1/2, {{* | -1}, {+W | {* | -1}} | -W}}} | {0 | -3/2±1/2}, {{+W | *, {* | -W}}, {{1 | 0, {*, {+W | *} | -W}} | -1}, {1/2±1/2, {+W | {1 | *}, {{1 | *} | -W}} | -1/2±1/2, {{* | -1}, {+W | {* | -1}} | -W}} | -3/2±1/2, {-1/2±1/2 | -2}}}",
+    "count/epoff": "{{3/2±1/2 | 0}, {3/2±1/2 | {*, {+W | *} | -W}, {*, {+W | {1 | *}, {{1 | *} | -W}} | *, {{* | -1}, {+W | {* | -1}} | -W}}} | {0 | -3/2±1/2}, {{+W | *, {* | -W}}, {*, {+W | {1 | *}, {{1 | *} | -W}} | *, {{* | -1}, {+W | {* | -1}} | -W}} | -3/2±1/2}}",
+    "mover/epon": "{0, {3/2±1/2 | 0} | 0, {0 | -3/2±1/2}}",
+    "mover/epoff": "*2",
+    "opponent/epon": "{{0 | {*, {+W | *} | -W, {-W, {+W, ±+W, {+W, {+W, ±+W | -W} | -W, ±+W} | -W, -W±+W}, {-W, {+W, ±+W, {+W, {+W, ±+W | -W} | -W, ±+W} | -W, -W±+W} | -W} | -W}}, {{{+W, {+W | +W, ±+W} | +W, ±+W, {+W | +W, ±+W, {+W | +W, ±+W}}} | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}} | {{+W, {+W | +W, ±+W, {+W | +W, ±+W}} | *, {* | -W}} | {-W, ±+W, {-W, ±+W, {-W, ±+W | -W} | -W} | -W, {-W, ±+W | -W}}}}} | {{+W, {+W | +W, {+W, +W±+W | -W, ±+W, {+W, ±+W | -W, {+W | -W, ±+W}}}, {+W | +W, {+W, +W±+W | -W, ±+W, {+W, ±+W | -W, {+W | -W, ±+W}}}}} | *, {* | -W}}, {{{+W, {+W | +W, ±+W} | +W, ±+W, {+W | +W, ±+W, {+W | +W, ±+W}}} | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}} | {{+W, {+W | +W, ±+W, {+W | +W, ±+W}} | *, {* | -W}} | {-W, ±+W, {-W, ±+W, {-W, ±+W | -W} | -W} | -W, {-W, ±+W | -W}}}} | 0}}",
+    "opponent/epoff": "{{0 | {*, {+W | *} | -W, {-W, {+W, ±+W, {+W, {+W, ±+W | -W} | -W, ±+W} | -W, -W±+W}, {-W, {+W, ±+W, {+W, {+W, ±+W | -W} | -W, ±+W} | -W, -W±+W} | -W} | -W}}, {{{+W, {+W | +W, ±+W} | +W, ±+W, {+W | +W, ±+W, {+W | +W, ±+W}}} | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}} | {{+W, {+W | +W, ±+W, {+W | +W, ±+W}} | *, {* | -W}} | {-W, ±+W, {-W, ±+W, {-W, ±+W | -W} | -W} | -W, {-W, ±+W | -W}}}}} | {{+W, {+W | +W, {+W, +W±+W | -W, ±+W, {+W, ±+W | -W, {+W | -W, ±+W}}}, {+W | +W, {+W, +W±+W | -W, ±+W, {+W, ±+W | -W, {+W | -W, ±+W}}}}} | *, {* | -W}}, {{{+W, {+W | +W, ±+W} | +W, ±+W, {+W | +W, ±+W, {+W | +W, ±+W}}} | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}} | {{+W, {+W | +W, ±+W, {+W | +W, ±+W}} | *, {* | -W}} | {-W, ±+W, {-W, ±+W, {-W, ±+W | -W} | -W} | -W, {-W, ±+W | -W}}}} | 0}}"
+   },
+   "value_by_setting_ep_aware": {
+    "count/epon": "{{{+W | 1, ±+W, {+W | {1 | *}, {{1 | *} | -W}}} | 0}, {{+W | 1, ±+W, {+W | {1 | *}, {{1 | *} | -W}}}, {+W | 1/2±1/2, {+W, {+W, ±+W | -W} | -W}} | {*, {+W | *} | -W}, {1 | {0, {+W | *, {* | -W}} | -1}}, {1/2±1/2, {+W | {1 | *}, {{1 | *} | -W}} | -1/2±1/2, {{* | -1}, {+W | {* | -1}} | -W}}} | {0 | {-1, ±+W, {{* | -1}, {+W | {* | -1}} | -W} | -W}}, {{+W | *, {* | -W}}, {{1 | 0, {*, {+W | *} | -W}} | -1}, {1/2±1/2, {+W | {1 | *}, {{1 | *} | -W}} | -1/2±1/2, {{* | -1}, {+W | {* | -1}} | -W}} | {-1, ±+W, {{* | -1}, {+W | {* | -1}} | -W} | -W}, {-1/2±1/2, {+W | -W, {+W | -W, ±+W}} | -W}}}",
+    "mover/epon": "{0, {3/2±1/2 | 0} | 0, {0 | -3/2±1/2}}",
+    "opponent/epon": "{{0 | {*, {+W | *} | -W, {-W, {+W, ±+W, {+W, {+W, ±+W | -W} | -W, ±+W} | -W, -W±+W}, {-W, {+W, ±+W, {+W, {+W, ±+W | -W} | -W, ±+W} | -W, -W±+W} | -W} | -W}}, {{{+W, {+W | +W, ±+W} | +W, ±+W, {+W | +W, ±+W, {+W | +W, ±+W}}} | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}} | {{+W, {+W | +W, ±+W, {+W | +W, ±+W}} | *, {* | -W}} | {-W, ±+W, {-W, ±+W, {-W, ±+W | -W} | -W} | -W, {-W, ±+W | -W}}}}} | {{+W, {+W | +W, {+W, +W±+W | -W, ±+W, {+W, ±+W | -W, {+W | -W, ±+W}}}, {+W | +W, {+W, +W±+W | -W, ±+W, {+W, ±+W | -W, {+W | -W, ±+W}}}}} | *, {* | -W}}, {{{+W, {+W | +W, ±+W} | +W, ±+W, {+W | +W, ±+W, {+W | +W, ±+W}}} | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}} | {{+W, {+W | +W, ±+W, {+W | +W, ±+W}} | *, {* | -W}} | {-W, ±+W, {-W, ±+W, {-W, ±+W | -W} | -W} | -W, {-W, ±+W | -W}}}} | 0}}"
+   },
+   "settings_with_nimber_k_ge_2": {
+    "textbook_of_6": 1,
+    "ep_aware_of_3": 0
+   },
+   "robust_all_6_textbook": false,
+   "race_nodes_count_epon": {
+    "race_edges": 612,
+    "race_positions": 220,
+    "race_position_mover_pairs": 320,
+    "precapture_race_edges": 42,
+    "precapture_race_positions": 24,
+    "precapture_race_position_mover_pairs": 30
+   },
+   "race_nodes_by_setting": {
+    "count/epon": {
+     "race_edges": 612,
+     "race_positions": 220,
+     "race_position_mover_pairs": 320,
+     "precapture_race_edges": 42,
+     "precapture_race_positions": 24,
+     "precapture_race_position_mover_pairs": 30
+    },
+    "count/epoff": {
+     "race_edges": 416,
+     "race_positions": 212,
+     "race_position_mover_pairs": 312,
+     "precapture_race_edges": 30,
+     "precapture_race_positions": 18,
+     "precapture_race_position_mover_pairs": 24
+    },
+    "mover/epon": {
+     "race_edges": 612,
+     "race_positions": 220,
+     "race_position_mover_pairs": 320,
+     "precapture_race_edges": 42,
+     "precapture_race_positions": 24,
+     "precapture_race_position_mover_pairs": 30
+    },
+    "mover/epoff": {
+     "race_edges": 416,
+     "race_positions": 212,
+     "race_position_mover_pairs": 312,
+     "precapture_race_edges": 30,
+     "precapture_race_positions": 18,
+     "precapture_race_position_mover_pairs": 24
+    },
+    "opponent/epon": {
+     "race_edges": 612,
+     "race_positions": 220,
+     "race_position_mover_pairs": 320,
+     "precapture_race_edges": 42,
+     "precapture_race_positions": 24,
+     "precapture_race_position_mover_pairs": 30
+    },
+    "opponent/epoff": {
+     "race_edges": 416,
+     "race_positions": 212,
+     "race_position_mover_pairs": 312,
+     "precapture_race_edges": 30,
+     "precapture_race_positions": 18,
+     "precapture_race_position_mover_pairs": 24
+    },
+    "count/epon/aware": {
+     "race_edges": 630,
+     "race_positions": 212,
+     "race_position_mover_pairs": 316,
+     "precapture_race_edges": 34,
+     "precapture_race_positions": 12,
+     "precapture_race_position_mover_pairs": 18
+    },
+    "mover/epon/aware": {
+     "race_edges": 630,
+     "race_positions": 212,
+     "race_position_mover_pairs": 316,
+     "precapture_race_edges": 34,
+     "precapture_race_positions": 12,
+     "precapture_race_position_mover_pairs": 18
+    },
+    "opponent/epon/aware": {
+     "race_edges": 630,
+     "race_positions": 212,
+     "race_position_mover_pairs": 316,
+     "precapture_race_edges": 34,
+     "precapture_race_positions": 12,
+     "precapture_race_position_mover_pairs": 18
+    }
+   },
+   "C_census_agrees": {
+    "count/epon": true,
+    "count/epoff": true,
+    "mover/epon": true,
+    "mover/epoff": true,
+    "opponent/epon": true,
+    "opponent/epoff": true,
+    "count/epon/aware": true,
+    "mover/epon/aware": true,
+    "opponent/epon/aware": true
+   }
+  }
+ ],
+ "ranking": "robust under all 6 textbook settings first (none is), then fewest men, then fewest pre-capture race edges (count rule, e.p. on), then most settings giving *k",
+ "gtest_agreement": "215/215",
+ "notes": [
+  "textbook = cylcgt/pawns.py on disk (a pawn that can still be taken e.p. counts as passed)",
+  "ep_aware = the PASSED_RESPECTS_EP variant in the parent session's worktree (scratchpad/ep-wt/cylcgt/pawns.py), run read-only",
+  "race_edges = len(pawns.race_hits) from a cold cache; race_position_mover_pairs counts distinct (position, mover) pairs (the prior report's 'distinct positions'); precapture = all root pawns still on the board",
+  "no *k with k >= 3 occurs under any of the 9 settings (the C census tests k <= 15)"
+ ]
+}

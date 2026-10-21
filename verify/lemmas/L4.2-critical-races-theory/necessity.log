@@ -1,0 +1,44 @@
+=== e.p. on: 224 race nodes
+  [W] all races won by White: ↑; all won by Black: ↓
+  [W] races whose count verdict is NECESSARY for *2 (bounds exclude *2 when flipped): 2
+        ('W: a3 / B: c4 d6', None, 'B', 'B', '0', '↑')
+        ('W: a3 b5 / B: d6', None, 'W', 'W', '↓', '0')
+  [W] 4 critical won by mover: completions lie in [↓, ↑]; sufficient = False
+  [W] 4 critical LOST by mover: completions in [0, 0]; *2 excluded = True
+  [W]   W: a2 / B: c4 d7     lost by mover B, all else free: [↓, ↑]; *2 excluded = False
+  [W]   W: a2 b5 / B: d7     lost by mover W, all else free: [↓, ↑]; *2 excluded = False
+  [W]   W: a3 / B: c4 d6     lost by mover B, all else free: [0, ↑]; *2 excluded = True
+  [W]   W: a3 b5 / B: d6     lost by mover W, all else free: [↓, 0]; *2 excluded = True
+  [WF] all races won by White: ↑; all won by Black: ↓
+  [WF] races whose count verdict is NECESSARY for *2 (bounds exclude *2 when flipped): 2
+        ('W: a3 / B: c4 d6', None, 'B', 'B', '0', '↑')
+        ('W: a3 b5 / B: d6', None, 'W', 'W', '↓', '0')
+  [WF] 4 critical won by mover: completions lie in [↓, ↑]; sufficient = False
+  [WF] 4 critical LOST by mover: completions in [0, 0]; *2 excluded = True
+  [WF]   W: a2 / B: c4 d7     lost by mover B, all else free: [↓, ↑]; *2 excluded = False
+  [WF]   W: a2 b5 / B: d7     lost by mover W, all else free: [↓, ↑]; *2 excluded = False
+  [WF]   W: a3 / B: c4 d6     lost by mover B, all else free: [0, ↑]; *2 excluded = True
+  [WF]   W: a3 b5 / B: d6     lost by mover W, all else free: [↓, 0]; *2 excluded = True
+  monotonicity sanity check (40 random pairs a <= a'): violations 0
+=== e.p. off: 206 race nodes
+  [W] all races won by White: ↑; all won by Black: ↓
+  [W] races whose count verdict is NECESSARY for *2 (bounds exclude *2 when flipped): 2
+        ('W: a3 / B: c4 d6', None, 'B', 'B', '0', '↑')
+        ('W: a3 b5 / B: d6', None, 'W', 'W', '↓', '0')
+  [W] 4 critical won by mover: completions lie in [↓, ↑]; sufficient = False
+  [W] 4 critical LOST by mover: completions in [0, 0]; *2 excluded = True
+  [W]   W: a2 / B: c4 d7     lost by mover B, all else free: [↓, ↑]; *2 excluded = False
+  [W]   W: a2 b5 / B: d7     lost by mover W, all else free: [↓, ↑]; *2 excluded = False
+  [W]   W: a3 / B: c4 d6     lost by mover B, all else free: [0, ↑]; *2 excluded = True
+  [W]   W: a3 b5 / B: d6     lost by mover W, all else free: [↓, 0]; *2 excluded = True
+  [WF] all races won by White: ↑; all won by Black: ↓
+  [WF] races whose count verdict is NECESSARY for *2 (bounds exclude *2 when flipped): 2
+        ('W: a3 / B: c4 d6', None, 'B', 'B', '0', '↑')
+        ('W: a3 b5 / B: d6', None, 'W', 'W', '↓', '0')
+  [WF] 4 critical won by mover: completions lie in [↓, ↑]; sufficient = False
+  [WF] 4 critical LOST by mover: completions in [0, 0]; *2 excluded = True
+  [WF]   W: a2 / B: c4 d7     lost by mover B, all else free: [↓, ↑]; *2 excluded = False
+  [WF]   W: a2 b5 / B: d7     lost by mover W, all else free: [↓, ↑]; *2 excluded = False
+  [WF]   W: a3 / B: c4 d6     lost by mover B, all else free: [0, ↑]; *2 excluded = True
+  [WF]   W: a3 b5 / B: d6     lost by mover W, all else free: [↓, 0]; *2 excluded = True
+  monotonicity sanity check (40 random pairs a <= a'): violations 0

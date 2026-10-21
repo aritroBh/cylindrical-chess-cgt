@@ -1,0 +1,69 @@
+H canonical: H={2+-1|-2+-1}  H == -H: True
+*2 + X: NNPNLRLLLRLRLNN
+H  + X: NNNNNNNNNNLRNNN
+
+| board | race | e.p. | test | canonical value | = H | = *2 | G+*2 | vector | races | ep-pending states | ...capturer has plain passer | ...victim plain-passed |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 4flat | count | off | plain | *2 | False | True | P | NNPNLRLLLRLRLNN | 224 | 0 | 0 | 0 |
+| 4flat | count | on | plain | *2 | False | True | P | NNPNLRLLLRLRLNN | 262 | 76 | 46 | 40 |
+| 4flat | count | on | aware | H={2+-1|-2+-1} | True | False | N | NNNNNNNNNNLRNNN | 290 | 86 | 56 | 44 |
+| 4flat | mover | off | plain | *2 | False | True | P | NNPNLRLLLRLRLNN | 224 | 0 | 0 | 0 |
+| 4flat | mover | on | plain | *2 | False | True | P | NNPNLRLLLRLRLNN | 262 | 76 | 46 | 40 |
+| 4flat | mover | on | aware | H={2+-1|-2+-1} | True | False | N | NNNNNNNNNNLRNNN | 290 | 86 | 56 | 44 |
+| 4flat | opponent | off | plain | 0 | False | False | N | PNNNLRNLLRLRNNL | 224 | 0 | 0 | 0 |
+| 4flat | opponent | on | plain | 0 | False | False | N | PNNNLRNLLRLRNNL | 262 | 76 | 46 | 40 |
+| 4flat | opponent | on | aware | 0 | False | False | N | PNNNLRNLLRLRNNL | 290 | 86 | 56 | 44 |
+| 8flat | count | off | plain | *2 | False | True | P | NNPNLRLLLRLRLNN | 224 | 0 | 0 | 0 |
+| 8flat | count | on | plain | *2 | False | True | P | NNPNLRLLLRLRLNN | 262 | 76 | 46 | 40 |
+| 8flat | count | on | aware | H={2+-1|-2+-1} | True | False | N | NNNNNNNNNNLRNNN | 290 | 86 | 56 | 44 |
+| 8flat | mover | off | plain | *2 | False | True | P | NNPNLRLLLRLRLNN | 224 | 0 | 0 | 0 |
+| 8flat | mover | on | plain | *2 | False | True | P | NNPNLRLLLRLRLNN | 262 | 76 | 46 | 40 |
+| 8flat | mover | on | aware | H={2+-1|-2+-1} | True | False | N | NNNNNNNNNNLRNNN | 290 | 86 | 56 | 44 |
+| 8flat | opponent | off | plain | 0 | False | False | N | PNNNLRNLLRLRNNL | 224 | 0 | 0 | 0 |
+| 8flat | opponent | on | plain | 0 | False | False | N | PNNNLRNLLRLRNNL | 262 | 76 | 46 | 40 |
+| 8flat | opponent | on | aware | 0 | False | False | N | PNNNLRNLLRLRNNL | 290 | 86 | 56 | 44 |
+| 8cyl | count | off | plain | *2 | False | True | P | NNPNLRLLLRLRLNN | 224 | 0 | 0 | 0 |
+| 8cyl | count | on | plain | *2 | False | True | P | NNPNLRLLLRLRLNN | 262 | 76 | 46 | 40 |
+| 8cyl | count | on | aware | H={2+-1|-2+-1} | True | False | N | NNNNNNNNNNLRNNN | 290 | 86 | 56 | 44 |
+| 8cyl | mover | off | plain | *2 | False | True | P | NNPNLRLLLRLRLNN | 224 | 0 | 0 | 0 |
+| 8cyl | mover | on | plain | *2 | False | True | P | NNPNLRLLLRLRLNN | 262 | 76 | 46 | 40 |
+| 8cyl | mover | on | aware | H={2+-1|-2+-1} | True | False | N | NNNNNNNNNNLRNNN | 290 | 86 | 56 | 44 |
+| 8cyl | opponent | off | plain | 0 | False | False | N | PNNNLRNLLRLRNNL | 224 | 0 | 0 | 0 |
+| 8cyl | opponent | on | plain | 0 | False | False | N | PNNNLRNLLRLRNNL | 262 | 76 | 46 | 40 |
+| 8cyl | opponent | on | aware | 0 | False | False | N | PNNNLRNLLRLRNNL | 290 | 86 | 56 | 44 |
+| 5cyl | count | off | plain | *2 | False | True | P | NNPNLRLLLRLRLNN | 224 | 0 | 0 | 0 |
+| 5cyl | count | on | plain | *2 | False | True | P | NNPNLRLLLRLRLNN | 262 | 76 | 46 | 40 |
+| 5cyl | count | on | aware | H={2+-1|-2+-1} | True | False | N | NNNNNNNNNNLRNNN | 290 | 86 | 56 | 44 |
+| 5cyl | mover | off | plain | *2 | False | True | P | NNPNLRLLLRLRLNN | 224 | 0 | 0 | 0 |
+| 5cyl | mover | on | plain | *2 | False | True | P | NNPNLRLLLRLRLNN | 262 | 76 | 46 | 40 |
+| 5cyl | mover | on | aware | H={2+-1|-2+-1} | True | False | N | NNNNNNNNNNLRNNN | 290 | 86 | 56 | 44 |
+| 5cyl | opponent | off | plain | 0 | False | False | N | PNNNLRNLLRLRNNL | 224 | 0 | 0 | 0 |
+| 5cyl | opponent | on | plain | 0 | False | False | N | PNNNLRNLLRLRNNL | 262 | 76 | 46 | 40 |
+| 5cyl | opponent | on | aware | 0 | False | False | N | PNNNLRNLLRLRNNL | 290 | 86 | 56 | 44 |
+
+[plain] root = *2
+   L-option W a3 c2 / B b7 d7 = {*|-1}
+   L-option W a4 c2 / B b7 d7 = *
+   L-option W a2 c3 / B b7 d7 = {0|-1}
+   L-option W a2 c4 / B b7 d7 = 0
+   R-option W a2 c2 / B b7 d6 = {1|*}
+   R-option W a2 c2 / B b7 d5 = *
+   R-option W a2 c2 / B b6 d7 = {1|0}
+   R-option W a2 c2 / B b5 d7 = 0
+   X = W a2 c2 / B b4 d7 = {256|{256|-256}}
+     after a2-a4: +BIG
+[aware] root = H={2+-1|-2+-1}
+   L-option W a3 c2 / B b7 d7 = {{2|0}|-1}
+   L-option W a4 c2 / B b7 d7 = *
+   L-option W a2 c3 / B b7 d7 = {2+-1|-1}
+   L-option W a2 c4 / B b7 d7 = 2+-1
+   R-option W a2 c2 / B b7 d6 = {1|{0|-2}}
+   R-option W a2 c2 / B b7 d5 = *
+   R-option W a2 c2 / B b6 d7 = {1|-2+-1}
+   R-option W a2 c2 / B b5 d7 = -2+-1
+   X = W a2 c2 / B b4 d7 = -3
+     after a2-a4: W a4 c2 / B b4 d7 [ep a3 for B] = {256|-256}
+        Black reply W a4 c2 / B b4 d6 -> +BIG
+        Black reply W a4 c2 / B b4 d5 -> +BIG
+        Black reply W a4 c2 / B b3 d7 -> +BIG
+        Black reply W c2 / B a3 d7 -> -BIG

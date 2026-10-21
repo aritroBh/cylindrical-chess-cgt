@@ -1,0 +1,24 @@
+count noep value= *2 eq*2: True eq0: False {'0': 'N', '*': 'N', '*2': 'P', '*3': 'N'} race_hits= 224 distinct 206
+count ep value= *2 eq*2: True eq0: False {'0': 'N', '*': 'N', '*2': 'P', '*3': 'N'} race_hits= 398 distinct 224
+mover noep value= *2 eq*2: True eq0: False {'0': 'N', '*': 'N', '*2': 'P', '*3': 'N'} race_hits= 224 distinct 206
+mover ep value= *2 eq*2: True eq0: False {'0': 'N', '*': 'N', '*2': 'P', '*3': 'N'} race_hits= 398 distinct 224
+opponent noep value= 0 eq*2: False eq0: True {'0': 'P', '*': 'N', '*2': 'N', '*3': 'N'} race_hits= 224 distinct 206
+opponent ep value= 0 eq*2: False eq0: True {'0': 'P', '*': 'N', '*2': 'N', '*3': 'N'} race_hits= 398 distinct 224
+8 flat count False *2
+8 flat count True *2
+8 flat mover False *2
+8 flat mover True *2
+8 flat opponent False 0
+8 flat opponent True 0
+8 cyl count False *2
+8 cyl count True *2
+8 cyl mover False *2
+8 cyl mover True *2
+8 cyl opponent False 0
+8 cyl opponent True 0
+5 cyl count False *2
+5 cyl count True *2
+5 cyl mover False *2
+5 cyl mover True *2
+5 cyl opponent False 0
+5 cyl opponent True 0

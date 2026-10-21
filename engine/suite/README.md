@@ -210,6 +210,28 @@ The 52 disagreements fall into four kinds. The counts overlap.
 | A predicted winning pawn move does not win | 10 |
 | Extra winning pawn moves | 7 |
 
+## The e.p.-aware passed test (adopted 2026-10-16)
+
+The suite was built with `cylcgt`'s textbook passed test, under which a pawn that double-steps past an enemy pawn
+counts as passed before the e.p. capture. The project has since adopted the e.p.-aware test (`RESULTS.md`,
+"Conventions").
+
+`ep_aware_check.py` recomputes every prediction with sumtest's independent move generator and passer test
+(`sumtest/sumsolver.py`, `ep_aware=True`), using canonical forms from `cylcgt.cgt`:
+- **`count` rule: 0 of 275 predicted winning sets change.** So `cgt_verified.epd` and `cgt_disagree.epd` are
+  unchanged under the adopted convention. A verifier's own minimax found the same
+  (`verify/engines/C1-refute/indep_out_epaware.txt`), so this is checked two ways.
+- **`opponent` rule:** 0 change.
+- **`mover` rule:** 20 change. Agreement of the pawn-move set with the tablebase rises from 217/275 to 236/275.
+  The two tests differ only on a pawn that has just double-stepped past an enemy pawn, at the root move or
+  later in the line. Under `count` and `opponent` that difference never changes who wins a race here.
+
+Run it from the project root (offline):
+
+```bash
+PYTHONPATH=. .venv/bin/python engine/suite/ep_aware_check.py
+```
+
 ## Caveats
 
 - **The CGT side** is a single implementation (`cylcgt`). It was cross-checked separately against `crosscheck/`

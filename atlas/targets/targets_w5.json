@@ -1,0 +1,3607 @@
+{
+ "scope": "w5",
+ "positions": 80163,
+ "settings": [
+  "count/epon-textbook",
+  "count/epon-aware",
+  "count/epoff",
+  "mover/epon-textbook",
+  "mover/epon-aware",
+  "mover/epoff",
+  "opponent/epon-textbook",
+  "opponent/epon-aware",
+  "opponent/epoff",
+  "white/epon-textbook",
+  "white/epon-aware",
+  "white/epoff",
+  "black/epon-textbook",
+  "black/epon-aware",
+  "black/epoff"
+ ],
+ "nimbers_k_ge_2": {
+  "*2": {
+   "count/epoff": [
+    "W: a2 c2 d2 / B: b5 c7 e7",
+    "W: b4 c2 e2 / B: a7 c7 d7"
+   ],
+   "black/epoff": [
+    "W: a2 c2 e2 / B: a3 b7 d7"
+   ],
+   "white/epoff": [
+    "W: a6 b2 d2 / B: a7 c7 e7"
+   ]
+  }
+ },
+ "targets": {
+  "textbook": [
+   {
+    "kind": "fractional tiny (number subscript)",
+    "label": "miny(1/2)",
+    "count": 1,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: a3 c3 d2 / B: b6 c7 e7",
+      "width": 5,
+      "npawns": 6,
+      "value": "miny(1/2)",
+      "robust": {
+       "same_in": 2,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epoff"
+       ]
+      },
+      "other_test_value": "miny(1)",
+      "values_by_setting": {
+       "count/epon-textbook": "miny(1/2)",
+       "count/epon-aware": "miny(1)",
+       "count/epoff": "miny(1/2)",
+       "mover/epon-textbook": "↓",
+       "mover/epon-aware": "↓",
+       "mover/epoff": "↓",
+       "opponent/epon-textbook": "↓",
+       "opponent/epon-aware": "↓",
+       "opponent/epoff": "↓",
+       "white/epon-textbook": "{{1/2 | *} | {0 | -2*}}",
+       "white/epon-aware": "{{{+W | +W, {+W, {+W, {+W, {+W, {+W, {+W, ±+W | -W} | -W, {+W, {+W, ±+W | -W} | -W}} | -W, {+W, ±+W | -W, {+W, ±+W | -W}}} | -W, {0, {+W, {+W, {+W, +W* | +W} | -W, ±+W} | -W, ±+W} | -W}} | -W, {+W | -W, ±+W}} | {{* | -W}, {{+W, 255/2±+W | -W, {+W, ±+W | -W, {+W | -W, ±+W}}, ±+W} | -W} | -W}}} | {1 | *}, {{1 | *} | -W}} | {0 | -3*}}",
+       "white/epoff": "{{1/2 | *} | *, ↑}",
+       "black/epon-textbook": "↓",
+       "black/epon-aware": "↓",
+       "black/epoff": "↓"
+      },
+      "cylinder_textbook": "{0 | {{⇓ | 0} | 0}}",
+      "cylinder_aware": "{0 | {{⇓ | 0} | 0}}"
+     }
+    ]
+   },
+   {
+    "kind": "fractional tiny (number subscript)",
+    "label": "tiny(1/2)",
+    "count": 1,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: b3 c2 e2 / B: a6 c6 d7",
+      "width": 5,
+      "npawns": 6,
+      "value": "tiny(1/2)",
+      "robust": {
+       "same_in": 2,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epoff"
+       ]
+      },
+      "other_test_value": "tiny(1)",
+      "values_by_setting": {
+       "count/epon-textbook": "tiny(1/2)",
+       "count/epon-aware": "tiny(1)",
+       "count/epoff": "tiny(1/2)",
+       "mover/epon-textbook": "↑",
+       "mover/epon-aware": "↑",
+       "mover/epoff": "↑",
+       "opponent/epon-textbook": "↑",
+       "opponent/epon-aware": "↑",
+       "opponent/epoff": "↑",
+       "white/epon-textbook": "↑",
+       "white/epon-aware": "↑",
+       "white/epoff": "↑",
+       "black/epon-textbook": "{{2* | 0} | {* | -1/2}}",
+       "black/epon-aware": "{{3* | 0} | {{* | -1}, {+W | {* | -1}} | {-W, {{+W | {+W | *}, {+W | {+W, {+W, {+W, ±+W | -W} | -W, ±+W}, ±+W | -255/2±+W, -W}}} | -W, {+W, {+W, ±+W | -W} | -W, {+W, {+W | 0, {+W, ±+W | -W, {+W, ±+W | -W, {-W | -W, -W*}}}} | -W, {+W, {+W, {+W | -W, ±+W} | -W, ±+W} | -W, {+W, {+W | -W, {+W | -W, ±+W}} | -W, {+W | -W, ±+W}}}}}} | -W}}}",
+       "black/epoff": "{*, ↓ | {* | -1/2}}"
+      },
+      "cylinder_textbook": "{{0 | {0 | ⇑}} | 0}",
+      "cylinder_aware": "{{0 | {0 | ⇑}} | 0}"
+     }
+    ]
+   },
+   {
+    "kind": "tiny, non-number subscript",
+    "label": "-1 + miny({1 | 1, 1*})",
+    "count": 2,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: a2 b3 d3 / B: a7 c5 e7",
+      "width": 5,
+      "npawns": 6,
+      "value": "{{↓* | -1} | -1}",
+      "robust": {
+       "same_in": 7,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "mover/epon-aware",
+        "white/epon-textbook",
+        "white/epon-aware",
+        "white/epoff"
+       ]
+      },
+      "other_test_value": "{{↓* | -1} | -1}",
+      "values_by_setting": {
+       "count/epon-textbook": "{{↓* | -1} | -1}",
+       "count/epon-aware": "{{↓* | -1} | -1}",
+       "count/epoff": "{{↓* | -1} | -1}",
+       "mover/epon-textbook": "-9/8",
+       "mover/epon-aware": "{{↓* | -1} | -1}",
+       "mover/epoff": "-9/8",
+       "opponent/epon-textbook": "-2",
+       "opponent/epon-aware": "-2",
+       "opponent/epoff": "-2",
+       "white/epon-textbook": "{{↓* | -1} | -1}",
+       "white/epon-aware": "{{↓* | -1} | -1}",
+       "white/epoff": "{{↓* | -1} | -1}",
+       "black/epon-textbook": "-2",
+       "black/epon-aware": "-2",
+       "black/epoff": "-2"
+      },
+      "cylinder_textbook": "-15/16",
+      "cylinder_aware": "-15/16"
+     },
+     {
+      "position": "W: a3 b3 d2 / B: a7 c5 e7",
+      "width": 5,
+      "npawns": 6,
+      "value": "{{↓* | -1} | -1}",
+      "robust": {
+       "same_in": 3,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff"
+       ]
+      },
+      "other_test_value": "{{↓* | -1} | -1}",
+      "values_by_setting": {
+       "count/epon-textbook": "{{↓* | -1} | -1}",
+       "count/epon-aware": "{{↓* | -1} | -1}",
+       "count/epoff": "{{↓* | -1} | -1}",
+       "mover/epon-textbook": "-1/2",
+       "mover/epon-aware": "↓",
+       "mover/epoff": "-1/2",
+       "opponent/epon-textbook": "{{-1* | -1} | -1}",
+       "opponent/epon-aware": "{{-1* | -1} | -1}",
+       "opponent/epoff": "{{-1* | -1} | -1}",
+       "white/epon-textbook": "↓",
+       "white/epon-aware": "↓",
+       "white/epoff": "↓",
+       "black/epon-textbook": "{{-1* | -1} | -1}",
+       "black/epon-aware": "{{-1* | -1} | -1}",
+       "black/epoff": "{{-1* | -1} | -1}"
+      },
+      "cylinder_textbook": "↓",
+      "cylinder_aware": "↓"
+     }
+    ]
+   },
+   {
+    "kind": "tiny, non-number subscript",
+    "label": "1 + tiny({1 | 1, 1*})",
+    "count": 2,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: a2 c4 e2 / B: a7 b6 d6",
+      "width": 5,
+      "npawns": 6,
+      "value": "{1 | {1 | ↑*}}",
+      "robust": {
+       "same_in": 7,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "mover/epon-aware",
+        "black/epon-textbook",
+        "black/epon-aware",
+        "black/epoff"
+       ]
+      },
+      "other_test_value": "{1 | {1 | ↑*}}",
+      "values_by_setting": {
+       "count/epon-textbook": "{1 | {1 | ↑*}}",
+       "count/epon-aware": "{1 | {1 | ↑*}}",
+       "count/epoff": "{1 | {1 | ↑*}}",
+       "mover/epon-textbook": "9/8",
+       "mover/epon-aware": "{1 | {1 | ↑*}}",
+       "mover/epoff": "9/8",
+       "opponent/epon-textbook": "2",
+       "opponent/epon-aware": "2",
+       "opponent/epoff": "2",
+       "white/epon-textbook": "2",
+       "white/epon-aware": "2",
+       "white/epoff": "2",
+       "black/epon-textbook": "{1 | {1 | ↑*}}",
+       "black/epon-aware": "{1 | {1 | ↑*}}",
+       "black/epoff": "{1 | {1 | ↑*}}"
+      },
+      "cylinder_textbook": "15/16",
+      "cylinder_aware": "15/16"
+     },
+     {
+      "position": "W: a2 c4 e2 / B: b7 d6 e6",
+      "width": 5,
+      "npawns": 6,
+      "value": "{1 | {1 | ↑*}}",
+      "robust": {
+       "same_in": 3,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff"
+       ]
+      },
+      "other_test_value": "{1 | {1 | ↑*}}",
+      "values_by_setting": {
+       "count/epon-textbook": "{1 | {1 | ↑*}}",
+       "count/epon-aware": "{1 | {1 | ↑*}}",
+       "count/epoff": "{1 | {1 | ↑*}}",
+       "mover/epon-textbook": "1/2",
+       "mover/epon-aware": "↑",
+       "mover/epoff": "1/2",
+       "opponent/epon-textbook": "{1 | {1 | 1*}}",
+       "opponent/epon-aware": "{1 | {1 | 1*}}",
+       "opponent/epoff": "{1 | {1 | 1*}}",
+       "white/epon-textbook": "{1 | {1 | 1*}}",
+       "white/epon-aware": "{1 | {1 | 1*}}",
+       "white/epoff": "{1 | {1 | 1*}}",
+       "black/epon-textbook": "↑",
+       "black/epon-aware": "↑",
+       "black/epoff": "↑"
+      },
+      "cylinder_textbook": "↑",
+      "cylinder_aware": "↑"
+     }
+    ]
+   },
+   {
+    "kind": "tiny, non-number subscript",
+    "label": "miny(1*)",
+    "count": 2,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: a4 c3 e2 / B: b7 d7 e4",
+      "width": 5,
+      "npawns": 6,
+      "value": "{{1* | 0} | 0}",
+      "robust": {
+       "same_in": 9,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "opponent/epon-textbook",
+        "opponent/epon-aware",
+        "opponent/epoff",
+        "white/epon-textbook",
+        "white/epon-aware",
+        "white/epoff"
+       ]
+      },
+      "other_test_value": "{{1* | 0} | 0}",
+      "values_by_setting": {
+       "count/epon-textbook": "{{1* | 0} | 0}",
+       "count/epon-aware": "{{1* | 0} | 0}",
+       "count/epoff": "{{1* | 0} | 0}",
+       "mover/epon-textbook": "-1/2",
+       "mover/epon-aware": "{↓* | -1/2*}",
+       "mover/epoff": "-1/2",
+       "opponent/epon-textbook": "{{1* | 0} | 0}",
+       "opponent/epon-aware": "{{1* | 0} | 0}",
+       "opponent/epoff": "{{1* | 0} | 0}",
+       "white/epon-textbook": "{{1* | 0} | 0}",
+       "white/epon-aware": "{{1* | 0} | 0}",
+       "white/epoff": "{{1* | 0} | 0}",
+       "black/epon-textbook": "-1/2",
+       "black/epon-aware": "{↓* | -1/2*}",
+       "black/epoff": "-1/2"
+      },
+      "cylinder_textbook": "{{1* | 0} | 0}",
+      "cylinder_aware": "{{1* | 0} | 0}"
+     },
+     {
+      "position": "W: a5 b3 d2 / B: a7 c7 e5",
+      "width": 5,
+      "npawns": 6,
+      "value": "{{1* | 0} | 0}",
+      "robust": {
+       "same_in": 9,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "opponent/epon-textbook",
+        "opponent/epon-aware",
+        "opponent/epoff",
+        "white/epon-textbook",
+        "white/epon-aware",
+        "white/epoff"
+       ]
+      },
+      "other_test_value": "{{1* | 0} | 0}",
+      "values_by_setting": {
+       "count/epon-textbook": "{{1* | 0} | 0}",
+       "count/epon-aware": "{{1* | 0} | 0}",
+       "count/epoff": "{{1* | 0} | 0}",
+       "mover/epon-textbook": "{↓* | -1/2*}",
+       "mover/epon-aware": "{↓* | -1/2*}",
+       "mover/epoff": "{-1/4* | -1/2*}",
+       "opponent/epon-textbook": "{{1* | 0} | 0}",
+       "opponent/epon-aware": "{{1* | 0} | 0}",
+       "opponent/epoff": "{{1* | 0} | 0}",
+       "white/epon-textbook": "{{1* | 0} | 0}",
+       "white/epon-aware": "{{1* | 0} | 0}",
+       "white/epoff": "{{1* | 0} | 0}",
+       "black/epon-textbook": "{↓* | -1/2*}",
+       "black/epon-aware": "{↓* | -1/2*}",
+       "black/epoff": "-1/2"
+      },
+      "cylinder_textbook": "↓",
+      "cylinder_aware": "{{1* | 0} | 0}"
+     }
+    ]
+   },
+   {
+    "kind": "tiny, non-number subscript",
+    "label": "tiny(1*)",
+    "count": 2,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: a4 c2 e2 / B: b7 d6 e4",
+      "width": 5,
+      "npawns": 6,
+      "value": "{0 | {0 | -1*}}",
+      "robust": {
+       "same_in": 9,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "opponent/epon-textbook",
+        "opponent/epon-aware",
+        "opponent/epoff",
+        "black/epon-textbook",
+        "black/epon-aware",
+        "black/epoff"
+       ]
+      },
+      "other_test_value": "{0 | {0 | -1*}}",
+      "values_by_setting": {
+       "count/epon-textbook": "{0 | {0 | -1*}}",
+       "count/epon-aware": "{0 | {0 | -1*}}",
+       "count/epoff": "{0 | {0 | -1*}}",
+       "mover/epon-textbook": "{1/2* | ↑*}",
+       "mover/epon-aware": "{1/2* | ↑*}",
+       "mover/epoff": "{1/2* | 1/4*}",
+       "opponent/epon-textbook": "{0 | {0 | -1*}}",
+       "opponent/epon-aware": "{0 | {0 | -1*}}",
+       "opponent/epoff": "{0 | {0 | -1*}}",
+       "white/epon-textbook": "{1/2* | ↑*}",
+       "white/epon-aware": "{1/2* | ↑*}",
+       "white/epoff": "1/2",
+       "black/epon-textbook": "{0 | {0 | -1*}}",
+       "black/epon-aware": "{0 | {0 | -1*}}",
+       "black/epoff": "{0 | {0 | -1*}}"
+      },
+      "cylinder_textbook": "↑",
+      "cylinder_aware": "{0 | {0 | -1*}}"
+     },
+     {
+      "position": "W: a5 b2 d2 / B: a7 c6 e5",
+      "width": 5,
+      "npawns": 6,
+      "value": "{0 | {0 | -1*}}",
+      "robust": {
+       "same_in": 9,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "opponent/epon-textbook",
+        "opponent/epon-aware",
+        "opponent/epoff",
+        "black/epon-textbook",
+        "black/epon-aware",
+        "black/epoff"
+       ]
+      },
+      "other_test_value": "{0 | {0 | -1*}}",
+      "values_by_setting": {
+       "count/epon-textbook": "{0 | {0 | -1*}}",
+       "count/epon-aware": "{0 | {0 | -1*}}",
+       "count/epoff": "{0 | {0 | -1*}}",
+       "mover/epon-textbook": "1/2",
+       "mover/epon-aware": "{1/2* | ↑*}",
+       "mover/epoff": "1/2",
+       "opponent/epon-textbook": "{0 | {0 | -1*}}",
+       "opponent/epon-aware": "{0 | {0 | -1*}}",
+       "opponent/epoff": "{0 | {0 | -1*}}",
+       "white/epon-textbook": "1/2",
+       "white/epon-aware": "{1/2* | ↑*}",
+       "white/epoff": "1/2",
+       "black/epon-textbook": "{0 | {0 | -1*}}",
+       "black/epon-aware": "{0 | {0 | -1*}}",
+       "black/epoff": "{0 | {0 | -1*}}"
+      },
+      "cylinder_textbook": "{0 | {0 | -1*}}",
+      "cylinder_aware": "{0 | {0 | -1*}}"
+     }
+    ]
+   },
+   {
+    "kind": "up-second family",
+    "label": "-1 + ↑²",
+    "count": 1,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: a3 c3 d2 / B: b7 d6 e7",
+      "width": 5,
+      "npawns": 6,
+      "value": "{-1 | {-1 | -1, -1*}}",
+      "robust": {
+       "same_in": 9,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "mover/epon-aware",
+        "opponent/epon-textbook",
+        "opponent/epon-aware",
+        "opponent/epoff",
+        "white/epon-aware",
+        "black/epon-aware"
+       ]
+      },
+      "other_test_value": "{-1 | {-1 | -1, -1*}}",
+      "values_by_setting": {
+       "count/epon-textbook": "{-1 | {-1 | -1, -1*}}",
+       "count/epon-aware": "{-1 | {-1 | -1, -1*}}",
+       "count/epoff": "{-1 | {-1 | -1, -1*}}",
+       "mover/epon-textbook": "{-1, -1* | -1}",
+       "mover/epon-aware": "{-1 | {-1 | -1, -1*}}",
+       "mover/epoff": "{-1, -1* | -1}",
+       "opponent/epon-textbook": "{-1 | {-1 | -1, -1*}}",
+       "opponent/epon-aware": "{-1 | {-1 | -1, -1*}}",
+       "opponent/epoff": "{-1 | {-1 | -1, -1*}}",
+       "white/epon-textbook": "-3/4",
+       "white/epon-aware": "{-1 | {-1 | -1, -1*}}",
+       "white/epoff": "-3/4",
+       "black/epon-textbook": "{-1, -1* | {{-1* | -1} | -3/2}}",
+       "black/epon-aware": "{-1 | {-1 | -1, -1*}}",
+       "black/epoff": "{-1, -1* | {{-1* | -1} | -3/2}}"
+      },
+      "cylinder_textbook": "{{1 | 0, ↓*}, {{0 | {0 | {{+W | *, ±+W}, {{+W | +W, {+W, {+W, ±+W | -W, {+W, ±+W | -W}} | -W, {+W | -W, ±+W}}, ±+W} | 0} | -W}}, {{+W | *, ±+W}, {{+W | +W, {+W, {+W, ±+W | -W, {+W, ±+W | -W}} | -W, {+W | -W, ±+W}}, ±+W} | 0} | -W}} | 0} | -7/8}",
+      "cylinder_aware": "{{5/2±1/2 | 0, ↓*}, {{0 | {0 | {{+W | *, ±+W}, {+W, {+W | +W, {+W | +W, {+W | -W, ±+W}}, ±+W} | -W, {+W, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W} | -W, ±+W}}, {{+W | +W, {+W | +W, {+W | -W, ±+W}}, ±+W} | 0} | -W}}, {{+W | *, ±+W}, {+W, {+W | +W, {+W | +W, {+W | -W, ±+W}}, ±+W} | -W, {+W, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W} | -W, ±+W}}, {{+W | +W, {+W | +W, {+W | -W, ±+W}}, ±+W} | 0} | -W}} | 0} | -7/8}"
+     }
+    ]
+   },
+   {
+    "kind": "up-second family",
+    "label": "1 + ↓²",
+    "count": 1,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: a2 b3 d2 / B: b7 c6 e6",
+      "width": 5,
+      "npawns": 6,
+      "value": "{{1, 1* | 1} | 1}",
+      "robust": {
+       "same_in": 9,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "mover/epon-aware",
+        "opponent/epon-textbook",
+        "opponent/epon-aware",
+        "opponent/epoff",
+        "white/epon-aware",
+        "black/epon-aware"
+       ]
+      },
+      "other_test_value": "{{1, 1* | 1} | 1}",
+      "values_by_setting": {
+       "count/epon-textbook": "{{1, 1* | 1} | 1}",
+       "count/epon-aware": "{{1, 1* | 1} | 1}",
+       "count/epoff": "{{1, 1* | 1} | 1}",
+       "mover/epon-textbook": "{1 | 1, 1*}",
+       "mover/epon-aware": "{{1, 1* | 1} | 1}",
+       "mover/epoff": "{1 | 1, 1*}",
+       "opponent/epon-textbook": "{{1, 1* | 1} | 1}",
+       "opponent/epon-aware": "{{1, 1* | 1} | 1}",
+       "opponent/epoff": "{{1, 1* | 1} | 1}",
+       "white/epon-textbook": "{{3/2 | {1 | 1*}} | 1, 1*}",
+       "white/epon-aware": "{{1, 1* | 1} | 1}",
+       "white/epoff": "{{3/2 | {1 | 1*}} | 1, 1*}",
+       "black/epon-textbook": "3/4",
+       "black/epon-aware": "{{1, 1* | 1} | 1}",
+       "black/epoff": "3/4"
+      },
+      "cylinder_textbook": "{7/8 | {0 | {{+W | {*, ±+W | -W}, {0 | {-W, {+W, {+W, ±+W | -W} | -W, {+W, {+W | -W, ±+W} | -W, ±+W}}, ±+W | -W}}}, {{+W | {*, ±+W | -W}, {0 | {-W, {+W, {+W, ±+W | -W} | -W, {+W, {+W | -W, ±+W} | -W, ±+W}}, ±+W | -W}}} | 0} | 0}}, {0, ↑* | -1}}",
+      "cylinder_aware": "{7/8 | {0 | {{+W | {*, ±+W | -W}, {+W, {+W, ±+W | -W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}}} | -W, {-W, {-W, {+W, ±+W | -W} | -W}, ±+W | -W}}, {0 | {-W, {-W, {+W, ±+W | -W} | -W}, ±+W | -W}}}, {{+W | {*, ±+W | -W}, {+W, {+W, ±+W | -W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}}} | -W, {-W, {-W, {+W, ±+W | -W} | -W}, ±+W | -W}}, {0 | {-W, {-W, {+W, ±+W | -W} | -W}, ±+W | -W}}} | 0} | 0}}, {0, ↑* | -5/2±1/2}}"
+     }
+    ]
+   },
+   {
+    "kind": "up-second family",
+    "label": "↑ + ↑²",
+    "count": 2,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: a4 b3 d2 / B: b7 c7 e6",
+      "width": 5,
+      "npawns": 6,
+      "value": "{↑ | *}",
+      "robust": {
+       "same_in": 11,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "mover/epon-aware",
+        "opponent/epon-textbook",
+        "opponent/epon-aware",
+        "opponent/epoff",
+        "white/epon-textbook",
+        "white/epon-aware",
+        "white/epoff",
+        "black/epon-aware"
+       ]
+      },
+      "other_test_value": "{↑ | *}",
+      "values_by_setting": {
+       "count/epon-textbook": "{↑ | *}",
+       "count/epon-aware": "{↑ | *}",
+       "count/epoff": "{↑ | *}",
+       "mover/epon-textbook": "0",
+       "mover/epon-aware": "{↑ | *}",
+       "mover/epoff": "0",
+       "opponent/epon-textbook": "{↑ | *}",
+       "opponent/epon-aware": "{↑ | *}",
+       "opponent/epoff": "{↑ | *}",
+       "white/epon-textbook": "{↑ | *}",
+       "white/epon-aware": "{↑ | *}",
+       "white/epoff": "{↑ | *}",
+       "black/epon-textbook": "0",
+       "black/epon-aware": "{↑ | *}",
+       "black/epoff": "0"
+      },
+      "cylinder_textbook": "1/2±1/2",
+      "cylinder_aware": "1/2±1/2"
+     },
+     {
+      "position": "W: b3 c2 d3 / B: a7 b7 e7",
+      "width": 5,
+      "npawns": 6,
+      "value": "{↑ | *}",
+      "robust": {
+       "same_in": 2,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epoff"
+       ]
+      },
+      "other_test_value": "{{{{{{+W | +W, {+W, {+W | -W, {+W | -W, ±+W}} | -W, {+W | -W, {+W | -W, ±+W}}}} | +W} | +W} | 1} | 1} | *}",
+      "values_by_setting": {
+       "count/epon-textbook": "{↑ | *}",
+       "count/epon-aware": "{{{{{{+W | +W, {+W, {+W | -W, {+W | -W, ±+W}} | -W, {+W | -W, {+W | -W, ±+W}}}} | +W} | +W} | 1} | 1} | *}",
+       "count/epoff": "{↑ | *}",
+       "mover/epon-textbook": "-1/2±1/2",
+       "mover/epon-aware": "1",
+       "mover/epoff": "-1/2±1/2",
+       "opponent/epon-textbook": "{1/2 | 1/2, 1/2*}",
+       "opponent/epon-aware": "{0, 3/2±3/2 | 0, {0 | {-2* | -2}}}",
+       "opponent/epoff": "{1/2 | 1/2, 1/2*}",
+       "white/epon-textbook": "3/2",
+       "white/epon-aware": "3/2",
+       "white/epoff": "3/2",
+       "black/epon-textbook": "-3/2",
+       "black/epon-aware": "{-1* | -1}",
+       "black/epoff": "-3/2"
+      },
+      "cylinder_textbook": "{0, {{{{{{+W | +W, {+W, ±+W | -W, {+W | -W, ±+W}}} | +W} | +W} | +W} | *}, {{{{{+W | +W, {+W, ±+W | -W, {+W | -W, ±+W}}} | +W} | +W} | +W} | 0} | *, 0} | {-W | {-W | {-W | {-W, {+W, ±+W | -W, {+W, ±+W | -W}} | -W}}}, {-W | {-W, {+W, ±+W | -W, {+W, ±+W | -W}} | -W}}}}",
+      "cylinder_aware": "{{{{{{+W | +W, {+W | -W, ±+W}} | +W} | +W} | 1} | 1} | {{0 | {-W | {-W, {+W, {+W, ±+W | -W} | -W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}}} | -W}}} | {-W | {-W | {-W, ±+W | -W}}, {-W, ±+W | -W}}}}"
+     }
+    ]
+   },
+   {
+    "kind": "up-second family",
+    "label": "↑²",
+    "count": 3,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: a4 b2 e2 / B: b7 c6 d6",
+      "width": 5,
+      "npawns": 6,
+      "value": "{0 | ↓*}",
+      "robust": {
+       "same_in": 3,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff"
+       ]
+      },
+      "other_test_value": "{0 | ↓*}",
+      "values_by_setting": {
+       "count/epon-textbook": "{0 | ↓*}",
+       "count/epon-aware": "{0 | ↓*}",
+       "count/epoff": "{0 | ↓*}",
+       "mover/epon-textbook": "tiny(1)",
+       "mover/epon-aware": "tiny(1)",
+       "mover/epoff": "tiny(1)",
+       "opponent/epon-textbook": "0",
+       "opponent/epon-aware": "0",
+       "opponent/epoff": "0",
+       "white/epon-textbook": "1±1/2",
+       "white/epon-aware": "{{1 | 1*} | ↑}",
+       "white/epoff": "1±1/2",
+       "black/epon-textbook": "-2*",
+       "black/epon-aware": "{{{0 | 0, {0 | {-W | {-W, {+W, {+W, {+W, {+W, {+W, +W* | +W} | +W} | +W, +W*} | -W}, {+W, {+W, {+W, {+W, {+W, +W* | +W} | +W} | +W, +W*} | -W} | -W} | -W} | -W}}}} | 0} | -2}",
+       "black/epoff": "-2*"
+      },
+      "cylinder_textbook": "{{{+W | +W, {+W | +W, {+W, {+W | -W, {+W | -W, ±+W}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}, {+W, {+W | -W, ±+W} | -W, {-W, {-W | -W, {-W | -W, {-W | -W, -W*}}} | -W, {-W | -W, {-W | -W, {-W | -W, {-W | -W, {-W | -W, -W*}}}}}}}}, {+W, {+W, {+W, ±+W | -W, {+W | -W, ±+W}} | -W, {+W | -W, ±+W}} | -W, {+W | -W, ±+W}}} | +W} | {1* | *}}",
+      "cylinder_aware": "{{{+W | +W, {+W | +W, {+W, {+W | -W, {+W | -W, ±+W}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}, {+W, {+W | -W, ±+W} | -W, {-W, {-W | -W, {-W | -W, {-W | -W, -W*}}} | -W, {-W | -W, {-W | -W, {-W | -W, {-W | -W, {-W | -W, -W*}}}}}}}}, {+W, {+W, {+W, ±+W | -W, {+W | -W, ±+W}} | -W, {+W | -W, ±+W}} | -W, {+W | -W, ±+W}}} | +W} | {1* | *}}"
+     },
+     {
+      "position": "W: a4 c2 d2 / B: b7 c6 e5",
+      "width": 5,
+      "npawns": 6,
+      "value": "{0 | ↓*}",
+      "robust": {
+       "same_in": 10,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "mover/epon-aware",
+        "opponent/epon-textbook",
+        "opponent/epon-aware",
+        "opponent/epoff",
+        "black/epon-textbook",
+        "black/epon-aware",
+        "black/epoff"
+       ]
+      },
+      "other_test_value": "{0 | ↓*}",
+      "values_by_setting": {
+       "count/epon-textbook": "{0 | ↓*}",
+       "count/epon-aware": "{0 | ↓*}",
+       "count/epoff": "{0 | ↓*}",
+       "mover/epon-textbook": "↑",
+       "mover/epon-aware": "{0 | ↓*}",
+       "mover/epoff": "↑",
+       "opponent/epon-textbook": "{0 | ↓*}",
+       "opponent/epon-aware": "{0 | ↓*}",
+       "opponent/epoff": "{0 | ↓*}",
+       "white/epon-textbook": "{1* | *}",
+       "white/epon-aware": "{1* | ↓*}",
+       "white/epoff": "1",
+       "black/epon-textbook": "{0 | ↓*}",
+       "black/epon-aware": "{0 | ↓*}",
+       "black/epoff": "{0 | ↓*}"
+      },
+      "cylinder_textbook": "{+W, ±+W | -W, {+W, ±+W | -W, {+W, {+W, {+W | -W, ±+W} | -W, ±+W} | -W, ±+W}}}",
+      "cylinder_aware": "{+W, ±+W | -W, {+W, ±+W | -W, {+W, {+W, {+W | -W, ±+W} | -W, ±+W} | -W, ±+W}}}"
+     },
+     {
+      "position": "W: a4 d2 e2 / B: b7 c5 e6",
+      "width": 5,
+      "npawns": 6,
+      "value": "{0 | ↓*}",
+      "robust": {
+       "same_in": 4,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "black/epon-aware"
+       ]
+      },
+      "other_test_value": "{0 | ↓*}",
+      "values_by_setting": {
+       "count/epon-textbook": "{0 | ↓*}",
+       "count/epon-aware": "{0 | ↓*}",
+       "count/epoff": "{0 | ↓*}",
+       "mover/epon-textbook": "*",
+       "mover/epon-aware": "{3/8±1/8 | ↑}",
+       "mover/epoff": "*",
+       "opponent/epon-textbook": "⇑*",
+       "opponent/epon-aware": "⇑*",
+       "opponent/epoff": "⇑*",
+       "white/epon-textbook": "1",
+       "white/epon-aware": "{1* | 1/4*}",
+       "white/epoff": "1",
+       "black/epon-textbook": "{-1, -1* | {-1* | -1}}",
+       "black/epon-aware": "{0 | ↓*}",
+       "black/epoff": "{-1, -1* | {-1* | -1}}"
+      },
+      "cylinder_textbook": "2*",
+      "cylinder_aware": "2*"
+     }
+    ]
+   },
+   {
+    "kind": "up-second family",
+    "label": "↑² + *",
+    "count": 6,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: a4 b2 e2 / B: b6 c6 d6",
+      "width": 5,
+      "npawns": 6,
+      "value": "{*, 0 | ↓}",
+      "robust": {
+       "same_in": 3,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff"
+       ]
+      },
+      "other_test_value": "{*, 0 | ↓}",
+      "values_by_setting": {
+       "count/epon-textbook": "{*, 0 | ↓}",
+       "count/epon-aware": "{*, 0 | ↓}",
+       "count/epoff": "{*, 0 | ↓}",
+       "mover/epon-textbook": "-1/2±1/2",
+       "mover/epon-aware": "-1/2±1/2",
+       "mover/epoff": "-1/2±1/2",
+       "opponent/epon-textbook": "*",
+       "opponent/epon-aware": "*",
+       "opponent/epoff": "*",
+       "white/epon-textbook": "{{{+W | +W, {+W, {+W, ±+W | -W, ±+W}, ±+W | -W, ±+W}} | +W} | 1/2*}",
+       "white/epon-aware": "{{{+W | +W, {+W, {+W, ±+W | -W, ±+W}, ±+W | -W, ±+W}} | +W} | ↑*}",
+       "white/epoff": "{{{+W | +W, {+W, {+W, ±+W | -W, ±+W}, ±+W | -W, ±+W}} | +W} | 1/2*}",
+       "black/epon-textbook": "-2",
+       "black/epon-aware": "-2",
+       "black/epoff": "-2"
+      },
+      "cylinder_textbook": "{+W | {+W, {+W | ⇑} | {{+W, {+W | -W, ±+W}, {+W, {+W | -W, ±+W} | -W, {+W | -W, ±+W}} | -W, {-W, {-W, {+W | -W, {+W | -W, {+W | -W, ±+W}}} | -W} | -W}}, {-W, {+W | -W, ±+W} | -W, {-W, {+W | -W, {+W | -W, {+W | -W, ±+W}}} | -W}} | -W}}, {{{+W | +W, {+W | +W, {+W, ±+W | -W, {+W, ±+W | -W, {-W, {+W | -W, ±+W} | -W}}, ±+W}, ±+W}, ±+W} | +W} | 0}}",
+      "cylinder_aware": "{+W | {+W, {+W | ⇑} | {{+W, {+W | -W, ±+W}, {+W, {+W | -W, ±+W} | -W, {+W | -W, ±+W}} | -W, {-W, {-W, {+W | -W, {+W | -W, {+W | -W, ±+W}}} | -W} | -W}}, {-W, {+W | -W, ±+W} | -W, {-W, {+W | -W, {+W | -W, {+W | -W, ±+W}}} | -W}} | -W}}, {{{+W | +W, {+W | +W, {+W, ±+W | -W, {+W, ±+W | -W, {-W, {+W | -W, ±+W} | -W}}, ±+W}, ±+W}, ±+W} | +W} | 0}}"
+     },
+     {
+      "position": "W: a4 c2 d2 / B: b6 c6 e5",
+      "width": 5,
+      "npawns": 6,
+      "value": "{*, 0 | ↓}",
+      "robust": {
+       "same_in": 10,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "mover/epon-aware",
+        "opponent/epon-textbook",
+        "opponent/epon-aware",
+        "opponent/epoff",
+        "black/epon-textbook",
+        "black/epon-aware",
+        "black/epoff"
+       ]
+      },
+      "other_test_value": "{*, 0 | ↓}",
+      "values_by_setting": {
+       "count/epon-textbook": "{*, 0 | ↓}",
+       "count/epon-aware": "{*, 0 | ↓}",
+       "count/epoff": "{*, 0 | ↓}",
+       "mover/epon-textbook": "↑*",
+       "mover/epon-aware": "{*, 0 | ↓}",
+       "mover/epoff": "↑*",
+       "opponent/epon-textbook": "{*, 0 | ↓}",
+       "opponent/epon-aware": "{*, 0 | ↓}",
+       "opponent/epoff": "{*, 0 | ↓}",
+       "white/epon-textbook": "1/2±1/2",
+       "white/epon-aware": "{1 | ↓}",
+       "white/epoff": "1*",
+       "black/epon-textbook": "{*, 0 | ↓}",
+       "black/epon-aware": "{*, 0 | ↓}",
+       "black/epoff": "{*, 0 | ↓}"
+      },
+      "cylinder_textbook": "{+W, ±+W | -W, {+W, {+W, ±+W | -W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}}} | -W, ±+W}}",
+      "cylinder_aware": "{+W, ±+W | -W, {+W, {+W, ±+W | -W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}}} | -W, ±+W}}"
+     },
+     {
+      "position": "W: a4 d2 e2 / B: b6 c5 e6",
+      "width": 5,
+      "npawns": 6,
+      "value": "{*, 0 | ↓}",
+      "robust": {
+       "same_in": 6,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "black/epon-textbook",
+        "black/epon-aware",
+        "black/epoff"
+       ]
+      },
+      "other_test_value": "{*, 0 | ↓}",
+      "values_by_setting": {
+       "count/epon-textbook": "{*, 0 | ↓}",
+       "count/epon-aware": "{*, 0 | ↓}",
+       "count/epoff": "{*, 0 | ↓}",
+       "mover/epon-textbook": "1/4",
+       "mover/epon-aware": "⇑",
+       "mover/epoff": "1/4",
+       "opponent/epon-textbook": "⇑",
+       "opponent/epon-aware": "⇑",
+       "opponent/epoff": "⇑",
+       "white/epon-textbook": "1*",
+       "white/epon-aware": "5/8±3/8",
+       "white/epoff": "1*",
+       "black/epon-textbook": "{*, 0 | ↓}",
+       "black/epon-aware": "{*, 0 | ↓}",
+       "black/epoff": "{*, 0 | ↓}"
+      },
+      "cylinder_textbook": "3*",
+      "cylinder_aware": "3*"
+     },
+     {
+      "position": "W: a5 c2 d2 / B: b7 c6 e5",
+      "width": 5,
+      "npawns": 6,
+      "value": "{*, 0 | ↓}",
+      "robust": {
+       "same_in": 10,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "mover/epon-aware",
+        "opponent/epon-textbook",
+        "opponent/epon-aware",
+        "opponent/epoff",
+        "black/epon-textbook",
+        "black/epon-aware",
+        "black/epoff"
+       ]
+      },
+      "other_test_value": "{*, 0 | ↓}",
+      "values_by_setting": {
+       "count/epon-textbook": "{*, 0 | ↓}",
+       "count/epon-aware": "{*, 0 | ↓}",
+       "count/epoff": "{*, 0 | ↓}",
+       "mover/epon-textbook": "↑*",
+       "mover/epon-aware": "{*, 0 | ↓}",
+       "mover/epoff": "↑*",
+       "opponent/epon-textbook": "{*, 0 | ↓}",
+       "opponent/epon-aware": "{*, 0 | ↓}",
+       "opponent/epoff": "{*, 0 | ↓}",
+       "white/epon-textbook": "1/2±1/2",
+       "white/epon-aware": "{1 | ↓}",
+       "white/epoff": "1*",
+       "black/epon-textbook": "{*, 0 | ↓}",
+       "black/epon-aware": "{*, 0 | ↓}",
+       "black/epoff": "{*, 0 | ↓}"
+      },
+      "cylinder_textbook": "{*, 0 | ↓}",
+      "cylinder_aware": "{*, 0 | ↓}"
+     },
+     {
+      "position": "W: a5 d2 e2 / B: b7 c5 e6",
+      "width": 5,
+      "npawns": 6,
+      "value": "{*, 0 | ↓}",
+      "robust": {
+       "same_in": 4,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "black/epon-aware"
+       ]
+      },
+      "other_test_value": "{*, 0 | ↓}",
+      "values_by_setting": {
+       "count/epon-textbook": "{*, 0 | ↓}",
+       "count/epon-aware": "{*, 0 | ↓}",
+       "count/epoff": "{*, 0 | ↓}",
+       "mover/epon-textbook": "{{+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, ±+W | -W}}}} | -W}",
+       "mover/epon-aware": "3/8±1/8",
+       "mover/epoff": "{{+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, ±+W | -W}}}} | -W}",
+       "opponent/epon-textbook": "⇑",
+       "opponent/epon-aware": "⇑",
+       "opponent/epoff": "⇑",
+       "white/epon-textbook": "1*",
+       "white/epon-aware": "5/8±3/8",
+       "white/epoff": "1*",
+       "black/epon-textbook": "{{+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, ±+W | -W} | -W, {+W, ±+W | -W, ±+W}}}} | -W}",
+       "black/epon-aware": "{*, 0 | ↓}",
+       "black/epoff": "{{+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, ±+W | -W} | -W, {+W, ±+W | -W, ±+W}}}} | -W}"
+      },
+      "cylinder_textbook": "{+W, {+W | {-W | {-W | {-W | {-W, {+W | -W, ±+W} | -W}}}}} | -W, {+W, ±+W | -W, {+W, ±+W | -W}}}",
+      "cylinder_aware": "{+W, {+W | {-W | {-W | {-W | {-W, {+W | -W, ±+W} | -W}}}}} | -W, ±+W}"
+     },
+     {
+      "position": "W: b5 d2 e2 / B: a7 c5 e6",
+      "width": 5,
+      "npawns": 6,
+      "value": "{*, 0 | ↓}",
+      "robust": {
+       "same_in": 4,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "black/epon-aware"
+       ]
+      },
+      "other_test_value": "{*, 0 | ↓}",
+      "values_by_setting": {
+       "count/epon-textbook": "{*, 0 | ↓}",
+       "count/epon-aware": "{*, 0 | ↓}",
+       "count/epoff": "{*, 0 | ↓}",
+       "mover/epon-textbook": "{{+W, ±+W | -W, {+W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}} | -W, {+W, ±+W | -W, ±+W}}} | -W}",
+       "mover/epon-aware": "5/8±3/8",
+       "mover/epoff": "{{+W, ±+W | -W, {+W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}} | -W, {+W, ±+W | -W, ±+W}}} | -W}",
+       "opponent/epon-textbook": "⇑",
+       "opponent/epon-aware": "⇑",
+       "opponent/epoff": "⇑",
+       "white/epon-textbook": "1*",
+       "white/epon-aware": "5/8±3/8",
+       "white/epoff": "1*",
+       "black/epon-textbook": "{{+W, ±+W | -W, {+W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}} | -W, {+W, ±+W | -W, {+W | -W, {+W | -W, ±+W}}}}} | -W}",
+       "black/epon-aware": "{*, 0 | ↓}",
+       "black/epoff": "{{+W, ±+W | -W, {+W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}} | -W, {+W, ±+W | -W, {+W | -W, {+W | -W, ±+W}}}}} | -W}"
+      },
+      "cylinder_textbook": "{*, 0 | ↓}",
+      "cylinder_aware": "{*, 0 | ↓}"
+     }
+    ]
+   },
+   {
+    "kind": "up-second family",
+    "label": "↓ + ↓²",
+    "count": 2,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: a2 b2 e2 / B: b6 c7 d6",
+      "width": 5,
+      "npawns": 6,
+      "value": "{* | ↓}",
+      "robust": {
+       "same_in": 2,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epoff"
+       ]
+      },
+      "other_test_value": "{* | {-1 | {-1 | {-W | {-W | {-W, {+W, {+W, {+W, ±+W | -W} | -W} | -W, {+W, {+W, ±+W | -W} | -W}} | -W}}}}}}",
+      "values_by_setting": {
+       "count/epon-textbook": "{* | ↓}",
+       "count/epon-aware": "{* | {-1 | {-1 | {-W | {-W | {-W, {+W, {+W, {+W, ±+W | -W} | -W} | -W, {+W, {+W, ±+W | -W} | -W}} | -W}}}}}}",
+       "count/epoff": "{* | ↓}",
+       "mover/epon-textbook": "1/2±1/2",
+       "mover/epon-aware": "-1",
+       "mover/epoff": "1/2±1/2",
+       "opponent/epon-textbook": "{-1/2, -1/2* | -1/2}",
+       "opponent/epon-aware": "{0, {{2 | 2*} | 0} | -3/2±3/2, 0}",
+       "opponent/epoff": "{-1/2, -1/2* | -1/2}",
+       "white/epon-textbook": "3/2",
+       "white/epon-aware": "{1 | 1*}",
+       "white/epoff": "3/2",
+       "black/epon-textbook": "-3/2",
+       "black/epon-aware": "-3/2",
+       "black/epoff": "-3/2"
+      },
+      "cylinder_textbook": "{{{{+W | +W, {+W, {+W | -W, ±+W} | -W, ±+W}} | +W}, {{{+W | +W, {+W, {+W | -W, ±+W} | -W, ±+W}} | +W} | +W} | +W} | 0, {*, 0 | {* | {-W | {-W | {-W | {-W, {+W, {+W, ±+W | -W} | -W, ±+W} | -W}}}}}, {0 | {-W | {-W | {-W | {-W, {+W, {+W, ±+W | -W} | -W, ±+W} | -W}}}}}}}",
+      "cylinder_aware": "{{{{+W | +W, ±+W}, {{+W | +W, ±+W} | +W} | +W} | {{{+W | +W, {+W, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W} | -W, {+W | -W, ±+W}}} | +W} | 0}} | {-1 | {-1 | {-W | {-W | {-W, {+W, ±+W | -W} | -W}}}}}}"
+     },
+     {
+      "position": "W: a3 c2 d2 / B: b7 d6 e5",
+      "width": 5,
+      "npawns": 6,
+      "value": "{* | ↓}",
+      "robust": {
+       "same_in": 11,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "mover/epon-aware",
+        "opponent/epon-textbook",
+        "opponent/epon-aware",
+        "opponent/epoff",
+        "white/epon-aware",
+        "black/epon-textbook",
+        "black/epon-aware",
+        "black/epoff"
+       ]
+      },
+      "other_test_value": "{* | ↓}",
+      "values_by_setting": {
+       "count/epon-textbook": "{* | ↓}",
+       "count/epon-aware": "{* | ↓}",
+       "count/epoff": "{* | ↓}",
+       "mover/epon-textbook": "0",
+       "mover/epon-aware": "{* | ↓}",
+       "mover/epoff": "0",
+       "opponent/epon-textbook": "{* | ↓}",
+       "opponent/epon-aware": "{* | ↓}",
+       "opponent/epoff": "{* | ↓}",
+       "white/epon-textbook": "0",
+       "white/epon-aware": "{* | ↓}",
+       "white/epoff": "0",
+       "black/epon-textbook": "{* | ↓}",
+       "black/epon-aware": "{* | ↓}",
+       "black/epoff": "{* | ↓}"
+      },
+      "cylinder_textbook": "-1/2±1/2",
+      "cylinder_aware": "-1/2±1/2"
+     }
+    ]
+   },
+   {
+    "kind": "up-second family",
+    "label": "↓²",
+    "count": 3,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: a3 c4 d2 / B: a7 b7 e5",
+      "width": 5,
+      "npawns": 6,
+      "value": "{↑* | 0}",
+      "robust": {
+       "same_in": 4,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "white/epon-aware"
+       ]
+      },
+      "other_test_value": "{↑* | 0}",
+      "values_by_setting": {
+       "count/epon-textbook": "{↑* | 0}",
+       "count/epon-aware": "{↑* | 0}",
+       "count/epoff": "{↑* | 0}",
+       "mover/epon-textbook": "*",
+       "mover/epon-aware": "{↓ | -3/8±1/8}",
+       "mover/epoff": "*",
+       "opponent/epon-textbook": "⇓*",
+       "opponent/epon-aware": "⇓*",
+       "opponent/epoff": "⇓*",
+       "white/epon-textbook": "{{1 | 1*} | 1, 1*}",
+       "white/epon-aware": "{↑* | 0}",
+       "white/epoff": "{{1 | 1*} | 1, 1*}",
+       "black/epon-textbook": "-1",
+       "black/epon-aware": "{-1/4* | -1*}",
+       "black/epoff": "-1"
+      },
+      "cylinder_textbook": "-2*",
+      "cylinder_aware": "-2*"
+     },
+     {
+      "position": "W: a4 c3 d2 / B: b7 c7 e5",
+      "width": 5,
+      "npawns": 6,
+      "value": "{↑* | 0}",
+      "robust": {
+       "same_in": 10,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "mover/epon-aware",
+        "opponent/epon-textbook",
+        "opponent/epon-aware",
+        "opponent/epoff",
+        "white/epon-textbook",
+        "white/epon-aware",
+        "white/epoff"
+       ]
+      },
+      "other_test_value": "{↑* | 0}",
+      "values_by_setting": {
+       "count/epon-textbook": "{↑* | 0}",
+       "count/epon-aware": "{↑* | 0}",
+       "count/epoff": "{↑* | 0}",
+       "mover/epon-textbook": "↓",
+       "mover/epon-aware": "{↑* | 0}",
+       "mover/epoff": "↓",
+       "opponent/epon-textbook": "{↑* | 0}",
+       "opponent/epon-aware": "{↑* | 0}",
+       "opponent/epoff": "{↑* | 0}",
+       "white/epon-textbook": "{↑* | 0}",
+       "white/epon-aware": "{↑* | 0}",
+       "white/epoff": "{↑* | 0}",
+       "black/epon-textbook": "{* | -1*}",
+       "black/epon-aware": "{↑* | -1*}",
+       "black/epoff": "-1"
+      },
+      "cylinder_textbook": "{+W, {+W, {+W, ±+W | -W, {+W, ±+W | -W, {+W, ±+W | -W}}} | -W, ±+W} | -W, ±+W}",
+      "cylinder_aware": "{+W, {+W, {+W, ±+W | -W, {+W, ±+W | -W, {+W, ±+W | -W}}} | -W, ±+W} | -W, ±+W}"
+     },
+     {
+      "position": "W: b3 c3 d2 / B: a7 d7 e5",
+      "width": 5,
+      "npawns": 6,
+      "value": "{↑* | 0}",
+      "robust": {
+       "same_in": 3,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff"
+       ]
+      },
+      "other_test_value": "{↑* | 0}",
+      "values_by_setting": {
+       "count/epon-textbook": "{↑* | 0}",
+       "count/epon-aware": "{↑* | 0}",
+       "count/epoff": "{↑* | 0}",
+       "mover/epon-textbook": "miny(1)",
+       "mover/epon-aware": "miny(1)",
+       "mover/epoff": "miny(1)",
+       "opponent/epon-textbook": "0",
+       "opponent/epon-aware": "0",
+       "opponent/epoff": "0",
+       "white/epon-textbook": "2*",
+       "white/epon-aware": "{2 | {0 | {0, {{{+W | +W, {+W | -W, {+W | -W, {+W | -W, {-W, -W* | -W, {-W | -W, {-W | -W, -W*}}}}}, {+W | -W, {-W, -W* | -W, {-W | -W, {-W | -W, -W*}}}}}} | +W} | 0} | 0}}}",
+       "white/epoff": "2*",
+       "black/epon-textbook": "-1±1/2",
+       "black/epon-aware": "{↓ | {-1* | -1}}",
+       "black/epoff": "-1±1/2"
+      },
+      "cylinder_textbook": "{{* | -1*} | {-W | {-W, {+W, {+W, ±+W | -W} | -W, {+W, {+W, ±+W | -W} | -W, {+W, {+W, ±+W | -W} | -W, ±+W}}}, {-W, {+W, {+W, {+W, {+W, {+W, {+W, {+W, +W* | +W} | +W} | +W} | +W} | +W} | +W, {+W, {+W, {+W, +W* | +W} | +W} | +W}} | -W, {+W, ±+W | -W}}, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, ±+W | -W} | -W}} | -W} | -W}}}",
+      "cylinder_aware": "{{* | -1*} | {-W | {-W, {+W, {+W, ±+W | -W} | -W, {+W, {+W, ±+W | -W} | -W, {+W, {+W, ±+W | -W} | -W, ±+W}}}, {-W, {+W, {+W, {+W, {+W, {+W, {+W, {+W, +W* | +W} | +W} | +W} | +W} | +W} | +W, {+W, {+W, {+W, +W* | +W} | +W} | +W}} | -W, {+W, ±+W | -W}}, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, ±+W | -W} | -W}} | -W} | -W}}}"
+     }
+    ]
+   },
+   {
+    "kind": "up-second family",
+    "label": "↓² + *",
+    "count": 6,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: a3 c4 d2 / B: a7 b7 e4",
+      "width": 5,
+      "npawns": 6,
+      "value": "{↑ | *, 0}",
+      "robust": {
+       "same_in": 4,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "white/epon-aware"
+       ]
+      },
+      "other_test_value": "{↑ | *, 0}",
+      "values_by_setting": {
+       "count/epon-textbook": "{↑ | *, 0}",
+       "count/epon-aware": "{↑ | *, 0}",
+       "count/epoff": "{↑ | *, 0}",
+       "mover/epon-textbook": "{+W | {+W, {+W, {+W, {+W | -W, ±+W} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}}",
+       "mover/epon-aware": "-3/8±1/8",
+       "mover/epoff": "{+W | {+W, {+W, {+W, {+W | -W, ±+W} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}}",
+       "opponent/epon-textbook": "⇓",
+       "opponent/epon-aware": "⇓",
+       "opponent/epoff": "⇓",
+       "white/epon-textbook": "{+W | {+W, {+W, {+W, {+W, ±+W | -W, ±+W} | -W, {+W | -W, ±+W}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}}",
+       "white/epon-aware": "{↑ | *, 0}",
+       "white/epoff": "{+W | {+W, {+W, {+W, {+W, ±+W | -W, ±+W} | -W, {+W | -W, ±+W}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}}",
+       "black/epon-textbook": "-1*",
+       "black/epon-aware": "-5/8±3/8",
+       "black/epoff": "-1*"
+      },
+      "cylinder_textbook": "{+W, {+W, {+W | -W, ±+W} | -W, ±+W} | -W, {{{{{+W | +W, {+W, ±+W | -W}} | +W} | +W} | +W} | -W}}",
+      "cylinder_aware": "{+W, ±+W | -W, {{{{{+W | +W, {+W, ±+W | -W}} | +W} | +W} | +W} | -W}}"
+     },
+     {
+      "position": "W: a3 c4 d3 / B: a7 b7 e5",
+      "width": 5,
+      "npawns": 6,
+      "value": "{↑ | *, 0}",
+      "robust": {
+       "same_in": 6,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "white/epon-textbook",
+        "white/epon-aware",
+        "white/epoff"
+       ]
+      },
+      "other_test_value": "{↑ | *, 0}",
+      "values_by_setting": {
+       "count/epon-textbook": "{↑ | *, 0}",
+       "count/epon-aware": "{↑ | *, 0}",
+       "count/epoff": "{↑ | *, 0}",
+       "mover/epon-textbook": "-1/4",
+       "mover/epon-aware": "⇓",
+       "mover/epoff": "-1/4",
+       "opponent/epon-textbook": "⇓",
+       "opponent/epon-aware": "⇓",
+       "opponent/epoff": "⇓",
+       "white/epon-textbook": "{↑ | *, 0}",
+       "white/epon-aware": "{↑ | *, 0}",
+       "white/epoff": "{↑ | *, 0}",
+       "black/epon-textbook": "-1*",
+       "black/epon-aware": "-5/8±3/8",
+       "black/epoff": "-1*"
+      },
+      "cylinder_textbook": "-3*",
+      "cylinder_aware": "-3*"
+     },
+     {
+      "position": "W: a3 c4 e2 / B: a7 b7 d4",
+      "width": 5,
+      "npawns": 6,
+      "value": "{↑ | *, 0}",
+      "robust": {
+       "same_in": 4,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "white/epon-aware"
+       ]
+      },
+      "other_test_value": "{↑ | *, 0}",
+      "values_by_setting": {
+       "count/epon-textbook": "{↑ | *, 0}",
+       "count/epon-aware": "{↑ | *, 0}",
+       "count/epoff": "{↑ | *, 0}",
+       "mover/epon-textbook": "{+W | {+W, {+W, {+W, ±+W | -W, ±+W} | -W, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W}} | -W, ±+W}}",
+       "mover/epon-aware": "-5/8±3/8",
+       "mover/epoff": "{+W | {+W, {+W, {+W, ±+W | -W, ±+W} | -W, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W}} | -W, ±+W}}",
+       "opponent/epon-textbook": "⇓",
+       "opponent/epon-aware": "⇓",
+       "opponent/epoff": "⇓",
+       "white/epon-textbook": "{+W | {+W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W, ±+W} | -W, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W}} | -W, ±+W}}",
+       "white/epon-aware": "{↑ | *, 0}",
+       "white/epoff": "{+W | {+W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W, ±+W} | -W, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W}} | -W, ±+W}}",
+       "black/epon-textbook": "-1*",
+       "black/epon-aware": "-5/8±3/8",
+       "black/epoff": "-1*"
+      },
+      "cylinder_textbook": "{↑ | *, 0}",
+      "cylinder_aware": "{↑ | *, 0}"
+     },
+     {
+      "position": "W: a4 c3 d2 / B: b7 c7 e4",
+      "width": 5,
+      "npawns": 6,
+      "value": "{↑ | *, 0}",
+      "robust": {
+       "same_in": 10,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "mover/epon-aware",
+        "opponent/epon-textbook",
+        "opponent/epon-aware",
+        "opponent/epoff",
+        "white/epon-textbook",
+        "white/epon-aware",
+        "white/epoff"
+       ]
+      },
+      "other_test_value": "{↑ | *, 0}",
+      "values_by_setting": {
+       "count/epon-textbook": "{↑ | *, 0}",
+       "count/epon-aware": "{↑ | *, 0}",
+       "count/epoff": "{↑ | *, 0}",
+       "mover/epon-textbook": "↓*",
+       "mover/epon-aware": "{↑ | *, 0}",
+       "mover/epoff": "↓*",
+       "opponent/epon-textbook": "{↑ | *, 0}",
+       "opponent/epon-aware": "{↑ | *, 0}",
+       "opponent/epoff": "{↑ | *, 0}",
+       "white/epon-textbook": "{↑ | *, 0}",
+       "white/epon-aware": "{↑ | *, 0}",
+       "white/epoff": "{↑ | *, 0}",
+       "black/epon-textbook": "-1/2±1/2",
+       "black/epon-aware": "{↑ | -1}",
+       "black/epoff": "-1*"
+      },
+      "cylinder_textbook": "{↑ | *, 0}",
+      "cylinder_aware": "{↑ | *, 0}"
+     },
+     {
+      "position": "W: a4 c3 d3 / B: b7 c7 e5",
+      "width": 5,
+      "npawns": 6,
+      "value": "{↑ | *, 0}",
+      "robust": {
+       "same_in": 10,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "mover/epon-aware",
+        "opponent/epon-textbook",
+        "opponent/epon-aware",
+        "opponent/epoff",
+        "white/epon-textbook",
+        "white/epon-aware",
+        "white/epoff"
+       ]
+      },
+      "other_test_value": "{↑ | *, 0}",
+      "values_by_setting": {
+       "count/epon-textbook": "{↑ | *, 0}",
+       "count/epon-aware": "{↑ | *, 0}",
+       "count/epoff": "{↑ | *, 0}",
+       "mover/epon-textbook": "↓*",
+       "mover/epon-aware": "{↑ | *, 0}",
+       "mover/epoff": "↓*",
+       "opponent/epon-textbook": "{↑ | *, 0}",
+       "opponent/epon-aware": "{↑ | *, 0}",
+       "opponent/epoff": "{↑ | *, 0}",
+       "white/epon-textbook": "{↑ | *, 0}",
+       "white/epon-aware": "{↑ | *, 0}",
+       "white/epoff": "{↑ | *, 0}",
+       "black/epon-textbook": "-1/2±1/2",
+       "black/epon-aware": "{↑ | -1}",
+       "black/epoff": "-1*"
+      },
+      "cylinder_textbook": "{+W, {+W, ±+W | -W, {+W, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W} | -W, ±+W}} | -W, ±+W}",
+      "cylinder_aware": "{+W, {+W, ±+W | -W, {+W, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W} | -W, ±+W}} | -W, ±+W}"
+     },
+     {
+      "position": "W: b3 c3 d3 / B: a7 d7 e5",
+      "width": 5,
+      "npawns": 6,
+      "value": "{↑ | *, 0}",
+      "robust": {
+       "same_in": 3,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff"
+       ]
+      },
+      "other_test_value": "{↑ | *, 0}",
+      "values_by_setting": {
+       "count/epon-textbook": "{↑ | *, 0}",
+       "count/epon-aware": "{↑ | *, 0}",
+       "count/epoff": "{↑ | *, 0}",
+       "mover/epon-textbook": "1/2±1/2",
+       "mover/epon-aware": "1/2±1/2",
+       "mover/epoff": "1/2±1/2",
+       "opponent/epon-textbook": "*",
+       "opponent/epon-aware": "*",
+       "opponent/epoff": "*",
+       "white/epon-textbook": "2",
+       "white/epon-aware": "2",
+       "white/epoff": "2",
+       "black/epon-textbook": "{-1/2* | {-W | {-W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}, ±+W} | -W}}}",
+       "black/epon-aware": "{↓* | {-W | {-W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}, ±+W} | -W}}}",
+       "black/epoff": "{-1/2* | {-W | {-W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}, ±+W} | -W}}}"
+      },
+      "cylinder_textbook": "{{0 | {-W | {-W, {-W, {+W, {+W, {+W | +W, {+W, ±+W | -W}} | -W, ±+W}, ±+W | -W, ±+W}, ±+W | -W}, ±+W | -W}}}, {{+W | {+W, {+W | +W, {+W | +W, {+W, {+W, {+W, ±+W | -W} | -W} | -W}}} | -W, {+W, {+W, ±+W | -W} | -W, {+W, ±+W | -W}}, {+W, ±+W | -W}}, {+W, {+W | +W, {+W, {+W, {+W, ±+W | -W} | -W} | -W}} | +W, {+W, ±+W | -W}}} | -W, {⇓ | -W}} | -W}",
+      "cylinder_aware": "{{0 | {-W | {-W, {-W, {+W, {+W, {+W | +W, {+W, ±+W | -W}} | -W, ±+W}, ±+W | -W, ±+W}, ±+W | -W}, ±+W | -W}}}, {{+W | {+W, {+W | +W, {+W | +W, {+W, {+W, {+W, ±+W | -W} | -W} | -W}}} | -W, {+W, {+W, ±+W | -W} | -W, {+W, ±+W | -W}}, {+W, ±+W | -W}}, {+W, {+W | +W, {+W, {+W, {+W, ±+W | -W} | -W} | -W}} | +W, {+W, ±+W | -W}}} | -W, {⇓ | -W}} | -W}"
+     }
+    ]
+   }
+  ],
+  "aware": [
+   {
+    "kind": "fractional tiny (number subscript)",
+    "label": "-1 + miny(1/2)",
+    "count": 1,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: a2 c3 e2 / B: a7 b7 d5",
+      "width": 5,
+      "npawns": 6,
+      "value": "{-3/4±1/4 | -1}",
+      "robust": {
+       "same_in": 1,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-aware"
+       ]
+      },
+      "other_test_value": "{-1/2±1/2 | -1}",
+      "values_by_setting": {
+       "count/epon-textbook": "{-1/2±1/2 | -1}",
+       "count/epon-aware": "{-3/4±1/4 | -1}",
+       "count/epoff": "{-1* | -1}",
+       "mover/epon-textbook": "{-1/2±1/2 | -1}",
+       "mover/epon-aware": "{-1/2±1/2 | -1}",
+       "mover/epoff": "{-1* | -1}",
+       "opponent/epon-textbook": "{{+W | *} | -1}",
+       "opponent/epon-aware": "{{+W | *} | -1}",
+       "opponent/epoff": "{{+W | *} | -1}",
+       "white/epon-textbook": "{{+W | +W, {+W | +W, {+W | +W, {+W, +W±255/2 | -W, {+W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}} | -W, {+W, ±+W | -W, ±+W}}}}, {+W, +W±255/2 | -W, {+W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}} | -W, {+W, ±+W | -W, ±+W}}}}, {+W | +W, {+W | +W, {+W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}} | -W, {+W, ±+W | -W, ±+W}}}, {+W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}} | -W, {+W, ±+W | -W, ±+W}}}} | -1}",
+       "white/epon-aware": "{{+W | *}, {{{+W | +W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W, ±+W} | -W, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W}}} | +W} | +W} | -1}",
+       "white/epoff": "{{+W | +W, {+W | +W, {+W | +W, {+W, +W±255/2 | -W, {+W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}} | -W, {+W, ±+W | -W, ±+W}}}}, {+W, +W±255/2 | -W, {+W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}} | -W, {+W, ±+W | -W, ±+W}}}}, {+W | +W, {+W | +W, {+W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}} | -W, {+W, ±+W | -W, ±+W}}}, {+W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}} | -W, {+W, ±+W | -W, ±+W}}}} | -1}",
+       "black/epon-textbook": "-3",
+       "black/epon-aware": "-3",
+       "black/epoff": "-3"
+      },
+      "cylinder_textbook": "{⇓ | -1/2}",
+      "cylinder_aware": "{⇓ | -1/2}"
+     }
+    ]
+   },
+   {
+    "kind": "fractional tiny (number subscript)",
+    "label": "1 + tiny(1/2)",
+    "count": 1,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: b4 d2 e2 / B: a7 c6 e7",
+      "width": 5,
+      "npawns": 6,
+      "value": "{1 | 3/4±1/4}",
+      "robust": {
+       "same_in": 1,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-aware"
+       ]
+      },
+      "other_test_value": "{1 | 1/2±1/2}",
+      "values_by_setting": {
+       "count/epon-textbook": "{1 | 1/2±1/2}",
+       "count/epon-aware": "{1 | 3/4±1/4}",
+       "count/epoff": "{1 | 1*}",
+       "mover/epon-textbook": "{1 | 1/2±1/2}",
+       "mover/epon-aware": "{1 | 1/2±1/2}",
+       "mover/epoff": "{1 | 1*}",
+       "opponent/epon-textbook": "{1 | {* | -W}}",
+       "opponent/epon-aware": "{1 | {* | -W}}",
+       "opponent/epoff": "{1 | {* | -W}}",
+       "white/epon-textbook": "3",
+       "white/epon-aware": "3",
+       "white/epoff": "3",
+       "black/epon-textbook": "{1 | {-W, {-W, {+W, {+W, {+W, ±+W | -W, ±+W} | -W, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W}} | -W, -W±255/2}, {-W, {+W, {+W, {+W, ±+W | -W, ±+W} | -W, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W}} | -W, -W±255/2} | -W} | -W}, {-W, {+W, {+W, ±+W | -W, ±+W} | -W, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W}}, {-W, {+W, {+W, ±+W | -W, ±+W} | -W, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W}} | -W} | -W} | -W}}",
+       "black/epon-aware": "{1 | {* | -W}, {-W | {-W | {-W, {+W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}} | -W, {+W, ±+W | -W, {+W | -W, {+W | -W, ±+W}}}} | -W}}}}",
+       "black/epoff": "{1 | {-W, {-W, {+W, {+W, {+W, ±+W | -W, ±+W} | -W, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W}} | -W, -W±255/2}, {-W, {+W, {+W, {+W, ±+W | -W, ±+W} | -W, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W}} | -W, -W±255/2} | -W} | -W}, {-W, {+W, {+W, ±+W | -W, ±+W} | -W, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W}}, {-W, {+W, {+W, ±+W | -W, ±+W} | -W, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W}} | -W} | -W} | -W}}"
+      },
+      "cylinder_textbook": "{1/2 | ⇑}",
+      "cylinder_aware": "{1/2 | ⇑}"
+     }
+    ]
+   },
+   {
+    "kind": "tiny, non-number subscript",
+    "label": "-1 + miny(3±1)",
+    "count": 1,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: a3 b3 e3 / B: a7 c7 d6",
+      "width": 5,
+      "npawns": 6,
+      "value": "{{2±1 | -1} | -1}",
+      "robust": {
+       "same_in": 1,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-aware"
+       ]
+      },
+      "other_test_value": "{-1/2±1/2 | -1}",
+      "values_by_setting": {
+       "count/epon-textbook": "{-1/2±1/2 | -1}",
+       "count/epon-aware": "{{2±1 | -1} | -1}",
+       "count/epoff": "{-1/2±1/2 | -1}",
+       "mover/epon-textbook": "-3/2",
+       "mover/epon-aware": "-3/2",
+       "mover/epoff": "-3/2",
+       "opponent/epon-textbook": "{{-1* | -1} | -1}",
+       "opponent/epon-aware": "{{-1* | -1} | -1}",
+       "opponent/epoff": "{{-1* | -1} | -1}",
+       "white/epon-textbook": "{* | ⇓}",
+       "white/epon-aware": "{{3* | 1*} | ⇓}",
+       "white/epoff": "{* | ⇓}",
+       "black/epon-textbook": "{-W | {-W | {-W, {-W, {-W, {-W, {+W, {+W, {+W, ±+W | -W} | -W} | -W, {+W, {+W, ±+W | -W} | -W}} | -W} | -W} | -W} | -W}}, {-W, {-W, {-W, {-W, {+W, {+W, {+W, ±+W | -W} | -W} | -W, {+W, {+W, ±+W | -W} | -W}} | -W} | -W} | -W} | -W}}",
+       "black/epon-aware": "{-W | {-W, {0 | -W, {-W, {-W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {-W*, {+W* | -W*} | -W, -W*}}, {-W, {-W, {+W, ±+W | -W, ±+W} | -W} | -W}} | -W}}",
+       "black/epoff": "{-W | {-W | {-W, {-W, {-W, {-W, {+W, {+W, {+W, ±+W | -W} | -W} | -W, {+W, {+W, ±+W | -W} | -W}} | -W} | -W} | -W} | -W}}, {-W, {-W, {-W, {-W, {+W, {+W, {+W, ±+W | -W} | -W} | -W, {+W, {+W, ±+W | -W} | -W}} | -W} | -W} | -W} | -W}}"
+      },
+      "cylinder_textbook": "{{-1* | -W}, {-W | {-W | {-W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W}}} | -W}",
+      "cylinder_aware": "{{-W | {-W | {-W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W}}}, {3* | {-W | {-W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W}}, {-W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W}} | -W}"
+     }
+    ]
+   },
+   {
+    "kind": "tiny, non-number subscript",
+    "label": "-1 + miny({1 | 1, 1*})",
+    "count": 2,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: a2 b3 d3 / B: a7 c5 e7",
+      "width": 5,
+      "npawns": 6,
+      "value": "{{↓* | -1} | -1}",
+      "robust": {
+       "same_in": 7,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "mover/epon-aware",
+        "white/epon-textbook",
+        "white/epon-aware",
+        "white/epoff"
+       ]
+      },
+      "other_test_value": "{{↓* | -1} | -1}",
+      "values_by_setting": {
+       "count/epon-textbook": "{{↓* | -1} | -1}",
+       "count/epon-aware": "{{↓* | -1} | -1}",
+       "count/epoff": "{{↓* | -1} | -1}",
+       "mover/epon-textbook": "-9/8",
+       "mover/epon-aware": "{{↓* | -1} | -1}",
+       "mover/epoff": "-9/8",
+       "opponent/epon-textbook": "-2",
+       "opponent/epon-aware": "-2",
+       "opponent/epoff": "-2",
+       "white/epon-textbook": "{{↓* | -1} | -1}",
+       "white/epon-aware": "{{↓* | -1} | -1}",
+       "white/epoff": "{{↓* | -1} | -1}",
+       "black/epon-textbook": "-2",
+       "black/epon-aware": "-2",
+       "black/epoff": "-2"
+      },
+      "cylinder_textbook": "-15/16",
+      "cylinder_aware": "-15/16"
+     },
+     {
+      "position": "W: a3 b3 d2 / B: a7 c5 e7",
+      "width": 5,
+      "npawns": 6,
+      "value": "{{↓* | -1} | -1}",
+      "robust": {
+       "same_in": 3,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff"
+       ]
+      },
+      "other_test_value": "{{↓* | -1} | -1}",
+      "values_by_setting": {
+       "count/epon-textbook": "{{↓* | -1} | -1}",
+       "count/epon-aware": "{{↓* | -1} | -1}",
+       "count/epoff": "{{↓* | -1} | -1}",
+       "mover/epon-textbook": "-1/2",
+       "mover/epon-aware": "↓",
+       "mover/epoff": "-1/2",
+       "opponent/epon-textbook": "{{-1* | -1} | -1}",
+       "opponent/epon-aware": "{{-1* | -1} | -1}",
+       "opponent/epoff": "{{-1* | -1} | -1}",
+       "white/epon-textbook": "↓",
+       "white/epon-aware": "↓",
+       "white/epoff": "↓",
+       "black/epon-textbook": "{{-1* | -1} | -1}",
+       "black/epon-aware": "{{-1* | -1} | -1}",
+       "black/epoff": "{{-1* | -1} | -1}"
+      },
+      "cylinder_textbook": "↓",
+      "cylinder_aware": "↓"
+     }
+    ]
+   },
+   {
+    "kind": "tiny, non-number subscript",
+    "label": "1 + tiny(3±1)",
+    "count": 1,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: b3 c2 e2 / B: a6 d6 e6",
+      "width": 5,
+      "npawns": 6,
+      "value": "{1 | {1 | -2±1}}",
+      "robust": {
+       "same_in": 1,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-aware"
+       ]
+      },
+      "other_test_value": "{1 | 1/2±1/2}",
+      "values_by_setting": {
+       "count/epon-textbook": "{1 | 1/2±1/2}",
+       "count/epon-aware": "{1 | {1 | -2±1}}",
+       "count/epoff": "{1 | 1/2±1/2}",
+       "mover/epon-textbook": "3/2",
+       "mover/epon-aware": "3/2",
+       "mover/epoff": "3/2",
+       "opponent/epon-textbook": "{1 | {1 | 1*}}",
+       "opponent/epon-aware": "{1 | {1 | 1*}}",
+       "opponent/epoff": "{1 | {1 | 1*}}",
+       "white/epon-textbook": "{{+W | +W, {+W | +W, {+W | +W, {+W | +W, {+W, {+W | -W, {+W | -W, ±+W}} | -W, {+W | -W, {+W | -W, ±+W}}}}}}}, {{+W | +W, {+W | +W, {+W | +W, {+W | +W, {+W, {+W | -W, {+W | -W, ±+W}} | -W, {+W | -W, {+W | -W, ±+W}}}}}}} | +W} | +W}",
+       "white/epon-aware": "{{+W | +W, {+W, {+W | +W, {+W | +W, {+W, ±+W | -W, ±+W}}}, {+W, {+W, +W* | +W*, {+W* | -W*}} | +W, {+W | +W, {+W | -W, {+W | -W, ±+W}}}} | 0}} | +W}",
+       "white/epoff": "{{+W | +W, {+W | +W, {+W | +W, {+W | +W, {+W, {+W | -W, {+W | -W, ±+W}} | -W, {+W | -W, {+W | -W, ±+W}}}}}}}, {{+W | +W, {+W | +W, {+W | +W, {+W | +W, {+W, {+W | -W, {+W | -W, ±+W}} | -W, {+W | -W, {+W | -W, ±+W}}}}}}} | +W} | +W}",
+       "black/epon-textbook": "{⇑ | *}",
+       "black/epon-aware": "{⇑ | {-1* | -3*}}",
+       "black/epoff": "{⇑ | *}"
+      },
+      "cylinder_textbook": "{+W | {+W | 1*}, {{{+W | +W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}} | +W} | +W}}",
+      "cylinder_aware": "{+W | {{+W | +W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}, {{+W | +W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}} | +W} | -3*}, {{{+W | +W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}} | +W} | +W}}"
+     }
+    ]
+   },
+   {
+    "kind": "tiny, non-number subscript",
+    "label": "1 + tiny({1 | 1, 1*})",
+    "count": 2,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: a2 c4 e2 / B: a7 b6 d6",
+      "width": 5,
+      "npawns": 6,
+      "value": "{1 | {1 | ↑*}}",
+      "robust": {
+       "same_in": 7,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "mover/epon-aware",
+        "black/epon-textbook",
+        "black/epon-aware",
+        "black/epoff"
+       ]
+      },
+      "other_test_value": "{1 | {1 | ↑*}}",
+      "values_by_setting": {
+       "count/epon-textbook": "{1 | {1 | ↑*}}",
+       "count/epon-aware": "{1 | {1 | ↑*}}",
+       "count/epoff": "{1 | {1 | ↑*}}",
+       "mover/epon-textbook": "9/8",
+       "mover/epon-aware": "{1 | {1 | ↑*}}",
+       "mover/epoff": "9/8",
+       "opponent/epon-textbook": "2",
+       "opponent/epon-aware": "2",
+       "opponent/epoff": "2",
+       "white/epon-textbook": "2",
+       "white/epon-aware": "2",
+       "white/epoff": "2",
+       "black/epon-textbook": "{1 | {1 | ↑*}}",
+       "black/epon-aware": "{1 | {1 | ↑*}}",
+       "black/epoff": "{1 | {1 | ↑*}}"
+      },
+      "cylinder_textbook": "15/16",
+      "cylinder_aware": "15/16"
+     },
+     {
+      "position": "W: a2 c4 e2 / B: b7 d6 e6",
+      "width": 5,
+      "npawns": 6,
+      "value": "{1 | {1 | ↑*}}",
+      "robust": {
+       "same_in": 3,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff"
+       ]
+      },
+      "other_test_value": "{1 | {1 | ↑*}}",
+      "values_by_setting": {
+       "count/epon-textbook": "{1 | {1 | ↑*}}",
+       "count/epon-aware": "{1 | {1 | ↑*}}",
+       "count/epoff": "{1 | {1 | ↑*}}",
+       "mover/epon-textbook": "1/2",
+       "mover/epon-aware": "↑",
+       "mover/epoff": "1/2",
+       "opponent/epon-textbook": "{1 | {1 | 1*}}",
+       "opponent/epon-aware": "{1 | {1 | 1*}}",
+       "opponent/epoff": "{1 | {1 | 1*}}",
+       "white/epon-textbook": "{1 | {1 | 1*}}",
+       "white/epon-aware": "{1 | {1 | 1*}}",
+       "white/epoff": "{1 | {1 | 1*}}",
+       "black/epon-textbook": "↑",
+       "black/epon-aware": "↑",
+       "black/epoff": "↑"
+      },
+      "cylinder_textbook": "↑",
+      "cylinder_aware": "↑"
+     }
+    ]
+   },
+   {
+    "kind": "tiny, non-number subscript",
+    "label": "miny(1*)",
+    "count": 7,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: a2 b4 d3 / B: a4 c7 e7",
+      "width": 5,
+      "npawns": 6,
+      "value": "{{1* | 0} | 0}",
+      "robust": {
+       "same_in": 2,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-aware",
+        "white/epon-aware"
+       ]
+      },
+      "other_test_value": "-1/2",
+      "values_by_setting": {
+       "count/epon-textbook": "-1/2",
+       "count/epon-aware": "{{1* | 0} | 0}",
+       "count/epoff": "-1/2",
+       "mover/epon-textbook": "-1/2",
+       "mover/epon-aware": "↓",
+       "mover/epoff": "-1/2",
+       "opponent/epon-textbook": "-1/2",
+       "opponent/epon-aware": "↓",
+       "opponent/epoff": "-1/2",
+       "white/epon-textbook": "{↓* | -3/8}",
+       "white/epon-aware": "{{1* | 0} | 0}",
+       "white/epoff": "{↓* | -3/8}",
+       "black/epon-textbook": "-1/2",
+       "black/epon-aware": "{↓* | -1/2*}",
+       "black/epoff": "-1/2"
+      },
+      "cylinder_textbook": "{{1* | 0} | 0}",
+      "cylinder_aware": "{{1* | 0} | 0}"
+     },
+     {
+      "position": "W: a4 c3 e2 / B: b7 d7 e4",
+      "width": 5,
+      "npawns": 6,
+      "value": "{{1* | 0} | 0}",
+      "robust": {
+       "same_in": 9,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "opponent/epon-textbook",
+        "opponent/epon-aware",
+        "opponent/epoff",
+        "white/epon-textbook",
+        "white/epon-aware",
+        "white/epoff"
+       ]
+      },
+      "other_test_value": "{{1* | 0} | 0}",
+      "values_by_setting": {
+       "count/epon-textbook": "{{1* | 0} | 0}",
+       "count/epon-aware": "{{1* | 0} | 0}",
+       "count/epoff": "{{1* | 0} | 0}",
+       "mover/epon-textbook": "-1/2",
+       "mover/epon-aware": "{↓* | -1/2*}",
+       "mover/epoff": "-1/2",
+       "opponent/epon-textbook": "{{1* | 0} | 0}",
+       "opponent/epon-aware": "{{1* | 0} | 0}",
+       "opponent/epoff": "{{1* | 0} | 0}",
+       "white/epon-textbook": "{{1* | 0} | 0}",
+       "white/epon-aware": "{{1* | 0} | 0}",
+       "white/epoff": "{{1* | 0} | 0}",
+       "black/epon-textbook": "-1/2",
+       "black/epon-aware": "{↓* | -1/2*}",
+       "black/epoff": "-1/2"
+      },
+      "cylinder_textbook": "{{1* | 0} | 0}",
+      "cylinder_aware": "{{1* | 0} | 0}"
+     },
+     {
+      "position": "W: a5 b3 d2 / B: a7 c7 e5",
+      "width": 5,
+      "npawns": 6,
+      "value": "{{1* | 0} | 0}",
+      "robust": {
+       "same_in": 9,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "opponent/epon-textbook",
+        "opponent/epon-aware",
+        "opponent/epoff",
+        "white/epon-textbook",
+        "white/epon-aware",
+        "white/epoff"
+       ]
+      },
+      "other_test_value": "{{1* | 0} | 0}",
+      "values_by_setting": {
+       "count/epon-textbook": "{{1* | 0} | 0}",
+       "count/epon-aware": "{{1* | 0} | 0}",
+       "count/epoff": "{{1* | 0} | 0}",
+       "mover/epon-textbook": "{↓* | -1/2*}",
+       "mover/epon-aware": "{↓* | -1/2*}",
+       "mover/epoff": "{-1/4* | -1/2*}",
+       "opponent/epon-textbook": "{{1* | 0} | 0}",
+       "opponent/epon-aware": "{{1* | 0} | 0}",
+       "opponent/epoff": "{{1* | 0} | 0}",
+       "white/epon-textbook": "{{1* | 0} | 0}",
+       "white/epon-aware": "{{1* | 0} | 0}",
+       "white/epoff": "{{1* | 0} | 0}",
+       "black/epon-textbook": "{↓* | -1/2*}",
+       "black/epon-aware": "{↓* | -1/2*}",
+       "black/epoff": "-1/2"
+      },
+      "cylinder_textbook": "↓",
+      "cylinder_aware": "{{1* | 0} | 0}"
+     },
+     {
+      "position": "W: a5 b3 e4 / B: a7 c7 d7",
+      "width": 5,
+      "npawns": 6,
+      "value": "{{1* | 0} | 0}",
+      "robust": {
+       "same_in": 2,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-aware",
+        "white/epon-aware"
+       ]
+      },
+      "other_test_value": "-1/2",
+      "values_by_setting": {
+       "count/epon-textbook": "-1/2",
+       "count/epon-aware": "{{1* | 0} | 0}",
+       "count/epoff": "-1/2",
+       "mover/epon-textbook": "-3*",
+       "mover/epon-aware": "{-1/2* | -2*}",
+       "mover/epoff": "-3*",
+       "opponent/epon-textbook": "{-W | {-W, {-W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W} | -W} | -W}}",
+       "opponent/epon-aware": "{* | {{* | {-W, {+W, {+W, ±+W | -W} | -W, {+W, ±+W | -W}} | -W}}, {-W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W} | -W} | -W}}",
+       "opponent/epoff": "{-W | {-W, {-W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W} | -W} | -W}}",
+       "white/epon-textbook": "-1/2",
+       "white/epon-aware": "{{1* | 0} | 0}",
+       "white/epoff": "-1/2",
+       "black/epon-textbook": "{{{+W, {+W, {+W, ±+W | -W} | -W, {+W, {+W, ±+W | -W} | -W}} | -W, {+W, {+W, ±+W | -W} | -W, {+W, {+W, ±+W | -W} | -W}}} | -W} | -W}",
+       "black/epon-aware": "{-W | {-W, {-W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, {+W, ±+W | -W} | -W} | -W}} | -W} | -W}}",
+       "black/epoff": "{{{+W, {+W, {+W, ±+W | -W} | -W, {+W, {+W, ±+W | -W} | -W}} | -W, {+W, {+W, ±+W | -W} | -W, {+W, {+W, ±+W | -W} | -W}}} | -W} | -W}"
+      },
+      "cylinder_textbook": "{{{+W, {+W, {+W, {+W, ±+W | -W, {+W, ±+W | -W}} | -W, ±+W} | -W, ±+W} | -W, {-W, {+W, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W} | -W, ±+W} | {{-W | -W, {-W | -W, -W*}} | -W}}} | -W} | -W}",
+      "cylinder_aware": "{1 | {{-W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W} | -W}, {1 | {-W, {+W, {+W, ±+W | -W} | -W, {+W, ±+W | -W, {+W, ±+W | -W}}} | -W}} | -W}}"
+     },
+     {
+      "position": "W: b3 c5 d2 / B: a7 c7 e5",
+      "width": 5,
+      "npawns": 6,
+      "value": "{{1* | 0} | 0}",
+      "robust": {
+       "same_in": 3,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-aware",
+        "opponent/epon-aware",
+        "white/epon-aware"
+       ]
+      },
+      "other_test_value": "-1/2",
+      "values_by_setting": {
+       "count/epon-textbook": "-1/2",
+       "count/epon-aware": "{{1* | 0} | 0}",
+       "count/epoff": "-1/2",
+       "mover/epon-textbook": "-1/2",
+       "mover/epon-aware": "{↓* | -1/2*}",
+       "mover/epoff": "-1/2",
+       "opponent/epon-textbook": "-1/2",
+       "opponent/epon-aware": "{{1* | 0} | 0}",
+       "opponent/epoff": "-1/2",
+       "white/epon-textbook": "-1/2",
+       "white/epon-aware": "{{1* | 0} | 0}",
+       "white/epoff": "-1/2",
+       "black/epon-textbook": "-1/2",
+       "black/epon-aware": "{↓* | -1/2*}",
+       "black/epoff": "-1/2"
+      },
+      "cylinder_textbook": "{-1 | {-W | {-W, {+W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W} | -W, {+W, {+W, {+W, ±+W | -W} | -W} | -W}} | -W}}}",
+      "cylinder_aware": "{{1* | 0} | {-W | {-W, {+W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W} | -W, {+W, {+W, {+W, ±+W | -W} | -W} | -W}} | -W}}}"
+     },
+     {
+      "position": "W: b3 c5 d3 / B: a7 c7 e6",
+      "width": 5,
+      "npawns": 6,
+      "value": "{{1* | 0} | 0}",
+      "robust": {
+       "same_in": 3,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-aware",
+        "opponent/epon-aware",
+        "white/epon-aware"
+       ]
+      },
+      "other_test_value": "-1/2",
+      "values_by_setting": {
+       "count/epon-textbook": "-1/2",
+       "count/epon-aware": "{{1* | 0} | 0}",
+       "count/epoff": "-1/2",
+       "mover/epon-textbook": "-1/2",
+       "mover/epon-aware": "{↓* | -1/2*}",
+       "mover/epoff": "-1/2",
+       "opponent/epon-textbook": "-1/2",
+       "opponent/epon-aware": "{{1* | 0} | 0}",
+       "opponent/epoff": "-1/2",
+       "white/epon-textbook": "-1/2",
+       "white/epon-aware": "{{1* | 0} | 0}",
+       "white/epoff": "-1/2",
+       "black/epon-textbook": "-1/2",
+       "black/epon-aware": "{↓* | -1/2*}",
+       "black/epoff": "-1/2"
+      },
+      "cylinder_textbook": "-1*",
+      "cylinder_aware": "-1*"
+     },
+     {
+      "position": "W: b3 c5 e2 / B: a7 c7 d5",
+      "width": 5,
+      "npawns": 6,
+      "value": "{{1* | 0} | 0}",
+      "robust": {
+       "same_in": 2,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-aware",
+        "white/epon-aware"
+       ]
+      },
+      "other_test_value": "-1/2",
+      "values_by_setting": {
+       "count/epon-textbook": "-1/2",
+       "count/epon-aware": "{{1* | 0} | 0}",
+       "count/epoff": "-1/2",
+       "mover/epon-textbook": "1/2*",
+       "mover/epon-aware": "{↓* | -1/2*}",
+       "mover/epoff": "1/2*",
+       "opponent/epon-textbook": "-1/2",
+       "opponent/epon-aware": "↓",
+       "opponent/epoff": "-1/2",
+       "white/epon-textbook": "1/2*",
+       "white/epon-aware": "{{1* | 0} | 0}",
+       "white/epoff": "1/2*",
+       "black/epon-textbook": "-1/2",
+       "black/epon-aware": "{↓* | -1/2*}",
+       "black/epoff": "-1/2"
+      },
+      "cylinder_textbook": "↓",
+      "cylinder_aware": "{{1* | 0} | 0}"
+     }
+    ]
+   },
+   {
+    "kind": "tiny, non-number subscript",
+    "label": "miny(3±1)",
+    "count": 1,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: a3 d3 e2 / B: b6 c7 e7",
+      "width": 5,
+      "npawns": 6,
+      "value": "{{3±1 | 0} | 0}",
+      "robust": {
+       "same_in": 1,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-aware"
+       ]
+      },
+      "other_test_value": "miny(1)",
+      "values_by_setting": {
+       "count/epon-textbook": "miny(1)",
+       "count/epon-aware": "{{3±1 | 0} | 0}",
+       "count/epoff": "miny(1)",
+       "mover/epon-textbook": "-1",
+       "mover/epon-aware": "-1",
+       "mover/epoff": "-1",
+       "opponent/epon-textbook": "-1",
+       "opponent/epon-aware": "-1",
+       "opponent/epoff": "-1",
+       "white/epon-textbook": "{1* | *}",
+       "white/epon-aware": "{{4* | 2*} | *}",
+       "white/epoff": "{1* | *}",
+       "black/epon-textbook": "{{-W | {-W | {-W | {-W, ±+W | -W}}, {-W, {+W, {+W, ±+W | -W} | -W} | -W}}, {-W | {-W, {-W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, {+W, ±+W | -W} | -W} | -W}} | -W} | -W}}} | {-W, {-W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, {+W, ±+W | -W} | -W} | -W}} | -W} | -W}, {{-W | {-W | {-W, {{+W | {+W, {+W, ±+W | -W} | -W, {+W, {+W, ±+W | -W} | -W, {+W, ±+W | -W}}}, {-W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W}} | -W}} | -W} | -W}}, {-W, {{+W | {+W, {+W, ±+W | -W} | -W, {+W, {+W, ±+W | -W} | -W, {+W, ±+W | -W}}}, {-W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W}} | -W}} | -W} | -W}}, {2* | -W} | -W}}",
+       "black/epon-aware": "{{-W | {-W | {-W | {-W, ±+W | -W}}, {-W, {+W, {+W, ±+W | -W} | -W} | -W}}, {-W | {{* | {-W, {+W | -W, {↓ | {-W* | -W}}} | {-W* | -W}}, {-W, {+W, ±+W | -W, {+W | -W, {↓ | {-W* | -W}}}} | -W}}, {-W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, {+W, ±+W | -W} | -W} | -W}} | -W} | -W}}} | {-W | {{* | {-W, {+W | -W, {↓ | {-W* | -W}}} | {-W* | -W}}, {-W, {+W, ±+W | -W, {+W | -W, {↓ | {-W* | -W}}}} | -W}}, {-W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, {+W, ±+W | -W} | -W} | -W}} | -W} | -W}}, {{* | {-W, {+W | -W, {↓ | {-W* | -W}}} | {-W* | -W}}, {-W, {+W, ±+W | -W, {+W | -W, {↓ | {-W* | -W}}}} | -W}}, {-W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, {+W, ±+W | -W} | -W} | -W}} | -W} | -W}}",
+       "black/epoff": "{{-W | {-W | {-W | {-W, ±+W | -W}}, {-W, {+W, {+W, ±+W | -W} | -W} | -W}}, {-W | {-W, {-W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, {+W, ±+W | -W} | -W} | -W}} | -W} | -W}}} | {-W, {-W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, {+W, ±+W | -W} | -W} | -W}} | -W} | -W}, {{-W | {-W | {-W, {{+W | {+W, {+W, ±+W | -W} | -W, {+W, {+W, ±+W | -W} | -W, {+W, ±+W | -W}}}, {-W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W}} | -W}} | -W} | -W}}, {-W, {{+W | {+W, {+W, ±+W | -W} | -W, {+W, {+W, ±+W | -W} | -W, {+W, ±+W | -W}}}, {-W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W}} | -W}} | -W} | -W}}, {2* | -W} | -W}}"
+      },
+      "cylinder_textbook": "{{-1* | -W}, {-W | {-W | {-W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W} | -W}}} | -W}",
+      "cylinder_aware": "{{-W | {-W | {-W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W} | -W}}}, {4* | {-W | {-W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W} | -W}}, {-W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W} | -W}} | -W}"
+     }
+    ]
+   },
+   {
+    "kind": "tiny, non-number subscript",
+    "label": "tiny(1*)",
+    "count": 7,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: a2 c2 d2 / B: a4 b6 e5",
+      "width": 5,
+      "npawns": 6,
+      "value": "{0 | {0 | -1*}}",
+      "robust": {
+       "same_in": 2,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-aware",
+        "black/epon-aware"
+       ]
+      },
+      "other_test_value": "1/2",
+      "values_by_setting": {
+       "count/epon-textbook": "1/2",
+       "count/epon-aware": "{0 | {0 | -1*}}",
+       "count/epoff": "1/2",
+       "mover/epon-textbook": "3*",
+       "mover/epon-aware": "{2* | 1/2*}",
+       "mover/epoff": "3*",
+       "opponent/epon-textbook": "{{+W | +W, {+W | +W, {+W | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}}} | +W}",
+       "opponent/epon-aware": "{{+W | {+W | +W, {+W | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}}, {{+W | +W, {+W, {+W | -W, ±+W} | -W, {+W | -W, ±+W}}} | *}} | *}",
+       "opponent/epoff": "{{+W | +W, {+W | +W, {+W | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}}} | +W}",
+       "white/epon-textbook": "{+W | {+W | {+W, {+W, {+W | -W, {+W | -W, ±+W}} | -W, {+W | -W, ±+W}} | -W, {+W, {+W | -W, {+W | -W, ±+W}} | -W, {+W | -W, ±+W}}}}}",
+       "white/epon-aware": "{{+W | +W, {+W | +W, {+W, {+W | -W, {+W | -W, {+W | -W, ±+W}}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}}} | +W}",
+       "white/epoff": "{+W | {+W | {+W, {+W, {+W | -W, {+W | -W, ±+W}} | -W, {+W | -W, ±+W}} | -W, {+W, {+W | -W, {+W | -W, ±+W}} | -W, {+W | -W, ±+W}}}}}",
+       "black/epon-textbook": "1/2",
+       "black/epon-aware": "{0 | {0 | -1*}}",
+       "black/epoff": "1/2"
+      },
+      "cylinder_textbook": "{+W | {+W | {+W, {{+W | {+W, {+W, +W* | +W} | +W}} | +W, {+W, ±+W | -W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}}}} | -W, {+W, ±+W | -W, {+W, ±+W | -W, {+W, {+W | -W, ±+W} | -W, ±+W}}}}}}",
+      "cylinder_aware": "{{+W | {+W | +W, {+W | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}}, {{+W | +W, {+W, {+W, {+W | -W, ±+W} | -W, ±+W} | -W, {+W | -W, ±+W}}} | -1}} | -1}"
+     },
+     {
+      "position": "W: a3 c2 e2 / B: b6 c4 d6",
+      "width": 5,
+      "npawns": 6,
+      "value": "{0 | {0 | -1*}}",
+      "robust": {
+       "same_in": 3,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-aware",
+        "opponent/epon-aware",
+        "black/epon-aware"
+       ]
+      },
+      "other_test_value": "1/2",
+      "values_by_setting": {
+       "count/epon-textbook": "1/2",
+       "count/epon-aware": "{0 | {0 | -1*}}",
+       "count/epoff": "1/2",
+       "mover/epon-textbook": "1/2",
+       "mover/epon-aware": "{1/2* | ↑*}",
+       "mover/epoff": "1/2",
+       "opponent/epon-textbook": "1/2",
+       "opponent/epon-aware": "{0 | {0 | -1*}}",
+       "opponent/epoff": "1/2",
+       "white/epon-textbook": "1/2",
+       "white/epon-aware": "{1/2* | ↑*}",
+       "white/epoff": "1/2",
+       "black/epon-textbook": "1/2",
+       "black/epon-aware": "{0 | {0 | -1*}}",
+       "black/epoff": "1/2"
+      },
+      "cylinder_textbook": "1*",
+      "cylinder_aware": "1*"
+     },
+     {
+      "position": "W: a4 c2 e2 / B: b7 c4 d6",
+      "width": 5,
+      "npawns": 6,
+      "value": "{0 | {0 | -1*}}",
+      "robust": {
+       "same_in": 3,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-aware",
+        "opponent/epon-aware",
+        "black/epon-aware"
+       ]
+      },
+      "other_test_value": "1/2",
+      "values_by_setting": {
+       "count/epon-textbook": "1/2",
+       "count/epon-aware": "{0 | {0 | -1*}}",
+       "count/epoff": "1/2",
+       "mover/epon-textbook": "1/2",
+       "mover/epon-aware": "{1/2* | ↑*}",
+       "mover/epoff": "1/2",
+       "opponent/epon-textbook": "1/2",
+       "opponent/epon-aware": "{0 | {0 | -1*}}",
+       "opponent/epoff": "1/2",
+       "white/epon-textbook": "1/2",
+       "white/epon-aware": "{1/2* | ↑*}",
+       "white/epoff": "1/2",
+       "black/epon-textbook": "1/2",
+       "black/epon-aware": "{0 | {0 | -1*}}",
+       "black/epoff": "1/2"
+      },
+      "cylinder_textbook": "{{{+W | +W, {+W, {+W | -W, {+W | -W, {+W | -W, ±+W}}} | -W, {+W | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}}} | +W} | 1}",
+      "cylinder_aware": "{{{+W | +W, {+W, {+W | -W, {+W | -W, {+W | -W, ±+W}}} | -W, {+W | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}}} | +W} | {0 | -1*}}"
+     },
+     {
+      "position": "W: a4 c2 e2 / B: b7 d6 e4",
+      "width": 5,
+      "npawns": 6,
+      "value": "{0 | {0 | -1*}}",
+      "robust": {
+       "same_in": 9,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "opponent/epon-textbook",
+        "opponent/epon-aware",
+        "opponent/epoff",
+        "black/epon-textbook",
+        "black/epon-aware",
+        "black/epoff"
+       ]
+      },
+      "other_test_value": "{0 | {0 | -1*}}",
+      "values_by_setting": {
+       "count/epon-textbook": "{0 | {0 | -1*}}",
+       "count/epon-aware": "{0 | {0 | -1*}}",
+       "count/epoff": "{0 | {0 | -1*}}",
+       "mover/epon-textbook": "{1/2* | ↑*}",
+       "mover/epon-aware": "{1/2* | ↑*}",
+       "mover/epoff": "{1/2* | 1/4*}",
+       "opponent/epon-textbook": "{0 | {0 | -1*}}",
+       "opponent/epon-aware": "{0 | {0 | -1*}}",
+       "opponent/epoff": "{0 | {0 | -1*}}",
+       "white/epon-textbook": "{1/2* | ↑*}",
+       "white/epon-aware": "{1/2* | ↑*}",
+       "white/epoff": "1/2",
+       "black/epon-textbook": "{0 | {0 | -1*}}",
+       "black/epon-aware": "{0 | {0 | -1*}}",
+       "black/epoff": "{0 | {0 | -1*}}"
+      },
+      "cylinder_textbook": "↑",
+      "cylinder_aware": "{0 | {0 | -1*}}"
+     },
+     {
+      "position": "W: a5 b2 d2 / B: a7 c6 e5",
+      "width": 5,
+      "npawns": 6,
+      "value": "{0 | {0 | -1*}}",
+      "robust": {
+       "same_in": 9,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "opponent/epon-textbook",
+        "opponent/epon-aware",
+        "opponent/epoff",
+        "black/epon-textbook",
+        "black/epon-aware",
+        "black/epoff"
+       ]
+      },
+      "other_test_value": "{0 | {0 | -1*}}",
+      "values_by_setting": {
+       "count/epon-textbook": "{0 | {0 | -1*}}",
+       "count/epon-aware": "{0 | {0 | -1*}}",
+       "count/epoff": "{0 | {0 | -1*}}",
+       "mover/epon-textbook": "1/2",
+       "mover/epon-aware": "{1/2* | ↑*}",
+       "mover/epoff": "1/2",
+       "opponent/epon-textbook": "{0 | {0 | -1*}}",
+       "opponent/epon-aware": "{0 | {0 | -1*}}",
+       "opponent/epoff": "{0 | {0 | -1*}}",
+       "white/epon-textbook": "1/2",
+       "white/epon-aware": "{1/2* | ↑*}",
+       "white/epoff": "1/2",
+       "black/epon-textbook": "{0 | {0 | -1*}}",
+       "black/epon-aware": "{0 | {0 | -1*}}",
+       "black/epoff": "{0 | {0 | -1*}}"
+      },
+      "cylinder_textbook": "{0 | {0 | -1*}}",
+      "cylinder_aware": "{0 | {0 | -1*}}"
+     },
+     {
+      "position": "W: a5 c2 e2 / B: a7 b5 d6",
+      "width": 5,
+      "npawns": 6,
+      "value": "{0 | {0 | -1*}}",
+      "robust": {
+       "same_in": 2,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-aware",
+        "black/epon-aware"
+       ]
+      },
+      "other_test_value": "1/2",
+      "values_by_setting": {
+       "count/epon-textbook": "1/2",
+       "count/epon-aware": "{0 | {0 | -1*}}",
+       "count/epoff": "1/2",
+       "mover/epon-textbook": "1/2",
+       "mover/epon-aware": "↑",
+       "mover/epoff": "1/2",
+       "opponent/epon-textbook": "1/2",
+       "opponent/epon-aware": "↑",
+       "opponent/epoff": "1/2",
+       "white/epon-textbook": "1/2",
+       "white/epon-aware": "{1/2* | ↑*}",
+       "white/epoff": "1/2",
+       "black/epon-textbook": "{3/8 | ↑*}",
+       "black/epon-aware": "{0 | {0 | -1*}}",
+       "black/epoff": "{3/8 | ↑*}"
+      },
+      "cylinder_textbook": "{0 | {0 | -1*}}",
+      "cylinder_aware": "{0 | {0 | -1*}}"
+     },
+     {
+      "position": "W: b4 c2 e2 / B: a7 c4 d6",
+      "width": 5,
+      "npawns": 6,
+      "value": "{0 | {0 | -1*}}",
+      "robust": {
+       "same_in": 2,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-aware",
+        "black/epon-aware"
+       ]
+      },
+      "other_test_value": "1/2",
+      "values_by_setting": {
+       "count/epon-textbook": "1/2",
+       "count/epon-aware": "{0 | {0 | -1*}}",
+       "count/epoff": "1/2",
+       "mover/epon-textbook": "-1/2*",
+       "mover/epon-aware": "{1/2* | ↑*}",
+       "mover/epoff": "-1/2*",
+       "opponent/epon-textbook": "1/2",
+       "opponent/epon-aware": "↑",
+       "opponent/epoff": "1/2",
+       "white/epon-textbook": "1/2",
+       "white/epon-aware": "{1/2* | ↑*}",
+       "white/epoff": "1/2",
+       "black/epon-textbook": "-1/2*",
+       "black/epon-aware": "{0 | {0 | -1*}}",
+       "black/epoff": "-1/2*"
+      },
+      "cylinder_textbook": "↑",
+      "cylinder_aware": "{0 | {0 | -1*}}"
+     }
+    ]
+   },
+   {
+    "kind": "tiny, non-number subscript",
+    "label": "tiny(3±1)",
+    "count": 1,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: b3 c2 e2 / B: a6 d6 e7",
+      "width": 5,
+      "npawns": 6,
+      "value": "{0 | {0 | -3±1}}",
+      "robust": {
+       "same_in": 1,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-aware"
+       ]
+      },
+      "other_test_value": "tiny(1)",
+      "values_by_setting": {
+       "count/epon-textbook": "tiny(1)",
+       "count/epon-aware": "{0 | {0 | -3±1}}",
+       "count/epoff": "tiny(1)",
+       "mover/epon-textbook": "1",
+       "mover/epon-aware": "1",
+       "mover/epoff": "1",
+       "opponent/epon-textbook": "1",
+       "opponent/epon-aware": "1",
+       "opponent/epoff": "1",
+       "white/epon-textbook": "{{+W | +W, {+W | +W, {+W, {+W | -W, {+W | -W, {+W | -W, ±+W}}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}}}, {+W | {+W | -2*}, {{+W | +W, {+W | {{+W | +W, {+W, {+W | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}}, {+W, {+W, {+W | -W, ±+W} | -W, {+W | -W, ±+W}} | -W, {+W | -W, ±+W}} | -W}}}, {{+W | +W, {+W | {{+W | +W, {+W, {+W | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}}, {+W, {+W, {+W | -W, ±+W} | -W, {+W | -W, ±+W}} | -W, {+W | -W, ±+W}} | -W}}} | +W} | +W}} | {{{+W | +W, {+W | +W, {+W, {+W | -W, {+W | -W, {+W | -W, ±+W}}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}}} | +W}, {{+W | +W, {+W | -W, {+W | -W, ±+W}}}, {{+W | +W, ±+W} | +W} | +W} | +W}}",
+       "white/epon-aware": "{{+W | {+W | +W, {+W, {+W | -W, {+W | -W, {+W | -W, ±+W}}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}}, {{+W | +W, {+W, {+W, {{+W | +W*} | ↑} | -W} | -W, ±+W}}, {{+W | +W*} | +W, {+W, {{+W | +W*} | ↑} | -W}} | *}}, {{+W | {+W | +W, {+W, {+W | -W, {+W | -W, {+W | -W, ±+W}}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}}, {{+W | +W, {+W, {+W, {{+W | +W*} | ↑} | -W} | -W, ±+W}}, {{+W | +W*} | +W, {+W, {{+W | +W*} | ↑} | -W}} | *}} | +W} | {{{+W | +W, {+W | -W, {+W | -W, ±+W}}}, {{+W | +W, ±+W} | +W} | +W}, {{+W | {+W | +W, {+W, {+W | -W, {+W | -W, {+W | -W, ±+W}}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}}, {{+W | +W, {+W, {+W, {{+W | +W*} | ↑} | -W} | -W, ±+W}}, {{+W | +W*} | +W, {+W, {{+W | +W*} | ↑} | -W}} | *}} | +W} | +W}}",
+       "white/epoff": "{{+W | +W, {+W | +W, {+W, {+W | -W, {+W | -W, {+W | -W, ±+W}}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}}}, {+W | {+W | -2*}, {{+W | +W, {+W | {{+W | +W, {+W, {+W | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}}, {+W, {+W, {+W | -W, ±+W} | -W, {+W | -W, ±+W}} | -W, {+W | -W, ±+W}} | -W}}}, {{+W | +W, {+W | {{+W | +W, {+W, {+W | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}}, {+W, {+W, {+W | -W, ±+W} | -W, {+W | -W, ±+W}} | -W, {+W | -W, ±+W}} | -W}}} | +W} | +W}} | {{{+W | +W, {+W | +W, {+W, {+W | -W, {+W | -W, {+W | -W, ±+W}}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}}} | +W}, {{+W | +W, {+W | -W, {+W | -W, ±+W}}}, {{+W | +W, ±+W} | +W} | +W} | +W}}",
+       "black/epon-textbook": "{* | -1*}",
+       "black/epon-aware": "{* | {-2* | -4*}}",
+       "black/epoff": "{* | -1*}"
+      },
+      "cylinder_textbook": "{+W | {+W | 1*}, {{{+W | +W, {+W | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}} | +W} | +W}}",
+      "cylinder_aware": "{+W | {{+W | +W, {+W | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}}, {{+W | +W, {+W | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}} | +W} | -4*}, {{{+W | +W, {+W | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}} | +W} | +W}}"
+     }
+    ]
+   },
+   {
+    "kind": "up-second family",
+    "label": "-1 + ↑²",
+    "count": 1,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: a3 c3 d2 / B: b7 d6 e7",
+      "width": 5,
+      "npawns": 6,
+      "value": "{-1 | {-1 | -1, -1*}}",
+      "robust": {
+       "same_in": 9,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "mover/epon-aware",
+        "opponent/epon-textbook",
+        "opponent/epon-aware",
+        "opponent/epoff",
+        "white/epon-aware",
+        "black/epon-aware"
+       ]
+      },
+      "other_test_value": "{-1 | {-1 | -1, -1*}}",
+      "values_by_setting": {
+       "count/epon-textbook": "{-1 | {-1 | -1, -1*}}",
+       "count/epon-aware": "{-1 | {-1 | -1, -1*}}",
+       "count/epoff": "{-1 | {-1 | -1, -1*}}",
+       "mover/epon-textbook": "{-1, -1* | -1}",
+       "mover/epon-aware": "{-1 | {-1 | -1, -1*}}",
+       "mover/epoff": "{-1, -1* | -1}",
+       "opponent/epon-textbook": "{-1 | {-1 | -1, -1*}}",
+       "opponent/epon-aware": "{-1 | {-1 | -1, -1*}}",
+       "opponent/epoff": "{-1 | {-1 | -1, -1*}}",
+       "white/epon-textbook": "-3/4",
+       "white/epon-aware": "{-1 | {-1 | -1, -1*}}",
+       "white/epoff": "-3/4",
+       "black/epon-textbook": "{-1, -1* | {{-1* | -1} | -3/2}}",
+       "black/epon-aware": "{-1 | {-1 | -1, -1*}}",
+       "black/epoff": "{-1, -1* | {{-1* | -1} | -3/2}}"
+      },
+      "cylinder_textbook": "{{1 | 0, ↓*}, {{0 | {0 | {{+W | *, ±+W}, {{+W | +W, {+W, {+W, ±+W | -W, {+W, ±+W | -W}} | -W, {+W | -W, ±+W}}, ±+W} | 0} | -W}}, {{+W | *, ±+W}, {{+W | +W, {+W, {+W, ±+W | -W, {+W, ±+W | -W}} | -W, {+W | -W, ±+W}}, ±+W} | 0} | -W}} | 0} | -7/8}",
+      "cylinder_aware": "{{5/2±1/2 | 0, ↓*}, {{0 | {0 | {{+W | *, ±+W}, {+W, {+W | +W, {+W | +W, {+W | -W, ±+W}}, ±+W} | -W, {+W, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W} | -W, ±+W}}, {{+W | +W, {+W | +W, {+W | -W, ±+W}}, ±+W} | 0} | -W}}, {{+W | *, ±+W}, {+W, {+W | +W, {+W | +W, {+W | -W, ±+W}}, ±+W} | -W, {+W, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W} | -W, ±+W}}, {{+W | +W, {+W | +W, {+W | -W, ±+W}}, ±+W} | 0} | -W}} | 0} | -7/8}"
+     }
+    ]
+   },
+   {
+    "kind": "up-second family",
+    "label": "1 + ↓²",
+    "count": 1,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: a2 b3 d2 / B: b7 c6 e6",
+      "width": 5,
+      "npawns": 6,
+      "value": "{{1, 1* | 1} | 1}",
+      "robust": {
+       "same_in": 9,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "mover/epon-aware",
+        "opponent/epon-textbook",
+        "opponent/epon-aware",
+        "opponent/epoff",
+        "white/epon-aware",
+        "black/epon-aware"
+       ]
+      },
+      "other_test_value": "{{1, 1* | 1} | 1}",
+      "values_by_setting": {
+       "count/epon-textbook": "{{1, 1* | 1} | 1}",
+       "count/epon-aware": "{{1, 1* | 1} | 1}",
+       "count/epoff": "{{1, 1* | 1} | 1}",
+       "mover/epon-textbook": "{1 | 1, 1*}",
+       "mover/epon-aware": "{{1, 1* | 1} | 1}",
+       "mover/epoff": "{1 | 1, 1*}",
+       "opponent/epon-textbook": "{{1, 1* | 1} | 1}",
+       "opponent/epon-aware": "{{1, 1* | 1} | 1}",
+       "opponent/epoff": "{{1, 1* | 1} | 1}",
+       "white/epon-textbook": "{{3/2 | {1 | 1*}} | 1, 1*}",
+       "white/epon-aware": "{{1, 1* | 1} | 1}",
+       "white/epoff": "{{3/2 | {1 | 1*}} | 1, 1*}",
+       "black/epon-textbook": "3/4",
+       "black/epon-aware": "{{1, 1* | 1} | 1}",
+       "black/epoff": "3/4"
+      },
+      "cylinder_textbook": "{7/8 | {0 | {{+W | {*, ±+W | -W}, {0 | {-W, {+W, {+W, ±+W | -W} | -W, {+W, {+W | -W, ±+W} | -W, ±+W}}, ±+W | -W}}}, {{+W | {*, ±+W | -W}, {0 | {-W, {+W, {+W, ±+W | -W} | -W, {+W, {+W | -W, ±+W} | -W, ±+W}}, ±+W | -W}}} | 0} | 0}}, {0, ↑* | -1}}",
+      "cylinder_aware": "{7/8 | {0 | {{+W | {*, ±+W | -W}, {+W, {+W, ±+W | -W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}}} | -W, {-W, {-W, {+W, ±+W | -W} | -W}, ±+W | -W}}, {0 | {-W, {-W, {+W, ±+W | -W} | -W}, ±+W | -W}}}, {{+W | {*, ±+W | -W}, {+W, {+W, ±+W | -W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}}} | -W, {-W, {-W, {+W, ±+W | -W} | -W}, ±+W | -W}}, {0 | {-W, {-W, {+W, ±+W | -W} | -W}, ±+W | -W}}} | 0} | 0}}, {0, ↑* | -5/2±1/2}}"
+     }
+    ]
+   },
+   {
+    "kind": "up-second family",
+    "label": "↑ + ↑²",
+    "count": 1,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: a4 b3 d2 / B: b7 c7 e6",
+      "width": 5,
+      "npawns": 6,
+      "value": "{↑ | *}",
+      "robust": {
+       "same_in": 11,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "mover/epon-aware",
+        "opponent/epon-textbook",
+        "opponent/epon-aware",
+        "opponent/epoff",
+        "white/epon-textbook",
+        "white/epon-aware",
+        "white/epoff",
+        "black/epon-aware"
+       ]
+      },
+      "other_test_value": "{↑ | *}",
+      "values_by_setting": {
+       "count/epon-textbook": "{↑ | *}",
+       "count/epon-aware": "{↑ | *}",
+       "count/epoff": "{↑ | *}",
+       "mover/epon-textbook": "0",
+       "mover/epon-aware": "{↑ | *}",
+       "mover/epoff": "0",
+       "opponent/epon-textbook": "{↑ | *}",
+       "opponent/epon-aware": "{↑ | *}",
+       "opponent/epoff": "{↑ | *}",
+       "white/epon-textbook": "{↑ | *}",
+       "white/epon-aware": "{↑ | *}",
+       "white/epoff": "{↑ | *}",
+       "black/epon-textbook": "0",
+       "black/epon-aware": "{↑ | *}",
+       "black/epoff": "0"
+      },
+      "cylinder_textbook": "1/2±1/2",
+      "cylinder_aware": "1/2±1/2"
+     }
+    ]
+   },
+   {
+    "kind": "up-second family",
+    "label": "↑²",
+    "count": 3,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: a4 b2 e2 / B: b7 c6 d6",
+      "width": 5,
+      "npawns": 6,
+      "value": "{0 | ↓*}",
+      "robust": {
+       "same_in": 3,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff"
+       ]
+      },
+      "other_test_value": "{0 | ↓*}",
+      "values_by_setting": {
+       "count/epon-textbook": "{0 | ↓*}",
+       "count/epon-aware": "{0 | ↓*}",
+       "count/epoff": "{0 | ↓*}",
+       "mover/epon-textbook": "tiny(1)",
+       "mover/epon-aware": "tiny(1)",
+       "mover/epoff": "tiny(1)",
+       "opponent/epon-textbook": "0",
+       "opponent/epon-aware": "0",
+       "opponent/epoff": "0",
+       "white/epon-textbook": "1±1/2",
+       "white/epon-aware": "{{1 | 1*} | ↑}",
+       "white/epoff": "1±1/2",
+       "black/epon-textbook": "-2*",
+       "black/epon-aware": "{{{0 | 0, {0 | {-W | {-W, {+W, {+W, {+W, {+W, {+W, +W* | +W} | +W} | +W, +W*} | -W}, {+W, {+W, {+W, {+W, {+W, +W* | +W} | +W} | +W, +W*} | -W} | -W} | -W} | -W}}}} | 0} | -2}",
+       "black/epoff": "-2*"
+      },
+      "cylinder_textbook": "{{{+W | +W, {+W | +W, {+W, {+W | -W, {+W | -W, ±+W}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}, {+W, {+W | -W, ±+W} | -W, {-W, {-W | -W, {-W | -W, {-W | -W, -W*}}} | -W, {-W | -W, {-W | -W, {-W | -W, {-W | -W, {-W | -W, -W*}}}}}}}}, {+W, {+W, {+W, ±+W | -W, {+W | -W, ±+W}} | -W, {+W | -W, ±+W}} | -W, {+W | -W, ±+W}}} | +W} | {1* | *}}",
+      "cylinder_aware": "{{{+W | +W, {+W | +W, {+W, {+W | -W, {+W | -W, ±+W}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}, {+W, {+W | -W, ±+W} | -W, {-W, {-W | -W, {-W | -W, {-W | -W, -W*}}} | -W, {-W | -W, {-W | -W, {-W | -W, {-W | -W, {-W | -W, -W*}}}}}}}}, {+W, {+W, {+W, ±+W | -W, {+W | -W, ±+W}} | -W, {+W | -W, ±+W}} | -W, {+W | -W, ±+W}}} | +W} | {1* | *}}"
+     },
+     {
+      "position": "W: a4 c2 d2 / B: b7 c6 e5",
+      "width": 5,
+      "npawns": 6,
+      "value": "{0 | ↓*}",
+      "robust": {
+       "same_in": 10,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "mover/epon-aware",
+        "opponent/epon-textbook",
+        "opponent/epon-aware",
+        "opponent/epoff",
+        "black/epon-textbook",
+        "black/epon-aware",
+        "black/epoff"
+       ]
+      },
+      "other_test_value": "{0 | ↓*}",
+      "values_by_setting": {
+       "count/epon-textbook": "{0 | ↓*}",
+       "count/epon-aware": "{0 | ↓*}",
+       "count/epoff": "{0 | ↓*}",
+       "mover/epon-textbook": "↑",
+       "mover/epon-aware": "{0 | ↓*}",
+       "mover/epoff": "↑",
+       "opponent/epon-textbook": "{0 | ↓*}",
+       "opponent/epon-aware": "{0 | ↓*}",
+       "opponent/epoff": "{0 | ↓*}",
+       "white/epon-textbook": "{1* | *}",
+       "white/epon-aware": "{1* | ↓*}",
+       "white/epoff": "1",
+       "black/epon-textbook": "{0 | ↓*}",
+       "black/epon-aware": "{0 | ↓*}",
+       "black/epoff": "{0 | ↓*}"
+      },
+      "cylinder_textbook": "{+W, ±+W | -W, {+W, ±+W | -W, {+W, {+W, {+W | -W, ±+W} | -W, ±+W} | -W, ±+W}}}",
+      "cylinder_aware": "{+W, ±+W | -W, {+W, ±+W | -W, {+W, {+W, {+W | -W, ±+W} | -W, ±+W} | -W, ±+W}}}"
+     },
+     {
+      "position": "W: a4 d2 e2 / B: b7 c5 e6",
+      "width": 5,
+      "npawns": 6,
+      "value": "{0 | ↓*}",
+      "robust": {
+       "same_in": 4,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "black/epon-aware"
+       ]
+      },
+      "other_test_value": "{0 | ↓*}",
+      "values_by_setting": {
+       "count/epon-textbook": "{0 | ↓*}",
+       "count/epon-aware": "{0 | ↓*}",
+       "count/epoff": "{0 | ↓*}",
+       "mover/epon-textbook": "*",
+       "mover/epon-aware": "{3/8±1/8 | ↑}",
+       "mover/epoff": "*",
+       "opponent/epon-textbook": "⇑*",
+       "opponent/epon-aware": "⇑*",
+       "opponent/epoff": "⇑*",
+       "white/epon-textbook": "1",
+       "white/epon-aware": "{1* | 1/4*}",
+       "white/epoff": "1",
+       "black/epon-textbook": "{-1, -1* | {-1* | -1}}",
+       "black/epon-aware": "{0 | ↓*}",
+       "black/epoff": "{-1, -1* | {-1* | -1}}"
+      },
+      "cylinder_textbook": "2*",
+      "cylinder_aware": "2*"
+     }
+    ]
+   },
+   {
+    "kind": "up-second family",
+    "label": "↑² + *",
+    "count": 7,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: a2 c2 d2 / B: b5 d7 e4",
+      "width": 5,
+      "npawns": 6,
+      "value": "{*, 0 | ↓}",
+      "robust": {
+       "same_in": 3,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-aware",
+        "mover/epon-aware",
+        "black/epon-aware"
+       ]
+      },
+      "other_test_value": "1/2",
+      "values_by_setting": {
+       "count/epon-textbook": "1/2",
+       "count/epon-aware": "{*, 0 | ↓}",
+       "count/epoff": "{{1* | 1} | 1}",
+       "mover/epon-textbook": "{{+W | +W, {+W, {+W, ±+W | -W, {+W, ±+W | -W}} | -W, {+W, ±+W | -W}}} | {{+W, {+W, {+W, {+W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W} | -W, {+W, {+W, {+W, ±+W | -W} | -W} | -W}} | -W, {+W, {+W, ±+W | -W} | -W}} | -W, {+W, {+W, ±+W | -W} | -W}} | -W, {+W, {+W, ±+W | -W} | -W}}, {2* | 2} | -W}}",
+       "mover/epon-aware": "{*, 0 | ↓}",
+       "mover/epoff": "{{+W | +W, {+W, {+W, ±+W | -W, {+W, ±+W | -W}} | -W, {+W, ±+W | -W}}} | {{+W, {+W, {+W, {+W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W} | -W, {+W, {+W, {+W, ±+W | -W} | -W} | -W}} | -W, {+W, {+W, ±+W | -W} | -W}} | -W, {+W, {+W, ±+W | -W} | -W}} | -W, {+W, {+W, ±+W | -W} | -W}}, {2* | 2} | -W}}",
+       "opponent/epon-textbook": "1/2",
+       "opponent/epon-aware": "1/2",
+       "opponent/epoff": "{{{+W | +W, {+W, ±+W | -W, ±+W}} | 1} | 1}",
+       "white/epon-textbook": "+W",
+       "white/epon-aware": "1/2",
+       "white/epoff": "+W",
+       "black/epon-textbook": "1/2",
+       "black/epon-aware": "{*, 0 | ↓}",
+       "black/epoff": "{{1* | 1} | 1}"
+      },
+      "cylinder_textbook": "↑*",
+      "cylinder_aware": "{⇓ | 0}"
+     },
+     {
+      "position": "W: a4 b2 e2 / B: b6 c6 d6",
+      "width": 5,
+      "npawns": 6,
+      "value": "{*, 0 | ↓}",
+      "robust": {
+       "same_in": 3,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff"
+       ]
+      },
+      "other_test_value": "{*, 0 | ↓}",
+      "values_by_setting": {
+       "count/epon-textbook": "{*, 0 | ↓}",
+       "count/epon-aware": "{*, 0 | ↓}",
+       "count/epoff": "{*, 0 | ↓}",
+       "mover/epon-textbook": "-1/2±1/2",
+       "mover/epon-aware": "-1/2±1/2",
+       "mover/epoff": "-1/2±1/2",
+       "opponent/epon-textbook": "*",
+       "opponent/epon-aware": "*",
+       "opponent/epoff": "*",
+       "white/epon-textbook": "{{{+W | +W, {+W, {+W, ±+W | -W, ±+W}, ±+W | -W, ±+W}} | +W} | 1/2*}",
+       "white/epon-aware": "{{{+W | +W, {+W, {+W, ±+W | -W, ±+W}, ±+W | -W, ±+W}} | +W} | ↑*}",
+       "white/epoff": "{{{+W | +W, {+W, {+W, ±+W | -W, ±+W}, ±+W | -W, ±+W}} | +W} | 1/2*}",
+       "black/epon-textbook": "-2",
+       "black/epon-aware": "-2",
+       "black/epoff": "-2"
+      },
+      "cylinder_textbook": "{+W | {+W, {+W | ⇑} | {{+W, {+W | -W, ±+W}, {+W, {+W | -W, ±+W} | -W, {+W | -W, ±+W}} | -W, {-W, {-W, {+W | -W, {+W | -W, {+W | -W, ±+W}}} | -W} | -W}}, {-W, {+W | -W, ±+W} | -W, {-W, {+W | -W, {+W | -W, {+W | -W, ±+W}}} | -W}} | -W}}, {{{+W | +W, {+W | +W, {+W, ±+W | -W, {+W, ±+W | -W, {-W, {+W | -W, ±+W} | -W}}, ±+W}, ±+W}, ±+W} | +W} | 0}}",
+      "cylinder_aware": "{+W | {+W, {+W | ⇑} | {{+W, {+W | -W, ±+W}, {+W, {+W | -W, ±+W} | -W, {+W | -W, ±+W}} | -W, {-W, {-W, {+W | -W, {+W | -W, {+W | -W, ±+W}}} | -W} | -W}}, {-W, {+W | -W, ±+W} | -W, {-W, {+W | -W, {+W | -W, {+W | -W, ±+W}}} | -W}} | -W}}, {{{+W | +W, {+W | +W, {+W, ±+W | -W, {+W, ±+W | -W, {-W, {+W | -W, ±+W} | -W}}, ±+W}, ±+W}, ±+W} | +W} | 0}}"
+     },
+     {
+      "position": "W: a4 c2 d2 / B: b6 c6 e5",
+      "width": 5,
+      "npawns": 6,
+      "value": "{*, 0 | ↓}",
+      "robust": {
+       "same_in": 10,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "mover/epon-aware",
+        "opponent/epon-textbook",
+        "opponent/epon-aware",
+        "opponent/epoff",
+        "black/epon-textbook",
+        "black/epon-aware",
+        "black/epoff"
+       ]
+      },
+      "other_test_value": "{*, 0 | ↓}",
+      "values_by_setting": {
+       "count/epon-textbook": "{*, 0 | ↓}",
+       "count/epon-aware": "{*, 0 | ↓}",
+       "count/epoff": "{*, 0 | ↓}",
+       "mover/epon-textbook": "↑*",
+       "mover/epon-aware": "{*, 0 | ↓}",
+       "mover/epoff": "↑*",
+       "opponent/epon-textbook": "{*, 0 | ↓}",
+       "opponent/epon-aware": "{*, 0 | ↓}",
+       "opponent/epoff": "{*, 0 | ↓}",
+       "white/epon-textbook": "1/2±1/2",
+       "white/epon-aware": "{1 | ↓}",
+       "white/epoff": "1*",
+       "black/epon-textbook": "{*, 0 | ↓}",
+       "black/epon-aware": "{*, 0 | ↓}",
+       "black/epoff": "{*, 0 | ↓}"
+      },
+      "cylinder_textbook": "{+W, ±+W | -W, {+W, {+W, ±+W | -W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}}} | -W, ±+W}}",
+      "cylinder_aware": "{+W, ±+W | -W, {+W, {+W, ±+W | -W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}}} | -W, ±+W}}"
+     },
+     {
+      "position": "W: a4 d2 e2 / B: b6 c5 e6",
+      "width": 5,
+      "npawns": 6,
+      "value": "{*, 0 | ↓}",
+      "robust": {
+       "same_in": 6,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "black/epon-textbook",
+        "black/epon-aware",
+        "black/epoff"
+       ]
+      },
+      "other_test_value": "{*, 0 | ↓}",
+      "values_by_setting": {
+       "count/epon-textbook": "{*, 0 | ↓}",
+       "count/epon-aware": "{*, 0 | ↓}",
+       "count/epoff": "{*, 0 | ↓}",
+       "mover/epon-textbook": "1/4",
+       "mover/epon-aware": "⇑",
+       "mover/epoff": "1/4",
+       "opponent/epon-textbook": "⇑",
+       "opponent/epon-aware": "⇑",
+       "opponent/epoff": "⇑",
+       "white/epon-textbook": "1*",
+       "white/epon-aware": "5/8±3/8",
+       "white/epoff": "1*",
+       "black/epon-textbook": "{*, 0 | ↓}",
+       "black/epon-aware": "{*, 0 | ↓}",
+       "black/epoff": "{*, 0 | ↓}"
+      },
+      "cylinder_textbook": "3*",
+      "cylinder_aware": "3*"
+     },
+     {
+      "position": "W: a5 c2 d2 / B: b7 c6 e5",
+      "width": 5,
+      "npawns": 6,
+      "value": "{*, 0 | ↓}",
+      "robust": {
+       "same_in": 10,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "mover/epon-aware",
+        "opponent/epon-textbook",
+        "opponent/epon-aware",
+        "opponent/epoff",
+        "black/epon-textbook",
+        "black/epon-aware",
+        "black/epoff"
+       ]
+      },
+      "other_test_value": "{*, 0 | ↓}",
+      "values_by_setting": {
+       "count/epon-textbook": "{*, 0 | ↓}",
+       "count/epon-aware": "{*, 0 | ↓}",
+       "count/epoff": "{*, 0 | ↓}",
+       "mover/epon-textbook": "↑*",
+       "mover/epon-aware": "{*, 0 | ↓}",
+       "mover/epoff": "↑*",
+       "opponent/epon-textbook": "{*, 0 | ↓}",
+       "opponent/epon-aware": "{*, 0 | ↓}",
+       "opponent/epoff": "{*, 0 | ↓}",
+       "white/epon-textbook": "1/2±1/2",
+       "white/epon-aware": "{1 | ↓}",
+       "white/epoff": "1*",
+       "black/epon-textbook": "{*, 0 | ↓}",
+       "black/epon-aware": "{*, 0 | ↓}",
+       "black/epoff": "{*, 0 | ↓}"
+      },
+      "cylinder_textbook": "{*, 0 | ↓}",
+      "cylinder_aware": "{*, 0 | ↓}"
+     },
+     {
+      "position": "W: a5 d2 e2 / B: b7 c5 e6",
+      "width": 5,
+      "npawns": 6,
+      "value": "{*, 0 | ↓}",
+      "robust": {
+       "same_in": 4,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "black/epon-aware"
+       ]
+      },
+      "other_test_value": "{*, 0 | ↓}",
+      "values_by_setting": {
+       "count/epon-textbook": "{*, 0 | ↓}",
+       "count/epon-aware": "{*, 0 | ↓}",
+       "count/epoff": "{*, 0 | ↓}",
+       "mover/epon-textbook": "{{+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, ±+W | -W}}}} | -W}",
+       "mover/epon-aware": "3/8±1/8",
+       "mover/epoff": "{{+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, ±+W | -W}}}} | -W}",
+       "opponent/epon-textbook": "⇑",
+       "opponent/epon-aware": "⇑",
+       "opponent/epoff": "⇑",
+       "white/epon-textbook": "1*",
+       "white/epon-aware": "5/8±3/8",
+       "white/epoff": "1*",
+       "black/epon-textbook": "{{+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, ±+W | -W} | -W, {+W, ±+W | -W, ±+W}}}} | -W}",
+       "black/epon-aware": "{*, 0 | ↓}",
+       "black/epoff": "{{+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, ±+W | -W} | -W, {+W, ±+W | -W, ±+W}}}} | -W}"
+      },
+      "cylinder_textbook": "{+W, {+W | {-W | {-W | {-W | {-W, {+W | -W, ±+W} | -W}}}}} | -W, {+W, ±+W | -W, {+W, ±+W | -W}}}",
+      "cylinder_aware": "{+W, {+W | {-W | {-W | {-W | {-W, {+W | -W, ±+W} | -W}}}}} | -W, ±+W}"
+     },
+     {
+      "position": "W: b5 d2 e2 / B: a7 c5 e6",
+      "width": 5,
+      "npawns": 6,
+      "value": "{*, 0 | ↓}",
+      "robust": {
+       "same_in": 4,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "black/epon-aware"
+       ]
+      },
+      "other_test_value": "{*, 0 | ↓}",
+      "values_by_setting": {
+       "count/epon-textbook": "{*, 0 | ↓}",
+       "count/epon-aware": "{*, 0 | ↓}",
+       "count/epoff": "{*, 0 | ↓}",
+       "mover/epon-textbook": "{{+W, ±+W | -W, {+W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}} | -W, {+W, ±+W | -W, ±+W}}} | -W}",
+       "mover/epon-aware": "5/8±3/8",
+       "mover/epoff": "{{+W, ±+W | -W, {+W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}} | -W, {+W, ±+W | -W, ±+W}}} | -W}",
+       "opponent/epon-textbook": "⇑",
+       "opponent/epon-aware": "⇑",
+       "opponent/epoff": "⇑",
+       "white/epon-textbook": "1*",
+       "white/epon-aware": "5/8±3/8",
+       "white/epoff": "1*",
+       "black/epon-textbook": "{{+W, ±+W | -W, {+W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}} | -W, {+W, ±+W | -W, {+W | -W, {+W | -W, ±+W}}}}} | -W}",
+       "black/epon-aware": "{*, 0 | ↓}",
+       "black/epoff": "{{+W, ±+W | -W, {+W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}} | -W, {+W, ±+W | -W, {+W | -W, {+W | -W, ±+W}}}}} | -W}"
+      },
+      "cylinder_textbook": "{*, 0 | ↓}",
+      "cylinder_aware": "{*, 0 | ↓}"
+     }
+    ]
+   },
+   {
+    "kind": "up-second family",
+    "label": "↓ + ↓²",
+    "count": 1,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: a3 c2 d2 / B: b7 d6 e5",
+      "width": 5,
+      "npawns": 6,
+      "value": "{* | ↓}",
+      "robust": {
+       "same_in": 11,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "mover/epon-aware",
+        "opponent/epon-textbook",
+        "opponent/epon-aware",
+        "opponent/epoff",
+        "white/epon-aware",
+        "black/epon-textbook",
+        "black/epon-aware",
+        "black/epoff"
+       ]
+      },
+      "other_test_value": "{* | ↓}",
+      "values_by_setting": {
+       "count/epon-textbook": "{* | ↓}",
+       "count/epon-aware": "{* | ↓}",
+       "count/epoff": "{* | ↓}",
+       "mover/epon-textbook": "0",
+       "mover/epon-aware": "{* | ↓}",
+       "mover/epoff": "0",
+       "opponent/epon-textbook": "{* | ↓}",
+       "opponent/epon-aware": "{* | ↓}",
+       "opponent/epoff": "{* | ↓}",
+       "white/epon-textbook": "0",
+       "white/epon-aware": "{* | ↓}",
+       "white/epoff": "0",
+       "black/epon-textbook": "{* | ↓}",
+       "black/epon-aware": "{* | ↓}",
+       "black/epoff": "{* | ↓}"
+      },
+      "cylinder_textbook": "-1/2±1/2",
+      "cylinder_aware": "-1/2±1/2"
+     }
+    ]
+   },
+   {
+    "kind": "up-second family",
+    "label": "↓²",
+    "count": 3,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: a3 c4 d2 / B: a7 b7 e5",
+      "width": 5,
+      "npawns": 6,
+      "value": "{↑* | 0}",
+      "robust": {
+       "same_in": 4,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "white/epon-aware"
+       ]
+      },
+      "other_test_value": "{↑* | 0}",
+      "values_by_setting": {
+       "count/epon-textbook": "{↑* | 0}",
+       "count/epon-aware": "{↑* | 0}",
+       "count/epoff": "{↑* | 0}",
+       "mover/epon-textbook": "*",
+       "mover/epon-aware": "{↓ | -3/8±1/8}",
+       "mover/epoff": "*",
+       "opponent/epon-textbook": "⇓*",
+       "opponent/epon-aware": "⇓*",
+       "opponent/epoff": "⇓*",
+       "white/epon-textbook": "{{1 | 1*} | 1, 1*}",
+       "white/epon-aware": "{↑* | 0}",
+       "white/epoff": "{{1 | 1*} | 1, 1*}",
+       "black/epon-textbook": "-1",
+       "black/epon-aware": "{-1/4* | -1*}",
+       "black/epoff": "-1"
+      },
+      "cylinder_textbook": "-2*",
+      "cylinder_aware": "-2*"
+     },
+     {
+      "position": "W: a4 c3 d2 / B: b7 c7 e5",
+      "width": 5,
+      "npawns": 6,
+      "value": "{↑* | 0}",
+      "robust": {
+       "same_in": 10,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "mover/epon-aware",
+        "opponent/epon-textbook",
+        "opponent/epon-aware",
+        "opponent/epoff",
+        "white/epon-textbook",
+        "white/epon-aware",
+        "white/epoff"
+       ]
+      },
+      "other_test_value": "{↑* | 0}",
+      "values_by_setting": {
+       "count/epon-textbook": "{↑* | 0}",
+       "count/epon-aware": "{↑* | 0}",
+       "count/epoff": "{↑* | 0}",
+       "mover/epon-textbook": "↓",
+       "mover/epon-aware": "{↑* | 0}",
+       "mover/epoff": "↓",
+       "opponent/epon-textbook": "{↑* | 0}",
+       "opponent/epon-aware": "{↑* | 0}",
+       "opponent/epoff": "{↑* | 0}",
+       "white/epon-textbook": "{↑* | 0}",
+       "white/epon-aware": "{↑* | 0}",
+       "white/epoff": "{↑* | 0}",
+       "black/epon-textbook": "{* | -1*}",
+       "black/epon-aware": "{↑* | -1*}",
+       "black/epoff": "-1"
+      },
+      "cylinder_textbook": "{+W, {+W, {+W, ±+W | -W, {+W, ±+W | -W, {+W, ±+W | -W}}} | -W, ±+W} | -W, ±+W}",
+      "cylinder_aware": "{+W, {+W, {+W, ±+W | -W, {+W, ±+W | -W, {+W, ±+W | -W}}} | -W, ±+W} | -W, ±+W}"
+     },
+     {
+      "position": "W: b3 c3 d2 / B: a7 d7 e5",
+      "width": 5,
+      "npawns": 6,
+      "value": "{↑* | 0}",
+      "robust": {
+       "same_in": 3,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff"
+       ]
+      },
+      "other_test_value": "{↑* | 0}",
+      "values_by_setting": {
+       "count/epon-textbook": "{↑* | 0}",
+       "count/epon-aware": "{↑* | 0}",
+       "count/epoff": "{↑* | 0}",
+       "mover/epon-textbook": "miny(1)",
+       "mover/epon-aware": "miny(1)",
+       "mover/epoff": "miny(1)",
+       "opponent/epon-textbook": "0",
+       "opponent/epon-aware": "0",
+       "opponent/epoff": "0",
+       "white/epon-textbook": "2*",
+       "white/epon-aware": "{2 | {0 | {0, {{{+W | +W, {+W | -W, {+W | -W, {+W | -W, {-W, -W* | -W, {-W | -W, {-W | -W, -W*}}}}}, {+W | -W, {-W, -W* | -W, {-W | -W, {-W | -W, -W*}}}}}} | +W} | 0} | 0}}}",
+       "white/epoff": "2*",
+       "black/epon-textbook": "-1±1/2",
+       "black/epon-aware": "{↓ | {-1* | -1}}",
+       "black/epoff": "-1±1/2"
+      },
+      "cylinder_textbook": "{{* | -1*} | {-W | {-W, {+W, {+W, ±+W | -W} | -W, {+W, {+W, ±+W | -W} | -W, {+W, {+W, ±+W | -W} | -W, ±+W}}}, {-W, {+W, {+W, {+W, {+W, {+W, {+W, {+W, +W* | +W} | +W} | +W} | +W} | +W} | +W, {+W, {+W, {+W, +W* | +W} | +W} | +W}} | -W, {+W, ±+W | -W}}, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, ±+W | -W} | -W}} | -W} | -W}}}",
+      "cylinder_aware": "{{* | -1*} | {-W | {-W, {+W, {+W, ±+W | -W} | -W, {+W, {+W, ±+W | -W} | -W, {+W, {+W, ±+W | -W} | -W, ±+W}}}, {-W, {+W, {+W, {+W, {+W, {+W, {+W, {+W, +W* | +W} | +W} | +W} | +W} | +W} | +W, {+W, {+W, {+W, +W* | +W} | +W} | +W}} | -W, {+W, ±+W | -W}}, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W} | -W, {+W, {+W, ±+W | -W} | -W}} | -W} | -W}}}"
+     }
+    ]
+   },
+   {
+    "kind": "up-second family",
+    "label": "↓² + *",
+    "count": 7,
+    "robust_all15": 0,
+    "robust_core9": 0,
+    "positions": [
+     {
+      "position": "W: a3 c4 d2 / B: a7 b7 e4",
+      "width": 5,
+      "npawns": 6,
+      "value": "{↑ | *, 0}",
+      "robust": {
+       "same_in": 4,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "white/epon-aware"
+       ]
+      },
+      "other_test_value": "{↑ | *, 0}",
+      "values_by_setting": {
+       "count/epon-textbook": "{↑ | *, 0}",
+       "count/epon-aware": "{↑ | *, 0}",
+       "count/epoff": "{↑ | *, 0}",
+       "mover/epon-textbook": "{+W | {+W, {+W, {+W, {+W | -W, ±+W} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}}",
+       "mover/epon-aware": "-3/8±1/8",
+       "mover/epoff": "{+W | {+W, {+W, {+W, {+W | -W, ±+W} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}}",
+       "opponent/epon-textbook": "⇓",
+       "opponent/epon-aware": "⇓",
+       "opponent/epoff": "⇓",
+       "white/epon-textbook": "{+W | {+W, {+W, {+W, {+W, ±+W | -W, ±+W} | -W, {+W | -W, ±+W}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}}",
+       "white/epon-aware": "{↑ | *, 0}",
+       "white/epoff": "{+W | {+W, {+W, {+W, {+W, ±+W | -W, ±+W} | -W, {+W | -W, ±+W}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}} | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}}",
+       "black/epon-textbook": "-1*",
+       "black/epon-aware": "-5/8±3/8",
+       "black/epoff": "-1*"
+      },
+      "cylinder_textbook": "{+W, {+W, {+W | -W, ±+W} | -W, ±+W} | -W, {{{{{+W | +W, {+W, ±+W | -W}} | +W} | +W} | +W} | -W}}",
+      "cylinder_aware": "{+W, ±+W | -W, {{{{{+W | +W, {+W, ±+W | -W}} | +W} | +W} | +W} | -W}}"
+     },
+     {
+      "position": "W: a3 c4 d3 / B: a7 b7 e5",
+      "width": 5,
+      "npawns": 6,
+      "value": "{↑ | *, 0}",
+      "robust": {
+       "same_in": 6,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "white/epon-textbook",
+        "white/epon-aware",
+        "white/epoff"
+       ]
+      },
+      "other_test_value": "{↑ | *, 0}",
+      "values_by_setting": {
+       "count/epon-textbook": "{↑ | *, 0}",
+       "count/epon-aware": "{↑ | *, 0}",
+       "count/epoff": "{↑ | *, 0}",
+       "mover/epon-textbook": "-1/4",
+       "mover/epon-aware": "⇓",
+       "mover/epoff": "-1/4",
+       "opponent/epon-textbook": "⇓",
+       "opponent/epon-aware": "⇓",
+       "opponent/epoff": "⇓",
+       "white/epon-textbook": "{↑ | *, 0}",
+       "white/epon-aware": "{↑ | *, 0}",
+       "white/epoff": "{↑ | *, 0}",
+       "black/epon-textbook": "-1*",
+       "black/epon-aware": "-5/8±3/8",
+       "black/epoff": "-1*"
+      },
+      "cylinder_textbook": "-3*",
+      "cylinder_aware": "-3*"
+     },
+     {
+      "position": "W: a3 c4 e2 / B: a7 b7 d4",
+      "width": 5,
+      "npawns": 6,
+      "value": "{↑ | *, 0}",
+      "robust": {
+       "same_in": 4,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "white/epon-aware"
+       ]
+      },
+      "other_test_value": "{↑ | *, 0}",
+      "values_by_setting": {
+       "count/epon-textbook": "{↑ | *, 0}",
+       "count/epon-aware": "{↑ | *, 0}",
+       "count/epoff": "{↑ | *, 0}",
+       "mover/epon-textbook": "{+W | {+W, {+W, {+W, ±+W | -W, ±+W} | -W, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W}} | -W, ±+W}}",
+       "mover/epon-aware": "-5/8±3/8",
+       "mover/epoff": "{+W | {+W, {+W, {+W, ±+W | -W, ±+W} | -W, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W}} | -W, ±+W}}",
+       "opponent/epon-textbook": "⇓",
+       "opponent/epon-aware": "⇓",
+       "opponent/epoff": "⇓",
+       "white/epon-textbook": "{+W | {+W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W, ±+W} | -W, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W}} | -W, ±+W}}",
+       "white/epon-aware": "{↑ | *, 0}",
+       "white/epoff": "{+W | {+W, {+W, {+W, {+W, {+W, ±+W | -W} | -W} | -W, ±+W} | -W, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W}} | -W, ±+W}}",
+       "black/epon-textbook": "-1*",
+       "black/epon-aware": "-5/8±3/8",
+       "black/epoff": "-1*"
+      },
+      "cylinder_textbook": "{↑ | *, 0}",
+      "cylinder_aware": "{↑ | *, 0}"
+     },
+     {
+      "position": "W: a4 c3 d2 / B: b7 c7 e4",
+      "width": 5,
+      "npawns": 6,
+      "value": "{↑ | *, 0}",
+      "robust": {
+       "same_in": 10,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "mover/epon-aware",
+        "opponent/epon-textbook",
+        "opponent/epon-aware",
+        "opponent/epoff",
+        "white/epon-textbook",
+        "white/epon-aware",
+        "white/epoff"
+       ]
+      },
+      "other_test_value": "{↑ | *, 0}",
+      "values_by_setting": {
+       "count/epon-textbook": "{↑ | *, 0}",
+       "count/epon-aware": "{↑ | *, 0}",
+       "count/epoff": "{↑ | *, 0}",
+       "mover/epon-textbook": "↓*",
+       "mover/epon-aware": "{↑ | *, 0}",
+       "mover/epoff": "↓*",
+       "opponent/epon-textbook": "{↑ | *, 0}",
+       "opponent/epon-aware": "{↑ | *, 0}",
+       "opponent/epoff": "{↑ | *, 0}",
+       "white/epon-textbook": "{↑ | *, 0}",
+       "white/epon-aware": "{↑ | *, 0}",
+       "white/epoff": "{↑ | *, 0}",
+       "black/epon-textbook": "-1/2±1/2",
+       "black/epon-aware": "{↑ | -1}",
+       "black/epoff": "-1*"
+      },
+      "cylinder_textbook": "{↑ | *, 0}",
+      "cylinder_aware": "{↑ | *, 0}"
+     },
+     {
+      "position": "W: a4 c3 d3 / B: b7 c7 e5",
+      "width": 5,
+      "npawns": 6,
+      "value": "{↑ | *, 0}",
+      "robust": {
+       "same_in": 10,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff",
+        "mover/epon-aware",
+        "opponent/epon-textbook",
+        "opponent/epon-aware",
+        "opponent/epoff",
+        "white/epon-textbook",
+        "white/epon-aware",
+        "white/epoff"
+       ]
+      },
+      "other_test_value": "{↑ | *, 0}",
+      "values_by_setting": {
+       "count/epon-textbook": "{↑ | *, 0}",
+       "count/epon-aware": "{↑ | *, 0}",
+       "count/epoff": "{↑ | *, 0}",
+       "mover/epon-textbook": "↓*",
+       "mover/epon-aware": "{↑ | *, 0}",
+       "mover/epoff": "↓*",
+       "opponent/epon-textbook": "{↑ | *, 0}",
+       "opponent/epon-aware": "{↑ | *, 0}",
+       "opponent/epoff": "{↑ | *, 0}",
+       "white/epon-textbook": "{↑ | *, 0}",
+       "white/epon-aware": "{↑ | *, 0}",
+       "white/epoff": "{↑ | *, 0}",
+       "black/epon-textbook": "-1/2±1/2",
+       "black/epon-aware": "{↑ | -1}",
+       "black/epoff": "-1*"
+      },
+      "cylinder_textbook": "{+W, {+W, ±+W | -W, {+W, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W} | -W, ±+W}} | -W, ±+W}",
+      "cylinder_aware": "{+W, {+W, ±+W | -W, {+W, {+W, {+W, ±+W | -W, ±+W} | -W, ±+W} | -W, ±+W}} | -W, ±+W}"
+     },
+     {
+      "position": "W: a5 b2 d4 / B: b7 c7 e7",
+      "width": 5,
+      "npawns": 6,
+      "value": "{↑ | *, 0}",
+      "robust": {
+       "same_in": 3,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-aware",
+        "mover/epon-aware",
+        "white/epon-aware"
+       ]
+      },
+      "other_test_value": "-1/2",
+      "values_by_setting": {
+       "count/epon-textbook": "-1/2",
+       "count/epon-aware": "{↑ | *, 0}",
+       "count/epoff": "{-1 | {-1 | -1*}}",
+       "mover/epon-textbook": "{{+W | {+W, {+W | -W, {+W | -W, ±+W}} | -W, {+W, {+W | -W, {+W | -W, ±+W}} | -W, {+W, {+W | -W, {+W | -W, ±+W}} | -W, {+W, {+W | -W, {+W | -W, {+W | -W, ±+W}}} | -W, {+W | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}}}}}, {-2 | -2*}} | {-W, {+W, {+W | -W, ±+W} | -W, {+W, {+W | -W, ±+W} | -W, ±+W}} | -W}}",
+       "mover/epon-aware": "{↑ | *, 0}",
+       "mover/epoff": "{{+W | {+W, {+W | -W, {+W | -W, ±+W}} | -W, {+W, {+W | -W, {+W | -W, ±+W}} | -W, {+W, {+W | -W, {+W | -W, ±+W}} | -W, {+W, {+W | -W, {+W | -W, {+W | -W, ±+W}}} | -W, {+W | -W, {+W | -W, {+W | -W, {+W | -W, ±+W}}}}}}}}, {-2 | -2*}} | {-W, {+W, {+W | -W, ±+W} | -W, {+W, {+W | -W, ±+W} | -W, ±+W}} | -W}}",
+       "opponent/epon-textbook": "-1/2",
+       "opponent/epon-aware": "-1/2",
+       "opponent/epoff": "{-1 | {-1 | {-W, {+W, ±+W | -W, ±+W} | -W}}}",
+       "white/epon-textbook": "-1/2",
+       "white/epon-aware": "{↑ | *, 0}",
+       "white/epoff": "{-1 | {-1 | -1*}}",
+       "black/epon-textbook": "-W",
+       "black/epon-aware": "-1/2",
+       "black/epoff": "-W"
+      },
+      "cylinder_textbook": "↓*",
+      "cylinder_aware": "{0 | ⇑}"
+     },
+     {
+      "position": "W: b3 c3 d3 / B: a7 d7 e5",
+      "width": 5,
+      "npawns": 6,
+      "value": "{↑ | *, 0}",
+      "robust": {
+       "same_in": 3,
+       "of": 15,
+       "core9": false,
+       "all15": false,
+       "settings_equal": [
+        "count/epon-textbook",
+        "count/epon-aware",
+        "count/epoff"
+       ]
+      },
+      "other_test_value": "{↑ | *, 0}",
+      "values_by_setting": {
+       "count/epon-textbook": "{↑ | *, 0}",
+       "count/epon-aware": "{↑ | *, 0}",
+       "count/epoff": "{↑ | *, 0}",
+       "mover/epon-textbook": "1/2±1/2",
+       "mover/epon-aware": "1/2±1/2",
+       "mover/epoff": "1/2±1/2",
+       "opponent/epon-textbook": "*",
+       "opponent/epon-aware": "*",
+       "opponent/epoff": "*",
+       "white/epon-textbook": "2",
+       "white/epon-aware": "2",
+       "white/epoff": "2",
+       "black/epon-textbook": "{-1/2* | {-W | {-W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}, ±+W} | -W}}}",
+       "black/epon-aware": "{↓* | {-W | {-W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}, ±+W} | -W}}}",
+       "black/epoff": "{-1/2* | {-W | {-W, {+W, ±+W | -W, {+W, ±+W | -W, ±+W}, ±+W} | -W}}}"
+      },
+      "cylinder_textbook": "{{0 | {-W | {-W, {-W, {+W, {+W, {+W | +W, {+W, ±+W | -W}} | -W, ±+W}, ±+W | -W, ±+W}, ±+W | -W}, ±+W | -W}}}, {{+W | {+W, {+W | +W, {+W | +W, {+W, {+W, {+W, ±+W | -W} | -W} | -W}}} | -W, {+W, {+W, ±+W | -W} | -W, {+W, ±+W | -W}}, {+W, ±+W | -W}}, {+W, {+W | +W, {+W, {+W, {+W, ±+W | -W} | -W} | -W}} | +W, {+W, ±+W | -W}}} | -W, {⇓ | -W}} | -W}",
+      "cylinder_aware": "{{0 | {-W | {-W, {-W, {+W, {+W, {+W | +W, {+W, ±+W | -W}} | -W, ±+W}, ±+W | -W, ±+W}, ±+W | -W}, ±+W | -W}}}, {{+W | {+W, {+W | +W, {+W | +W, {+W, {+W, {+W, ±+W | -W} | -W} | -W}}} | -W, {+W, {+W, ±+W | -W} | -W, {+W, ±+W | -W}}, {+W, ±+W | -W}}, {+W, {+W | +W, {+W, {+W, {+W, ±+W | -W} | -W} | -W}} | +W, {+W, ±+W | -W}}} | -W, {⇓ | -W}} | -W}"
+     }
+    ]
+   }
+  ]
+ },
+ "integer_tinies": {
+  "textbook": {
+   "miny(1)": 6,
+   "1 + tiny(2)": 1,
+   "tiny(1)": 6,
+   "-1 + miny(1)": 3,
+   "1 + tiny(3)": 1,
+   "tiny(2)": 1,
+   "1 + miny(1)": 1,
+   "miny(2)": 1,
+   "-1 + miny(2)": 1,
+   "-1 + miny(3)": 1,
+   "-2 + miny(1)": 1,
+   "-1 + tiny(2)": 1,
+   "-1 + tiny(1)": 1,
+   "1 + miny(2)": 1,
+   "1 + tiny(1)": 3,
+   "2 + tiny(1)": 1
+  },
+  "aware": {
+   "-1 + miny(1)": 5,
+   "1 + tiny(1)": 5,
+   "-2 + miny(1)": 2,
+   "miny(1)": 8,
+   "1 + tiny(2)": 1,
+   "tiny(1)": 8,
+   "-1 + tiny(2)": 2,
+   "1 + tiny(3)": 1,
+   "tiny(2)": 2,
+   "-2 + tiny(2)": 1,
+   "miny(2)": 2,
+   "-1 + miny(2)": 1,
+   "-1 + miny(3)": 1,
+   "2 + miny(2)": 1,
+   "1 + miny(2)": 2,
+   "2 + tiny(1)": 2
+  }
+ }
+}

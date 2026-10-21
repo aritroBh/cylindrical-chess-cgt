@@ -1,0 +1,28 @@
+== w5: same position on the flat strip vs the cylinder of the same width, count/epon-textbook ==
+  w5: 80163 positions; value differs 57061 (71.2%), outcome differs 11549; distinct values flat 23260 / cyl 12639; only-flat 18097 (±W-free 566), only-cyl 7476 (±W-free 130)
+      created by the edge (flat only, ±W-free): ['-1/2±1', '-1/4±5/4', '-1/4±7/4', '-1±1/2', '-3/2±1', '-3/2±3/2', '-3/4±3/4', '-3/4±5/4', '-3/4±7/4', '-3/4±9/4', '-3±1', '-3±2', '-4*', '-4±2', '-5/2', '-5/2±1', '-5/2±1/2', '-5/2±3/2', '-5/4±3/4', '-5/4±5/4', '-6', '-7/2', '-7/2±1/2', '-7/4±1/4', '-7/4±9/4', '-9/2±1/2', '-9/4±7/4', '1/2±1', '1/4±5/4', '1/4±7/4', '1±1/2', '3/2±1', '3/2±3/2', '3/4±3/4', '3/4±5/4', '3/4±7/4', '3/4±9/4', '3±1', '3±2', '4*']
+      destroyed by the edge (cylinder only, ±W-free): ['-1/8', '-15/16', '-15/8±17/8', '-21/8±11/8', '-3/4', '-5/2±5/2', '-5/4', '-5/4*', '-7/8', '-9/4±3/4', '1/8', '15/16', '15/8±17/8', '21/8±11/8', '3/4', '3↑', '3↓', '5/2±5/2', '5/4', '5/4*', '7/8', '9/4±3/4', '{* | -1/2}', '{*, 0 | *, ↓}', '{*, 0 | -1/2}', '{*, 0 | -2}', '{*, ↑ | *, 0}', '{*, ↓ | {-2* | -2}}', '{*, ↓ | {{-1 | -1, -1*} | -1}}', '{-1, -1* | -3}', '{-5/4* | -4}', '{0 | -1, -1±1}', '{0 | -1/2*}', '{0 | -1/4±1/4, 0}', '{0 | {0 | {0, ↑* | 0, ↑*}}, {0, ↑* | 0, ↑*}}', '{0 | {0 | {⇓ | 0}}, {⇓ | 0}}', '{0 | {0 | ⇑}}', '{0 | {0, 1/2±1/2 | 0}}', '{0 | {0, ↑* | 0, ↑*}}', '{0 | {{* | -1/2}, {↓ | -1/2} | -1/2}}']
+
+== w5: same position on the flat strip vs the cylinder of the same width, count/epon-aware ==
+  w5: 80163 positions; value differs 56686 (70.7%), outcome differs 11364; distinct values flat 23610 / cyl 12708; only-flat 18461 (±W-free 605), only-cyl 7559 (±W-free 149)
+      created by the edge (flat only, ±W-free): ['-1/2±1', '-1/4', '-1/4±5/4', '-1/4±7/4', '-11/4', '-11/8±11/8', '-3/2', '-3/4±5/4', '-3/4±7/4', '-3/4±9/4', '-3/8±11/8', '-3±2', '-4±2', '-5/2', '-5/2±3/2', '-5/4±5/4', '-5/4±7/4', '-5/8±3/8', '-6', '-7/2±1/2', '-7/2±3/2', '-7/4', '-7/4±9/4', '1/2±1', '1/4', '1/4±5/4', '1/4±7/4', '11/4', '11/8±11/8', '3/2', '3/4±5/4', '3/4±7/4', '3/4±9/4', '3/8±11/8', '3±2', '4±2', '5/2', '5/2±3/2', '5/4±5/4', '5/4±7/4']
+      destroyed by the edge (cylinder only, ±W-free): ['-15/16', '-5/2±5/2', '-7/8', '15/16', '3↑', '3↓', '5/2±5/2', '7/8', 'miny(1/2)', 'tiny(1/2)', '{* | -1, -1*}', '{* | -1/2}', '{* | -4}', '{*, 0 | -1/2, -1/2±1/2}', '{*, 0 | -1}', '{*, 0 | -2}', '{*, 0 | -3}', '{*, {* | -1/2} | {{* | -2}, {{* | -1/2}, {↓ | -1/2} | -1/2} | -2}}', '{*, ↓ | {-2* | -3}}', '{*, ↓ | {-3* | -3}}', '{-1/2, {0, ↑* | -1} | -1}', '{0 | -1/4±1/4, 0}', '{0 | {*, 0 | -1}}', '{0 | {*, 0 | {* | -1}}, {0 | {*, 0 | {* | -1}}}}', '{0 | {0 | {*, 0 | {* | -1}}}}', '{0 | {0 | {0, ↑* | -1}}, {0, ↑* | -1}}', '{0 | {0 | ⇑}}', '{0 | {0, 1/2±1/2 | 0}}', '{0 | {0, ↑* | -1}}', '{0 | {{* | -1/2}, {↓ | -1/2} | -1/2}}', '{0 | {{* | -2}, {{* | -1/2}, {↓ | -1/2} | -1/2} | -2}}', '{0 | {{⇓ | 0} | 0}}', '{0 | {⇓ | 0}}', '{0, 1/4±1/4 | 0}', '{0, {2 | *, 0} | -1}', '{0, {{1 | 1/2, {1 | 0, ↓*}}, {1, 1* | *} | {{1 | 0, ↓*}, {{1 | 0, ↓*} | 0} | 0}} | {0 | {{⇓ | 0} | 0}}, {{⇓ | 0} | 0}}', '{0, ↑* | -1}', '{0, ↑* | -3*}', '{0, ↑* | -5/2±1/2}', '{0, ↓* | -1}']
+
+Pooled over widths: ±W-free values found on flat strips but on no cylinder (and vice versa), per setting:
+  count/epon-textbook     : flat-only 566, cylinder-only 130
+  count/epon-aware        : flat-only 605, cylinder-only 149
+  count/epoff             : flat-only 501, cylinder-only 114
+  mover/epon-textbook     : flat-only 736, cylinder-only 137
+  mover/epon-aware        : flat-only 1016, cylinder-only 111
+  mover/epoff             : flat-only 655, cylinder-only 87
+  opponent/epon-textbook  : flat-only 420, cylinder-only 177
+  opponent/epon-aware     : flat-only 486, cylinder-only 248
+  opponent/epoff          : flat-only 333, cylinder-only 135
+  white/epon-textbook     : flat-only 551, cylinder-only 108
+  white/epon-aware        : flat-only 608, cylinder-only 127
+  white/epoff             : flat-only 440, cylinder-only 62
+  black/epon-textbook     : flat-only 551, cylinder-only 108
+  black/epon-aware        : flat-only 608, cylinder-only 127
+  black/epoff             : flat-only 440, cylinder-only 62
+  ±W-free values flat-only under all 15 settings: ['-1/4±5/4', '1/4±5/4', '{0 | {-2* | -2}}', '{1 | {1 | 1*}}', '{{-1* | -1} | -1}', '{{1* | 1} | ↓}', '{{2 | 2*} | 0}', '{↑ | {-1 | -1*}}']
+  ±W-free values cylinder-only under all 15 settings: []

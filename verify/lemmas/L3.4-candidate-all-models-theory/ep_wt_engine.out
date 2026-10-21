@@ -1,0 +1,13 @@
+engine: /private/tmp/claude-501/-Users-aritro--claude-spares-spare-E0JaXy/57318271-9bbf-42b4-b8cf-b9d442308061/scratchpad/ep-wt/cylcgt/pawns.py
+aware=False rule=count    ep=True  S = *2
+aware=False rule=count    ep=False S = *2
+aware=False rule=mover    ep=True  S = *2
+aware=False rule=mover    ep=False S = *2
+aware=False rule=opponent ep=True  S = 0
+aware=False rule=opponent ep=False S = 0
+aware=True  rule=count    ep=True  S = {2±1 | -2±1}
+aware=True  rule=count    ep=False S = *2
+aware=True  rule=mover    ep=True  S = {2±1 | -2±1}
+aware=True  rule=mover    ep=False S = *2
+aware=True  rule=opponent ep=True  S = 0
+aware=True  rule=opponent ep=False S = 0

@@ -36,15 +36,19 @@ Every claim below carries one label.
   - It is consistent with the Lichess tablebase on all 45 positions we could compare: 42 agree exactly, and
     in the other 3 (which need a second promotion) the true value lies inside kpsolve's bounds (§2).
 
-**When the frozen-trébuchet assumption is exact** (Theorem 1.14 and §2 of [theory/LOOPY.md](theory/LOOPY.md);
-**PROVED**). The convention gives the chess result when four conditions hold:
+**When the frozen-trébuchet assumption is exact** (Theorem 1.14 and §2 of [theory/LOOPY.md](theory/LOOPY.md)).
+The convention gives the chess result when four conditions hold. With (V1)–(V3) the result is the
+normal-play result of the pawn components: Theorem 1.14(i), **PROVED** and confirmed by a referee. The step
+to cylcgt's BIG arithmetic, 1.14(ii), needs the corrected (V4) below (§7). The conditions:
 - **(V1)** the kings never interact with the pawn components, and nobody is stalemated;
 - **(V2)** every "decisive event" (a new passed pawn) really wins;
 - **(V3)** every move inside the king group is decisively punished;
-- **(V4)** no two components carry threats of opposite sign, and BIG exceeds every tempo count.
+- **(V4)** no two components carry passed-pawn threats of opposite sign (counting a passer created by
+  *either* side's move, a correction from the review in §7), and BIG exceeds every tempo count.
 
 (V3) has a checkable local certificate: the punisher promotes within T moves even if the defender may
-pass, and the defender cannot promote anywhere in T moves (Theorem 2.7).
+pass, and the defender cannot promote anywhere in T moves (Theorem 2.7). Its proof has a gap that the referees
+say can be repaired with an unlimited-pass argument (§7).
 - With **T = 1** the certificate holds in every context (Proposition 2.10a).
 - With **T ≥ 2** it fails in some context (Proposition 2.10b), so the zero is context-dependent.
 - The real trébuchets have T of about 5–7. Their zero is therefore valid only beside slow or locked
@@ -53,7 +57,7 @@ pass, and the defender cannot promote anywhere in T moves (Theorem 2.7).
 **Spare king tempo moves.** A king that can shuttle forever without loss is not 0 but a loopy game:
 `on` = {on | } for White, `off` = { | off} for Black, or `dud` when both sides can shuttle.
 - `on` exceeds every number, BIG included, so the BIG convention breaks completely there.
-- The correct rule uses terminal outcomes (Theorem 3.4; **PROVED**):
+- The correct rule uses terminal outcomes (Theorem 3.4; **PROVED**, and it survived every referee):
   - with only White able to pass, Black wins iff Black can force a decisive event against a passing White,
     and otherwise White wins;
   - with both able to pass, a side wins iff it can force a decisive event against a passing opponent, and
@@ -204,38 +208,54 @@ Under the e.p.-aware convention the 7×6 mismatch count drops from 143 to 138.
 [theory/LOOPY.md](theory/LOOPY.md) §6 made concrete predictions before any of these were run.
 kpsolve then solved them; the full table is [results/PREDICTIONS.md](results/PREDICTIONS.md).
 
-**Score.** 22 of 25 exactly determined predictions hold: 19 of 22 on the 7×6 cylinder, plus P6, P7 and P8
-on 8×8. The 3 that fail are all P4, which the theory had labelled a CONJECTURE (below). P10 on the 8×6
-cylinder is still running.
+**Score.**
+- **Theory:** 22 of 25 exactly determined predictions hold: 19 of 22 on the 7×6 cylinder, plus P6, P7 and P8
+  on 8×8. The 3 that fail are all P4, which the theory had labelled a CONJECTURE.
+- **Literal cylcgt:** 13 of 19. This runs `cylcgt.pawns.value` on the whole pawn set with the kings ignored.
+  It gives no prediction for P5 and P8, which it scores as races at move 0.
+- **P10** (8×6 cylinder) is still running.
 
-| Prediction | Position family | Theory | Naive convention | kpsolve |
+**Which baseline.** The theory's own "naive convention" column reads the king group as 0 and values only
+the rest with cylcgt. The theory review (§7) pointed out that this is a strawman: literal cylcgt calls the
+shuttle groups' pawns passed and so scores P2, P3 and P10 correctly, for the wrong reason. So the fair
+comparison is with literal cylcgt.
+
+| Prediction | Position family | Theory | Literal cylcgt | kpsolve |
 |---|---|---|---|---|
-| P1a, P1b | stalemate traps: the only escape square is covered | (D, D) | (W, W) and (L, L) | (D, D) both |
-| P2 | Z_onT1 `Ka5 Pb4 Pc5 / kc6 pb5` (White king shuttles a5–a6: `on`) in 5 contexts | (W, W) in all 5 | wrong in all 5 | (W, W) in all 5 |
-| P3 | Z_offT1 (the colour-reversed `off` group) in 5 contexts | (L, L) in all 5 | wrong in all 5 | (L, L) in all 5 |
-| P4 | Z_T, a frozen trébuchet, in 6 contexts (positive control) | equal to the convention | — | equal in 3 of 6; **fails in 3 of 6** (H\*, H\*2: White to move draws instead of winning; H0: Black to move draws instead of losing) |
-| P5 | 6-rank 7.2 analogue `Kc4 Pb5 / kb6 pc5` | bare (D, W); + Hp1 (W, W) | (L, W); (W, W) | (D, W); (W, W) |
-| P6, P7, P8 | 5.1, 7.2, 7.3 on 8×8 (§3); 6-rank 7.3 analogue | (L, W); (D, W); (W, W) | (L, W); (L, W); (L, W) | as predicted |
-| P9 | `Ka5 Pb4 Pc5 Pe2 / kc6 pb5 pf3` | (W, L) | (W, W) | (W, L) |
-| P10 | Z_onT1 + k Black tempo units, k = 0, 1, 2 (8×6 cylinder) | (W, W) for every k | (L, W), (L, L), (L, L) | still running |
+| P1a, P1b | stalemate traps: the only escape square is covered | (D, D) | (W, W); (L, L): **wrong** | (D, D) both |
+| P2 | Z_onT1 `Ka5 Pb4 Pc5 / kc6 pb5` (White king shuttles a5–a6: `on`) in 5 contexts | (W, W) in all 5 | (W, W): right (c5 counted as passed) | (W, W) in all 5 |
+| P3 | Z_offT1 (the colour-reversed `off` group) in 5 contexts | (L, L) in all 5 | (L, L): right | (L, L) in all 5 |
+| P4 | Z_T, a frozen trébuchet (Ka4 Pb3 / kc3 pb4), in 6 contexts | equal to cylcgt (CONJECTURE) | same as the theory | equal in 3 of 6; **both wrong in 3 of 6** |
+| P5 | 6-rank 7.2 analogue `Kc4 Pb5 / kb6 pc5`: bare, and + Hp1 | (D, W); (W, W) | race: no prediction | (D, W); (W, W) |
+| P6, P7, P8 | 5.1, 7.2, 7.3 on 8×8 (§3); 6-rank 7.3 analogue | (L, W); (D, W); (W, W) | 7.2 and 7.3 have both pawns passed: race | as the theory predicts |
+| P9 | `Ka5 Pb4 Pc5 Pe2 / kc6 pb5 pf3` | (W, L) | (W, W): **wrong** | (W, L) |
+| P10 | Z_onT1 + k Black tempo units, k = 0, 1, 2 (8×6 cylinder) | (W, W) for every k | (W, W) | still running |
 
-What this shows:
-- **The loopy theory is right where the BIG convention is wrong.** The predictions most at odds with the
-  convention all hold: P2, P3 and P10 (`on` and `off` beat every number, BIG included), and P1 (stalemate).
-- **The positive control fails in half its contexts.** P4 is a frozen trébuchet (Ka4 Pb3 / Kc3 Pb4)
-  whose punishment takes several moves (T > 1). The theory conjectured that the convention holds beside
-  every one-file tempo context; kpsolve refutes this in 3 of the 6.
-  - Mechanism, from kpsolve's move values ([results/theory_P4_cap2_moves.txt](results/theory_P4_cap2_moves.txt)):
-    after White's 1.e3–e4 locks the context, the convention says Black is in zugzwang and loses. Instead
-    Black plays Kc3–d3 or Kc3–d4: the king abandons b4, walks to the locked e-pawns, and draws.
-  - In H0 with Black to move, Kd3 or Kd2 draws the same way.
-  - This is the theory's (V1a) failing (the king interacts with the context). It is exactly what
-    Proposition 2.10(b) warns of: a group whose punishment needs T ≥ 2 moves has a context-dependent zero.
-    So the theorems survive; the conjecture does not. **COMPUTED-1** (cap 2, exact).
+**The P4 failures.**
+- P4 is a frozen trébuchet (Ka4 Pb3 / Kc3 Pb4) whose punishment takes several moves (T > 1). The theory
+  conjectured that the convention holds beside every one-file tempo context; kpsolve refutes this in 3 of
+  the 6.
+- Mechanism, from kpsolve's move values
+  ([results/theory_P4_cap2_moves.txt](results/theory_P4_cap2_moves.txt)): after White's 1.e3–e4 locks the
+  context, the convention says Black is in zugzwang and loses. Instead Black plays Kc3–d3 or Kc3–d4: the
+  king abandons b4, walks to the locked e-pawns, and draws.
+- In H0 with Black to move, Kd3 or Kd2 draws the same way.
+- This is the king interacting with the context, condition (V1a), failing. It is exactly what
+  Proposition 2.10(b) warns of: a group whose punishment needs T ≥ 2 moves has a context-dependent zero.
+- **COMPUTED-1** (cap 2, exact).
+
+**What this shows.**
+- **Where the theory adds something,** it is right:
+  - stalemate (P1), which literal cylcgt gets wrong;
+  - the blockade escapes in 7.2 and its 6-rank analogue (P5, P7), which cylcgt cannot score at all;
+  - a context that changes who wins (P9).
+- **Where both are wrong** (P4), the cause is a king walking from a slowly punished trébuchet to the context.
 - **Labels.**
-  - The predictions are **PROVED in the promotion model** (theory §1.2) and **COMPUTED-1** in chess.
-  - kpsolve's agreement makes them an independent check of the proofs on these positions. It is not a
-    proof of the general theorems.
+  - The predictions are proved only in the theory's promotion model, where the first promotion wins.
+    The review found that the bridge from that model to chess (assumption (A_Q)) is false in general, so
+    each prediction needs kpsolve's chess check.
+  - kpsolve's agreement confirms these positions (**COMPUTED-1**). It does not prove the general theorems,
+    some of which need repair (§7).
 
 ## 6. Positions where frozen kings give the wrong outcome
 
@@ -260,7 +280,24 @@ The ordinary-board cases are:
 
 ## 7. Adversarial checks
 
-PENDING.
+Every deliverable was given to independent referees (Claude models) told to break it. Their reports are in
+[theory/REVIEWS.md](theory/REVIEWS.md) (theory), and are summarised for the rest.
+
+| Target | Referees | Outcome |
+|---|---|---|
+| Reference solver `kings/ref/` | 1 | No defect. The referee wrote a **third** solver of its own (dict boards, plain repeated passes, no counters) and compared all 282,816 input lines of 19 material sets with `kings/ref/`, with **0 differences**. Its harness caught a deliberately broken control (1,488 differences). Minor defects: random-test seeds were not reproducible (fixed), and input leniencies were documented. |
+| kpsolve (indirectly) | 2 | Two referees ran kpsolve on 25 hand-analysed positions of their own (stalemates, mates across the seam, e.p. pins, underpromotion, 4-rank double steps). All agree with their analysis. |
+| Data extraction `kings/data/` | 1 | Every count matches the sources. It found two frozen-king failures the extraction had missed, double counting, and some over-labelled claims. All are recorded in the erratum at the end of [data/DATA.md](data/DATA.md) and added to [results/FAILURES.md](results/FAILURES.md). |
+| Theory [theory/LOOPY.md](theory/LOOPY.md) | 4 (one general, three on separate theorem clusters) | **Sound:** Lemmas 1.6, 1.7; Theorems 1.9, 1.11(a), 1.14(i), 3.3, 3.4 (the loopy outcome rules, including draws); Corollaries 2.8, 3.5; Propositions 1.12, 2.10(b), 4.5, 4.6; the applications in §5 (label slips only). **False as stated, with a known repair:** Theorem 1.11(b) (the threat set missed suicides), Proposition 1.13, Theorem 2.4 for drawish contexts, Proposition 2.10(a) on 4-rank boards, Proposition 4.3, and the promotion-to-chess bridge (A_Q). **Gaps:** Theorems 1.14(ii), 2.7 (the pass-budget step; repairable with an unlimited-pass argument), 4.2; Lemma 2.9 (a hidden hypothesis); Remark 2.11. THEORY_REVISION_STATUS |
+| This report | — | The literal-cylcgt baseline in §5 and the weakened 8×8 asymmetry claim in §4 come from these reviews. |
+
+**What the reviews change in the conclusions.**
+- **No computed result changed.**
+- The general validity theorem stands in its main part, 1.14(i): with frozen kings, decisive events and no
+  stalemate, the result is the normal-play result.
+- The parts that tie it to cylcgt's BIG arithmetic, 1.14(ii), and the certificate for slow punishments,
+  2.7, need the repairs listed.
+- The loopy rules for spare tempo, Theorem 3.4, survived every check.
 
 ## 8. Open questions
 

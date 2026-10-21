@@ -1,0 +1,32 @@
+{
+ "component": "W: a2 c2 / B: b7 d7",
+ "tree": "textbook",
+ "no_l8_rows": false,
+ "terminals": 670,
+ "internal_nodes": 405,
+ "fixed_LR_terminals": 102,
+ "tests": {
+  "lower": {
+   "cgt": false,
+   "direct_minimax": false,
+   "bound": "{0 | {-1 | {-W | {-W | {-W | {-W, -W* | -W, -W*}}}, {-W | {-W | {-W | {-W, -W* | -W, -W*}}}}}}}",
+   "bound_outcome_cgt": "N",
+   "bound_outcome_direct": {
+    "White first wins": true,
+    "Black first wins": true
+   }
+  },
+  "upper": {
+   "cgt": false,
+   "direct_minimax": false,
+   "bound": "{{{{{+W, {+W, +W* | +W, +W*} | +W, +W*} | +W}, {{{+W, {+W, +W* | +W, +W*} | +W, +W*} | +W} | +W} | +W} | +W} | 0}",
+   "bound_outcome_cgt": "N",
+   "bound_outcome_direct": {
+    "White first wins": true,
+    "Black first wins": true
+   }
+  }
+ },
+ "sanity_random_assignments": 20,
+ "sanity_disagreements": 0
+}

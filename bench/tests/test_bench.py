@@ -154,11 +154,33 @@ def test_c_solver_matches_python_exactly():
                 v = s.solve(w, b, side)
             except Exception:
                 continue
-            py.append((v, s.nodes))
+            py.append((v, s.nodes, s.ep_events))
             jobs.append((W, wrap, w, b, side, False, 50_000, 0))
     assert len(jobs) >= 400
     res = c_solve(jobs)
-    assert [(v, n) for v, n, _ in res] == py          # same results AND same node counts
+    assert [(v, n, e) for v, n, _, e in res] == py    # same results, node counts AND e.p. counters
+    assert any(e for *_, e in py)                     # the random positions do exercise the counter
+    print(f"\nC vs Python: {len(jobs)} searches, {sum(1 for *_, e in py if e)} with a non-zero e.p. counter")
+
+
+@pytest.mark.skipif(not AB_BIN.exists(), reason="build bench/ab with cc -O2 -o bench/ab bench/ab.c")
+def test_ep_counter_flags_passer_double_step():
+    # W a2 c2 / B a3 b4 on 3 flat files: c2-c4 makes c4 passed under the textbook test,
+    # but b4 could take it en passant (this is how component C0311 of library v1 failed filter 5').
+    w, b = {(0, 2), (2, 2)}, {(0, 3), (1, 4)}
+    s = Solver(3, False)
+    s.solve(w, b, True)
+    (v, n, _, e), = c_solve([(3, False, w, b, True, False, 0, 0)])
+    assert e >= 1 and (v, n, e) == (s.solve(w, b, True), s.nodes, s.ep_events)
+
+
+def test_library_is_ep_convention_free():
+    # filter 5': no kept component lets an e.p. capture arise, even right after a passer-creating double step
+    from bench.components import ep_relevant
+    for c in (json.loads(x) for x in (DATA / "components.jsonl").read_text().splitlines()):
+        assert not ep_relevant(c["width"], pawns.Pos.parse(c["position"]), at_terminals=True), c["comp_id"]
+    assert ep_relevant(3, pawns.Pos.parse("W: a2 c2 / B: a3 b5"), at_terminals=True)
+    assert not ep_relevant(3, pawns.Pos.parse("W: a2 c2 / B: a3 b5"))   # the old filter 5 missed it
 
 
 def test_reward_and_score():

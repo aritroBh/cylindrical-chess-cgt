@@ -1,0 +1,53 @@
+0. iteration k of the depth-16 baseline == earlier `go depth k` run (score, nodes, best): 1398/1398
+
+1. First iteration at which a variant's (score, nodes, PV head) differs from the baseline
+   (number of positions per first-differing depth; 'never' = identical through depth 16)
+   NMP     : earliest d6; d6: 3, d7: 3, d8: 6, d9: 10, d10: 14, d11: 22, d12: 16, d13: 30, d14: 58, d15: 59, d16: 9, never: 3
+   SHALLOW : earliest d3; d3: 1, d4: 3, d5: 7, d6: 10, d7: 10, d8: 7, d9: 13, d10: 16, d11: 15, d12: 23, d13: 49, d14: 62, d15: 15, d16: 1, never: 1
+
+2. Summary (233 positions = 181 verified + 52 disagreement; `eval ok` uses the +-150 cp verdict)
+| variant | solved d1 | solved d2 | solved d3 | solved d4 | solved d6 | solved d8 | solved d12 | solved d16 | eval ok d1 | eval ok d2 | eval ok d3 | eval ok d4 | eval ok d6 | eval ok d8 | eval ok d12 | eval ok d16 | mean solve depth | nodes-to-solve vs base (geo-mean) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| base | 211 | 226 | 228 | 229 | 231 | 232 | 232 | 233 | 163 | 163 | 178 | 195 | 222 | 229 | 232 | 233 | 1.24 (233 solved) | 1.00 |
+| NMP | 211 | 226 | 228 | 229 | 231 | 232 | 232 | 233 | 163 | 163 | 178 | 195 | 222 | 229 | 232 | 233 | 1.24 (233 solved) | 1.00 |
+| SHALLOW | 211 | 226 | 228 | 229 | 231 | 232 | 232 | 233 | 163 | 163 | 178 | 195 | 222 | 230 | 232 | 233 | 1.24 (233 solved) | 1.00 |
+
+3. Root evaluation matches the tablebase, by CGT value class, at depths 1/2/4/6/8
+   base     decided 100/100/86/100/100; hot-BIG 81/78/91/97/99; infinitesimal 30/26/59/85/100; nimber 53/65/88/100/100; number 79/81/84/93/95; other-tame 60/50/75/95/100; switch 73/78/89/100/100
+
+4. Baseline solution depth (first iteration from which the PV head stays a solution)
+   only slow single push wins = True: n=38, mean depth 1.24, median nodes 8, share solved at depth 1 29/38
+   only slow single push wins = False: n=195, mean depth 1.24, median nodes 7, share solved at depth 1 180/195
+   unique solution = True: n=127, mean depth 1.29, median nodes 6, share solved at depth 1 108/127
+   unique solution = False: n=106, mean depth 1.18, median nodes 8, share solved at depth 1 101/106
+
+5. Equal-cost comparison: nodes until the root verdict (+-150 cp) is right and stays right
+| variant | positions reaching it | geo-mean nodes ratio vs base | variant cheaper / dearer / same | nodes at depth 4, total, vs base |
+|---|---|---|---|---|
+| base | 233 | 1.00 | 0 / 0 / 233 | 1.00 |
+| NMP | 233 | 1.00 | 1 / 1 / 231 | 1.00 |
+| SHALLOW | 233 | 1.01 | 1 / 2 / 230 | 1.01 |
+
+6. Baseline misses at iteration 1: 22 of 233
+   cgt007 value          1 played f5e6 solutions b4b5 (cgt_verified.epd)
+   cgt040 value          ^ played a2a3 solutions a2a4 (cgt_verified.epd)
+   cgt042 value        ^^* played d2d4 solutions d2d3 (cgt_verified.epd)
+   cgt154 value          ^ played a2a3 solutions a2a4 (cgt_verified.epd)
+   cgt155 value          ^ played a2a3 solutions a2a4 (cgt_verified.epd)
+   cgt162 value          ^ played a2a3 solutions a2a4 (cgt_verified.epd)
+   cgt173 value        ^^* played a2a4 solutions a2a3 (cgt_verified.epd)
+   cgt174 value        ^^* played a2a4 solutions a2a3 (cgt_verified.epd)
+   cgt175 value        ^^* played a2a4 solutions a2a3 (cgt_verified.epd)
+   cgt177 value        ^^* played a2a4 solutions a2a3 (cgt_verified.epd)
+   cgt178 value        ^^* played a2a4 solutions a2a3 (cgt_verified.epd)
+   cgt179 value        ^^* played a2a4 solutions a2a3 (cgt_verified.epd)
+   cgt201 value         -1 played f4e3 solutions b5b4 (cgt_verified.epd)
+   cgt206 value          1 played h5h6 solutions b4b5 (cgt_verified.epd)
+   cgt241 value   3/2+-1/2 played c3c4 solutions c5c6 (cgt_verified.epd)
+   cgt242 value   3/2+-1/2 played d3d4 solutions d5d6 (cgt_verified.epd)
+   cgt258 value          ^ played d2d3 solutions d2d4 (cgt_verified.epd)
+   cgt259 value        ^^* played c2c4 solutions c2c3 (cgt_verified.epd)
+   cgt260 value        ^^* played b2b4 solutions b2b3 (cgt_verified.epd)
+   cgt124 value          0 played f5e6 solutions d3d4,f5e4 (cgt_disagree.epd)
+   cgt262 value          0 played h5h6 solutions h5g6 (cgt_disagree.epd)
+   cgt270 value          0 played h5h6 solutions h5g6 (cgt_disagree.epd)

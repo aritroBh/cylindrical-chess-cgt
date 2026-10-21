@@ -1,0 +1,5 @@
+(a) P-bit flips: 638 mutants, accepted 0, rejected by the recursion check 638
+(b) phi changes: 192 mutants, accepted 0, rejected by the recursion check 192
+(c) Q x Z2, P' = P x Z2, phi'(4) = (phi(4),1): pass=False recursion failures=0 indistinguishable pairs=638 reachable elements: 1276 of 1276
+(d) Q x Z2, P' = P x {0}, phi'(1) = (phi(1),1): pass=False recursion failures=13063 indistinguishable pairs=0 reachable elements: 1276 of 1276 ['  FAILURE: Psi=374 P[Psi]=0 but recursion says P; position (strip:mult): 15:1 24:1 31:2']
+timeout 1700 python3 -I mutants.py cert_Q32.txt  134.02s user 5.56s system 30% cpu 7:45.15 total

@@ -1,0 +1,13 @@
+ok  A: W f4 / B f5 f7 = -1: got True, want True
+ok  B: (W f4 / B f5 f7) + 1 is P: got P, want P
+ok  A: W f4 / B f6 = *: got True, want True
+ok  B: (W f4 / B f6) + * is P: got P, want P
+ok  A: Position 4.3 = tiny(1): got True, want True
+ok  B: Position 4.3 + miny(1) is P: got P, want P
+ok  B: 0 + miny(1) is R (test can fail): got R, want R
+ok  B: 0 + tiny(1) is L: got L, want L
+ok  A: tiny(1) > tiny(2) > 0, tiny(1) < up: got (True, True, True), want (True, True, True)
+ok  B: G + miny(2) is L (so the miny test separates tinies): got L, want L
+ok  B: G + down is R (G < up): got R, want R
+ok  B: G + (-1/2)... G + {-1|0}? skip; G + (-1) is R: got R, want R
+all ok

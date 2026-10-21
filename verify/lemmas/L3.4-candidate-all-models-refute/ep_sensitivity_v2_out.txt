@@ -1,0 +1,17 @@
+non-terminal positions carrying an e.p. right: 180; right usable: 12
+   W: a2 c5 / B: b5 d6  ep target b6 for W
+   W: a2 c4 / B: b4 d7  ep target c3 for B
+   W: a3 c4 / B: b4 d6  ep target c3 for B
+   W: a3 c5 / B: b5 d6  ep target b6 for W
+   W: a3 c4 / B: b4 d5  ep target c3 for B
+   W: a4 c5 / B: b5 d7  ep target b6 for W
+   W: a3 c4 / B: b4 d7  ep target c3 for B
+   W: a2 c5 / B: b5 d7  ep target b6 for W
+   W: a2 c4 / B: b4 d5  ep target c3 for B
+   W: a2 c4 / B: b4 d6  ep target c3 for B
+global-expiry W  count   : outcomes of model+*k, k=0..3: NNPN
+global-expiry WF count   : outcomes of model+*k, k=0..3: NNPN
+global-expiry W  mover   : outcomes of model+*k, k=0..3: NNPN
+global-expiry WF mover   : outcomes of model+*k, k=0..3: NNPN
+global-expiry W  opponent: outcomes of model+*k, k=0..3: PNNN
+global-expiry WF opponent: outcomes of model+*k, k=0..3: PNNN

@@ -1,0 +1,8 @@
+cyl4 count ep=on test=textbook W: a2 c2 / B: b7 d7 == {3/2+-1/2|-3/2+-1/2}: True
+cyl4 count ep=on test=ep-aware W: a2 c2 / B: b7 d7 == {3/2+-1/2|-3/2+-1/2}: False
+cyl4 count ep=on test=textbook W: a2 c2 / B: b7 d7 == +-1/2 (the e.p.-off value): False
+cyl4 count ep=on test=ep-aware W: a2 c2 / B: b7 d7 == +-1/2 (the e.p.-off value): False
+cyl3 opponent ep=on test=textbook W: a2 b3 / B: a5 c5 == *2: True
+cyl3 opponent ep=on test=ep-aware W: a2 b3 / B: a5 c5 == *2: True
+flat4 mover ep=on test=textbook W: a2 c2 / B: b7 d7 == *2: True
+flat4 mover ep=on test=ep-aware W: a2 c2 / B: b7 d7 == *2: False

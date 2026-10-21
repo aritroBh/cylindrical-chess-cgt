@@ -3,6 +3,76 @@
 *Draft of 2026-10-16 by Claude (Opus 5.5) for plan item A8 ([RESEARCH_PLAN.md](../../RESEARCH_PLAN.md) §3,
 Track A). The explicit solver that tests this note is `kings/kpsolve.c` (rules: [kings/SPEC.md](../SPEC.md)).
 It builds on [notes/lemmas.md](../../notes/lemmas.md) (L2.1, L3.x) but re-proves everything it uses.*
+*Revised the same day in answer to four adversarial reviews ([REVIEWS.md](REVIEWS.md), cited as R1–R4 with
+their item numbers) and to the kpsolve results in [kings/results/PREDICTIONS.md](../results/PREDICTIONS.md).*
+
+## Status after review (2026-10-16)
+
+Every numbered result, its final label, and the review item behind any change. "PROVED after repair" means
+the statement or its proof was changed and the complete repaired proof is now in the note. "FALSE as
+originally stated → …" gives the corrected statement and its label. Each change in the text is marked
+"(revised after review: Rk item n)".
+
+| Result | Final label | Note |
+|---|---|---|
+| (A_Q), §1.2 | FALSE as a general statement → per-position hypothesis (A_Q)(X), checked by kpsolve; no longer a conjecture | R1 item 6, R2 item 8: `Ke2 Pb5 ka5 w` (cyl:7x6) and `Kd1 Pb3 ka3 w` (flat:4x4) are P-wins and chess draws |
+| L1.6 | PROVED | R2: sound |
+| L1.7 | PROVED | R2: sound |
+| R1.8 | PROVED (by §5.4) | unchanged |
+| T1.9 | PROVED; the remark after it is corrected | R2 item 2: the remark was false for cylcgt, which re-splits components |
+| T1.11(a) | PROVED | R2: sound |
+| T1.11(b) | FALSE as originally stated → τ counts moves into ⊕/⊖ by **either** player, M is summed over coordinates: PROVED after repair | R1 item 1, R2 items 1 and 9 |
+| T1.11(c) | PROVED (new): the hereditary version for cylcgt's re-splitting value | R2 item 2 |
+| P1.12 | PROVED | R2: sound |
+| P1.13 | FALSE as originally stated → A′ = { \| ⊖}, translation −B−1 (and a {∅ \| ⊖} variant): PROVED after repair | R1 item 2, R2 item 3 |
+| T1.14(i) | PROVED | R2: sound |
+| T1.14(ii) | GAP → PROVED after repair: (V4) is stated hereditarily on the re-split components of the context, Z deleted, with the corrected τ | R2 items 2 and 5 |
+| T1.14(iii) | PROVED, but a tautology: (A_Q) is now a per-position hypothesis | R2 item 8 |
+| T1.14, sharp form | GAP → PROVED after repair: every legal Z-move of the loser at its turns must be a P-loss | R2 item 6 |
+| §1.5 "each hypothesis is needed" | (V1b), (V2), (V3), (V4): counterexamples given. (V1a): none given, so "needed" is a CONJECTURE | R1 item 4, R2 item 7 |
+| L2.2 | PROVED | unchanged |
+| T2.3 | PROVED (also KNOWN) | unchanged |
+| T2.4 | FALSE as originally stated (the "P-game of the context" option) → G under normal play (no draws), plus a strategy-transfer form (c) for games with draws: PROVED after repair | R2 item 4 |
+| D2.6, (L3′) | withdrawn: it never applies to a 3-file group, and it does not give (L3) | R1 item 8, R3 item 2 |
+| T2.7 | GAP → PROVED after repair: (L1) is required only for k = ∞, (L3) covers stalemate, the local rules are stated, and μ counts context pawns only | R1 item 3, R3 items 2 and 3 |
+| C2.8 | PROVED (wording corrected) | R3 item 7 |
+| L2.9 | GAP → PROVED after repair (added hypothesis: s has no pawn on f ± 1). Without that hypothesis: CONJECTURE | R1 item 9, R3 item 4 |
+| P2.10(a) | FALSE as originally stated (H = 4) → H ≥ 5: PROVED after repair | R1 item 7, R3 item 1 |
+| P2.10(b) | PROVED (the example; it needs width ≥ \|F_Z\| + 4). "The zero is context-dependent" is the CONJECTURE that follows it, now supported in C by P4 | R3 item 5 |
+| R2.11 | GAP → heuristic only. No certificate for passers is claimed | R3 item 6 |
+| P3.2 | PROVED; chess bridge PROVED after repair (adds (V1a)) | R4 item 7 |
+| T3.3(a) | PROVED (also KNOWN) | R4: sound |
+| T3.3(b) | FALSE as originally stated (with ∅ the dead position the pair is (W, L)) → { \| ⊖} ⊞ on_D is (L, L): PROVED after repair | R1 item 2 |
+| T3.4 | PROVED | R4: sound |
+| C3.5 | PROVED | R4: sound |
+| §3, shuttles on both sides | CONJECTURE: needs a two-sided Proposition 3.2 | R4 item 6 |
+| T4.2(a) | PROVED after repair (through the corrected T1.11(b)) | R4 item 3 |
+| T4.2(b) | PROVED after repair (needs B > ℓ; the D-model equivalence is now proved) | R4 item 4 |
+| T4.2(c) | PROVED after repair (negative integers; reachable cycle; "acyclic", not "non-reversible") | R4 item 5 |
+| P4.3 | FALSE as originally stated (a king in check) → s not in check on u, reply not a promotion: PROVED after repair. The dichotomy "0 or ∞" is narrowed to steps inside F_Z with the opponent frozen at both ends | R4 items 1 and 2, R1 item 11 |
+| D4.4 (over) | the numbering gap is filled | R1 item 11 |
+| P4.5, P4.6 | PROVED | R4: sound |
+| C4.7 | CONJECTURE, restated for ≤ 2 + 2 pawns (what was searched) | R1 item 10, R4 item 8 |
+| §5.1, frozen | PROVED by enumeration, now written out | R1 item 11, R4 item 9 |
+| §5.1, (L1) | CONJECTURE (scratch, k ≤ 4 and k = ∞ only; (L3) not checked) | R1 items 3 and 10, R4 item 9 |
+| §5.2, White's sorties | the certificate fails: PROVED (L2.9). "Not punished": CONJECTURE (scratch); in C, kpsolve confirms the 6-rank analogue (P5) | R4 item 9 |
+| §5.5 | CONJECTURE (scratch); Kd3 added | R1 items 10 and 11, R4 item 9 |
+| §5.6 | μ_W = 5: PROVED by count. T = 5 and "(L2) fails by one tempo": CONJECTURE (scratch; R4 re-derived both) | R1 item 11 |
+| P1a, P1b (§6) | PROVED; kpsolve (D, D) | PREDICTIONS.md, as for every P-row |
+| P2, P3 | PROVED in P; kpsolve agrees in C on all 10 positions; literal cylcgt also gets them right | R1 item 5 |
+| P4 | CONJECTURE → **refuted** by kpsolve in 3 of 6 contexts (H\*, H\*2, H0) | PREDICTIONS.md, theory_P4_cap2_moves.txt |
+| P5 | PROVED in P (b entries, + Hp1); bare w-entry CONJECTURE; kpsolve agrees on all four entries | — |
+| P6, P7 | CONJECTURE, and partly PROVED in P; not run | — |
+| P8 | PROVED in P; kpsolve (W, W) on the 6-rank analogue; 8×8 not run | — |
+| P9 | PROVED in P; kpsolve (W, L) | — |
+| P10 | PROVED in P; listed as not run in PREDICTIONS.md (R1 ran k = 0: (W, W)) | R1 |
+| P11 | PROVED (implication) after repair: W(X) and HSS defined; (V1b) checked from the layout | R1 item 11 |
+| P12 | PROVED (implication) after repair: restricted to nodes where `--frozen` reports a win | knock-on of R2 item 4 |
+
+Not answered by a change in the mathematics: R1 item 12 (missing A8 content: CGSuite, opposition, Gafni),
+which is recorded as open in §8.6.
+
+---
 
 **Labels.** Every claim has exactly one label.
 
@@ -13,8 +83,12 @@ It builds on [notes/lemmas.md](../../notes/lemmas.md) (L2.1, L3.x) but re-proves
   not kpsolve, not saved in the project, not independently checked.
 - **KNOWN**: from the literature, with a citation.
 
+kpsolve results (§6) are data, not proofs: a claim that only a kpsolve run supports keeps the label
+CONJECTURE, with "kpsolve agrees" (revised after review: R1 item 6).
+
 Several results are PROVED *in the promotion model P* (Definition 1.5). They become statements about chess
-only together with the axiom (A_Q) of §1.2, which is a CONJECTURE that kpsolve checks position by position.
+only at positions where the hypothesis (A_Q) of §1.2 holds. (A_Q) is false in general, so it is checked
+position by position by kpsolve (revised after review: R1 item 6, R2 item 8).
 
 ---
 

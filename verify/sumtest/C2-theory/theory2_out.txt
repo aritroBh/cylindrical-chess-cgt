@@ -1,0 +1,61 @@
+== T1: options of G under cylcgt (textbook passed test)
+  count    ep=off G = *2
+     L-> W: a3 c2 / B: b7 d7                {* | -1}
+     L-> W: a4 c2 / B: b7 d7                *
+     L-> W: a2 c3 / B: b7 d7                -1/2±1/2
+     L-> W: a2 c4 / B: b7 d7                0
+     R-> W: a2 c2 / B: b7 d6                {1 | *}
+     R-> W: a2 c2 / B: b7 d5                *
+     R-> W: a2 c2 / B: b6 d7                1/2±1/2
+     R-> W: a2 c2 / B: b5 d7                0
+  count    ep=on  G = *2
+     L-> W: a3 c2 / B: b7 d7                {* | -1}
+     L-> W: a4 c2 / B: b7 d7 (ep a3)        *
+     L-> W: a2 c3 / B: b7 d7                -1/2±1/2
+     L-> W: a2 c4 / B: b7 d7 (ep c3)        0
+     R-> W: a2 c2 / B: b7 d6                {1 | *}
+     R-> W: a2 c2 / B: b7 d5 (ep d6)        *
+     R-> W: a2 c2 / B: b6 d7                1/2±1/2
+     R-> W: a2 c2 / B: b5 d7 (ep b6)        0
+  opponent ep=off G = 0
+     L-> W: a3 c2 / B: b7 d7                ↓
+     L-> W: a4 c2 / B: b7 d7                *
+     L-> W: a2 c3 / B: b7 d7                -1/4
+     L-> W: a2 c4 / B: b7 d7                -1/2
+     R-> W: a2 c2 / B: b7 d6                ↑
+     R-> W: a2 c2 / B: b7 d5                *
+     R-> W: a2 c2 / B: b6 d7                1/4
+     R-> W: a2 c2 / B: b5 d7                1/2
+  opponent ep=on  G = 0
+     L-> W: a3 c2 / B: b7 d7                ↓
+     L-> W: a4 c2 / B: b7 d7 (ep a3)        *
+     L-> W: a2 c3 / B: b7 d7                -1/4
+     L-> W: a2 c4 / B: b7 d7 (ep c3)        -1/2
+     R-> W: a2 c2 / B: b7 d6                ↑
+     R-> W: a2 c2 / B: b7 d5 (ep d6)        *
+     R-> W: a2 c2 / B: b6 d7                1/4
+     R-> W: a2 c2 / B: b5 d7 (ep b6)        1/2
+== T2: value as a function of BIG (independent model)
+  BIG=    4 | count/ep off: *2 | count/ep on, textbook: *2 | count/ep on, ep-aware: {2±1 | -2±1} | mover/ep off: *2 | mover/ep on, textbook: *2 | mover/ep on, ep-aware: {2±1 | -2±1} | opponent/ep off: 0 | opponent/ep on, textbook: 0 | opponent/ep on, ep-aware: 0
+  BIG=    8 | count/ep off: *2 | count/ep on, textbook: *2 | count/ep on, ep-aware: {2±1 | -2±1} | mover/ep off: *2 | mover/ep on, textbook: *2 | mover/ep on, ep-aware: {2±1 | -2±1} | opponent/ep off: 0 | opponent/ep on, textbook: 0 | opponent/ep on, ep-aware: 0
+  BIG=   16 | count/ep off: *2 | count/ep on, textbook: *2 | count/ep on, ep-aware: {2±1 | -2±1} | mover/ep off: *2 | mover/ep on, textbook: *2 | mover/ep on, ep-aware: {2±1 | -2±1} | opponent/ep off: 0 | opponent/ep on, textbook: 0 | opponent/ep on, ep-aware: 0
+  BIG=   32 | count/ep off: *2 | count/ep on, textbook: *2 | count/ep on, ep-aware: {2±1 | -2±1} | mover/ep off: *2 | mover/ep on, textbook: *2 | mover/ep on, ep-aware: {2±1 | -2±1} | opponent/ep off: 0 | opponent/ep on, textbook: 0 | opponent/ep on, ep-aware: 0
+  BIG=   64 | count/ep off: *2 | count/ep on, textbook: *2 | count/ep on, ep-aware: {2±1 | -2±1} | mover/ep off: *2 | mover/ep on, textbook: *2 | mover/ep on, ep-aware: {2±1 | -2±1} | opponent/ep off: 0 | opponent/ep on, textbook: 0 | opponent/ep on, ep-aware: 0
+  BIG=  256 | count/ep off: *2 | count/ep on, textbook: *2 | count/ep on, ep-aware: {2±1 | -2±1} | mover/ep off: *2 | mover/ep on, textbook: *2 | mover/ep on, ep-aware: {2±1 | -2±1} | opponent/ep off: 0 | opponent/ep on, textbook: 0 | opponent/ep on, ep-aware: 0
+  BIG= 1024 | count/ep off: *2 | count/ep on, textbook: *2 | count/ep on, ep-aware: {2±1 | -2±1} | mover/ep off: *2 | mover/ep on, textbook: *2 | mover/ep on, ep-aware: {2±1 | -2±1} | opponent/ep off: 0 | opponent/ep on, textbook: 0 | opponent/ep on, ep-aware: 0
+  BIG= 4096 | count/ep off: *2 | count/ep on, textbook: *2 | count/ep on, ep-aware: {2±1 | -2±1} | mover/ep off: *2 | mover/ep on, textbook: *2 | mover/ep on, ep-aware: {2±1 | -2±1} | opponent/ep off: 0 | opponent/ep on, textbook: 0 | opponent/ep on, ep-aware: 0
+== T3: variants of the count race rule (independent model)
+  ep off           no double-step credit: *2                     ties->mover: *2                     both: *2
+  ep on, textbook  no double-step credit: *2                     ties->mover: *2                     both: *2
+  ep on, ep-aware  no double-step credit: {2±1 | -2±1}           ties->mover: {2±1 | -2±1}           both: {2±1 | -2±1}
+== T4: outcome vector of *2 + X from cgt canonical forms
+  reference: 0 * *2 *3 up down up* dup* 1/2 -1/2 1 -1 {1|0} +-1 tiny1
+  *2 + X   : NNPNLRLLLRLRLNN (worker: NNPNLRLLLRLRLNN) MATCH
+== T5: which hypotheses a root outcome (no sum partner) can separate
+  check {2±1|-2±1} built here: {2±1 | -2±1} mean 0 temp 2
+  *2           outcome alone: N   outcome +*: N   outcome +*2: P
+  *            outcome alone: N   outcome +*: P   outcome +*2: N
+  *3           outcome alone: N   outcome +*: N   outcome +*2: N
+  0            outcome alone: P   outcome +*: N   outcome +*2: N
+  {2±1|-2±1}   outcome alone: N   outcome +*: N   outcome +*2: N
+  ±1           outcome alone: N   outcome +*: N   outcome +*2: N

@@ -1,0 +1,9 @@
+ep=on  7.2abh + (0  ) [X value 0]: cylcgt N  crosscheck N   if G were +-1: N
+ep=on  7.2abh + (1  ) [X value 1]: cylcgt L  crosscheck L   if G were +-1: N
+ep=on  7.2abh + (-1 ) [X value -1]: cylcgt R  crosscheck R   if G were +-1: N
+ep=on  7.2abh + (+-1) [X value ±1]: cylcgt N  crosscheck N   if G were +-1: P
+ep=off 7.2abh + (0  ) [X value 0]: cylcgt R  crosscheck R   if G were +-1: N
+ep=off 7.2abh + (1  ) [X value 1]: cylcgt L  crosscheck L   if G were +-1: N
+ep=off 7.2abh + (-1 ) [X value -1]: cylcgt R  crosscheck R   if G were +-1: N
+ep=off 7.2abh + (+-1) [X value ±1]: cylcgt N  crosscheck N   if G were +-1: P
+7.1{h,a}: Left options ['258']  Right options ['*']  mean 129  temp 129  BIG 256  cgt.BIG_DISPLAY 128

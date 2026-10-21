@@ -1,0 +1,19 @@
+Part A (indep vs project): {'n': 600, 'multi': 84, 's_mis': 0, 'w_mis': 0, 'xc': 75, 'xc_mis': 0, 'sw_diff': 14, 'race': 0} 456s
+
+Part B: headline W: b2 d4 g3 h5 / B: a7 c7 f7 g4
+  components: ['W: b2 d4 g3 h5 / B: a7 c7 f7 g4']
+  pawns.sum_safe: True
+  rule count   : indep o(S)=R  indep o(W)=N
+  rule mover   : indep o(S)=N  indep o(W)=N
+  rule opponent: indep o(S)=R  indep o(W)=N
+  reachable non-terminal non-pairwise-safe nodes (so HSS fails): 312
+  mechanism node W: b5 d4 g3 / B: c6 f6 g4 h6 reachable: True comps+threats: [('W: b5 d4 / B: c6', [-1, 1]), ('W: g3 / B: f6 g4 h6', [-1, 1])] o(S)= R o(W)= L
+  W has 4 moves; children with o(S)!=o(W): 3
+  B has 6 moves; children with o(S)!=o(W): 1
+  BIG=60 (M_W=18, M_B=21): o(S)=R o(W)=N
+  BIG=100 (M_W=18, M_B=21): o(S)=R o(W)=N
+  BIG=256 (M_W=18, M_B=21): o(S)=R o(W)=N
+  BIG=1000 (M_W=18, M_B=21): o(S)=R o(W)=N
+
+  flat 7x8 relabelling: W: b3 c5 e2 g4 / B: a7 b4 d7 f7 sum_safe: True o(S)= R o(W)= N crosscheck= N
+  headline with e.p. ON: o(S)= R o(S_glob)= R o(W)= N

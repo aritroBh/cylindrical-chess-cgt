@@ -46,12 +46,17 @@ def cat_interval(cat: str | None, mode: str):
 
 class Searcher:
     def __init__(self, oracle, mode: str = "pure", order_hint=None, region=None, max_nodes=10**7,
-                 cached=None):
+                 cached=None, kb=None):
         """oracle(fen) -> probe record (realchess.probe.Prober.probe or a fake).
         order_hint(pos, moves) -> moves in preferred order (optional).
         region(pos) -> 'model' or 'off' ; off-model nodes consume `ext` depth."""
         self.oracle = oracle
         self.cached = cached  # fen -> record or None, never touches the network
+        # kb: realchess.kb.KB (offline index of every cached record). Consulted
+        # first, and only for positions with <= 7 men (exact tablebase data).
+        self.kb = kb
+        self.kb_hits = 0
+        self.kb_max_men = 7  # 8: also trust Lichess's own 8-man categories (labelled runs only)
         self.mode = mode
         self.order_hint = order_hint
         self.region = region or (lambda pos: "off")
@@ -75,8 +80,20 @@ class Searcher:
         if cat in ("cursed-win", "blessed-loss", "maybe-win", "maybe-loss"):
             self.special.append((fen, what, cat))
 
+    def _kb(self, pos):
+        if self.kb is None or pos.men() > self.kb_max_men:
+            return None
+        cat = self.kb.category(pos)
+        if cat is not None:
+            self.kb_hits += 1
+            self._note(mg.normal_fen(pos), "kb", cat)
+        return cat
+
     def root_interval(self, pos):
-        """Interval for a <= 7-man position, by probing it."""
+        """Interval for a <= 7-man position: offline index first, else a probe."""
+        cat = self._kb(pos)
+        if cat is not None:
+            return cat_interval(cat, self.mode)
         rec = self._rec(pos)
         d = rec.get("data") or {}
         cat = d.get("category")
@@ -85,6 +102,9 @@ class Searcher:
 
     def capture_child(self, pos, m, allow_probe: bool = True):
         """Interval for the side to move AFTER capture m (child perspective)."""
+        cat = self._kb(mg.make(pos, m))
+        if cat is not None:
+            return cat_interval(cat, self.mode)
         if allow_probe:
             rec = self._rec(pos)
         else:
@@ -119,6 +139,13 @@ class Searcher:
             iv = self.root_interval(pos)
             self.tt[key] = (iv[0], iv[1], 10**9, True)
             return iv
+        if self.kb_max_men >= 8:
+            cat = self._kb(pos)
+            if cat is not None:
+                iv = cat_interval(cat, self.mode)
+                if iv[0] == iv[1]:
+                    self.tt[key] = (iv[0], iv[1], 10**9, True)
+                    return iv
         moves = mg.legal_moves(pos)
         if not moves:
             iv = (-1, -1) if mg.in_check(pos) else (0, 0)

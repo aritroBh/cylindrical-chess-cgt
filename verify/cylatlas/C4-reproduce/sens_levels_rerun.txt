@@ -1,0 +1,205 @@
+
+## count/epon
+| n | cyl values | flat values | cyl-only non-W | flat-only non-W | nimbers on cyl | nimbers on flat |
+| 3 | 521 | 652 | 28 | 37 | * | * |
+| 4 | 688 | 730 | 3 | 3 | * | * *2 |
+| 5 | 730 | 730 | 0 | 0 | * *2 | * *2 |
+| 6 | 730 | 730 | 0 | 0 | * *2 | * *2 |
+| 7 | 730 | 730 | 0 | 0 | * *2 | * *2 |
+| 8 | 730 | 730 | 0 | 0 | * *2 | * *2 |
+values on some cylinder, no flat strip (non-W): 31
+   -1/4±1/4                                 C3: W: a2 b3 / B: a5 c6
+   -3/2±3/2                                 C3: W: a2 a3 / B: b6 c7
+   -3/4                                     C3: W: a2 b3 / B: a5 c7
+   1/4±1/4                                  C3: W: a2 b2 / B: c5 c6
+   3/2±3/2                                  C3: W: a2 b3 / B: c6 c7
+   3/4                                      C3: W: a2 b4 / B: b7 c6
+   {* | -1/2}                               C3: W: a2 b3 / B: a6 c5
+   {*, ↓ | -1}                              C3: W: a3 b3 / B: a7 c5
+   {0, * | -1}                              C3: W: a3 b3 / B: a6 c5
+   {1 | *, ↑}                               C3: W: a2 b4 / B: a6 c6
+   {1 | -3/2±1/2}                           C4: W: a2 c2 / B: b6 d7
+   {1 | 0, *}                               C3: W: a3 b4 / B: a6 c6
+   {1/2 | *}                                C3: W: a2 b4 / B: a6 c7
+   {1/2 | {1/2 | *}, {1/2 | ↑}}             C3: W: a2 b4 / B: a7 c7
+   {1/2 | ↑}                                C3: W: a2 b4 / B: a7 c6
+   {1/2±1/2, {1 | *, ↑} | {* | -1/2}, -1/4±1/4} C3: W: a2 b3 / B: a6 c6
+   {2 | ↓}                                  C3: W: a3 b3 / B: c6 c7
+   {3 | {0 | ⇓*}}                           C3: W: a2 b2 / B: c6 c7
+   {3/2±1/2 | -1}                           C4: W: a2 c3 / B: b7 d7
+   {3/2±1/2 | -3/2±1/2}                     C4: W: a2 c2 / B: b7 d7
+   {3/4 | {* | -1/2}}                       C3: W: a2 b3 / B: b7 c6
+   {3/4 | {{* | -1/2}, {↓ | -1/2} | -1/2}}  C3: W: a2 b2 / B: a7 c6
+   {{* | -1/2}, {↓ | -1/2} | -1/2}          C3: W: a2 b2 / B: a7 c5
+   {{1/2 | *} | -3/4}                       C3: W: a2 b3 / B: a6 c7
+   {{1/2 | *}, 1/4±1/4 | -1/2±1/2, {*, ↓ | -1}} C3: W: a3 b3 / B: a7 c6
+   {{1/2 | {1/2 | *}, {1/2 | ↑}} | -3/4}    C3: W: a2 b3 / B: a7 c7
+   {{1/2 | {1/2 | *}, {1/2 | ↑}} | {{* | -1/2}, {↓ | -1/2} | -1/2}} C3: W: a2 b2 / B: a7 c7
+   {{1/2 | ↑} | {↓ | -1/2}}                 C3: W: a2 b3 / B: a7 c6
+   {{⇑* | 0} | -3}                          C3: W: a2 a3 / B: b7 c7
+   {↑ | -2}                                 C3: W: a2 a3 / B: b6 c6
+   {↓ | -1/2}                               C3: W: a2 b3 / B: a7 c5
+values on some flat strip, no cylinder (non-W): 0
+
+## mover/epon
+| n | cyl values | flat values | cyl-only non-W | flat-only non-W | nimbers on cyl | nimbers on flat |
+| 3 | 455 | 592 | 17 | 45 | * | * |
+| 4 | 613 | 692 | 1 | 17 | * | * *2 |
+| 5 | 692 | 708 | 0 | 0 | * *2 | * *2 |
+| 6 | 708 | 708 | 0 | 0 | * *2 | * *2 |
+| 7 | 708 | 708 | 0 | 0 | * *2 | * *2 |
+| 8 | 708 | 708 | 0 | 0 | * *2 | * *2 |
+values on some cylinder, no flat strip (non-W): 18
+   -1/2±5/2                                 C3: W: a2 b4 / B: b7 c5
+   -1/4±1/4                                 C3: W: a3 a4 / B: b7 c7
+   -3/8±1/8                                 C3: W: a3 b3 / B: a7 c7
+   1/2±5/2                                  C3: W: a2 b4 / B: a5 c7
+   1/4±1/4                                  C3: W: a2 a3 / B: b6 c6
+   3/8±1/8                                  C3: W: a2 b2 / B: a6 c6
+   miny(1/4)                                C3: W: a2 b3 / B: b7 c7
+   tiny(1/4)                                C3: W: a2 b2 / B: a6 c7
+   {0 | ↑, ⇑*}                              C3: W: a2 b4 / B: a7 c6
+   {0 | ⇓*}                                 C3: W: a3 b3 / B: a7 c6
+   {1/2 | ↑}                                C3: W: a2 b3 / B: b6 c6
+   {2 | -5/2±1/2}                           C3: W: a2 a4 / B: b5 c7
+   {3/2±1/2 | -3/2±1/2}                     C4: W: a2 c2 / B: b7 d7
+   {5/2±1/2 | -2}                           C3: W: a2 b4 / B: c5 c7
+   {{0 | ↑, ⇑*} | {↓, ⇓* | 0}}              C3: W: a2 b3 / B: a7 c6
+   {↓ | -1/2}                               C3: W: a3 b3 / B: a6 c7
+   {↓, ⇓* | 0}                              C3: W: a2 b3 / B: a7 c5
+   {⇑* | 0}                                 C3: W: a2 b3 / B: a6 c6
+values on some flat strip, no cylinder (non-W): 0
+
+## opponent/epon
+| n | cyl values | flat values | cyl-only non-W | flat-only non-W | nimbers on cyl | nimbers on flat |
+| 3 | 489 | 539 | 19 | 26 | * *2 | * |
+| 4 | 558 | 590 | 5 | 0 | * | * |
+| 5 | 590 | 590 | 0 | 0 | * | * |
+| 6 | 590 | 590 | 0 | 0 | * | * |
+| 7 | 590 | 590 | 0 | 0 | * | * |
+| 8 | 590 | 590 | 0 | 0 | * | * |
+values on some cylinder, no flat strip (non-W): 24
+   *2                                       C3: W: a2 b3 / B: a5 c5
+   {*, ↑ | 0, *}                            C3: W: a2 b4 / B: a6 c7
+   ↓*3                                      C3: W: a3 b4 / B: a7 c6
+   {*2, {*2 | 0} | 0}                       C3: W: a2 b3 / B: b7 c7
+   {0 | *2, {0 | *2}}                       C3: W: a2 b2 / B: a6 c7
+   ↑*3                                      C3: W: a2 b3 / B: a5 c6
+   ⇑*2                                      C3: W: a2 b3 / B: a6 c6
+   {0 | {0, * | 0, ↑*}}                     C3: W: a2 b2 / B: a7 c6
+   {0, * | *, ↓}                            C3: W: a2 b3 / B: b7 c5
+   {0, * | 0, ↑*}                           C3: W: a2 b2 / B: a7 c5
+   {0, ↓* | 0, *}                           C3: W: a2 b4 / B: a7 c7
+   {1 | -3/2±1/2}                           C4: W: a2 c2 / B: b6 d7
+   {1 | ⇓*}                                 C3: W: a2 b2 / B: c5 c7
+   {1/2±1/2 | -2}                           C4: W: a3 c3 / B: b7 d7
+   {2 | -1/2±1/2}                           C4: W: a2 c2 / B: b6 d6
+   {3 | {1 | ⇓*}}                           C3: W: a2 b2 / B: c6 c7
+   {3/2±1/2 | -1}                           C4: W: a2 c3 / B: b7 d7
+   {3/2±1/2 | -3/2±1/2}                     C4: W: a2 c2 / B: b7 d7
+   ⇓*2                                      C3: W: a3 b3 / B: a7 c6
+   {{0 | *2, {0 | *2}} | ⇓*}                C3: W: a2 b2 / B: a5 c7
+   {{0, ↓* | 0, *} | 0}                     C3: W: a2 b3 / B: a7 c7
+   {{⇑* | -1} | -3}                         C3: W: a2 a3 / B: b7 c7
+   {⇑* | -1}                                C3: W: a2 a4 / B: b7 c7
+   {⇑* | {*2, {*2 | 0} | 0}}                C3: W: a2 b4 / B: b7 c7
+values on some flat strip, no cylinder (non-W): 0
+
+## count/epoff
+| n | cyl values | flat values | cyl-only non-W | flat-only non-W | nimbers on cyl | nimbers on flat |
+| 3 | 529 | 662 | 22 | 33 | * | * |
+| 4 | 698 | 740 | 3 | 3 | * | * *2 |
+| 5 | 740 | 740 | 0 | 0 | * *2 | * *2 |
+| 6 | 740 | 740 | 0 | 0 | * *2 | * *2 |
+| 7 | 740 | 740 | 0 | 0 | * *2 | * *2 |
+| 8 | 740 | 740 | 0 | 0 | * *2 | * *2 |
+values on some cylinder, no flat strip (non-W): 25
+   -3/2±3/2                                 C3: W: a2 a3 / B: b6 c7
+   -3/4                                     C3: W: a2 b3 / B: a5 c7
+   3/2±3/2                                  C3: W: a2 b3 / B: c6 c7
+   3/4                                      C3: W: a2 b4 / B: b7 c6
+   {*, ↓ | -1}                              C3: W: a3 b3 / B: a7 c5
+   {0, * | -1}                              C3: W: a3 b3 / B: a6 c5
+   {1 | *, ↑}                               C3: W: a2 b4 / B: a6 c6
+   {1 | 0, *}                               C3: W: a3 b4 / B: a6 c6
+   {1/2 | {1/2 | *}, {1/2 | ↑}}             C3: W: a2 b4 / B: a7 c7
+   {1/2 | ↑}                                C3: W: a2 b4 / B: a7 c6
+   {1/2±1/2, {1 | *, ↑} | {* | -1/2}, -1/4±1/4} C3: W: a2 b3 / B: a6 c6
+   {2 | ↑}                                  C4: W: a2 c2 / B: b6 d6
+   {2 | ↓}                                  C3: W: a3 b3 / B: c6 c7
+   {3/4 | {* | -1/2}}                       C3: W: a2 b3 / B: b7 c6
+   {3/4 | {{* | -1/2}, {↓ | -1/2} | -1/2}}  C3: W: a2 b2 / B: a7 c6
+   {{* | -1/2}, {↓ | -1/2} | -1/2}          C3: W: a2 b2 / B: a7 c5
+   {{1/2 | *} | -3/4}                       C3: W: a2 b3 / B: a6 c7
+   {{1/2 | *}, 1/4±1/4 | -1/2±1/2, {*, ↓ | -1}} C3: W: a3 b3 / B: a7 c6
+   {{1/2 | {1/2 | *}, {1/2 | ↑}} | -3/4}    C3: W: a2 b3 / B: a7 c7
+   {{1/2 | {1/2 | *}, {1/2 | ↑}} | {{* | -1/2}, {↓ | -1/2} | -1/2}} C3: W: a2 b2 / B: a7 c7
+   {{1/2 | ↑} | {↓ | -1/2}}                 C3: W: a2 b3 / B: a7 c6
+   {↑ | -2}                                 C3: W: a2 a3 / B: b6 c6
+   {↓ | -1/2}                               C3: W: a2 b3 / B: a7 c5
+   {↓ | -2}                                 C4: W: a3 c3 / B: b7 d7
+   ±1/2                                     C4: W: a2 c2 / B: b7 d7
+values on some flat strip, no cylinder (non-W): 0
+
+## mover/epoff
+| n | cyl values | flat values | cyl-only non-W | flat-only non-W | nimbers on cyl | nimbers on flat |
+| 3 | 473 | 614 | 15 | 49 | * | * |
+| 4 | 636 | 714 | 2 | 17 | * | * *2 |
+| 5 | 714 | 730 | 0 | 0 | * *2 | * *2 |
+| 6 | 730 | 730 | 0 | 0 | * *2 | * *2 |
+| 7 | 730 | 730 | 0 | 0 | * *2 | * *2 |
+| 8 | 730 | 730 | 0 | 0 | * *2 | * *2 |
+values on some cylinder, no flat strip (non-W): 15
+   -1/2±5/2                                 C3: W: a2 b4 / B: b7 c5
+   -1/4±1/4                                 C3: W: a3 b3 / B: c6 c7
+   -1/8                                     C3: W: a2 b3 / B: b7 c7
+   -5/8                                     C3: W: a3 b3 / B: a7 c7
+   1/2±5/2                                  C3: W: a2 b4 / B: a5 c7
+   1/4±1/4                                  C3: W: a2 a3 / B: b6 c6
+   1/8                                      C3: W: a2 b2 / B: a6 c7
+   5/8                                      C3: W: a2 b2 / B: a6 c6
+   {0 | ↑, ⇑*}                              C3: W: a2 b4 / B: a7 c6
+   {2 | -5/2±1/2}                           C3: W: a2 a4 / B: b5 c7
+   {2 | ↑}                                  C4: W: a2 c2 / B: b6 d6
+   {5/2±1/2 | -2}                           C3: W: a2 b4 / B: c5 c7
+   {{0 | ↑, ⇑*} | {↓, ⇓* | 0}}              C3: W: a2 b3 / B: a7 c6
+   {↓ | -2}                                 C4: W: a3 c3 / B: b7 d7
+   {↓, ⇓* | 0}                              C3: W: a2 b3 / B: a7 c5
+values on some flat strip, no cylinder (non-W): 0
+
+## opponent/epoff
+| n | cyl values | flat values | cyl-only non-W | flat-only non-W | nimbers on cyl | nimbers on flat |
+| 3 | 495 | 539 | 19 | 18 | * *2 | * |
+| 4 | 558 | 590 | 5 | 0 | * | * |
+| 5 | 590 | 590 | 0 | 0 | * | * |
+| 6 | 590 | 590 | 0 | 0 | * | * |
+| 7 | 590 | 590 | 0 | 0 | * | * |
+| 8 | 590 | 590 | 0 | 0 | * | * |
+values on some cylinder, no flat strip (non-W): 24
+   *2                                       C3: W: a2 b2 / B: a5 c7
+   -1/4±3/4                                 C4: W: a2 c3 / B: b7 d7
+   -5/4±3/4                                 C3: W: a3 a4 / B: b7 c7
+   1/4±3/4                                  C4: W: a2 c2 / B: b6 d7
+   5/4±3/4                                  C3: W: a2 b2 / B: c5 c6
+   {*, ↑ | -1}                              C3: W: a3 b4 / B: b6 c7
+   {*, ↑ | 0, *}                            C3: W: a2 b4 / B: a6 c7
+   ↓*3                                      C3: W: a2 b3 / B: b7 c7
+   {*2, {*2 | 0} | 0}                       C3: W: a2 b4 / B: a7 c6
+   {-1/2±1/2 | -3}                          C3: W: a2 a3 / B: b7 c7
+   {0 | *2, {0 | *2}}                       C3: W: a2 b3 / B: a5 c7
+   ↑*3                                      C3: W: a2 b2 / B: a6 c7
+   ⇑*2                                      C3: W: a2 b3 / B: a6 c6
+   {0 | {0, * | 0, ↑*}}                     C3: W: a2 b2 / B: a7 c6
+   {0, * | *, ↓}                            C3: W: a2 b3 / B: b7 c5
+   {0, * | 0, ↑*}                           C3: W: a2 b2 / B: a7 c5
+   {0, ↓* | 0, *}                           C3: W: a2 b4 / B: a7 c7
+   {1 | *, ↓}                               C3: W: a2 b3 / B: b5 c6
+   {2 | ↑}                                  C4: W: a2 c2 / B: b6 d6
+   {3 | 1/2±1/2}                            C3: W: a2 b2 / B: c6 c7
+   ⇓*2                                      C3: W: a3 b3 / B: a7 c6
+   {{0, ↓* | 0, *} | 0}                     C3: W: a2 b3 / B: a7 c7
+   {↓ | -2}                                 C4: W: a3 c3 / B: b7 d7
+   ±1/2                                     C4: W: a2 c2 / B: b7 d7
+values on some flat strip, no cylinder (non-W): 0
+
+## cylinder-only (non-W, w+b<=4) under ALL six rule sets: 0

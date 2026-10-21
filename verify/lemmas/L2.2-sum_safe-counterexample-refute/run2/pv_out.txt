@@ -1,0 +1,33 @@
+node W: b5 d4 g3 / B: c6 f6 g4 h6 W says Left-to-move wins: True | S says Left-to-move wins: False
+
+Left's W-winning move -> W: b5 d5 g3 / B: c6 f6 g4 h6  (passers W=False B=False)
+   S line (k = frozen integer):
+      W:move k=0
+      B:freeze +256 k=256 [W: g3 / B: f6 g4 h6]
+      W:tempo k=255 [W: g3 / B: f6 g4 h6]
+      B:move k=255 [W: g3 / B: f6 g4 h5]
+      W:tempo k=254 [W: g3 / B: f6 g4 h5]
+      B:move k=254 [W: g3 / B: f6 g4 h4]
+      W:tempo k=253 [W: g3 / B: f6 g4 h4]
+      B:freeze -256 k=-3 [no live pawns]
+      W has no move -> W loses
+
+Left's W-winning move -> W: b6 d4 g3 / B: c6 f6 g4 h6  (passers W=True B=False)
+   S line (k = frozen integer):
+      W:freeze +256 k=256
+      B:move k=256 [W: g3 / B: f6 g4 h5]
+      W:tempo k=255 [W: g3 / B: f6 g4 h5]
+      B:move k=255 [W: g3 / B: f6 g4 h4]
+      W:tempo k=254 [W: g3 / B: f6 g4 h4]
+      B:freeze -256 k=-2 [no live pawns]
+      W has no move -> W loses
+
+Left's W-winning move -> W: c6 d4 g3 / B: f6 g4 h6  (passers W=True B=False)
+   S line (k = frozen integer):
+      W:freeze +256 k=256
+      B:move k=256 [W: g3 / B: f6 g4 h5]
+      W:tempo k=255 [W: g3 / B: f6 g4 h5]
+      B:move k=255 [W: g3 / B: f6 g4 h4]
+      W:tempo k=254 [W: g3 / B: f6 g4 h4]
+      B:freeze -256 k=-2 [no live pawns]
+      W has no move -> W loses

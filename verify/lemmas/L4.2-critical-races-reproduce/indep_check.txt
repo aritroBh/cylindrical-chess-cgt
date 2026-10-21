@@ -1,0 +1,36 @@
+ep_mode=always: reachable=1075 race nodes=224 base=*2
+   critical ('W: a2 / B: c4 d7', 'B', 'B', 'up')
+   critical ('W: a2 b5 / B: d7', 'W', 'W', 'down')
+   critical ('W: a3 / B: c4 d6', 'B', 'B', 'up')
+   critical ('W: a3 b5 / B: d6', 'W', 'W', 'down')
+   critical won by mover, rest lost by mover: *2
+   critical lost by mover, rest count: 0
+   whole rule mover: *2
+   whole rule opponent: 0
+   random rest, seed 1 (sorted order): [('*2', 145), ('0', 2), ('down', 27), ('up', 26)]
+   random rest, seed 2 (sorted order): [('*2', 157), ('0', 6), ('down', 15), ('up', 22)]
+   random rest, seed 3 (sorted order): [('*2', 136), ('0', 4), ('down', 32), ('up', 28)]
+ep_mode=off: reachable=835 race nodes=206 base=*2
+   critical ('W: a2 / B: c4 d7', 'B', 'B', 'up')
+   critical ('W: a2 b5 / B: d7', 'W', 'W', 'down')
+   critical ('W: a3 / B: c4 d6', 'B', 'B', 'up')
+   critical ('W: a3 b5 / B: d6', 'W', 'W', 'down')
+   critical won by mover, rest lost by mover: *2
+   critical lost by mover, rest count: 0
+   whole rule mover: *2
+   whole rule opponent: 0
+   random rest, seed 1 (sorted order): [('*2', 145), ('0', 3), ('down', 20), ('up', 32)]
+   random rest, seed 2 (sorted order): [('*2', 161), ('0', 4), ('down', 21), ('up', 14)]
+   random rest, seed 3 (sorted order): [('*2', 165), ('0', 2), ('down', 19), ('up', 14)]
+ep_mode=usable: reachable=907 race nodes=224 base=*2
+   critical ('W: a2 / B: c4 d7', 'B', 'B', 'up')
+   critical ('W: a2 b5 / B: d7', 'W', 'W', 'down')
+   critical ('W: a3 / B: c4 d6', 'B', 'B', 'up')
+   critical ('W: a3 b5 / B: d6', 'W', 'W', 'down')
+   critical won by mover, rest lost by mover: *2
+   critical lost by mover, rest count: 0
+   whole rule mover: *2
+   whole rule opponent: 0
+   random rest, seed 1 (sorted order): [('*2', 145), ('0', 2), ('down', 27), ('up', 26)]
+   random rest, seed 2 (sorted order): [('*2', 157), ('0', 6), ('down', 15), ('up', 22)]
+   random rest, seed 3 (sorted order): [('*2', 136), ('0', 4), ('down', 32), ('up', 28)]

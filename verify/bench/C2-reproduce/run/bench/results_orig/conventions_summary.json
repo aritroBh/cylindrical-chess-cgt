@@ -1,0 +1,873 @@
+{
+ "summary": {
+  "cylcgt": "/private/tmp/claude-501/-Users-aritro--claude-spares-spare-E0JaXy/57318271-9bbf-42b4-b8cf-b9d442308061/scratchpad/ep-wt/cylcgt/pawns.py",
+  "candidates": 5290,
+  "candidates whose root value differs between the tests": {
+   "count, e.p. on": 330,
+   "count, e.p. off": 0,
+   "mover, e.p. on": 988,
+   "mover, e.p. off": 0,
+   "opponent, e.p. on": 302,
+   "opponent, e.p. off": 0
+  },
+  "candidates with any root or child difference between the tests": 1584,
+  "library components": 418,
+  "library components differing in some setting (must be 0)": 0,
+  "library v1 components (textbook filters 1-5)": 518,
+  "library v1 components that change under the e.p.-aware test": 48,
+  "... of which the root value changes": 28,
+  "library v1 cases": {
+   "filter 5' fires=False, some position judged differently=False, e.p. capture playable in the e.p.-aware tree=False, values differ=False, kept now=True": 418,
+   "filter 5' fires=True, some position judged differently=True, e.p. capture playable in the e.p.-aware tree=False, values differ=False, kept now=False": 52,
+   "filter 5' fires=True, some position judged differently=True, e.p. capture playable in the e.p.-aware tree=True, values differ=True, kept now=False": 48
+  },
+  "filters 1-5, textbook test (library v1)": 518,
+  "filters 1-5, e.p.-aware test": 470,
+  "both (intersection)": 470,
+  "current library (textbook filters 1-5 + filter 5')": 418,
+  "current library equals library v1 minus the filter-5' hits?": true,
+  "current library equals the intersection of the two single-test libraries?": false,
+  "certified by the e.p.-aware test only": 0,
+  "KEY-FACT W: a2 c2 / B: b7 d7 (4 flat files)": {
+   "textbook, count, e.p. on": "*2",
+   "textbook, count, e.p. off": "*2",
+   "textbook, mover, e.p. on": "*2",
+   "textbook, mover, e.p. off": "*2",
+   "textbook, opponent, e.p. on": "0",
+   "textbook, opponent, e.p. off": "0",
+   "e.p.-aware, count, e.p. on": "{2±1 | -2±1}",
+   "e.p.-aware, count, e.p. off": "*2",
+   "e.p.-aware, mover, e.p. on": "{2±1 | -2±1}",
+   "e.p.-aware, mover, e.p. off": "*2",
+   "e.p.-aware, opponent, e.p. on": "0",
+   "e.p.-aware, opponent, e.p. off": "0"
+  },
+  "instances re-solved under the e.p.-aware test": {
+   "test (agree)": 2000,
+   "test (total)": 2000,
+   "test_heldout (agree)": 2000,
+   "test_heldout (total)": 2000,
+   "train (agree)": 3000,
+   "train (total)": 3000,
+   "val (agree)": 2000,
+   "val (total)": 2000
+  },
+  "instance disagreements": [],
+  "seconds": 1304
+ },
+ "v1_changed": [
+  {
+   "v1_id": "C0311",
+   "position": "W: a2 c2 / B: a3 b5",
+   "textbook": "1",
+   "aware": "*",
+   "root_differs": true,
+   "children": [
+    [
+     "B b5-b4",
+     "{256 | +-256}",
+     "0"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0312",
+   "position": "W: a2 c2 / B: a3 b6",
+   "textbook": "1/2",
+   "aware": "^",
+   "root_differs": true,
+   "children": [
+    [
+     "B b6-b5",
+     "1",
+     "*"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0313",
+   "position": "W: a2 c2 / B: a3 b7",
+   "textbook": "0",
+   "aware": "0",
+   "root_differs": false,
+   "children": [
+    [
+     "B b7-b6",
+     "1/2",
+     "^"
+    ],
+    [
+     "B b7-b5",
+     "1",
+     "*"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0314",
+   "position": "W: a2 c2 / B: a4 b6",
+   "textbook": "1/2*",
+   "aware": "{*, 0 | {* | -1}}",
+   "root_differs": true,
+   "children": [
+    [
+     "W a2-a3",
+     "1/2",
+     "{0 | {0 | {-256, +-256 | -256, {-256, +-256 | -256}}}}"
+    ],
+    [
+     "B a4-a3",
+     "1/2",
+     "^"
+    ],
+    [
+     "B b6-b5",
+     "1*",
+     "{* | -1}"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0315",
+   "position": "W: a2 c2 / B: a4 b7",
+   "textbook": "*",
+   "aware": "*",
+   "root_differs": false,
+   "children": [
+    [
+     "B b7-b6",
+     "1/2*",
+     "{*, 0 | {* | -1}}"
+    ],
+    [
+     "B b7-b5",
+     "1*",
+     "{* | -1}"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0316",
+   "position": "W: a2 c2 / B: b5 c3",
+   "textbook": "1",
+   "aware": "*",
+   "root_differs": true,
+   "children": [
+    [
+     "B b5-b4",
+     "{256 | +-256}",
+     "0"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0317",
+   "position": "W: a2 c2 / B: b6 c3",
+   "textbook": "1/2",
+   "aware": "^",
+   "root_differs": true,
+   "children": [
+    [
+     "B b6-b5",
+     "1",
+     "*"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0318",
+   "position": "W: a2 c2 / B: b6 c4",
+   "textbook": "1/2*",
+   "aware": "{*, 0 | {* | -1}}",
+   "root_differs": true,
+   "children": [
+    [
+     "W c2-c3",
+     "1/2",
+     "{0 | {0 | {-256, +-256 | -256, {-256, +-256 | -256}}}}"
+    ],
+    [
+     "B b6-b5",
+     "1*",
+     "{* | -1}"
+    ],
+    [
+     "B c4-c3",
+     "1/2",
+     "^"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0319",
+   "position": "W: a2 c2 / B: b7 c3",
+   "textbook": "0",
+   "aware": "0",
+   "root_differs": false,
+   "children": [
+    [
+     "B b7-b6",
+     "1/2",
+     "^"
+    ],
+    [
+     "B b7-b5",
+     "1",
+     "*"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0320",
+   "position": "W: a2 c2 / B: b7 c4",
+   "textbook": "*",
+   "aware": "*",
+   "root_differs": false,
+   "children": [
+    [
+     "B b7-b6",
+     "1/2*",
+     "{*, 0 | {* | -1}}"
+    ],
+    [
+     "B b7-b5",
+     "1*",
+     "{* | -1}"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0327",
+   "position": "W: a2 c3 / B: b6 c4",
+   "textbook": "1/2",
+   "aware": "{0 | {0 | {-256, +-256 | -256, {-256, +-256 | -256}}}}",
+   "root_differs": true,
+   "children": [
+    [
+     "B b6-b5",
+     "1",
+     "{0 | {-256, +-256 | -256, {-256, +-256 | -256}}}"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0328",
+   "position": "W: a2 c3 / B: b7 c4",
+   "textbook": "0",
+   "aware": "0",
+   "root_differs": false,
+   "children": [
+    [
+     "B b7-b6",
+     "1/2",
+     "{0 | {0 | {-256, +-256 | -256, {-256, +-256 | -256}}}}"
+    ],
+    [
+     "B b7-b5",
+     "1",
+     "{0 | {-256, +-256 | -256, {-256, +-256 | -256}}}"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0340",
+   "position": "W: a3 c2 / B: a4 b6",
+   "textbook": "1/2",
+   "aware": "{0 | {0 | {-256, +-256 | -256, {-256, +-256 | -256}}}}",
+   "root_differs": true,
+   "children": [
+    [
+     "B b6-b5",
+     "1",
+     "{0 | {-256, +-256 | -256, {-256, +-256 | -256}}}"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0341",
+   "position": "W: a3 c2 / B: a4 b7",
+   "textbook": "0",
+   "aware": "0",
+   "root_differs": false,
+   "children": [
+    [
+     "B b7-b6",
+     "1/2",
+     "{0 | {0 | {-256, +-256 | -256, {-256, +-256 | -256}}}}"
+    ],
+    [
+     "B b7-b5",
+     "1",
+     "{0 | {-256, +-256 | -256, {-256, +-256 | -256}}}"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0388",
+   "position": "W: a5 b2 / B: a6 c7",
+   "textbook": "0",
+   "aware": "0",
+   "root_differs": false,
+   "children": [
+    [
+     "W b2-b3",
+     "-1/2",
+     "{{{256, {256 | 256, +-256} | 256, +-256} | 0} | 0}"
+    ],
+    [
+     "W b2-b4",
+     "-1",
+     "{{256, {256 | 256, +-256} | 256, +-256} | 0}"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0392",
+   "position": "W: a5 b2 / B: a7 c7",
+   "textbook": "*",
+   "aware": "*",
+   "root_differs": false,
+   "children": [
+    [
+     "W b2-b3",
+     "-1/2*",
+     "{{1 | *} | *, 0}"
+    ],
+    [
+     "W b2-b4",
+     "-1*",
+     "{1 | *}"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0395",
+   "position": "W: a5 b3 / B: a6 c7",
+   "textbook": "-1/2",
+   "aware": "{{{256, {256 | 256, +-256} | 256, +-256} | 0} | 0}",
+   "root_differs": true,
+   "children": [
+    [
+     "W b3-b4",
+     "-1",
+     "{{256, {256 | 256, +-256} | 256, +-256} | 0}"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0398",
+   "position": "W: a5 b3 / B: a7 c7",
+   "textbook": "-1/2*",
+   "aware": "{{1 | *} | *, 0}",
+   "root_differs": true,
+   "children": [
+    [
+     "W a5-a6",
+     "-1/2",
+     "v"
+    ],
+    [
+     "W b3-b4",
+     "-1*",
+     "{1 | *}"
+    ],
+    [
+     "B a7-a6",
+     "-1/2",
+     "{{{256, {256 | 256, +-256} | 256, +-256} | 0} | 0}"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0410",
+   "position": "W: a6 b2 / B: a7 c7",
+   "textbook": "0",
+   "aware": "0",
+   "root_differs": false,
+   "children": [
+    [
+     "W b2-b3",
+     "-1/2",
+     "v"
+    ],
+    [
+     "W b2-b4",
+     "-1",
+     "*"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0413",
+   "position": "W: a6 b3 / B: a7 c7",
+   "textbook": "-1/2",
+   "aware": "v",
+   "root_differs": true,
+   "children": [
+    [
+     "W b3-b4",
+     "-1",
+     "*"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0415",
+   "position": "W: a6 b4 / B: a7 c7",
+   "textbook": "-1",
+   "aware": "*",
+   "root_differs": true,
+   "children": [
+    [
+     "W b4-b5",
+     "{+-256 | -256}",
+     "0"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0429",
+   "position": "W: b2 c5 / B: a7 c6",
+   "textbook": "0",
+   "aware": "0",
+   "root_differs": false,
+   "children": [
+    [
+     "W b2-b3",
+     "-1/2",
+     "{{{256, {256 | 256, +-256} | 256, +-256} | 0} | 0}"
+    ],
+    [
+     "W b2-b4",
+     "-1",
+     "{{256, {256 | 256, +-256} | 256, +-256} | 0}"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0430",
+   "position": "W: b2 c5 / B: a7 c7",
+   "textbook": "*",
+   "aware": "*",
+   "root_differs": false,
+   "children": [
+    [
+     "W b2-b3",
+     "-1/2*",
+     "{{1 | *} | *, 0}"
+    ],
+    [
+     "W b2-b4",
+     "-1*",
+     "{1 | *}"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0434",
+   "position": "W: b2 c6 / B: a7 c7",
+   "textbook": "0",
+   "aware": "0",
+   "root_differs": false,
+   "children": [
+    [
+     "W b2-b3",
+     "-1/2",
+     "v"
+    ],
+    [
+     "W b2-b4",
+     "-1",
+     "*"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0443",
+   "position": "W: b3 c5 / B: a7 c6",
+   "textbook": "-1/2",
+   "aware": "{{{256, {256 | 256, +-256} | 256, +-256} | 0} | 0}",
+   "root_differs": true,
+   "children": [
+    [
+     "W b3-b4",
+     "-1",
+     "{{256, {256 | 256, +-256} | 256, +-256} | 0}"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0444",
+   "position": "W: b3 c5 / B: a7 c7",
+   "textbook": "-1/2*",
+   "aware": "{{1 | *} | *, 0}",
+   "root_differs": true,
+   "children": [
+    [
+     "W b3-b4",
+     "-1*",
+     "{1 | *}"
+    ],
+    [
+     "W c5-c6",
+     "-1/2",
+     "v"
+    ],
+    [
+     "B c7-c6",
+     "-1/2",
+     "{{{256, {256 | 256, +-256} | 256, +-256} | 0} | 0}"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0447",
+   "position": "W: b3 c6 / B: a7 c7",
+   "textbook": "-1/2",
+   "aware": "v",
+   "root_differs": true,
+   "children": [
+    [
+     "W b3-b4",
+     "-1",
+     "*"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0455",
+   "position": "W: b4 c6 / B: a7 c7",
+   "textbook": "-1",
+   "aware": "*",
+   "root_differs": true,
+   "children": [
+    [
+     "W b4-b5",
+     "{+-256 | -256}",
+     "0"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0456",
+   "position": "W: a2 c2 / B: b5 d4",
+   "textbook": "1",
+   "aware": "*",
+   "root_differs": true,
+   "children": [
+    [
+     "B b5-b4",
+     "{256 | {256, +-256 | -256, +-256}}",
+     "0"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0457",
+   "position": "W: a2 c2 / B: b6 d4",
+   "textbook": "1/2",
+   "aware": "^",
+   "root_differs": true,
+   "children": [
+    [
+     "B b6-b5",
+     "1",
+     "*"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0458",
+   "position": "W: a2 c2 / B: b7 d4",
+   "textbook": "0",
+   "aware": "0",
+   "root_differs": false,
+   "children": [
+    [
+     "B b7-b6",
+     "1/2",
+     "^"
+    ],
+    [
+     "B b7-b5",
+     "1",
+     "*"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0459",
+   "position": "W: a2 c3 / B: b6 d5",
+   "textbook": "1/2",
+   "aware": "{0 | {0 | {-256, {256, +-256 | -256, +-256}, +-256 | -256}}}",
+   "root_differs": true,
+   "children": [
+    [
+     "B b6-b5",
+     "1",
+     "{0 | {-256, {256, +-256 | -256, +-256}, +-256 | -256}}"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0460",
+   "position": "W: a2 c3 / B: b7 d5",
+   "textbook": "0",
+   "aware": "0",
+   "root_differs": false,
+   "children": [
+    [
+     "B b7-b6",
+     "1/2",
+     "{0 | {0 | {-256, {256, +-256 | -256, +-256}, +-256 | -256}}}"
+    ],
+    [
+     "B b7-b5",
+     "1",
+     "{0 | {-256, {256, +-256 | -256, +-256}, +-256 | -256}}"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0470",
+   "position": "W: a4 c2 / B: b6 d7",
+   "textbook": "0",
+   "aware": "0",
+   "root_differs": false,
+   "children": [
+    [
+     "W c2-c3",
+     "-1/2",
+     "{{{256 | 256, {256, +-256 | -256, +-256}, +-256} | 0} | 0}"
+    ],
+    [
+     "W c2-c4",
+     "-1",
+     "{{256 | 256, {256, +-256 | -256, +-256}, +-256} | 0}"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0475",
+   "position": "W: a4 c3 / B: b6 d7",
+   "textbook": "-1/2",
+   "aware": "{{{256 | 256, {256, +-256 | -256, +-256}, +-256} | 0} | 0}",
+   "root_differs": true,
+   "children": [
+    [
+     "W c3-c4",
+     "-1",
+     "{{256 | 256, {256, +-256 | -256, +-256}, +-256} | 0}"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0481",
+   "position": "W: a5 c2 / B: b7 d7",
+   "textbook": "0",
+   "aware": "0",
+   "root_differs": false,
+   "children": [
+    [
+     "W c2-c3",
+     "-1/2",
+     "v"
+    ],
+    [
+     "W c2-c4",
+     "-1",
+     "*"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0484",
+   "position": "W: a5 c3 / B: b7 d7",
+   "textbook": "-1/2",
+   "aware": "v",
+   "root_differs": true,
+   "children": [
+    [
+     "W c3-c4",
+     "-1",
+     "*"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0486",
+   "position": "W: a5 c4 / B: b7 d7",
+   "textbook": "-1",
+   "aware": "*",
+   "root_differs": true,
+   "children": [
+    [
+     "W c4-c5",
+     "{{256, +-256 | -256, +-256} | -256}",
+     "0"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0487",
+   "position": "W: b2 d2 / B: a4 c5",
+   "textbook": "1",
+   "aware": "*",
+   "root_differs": true,
+   "children": [
+    [
+     "B c5-c4",
+     "{256 | {256, +-256 | -256, +-256}}",
+     "0"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0488",
+   "position": "W: b2 d2 / B: a4 c6",
+   "textbook": "1/2",
+   "aware": "^",
+   "root_differs": true,
+   "children": [
+    [
+     "B c6-c5",
+     "1",
+     "*"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0489",
+   "position": "W: b2 d2 / B: a4 c7",
+   "textbook": "0",
+   "aware": "0",
+   "root_differs": false,
+   "children": [
+    [
+     "B c7-c6",
+     "1/2",
+     "^"
+    ],
+    [
+     "B c7-c5",
+     "1",
+     "*"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0498",
+   "position": "W: b2 d4 / B: a7 c6",
+   "textbook": "0",
+   "aware": "0",
+   "root_differs": false,
+   "children": [
+    [
+     "W b2-b3",
+     "-1/2",
+     "{{{256 | 256, {256, +-256 | -256, +-256}, +-256} | 0} | 0}"
+    ],
+    [
+     "W b2-b4",
+     "-1",
+     "{{256 | 256, {256, +-256 | -256, +-256}, +-256} | 0}"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0502",
+   "position": "W: b2 d5 / B: a7 c7",
+   "textbook": "0",
+   "aware": "0",
+   "root_differs": false,
+   "children": [
+    [
+     "W b2-b3",
+     "-1/2",
+     "v"
+    ],
+    [
+     "W b2-b4",
+     "-1",
+     "*"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0503",
+   "position": "W: b3 d2 / B: a5 c6",
+   "textbook": "1/2",
+   "aware": "{0 | {0 | {-256, {256, +-256 | -256, +-256}, +-256 | -256}}}",
+   "root_differs": true,
+   "children": [
+    [
+     "B c6-c5",
+     "1",
+     "{0 | {-256, {256, +-256 | -256, +-256}, +-256 | -256}}"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0504",
+   "position": "W: b3 d2 / B: a5 c7",
+   "textbook": "0",
+   "aware": "0",
+   "root_differs": false,
+   "children": [
+    [
+     "B c7-c6",
+     "1/2",
+     "{0 | {0 | {-256, {256, +-256 | -256, +-256}, +-256 | -256}}}"
+    ],
+    [
+     "B c7-c5",
+     "1",
+     "{0 | {-256, {256, +-256 | -256, +-256}, +-256 | -256}}"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0511",
+   "position": "W: b3 d4 / B: a7 c6",
+   "textbook": "-1/2",
+   "aware": "{{{256 | 256, {256, +-256 | -256, +-256}, +-256} | 0} | 0}",
+   "root_differs": true,
+   "children": [
+    [
+     "W b3-b4",
+     "-1",
+     "{{256 | 256, {256, +-256 | -256, +-256}, +-256} | 0}"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0514",
+   "position": "W: b3 d5 / B: a7 c7",
+   "textbook": "-1/2",
+   "aware": "v",
+   "root_differs": true,
+   "children": [
+    [
+     "W b3-b4",
+     "-1",
+     "*"
+    ]
+   ]
+  },
+  {
+   "v1_id": "C0517",
+   "position": "W: b4 d5 / B: a7 c7",
+   "textbook": "-1",
+   "aware": "*",
+   "root_differs": true,
+   "children": [
+    [
+     "W b4-b5",
+     "{{256, +-256 | -256, +-256} | -256}",
+     "0"
+    ]
+   ]
+  }
+ ],
+ "aware_only": []
+}

@@ -1,0 +1,3523 @@
+{
+ "input": "realchess/results/comp_Wa2c2_Bb7d7_nodes_pure_offline.json",
+ "positions_with_real_result": 295,
+ "real_results": {
+  "loss": 30,
+  "win": 252,
+  "draw": 13
+ },
+ "textbook": {
+  "count": {
+   "tally": {
+    "DISAGREE": 19,
+    "agree": 263,
+    "real draw (model says loss)": 4,
+    "real draw (model says win)": 9
+   },
+   "disagreements": [
+    {
+     "fen": "8/8/8/5Kp1/6Pk/1p1p4/P1P5/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a2 c2 / B: b3 d3",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/8/5Kp1/3p2Pk/1pP5/P7/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a2 c3 / B: b3 d4",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/3p4/2P2Kp1/6Pk/1p6/P7/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a2 c5 / B: b3 d6",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/8/5Kp1/1p4Pk/P2p4/2P5/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a3 c2 / B: b4 d3",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/8/5Kp1/1p1p2Pk/P1P5/8/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a3 c3 / B: b4 d4",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/8/1p3Kp1/P5Pk/3p4/2P5/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a4 c2 / B: b5 d3",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/3p4/1p6/5Kp1/P1P3Pk/8/8/8 w - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a4 c4 / B: b6 d7",
+     "model_value": "-1"
+    },
+    {
+     "fen": "8/3p4/1p6/2P2Kp1/P5Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a4 c5 / B: b6 d7",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p1p4/8/2P2Kp1/P5Pk/8/8/8 w - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a4 c5 / B: b7 d7",
+     "model_value": "{{+W, {+W, \u00b1+W | -W, \u00b1+W} | -W, \u00b1+W} | -W}"
+    },
+    {
+     "fen": "8/3p4/2P5/1p3Kp1/P5Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a4 c6 / B: b5 d7",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/1p6/P2p1Kp1/2P3Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a5 c4 / B: b6 d5",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p1p4/8/P4Kp1/2P3Pk/8/8/8 w - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a5 c4 / B: b7 d7",
+     "model_value": "-1"
+    },
+    {
+     "fen": "8/8/1p1p4/P1P2Kp1/6Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a5 c5 / B: b6 d6",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p1p4/8/P1P2Kp1/6Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a5 c5 / B: b7 d7",
+     "model_value": "{{+W, \u00b1+W | -W, \u00b1+W} | -W}"
+    },
+    {
+     "fen": "8/3p4/1pP5/P4Kp1/6Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a5 c6 / B: b6 d7",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p6/P7/5Kp1/3p2Pk/2P5/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a6 c3 / B: b7 d4",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p6/P7/3p1Kp1/2P3Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a6 c4 / B: b7 d5",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p6/P2p4/2P2Kp1/6Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a6 c5 / B: b7 d6",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p1p4/P1P5/5Kp1/6Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a6 c6 / B: b7 d7",
+     "model_value": "\u00b1+W"
+    }
+   ]
+  },
+  "mover": {
+   "tally": {
+    "DISAGREE": 21,
+    "agree": 261,
+    "real draw (model says win)": 10,
+    "real draw (model says loss)": 3
+   },
+   "disagreements": [
+    {
+     "fen": "8/8/8/5Kp1/6Pk/1p1p4/P1P5/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a2 c2 / B: b3 d3",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/8/5Kp1/3p2Pk/1pP5/P7/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a2 c3 / B: b3 d4",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/3p4/2P2Kp1/6Pk/1p6/P7/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a2 c5 / B: b3 d6",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/3p4/8/2P2Kp1/1p4Pk/8/P7/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a2 c5 / B: b4 d7",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/8/5Kp1/1p4Pk/P2p4/2P5/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a3 c2 / B: b4 d3",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/8/5Kp1/1p1p2Pk/P1P5/8/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a3 c3 / B: b4 d4",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/3p4/8/1pP2Kp1/6Pk/P7/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a3 c5 / B: b5 d7",
+     "model_value": "{{+W, \u00b1+W | -W, \u00b1+W} | -W}"
+    },
+    {
+     "fen": "8/8/8/1p3Kp1/P5Pk/3p4/2P5/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a4 c2 / B: b5 d3",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/3p4/1p6/5Kp1/P1P3Pk/8/8/8 w - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a4 c4 / B: b6 d7",
+     "model_value": "-1"
+    },
+    {
+     "fen": "8/3p4/1p6/2P2Kp1/P5Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a4 c5 / B: b6 d7",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p1p4/8/2P2Kp1/P5Pk/8/8/8 w - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a4 c5 / B: b7 d7",
+     "model_value": "{{+W, {+W, \u00b1+W | -W, \u00b1+W} | -W, \u00b1+W} | -W}"
+    },
+    {
+     "fen": "8/3p4/2P5/1p3Kp1/P5Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a4 c6 / B: b5 d7",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/1p6/P2p1Kp1/2P3Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a5 c4 / B: b6 d5",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p1p4/8/P4Kp1/2P3Pk/8/8/8 w - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a5 c4 / B: b7 d7",
+     "model_value": "-1"
+    },
+    {
+     "fen": "8/8/1p1p4/P1P2Kp1/6Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a5 c5 / B: b6 d6",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p1p4/8/P1P2Kp1/6Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a5 c5 / B: b7 d7",
+     "model_value": "{{+W, \u00b1+W | -W, \u00b1+W} | -W}"
+    },
+    {
+     "fen": "8/3p4/1pP5/P4Kp1/6Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a5 c6 / B: b6 d7",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p6/P7/5Kp1/3p2Pk/2P5/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a6 c3 / B: b7 d4",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p6/P7/3p1Kp1/2P3Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a6 c4 / B: b7 d5",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p6/P2p4/2P2Kp1/6Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a6 c5 / B: b7 d6",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p1p4/P1P5/5Kp1/6Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a6 c6 / B: b7 d7",
+     "model_value": "\u00b1+W"
+    }
+   ]
+  },
+  "opponent": {
+   "tally": {
+    "DISAGREE": 43,
+    "agree": 239,
+    "real draw (model says loss)": 4,
+    "real draw (model says win)": 9
+   },
+   "disagreements": [
+    {
+     "fen": "8/8/8/5Kp1/6Pk/1p1p4/P1P5/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a2 c2 / B: b3 d3",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/3p4/8/1p3Kp1/6Pk/8/P1P5/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a2 c2 / B: b5 d7",
+     "model_value": "1/2"
+    },
+    {
+     "fen": "8/3p4/1p6/5Kp1/6Pk/8/P1P5/8 b - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a2 c2 / B: b6 d7",
+     "model_value": "1/4"
+    },
+    {
+     "fen": "8/1p1p4/8/5Kp1/6Pk/8/P1P5/8 w - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a2 c2 / B: b7 d7",
+     "model_value": "0"
+    },
+    {
+     "fen": "8/1p1p4/8/5Kp1/6Pk/8/P1P5/8 b - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a2 c2 / B: b7 d7",
+     "model_value": "0"
+    },
+    {
+     "fen": "8/8/8/5Kp1/3p2Pk/1pP5/P7/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a2 c3 / B: b3 d4",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/8/3p1Kp1/1p4Pk/2P5/P7/8 b - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a2 c3 / B: b4 d5",
+     "model_value": "{+W | +W, {+W, \u00b1+W | -W, \u00b1+W}}"
+    },
+    {
+     "fen": "8/8/3p4/5Kp1/1p4Pk/2P5/P7/8 b - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a2 c3 / B: b4 d6",
+     "model_value": "{+W | +W, \u00b1+W}"
+    },
+    {
+     "fen": "8/3p4/8/5Kp1/1p4Pk/2P5/P7/8 b - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a2 c3 / B: b4 d7",
+     "model_value": "{+W | +W, {+W, {+W, {+W, \u00b1+W | -W, \u00b1+W} | -W, \u00b1+W} | -W, \u00b1+W}}"
+    },
+    {
+     "fen": "8/1p1p4/8/5Kp1/6Pk/2P5/P7/8 w - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a2 c3 / B: b7 d7",
+     "model_value": "-1/4"
+    },
+    {
+     "fen": "8/8/3p4/5Kp1/1pP3Pk/8/P7/8 b - c3 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a2 c4 / B: b4 d6 (ep c3)",
+     "model_value": "0"
+    },
+    {
+     "fen": "8/3p4/8/1p3Kp1/2P3Pk/8/P7/8 w - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a2 c4 / B: b5 d7",
+     "model_value": "0"
+    },
+    {
+     "fen": "8/3p4/8/1p3Kp1/2P3Pk/8/P7/8 b - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a2 c4 / B: b5 d7",
+     "model_value": "0"
+    },
+    {
+     "fen": "8/1p6/3p4/5Kp1/2P3Pk/8/P7/8 w - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a2 c4 / B: b7 d6",
+     "model_value": "0"
+    },
+    {
+     "fen": "8/1p1p4/8/5Kp1/2P3Pk/8/P7/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a2 c4 / B: b7 d7",
+     "model_value": "-1/2"
+    },
+    {
+     "fen": "8/8/3p4/2P2Kp1/6Pk/1p6/P7/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a2 c5 / B: b3 d6",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/3p4/1p6/2P2Kp1/6Pk/8/P7/8 w - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a2 c5 / B: b6 d7",
+     "model_value": "{-W, {+W, \u00b1+W | -W, {+W, \u00b1+W | -W, {+W, \u00b1+W | -W, \u00b1+W}}} | -W}"
+    },
+    {
+     "fen": "8/8/8/5Kp1/1p4Pk/P2p4/2P5/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a3 c2 / B: b4 d3",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/3p4/1p3Kp1/6Pk/P7/2P5/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a3 c2 / B: b5 d6",
+     "model_value": "\u2191"
+    },
+    {
+     "fen": "8/3p4/8/1p3Kp1/6Pk/P7/2P5/8 b - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a3 c2 / B: b5 d7",
+     "model_value": "0"
+    },
+    {
+     "fen": "8/1p6/3p4/5Kp1/6Pk/P7/2P5/8 w - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a3 c2 / B: b7 d6",
+     "model_value": "0"
+    },
+    {
+     "fen": "8/1p6/3p4/5Kp1/6Pk/P7/2P5/8 b - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a3 c2 / B: b7 d6",
+     "model_value": "0"
+    },
+    {
+     "fen": "8/8/8/5Kp1/1p1p2Pk/P1P5/8/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a3 c3 / B: b4 d4",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/3p4/1p3Kp1/2P3Pk/P7/8/8 w - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a3 c4 / B: b5 d6",
+     "model_value": "0"
+    },
+    {
+     "fen": "8/8/3p4/1p3Kp1/2P3Pk/P7/8/8 b - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a3 c4 / B: b5 d6",
+     "model_value": "0"
+    },
+    {
+     "fen": "8/1p6/3p4/5Kp1/2P3Pk/P7/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a3 c4 / B: b7 d6",
+     "model_value": "\u2193"
+    },
+    {
+     "fen": "8/3p4/8/1pP2Kp1/6Pk/P7/8/8 w - b6 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a3 c5 / B: b5 d7 (ep b6)",
+     "model_value": "0"
+    },
+    {
+     "fen": "8/3p4/1p6/2P2Kp1/6Pk/P7/8/8 w - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a3 c5 / B: b6 d7",
+     "model_value": "{-W, \u00b1+W | -W}"
+    },
+    {
+     "fen": "8/8/8/1p3Kp1/P5Pk/3p4/2P5/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a4 c2 / B: b5 d3",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/3p4/1p6/5Kp1/P1P3Pk/8/8/8 w - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a4 c4 / B: b6 d7",
+     "model_value": "-1"
+    },
+    {
+     "fen": "8/3p4/1p6/2P2Kp1/P5Pk/8/8/8 w - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a4 c5 / B: b6 d7",
+     "model_value": "{-W, {+W, \u00b1+W | -W, \u00b1+W} | -W}"
+    },
+    {
+     "fen": "8/3p4/1p6/2P2Kp1/P5Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a4 c5 / B: b6 d7",
+     "model_value": "{-W, {+W, \u00b1+W | -W, \u00b1+W} | -W}"
+    },
+    {
+     "fen": "8/1p1p4/8/2P2Kp1/P5Pk/8/8/8 w - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a4 c5 / B: b7 d7",
+     "model_value": "{{+W, {+W, \u00b1+W | -W, \u00b1+W} | -W, \u00b1+W} | -W}"
+    },
+    {
+     "fen": "8/3p4/2P5/1p3Kp1/P5Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a4 c6 / B: b5 d7",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/1p6/P2p1Kp1/2P3Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a5 c4 / B: b6 d5",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p1p4/8/P4Kp1/2P3Pk/8/8/8 w - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a5 c4 / B: b7 d7",
+     "model_value": "-1"
+    },
+    {
+     "fen": "8/8/1p1p4/P1P2Kp1/6Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a5 c5 / B: b6 d6",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p1p4/8/P1P2Kp1/6Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a5 c5 / B: b7 d7",
+     "model_value": "{{+W, \u00b1+W | -W, \u00b1+W} | -W}"
+    },
+    {
+     "fen": "8/3p4/1pP5/P4Kp1/6Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a5 c6 / B: b6 d7",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p6/P7/5Kp1/3p2Pk/2P5/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a6 c3 / B: b7 d4",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p6/P7/3p1Kp1/2P3Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a6 c4 / B: b7 d5",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p6/P2p4/2P2Kp1/6Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a6 c5 / B: b7 d6",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p1p4/P1P5/5Kp1/6Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a6 c6 / B: b7 d7",
+     "model_value": "\u00b1+W"
+    }
+   ]
+  },
+  "configurations": {
+   "n": 119,
+   "real_classes": {
+    "R": 6,
+    "N": 89,
+    "D": 13,
+    "L": 10,
+    "P": 1
+   },
+   "agree": {
+    "count": 91,
+    "mover": 90,
+    "opponent": 85
+   },
+   "rows": {
+    "W: a2 c2 / B: b3 d3": {
+     "real": "R",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/5Kp1/6Pk/1p1p4/P1P5/8 w - - 0 1",
+     "fen_B": "8/8/8/5Kp1/6Pk/1p1p4/P1P5/8 b - - 0 1"
+    },
+    "W: a2 c2 / B: b3 d4": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/5Kp1/3p2Pk/1p6/P1P5/8 w - - 0 1",
+     "fen_B": "8/8/8/5Kp1/3p2Pk/1p6/P1P5/8 b - - 0 1"
+    },
+    "W: a2 c2 / B: b3 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/8/5Kp1/6Pk/1p6/P1P5/8 w - - 0 1",
+     "fen_B": "8/3p4/8/5Kp1/6Pk/1p6/P1P5/8 b - - 0 1"
+    },
+    "W: a2 c2 / B: b4 d3": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/5Kp1/1p4Pk/3p4/P1P5/8 w - - 0 1",
+     "fen_B": "8/8/8/5Kp1/1p4Pk/3p4/P1P5/8 b - - 0 1"
+    },
+    "W: a2 c2 / B: b7 d3": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/8/5Kp1/6Pk/3p4/P1P5/8 w - - 0 1",
+     "fen_B": "8/1p6/8/5Kp1/6Pk/3p4/P1P5/8 b - - 0 1"
+    },
+    "W: a2 c2 / B: b7 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "P"
+     },
+     "fen_W": "8/1p1p4/8/5Kp1/6Pk/8/P1P5/8 w - - 0 1",
+     "fen_B": "8/1p1p4/8/5Kp1/6Pk/8/P1P5/8 b - - 0 1"
+    },
+    "W: a2 c3 / B: b3 d4": {
+     "real": "R",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/5Kp1/3p2Pk/1pP5/P7/8 w - - 0 1",
+     "fen_B": "8/8/8/5Kp1/3p2Pk/1pP5/P7/8 b - - 0 1"
+    },
+    "W: a2 c3 / B: b3 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/3p1Kp1/6Pk/1pP5/P7/8 w - - 0 1",
+     "fen_B": "8/8/8/3p1Kp1/6Pk/1pP5/P7/8 b - - 0 1"
+    },
+    "W: a2 c3 / B: b4 d4": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/5Kp1/1p1p2Pk/2P5/P7/8 w - - 0 1",
+     "fen_B": "8/8/8/5Kp1/1p1p2Pk/2P5/P7/8 b - - 0 1"
+    },
+    "W: a2 c3 / B: b4 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "L"
+     },
+     "fen_W": "8/3p4/8/5Kp1/1p4Pk/2P5/P7/8 w - - 0 1",
+     "fen_B": "8/3p4/8/5Kp1/1p4Pk/2P5/P7/8 b - - 0 1"
+    },
+    "W: a2 c3 / B: b5 d4": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/1p3Kp1/3p2Pk/2P5/P7/8 w - - 0 1",
+     "fen_B": "8/8/8/1p3Kp1/3p2Pk/2P5/P7/8 b - - 0 1"
+    },
+    "W: a2 c3 / B: b7 d4": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/8/5Kp1/3p2Pk/2P5/P7/8 w - - 0 1",
+     "fen_B": "8/1p6/8/5Kp1/3p2Pk/2P5/P7/8 b - - 0 1"
+    },
+    "W: a2 c4 / B: b3 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/3p1Kp1/2P3Pk/1p6/P7/8 w - - 0 1",
+     "fen_B": "8/8/8/3p1Kp1/2P3Pk/1p6/P7/8 b - - 0 1"
+    },
+    "W: a2 c4 / B: b3 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/3p4/5Kp1/2P3Pk/1p6/P7/8 w - - 0 1",
+     "fen_B": "8/8/3p4/5Kp1/2P3Pk/1p6/P7/8 b - - 0 1"
+    },
+    "W: a2 c4 / B: b4 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/3p1Kp1/1pP3Pk/8/P7/8 w - - 0 1",
+     "fen_B": "8/8/8/3p1Kp1/1pP3Pk/8/P7/8 b - c3 0 1"
+    },
+    "W: a2 c4 / B: b4 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/8/5Kp1/1pP3Pk/8/P7/8 w - - 0 1",
+     "fen_B": "8/3p4/8/5Kp1/1pP3Pk/8/P7/8 b - c3 0 1"
+    },
+    "W: a2 c4 / B: b5 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/1p1p1Kp1/2P3Pk/8/P7/8 w - - 0 1",
+     "fen_B": "8/8/8/1p1p1Kp1/2P3Pk/8/P7/8 b - - 0 1"
+    },
+    "W: a2 c4 / B: b5 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/3p4/1p3Kp1/2P3Pk/8/P7/8 w - - 0 1",
+     "fen_B": "8/8/3p4/1p3Kp1/2P3Pk/8/P7/8 b - - 0 1"
+    },
+    "W: a2 c4 / B: b5 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "P"
+     },
+     "fen_W": "8/3p4/8/1p3Kp1/2P3Pk/8/P7/8 w - - 0 1",
+     "fen_B": "8/3p4/8/1p3Kp1/2P3Pk/8/P7/8 b - - 0 1"
+    },
+    "W: a2 c4 / B: b6 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p6/3p1Kp1/2P3Pk/8/P7/8 w - - 0 1",
+     "fen_B": "8/8/1p6/3p1Kp1/2P3Pk/8/P7/8 b - - 0 1"
+    },
+    "W: a2 c4 / B: b7 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/8/3p1Kp1/2P3Pk/8/P7/8 w - - 0 1",
+     "fen_B": "8/1p6/8/3p1Kp1/2P3Pk/8/P7/8 b - - 0 1"
+    },
+    "W: a2 c5 / B: b3 d6": {
+     "real": "R",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/3p4/2P2Kp1/6Pk/1p6/P7/8 w - - 0 1",
+     "fen_B": "8/8/3p4/2P2Kp1/6Pk/1p6/P7/8 b - - 0 1"
+    },
+    "W: a2 c5 / B: b3 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/8/2P2Kp1/6Pk/1p6/P7/8 w - - 0 1",
+     "fen_B": "8/3p4/8/2P2Kp1/6Pk/1p6/P7/8 b - - 0 1"
+    },
+    "W: a2 c5 / B: b4 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/3p4/2P2Kp1/1p4Pk/8/P7/8 w - - 0 1",
+     "fen_B": "8/8/3p4/2P2Kp1/1p4Pk/8/P7/8 b - - 0 1"
+    },
+    "W: a2 c5 / B: b4 d7": {
+     "real": "D",
+     "model": {
+      "count": "P",
+      "mover": "N",
+      "opponent": "P"
+     },
+     "fen_W": "8/3p4/8/2P2Kp1/1p4Pk/8/P7/8 w - - 0 1",
+     "fen_B": "8/3p4/8/2P2Kp1/1p4Pk/8/P7/8 b - - 0 1"
+    },
+    "W: a2 c5 / B: b6 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p1p4/2P2Kp1/6Pk/8/P7/8 w - - 0 1",
+     "fen_B": "8/8/1p1p4/2P2Kp1/6Pk/8/P7/8 b - - 0 1"
+    },
+    "W: a2 c5 / B: b7 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/3p4/2P2Kp1/6Pk/8/P7/8 w - - 0 1",
+     "fen_B": "8/1p6/3p4/2P2Kp1/6Pk/8/P7/8 b - - 0 1"
+    },
+    "W: a2 c6 / B: b3 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/2P5/5Kp1/6Pk/1p6/P7/8 w - - 0 1",
+     "fen_B": "8/3p4/2P5/5Kp1/6Pk/1p6/P7/8 b - - 0 1"
+    },
+    "W: a2 c6 / B: b4 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/2P5/5Kp1/1p4Pk/8/P7/8 w - - 0 1",
+     "fen_B": "8/3p4/2P5/5Kp1/1p4Pk/8/P7/8 b - - 0 1"
+    },
+    "W: a2 c6 / B: b5 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/2P5/1p3Kp1/6Pk/8/P7/8 w - - 0 1",
+     "fen_B": "8/3p4/2P5/1p3Kp1/6Pk/8/P7/8 b - - 0 1"
+    },
+    "W: a3 c2 / B: b4 d3": {
+     "real": "R",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/5Kp1/1p4Pk/P2p4/2P5/8 w - - 0 1",
+     "fen_B": "8/8/8/5Kp1/1p4Pk/P2p4/2P5/8 b - - 0 1"
+    },
+    "W: a3 c2 / B: b4 d4": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/5Kp1/1p1p2Pk/P7/2P5/8 w - - 0 1",
+     "fen_B": "8/8/8/5Kp1/1p1p2Pk/P7/2P5/8 b - - 0 1"
+    },
+    "W: a3 c2 / B: b4 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/3p4/5Kp1/1p4Pk/P7/2P5/8 w - - 0 1",
+     "fen_B": "8/8/3p4/5Kp1/1p4Pk/P7/2P5/8 b - - 0 1"
+    },
+    "W: a3 c2 / B: b4 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/8/5Kp1/1p4Pk/P7/2P5/8 w - - 0 1",
+     "fen_B": "8/3p4/8/5Kp1/1p4Pk/P7/2P5/8 b - - 0 1"
+    },
+    "W: a3 c2 / B: b5 d3": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/1p3Kp1/6Pk/P2p4/2P5/8 w - - 0 1",
+     "fen_B": "8/8/8/1p3Kp1/6Pk/P2p4/2P5/8 b - - 0 1"
+    },
+    "W: a3 c2 / B: b7 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "P"
+     },
+     "fen_W": "8/1p6/3p4/5Kp1/6Pk/P7/2P5/8 w - - 0 1",
+     "fen_B": "8/1p6/3p4/5Kp1/6Pk/P7/2P5/8 b - - 0 1"
+    },
+    "W: a3 c3 / B: b4 d4": {
+     "real": "R",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/5Kp1/1p1p2Pk/P1P5/8/8 w - - 0 1",
+     "fen_B": "8/8/8/5Kp1/1p1p2Pk/P1P5/8/8 b - - 0 1"
+    },
+    "W: a3 c3 / B: b4 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/3p1Kp1/1p4Pk/P1P5/8/8 w - - 0 1",
+     "fen_B": "8/8/8/3p1Kp1/1p4Pk/P1P5/8/8 b - - 0 1"
+    },
+    "W: a3 c3 / B: b4 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/3p4/5Kp1/1p4Pk/P1P5/8/8 w - - 0 1",
+     "fen_B": "8/8/3p4/5Kp1/1p4Pk/P1P5/8/8 b - - 0 1"
+    },
+    "W: a3 c3 / B: b4 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/8/5Kp1/1p4Pk/P1P5/8/8 w - - 0 1",
+     "fen_B": "8/3p4/8/5Kp1/1p4Pk/P1P5/8/8 b - - 0 1"
+    },
+    "W: a3 c3 / B: b5 d4": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/1p3Kp1/3p2Pk/P1P5/8/8 w - - 0 1",
+     "fen_B": "8/8/8/1p3Kp1/3p2Pk/P1P5/8/8 b - - 0 1"
+    },
+    "W: a3 c3 / B: b7 d4": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/8/5Kp1/3p2Pk/P1P5/8/8 w - - 0 1",
+     "fen_B": "8/1p6/8/5Kp1/3p2Pk/P1P5/8/8 b - - 0 1"
+    },
+    "W: a3 c4 / B: b4 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/3p1Kp1/1pP3Pk/P7/8/8 w - - 0 1",
+     "fen_B": "8/8/8/3p1Kp1/1pP3Pk/P7/8/8 b - c3 0 1"
+    },
+    "W: a3 c4 / B: b4 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/3p4/5Kp1/1pP3Pk/P7/8/8 w - - 0 1",
+     "fen_B": "8/8/3p4/5Kp1/1pP3Pk/P7/8/8 b - c3 0 1"
+    },
+    "W: a3 c4 / B: b4 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/8/5Kp1/1pP3Pk/P7/8/8 w - - 0 1",
+     "fen_B": "8/3p4/8/5Kp1/1pP3Pk/P7/8/8 b - c3 0 1"
+    },
+    "W: a3 c4 / B: b5 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/1p1p1Kp1/2P3Pk/P7/8/8 w - - 0 1",
+     "fen_B": "8/8/8/1p1p1Kp1/2P3Pk/P7/8/8 b - - 0 1"
+    },
+    "W: a3 c4 / B: b5 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "P"
+     },
+     "fen_W": "8/8/3p4/1p3Kp1/2P3Pk/P7/8/8 w - - 0 1",
+     "fen_B": "8/8/3p4/1p3Kp1/2P3Pk/P7/8/8 b - - 0 1"
+    },
+    "W: a3 c4 / B: b5 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/8/1p3Kp1/2P3Pk/P7/8/8 w - - 0 1",
+     "fen_B": "8/3p4/8/1p3Kp1/2P3Pk/P7/8/8 b - - 0 1"
+    },
+    "W: a3 c4 / B: b6 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p6/3p1Kp1/2P3Pk/P7/8/8 w - - 0 1",
+     "fen_B": "8/8/1p6/3p1Kp1/2P3Pk/P7/8/8 b - - 0 1"
+    },
+    "W: a3 c4 / B: b7 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/8/3p1Kp1/2P3Pk/P7/8/8 w - - 0 1",
+     "fen_B": "8/1p6/8/3p1Kp1/2P3Pk/P7/8/8 b - - 0 1"
+    },
+    "W: a3 c5 / B: b4 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/3p4/2P2Kp1/1p4Pk/P7/8/8 w - - 0 1",
+     "fen_B": "8/8/3p4/2P2Kp1/1p4Pk/P7/8/8 b - - 0 1"
+    },
+    "W: a3 c5 / B: b4 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/8/2P2Kp1/1p4Pk/P7/8/8 w - - 0 1",
+     "fen_B": "8/3p4/8/2P2Kp1/1p4Pk/P7/8/8 b - - 0 1"
+    },
+    "W: a3 c5 / B: b5 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/3p4/1pP2Kp1/6Pk/P7/8/8 w - b6 0 1",
+     "fen_B": "8/8/3p4/1pP2Kp1/6Pk/P7/8/8 b - - 0 1"
+    },
+    "W: a3 c5 / B: b5 d7": {
+     "real": "L",
+     "model": {
+      "count": "L",
+      "mover": "N",
+      "opponent": "P"
+     },
+     "fen_W": "8/3p4/8/1pP2Kp1/6Pk/P7/8/8 w - b6 0 1",
+     "fen_B": "8/3p4/8/1pP2Kp1/6Pk/P7/8/8 b - - 0 1"
+    },
+    "W: a3 c5 / B: b6 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p1p4/2P2Kp1/6Pk/P7/8/8 w - - 0 1",
+     "fen_B": "8/8/1p1p4/2P2Kp1/6Pk/P7/8/8 b - - 0 1"
+    },
+    "W: a3 c5 / B: b7 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/3p4/2P2Kp1/6Pk/P7/8/8 w - - 0 1",
+     "fen_B": "8/1p6/3p4/2P2Kp1/6Pk/P7/8/8 b - - 0 1"
+    },
+    "W: a3 c6 / B: b5 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/2P5/1p3Kp1/6Pk/P7/8/8 w - - 0 1",
+     "fen_B": "8/3p4/2P5/1p3Kp1/6Pk/P7/8/8 b - - 0 1"
+    },
+    "W: a3 c6 / B: b6 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/1pP5/5Kp1/6Pk/P7/8/8 w - - 0 1",
+     "fen_B": "8/3p4/1pP5/5Kp1/6Pk/P7/8/8 b - - 0 1"
+    },
+    "W: a4 c2 / B: b5 d3": {
+     "real": "R",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/1p3Kp1/P5Pk/3p4/2P5/8 w - - 0 1",
+     "fen_B": "8/8/8/1p3Kp1/P5Pk/3p4/2P5/8 b - - 0 1"
+    },
+    "W: a4 c2 / B: b5 d4": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/1p3Kp1/P2p2Pk/8/2P5/8 w - - 0 1",
+     "fen_B": "8/8/8/1p3Kp1/P2p2Pk/8/2P5/8 b - - 0 1"
+    },
+    "W: a4 c2 / B: b5 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/1p1p1Kp1/P5Pk/8/2P5/8 w - - 0 1",
+     "fen_B": "8/8/8/1p1p1Kp1/P5Pk/8/2P5/8 b - - 0 1"
+    },
+    "W: a4 c2 / B: b5 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/3p4/1p3Kp1/P5Pk/8/2P5/8 w - - 0 1",
+     "fen_B": "8/8/3p4/1p3Kp1/P5Pk/8/2P5/8 b - - 0 1"
+    },
+    "W: a4 c2 / B: b5 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/8/1p3Kp1/P5Pk/8/2P5/8 w - - 0 1",
+     "fen_B": "8/3p4/8/1p3Kp1/P5Pk/8/2P5/8 b - - 0 1"
+    },
+    "W: a4 c2 / B: b6 d3": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p6/5Kp1/P5Pk/3p4/2P5/8 w - - 0 1",
+     "fen_B": "8/8/1p6/5Kp1/P5Pk/3p4/2P5/8 b - - 0 1"
+    },
+    "W: a4 c2 / B: b7 d3": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/8/5Kp1/P5Pk/3p4/2P5/8 w - - 0 1",
+     "fen_B": "8/1p6/8/5Kp1/P5Pk/3p4/2P5/8 b - - 0 1"
+    },
+    "W: a4 c3 / B: b5 d4": {
+     "real": "D",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/1p3Kp1/P2p2Pk/2P5/8/8 w - - 0 1",
+     "fen_B": "8/8/8/1p3Kp1/P2p2Pk/2P5/8/8 b - - 0 1"
+    },
+    "W: a4 c3 / B: b5 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/1p1p1Kp1/P5Pk/2P5/8/8 w - - 0 1",
+     "fen_B": "8/8/8/1p1p1Kp1/P5Pk/2P5/8/8 b - - 0 1"
+    },
+    "W: a4 c3 / B: b5 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/3p4/1p3Kp1/P5Pk/2P5/8/8 w - - 0 1",
+     "fen_B": "8/8/3p4/1p3Kp1/P5Pk/2P5/8/8 b - - 0 1"
+    },
+    "W: a4 c3 / B: b5 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/8/1p3Kp1/P5Pk/2P5/8/8 w - - 0 1",
+     "fen_B": "8/3p4/8/1p3Kp1/P5Pk/2P5/8/8 b - - 0 1"
+    },
+    "W: a4 c3 / B: b6 d4": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p6/5Kp1/P2p2Pk/2P5/8/8 w - - 0 1",
+     "fen_B": "8/8/1p6/5Kp1/P2p2Pk/2P5/8/8 b - - 0 1"
+    },
+    "W: a4 c3 / B: b7 d4": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/8/5Kp1/P2p2Pk/2P5/8/8 w - - 0 1",
+     "fen_B": "8/1p6/8/5Kp1/P2p2Pk/2P5/8/8 b - - 0 1"
+    },
+    "W: a4 c4 / B: b5 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/1p1p1Kp1/P1P3Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/8/8/1p1p1Kp1/P1P3Pk/8/8/8 b - - 0 1"
+    },
+    "W: a4 c4 / B: b5 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/3p4/1p3Kp1/P1P3Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/8/3p4/1p3Kp1/P1P3Pk/8/8/8 b - - 0 1"
+    },
+    "W: a4 c4 / B: b5 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/8/1p3Kp1/P1P3Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/3p4/8/1p3Kp1/P1P3Pk/8/8/8 b - - 0 1"
+    },
+    "W: a4 c4 / B: b6 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p6/3p1Kp1/P1P3Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/8/1p6/3p1Kp1/P1P3Pk/8/8/8 b - - 0 1"
+    },
+    "W: a4 c4 / B: b7 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/8/3p1Kp1/P1P3Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/1p6/8/3p1Kp1/P1P3Pk/8/8/8 b - - 0 1"
+    },
+    "W: a4 c5 / B: b5 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/8/1pP2Kp1/P5Pk/8/8/8 w - b6 0 1",
+     "fen_B": "8/3p4/8/1pP2Kp1/P5Pk/8/8/8 b - - 0 1"
+    },
+    "W: a4 c5 / B: b6 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p1p4/2P2Kp1/P5Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/8/1p1p4/2P2Kp1/P5Pk/8/8/8 b - - 0 1"
+    },
+    "W: a4 c5 / B: b6 d7": {
+     "real": "L",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "R"
+     },
+     "fen_W": "8/3p4/1p6/2P2Kp1/P5Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/3p4/1p6/2P2Kp1/P5Pk/8/8/8 b - - 0 1"
+    },
+    "W: a4 c5 / B: b7 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/3p4/2P2Kp1/P5Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/1p6/3p4/2P2Kp1/P5Pk/8/8/8 b - - 0 1"
+    },
+    "W: a4 c6 / B: b5 d7": {
+     "real": "L",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/2P5/1p3Kp1/P5Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/3p4/2P5/1p3Kp1/P5Pk/8/8/8 b - - 0 1"
+    },
+    "W: a4 c6 / B: b6 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/1pP5/5Kp1/P5Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/3p4/1pP5/5Kp1/P5Pk/8/8/8 b - - 0 1"
+    },
+    "W: a4 c6 / B: b7 d7": {
+     "real": "D",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p1p4/2P5/5Kp1/P5Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/1p1p4/2P5/5Kp1/P5Pk/8/8/8 b - - 0 1"
+    },
+    "W: a5 c2 / B: b6 d3": {
+     "real": "D",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p6/P4Kp1/6Pk/3p4/2P5/8 w - - 0 1",
+     "fen_B": "8/8/1p6/P4Kp1/6Pk/3p4/2P5/8 b - - 0 1"
+    },
+    "W: a5 c2 / B: b6 d4": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p6/P4Kp1/3p2Pk/8/2P5/8 w - - 0 1",
+     "fen_B": "8/8/1p6/P4Kp1/3p2Pk/8/2P5/8 b - - 0 1"
+    },
+    "W: a5 c2 / B: b6 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p6/P2p1Kp1/6Pk/8/2P5/8 w - - 0 1",
+     "fen_B": "8/8/1p6/P2p1Kp1/6Pk/8/2P5/8 b - - 0 1"
+    },
+    "W: a5 c2 / B: b6 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p1p4/P4Kp1/6Pk/8/2P5/8 w - - 0 1",
+     "fen_B": "8/8/1p1p4/P4Kp1/6Pk/8/2P5/8 b - - 0 1"
+    },
+    "W: a5 c2 / B: b6 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/1p6/P4Kp1/6Pk/8/2P5/8 w - - 0 1",
+     "fen_B": "8/3p4/1p6/P4Kp1/6Pk/8/2P5/8 b - - 0 1"
+    },
+    "W: a5 c2 / B: b7 d3": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/8/P4Kp1/6Pk/3p4/2P5/8 w - - 0 1",
+     "fen_B": "8/1p6/8/P4Kp1/6Pk/3p4/2P5/8 b - - 0 1"
+    },
+    "W: a5 c2 / B: b7 d4": {
+     "real": "P",
+     "model": {
+      "count": "P",
+      "mover": "P",
+      "opponent": "P"
+     },
+     "fen_W": "8/1p6/8/P4Kp1/3p2Pk/8/2P5/8 w - - 0 1",
+     "fen_B": "8/1p6/8/P4Kp1/3p2Pk/8/2P5/8 b - - 0 1"
+    },
+    "W: a5 c2 / B: b7 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/8/P2p1Kp1/6Pk/8/2P5/8 w - - 0 1",
+     "fen_B": "8/1p6/8/P2p1Kp1/6Pk/8/2P5/8 b - - 0 1"
+    },
+    "W: a5 c3 / B: b6 d4": {
+     "real": "D",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p6/P4Kp1/3p2Pk/2P5/8/8 w - - 0 1",
+     "fen_B": "8/8/1p6/P4Kp1/3p2Pk/2P5/8/8 b - - 0 1"
+    },
+    "W: a5 c3 / B: b6 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p6/P2p1Kp1/6Pk/2P5/8/8 w - - 0 1",
+     "fen_B": "8/8/1p6/P2p1Kp1/6Pk/2P5/8/8 b - - 0 1"
+    },
+    "W: a5 c3 / B: b7 d4": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/8/P4Kp1/3p2Pk/2P5/8/8 w - - 0 1",
+     "fen_B": "8/1p6/8/P4Kp1/3p2Pk/2P5/8/8 b - - 0 1"
+    },
+    "W: a5 c3 / B: b7 d5": {
+     "real": "D",
+     "model": {
+      "count": "P",
+      "mover": "P",
+      "opponent": "P"
+     },
+     "fen_W": "8/1p6/8/P2p1Kp1/6Pk/2P5/8/8 w - - 0 1",
+     "fen_B": "8/1p6/8/P2p1Kp1/6Pk/2P5/8/8 b - - 0 1"
+    },
+    "W: a5 c4 / B: b6 d5": {
+     "real": "L",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p6/P2p1Kp1/2P3Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/8/1p6/P2p1Kp1/2P3Pk/8/8/8 b - - 0 1"
+    },
+    "W: a5 c4 / B: b6 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p1p4/P4Kp1/2P3Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/8/1p1p4/P4Kp1/2P3Pk/8/8/8 b - - 0 1"
+    },
+    "W: a5 c4 / B: b6 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/1p6/P4Kp1/2P3Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/3p4/1p6/P4Kp1/2P3Pk/8/8/8 b - - 0 1"
+    },
+    "W: a5 c4 / B: b7 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/8/P2p1Kp1/2P3Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/1p6/8/P2p1Kp1/2P3Pk/8/8/8 b - - 0 1"
+    },
+    "W: a5 c4 / B: b7 d6": {
+     "real": "D",
+     "model": {
+      "count": "P",
+      "mover": "P",
+      "opponent": "P"
+     },
+     "fen_W": "8/1p6/3p4/P4Kp1/2P3Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/1p6/3p4/P4Kp1/2P3Pk/8/8/8 b - - 0 1"
+    },
+    "W: a5 c5 / B: b6 d6": {
+     "real": "L",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p1p4/P1P2Kp1/6Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/8/1p1p4/P1P2Kp1/6Pk/8/8/8 b - - 0 1"
+    },
+    "W: a5 c5 / B: b6 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/1p6/P1P2Kp1/6Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/3p4/1p6/P1P2Kp1/6Pk/8/8/8 b - - 0 1"
+    },
+    "W: a5 c5 / B: b7 d6": {
+     "real": "D",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/3p4/P1P2Kp1/6Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/1p6/3p4/P1P2Kp1/6Pk/8/8/8 b - - 0 1"
+    },
+    "W: a5 c5 / B: b7 d7": {
+     "real": "D",
+     "model": {
+      "count": "R",
+      "mover": "R",
+      "opponent": "R"
+     },
+     "fen_W": "8/1p1p4/8/P1P2Kp1/6Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/1p1p4/8/P1P2Kp1/6Pk/8/8/8 b - - 0 1"
+    },
+    "W: a5 c6 / B: b6 d7": {
+     "real": "L",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/1pP5/P4Kp1/6Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/3p4/1pP5/P4Kp1/6Pk/8/8/8 b - - 0 1"
+    },
+    "W: a5 c6 / B: b7 d7": {
+     "real": "D",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p1p4/2P5/P4Kp1/6Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/1p1p4/2P5/P4Kp1/6Pk/8/8/8 b - - 0 1"
+    },
+    "W: a6 c2 / B: b7 d3": {
+     "real": "D",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/P7/5Kp1/6Pk/3p4/2P5/8 w - - 0 1",
+     "fen_B": "8/1p6/P7/5Kp1/6Pk/3p4/2P5/8 b - - 0 1"
+    },
+    "W: a6 c2 / B: b7 d4": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/P7/5Kp1/3p2Pk/8/2P5/8 w - - 0 1",
+     "fen_B": "8/1p6/P7/5Kp1/3p2Pk/8/2P5/8 b - - 0 1"
+    },
+    "W: a6 c2 / B: b7 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/P7/3p1Kp1/6Pk/8/2P5/8 w - - 0 1",
+     "fen_B": "8/1p6/P7/3p1Kp1/6Pk/8/2P5/8 b - - 0 1"
+    },
+    "W: a6 c2 / B: b7 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p1p4/P7/5Kp1/6Pk/8/2P5/8 w - - 0 1",
+     "fen_B": "8/1p1p4/P7/5Kp1/6Pk/8/2P5/8 b - - 0 1"
+    },
+    "W: a6 c3 / B: b7 d4": {
+     "real": "L",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/P7/5Kp1/3p2Pk/2P5/8/8 w - - 0 1",
+     "fen_B": "8/1p6/P7/5Kp1/3p2Pk/2P5/8/8 b - - 0 1"
+    },
+    "W: a6 c3 / B: b7 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/P7/3p1Kp1/6Pk/2P5/8/8 w - - 0 1",
+     "fen_B": "8/1p6/P7/3p1Kp1/6Pk/2P5/8/8 b - - 0 1"
+    },
+    "W: a6 c3 / B: b7 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/P2p4/5Kp1/6Pk/2P5/8/8 w - - 0 1",
+     "fen_B": "8/1p6/P2p4/5Kp1/6Pk/2P5/8/8 b - - 0 1"
+    },
+    "W: a6 c4 / B: b7 d5": {
+     "real": "L",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/P7/3p1Kp1/2P3Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/1p6/P7/3p1Kp1/2P3Pk/8/8/8 b - - 0 1"
+    },
+    "W: a6 c4 / B: b7 d6": {
+     "real": "D",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/P2p4/5Kp1/2P3Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/1p6/P2p4/5Kp1/2P3Pk/8/8/8 b - - 0 1"
+    },
+    "W: a6 c4 / B: b7 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p1p4/P7/5Kp1/2P3Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/1p1p4/P7/5Kp1/2P3Pk/8/8/8 b - - 0 1"
+    },
+    "W: a6 c5 / B: b7 d6": {
+     "real": "L",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/P2p4/2P2Kp1/6Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/1p6/P2p4/2P2Kp1/6Pk/8/8/8 b - - 0 1"
+    },
+    "W: a6 c5 / B: b7 d7": {
+     "real": "D",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p1p4/P7/2P2Kp1/6Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/1p1p4/P7/2P2Kp1/6Pk/8/8/8 b - - 0 1"
+    },
+    "W: a6 c6 / B: b7 d7": {
+     "real": "L",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p1p4/P1P5/5Kp1/6Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/1p1p4/P1P5/5Kp1/6Pk/8/8/8 b - - 0 1"
+    }
+   }
+  }
+ },
+ "e.p.-aware": {
+  "count": {
+   "tally": {
+    "DISAGREE": 14,
+    "agree": 268,
+    "real draw (model says loss)": 4,
+    "real draw (model says win)": 9
+   },
+   "disagreements": [
+    {
+     "fen": "8/8/8/5Kp1/6Pk/1p1p4/P1P5/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a2 c2 / B: b3 d3",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/8/5Kp1/3p2Pk/1pP5/P7/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a2 c3 / B: b3 d4",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/3p4/2P2Kp1/6Pk/1p6/P7/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a2 c5 / B: b3 d6",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/8/5Kp1/1p4Pk/P2p4/2P5/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a3 c2 / B: b4 d3",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/8/5Kp1/1p1p2Pk/P1P5/8/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a3 c3 / B: b4 d4",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/8/1p3Kp1/P5Pk/3p4/2P5/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a4 c2 / B: b5 d3",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/3p4/2P5/1p3Kp1/P5Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a4 c6 / B: b5 d7",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/1p6/P2p1Kp1/2P3Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a5 c4 / B: b6 d5",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/1p1p4/P1P2Kp1/6Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a5 c5 / B: b6 d6",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/3p4/1pP5/P4Kp1/6Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a5 c6 / B: b6 d7",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p6/P7/5Kp1/3p2Pk/2P5/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a6 c3 / B: b7 d4",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p6/P7/3p1Kp1/2P3Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a6 c4 / B: b7 d5",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p6/P2p4/2P2Kp1/6Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a6 c5 / B: b7 d6",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p1p4/P1P5/5Kp1/6Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a6 c6 / B: b7 d7",
+     "model_value": "\u00b1+W"
+    }
+   ]
+  },
+  "mover": {
+   "tally": {
+    "DISAGREE": 16,
+    "agree": 266,
+    "real draw (model says loss)": 4,
+    "real draw (model says win)": 9
+   },
+   "disagreements": [
+    {
+     "fen": "8/8/8/5Kp1/6Pk/1p1p4/P1P5/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a2 c2 / B: b3 d3",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/8/5Kp1/3p2Pk/1pP5/P7/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a2 c3 / B: b3 d4",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/3p4/2P2Kp1/6Pk/1p6/P7/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a2 c5 / B: b3 d6",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/8/5Kp1/1p4Pk/P2p4/2P5/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a3 c2 / B: b4 d3",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/8/5Kp1/1p1p2Pk/P1P5/8/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a3 c3 / B: b4 d4",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/8/1p3Kp1/P5Pk/3p4/2P5/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a4 c2 / B: b5 d3",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/3p4/1p6/5Kp1/P1P3Pk/8/8/8 w - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a4 c4 / B: b6 d7",
+     "model_value": "-1"
+    },
+    {
+     "fen": "8/3p4/1p6/2P2Kp1/P5Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a4 c5 / B: b6 d7",
+     "model_value": "{+W, {+W, \u00b1+W | -W, \u00b1+W} | -W, \u00b1+W}"
+    },
+    {
+     "fen": "8/3p4/2P5/1p3Kp1/P5Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a4 c6 / B: b5 d7",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/1p6/P2p1Kp1/2P3Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a5 c4 / B: b6 d5",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/1p1p4/P1P2Kp1/6Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a5 c5 / B: b6 d6",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/3p4/1pP5/P4Kp1/6Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a5 c6 / B: b6 d7",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p6/P7/5Kp1/3p2Pk/2P5/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a6 c3 / B: b7 d4",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p6/P7/3p1Kp1/2P3Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a6 c4 / B: b7 d5",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p6/P2p4/2P2Kp1/6Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a6 c5 / B: b7 d6",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p1p4/P1P5/5Kp1/6Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a6 c6 / B: b7 d7",
+     "model_value": "\u00b1+W"
+    }
+   ]
+  },
+  "opponent": {
+   "tally": {
+    "DISAGREE": 35,
+    "agree": 247,
+    "real draw (model says loss)": 4,
+    "real draw (model says win)": 9
+   },
+   "disagreements": [
+    {
+     "fen": "8/8/8/5Kp1/6Pk/1p1p4/P1P5/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a2 c2 / B: b3 d3",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/3p4/8/1p3Kp1/6Pk/8/P1P5/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a2 c2 / B: b5 d7",
+     "model_value": "*"
+    },
+    {
+     "fen": "8/3p4/1p6/5Kp1/6Pk/8/P1P5/8 b - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a2 c2 / B: b6 d7",
+     "model_value": "\u2191"
+    },
+    {
+     "fen": "8/1p1p4/8/5Kp1/6Pk/8/P1P5/8 w - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a2 c2 / B: b7 d7",
+     "model_value": "0"
+    },
+    {
+     "fen": "8/1p1p4/8/5Kp1/6Pk/8/P1P5/8 b - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a2 c2 / B: b7 d7",
+     "model_value": "0"
+    },
+    {
+     "fen": "8/8/8/5Kp1/3p2Pk/1pP5/P7/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a2 c3 / B: b3 d4",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/8/3p1Kp1/1p4Pk/2P5/P7/8 b - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a2 c3 / B: b4 d5",
+     "model_value": "0"
+    },
+    {
+     "fen": "8/3p4/8/5Kp1/1p4Pk/2P5/P7/8 w - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a2 c3 / B: b4 d7",
+     "model_value": "\u2193"
+    },
+    {
+     "fen": "8/1p1p4/8/5Kp1/6Pk/2P5/P7/8 w - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a2 c3 / B: b7 d7",
+     "model_value": "\u2193"
+    },
+    {
+     "fen": "8/8/3p4/5Kp1/1pP3Pk/8/P7/8 b - c3 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a2 c4 / B: b4 d6 (ep c3)",
+     "model_value": "0"
+    },
+    {
+     "fen": "8/3p4/8/1p3Kp1/2P3Pk/8/P7/8 w - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a2 c4 / B: b5 d7",
+     "model_value": "0"
+    },
+    {
+     "fen": "8/3p4/8/1p3Kp1/2P3Pk/8/P7/8 b - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a2 c4 / B: b5 d7",
+     "model_value": "0"
+    },
+    {
+     "fen": "8/1p6/3p4/5Kp1/2P3Pk/8/P7/8 w - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a2 c4 / B: b7 d6",
+     "model_value": "0"
+    },
+    {
+     "fen": "8/1p1p4/8/5Kp1/2P3Pk/8/P7/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a2 c4 / B: b7 d7",
+     "model_value": "*"
+    },
+    {
+     "fen": "8/8/3p4/2P2Kp1/6Pk/1p6/P7/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a2 c5 / B: b3 d6",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/8/5Kp1/1p4Pk/P2p4/2P5/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a3 c2 / B: b4 d3",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/3p4/1p3Kp1/6Pk/P7/2P5/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a3 c2 / B: b5 d6",
+     "model_value": "\u2191"
+    },
+    {
+     "fen": "8/3p4/8/1p3Kp1/6Pk/P7/2P5/8 b - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a3 c2 / B: b5 d7",
+     "model_value": "0"
+    },
+    {
+     "fen": "8/1p6/3p4/5Kp1/6Pk/P7/2P5/8 w - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a3 c2 / B: b7 d6",
+     "model_value": "0"
+    },
+    {
+     "fen": "8/1p6/3p4/5Kp1/6Pk/P7/2P5/8 b - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a3 c2 / B: b7 d6",
+     "model_value": "0"
+    },
+    {
+     "fen": "8/8/8/5Kp1/1p1p2Pk/P1P5/8/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a3 c3 / B: b4 d4",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/3p4/1p3Kp1/2P3Pk/P7/8/8 w - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a3 c4 / B: b5 d6",
+     "model_value": "0"
+    },
+    {
+     "fen": "8/8/3p4/1p3Kp1/2P3Pk/P7/8/8 b - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a3 c4 / B: b5 d6",
+     "model_value": "0"
+    },
+    {
+     "fen": "8/1p6/3p4/5Kp1/2P3Pk/P7/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a3 c4 / B: b7 d6",
+     "model_value": "\u2193"
+    },
+    {
+     "fen": "8/3p4/8/1pP2Kp1/6Pk/P7/8/8 w - b6 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a3 c5 / B: b5 d7 (ep b6)",
+     "model_value": "0"
+    },
+    {
+     "fen": "8/8/8/1p3Kp1/P5Pk/3p4/2P5/8 w - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a4 c2 / B: b5 d3",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/3p4/1p6/2P2Kp1/P5Pk/8/8/8 w - - 0 1",
+     "real_for_stm": 1,
+     "model_stm_wins": false,
+     "component": "W: a4 c5 / B: b6 d7",
+     "model_value": "0"
+    },
+    {
+     "fen": "8/3p4/2P5/1p3Kp1/P5Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a4 c6 / B: b5 d7",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/1p6/P2p1Kp1/2P3Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a5 c4 / B: b6 d5",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/8/1p1p4/P1P2Kp1/6Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a5 c5 / B: b6 d6",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/3p4/1pP5/P4Kp1/6Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a5 c6 / B: b6 d7",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p6/P7/5Kp1/3p2Pk/2P5/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a6 c3 / B: b7 d4",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p6/P7/3p1Kp1/2P3Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a6 c4 / B: b7 d5",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p6/P2p4/2P2Kp1/6Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a6 c5 / B: b7 d6",
+     "model_value": "\u00b1+W"
+    },
+    {
+     "fen": "8/1p1p4/P1P5/5Kp1/6Pk/8/8/8 b - - 0 1",
+     "real_for_stm": -1,
+     "model_stm_wins": true,
+     "component": "W: a6 c6 / B: b7 d7",
+     "model_value": "\u00b1+W"
+    }
+   ]
+  },
+  "configurations": {
+   "n": 119,
+   "real_classes": {
+    "R": 6,
+    "N": 89,
+    "D": 13,
+    "L": 10,
+    "P": 1
+   },
+   "agree": {
+    "count": 92,
+    "mover": 91,
+    "opponent": 85
+   },
+   "rows": {
+    "W: a2 c2 / B: b3 d3": {
+     "real": "R",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/5Kp1/6Pk/1p1p4/P1P5/8 w - - 0 1",
+     "fen_B": "8/8/8/5Kp1/6Pk/1p1p4/P1P5/8 b - - 0 1"
+    },
+    "W: a2 c2 / B: b3 d4": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/5Kp1/3p2Pk/1p6/P1P5/8 w - - 0 1",
+     "fen_B": "8/8/8/5Kp1/3p2Pk/1p6/P1P5/8 b - - 0 1"
+    },
+    "W: a2 c2 / B: b3 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/8/5Kp1/6Pk/1p6/P1P5/8 w - - 0 1",
+     "fen_B": "8/3p4/8/5Kp1/6Pk/1p6/P1P5/8 b - - 0 1"
+    },
+    "W: a2 c2 / B: b4 d3": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/5Kp1/1p4Pk/3p4/P1P5/8 w - - 0 1",
+     "fen_B": "8/8/8/5Kp1/1p4Pk/3p4/P1P5/8 b - - 0 1"
+    },
+    "W: a2 c2 / B: b7 d3": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/8/5Kp1/6Pk/3p4/P1P5/8 w - - 0 1",
+     "fen_B": "8/1p6/8/5Kp1/6Pk/3p4/P1P5/8 b - - 0 1"
+    },
+    "W: a2 c2 / B: b7 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "P"
+     },
+     "fen_W": "8/1p1p4/8/5Kp1/6Pk/8/P1P5/8 w - - 0 1",
+     "fen_B": "8/1p1p4/8/5Kp1/6Pk/8/P1P5/8 b - - 0 1"
+    },
+    "W: a2 c3 / B: b3 d4": {
+     "real": "R",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/5Kp1/3p2Pk/1pP5/P7/8 w - - 0 1",
+     "fen_B": "8/8/8/5Kp1/3p2Pk/1pP5/P7/8 b - - 0 1"
+    },
+    "W: a2 c3 / B: b3 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/3p1Kp1/6Pk/1pP5/P7/8 w - - 0 1",
+     "fen_B": "8/8/8/3p1Kp1/6Pk/1pP5/P7/8 b - - 0 1"
+    },
+    "W: a2 c3 / B: b4 d4": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/5Kp1/1p1p2Pk/2P5/P7/8 w - - 0 1",
+     "fen_B": "8/8/8/5Kp1/1p1p2Pk/2P5/P7/8 b - - 0 1"
+    },
+    "W: a2 c3 / B: b4 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "R"
+     },
+     "fen_W": "8/3p4/8/5Kp1/1p4Pk/2P5/P7/8 w - - 0 1",
+     "fen_B": "8/3p4/8/5Kp1/1p4Pk/2P5/P7/8 b - - 0 1"
+    },
+    "W: a2 c3 / B: b5 d4": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/1p3Kp1/3p2Pk/2P5/P7/8 w - - 0 1",
+     "fen_B": "8/8/8/1p3Kp1/3p2Pk/2P5/P7/8 b - - 0 1"
+    },
+    "W: a2 c3 / B: b7 d4": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/8/5Kp1/3p2Pk/2P5/P7/8 w - - 0 1",
+     "fen_B": "8/1p6/8/5Kp1/3p2Pk/2P5/P7/8 b - - 0 1"
+    },
+    "W: a2 c4 / B: b3 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/3p1Kp1/2P3Pk/1p6/P7/8 w - - 0 1",
+     "fen_B": "8/8/8/3p1Kp1/2P3Pk/1p6/P7/8 b - - 0 1"
+    },
+    "W: a2 c4 / B: b3 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/3p4/5Kp1/2P3Pk/1p6/P7/8 w - - 0 1",
+     "fen_B": "8/8/3p4/5Kp1/2P3Pk/1p6/P7/8 b - - 0 1"
+    },
+    "W: a2 c4 / B: b4 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/3p1Kp1/1pP3Pk/8/P7/8 w - - 0 1",
+     "fen_B": "8/8/8/3p1Kp1/1pP3Pk/8/P7/8 b - c3 0 1"
+    },
+    "W: a2 c4 / B: b4 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/8/5Kp1/1pP3Pk/8/P7/8 w - - 0 1",
+     "fen_B": "8/3p4/8/5Kp1/1pP3Pk/8/P7/8 b - c3 0 1"
+    },
+    "W: a2 c4 / B: b5 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/1p1p1Kp1/2P3Pk/8/P7/8 w - - 0 1",
+     "fen_B": "8/8/8/1p1p1Kp1/2P3Pk/8/P7/8 b - - 0 1"
+    },
+    "W: a2 c4 / B: b5 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/3p4/1p3Kp1/2P3Pk/8/P7/8 w - - 0 1",
+     "fen_B": "8/8/3p4/1p3Kp1/2P3Pk/8/P7/8 b - - 0 1"
+    },
+    "W: a2 c4 / B: b5 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "P"
+     },
+     "fen_W": "8/3p4/8/1p3Kp1/2P3Pk/8/P7/8 w - - 0 1",
+     "fen_B": "8/3p4/8/1p3Kp1/2P3Pk/8/P7/8 b - - 0 1"
+    },
+    "W: a2 c4 / B: b6 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p6/3p1Kp1/2P3Pk/8/P7/8 w - - 0 1",
+     "fen_B": "8/8/1p6/3p1Kp1/2P3Pk/8/P7/8 b - - 0 1"
+    },
+    "W: a2 c4 / B: b7 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/8/3p1Kp1/2P3Pk/8/P7/8 w - - 0 1",
+     "fen_B": "8/1p6/8/3p1Kp1/2P3Pk/8/P7/8 b - - 0 1"
+    },
+    "W: a2 c5 / B: b3 d6": {
+     "real": "R",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/3p4/2P2Kp1/6Pk/1p6/P7/8 w - - 0 1",
+     "fen_B": "8/8/3p4/2P2Kp1/6Pk/1p6/P7/8 b - - 0 1"
+    },
+    "W: a2 c5 / B: b3 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/8/2P2Kp1/6Pk/1p6/P7/8 w - - 0 1",
+     "fen_B": "8/3p4/8/2P2Kp1/6Pk/1p6/P7/8 b - - 0 1"
+    },
+    "W: a2 c5 / B: b4 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/3p4/2P2Kp1/1p4Pk/8/P7/8 w - - 0 1",
+     "fen_B": "8/8/3p4/2P2Kp1/1p4Pk/8/P7/8 b - - 0 1"
+    },
+    "W: a2 c5 / B: b4 d7": {
+     "real": "D",
+     "model": {
+      "count": "P",
+      "mover": "P",
+      "opponent": "P"
+     },
+     "fen_W": "8/3p4/8/2P2Kp1/1p4Pk/8/P7/8 w - - 0 1",
+     "fen_B": "8/3p4/8/2P2Kp1/1p4Pk/8/P7/8 b - - 0 1"
+    },
+    "W: a2 c5 / B: b6 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p1p4/2P2Kp1/6Pk/8/P7/8 w - - 0 1",
+     "fen_B": "8/8/1p1p4/2P2Kp1/6Pk/8/P7/8 b - - 0 1"
+    },
+    "W: a2 c5 / B: b7 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/3p4/2P2Kp1/6Pk/8/P7/8 w - - 0 1",
+     "fen_B": "8/1p6/3p4/2P2Kp1/6Pk/8/P7/8 b - - 0 1"
+    },
+    "W: a2 c6 / B: b3 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/2P5/5Kp1/6Pk/1p6/P7/8 w - - 0 1",
+     "fen_B": "8/3p4/2P5/5Kp1/6Pk/1p6/P7/8 b - - 0 1"
+    },
+    "W: a2 c6 / B: b4 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/2P5/5Kp1/1p4Pk/8/P7/8 w - - 0 1",
+     "fen_B": "8/3p4/2P5/5Kp1/1p4Pk/8/P7/8 b - - 0 1"
+    },
+    "W: a2 c6 / B: b5 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/2P5/1p3Kp1/6Pk/8/P7/8 w - - 0 1",
+     "fen_B": "8/3p4/2P5/1p3Kp1/6Pk/8/P7/8 b - - 0 1"
+    },
+    "W: a3 c2 / B: b4 d3": {
+     "real": "R",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/5Kp1/1p4Pk/P2p4/2P5/8 w - - 0 1",
+     "fen_B": "8/8/8/5Kp1/1p4Pk/P2p4/2P5/8 b - - 0 1"
+    },
+    "W: a3 c2 / B: b4 d4": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/5Kp1/1p1p2Pk/P7/2P5/8 w - - 0 1",
+     "fen_B": "8/8/8/5Kp1/1p1p2Pk/P7/2P5/8 b - - 0 1"
+    },
+    "W: a3 c2 / B: b4 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/3p4/5Kp1/1p4Pk/P7/2P5/8 w - - 0 1",
+     "fen_B": "8/8/3p4/5Kp1/1p4Pk/P7/2P5/8 b - - 0 1"
+    },
+    "W: a3 c2 / B: b4 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/8/5Kp1/1p4Pk/P7/2P5/8 w - - 0 1",
+     "fen_B": "8/3p4/8/5Kp1/1p4Pk/P7/2P5/8 b - - 0 1"
+    },
+    "W: a3 c2 / B: b5 d3": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/1p3Kp1/6Pk/P2p4/2P5/8 w - - 0 1",
+     "fen_B": "8/8/8/1p3Kp1/6Pk/P2p4/2P5/8 b - - 0 1"
+    },
+    "W: a3 c2 / B: b7 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "P"
+     },
+     "fen_W": "8/1p6/3p4/5Kp1/6Pk/P7/2P5/8 w - - 0 1",
+     "fen_B": "8/1p6/3p4/5Kp1/6Pk/P7/2P5/8 b - - 0 1"
+    },
+    "W: a3 c3 / B: b4 d4": {
+     "real": "R",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/5Kp1/1p1p2Pk/P1P5/8/8 w - - 0 1",
+     "fen_B": "8/8/8/5Kp1/1p1p2Pk/P1P5/8/8 b - - 0 1"
+    },
+    "W: a3 c3 / B: b4 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/3p1Kp1/1p4Pk/P1P5/8/8 w - - 0 1",
+     "fen_B": "8/8/8/3p1Kp1/1p4Pk/P1P5/8/8 b - - 0 1"
+    },
+    "W: a3 c3 / B: b4 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/3p4/5Kp1/1p4Pk/P1P5/8/8 w - - 0 1",
+     "fen_B": "8/8/3p4/5Kp1/1p4Pk/P1P5/8/8 b - - 0 1"
+    },
+    "W: a3 c3 / B: b4 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/8/5Kp1/1p4Pk/P1P5/8/8 w - - 0 1",
+     "fen_B": "8/3p4/8/5Kp1/1p4Pk/P1P5/8/8 b - - 0 1"
+    },
+    "W: a3 c3 / B: b5 d4": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/1p3Kp1/3p2Pk/P1P5/8/8 w - - 0 1",
+     "fen_B": "8/8/8/1p3Kp1/3p2Pk/P1P5/8/8 b - - 0 1"
+    },
+    "W: a3 c3 / B: b7 d4": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/8/5Kp1/3p2Pk/P1P5/8/8 w - - 0 1",
+     "fen_B": "8/1p6/8/5Kp1/3p2Pk/P1P5/8/8 b - - 0 1"
+    },
+    "W: a3 c4 / B: b4 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/3p1Kp1/1pP3Pk/P7/8/8 w - - 0 1",
+     "fen_B": "8/8/8/3p1Kp1/1pP3Pk/P7/8/8 b - c3 0 1"
+    },
+    "W: a3 c4 / B: b4 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/3p4/5Kp1/1pP3Pk/P7/8/8 w - - 0 1",
+     "fen_B": "8/8/3p4/5Kp1/1pP3Pk/P7/8/8 b - c3 0 1"
+    },
+    "W: a3 c4 / B: b4 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/8/5Kp1/1pP3Pk/P7/8/8 w - - 0 1",
+     "fen_B": "8/3p4/8/5Kp1/1pP3Pk/P7/8/8 b - c3 0 1"
+    },
+    "W: a3 c4 / B: b5 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/1p1p1Kp1/2P3Pk/P7/8/8 w - - 0 1",
+     "fen_B": "8/8/8/1p1p1Kp1/2P3Pk/P7/8/8 b - - 0 1"
+    },
+    "W: a3 c4 / B: b5 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "P"
+     },
+     "fen_W": "8/8/3p4/1p3Kp1/2P3Pk/P7/8/8 w - - 0 1",
+     "fen_B": "8/8/3p4/1p3Kp1/2P3Pk/P7/8/8 b - - 0 1"
+    },
+    "W: a3 c4 / B: b5 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/8/1p3Kp1/2P3Pk/P7/8/8 w - - 0 1",
+     "fen_B": "8/3p4/8/1p3Kp1/2P3Pk/P7/8/8 b - - 0 1"
+    },
+    "W: a3 c4 / B: b6 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p6/3p1Kp1/2P3Pk/P7/8/8 w - - 0 1",
+     "fen_B": "8/8/1p6/3p1Kp1/2P3Pk/P7/8/8 b - - 0 1"
+    },
+    "W: a3 c4 / B: b7 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/8/3p1Kp1/2P3Pk/P7/8/8 w - - 0 1",
+     "fen_B": "8/1p6/8/3p1Kp1/2P3Pk/P7/8/8 b - - 0 1"
+    },
+    "W: a3 c5 / B: b4 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/3p4/2P2Kp1/1p4Pk/P7/8/8 w - - 0 1",
+     "fen_B": "8/8/3p4/2P2Kp1/1p4Pk/P7/8/8 b - - 0 1"
+    },
+    "W: a3 c5 / B: b4 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/8/2P2Kp1/1p4Pk/P7/8/8 w - - 0 1",
+     "fen_B": "8/3p4/8/2P2Kp1/1p4Pk/P7/8/8 b - - 0 1"
+    },
+    "W: a3 c5 / B: b5 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/3p4/1pP2Kp1/6Pk/P7/8/8 w - b6 0 1",
+     "fen_B": "8/8/3p4/1pP2Kp1/6Pk/P7/8/8 b - - 0 1"
+    },
+    "W: a3 c5 / B: b5 d7": {
+     "real": "L",
+     "model": {
+      "count": "L",
+      "mover": "L",
+      "opponent": "P"
+     },
+     "fen_W": "8/3p4/8/1pP2Kp1/6Pk/P7/8/8 w - b6 0 1",
+     "fen_B": "8/3p4/8/1pP2Kp1/6Pk/P7/8/8 b - - 0 1"
+    },
+    "W: a3 c5 / B: b6 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p1p4/2P2Kp1/6Pk/P7/8/8 w - - 0 1",
+     "fen_B": "8/8/1p1p4/2P2Kp1/6Pk/P7/8/8 b - - 0 1"
+    },
+    "W: a3 c5 / B: b7 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/3p4/2P2Kp1/6Pk/P7/8/8 w - - 0 1",
+     "fen_B": "8/1p6/3p4/2P2Kp1/6Pk/P7/8/8 b - - 0 1"
+    },
+    "W: a3 c6 / B: b5 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/2P5/1p3Kp1/6Pk/P7/8/8 w - - 0 1",
+     "fen_B": "8/3p4/2P5/1p3Kp1/6Pk/P7/8/8 b - - 0 1"
+    },
+    "W: a3 c6 / B: b6 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/1pP5/5Kp1/6Pk/P7/8/8 w - - 0 1",
+     "fen_B": "8/3p4/1pP5/5Kp1/6Pk/P7/8/8 b - - 0 1"
+    },
+    "W: a4 c2 / B: b5 d3": {
+     "real": "R",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/1p3Kp1/P5Pk/3p4/2P5/8 w - - 0 1",
+     "fen_B": "8/8/8/1p3Kp1/P5Pk/3p4/2P5/8 b - - 0 1"
+    },
+    "W: a4 c2 / B: b5 d4": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/1p3Kp1/P2p2Pk/8/2P5/8 w - - 0 1",
+     "fen_B": "8/8/8/1p3Kp1/P2p2Pk/8/2P5/8 b - - 0 1"
+    },
+    "W: a4 c2 / B: b5 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/1p1p1Kp1/P5Pk/8/2P5/8 w - - 0 1",
+     "fen_B": "8/8/8/1p1p1Kp1/P5Pk/8/2P5/8 b - - 0 1"
+    },
+    "W: a4 c2 / B: b5 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/3p4/1p3Kp1/P5Pk/8/2P5/8 w - - 0 1",
+     "fen_B": "8/8/3p4/1p3Kp1/P5Pk/8/2P5/8 b - - 0 1"
+    },
+    "W: a4 c2 / B: b5 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/8/1p3Kp1/P5Pk/8/2P5/8 w - - 0 1",
+     "fen_B": "8/3p4/8/1p3Kp1/P5Pk/8/2P5/8 b - - 0 1"
+    },
+    "W: a4 c2 / B: b6 d3": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p6/5Kp1/P5Pk/3p4/2P5/8 w - - 0 1",
+     "fen_B": "8/8/1p6/5Kp1/P5Pk/3p4/2P5/8 b - - 0 1"
+    },
+    "W: a4 c2 / B: b7 d3": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/8/5Kp1/P5Pk/3p4/2P5/8 w - - 0 1",
+     "fen_B": "8/1p6/8/5Kp1/P5Pk/3p4/2P5/8 b - - 0 1"
+    },
+    "W: a4 c3 / B: b5 d4": {
+     "real": "D",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/1p3Kp1/P2p2Pk/2P5/8/8 w - - 0 1",
+     "fen_B": "8/8/8/1p3Kp1/P2p2Pk/2P5/8/8 b - - 0 1"
+    },
+    "W: a4 c3 / B: b5 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/1p1p1Kp1/P5Pk/2P5/8/8 w - - 0 1",
+     "fen_B": "8/8/8/1p1p1Kp1/P5Pk/2P5/8/8 b - - 0 1"
+    },
+    "W: a4 c3 / B: b5 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/3p4/1p3Kp1/P5Pk/2P5/8/8 w - - 0 1",
+     "fen_B": "8/8/3p4/1p3Kp1/P5Pk/2P5/8/8 b - - 0 1"
+    },
+    "W: a4 c3 / B: b5 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/8/1p3Kp1/P5Pk/2P5/8/8 w - - 0 1",
+     "fen_B": "8/3p4/8/1p3Kp1/P5Pk/2P5/8/8 b - - 0 1"
+    },
+    "W: a4 c3 / B: b6 d4": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p6/5Kp1/P2p2Pk/2P5/8/8 w - - 0 1",
+     "fen_B": "8/8/1p6/5Kp1/P2p2Pk/2P5/8/8 b - - 0 1"
+    },
+    "W: a4 c3 / B: b7 d4": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/8/5Kp1/P2p2Pk/2P5/8/8 w - - 0 1",
+     "fen_B": "8/1p6/8/5Kp1/P2p2Pk/2P5/8/8 b - - 0 1"
+    },
+    "W: a4 c4 / B: b5 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/8/1p1p1Kp1/P1P3Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/8/8/1p1p1Kp1/P1P3Pk/8/8/8 b - - 0 1"
+    },
+    "W: a4 c4 / B: b5 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/3p4/1p3Kp1/P1P3Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/8/3p4/1p3Kp1/P1P3Pk/8/8/8 b - - 0 1"
+    },
+    "W: a4 c4 / B: b5 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/8/1p3Kp1/P1P3Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/3p4/8/1p3Kp1/P1P3Pk/8/8/8 b - - 0 1"
+    },
+    "W: a4 c4 / B: b6 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p6/3p1Kp1/P1P3Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/8/1p6/3p1Kp1/P1P3Pk/8/8/8 b - - 0 1"
+    },
+    "W: a4 c4 / B: b7 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/8/3p1Kp1/P1P3Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/1p6/8/3p1Kp1/P1P3Pk/8/8/8 b - - 0 1"
+    },
+    "W: a4 c5 / B: b5 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/8/1pP2Kp1/P5Pk/8/8/8 w - b6 0 1",
+     "fen_B": "8/3p4/8/1pP2Kp1/P5Pk/8/8/8 b - - 0 1"
+    },
+    "W: a4 c5 / B: b6 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p1p4/2P2Kp1/P5Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/8/1p1p4/2P2Kp1/P5Pk/8/8/8 b - - 0 1"
+    },
+    "W: a4 c5 / B: b6 d7": {
+     "real": "L",
+     "model": {
+      "count": "L",
+      "mover": "N",
+      "opponent": "P"
+     },
+     "fen_W": "8/3p4/1p6/2P2Kp1/P5Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/3p4/1p6/2P2Kp1/P5Pk/8/8/8 b - - 0 1"
+    },
+    "W: a4 c5 / B: b7 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/3p4/2P2Kp1/P5Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/1p6/3p4/2P2Kp1/P5Pk/8/8/8 b - - 0 1"
+    },
+    "W: a4 c6 / B: b5 d7": {
+     "real": "L",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/2P5/1p3Kp1/P5Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/3p4/2P5/1p3Kp1/P5Pk/8/8/8 b - - 0 1"
+    },
+    "W: a4 c6 / B: b6 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/1pP5/5Kp1/P5Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/3p4/1pP5/5Kp1/P5Pk/8/8/8 b - - 0 1"
+    },
+    "W: a4 c6 / B: b7 d7": {
+     "real": "D",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p1p4/2P5/5Kp1/P5Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/1p1p4/2P5/5Kp1/P5Pk/8/8/8 b - - 0 1"
+    },
+    "W: a5 c2 / B: b6 d3": {
+     "real": "D",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p6/P4Kp1/6Pk/3p4/2P5/8 w - - 0 1",
+     "fen_B": "8/8/1p6/P4Kp1/6Pk/3p4/2P5/8 b - - 0 1"
+    },
+    "W: a5 c2 / B: b6 d4": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p6/P4Kp1/3p2Pk/8/2P5/8 w - - 0 1",
+     "fen_B": "8/8/1p6/P4Kp1/3p2Pk/8/2P5/8 b - - 0 1"
+    },
+    "W: a5 c2 / B: b6 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p6/P2p1Kp1/6Pk/8/2P5/8 w - - 0 1",
+     "fen_B": "8/8/1p6/P2p1Kp1/6Pk/8/2P5/8 b - - 0 1"
+    },
+    "W: a5 c2 / B: b6 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p1p4/P4Kp1/6Pk/8/2P5/8 w - - 0 1",
+     "fen_B": "8/8/1p1p4/P4Kp1/6Pk/8/2P5/8 b - - 0 1"
+    },
+    "W: a5 c2 / B: b6 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/1p6/P4Kp1/6Pk/8/2P5/8 w - - 0 1",
+     "fen_B": "8/3p4/1p6/P4Kp1/6Pk/8/2P5/8 b - - 0 1"
+    },
+    "W: a5 c2 / B: b7 d3": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/8/P4Kp1/6Pk/3p4/2P5/8 w - - 0 1",
+     "fen_B": "8/1p6/8/P4Kp1/6Pk/3p4/2P5/8 b - - 0 1"
+    },
+    "W: a5 c2 / B: b7 d4": {
+     "real": "P",
+     "model": {
+      "count": "P",
+      "mover": "P",
+      "opponent": "P"
+     },
+     "fen_W": "8/1p6/8/P4Kp1/3p2Pk/8/2P5/8 w - - 0 1",
+     "fen_B": "8/1p6/8/P4Kp1/3p2Pk/8/2P5/8 b - - 0 1"
+    },
+    "W: a5 c2 / B: b7 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/8/P2p1Kp1/6Pk/8/2P5/8 w - - 0 1",
+     "fen_B": "8/1p6/8/P2p1Kp1/6Pk/8/2P5/8 b - - 0 1"
+    },
+    "W: a5 c3 / B: b6 d4": {
+     "real": "D",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p6/P4Kp1/3p2Pk/2P5/8/8 w - - 0 1",
+     "fen_B": "8/8/1p6/P4Kp1/3p2Pk/2P5/8/8 b - - 0 1"
+    },
+    "W: a5 c3 / B: b6 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p6/P2p1Kp1/6Pk/2P5/8/8 w - - 0 1",
+     "fen_B": "8/8/1p6/P2p1Kp1/6Pk/2P5/8/8 b - - 0 1"
+    },
+    "W: a5 c3 / B: b7 d4": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/8/P4Kp1/3p2Pk/2P5/8/8 w - - 0 1",
+     "fen_B": "8/1p6/8/P4Kp1/3p2Pk/2P5/8/8 b - - 0 1"
+    },
+    "W: a5 c3 / B: b7 d5": {
+     "real": "D",
+     "model": {
+      "count": "P",
+      "mover": "P",
+      "opponent": "P"
+     },
+     "fen_W": "8/1p6/8/P2p1Kp1/6Pk/2P5/8/8 w - - 0 1",
+     "fen_B": "8/1p6/8/P2p1Kp1/6Pk/2P5/8/8 b - - 0 1"
+    },
+    "W: a5 c4 / B: b6 d5": {
+     "real": "L",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p6/P2p1Kp1/2P3Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/8/1p6/P2p1Kp1/2P3Pk/8/8/8 b - - 0 1"
+    },
+    "W: a5 c4 / B: b6 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p1p4/P4Kp1/2P3Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/8/1p1p4/P4Kp1/2P3Pk/8/8/8 b - - 0 1"
+    },
+    "W: a5 c4 / B: b6 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/1p6/P4Kp1/2P3Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/3p4/1p6/P4Kp1/2P3Pk/8/8/8 b - - 0 1"
+    },
+    "W: a5 c4 / B: b7 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/8/P2p1Kp1/2P3Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/1p6/8/P2p1Kp1/2P3Pk/8/8/8 b - - 0 1"
+    },
+    "W: a5 c4 / B: b7 d6": {
+     "real": "D",
+     "model": {
+      "count": "P",
+      "mover": "P",
+      "opponent": "P"
+     },
+     "fen_W": "8/1p6/3p4/P4Kp1/2P3Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/1p6/3p4/P4Kp1/2P3Pk/8/8/8 b - - 0 1"
+    },
+    "W: a5 c5 / B: b6 d6": {
+     "real": "L",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/8/1p1p4/P1P2Kp1/6Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/8/1p1p4/P1P2Kp1/6Pk/8/8/8 b - - 0 1"
+    },
+    "W: a5 c5 / B: b6 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/1p6/P1P2Kp1/6Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/3p4/1p6/P1P2Kp1/6Pk/8/8/8 b - - 0 1"
+    },
+    "W: a5 c5 / B: b7 d6": {
+     "real": "D",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/3p4/P1P2Kp1/6Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/1p6/3p4/P1P2Kp1/6Pk/8/8/8 b - - 0 1"
+    },
+    "W: a5 c5 / B: b7 d7": {
+     "real": "D",
+     "model": {
+      "count": "P",
+      "mover": "P",
+      "opponent": "P"
+     },
+     "fen_W": "8/1p1p4/8/P1P2Kp1/6Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/1p1p4/8/P1P2Kp1/6Pk/8/8/8 b - - 0 1"
+    },
+    "W: a5 c6 / B: b6 d7": {
+     "real": "L",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/3p4/1pP5/P4Kp1/6Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/3p4/1pP5/P4Kp1/6Pk/8/8/8 b - - 0 1"
+    },
+    "W: a5 c6 / B: b7 d7": {
+     "real": "D",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p1p4/2P5/P4Kp1/6Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/1p1p4/2P5/P4Kp1/6Pk/8/8/8 b - - 0 1"
+    },
+    "W: a6 c2 / B: b7 d3": {
+     "real": "D",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/P7/5Kp1/6Pk/3p4/2P5/8 w - - 0 1",
+     "fen_B": "8/1p6/P7/5Kp1/6Pk/3p4/2P5/8 b - - 0 1"
+    },
+    "W: a6 c2 / B: b7 d4": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/P7/5Kp1/3p2Pk/8/2P5/8 w - - 0 1",
+     "fen_B": "8/1p6/P7/5Kp1/3p2Pk/8/2P5/8 b - - 0 1"
+    },
+    "W: a6 c2 / B: b7 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/P7/3p1Kp1/6Pk/8/2P5/8 w - - 0 1",
+     "fen_B": "8/1p6/P7/3p1Kp1/6Pk/8/2P5/8 b - - 0 1"
+    },
+    "W: a6 c2 / B: b7 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p1p4/P7/5Kp1/6Pk/8/2P5/8 w - - 0 1",
+     "fen_B": "8/1p1p4/P7/5Kp1/6Pk/8/2P5/8 b - - 0 1"
+    },
+    "W: a6 c3 / B: b7 d4": {
+     "real": "L",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/P7/5Kp1/3p2Pk/2P5/8/8 w - - 0 1",
+     "fen_B": "8/1p6/P7/5Kp1/3p2Pk/2P5/8/8 b - - 0 1"
+    },
+    "W: a6 c3 / B: b7 d5": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/P7/3p1Kp1/6Pk/2P5/8/8 w - - 0 1",
+     "fen_B": "8/1p6/P7/3p1Kp1/6Pk/2P5/8/8 b - - 0 1"
+    },
+    "W: a6 c3 / B: b7 d6": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/P2p4/5Kp1/6Pk/2P5/8/8 w - - 0 1",
+     "fen_B": "8/1p6/P2p4/5Kp1/6Pk/2P5/8/8 b - - 0 1"
+    },
+    "W: a6 c4 / B: b7 d5": {
+     "real": "L",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/P7/3p1Kp1/2P3Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/1p6/P7/3p1Kp1/2P3Pk/8/8/8 b - - 0 1"
+    },
+    "W: a6 c4 / B: b7 d6": {
+     "real": "D",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/P2p4/5Kp1/2P3Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/1p6/P2p4/5Kp1/2P3Pk/8/8/8 b - - 0 1"
+    },
+    "W: a6 c4 / B: b7 d7": {
+     "real": "N",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p1p4/P7/5Kp1/2P3Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/1p1p4/P7/5Kp1/2P3Pk/8/8/8 b - - 0 1"
+    },
+    "W: a6 c5 / B: b7 d6": {
+     "real": "L",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p6/P2p4/2P2Kp1/6Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/1p6/P2p4/2P2Kp1/6Pk/8/8/8 b - - 0 1"
+    },
+    "W: a6 c5 / B: b7 d7": {
+     "real": "D",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p1p4/P7/2P2Kp1/6Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/1p1p4/P7/2P2Kp1/6Pk/8/8/8 b - - 0 1"
+    },
+    "W: a6 c6 / B: b7 d7": {
+     "real": "L",
+     "model": {
+      "count": "N",
+      "mover": "N",
+      "opponent": "N"
+     },
+     "fen_W": "8/1p1p4/P1P5/5Kp1/6Pk/8/8/8 w - - 0 1",
+     "fen_B": "8/1p1p4/P1P5/5Kp1/6Pk/8/8/8 b - - 0 1"
+    }
+   }
+  }
+ }
+}

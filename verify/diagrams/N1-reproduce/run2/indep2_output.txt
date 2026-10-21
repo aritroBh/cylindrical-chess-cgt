@@ -1,0 +1,108 @@
+control W: e4 / B: e5          expect 0   got ['0']
+control W: e4 / B: e6          expect *   got ['*']
+control W: f4 / B: f5 f7       expect -1  got ['-1']
+control W: f2 f4 / B: f5       expect 1   got ['1']
+control W: f4 / B: f6          expect *   got ['*']
+
+wrap=False ep=True  race=count    W: c1 c3 d3 / B: c2 d4 d5 d6: value-matches ['tiny(1)']; ==tiny(1) True; ==1 False; outcome L
+    nodes 86, race nodes 0, double-steps generated 0, e.p. captures 0, terminal +BIG 16, -BIG 33
+    legal W moves 2, legal B moves 1
+    W c3xd4: W: c1 d3 d4 / B: c2 d5 d6        -> ['0']
+    W c3-c4: W: c1 c4 d3 / B: c2 d4 d5 d6     -> ['{0|-257*}']
+    B d4xc3: W: c1 d3 / B: c2 c3 d5 d6        -> ['{0|-1}']
+    board minimax {c,d}+(-1)   R   explicit-sum R   (tiny:R  1:P)
+    board minimax {c,d}+*      N   explicit-sum N   (tiny:N  1:L)
+wrap=False ep=True  race=mover    W: c1 c3 d3 / B: c2 d4 d5 d6: value-matches ['tiny(1)']; ==tiny(1) True; ==1 False; outcome L
+    nodes 86, race nodes 0, double-steps generated 0, e.p. captures 0, terminal +BIG 16, -BIG 33
+    legal W moves 2, legal B moves 1
+    W c3xd4: W: c1 d3 d4 / B: c2 d5 d6        -> ['0']
+    W c3-c4: W: c1 c4 d3 / B: c2 d4 d5 d6     -> ['{0|-257*}']
+    B d4xc3: W: c1 d3 / B: c2 c3 d5 d6        -> ['{0|-1}']
+    board minimax {c,d}+(-1)   R   explicit-sum R   (tiny:R  1:P)
+    board minimax {c,d}+*      N   explicit-sum N   (tiny:N  1:L)
+wrap=False ep=True  race=opponent W: c1 c3 d3 / B: c2 d4 d5 d6: value-matches ['tiny(1)']; ==tiny(1) True; ==1 False; outcome L
+    nodes 86, race nodes 0, double-steps generated 0, e.p. captures 0, terminal +BIG 16, -BIG 33
+    legal W moves 2, legal B moves 1
+    W c3xd4: W: c1 d3 d4 / B: c2 d5 d6        -> ['0']
+    W c3-c4: W: c1 c4 d3 / B: c2 d4 d5 d6     -> ['{0|-257*}']
+    B d4xc3: W: c1 d3 / B: c2 c3 d5 d6        -> ['{0|-1}']
+    board minimax {c,d}+(-1)   R   explicit-sum R   (tiny:R  1:P)
+    board minimax {c,d}+*      N   explicit-sum N   (tiny:N  1:L)
+wrap=False ep=False race=count    W: c1 c3 d3 / B: c2 d4 d5 d6: value-matches ['tiny(1)']; ==tiny(1) True; ==1 False; outcome L
+    nodes 86, race nodes 0, double-steps generated 0, e.p. captures 0, terminal +BIG 16, -BIG 33
+    legal W moves 2, legal B moves 1
+    W c3xd4: W: c1 d3 d4 / B: c2 d5 d6        -> ['0']
+    W c3-c4: W: c1 c4 d3 / B: c2 d4 d5 d6     -> ['{0|-257*}']
+    B d4xc3: W: c1 d3 / B: c2 c3 d5 d6        -> ['{0|-1}']
+    board minimax {c,d}+(-1)   R   explicit-sum R   (tiny:R  1:P)
+    board minimax {c,d}+*      N   explicit-sum N   (tiny:N  1:L)
+wrap=False ep=False race=mover    W: c1 c3 d3 / B: c2 d4 d5 d6: value-matches ['tiny(1)']; ==tiny(1) True; ==1 False; outcome L
+    nodes 86, race nodes 0, double-steps generated 0, e.p. captures 0, terminal +BIG 16, -BIG 33
+    legal W moves 2, legal B moves 1
+    W c3xd4: W: c1 d3 d4 / B: c2 d5 d6        -> ['0']
+    W c3-c4: W: c1 c4 d3 / B: c2 d4 d5 d6     -> ['{0|-257*}']
+    B d4xc3: W: c1 d3 / B: c2 c3 d5 d6        -> ['{0|-1}']
+    board minimax {c,d}+(-1)   R   explicit-sum R   (tiny:R  1:P)
+    board minimax {c,d}+*      N   explicit-sum N   (tiny:N  1:L)
+wrap=False ep=False race=opponent W: c1 c3 d3 / B: c2 d4 d5 d6: value-matches ['tiny(1)']; ==tiny(1) True; ==1 False; outcome L
+    nodes 86, race nodes 0, double-steps generated 0, e.p. captures 0, terminal +BIG 16, -BIG 33
+    legal W moves 2, legal B moves 1
+    W c3xd4: W: c1 d3 d4 / B: c2 d5 d6        -> ['0']
+    W c3-c4: W: c1 c4 d3 / B: c2 d4 d5 d6     -> ['{0|-257*}']
+    B d4xc3: W: c1 d3 / B: c2 c3 d5 d6        -> ['{0|-1}']
+    board minimax {c,d}+(-1)   R   explicit-sum R   (tiny:R  1:P)
+    board minimax {c,d}+*      N   explicit-sum N   (tiny:N  1:L)
+wrap=True  ep=True  race=count    W: c1 c3 d3 / B: c2 d4 d5 d6: value-matches ['tiny(1)']; ==tiny(1) True; ==1 False; outcome L
+    nodes 86, race nodes 0, double-steps generated 0, e.p. captures 0, terminal +BIG 16, -BIG 33
+    legal W moves 2, legal B moves 1
+    W c3xd4: W: c1 d3 d4 / B: c2 d5 d6        -> ['0']
+    W c3-c4: W: c1 c4 d3 / B: c2 d4 d5 d6     -> ['{0|-257*}']
+    B d4xc3: W: c1 d3 / B: c2 c3 d5 d6        -> ['{0|-1}']
+    board minimax {c,d}+(-1)   R   explicit-sum R   (tiny:R  1:P)
+    board minimax {c,d}+*      N   explicit-sum N   (tiny:N  1:L)
+    M=W: a2 a3 a4 h6 / B: a5 h5 h7: value-matches ['miny(1)']; board minimax of G+M P (P and M=miny(1) => G=tiny(1)); explicit-sum outcome P
+wrap=True  ep=True  race=mover    W: c1 c3 d3 / B: c2 d4 d5 d6: value-matches ['tiny(1)']; ==tiny(1) True; ==1 False; outcome L
+    nodes 86, race nodes 0, double-steps generated 0, e.p. captures 0, terminal +BIG 16, -BIG 33
+    legal W moves 2, legal B moves 1
+    W c3xd4: W: c1 d3 d4 / B: c2 d5 d6        -> ['0']
+    W c3-c4: W: c1 c4 d3 / B: c2 d4 d5 d6     -> ['{0|-257*}']
+    B d4xc3: W: c1 d3 / B: c2 c3 d5 d6        -> ['{0|-1}']
+    board minimax {c,d}+(-1)   R   explicit-sum R   (tiny:R  1:P)
+    board minimax {c,d}+*      N   explicit-sum N   (tiny:N  1:L)
+    M=W: a2 a3 a4 h6 / B: a5 h5 h7: value-matches ['miny(1)']; board minimax of G+M P (P and M=miny(1) => G=tiny(1)); explicit-sum outcome P
+wrap=True  ep=True  race=opponent W: c1 c3 d3 / B: c2 d4 d5 d6: value-matches ['tiny(1)']; ==tiny(1) True; ==1 False; outcome L
+    nodes 86, race nodes 0, double-steps generated 0, e.p. captures 0, terminal +BIG 16, -BIG 33
+    legal W moves 2, legal B moves 1
+    W c3xd4: W: c1 d3 d4 / B: c2 d5 d6        -> ['0']
+    W c3-c4: W: c1 c4 d3 / B: c2 d4 d5 d6     -> ['{0|-257*}']
+    B d4xc3: W: c1 d3 / B: c2 c3 d5 d6        -> ['{0|-1}']
+    board minimax {c,d}+(-1)   R   explicit-sum R   (tiny:R  1:P)
+    board minimax {c,d}+*      N   explicit-sum N   (tiny:N  1:L)
+    M=W: a2 a3 a4 h6 / B: a5 h5 h7: value-matches ['miny(1)']; board minimax of G+M P (P and M=miny(1) => G=tiny(1)); explicit-sum outcome P
+wrap=True  ep=False race=count    W: c1 c3 d3 / B: c2 d4 d5 d6: value-matches ['tiny(1)']; ==tiny(1) True; ==1 False; outcome L
+    nodes 86, race nodes 0, double-steps generated 0, e.p. captures 0, terminal +BIG 16, -BIG 33
+    legal W moves 2, legal B moves 1
+    W c3xd4: W: c1 d3 d4 / B: c2 d5 d6        -> ['0']
+    W c3-c4: W: c1 c4 d3 / B: c2 d4 d5 d6     -> ['{0|-257*}']
+    B d4xc3: W: c1 d3 / B: c2 c3 d5 d6        -> ['{0|-1}']
+    board minimax {c,d}+(-1)   R   explicit-sum R   (tiny:R  1:P)
+    board minimax {c,d}+*      N   explicit-sum N   (tiny:N  1:L)
+    M=W: a2 a3 a4 h6 / B: a5 h5 h7: value-matches ['miny(1)']; board minimax of G+M P (P and M=miny(1) => G=tiny(1)); explicit-sum outcome P
+wrap=True  ep=False race=mover    W: c1 c3 d3 / B: c2 d4 d5 d6: value-matches ['tiny(1)']; ==tiny(1) True; ==1 False; outcome L
+    nodes 86, race nodes 0, double-steps generated 0, e.p. captures 0, terminal +BIG 16, -BIG 33
+    legal W moves 2, legal B moves 1
+    W c3xd4: W: c1 d3 d4 / B: c2 d5 d6        -> ['0']
+    W c3-c4: W: c1 c4 d3 / B: c2 d4 d5 d6     -> ['{0|-257*}']
+    B d4xc3: W: c1 d3 / B: c2 c3 d5 d6        -> ['{0|-1}']
+    board minimax {c,d}+(-1)   R   explicit-sum R   (tiny:R  1:P)
+    board minimax {c,d}+*      N   explicit-sum N   (tiny:N  1:L)
+    M=W: a2 a3 a4 h6 / B: a5 h5 h7: value-matches ['miny(1)']; board minimax of G+M P (P and M=miny(1) => G=tiny(1)); explicit-sum outcome P
+wrap=True  ep=False race=opponent W: c1 c3 d3 / B: c2 d4 d5 d6: value-matches ['tiny(1)']; ==tiny(1) True; ==1 False; outcome L
+    nodes 86, race nodes 0, double-steps generated 0, e.p. captures 0, terminal +BIG 16, -BIG 33
+    legal W moves 2, legal B moves 1
+    W c3xd4: W: c1 d3 d4 / B: c2 d5 d6        -> ['0']
+    W c3-c4: W: c1 c4 d3 / B: c2 d4 d5 d6     -> ['{0|-257*}']
+    B d4xc3: W: c1 d3 / B: c2 c3 d5 d6        -> ['{0|-1}']
+    board minimax {c,d}+(-1)   R   explicit-sum R   (tiny:R  1:P)
+    board minimax {c,d}+*      N   explicit-sum N   (tiny:N  1:L)
+    M=W: a2 a3 a4 h6 / B: a5 h5 h7: value-matches ['miny(1)']; board minimax of G+M P (P and M=miny(1) => G=tiny(1)); explicit-sum outcome P

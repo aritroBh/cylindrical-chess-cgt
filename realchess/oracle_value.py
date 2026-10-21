@@ -445,7 +445,7 @@ def stage_oracle(args, build):
     comp, model, oracle, cached, region = build(args)
     T = Terminals(comp)
     s = Searcher(oracle, mode=args.mode, order_hint=make_order(model, cached), region=region,
-                 cached=cached)
+                 cached=cached, kb=oracle.kb)
     R = Resolver(T, s, oracle, cached, args.ext, per_terminal=args.per_terminal)
     prior = {}
     for t in T.terms:
@@ -454,7 +454,7 @@ def stage_oracle(args, build):
     target = cgt.nimber(2) if args.target == "*2" else None
     if target is None:
         raise SystemExit("--target: only '*2' is implemented")
-    path = os.path.join(RESULTS, f"{tag_of(comp)}_oracle_{args.mode}.json")
+    path = os.path.join(RESULTS, f"{tag_of(comp)}_oracle_{args.mode}{args.label}.json")
     raw, attempted, log = {}, set(), []
     byname = {str(t): t for t in T.terms}
     if args.resume and os.path.exists(path):
@@ -590,4 +590,328 @@ def stage_oracle(args, build):
     print(json.dumps(brief, indent=1, default=str))
     print("non-L/R terminals:", len(out["non_LR_terminals"]),
           "disagreements with count model:", len(out["disagree_with_count_model"]))
+    return out
+
+
+# ===================================================================== v2
+# Exhaustive (offline-friendly) resolution of every terminal, and bounds by
+# plain monotonicity. Used by `solve_candidate oracle-all`.
+#
+# Per terminal t, the real-chess results rW (White moves first) and rB (Black
+# moves first), White's view, are each +1/0/-1 or None (unresolved). Its
+# replacement game is only known to lie in an interval [lo(t), hi(t)]:
+#
+#   treatment "switch" (draw_as = +1 or -1): a draw counts as a win for that
+#     side; then L -> +BIG, R -> -BIG, N -> {+BIG | -BIG}, P -> 0, and an
+#     unresolved side may be either result. lo/hi are the least / greatest
+#     possible game when one exists (R <= P <= L), else -2BIG / +2BIG: the
+#     switch N = {+BIG | -BIG} is confused with both +BIG and -BIG, so a
+#     terminal that might be N (or is unknown) gets [-2BIG, +2BIG].
+#   treatment "free": only certain L and certain R terminals are fixed (+-BIG);
+#     every other terminal (N, P, any draw, any partly or wholly unresolved
+#     one) is an arbitrary game in [-2BIG, +2BIG] (which contains +-BIG,
+#     {+BIG | -BIG} and 0).
+#
+# Raising any option never lowers a game (Conway), so with G_lo, G_hi built
+# from all lo's / all hi's, G_lo <= G <= G_hi for every admissible choice.
+#   * pinned:            G_lo == G_hi  (the value is then that game);
+#   * target excluded:   G_lo is not <= target, or target is not <= G_hi.
+
+CLASS_GAME = {"L": G_BIG, "R": G_NBIG, "N": G_SWITCH, "P": cgt.ZERO}
+TREATMENTS = {
+    # name: (kind, draw_as)
+    "switch, draw = Black win": ("switch", -1),
+    "switch, draw = White win": ("switch", +1),
+    "switch, draw = 0": ("draw0", 0),
+    "free (only L/R fixed)": ("free", 0),
+}
+
+
+def pair_game(rw, rb, kind: str, draw_as: int = -1):
+    """Replacement game for a terminal whose real results are rw (White moves
+    first) and rb (Black moves first), White's view, both known.
+      switch: a draw counts as a win for side draw_as; then L -> +BIG,
+              R -> -BIG, N -> {+BIG | -BIG}, P -> 0;
+      draw0 : L -> +BIG, R -> -BIG, otherwise {BIG*rw | BIG*rb} (a draw is
+              worth 0: e.g. draw/Black-win -> {0 | -BIG}, draw/draw -> *)."""
+    if kind == "switch":
+        f = lambda x: x if x != 0 else draw_as
+        return CLASS_GAME[class_of(f(rw), f(rb))]
+    if kind == "draw0":
+        if rw == rb and rw != 0:
+            return G_BIG if rw == 1 else G_NBIG
+        return cgt.make([cgt.integer(BIG * rw)], [cgt.integer(BIG * rb)])
+    raise ValueError(kind)
+
+
+def possible_games(rw, rb, kind: str, draw_as: int = -1):
+    vals = (1, 0, -1)
+    ws = [rw] if rw is not None else vals
+    bs = [rb] if rb is not None else vals
+    out = []
+    for a in ws:
+        for b in bs:
+            g = pair_game(a, b, kind, draw_as)
+            if all(g is not h for h in out):
+                out.append(g)
+    return out
+
+
+def _extreme(games, low: bool):
+    """A possible game that is <= (low) / >= (high) every possible game, if
+    one exists; otherwise -2BIG / +2BIG, which bound every replacement game
+    used here. (Careful: the switch {+BIG | -BIG} is confused with BOTH +BIG
+    and -BIG, so N is incomparable with L and with R.)"""
+    for g in games:
+        if all((cgt.le(g, h) if low else cgt.le(h, g)) for h in games):
+            return g
+    return G_NBIG2 if low else G_BIG2
+
+
+def interval_of(rw, rb, kind: str, draw_as: int = -1):
+    if kind == "free":
+        if rw is not None and rb is not None and rw == rb and rw != 0:
+            return (G_BIG, G_BIG) if rw == 1 else (G_NBIG, G_NBIG)
+        return (G_NBIG2, G_BIG2)
+    games = possible_games(rw, rb, kind, draw_as)
+    return _extreme(games, True), _extreme(games, False)
+
+
+def sandwich(T: Terminals, raw: dict, kind: str, draw_as: int = -1, fixed=None):
+    """(G_lo, G_hi); `fixed` maps some terminals to a chosen game."""
+    fixed = fixed or {}
+    iv = {t: interval_of(*raw.get(t, (None, None)), kind, draw_as) for t in T.terms}
+    g_lo = T.value(lambda t: fixed[t] if t in fixed else iv[t][0])
+    g_hi = T.value(lambda t: fixed[t] if t in fixed else iv[t][1])
+    return g_lo, g_hi
+
+
+def excluded(g_lo, g_hi, target) -> dict:
+    return {"by_lower_bound": not cgt.le(g_lo, target), "by_upper_bound": not cgt.le(target, g_hi)}
+
+
+def ambiguous_partials(T, raw, kind, draw_as):
+    """Terminals with at least one known side whose possible games have no
+    least or no greatest element (so the sandwich must use +-2BIG)."""
+    out = []
+    for t in T.terms:
+        rw, rb = raw.get(t, (None, None))
+        if (rw is None) == (rb is None) or kind == "free":
+            continue
+        games = possible_games(rw, rb, kind, draw_as)
+        lo, hi = _extreme(games, True), _extreme(games, False)
+        if lo is G_NBIG2 or hi is G_BIG2:
+            out.append(t)
+    return out
+
+
+def enum_certificate(T, raw, target, kind, draw_as, enum_set, max_combos=1 << 14):
+    """Exclusion of `target` with the terminals in enum_set ranging over their
+    possible games ONE COMBINATION AT A TIME (exact), all other terminals in
+    their sandwich. True / False / None (too many combinations)."""
+    import itertools
+    opts = [possible_games(*raw.get(t, (None, None)), kind, draw_as) for t in enum_set]
+    n = 1
+    for o in opts:
+        n *= len(o)
+    if n > max_combos:
+        return None, n
+    for combo in itertools.product(*opts):
+        g_lo, g_hi = sandwich(T, raw, kind, draw_as, fixed=dict(zip(enum_set, combo)))
+        ex = excluded(g_lo, g_hi, target)
+        if not (ex["by_lower_bound"] or ex["by_upper_bound"]):
+            return False, n
+    return True, n
+
+
+def _minimal(games, low=True):
+    """Minimal (low) / maximal elements of a finite set of games."""
+    out = []
+    for g in games:
+        dominated = any((h is not g) and (cgt.le(h, g) if low else cgt.le(g, h)) for h in games)
+        if not dominated:
+            out.append(g)
+    return out
+
+
+def one_sided_certificate(T, raw, target, kind, draw_as, enum_set, test: str, max_combos=1 << 14):
+    """test='lower': for every combination of MINIMAL possible games of the
+    terminals in enum_set (others at their sandwich low end), G_lo is not <=
+    target. Every admissible assignment lies above one such combination, so by
+    monotonicity no admissible G is <= target, hence none equals it.
+    test='upper' is the mirror image (maximal games, target not <= G_hi)."""
+    import itertools
+    low = test == "lower"
+    opts = [_minimal(possible_games(*raw.get(t, (None, None)), kind, draw_as), low) for t in enum_set]
+    n = 1
+    for o in opts:
+        n *= len(o)
+    if n > max_combos:
+        return None, n
+    for combo in itertools.product(*opts):
+        g_lo, g_hi = sandwich(T, raw, kind, draw_as, fixed=dict(zip(enum_set, combo)))
+        if low and cgt.le(g_lo, target):
+            return False, n
+        if not low and cgt.le(target, g_hi):
+            return False, n
+    return True, n
+
+
+def describe_bounds(g_lo, g_hi, targets: dict):
+    out = {"G_lo": cgt.show(g_lo), "G_hi": cgt.show(g_hi), "pinned": g_lo is g_hi,
+           "outcome_G_lo": cgt.outcome(g_lo), "outcome_G_hi": cgt.outcome(g_hi)}
+    for name, g in targets.items():
+        ex = excluded(g_lo, g_hi, g)
+        out[f"excludes {name}"] = ex["by_lower_bound"] or ex["by_upper_bound"]
+        out[f"excludes {name} (how)"] = ex
+    if g_lo is g_hi:
+        out["value"] = cgt.show(g_lo)
+        try:
+            out["mean"] = str(cgt.mean(g_lo))
+            t = cgt.temperature(g_lo)
+            out["temperature"] = "number" if t is None else str(t)
+        except Exception as e:  # pragma: no cover
+            out["thermo_error"] = repr(e)
+    return out
+
+
+def resolve_all(T: Terminals, s: Searcher, ext: int, deepen_fn, log=None):
+    """Real-chess results (White's view) of every terminal, both sides to move."""
+    raw, how = {}, {}
+    for i, t in enumerate(T.order):
+        res = []
+        for side in "WB":
+            pos = T.real_pos(t, side)
+            errs = mg.validity_errors(pos)
+            if errs:
+                res.append(None)
+                how[(t, side)] = "illegal: " + "; ".join(errs)
+                continue
+            if pos.men() <= 7:
+                iv = s.search(pos, 0)
+                src = "tablebase (<=7 men)"
+            else:
+                iv = deepen_fn(s, pos, ext)
+                src = f"search (8 men, ext<={ext})"
+            if iv[0] == iv[1]:
+                res.append(iv[0] if pos.stm == mg.WHITE else -iv[0])
+                how[(t, side)] = src
+            else:
+                res.append(None)
+                how[(t, side)] = src + " -> unresolved " + str(tuple(iv))
+        raw[t] = tuple(res)
+        if log and (i + 1) % 100 == 0:
+            log(f"[oracle-all] {i + 1}/{len(T.order)} terminals")
+    return raw, how
+
+
+def stage_oracle_all(args, build):
+    """Resolve EVERY terminal as far as the oracle allows (use --offline to
+    stay inside the cache), then report bounds, pins and exclusions."""
+    from .solve_candidate import RESULTS, write_json, tag_of, comp_str, make_order, deepen
+    comp, model, oracle, cached, region = build(args)
+    T = Terminals(comp)
+    s = Searcher(oracle, mode=args.mode, order_hint=make_order(model, cached), region=region,
+                 cached=cached, kb=oracle.kb)
+    if args.use_l8:
+        s.kb_max_men = 8
+    t0 = time.time()
+    status = "complete"
+    path = os.path.join(RESULTS, f"{tag_of(comp)}_oracleall_{args.mode}{args.label}.json")
+    if args.resume and os.path.exists(path):
+        # re-analyse saved results (no search, no network)
+        old = json.load(open(path))
+        byname = {str(t): t for t in T.terms}
+        raw, how = {}, {}
+        for r in old["terminals"]:
+            t = byname[r["terminal"]]
+            raw[t] = (r["real_W_first"], r["real_B_first"])
+            how[(t, "W")], how[(t, "B")] = r["how_W"], r["how_B"]
+        status = "re-analysed from " + os.path.basename(path)
+    else:
+        try:
+            raw, how = resolve_all(T, s, args.ext, deepen, log=lambda m: print(m, flush=True))
+        except CapReached as e:
+            raise SystemExit(f"stopped: {e} (re-run; results so far are cached)")
+    passed_rule = "e.p.-aware" if getattr(pawns, "PASSED_RESPECTS_EP", False) else "textbook"
+    targets = {"*2": cgt.nimber(2), "0": cgt.ZERO}
+    # the model values (cylcgt) of this component, as comparison targets
+    mvals = {}
+    for rule in ("count", "mover", "opponent"):
+        old = pawns.RACE_RULE
+        pawns.RACE_RULE = rule
+        pawns._value.cache_clear()
+        try:
+            mvals[rule] = pawns.value(T.board, comp)
+        finally:
+            pawns.RACE_RULE = old
+            pawns._value.cache_clear()
+        targets[f"model value under {rule} ({cgt.show(mvals[rule])})"] = mvals[rule]
+    rows = []
+    for t in T.order:
+        rw, rb = raw[t]
+        cls = class_of(rw, rb) if rw is not None and rb is not None else None
+        if cls == "D":
+            cls = "draw(" + ",".join(f"{s_}-first:{ {1: 'W wins', 0: 'draw', -1: 'B wins'}[v]}"
+                                     for s_, v in (("W", rw), ("B", rb))) + ")"
+        rows.append({"terminal": str(t), "men": T.men(t), "entered_by": sorted(T.movers[t]),
+                     "race": pawns.passed(T.board, t, "W") and pawns.passed(T.board, t, "B"),
+                     "model_by_rule": {rule: sorted({("L" if C.model_terminal_value(T.board, t, m, rule) > 0
+                                                      else "R") for m in T.movers[t]})
+                                       for rule in ("count", "mover", "opponent")},
+                     "real_W_first": rw, "real_B_first": rb, "real_class": cls,
+                     "how_W": how.get((t, "W")), "how_B": how.get((t, "B")),
+                     "fen_W": mg.normal_fen(T.real_pos(t, "W")),
+                     "fen_B": mg.normal_fen(T.real_pos(t, "B"))})
+    full = [r for r in rows if r["real_class"]]
+    out = {"component": comp_str(comp), "passed_test": passed_rule, "mode": args.mode,
+           "ext": args.ext, "uses_lichess_8man_categories": bool(args.use_l8),
+           "offline": bool(args.offline), "status": status,
+           "internal_nodes": len(T.internal), "terminals_total": len(T.terms),
+           "terminals_by_men": dict(Counter(T.men(t) for t in T.terms)),
+           "sides_resolved": sum((r["real_W_first"] is not None) + (r["real_B_first"] is not None)
+                                 for r in rows),
+           "terminals_resolved_both_sides": len(full),
+           "terminals_partial": sum(1 for r in rows if (r["real_W_first"] is None) != (r["real_B_first"] is None)),
+           "terminals_unresolved": sum(1 for r in rows if r["real_W_first"] is None and r["real_B_first"] is None),
+           "class_counts": dict(Counter(("D" if r["real_class"].startswith("draw") else r["real_class"])
+                                        for r in full)),
+           "non_LR_terminals": [r for r in full if r["real_class"] not in ("L", "R")],
+           "LR_terminals_disagreeing_with_model": {
+               rule: [r["terminal"] for r in full if r["real_class"] in ("L", "R")
+                      and r["model_by_rule"][rule] != [r["real_class"]]]
+               for rule in ("count", "mover", "opponent")},
+           "model_values": {rule: cgt.show(g) for rule, g in mvals.items()},
+           "new_requests": oracle.new_requests, "kb_hits": s.kb_hits,
+           "seconds": round(time.time() - t0, 1)}
+    out["bounds"] = {}
+    for name, (kind, d) in TREATMENTS.items():
+        g_lo, g_hi = sandwich(T, raw, kind, d)
+        b = describe_bounds(g_lo, g_hi, targets)
+        amb = ambiguous_partials(T, raw, kind, d)
+        b["ambiguous_partial_terminals"] = len(amb)
+        # exact enumeration over the ambiguous partials, when few enough
+        for tname, tg in targets.items():
+            if b[f"excludes {tname}"] or not amb:
+                continue
+            ok, n = enum_certificate(T, raw, tg, kind, d, amb)
+            b[f"excludes {tname} (enumerating {len(amb)} ambiguous partials, {n} combinations)"] = ok
+        out["bounds"][name] = b
+    # indicative only: unresolved sides filled with the cylcgt model's verdict (count rule)
+    prior = {}
+    for t in T.terms:
+        m = next(iter(T.movers[t]))
+        prior[t] = C.model_terminal_value(T.board, t, m, "count")
+    fill = {t: tuple(v if v is not None else prior[t] for v in raw[t]) for t in T.terms}
+    for name, (kind, d) in TREATMENTS.items():
+        if kind == "free":
+            continue
+        g = T.value(lambda t: pair_game(*fill[t], kind, d))
+        out["bounds"][name]["indicative_value_unresolved_sides_from_model"] = cgt.show(g)
+    out["terminals"] = rows
+    if not args.dry_run:
+        write_json(path, out)
+    brief = {k: v for k, v in out.items() if k not in ("terminals", "non_LR_terminals")}
+    brief["non_LR_terminals"] = [(r["terminal"], r["real_class"]) for r in out["non_LR_terminals"]]
+    print(json.dumps(brief, indent=1, default=str))
     return out

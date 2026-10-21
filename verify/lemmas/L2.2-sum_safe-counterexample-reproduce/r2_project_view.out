@@ -1,0 +1,11 @@
+RACE_RULE before: count
+components: ['W: b2 d4 g3 h5 / B: a7 c7 f7 g4']
+sum_safe: True
+value S: {{{-1, {-1, -1* | -1} | -1} | -1} | -1}  o(S): R
+o(W): N  alt: N
+crosscheck: N
+HSS: False
+  rule mover: o(S)=N o(W)=N sum_safe=True
+  rule opponent: o(S)=R o(W)=N sum_safe=True
+  rule count: o(S)=R o(W)=N sum_safe=True
+after explicit cache_clear, count: o(S)= R

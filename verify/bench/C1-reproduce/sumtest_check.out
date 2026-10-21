@@ -1,0 +1,49 @@
+C0311 W: a2 c2 / B: a3 b5 textbook ('1', True) aware ('*', True) OK
+C0312 W: a2 c2 / B: a3 b6 textbook ('1/2', True) aware ('^', True) OK
+C0313 W: a2 c2 / B: a3 b7 textbook ('0', True) aware ('0', True) OK
+C0314 W: a2 c2 / B: a4 b6 textbook ('1/2*', True) aware ('{*, 0 | {* | -1}}', True) OK
+C0315 W: a2 c2 / B: a4 b7 textbook ('*', True) aware ('*', True) OK
+C0316 W: a2 c2 / B: b5 c3 textbook ('1', True) aware ('*', True) OK
+C0317 W: a2 c2 / B: b6 c3 textbook ('1/2', True) aware ('^', True) OK
+C0318 W: a2 c2 / B: b6 c4 textbook ('1/2*', True) aware ('{*, 0 | {* | -1}}', True) OK
+C0319 W: a2 c2 / B: b7 c3 textbook ('0', True) aware ('0', True) OK
+C0320 W: a2 c2 / B: b7 c4 textbook ('*', True) aware ('*', True) OK
+C0327 W: a2 c3 / B: b6 c4 textbook ('1/2', True) aware ('{0 | {0 | {-256, +-256 | -256, {-256, +-256 | -256}}}}', True) OK
+C0328 W: a2 c3 / B: b7 c4 textbook ('0', True) aware ('0', True) OK
+C0340 W: a3 c2 / B: a4 b6 textbook ('1/2', True) aware ('{0 | {0 | {-256, +-256 | -256, {-256, +-256 | -256}}}}', True) OK
+C0341 W: a3 c2 / B: a4 b7 textbook ('0', True) aware ('0', True) OK
+C0388 W: a5 b2 / B: a6 c7 textbook ('0', True) aware ('0', True) OK
+C0392 W: a5 b2 / B: a7 c7 textbook ('*', True) aware ('*', True) OK
+C0395 W: a5 b3 / B: a6 c7 textbook ('-1/2', True) aware ('{{{256, {256 | 256, +-256} | 256, +-256} | 0} | 0}', True) OK
+C0398 W: a5 b3 / B: a7 c7 textbook ('-1/2*', True) aware ('{{1 | *} | *, 0}', True) OK
+C0410 W: a6 b2 / B: a7 c7 textbook ('0', True) aware ('0', True) OK
+C0413 W: a6 b3 / B: a7 c7 textbook ('-1/2', True) aware ('v', True) OK
+C0415 W: a6 b4 / B: a7 c7 textbook ('-1', True) aware ('*', True) OK
+C0429 W: b2 c5 / B: a7 c6 textbook ('0', True) aware ('0', True) OK
+C0430 W: b2 c5 / B: a7 c7 textbook ('*', True) aware ('*', True) OK
+C0434 W: b2 c6 / B: a7 c7 textbook ('0', True) aware ('0', True) OK
+C0443 W: b3 c5 / B: a7 c6 textbook ('-1/2', True) aware ('{{{256, {256 | 256, +-256} | 256, +-256} | 0} | 0}', True) OK
+C0444 W: b3 c5 / B: a7 c7 textbook ('-1/2*', True) aware ('{{1 | *} | *, 0}', True) OK
+C0447 W: b3 c6 / B: a7 c7 textbook ('-1/2', True) aware ('v', True) OK
+C0455 W: b4 c6 / B: a7 c7 textbook ('-1', True) aware ('*', True) OK
+C0456 W: a2 c2 / B: b5 d4 textbook ('1', True) aware ('*', True) OK
+C0457 W: a2 c2 / B: b6 d4 textbook ('1/2', True) aware ('^', True) OK
+C0458 W: a2 c2 / B: b7 d4 textbook ('0', True) aware ('0', True) OK
+C0459 W: a2 c3 / B: b6 d5 textbook ('1/2', True) aware ('{0 | {0 | {-256, {256, +-256 | -256, +-256}, +-256 | -256}}}', True) OK
+C0460 W: a2 c3 / B: b7 d5 textbook ('0', True) aware ('0', True) OK
+C0470 W: a4 c2 / B: b6 d7 textbook ('0', True) aware ('0', True) OK
+C0475 W: a4 c3 / B: b6 d7 textbook ('-1/2', True) aware ('{{{256 | 256, {256, +-256 | -256, +-256}, +-256} | 0} | 0}', True) OK
+C0481 W: a5 c2 / B: b7 d7 textbook ('0', True) aware ('0', True) OK
+C0484 W: a5 c3 / B: b7 d7 textbook ('-1/2', True) aware ('v', True) OK
+C0486 W: a5 c4 / B: b7 d7 textbook ('-1', True) aware ('*', True) OK
+C0487 W: b2 d2 / B: a4 c5 textbook ('1', True) aware ('*', True) OK
+C0488 W: b2 d2 / B: a4 c6 textbook ('1/2', True) aware ('^', True) OK
+C0489 W: b2 d2 / B: a4 c7 textbook ('0', True) aware ('0', True) OK
+C0498 W: b2 d4 / B: a7 c6 textbook ('0', True) aware ('0', True) OK
+C0502 W: b2 d5 / B: a7 c7 textbook ('0', True) aware ('0', True) OK
+C0503 W: b3 d2 / B: a5 c6 textbook ('1/2', True) aware ('{0 | {0 | {-256, {256, +-256 | -256, +-256}, +-256 | -256}}}', True) OK
+C0504 W: b3 d2 / B: a5 c7 textbook ('0', True) aware ('0', True) OK
+C0511 W: b3 d4 / B: a7 c6 textbook ('-1/2', True) aware ('{{{256 | 256, {256, +-256 | -256, +-256}, +-256} | 0} | 0}', True) OK
+C0514 W: b3 d5 / B: a7 c7 textbook ('-1/2', True) aware ('v', True) OK
+C0517 W: b4 d5 / B: a7 c7 textbook ('-1', True) aware ('*', True) OK
+mismatches: 0 of 48

@@ -22,7 +22,12 @@ Checks (results in bench/results/verify_report.md and verify_summary.json):
  D. EVERY instance vs bench/ab.c (alpha-beta + transposition table, own move
     generator, no cylcgt; identical results and node counts to the Python
     solver in bench/baseline.py, see bench/tests): outcome class, with a
-    per-search time cap.
+    per-search time cap. ab.c also counts double steps that leave a passed
+    pawn (textbook test) that the opponent could take en passant; a count of 0
+    means the e.p.-aware passed test would give the same searches, so D
+    confirms the outcomes under both passed tests.
+ Codex's crosscheck/minimax.py (A, C) uses the textbook passed test. For the
+ e.p.-aware test see bench/conventions.py.
 """
 from __future__ import annotations
 
@@ -202,7 +207,10 @@ def mm_winning(row):
 
 
 def ab_outcomes(rows, time_cap):
-    """Outcome classes from bench/ab.c (alpha-beta + TT); None where a search hit the cap."""
+    """Outcome classes from bench/ab.c (alpha-beta + TT); None where a search hit the cap.
+    Also returns the total number of double steps met in the searches that leave a passed
+    pawn the opponent could take e.p. (0 means the e.p.-aware passed test gives the same
+    outcomes, see ab.c)."""
     jobs = []
     for r in rows:
         w, b = sqs(r["white"]), sqs(r["black"])
@@ -211,13 +219,13 @@ def ab_outcomes(rows, time_cap):
     res = c_solve(jobs)
     out = []
     for i in range(len(rows)):
-        (vw, _, _), (vb, _, _) = res[2 * i], res[2 * i + 1]
+        (vw, _, _, _), (vb, _, _, _) = res[2 * i], res[2 * i + 1]
         if vw == 0 or vb == 0:
             out.append(None)
             continue
         a, c = vw == 1, vb == 1
         out.append("L" if a and not c else "R" if c and not a else "N" if a else "P")
-    return out
+    return out, sum(x[3] for x in res)
 
 
 def _init_worker():
@@ -323,7 +331,9 @@ def main(argv=None):
         rs = rows[sp] if not a.quick else rows[sp][:100]
         for i in range(0, len(rs), 500):
             chunk = rs[i:i + 500]
-            for r, oc in zip(chunk, ab_outcomes(chunk, a.ab_time)):
+            ocs, n_ep = ab_outcomes(chunk, a.ab_time)
+            summary[f"D double steps leaving a passed pawn that may be taken e.p., {sp} (must be 0)"] += n_ep
+            for r, oc in zip(chunk, ocs):
                 grp = f"{sp} k={r['k']}"
                 if oc is None:
                     summary[f"D time cap {grp}"] += 1
@@ -351,11 +361,17 @@ def report(summary, bad, secs):
     keys = sorted({k.rsplit(" (", 1)[0] for k in summary if k.endswith("(agree)")})
     for k in keys:
         lines.append(f"| {k} | {summary[k + ' (agree)']} | {summary[k + ' (total)']} |")
-    others = sorted(k for k in summary if not k.endswith("(agree)") and not k.endswith("(total)"))
+    zero = sorted(k for k in summary if k.endswith("(must be 0)"))
+    if zero:
+        lines += ["", "| counter | value |", "|---|---|"]
+        lines += [f"| {k} | {summary[k]} |" for k in zero]
+    others = sorted(k for k in summary if not k.endswith("(agree)") and not k.endswith("(total)")
+                    and not k.endswith("(must be 0)"))
     if others:
         lines += ["", "| not finished | count |", "|---|---|"]
         lines += [f"| {k} | {summary[k]} |" for k in others]
-    lines += ["", f"Disagreements: {len(bad)}."]
+    nz = [k for k in zero if summary[k]]
+    lines += ["", f"Disagreements: {len(bad)}." + (f" Non-zero must-be-0 counters: {len(nz)}." if zero else "")]
     for x in bad[:30]:
         lines.append(f"- `{x}`")
     lines += ["", f"Run time {secs:.0f} s."]

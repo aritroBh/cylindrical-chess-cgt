@@ -1,0 +1,42 @@
+== (b) my visual reading vs worker MINE (rerun.py), all pieces incl. kings ==
+  2.1: SAME
+  2.2: SAME
+  2.3: SAME
+  3.1: SAME
+  3.2: SAME
+  4.1: SAME
+  4.2: SAME
+  4.3: SAME
+  5.1: SAME
+  7.1: SAME
+  7.2: SAME
+  7.3: SAME
+== (c) Part A table FENs in notes/diagram_audit.md vs MINE ==
+  2.1: PartA=8/8/8/4p3/4P3/8/8/8  SAME
+  2.2: PartA=8/8/8/8/7p/p7/P7/7P  SAME
+  2.3: PartA=8/8/8/8/2p5/3p4/3P4/2P5  SAME
+  3.1: PartA=8/8/8/7p/p7/P7/8/7P  SAME
+  3.2: PartA=8/8/7p/p7/P7/8/8/7P  SAME
+  4.1: PartA=8/8/4p3/8/4P3/8/8/8  SAME
+  4.2: PartA=8/8/4p3/8/8/4P3/8/8  SAME
+  4.3: PartA=8/p7/p7/p7/P6P/7p/7P/8  SAME
+  5.1: PartA=8/8/8/p6K/Pk6/8/8/8  SAME
+  7.1: PartA=8/p4p2/2p4p/P1p5/P4P2/2P2P1P/2P4P/8  SAME
+  7.2: PartA=3k4/1p1Pp2p/p3K3/8/8/7P/PP6/8  SAME
+  7.3: PartA=6K1/5Pp1/3p1k2/P2p4/3p3p/2PP2p1/2p5/P1P3PP  SAME
+== (a) my visual reading vs CLAIMS (pawn sets) ==
+  2.1 zero                         full=True  on-own-files=True  kings-in-diagram W[-] B[-]
+  2.2 zero (wrap)                  full=True  on-own-files=True  kings-in-diagram W[-] B[-]
+  3.1 one                          full=True  on-own-files=True  kings-in-diagram W[-] B[-]
+  3.2 two                          full=True  on-own-files=True  kings-in-diagram W[-] B[-]
+  4.1 star                         full=True  on-own-files=True  kings-in-diagram W[-] B[-]
+  4.2 up (as drawn)                full=True  on-own-files=True  kings-in-diagram W[-] B[-]
+  4.2 up (intended? e2/e5)         full=False on-own-files=False kings-in-diagram W[-] B[-] diagram-only W[e3] B[e6] claims-only W[e2] B[e5]
+  4.3 tiny                         full=True  on-own-files=True  kings-in-diagram W[-] B[-]
+  7.1 puzzle 1 (total)             full=True  on-own-files=True  kings-in-diagram W[-] B[-]
+  7.1  c-file                      full=False on-own-files=True  kings-in-diagram W[-] B[-] diagram-only W[a4 a5 f3 f4 h2 h3] B[a7 f7 h6] claims-only W[-] B[-]
+  7.1  f-file                      full=False on-own-files=True  kings-in-diagram W[-] B[-] diagram-only W[a4 a5 c2 c3 h2 h3] B[a7 c5 c6 h6] claims-only W[-] B[-]
+  7.1  a/h-files                   full=False on-own-files=True  kings-in-diagram W[-] B[-] diagram-only W[c2 c3 f3 f4] B[c5 c6 f7] claims-only W[-] B[-]
+  7.2 pawn part (a,b,h files)      full=False on-own-files=True  kings-in-diagram W[e6] B[d8] diagram-only W[d7] B[e7] claims-only W[-] B[-]
+  7.3 pawns (kings removed)        full=True  on-own-files=True  kings-in-diagram W[g8] B[f6]
+  diagrams with no CLAIMS entry: ['2.3', '5.1']

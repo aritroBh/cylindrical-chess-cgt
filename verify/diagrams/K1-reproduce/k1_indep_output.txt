@@ -1,0 +1,64 @@
+
+### 7.2 full diagram [cylinder] 3k4/1p1Pp2p/p3K3/8/8/7P/PP6/8
+  W legal (9): Ke6-d5, Ke6-e5, Ke6-f5, Ke6-f7, h3-h4, a2-a3, a2-a4, b2-b3, b2-b4
+     Ke6-d5: enemy replies that capture: ['Kd8xd7']
+     Ke6-e5: enemy replies that capture: ['Kd8xd7']
+     Ke6-f5: enemy replies that capture: ['Kd8xd7']
+     Ke6-f7: enemy replies that capture: ['Kd8xd7']
+  B legal (6): Kd8-c7, b7-b6, b7-b5, h7-h6, h7-h5, a6-a5
+     Kd8-c7: enemy replies that capture: ['Ke6xe7']
+  moves by the d7/e7 pawns: none
+
+### 7.2 isolated d/e group [cylinder] 3k4/3Pp3/4K3/8/8/8/8/8
+  W legal (4): Ke6-d5, Ke6-e5, Ke6-f5, Ke6-f7
+     Ke6-d5: enemy replies that capture: ['Kd8xd7']
+     Ke6-e5: enemy replies that capture: ['Kd8xd7']
+     Ke6-f5: enemy replies that capture: ['Kd8xd7']
+     Ke6-f7: enemy replies that capture: ['Kd8xd7']
+  B legal (1): Kd8-c7
+     Kd8-c7: enemy replies that capture: ['Ke6xe7']
+  moves by the d7/e7 pawns: none
+
+### 7.2 full diagram [flat] 3k4/1p1Pp2p/p3K3/8/8/7P/PP6/8
+  W legal (9): Ke6-d5, Ke6-e5, Ke6-f5, Ke6-f7, h3-h4, a2-a3, a2-a4, b2-b3, b2-b4
+     Ke6-d5: enemy replies that capture: ['Kd8xd7']
+     Ke6-e5: enemy replies that capture: ['Kd8xd7']
+     Ke6-f5: enemy replies that capture: ['Kd8xd7']
+     Ke6-f7: enemy replies that capture: ['Kd8xd7']
+  B legal (6): Kd8-c7, b7-b6, b7-b5, h7-h6, h7-h5, a6-a5
+     Kd8-c7: enemy replies that capture: ['Ke6xe7']
+  moves by the d7/e7 pawns: none
+
+### 7.2 isolated d/e group [flat] 3k4/3Pp3/4K3/8/8/8/8/8
+  W legal (4): Ke6-d5, Ke6-e5, Ke6-f5, Ke6-f7
+     Ke6-d5: enemy replies that capture: ['Kd8xd7']
+     Ke6-e5: enemy replies that capture: ['Kd8xd7']
+     Ke6-f5: enemy replies that capture: ['Kd8xd7']
+     Ke6-f7: enemy replies that capture: ['Kd8xd7']
+  B legal (1): Kd8-c7
+     Kd8-c7: enemy replies that capture: ['Ke6xe7']
+  moves by the d7/e7 pawns: none
+
+### Kc7 follow-up
+  [cyl] after ...Kc7: Kxe7 legal = True; d8=Q at once legal = True but then B can take it: True
+     Black replies after Kc7 Kxe7: ['Kc7-b6', 'Kc7-b7', 'Kc7-b8', 'Kc7-c6']; refutations: NONE
+  [cyl] after ...Kc7: Kxe7 legal = True; d8=Q at once legal = True but then B can take it: True
+     Black replies after Kc7 Kxe7: ['b7-b6', 'b7-b5', 'h7-h6', 'h7-h5', 'a6-a5', 'Kc7-b6', 'Kc7-b8', 'Kc7-c6']; refutations: NONE
+  [flat] after ...Kc7: Kxe7 legal = True; d8=Q at once legal = True but then B can take it: True
+     Black replies after Kc7 Kxe7: ['Kc7-b6', 'Kc7-b7', 'Kc7-b8', 'Kc7-c6']; refutations: NONE
+  [flat] after ...Kc7: Kxe7 legal = True; d8=Q at once legal = True but then B can take it: True
+     Black replies after Kc7 Kxe7: ['b7-b6', 'b7-b5', 'h7-h6', 'h7-h5', 'a6-a5', 'Kc7-b6', 'Kc7-b8', 'Kc7-c6']; refutations: NONE
+
+### Isolated group under the paper's convention (+1 = side to move wins, -1 = loses)
+  [cyl] {'W to move': -1, 'B to move': -1}
+  [flat] {'W to move': -1, 'B to move': -1}
+
+### flat cross-check vs realchess.movegen.legal_uci
+  3k4/1p1Pp2p/p3K3/8/8/7P/PP6/8 w: movegen ['a2a3', 'a2a4', 'b2b3', 'b2b4', 'e6d5', 'e6e5', 'e6f5', 'e6f7', 'h3h4']
+      mine == movegen: True
+  3k4/1p1Pp2p/p3K3/8/8/7P/PP6/8 b: movegen ['a6a5', 'b7b5', 'b7b6', 'd8c7', 'h7h5', 'h7h6']
+      mine == movegen: True
+  3k4/3Pp3/4K3/8/8/8/8/8 w: movegen ['e6d5', 'e6e5', 'e6f5', 'e6f7']
+      mine == movegen: True
+  3k4/3Pp3/4K3/8/8/8/8/8 b: movegen ['d8c7']
+      mine == movegen: True

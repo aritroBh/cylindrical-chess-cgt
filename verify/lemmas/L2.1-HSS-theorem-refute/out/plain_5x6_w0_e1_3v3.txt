@@ -1,0 +1,13 @@
+board 5x6 flat ep=on nw=3 nb=3 roots=36504 done=36504 time=182.9s
+    ('HSS', 'E', 'nontriv', 'agree') 18546
+    ('HSS', 'E', 'triv', 'agree') 67530
+    ('HSS', 'notE', 'nontriv', 'agree') 1422
+    ('HSS', 'notE', 'triv', 'agree') 1422
+    ('notHSS', 'E', 'nontriv', 'DISAGREE') 6052
+    ('notHSS', 'E', 'nontriv', 'agree') 13460
+    ('notHSS', 'notE', 'nontriv', 'agree') 1080
+    below_bound_probe 18546
+    checked_BIG256 86076
+COUNTEREXAMPLES (HSS & E & oS != oW, BIG > max M): 0
+HSS & not-E disagreements (tests necessity of E): 0
+HSS & E & nontrivial disagreements at BIG = max M (one below the hypothesis): 0

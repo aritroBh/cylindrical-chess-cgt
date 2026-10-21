@@ -1,8 +1,8 @@
 # Sum-test cross-validation of cylcgt (workstream sumtest)
 
-Saved by the parent session from the workstream's final report (workflow `wf_3dfce063-f42`, 2026-10-16). The subagent harness does not let workflow agents write report files, so the text below is the agent's, unedited except for removing that notice.
+Saved by the parent session from the workstream's final report (workflow `wf_3dfce063-f42`). Workflow agents may not write report files, so the text below is the agent's, unedited apart from removing that notice. Verification verdicts come from the workflow's adversarial verifiers; "not verified" includes verifiers that were cut off by a usage limit.
 
-**Convention note (added 2026-10-16).** These results use cylcgt as of commit 6b8ca2f, where a pawn that can still be taken en passant already counts as passed. The user has since chosen the e.p.-aware test (`PASSED_RESPECTS_EP = True`). Values that depend on a live e.p. right change under it, notably the \*2 candidate; see [RESULTS.md](../RESULTS.md).
+**Convention note.** These results use the textbook passed test (a pawn that can still be taken en passant already counts as passed), as in cylcgt before commit `ep-aware-passed` was merged. See RESULTS.md for the e.p.-aware results.
 
 ## Headline
 
@@ -173,8 +173,8 @@ The data scripts skip outputs that already exist; delete `sumtest/data/*.gz` to 
 
 | id | importance | worker status | adversarial verification | statement |
 |---|---|---|---|---|
-| C1 | headline | checked-two-ways | reproduce: confirmed; refute: confirmed; theory: partially-confirmed | My independent brute-force solver, using the textbook passed-pawn test, agrees with cylcgt on all 4,967,550 outcome predictions: 55,195 family positions x 3 race rules x e.p. on/off x 15 reference games X. With e.p. off the agreement is 2,483,775/2,483,775 with no extra assumption. |
-| C2 | headline | checked-two-ways | reproduce: confirmed; refute: confirmed; theory: partially-confirmed | For W a2 c2 / B b7 d7 on a 4-file flat board, G+*2 is P (so G = *2) under race rules count and mover, both with e.p. off and with e.p. on under the textbook passer test. Full vector NNPNLRLLLRLRLNN, identical to *2's own. Under 'opponent', G+0 is P (G = 0) under every convention. |
+| C1 | headline | checked-two-ways | reproduce: partially-confirmed; refute: confirmed; theory: confirmed | My independent brute-force solver, using the textbook passed-pawn test, agrees with cylcgt on all 4,967,550 outcome predictions: 55,195 family positions x 3 race rules x e.p. on/off x 15 reference games X. With e.p. off the agreement is 2,483,775/2,483,775 with no extra assumption. |
+| C2 | headline | checked-two-ways | reproduce: confirmed; refute: confirmed; theory: confirmed | For W a2 c2 / B b7 d7 on a 4-file flat board, G+*2 is P (so G = *2) under race rules count and mover, both with e.p. off and with e.p. on under the textbook passer test. Full vector NNPNLRLLLRLRLNN, identical to *2's own. Under 'opponent', G+0 is P (G = 0) under every convention. |
 | C3 | headline | computed-once | reproduce: confirmed; refute: confirmed; theory: confirmed | Under an e.p.-aware passed-pawn test (a pawn that can be captured en passant on the next move is not yet passed), G+*2 is N, so the candidate is NOT *2 under count or mover. Outcome vector NNNNNNNNNNLRNNN; the hybrid canonical value is {2±1 \| -2±1}, mean 0, temperature 2. The same holds with local or global e.p. scope, and on 8-file flat or cylinder boards with files e-h empty. |
 | C4 | key | proved | reproduce: confirmed; refute: confirmed | Mechanism: in X = W a2 c2 / B b4 d7 with White to move, the textbook test scores a2-a4 as an immediate passed pawn (+BIG; X = {256 \| ±256}). In chess Black replies b4xa3 e.p., leaving Black a passed a-pawn while White's c2 is still blocked by d7 (-BIG; X = -3 under the aware test). Black's 1...b5 is worth 0 under the textbook test and -2±1 under the aware test. |
 | C5 | key | checked-two-ways | not verified | All 13,176 (position, rule) disagreements (109,157 (position, rule, X) pairs) between my default e.p.-aware solver and cylcgt are one convention mismatch: cylcgt.pawns.passed() ignores pos.ep, and _child() resolves passed pawns before the opponent's legal e.p. capture can be played. None is a coding bug. All of them are sum_safe=True. |

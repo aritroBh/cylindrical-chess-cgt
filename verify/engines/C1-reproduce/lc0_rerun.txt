@@ -1,0 +1,28 @@
+engine Lc0 v0.32.1+git.dirty; go nodes 1; 275 positions + twins
+
+## Value head sign vs tablebase root (originals; draws excluded)
+| group | n | TB root = win | value sign right |
+|---|---|---|---|
+| all | 258 | 216 | 226 (88%) |
+| tempo-insensitive (L/R) | 184 | 152 | 174 (95%) |
+| tempo-sensitive (N/P) | 74 | 64 | 52 (70%) |
+| CGT outcome L | 149 | 149 | 140 (94%) |
+| CGT outcome N | 61 | 61 | 40 (66%) |
+| CGT outcome P | 13 | 3 | 12 (92%) |
+| CGT outcome R | 35 | 3 | 34 (97%) |
+| tame, race-insensitive: infinitesimal | 29 | 27 | 23 (79%) |
+| tame, race-insensitive: nimber | 9 | 9 | 8 (89%) |
+| tame, race-insensitive: number | 45 | 35 | 41 (91%) |
+| tame, race-insensitive: other-tame | 22 | 20 | 19 (86%) |
+| tame, race-insensitive: switch | 39 | 36 | 36 (92%) |
+
+## Side-to-move flip, White POV centipawns: delta = v(White to move) - v(Black to move)
+| CGT outcome class | n | median delta | share delta > 0 |
+|---|---|---|---|
+| N | 65 | +777 | 63/65 |
+| P | 21 | -622 | 1/21 |
+| L | 150 | +32 | 85/150 |
+| R | 39 | +82 | 25/39 |
+
+## Policy (move chosen at the root) on the originals
+positions 275; with a TB-winning move 216; chosen move is a TB win 214; chosen move is a king move 24 (of which TB wins 2)

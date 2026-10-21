@@ -1,0 +1,89 @@
+textbook {
+ "component": "W: a3 b2 c2 / B: a4 b6 c5",
+ "cylcgt_file": "/Users/aritro/Downloads/Research/Chessendgames/cylcgt/pawns.py",
+ "passed_test": "textbook",
+ "ep": true,
+ "internal_nodes": 269,
+ "terminals": 431,
+ "internal_by_men": {
+  "6": 8,
+  "7": 27,
+  "8": 55,
+  "9": 97,
+  "10": 82
+ },
+ "terminals_by_men": {
+  "6": 37,
+  "7": 65,
+  "8": 170,
+  "9": 159
+ },
+ "race_terminals": 35,
+ "race_terminals_by_men": {
+  "6": 12,
+  "7": 10,
+  "8": 8,
+  "9": 5
+ },
+ "race_entries": 45,
+ "value_count": "*",
+ "value_mover": "{{{1 | 1*} | \u2191, -255/2\u00b1+W} | 0}",
+ "value_opponent": "\u2191*",
+ "cylcgt_value_count_matches": true,
+ "cylcgt_value_mover_matches": true,
+ "cylcgt_value_opponent_matches": true,
+ "reference_rule": "opponent",
+ "reference_value": "\u2191*",
+ "race_entries_ref_vs_count_disagree": 18,
+ "all_races_free_bounds": [
+  "*",
+  "{{{1 | 1*} | -255/2\u00b1+W, {0 | {*, {+W | *} | {-W, {0, +W\u00b1+W | -W} | -W}}}} | 0}"
+ ],
+ "all_races_free_excludes_star2": true,
+ "pinning_race_set_size": 2,
+ "single_flip_critical": 2
+}
+ep_aware {
+ "component": "W: a3 b2 c2 / B: a4 b6 c5",
+ "cylcgt_file": "/private/tmp/claude-501/-Users-aritro--claude-spares-spare-E0JaXy/57318271-9bbf-42b4-b8cf-b9d442308061/scratchpad/ep-wt/cylcgt/pawns.py",
+ "passed_test": "e.p.-aware",
+ "ep": true,
+ "internal_nodes": 273,
+ "terminals": 440,
+ "internal_by_men": {
+  "6": 8,
+  "7": 28,
+  "8": 58,
+  "9": 97,
+  "10": 82
+ },
+ "terminals_by_men": {
+  "6": 39,
+  "7": 68,
+  "8": 174,
+  "9": 159
+ },
+ "race_terminals": 33,
+ "race_terminals_by_men": {
+  "6": 13,
+  "7": 10,
+  "8": 10
+ },
+ "race_entries": 45,
+ "value_count": "-1/4\u00b11/4",
+ "value_mover": "{{{1 | 1*} | \u2191, -255/2\u00b1+W} | 0}",
+ "value_opponent": "*2",
+ "cylcgt_value_count_matches": true,
+ "cylcgt_value_mover_matches": true,
+ "cylcgt_value_opponent_matches": true,
+ "reference_rule": "opponent",
+ "reference_value": "*2",
+ "race_entries_ref_vs_count_disagree": 24,
+ "all_races_free_bounds": [
+  "-1/4\u00b11/4",
+  "{{{1 | 1*} | -255/2\u00b1+W, {0 | {*, {+W | *} | {-W, {0, +W\u00b1+W | -W} | -W}}}} | 0}"
+ ],
+ "all_races_free_excludes_star2": false,
+ "pinning_race_set_size": 3,
+ "single_flip_critical": 3
+}

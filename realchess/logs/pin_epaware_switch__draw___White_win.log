@@ -1,0 +1,303 @@
+{
+ "input": "comp_Wa2c2_Bb7d7_oracleall_pure_epaware_offline.json",
+ "treatment": "switch, draw = White win",
+ "passed_test": "e.p.-aware",
+ "greedy": {
+  "guess_value_unknown_sides_from_model": "{{{+W | {+W | -W, \u00b1+W}} | 1, {+W | -W, \u00b1+W}} | -2\u00b11}",
+  "incomplete_terminals": 606,
+  "essential_open_sides": [
+   [
+    "W: a2 c4 / B: b4 d4 (ep c3)",
+    "W",
+    8
+   ],
+   [
+    "W: a2 c4 / B: b7 d4",
+    "W",
+    8
+   ],
+   [
+    "W: a2 c4 / B: b7 d4",
+    "B",
+    8
+   ],
+   [
+    "W: a2 c5 / B: b4 d5 (ep d6)",
+    "B",
+    8
+   ],
+   [
+    "W: a2 c5 / B: b5 d5 (ep b6)",
+    "B",
+    8
+   ],
+   [
+    "W: a2 c5 / B: b5 d5 (ep d6)",
+    "W",
+    8
+   ],
+   [
+    "W: a2 c5 / B: b5 d5 (ep d6)",
+    "B",
+    8
+   ],
+   [
+    "W: a2 c5 / B: b7 d4",
+    "W",
+    8
+   ],
+   [
+    "W: a2 c5 / B: b7 d4",
+    "B",
+    8
+   ],
+   [
+    "W: a2 c5 / B: b7 d5",
+    "W",
+    8
+   ],
+   [
+    "W: a2 c5 / B: b7 d5",
+    "B",
+    8
+   ],
+   [
+    "W: a2 c6 / B: b4 d6",
+    "W",
+    8
+   ],
+   [
+    "W: a2 c6 / B: b4 d6",
+    "B",
+    8
+   ],
+   [
+    "W: a2 c6 / B: b7 d5",
+    "W",
+    8
+   ],
+   [
+    "W: a2 c6 / B: b7 d5",
+    "B",
+    8
+   ],
+   [
+    "W: a3 c5 / B: b3 d6",
+    "W",
+    8
+   ],
+   [
+    "W: a3 c5 / B: b4 d5",
+    "W",
+    8
+   ],
+   [
+    "W: a3 c5 / B: b4 d5",
+    "B",
+    8
+   ],
+   [
+    "W: a3 c5 / B: b7 d5",
+    "W",
+    8
+   ],
+   [
+    "W: a3 c5 / B: b7 d5",
+    "B",
+    8
+   ],
+   [
+    "W: a3 c6 / B: b4 d6",
+    "B",
+    8
+   ],
+   [
+    "W: a3 c6 / B: b6 d6",
+    "W",
+    8
+   ],
+   [
+    "W: a3 c6 / B: b6 d6",
+    "B",
+    8
+   ],
+   [
+    "W: a4 c4 / B: b4 d5",
+    "W",
+    8
+   ],
+   [
+    "W: a4 c4 / B: b4 d6",
+    "W",
+    8
+   ],
+   [
+    "W: a4 c4 / B: b4 d6",
+    "B",
+    8
+   ],
+   [
+    "W: a4 c4 / B: b5 d4",
+    "W",
+    8
+   ],
+   [
+    "W: a4 c5 / B: b4 d6",
+    "W",
+    8
+   ],
+   [
+    "W: a4 c5 / B: b4 d6",
+    "B",
+    8
+   ],
+   [
+    "W: a4 c5 / B: b4 d6 (ep a3)",
+    "W",
+    8
+   ],
+   [
+    "W: a4 c5 / B: b4 d6 (ep a3)",
+    "B",
+    8
+   ],
+   [
+    "W: a4 c5 / B: b5 d5",
+    "B",
+    8
+   ],
+   [
+    "W: a4 c5 / B: b7 d5 (ep a3)",
+    "W",
+    8
+   ],
+   [
+    "W: a4 c5 / B: b7 d5 (ep a3)",
+    "B",
+    8
+   ],
+   [
+    "W: a4 c6 / B: b5 d6",
+    "B",
+    8
+   ],
+   [
+    "W: a5 c4 / B: b5 d5",
+    "B",
+    8
+   ],
+   [
+    "W: a5 c4 / B: b5 d7",
+    "B",
+    8
+   ],
+   [
+    "W: a5 c5 / B: b5 d6",
+    "B",
+    8
+   ],
+   [
+    "W: a5 c5 / B: b5 d6 (ep b6)",
+    "B",
+    8
+   ],
+   [
+    "W: a5 c5 / B: b5 d7 (ep b6)",
+    "B",
+    8
+   ],
+   [
+    "W: a6 c4 / B: b6 d6",
+    "B",
+    8
+   ],
+   [
+    "W: a6 c5 / B: b5 d7 (ep b6)",
+    "B",
+    8
+   ],
+   [
+    "W: a6 c5 / B: b6 d7",
+    "B",
+    8
+   ],
+   [
+    "W: a2 / B: b4 c5",
+    "B",
+    7
+   ],
+   [
+    "W: a2 d6 / B: b5",
+    "W",
+    7
+   ],
+   [
+    "W: a2 d6 / B: b5",
+    "B",
+    7
+   ],
+   [
+    "W: a3 / B: b6 c5",
+    "B",
+    7
+   ],
+   [
+    "W: a4 / B: b5 c4",
+    "B",
+    7
+   ],
+   [
+    "W: a4 / B: b5 c5",
+    "B",
+    7
+   ],
+   [
+    "W: a4 / B: c6 d7",
+    "B",
+    7
+   ],
+   [
+    "W: b7 c5 / B: d5",
+    "W",
+    7
+   ],
+   [
+    "W: b7 c5 / B: d6",
+    "W",
+    7
+   ],
+   [
+    "W: b7 c5 / B: d7",
+    "W",
+    7
+   ],
+   [
+    "W: c4 / B: a3 d6",
+    "B",
+    7
+   ],
+   [
+    "W: c4 / B: a4 d5",
+    "B",
+    7
+   ],
+   [
+    "W: c5 / B: a3 d6",
+    "B",
+    7
+   ],
+   [
+    "W: c5 / B: a4 d6",
+    "B",
+    7
+   ],
+   [
+    "W: c5 / B: a6 d7",
+    "B",
+    7
+   ]
+  ]
+ },
+ "certificate": "not attempted: 58 essential open sides > --max-open 6",
+ "seconds": 134.7
+}

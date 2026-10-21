@@ -1,0 +1,12 @@
+CGT class (count) mismatches vs worker: []
+count-rule classes: Counter({'L': 150, 'N': 65, 'R': 39, 'P': 21})
+rule-sensitive N/P classes: 46
+lc0 node counts at the reported info line: Counter({1: 550})
+Stockfish values differing from worker JSON: 0 of 1100
+Lc0 values differing from worker JSON: 0 of 550
+
+Flip test (fresh engine output, fresh CGT classes):
+N: n=65 SF median -0.30 (pos 25, zero 0, neg 40); Lc0 median +777 (pos 63, zero 0, neg 2); right SF 25/65, Lc0 63/65
+P: n=21 SF median -0.89 (pos 1, zero 0, neg 20); Lc0 median -622 (pos 1, zero 0, neg 20); right SF 20/21, Lc0 20/21
+L: n=150 SF median -0.42 (pos 32, zero 0, neg 118); Lc0 median +32 (pos 85, zero 0, neg 65)
+R: n=39 SF median -0.02 (pos 19, zero 0, neg 20); Lc0 median +82 (pos 25, zero 0, neg 14)

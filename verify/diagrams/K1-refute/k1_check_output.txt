@@ -1,0 +1,70 @@
+
+--- 7.2 king group alone: W Ke6 Pd7 / B Kd8 Pe7  wrap=False ---
+  W in check: False  B in check: False
+  W to move: 4 legal moves
+    Kd5      -> opponent immediate convention-wins: ['kxd7']; opponent moves after which mover loses (depth 4): -
+    Ke5      -> opponent immediate convention-wins: ['kxd7']; opponent moves after which mover loses (depth 4): -
+    Kf5      -> opponent immediate convention-wins: ['kxd7']; opponent moves after which mover loses (depth 4): -
+    Kf7      -> opponent immediate convention-wins: ['kxd7']; opponent moves after which mover loses (depth 4): -
+  => W to move LOSES under convention (depth 6): True
+  B to move: 1 legal moves
+    kc7      -> opponent immediate convention-wins: ['Kxe7', 'd8=Q']; opponent moves after which mover loses (depth 4): -
+  => B to move LOSES under convention (depth 6): True
+
+--- 7.2 king group alone: W Ke6 Pd7 / B Kd8 Pe7  wrap=True ---
+  W in check: False  B in check: False
+  W to move: 4 legal moves
+    Kd5      -> opponent immediate convention-wins: ['kxd7']; opponent moves after which mover loses (depth 4): -
+    Ke5      -> opponent immediate convention-wins: ['kxd7']; opponent moves after which mover loses (depth 4): -
+    Kf5      -> opponent immediate convention-wins: ['kxd7']; opponent moves after which mover loses (depth 4): -
+    Kf7      -> opponent immediate convention-wins: ['kxd7']; opponent moves after which mover loses (depth 4): -
+  => W to move LOSES under convention (depth 6): True
+  B to move: 1 legal moves
+    kc7      -> opponent immediate convention-wins: ['Kxe7', 'd8=Q']; opponent moves after which mover loses (depth 4): -
+  => B to move LOSES under convention (depth 6): True
+
+--- full 7.2 diagram, king moves only, wrap=False ---
+  W king moves: ['Kd5', 'Ke5', 'Kf5', 'Kf7']; d/e-pawn moves: -
+  B king moves: ['kc7']; d/e-pawn moves: -
+
+--- full 7.2 diagram, king moves only, wrap=True ---
+  W king moves: ['Kd5', 'Ke5', 'Kf5', 'Kf7']; d/e-pawn moves: -
+  B king moves: ['kc7']; d/e-pawn moves: -
+
+--- control 7.3 king group: W Kg8 Pf7 / B Kf6 Pg7  wrap=False ---
+  W in check: False  B in check: False
+  W to move: 4 legal moves
+    Kf8      -> opponent immediate convention-wins: -; opponent moves after which mover loses (depth 2): -
+    Kh7      -> opponent immediate convention-wins: ['kxf7']; opponent moves after which mover loses (depth 2): -
+    Kh8      -> opponent immediate convention-wins: ['kxf7']; opponent moves after which mover loses (depth 2): -
+    f8=Q     -> opponent immediate convention-wins: -; opponent moves after which mover loses (depth 2): -
+  => W to move LOSES under convention (depth 4): False
+  B to move: 8 legal moves
+    ke5      -> opponent immediate convention-wins: ['Kxg7', 'f8=Q']; opponent moves after which mover loses (depth 2): ['Kh7', 'Kh8']
+    ke6      -> opponent immediate convention-wins: ['Kxg7', 'f8=Q']; opponent moves after which mover loses (depth 2): -
+    ke7      -> opponent immediate convention-wins: ['Kxg7', 'f8=Q']; opponent moves after which mover loses (depth 2): -
+    kf5      -> opponent immediate convention-wins: ['Kxg7', 'f8=Q']; opponent moves after which mover loses (depth 2): ['Kh7', 'Kh8']
+    kg5      -> opponent immediate convention-wins: ['Kxg7', 'f8=Q']; opponent moves after which mover loses (depth 2): ['Kh7', 'Kh8']
+    kg6      -> opponent immediate convention-wins: ['f8=Q']; opponent moves after which mover loses (depth 2): -
+    g6       -> opponent immediate convention-wins: ['f8=Q']; opponent moves after which mover loses (depth 2): -
+    g5       -> opponent immediate convention-wins: ['f8=Q']; opponent moves after which mover loses (depth 2): -
+  => B to move LOSES under convention (depth 4): True
+
+--- control 7.3 king group: W Kg8 Pf7 / B Kf6 Pg7  wrap=True ---
+  W in check: False  B in check: False
+  W to move: 4 legal moves
+    Kf8      -> opponent immediate convention-wins: -; opponent moves after which mover loses (depth 2): -
+    Kh7      -> opponent immediate convention-wins: ['kxf7']; opponent moves after which mover loses (depth 2): -
+    Kh8      -> opponent immediate convention-wins: ['kxf7']; opponent moves after which mover loses (depth 2): -
+    f8=Q     -> opponent immediate convention-wins: -; opponent moves after which mover loses (depth 2): -
+  => W to move LOSES under convention (depth 4): False
+  B to move: 8 legal moves
+    ke5      -> opponent immediate convention-wins: ['Kxg7', 'f8=Q']; opponent moves after which mover loses (depth 2): ['Kh7', 'Kh8']
+    ke6      -> opponent immediate convention-wins: ['Kxg7', 'f8=Q']; opponent moves after which mover loses (depth 2): -
+    ke7      -> opponent immediate convention-wins: ['Kxg7', 'f8=Q']; opponent moves after which mover loses (depth 2): -
+    kf5      -> opponent immediate convention-wins: ['Kxg7', 'f8=Q']; opponent moves after which mover loses (depth 2): ['Kh7', 'Kh8']
+    kg5      -> opponent immediate convention-wins: ['Kxg7', 'f8=Q']; opponent moves after which mover loses (depth 2): ['Kh7', 'Kh8']
+    kg6      -> opponent immediate convention-wins: ['f8=Q']; opponent moves after which mover loses (depth 2): -
+    g6       -> opponent immediate convention-wins: ['f8=Q']; opponent moves after which mover loses (depth 2): -
+    g5       -> opponent immediate convention-wins: ['f8=Q']; opponent moves after which mover loses (depth 2): -
+  => B to move LOSES under convention (depth 4): True

@@ -36,11 +36,20 @@ def main():
            "Result pairs are (White to move, Black to move), from White's point of view. "
            "kpsolve: `--cap 1 --promote QRBN --ep on`, and `--cap 2` for the three P4 rows whose cap-1 bounds "
            "differed; \"bounds\" means the two cap bounds differ.", "",
-           "| # | Board | Position | Predicted | Naive convention | kpsolve | Prediction holds |",
-           "|---|---|---|---|---|---|---|"]
+           "Two baselines: \"Z = 0\" reads the king group as 0 and values the rest with cylcgt (the theory's "
+           "\"naive convention\"); \"literal cylcgt\" runs cylcgt.pawns.value on the whole pawn set, kings ignored "
+           "(kings/results/predictions_literal_cylcgt.json).", "",
+           "| # | Board | Position | Theory | Z = 0 | Literal cylcgt | kpsolve | Theory holds | Literal holds |",
+           "|---|---|---|---|---|---|---|---|---|"]
+    lit = {}
+    lp = f"{ROOT}/kings/results/predictions_literal_cylcgt.json"
+    if os.path.exists(lp):
+        lit = json.load(open(lp))
+    lit_ok = lit_total = 0
     holds = total = 0
     for pid, board, pos, pred, naive in preds:
         w, b = got.get((board, f"{pos} w -")), got.get((board, f"{pos} b -"))
+        lv, lok = lit.get(pid, "?"), "—"
         if not w or not b:
             res, ok = "not run", "—"
         else:
@@ -50,10 +59,17 @@ def main():
                 total += 1
                 ok = "yes" if res == pred else "**NO**"
                 holds += res == pred
+                if lv not in ("race", "?"):
+                    lit_total += 1
+                    lit_ok += lv == res
+                    lok = "yes" if lv == res else "**NO**"
+                else:
+                    lok = "no prediction (race)"
             else:
                 ok = "undetermined"
-        out.append(f"| {pid} | {board} | `{pos}` | {pred} | {naive} | {res} | {ok} |")
-    out += ["", f"{holds} of {total} exactly determined predictions hold."]
+        out.append(f"| {pid} | {board} | `{pos}` | {pred} | {naive} | {lv} | {res} | {ok} | {lok} |")
+    out += ["", f"Theory: {holds} of {total} exactly determined predictions hold. "
+            f"Literal cylcgt: {lit_ok} of {lit_total} (the others it scores as races at move 0)."]
     with open(f"{ROOT}/kings/results/PREDICTIONS.md", "w") as fh:
         fh.write("\n".join(out) + "\n")
     print("\n".join(out))

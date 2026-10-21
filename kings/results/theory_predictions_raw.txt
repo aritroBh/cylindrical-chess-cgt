@@ -67,3 +67,13 @@ Kc6 Pb5 kb4 pc5 b - | W W | A: Kb4b3:W Kb4c4:W Kb4a4:W Kb4c3:W Kb4a5:W Kb4a3:W P
 Ka5 Pb4 Pc5 Pe2 kc6 pb5 pf3 w - | W W | A: Ka5a6:L Ka5g5:L Ka5g6:L Ka5g4:L Pe2e3:L Pe2e4:W Pe2f3:W | B: Ka5a6:L Ka5g5:L Ka5g6:L Ka5g4:L Pe2e3:L Pe2e4:L Pe2f3:W
 Ka5 Pb4 Pc5 Pe2 kc6 pb5 pf3 b - | L L | A: Kc6d5:W Pf3f2:L Pf3e2:L | B: Kc6d5:W Pf3f2:L Pf3e2:L
 == cyl_8x6
+[kpsolve cyl:8x6 ep=on cap=1: 836545 layers, 126988651008 states, depth 25, 19414.3s, capped promotions met (two bounds)]
+# P10 k=0 predicted WW naive LW
+Ka5 Pb4 Pc5 kc6 pb5 w - | W W | A: Ka5a6:W Ka5h5:W Ka5h6:W Ka5h4:W | B: Ka5a6:W Ka5h5:W Ka5h6:W Ka5h4:W
+Ka5 Pb4 Pc5 kc6 pb5 b - | W W | A: Kc6d5:W | B: Kc6d5:W
+# P10 k=1 predicted WW naive LL
+Ka5 Pb4 Pc5 kc6 pb5 Pe2 pe3 pe5 w - | W W | A: Ka5a6:W Ka5h5:W Ka5h6:W Ka5h4:W | B: Ka5a6:W Ka5h5:W Ka5h6:W Ka5h4:W
+Ka5 Pb4 Pc5 kc6 pb5 Pe2 pe3 pe5 b - | W W | A: Kc6d5:W Pe5e4:W | B: Kc6d5:W Pe5e4:W
+# P10 k=2 predicted WW naive LL
+Ka5 Pb4 Pc5 kc6 pb5 Pe2 pe3 pe5 Pg2 pg3 pg5 w - | W W | A: Ka5a6:W Ka5h5:W Ka5h6:W | B: Ka5a6:W Ka5h5:W Ka5h6:W
+Ka5 Pb4 Pc5 kc6 pb5 Pe2 pe3 pe5 Pg2 pg3 pg5 b - | W W | A: Kc6d5:W Pe5e4:W Pg5g4:W | B: Kc6d5:W Pe5e4:W Pg5g4:W

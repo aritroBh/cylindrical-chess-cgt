@@ -1,0 +1,6 @@
+ep=on  {'count': 'N mean 0 temp 0', 'mover': 'N mean 0 temp 0', 'opponent': 'N mean 0 temp 0', 'allW': 'N mean 0 temp 0', 'allB': 'N mean 0 temp 0'}
+   allB <= count <= allW: True True | count==allW: False  count==allB: True  allW==allB: False
+   any of the five equal to +-1: []
+ep=off {'count': 'R mean 0 temp 0', 'mover': 'R mean 0 temp 0', 'opponent': 'R mean 0 temp 0', 'allW': 'R mean 0 temp 0', 'allB': 'R mean 0 temp 0'}
+   allB <= count <= allW: True True | count==allW: False  count==allB: False  allW==allB: False
+   any of the five equal to +-1: []
