@@ -4,10 +4,13 @@
 #        TOOL=opencode delegate/run.sh T2    override the tool for the named tasks
 #        MODEL=<provider/model> ...          override the model
 #        FORCE=1 ...                         relaunch even if the task's previous process is still running
+# If a tool dies on a quota / rate-limit / billing / dead-endpoint error, the task is re-run once on
+# the free fallback model ($FALLBACK, default omniroute/auto/coding:free) and the output is appended to the log.
 # Logs: delegate/logs/<task>.log; PIDs: delegate/logs/<task>.pid
 ROOT=/Users/aritro/Downloads/Research/Chessendgames
 cd "$ROOT" || exit 1
 mkdir -p delegate/logs
+setopt NO_HUP NO_CHECK_JOBS
 
 prompt() { cat delegate/COMMON.md; echo; echo "---"; echo; cat "delegate/briefs/$1"; }
 
@@ -61,7 +64,15 @@ for task in $tasks; do
   tool=${TOOL:-$TOOLS[$task]}
   model=${MODEL:-$MODELS[$task]}
   cmd=($(cmd_for $tool $model)) || continue
-  nohup $cmd "$(prompt $BRIEF[$task])" > "delegate/logs/$task.log" 2>&1 < /dev/null &
+  fb=($(cmd_for opencode ${FALLBACK:-omniroute/auto/coding:free}))
+  log="delegate/logs/$task.log"; text="$(prompt $BRIEF[$task])"
+  (
+    $cmd "$text" > "$log" 2>&1 < /dev/null
+    if grep -qiE "usage limit|RESOURCE_EXHAUSTED|Rate limit exceeded|Endpoint is unavailable|billing|quota reached|only try 10 times" "$log"; then
+      echo "\n=== $(date): $tool failed to start; falling back to $fb" >> "$log"
+      $fb "$text" >> "$log" 2>&1 < /dev/null
+    fi
+  ) &!
   echo $! > "delegate/logs/$task.pid"
-  echo "launched $task (pid $!): $tool ${model:-default}"
+  echo "launched $task (pid $!): $tool ${model:-default} (fallback: opencode ${FALLBACK:-omniroute/auto/coding:free})"
 done
