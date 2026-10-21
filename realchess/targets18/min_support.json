@@ -1,0 +1,54 @@
+{
+ "component": "W: a2 b2 b3 / B: a5 a6 b6",
+ "treatment": "free (only L/R fixed)",
+ "race_rule_for_fill": "count",
+ "value_if_needed_sides_as_model": "1/8",
+ "bounds_with_resolved_only": [
+  "-1/2",
+  "3/4"
+ ],
+ "candidates": 320,
+ "needed": 8,
+ "needed_terminals": [
+  {
+   "terminal": "W: a2 a5 b2 / B: a4 b5",
+   "men": 9,
+   "model_assignment": "(1, 1)"
+  },
+  {
+   "terminal": "W: a3 a5 b2 / B: a4 b5",
+   "men": 9,
+   "model_assignment": "(1, 1)"
+  },
+  {
+   "terminal": "W: a3 b4 / B: a6 b3 b5",
+   "men": 9,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: a3 a5 / B: b4 b5",
+   "men": 8,
+   "model_assignment": "(1, 1)"
+  },
+  {
+   "terminal": "W: a4 b3 / B: a3 a5",
+   "men": 8,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: b2 b5 / B: a5 b4",
+   "men": 8,
+   "model_assignment": "(1, 1)"
+  },
+  {
+   "terminal": "W: b4 / B: a4 a6 b2",
+   "men": 8,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: b4 / B: a5 a6 b2",
+   "men": 8,
+   "model_assignment": "(-1, -1)"
+  }
+ ]
+}
