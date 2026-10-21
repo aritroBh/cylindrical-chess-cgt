@@ -1,0 +1,48 @@
+model-filled value 1/8; with only resolved sides fixed: -1/2 .. 3/8±1/8
+316 terminals carry model-filled sides
+  0/316 examined, 0 needed, 0s
+  50/316 examined, 2 needed, 2s
+  100/316 examined, 3 needed, 4s
+  150/316 examined, 4 needed, 5s
+  200/316 examined, 4 needed, 7s
+  250/316 examined, 4 needed, 9s
+  300/316 examined, 5 needed, 11s
+{
+ "component": "W: a2 b2 b3 / B: a5 a6 b6",
+ "treatment": "free (only L/R fixed)",
+ "race_rule_for_fill": "count",
+ "value_if_needed_sides_as_model": "1/8",
+ "bounds_with_resolved_only": [
+  "-1/2",
+  "3/8\u00b11/8"
+ ],
+ "candidates": 316,
+ "needed": 5,
+ "needed_terminals": [
+  {
+   "terminal": "W: a2 a5 b2 / B: a4 b5",
+   "men": 9,
+   "model_assignment": "(1, 1)"
+  },
+  {
+   "terminal": "W: a3 a5 b2 / B: a4 b5",
+   "men": 9,
+   "model_assignment": "(1, 1)"
+  },
+  {
+   "terminal": "W: a3 b4 / B: a6 b3 b5",
+   "men": 9,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: a2 b4 b5 / B: a5",
+   "men": 8,
+   "model_assignment": "(1, 1)"
+  },
+  {
+   "terminal": "W: b2 b5 / B: a5 b4",
+   "men": 8,
+   "model_assignment": "(1, 1)"
+  }
+ ]
+}

@@ -100,16 +100,20 @@ $10$-man position in \cref{fig:eighth}.
 In both, the value relied on a double step that the textbook test called passed.
 
 \subsection{Towards a real-chess $1/8$}\label{sec:eighth-real}
-The real-chess oracle value (\cref{def:oracle}) of the $1/8$ position was computed as follows.
+We computed the real-chess oracle value (\cref{def:oracle}) of the $1/8$ position in \cref{fig:eighth}
+(\status{checked-2} at every resolved end position: tablebase or tablebase-backed search; the values are
+\status{computed-1}).
 \begin{itemize}
-\item \textbf{Small end positions.} All $306$ end-position sides with at most $7$ men were resolved against the
-  Lichess tablebase. $283$ agree with the model, $5$ disagree, and $2$ are draws.
-\item \textbf{Bounds from those alone.} With only these exact results fixed, the value lies in
-  $[-1/2,\,3/4]$.
-\item \textbf{The decisive set.} A greedy search over the $320$ end positions that remain open shows the
-  value is \emph{exactly} $1/8$ whenever $8$ of them, $5$ with $8$ men and $3$ with $9$, have the outcome the
-  model predicts. The other $312$ may be anything at all.
-\item \textbf{Status.} Resolving those $8$ end positions by tablebase-backed search is in progress; see
-  \cref{sec:open}. If it succeeds, this is a king-and-pawn $8\times8$ position whose real-chess oracle value is
-  certified to be $1/8$, a value Elkies' constructions did not reach.
+\item \textbf{End positions with at most $7$ men.} All $306$ sides were resolved against the tablebase. $283$
+  agree with the model, $5$ disagree, and $2$ are draws.
+\item \textbf{The decisive set.} A greedy minimal-support search over the open end positions showed that only
+  $8$ of them matter: $5$ with $8$ men and $3$ with $9$. Resolving their $8$-man sides by tablebase-backed search
+  gave $7$ agreements and one disagreement. With Black to move in $\pos{W a3 a5 / B b4 b5}$, Black wins,
+  although the model scores a White win.
+\item \textbf{Bounds now.} With only exact results fixed, $-1/2\le O\le 3/8\pm1/8$. If the $5$ end positions
+  still open (three with $9$ men, two with $8$) have the outcome the model predicts, then $O=1/8$
+  \emph{exactly}, whatever the other $311$ open end positions do.
 \end{itemize}
+So the value $1/8$ has survived every real-chess test so far, including a disagreement at one of its decisive
+end positions. Resolving the last five is in progress. Success would give a king-and-pawn $8\times8$ position of
+real oracle value $1/8$, conditional only on the king freeze. Elkies' constructions did not reach that value.
