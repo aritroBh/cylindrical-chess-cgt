@@ -114,6 +114,12 @@ We computed the real-chess oracle value (\cref{def:oracle}) of the $1/8$ positio
   still open (three with $9$ men, one with $8$) have the outcome the model predicts, then $O=1/8$
   \emph{exactly}, whatever the other open end positions do. These four are being solved exactly, with every
   king placement, by the king-and-pawn solver of \cref{sec:kings}.
+\item \textbf{Exact results so far.} In $\pos{W b2 b5 / B a5 b4}$ with White to move, White wins, as the model
+  says. With Black to move the solver, allowing one promotion, gives only the bounds draw-or-worse to win, so
+  a run allowing two promotions is under way. The three $9$-man positions are still being solved. Each of the
+  $7$ open sides is decisive on its own: if any one of them deviates from the model, the lower bound falls to
+  $0$, $\up\star$ or below. These runs allow queen promotions only, so a full certificate needs a final run
+  with all four promotions.
 \end{itemize}
 So the value $1/8$ has survived every real-chess test so far, including a disagreement at one of its decisive
 end positions. Resolving the last four is in progress. Success would give a king-and-pawn $8\times8$ position of

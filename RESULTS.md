@@ -81,8 +81,14 @@ to move ([tablebase/replica/REPORT.md](tablebase/replica/REPORT.md)).
 - **Torus.** KQ, KR, KBB, KBN and KNN against a lone king are all 0% won, and KRB vs K is 0.022%.
 - **Muller.** The bishop pair forcing mate on the cylinder contradicts H.G. Muller's published claim.
 - **Novelty.** We found no earlier tablebase for these boards.
-- **King and pawn vs king** (one implementation, `atlas/cylinder/kpk`). On the cylinder the classic flat
-  rook-pawn draw (Ka6, Pa5 vs Ka8) is a win.
+- **King and pawn vs king** (two solvers: `kings/kpsolve` and `atlas/cylinder/kpk`; they agree on all 326,640
+  cylinder positions, and on the flat board differ only on the 6 rook-underpromotion positions;
+  `delegate/checks/kpk_crosscheck.py`).
+  - **Win rates.** White to move wins 78.89% on the cylinder against 76.51% flat. Black to move: 55.88%
+    against 58.09%.
+  - **Changed results.** 16,538 flat draws become cylinder wins, among them the rook-pawn draw Ka6, Pa5 vs Ka8,
+    and 15,930 flat wins become cylinder draws.
+  - **Mutual zugzwangs.** 216 on the cylinder, 160 flat.
 
 ## 3. The 2025 paper, re-audited (verified)
 
@@ -237,7 +243,15 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   - **Update.** After resolving the 8-man sides (7 agree, 1 disagrees: with Black to move in
     `W a3 a5 / B b4 b5`, Black wins) and 2 more sides, the bounds are [−1/2, 3/8±1/8] and only **4** decisive
     end positions remain (three with 9 men, `W b2 b5 / B a5 b4` with 8). They are being solved exactly with
-    `kings/kpsolve` on the flat 8×8 board.
+    `kings/kpsolve` on the flat 8×8 board (queen promotions only, so not yet a full-chess certificate).
+  - **kpsolve so far** (`realchess/targets18/apply_kpsolve.py`):
+    - `W b2 b5 / B a5 b4`, White to move: White wins, exact, as the model says.
+    - The same position with Black to move is undecided at one promotion (bounds L..W). A two-promotion
+      run is going (`kp_eighth_cap2.*`).
+    - `W a2 b4 b5 / B a5`, which is no longer decisive: White wins with either side to move.
+    - The three 9-man positions are still running.
+  - **Sensitivity.** Each of the 7 open sides must go as the model says. Changing any single one of them unpins
+    the value (the lower bound drops to 0, ↑\* or below).
   - ↑²\* and tiny(1): every resolved end position agrees with the model, and the lower bound already equals the
     target value. 11 and 13 end positions with 8–10 men still decide them.
   - **Status.** Resolution continues. The same pipeline is queued for ↑²\*
@@ -255,6 +269,12 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   - T13: engines on ChessSums;
   - T14: Dawson variants;
   - T15: novelty check.
+
+- **Independent non-Claude re-check** (`verify_ext/codex/`, Codex).
+  - A stdlib solver written from the rules alone reproduces all five headline values in all nine settings.
+  - It finds no \*k with 2 ≤ k ≤ 292 among 793,299 placements on widths 1–4.
+  - Its self-check, re-run here, gives 27 PASS.
+- **Review log of external reports:** [delegate/REVIEW.md](delegate/REVIEW.md).
 
 ## 7. Pending
 

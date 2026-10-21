@@ -21,9 +21,10 @@ no edges, and we ask which of its conclusions survive real chess.
   tablebase). Spare king tempo moves give loopy values (\textsf{on}, \textsf{off}, \textsf{dud}).
 \item \textbf{Mating without corners.} We give independently replicated $4$-man tablebases on the cylinder and
   the torus. On the cylinder king and rook cannot force mate, king, bishop and knight cannot either, and two
-  bishops on opposite colours always can, contradicting a published claim.
+  bishops on opposite colours always can, contradicting a published claim. We also solve king and pawn
+  against king there: $16{,}538$ flat draws become wins and $15{,}930$ flat wins become draws.
 \item \textbf{Dawson's chess and engines.} We prove that a full $3\times n$ Dawson cylinder is a first-player
   win iff $g(n-3)=0$, and we correct the earlier treatment. We also report a pilot of Stockfish and Lc0 on
   CGT-labelled positions, and the ChessSums benchmark.
 \end{enumerate}
-Every computational claim carries an evidence label, and the code and data are public.
+Every computational claim carries an evidence label. The code and data will be released with the paper.

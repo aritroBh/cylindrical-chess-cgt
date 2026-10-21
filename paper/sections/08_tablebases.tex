@@ -43,3 +43,35 @@ KQRK & $100\%$ & $6$ & $100\%$ & $5$ & $100\%$ & $5$ \\
   bishop pair exist on the torus but can never arise in play. Only KRRK and KQRK win.
 \end{itemize}
 We found no earlier tablebase for these boards.
+
+\subsection{King and pawn against king}\label{sec:kpk}
+
+We solved every legal KPK position on the $8\times8$ plane and cylinder twice: with the king-and-pawn solver of
+\cref{sec:kings} (all four promotions) and with a separately written KPK solver (queen promotion only). On the
+cylinder the two agree on all $326{,}640$ positions. On the plane they differ on exactly $6$ positions, the
+classical ones where only a rook promotion avoids stalemate (\status{checked-2}).
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+& \multicolumn{2}{c}{White to move} & \multicolumn{2}{c}{Black to move} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+Board & legal & White wins & legal & White wins \\
+\midrule
+plane & $163{,}328$ & $124{,}960$ ($76.51\%$) & $168{,}024$ & $97{,}604$ ($58.09\%$) \\
+cylinder & $160{,}656$ & $126{,}736$ ($78.89\%$) & $165{,}984$ & $92{,}760$ ($55.88\%$) \\
+\bottomrule
+\end{tabular}
+\caption{KPK on the $8\times8$ plane and cylinder. The cylinder has fewer legal positions because the kings
+may not stand next to each other across the seam.}
+\label{tab:kpk}
+\end{table}
+
+\begin{itemize}
+\item \textbf{The seam cuts both ways.} Of the $326{,}640$ positions legal on both boards, $16{,}538$ flat draws
+  are cylinder wins: the rook-pawn fortress in the corner no longer exists, as in Ka6, Pa5 against Ka8.
+  In the other direction, $15{,}930$ flat wins are cylinder draws.
+\item \textbf{More mutual zugzwangs.} The cylinder has $216$ KPK positions in which White to move only draws
+  but Black to move loses, against $160$ on the plane.
+\end{itemize}

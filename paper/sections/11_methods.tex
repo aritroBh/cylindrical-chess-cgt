@@ -18,6 +18,11 @@
   race rules, and fifteen reference games $X$ (the prediction is $\mathrm{outcome}(G+X)$).
 \item A whole-board minimax agrees on all $1{,}070$ single-component positions tested.
 \item The independent C solver of \cref{sec:star2} agrees on all $231{,}071$ census records.
+\item A third implementation was written by a different AI system (OpenAI Codex) from the rules alone, in
+  plain Python, without importing any of the project's code. It reproduces the headline values of
+  \cref{sec:atlas,sec:star2} in all nine settings (three race rules, e.p.\ off, textbook and e.p.-aware). It
+  finds no $\nim{k}$ with $2\le k\le 292$ among $793{,}299$ labelled placements of up to six pawns on $1$--$4$
+  files; $292$ bounds the birthday of every such game ($36$ pawn moves, then a terminal of birthday $256$).
 \end{itemize}
 
 \paragraph{Real chess.}
