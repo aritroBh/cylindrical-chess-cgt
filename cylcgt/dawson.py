@@ -5,6 +5,11 @@ Rules: White pawns start on rank 1, Black on rank 3, rank 2 empty. Pawns move
 one square forward or capture diagonally forward; captures are compulsory.
 Normal play: the player who cannot move loses.
 
+The partizan values printed here are values of each board played alone; they
+are not Grundy values (flat n=5 gives * where g(5) = 3) and must not be added.
+Compulsory captures act across the whole board, so the additive invariant is
+the impartial macro-move value g of octal 0.137 (notes/lemmas.md, L5.4).
+
 Run: .venv/bin/python -m cylcgt.dawson 20
 """
 import sys
