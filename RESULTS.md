@@ -234,7 +234,13 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   - **The decisive set.** A greedy minimal-support search shows the value is **exactly 1/8** whenever 8
     unresolved end positions (5 with 8 men, 3 with 9) go as the model predicts. The other 312 open ones may be
     anything.
-  - **Status.** Resolving those 8 by tablebase-backed search is running. The same pipeline is queued for ↑²\*
+  - **Update.** After resolving the 8-man sides (7 agree, 1 disagrees: with Black to move in
+    `W a3 a5 / B b4 b5`, Black wins) and 2 more sides, the bounds are [−1/2, 3/8±1/8] and only **4** decisive
+    end positions remain (three with 9 men, `W b2 b5 / B a5 b4` with 8). They are being solved exactly with
+    `kings/kpsolve` on the flat 8×8 board.
+  - ↑\*² and tiny(1): every resolved end position agrees with the model, and the lower bound already equals the
+    target value. 11 and 13 end positions with 8–10 men still decide them.
+  - **Status.** Resolution continues. The same pipeline is queued for ↑²\*
     and tiny(1).
 - **Paper.** A full draft is in `paper/` (Overleaf-ready; `paper/main.pdf`, 18 pages): "Pawn Endgames Without
   Edges: Exact Combinatorial Game Values, Real-Chess Certification, and Tablebases on the Cylindrical

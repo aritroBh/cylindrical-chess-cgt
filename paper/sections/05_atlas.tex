@@ -110,10 +110,11 @@ We computed the real-chess oracle value (\cref{def:oracle}) of the $1/8$ positio
   $8$ of them matter: $5$ with $8$ men and $3$ with $9$. Resolving their $8$-man sides by tablebase-backed search
   gave $7$ agreements and one disagreement. With Black to move in $\pos{W a3 a5 / B b4 b5}$, Black wins,
   although the model scores a White win.
-\item \textbf{Bounds now.} With only exact results fixed, $-1/2\le O\le 3/8\pm1/8$. If the $5$ end positions
-  still open (three with $9$ men, two with $8$) have the outcome the model predicts, then $O=1/8$
-  \emph{exactly}, whatever the other $311$ open end positions do.
+\item \textbf{Bounds now.} With only exact results fixed, $-1/2\le O\le 3/8\pm1/8$. If the $4$ end positions
+  still open (three with $9$ men, one with $8$) have the outcome the model predicts, then $O=1/8$
+  \emph{exactly}, whatever the other open end positions do. These four are being solved exactly, with every
+  king placement, by the king-and-pawn solver of \cref{sec:kings}.
 \end{itemize}
 So the value $1/8$ has survived every real-chess test so far, including a disagreement at one of its decisive
-end positions. Resolving the last five is in progress. Success would give a king-and-pawn $8\times8$ position of
+end positions. Resolving the last four is in progress. Success would give a king-and-pawn $8\times8$ position of
 real oracle value $1/8$, conditional only on the king freeze. Elkies' constructions did not reach that value.

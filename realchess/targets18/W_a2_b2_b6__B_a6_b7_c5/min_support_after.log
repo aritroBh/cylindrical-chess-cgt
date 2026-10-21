@@ -1,0 +1,74 @@
+model-filled value {0, * | ↓}; with only resolved sides fixed: {0, * | ↓} .. {+W | {+W | {+W | {+W | +W, +W*}}}}
+142 terminals carry model-filled sides
+  0/142 examined, 0 needed, 0s
+  50/142 examined, 2 needed, 1s
+  100/142 examined, 9 needed, 1s
+{
+ "component": "W: a2 b2 b6 / B: a6 b7 c5",
+ "treatment": "free (only L/R fixed)",
+ "race_rule_for_fill": "count",
+ "value_if_needed_sides_as_model": "{0, * | \u2193}",
+ "bounds_with_resolved_only": [
+  "{0, * | \u2193}",
+  "{+W | {+W | {+W | {+W | +W, +W*}}}}"
+ ],
+ "candidates": 142,
+ "needed": 11,
+ "needed_terminals": [
+  {
+   "terminal": "W: a3 b4 b6 / B: a4 b7 c4 (ep b3)",
+   "men": 10,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: a4 b4 b6 / B: a5 b7 c4 (ep b3)",
+   "men": 10,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: a2 a4 b6 / B: b7 c5",
+   "men": 9,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: a3 a4 b6 / B: b7 c5",
+   "men": 9,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: a3 b6 / B: b3 b7 c4",
+   "men": 9,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: a3 b6 / B: b3 b7 c5",
+   "men": 9,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: a4 b6 / B: a5 b3 b7",
+   "men": 9,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: a4 b6 / B: a5 b4 b7",
+   "men": 9,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: a4 b6 / B: a5 b4 b7 (ep a3)",
+   "men": 9,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: a4 b6 / B: a6 b4 b7 (ep a3)",
+   "men": 9,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: b4 b6 / B: a4 b7",
+   "men": 8,
+   "model_assignment": "(-1, -1)"
+  }
+ ]
+}
