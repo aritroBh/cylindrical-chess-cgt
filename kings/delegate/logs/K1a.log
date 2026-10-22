@@ -1,0 +1,1916 @@
+[0m
+> code · minimax/minimax-m3.1-flash:free
+[0m
+I'll start by reading the key documents to understand the context.
+[0m→ [0mRead RESULTS.md
+[0m→ [0mRead kings/theory/LOOPY.md
+[0m→ [0mRead kings/theory/REVIEWS.md
+[0m
+[0m$ [0mls -la /Users/aritro/Downloads/Research/Chessendgames/kings/theory/ /Users/aritro/Downloads/Research/Chessendgames/kings/ /Users/aritro/Downloads/Research/Chessendgames/kings/results/ 2>&1 | head -80
+/Users/aritro/Downloads/Research/Chessendgames/kings/:
+total 392
+drwxr-xr-x@ 25 aritro  staff    800 Oct 21 18:54 .
+drwxr-xr-x@ 31 aritro  staff    992 Oct 21 17:55 ..
+-rw-r--r--   1 aritro  staff     21 Oct 16 02:32 .gitignore
+-rw-r--r--   1 aritro  staff  23004 Oct 21 18:55 REPORT.md
+-rw-r--r--   1 aritro  staff   5451 Oct 16 02:35 SPEC.md
+-rw-r--r--   1 aritro  staff      0 Oct 16 00:31 __init__.py
+drwxr-xr-x   3 aritro  staff     96 Oct 16 02:42 __pycache__
+-rw-r--r--   1 aritro  staff   8032 Oct 21 18:53 analyze.py
+-rw-r--r--   1 aritro  staff   4678 Oct 21 18:53 conventions.py
+-rw-r--r--   1 aritro  staff   4054 Oct 16 02:36 crosscheck.py
+drwxr-xr-x   6 aritro  staff    192 Oct 16 01:30 data
+drwxr-xr-x   7 aritro  staff    224 Oct 21 18:59 delegate
+-rw-r--r--   1 aritro  staff   8007 Oct 21 18:53 experiment.py
+-rw-r--r--   1 aritro  staff   7241 Oct 16 03:28 failures.py
+-rwxr-xr-x@  1 aritro  staff  69608 Oct 21 18:32 kpsolve
+-rw-r--r--   1 aritro  staff  31698 Oct 16 02:35 kpsolve.c
+-rw-r--r--   1 aritro  staff   3603 Oct 16 01:32 lichess_check.py
+-rw-r--r--   1 aritro  staff   3029 Oct 16 02:37 lichess_probe.py
+drwxr-xr-x   7 aritro  staff    224 Oct 16 03:25 positions
+-rw-r--r--   1 aritro  staff   3589 Oct 16 03:47 predictions.py
+drwxr-xr-x   6 aritro  staff    192 Oct 16 03:26 ref
+drwxr-xr-x  29 aritro  staff    928 Oct 16 03:46 results
+-rwxr-xr-x   1 aritro  staff   1146 Oct 16 01:32 run_batch.sh
+-rw-r--r--   1 aritro  staff   4647 Oct 16 01:34 test_kpsolve.py
+drwxr-xr-x   4 aritro  staff    128 Oct 16 04:17 theory
+
+/Users/aritro/Downloads/Research/Chessendgames/kings/results/:
+total 2080
+drwxr-xr-x  29 aritro  staff     928 Oct 16 03:46 .
+drwxr-xr-x@ 25 aritro  staff     800 Oct 21 18:54 ..
+-rw-r--r--   1 aritro  staff    8327 Oct 16 03:28 FAILURES.md
+-rw-r--r--   1 aritro  staff    2963 Oct 21 18:55 PREDICTIONS.md
+-rw-r--r--   1 aritro  staff       0 Oct 21 18:54 analyze_7x6.log
+-rw-r--r--   1 aritro  staff     677 Oct 16 03:23 batch.log
+-rw-r--r--   1 aritro  staff    3076 Oct 16 02:45 crosscheck.txt
+-rw-r--r--   1 aritro  staff   15061 Oct 16 01:37 exp_cyl6x6_epon_Q.jsonl
+-rw-r--r--   1 aritro  staff   14228 Oct 16 01:25 exp_cyl6x6_epon_QRBN.jsonl
+-rw-r--r--   1 aritro  staff     541 Oct 16 01:25 exp_cyl6x6_epon_QRBN_summary.json
+-rw-r--r--   1 aritro  staff   24417 Oct 16 02:30 exp_cyl6x6_epon_Q_conv.jsonl
+-rw-r--r--   1 aritro  staff    7277 Oct 16 01:39 exp_cyl6x6_epon_Q_diagnosis.jsonl
+-rw-r--r--   1 aritro  staff     582 Oct 16 01:37 exp_cyl6x6_epon_Q_summary.json
+-rw-r--r--   1 aritro  staff  293758 Oct 16 03:23 exp_cyl7x6_epon_Q.jsonl
+-rw-r--r--   1 aritro  staff  576238 Oct 21 18:53 exp_cyl7x6_epon_Q_conv.jsonl
+-rw-r--r--   1 aritro  staff     685 Oct 16 03:23 exp_cyl7x6_epon_Q_summary.json
+-rw-r--r--   1 aritro  staff   15023 Oct 16 01:40 exp_flat5x6_epon_Q.jsonl
+-rw-r--r--   1 aritro  staff   24319 Oct 16 02:30 exp_flat5x6_epon_Q_conv.jsonl
+-rw-r--r--   1 aritro  staff     921 Oct 16 02:32 exp_flat5x6_epon_Q_diagnosis.jsonl
+-rw-r--r--   1 aritro  staff     582 Oct 16 01:40 exp_flat5x6_epon_Q_summary.json
+-rw-r--r--   1 aritro  staff    3230 Oct 16 02:31 king_groups_8x8.txt
+-rw-r--r--   1 aritro  staff     659 Oct 16 02:37 king_groups_lichess.txt
+drwxr-xr-x   9 aritro  staff     288 Oct 16 02:37 lichess_cache
+-rw-r--r--   1 aritro  staff    1976 Oct 16 01:15 lichess_check_2-4_cap1.txt
+-rw-r--r--   1 aritro  staff     640 Oct 16 02:37 lichess_ledger.jsonl
+-rw-r--r--   1 aritro  staff     437 Oct 16 03:46 predictions_literal_cylcgt.json
+-rw-r--r--   1 aritro  staff     281 Oct 16 03:26 theory_P4_cap2.txt
+-rw-r--r--   1 aritro  staff     305 Oct 16 03:27 theory_P4_cap2_moves.txt
+-rw-r--r--   1 aritro  staff    6428 Oct 16 08:15 theory_predictions_raw.txt
+
+/Users/aritro/Downloads/Research/Chessendgames/kings/theory/:
+total 216
+drwxr-xr-x   4 aritro  staff    128 Oct 16 04:17 .
+drwxr-xr-x@ 25 aritro  staff    800 Oct 21 18:54 ..
+-rw-r--r--   1 aritro  staff  73398 Oct 16 04:17 LOOPY.md
+-rw-r--r--   1 aritro  staff  33659 Oct 16 04:03 REVIEWS.md
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && rg -n "revised after review" kings/theory/LOOPY.md | head -60; echo "---count---"; rg -c "revised after review" kings/theory/LOOPY.md
+14:"(revised after review: Rk item n)".
+87:CONJECTURE, with "kpsolve agrees" (revised after review: R1 item 6).
+91:position by position by kpsolve (revised after review: R1 item 6, R2 item 8).
+---count---
+3
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && ls -la kings/delegate/ kings/delegate/out/ 2>&1 | head -40; echo "=== RESEARCH_PLAN §3 ==="; sed -n '1,40p' RESEARCH_PLAN.md
+kings/delegate/:
+total 16
+drwxr-xr-x   7 aritro  staff   224 Oct 21 18:59 .
+drwxr-xr-x@ 25 aritro  staff   800 Oct 21 18:54 ..
+-rw-r--r--   1 aritro  staff  1087 Oct 21 18:59 apply_edits.py
+drwxr-xr-x  11 aritro  staff   352 Oct 21 18:59 briefs
+drwxr-xr-x  10 aritro  staff   320 Oct 21 18:59 logs
+drwxr-xr-x   6 aritro  staff   192 Oct 21 18:59 out
+-rwxr-xr-x   1 aritro  staff  2649 Oct 21 18:59 run.sh
+
+kings/delegate/out/:
+total 0
+drwxr-xr-x  6 aritro  staff  192 Oct 21 18:59 .
+drwxr-xr-x  7 aritro  staff  224 Oct 21 18:59 ..
+drwxr-xr-x  3 aritro  staff   96 Oct 21 18:55 K1
+drwxr-xr-x  2 aritro  staff   64 Oct 21 18:59 K1a
+drwxr-xr-x  2 aritro  staff   64 Oct 21 18:59 K1b
+drwxr-xr-x  3 aritro  staff   96 Oct 21 19:03 K1c
+=== RESEARCH_PLAN §3 ===
+# Research Plan: Cylindrical Chess Endgames, Exactly and with Learning
+
+*Continuation of "Analysis of Chess Endgames on a Cylindrical Chessboard" (A. Bhattacharjee, mentored by T. Morley, June 2025). Drafted 2026-10-15 by Claude (Opus) with Codex (gpt-6-luna) and three research subagents.*
+
+---
+
+## 0. Summary
+
+The 2025 paper applied Elkies-style combinatorial game theory (CGT) to pawn endgames on an 8×8 board whose a- and h-files are glued. Its hand computations stop where game trees get large, and several are wrong (§1).
+
+The literature search (§2) found **no published CGT work on cylindrical or toroidal chessboards**, and **no published tablebases for them**. Elkies' own open problems about the 8×8 board are mostly still open.
+
+The continuation is a **machine-verified research program** with three tracks:
+
+1. **Exact mathematics (Track A).** A verified CGT engine for pawn endgames on cylinders, flat boards and tori of any width. It will (a) prove the structural lemmas the paper assumes, (b) map which values occur only on a cylinder, (c) attack Elkies' open problems (\*2 from kings and pawns alone on 8×8, \*4, 1/8, ↑²), and (d) extend the analysis to king moves (loopy games) and temperature.
+2. **The first cylinder and torus tablebases (Track B).** They settle "with no corners, what mates still work?" and supply ground truth. A 4-man prototype already answers part of this (§1.3).
+3. **Learning against exact truth (Track C).**
+   - Sums of many small games are trivial for CGT but exponential for search. That makes them a principled adversarial benchmark for Stockfish, Leela and LLMs. The closest prior work (Husna & Müller 2024, Go) never varied the number of components.
+   - The same positions test whether neural nets and RL-trained LLMs learn the algebra of sums.
+
+Each track can yield its own paper. Targets: *Integers* / *Games of No Chance 7* (A), *ICGA Journal* / *Advances in Computer Games* (B), and a NeurIPS/ICLR workshop (C).
+
+---
+
+## 1. What exists after today
+
+### 1.1 Tools built this session
+| Path | What it is | Status |
+|---|---|---|
+| `cylcgt/cgt.py` | Exact canonical-form CGT: numbers, nimbers, ↑-family, tinies, switches, sums, outcome classes, thermographs (mean, temperature) | Unit-tested (`tests/`) |
+| `cylcgt/pawns.py` | Pawn-only positions on any W-file board, flat or cylindrical; double steps; wrap-around en passant; decomposition into independent components; explicit race rule; e.p.-aware passed test; `sum_safe()` heuristic (not a certificate; see `notes/lemmas.md` L2.2) | Cross-checked (below) |
+| `cylcgt/verify_paper.py` | Recomputes every pawn-only claim of the 2025 paper | Output in `notes/verify_paper_output.txt` |
+| `cylcgt/explore.py` | Exhaustive enumeration of value spectra, cylinder vs flat | Prototype (~0.6 ms per position) |
+| `cylcgt/dawson.py` | Dawson's chess solved directly from the pawn rules, flat and ring | Prototype |
+| `crosscheck/` | **Independent** whole-board minimax written by Codex (it does not use `cylcgt`) | **All 1070 single-component positions agree; 99.5% of sums agree** |
+| `tablebase/egt_prototype.c` | 4-man retrograde DTM solver for plane, cylinder and torus | Reproduces known flat-board maxima |
+
+**Cross-check, in detail.** Run on 3,028 random and paper positions:
+- After one bug fix (a passed pawn must end the whole game before splitting into components), single components agree **100% (1070/1070)**.
+- The 10 remaining disagreements, all in multi-component sums, are the known "+BIG and −BIG cancel" limitation. Details are in `crosscheck/REPORT_after_fix.md`.
+[0m
+[0m→ [0mRead kings/delegate/apply_edits.py
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && ls kings/delegate/briefs/ && ls kings/delegate/out/K1 kings/delegate/out/K1a kings/delegate/out/K1b kings/delegate/out/K1c 2>&1
+K1_common_edits.md
+K1_loopy_revision.md
+K1a_validity.md
+K1a_validity_full.md
+K1b_certificate.md
+K1b_certificate_full.md
+K1c_loopy.md
+K1c_loopy_full.md
+K2_report_referee.md
+kings/delegate/out/K1:
+kp
+
+kings/delegate/out/K1a:
+
+kings/delegate/out/K1b:
+
+kings/delegate/out/K1c:
+kp
+[0m
+[0m→ [0mRead kings/delegate/briefs/K1a_validity.md
+[0m→ [0mRead kings/delegate/briefs/K1_common_edits.md
+[0m→ [0mRead kings/results/PREDICTIONS.md
+[0m→ [0mRead kings/delegate/briefs/K1_loopy_revision.md
+[0m→ [0mRead kings/theory/LOOPY.md[90m [offset=804, limit=700][0m
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && ls cylcgt/ lemmas/ notes/ 2>&1 | head -60
+cylcgt/:
+__init__.py
+__pycache__
+cgt.py
+dawson.py
+explore.py
+pawns.py
+verify_paper.py
+
+lemmas/:
+common.py
+minichess.py
+search_ep_roots.py
+search_sum_safe.py
+test_L1_components.py
+test_L2_big.py
+test_L3_trebuchet.py
+test_L4_races.py
+test_L5_dawson.py
+test_minichess.py
+
+notes/:
+audit.md
+codex_referee.md
+crosscheck_run.txt
+crosscheck_run2.txt
+dawson_small.txt
+diagram_audit.md
+ext_review_kilo
+lemmas.md
+lit_cgt_chess.md
+lit_cylinder.md
+lit_ml.md
+novelty_check
+verify_paper_output.txt
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && sed -n '1,120p' cylcgt/cgt.py
+"""Exact short-game combinatorial game theory (Conway / Berlekamp-Conway-Guy).
+
+Every game is stored in canonical form and hash-consed, so two games are equal
+iff they are the same Python object. Supports comparison, negation, sums,
+recognition of numbers / nimbers / ups / tinies / switches, and thermographs
+(mean value and temperature).
+"""
+from __future__ import annotations
+
+import sys
+from fractions import Fraction
+from itertools import count
+
+sys.setrecursionlimit(1_000_000)
+
+_ids = count()
+_table: dict[tuple, "Game"] = {}
+_le_memo: dict[tuple[int, int], bool] = {}
+_add_memo: dict[tuple[int, int], "Game"] = {}
+_neg_memo: dict[int, "Game"] = {}
+
+
+class Game:
+    __slots__ = ("L", "R", "id", "num", "nim", "_thermo")
+
+    def __init__(self, L, R):
+        self.L = tuple(L)
+        self.R = tuple(R)
+        self.id = next(_ids)
+        self.num = None  # Fraction if this canonical game is a number
+        self.nim = None  # n if this canonical game is *n
+        self._thermo = None
+
+    # ordering -------------------------------------------------------------
+    def __le__(self, other):
+        return le(self, other)
+
+    def __ge__(self, other):
+        return le(other, self)
+
+    def __lt__(self, other):
+        return le(self, other) and not le(other, self)
+
+    def __gt__(self, other):
+        return le(other, self) and not le(self, other)
+
+    def fuzzy(self, other):
+        return not le(self, other) and not le(other, self)
+
+    def __add__(self, other):
+        return add(self, other)
+
+    def __neg__(self):
+        return neg(self)
+
+    def __sub__(self, other):
+        return add(self, neg(other))
+
+    def __repr__(self):
+        return show(self)
+
+    def __hash__(self):
+        return self.id
+
+    def __eq__(self, other):
+        return self is other
+
+
+def le(a: Game, b: Game) -> bool:
+    """a <= b  iff  no a^L >= b  and  no b^R <= a."""
+    if a is b:
+        return True
+    if a.num is not None and b.num is not None:
+        return a.num <= b.num
+    key = (a.id, b.id)
+    r = _le_memo.get(key)
+    if r is None:
+        r = not any(le(b, al) for al in a.L) and not any(le(br, a) for br in b.R)
+        _le_memo[key] = r
+    return r
+
+
+def _dedupe(xs):
+    seen, out = set(), []
+    for x in xs:
+        if x.id not in seen:
+            seen.add(x.id)
+            out.append(x)
+    return out
+
+
+def _maximal(xs):
+    xs = _dedupe(xs)
+    return [x for x in xs if not any(y is not x and le(x, y) for y in xs)]
+
+
+def _minimal(xs):
+    xs = _dedupe(xs)
+    return [x for x in xs if not any(y is not x and le(y, x) for y in xs)]
+
+
+def _simplest_between(lo, hi):
+    """Simplest number strictly between lo and hi (None = unbounded)."""
+    if lo is None and hi is None:
+        return Fraction(0)
+    if lo is None:  # simplest x < hi
+        return Fraction(0) if hi > 0 else Fraction(hi.__ceil__() - 1)
+    if hi is None:  # simplest x > lo
+        return Fraction(0) if lo < 0 else Fraction(lo.__floor__() + 1)
+    if lo < 0 < hi:
+        return Fraction(0)
+    # integers strictly between, closest to zero
+    if hi > 0:
+        n = lo.__floor__() + 1
+        if n < hi:
+            return Fraction(n)
+    else:
+        n = hi.__ceil__() - 1
+        if n > lo:
+            return Fraction(n)
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && rg -n "^def |^class |^    def " cylcgt/cgt.py | head -60; echo "=== pawns ==="; rg -n "^def |^class |^    def |^[A-Z_]+ =" cylcgt/pawns.py | head -60
+23:class Game:
+26:    def __init__(self, L, R):
+35:    def __le__(self, other):
+38:    def __ge__(self, other):
+41:    def __lt__(self, other):
+44:    def __gt__(self, other):
+47:    def fuzzy(self, other):
+50:    def __add__(self, other):
+53:    def __neg__(self):
+56:    def __sub__(self, other):
+59:    def __repr__(self):
+62:    def __hash__(self):
+65:    def __eq__(self, other):
+69:def le(a: Game, b: Game) -> bool:
+83:def _dedupe(xs):
+92:def _maximal(xs):
+97:def _minimal(xs):
+102:def _simplest_between(lo, hi):
+129:def _intern(L, R) -> Game:
+151:def make(L, R) -> Game:
+185:def integer(n: int) -> Game:
+192:def number(x) -> Game:
+202:def nimber(n: int) -> Game:
+207:def neg(g: Game) -> Game:
+215:def add(a: Game, b: Game) -> Game:
+232:def total(games) -> Game:
+239:def outcome(g: Game) -> str:
+256:def _pl_eval(f, t):
+266:def _pl_shift(f, s):
+272:def _pl_combine(fs, pick):
+306:def _pl_simplify(pts):
+317:def thermograph(g: Game):
+334:    def gap(t):
+355:def mean(g: Game):
+359:def temperature(g: Game):
+363:def stops(g: Game):
+375:def _fmt_num(x: Fraction) -> str:
+381:def show(g: Game) -> str:
+408:def _named():
+=== pawns ===
+26:BIG = 256  # value of a won (passed-pawn) position; must dominate all tempo counts
+30:class RaceError(Exception):
+39:RACE_RULE = "count"
+45:PASSED_RESPECTS_EP = True
+48:def promote_distance(board: "Board", pos: "Pos", side: str) -> int:
+71:class Board:
+77:    def nb(self, f: int, df: int):
+87:FILES = "abcdefghijklmnopqrstuvwxyz"
+90:def sq(name: str):
+94:def name(s):
+99:class Pos:
+105:    def parse(text: str) -> "Pos":
+112:    def __str__(self):
+118:def ep_capturable(board: Board, pos: Pos, side: str, square) -> bool:
+127:def passed(board: Board, pos: Pos, side: str) -> bool:
+140:def moves(board: Board, pos: Pos, side: str):
+149:    def emit(new_mine, new_theirs, ep=None):
+182:def components(board: Board, pos: Pos):
+204:def is_ring(board: Board, pos: Pos) -> bool:
+208:def value(board: Board, pos: Pos) -> cgt.Game:
+221:def _value(board: Board, pos: Pos) -> cgt.Game:
+238:def _child(board: Board, pos: Pos, mover: str) -> cgt.Game:
+252:def sum_safe(board: Board, pos: Pos) -> bool:
+281:def describe(board: Board, pos: Pos) -> dict:
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && rg -n "^def |^class |^    def |^[A-Z_]+ =" lemmas/common.py | head -40; echo "=== pawns value/components ==="; sed -n '182,260p' cylcgt/pawns.py
+33:PBIG = cgt.integer(BIG)
+34:NBIG = cgt.integer(-BIG)
+35:RULES = ("count", "mover", "opponent")
+42:def race_winner(board: Board, pos: Pos, mover: str, rule: str) -> str:
+54:def terminal(board: Board, pos: Pos):
+66:def split_ep(pos: Pos):
+79:def S(board: Board, pos: Pos, rule: str = "count") -> cgt.Game:
+93:def W(board: Board, pos: Pos, rule: str = "count", kings: bool = False) -> cgt.Game:
+117:def _W_child(board, pos, mover, rule, kings):
+123:def WF(board: Board, pos: Pos, rule: str = "count") -> cgt.Game:
+133:def alt_winner(board: Board, pos: Pos, to_move: str, rule: str = "count", kings: bool = False) -> str:
+160:def alt_outcome(board, pos, rule="count", kings=False) -> str:
+177:def pure(board: Board, pos: Pos) -> cgt.Game:
+194:def pure_local(board: Board, pos: Pos) -> cgt.Game:
+201:def pure_sum(board: Board, pos: Pos) -> cgt.Game:
+210:def reachable(board: Board, pos: Pos, stop_at_terminal: bool = True):
+232:def threats(board: Board, pos: Pos) -> frozenset:
+259:def pairwise_safe(board: Board, pos: Pos) -> bool:
+269:def hereditarily_safe(board: Board, pos: Pos) -> bool:
+281:def occupied_files(pos: Pos):
+285:def relabel(pos: Pos, fmap) -> Pos:
+294:def colour_reverse(board: Board, pos: Pos) -> Pos:
+305:def random_position(rng: random.Random, board: Board, n_white: int, n_black: int,
+316:def name_pos(pos: Pos) -> str:
+=== pawns value/components ===
+def components(board: Board, pos: Pos):
+    """Split a position into independent sub-positions separated by empty files."""
+    occ_files = sorted({f for f, _ in pos.white | pos.black})
+    if not occ_files:
+        return []
+    groups: list[list[int]] = []
+    for f in occ_files:
+        if groups and f == groups[-1][-1] + 1:
+            groups[-1].append(f)
+        else:
+            groups.append([f])
+    if board.wrap and len(groups) > 1 and groups[0][0] == 0 and groups[-1][-1] == board.files - 1:
+        groups[0] = groups.pop() + groups[0]
+    comps = []
+    for gfiles in groups:
+        fs = set(gfiles)
+        ep = pos.ep if (pos.ep and pos.ep[0][0] in fs) else None
+        comps.append(Pos(frozenset(p for p in pos.white if p[0] in fs),
+                         frozenset(p for p in pos.black if p[0] in fs), ep))
+    return comps
+
+
+def is_ring(board: Board, pos: Pos) -> bool:
+    return board.wrap and len({f for f, _ in pos.white | pos.black}) == board.files
+
+
+def value(board: Board, pos: Pos) -> cgt.Game:
+    # A passed pawn ends the whole game, so check before splitting: otherwise
+    # +BIG in one component could be cancelled by a -BIG threat in another.
+    wp, bp = passed(board, pos, "W"), passed(board, pos, "B")
+    if wp != bp:
+        return cgt.integer(BIG if wp else -BIG)
+    comps = components(board, pos)
+    if len(comps) > 1:
+        return cgt.total(_value(board, c) for c in comps)
+    return _value(board, pos)
+
+
+@lru_cache(maxsize=None)
+def _value(board: Board, pos: Pos) -> cgt.Game:
+    wp, bp = passed(board, pos, "W"), passed(board, pos, "B")
+    if wp and bp:
+        raise RaceError(str(pos))
+    if wp:
+        return cgt.integer(BIG)
+    if bp:
+        return cgt.integer(-BIG)
+    # an e.p. right only survives if the opponent moves here immediately
+    plain = Pos(pos.white, pos.black, None)
+    lpos = plain if (pos.ep and pos.ep[2] != "W") else pos
+    rpos = plain if (pos.ep and pos.ep[2] != "B") else pos
+    L = [_child(board, p, "W") for p in moves(board, lpos, "W")]
+    R = [_child(board, p, "B") for p in moves(board, rpos, "B")]
+    return cgt.make(L, R)
+
+
+def _child(board: Board, pos: Pos, mover: str) -> cgt.Game:
+    if passed(board, pos, "W") and passed(board, pos, "B"):
+        race_hits.append(f"{pos} after {mover}")
+        if RACE_RULE == "mover":
+            winner = mover
+        elif RACE_RULE == "opponent":
+            winner = "B" if mover == "W" else "W"
+        else:
+            other = "B" if mover == "W" else "W"
+            winner = other if promote_distance(board, pos, other) <= promote_distance(board, pos, mover) else mover
+        return cgt.integer(BIG if winner == "W" else -BIG)
+    return value(board, pos)
+
+
+def sum_safe(board: Board, pos: Pos) -> bool:
+    """False if passed-pawn threats of opposite colour live in different
+    components; then the disjunctive-sum value may differ from real play
+    (in chess the first passer ends the game; in a sum +BIG and -BIG cancel).
+
+    A heuristic, not a certificate: it looks only at the top-level split, so
+    it misses cancellation in sums that appear later in the tree (e.g. W: b2
+    d4 g3 h5 / B: a7 c7 f7 g4 on CYL8 with e.p. off is True here, yet the sum
+    model gets the outcome wrong). The proved test is "hereditarily sum-safe",
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && sed -n '200,300p' lemmas/common.py
+def pure_sum(board: Board, pos: Pos) -> cgt.Game:
+    """Sum of the pure values of the components of pos (local e.p.)."""
+    return cgt.total(pure(board, c) for c in pawns.components(board, pos))
+
+
+# ---------------------------------------------------------------------------
+# reachability and threat sets
+# ---------------------------------------------------------------------------
+
+def reachable(board: Board, pos: Pos, stop_at_terminal: bool = True):
+    """All positions reachable from pos by any sequence of moves of either side
+    (not necessarily alternating). With stop_at_terminal, positions where some
+    side has a passer are included but not expanded."""
+    seen = {pos}
+    stack = [pos]
+    while stack:
+        x = stack.pop()
+        if stop_at_terminal and terminal(board, x) is not None:
+            continue
+        lpos, rpos = split_ep(x)
+        for side, src in (("W", lpos), ("B", rpos)):
+            for c in pawns.moves(board, src, side):
+                if c not in seen:
+                    seen.add(c)
+                    stack.append(c)
+    return seen
+
+
+_T_memo: dict = {}
+
+
+def threats(board: Board, pos: Pos) -> frozenset:
+    """tau(X): the set of signs s in {+1,-1} such that some position reachable
+    from X (by moves of either side, in any order, not continuing past the
+    first passer) has a passer for that side. Computed by memoised recursion
+    over the (acyclic) move graph:
+        tau(X) = {signs of passers in X}          if X has a passer,
+        tau(X) = union of tau(X') over all moves X -> X'   otherwise.
+    """
+    key = (board, pos)
+    r = _T_memo.get(key)
+    if r is not None:
+        return r
+    out = set()
+    if pawns.passed(board, pos, "W"):
+        out.add(1)
+    if pawns.passed(board, pos, "B"):
+        out.add(-1)
+    if not out:
+        lpos, rpos = split_ep(pos)
+        for side, src in (("W", lpos), ("B", rpos)):
+            for c in pawns.moves(board, src, side):
+                out |= threats(board, c)
+    r = frozenset(out)
+    _T_memo[key] = r
+    return r
+
+
+def pairwise_safe(board: Board, pos: Pos) -> bool:
+    """No two distinct components with opposite threat signs."""
+    ts = [threats(board, c) for c in pawns.components(board, pos)]
+    for i, a in enumerate(ts):
+        for j, b in enumerate(ts):
+            if i != j and 1 in a and -1 in b:
+                return False
+    return True
+
+
+def hereditarily_safe(board: Board, pos: Pos) -> bool:
+    """HSS: every non-terminal position reachable from pos is pairwise safe."""
+    for y in reachable(board, pos):
+        if terminal(board, y) is None and not pairwise_safe(board, y):
+            return False
+    return True
+
+
+# ---------------------------------------------------------------------------
+# geometry helpers
+# ---------------------------------------------------------------------------
+
+def occupied_files(pos: Pos):
+    return {f for f, _ in pos.white | pos.black}
+
+
+def relabel(pos: Pos, fmap) -> Pos:
+    ep = None
+    if pos.ep:
+        (tf, tr), (cf, cr), s = pos.ep
+        ep = ((fmap[tf], tr), (fmap[cf], cr), s)
+    return Pos(frozenset((fmap[f], r) for f, r in pos.white),
+               frozenset((fmap[f], r) for f, r in pos.black), ep)
+
+
+def colour_reverse(board: Board, pos: Pos) -> Pos:
+    """Swap colours and flip ranks r -> ranks+1-r."""
+    m = board.ranks
+    flip = lambda s: (s[0], m + 1 - s[1])
+    ep = None
+    if pos.ep:
+        t, c, s = pos.ep
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && rg -n "L2\.1|L2\.2|hereditarily|sum-safe|Definition 2\.0|threat" notes/lemmas.md | head -50
+35:| L2.1 | The ±BIG sum model gives the right winner if the position is *hereditarily sum-safe* (HSS) and BIG exceeds the number of moves either side can make. | Theorem (convention) | proof; all 1,297 HSS positions in a random sample of 1,500 agree |
+36:| L2.2 | `pawns.sum_safe()` is **not** a correct test. It returns True on single components whose sum-model outcome is wrong. | Counterexample | checked two ways (with Codex's `crosscheck/minimax.py`) |
+52:1. **Do not use `sum_safe()` to certify sums (L2.2).** Use the HSS test (`lemmas/common.py: hereditarily_safe`),
+284:**Definition 2.0 (threats, safety).**
+285:- The threat set τ(X) ⊆ {+, −} contains + iff some position reachable from X has a white passer. "Reachable"
+292:- X is **hereditarily sum-safe (HSS)** if every non-terminal position reachable from X, X included, is
+296:that never split (L2.3). `common.threats` computes τ by memoised recursion over the move graph, and
+297:`common.hereditarily_safe` tests HSS.
+314:*Step 1: frontier.* Let (Y, {σBIG}) be a position of F in which no live component has a (−σ)-threat and
+319:+BIG, because a −BIG would need a − threat, and a race needs both threats. So every Right move is a black pawn
+329:  (−σ)-threat. Step 1 applies, because M(Y'') ≤ M(X) < BIG. So σ wins this option as well.
+341:   {c, d} has threats, so X is HSS. W(X) = ±BIG, but S(X) = {BIG\*, {BIG\* | −BIG\*} | −BIG\*, {BIG\* | −BIG\*}}.
+344:   threats. The exact framework for "the first passer ends everything" is affine normal play (Larsson,
+359:  has both threat signs. S gives R; W gives L.
+388:hide a threat.
+413:- T4: the counterexamples, as a regression test, printing the nested nodes where opposite threats meet.
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && sed -n '275,370p' notes/lemmas.md
+---
+
+## 2. L2 — When may passed pawns be replaced by ±BIG inside sums?
+
+In real chess, or in the whole-board convention game W, the first passed pawn ends the whole game. In the sum
+model S, a component that gets a passer is frozen into the integer ±BIG, and play continues in the other
+components. A later −BIG can then cancel the earlier +BIG. This is the source of the 10 disagreements in
+`crosscheck/REPORT_after_fix.md`.
+
+**Definition 2.0 (threats, safety).**
+- The threat set τ(X) ⊆ {+, −} contains + iff some position reachable from X has a white passer. "Reachable"
+  means by moves of either side in any order, stopping at the first position that has a passer. − is defined
+  the same way for Black.
+- τ is monotone: τ(Y) ⊆ τ(X) when Y is reachable from X.
+- τ(X) is the union of the τ(Xᵢ) over the components. Passers are local, and before the first passer each
+  component can be played on its own.
+- X is **pairwise safe** if no two *different* components Xᵢ, Xⱼ have + ∈ τ(Xᵢ) and − ∈ τ(Xⱼ).
+- X is **hereditarily sum-safe (HSS)** if every non-terminal position reachable from X, X included, is
+  pairwise safe.
+
+Two easy special cases are HSS: τ(X) ⊆ {+} or τ(X) ⊆ {−} (only one side can ever get a passer), and positions
+that never split (L2.3). `common.threats` computes τ by memoised recursion over the move graph, and
+`common.hereditarily_safe` tests HSS.
+
+**Theorem 2.1 (outcome faithfulness of ±BIG).** Let X be non-terminal and HSS. Assume (E) from §1, and
+BIG > max(M_W(X), M_B(X)). Then
+
+  o(S(X)) = o(W(X)) = the alternating-play outcome of the whole-board convention game.
+
+*Proof.*
+
+*Step 0: a game form for S.* Unfold `pawns.value`. S(X) is the value of a game form F whose positions are
+pairs (Y, N), where Y is a pawn position (the live components) and N is a finite multiset of frozen integers
+±BIG. Its value is Σ (live components) + Σ N. A move is either a move in an integer summand, or a pawn move in a
+live component Z. If the pawn move creates a passer or a race inside Z, then Z's pawns leave Y and the score
+±BIG joins N. Otherwise Z is replaced by its new components. Under (E), the local and global e.p. rights give
+the same options, as in the proof of 1.6. So at any (Y, ∅), the pawn moves of F are exactly those of the
+whole-board game.
+
+*Step 1: frontier.* Let (Y, {σBIG}) be a position of F in which no live component has a (−σ)-threat and
+BIG > M_{−σ}(Y). Then σ wins F(Y, {σBIG}) whoever moves first.
+
+Take σ = +; the case σ = − is symmetric. Left's strategy is to move in the integer summand every turn
+(k → k − 1), which is possible while k ≥ 1. Right cannot move in a positive integer. Integers frozen later are
++BIG, because a −BIG would need a − threat, and a race needs both threats. So every Right move is a black pawn
+move in a live component, and Right has at most M_B(Y) moves in total. Left needs at most M_B(Y) + 1 moves and
+has at least BIG ≥ M_B(Y) + 1. Right runs out first.
+
+*Step 2: induction.* We prove o(F(Y, ∅)) = o(W(Y)) for every non-terminal Y reachable from X, by induction on
+Φ(Y). Take a move of Y, made in component Z.
+- If the child is non-terminal, both models give the child, and the induction hypothesis applies.
+- If the move creates a σ-passer, or a race scored σ, then W gives the number σBIG, which σ wins whoever starts.
+  F gives (Y'', {σBIG}), where Y'' consists of the other components of Y. Here σ ∈ τ(Z): Z reaches the passer
+  in one move, and for a race both signs are in τ(Z). Y is pairwise safe (HSS), so no other component of Y has a
+  (−σ)-threat. Step 1 applies, because M(Y'') ≤ M(X) < BIG. So σ wins this option as well.
+- Race scores agree: before the move Y had no passer, a move changes one component, and passedness is local
+  (Lemma 1.2). So all passers of the child lie in Z, and the promotion distances are the same in both models.
+
+Outcomes are determined by the outcomes of the options, so o(F(Y, ∅)) = o(W(Y)). Lemma 0.1 gives the
+alternating-play statement. ∎
+
+*Remarks.*
+1. The bound is mild. With at most p pawns of each colour on m ranks, M ≤ (m − 1)p. That is 56 for p = 8 on an
+   8×8 board, far below 256.
+2. The theorem is about outcomes, not values. Even for HSS positions, S(X) and W(X) are often different games.
+   Example: on the flat 4×5 board with e.p. off, X = `W: a2 c2 / B: a4 d4` has components {a} and {c, d}. Only
+   {c, d} has threats, so X is HSS. W(X) = ±BIG, but S(X) = {BIG\*, {BIG\* | −BIG\*} | −BIG\*, {BIG\* | −BIG\*}}.
+   The tempo move on the a-file survives in S after the passer, but not in W. Both values have outcome N.
+   ±BIG is a device for getting winners right. It does not give a canonical "value" of a position that contains
+   threats. The exact framework for "the first passer ends everything" is affine normal play (Larsson,
+   Nowakowski and Santos 2025; RESEARCH_PLAN A0).
+
+**Counterexample 2.2 (`pawns.sum_safe` is not a correct criterion).** `sum_safe()` looks only at the top-level
+components, and only at the canonical forms of their values. A single component is always "safe". This misses
+cancellations inside nested sums, after the component splits.
+
+Example (8×8 cylinder, e.p. off, count rule): X = `W: b2 d4 g3 h5 / B: a7 c7 f7 g4`.
+- X is one component (files f, g, h, a, b, c, d), so `sum_safe(X)` is True.
+- o(S(X)) = **R**, but o(W(X)) = **N**.
+- o(W) agrees with the minimax in `lemmas/common.py` and with Codex's independent `crosscheck/minimax.py`.
+  **Checked two ways.**
+- Three of White's four moves and one of Black's six lead to children where S and W already disagree in
+  outcome.
+- One mechanism: from `W: b5 d4 g3 / B: c6 f6 g4 h6`, the position splits into {b, c, d} and {f, g, h}. Each part
+  has both threat signs. S gives R; W gives L.
+
+The table lists every counterexample we found. All are single components with `sum_safe` True, and all fail
+HSS, as Theorem 2.1 requires.
+
+| Board | Position | Rule | o(S) | o(W) | Found by |
+|---|---|---|---|---|---|
+| 8×8 cyl, e.p. off | `W: b2 d4 g3 h5 / B: a7 c7 f7 g4` | count | R | N (= minimax = crosscheck) | search, seed 13 |
+| 8×8 cyl, e.p. off | `W: b3 f4 g5 / B: a5 b6 f5 h6` | count | N | L (= minimax = crosscheck) | search, seed 13 |
+| 8×8 cyl, e.p. off | `W: b2 c5 d4 f3 / B: c7 d6 e7 g6` | count | L | N (= crosscheck) | search, seed 13 |
+| 8×8 cyl, e.p. on | `W: a2 c4 e4 h2 / B: a6 b5 d7 e7` | count | R | N (= crosscheck) | search, seed 11 |
+| 8×8 cyl, e.p. on | `W: a5 b6 d2 e2 / B: a7 c7 e7` | count | L | N (= minimax = crosscheck) | time-limited search, seed 12 |
+[0m
+Now let me verify the key computational claims. First, the CGT arithmetic and cylcgt behaviour:
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && mkdir -p kings/delegate/out/K1a && PYTHONPATH=. .venv/bin/python - <<'PY'
+from cylcgt import cgt
+from cylcgt.pawns import Board, Pos
+
+print("== integer semantics ==")
+print("make([0],[]) =", cgt.show(cgt.make([cgt.integer(0)],[])), " integer(1)=", cgt.show(cgt.integer(1)))
+print("equal?", cgt.make([cgt.integer(0)],[]) == cgt.integer(1))
+print("make([],[0]) =", cgt.show(cgt.make([],[])), cgt.show(cgt.integer(0)))
+
+print("\n== Prop 1.13 (R1 item 2 reproduction) ==")
+for n in range(8):
+    a = cgt.total([cgt.make([cgt.integer(0)],[cgt.integer(-4)]), cgt.integer(n)])
+    b = cgt.total([cgt.make([],[cgt.integer(-4)]), cgt.integer(n)])
+    print(f"n={n}  {{0|-4}}+n -> {cgt.outcome(a)}   {{|-4}}+n -> {cgt.outcome(b)}")
+
+print("\n== frontier of R1/R2 counterexample: B + {| -B} ==")
+for B in (2,3,4,10,100):
+    p = cgt.add(cgt.integer(B), cgt.make([],[cgt.integer(-B)]))
+    print("B=",B, cgt.show(p), cgt.outcome(p))
+
+print("\n== Prop 1.12 BIG part: {B|0} + {0|-B} ==")
+for B in (1,2,4,8):
+    p = cgt.add(cgt.make([cgt.integer(B)],[cgt.integer(0)]), cgt.make([cgt.integer(0)],[cgt.integer(-B)]))
+    print("B=",B, cgt.show(p), "outcome:", cgt.outcome(p), " is 0?", p == cgt.integer(0))
+PY
+== integer semantics ==
+make([0],[]) = 1  integer(1)= 1
+equal? True
+make([],[0]) = 0 0
+
+== Prop 1.13 (R1 item 2 reproduction) ==
+n=0  {0|-4}+n -> N   {|-4}+n -> R
+n=1  {0|-4}+n -> N   {|-4}+n -> R
+n=2  {0|-4}+n -> N   {|-4}+n -> R
+n=3  {0|-4}+n -> N   {|-4}+n -> R
+n=4  {0|-4}+n -> N   {|-4}+n -> R
+n=5  {0|-4}+n -> L   {|-4}+n -> P
+n=6  {0|-4}+n -> L   {|-4}+n -> L
+n=7  {0|-4}+n -> L   {|-4}+n -> L
+
+== frontier of R1/R2 counterexample: B + {| -B} ==
+B= 2 -1 R
+B= 3 -1 R
+B= 4 -1 R
+B= 10 -1 R
+B= 100 -1 R
+
+== Prop 1.12 BIG part: {B|0} + {0|-B} ==
+B= 1 0 outcome: P  is 0? True
+B= 2 0 outcome: P  is 0? True
+B= 4 0 outcome: P  is 0? True
+B= 8 0 outcome: P  is 0? True
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && PYTHONPATH=. .venv/bin/python - <<'PY'
+from cylcgt import cgt
+from cylcgt.pawns import Board, Pos
+import lemmas.common as C
+
+print("== canonical form of positive/negative integers ==")
+for B in (1,2,4,256):
+    print(B, "make([B-1],[]) == integer(B):", cgt.make([cgt.integer(B-1)],[]) == cgt.integer(B),
+          "| make([],[1-B]) == integer(-B):", cgt.make([],[cgt.integer(1-B)]) == cgt.integer(-B))
+
+print("\n== R2 item 2 counterexample: flat 7x6, W: b2 d3 f2 / B: c4 c5 e5 g5 ==")
+b = Board(7,6,False,True)
+p = Pos.parse("W: b2 d3 f2 / B: c4 c5 e5 g5")
+print("components at root:", len(__import__('cylcgt.pawns',fromlist=['x']).components(b,p)))
+for rule in ("count","mover","opponent"):
+    s = C.S(b,p,rule); w = C.W(b,p,rule)
+    print(f"rule={rule:9s} o(S)={cgt.outcome(s)}  o(W)={cgt.outcome(w)}  S={cgt.show(s)}  W={cgt.show(w)}")
+print("HSS:", C.hereditarily_safe(b,p), " pairwise at root:", C.pairwise_safe(b,p))
+print("tau(root):", C.threats(b,p))
+PY
+== canonical form of positive/negative integers ==
+1 make([B-1],[]) == integer(B): True | make([],[1-B]) == integer(-B): True
+2 make([B-1],[]) == integer(B): True | make([],[1-B]) == integer(-B): True
+4 make([B-1],[]) == integer(B): True | make([],[1-B]) == integer(-B): True
+256 make([B-1],[]) == integer(B): True | make([],[1-B]) == integer(-B): True
+
+== R2 item 2 counterexample: flat 7x6, W: b2 d3 f2 / B: c4 c5 e5 g5 ==
+components at root: 1
+rule=count     o(S)=N  o(W)=R  S={{+W | {1 | 1, {1 | 1, 1*}}, {1 | {1 | 1, {1 | 1, 1*}}}} | -W}  W={-W, {+W, {+W, {+W, ±+W | -W} | -W} | -W, {+W, {+W | -W, ±+W} | -W, ±+W}}, {{+W | {+W, {+W, {+W | -W, ±+W} | -W, ±+W} | -W, ±+W}} | -W, {1, {+W, {+W | -W, ±+W} | -W, ±+W} | -W}} | -W, {-W, {+W, {+W, {+W, {+W | -W, ±+W} | -W, ±+W} | -W, ±+W} | -W, {+W, {+W | -W, ±+W} | -W, ±+W}} | -W}}
+rule=mover     o(S)=R  o(W)=R  S={1/2±1/2, {+W, 1±+W | -W, ±+W, {+W, ±+W | -W, ±+W}} | -W}  W={{+W, {+W, {+W, ±+W | -W} | -W} | -W, {+W, {+W | -W, ±+W} | -W, ±+W}}, 1/2±1/2 | -W}
+rule=opponent  o(S)=N  o(W)=R  S={{1 | {1 | 1, {1 | 1, 1*}}, {1 | {1 | 1, {1 | 1, 1*}}}}, {+W, {+W, {+W, ±+W | -W} | -W, ±+W} | -W, {+W, {+W | -W, ±+W} | -W, ±+W}} | -W}  W={-W, {+W, {+W, {+W, ±+W | -W} | -W, ±+W} | -W, {+W, {+W | -W, ±+W} | -W, ±+W}}, {-W, {+W, {+W, {+W, ±+W | -W} | -W, ±+W} | -W, {+W, {+W | -W, ±+W} | -W, ±+W}} | -W} | -W, {-W, {+W, {+W, {+W | -W, ±+W} | -W, ±+W} | -W, {+W, {+W | -W, ±+W} | -W, ±+W}} | -W}}
+HSS: False  pairwise at root: True
+tau(root): frozenset({1, -1})
+[0m
+[0m→ [0mRead kings/SPEC.md
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && cc -O2 -o kings/delegate/out/K1a/kp kings/kpsolve.c 2>&1 | tail -5; echo "build rc=$?"; kings/delegate/out/K1a/kp --help 2>&1 | head -30
+build rc=0
+usage: kpsolve --board flat:WxH|cyl:WxH [--ep on|off] [--promote QRBN] [--cap C] [--frozen] [--moves] [--threads T] < positions > results
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && K=kings/delegate/out/K1a/kp
+echo "== (d) R2 item 4 counterexample for Thm 2.4: Z_T + H0 = Ka4 Pb3 Pe3 kc3 pb4 pe4, cyl:7x6 =="
+printf 'Ka4 Pb3 Pe3 kc3 pb4 pe4 w -\nKa4 Pb3 Pe3 kc3 pb4 pe4 b -\n' | $K --board cyl:7x6 --cap 1
+echo "-- with --frozen (P model) --"
+printf 'Ka4 Pb3 Pe3 kc3 pb4 pe4 w -\nKa4 Pb3 Pe3 kc3 pb4 pe4 b -\n' | $K --board cyl:7x6 --cap 1 --frozen
+echo
+echo "== (e) (A_Q) counterexample 1: Ke2 Pb5 ka5 w -, cyl:7x6 =="
+printf 'Ke2 Pb5 ka5 w -\nKe2 Pb5 ka5 b -\n' | $K --board cyl:7x6 --cap 1
+echo "-- with --frozen --"
+printf 'Ke2 Pb5 ka5 w -\nKe2 Pb5 ka5 b -\n' | $K --board cyl:7x6 --cap 1 --frozen
+echo
+echo "== (f) (A_Q) counterexample 2: Kd1 Pb3 ka3 w -, flat:4x4 =="
+printf 'Kd1 Pb3 ka3 w -\nKd1 Pb3 ka3 b -\n' | $K --board flat:4x4 --cap 1
+echo "-- with --frozen --"
+printf 'Kd1 Pb3 ka3 w -\nKd1 Pb3 ka3 b -\n' | $K --board flat:4x4 --cap 1 --frozen
+echo
+echo "== (g) (V1b) frozen witness: Ka5 Pb4 Pc5 Pe2 Pe4 kc6 pb5 pe5, cyl:7x6 --frozen =="
+printf 'Ka5 Pb4 Pc5 Pe2 Pe4 kc6 pb5 pe5 w -\nKa5 Pb4 Pc5 Pe2 Pe4 kc6 pb5 pe5 b -\n' | $K --board cyl:7x6 --cap 1 --frozen
+echo "-- real kings --"
+printf 'Ka5 Pb4 Pc5 Pe2 Pe4 kc6 pb5 pe5 w -\nKa5 Pb4 Pc5 Pe2 Pe4 kc6 pb5 pe5 b -\n' | $K --board cyl:7x6 --cap 1
+== (d) R2 item 4 counterexample for Thm 2.4: Z_T + H0 = Ka4 Pb3 Pe3 kc3 pb4 pe4, cyl:7x6 ==
+[kpsolve cyl:7x6 ep=on cap=1: 314 layers, 27723024 states, depth 11, 65.5s, capped promotions met (two bounds)]
+Ka4 Pb3 Pe3 kc3 pb4 pe4 w - | L L
+Ka4 Pb3 Pe3 kc3 pb4 pe4 b - | W D
+-- with --frozen (P model) --
+[kpsolve cyl:7x6 ep=on cap=1 frozen: 1 layers, 3528 states, depth 1, 0.0s]
+Ka4 Pb3 Pe3 kc3 pb4 pe4 w - | L L
+Ka4 Pb3 Pe3 kc3 pb4 pe4 b - | W W
+
+== (e) (A_Q) counterexample 1: Ke2 Pb5 ka5 w -, cyl:7x6 ==
+[kpsolve cyl:7x6 ep=on cap=1: 6 layers, 599760 states, depth 2, 0.4s]
+Ke2 Pb5 ka5 w - | D D
+Ke2 Pb5 ka5 b - | D D
+-- with --frozen --
+[kpsolve cyl:7x6 ep=on cap=1 frozen: 1 layers, 3528 states, depth 1, 0.0s]
+[kpsolve flat:4x4 ep=on cap=1: 6 layers, 33792 states, depth 2, 0.0s]
+Ke2 Pb5 ka5 w - | W W
+Ke2 Pb5 ka5 b - | W W
+
+== (f) (A_Q) counterexample 2: Kd1 Pb3 ka3 w -, flat:4x4 ==
+Kd1 Pb3 ka3 w - | D D
+Kd1 Pb3 ka3 b - | D D
+-- with --frozen --
+[kpsolve flat:4x4 ep=on cap=1 frozen: 1 layers, 512 states, depth 1, 0.0s]
+Kd1 Pb3 ka3 w - | W W
+Kd1 Pb3 ka3 b - | W W
+
+== (g) (V1b) frozen witness: Ka5 Pb4 Pc5 Pe2 Pe4 kc6 pb5 pe5, cyl:7x6 --frozen ==
+[kpsolve cyl:7x6 ep=on cap=1 frozen: 2 layers, 7056 states, depth 2, 0.0s]
+Ka5 Pb4 Pc5 Pe2 Pe4 kc6 pb5 pe5 w - | D D
+Ka5 Pb4 Pc5 Pe2 Pe4 kc6 pb5 pe5 b - | D D
+-- real kings --
+
+
+<shell_metadata>
+shell tool terminated command after exceeding timeout 120000 ms. If this command is expected to take longer and is not waiting for interactive input, retry with a larger timeout value in milliseconds.
+</shell_metadata>
+[0m
+[0m→ [0mRead kings/delegate/briefs/K1b_certificate.md
+[0m→ [0mRead kings/delegate/briefs/K1c_loopy.md
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && awk 'NR>=96 && NR<=134 {printf "%d|%s\n", NR, $0}' kings/theory/LOOPY.md
+96|
+97|**The question.** The convention scores a passed pawn as ±BIG (BIG = 256), sums pawn components, and treats
+98|the king group Z (the trébuchet) as the game 0. When does this give the chess result?
+99|
+100|**The answer, in one paragraph.** The convention gives the chess result when four conditions hold, together
+101|with the axiom (A_Q) that a won promotion race is a won game (Theorem 1.14):
+102|- (V1) the king group never interacts with the components, and nobody is ever stalemated;
+103|- (V2) every "decisive event" really decides the game;
+104|- (V3) every move inside Z is decisively punished;
+105|- (V4) no two components carry threats of opposite sign, and BIG exceeds every tempo count.
+106|
+107|Only (V4) concerns BIG. Without it, +BIG and −BIG cancel and no value of BIG helps (Proposition 1.12).
+108|The other three are chess facts.
+109|- For a king move, (V2)+(V3) reduce to a local certificate: the punisher promotes within T moves against a
+110|  defender who may pass, and the defender cannot promote within T moves elsewhere (Theorem 2.7). The
+111|  counter-promotion half of the certificate holds in every non-terminal context exactly when T = 1
+112|  (Proposition 2.10). Slower punishments make the zero context-dependent.
+113|- When a king has a safe square to shuttle to, Z is not 0 but the loopy game `on`/`off` (or `dud`). On that
+114|  side BIG is meaningless, because `on` exceeds every number. The correct rule replaces ±BIG by
+115|  game-ending outcomes (Theorem 3.4):
+116|  - **if only White can pass,** Black wins iff Black can force a decisive event against a White who may
+117|    pass at any time; otherwise White wins;
+118|  - **if both sides can pass,** a side wins iff it can force a decisive event against a passing opponent;
+119|    otherwise the game is drawn.
+120|
+121|**Results** (section number, label, one line each):
+122|
+123|| # | Statement | Label |
+124||---|---|---|
+125|| L1.6 | Adding options for a player never lowers that player's result | PROVED |
+126|| L1.7 | Under normal play a move to the opponent's win can be deleted; under chess rules it cannot, because "no move" is stalemate | PROVED |
+127|| T1.9 | One component: o(A^B) is the decisive-event outcome for every B ≥ 1 | PROVED |
+128|| T1.11 | Sums: o(S) = decisive-event outcome under first-event dominance; sufficient: no opposite-sign threats in different components, and B > every tempo count | PROVED |
+129|| P1.12 | {⊕ \| ∅} ⊞ {∅ \| ⊖} is 𝓝 in chess semantics, but its BIG translation is 0 (𝓟) for every B | PROVED |
+130|| P1.13 | B must exceed every tempo count: with n tempi against a threat, the BIG outcome is right iff n ≤ B | PROVED |
+131|| T1.14 | Validity: (V1)–(V3) give P = D (no draws), (V4) gives o(S) = P, and (A_Q) gives C = P | PROVED (C part modulo A_Q) |
+132|| T2.3 | {−B \| B} = 0 | PROVED (and KNOWN: simplicity theorem) |
+133|| T2.4 | Freeze theorem: if Z-moves are punished at every position where the mover is losing, then G + Z has the result of G | PROVED |
+134|| T2.7 | Local certificate LC_T (local forced promotion against a passing defender, no faster counter-promotion, no stalemate) ⇒ decisive punishment | PROVED (in P) |
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && awk 'NR>=196 && NR<=220 {printf "%d|%s\n", NR, $0}' kings/theory/LOOPY.md; echo "..."; awk 'NR>=260 && NR<=280 {printf "%d|%s\n", NR, $0}' kings/theory/LOOPY.md
+196|**Definition 1.5 (four models of a king-and-pawn position X).**
+197|- **C(X), chess.** The rules of `kings/SPEC.md`: checkmate wins, stalemate is a draw, infinite play is a draw.
+198|- **P(X), the promotion model.** Chess, except that the first promotion ends the game as a win for the
+199|  promoter. Stalemate and infinite play are still draws.
+200|  - `kpsolve --frozen` computes P with frozen kings: a king move loses at once.
+201|- **D(X), the decisive-event model.** A D-game. Its positions are the positions before the first decisive
+202|  event. Its terminals are the decisive events:
+203|  - a passer appears (as in `cylcgt`), with races scored by a race rule;
+204|  - a punished move in the king group (§2).
+205|- **S(X), the BIG convention.** The CGT game D(X)^B, with B = BIG and the components summed. This is
+206|  `cylcgt.pawns.value`.
+207|
+208|The models are connected by bridges, each with its own hypotheses:
+209|
+210|```
+211|S  --Thm 1.11 (V4)-->  D  --Thm 1.14 (V1-V3)-->  P  --(A_Q)-->  C
+212|```
+213|
+214|**Axiom (A_Q) (CONJECTURE, checked per position).** If X is a P-win for σ, then X is a C-win for σ.
+215|- *Evidence for:* the cylinder KQK tables agree in two independent solvers ([RESULTS.md](../../RESULTS.md) §2:
+216|  KQK is 100% won on the 8×8 cylinder).
+217|- *Evidence against, in general:* L4.4 of `notes/lemmas.md` is a promotion race lost to a promotion with check.
+218|- *Settled by:* kpsolve with `--cap 1` computes C exactly whenever its bounds agree (A = B).
+219|
+220|### 1.3 Two lemmas about options
+...
+260|- "Left wins moving first" holds iff some Left option is won by Left with Right to move, in both games.
+261|  The same holds for Right.
+262|- A player with no option loses in both games. ∎
+263|
+264|In one component the convention cannot go wrong: after the first ±B nothing else happens. Trouble needs at
+265|least two components (compare L2.3 of `notes/lemmas.md`).
+266|
+267|**Definition 1.10 (tempo counts, threats, dominance).** Let Y = (y₁, …, y_k) be a position of a sum of short
+268|D-games.
+269|- **Tempo counts.** M_L(y) is the largest number of Left moves in any sequence of moves from y (moves by
+270|  both sides, in any order, not necessarily alternating), counting a final move into a terminal. M_R(y) is
+271|  defined the same way for Right. Both are monotone: M(y′) ≤ M(y) whenever y′ is reachable from y.
+272|  - In the pawn game every White move advances a White pawn by at least one rank, so
+273|    M_W ≤ Σ_white pawns (H − rank) ≤ (H − 2)p for p legal White pawns. That is ≤ 6p ≤ 48 on 8 ranks.
+274|- **Threats.** τ(y) ⊆ {+, −} contains + iff some position reachable from y without passing a terminal has a
+275|  Left option ⊕. It contains − likewise for ⊖. Like M, τ is monotone.
+276|- **First-event dominance.** Y is *first-event dominant for B* if the following holds for every Y′ reachable
+277|  from Y without passing a terminal, and every option y′_j → σ (σ ∈ {⊕, ⊖}, by either player):
+278|  - the CGT position σB + Σ_{i≠j} (y′_i)^B is won by σ's player whoever moves first;
+279|  - here σB means +B if σ = ⊕ and −B if σ = ⊖.
+280|
+[0m
+Now I'll write the edit generator with exact OLD text extracted from the file:
+[0m← [0mWrite kings/delegate/out/K1a/make_edits.py
+Wrote file successfully.
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && python3 - <<'PY'
+import re, pathlib
+p = pathlib.Path("kings/delegate/out/K1a/make_edits.py")
+s = p.read_text()
+
+# 1) old() must not include the trailing newline
+s = s.replace('''def old(a: int, b: int) -> str:
+    """Lines a..b (1-based, inclusive) of the note, verbatim."""
+    return "".join(LINES[a - 1 : b])''',
+'''def old(a: int, b: int) -> str:
+    """Lines a..b (1-based, inclusive) of the note, verbatim, without the final newline."""
+    t = "".join(LINES[a - 1 : b])
+    assert t.endswith("\\n")
+    return t[:-1]''')
+
+# 2) the "each hypothesis is needed" edit must start at the heading, not at the "Why exact" paragraph
+s = s.replace("    old(390, 402),", "    old(397, 402),")
+
+# 3) use line ranges for the summary-table rows
+s = s.replace('''    "| T1.11 | Sums: o(S) = decisive-event outcome under first-event dominance; sufficient: no opposite-sign threats in different components (a threat is a move into a terminal by either player), and B > every tempo count. (c) is the re-splitting version | PROVED (a); (b) and (c) PROVED after repair |""",''',
+'''    old(128, 128),''')
+s = s.replace('''    "| P1.13 | B must exceed every tempo count: with n tempi against the threat { \\\\| ⊖}, the BIG outcome is right iff n ≤ B | PROVED after repair |""",''',
+'''    old(130, 130),''')
+s = s.replace('''    "| T1.14 | Validity: (V1)–(V3) give P = D (no draws), (V4) gives o(S) = P, and (A_Q)(X) gives C = P | PROVED (the C part is the per-position hypothesis (A_Q)(X)) |""",''',
+'''    old(131, 131),''')
+s = s.replace('''    "| T2.4 | Freeze theorem: if Z-moves are punished at every position where the mover is losing, then G + Z has the result of G, for a G scored under normal play (no draws) | PROVED after repair |""",''',
+'''    old(133, 133),''')
+
+# 4) add the "Why exact does not mean iff" one-liner edit
+s = s.replace('''E(
+    "R1 item 4, R2 item 7: the table 'each hypothesis is needed', rows (V1b) and (V1a)",''',
+'''E(
+    "R1 item 4, R2 item 7: the sentence above the table 'each hypothesis is needed'",
+    old(390, 390),
+    """**Why "exact" does not mean "iff".** (V1)–(V4) are sufficient, and none can be dropped, except that for (V1a)
+this is a CONJECTURE (table below). But no""",
+)
+
+E(
+    "R1 item 4, R2 item 7: the table 'each hypothesis is needed', rows (V1b) and (V1a)",''')
+
+p.write_text(s)
+print("patched")
+PY
+.venv/bin/python kings/delegate/out/K1a/make_edits.py
+patched
+wrote /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K1a/EDITS.md with 26 edits
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && mkdir -p /tmp/k1a && python3 kings/delegate/apply_edits.py kings/theory/LOOPY.md /tmp/k1a/LOOPY_K1a.md kings/delegate/out/K1a/EDITS.md
+0 applied, 0 rejected -> /tmp/k1a/LOOPY_K1a.md
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && head -c 1500 kings/delegate/out/K1a/EDITS.md | cat -A | head -40
+cat: illegal option -- A
+usage: cat [-belnstuv] [file ...]
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && head -30 kings/delegate/out/K1a/EDITS.md | sed -n '1,30p' | od -c | head -40
+0000000    #   #   #       E   D   I   T       1   :       R   1       i
+0000020    t   e   m       6   ,       R   2       i   t   e   m       8
+0000040    :       t   h   e       (   A   _   Q   )       m   e   n   t
+0000060    i   o   n       i   n       t   h   e       s   u   m   m   a
+0000100    r   y  \n   <   <   <   <   <   <   <       O   L   D  \n   *
+0000120    *   T   h   e       a   n   s   w   e   r   ,       i   n    
+0000140    o   n   e       p   a   r   a   g   r   a   p   h   .   *   *
+0000160        T   h   e       c   o   n   v   e   n   t   i   o   n    
+0000200    g   i   v   e   s       t   h   e       c   h   e   s   s    
+0000220    r   e   s   u   l   t       w   h   e   n       f   o   u   r
+0000240        c   o   n   d   i   t   i   o   n   s       h   o   l   d
+0000260    ,       t   o   g   e   t   h   e   r  \n   w   i   t   h    
+0000300    t   h   e       a   x   i   o   m       (   A   _   Q   )    
+0000320    t   h   a   t       a       w   o   n       p   r   o   m   o
+0000340    t   i   o   n       r   a   c   e       i   s       a       w
+0000360    o   n       g   a   m   e       (   T   h   e   o   r   e   m
+0000400        1   .   1   4   )   :   =   =   =   =   =   =   =  \n   *
+0000420    *   T   h   e       a   n   s   w   e   r   ,       i   n    
+0000440    o   n   e       p   a   r   a   g   r   a   p   h   .   *   *
+0000460        T   h   e       c   o   n   v   e   n   t   i   o   n    
+0000500    g   i   v   e   s       t   h   e       c   h   e   s   s    
+0000520    r   e   s   u   l   t       w   h   e   n       f   o   u   r
+0000540        c   o   n   d   i   t   i   o   n   s       h   o   l   d
+0000560    ,       t   o   g   e   t   h   e   r  \n   w   i   t   h    
+0000600    t   h   e       p   e   r   -   p   o   s   i   t   i   o   n
+0000620        h   y   p   o   t   h   e   s   i   s       (   A   _   Q
+0000640    )   (   X   )       t   h   a   t       a       w   o   n    
+0000660    p   r   o   m   o   t   i   o   n       r   a   c   e       i
+0000700    s       a       w   o   n       g   a   m   e       (   T   h
+0000720    e   o   r   e   m       1   .   1   4   ;       (   A   _   Q
+0000740    )       i   s  \n   f   a   l   s   e       a   s       a    
+0000760    g   e   n   e   r   a   l       s   t   a   t   e   m   e   n
+0001000    t   ,       s   o       i   t       i   s       c   h   e   c
+0001020    k   e   d       p   o   s   i   t   i   o   n       b   y    
+0001040    p   o   s   i   t   i   o   n       b   y       k   p   s   o
+0001060    l   v   e   ;       r   e   v   i   s   e   d       a   f   t
+0001100    e   r       r   e   v   i   e   w   :       R   1       i   t
+0001120    e   m  \n   6   ,       R   2       i   t   e   m       8   )
+0001140    :   >   >   >   >   >   >   >       N   E   W  \n  \n   #   #
+0001160    #       E   D   I   T       2   :       R   1       i   t   e
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && .venv/bin/python - <<'PY'
+import re
+txt = open("kings/delegate/out/K1a/EDITS.md").read()
+pat = re.compile(r"^### EDIT ([^\n]*)\n<<<<<<< OLD\n(.*?)\n=======\n(.*?)\n>>>>>>> NEW", re.S | re.M)
+ms = list(pat.finditer(txt))
+print("matches:", len(ms))
+i = txt.find("### EDIT 1")
+print(repr(txt[i:i+120]))
+# check the marker lines
+for k, line in enumerate(txt.splitlines()[:12], 1):
+    print(k, repr(line[:90]))
+PY
+matches: 0
+'### EDIT 1: R1 item 6, R2 item 8: the (A_Q) mention in the summary\n<<<<<<< OLD\n**The answer, in one paragraph.** The con'
+1 '### EDIT 1: R1 item 6, R2 item 8: the (A_Q) mention in the summary'
+2 '<<<<<<< OLD'
+3 '**The answer, in one paragraph.** The convention gives the chess result when four conditio'
+4 'with the axiom (A_Q) that a won promotion race is a won game (Theorem 1.14):======='
+5 '**The answer, in one paragraph.** The convention gives the chess result when four conditio'
+6 'with the per-position hypothesis (A_Q)(X) that a won promotion race is a won game (Theorem'
+7 'false as a general statement, so it is checked position by position by kpsolve; revised af'
+8 '6, R2 item 8):>>>>>>> NEW'
+9 ''
+10 '### EDIT 2: R1 item 1, R2 items 1 and 2: the (V4) bullet in the summary'
+11 '<<<<<<< OLD'
+12 '- (V4) no two components carry threats of opposite sign, and BIG exceeds every tempo count'
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && python3 - <<'PY'
+import pathlib
+p = pathlib.Path("kings/delegate/out/K1a/make_edits.py")
+s = p.read_text()
+old_fmt = 'chunks.append(f"### EDIT {i}: {label}\\n<<<<<<< OLD\\n{o}=======\\n{n}>>>>>>> NEW\\n")'
+new_fmt = 'chunks.append(f"### EDIT {i}: {label}\\n<<<<<<< OLD\\n{o}\\n=======\\n{n}\\n>>>>>>> NEW\\n")'
+assert old_fmt in s
+s = s.replace(old_fmt, new_fmt)
+p.write_text(s)
+print("patched")
+PY
+.venv/bin/python kings/delegate/out/K1a/make_edits.py && python3 kings/delegate/apply_edits.py kings/theory/LOOPY.md /tmp/k1a/LOOPY_K1a.md kings/delegate/out/K1a/EDITS.md
+patched
+wrote /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K1a/EDITS.md with 26 edits
+applied  K1a EDIT 1: R1 item 6, R2 item 8: the (A_Q) mention in the summary
+applied  K1a EDIT 2: R1 item 1, R2 items 1 and 2: the (V4) bullet in the summary
+applied  K1a EDIT 3: R1 item 1, R2 item 1: summary row T1.11
+applied  K1a EDIT 4: R1 item 2, R2 item 3: summary row P1.13
+applied  K1a EDIT 5: R2 item 8: summary row T1.14
+applied  K1a EDIT 6: R2 item 4: summary row T2.4
+applied  K1a EDIT 7: R2 items 2 and 10: Definition 1.5, the D-terminal and the identification of S(X)
+applied  K1a EDIT 8: R2 item 2: the bridge diagram after Definition 1.5
+applied  K1a EDIT 9: R1 item 6, R2 item 8: the axiom (A_Q) is false as a general statement
+applied  K1a EDIT 10: R2 item 2: the remark after Theorem 1.9
+applied  K1a EDIT 11: R2 item 9: Definition 1.10, the tempo counts of a sum
+applied  K1a EDIT 12: R1 item 1, R2 items 1 and 9: Definition 1.10, the threat set τ
+applied  K1a EDIT 13: R1 item 1, R2 item 1: Theorem 1.11, statement of (b)
+applied  K1a EDIT 14: R1 item 1, R2 item 1: Theorem 1.11, repaired proof of (b)
+applied  K1a EDIT 15: R2 item 2: the remark after Theorem 1.11, and the new Theorem 1.11(c)
+applied  K1a EDIT 16: R1 item 2, R2 item 3: Proposition 1.13, statement
+applied  K1a EDIT 17: R1 item 2, R2 item 3: Proposition 1.13, proof
+applied  K1a EDIT 18: R1 item 2: Theorem 3.3(b)
+applied  K1a EDIT 19: R2 items 2 and 5: Theorem 1.14, the hypothesis (V4)
+applied  K1a EDIT 20: R2 items 2, 5 and 8: Theorem 1.14, conclusions (ii) and (iii)
+applied  K1a EDIT 21: R2 items 2 and 5: Theorem 1.14, proof of (ii) and (iii)
+applied  K1a EDIT 22: R2 item 6: Theorem 1.14, sharp form
+applied  K1a EDIT 23: R1 item 4, R2 item 7: the sentence above the table 'each hypothesis is needed'
+applied  K1a EDIT 24: R1 item 4, R2 item 7: the table 'each hypothesis is needed', rows (V1b) and (V1a)
+applied  K1a EDIT 25: R2 item 4: Theorem 2.4, statement
+applied  K1a EDIT 26: R2 item 4: the proof of Theorem 2.4(c)
+26 applied, 0 rejected -> /tmp/k1a/LOOPY_K1a.md
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && rg -n "M_W|M_B|tempo count" notes/lemmas.md | head -20
+87:**Move potential.** Let M_W(X) = Σ over white pawns of (m − r), M_B(X) = Σ over black pawns of (r − 1), and
+88:Φ = M_W + M_B. Every move lowers Φ by at least 1. Every White move lowers M_W by at least 1, and no Black move
+89:raises M_W. Hence:
+93:- White makes at most M_W(X) moves and Black at most M_B(X), in any sequence of moves by either side.
+300:BIG > max(M_W(X), M_B(X)). Then
+320:move in a live component, and Right has at most M_B(Y) moves in total. Left needs at most M_B(Y) + 1 moves and
+321:has at least BIG ≥ M_B(Y) + 1. Right runs out first.
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && python3 - <<'PY'
+import pathlib
+p = pathlib.Path("kings/delegate/out/K1a/make_edits.py")
+s = p.read_text()
+
+# --- fix 1: Definition 1.10, tempo counts of a sum: be precise about the two readings
+a = """  - For a sum, M_L(Y) is the sum of the M_L of the coordinates: the coordinates are played independently, so a
+    longest sequence of Left moves is the concatenation of longest sequences in the coordinates. The other
+    reading — stop counting at the first terminal of the whole sum — only makes M smaller, so every bound
+    below holds under either reading (revised after review: R2 item 9)."""
+b = """  - For a sum, M_L(Y) is the sum of the M_L of the coordinates: the coordinates are played independently, so a
+    longest sequence of Left moves in the sum is the concatenation of longest sequences in the coordinates.
+    (The other reading — stop counting at the first terminal of the whole sum — gives a smaller number, so a
+    hypothesis stated with it would be weaker; the proofs below use this component reading, and the count of
+    the opponent's moves in the proof of Theorem 1.11(b) is exactly this one. Revised after review: R2 item 9.)"""
+assert a in s
+s = s.replace(a, b)
+
+# --- fix 2: Theorem 1.11(c), frontier step: use the note's M_L / M_R
+a = """- **Frontier.** Let (Y, {σB}) be a position of F in which no live component has a (−σ)-threat and
+  B > M_{−σ}(Y). Then σ wins F(Y, {σB}) whoever moves first. Take σ = +; the case σ = − is symmetric. σ's
+  strategy is to move in the positive integer summand on every turn, which is possible while it has a move
+  left; the opponent cannot move in a positive integer (its canonical form is {B−1 | }), and every integer
+  frozen later is +B, because a −B would need a − threat and a race needs both threats. So every opponent move
+  is a pawn move in a live component, and the opponent has at most M_{−σ}(Y) moves in all; σ needs at most
+  M_{−σ}(Y) moves and the first stack has B ≥ M_{−σ}(Y) + 1 > that many, so the opponent runs out of moves
+  first."""
+b = """- **Frontier.** Let (Y, {σB}) be a position of F in which no live component has a (−σ)-threat and
+  B > M_{−σ}(Y), where M_{−σ} is the tempo count of the opponent of σ (M_L for White, M_R for Black). Then σ
+  wins F(Y, {σB}) whoever moves first. Take σ = +; the case σ = − is symmetric. σ's strategy is to move in the
+  positive integer summand on every turn, which is possible while it has a move left; the opponent cannot move
+  in a positive integer (its canonical form is {B−1 | }), and every integer frozen later is +B, because a −B
+  would need a − threat and a race needs both threats. So every opponent move is a pawn move in a live
+  component, and the opponent has at most M_{−σ}(Y) moves in all; σ needs at most M_{−σ}(Y) moves and the
+  first stack has B ≥ M_{−σ}(Y) + 1 > that many, so the opponent runs out of moves first."""
+assert a in s
+s = s.replace(a, b)
+
+a = """    component has a (−σ)-threat, and the frontier step applies because M(Y″) ≤ M(X) < B. So σ wins this option
+    too."""
+b = """    component has a (−σ)-threat, and the frontier step applies because M_{−σ}(Y″) ≤ M_{−σ}(Y) ≤ M_{−σ}(X) < B.
+    So σ wins this option too."""
+assert a in s
+s = s.replace(a, b)
+
+p.write_text(s)
+print("patched")
+PY
+.venv/bin/python kings/delegate/out/K1a/make_edits.py && python3 kings/delegate/apply_edits.py kings/theory/LOOPY.md /tmp/k1a/LOOPY_K1a.md kings/delegate/out/K1a/EDITS.md | tail -3
+patched
+wrote /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K1a/EDITS.md with 26 edits
+applied  K1a EDIT 25: R2 item 4: Theorem 2.4, statement
+applied  K1a EDIT 26: R2 item 4: the proof of Theorem 2.4(c)
+26 applied, 0 rejected -> /tmp/k1a/LOOPY_K1a.md
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && sed -n '196,240p' /tmp/k1a/LOOPY_K1a.md
+**Definition 1.4 (BIG translation).** For a short D-game A and an integer B ≥ 1, A^B is the short CGT game
+obtained by replacing ⊕ with the integer B and ⊖ with −B. For a sum, (A₁ ⊞ … ⊞ A_k)^B := A₁^B + … + A_k^B
+(the disjunctive CGT sum). In this sum a ±B summand does **not** end play: the other components continue.
+
+**Definition 1.5 (four models of a king-and-pawn position X).**
+- **C(X), chess.** The rules of `kings/SPEC.md`: checkmate wins, stalemate is a draw, infinite play is a draw.
+- **P(X), the promotion model.** Chess, except that the first promotion ends the game as a win for the
+  promoter. Stalemate and infinite play are still draws.
+  - `kpsolve --frozen` computes P with frozen kings: a king move loses at once.
+- **D(X), the decisive-event model.** A D-game. Its positions are the positions before the first decisive
+  event. Its terminals are the decisive events:
+  - a passer appears (as in `cylcgt`), with races scored by a race rule;
+  - a punished move in the king group (§2). Under (V3) of Theorem 1.14 *every* move inside Z is a punished
+    move, so the king group then contributes only suicides and is deleted by Lemma 1.7; the setup of
+    Theorem 1.14 and this definition agree under (V3) (revised after review: R2 item 10).
+- **S(X), the BIG convention.** The BIG value of X: at every node of the game tree the position is split
+  into its components (files separated by an empty file, and an empty file stays empty), each component is
+  translated separately, and the translations are summed; a component with a passer is worth ±BIG, races being
+  scored by the race rule. This is the value `cylcgt.pawns.value` computes (COMPUTED-1, `cylcgt/pawns.py`).
+  - *What S(X) is not* (revised after review: R2 item 2): it is not the BIG translation D(X)^B of the D-game of
+    §1.2, in which the components are those of the root and the first decisive event ends the whole play.
+    `cylcgt` re-splits at every node, and a passer freezes only its own component, so the two differ as soon
+    as a component splits. Example: flat 7×6, e.p. on, count rule, `W: b2 d3 f2 / B: c4 c5 e5 g5` is one
+    component at the root, yet o(S) = 𝓝 while the decisive-event result is 𝓡 (COMPUTED-1, `lemmas/common.py`:
+    o(S) = N, o(W) = R).
+  - The re-splitting is why (V4) of Theorem 1.14 has to be checked hereditarily; see Theorem 1.11(c).
+
+The models are connected by bridges, each with its own hypotheses:
+
+```
+S  --Thm 1.11(c) (V4)-->  D  --Thm 1.14 (V1-V3)-->  P  --(A_Q)(X)-->  C
+```
+
+**Axiom (A_Q)(X) (per-position hypothesis, checked by kpsolve).** For a fixed position X: if X is a P-win
+for σ, then X is a C-win for σ.
+- **FALSE as a general statement (revised after review: R1 item 6, R2 item 8).** cyl:7×6 `Ke2 Pb5 ka5 w -` is
+  a P-win (b6=Q at once; `kpsolve --frozen` gives W W) and a chess draw (exact D D: every White move draws);
+  flat:4×4 `Kd1 Pb3 ka3 w -` is the same (b4=Q is met by Kxb4). So (A_Q) is not an axiom: it is a hypothesis
+  to be checked at each position, and every "PROVED in P" claim below is a chess claim only where it holds.
+- *Evidence for:* the cylinder KQK tables agree in two independent solvers ([RESULTS.md](../../RESULTS.md) §2:
+  KQK is 100% won on the 8×8 cylinder).
+- *Evidence against, in general:* L4.4 of `notes/lemmas.md` is a promotion race lost to a promotion with check.
+- *Settled by:* kpsolve with `--cap 1` computes C exactly whenever its bounds agree (A = B), and `--frozen`
+  computes P; the two runs decide (A_Q)(X) for that X.
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && python3 - <<'PY'
+import pathlib
+p = pathlib.Path("kings/delegate/out/K1a/make_edits.py")
+s = p.read_text()
+
+a = """  - Left needs at most M_R(Y) moves (one for each Right move, and none after Right has run out) and the first
+    stack has B ≥ M_R(Y) + 1 > M_R(Y) moves, so Left always has a move while Right still has one. Right runs
+    out of moves first and loses, whoever started. ∎"""
+b = """  - Left needs at most M_R(Y) moves (one for each Right move, and none after Right has run out) and the first
+    stack has B ≥ M_R(Y) + 1 > M_R(Y) moves, so Left always has a move while Right still has one; the stack
+    also never reaches 0, whose canonical form {−1 | 1} would give Right a move. Right runs out of moves
+    first and loses, whoever started. ∎"""
+assert a in s
+s = s.replace(a, b)
+
+a = """  component, and the opponent has at most M_{−σ}(Y) moves in all; σ needs at most M_{−σ}(Y) moves and the
+  first stack has B ≥ M_{−σ}(Y) + 1 > that many, so the opponent runs out of moves first."""
+b = """  component, and the opponent has at most M_{−σ}(Y) moves in all; σ needs at most M_{−σ}(Y) moves and the
+  first stack has B ≥ M_{−σ}(Y) + 1 > that many, so the opponent runs out of moves first (the stack never
+  reaches 0, whose canonical form {−1 | 1} would let the opponent move)."""
+assert a in s
+s = s.replace(a, b)
+
+p.write_text(s)
+print("patched")
+PY
+.venv/bin/python kings/delegate/out/K1a/make_edits.py && python3 kings/delegate/apply_edits.py kings/theory/LOOPY.md /tmp/k1a/LOOPY_K1a.md kings/delegate/out/K1a/EDITS.md | tail -2
+patched
+wrote /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K1a/EDITS.md with 26 edits
+applied  K1a EDIT 26: R2 item 4: the proof of Theorem 2.4(c)
+26 applied, 0 rejected -> /tmp/k1a/LOOPY_K1a.md
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && sed -n '270,330p' /tmp/k1a/LOOPY_K1a.md
+**Theorem 1.9 (one component). PROVED.** For a short D-game A and every B ≥ 1, the outcome class of A^B at
+x equals the D-result pair of A at x.
+
+*Proof.* Induction on the height of x.
+- The integer B ≥ 1 is in 𝓛. Moving first, Left moves to B − 1 ≥ 0, where Right has no move. Moving second,
+  Right has no move at all.
+- Likewise −B is in 𝓡.
+- So an option to ⊕ (resp. ⊖) in A corresponds to an option in 𝓛 (resp. 𝓡) in A^B. That is exactly
+  "White wins (resp. loses) from it whoever moves next".
+- An option to a non-terminal y has matching classes by induction.
+- "Left wins moving first" holds iff some Left option is won by Left with Right to move, in both games.
+  The same holds for Right.
+- A player with no option loses in both games. ∎
+
+In one component of the D-model the convention cannot go wrong: after the first ±B nothing else happens.
+Trouble needs at least two components (compare L2.3 of `notes/lemmas.md`). That is *not* true of the
+re-splitting model S of §1.5 (revised after review: R2 item 2): there a single component can still fail, because
+a passer in one sub-part does not end its sibling, so trouble needs a later split, not two components. Example:
+flat 7×6, e.p. on, count rule, `W: b2 d3 f2 / B: c4 c5 e5 g5` is one component at the root, yet o(S) = 𝓝 while
+the decisive-event result is 𝓡 (COMPUTED-1, `lemmas/common.py`).
+
+**Definition 1.10 (tempo counts, threats, dominance).** Let Y = (y₁, …, y_k) be a position of a sum of short
+D-games.
+- **Tempo counts.** M_L(y) is the largest number of Left moves in any sequence of moves from y (moves by
+  both sides, in any order, not necessarily alternating), counting a final move into a terminal. M_R(y) is
+  defined the same way for Right. Both are monotone: M(y′) ≤ M(y) whenever y′ is reachable from y.
+  - For a sum, M_L(Y) is the sum of the M_L of the coordinates: the coordinates are played independently, so a
+    longest sequence of Left moves in the sum is the concatenation of longest sequences in the coordinates.
+    (The other reading — stop counting at the first terminal of the whole sum — gives a smaller number, so a
+    hypothesis stated with it would be weaker; the proofs below use this component reading, and the count of
+    the opponent's moves in the proof of Theorem 1.11(b) is exactly this one. Revised after review: R2 item 9.)
+  - In the pawn game every White move advances a White pawn by at least one rank, so
+    M_W ≤ Σ_white pawns (H − rank) ≤ (H − 2)p for p legal White pawns. That is ≤ 6p, so ≤ 48 on 8 ranks when
+    p ≤ 8, and ≤ 6p in general; BIG = 256 exceeds 6p whenever p ≤ 42. The count ignores a final Z-move, so
+    add 1 where a move inside the king group is possible (revised after review: R2 item 9).
+- **Threats.** τ(y) ⊆ {+, −} contains + iff some position reachable from y without passing a terminal has an
+  option ⊕ **by either player**; it contains − iff some such position has an option ⊖ by either player. So a
+  move into the opponent's terminal is a threat for the opponent, and a suicide counts for the side that
+  gains from it. Like M, τ is monotone: τ(y′) ⊆ τ(y) whenever y′ is reachable from y.
+  - This is the τ of `notes/lemmas.md` (Definition 2.0) and of `lemmas/common.py: threats`, which count a
+    passer created by either side's move. The earlier version of this note counted only Left options to ⊕ and
+    Right options to ⊖, and was therefore blind to suicides (revised after review: R1 item 1, R2 item 1).
+- **First-event dominance.** Y is *first-event dominant for B* if the following holds for every Y′ reachable
+  from Y without passing a terminal, and every option y′_j → σ (σ ∈ {⊕, ⊖}, by either player):
+  - the CGT position σB + Σ_{i≠j} (y′_i)^B is won by σ's player whoever moves first;
+  - here σB means +B if σ = ⊕ and −B if σ = ⊖.
+
+**Theorem 1.11 (sums). PROVED for (a); (b) PROVED after repair (revised after review: R1 item 1, R2 item
+1); (c) PROVED after repair (R2 item 2).**
+- **(a)** If Y is first-event dominant for B, then the outcome class of Σ y_i^B equals the D-result pair of
+  ⊞ y_i.
+- **(b)** Y is first-event dominant for B if both of the following hold:
+  - *pairwise safety:* no reachable Y′ has two different coordinates with + ∈ τ(y′_i) and − ∈ τ(y′_j), with
+    the τ of Definition 1.10 (an option to ⊕ or ⊖ counts whoever makes it);
+  - *the bound:* B > max(M_L(Y), M_R(Y)).
+
+*Proof.*
+- **(a)** Induction on the total height.
+  - At a reachable non-terminal Y′, each option of the CGT sum is one of two kinds.
+    - A move in some y′_j to a non-terminal position. The induction hypothesis applies to it.
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && sed -n '330,420p' /tmp/k1a/LOOPY_K1a.md
+- A move in some y′_j to a non-terminal position. The induction hypothesis applies to it.
+    - A move to the integer σB in coordinate j, giving σB + Σ_{i≠j} (y′_i)^B. By dominance this is in 𝓛 if
+      σ = ⊕ and in 𝓡 if σ = ⊖. That is exactly the status of the D-option "σ wins now".
+  - No other options exist, because no integer summand is present yet.
+  - So the options correspond one to one with the D-options of Y′, with the same "won by Left with Right to
+    move" status. The same holds on the Right side.
+  - A player with no option loses in both.
+- **(b)** Take σ = ⊕; the case σ = ⊖ is symmetric.
+  - Let Y′ be reachable from Y without passing a terminal, and let y′_j → ⊕ be the option, made by either
+    player. Since the option exists, + ∈ τ(y′_j) (Definition 1.10, corrected: an option counts whoever makes
+    it). By pairwise safety no other coordinate has − ∈ τ(y′_i); by monotonicity of τ no other coordinate can
+    ever reach ⊖, so no option of the sum Σ_{i≠j}(y′_i)^B is −B. This is the step that failed for the earlier
+    τ, which was blind to a ⊕ entered by Right (revised after review: R1 item 1, R2 item 1).
+  - The frontier position is B + Σ_{i≠j}(y′_i)^B, and the positive integer B has canonical form {B−1 | } (a
+    Left-only stack of B moves, [WW] ch. 2), so Right has no move in it.
+  - Left's strategy: on every turn, play in a positive integer summand (the B created by the event, or a +B
+    created later), and never in a component.
+  - Right's moves are all moves in the components, and there are at most M_R(Y) of them: the moves in one
+    coordinate form a sequence of moves in that coordinate, so the total is at most Σ_{i≠j} M_R(y′_i) ≤ M_R(Y)
+    (M is monotone, and for a sum M is the sum over the coordinates). A Right move into a terminal can only
+    create another +B, because −B is unreachable.
+  - Left needs at most M_R(Y) moves (one for each Right move, and none after Right has run out) and the first
+    stack has B ≥ M_R(Y) + 1 > M_R(Y) moves, so Left always has a move while Right still has one; the stack
+    also never reaches 0, whose canonical form {−1 | 1} would give Right a move. Right runs out of moves
+    first and loses, whoever started. ∎
+
+**(c) The re-splitting version. PROVED after repair (R2 item 2).** Let X be a pawn position, let S(X) be its
+BIG value computed with re-splitting (§1.5), and let D(X) be the decisive-event game of X, in which the
+position is split into its components at every node, a move is a move in one component, and the first decisive
+event ends the play. Suppose:
+- **(HSS)** at every position Y reachable from X before the first decisive event, the components of Y are
+  pairwise safe (Definition 1.10, corrected τ: an option to ⊕ or ⊖ counts whoever makes it); and
+- **(B)** BIG exceeds every tempo count of every such Y.
+
+Then the outcome class of S(X) is the outcome class of the D-result pair of D(X).
+
+*Proof.* Unfold S(X) as a game form F whose positions are pairs (Y, N), where Y is a pawn position (the live
+components) and N is a finite multiset of frozen integers ±B. A move is either a move in an integer summand or
+a pawn move in a live component Z; if that move creates a passer (or a race) in Z, then Z leaves Y and ±B joins
+N; otherwise Z is replaced by its new components. This is `cylcgt.pawns.value` unfolded.
+- **Frontier.** Let (Y, {σB}) be a position of F in which no live component has a (−σ)-threat and
+  B > M_{−σ}(Y), where M_{−σ} is the tempo count of the opponent of σ (M_L for White, M_R for Black). Then σ
+  wins F(Y, {σB}) whoever moves first. Take σ = +; the case σ = − is symmetric. σ's strategy is to move in the
+  positive integer summand on every turn, which is possible while it has a move left; the opponent cannot move
+  in a positive integer (its canonical form is {B−1 | }), and every integer frozen later is +B, because a −B
+  would need a − threat and a race needs both threats. So every opponent move is a pawn move in a live
+  component, and the opponent has at most M_{−σ}(Y) moves in all; σ needs at most M_{−σ}(Y) moves and the
+  first stack has B ≥ M_{−σ}(Y) + 1 > that many, so the opponent runs out of moves first (the stack never
+  reaches 0, whose canonical form {−1 | 1} would let the opponent move).
+- **Induction.** o(F(Y, ∅)) = o(D(Y)) for every non-terminal Y reachable from X, by induction on the total
+  number of pawn moves Φ(Y). Take a move of Y, made in component Z.
+  - If the child is non-terminal, both models give the child and the induction hypothesis applies.
+  - If the move creates a σ-passer, or a race scored σ, then D gives the terminal σ, which σ wins whoever
+    starts. F gives (Y″, {σB}), where Y″ consists of the other components of Y. Here σ ∈ τ(Z): Z reaches the
+    passer in one move, and for a race both signs are in τ(Z). Y is pairwise safe by (HSS), so no other live
+    component has a (−σ)-threat, and the frontier step applies because M_{−σ}(Y″) ≤ M_{−σ}(Y) ≤ M_{−σ}(X) < B.
+    So σ wins this option too.
+  - Race scores agree: before the move Y had no passer, a move changes one component only, and passedness is
+    local, so all passers of the child lie in Z and the promotion distances are the same in both models.
+Outcomes are determined by the outcomes of the options, so o(F(Y, ∅)) = o(D(Y)). ∎
+
+Re-splitting does not change the D-result: it only re-groups the same positions and options, and the D-result
+of Definition 1.2 depends on the game graph and the terminals, not on the grouping. So the D-result pair of
+the re-splitting D(X) is the one used in Theorem 1.14(i).
+
+The remark that followed Theorem 1.11 is corrected here (revised after review: R1 item 1, R2 items 1 and 2).
+Theorem 1.11(b) is the fixed-sum version of L2.1: its coordinates are the components of the root and never
+split. The re-splitting version is (c) above, and the test "hereditarily sum-safe" of `notes/lemmas.md` is
+(HSS), not pairwise safety at the root: it re-checks the re-split components at every reachable position, and it
+uses the either-player τ.
+
+**Proposition 1.12 (opposite threats cancel for every B). PROVED.** Let A = {⊕ | ∅} and A′ = {∅ | ⊖}.
+- **In chess semantics,** A ⊞ A′ is 𝓝: whoever moves wins at once.
+- **In the BIG translation,** A^B + A′^B = {B | 0} + {0 | −B} = 0, which is 𝓟, for every B ≥ 1.
+
+*Proof of the BIG part.*
+- Left moving first has two choices.
+  - Left goes to B + {0 | −B}. Right answers −B, the total is B − B = 0, and Left is to move and loses.
+  - Left goes to {B | 0} + 0. Right answers 0, and Left loses again.
+- Right moving first loses by symmetry. So the sum is a 𝓟-position, and a 𝓟-position equals 0 (KNOWN:
+  [WW] ch. 1, [S] ch. II). ∎
+
+The 10 multi-component disagreements in `crosscheck/` and the counterexamples to `sum_safe` in L2.2 of
+`notes/lemmas.md` are pawn-game instances of this mechanism.
+
+**Proposition 1.13 (BIG must exceed every tempo count; sharp). PROVED after repair (R1 item 2, R2 item 3).**
+Let A′ = { | ⊖} be a Black threat (no Left option at all) and R_n be n consecutive one-shot White moves with
+no terminals (the integer n).
+- **In chess semantics,** A′ ⊞ R_n is 𝓡 for every n ≥ 1: White can only spend tempi, and Black plays ⊖ when
+  on move. (For n = 0 White has no move at all; the D-model scores that as a loss for White, while chess
+  scores it as a stalemate, a draw.)
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && sed -n '420,520p' /tmp/k1a/LOOPY_K1a.md
+scores it as a stalemate, a draw.)
+- **In the BIG translation,** A′^B = { | −B} = −B − 1 (KNOWN: {| x} = x − 1 for a number x, [WW] ch. 1), so
+  { | −B} + n has three regimes:
+  - 𝓡 if n ≤ B;
+  - 𝓟 if n = B + 1;
+  - 𝓛 if n ≥ B + 2.
+- **The other reading of ∅.** With A′ = {∅ | ⊖}, where ∅ is the dead position of Definition 1.1, the
+  translation is {0 | −B} and the regimes are different: {0 | −B} + n is 𝓝 for n ≤ B and 𝓛 for n ≥ B + 1
+  (COMPUTED-1, `cylcgt.cgt`, B = 4: N, N, N, N, N, L, L, L for n = 0..7). The earlier version of this
+  proposition mixed the two readings, and with them the claim was false as stated (revised after review: R1
+  item 2, R2 item 3).
+
+*Proof of the BIG part.* { | −B} + n is the integer n − B − 1, and the outcome class of an integer m is 𝓛 if
+m ≥ 1, 𝓟 if m = 0 and 𝓡 if m ≤ −1.
+- Right moving first goes to n − B. Left, to move, wins iff n − B ≥ 1.
+- Left moving first goes to n − 1 + { | −B}. Right answers n − 1 − B. Left, to move, wins iff
+  n − 1 − B ≥ 1. ∎
+
+So "BIG dominates" means exactly that BIG exceeds the largest tempo count either side can bring against a
+threat. With BIG = 256 and pawns only this always holds: M ≤ 6p ≤ 48 on 8 ranks. With a shuttling king the
+tempo count is infinite, and no BIG works (§3).
+
+### 1.5 The exact validity statement
+
+Fix a K+P chess position X, cut into pawn components G₁, …, G_k and a king group Z with a buffer (Definition
+2.1). Fix the D-model of §1.2: its decisive events are passers in the components (races by a race rule) and
+the moves inside Z.
+
+**Theorem 1.14 (validity of the convention). PROVED.** Assume:
+- **(V1) non-interaction and no stalemate.** At every chess position Y reachable from X before the first
+  decisive event:
+  - (a) the legal chess moves of the side to move are exactly its D-options, with the same resulting
+    positions. This includes en passant obeying condition (E) of L1.6 in `notes/lemmas.md`, and no checks;
+  - (b) the side to move has at least one legal move.
+- **(V2) decisiveness.** Every decisive event reached by a move from such a Y leads to a position that is a
+  P-win for the event's beneficiary.
+- **(V3) frozen Z.** Every legal move inside Z, by either side, is a decisive event for the opponent: a
+  suicide.
+- **(V4) hereditary sum-safety.** At every position Y reachable from X before the first decisive event:
+  - the pawn components of Y, re-split as the files split (an empty file stays empty, so a component may split
+    into two), with the king group Z deleted, are pairwise safe: no two different components carry + ∈ τ and
+    − ∈ τ, where τ counts options to ⊕ or ⊖ by **either** player (Definition 1.10);
+  - BIG exceeds every tempo count of Y.
+
+Then, with either side to move:
+- **(i)** P(X) = D(X). There are no draws, and the result is the normal-play result of G₁ ⊞ … ⊞ G_k (Z
+  deleted).
+- **(ii)** If (V4) holds, the outcome class of S(X) — the BIG value of the pawn components, with the king
+  group Z deleted — equals the outcome class of the D-result pair of P(X).
+- **(iii)** Under (A_Q)(X) (the per-position hypothesis of §1.2, checked by kpsolve), C(X) = P(X). This is now
+  a tautology: (A_Q)(X) says exactly this (revised after review: R2 item 8).
+
+*Proof.*
+- **(i)** By (V3), Z contributes only suicides to D, so by Lemma 1.7 D(X) is the D-result of ⊞ G_i. D is
+  short, so it has no draws.
+  - Let σ be the D-winner (for the given side to move). σ plays a D-winning strategy. That strategy never
+    plays a Z-move, because Z-moves are σ's suicides.
+  - By (V1a), every chess move of the loser σ̄ is a D-option.
+  - Under a winning strategy, the loser never has an option to its own terminal: at a loser-to-move position
+    every option leads to a σ-win. So the play can end only in a σ-terminal, made by σ, or by σ̄ as a
+    suicide (a Z-move, or a pawn move that gives σ a passer).
+  - The play does end. The components are short, and (V1b) excludes "no move".
+  - By (V2) the terminal position is a P-win for σ, so σ wins P.
+- **(ii)** By (i), the D-result pair of X is the D-result pair of D(X), and re-splitting does not change
+  that pair (it re-groups the same positions and options). By Theorem 1.11(c), with (V4) supplying (HSS) and
+  the bound, the outcome class of S(X) is the outcome class of that D-result pair.
+- **(iii)** Definition of (A_Q)(X). ∎
+
+**Sharp form (PROVED after repair: R2 item 6).**
+- (V2) is needed only for the terminals reached under *one* D-winning strategy of the D-winner.
+- (V3) is needed in the stronger form: at every loser-to-move node of that strategy, **every** legal Z-move of
+  the loser is a P-loss for the loser. The earlier wording ("needed only for terminals") was false as stated: a
+  loser's Z-move that is not punished is not a terminal, and then the Lemma 1.7 reduction and the shortness of
+  D both fail.
+- (V1a) splits into two halves:
+  - the winner's prescribed D-moves must be legal chess moves;
+  - every legal chess move of the loser must be a D-option.
+
+  The winner may have extra legal moves (Lemma 1.6).
+- The conclusion of the sharp form is the result of the strategy itself, not a normal-play result: the D-winner
+  σ wins P(X) by that strategy. The claim "the result is the normal-play result of G₁ ⊞ … ⊞ G_k (Z deleted)"
+  belongs to (i), not to the sharp form.
+
+Theorem 2.4 is the version of this statement for Z.
+
+**Why "exact" does not mean "iff".** (V1)–(V4) are sufficient, and none can be dropped, except that for (V1a)
+this is a CONJECTURE (table below). But no
+condition on local data can be *necessary*: the convention is sometimes right by accident.
+- In §5.4, literal pawn-only scoring gets Z_onT1 + context right because it calls c5 passed. It gets the
+  stalemate trap wrong for the same reason.
+- So the exact answer to "when does the convention hold?" is: whenever (V1)–(V4) hold, plus accidents. The
+  accidents are not detectable without solving the position.
+
+**Each hypothesis is needed — except that for (V1a) this is a CONJECTURE (revised after review: R1 item 4,
+R2 item 7).** Each can fail and change the result.
+
+| Hypothesis | Counterexample (where in this note or the project) |
+|---|---|
+| (V1b) no stalemate | §5.4: the only suicide square is covered, and the position is a draw instead of a win (PROVED). The isolated failure needs (V3) to hold, so use the frozen model, where (V3) holds by fiat: `--frozen` gives `Ka5 Pb4 Pc5 Pe2 Pe4 kc6 pb5 pe5` as (D, D), with every king move L, while the convention reads Z as 0 and the context as +1, i.e. (W, W) (COMPUTED-1, `kings/kpsolve --frozen`). With real kings the same position also violates (V3): Ka6 and Kg4–g6 are legal Z-moves that are not suicides |
+| (V1a) non-interaction | No isolated counterexample is known: the king sorties that reach the component (41 of 449 tablebase king moves draw and 7 win, `engine/suite/`, RESULTS §1) are *unpunished Z-moves*, i.e. (V2)/(V3) failures, not (V1a) failures. That (V1a) is needed at all is therefore a **CONJECTURE** (revised after review: R1 item 4, R2 item 7) |
+| (V2) decisiveness | Races: L4.1 of `notes/lemmas.md` (forced wins, modulo KQK). A dropped pawn that does not lose: §5.5 |
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && python3 - <<'PY'
+import pathlib
+p = pathlib.Path("kings/delegate/out/K1a/make_edits.py")
+s = p.read_text()
+
+anchor = '''E(
+    "R2 item 4: Theorem 2.4, statement",'''
+
+new_edits = '''E(
+    "R2 item 9: the tempo bound quoted after Proposition 1.13",
+    old(438, 440),
+    """So "BIG dominates" means exactly that BIG exceeds the largest tempo count either side can bring against a
+threat. With BIG = 256 and pawns only this holds as long as p ≤ 42, since M ≤ 6p (and M ≤ 48 on 8 ranks when
+p ≤ 8). With a shuttling king the tempo count is infinite, and no BIG works (§3) (revised after review: R2
+item 9).""",
+)
+
+E(
+    "R2 items 2, 5 and 8: the label of Theorem 1.14",
+    old(348, 348),
+    """**Theorem 1.14 (validity of the convention). PROVED for (i); (ii) and (iii) PROVED after repair (revised
+after review: R2 items 2, 5 and 8).** Assume:""",
+)
+
+E(
+    "R1 item 4, R2 item 7: the sentence above the table 'each hypothesis is needed'",'''
+
+old_block = '''E(
+    "R1 item 4, R2 item 7: the sentence above the table 'each hypothesis is needed'",
+    old(390, 390),
+    """**Why "exact" does not mean "iff".** (V1)–(V4) are sufficient, and none can be dropped, except that for (V1a)
+this is a CONJECTURE (table below). But no""",
+)
+'''
+assert old_block in s
+s = s.replace(old_block, new_edits + '''
+    old(390, 391),
+    """**Why "exact" does not mean "iff".** (V1)–(V4) are sufficient, and none can be dropped, except that for
+(V1a) this is a CONJECTURE (table below). But no condition on local data can be *necessary*: the convention is
+sometimes right by accident.""",
+)
+''')
+
+p.write_text(s)
+print("patched")
+PY
+.venv/bin/python kings/delegate/out/K1a/make_edits.py && python3 kings/delegate/apply_edits.py kings/theory/LOOPY.md /tmp/k1a/LOOPY_K1a.md kings/delegate/out/K1a/EDITS.md | tail -4
+patched
+wrote /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K1a/EDITS.md with 28 edits
+applied  K1a EDIT 26: R1 item 4, R2 item 7: the table 'each hypothesis is needed', rows (V1b) and (V1a)
+applied  K1a EDIT 27: R2 item 4: Theorem 2.4, statement
+applied  K1a EDIT 28: R2 item 4: the proof of Theorem 2.4(c)
+28 applied, 0 rejected -> /tmp/k1a/LOOPY_K1a.md
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && grep -n "Theorem 2.4 (freeze theorem)" /tmp/k1a/LOOPY_K1a.md && sed -n '/Theorem 2.4 (freeze theorem)/,/^### /p' /tmp/k1a/LOOPY_K1a.md | head -60
+565:**Theorem 2.4 (freeze theorem). PROVED after repair (R2 item 4).** Let G be a short game scored under normal
+**Theorem 2.4 (freeze theorem). PROVED after repair (R2 item 4).** Let G be a short game scored under normal
+play, so that G has no draws, and let Z be a king group, possibly loopy. The sum G ⊞ Z is the game on positions
+(Y, z): a move is a G-move in the context or a Z-move (a move of a king or of a Z-pawn inside the group); a
+G-position with no G-move left is a loss for the side to move, while in the sum the side to move may still have
+Z-moves. Assume Z's state changes only through Z-moves.
+- **(a)** Suppose every Z-move, in every state of Z and in every context reachable from the root, leads to a
+  position won by the opponent of the mover. Then r(G ⊞ Z) = r(G) at every reachable (Y, s).
+- **(b)** It is enough that this holds at the positions (Y, s) reached under some winning strategy of the
+  G-winner σ at which the loser σ̄ is to move.
+- **(c) (strategy transfer, for a G that may draw.)** Let G be a game that may draw, and let σ be a side with a
+  strategy in G that never loses (it wins every line except those that draw). Suppose that, at every position
+  reached under that strategy, every Z-move of the opponent σ̄ is decisively punished (Definition 2.5) and that
+  σ never needs to move in Z. Then σ does not lose G ⊞ Z; and if σ's strategy in G wins every line, then σ wins
+  G ⊞ Z.
+
+In chess, assume also (V1b): the side to move always has a legal move.
+
+*The P-game of the context is **not** covered, and the earlier version of this theorem was false for it
+(revised after review: R2 item 4).* The P-model keeps stalemate as a draw, so "G has no draws" fails there and
+the step "since G has no draws the results agree" was unjustified. Counterexample: cyl:7×6,
+`Ka4 Pb3 Pe3 kc3 pb4 pe4` (Z_T + H0). The context G = {Pe3, pe4} has no move for either side, so it is (D, D)
+under P; `kpsolve --frozen` gives (L, W), and there the hypothesis of (a) holds by fiat (king moves lose and
+the Z-pawns have no moves); with real kings, White to move is L (exact) (COMPUTED-1, `kings/kpsolve`).
+
+*Proof of (b).*
+- σ plays its winning strategy in G and never moves in Z, so Z stays in its initial state.
+- Whenever σ̄ is to move, the G-position is lost for σ̄. If σ̄ moves in Z, σ wins by hypothesis.
+- G-play is finite, so one of three things happens:
+  - a σ-terminal is reached, and σ wins;
+  - σ̄ has no G-move and must move in Z, and σ wins;
+  - σ̄ has no move at all, and σ̄ loses by normal play.
+- In chess the last case is stalemate, which (V1b) excludes.
+- So the G-winner wins G ⊞ Z, and since G has no draws the results agree. (a) is a special case. ∎
+
+*Proof of (c).* σ plays its strategy of G, read in the sum, and never moves in Z, so Z stays in its initial
+state. Whenever σ̄ moves in G, σ answers as in G. Whenever σ̄ moves in Z, σ wins by the hypothesis, since that
+Z-move is decisively punished. The G-play is finite, since G is short. If σ̄ never moves in Z, the play is a
+line of G under σ's strategy: it ends in a σ-win, or in a draw of G, so σ does not lose. If σ̄ does move in Z, σ
+wins. ∎
+
+**Definition 2.5 (decisive punishment, in chess terms).** A Z-move m of side s, made at a chess position Y
+(context plus Z), is *decisively punished* if the opponent s̄ has a forced win in P (or in C) from the
+position after m. The win must hold against every defence of s:
+- s's moves in the context, including creating passers, starting races and capturing en passant;
+- s's king going anywhere, back into Z or into the context;
+- s promoting;
+- s steering for stalemate.
+
+"Whatever the other components contain" means: for every context in the class one claims the zero for.
+Theorem 2.4(b) needs this only at positions where s is losing the context.
+
+**Definition 2.6 (local certificate LC_T).** Let m be a Z-move of s, and r the punishing reply of s̄ (a
+king capture of a Z-pawn). Let Q be the position after m and r, with s to move. Let Q_Z be Q with every
+context pawn deleted: only the kings and the remaining Z-pawns are left, on the whole board. LC_T(m) holds
+at Y if:
+
+- **(L1) local forced promotion against a passing defender.** For every *pass budget* k ∈ {0, 1, 2, …, ∞}, s̄
+  wins the following game in Q_Z within T of its own moves:
+  - s may pass up to k times, but not while in check;
+  - s with no legal move and no pass left is stalemated, which counts as a failure for s̄;
+[0m
+[0m← [0mWrite kings/delegate/out/K1a/verify.py
+Wrote file successfully.
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && PYTHONPATH=. .venv/bin/python kings/delegate/out/K1a/verify.py
+1) Proposition 1.13 with A' = { | -B}, B = 4, n = 0..7  (expect R R R R R P L L)
+    ['R', 'R', 'R', 'R', 'R', 'P', 'L', 'L']
+2) the same with A' = {0 | -B} (the dead-position reading)  (expect N N N N N L L L)
+    ['N', 'N', 'N', 'N', 'N', 'L', 'L', 'L']
+3) frontier of the R1/R2 counterexample: B + { | -B}  (expect -1 and R for every B)
+    B=   2   -1 R
+    B=   3   -1 R
+    B=   4   -1 R
+    B=  10   -1 R
+    B= 100   -1 R
+4) Proposition 1.12 BIG part: {B|0} + {0|-B}  (expect 0, i.e. 0, for every B)
+    B=1 0  is 0: True  outcome P
+    B=2 0  is 0: True  outcome P
+    B=4 0  is 0: True  outcome P
+    B=8 0  is 0: True  outcome P
+5) canonical forms: integer B = {B-1 | }, integer -B = { | -B+1}
+    B=   1 True True
+    B=   2 True True
+    B=   4 True True
+    B= 256 True True
+6) R2 item 2: flat 7x6, e.p. on, count rule, W: b2 d3 f2 / B: c4 c5 e5 g5
+    components at the root: 1
+    o(S) = N  o(W) = R  HSS: False
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && python3 - <<'PY'
+import pathlib
+p = pathlib.Path("kings/delegate/out/K1a/make_edits.py")
+s = p.read_text()
+anchor = '''E(
+    "R1 item 6, R2 item 8: the axiom (A_Q) is false as a general statement",'''
+new = '''E(
+    "R1 item 11: the notation used in section 6 (o, W(X), S(X), HSS)",
+    old(211, 212),
+    """S  --Thm 1.11(c) (V4)-->  D  --Thm 1.14 (V1-V3)-->  P  --(A_Q)(X)-->  C
+```
+
+*Notation.* o(G) is the outcome class of a CGT game G (𝓛, 𝓡, 𝓝, 𝓟); W(X) is the whole-board convention game
+of a pawn position X, in which the first passer ends the game (`notes/lemmas.md`); S(X) is the BIG value of
+§1.5; and HSS, hereditary sum-safety, is the hypothesis (HSS) of Theorem 1.11(c). (Revised after review:
+R1 item 11: §6 used o(W(X)) and "hereditarily sum-safe" without defining them.)""",
+)
+
+''' + anchor
+assert anchor in s
+s = s.replace(anchor, new, 1)
+p.write_text(s)
+print("patched")
+PY
+.venv/bin/python kings/delegate/out/K1a/make_edits.py && python3 kings/delegate/apply_edits.py kings/theory/LOOPY.md /tmp/k1a/LOOPY_K1a.md kings/delegate/out/K1a/EDITS.md | tail -2 && sed -n '123,140p' /tmp/k1a/LOOPY_K1a.md
+patched
+wrote /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K1a/EDITS.md with 29 edits
+applied  K1a EDIT 29: R2 item 4: the proof of Theorem 2.4(c)
+28 applied, 1 rejected -> /tmp/k1a/LOOPY_K1a.md
+    otherwise the game is drawn.
+
+**Results** (section number, label, one line each):
+
+| # | Statement | Label |
+|---|---|---|
+| L1.6 | Adding options for a player never lowers that player's result | PROVED |
+| L1.7 | Under normal play a move to the opponent's win can be deleted; under chess rules it cannot, because "no move" is stalemate | PROVED |
+| T1.9 | One component: o(A^B) is the decisive-event outcome for every B ≥ 1 | PROVED |
+| T1.11 | Sums: o(S) = decisive-event outcome under first-event dominance; sufficient: no opposite-sign threats in different components (a threat is a move into a terminal by either player), and B > every tempo count. (c) is the re-splitting version | PROVED (a); (b) and (c) PROVED after repair |
+| P1.12 | {⊕ \| ∅} ⊞ {∅ \| ⊖} is 𝓝 in chess semantics, but its BIG translation is 0 (𝓟) for every B | PROVED |
+| P1.13 | B must exceed every tempo count: with n tempi against the threat { \| ⊖}, the BIG outcome is right iff n ≤ B | PROVED after repair |
+| T1.14 | Validity: (V1)–(V3) give P = D (no draws), (V4) gives o(S) = P, and (A_Q)(X) gives C = P | PROVED (the C part is the per-position hypothesis (A_Q)(X)) |
+| T2.3 | {−B \| B} = 0 | PROVED (and KNOWN: simplicity theorem) |
+| T2.4 | Freeze theorem: if Z-moves are punished at every position where the mover is losing, then G + Z has the result of G, for a G scored under normal play (no draws) | PROVED after repair |
+| T2.7 | Local certificate LC_T (local forced promotion against a passing defender, no faster counter-promotion, no stalemate) ⇒ decisive punishment | PROVED (in P) |
+| C2.8 | Square-rule form: d(defender's king, promotion square) ≥ D + 2 suffices for the local part | PROVED |
+| L2.9 | Blockade: a defender who may pass and whose king stands in front of the pawn is never beaten | PROVED |
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && python3 - <<'PY'
+import pathlib
+p = pathlib.Path("kings/delegate/out/K1a/make_edits.py")
+s = p.read_text()
+a = '''    old(211, 212),
+    """S  --Thm 1.11(c) (V4)-->  D  --Thm 1.14 (V1-V3)-->  P  --(A_Q)(X)-->  C
+```
+
+*Notation.*'''
+b = '''    old(208, 208),
+    """The models are connected by bridges, each with its own hypotheses:
+
+*Notation.*'''
+assert a in s
+s = s.replace(a, b)
+p.write_text(s)
+print("patched")
+PY
+.venv/bin/python kings/delegate/out/K1a/make_edits.py && python3 kings/delegate/apply_edits.py kings/theory/LOOPY.md /tmp/k1a/LOOPY_K1a.md kings/delegate/out/K1a/EDITS.md | tail -2 && sed -n '206,222p' /tmp/k1a/LOOPY_K1a.md
+patched
+wrote /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K1a/EDITS.md with 29 edits
+applied  K1a EDIT 29: R2 item 4: the proof of Theorem 2.4(c)
+29 applied, 0 rejected -> /tmp/k1a/LOOPY_K1a.md
+  event. Its terminals are the decisive events:
+  - a passer appears (as in `cylcgt`), with races scored by a race rule;
+  - a punished move in the king group (§2). Under (V3) of Theorem 1.14 *every* move inside Z is a punished
+    move, so the king group then contributes only suicides and is deleted by Lemma 1.7; the setup of
+    Theorem 1.14 and this definition agree under (V3) (revised after review: R2 item 10).
+- **S(X), the BIG convention.** The BIG value of X: at every node of the game tree the position is split
+  into its components (files separated by an empty file, and an empty file stays empty), each component is
+  translated separately, and the translations are summed; a component with a passer is worth ±BIG, races being
+  scored by the race rule. This is the value `cylcgt.pawns.value` computes (COMPUTED-1, `cylcgt/pawns.py`).
+  - *What S(X) is not* (revised after review: R2 item 2): it is not the BIG translation D(X)^B of the D-game of
+    §1.2, in which the components are those of the root and the first decisive event ends the whole play.
+    `cylcgt` re-splits at every node, and a passer freezes only its own component, so the two differ as soon
+    as a component splits. Example: flat 7×6, e.p. on, count rule, `W: b2 d3 f2 / B: c4 c5 e5 g5` is one
+    component at the root, yet o(S) = 𝓝 while the decisive-event result is 𝓡 (COMPUTED-1, `lemmas/common.py`:
+    o(S) = N, o(W) = R).
+  - The re-splitting is why (V4) of Theorem 1.14 has to be checked hereditarily; see Theorem 1.11(c).
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && sed -n '222,245p' /tmp/k1a/LOOPY_K1a.md; echo "=== diff stat ==="; diff <(cat kings/theory/LOOPY.md) /tmp/k1a/LOOPY_K1a.md | grep -c "^[<>]"; wc -l kings/theory/LOOPY.md /tmp/k1a/LOOPY_K1a.md
+The models are connected by bridges, each with its own hypotheses:
+
+*Notation.* o(G) is the outcome class of a CGT game G (𝓛, 𝓡, 𝓝, 𝓟); W(X) is the whole-board convention game
+of a pawn position X, in which the first passer ends the game (`notes/lemmas.md`); S(X) is the BIG value of
+§1.5; and HSS, hereditary sum-safety, is the hypothesis (HSS) of Theorem 1.11(c). (Revised after review:
+R1 item 11: §6 used o(W(X)) and "hereditarily sum-safe" without defining them.)
+
+```
+S  --Thm 1.11(c) (V4)-->  D  --Thm 1.14 (V1-V3)-->  P  --(A_Q)(X)-->  C
+```
+
+**Axiom (A_Q)(X) (per-position hypothesis, checked by kpsolve).** For a fixed position X: if X is a P-win
+for σ, then X is a C-win for σ.
+- **FALSE as a general statement (revised after review: R1 item 6, R2 item 8).** cyl:7×6 `Ke2 Pb5 ka5 w -` is
+  a P-win (b6=Q at once; `kpsolve --frozen` gives W W) and a chess draw (exact D D: every White move draws);
+  flat:4×4 `Kd1 Pb3 ka3 w -` is the same (b4=Q is met by Kxb4). So (A_Q) is not an axiom: it is a hypothesis
+  to be checked at each position, and every "PROVED in P" claim below is a chess claim only where it holds.
+- *Evidence for:* the cylinder KQK tables agree in two independent solvers ([RESULTS.md](../../RESULTS.md) §2:
+  KQK is 100% won on the 8×8 cylinder).
+- *Evidence against, in general:* L4.4 of `notes/lemmas.md` is a promotion race lost to a promotion with check.
+- *Settled by:* kpsolve with `--cap 1` computes C exactly whenever its bounds agree (A = B), and `--frozen`
+  computes P; the two runs decide (A_Q)(X) for that X.
+
+=== diff stat ===
+260
+    1125 kings/theory/LOOPY.md
+    1273 /tmp/k1a/LOOPY_K1a.md
+    2398 total
+[0m
+[0m← [0mWrite kings/delegate/out/K1a/REPORT.md
+Wrote file successfully.
+[0m
+[0m→ [0mRead kings/theory/REVIEWS.md
+[0m→ [0mRead kings/theory/LOOPY.md
+[0m→ [0mRead RESULTS.md
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && .venv/bin/python - <<'PY'
+import re
+txt = open("kings/delegate/out/K1a/EDITS.md").read()
+pat = re.compile(r"^### EDIT ([^\n]*)\n<<<<<<< OLD\n(.*?)\n=======\n(.*?)\n>>>>>>> NEW", re.S | re.M)
+ms = list(pat.finditer(txt))
+print("edit blocks found:", len(ms))
+note = open("kings/theory/LOOPY.md").read()
+bad = 0
+for m in ms:
+    old = m.group(2)
+    n = note.count(old)
+    lines = old.count("\n") + 1
+    if n != 1 or lines > 8:
+        bad += 1
+        print("  PROBLEM:", m.group(1)[:60], "count", n, "lines", lines)
+print("problems:", bad)
+# marker lines start their line?
+for line in txt.splitlines():
+    if line.startswith("<<<<<<<") or line.startswith("=======") or line.startswith(">>>>>>>"):
+        pass
+print("STATUS section present:", "## STATUS ROWS" in txt)
+print("status rows:", len([l for l in txt.split("## STATUS ROWS")[1].splitlines() if l.startswith("| ") and not l.startswith("| result") and not l.startswith("|---")]))
+print("total lines:", len(txt.splitlines()))
+PY
+edit blocks found: 29
+problems: 0
+STATUS section present: True
+status rows: 19
+total lines: 506
+[0m
+[0m⚙ [0mboard_read Shared agent board
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && ls -la kings/delegate/out/K1a/ && tail -25 kings/delegate/out/K1a/EDITS.md
+total 304
+drwxr-xr-x  7 aritro  staff    224 Oct 21 19:23 .
+drwxr-xr-x  6 aritro  staff    192 Oct 21 18:59 ..
+-rw-r--r--@ 1 aritro  staff  35368 Oct 21 19:22 EDITS.md
+-rw-r--r--@ 1 aritro  staff   8652 Oct 21 19:23 REPORT.md
+-rwxr-xr-x@ 1 aritro  staff  69600 Oct 21 19:12 kp
+-rw-r--r--@ 1 aritro  staff  30270 Oct 21 19:22 make_edits.py
+-rw-r--r--@ 1 aritro  staff   2030 Oct 21 19:21 verify.py
+>>>>>>> NEW
+
+## STATUS ROWS
+
+| result | final label | one-line note with review item |
+|---|---|---|
+| Def 1.5, S(X) | FALSE as originally stated → S(X) is the re-splitting BIG value (`cylcgt.pawns.value`), not D(X)^B; corrected | R2 item 2: cylcgt re-splits at every node, so one component can still fail |
+| Def 1.5, the Z-terminal | PROVED (wording corrected): under (V3) every move inside Z is the Z-terminal, so Z is deleted by Lemma 1.7 | R2 item 10 |
+| (A_Q), §1.2 | FALSE as a general statement → per-position hypothesis (A_Q)(X), checked by kpsolve; no longer a conjecture | R1 item 6, R2 item 8: `Ke2 Pb5 ka5 w` (cyl:7x6) and `Kd1 Pb3 ka3 w` (flat:4x4) are P-wins and chess draws |
+| T1.9 | PROVED; the remark after it is corrected | R2 item 2: the remark was false for cylcgt, which re-splits components |
+| Def 1.10, τ | PROVED after repair: τ counts options to ⊕/⊖ by **either** player (the suicide-blind τ was the fatal gap) | R1 item 1, R2 item 1 |
+| Def 1.10, tempo counts | PROVED (minor wording repaired: M of a sum is the sum over the coordinates; the bound is ≤ 6p, so BIG needs p ≤ 42, and a final Z-move adds 1) | R2 item 9 |
+| T1.11(a) | PROVED | R2: sound |
+| T1.11(b) | FALSE as originally stated → PROVED after repair: with the corrected τ, pairwise safety and B > every tempo count give first-event dominance | R1 item 1, R2 item 1 |
+| T1.11(c) | PROVED after repair (new): the hereditary, re-splitting version, with the full proof (L2.1 of `notes/lemmas.md` in D-game language) | R2 item 2 |
+| P1.12 | PROVED | R2: sound under either reading of ∅ (the BIG part {B \| 0} + {0 \| −B} = 0 checked) |
+| P1.13 | FALSE as originally stated → A′ = { \| ⊖}, translation −B−1, regimes 𝓡 / 𝓟 / 𝓛; the {∅ \| ⊖} variant is given too | R1 item 2, R2 item 3 |
+| T1.14(i) | PROVED | R2: sound |
+| T1.14(ii) | PROVED after repair: (V4) is hereditary, on the re-split components, Z deleted, with the corrected τ; (ii) then follows from (i) and T1.11(c) | R2 items 2 and 5 |
+| T1.14(iii) | PROVED, but a tautology: (A_Q) is now the per-position hypothesis (A_Q)(X) | R2 item 8 |
+| T1.14, sharp form | FALSE as originally stated → PROVED after repair: every legal Z-move of the loser at its turns must be a P-loss; the conclusion is the strategy's result, not a normal-play result | R2 item 6 |
+| §1.5 "each hypothesis is needed", (V1b) row | PROVED (corrected): the isolated witness is the frozen model; with real kings P1a also violates (V3) | R2 item 7 |
+| §1.5 "each hypothesis is needed", (V1a) row | CONJECTURE: the king sorties are (V2)/(V3) failures, so no (V1a) counterexample is given and "needed" is unproved for (V1a) | R1 item 4, R2 item 7 |
+| T2.4 | FALSE as originally stated (the "P-game of the context" option) → PROVED after repair: G under normal play (no draws), plus the strategy-transfer form (c) for games with draws | R2 item 4: `Ka4 Pb3 Pe3 kc3 pb4 pe4` is (D, D) in P and L in chess |
+| T3.3(b) | PROVED after repair: { \| ⊖} ⊞ on_D is (L, L); with {∅ \| ⊖} the pair is (W, L) in the D-model | R1 item 2 |
+[0m
+[0m✗ [0mboard_post {"to":"main","type":"RESULT","body":"K1a done. Deliverables in `kings/delegate/out/K1a/`: EDITS.md (29 edit blocks; every OLD verbatim from LOOPY.md, each occurring exactly once, ≤8 lines), REPORT.md, plus make_edits.py (regenerates EDITS.md) and verify.py (reproduces every computed number).\n\n`python3 kings/delegate/apply_edits.py kings/theory/LOOPY.md OUT.md kings/delegate/out/K1a/EDITS.md` → 29 applied, 0 rejected.\n\nIntegration notes:\n1. My STATUS ROWS (19 rows) agree row-by-row with the note's existing \"Status after review\" table for every result in my part, so that table can stay as it stands.\n2. I added a NEW Theorem 1.11(c) (the hereditary/re-splitting version, HSS, full proof = L2.1/Thm 2.1 of notes/lemmas.md in D-game language). Theorem 1.14(ii) now follows from (i) + 1.11(c) with (V4) stated hereditarily on the re-split components, Z deleted, corrected τ.\n3. I edited four rows of the §0 \"Results\" table (T1.11, P1.13, T1.14, T2.4) and the paragraph above the \"each hypothesis is needed\" table. If K1b/K1c replace those same table rows wholesale, my row edits may be rejected — the body edits (Def 1.5/1.10, Thm 1.11, 1.13, 1.14, 2.4, 3.3(b), (A_Q)) are in disjoint regions and should be safe.\n4. R1 item 11 (P11 uses o(W(X)) and \"hereditarily sum-safe\" undefined) is covered by an edit in §1.2 that defines o(·), W(X), S(X) and HSS; K1c can still touch the P11 row itself.\n5. Theorem 2.4's P-game option is FALSE, not merely unproved: cyl:7x6 `Ka4 Pb3 Pe3 kc3 pb4 pe4` is (D,D) in P (--frozen gives (L,W)) and L in chess. (A_Q) is false in general: `Ke2 Pb5 ka5 w -` (cyl:7x6) and `Kd1 Pb3 ka3 w -` (flat:4x4) are P-wins and chess draws.\n6. Negative result stated plainly: no (V1a) counterexample exists in the project, so \"each hypothesis is needed\" is left as a CONJECTURE for (V1a)."} failed
+[91m[1mError: [0mBoard messages cannot be sent to yourself: `main` resolves to the board root, which is your own session. Notes addressed to yourself belong in your final response (or goal report) instead of a board post
+[0m
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && python3 kings/delegate/apply_edits.py kings/theory/LOOPY.md /tmp/k1a/final.md kings/delegate/out/K1a/EDITS.md | tail -1 && git status --porcelain 2>/dev/null | head -20; ls kings/delegate/out/K1a/
+29 applied, 0 rejected -> /tmp/k1a/final.md
+ M delegate/REVIEW.md
+ M delegate/checks/star2_caware_check.out
+ M delegate/checks/star2_frontier_check.out
+ M kings/REPORT.md
+ M kings/analyze.py
+ M kings/conventions.py
+ M kings/experiment.py
+ M kings/lichess_check.py
+ M kings/results/PREDICTIONS.md
+ M kings/results/analyze_7x6.log
+ M kings/results/exp_cyl7x6_epon_Q_conv.jsonl
+ M research/dawson_variants/dawson_variants.py
+?? delegate/checks/star2_frontier_check2.out
+?? delegate/checks/star2_frontier_check2.py
+?? engine/runs/chesssums/chesssums.epd
+?? engine/runs/chesssums/chesssums_subset.epd
+?? engine/runs/chesssums/embed.py
+?? engine/runs/chesssums/lc0_10k_merged.json
+?? engine/runs/chesssums/lc0_10k_stdout.txt
+?? engine/runs/chesssums/lc0_1k_merged.json
+EDITS.md
+REPORT.md
+kp
+make_edits.py
+verify.py
+[0m
+Done. K1a is complete: all eight assigned defects are fixed as exact, apply-ready edits.
+
+**Deliverables** in `kings/delegate/out/K1a/`: `EDITS.md` (29 edit blocks + `## STATUS ROWS`), `REPORT.md`, plus `make_edits.py` (regenerates the edits from the note, so every OLD block is verbatim) and `verify.py` (reproduces every computed number). `LOOPY.md` was not modified; `apply_edits.py` reports **29 applied, 0 rejected**.
+
+**What was established**
+- **Def 1.10 / Thm 1.11(b)** — τ now counts options to ⊕/⊖ by *either* player; (b) is re-proved in full (frontier argument + tempo count, with the stack never reaching 0). The R1/R2 counterexample is now excluded: `B + {| −B} = −1` (𝓡) at the frontier, while the corrected τ blocks it.
+- **Def 1.5 / Thm 1.11(c) / Thm 1.14** — "S(X) is `cylcgt.pawns.value`" is false as stated; S(X) is the **re-splitting** BIG value. New Theorem 1.11(c) gives the hereditary (HSS) version with a complete proof (L2.1/Thm 2.1 of `notes/lemmas.md` in D-game language); (V4) is restated hereditarily on the re-split components with Z deleted; 1.14(ii) follows from (i) + 1.11(c). Counterexample computed: flat 7×6 `W: b2 d3 f2 / B: c4 c5 e5 g5` is one component at the root, o(S) = 𝓝 vs decisive-event 𝓡.
+- **Prop 1.13 / Thm 3.3(b)** — A′ = { | ⊖} (translation −B−1); regimes 𝓡/𝓟/𝓛 confirmed (`R R R R R P L L`, B = 4); the {∅ | ⊖} reading is given separately (`N N N N N L L L`); 3.3(b) now uses the same A′.
+- **Thm 1.14 sharp form** — (V3) strengthened to "every legal Z-move of the loser at its turns is a P-loss"; the conclusion is the strategy's result, not a normal-play result.
+- **Thm 2.4** — restricted to normal-play (no-draw) G, with a new strategy-transfer form (c); the P-game option is **false**, with the counterexample `Ka4 Pb3 Pe3 kc3 pb4 pe4` (P: (D,D); frozen: (L,W); chess: L).
+- **(A_Q)** — demoted to the per-position hypothesis (A_Q)(X); false in general (`Ke2 Pb5 ka5 w -` cyl:7x6 and `Kd1 Pb3 ka3 w -` flat:4x4 are P-wins and chess draws, both checked with kpsolve).
+- **§1.5 table** — (V1b) row now cites the frozen-model isolated witness; **(V1a) "needed" is labelled CONJECTURE** (no counterexample exists; the engine-suite sorties are (V2)/(V3) failures) — a negative result, reported plainly.

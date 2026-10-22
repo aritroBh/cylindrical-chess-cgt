@@ -28,8 +28,8 @@ Two baselines: "Z = 0" reads the king group as 0 and values the rest with cylcgt
 | P5 +Hp1 | cyl:7x6 | `Kc4 Pb5 kb6 pc5 Pe2 Pe4 pe5` | WW | WW | race | WW | yes | no prediction (race) |
 | P8 6-rank | cyl:7x6 | `Kc6 Pb5 kb4 pc5` | WW | LW | race | WW | yes | no prediction (race) |
 | P9 | cyl:7x6 | `Ka5 Pb4 Pc5 Pe2 kc6 pb5 pf3` | WL | WW | WW | WL | yes | **NO** |
-| P10 k=0 | cyl:8x6 | `Ka5 Pb4 Pc5 kc6 pb5` | WW | LW | WW | not run | — | — |
-| P10 k=1 | cyl:8x6 | `Ka5 Pb4 Pc5 kc6 pb5 Pe2 pe3 pe5` | WW | LL | WW | not run | — | — |
-| P10 k=2 | cyl:8x6 | `Ka5 Pb4 Pc5 kc6 pb5 Pe2 pe3 pe5 Pg2 pg3 pg5` | WW | LL | WW | not run | — | — |
+| P10 k=0 | cyl:8x6 | `Ka5 Pb4 Pc5 kc6 pb5` | WW | LW | WW | WW | yes | yes |
+| P10 k=1 | cyl:8x6 | `Ka5 Pb4 Pc5 kc6 pb5 Pe2 pe3 pe5` | WW | LL | WW | WW | yes | yes |
+| P10 k=2 | cyl:8x6 | `Ka5 Pb4 Pc5 kc6 pb5 Pe2 pe3 pe5 Pg2 pg3 pg5` | WW | LL | WW | WW | yes | yes |
 
-Theory: 19 of 22 exactly determined predictions hold. Literal cylcgt: 13 of 19 (the others it scores as races at move 0).
+Theory: 22 of 25 exactly determined predictions hold. Literal cylcgt: 16 of 22 (the others it scores as races at move 0).

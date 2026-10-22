@@ -63,7 +63,7 @@ def main():
         print("no positions")
         return 0
     inp = "\n".join(r[0] for r in rows) + "\n"
-    out = subprocess.run([f"{ROOT}/kings/kpsolve", "--board", "flat:8x8", "--cap", a.cap, "--threads", str(os.cpu_count() or 8)],
+    out = subprocess.run([f"{ROOT}/kings/kpsolve", "--board", "flat:8x8", "--cap", a.cap, "--threads", os.environ.get("KP_THREADS", "4")],
                          input=inp, capture_output=True, text=True, check=True)
     sys.stderr.write(out.stderr)
     bad = undetermined = 0

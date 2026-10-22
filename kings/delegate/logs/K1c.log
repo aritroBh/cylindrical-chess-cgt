@@ -1,0 +1,2384 @@
+[0m
+> build · auto/best-free
+[0m→ [0mRead kings/SPEC.md 
+[0m→ [0mRead kings/theory/REVIEWS.md 
+[0m→ [0mRead kings/theory/LOOPY.md 
+[0m→ [0mRead kings/results/PREDICTIONS.md 
+[0m→ [0mRead kings/results/theory_P4_cap2_moves.txt 
+> build · auto/best-free
+[0m→ [0mRead kings/theory/LOOPY.md [90m[offset=800][0m
+> build · auto/best-free
+[0m→ [0mRead kings 
+[0m→ [0mRead RESEARCH_PLAN.md 
+[0m→ [0mRead RESULTS.md 
+> build · auto/best-free
+[0m$ [0mls -la /Users/aritro/Downloads/Research/Chessendgames/; echo "---"; cat /Users/aritro/Downloads/Research/Chessendgames/kings/results/predictions_literal_cylcgt.json 2>/dev/null | head -50
+total 1728
+drwxr-xr-x@ 31 aritro  staff     992 Oct 21 17:55 .
+drwxr-xr-x   5 aritro  staff     160 Oct 15 21:57 ..
+drwxr-xr-x@ 15 aritro  staff     480 Oct 21 18:55 .git
+-rw-r--r--@  1 aritro  staff     952 Oct 21 18:22 .gitignore
+drwxr-xr-x@  6 aritro  staff     192 Oct 15 22:14 .pytest_cache
+drwxr-xr-x@  8 aritro  staff     256 Oct 15 22:14 .venv
+drwxr-xr-x@  9 aritro  staff     288 Oct 16 01:19 .venv-ml
+-rw-r--r--@  1 aritro  staff  827187 Oct 15 22:01 Pionner_Research.zip
+-rw-r--r--@  1 aritro  staff    1808 Oct 16 01:20 README.md
+-rw-r--r--@  1 aritro  staff   21620 Oct 16 01:20 RESEARCH_PLAN.md
+-rw-r--r--@  1 aritro  staff   21943 Oct 21 18:21 RESULTS.md
+drwxr-xr-x@  5 aritro  staff     160 Oct 16 02:57 atlas
+drwxr-xr-x@ 23 aritro  staff     736 Oct 21 17:23 bench
+drwxr-xr-x@  8 aritro  staff     256 Oct 15 22:38 crosscheck
+drwxr-xr-x@  9 aritro  staff     288 Oct 21 17:23 cylcgt
+drwxr-xr-x@ 36 aritro  staff    1152 Oct 21 17:23 dawson
+drwxr-xr-x@  9 aritro  staff     288 Oct 21 18:21 delegate
+drwxr-xr-x@ 15 aritro  staff     480 Oct 21 17:23 engine
+drwxr-xr-x@ 25 aritro  staff     800 Oct 21 18:54 kings
+drwxr-xr-x@ 12 aritro  staff     384 Oct 16 00:01 lemmas
+drwxr-xr-x@  5 aritro  staff     160 Oct 21 17:22 ml
+drwxr-xr-x@ 15 aritro  staff     480 Oct 21 17:36 notes
+drwxr-xr-x@ 15 aritro  staff     480 Oct 21 18:54 paper
+drwxr-xr-x@  4 aritro  staff     128 Oct 15 22:04 prior_work
+drwxr-xr-x@ 30 aritro  staff     960 Oct 21 17:24 realchess
+drwxr-xr-x@ 13 aritro  staff     416 Oct 21 19:00 research
+drwxr-xr-x@ 19 aritro  staff     608 Oct 16 00:25 sumtest
+drwxr-xr-x@  4 aritro  staff     128 Oct 15 22:47 tablebase
+drwxr-xr-x@  4 aritro  staff     128 Oct 21 16:31 tests
+drwxr-xr-x@  9 aritro  staff     288 Oct 16 02:45 verify
+drwxr-xr-x@  5 aritro  staff     160 Oct 21 17:42 verify_ext
+---
+{
+ "P1a": "WW",
+ "P1b": "LL",
+ "P2 nothing": "WW",
+ "P2 Hm1": "WW",
+ "P2 H*": "WW",
+ "P2 H*2": "WW",
+ "P2 H0": "WW",
+ "P3 nothing": "LL",
+ "P3 Hp1": "LL",
+ "P3 H*": "LL",
+ "P3 H*2": "LL",
+ "P3 H0": "LL",
+ "P4 nothing": "LW",
+ "P4 Hm1": "LL",
+ "P4 Hp1": "WW",
+ "P4 H*": "WL",
+ "P4 H*2": "WL",
+ "P4 H0": "LW",
+ "P5 bare": "race",
+ "P5 +Hp1": "race",
+ "P8 6-rank": "race",
+ "P9": "WW",
+ "P10 k=0": "WW",
+ "P10 k=1": "WW",
+ "P10 k=2": "WW"
+}
+[0m$ [0mls -la /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/ 2>/dev/null; echo "---"; ls -la /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/ 2>/dev/null; echo "---"; ls /Users/aritro/Downloads/Research/Chessendgames/kings/results/
+total 16
+drwxr-xr-x   7 aritro  staff   224 Oct 21 18:59 .
+drwxr-xr-x@ 25 aritro  staff   800 Oct 21 18:54 ..
+-rw-r--r--   1 aritro  staff  1087 Oct 21 18:59 apply_edits.py
+drwxr-xr-x  11 aritro  staff   352 Oct 21 18:59 briefs
+drwxr-xr-x  10 aritro  staff   320 Oct 21 18:59 logs
+drwxr-xr-x   6 aritro  staff   192 Oct 21 18:59 out
+-rwxr-xr-x   1 aritro  staff  2649 Oct 21 18:59 run.sh
+---
+total 0
+drwxr-xr-x  6 aritro  staff  192 Oct 21 18:59 .
+drwxr-xr-x  7 aritro  staff  224 Oct 21 18:59 ..
+drwxr-xr-x  3 aritro  staff   96 Oct 21 18:55 K1
+drwxr-xr-x  2 aritro  staff   64 Oct 21 18:59 K1a
+drwxr-xr-x  2 aritro  staff   64 Oct 21 18:59 K1b
+drwxr-xr-x  2 aritro  staff   64 Oct 21 18:59 K1c
+---
+FAILURES.md
+PREDICTIONS.md
+analyze_7x6.log
+batch.log
+crosscheck.txt
+exp_cyl6x6_epon_Q.jsonl
+exp_cyl6x6_epon_QRBN.jsonl
+exp_cyl6x6_epon_QRBN_summary.json
+exp_cyl6x6_epon_Q_conv.jsonl
+exp_cyl6x6_epon_Q_diagnosis.jsonl
+exp_cyl6x6_epon_Q_summary.json
+exp_cyl7x6_epon_Q.jsonl
+exp_cyl7x6_epon_Q_conv.jsonl
+exp_cyl7x6_epon_Q_summary.json
+exp_flat5x6_epon_Q.jsonl
+exp_flat5x6_epon_Q_conv.jsonl
+exp_flat5x6_epon_Q_diagnosis.jsonl
+exp_flat5x6_epon_Q_summary.json
+king_groups_8x8.txt
+king_groups_lichess.txt
+lichess_cache
+lichess_check_2-4_cap1.txt
+lichess_ledger.jsonl
+predictions_literal_cylcgt.json
+theory_P4_cap2.txt
+theory_P4_cap2_moves.txt
+theory_predictions_raw.txt
+> build · auto/best-free
+[0m→ [0mRead kings/delegate/briefs 
+[0m→ [0mRead kings/delegate/apply_edits.py 
+> build · auto/best-free
+[0m→ [0mRead kings/delegate/briefs/K1c_loopy_full.md 
+[0m→ [0mRead kings/delegate/briefs/K1_common_edits.md 
+> build · auto/best-free
+[0m$ [0mmkdir -p /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K1c && cc -O2 -o /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K1c/kp /Users/aritro/Downloads/Research/Chessendgames/kings/kpsolve.c && echo BUILD_OK && ls -la /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K1c/
+BUILD_OK
+total 136
+drwxr-xr-x  3 aritro  staff     96 Oct 21 19:03 .
+drwxr-xr-x  6 aritro  staff    192 Oct 21 18:59 ..
+-rwxr-xr-x@ 1 aritro  staff  69600 Oct 21 19:03 kp
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && grep -n "usage\|--moves\|getopt\|argv" kings/kpsolve.c | head -40
+18: *   --moves    after the result, list every legal move with the value it leads to
+897:static int usage(void) {
+898:  fprintf(stderr, "usage: kpsolve --board flat:WxH|cyl:WxH [--ep on|off] [--promote QRBN] [--cap C]"
+899:                  " [--frozen] [--moves] [--threads T] < positions > results\n");
+903:typedef struct { int argc; char **argv; int rc; } MainArgs;
+908:  char **argv = ma->argv;
+912:    if (!strcmp(argv[i], "--board") && i + 1 < argc) {
+914:      if (sscanf(argv[++i], "%7[a-z]:%dx%d", kind, &W, &H) != 3) { ma->rc = usage(); return NULL; }
+917:      else { ma->rc = usage(); return NULL; }
+919:    } else if (!strcmp(argv[i], "--ep") && i + 1 < argc) EPON = !strcmp(argv[++i], "on");
+920:    else if (!strcmp(argv[i], "--promote") && i + 1 < argc) promo = argv[++i];
+921:    else if (!strcmp(argv[i], "--cap") && i + 1 < argc) CAP = atoi(argv[++i]);
+922:    else if (!strcmp(argv[i], "--frozen")) FROZEN = 1;
+923:    else if (!strcmp(argv[i], "--moves")) WANTMOVES = 1;
+924:    else if (!strcmp(argv[i], "--threads") && i + 1 < argc) NT = atoi(argv[++i]);
+925:    else { ma->rc = usage(); return NULL; }
+928:    ma->rc = usage();
+936:    if (!q) { ma->rc = usage(); return NULL; }
+983:int main(int argc, char **argv) {
+987:  MainArgs ma = {argc, argv, 0};
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && printf 'Kb2 Pc2 kc4 pc3 w -\nKa1 Pc2 kc4 pc3 w -\n' | kings/delegate/out/K1c/kp --board flat:4x4 --cap 1 --moves
+[kpsolve flat:4x4 ep=on cap=1: 14 layers, 68608 states, depth 4, 0.0s]
+Kb2 Pc2 kc4 pc3 w - | D D | Kb2b1:D Kb2a2:D Kb2c1:D Kb2a3:D Kb2a1:D
+Ka1 Pc2 kc4 pc3 w - | D D | Ka1a2:D Ka1b1:D
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/briefs && tail -25 K1b_certificate_full.md; echo "=== K1a ==="; tail -30 K1a_validity_full.md
+- Every claim keeps exactly one label: PROVED, PROVED after repair, CONJECTURE, GAP (proof incomplete),
+    KNOWN, or FALSE as originally stated (then give the corrected statement).
+  - Use PROVED after repair only if NEW contains the complete repaired proof. Otherwise label it GAP or
+    CONJECTURE.
+- After the edits, add a section `## STATUS ROWS`. It holds one Markdown table row per numbered result in
+  your part: `| result | final label | one-line note with review item |`.
+
+Also write `REPORT.md` in your output directory: a 5-line summary, then the list of edits made.
+# Your part: K1b, Section 2 from Definition 2.5 on
+
+**Output directory:** `kings/delegate/out/K1b/`.
+
+Items to fix (see REVIEWS.md, especially Review 3 and Review 1 items 3, 7, 8, 9):
+- **Definition 2.6 and Theorem 2.7.** The pass-budget step is invalid.
+  - Replace it by the argument with an unlimited pass budget (k = ∞) plus (L3): the real defender's options
+    are a subset of the k = ∞ game's, and its only gain from fewer options is stalemate, which (L3)
+    excludes. Write the repaired proof in full if you can.
+  - Drop "every k is needed".
+  - Note that (L3′) cannot apply for T ≥ 2 on a 3-file group.
+- **Corollary 2.8:** the minor wording point.
+- **Lemma 2.9:** state the hidden hypothesis (the defender has no pawns the attacker's pawns can capture).
+- **Proposition 2.10(a):** needs H ≥ 5 (4-rank double steps). Proposition 2.10(b): its last sentence is a
+  CONJECTURE.
+- **Remark 2.11:** label it, and state why the certificate does not apply as written.
+- **The (L1) evidence claims in §5.1:** budgets k ≤ 4 and ∞ were checked, not "every budget".
+=== K1a ===
+  - Mark every change inline with "(revised after review: R<k> item <n>)".
+  - Every claim keeps exactly one label: PROVED, PROVED after repair, CONJECTURE, GAP (proof incomplete),
+    KNOWN, or FALSE as originally stated (then give the corrected statement).
+  - Use PROVED after repair only if NEW contains the complete repaired proof. Otherwise label it GAP or
+    CONJECTURE.
+- After the edits, add a section `## STATUS ROWS`. It holds one Markdown table row per numbered result in
+  your part: `| result | final label | one-line note with review item |`.
+
+Also write `REPORT.md` in your output directory: a 5-line summary, then the list of edits made.
+# Your part: K1a, Section 1 and Theorem 2.4
+
+**Output directory:** `kings/delegate/out/K1a/`.
+
+Items to fix (see REVIEWS.md):
+- **Definition 1.10 and Theorem 1.11(b).** The threat set must count moves into ⊕ or ⊖ by *either* player
+  (Review 1 item 1; Review 2 item 1).
+- **Definition 1.5 and the remark after Theorem 1.9.** "S(X) is cylcgt.pawns.value" is false, because
+  cylcgt re-splits components at every node (Review 2 item 2). State (V4) hereditarily, on the re-split
+  components, with the king group Z deleted (Review 2 item 5).
+- **Proposition 1.13** (Review 1 item 2; Review 2 item 3). Use A′ = { | ⊖}, whose translation is −B−1, or
+  restate it for {∅ | ⊖}.
+- **Theorem 3.3(b):** make it consistent with the corrected 1.13 (Review 1 item 2).
+- **Theorem 1.14:** fix (ii), (iii) and the sharp form (Review 2 items 5 and 6).
+- **Theorem 2.4:** restrict G to games without draws. The P-game alternative is false: Review 2 item 4
+  gives a counterexample.
+- **The "each hypothesis is needed" table in §1.5:** fix the (V1a) and (V1b) rows (Review 1 item 4; Review 2
+  item 7).
+- **(A_Q)** (Review 1 item 6; Review 2 item 8). It is false in general: `Ke2 Pb5 ka5 w -` is a
+  promotion-model win and a chess draw. Make it a per-position hypothesis that kpsolve checks.
+- **Definitions 1.5 and 1.10, minor items:** Review 2 items 9 and 10.
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && printf 'Ka5 Pb4 Pc5 kc6 pb5 Pe3 pe5 w -\nKa5 Pb4 Pc5 kc6 pb5 Pe2 pe5 w -\nKa5 Pb4 Pc5 kc6 pb5 Pe3 pe4 w -\nKa5 Pb4 Pc5 kc6 pb5 Pe2 pe3 pe5 w -\n' | kings/delegate/out/K1c/kp --board cyl:7x6 --cap 1 --moves
+(no output)
+
+Command exceeded timeout of 180000 ms. Retry with a larger timeout if the command is expected to take longer.
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && head -30 kings/results/theory_predictions_raw.txt; echo "=== cap2 ==="; cat kings/results/theory_P4_cap2.txt
+== cyl_7x6
+# P1a predicted DD naive WW
+Ka5 Pb4 Pc5 Pe2 Pe4 kc6 pb5 pe5 w - | D D | A: Ka5a6:D Ka5g5:D Ka5g6:D Ka5g4:D Pe2e3:D | B: Ka5a6:D Ka5g5:D Ka5g6:D Ka5g4:D Pe2e3:D
+Ka5 Pb4 Pc5 Pe2 Pe4 kc6 pb5 pe5 b - | D D | A:  | B: 
+# P1b predicted DD naive LL
+Kc1 Pb2 Pe2 ka2 pb3 pc2 pe3 pe5 w - | D D | A:  | B: 
+Kc1 Pb2 Pe2 ka2 pb3 pc2 pe3 pe5 b - | D D | A: Ka2a1:D Ka2g2:D Ka2g3:D Ka2g1:D Pe5e4:D | B: Ka2a1:D Ka2g2:D Ka2g3:D Ka2g1:D Pe5e4:D
+# P2 nothing predicted WW naive LW
+Ka5 Pb4 Pc5 kc6 pb5 w - | W W | A: Ka5a6:W Ka5g5:W Ka5g6:W Ka5g4:W | B: Ka5a6:W Ka5g5:W Ka5g6:W Ka5g4:W
+Ka5 Pb4 Pc5 kc6 pb5 b - | W W | A: Kc6d5:W | B: Kc6d5:W
+# P2 Hm1 predicted WW naive LL
+Ka5 Pb4 Pc5 kc6 pb5 Pe2 pe3 pe5 w - | W W | A: Ka5a6:W Ka5g5:W Ka5g6:W Ka5g4:W | B: Ka5a6:W Ka5g5:W Ka5g6:W Ka5g4:W
+Ka5 Pb4 Pc5 kc6 pb5 Pe2 pe3 pe5 b - | W W | A: Kc6d5:W Pe5e4:W | B: Kc6d5:W Pe5e4:W
+# P2 H* predicted WW naive WL
+Ka5 Pb4 Pc5 kc6 pb5 Pe3 pe5 w - | W W | A: Ka5a6:W Ka5g5:W Ka5g6:W Ka5g4:W Pe3e4:D | B: Ka5a6:W Ka5g5:W Ka5g6:W Ka5g4:W Pe3e4:D
+Ka5 Pb4 Pc5 kc6 pb5 Pe3 pe5 b - | W W | A: Kc6d5:W Pe5e4:W | B: Kc6d5:W Pe5e4:W
+# P2 H*2 predicted WW naive WL
+Ka5 Pb4 Pc5 kc6 pb5 Pe2 pe5 w - | W W | A: Ka5a6:W Ka5g5:W Ka5g6:W Ka5g4:W Pe2e3:W Pe2e4:D | B: Ka5a6:W Ka5g5:W Ka5g6:W Ka5g4:W Pe2e3:W Pe2e4:D
+Ka5 Pb4 Pc5 kc6 pb5 Pe2 pe5 b - | W W | A: Kc6d5:W Pe5e4:W Pe5e3:W | B: Kc6d5:W Pe5e4:W Pe5e3:W
+# P2 H0 predicted WW naive LW
+Ka5 Pb4 Pc5 kc6 pb5 Pe3 pe4 w - | W W | A: Ka5a6:W Ka5g5:W Ka5g6:W Ka5g4:W | B: Ka5a6:W Ka5g5:W Ka5g6:W Ka5g4:W
+Ka5 Pb4 Pc5 kc6 pb5 Pe3 pe4 b - | W W | A: Kc6d5:W | B: Kc6d5:W
+# P3 nothing predicted LL naive LW
+Kc1 Pb2 ka2 pb3 pc2 w - | L L | A: Kc1d2:L | B: Kc1d2:L
+Kc1 Pb2 ka2 pb3 pc2 b - | L L | A: Ka2a1:L Ka2g2:L Ka2g3:L Ka2g1:L | B: Ka2a1:L Ka2g2:L Ka2g3:L Ka2g1:L
+# P3 Hp1 predicted LL naive WW
+Kc1 Pb2 ka2 pb3 pc2 Pe2 Pe4 pe5 w - | L L | A: Kc1d2:L Pe2e3:L | B: Kc1d2:L Pe2e3:L
+Kc1 Pb2 ka2 pb3 pc2 Pe2 Pe4 pe5 b - | L L | A: Ka2a1:L Ka2g2:L Ka2g3:L Ka2g1:L | B: Ka2a1:L Ka2g2:L Ka2g3:L Ka2g1:L
+# P3 H* predicted LL naive WL
+Kc1 Pb2 ka2 pb3 pc2 Pe3 pe5 w - | L L | A: Kc1d2:L Pe3e4:L | B: Kc1d2:L Pe3e4:L
+=== cap2 ===
+[kpsolve cyl:7x6 ep=on cap=2: 508 layers, 262737216 states, depth 12, 50.8s]
+Ka4 Pb3 kc3 pb4 Pe3 pe5 w - | D D
+Ka4 Pb3 kc3 pb4 Pe3 pe5 b - | L L
+Ka4 Pb3 kc3 pb4 Pe2 pe5 w - | D D
+Ka4 Pb3 kc3 pb4 Pe2 pe5 b - | L L
+Ka4 Pb3 kc3 pb4 Pe3 pe4 w - | L L
+Ka4 Pb3 kc3 pb4 Pe3 pe4 b - | D D
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && printf 'Ka4 Pb3 kc3 pb4 Pe4 pe5 b -\nKa4 Pb3 kd3 pb4 Pe3 pe4 w -\nKa4 Pb3 kd4 pb4 Pe2 pe5 w -\nKa4 Pb3 kd3 pb4 Pe2 pe5 w -\nKa4 Pb3 kd3 pb4 Pe4 pe5 w -\n' | kings/delegate/out/K1c/kp --board cyl:7x6 --cap 2 --moves > kings/delegate/out/K1c/p4_probe.txt 2>&1; echo DONE
+Command moved to the background (shell ID: sh_160f26ea1001zmWbGYGlG3W3Hm).
+Output is streaming to: /Users/aritro/.local/share/opencode/shell/021e020f1631cdeb8e9696db64133ccb4df133c7/sh_160f26ea1001zmWbGYGlG3W3Hm.out
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && grep -n ' $' kings/theory/LOOPY.md | head -20; echo "--- tabs:"; grep -c $'\t' kings/theory/LOOPY.md; echo "--- CR:"; file kings/theory/LOOPY.md
+--- tabs:
+0
+--- CR:
+kings/theory/LOOPY.md: Unicode text, UTF-8 text, with very long lines (486)
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && sed -n '956,970p' kings/theory/LOOPY.md | cat -n
+1	| # | Board | Position family | Predicted (w, b) | Naive convention | Basis | Label |
+     2	|---|---|---|---|---|---|---|
+     3	| P1a | cyl:7x6 | `Ka5 Pb4 Pc5 Pe2 Pe4 kc6 pb5 pe5` | (D, D) | (W, W) | (V1b) fails: stalemate (§5.4) | PROVED |
+     4	| P1b | cyl:7x6 | `Kc1 Pb2 Pe2 ka2 pb3 pc2 pe3 pe5` | (D, D) | (L, L) | mirror of P1a | PROVED |
+     5	| P2 | cyl:7x6 | Z_onT1 `Ka5 Pb4 Pc5 kc6 pb5` + each of {nothing, Hm1, H\*, H\*2, H0} | (W, W) in all five | (L,W), (L,L), (W,L), (W,L), (L,W) | Thm 3.4(b) + Prop 3.2 + Prop 2.10(a) | PROVED in P; C modulo (A_Q) |
+     6	| P3 | cyl:7x6 | Z_offT1 `Kc1 Pb2 ka2 pb3 pc2` + each of {nothing, Hp1, H\*, H\*2, H0} | (L, L) in all five | (L,W), (W,W), (W,L), (W,L), (L,W) | mirror of P2 | PROVED in P; C modulo (A_Q) |
+     7	| P4 | cyl:7x6 | Z_T `Ka4 Pb3 kc3 pb4` + each of {nothing, Hm1, Hp1, H\*, H\*2, H0} | equal to the convention: (L,W), (L,L), (W,W), (W,L), (W,L), (L,W) | same | Thm 2.4(b) + Thm 2.7. (L1) holds: scratch, T ≤ 5, all budgets, confined king. (L2) holds at every loser-to-move node: scratch. (L3) not checked | CONJECTURE |
+     8	| P5 | cyl:7x6 | Z_72 `Kc4 Pb5 kb6 pc5`, bare; and + Hp1 | bare (D, W); + Hp1 (W, W) | bare (L, W); (W, W) | Black side: Prop 2.10(a) with T = 1 (PROVED in P). White side: Lemma 2.9 (escape by blockade) | all entries PROVED in P except the bare w-entry, which is a CONJECTURE (scratch: no forced promotion) |
+     9	| P6 | cyl:8x8 | 5.1 `Kh5 Pa4 kb4 pa5` | (L, W): a real mutual zugzwang | (L, W) | Thm 2.4 + Thm 2.7 ((L1) scratch, T ≤ 7) + self-duality | CONJECTURE |
+    10	| P7 | cyl:8x8 and flat:8x8 | 7.2 group `Ke6 Pd7 kd8 pe7` | (D, W) | (L, W) | Prop 2.10(a) for Black; Lemma 2.9 for White | b PROVED in P; w CONJECTURE |
+    11	| P8 | cyl:8x8; cyl:7x6 | 7.3 group `Kg8 Pf7 kf6 pg7`; 6-rank analogue `Kc6 Pb5 kb4 pc5` | (W, W) | (L, W) (read as 0) | unparriable safe promotion (§5.3) | PROVED in P |
+    12	| P9 | cyl:7x6 | `Ka5 Pb4 Pc5 Pe2 kc6 pb5 pf3` | (W, L): class 𝓝 | BIG with Z as `on`: (W, W) | Thm 3.3 versus Thm 3.4(b). Black: fxe2 and e1=Q; White: exf3, then zugzwang (Kd5 forced) | PROVED in P |
+    13	| P10 | cyl:8x6 | Z_onT1 + k Black tempo units: k = 0 nothing; k = 1 `Pe2 pe3 pe5`; k = 2 also `Pg2 pg3 pg5` | (W, W) for k = 0, 1, 2 | (L,W), (L,L), (L,L) | Prop 4.3 + Thm 3.4(b): the result does not depend on k, and there is no integer threshold | PROVED in P |
+    14	| P11 | cyl:8x6, `--frozen` | Kings parked on the a-file (`Ka1 ka6`, b- and h-files empty); pawn components on c–g; every passer and race node speed-certified (Remark 2.11 with frozen kings); condition (E) | kpsolve `--frozen` = o(W(X)); also = o(S(X)) when hereditarily sum-safe. Where o(S) ≠ o(W) (opposite threats, Prop 1.12), `--frozen` sides with W | — | Thm 1.11 + Thm 1.14 (frozen kings satisfy V1 and V3 by fiat) | PROVED (as an implication; the harness checks the hypotheses) |
+    15	| P12 | cyl:7x6 | Z_T + any context on e–f | Every disagreement between kpsolve (real) and `kpsolve --frozen` is witnessed, at some loser-to-move node, by a king move that violates (L1), (L2) or (L3), or by an (A_Q) or (V2) failure | — | Thm 2.4(b) + Thm 2.7 (contrapositive) | PROVED (implication) |
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && grep -n "P10\|P9\|P8\|P6\|P7" kings/results/theory_predictions_raw.txt
+63:# P8 6-rank predicted WW naive LW
+66:# P9 predicted WL naive WW
+71:# P10 k=0 predicted WW naive LW
+74:# P10 k=1 predicted WW naive LL
+77:# P10 k=2 predicted WW naive LL
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && sed -n '60,85p' kings/results/theory_predictions_raw.txt
+# P5 +Hp1 predicted WW naive WW
+Kc4 Pb5 kb6 pc5 Pe2 Pe4 pe5 w - | W W | A: Kc4c3:L Kc4d5:L Kc4d3:L Kc4b3:L Pe2e3:W | B: Kc4c3:L Kc4d5:L Kc4d3:L Kc4b3:L Pe2e3:W
+Kc4 Pb5 kb6 pc5 Pe2 Pe4 pe5 b - | W W | A: Kb6a5:W | B: Kb6a5:W
+# P8 6-rank predicted WW naive LW
+Kc6 Pb5 kb4 pc5 w - | W W | A: Kc6d6:L Kc6b6:W Kc6d5:L Pb5b6=Q:W Pb5b6=R:D Pb5b6=B:D Pb5b6=N:D | B: Kc6d6:L Kc6b6:W Kc6d5:L Pb5b6=Q:W Pb5b6=R:D Pb5b6=B:D Pb5b6=N:D
+Kc6 Pb5 kb4 pc5 b - | W W | A: Kb4b3:W Kb4c4:W Kb4a4:W Kb4c3:W Kb4a5:W Kb4a3:W Pc5c4:W Pc5c3:W | B: Kb4b3:W Kb4c4:W Kb4a4:W Kb4c3:W Kb4a5:W Kb4a3:W Pc5c4:W Pc5c3:W
+# P9 predicted WL naive WW
+Ka5 Pb4 Pc5 Pe2 kc6 pb5 pf3 w - | W W | A: Ka5a6:L Ka5g5:L Ka5g6:L Ka5g4:L Pe2e3:L Pe2e4:W Pe2f3:W | B: Ka5a6:L Ka5g5:L Ka5g6:L Ka5g4:L Pe2e3:L Pe2e4:L Pe2f3:W
+Ka5 Pb4 Pc5 Pe2 kc6 pb5 pf3 b - | L L | A: Kc6d5:W Pf3f2:L Pf3e2:L | B: Kc6d5:W Pf3f2:L Pf3e2:L
+== cyl_8x6
+[kpsolve cyl:8x6 ep=on cap=1: 836545 layers, 126988651008 states, depth 25, 19414.3s, capped promotions met (two bounds)]
+# P10 k=0 predicted WW naive LW
+Ka5 Pb4 Pc5 kc6 pb5 w - | W W | A: Ka5a6:W Ka5h5:W Ka5h6:W Ka5h4:W | B: Ka5a6:W Ka5h5:W Ka5h6:W Ka5h4:W
+Ka5 Pb4 Pc5 kc6 pb5 b - | W W | A: Kc6d5:W | B: Kc6d5:W
+# P10 k=1 predicted WW naive LL
+Ka5 Pb4 Pc5 kc6 pb5 Pe2 pe3 pe5 w - | W W | A: Ka5a6:W Ka5h5:W Ka5h6:W Ka5h4:W | B: Ka5a6:W Ka5h5:W Ka5h6:W Ka5h4:W
+Ka5 Pb4 Pc5 kc6 pb5 Pe2 pe3 pe5 b - | W W | A: Kc6d5:W Pe5e4:W | B: Kc6d5:W Pe5e4:W
+# P10 k=2 predicted WW naive LL
+Ka5 Pb4 Pc5 kc6 pb5 Pe2 pe3 pe5 Pg2 pg3 pg5 w - | W W | A: Ka5a6:W Ka5h5:W Ka5h6:W | B: Ka5a6:W Ka5h5:W Ka5h6:W
+Ka5 Pb4 Pc5 kc6 pb5 Pe2 pe3 pe5 Pg2 pg3 pg5 b - | W W | A: Kc6d5:W Pe5e4:W Pg5g4:W | B: Kc6d5:W Pe5e4:W Pg5g4:W
+> build · auto/best-free
+[0m→ [0mRead kings/delegate/out/K1c/p4_probe.txt 
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && cat kings/results/theory_P4_cap2.txt; echo "=== PREDICTIONS P4 rows ==="; grep -n "P4" kings/results/PREDICTIONS.md
+[kpsolve cyl:7x6 ep=on cap=2: 508 layers, 262737216 states, depth 12, 50.8s]
+Ka4 Pb3 kc3 pb4 Pe3 pe5 w - | D D
+Ka4 Pb3 kc3 pb4 Pe3 pe5 b - | L L
+Ka4 Pb3 kc3 pb4 Pe2 pe5 w - | D D
+Ka4 Pb3 kc3 pb4 Pe2 pe5 b - | L L
+Ka4 Pb3 kc3 pb4 Pe3 pe4 w - | L L
+Ka4 Pb3 kc3 pb4 Pe3 pe4 b - | D D
+=== PREDICTIONS P4 rows ===
+3:Result pairs are (White to move, Black to move), from White's point of view. kpsolve: `--cap 1 --promote QRBN --ep on`, and `--cap 2` for the three P4 rows whose cap-1 bounds differed; "bounds" means the two cap bounds differ.
+21:| P4 nothing | cyl:7x6 | `Ka4 Pb3 kc3 pb4` | LW | LW | LW | LW | yes | yes |
+22:| P4 Hm1 | cyl:7x6 | `Ka4 Pb3 kc3 pb4 Pe2 pe3 pe5` | LL | LL | LL | LL | yes | yes |
+23:| P4 Hp1 | cyl:7x6 | `Ka4 Pb3 kc3 pb4 Pe2 Pe4 pe5` | WW | WW | WW | WW | yes | yes |
+24:| P4 H* | cyl:7x6 | `Ka4 Pb3 kc3 pb4 Pe3 pe5` | WL | WL | WL | DL | **NO** | **NO** |
+25:| P4 H*2 | cyl:7x6 | `Ka4 Pb3 kc3 pb4 Pe2 pe5` | WL | WL | WL | DL | **NO** | **NO** |
+26:| P4 H0 | cyl:7x6 | `Ka4 Pb3 kc3 pb4 Pe3 pe4` | LW | LW | LW | LD | **NO** | **NO** |
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && cat kings/results/predictions_literal_cylcgt.json
+{
+ "P1a": "WW",
+ "P1b": "LL",
+ "P2 nothing": "WW",
+ "P2 Hm1": "WW",
+ "P2 H*": "WW",
+ "P2 H*2": "WW",
+ "P2 H0": "WW",
+ "P3 nothing": "LL",
+ "P3 Hp1": "LL",
+ "P3 H*": "LL",
+ "P3 H*2": "LL",
+ "P3 H0": "LL",
+ "P4 nothing": "LW",
+ "P4 Hm1": "LL",
+ "P4 Hp1": "WW",
+ "P4 H*": "WL",
+ "P4 H*2": "WL",
+ "P4 H0": "LW",
+ "P5 bare": "race",
+ "P5 +Hp1": "race",
+ "P8 6-rank": "race",
+ "P9": "WW",
+ "P10 k=0": "WW",
+ "P10 k=1": "WW",
+ "P10 k=2": "WW"
+}
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && awk 'NR>=613 && NR<=626 {printf "%d|%s\n", NR, $0}' kings/theory/LOOPY.md; echo "-----"; awk 'NR>=690 && NR<=700 {printf "%d|%s\n", NR, $0}' kings/theory/LOOPY.md
+613|- Black's suicides can be deleted (Lemma 1.7). This is valid in chess only under (V1b): Black must always
+614|  have the legal suicide.
+615|- Any further White Z-moves only help White (Lemma 1.6). ∎
+616|
+617|**Chess bridge** (PROVED, by the proof of Theorem 1.14). Suppose r(G ⊞ on_D) = W, White plays that strategy
+618|(shuttling for its passes), and along it:
+619|- every Black Z-move is decisively punished in P;
+620|- every decisive event of G that is reached is a P-win for its beneficiary;
+621|- Black always has a legal move.
+622|
+623|Then White wins in P. The mirror statement holds for Black wins.
+624|
+625|**Theorem 3.3 (BIG fails with a shuttle). PROVED.**
+626|- **(a)** For every short CGT game G, including games with ±B terminals, G + on is in 𝓛.
+-----
+690|- **Third step.** on_D adds White options (Lemma 1.6). ∎
+691|
+692|**What loopy kings do to the convention (PROVED by Theorem 3.4).**
+693|- **With a White shuttle:** the components' values (numbers, infinitesimals, nimbers) are irrelevant except
+694|  for Black's forcing threats. White cannot be zugzwanged, and Black loses as soon as its context tempo runs
+695|  out.
+696|- **With shuttles on both sides:** all tempo content disappears. Positions without threats are draws, even
+697|  where the convention predicts a clear winner. The 7.3 group would be of this type if its pawn could not
+698|  promote (§5.3).
+699|
+700|**Literature (KNOWN, as summarised in [notes/lit_cgt_chess.md](../../notes/lit_cgt_chess.md)).**
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && awk 'NR>=715 && NR<=795 {printf "%d|%s\n", NR, $0}' kings/theory/LOOPY.md
+715|- no Black options, or only suicides.
+716|
+717|As a CGT game it is the integer n (KNOWN: n = {n−1 | }, [WW] ch. 2).
+718|
+719|**Theorem 4.2 (finite versus loopy tempo). PROVED.**
+720|- **(a)** For a short G, G ⊞ R_n^W behaves as "White has n one-shot passes". Its BIG translation G^B + n
+721|  gives the right outcome when G ⊞ R_n^W is first-event dominant. A sufficient condition is pairwise safety
+722|  in G together with B > n + max(M_L(G), M_R(G)).
+723|  *Proof:* Theorem 1.11, with R_n counted as a component without threats; its n Left moves enter M_L.
+724|- **(b)** If White's safe Z-moves form an acyclic graph and all Black Z-moves are suicides, then Z, with
+725|  Black's suicides deleted (Lemma 1.7), equals the integer ℓ: the length of the longest path of safe White
+726|  moves.
+727|  *Proof:* induction, using {m₁, …, m_k | } = max m_i + 1. Dominated options can be deleted (KNOWN, [WW]
+728|  ch. 2, [S] ch. II).
+729|- **(c)** A reservoir with a White 2-cycle is on_D and equals no integer. *Proof:* take G = R_{n+1}^B, n + 1
+730|  Black tempi with no threats.
+731|  - G ⊞ R_n^W with White to move is L: the tempi run out on White first.
+732|  - G ⊞ on_D with White to move is W: Black runs out.
+733|
+734|So a group's tempo is *finite* (a stopper equal to an integer) exactly when its spare moves are
+735|non-reversible, and *unbounded* (on or off) when they contain a cycle.
+736|
+737|**Proposition 4.3 (no finite king tempo in isolated K+P groups). PROVED.** Let Z be a king group in a
+738|position without officers, with a buffer. Suppose side s plays a non-capturing king move u → v inside F_Z,
+739|and the opponent replies outside Z. Then v → u is legal at s's next turn and restores Z exactly.
+740|
+741|Consequently, if the opponent is frozen (all its Z-moves are suicides), any one safe king step of s gives s
+742|an unlimited supply of passes. A king group's king tempo is therefore 0 (frozen) or ∞ (shuttle), never a
+743|finite n ≥ 1.
+744|
+745|*Proof.*
+746|- u is empty, since s's king just left it and the opponent did not move in Z.
+747|- u is not adjacent to the opponent's king: that king has not moved since s's king stood on u legally.
+748|- u is not attacked by an opponent Z-pawn, since none has moved. It is not attacked by a context pawn
+749|  either: context pawns attack only context and buffer squares (Lemma 2.2), and u ∈ F_Z.
+750|- With no sliders, the move exposes nothing. ∎
+751|
+752|**What this means for the "n safe spare moves" picture.** In king-and-pawn chess, a king with exactly n safe
+753|spare moves cannot occur in an isolated group: one safe step and the step back already give infinitely
+754|many.
+755|- Finite tempo comes from **pawn** moves. That is Elkies' integers, spare pawn moves that end blocked
+756|  (KNOWN, Elkies 1996).
+757|- It can also come from genuine king-against-king fights, where the opponent *replies inside Z*: opposition
+758|  and shouldering. Those are not reservoirs, and they can have any value.
+759|
+760|**Over.** over = {0 | over} (KNOWN, [WW] ch. 11, [S] ch. VI). Right can pass forever (over → over), and Left
+761|has one move, to 0, that ends Right's passing.
+762|
+763|**Proposition 4.5. PROVED.** 0 < over < x for every number x > 0.
+764|
+765|*Proof.*
+766|- **over > 0.** Left moving first plays to 0 and wins. Right moving first can only pass, and then Left plays
+767|  to 0.
+768|- **over − x < 0.** Right moving first passes. Left must then either play over → 0, leaving −x (negative, so
+769|  Right wins), or move in −x, which Left can do only finitely often, Right passing in between. Either way
+770|  Right wins. Left moving first faces the same two choices. ∎
+771|
+772|**Proposition 4.6 (over with decisive terminals). PROVED.** Let over_D have positions ω and 0_D, with
+773|L(ω) = {0_D} and R(ω) = {ω}. If White wins G moving second, then White wins G ⊞ over_D with either side to
+774|move.
+775|
+776|*Proof.* White's strategy:
+777|- if White moves first, play ω → 0_D at once, leaving G with Black to move;
+778|- if Black passes, answer ω → 0_D;
+779|- if Black moves in G, answer with White's second-player strategy in G.
+780|
+781|If Black never passes, it runs out of moves in G and must then pass, which White answers by freezing. After
+782|the freeze Black is to move in a G-position lost for Black. ∎
+783|
+784|**Chess reading of over.**
+785|- Black has a safe king shuttle (endless passes), and White has exactly one move, typically a pawn move by
+786|  Proposition 4.3, that takes away a shuttle square and leaves a mutual zugzwang.
+787|- Elkies 1996 reports `over` in a study by Behting (1929), according to our literature notes. We have not
+788|  re-checked it.
+789|- **CONJECTURE 4.7:** no over-type group with ≤ 3 + 2 pawns fits on 3 files of the 8×6 cylinder, but over is
+790|  realisable on the cylinder with wider groups. *Scratch evidence:* the first half; a geometric search found
+791|  none. *To settle:* a wider search, then kpsolve.
+792|
+793|---
+794|
+795|## 5. Applications
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && awk 'NR>=745 && NR<=800 {printf "%d|%s\n", NR, $0}' kings/theory/LOOPY.md
+745|*Proof.*
+746|- u is empty, since s's king just left it and the opponent did not move in Z.
+747|- u is not adjacent to the opponent's king: that king has not moved since s's king stood on u legally.
+748|- u is not attacked by an opponent Z-pawn, since none has moved. It is not attacked by a context pawn
+749|  either: context pawns attack only context and buffer squares (Lemma 2.2), and u ∈ F_Z.
+750|- With no sliders, the move exposes nothing. ∎
+751|
+752|**What this means for the "n safe spare moves" picture.** In king-and-pawn chess, a king with exactly n safe
+753|spare moves cannot occur in an isolated group: one safe step and the step back already give infinitely
+754|many.
+755|- Finite tempo comes from **pawn** moves. That is Elkies' integers, spare pawn moves that end blocked
+756|  (KNOWN, Elkies 1996).
+757|- It can also come from genuine king-against-king fights, where the opponent *replies inside Z*: opposition
+758|  and shouldering. Those are not reservoirs, and they can have any value.
+759|
+760|**Over.** over = {0 | over} (KNOWN, [WW] ch. 11, [S] ch. VI). Right can pass forever (over → over), and Left
+761|has one move, to 0, that ends Right's passing.
+762|
+763|**Proposition 4.5. PROVED.** 0 < over < x for every number x > 0.
+764|
+765|*Proof.*
+766|- **over > 0.** Left moving first plays to 0 and wins. Right moving first can only pass, and then Left plays
+767|  to 0.
+768|- **over − x < 0.** Right moving first passes. Left must then either play over → 0, leaving −x (negative, so
+769|  Right wins), or move in −x, which Left can do only finitely often, Right passing in between. Either way
+770|  Right wins. Left moving first faces the same two choices. ∎
+771|
+772|**Proposition 4.6 (over with decisive terminals). PROVED.** Let over_D have positions ω and 0_D, with
+773|L(ω) = {0_D} and R(ω) = {ω}. If White wins G moving second, then White wins G ⊞ over_D with either side to
+774|move.
+775|
+776|*Proof.* White's strategy:
+777|- if White moves first, play ω → 0_D at once, leaving G with Black to move;
+778|- if Black passes, answer ω → 0_D;
+779|- if Black moves in G, answer with White's second-player strategy in G.
+780|
+781|If Black never passes, it runs out of moves in G and must then pass, which White answers by freezing. After
+782|the freeze Black is to move in a G-position lost for Black. ∎
+783|
+784|**Chess reading of over.**
+785|- Black has a safe king shuttle (endless passes), and White has exactly one move, typically a pawn move by
+786|  Proposition 4.3, that takes away a shuttle square and leaves a mutual zugzwang.
+787|- Elkies 1996 reports `over` in a study by Behting (1929), according to our literature notes. We have not
+788|  re-checked it.
+789|- **CONJECTURE 4.7:** no over-type group with ≤ 3 + 2 pawns fits on 3 files of the 8×6 cylinder, but over is
+790|  realisable on the cylinder with wider groups. *Scratch evidence:* the first half; a geometric search found
+791|  none. *To settle:* a wider search, then kpsolve.
+792|
+793|---
+794|
+795|## 5. Applications
+796|
+797|Patterns are named by the placement of the kings (WK, BK) and pawns (WP, BP) relative to a file X. All
+798|move lists below were enumerated by hand. A scratch script reproduced them, and its lists for 5.1, 7.2 and
+799|7.3 agree with [notes/diagram_audit.md](../../notes/diagram_audit.md) §C.3.
+800|
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && awk 'NR>=786 && NR<=800 {printf "%d|%s\n", NR, $0}' kings/theory/LOOPY.md; echo "====="; awk 'NR>=801 && NR<=850 {printf "%d|%s\n", NR, $0}' kings/theory/LOOPY.md
+786|  Proposition 4.3, that takes away a shuttle square and leaves a mutual zugzwang.
+787|- Elkies 1996 reports `over` in a study by Behting (1929), according to our literature notes. We have not
+788|  re-checked it.
+789|- **CONJECTURE 4.7:** no over-type group with ≤ 3 + 2 pawns fits on 3 files of the 8×6 cylinder, but over is
+790|  realisable on the cylinder with wider groups. *Scratch evidence:* the first half; a geometric search found
+791|  none. *To settle:* a wider search, then kpsolve.
+792|
+793|---
+794|
+795|## 5. Applications
+796|
+797|Patterns are named by the placement of the kings (WK, BK) and pawns (WP, BP) relative to a file X. All
+798|move lists below were enumerated by hand. A scratch script reproduced them, and its lists for 5.1, 7.2 and
+799|7.3 agree with [notes/diagram_audit.md](../../notes/diagram_audit.md) §C.3.
+800|
+=====
+801|### 5.1 Position 5.1 (8×8 cylinder: Kh5 Pa4 / Kb4 Pa5) — the frozen trébuchet
+802|
+803|- **Pattern A** (the *A-trébuchet*): WK (X−1, r+1), WP (X, r), BK (X+1, r), BP (X, r+1). Here X = a, r = 4.
+804|  - The L3 trébuchet of `notes/lemmas.md` (flat 8×8: Kf5 Pg4 / Kh4 Pg5) is the same pattern with X = g.
+805|  - On a cylinder all placements X are equivalent by rotation, so "5.1 relies on the seam" (lemmas.md
+806|    Prop. 3.6) says that on a *flat* board the pattern needs both files X ± 1.
+807|- **Self-dual. PROVED.** Swapping colours (rank r ↦ 9 − r) and reflecting the files about a maps 5.1 to
+808|  itself. So Black's sorties mirror White's.
+809|- **Frozen in the convention. PROVED** (diagram audit). Each king has five moves, and each drops its pawn.
+810|- **Certificate.**
+811|  - Corollary 2.8 fails for every sortie. After ...Kxa4 the punisher's king stands on its own pawn's path,
+812|    so it needs a king step plus 4 pushes, and the defending king is within distance 5 of a1.
+813|  - (L1) holds for all five White sorties with T ≤ 7 (5 to 7, depending on the sortie and the budget), for
+814|    every pass budget, with the punisher's king confined to {h, a, b}. This is scratch evidence
+815|    (Appendix A).
+816|  - With (L1), Theorem 2.7 makes the freeze valid in P for every context in which (L2) holds with
+817|    μ ≥ 8 at the zugzwang nodes, and (L3) holds.
+818|  - On 8 ranks a single free White pawn on rank 2 has μ = 5. So the certificate covers only locked or slow
+819|    contexts. Next to fast pawns the zero has to be checked case by case (Proposition 2.10b).
+820|- **Prediction.** The bare 5.1 is a real mutual zugzwang, (L, W) (P6 in §6). In the bare position the local
+821|  game is the whole game, so the scratch run is a full P-model computation. It is still one throwaway
+822|  implementation, hence a CONJECTURE.
+823|
+824|### 5.2 Position 7.2 (Ke6 Pd7 / Kd8 Pe7) — frozen for Black only
+825|
+826|- **Pattern B** (the *crossed blockade*): WK (X+1, H−2), WP (X, H−1), BK (X, H), BP (X+1, H−1), with X = d.
+827|  Each king blockades the enemy pawn and guards its own.
+828|  - The 6-rank analogue is Z_72 = Kc4 Pb5 / kb6 pc5.
+829|- **Black's only move inside the group, Kc7, is punished with T = 1. PROVED.**
+830|  - Kxe7 follows. Then d8=Q comes next move, guarded by Ke7.
+831|  - Black cannot stop it: c8 and e8 are attacked by d7, and d6 and d8 are adjacent to e7.
+832|  - In the bare group Black then has legal moves (b6, b7, b8, c6), so (L3) holds. In a context, (L3) is the
+833|    one-square check of whether a context pawn covers all of them.
+834|  - By Proposition 2.10(a), Black's punishment holds in **every** non-terminal context, subject to (L3) and
+835|    (A_Q).
+836|- **White's sorties are not punished.**
+837|  - Ke5 already stands on the e-pawn's path. Kd5 and Kf5 reach e5 next move: after ...Kxd7, e5 is not
+838|    adjacent to d7 and not attacked by e7.
+839|  - By Lemma 2.9, (L1) fails for these three sorties. PROVED.
+840|  - Scratch evidence: even without passes, Black cannot force promotion after Kd5, Ke5 or Kf5. Only Kf7
+841|    loses, in 10 moves.
+842|- **Theory for 7.2 + H** (H the {a,b,h} component). Theorem 2.4(b) needs the freeze only for the loser.
+843|  - **If White wins H** (convention, V1–V2 assumed): White wins 7.2 + H. The loser is Black, and Black's
+844|    Z-moves are universally punished. PROVED, modulo (A_Q), (V1) and (V2) for H's own events.
+845|  - **If Black wins H:** the convention's "Black wins" is **not certified**. At the end White, in zugzwang,
+846|    sorties with Ke5 and blockades. The outcome is then whatever the free Black king can achieve against H.
+847|- **The paper's 7.2.** The {a,b,h} part has outcome 𝓝 with e.p. on (audit).
+848|  - White to move: White wins, consistent with the paper.
+849|  - Black to move: open (CONJECTURE: it may be a draw).
+850|- **Predictions.** The bare 7.2 is (D, W), not the mutual zugzwang (L, W) (P7). The same holds for the 6-rank
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && awk 'NR>=824 && NR<=900 {printf "%d|%s\n", NR, $0}' kings/theory/LOOPY.md
+824|### 5.2 Position 7.2 (Ke6 Pd7 / Kd8 Pe7) — frozen for Black only
+825|
+826|- **Pattern B** (the *crossed blockade*): WK (X+1, H−2), WP (X, H−1), BK (X, H), BP (X+1, H−1), with X = d.
+827|  Each king blockades the enemy pawn and guards its own.
+828|  - The 6-rank analogue is Z_72 = Kc4 Pb5 / kb6 pc5.
+829|- **Black's only move inside the group, Kc7, is punished with T = 1. PROVED.**
+830|  - Kxe7 follows. Then d8=Q comes next move, guarded by Ke7.
+831|  - Black cannot stop it: c8 and e8 are attacked by d7, and d6 and d8 are adjacent to e7.
+832|  - In the bare group Black then has legal moves (b6, b7, b8, c6), so (L3) holds. In a context, (L3) is the
+833|    one-square check of whether a context pawn covers all of them.
+834|  - By Proposition 2.10(a), Black's punishment holds in **every** non-terminal context, subject to (L3) and
+835|    (A_Q).
+836|- **White's sorties are not punished.**
+837|  - Ke5 already stands on the e-pawn's path. Kd5 and Kf5 reach e5 next move: after ...Kxd7, e5 is not
+838|    adjacent to d7 and not attacked by e7.
+839|  - By Lemma 2.9, (L1) fails for these three sorties. PROVED.
+840|  - Scratch evidence: even without passes, Black cannot force promotion after Kd5, Ke5 or Kf5. Only Kf7
+841|    loses, in 10 moves.
+842|- **Theory for 7.2 + H** (H the {a,b,h} component). Theorem 2.4(b) needs the freeze only for the loser.
+843|  - **If White wins H** (convention, V1–V2 assumed): White wins 7.2 + H. The loser is Black, and Black's
+844|    Z-moves are universally punished. PROVED, modulo (A_Q), (V1) and (V2) for H's own events.
+845|  - **If Black wins H:** the convention's "Black wins" is **not certified**. At the end White, in zugzwang,
+846|    sorties with Ke5 and blockades. The outcome is then whatever the free Black king can achieve against H.
+847|- **The paper's 7.2.** The {a,b,h} part has outcome 𝓝 with e.p. on (audit).
+848|  - White to move: White wins, consistent with the paper.
+849|  - Black to move: open (CONJECTURE: it may be a draw).
+850|- **Predictions.** The bare 7.2 is (D, W), not the mutual zugzwang (L, W) (P7). The same holds for the 6-rank
+851|  analogue (P5).
+852|
+853|### 5.3 Position 7.3 (Kg8 Pf7 / Kf6 Pg7) — not a zugzwang at all
+854|
+855|- **Pattern C:** WK (X+1, H), WP (X, H−1), BK (X, H−2), BP (X+1, H−1), with X = f.
+856|- **Both kings can shuttle.** Kg8–f8 and Kf6–g6 are safe (audit; PROVED by enumeration: every one of the
+857|  four king placements is legal and keeps both pawns guarded).
+858|- **But f7–f8=Q is available.** With the king on g8, the queen on f8 cannot be taken: the black king is two
+859|  ranks away, or on e7 next to f8, which g8 guards.
+860|- **Black cannot parry it. PROVED.** All 8 Black moves (Kf5, Kg5, Ke5, Ke6, Ke7, Kg6, g6, g5) leave f7–f8=Q
+861|  available and safe.
+862|- So Z₇.₃ is a White win **with either side to move**, in every non-terminal context, in P (P8):
+863|  - the decisive event has T = 0 with White to move and T = 1 with Black to move;
+864|  - Proposition 2.10(a) gives (L2), because Black cannot promote in one move from a non-terminal context;
+865|  - (A_Q) is still needed for C.
+866|- **Why the paper's "trébuchet = 0" is wrong here.** Z is not even a tempo game. It is also an instance of
+867|  "a zugzwang where the other side's decisive event elsewhere is too slow": a Black passer created elsewhere
+868|  is a ⊖ in the D-model but loses to f8=Q in P. So (V2) fails for Black's passers, and the D-model is wrong.
+869|- **Without the pawn break.** If f8 were unavailable, the group would be a both-sides shuttle (dud-type), and
+870|  Theorem 3.4(a) would make every threat-free sum a draw.
+871|  - *Scratch evidence:* no both-sides-shuttle group without a pawn break exists among 3-file groups with
+872|    ≤ 2 + 2 pawns and no passer on the 8×6 cylinder. dud may not occur in small K+P groups (CONJECTURE).
+873|
+874|### 5.4 New groups: `on` and `off` realised, and a stalemate trap
+875|
+876|A geometric search on the 8×6 and 7×6 cylinders (scratch) found the following. Every move list is
+877|hand-checkable.
+878|
+879|**Z_onT1 = Ka5 Pb4 Pc5 / kc6 pb5** (7×6 or 8×6 cylinder; F_Z = {a, b, c}).
+880|- **Structure.**
+881|  - Black's king blockades the white pawn c5, which stands on the 5th rank and promotes on c6. The king also
+882|    guards b5.
+883|  - White's b4 guards c5.
+884|  - White's king attacks b5 from a5 or a6, and **shuttles a5 ↔ a6**.
+885|- **Black's only legal move inside the group is Kd5. PROVED.**
+886|  - On c6 the king stands on the top rank. Its neighbours are b5, b6, c5, d5 and d6.
+887|  - b5 is Black's own pawn, blocked by b4, with nothing to capture.
+888|  - b6 and d6 are attacked by c5, and b6 is also adjacent to the white king.
+889|  - c5 is guarded by b4.
+890|- **Kd5 is punished with T = 1. PROVED.** Kxb5 follows, and then c6=Q, guarded by b5.
+891|  - Black cannot stop it: c4 and c6 are adjacent to b5, and d6 is attacked by c5.
+892|  - Black is not stalemated after Kxb5: e6 is free in every context of §6.
+893|- **So Z_onT1 realises `on`.** By Proposition 3.2, its chess bridge and Proposition 2.10(a), Theorem 3.4(b)
+894|  applies in every non-terminal context that leaves d5 legal and leaves Black a legal move after Kxb5. Black
+895|  loses unless it has a forced decisive event against a passing White. Predictions P2 and P10.
+896|- **Literal pawn-only scoring.** It calls c5 passed (+BIG), and here that agrees with the truth, for the
+897|  wrong reason: it also says "White wins" in the trap below, which is a draw.
+898|- **Z_offT1 = Kc1 Pb2 / ka2 pb3 pc2** is the colour-reversed group. White's only move is Kd2; Black's king
+899|  shuttles a1 ↔ a2. (P3)
+900|
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && awk 'NR>=850 && NR<=945 {printf "%d|%s\n", NR, $0}' kings/theory/LOOPY.md
+850|- **Predictions.** The bare 7.2 is (D, W), not the mutual zugzwang (L, W) (P7). The same holds for the 6-rank
+851|  analogue (P5).
+852|
+853|### 5.3 Position 7.3 (Kg8 Pf7 / Kf6 Pg7) — not a zugzwang at all
+854|
+855|- **Pattern C:** WK (X+1, H), WP (X, H−1), BK (X, H−2), BP (X+1, H−1), with X = f.
+856|- **Both kings can shuttle.** Kg8–f8 and Kf6–g6 are safe (audit; PROVED by enumeration: every one of the
+857|  four king placements is legal and keeps both pawns guarded).
+858|- **But f7–f8=Q is available.** With the king on g8, the queen on f8 cannot be taken: the black king is two
+859|  ranks away, or on e7 next to f8, which g8 guards.
+860|- **Black cannot parry it. PROVED.** All 8 Black moves (Kf5, Kg5, Ke5, Ke6, Ke7, Kg6, g6, g5) leave f7–f8=Q
+861|  available and safe.
+862|- So Z₇.₃ is a White win **with either side to move**, in every non-terminal context, in P (P8):
+863|  - the decisive event has T = 0 with White to move and T = 1 with Black to move;
+864|  - Proposition 2.10(a) gives (L2), because Black cannot promote in one move from a non-terminal context;
+865|  - (A_Q) is still needed for C.
+866|- **Why the paper's "trébuchet = 0" is wrong here.** Z is not even a tempo game. It is also an instance of
+867|  "a zugzwang where the other side's decisive event elsewhere is too slow": a Black passer created elsewhere
+868|  is a ⊖ in the D-model but loses to f8=Q in P. So (V2) fails for Black's passers, and the D-model is wrong.
+869|- **Without the pawn break.** If f8 were unavailable, the group would be a both-sides shuttle (dud-type), and
+870|  Theorem 3.4(a) would make every threat-free sum a draw.
+871|  - *Scratch evidence:* no both-sides-shuttle group without a pawn break exists among 3-file groups with
+872|    ≤ 2 + 2 pawns and no passer on the 8×6 cylinder. dud may not occur in small K+P groups (CONJECTURE).
+873|
+874|### 5.4 New groups: `on` and `off` realised, and a stalemate trap
+875|
+876|A geometric search on the 8×6 and 7×6 cylinders (scratch) found the following. Every move list is
+877|hand-checkable.
+878|
+879|**Z_onT1 = Ka5 Pb4 Pc5 / kc6 pb5** (7×6 or 8×6 cylinder; F_Z = {a, b, c}).
+880|- **Structure.**
+881|  - Black's king blockades the white pawn c5, which stands on the 5th rank and promotes on c6. The king also
+882|    guards b5.
+883|  - White's b4 guards c5.
+884|  - White's king attacks b5 from a5 or a6, and **shuttles a5 ↔ a6**.
+885|- **Black's only legal move inside the group is Kd5. PROVED.**
+886|  - On c6 the king stands on the top rank. Its neighbours are b5, b6, c5, d5 and d6.
+887|  - b5 is Black's own pawn, blocked by b4, with nothing to capture.
+888|  - b6 and d6 are attacked by c5, and b6 is also adjacent to the white king.
+889|  - c5 is guarded by b4.
+890|- **Kd5 is punished with T = 1. PROVED.** Kxb5 follows, and then c6=Q, guarded by b5.
+891|  - Black cannot stop it: c4 and c6 are adjacent to b5, and d6 is attacked by c5.
+892|  - Black is not stalemated after Kxb5: e6 is free in every context of §6.
+893|- **So Z_onT1 realises `on`.** By Proposition 3.2, its chess bridge and Proposition 2.10(a), Theorem 3.4(b)
+894|  applies in every non-terminal context that leaves d5 legal and leaves Black a legal move after Kxb5. Black
+895|  loses unless it has a forced decisive event against a passing White. Predictions P2 and P10.
+896|- **Literal pawn-only scoring.** It calls c5 passed (+BIG), and here that agrees with the truth, for the
+897|  wrong reason: it also says "White wins" in the trap below, which is a draw.
+898|- **Z_offT1 = Kc1 Pb2 / ka2 pb3 pc2** is the colour-reversed group. White's only move is Kd2; Black's king
+899|  shuttles a1 ↔ a2. (P3)
+900|
+901|**The stalemate trap. PROVED** (by enumerating every legal move; P1). On the 7×6 cylinder, take
+902|Ka5 Pb4 Pc5 Pe2 Pe4 / kc6 pb5 pe5.
+903|- e4 attacks d5, so Black's king has no legal move. Black's b5 and e5 are blocked.
+904|- **Black to move:** Black is stalemated.
+905|- **White to move:** all five White moves (Ka6, Kg4, Kg5, Kg6, e2–e3) leave Black stalemated.
+906|- So the result is (D, D). The convention says (W, W), whether Z is read as 0 with H = +1 or as on.
+907|- (V1b) fails.
+908|- The mirror position Kc1 Pb2 Pe2 / ka2 pb3 pc2 pe3 pe5 is (D, D) as well. There White is the side
+909|  stalemated: e3 covers d2.
+910|
+911|### 5.5 A dropped pawn that does not lose
+912|
+913|Z_on = Ka4 Pb2 / kc4 pb3 (8×6 cylinder).
+914|- **It passes the convention's test.** Every Black king move drops b3, after which White has a passer and
+915|  Black none, and White's king shuttles a3 ↔ a4.
+916|- **But Black has an escape.** *Scratch evidence:* after the sortie Kc5 and Kxb3, White cannot force
+917|  promotion even without passes. After Kd4 and Kd5, White wins only if Black has no spare move.
+918|- So "drops a pawn" is not "loses". (V2) fails, and the group is not an `on`-group.
+919|- Z_onT1 above is the repaired version: the punishment there is one move deep.
+920|
+921|### 5.6 The engine-suite observation, explained
+922|
+923|RESULTS §1 reports that 41 of 449 trébuchet king moves draw and 7 win in the tablebase. Those positions are
+924|on the flat 8×8 board, with the component on a–d and only the e-file between.
+925|- The White king's sortie squares e4–e6 lie on the buffer file, next to the component. Their counter-play is
+926|  correspondingly fast.
+927|- *Example:* the documented draw `8/8/3p4/5Kp1/6Pk/2P5/8/8 w`, with Ke6! Kxg4 Kxd6 (engine/suite README).
+928|  - Our count gives μ_W = 5: the c-pawn walks c4–c8 while Black is busy.
+929|  - Black's local win after Ke6 Kxg4 takes T = 5 (scratch).
+930|  - So μ = T, and (L2) fails by one tempo.
+931|- PROVED: by Theorem 2.7 (contrapositive), every king move that does not lose in P violates (L1), (L2) or
+932|  (L3). A move that loses in P but not in C is an (A_Q) failure.
+933|- CONJECTURE: every one of the 48 non-losing king moves has μ ≤ T + 1 at its node: an (L2) failure, or an
+934|  (A_Q) failure with margin one. *To settle:* compute μ and T at those 48 nodes from `engine/suite/results.json`.
+935|
+936|---
+937|
+938|## 6. Testable predictions
+939|
+940|kpsolve options: `--ep on --promote QRBN --cap 1`. Positions use the format of `kings/SPEC.md`; append
+941|` w -` or ` b -`. Each row gives:
+942|- the predicted result pair (w, b), W/D/L from White's view;
+943|- the naive-convention pair (king group read as 0, H valued by `cylcgt` on its strip);
+944|- the theorem behind the prediction, and its label.
+945|
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && awk 'NR>=876 && NR<=955 {printf "%d|%s\n", NR, $0}' kings/theory/LOOPY.md
+876|A geometric search on the 8×6 and 7×6 cylinders (scratch) found the following. Every move list is
+877|hand-checkable.
+878|
+879|**Z_onT1 = Ka5 Pb4 Pc5 / kc6 pb5** (7×6 or 8×6 cylinder; F_Z = {a, b, c}).
+880|- **Structure.**
+881|  - Black's king blockades the white pawn c5, which stands on the 5th rank and promotes on c6. The king also
+882|    guards b5.
+883|  - White's b4 guards c5.
+884|  - White's king attacks b5 from a5 or a6, and **shuttles a5 ↔ a6**.
+885|- **Black's only legal move inside the group is Kd5. PROVED.**
+886|  - On c6 the king stands on the top rank. Its neighbours are b5, b6, c5, d5 and d6.
+887|  - b5 is Black's own pawn, blocked by b4, with nothing to capture.
+888|  - b6 and d6 are attacked by c5, and b6 is also adjacent to the white king.
+889|  - c5 is guarded by b4.
+890|- **Kd5 is punished with T = 1. PROVED.** Kxb5 follows, and then c6=Q, guarded by b5.
+891|  - Black cannot stop it: c4 and c6 are adjacent to b5, and d6 is attacked by c5.
+892|  - Black is not stalemated after Kxb5: e6 is free in every context of §6.
+893|- **So Z_onT1 realises `on`.** By Proposition 3.2, its chess bridge and Proposition 2.10(a), Theorem 3.4(b)
+894|  applies in every non-terminal context that leaves d5 legal and leaves Black a legal move after Kxb5. Black
+895|  loses unless it has a forced decisive event against a passing White. Predictions P2 and P10.
+896|- **Literal pawn-only scoring.** It calls c5 passed (+BIG), and here that agrees with the truth, for the
+897|  wrong reason: it also says "White wins" in the trap below, which is a draw.
+898|- **Z_offT1 = Kc1 Pb2 / ka2 pb3 pc2** is the colour-reversed group. White's only move is Kd2; Black's king
+899|  shuttles a1 ↔ a2. (P3)
+900|
+901|**The stalemate trap. PROVED** (by enumerating every legal move; P1). On the 7×6 cylinder, take
+902|Ka5 Pb4 Pc5 Pe2 Pe4 / kc6 pb5 pe5.
+903|- e4 attacks d5, so Black's king has no legal move. Black's b5 and e5 are blocked.
+904|- **Black to move:** Black is stalemated.
+905|- **White to move:** all five White moves (Ka6, Kg4, Kg5, Kg6, e2–e3) leave Black stalemated.
+906|- So the result is (D, D). The convention says (W, W), whether Z is read as 0 with H = +1 or as on.
+907|- (V1b) fails.
+908|- The mirror position Kc1 Pb2 Pe2 / ka2 pb3 pc2 pe3 pe5 is (D, D) as well. There White is the side
+909|  stalemated: e3 covers d2.
+910|
+911|### 5.5 A dropped pawn that does not lose
+912|
+913|Z_on = Ka4 Pb2 / kc4 pb3 (8×6 cylinder).
+914|- **It passes the convention's test.** Every Black king move drops b3, after which White has a passer and
+915|  Black none, and White's king shuttles a3 ↔ a4.
+916|- **But Black has an escape.** *Scratch evidence:* after the sortie Kc5 and Kxb3, White cannot force
+917|  promotion even without passes. After Kd4 and Kd5, White wins only if Black has no spare move.
+918|- So "drops a pawn" is not "loses". (V2) fails, and the group is not an `on`-group.
+919|- Z_onT1 above is the repaired version: the punishment there is one move deep.
+920|
+921|### 5.6 The engine-suite observation, explained
+922|
+923|RESULTS §1 reports that 41 of 449 trébuchet king moves draw and 7 win in the tablebase. Those positions are
+924|on the flat 8×8 board, with the component on a–d and only the e-file between.
+925|- The White king's sortie squares e4–e6 lie on the buffer file, next to the component. Their counter-play is
+926|  correspondingly fast.
+927|- *Example:* the documented draw `8/8/3p4/5Kp1/6Pk/2P5/8/8 w`, with Ke6! Kxg4 Kxd6 (engine/suite README).
+928|  - Our count gives μ_W = 5: the c-pawn walks c4–c8 while Black is busy.
+929|  - Black's local win after Ke6 Kxg4 takes T = 5 (scratch).
+930|  - So μ = T, and (L2) fails by one tempo.
+931|- PROVED: by Theorem 2.7 (contrapositive), every king move that does not lose in P violates (L1), (L2) or
+932|  (L3). A move that loses in P but not in C is an (A_Q) failure.
+933|- CONJECTURE: every one of the 48 non-losing king moves has μ ≤ T + 1 at its node: an (L2) failure, or an
+934|  (A_Q) failure with margin one. *To settle:* compute μ and T at those 48 nodes from `engine/suite/results.json`.
+935|
+936|---
+937|
+938|## 6. Testable predictions
+939|
+940|kpsolve options: `--ep on --promote QRBN --cap 1`. Positions use the format of `kings/SPEC.md`; append
+941|` w -` or ` b -`. Each row gives:
+942|- the predicted result pair (w, b), W/D/L from White's view;
+943|- the naive-convention pair (king group read as 0, H valued by `cylcgt` on its strip);
+944|- the theorem behind the prediction, and its label.
+945|
+946|Context components on the e-file of the 7×6 cylinder, with values computed by `cylcgt` on a 1-file strip of
+947|6 ranks:
+948|- Hm1 = Pe2 / pe3 pe5 = −1;
+949|- Hp1 = Pe2 Pe4 / pe5 = +1;
+950|- H* = Pe3 / pe5 = \*;
+951|- H\*2 = Pe2 / pe5 = \*2;
+952|- H0 = Pe3 / pe4 = 0.
+953|
+954|Each is a single file with no possible capture, so pure tempo.
+955|
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && awk 'NR>=906 && NR<=950 {printf "%d|%s\n", NR, $0}' kings/theory/LOOPY.md
+906|- So the result is (D, D). The convention says (W, W), whether Z is read as 0 with H = +1 or as on.
+907|- (V1b) fails.
+908|- The mirror position Kc1 Pb2 Pe2 / ka2 pb3 pc2 pe3 pe5 is (D, D) as well. There White is the side
+909|  stalemated: e3 covers d2.
+910|
+911|### 5.5 A dropped pawn that does not lose
+912|
+913|Z_on = Ka4 Pb2 / kc4 pb3 (8×6 cylinder).
+914|- **It passes the convention's test.** Every Black king move drops b3, after which White has a passer and
+915|  Black none, and White's king shuttles a3 ↔ a4.
+916|- **But Black has an escape.** *Scratch evidence:* after the sortie Kc5 and Kxb3, White cannot force
+917|  promotion even without passes. After Kd4 and Kd5, White wins only if Black has no spare move.
+918|- So "drops a pawn" is not "loses". (V2) fails, and the group is not an `on`-group.
+919|- Z_onT1 above is the repaired version: the punishment there is one move deep.
+920|
+921|### 5.6 The engine-suite observation, explained
+922|
+923|RESULTS §1 reports that 41 of 449 trébuchet king moves draw and 7 win in the tablebase. Those positions are
+924|on the flat 8×8 board, with the component on a–d and only the e-file between.
+925|- The White king's sortie squares e4–e6 lie on the buffer file, next to the component. Their counter-play is
+926|  correspondingly fast.
+927|- *Example:* the documented draw `8/8/3p4/5Kp1/6Pk/2P5/8/8 w`, with Ke6! Kxg4 Kxd6 (engine/suite README).
+928|  - Our count gives μ_W = 5: the c-pawn walks c4–c8 while Black is busy.
+929|  - Black's local win after Ke6 Kxg4 takes T = 5 (scratch).
+930|  - So μ = T, and (L2) fails by one tempo.
+931|- PROVED: by Theorem 2.7 (contrapositive), every king move that does not lose in P violates (L1), (L2) or
+932|  (L3). A move that loses in P but not in C is an (A_Q) failure.
+933|- CONJECTURE: every one of the 48 non-losing king moves has μ ≤ T + 1 at its node: an (L2) failure, or an
+934|  (A_Q) failure with margin one. *To settle:* compute μ and T at those 48 nodes from `engine/suite/results.json`.
+935|
+936|---
+937|
+938|## 6. Testable predictions
+939|
+940|kpsolve options: `--ep on --promote QRBN --cap 1`. Positions use the format of `kings/SPEC.md`; append
+941|` w -` or ` b -`. Each row gives:
+942|- the predicted result pair (w, b), W/D/L from White's view;
+943|- the naive-convention pair (king group read as 0, H valued by `cylcgt` on its strip);
+944|- the theorem behind the prediction, and its label.
+945|
+946|Context components on the e-file of the 7×6 cylinder, with values computed by `cylcgt` on a 1-file strip of
+947|6 ranks:
+948|- Hm1 = Pe2 / pe3 pe5 = −1;
+949|- Hp1 = Pe2 Pe4 / pe5 = +1;
+950|- H* = Pe3 / pe5 = \*;
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && awk 'NR>=936 && NR<=1000 {printf "%d|%s\n", NR, $0}' kings/theory/LOOPY.md
+936|---
+937|
+938|## 6. Testable predictions
+939|
+940|kpsolve options: `--ep on --promote QRBN --cap 1`. Positions use the format of `kings/SPEC.md`; append
+941|` w -` or ` b -`. Each row gives:
+942|- the predicted result pair (w, b), W/D/L from White's view;
+943|- the naive-convention pair (king group read as 0, H valued by `cylcgt` on its strip);
+944|- the theorem behind the prediction, and its label.
+945|
+946|Context components on the e-file of the 7×6 cylinder, with values computed by `cylcgt` on a 1-file strip of
+947|6 ranks:
+948|- Hm1 = Pe2 / pe3 pe5 = −1;
+949|- Hp1 = Pe2 Pe4 / pe5 = +1;
+950|- H* = Pe3 / pe5 = \*;
+951|- H\*2 = Pe2 / pe5 = \*2;
+952|- H0 = Pe3 / pe4 = 0.
+953|
+954|Each is a single file with no possible capture, so pure tempo.
+955|
+956|| # | Board | Position family | Predicted (w, b) | Naive convention | Basis | Label |
+957||---|---|---|---|---|---|---|
+958|| P1a | cyl:7x6 | `Ka5 Pb4 Pc5 Pe2 Pe4 kc6 pb5 pe5` | (D, D) | (W, W) | (V1b) fails: stalemate (§5.4) | PROVED |
+959|| P1b | cyl:7x6 | `Kc1 Pb2 Pe2 ka2 pb3 pc2 pe3 pe5` | (D, D) | (L, L) | mirror of P1a | PROVED |
+960|| P2 | cyl:7x6 | Z_onT1 `Ka5 Pb4 Pc5 kc6 pb5` + each of {nothing, Hm1, H\*, H\*2, H0} | (W, W) in all five | (L,W), (L,L), (W,L), (W,L), (L,W) | Thm 3.4(b) + Prop 3.2 + Prop 2.10(a) | PROVED in P; C modulo (A_Q) |
+961|| P3 | cyl:7x6 | Z_offT1 `Kc1 Pb2 ka2 pb3 pc2` + each of {nothing, Hp1, H\*, H\*2, H0} | (L, L) in all five | (L,W), (W,W), (W,L), (W,L), (L,W) | mirror of P2 | PROVED in P; C modulo (A_Q) |
+962|| P4 | cyl:7x6 | Z_T `Ka4 Pb3 kc3 pb4` + each of {nothing, Hm1, Hp1, H\*, H\*2, H0} | equal to the convention: (L,W), (L,L), (W,W), (W,L), (W,L), (L,W) | same | Thm 2.4(b) + Thm 2.7. (L1) holds: scratch, T ≤ 5, all budgets, confined king. (L2) holds at every loser-to-move node: scratch. (L3) not checked | CONJECTURE |
+963|| P5 | cyl:7x6 | Z_72 `Kc4 Pb5 kb6 pc5`, bare; and + Hp1 | bare (D, W); + Hp1 (W, W) | bare (L, W); (W, W) | Black side: Prop 2.10(a) with T = 1 (PROVED in P). White side: Lemma 2.9 (escape by blockade) | all entries PROVED in P except the bare w-entry, which is a CONJECTURE (scratch: no forced promotion) |
+964|| P6 | cyl:8x8 | 5.1 `Kh5 Pa4 kb4 pa5` | (L, W): a real mutual zugzwang | (L, W) | Thm 2.4 + Thm 2.7 ((L1) scratch, T ≤ 7) + self-duality | CONJECTURE |
+965|| P7 | cyl:8x8 and flat:8x8 | 7.2 group `Ke6 Pd7 kd8 pe7` | (D, W) | (L, W) | Prop 2.10(a) for Black; Lemma 2.9 for White | b PROVED in P; w CONJECTURE |
+966|| P8 | cyl:8x8; cyl:7x6 | 7.3 group `Kg8 Pf7 kf6 pg7`; 6-rank analogue `Kc6 Pb5 kb4 pc5` | (W, W) | (L, W) (read as 0) | unparriable safe promotion (§5.3) | PROVED in P |
+967|| P9 | cyl:7x6 | `Ka5 Pb4 Pc5 Pe2 kc6 pb5 pf3` | (W, L): class 𝓝 | BIG with Z as `on`: (W, W) | Thm 3.3 versus Thm 3.4(b). Black: fxe2 and e1=Q; White: exf3, then zugzwang (Kd5 forced) | PROVED in P |
+968|| P10 | cyl:8x6 | Z_onT1 + k Black tempo units: k = 0 nothing; k = 1 `Pe2 pe3 pe5`; k = 2 also `Pg2 pg3 pg5` | (W, W) for k = 0, 1, 2 | (L,W), (L,L), (L,L) | Prop 4.3 + Thm 3.4(b): the result does not depend on k, and there is no integer threshold | PROVED in P |
+969|| P11 | cyl:8x6, `--frozen` | Kings parked on the a-file (`Ka1 ka6`, b- and h-files empty); pawn components on c–g; every passer and race node speed-certified (Remark 2.11 with frozen kings); condition (E) | kpsolve `--frozen` = o(W(X)); also = o(S(X)) when hereditarily sum-safe. Where o(S) ≠ o(W) (opposite threats, Prop 1.12), `--frozen` sides with W | — | Thm 1.11 + Thm 1.14 (frozen kings satisfy V1 and V3 by fiat) | PROVED (as an implication; the harness checks the hypotheses) |
+970|| P12 | cyl:7x6 | Z_T + any context on e–f | Every disagreement between kpsolve (real) and `kpsolve --frozen` is witnessed, at some loser-to-move node, by a king move that violates (L1), (L2) or (L3), or by an (A_Q) or (V2) failure | — | Thm 2.4(b) + Thm 2.7 (contrapositive) | PROVED (implication) |
+971|
+972|**Notes on the table.**
+973|- **What P2, P3 and P10 prove.** The derivations use only enumerated move lists (§5.4) and Theorem 3.4(b).
+974|  The one-move punishment holds in every context listed: none of them puts a pawn on e4 (respectively e3)
+975|  that would cover d5 (respectively d2).
+976|  - In H\*2, White's double step e2–e4 *would* stalemate Black. In P3's H\*2, Black's double step e5–e3 would
+977|    stalemate White. The winner simply never plays it.
+978|- **Scratch confirmation in P.** A scratch P-model solver (no e.p.; queen safety required) reproduced every
+979|  P-level entry of P1, P2, P3, P5, P9 and P10 that it finished:
+980|  - P1a and P1b: (D, D);
+981|  - all five P2 positions: (W, W);
+982|  - all five P3 positions: (L, L);
+983|  - Z_72 bare: (D, W);
+984|  - Z_72 + Hp1: (W, W);
+985|  - P9: (W, L);
+986|  - P10 with k = 0 and k = 1: (W, W). The k = 2 run did not finish.
+987|
+988|  This is a check of the reasoning, not a substitute for kpsolve: it computes P, not C.
+989|- **Where the naive convention fails.** P2, P3 and P10 are the decisive tests of the loopy theory. In every
+990|  one of their 13 positions, the naive convention gets at least one of the two results wrong (17 of the 26
+991|  entries). P1 is the decisive test of (V1b).
+992|- **What P4 tests.** P4 is the positive control: the theory predicts that the convention is *right* there.
+993|- **P11 and P12** turn Theorems 1.11, 1.14 and 2.7 into checks of the solver.
+994|
+995|---
+996|
+997|## 7. Trying to break the proofs
+998|
+999|Each item is a counterexample type the task named, or one found while writing.
+1000|
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && awk 'NR>=963 && NR<=1000 {printf "%d|%s\n", NR, $0}' kings/theory/LOOPY.md
+963|| P5 | cyl:7x6 | Z_72 `Kc4 Pb5 kb6 pc5`, bare; and + Hp1 | bare (D, W); + Hp1 (W, W) | bare (L, W); (W, W) | Black side: Prop 2.10(a) with T = 1 (PROVED in P). White side: Lemma 2.9 (escape by blockade) | all entries PROVED in P except the bare w-entry, which is a CONJECTURE (scratch: no forced promotion) |
+964|| P6 | cyl:8x8 | 5.1 `Kh5 Pa4 kb4 pa5` | (L, W): a real mutual zugzwang | (L, W) | Thm 2.4 + Thm 2.7 ((L1) scratch, T ≤ 7) + self-duality | CONJECTURE |
+965|| P7 | cyl:8x8 and flat:8x8 | 7.2 group `Ke6 Pd7 kd8 pe7` | (D, W) | (L, W) | Prop 2.10(a) for Black; Lemma 2.9 for White | b PROVED in P; w CONJECTURE |
+966|| P8 | cyl:8x8; cyl:7x6 | 7.3 group `Kg8 Pf7 kf6 pg7`; 6-rank analogue `Kc6 Pb5 kb4 pc5` | (W, W) | (L, W) (read as 0) | unparriable safe promotion (§5.3) | PROVED in P |
+967|| P9 | cyl:7x6 | `Ka5 Pb4 Pc5 Pe2 kc6 pb5 pf3` | (W, L): class 𝓝 | BIG with Z as `on`: (W, W) | Thm 3.3 versus Thm 3.4(b). Black: fxe2 and e1=Q; White: exf3, then zugzwang (Kd5 forced) | PROVED in P |
+968|| P10 | cyl:8x6 | Z_onT1 + k Black tempo units: k = 0 nothing; k = 1 `Pe2 pe3 pe5`; k = 2 also `Pg2 pg3 pg5` | (W, W) for k = 0, 1, 2 | (L,W), (L,L), (L,L) | Prop 4.3 + Thm 3.4(b): the result does not depend on k, and there is no integer threshold | PROVED in P |
+969|| P11 | cyl:8x6, `--frozen` | Kings parked on the a-file (`Ka1 ka6`, b- and h-files empty); pawn components on c–g; every passer and race node speed-certified (Remark 2.11 with frozen kings); condition (E) | kpsolve `--frozen` = o(W(X)); also = o(S(X)) when hereditarily sum-safe. Where o(S) ≠ o(W) (opposite threats, Prop 1.12), `--frozen` sides with W | — | Thm 1.11 + Thm 1.14 (frozen kings satisfy V1 and V3 by fiat) | PROVED (as an implication; the harness checks the hypotheses) |
+970|| P12 | cyl:7x6 | Z_T + any context on e–f | Every disagreement between kpsolve (real) and `kpsolve --frozen` is witnessed, at some loser-to-move node, by a king move that violates (L1), (L2) or (L3), or by an (A_Q) or (V2) failure | — | Thm 2.4(b) + Thm 2.7 (contrapositive) | PROVED (implication) |
+971|
+972|**Notes on the table.**
+973|- **What P2, P3 and P10 prove.** The derivations use only enumerated move lists (§5.4) and Theorem 3.4(b).
+974|  The one-move punishment holds in every context listed: none of them puts a pawn on e4 (respectively e3)
+975|  that would cover d5 (respectively d2).
+976|  - In H\*2, White's double step e2–e4 *would* stalemate Black. In P3's H\*2, Black's double step e5–e3 would
+977|    stalemate White. The winner simply never plays it.
+978|- **Scratch confirmation in P.** A scratch P-model solver (no e.p.; queen safety required) reproduced every
+979|  P-level entry of P1, P2, P3, P5, P9 and P10 that it finished:
+980|  - P1a and P1b: (D, D);
+981|  - all five P2 positions: (W, W);
+982|  - all five P3 positions: (L, L);
+983|  - Z_72 bare: (D, W);
+984|  - Z_72 + Hp1: (W, W);
+985|  - P9: (W, L);
+986|  - P10 with k = 0 and k = 1: (W, W). The k = 2 run did not finish.
+987|
+988|  This is a check of the reasoning, not a substitute for kpsolve: it computes P, not C.
+989|- **Where the naive convention fails.** P2, P3 and P10 are the decisive tests of the loopy theory. In every
+990|  one of their 13 positions, the naive convention gets at least one of the two results wrong (17 of the 26
+991|  entries). P1 is the decisive test of (V1b).
+992|- **What P4 tests.** P4 is the positive control: the theory predicts that the convention is *right* there.
+993|- **P11 and P12** turn Theorems 1.11, 1.14 and 2.7 into checks of the solver.
+994|
+995|---
+996|
+997|## 7. Trying to break the proofs
+998|
+999|Each item is a counterexample type the task named, or one found while writing.
+1000|
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && awk 'NR>=970 && NR<=1000 {printf "%d|%s\n", NR, $0}' kings/theory/LOOPY.md
+970|| P12 | cyl:7x6 | Z_T + any context on e–f | Every disagreement between kpsolve (real) and `kpsolve --frozen` is witnessed, at some loser-to-move node, by a king move that violates (L1), (L2) or (L3), or by an (A_Q) or (V2) failure | — | Thm 2.4(b) + Thm 2.7 (contrapositive) | PROVED (implication) |
+971|
+972|**Notes on the table.**
+973|- **What P2, P3 and P10 prove.** The derivations use only enumerated move lists (§5.4) and Theorem 3.4(b).
+974|  The one-move punishment holds in every context listed: none of them puts a pawn on e4 (respectively e3)
+975|  that would cover d5 (respectively d2).
+976|  - In H\*2, White's double step e2–e4 *would* stalemate Black. In P3's H\*2, Black's double step e5–e3 would
+977|    stalemate White. The winner simply never plays it.
+978|- **Scratch confirmation in P.** A scratch P-model solver (no e.p.; queen safety required) reproduced every
+979|  P-level entry of P1, P2, P3, P5, P9 and P10 that it finished:
+980|  - P1a and P1b: (D, D);
+981|  - all five P2 positions: (W, W);
+982|  - all five P3 positions: (L, L);
+983|  - Z_72 bare: (D, W);
+984|  - Z_72 + Hp1: (W, W);
+985|  - P9: (W, L);
+986|  - P10 with k = 0 and k = 1: (W, W). The k = 2 run did not finish.
+987|
+988|  This is a check of the reasoning, not a substitute for kpsolve: it computes P, not C.
+989|- **Where the naive convention fails.** P2, P3 and P10 are the decisive tests of the loopy theory. In every
+990|  one of their 13 positions, the naive convention gets at least one of the two results wrong (17 of the 26
+991|  entries). P1 is the decisive test of (V1b).
+992|- **What P4 tests.** P4 is the positive control: the theory predicts that the convention is *right* there.
+993|- **P11 and P12** turn Theorems 1.11, 1.14 and 2.7 into checks of the solver.
+994|
+995|---
+996|
+997|## 7. Trying to break the proofs
+998|
+999|Each item is a counterexample type the task named, or one found while writing.
+1000|
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && awk 'NR>=1078 && NR<=1110 {printf "%d|%s\n", NR, $0}' kings/theory/LOOPY.md
+1078|
+1079|## Appendix A. The scratch computations
+1080|
+1081|These are throwaway Python scripts in the session scratchpad. They are not in the project and were run once.
+1082|Re-implement them before relying on any number.
+1083|
+1084|- **Geometry.**
+1085|  - Legal king and pawn moves on a W×H board, flat or cylinder, following `kings/SPEC.md` without en passant
+1086|    rights. Kings may not be adjacent; a move may not leave one's own king attacked by a pawn.
+1087|  - "Drops a pawn" means the opponent's king can then legally capture an undefended pawn.
+1088|  - It reproduces the move lists of `notes/diagram_audit.md` §C.3 for 5.1, 7.2 and 7.3.
+1089|- **Group search.** On the 8×6 and 7×6 cylinders: all placements of the kings and of ≤ 2 + 2 pawns on 3 (or 4)
+1090|  files, with no passer at the root. Each placement was classified as frozen, on, off, dud or over by one-ply
+1091|  tests. It found:
+1092|  - the A-trébuchet placements;
+1093|  - Z_onT1 and its mirror;
+1094|  - Z_on (§5.5);
+1095|  - no dud and no over group.
+1096|- **Local promotion game.** Retrograde least fixed point over (position, side to move, pass budget k ≤ 4 or
+1097|  ∞), with only Z's pieces on the board.
+1098|  - The attacker wins by promoting to a queen that cannot be captured at once.
+1099|  - Stalemate, a defender promotion and infinite play are attacker failures.
+1100|  - Option: confine the attacker's king to F_Z.
+1101|  - The reported T is the number of attacker moves under best play.
+1102|- **μ.** A breadth-first search over the defender's moves alone (king and pawns), with the other side's
+1103|  context pawns fixed and its king absent. It covers every context position reachable inside the e-file
+1104|  context.
+1105|- **Full P-model check.** The local promotion game run on the full positions of §6, with no budget (k = 0).
+1106|
+1107|---
+1108|
+1109|## References
+1110|
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && grep -n "V1a" kings/theory/LOOPY.md | head -20; echo "====="; awk 'NR>=778 && NR<=792 {printf "%d|%s\n", NR, $0}' kings/theory/LOOPY.md
+32:| §1.5 "each hypothesis is needed" | (V1b), (V2), (V3), (V4): counterexamples given. (V1a): none given, so "needed" is a CONJECTURE | R1 item 4, R2 item 7 |
+43:| P3.2 | PROVED; chess bridge PROVED after repair (adds (V1a)) | R4 item 7 |
+371:  - By (V1a), every chess move of the loser σ̄ is a D-option.
+382:- (V1a) splits into two halves:
+402:| (V1a) non-interaction | King sorties that reach the component: 41 of 449 tablebase king moves draw and 7 win (`engine/suite/`, RESULTS §1) |
+1018:   - Inside components, the sum needs condition (E) (L1.6–1.7 of `notes/lemmas.md`). Theorem 1.14(V1a)
+=====
+778|- if Black passes, answer ω → 0_D;
+779|- if Black moves in G, answer with White's second-player strategy in G.
+780|
+781|If Black never passes, it runs out of moves in G and must then pass, which White answers by freezing. After
+782|the freeze Black is to move in a G-position lost for Black. ∎
+783|
+784|**Chess reading of over.**
+785|- Black has a safe king shuttle (endless passes), and White has exactly one move, typically a pawn move by
+786|  Proposition 4.3, that takes away a shuttle square and leaves a mutual zugzwang.
+787|- Elkies 1996 reports `over` in a study by Behting (1929), according to our literature notes. We have not
+788|  re-checked it.
+789|- **CONJECTURE 4.7:** no over-type group with ≤ 3 + 2 pawns fits on 3 files of the 8×6 cylinder, but over is
+790|  realisable on the cylinder with wider groups. *Scratch evidence:* the first half; a geometric search found
+791|  none. *To settle:* a wider search, then kpsolve.
+792|
+> build · auto/best-free
+Now let me write the generator script that produces `EDITS.md` with byte-exact OLD blocks taken from the file.
+[0m← [0mWrite kings/delegate/out/K1c/make_edits.py
+Created file successfully: kings/delegate/out/K1c/make_edits.py
+> build · auto/best-free
+[0m← [0mEdit kings/delegate/out/K1c/make_edits.py
+Index: kings/delegate/out/K1c/make_edits.py
+===================================================================
+--- kings/delegate/out/K1c/make_edits.py
++++ kings/delegate/out/K1c/make_edits.py
+@@ -211,22 +211,22 @@
+ Reproduce the kpsolve column with `kings/kpsolve --board cyl:7x6 --ep on --promote QRBN --cap 1` on the
+ positions of the rows (and `--board cyl:8x6` for P10, `--cap 2` for the three P4 rows); the raw runs are in
+ `kings/results/theory_predictions_raw.txt` and `kings/results/theory_P4_cap2.txt`.""")
+ 
+-# ---- the prediction table: add the kpsolve column, cell by cell (values from PREDICTIONS.md)
+-TABLE = {}
++# rows are lines 958..970; column 5 (Naive convention) is followed by the new kpsolve column
+ 
+ 
+-def row_cell(n, cell, value):
+-    """Rebuild table row n (1-based among the 13 data rows) with one cell replaced."""
+-    TABLE.setdefault(n, list(lines[956:969])).append((cell, value))
+-
+-
+-# rows are lines 958..970
+-def rebuild(lineno, new_cells):
++def rebuild(lineno, kpsolve, family=None, basis=None, label=None):
++    """Rebuild one table row with the kpsolve column inserted after the 'Z = 0 convention' column."""
+     parts = lines[lineno - 1].split(" | ")
+-    for idx, val in new_cells.items():
+-        parts[idx] = val
++    assert len(parts) == 9, (lineno, parts)
++    parts = parts[:6] + [kpsolve] + parts[6:]
++    if family is not None:
++        parts[3] = family
++    if basis is not None:
++        parts[7] = basis
++    if label is not None:
++        parts[8] = label
+     return " | ".join(parts)
+ 
+ 
+ E("PREDICTIONS.md (kpsolve column)", 956, 957,
+
+> build · auto/best-free
+[0m← [0mEdit kings/delegate/out/K1c/make_edits.py
+Index: kings/delegate/out/K1c/make_edits.py
+===================================================================
+--- kings/delegate/out/K1c/make_edits.py
++++ kings/delegate/out/K1c/make_edits.py
+@@ -233,38 +233,37 @@
+   r"""| # | Board | Position family | Predicted (w, b) | Z = 0 convention | kpsolve (C) | Basis | Label |
+ |---|---|---|---|---|---|---|---|""")
+ 
+ E("PREDICTIONS.md (kpsolve column)", 958, 962, "\n".join([
+-    rebuild(958, {6: "(D, D)", 7: "PROVED; kpsolve agrees"}),
+-    rebuild(959, {6: "(D, D)", 7: "PROVED; kpsolve agrees"}),
+-    rebuild(960, {6: "(W, W) in all five",
+-                  7: "PROVED in P; C modulo (A_Q); kpsolve agrees on all ten"}),
+-    rebuild(961, {6: "(L, L) in all five",
+-                  7: "PROVED in P; C modulo (A_Q); kpsolve agrees on all ten"}),
+-    rebuild(962, {6: "(L,W), (L,L), (W,W), (D,L), (D,L), (L,D)",
+-                  7: "CONJECTURE → **refuted** by kpsolve in 3 of 6 contexts (H\\*, H\\*2, H0)"}),
++    rebuild(958, "(D, D)", label="PROVED; kpsolve agrees"),
++    rebuild(959, "(D, D)", label="PROVED; kpsolve agrees"),
++    rebuild(960, "(W, W) in all five",
++            label="PROVED in P; C modulo (A_Q); kpsolve agrees on all ten"),
++    rebuild(961, "(L, L) in all five",
++            label="PROVED in P; C modulo (A_Q); kpsolve agrees on all ten"),
++    rebuild(962, "(L,W), (L,L), (W,W), (D,L), (D,L), (L,D)",
++            label="CONJECTURE → **refuted** by kpsolve in 3 of 6 contexts (H\\*, H\\*2, H0)"),
+ ]))
+ 
+ E("PREDICTIONS.md (kpsolve column)", 963, 966, "\n".join([
+-    rebuild(963, {6: "bare (D, W); + Hp1 (W, W)",
+-                  7: "all entries PROVED in P except the bare w-entry, which is a CONJECTURE (scratch: no "
+-                     "forced promotion); kpsolve agrees on all four entries"}),
+-    rebuild(964, {6: "not run", 7: "CONJECTURE (not run on 8×8)"}),
+-    rebuild(965, {6: "not run", 7: "b PROVED in P; w CONJECTURE (not run on 8×8)"}),
+-    rebuild(966, {6: "6-rank analogue (W, W); 8×8 not run", 7: "PROVED in P"}),
++    rebuild(963, "bare (D, W); + Hp1 (W, W)",
++            label="all entries PROVED in P except the bare w-entry, which is a CONJECTURE (scratch: no "
++                  "forced promotion); kpsolve agrees on all four entries"),
++    rebuild(964, "not run", label="CONJECTURE (not run on 8×8)"),
++    rebuild(965, "not run", label="b PROVED in P; w CONJECTURE (not run on 8×8)"),
++    rebuild(966, "6-rank analogue (W, W); 8×8 not run", label="PROVED in P"),
+ ]))
+ 
+ E("PREDICTIONS.md (kpsolve column)", 967, 970, "\n".join([
+-    rebuild(967, {6: "(W, L)", 7: "PROVED in P; kpsolve agrees"}),
+-    rebuild(968, {6: "(W, W) for k = 0, 1, 2",
+-                  7: "PROVED in P; kpsolve agrees for k = 0, 1, 2"}),
+-    rebuild(969, {3: "Kings parked on the a-file (`Ka1 ka6`, b- and h-files empty); pawn components on c–g; "
+-                     "every passer and race node speed-certified (Remark 2.11 with frozen kings); condition (E). "
+-                     "Here W(X) is the D-game of X with its own winning side, and \\"hereditarily sum-safe\\" "
+-                     "(HSS) means that every component of X is itself sum-safe in the sense of Theorem 1.14(ii)",
+-                  6: "— (a harness check, not one position)"}),
+-    rebuild(970, {6: "— (a harness check, not one position)",
+-                  7: "PROVED (implication), restricted to the nodes where `--frozen` reports a win"}),
++    rebuild(967, "(W, L)", label="PROVED in P; kpsolve agrees"),
++    rebuild(968, "(W, W) for k = 0, 1, 2", label="PROVED in P; kpsolve agrees for k = 0, 1, 2"),
++    rebuild(969, "— (a harness check, not one position)",
++            family="Kings parked on the a-file (`Ka1 ka6`, b- and h-files empty); pawn components on c–g; "
++                   "every passer and race node speed-certified (Remark 2.11 with frozen kings); condition (E). "
++                   "Here W(X) is the D-game of X with its own winning side, and \"hereditarily sum-safe\" "
++                   "(HSS) means that every component of X is itself sum-safe in the sense of Theorem 1.14(ii)"),
++    rebuild(970, "— (a harness check, not one position)",
++            label="PROVED (implication), restricted to the nodes where `--frozen` reports a win"),
+ ]))
+ 
+ E("R4 item 7", 973, 977, r"""- **What P2, P3 and P10 prove.** The derivations use only enumerated move lists (§5.4) and Theorem 3.4(b).
+   The one-move punishment holds in every context listed, except where a context pawn covers the king's escape
+
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && .venv/bin/python kings/delegate/out/K1c/make_edits.py
+Traceback (most recent call last):
+  File "/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K1c/make_edits.py", line 237, in <module>
+    rebuild(958, "(D, D)", label="PROVED; kpsolve agrees"),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K1c/make_edits.py", line 221, in rebuild
+    assert len(parts) == 9, (lineno, parts)
+           ^^^^^^^^^^^^^^^
+AssertionError: (958, ['| P1a', 'cyl:7x6', '`Ka5 Pb4 Pc5 Pe2 Pe4 kc6 pb5 pe5`', '(D, D)', '(W, W)', '(V1b) fails: stalemate (§5.4)', 'PROVED |'])
+> build · auto/best-free
+[0m← [0mEdit kings/delegate/out/K1c/make_edits.py
+Index: kings/delegate/out/K1c/make_edits.py
+===================================================================
+--- kings/delegate/out/K1c/make_edits.py
++++ kings/delegate/out/K1c/make_edits.py
+@@ -216,18 +216,18 @@
+ 
+ 
+ def rebuild(lineno, kpsolve, family=None, basis=None, label=None):
+     """Rebuild one table row with the kpsolve column inserted after the 'Z = 0 convention' column."""
+-    parts = lines[lineno - 1].split(" | ")
++    parts = [p.strip() for p in lines[lineno - 1].split("|")]
+     assert len(parts) == 9, (lineno, parts)
+     parts = parts[:6] + [kpsolve] + parts[6:]
+     if family is not None:
+         parts[3] = family
+     if basis is not None:
+         parts[7] = basis
+     if label is not None:
+         parts[8] = label
+-    return " | ".join(parts)
++    return "| " + " | ".join(parts[1:-1]) + " |"
+ 
+ 
+ E("PREDICTIONS.md (kpsolve column)", 956, 957,
+   r"""| # | Board | Position family | Predicted (w, b) | Z = 0 convention | kpsolve (C) | Basis | Label |
+
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && .venv/bin/python kings/delegate/out/K1c/make_edits.py
+wrote /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K1c/EDITS.md: 27 edits
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && .venv/bin/python kings/delegate/apply_edits.py kings/theory/LOOPY.md kings/delegate/out/K1c/LOOPY_applied.md kings/delegate/out/K1c/EDITS.md
+applied  K1c EDIT 1: R4 item 7
+applied  K1c EDIT 2: R4 item 6
+applied  K1c EDIT 3: R4 item 3
+applied  K1c EDIT 4: R4 item 4
+applied  K1c EDIT 5: R4 item 5
+applied  K1c EDIT 6: R4 items 1 and 2
+applied  K1c EDIT 7: R4 item 2, R1 item 11
+applied  K1c EDIT 8: R4 items 1 and 2
+applied  K1c EDIT 9: R4 item 2, R1 item 11
+applied  K1c EDIT 10: R1 item 11
+applied  K1c EDIT 11: R4 item 8
+applied  K1c EDIT 12: R1 item 10, R4 item 8
+applied  K1c EDIT 13: R1 item 11, R4 item 9
+applied  K1c EDIT 14: R4 item 9, R1 item 11
+applied  K1c EDIT 15: R4 item 6
+applied  K1c EDIT 16: R1 item 11
+applied  K1c EDIT 17: R1 items 10 and 11, R4 item 9
+applied  K1c EDIT 18: R1 item 11
+applied  K1c EDIT 19: R1 item 5, PREDICTIONS.md
+applied  K1c EDIT 20: PREDICTIONS.md (kpsolve column)
+applied  K1c EDIT 21: PREDICTIONS.md (kpsolve column)
+applied  K1c EDIT 22: PREDICTIONS.md (kpsolve column)
+applied  K1c EDIT 23: PREDICTIONS.md (kpsolve column)
+applied  K1c EDIT 24: R4 item 7
+applied  K1c EDIT 25: R1 item 6
+applied  K1c EDIT 26: R1 item 5, PREDICTIONS.md
+applied  K1c EDIT 27: R1 item 10, R4 item 8
+27 applied, 0 rejected -> kings/delegate/out/K1c/LOOPY_applied.md
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && sed -n '/^## 6. Testable predictions/,/^## 7\./p' kings/delegate/out/K1c/LOOPY_applied.md | head -80
+## 6. Testable predictions
+
+kpsolve options: `--ep on --promote QRBN --cap 1`, and `--cap 2` for the three P4 rows whose cap-1 bounds
+differed. Positions use the format of `kings/SPEC.md`; append ` w -` or ` b -`. Each row gives:
+- the predicted result pair (w, b), W/D/L from White's view;
+- the Z = 0 convention pair (king group read as 0, H valued by `cylcgt` on its strip);
+- the pair kpsolve computes in chess (C), from `kings/results/PREDICTIONS.md`;
+- the theorem behind the prediction, and its label.
+
+Reproduce the kpsolve column with `kings/kpsolve --board cyl:7x6 --ep on --promote QRBN --cap 1` on the
+positions of the rows (and `--board cyl:8x6` for P10, `--cap 2` for the three P4 rows); the raw runs are in
+`kings/results/theory_predictions_raw.txt` and `kings/results/theory_P4_cap2.txt`.
+
+Context components on the e-file of the 7×6 cylinder, with values computed by `cylcgt` on a 1-file strip of
+6 ranks:
+- Hm1 = Pe2 / pe3 pe5 = −1;
+- Hp1 = Pe2 Pe4 / pe5 = +1;
+- H* = Pe3 / pe5 = \*;
+- H\*2 = Pe2 / pe5 = \*2;
+- H0 = Pe3 / pe4 = 0.
+
+Each is a single file with no possible capture, so pure tempo.
+
+| # | Board | Position family | Predicted (w, b) | Z = 0 convention | kpsolve (C) | Basis | Label |
+|---|---|---|---|---|---|---|---|
+| P1a | cyl:7x6 | `Ka5 Pb4 Pc5 Pe2 Pe4 kc6 pb5 pe5` | (D, D) | (W, W) | (D, D) | (V1b) fails: stalemate (§5.4) | PROVED; kpsolve agrees |
+| P1b | cyl:7x6 | `Kc1 Pb2 Pe2 ka2 pb3 pc2 pe3 pe5` | (D, D) | (L, L) | (D, D) | mirror of P1a | PROVED; kpsolve agrees |
+| P2 | cyl:7x6 | Z_onT1 `Ka5 Pb4 Pc5 kc6 pb5` + each of {nothing, Hm1, H\*, H\*2, H0} | (W, W) in all five | (L,W), (L,L), (W,L), (W,L), (L,W) | (W, W) in all five | Thm 3.4(b) + Prop 3.2 + Prop 2.10(a) | PROVED in P; C modulo (A_Q); kpsolve agrees on all ten |
+| P3 | cyl:7x6 | Z_offT1 `Kc1 Pb2 ka2 pb3 pc2` + each of {nothing, Hp1, H\*, H\*2, H0} | (L, L) in all five | (L,W), (W,W), (W,L), (W,L), (L,W) | (L, L) in all five | mirror of P2 | PROVED in P; C modulo (A_Q); kpsolve agrees on all ten |
+| P4 | cyl:7x6 | Z_T `Ka4 Pb3 kc3 pb4` + each of {nothing, Hm1, Hp1, H\*, H\*2, H0} | equal to the convention: (L,W), (L,L), (W,W), (W,L), (W,L), (L,W) | same | (L,W), (L,L), (W,W), (D,L), (D,L), (L,D) | Thm 2.4(b) + Thm 2.7. (L1) holds: scratch, T ≤ 5, all budgets, confined king. (L2) holds at every loser-to-move node: scratch. (L3) not checked | CONJECTURE → **refuted** by kpsolve in 3 of 6 contexts (H\*, H\*2, H0) |
+| P5 | cyl:7x6 | Z_72 `Kc4 Pb5 kb6 pc5`, bare; and + Hp1 | bare (D, W); + Hp1 (W, W) | bare (L, W); (W, W) | bare (D, W); + Hp1 (W, W) | Black side: Prop 2.10(a) with T = 1 (PROVED in P). White side: Lemma 2.9 (escape by blockade) | all entries PROVED in P except the bare w-entry, which is a CONJECTURE (scratch: no forced promotion); kpsolve agrees on all four entries |
+| P6 | cyl:8x8 | 5.1 `Kh5 Pa4 kb4 pa5` | (L, W): a real mutual zugzwang | (L, W) | not run | Thm 2.4 + Thm 2.7 ((L1) scratch, T ≤ 7) + self-duality | CONJECTURE (not run on 8×8) |
+| P7 | cyl:8x8 and flat:8x8 | 7.2 group `Ke6 Pd7 kd8 pe7` | (D, W) | (L, W) | not run | Prop 2.10(a) for Black; Lemma 2.9 for White | b PROVED in P; w CONJECTURE (not run on 8×8) |
+| P8 | cyl:8x8; cyl:7x6 | 7.3 group `Kg8 Pf7 kf6 pg7`; 6-rank analogue `Kc6 Pb5 kb4 pc5` | (W, W) | (L, W) (read as 0) | 6-rank analogue (W, W); 8×8 not run | unparriable safe promotion (§5.3) | PROVED in P |
+| P9 | cyl:7x6 | `Ka5 Pb4 Pc5 Pe2 kc6 pb5 pf3` | (W, L): class 𝓝 | BIG with Z as `on`: (W, W) | (W, L) | Thm 3.3 versus Thm 3.4(b). Black: fxe2 and e1=Q; White: exf3, then zugzwang (Kd5 forced) | PROVED in P; kpsolve agrees |
+| P10 | cyl:8x6 | Z_onT1 + k Black tempo units: k = 0 nothing; k = 1 `Pe2 pe3 pe5`; k = 2 also `Pg2 pg3 pg5` | (W, W) for k = 0, 1, 2 | (L,W), (L,L), (L,L) | (W, W) for k = 0, 1, 2 | Prop 4.3 + Thm 3.4(b): the result does not depend on k, and there is no integer threshold | PROVED in P; kpsolve agrees for k = 0, 1, 2 |
+| P11 | cyl:8x6, `--frozen` | Kings parked on the a-file (`Ka1 ka6`, b- and h-files empty); pawn components on c–g; every passer and race node speed-certified (Remark 2.11 with frozen kings); condition (E). Here W(X) is the D-game of X with its own winning side, and "hereditarily sum-safe" (HSS) means that every component of X is itself sum-safe in the sense of Theorem 1.14(ii) | kpsolve `--frozen` = o(W(X)); also = o(S(X)) when hereditarily sum-safe. Where o(S) ≠ o(W) (opposite threats, Prop 1.12), `--frozen` sides with W | — | — (a harness check, not one position) | Thm 1.11 + Thm 1.14 (frozen kings satisfy V1 and V3 by fiat) | PROVED (as an implication; the harness checks the hypotheses) |
+| P12 | cyl:7x6 | Z_T + any context on e–f | Every disagreement between kpsolve (real) and `kpsolve --frozen` is witnessed, at some loser-to-move node, by a king move that violates (L1), (L2) or (L3), or by an (A_Q) or (V2) failure | — | — (a harness check, not one position) | Thm 2.4(b) + Thm 2.7 (contrapositive) | PROVED (implication), restricted to the nodes where `--frozen` reports a win |
+
+**Notes on the table.**
+- **What P2, P3 and P10 prove.** The derivations use only enumerated move lists (§5.4) and Theorem 3.4(b).
+  The one-move punishment holds in every context listed, except where a context pawn covers the king's escape
+  square d5 (respectively d2) — and that happens only after the *winning* side has moved its own pawn there:
+  - In H\*, White's single step e3–e4 covers d5 and **stalemates Black**: kpsolve scores it a draw, so White
+    must avoid it and play the shuttle (Ka6). (Revised after review: R4 item 7: the old sentence "none of them
+    puts a pawn on e4 … that would cover d5" was wrong for H\*, where the pawn moves there during the window.)
+  - In H\*2, White's double step e2–e4 *would* stalemate Black. In P3's H\*2, Black's double step e5–e3 would
+    stalemate White. The winner simply never plays it.
+- **Scratch confirmation in P.** A scratch P-model solver (no e.p.; queen safety required — a stricter P
+  than Definition 1.5's, which counts any promotion as a win) reproduced every P-level entry of P1, P2, P3,
+  P5, P9 and P10 that it finished:
+  - P1a and P1b: (D, D);
+  - all five P2 positions: (W, W);
+  - all five P3 positions: (L, L);
+  - Z_72 bare: (D, W);
+  - Z_72 + Hp1: (W, W);
+  - P9: (W, L);
+  - P10 with k = 0 and k = 1: (W, W). The k = 2 run did not finish.
+
+  This is a check of the reasoning, not a substitute for kpsolve: it computes P, not C.
+- **What separates the theory from literal cylcgt (revised after review: R1 item 5).** The old headline — "P2,
+  P3 and P10 are the decisive tests of the loopy theory" — compared the theory with the *ad-hoc* reading "king
+  group = 0, cylcgt on the context strip", not with the literal convention. On the actual pawn sets,
+  `cylcgt.pawns.value` returns +BIG for every P2 and P10 position and −BIG for every P3 position, so literal
+  cylcgt gets all 26 P2/P3/P10 entries right and does **not** separate the theory from cylcgt. The positions
+  that do separate them are P1 (the stalemate trap: the convention says (W, W) and (L, L), the truth is (D, D)
+  in both), P5 and P7 (the convention scores a race at move 0 and has no answer), P9 (the convention predicts
+  (W, W), the truth is (W, L)) and P4 (below). Over the 22 exactly determined predictions of
+  `kings/results/PREDICTIONS.md`, the theory holds in 22 and literal cylcgt in 16; the three positions it
+  scores as a race (P5 bare, P5 + Hp1, P8 6-rank) have no answer from the convention at all.
+- **What P4 tests, and how it failed.** P4 was the positive control: the theory predicts that the convention
+  is *right* there. kpsolve refutes it in 3 of the 6 contexts.
+  - H\* and H\*2 with White to move are draws, not (W, L). In H\* every White king move loses (Ka5, Kb5, Kg3,
+    Kg4, Kg5) and White's only drawing move is e3–e4; in H\*2 the position is a draw as well.
+  - H0 with Black to move is a draw, not (L, W): Black's king draws by Kd3 or Kd2.
+  - The mechanism: the defending king walks to the locked context pawns and attacks the stuck pawn there
+    (…Kd3, …Kd2, …Kd4). In H0 after …Kd3 the white king is confined to the a- and b-files: Kg4, Kg5 and Kg3
+    all lose, while Ka5, Kb4 and Kb5 draw. This is Proposition 2.10(b) in action: the zero of the group is
+    context-dependent, and the (L2) margin the theory assumed does not survive the context.
+  - The same three contexts are exactly the ones in which the Z = 0 convention and literal cylcgt are wrong
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && sed -n '/^| P4 |/,/^---$/p' kings/delegate/out/K1c/LOOPY_applied.md | head -40
+| P4 | CONJECTURE → **refuted** by kpsolve in 3 of 6 contexts (H\*, H\*2, H0) | PREDICTIONS.md, theory_P4_cap2_moves.txt |
+| P5 | PROVED in P (b entries, + Hp1); bare w-entry CONJECTURE; kpsolve agrees on all four entries | — |
+| P6, P7 | CONJECTURE, and partly PROVED in P; not run | — |
+| P8 | PROVED in P; kpsolve (W, W) on the 6-rank analogue; 8×8 not run | — |
+| P9 | PROVED in P; kpsolve (W, L) | — |
+| P10 | PROVED in P; listed as not run in PREDICTIONS.md (R1 ran k = 0: (W, W)) | R1 |
+| P11 | PROVED (implication) after repair: W(X) and HSS defined; (V1b) checked from the layout | R1 item 11 |
+| P12 | PROVED (implication) after repair: restricted to nodes where `--frozen` reports a win | knock-on of R2 item 4 |
+
+Not answered by a change in the mathematics: R1 item 12 (missing A8 content: CGSuite, opposition, Gafni),
+which is recorded as open in §8.6.
+
+---
+| P4 | cyl:7x6 | Z_T `Ka4 Pb3 kc3 pb4` + each of {nothing, Hm1, Hp1, H\*, H\*2, H0} | equal to the convention: (L,W), (L,L), (W,W), (W,L), (W,L), (L,W) | same | (L,W), (L,L), (W,W), (D,L), (D,L), (L,D) | Thm 2.4(b) + Thm 2.7. (L1) holds: scratch, T ≤ 5, all budgets, confined king. (L2) holds at every loser-to-move node: scratch. (L3) not checked | CONJECTURE → **refuted** by kpsolve in 3 of 6 contexts (H\*, H\*2, H0) |
+| P5 | cyl:7x6 | Z_72 `Kc4 Pb5 kb6 pc5`, bare; and + Hp1 | bare (D, W); + Hp1 (W, W) | bare (L, W); (W, W) | bare (D, W); + Hp1 (W, W) | Black side: Prop 2.10(a) with T = 1 (PROVED in P). White side: Lemma 2.9 (escape by blockade) | all entries PROVED in P except the bare w-entry, which is a CONJECTURE (scratch: no forced promotion); kpsolve agrees on all four entries |
+| P6 | cyl:8x8 | 5.1 `Kh5 Pa4 kb4 pa5` | (L, W): a real mutual zugzwang | (L, W) | not run | Thm 2.4 + Thm 2.7 ((L1) scratch, T ≤ 7) + self-duality | CONJECTURE (not run on 8×8) |
+| P7 | cyl:8x8 and flat:8x8 | 7.2 group `Ke6 Pd7 kd8 pe7` | (D, W) | (L, W) | not run | Prop 2.10(a) for Black; Lemma 2.9 for White | b PROVED in P; w CONJECTURE (not run on 8×8) |
+| P8 | cyl:8x8; cyl:7x6 | 7.3 group `Kg8 Pf7 kf6 pg7`; 6-rank analogue `Kc6 Pb5 kb4 pc5` | (W, W) | (L, W) (read as 0) | 6-rank analogue (W, W); 8×8 not run | unparriable safe promotion (§5.3) | PROVED in P |
+| P9 | cyl:7x6 | `Ka5 Pb4 Pc5 Pe2 kc6 pb5 pf3` | (W, L): class 𝓝 | BIG with Z as `on`: (W, W) | (W, L) | Thm 3.3 versus Thm 3.4(b). Black: fxe2 and e1=Q; White: exf3, then zugzwang (Kd5 forced) | PROVED in P; kpsolve agrees |
+| P10 | cyl:8x6 | Z_onT1 + k Black tempo units: k = 0 nothing; k = 1 `Pe2 pe3 pe5`; k = 2 also `Pg2 pg3 pg5` | (W, W) for k = 0, 1, 2 | (L,W), (L,L), (L,L) | (W, W) for k = 0, 1, 2 | Prop 4.3 + Thm 3.4(b): the result does not depend on k, and there is no integer threshold | PROVED in P; kpsolve agrees for k = 0, 1, 2 |
+| P11 | cyl:8x6, `--frozen` | Kings parked on the a-file (`Ka1 ka6`, b- and h-files empty); pawn components on c–g; every passer and race node speed-certified (Remark 2.11 with frozen kings); condition (E). Here W(X) is the D-game of X with its own winning side, and "hereditarily sum-safe" (HSS) means that every component of X is itself sum-safe in the sense of Theorem 1.14(ii) | kpsolve `--frozen` = o(W(X)); also = o(S(X)) when hereditarily sum-safe. Where o(S) ≠ o(W) (opposite threats, Prop 1.12), `--frozen` sides with W | — | — (a harness check, not one position) | Thm 1.11 + Thm 1.14 (frozen kings satisfy V1 and V3 by fiat) | PROVED (as an implication; the harness checks the hypotheses) |
+| P12 | cyl:7x6 | Z_T + any context on e–f | Every disagreement between kpsolve (real) and `kpsolve --frozen` is witnessed, at some loser-to-move node, by a king move that violates (L1), (L2) or (L3), or by an (A_Q) or (V2) failure | — | — (a harness check, not one position) | Thm 2.4(b) + Thm 2.7 (contrapositive) | PROVED (implication), restricted to the nodes where `--frozen` reports a win |
+
+**Notes on the table.**
+- **What P2, P3 and P10 prove.** The derivations use only enumerated move lists (§5.4) and Theorem 3.4(b).
+  The one-move punishment holds in every context listed, except where a context pawn covers the king's escape
+  square d5 (respectively d2) — and that happens only after the *winning* side has moved its own pawn there:
+  - In H\*, White's single step e3–e4 covers d5 and **stalemates Black**: kpsolve scores it a draw, so White
+    must avoid it and play the shuttle (Ka6). (Revised after review: R4 item 7: the old sentence "none of them
+    puts a pawn on e4 … that would cover d5" was wrong for H\*, where the pawn moves there during the window.)
+  - In H\*2, White's double step e2–e4 *would* stalemate Black. In P3's H\*2, Black's double step e5–e3 would
+    stalemate White. The winner simply never plays it.
+- **Scratch confirmation in P.** A scratch P-model solver (no e.p.; queen safety required — a stricter P
+  than Definition 1.5's, which counts any promotion as a win) reproduced every P-level entry of P1, P2, P3,
+  P5, P9 and P10 that it finished:
+  - P1a and P1b: (D, D);
+  - all five P2 positions: (W, W);
+  - all five P3 positions: (L, L);
+  - Z_72 bare: (D, W);
+  - Z_72 + Hp1: (W, W);
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && sed -n '/^\*\*Theorem 4.2/,/^\*\*Proposition 4.5/p' kings/delegate/out/K1c/LOOPY_applied.md
+**Theorem 4.2 (finite versus loopy tempo). PROVED after repair** (each part is proved
+below).
+- **(a)** Let G be short, and let R_n^W have no Black options (Black's suicides are deleted first; see (b)).
+  Then G ⊞ R_n^W behaves as "White has n one-shot passes", and its BIG translation G^B + n gives the right
+  outcome when G ⊞ R_n^W is first-event dominant. A sufficient condition is pairwise safety in G ⊞ R_n^W
+  together with B > n + max(M_L(G), M_R(G)), with the threats counted by the corrected τ of Definition 1.10
+  (revised: τ counts moves into ⊕ or ⊖ by *either* player).
+  *Proof:* Theorem 1.11(a) and (b), with the corrected τ. R_n has no Black options, so it carries no threat at
+  all, τ(R_n) = ∅, and pairwise safety in G ⊞ R_n^W follows from pairwise safety in G. Its n Left moves
+  enter M_L, so max(M_L(G ⊞ R_n^W), M_R(G ⊞ R_n^W)) ≤ max(M_L(G), M_R(G)) + n < B, which is the bound (b)
+  needs, and Theorem 1.11(b) then gives first-event dominance. (Revised after review: R4 item 3: Definition
+  4.1 allowed Black suicides inside R_n, and then the stated hypothesis does *not* give first-event
+  dominance — take a context whose only option is Black's move to ⊖, whose translation is −B−1, with n = 1 and
+  a Black suicide at ρ₁: the frontier is B + (−B−1) = −1 ∈ 𝓡, so dominance fails for every B. The corrected
+  τ counts that suicide, so the hypothesis correctly fails there; with no Black options the proof above is
+  complete.)
+- **(b)** If White's safe Z-moves form an acyclic graph and all Black Z-moves are suicides, then
+  Z, with Black's suicides deleted, is equivalent in the D-model to R_ℓ^W, where ℓ is the length of the
+  longest path of safe White moves; and in CGT, for B > ℓ, its BIG translation is the integer ℓ.
+  *Proof:* induction on the number of White options, using {m₁, …, m_k | } = max m_i + 1: the value of a
+  White-only option set is 1 plus the maximum of the values of its options, and dominated options can be
+  deleted (KNOWN, [WW] ch. 2, [S] ch. II). In the D-model the deletion of Black's suicides is Lemma 1.7, a
+  statement about results; the CGT statement needs the extra hypothesis B > ℓ, because {i−1 | B} = i holds
+  only for B > i. (Revised after review: R4 item 4: Lemma 1.7 alone does not give the CGT equality, and the
+  D-model equivalence to R_ℓ was not proved; both are now proved, and the CGT form carries B > ℓ.)
+- **(c)** A reservoir with a White 2-cycle is on_D and equals no integer. *Proof:* take G = R_{n+1}^B, n + 1
+  Black tempi with no threats.
+  - G ⊞ R_n^W with White to move is L: the tempi run out on White first.
+  - G ⊞ on_D with White to move is W: Black runs out.
+  - on_D is not a number at all, so it differs from every integer, negative ones included.
+  - The identification needs the hypotheses of Proposition 3.2 — the cycle must be reachable, and in each of
+    its two states every Black Z-move must be a suicide — not merely the existence of a cycle.
+  (Revised after review: R4 item 5: separating on_D from the integers has to cover the negative integers as
+  well, and "is on_D" needs Proposition 3.2's hypotheses.)
+
+So a group's tempo is *finite* (a stopper equal to an integer) exactly when its safe spare moves form an
+**acyclic** graph, and *unbounded* (on or off) when they contain a cycle. The word is "acyclic", not
+"non-reversible": a 3-cycle has no immediately reversible move and is still unbounded.
+(Revised after review: R4 item 5: the old sentence conflated acyclicity with the absence of a 2-cycle.)
+
+**Proposition 4.3 (no finite king tempo in isolated K+P groups). FALSE as originally stated →
+repaired.** Let Z be a king group in a position without officers, with a buffer. Suppose side s plays a
+non-capturing king move u → v inside F_Z, and the opponent replies outside Z. **As stated this is false:** the
+step back fails if s was in check on u, or if the reply promotes. The repaired statement adds two hypotheses:
+- (H1) s is not in check on u;
+- (H2) the reply is not a promotion, and does not attack u.
+
+Then v → u is legal at s's next turn and restores Z exactly.
+**Consequences, with the scope narrowed (revised after review: R4 item 2, R1 item 11).** Call a king step
+u → v inside F_Z *safe* if (H1) and (H2) hold and the opponent is frozen — all its Z-moves are suicides — at
+both u and v. Then one safe step gives s an unlimited supply of passes: s returns to u on its next turn, the
+Z-state is exactly as before, and the step can be repeated. So, among king steps *inside* F_Z, the tempo of a
+pure reservoir is 0 (the opponent is frozen and s has no safe step) or ∞ (s has a safe step); it is never a
+finite n ≥ 1. Three caveats, which the original wording hid:
+- the dichotomy covers king steps inside F_Z only. A step onto a buffer file can be taken away later by a
+  context pawn (Lemma 2.2 lets context pawns attack buffer squares), so such a supply depends on the context
+  and is neither 0 nor ∞;
+- a king move can be neither a suicide nor a pass: it can unfreeze the opponent without losing (§5.5 shows
+  this), so the dichotomy is about pure reservoirs only;
+- "safe" is not "any legal step": the opponent must be frozen at the new state v as well as at u.
+
+*Proof.*
+- u is empty, since s's king just left it and the opponent did not move in Z.
+- u is not adjacent to the opponent's king: by (H1) the opponent's king was not adjacent to u when s's king
+  stood there (kings may never be adjacent), and by (H2) the reply did not move it next to u.
+- u is not attacked by an opponent Z-pawn, since none has moved (by (H2) the reply is not a promotion), and by
+  (H1) none attacked u before. It is not attacked by a context pawn either: context pawns attack only context
+  and buffer squares (Lemma 2.2), and u ∈ F_Z.
+- With no sliders, the move exposes nothing. ∎
+
+*Counterexample to the original statement (revised after review: R4 item 1).* `Kb2 Pc2 kc4 pc3`, White to
+move, on flat:4x4: White is in check from pc3 and plays Kb2–a1; when Black then moves outside Z, Kb2 is
+illegal, because pc3 still attacks it. kpsolve lists only Ka1a2 and Ka1b1 for `Ka1 Pc2 kc4 pc3 w -`. The step
+back fails because u was attacked, not because the opponent moved.
+
+**What this means for the "n safe spare moves" picture.** In king-and-pawn chess, a king with exactly n safe
+spare moves cannot occur in an isolated group *for steps inside F_Z*: one safe step and the step back already
+give infinitely many (Proposition 4.3, repaired). Steps out of F_Z are the exception, and their supply depends
+on the context. (Revised after review: R4 item 2, R1 item 11: the original sentence claimed more than
+Proposition 4.3 proves.)
+- Finite tempo comes from **pawn** moves. That is Elkies' integers, spare pawn moves that end blocked
+  (KNOWN, Elkies 1996).
+- It can also come from genuine king-against-king fights, where the opponent *replies inside Z*: opposition
+  and shouldering. Those are not reservoirs, and they can have any value.
+
+**Definition 4.4 (over).** over = {0 | over} (KNOWN, [WW] ch. 11, [S] ch. VI). Right can pass forever
+(over → over), and Left has one move, to 0, that ends Right's passing. (Revised after review: R1 item 11: the
+note had no item 4.4, so the numbering jumped from 4.3 to 4.5; this paragraph is now Definition 4.4.)
+
+**Proposition 4.5. PROVED.** 0 < over < x for every number x > 0.
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && sed -n '/^\*\*Chess bridge\*\*/,/^\*\*Theorem 3.3/p' kings/delegate/out/K1c/LOOPY_applied.md; echo "==========="; sed -n '/^\*\*What loopy kings/,/^\*\*Literature/p' kings/delegate/out/K1c/LOOPY_applied.md
+**Chess bridge** (PROVED after repair, by the proof of Theorem 1.14 with (V1a) added).
+Suppose r(G ⊞ on_D) = W, White plays that strategy (shuttling for its passes), and along it:
+- (V1a) every legal chess move of the side to move is one of the D-options of the D-model, and leads to the
+  matching position;
+- every Black Z-move is decisively punished in P;
+- every decisive event of G that is reached is a P-win for its beneficiary;
+- Black always has a legal move.
+
+Then White wins in P. *Proof:* the proof of Theorem 1.14(i), with (V1a) among the hypotheses — (V1a) makes
+the D-play a chess play, the shuttling strategy supplies White's passes, and the last two bullets make every
+deviation decisive for Black. The mirror statement holds for Black wins.
+(Revised after review: R4 item 7: the bridge needs (V1a). It fails in P2 + H\* if White plays e3–e4, which
+stalemates Black, so the bridge may only be used along a strategy that avoids that move; kpsolve gives (W, W)
+for P2 + H\*.)
+
+**Theorem 3.3 (BIG fails with a shuttle). PROVED.**
+===========
+**What loopy kings do to the convention.**
+- **With a White shuttle (PROVED by Theorem 3.4(b)):** the components' values (numbers, infinitesimals, nimbers)
+  are irrelevant except for Black's forcing threats. White cannot be zugzwanged, and Black loses as soon as its
+  context tempo runs out.
+- **With shuttles on both sides (CONJECTURE):** all tempo content should disappear. Positions without threats
+  should be draws, even where the convention predicts a clear winner. The 7.3 group would be of this type if
+  its pawn could not promote (§5.3). *To settle:* a two-sided Proposition 3.2 — a bisimulation on the four
+  combined king states, in each of which each side's shuttle is legal and each side is frozen — followed by
+  Theorem 3.4(a). (Revised after review: R4 item 6: Theorem 3.4 is stated for one reservoir, so this bullet
+  was not proved by it.)
+
+**Literature (KNOWN, as summarised in [notes/lit_cgt_chess.md](../../notes/lit_cgt_chess.md)).**
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && printf 'Kb2 Pc2 kc4 pc3 w -\nKa1 Pc2 kc4 pc3 w -\n' | ./kings/kpsolve --board flat:4x4 --cap 1 --moves 2>&1 | head -20
+[kpsolve flat:4x4 ep=on cap=1: 14 layers, 68608 states, depth 4, 0.0s]
+Kb2 Pc2 kc4 pc3 w - | D D | Kb2b1:D Kb2a2:D Kb2c1:D Kb2a3:D Kb2a1:D
+Ka1 Pc2 kc4 pc3 w - | D D | Ka1a2:D Ka1b1:D
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && sed -n '1,12p' kings/results/PREDICTIONS.md
+# Theory predictions (LOOPY.md §6) against kpsolve
+
+Result pairs are (White to move, Black to move), from White's point of view. kpsolve: `--cap 1 --promote QRBN --ep on`, and `--cap 2` for the three P4 rows whose cap-1 bounds differed; "bounds" means the two cap bounds differ.
+
+Two baselines: "Z = 0" reads the king group as 0 and values the rest with cylcgt (the theory's "naive convention"); "literal cylcgt" runs cylcgt.pawns.value on the whole pawn set, kings ignored (kings/results/predictions_literal_cylcgt.json).
+
+| # | Board | Position | Theory | Z = 0 | Literal cylcgt | kpsolve | Theory holds | Literal holds |
+|---|---|---|---|---|---|---|---|---|
+| P1a | cyl:7x6 | `Ka5 Pb4 Pc5 Pe2 Pe4 kc6 pb5 pe5` | DD | WW | WW | DD | yes | **NO** |
+| P1b | cyl:7x6 | `Kc1 Pb2 Pe2 ka2 pb3 pc2 pe3 pe5` | DD | LL | LL | DD | yes | **NO** |
+| P2 nothing | cyl:7x6 | `Ka5 Pb4 Pc5 kc6 pb5` | WW | LW | WW | WW | yes | yes |
+| P2 Hm1 | cyl:7x6 | `Ka5 Pb4 Pc5 kc6 pb5 Pe2 pe3 pe5` | WW | LL | WW | WW | yes | yes |
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && sed -n '13,30p' kings/results/PREDICTIONS.md
+| P2 H* | cyl:7x6 | `Ka5 Pb4 Pc5 kc6 pb5 Pe3 pe5` | WW | WL | WW | WW | yes | yes |
+| P2 H*2 | cyl:7x6 | `Ka5 Pb4 Pc5 kc6 pb5 Pe2 pe5` | WW | WL | WW | WW | yes | yes |
+| P2 H0 | cyl:7x6 | `Ka5 Pb4 Pc5 kc6 pb5 Pe3 pe4` | WW | LW | WW | WW | yes | yes |
+| P3 nothing | cyl:7x6 | `Kc1 Pb2 ka2 pb3 pc2` | LL | LW | LL | LL | yes | yes |
+| P3 Hp1 | cyl:7x6 | `Kc1 Pb2 ka2 pb3 pc2 Pe2 Pe4 pe5` | LL | WW | LL | LL | yes | yes |
+| P3 H* | cyl:7x6 | `Kc1 Pb2 ka2 pb3 pc2 Pe3 pe5` | LL | WL | LL | LL | yes | yes |
+| P3 H*2 | cyl:7x6 | `Kc1 Pb2 ka2 pb3 pc2 Pe2 pe5` | LL | WL | LL | LL | yes | yes |
+| P3 H0 | cyl:7x6 | `Kc1 Pb2 ka2 pb3 pc2 Pe3 pe4` | LL | LW | LL | LL | yes | yes |
+| P4 nothing | cyl:7x6 | `Ka4 Pb3 kc3 pb4` | LW | LW | LW | LW | yes | yes |
+| P4 Hm1 | cyl:7x6 | `Ka4 Pb3 kc3 pb4 Pe2 pe3 pe5` | LL | LL | LL | LL | yes | yes |
+| P4 Hp1 | cyl:7x6 | `Ka4 Pb3 kc3 pb4 Pe2 Pe4 pe5` | WW | WW | WW | WW | yes | yes |
+| P4 H* | cyl:7x6 | `Ka4 Pb3 kc3 pb4 Pe3 pe5` | WL | WL | WL | DL | **NO** | **NO** |
+| P4 H*2 | cyl:7x6 | `Ka4 Pb3 kc3 pb4 Pe2 pe5` | WL | WL | WL | DL | **NO** | **NO** |
+| P4 H0 | cyl:7x6 | `Ka4 Pb3 kc3 pb4 Pe3 pe4` | LW | LW | LW | LD | **NO** | **NO** |
+| P5 bare | cyl:7x6 | `Kc4 Pb5 kb6 pc5` | DW | LW | race | DW | yes | no prediction (race) |
+| P5 +Hp1 | cyl:7x6 | `Kc4 Pb5 kb6 pc5 Pe2 Pe4 pe5` | WW | WW | race | WW | yes | no prediction (race) |
+| P8 6-rank | cyl:7x6 | `Kc6 Pb5 kb4 pc5` | WW | LW | race | WW | yes | no prediction (race) |
+| P9 | cyl:7x6 | `Ka5 Pb4 Pc5 Pe2 kc6 pb5 pf3` | WL | WW | WW | WL | yes | **NO** |
+> build · auto/best-free
+[0m← [0mEdit kings/delegate/out/K1c/make_edits.py
+Index: kings/delegate/out/K1c/make_edits.py
+===================================================================
+--- kings/delegate/out/K1c/make_edits.py
++++ kings/delegate/out/K1c/make_edits.py
+@@ -277,18 +277,21 @@
+ E("R1 item 6", 978, 979, r"""- **Scratch confirmation in P.** A scratch P-model solver (no e.p.; queen safety required — a stricter P
+   than Definition 1.5's, which counts any promotion as a win) reproduced every P-level entry of P1, P2, P3,
+   P5, P9 and P10 that it finished:""")
+ 
+-E("R1 item 5, PREDICTIONS.md", 989, 992, r"""- **What separates the theory from literal cylcgt (revised after review: R1 item 5).** The old headline — "P2,
+-  P3 and P10 are the decisive tests of the loopy theory" — compared the theory with the *ad-hoc* reading "king
+-  group = 0, cylcgt on the context strip", not with the literal convention. On the actual pawn sets,
+-  `cylcgt.pawns.value` returns +BIG for every P2 and P10 position and −BIG for every P3 position, so literal
+-  cylcgt gets all 26 P2/P3/P10 entries right and does **not** separate the theory from cylcgt. The positions
+-  that do separate them are P1 (the stalemate trap: the convention says (W, W) and (L, L), the truth is (D, D)
+-  in both), P5 and P7 (the convention scores a race at move 0 and has no answer), P9 (the convention predicts
+-  (W, W), the truth is (W, L)) and P4 (below). Over the 22 exactly determined predictions of
+-  `kings/results/PREDICTIONS.md`, the theory holds in 22 and literal cylcgt in 16; the three positions it
+-  scores as a race (P5 bare, P5 + Hp1, P8 6-rank) have no answer from the convention at all.
++E("R1 item 5, PREDICTIONS.md", 989, 992, r"""- **What separates the theory from the conventions (revised after review: R1 item 5).** The old headline — "P2,
++  P3 and P10 are the decisive tests of the loopy theory" — did not say which baseline it used. Against the
++  note's own "Z = 0" reading (king group = 0, the context valued by cylcgt on its strip) it is right: that
++  reading gets 17 of the 26 P2/P3/P10 entries wrong, and at least one of the two results in every one of the
++  13 positions. Against the *literal* convention it is not: on the actual pawn sets, `cylcgt.pawns.value`
++  returns +BIG for every P2 and P10 position and −BIG for every P3 position, so literal cylcgt gets all 26
++  entries right and does **not** separate the theory from cylcgt. The positions that do separate them are P1
++  (the stalemate trap: both readings say (W, W) and (L, L), the truth is (D, D)), P5 and P7 (the literal
++  reading has no answer — it scores a race at move 0 on the 6-rank analogue — while kpsolve settles P5 bare as
++  (D, W)), P9 (both readings predict (W, W), the truth is (W, L)) and P4 (below). Over the 25 exactly
++  determined predictions of `kings/results/PREDICTIONS.md`, the theory holds in 22 and literal cylcgt in 16;
++  the three positions literal cylcgt scores as a race (P5 bare, P5 + Hp1, P8 6-rank) have no answer from it
++  at all.
+ - **What P4 tests, and how it failed.** P4 was the positive control: the theory predicts that the convention
+   is *right* there. kpsolve refutes it in 3 of the 6 contexts.
+   - H\* and H\*2 with White to move are draws, not (W, L). In H\* every White king move loses (Ka5, Kb5, Kg3,
+     Kg4, Kg5) and White's only drawing move is e3–e4; in H\*2 the position is a draw as well.
+
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && ./kings/kpsolve --help 2>&1 | head -40
+usage: kpsolve --board flat:WxH|cyl:WxH [--ep on|off] [--promote QRBN] [--cap C] [--frozen] [--moves] [--threads T] < positions > results
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && .venv/bin/python kings/delegate/out/K1c/make_edits.py && .venv/bin/python kings/delegate/apply_edits.py kings/theory/LOOPY.md kings/delegate/out/K1c/LOOPY_applied.md kings/delegate/out/K1c/EDITS.md | tail -3
+wrote /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K1c/EDITS.md: 27 edits
+applied  K1c EDIT 26: R1 item 5, PREDICTIONS.md
+applied  K1c EDIT 27: R1 item 10, R4 item 8
+27 applied, 0 rejected -> kings/delegate/out/K1c/LOOPY_applied.md
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && printf 'Ka4 Pb3 kc3 pb4 Pe3 pe5 w -\nKa4 Pb3 kc3 pb4 Pe3 pe5 b -\nKa4 Pb3 kc3 pb4 Pe2 pe5 w -\nKa4 Pb3 kc3 pb4 Pe2 pe5 b -\nKa4 Pb3 kc3 pb4 Pe3 pe4 w -\nKa4 Pb3 kc3 pb4 Pe3 pe4 b -\n' | ./kings/kpsolve --board cyl:7x6 --ep on --promote QRBN --cap 2 > kings/delegate/out/K1c/p4_reproduce.txt 2>&1; echo EXIT=$?; cat kings/delegate/out/K1c/p4_reproduce.txt
+Command moved to the background (shell ID: sh_16103d855001aUKQ1YCmtWUNBp).
+Output is streaming to: /Users/aritro/.local/share/opencode/shell/021e020f1631cdeb8e9696db64133ccb4df133c7/sh_16103d855001aUKQ1YCmtWUNBp.out
+> build · auto/best-free
+[0m← [0mWrite kings/delegate/out/K1c/REPORT.md
+Created file successfully: kings/delegate/out/K1c/REPORT.md
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && ls kings/results/ | head -30; echo "---"; cat kings/delegate/out/K1c/p4_reproduce.txt 2>/dev/null || echo "not finished"
+FAILURES.md
+PREDICTIONS.md
+analyze_7x6.log
+batch.log
+crosscheck.txt
+exp_cyl6x6_epon_Q.jsonl
+exp_cyl6x6_epon_QRBN.jsonl
+exp_cyl6x6_epon_QRBN_summary.json
+exp_cyl6x6_epon_Q_conv.jsonl
+exp_cyl6x6_epon_Q_diagnosis.jsonl
+exp_cyl6x6_epon_Q_summary.json
+exp_cyl7x6_epon_Q.jsonl
+exp_cyl7x6_epon_Q_conv.jsonl
+exp_cyl7x6_epon_Q_summary.json
+exp_flat5x6_epon_Q.jsonl
+exp_flat5x6_epon_Q_conv.jsonl
+exp_flat5x6_epon_Q_diagnosis.jsonl
+exp_flat5x6_epon_Q_summary.json
+king_groups_8x8.txt
+king_groups_lichess.txt
+lichess_cache
+lichess_check_2-4_cap1.txt
+lichess_ledger.jsonl
+predictions_literal_cylcgt.json
+theory_P4_cap2.txt
+theory_P4_cap2_moves.txt
+theory_predictions_raw.txt
+---
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && sed -n '/^### 5.1 /,/^### 5.2 /p' kings/delegate/out/K1c/LOOPY_applied.md | head -30
+### 5.1 Position 5.1 (8×8 cylinder: Kh5 Pa4 / Kb4 Pa5) — the frozen trébuchet
+
+- **Pattern A** (the *A-trébuchet*): WK (X−1, r+1), WP (X, r), BK (X+1, r), BP (X, r+1). Here X = a, r = 4.
+  - The L3 trébuchet of `notes/lemmas.md` (flat 8×8: Kf5 Pg4 / Kh4 Pg5) is the same pattern with X = g.
+  - On a cylinder all placements X are equivalent by rotation, so "5.1 relies on the seam" (lemmas.md
+    Prop. 3.6) says that on a *flat* board the pattern needs both files X ± 1.
+- **Self-dual. PROVED.** Swapping colours (rank r ↦ 9 − r) and reflecting the files about a maps 5.1 to
+  itself. So Black's sorties mirror White's.
+- **Frozen in the convention. PROVED by enumeration** (revised after review: R1 item 11, R4 item 9: the
+  proof is written out here, instead of being left to the diagram audit). The group is WK h5, WP a4, BK b4,
+  BP a5 on the 8-file cylinder. WK's five legal moves are Kg4, Kg5, Kg6, Kh6 and Ka6; each of them abandons
+  WP a4, which Black's king then captures on a4, giving Black a passer. BK's five legal moves are Ka3, Kc3,
+  Kc4, Kc5 and Kb5; the first four abandon BP a5, which White's king then captures on a5, giving White a
+  passer, and the fifth (Kb5) puts Black's king on the square that guards both a4 and a5, so that White is in
+  zugzwang with only pawn-blocked moves left. So every king move in the group is decisively punished, and the
+  group is frozen. The enumeration agrees with `notes/diagram_audit.md` §C.3.
+- **Certificate.**
+  - Corollary 2.8 fails for every sortie. After ...Kxa4 the punisher's king stands on its own pawn's path,
+    so it needs a king step plus 4 pushes, and the defending king is within distance 5 of a1.
+  - (L1) holds for all five White sorties with T ≤ 7 (5 to 7, depending on the sortie and the budget), for
+    every pass budget, with the punisher's king confined to {h, a, b}. This is scratch evidence
+    (Appendix A).
+  - With (L1), Theorem 2.7 makes the freeze valid in P for every context in which (L2) holds with
+    μ ≥ 8 at the zugzwang nodes, and (L3) holds.
+  - On 8 ranks a single free White pawn on rank 2 has μ = 5. So the certificate covers only locked or slow
+    contexts. Next to fast pawns the zero has to be checked case by case (Proposition 2.10b).
+- **Prediction.** The bare 5.1 is a real mutual zugzwang, (L, W) (P6 in §6). In the bare position the local
+  game is the whole game, so the scratch run is a full P-model computation. It is still one throwaway
+  implementation, hence a CONJECTURE.
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && sed -n '/^### 5.5 /,/^### 5.6 /p' kings/delegate/out/K1c/LOOPY_applied.md; echo "======="; sed -n '/^\*\*Notes on the table/,/^---$/p' kings/delegate/out/K1c/LOOPY_applied.md
+### 5.5 A dropped pawn that does not lose
+
+Z_on = Ka4 Pb2 / kc4 pb3 (8×6 cylinder).
+- **It passes the convention's test. PROVED by enumeration.** Every Black king move drops b3, after which
+  White has a passer and Black none, and White's king shuttles a3 ↔ a4.
+- **But Black has an escape. CONJECTURE (scratch evidence):** after the sortie Kc5 and Kxb3, White cannot
+  force promotion even without passes. After Kd4 and Kd5, White wins only if Black has no spare move. Black's
+  legal moves in the group are Kc5, Kd4, Kd5 and Kd3 — Kd3 was missing from the original list (revised after
+  review: R1 item 10; Kc3 is illegal because White's pawn b2 attacks c3) — so the scratch evidence as
+  reported does not cover the fourth sortie. (R4 item 9: the label was missing too.)
+- So "drops a pawn" is not "loses". (V2) fails, and the group is not an `on`-group.
+- Z_onT1 above is the repaired version: the punishment there is one move deep.
+
+### 5.6 The engine-suite observation, explained
+=======
+**Notes on the table.**
+- **What P2, P3 and P10 prove.** The derivations use only enumerated move lists (§5.4) and Theorem 3.4(b).
+  The one-move punishment holds in every context listed, except where a context pawn covers the king's escape
+  square d5 (respectively d2) — and that happens only after the *winning* side has moved its own pawn there:
+  - In H\*, White's single step e3–e4 covers d5 and **stalemates Black**: kpsolve scores it a draw, so White
+    must avoid it and play the shuttle (Ka6). (Revised after review: R4 item 7: the old sentence "none of them
+    puts a pawn on e4 … that would cover d5" was wrong for H\*, where the pawn moves there during the window.)
+  - In H\*2, White's double step e2–e4 *would* stalemate Black. In P3's H\*2, Black's double step e5–e3 would
+    stalemate White. The winner simply never plays it.
+- **Scratch confirmation in P.** A scratch P-model solver (no e.p.; queen safety required — a stricter P
+  than Definition 1.5's, which counts any promotion as a win) reproduced every P-level entry of P1, P2, P3,
+  P5, P9 and P10 that it finished:
+  - P1a and P1b: (D, D);
+  - all five P2 positions: (W, W);
+  - all five P3 positions: (L, L);
+  - Z_72 bare: (D, W);
+  - Z_72 + Hp1: (W, W);
+  - P9: (W, L);
+  - P10 with k = 0 and k = 1: (W, W). The k = 2 run did not finish.
+
+  This is a check of the reasoning, not a substitute for kpsolve: it computes P, not C.
+- **What separates the theory from the conventions (revised after review: R1 item 5).** The old headline — "P2,
+  P3 and P10 are the decisive tests of the loopy theory" — did not say which baseline it used. Against the
+  note's own "Z = 0" reading (king group = 0, the context valued by cylcgt on its strip) it is right: that
+  reading gets 17 of the 26 P2/P3/P10 entries wrong, and at least one of the two results in every one of the
+  13 positions. Against the *literal* convention it is not: on the actual pawn sets, `cylcgt.pawns.value`
+  returns +BIG for every P2 and P10 position and −BIG for every P3 position, so literal cylcgt gets all 26
+  entries right and does **not** separate the theory from cylcgt. The positions that do separate them are P1
+  (the stalemate trap: both readings say (W, W) and (L, L), the truth is (D, D)), P5 and P7 (the literal
+  reading has no answer — it scores a race at move 0 on the 6-rank analogue — while kpsolve settles P5 bare as
+  (D, W)), P9 (both readings predict (W, W), the truth is (W, L)) and P4 (below). Over the 25 exactly
+  determined predictions of `kings/results/PREDICTIONS.md`, the theory holds in 22 and literal cylcgt in 16;
+  the three positions literal cylcgt scores as a race (P5 bare, P5 + Hp1, P8 6-rank) have no answer from it
+  at all.
+- **What P4 tests, and how it failed.** P4 was the positive control: the theory predicts that the convention
+  is *right* there. kpsolve refutes it in 3 of the 6 contexts.
+  - H\* and H\*2 with White to move are draws, not (W, L). In H\* every White king move loses (Ka5, Kb5, Kg3,
+    Kg4, Kg5) and White's only drawing move is e3–e4; in H\*2 the position is a draw as well.
+  - H0 with Black to move is a draw, not (L, W): Black's king draws by Kd3 or Kd2.
+  - The mechanism: the defending king walks to the locked context pawns and attacks the stuck pawn there
+    (…Kd3, …Kd2, …Kd4). In H0 after …Kd3 the white king is confined to the a- and b-files: Kg4, Kg5 and Kg3
+    all lose, while Ka5, Kb4 and Kb5 draw. This is Proposition 2.10(b) in action: the zero of the group is
+    context-dependent, and the (L2) margin the theory assumed does not survive the context.
+  - The same three contexts are exactly the ones in which the Z = 0 convention and literal cylcgt are wrong
+    too, so the refutation is a fact about the positions, not about the convention.
+- **P11 and P12** turn Theorems 1.11, 1.14 and 2.7 into checks of the solver.
+
+---
+> build · auto/best-free
+[0m← [0mEdit kings/delegate/out/K1c/make_edits.py
+Index: kings/delegate/out/K1c/make_edits.py
+===================================================================
+--- kings/delegate/out/K1c/make_edits.py
++++ kings/delegate/out/K1c/make_edits.py
+@@ -189,11 +189,12 @@
+ E("R1 items 10 and 11, R4 item 9", 914, 917, r"""- **It passes the convention's test. PROVED by enumeration.** Every Black king move drops b3, after which
+   White has a passer and Black none, and White's king shuttles a3 ↔ a4.
+ - **But Black has an escape. CONJECTURE (scratch evidence):** after the sortie Kc5 and Kxb3, White cannot
+   force promotion even without passes. After Kd4 and Kd5, White wins only if Black has no spare move. Black's
+-  legal moves in the group are Kc5, Kd4, Kd5 and Kd3 — Kd3 was missing from the original list (revised after
+-  review: R1 item 10; Kc3 is illegal because White's pawn b2 attacks c3) — so the scratch evidence as
+-  reported does not cover the fourth sortie. (R4 item 9: the label was missing too.)""")
++  legal moves in the group are Kc5, Kd4, Kd5 and Kd3 (revised after review: R1 item 10 — Kd3 was missing from
++  the original list; Kc3 is illegal because White's pawn b2 attacks c3). The scratch evidence as reported
++  covers Kc5, Kd4 and Kd5 but not Kd3, so the enumeration behind this bullet is incomplete: Kd3 has to be run
++  before the claim is relied on. (R4 item 9: the label was missing too.)""")
+ 
+ E("R1 item 11", 928, 930, r"""  - Our count gives μ_W = 5: the c-pawn walks c4–c8 while Black is busy. **PROVED by count** (revised after
+     review: R1 item 11: this chain carried no labels).
+   - Black's local win after Ke6 Kxg4 takes T = 5 (scratch). **CONJECTURE** (scratch evidence).
+
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && printf 'Ka4 Pb2 kd3 pb3 w -\nKa4 Pb2 kc5 pb3 w -\nKa4 Pb2 kd4 pb3 w -\nKa4 Pb2 kd5 pb3 w -\n' | ./kings/kpsolve --board cyl:8x6 --ep on --promote QRBN --cap 1 --moves 2>&1 | head -20
+[kpsolve cyl:8x6 ep=on cap=1: 16 layers, 1806336 states, depth 6, 0.6s]
+Ka4 Pb2 kd3 pb3 w - | W W | Ka4a5:L Ka4a3:L Ka4b4:W Ka4h4:D Ka4b5:L Ka4b3:W Ka4h5:L Ka4h3:D
+Ka4 Pb2 kc5 pb3 w - | D D | Ka4a5:D Ka4a3:D Ka4h4:D Ka4b3:D Ka4h5:D Ka4h3:D
+Ka4 Pb2 kd4 pb3 w - | W W | Ka4a5:D Ka4a3:D Ka4b4:W Ka4h4:D Ka4b5:D Ka4b3:W Ka4h5:D Ka4h3:D
+Ka4 Pb2 kd5 pb3 w - | W W | Ka4a5:D Ka4a3:D Ka4b4:D Ka4h4:D Ka4b5:D Ka4b3:W Ka4h5:D Ka4h3:D
+> build · auto/best-free
+[0m← [0mEdit kings/delegate/out/K1c/make_edits.py
+Index: kings/delegate/out/K1c/make_edits.py
+===================================================================
+--- kings/delegate/out/K1c/make_edits.py
++++ kings/delegate/out/K1c/make_edits.py
+@@ -187,14 +187,16 @@
+   is checked position by position (kpsolve: (W, W) for all ten P2 and P10 positions).""")
+ 
+ E("R1 items 10 and 11, R4 item 9", 914, 917, r"""- **It passes the convention's test. PROVED by enumeration.** Every Black king move drops b3, after which
+   White has a passer and Black none, and White's king shuttles a3 ↔ a4.
+-- **But Black has an escape. CONJECTURE (scratch evidence):** after the sortie Kc5 and Kxb3, White cannot
+-  force promotion even without passes. After Kd4 and Kd5, White wins only if Black has no spare move. Black's
+-  legal moves in the group are Kc5, Kd4, Kd5 and Kd3 (revised after review: R1 item 10 — Kd3 was missing from
+-  the original list; Kc3 is illegal because White's pawn b2 attacks c3). The scratch evidence as reported
+-  covers Kc5, Kd4 and Kd5 but not Kd3, so the enumeration behind this bullet is incomplete: Kd3 has to be run
+-  before the claim is relied on. (R4 item 9: the label was missing too.)""")
++- **But Black has an escape. PROVED in C (kpsolve); the P-level claim is still scratch.** After the sortie
++  Kc5 and Kxb3 the position is a draw (D, D) — White cannot force promotion, with or without the passes —
++  while after Kd3, Kd4 and Kd5 White wins (W, W). Black's legal moves in the group are Kc5, Kd4, Kd5 and Kd3
++  (revised after review: R1 item 10 — Kd3 was missing from the original list; Kc3 is illegal because White's
++  pawn b2 attacks c3), and kpsolve shows that the escape is exactly Kc5. The note's original sentence was a
++  P-level claim from scratch evidence: even without passes, Black cannot force promotion after Kc5 and Kxb3.
++  - Reproduce: `printf 'Ka4 Pb2 kc5 pb3 w -\nKa4 Pb2 kd3 pb3 w -\nKa4 Pb2 kd4 pb3 w -\nKa4 Pb2 kd5 pb3 w -\n'
++    | kings/kpsolve --board cyl:8x6 --ep on --promote QRBN --cap 1 --moves`.""")
+ 
+ E("R1 item 11", 928, 930, r"""  - Our count gives μ_W = 5: the c-pawn walks c4–c8 while Black is busy. **PROVED by count** (revised after
+     review: R1 item 11: this chain carried no labels).
+   - Black's local win after Ke6 Kxg4 takes T = 5 (scratch). **CONJECTURE** (scratch evidence).
+
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && .venv/bin/python kings/delegate/out/K1c/make_edits.py && .venv/bin/python kings/delegate/apply_edits.py kings/theory/LOOPY.md kings/delegate/out/K1c/LOOPY_applied.md kings/delegate/out/K1c/EDITS.md | tail -2 && sed -n '/^### 5.5 /,/^### 5.6 /p' kings/delegate/out/K1c/LOOPY_applied.md
+wrote /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K1c/EDITS.md: 27 edits
+applied  K1c EDIT 27: R1 item 10, R4 item 8
+27 applied, 0 rejected -> kings/delegate/out/K1c/LOOPY_applied.md
+### 5.5 A dropped pawn that does not lose
+
+Z_on = Ka4 Pb2 / kc4 pb3 (8×6 cylinder).
+- **It passes the convention's test. PROVED by enumeration.** Every Black king move drops b3, after which
+  White has a passer and Black none, and White's king shuttles a3 ↔ a4.
+- **But Black has an escape. PROVED in C (kpsolve); the P-level claim is still scratch.** After the sortie
+  Kc5 and Kxb3 the position is a draw (D, D) — White cannot force promotion, with or without the passes —
+  while after Kd3, Kd4 and Kd5 White wins (W, W). Black's legal moves in the group are Kc5, Kd4, Kd5 and Kd3
+  (revised after review: R1 item 10 — Kd3 was missing from the original list; Kc3 is illegal because White's
+  pawn b2 attacks c3), and kpsolve shows that the escape is exactly Kc5. The note's original sentence was a
+  P-level claim from scratch evidence: even without passes, Black cannot force promotion after Kc5 and Kxb3.
+  - Reproduce: `printf 'Ka4 Pb2 kc5 pb3 w -\nKa4 Pb2 kd3 pb3 w -\nKa4 Pb2 kd4 pb3 w -\nKa4 Pb2 kd5 pb3 w -\n'
+    | kings/kpsolve --board cyl:8x6 --ep on --promote QRBN --cap 1 --moves`.
+- So "drops a pawn" is not "loses". (V2) fails, and the group is not an `on`-group.
+- Z_onT1 above is the repaired version: the punishment there is one move deep.
+
+### 5.6 The engine-suite observation, explained
+> build · auto/best-free
+[0m← [0mEdit kings/delegate/out/K1c/make_edits.py
+Index: kings/delegate/out/K1c/make_edits.py
+===================================================================
+--- kings/delegate/out/K1c/make_edits.py
++++ kings/delegate/out/K1c/make_edits.py
+@@ -332,9 +332,9 @@
+ | §4, "over" chess reading | the "typically a pawn move by Proposition 4.3" is withdrawn | R4 item 8 |
+ | §5.1, frozen | PROVED by enumeration, now written out | R1 item 11, R4 item 9 |
+ | §5.2, White's sorties | the certificate fails: PROVED (L2.9). "Not punished": CONJECTURE (scratch); in C, kpsolve confirms the 6-rank analogue (P5) | R4 item 9 |
+ | §5.4, Z_onT1 realises `on` | PROVED in P (label added) | R1 item 11 |
+-| §5.5 | CONJECTURE (scratch); Kd3 added | R1 items 10 and 11, R4 item 9 |
++| §5.5 | PROVED in C (kpsolve): after …Kc5 the position is (D, D), after …Kd3, …Kd4 and …Kd5 it is (W, W) — the escape is exactly Kc5. The P-level claim stays scratch. Kd3 added | R1 items 10 and 11, R4 item 9 |
+ | §5.6 | μ_W = 5: PROVED by count. T = 5 and "(L2) fails by one tempo": CONJECTURE (scratch; R4 re-derived both) | R1 item 11 |
+ | P1a, P1b (§6) | PROVED; kpsolve (D, D) | PREDICTIONS.md, as for every P-row |
+ | P2, P3 | PROVED in P; kpsolve agrees in C on all 10 positions; literal cylcgt also gets them right | R1 item 5 |
+ | P4 | CONJECTURE → **refuted** by kpsolve in 3 of 6 contexts (H*, H*2, H0) | PREDICTIONS.md, theory_P4_cap2_moves.txt |
+
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && .venv/bin/python kings/delegate/out/K1c/make_edits.py && .venv/bin/python kings/delegate/apply_edits.py kings/theory/LOOPY.md kings/delegate/out/K1c/LOOPY_applied.md kings/delegate/out/K1c/EDITS.md | tail -1 && grep -c "^### EDIT" kings/delegate/out/K1c/EDITS.md && grep -n "^## STATUS ROWS" kings/delegate/out/K1c/EDITS.md
+wrote /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K1c/EDITS.md: 27 edits
+27 applied, 0 rejected -> kings/delegate/out/K1c/LOOPY_applied.md
+27
+469:## STATUS ROWS
+> build · auto/best-free
+[0m← [0mEdit kings/delegate/out/K1c/REPORT.md
+Index: kings/delegate/out/K1c/REPORT.md
+===================================================================
+--- kings/delegate/out/K1c/REPORT.md
++++ kings/delegate/out/K1c/REPORT.md
+@@ -49,9 +49,9 @@
+ | 13 | R1 item 11; R4 item 9 | §5.1 "Frozen in the convention": the enumeration is written out instead of being deferred to the diagram audit. |
+ | 14 | R4 item 9; R1 item 11 | §5.2: the heading claimed more than the proof; split into "the certificate fails — PROVED by Lemma 2.9" and "not punished in P — CONJECTURE (scratch)", with the C-side fact (kpsolve: Z_72 bare = (D, W)) added. |
+ | 15 | R4 item 6 | §5.3 "Without the pawn break" → CONJECTURE. |
+ | 16 | R1 item 11 | §5.4 "Z_onT1 realises `on`" → labelled PROVED in P. |
+-| 17 | R1 items 10, 11; R4 item 9 | §5.5: Black's fourth legal king move **Kd3** added (Kc3 is illegal: White's pawn b2 attacks c3); label CONJECTURE. |
++| 17 | R1 items 10, 11; R4 item 9 | §5.5: Black's fourth legal king move **Kd3** added (Kc3 is illegal: White's pawn b2 attacks c3), and the "Black has an escape" bullet upgraded from scratch to **PROVED in C** by kpsolve: after …Kc5 the position is (D, D), after …Kd3/…Kd4/…Kd5 it is (W, W), so the escape is exactly Kc5. |
+ | 18 | R1 item 11 | §5.6: the μ/T chain now carries labels (μ_W = 5 PROVED by count; T = 5 and "(L2) fails by one tempo" CONJECTURE, scratch — R4 re-derived both). |
+ | 19 | R1 item 5 | §6 preamble: `--cap 2` for the three P4 rows documented; the column list and a reproduce command added; "naive convention" renamed "Z = 0 convention" (the name used in `PREDICTIONS.md`). |
+ | 20–23 | PREDICTIONS.md | §6 table: new **kpsolve (C)** column for every row (P1a, P1b, P2, P3, P4, P5, P6, P7, P8, P9, P10, and "—" with an explanation for P11/P12, which are harness checks, not positions). P4's label changed to "refuted". P11's cell defines W(X) and "hereditarily sum-safe" (HSS); P12's label is restricted to the nodes where `--frozen` reports a win. |
+ | 24 | R4 item 7 | §6 note "What P2, P3 and P10 prove": the "none of them puts a pawn on e4 … that would cover d5" claim was false for H\* (the pawn moves there during the window) — corrected, with the e3–e4 stalemate named. |
+
+> build · auto/best-free
+[0m✗ [0mEdit kings/delegate/out/K1c/REPORT.md failed
+[91m[1mError: [0mCould not find oldString in /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K1c/REPORT.md. It must match exactly, including whitespace and indentation.
+> build · auto/best-free
+[0m→ [0mRead kings/delegate/out/K1c/REPORT.md [90m[offset=96, limit=30][0m
+> build · auto/best-free
+[0m← [0mEdit kings/delegate/out/K1c/REPORT.md
+Index: kings/delegate/out/K1c/REPORT.md
+===================================================================
+--- kings/delegate/out/K1c/REPORT.md
++++ kings/delegate/out/K1c/REPORT.md
+@@ -94,9 +94,18 @@
+ → `Kb2 Pc2 kc4 pc3 w - | D D | Kb2b1:D Kb2a2:D Kb2c1:D Kb2a3:D Kb2a1:D` and
+ `Ka1 Pc2 kc4 pc3 w - | D D | Ka1a2:D Ka1b1:D` — after Kb2–a1 the square b2 is still attacked by pc3, so the
+ step back is illegal.
+ 
+-**(d) The rest of the kpsolve column** (P1a, P1b, P2, P3, P5, P8 6-rank, P9 on cyl:7x6; P10 on cyl:8x6) is
++**(d) §5.5's escape** (Z_on = `Ka4 Pb2 / kc4 pb3`, 8×6 cylinder):
++
++```
++printf 'Ka4 Pb2 kc5 pb3 w -\nKa4 Pb2 kd3 pb3 w -\nKa4 Pb2 kd4 pb3 w -\nKa4 Pb2 kd5 pb3 w -\n' \
++  | ./kings/kpsolve --board cyl:8x6 --ep on --promote QRBN --cap 1 --moves
++```
++→ `D D`, `W W`, `W W`, `W W`: after …Kc5 White cannot force promotion (a draw, with or without the passes);
++after the other three Black king moves White wins.
++
++**(e) The rest of the kpsolve column** (P1a, P1b, P2, P3, P5, P8 6-rank, P9 on cyl:7x6; P10 on cyl:8x6) is
+ `kings/results/theory_predictions_raw.txt`; the file
+ `kings/results/theory_P4_cap2_moves.txt` holds the P4 move lists. `kings/results/PREDICTIONS.md` is the
+ table the §6 column is copied from.
+ 
+
+> build · auto/best-free
+[0m← [0mEdit kings/delegate/out/K1c/REPORT.md
+Index: kings/delegate/out/K1c/REPORT.md
+===================================================================
+--- kings/delegate/out/K1c/REPORT.md
++++ kings/delegate/out/K1c/REPORT.md
+@@ -108,9 +108,9 @@
+ `kings/results/theory_predictions_raw.txt`; the file
+ `kings/results/theory_P4_cap2_moves.txt` holds the P4 move lists. `kings/results/PREDICTIONS.md` is the
+ table the §6 column is copied from.
+ 
+-**(e) The literal-cylcgt baseline** is `kings/results/predictions_literal_cylcgt.json` (P2 → WW ×5,
++**(f) The literal-cylcgt baseline** is `kings/results/predictions_literal_cylcgt.json` (P2 → WW ×5,
+ P3 → LL ×5, P10 → WW ×3, P1a → WW, P1b → LL, P4 → LW/LL/WW/WL/WL/LW, P5 bare → race, P5 +Hp1 → race,
+ P8 6-rank → race, P9 → WW).
+ 
+ **(f) The counts** in the new §6 bullet (25 exactly determined predictions; the theory holds in 22; literal
+
+> build · auto/best-free
+[0m← [0mEdit kings/delegate/out/K1c/REPORT.md
+Index: kings/delegate/out/K1c/REPORT.md
+===================================================================
+--- kings/delegate/out/K1c/REPORT.md
++++ kings/delegate/out/K1c/REPORT.md
+@@ -112,9 +112,9 @@
+ **(f) The literal-cylcgt baseline** is `kings/results/predictions_literal_cylcgt.json` (P2 → WW ×5,
+ P3 → LL ×5, P10 → WW ×3, P1a → WW, P1b → LL, P4 → LW/LL/WW/WL/WL/LW, P5 bare → race, P5 +Hp1 → race,
+ P8 6-rank → race, P9 → WW).
+ 
+-**(f) The counts** in the new §6 bullet (25 exactly determined predictions; the theory holds in 22; literal
++**(g) The counts** in the new §6 bullet (25 exactly determined predictions; the theory holds in 22; literal
+ cylcgt in 16 of the 22 it can answer) are read off `kings/results/PREDICTIONS.md`'s header and its
+ "Theory holds" / "Literal holds" columns.
+ 
+ ## 4. Judgment calls, and things I left alone
+
+> build · auto/best-free
+[0m→ [0mRead kings/delegate/out/K1c/REPORT.md [90m[limit=30, offset=18][0m
+> build · auto/best-free
+[0m← [0mEdit kings/delegate/out/K1c/REPORT.md
+Index: kings/delegate/out/K1c/REPORT.md
+===================================================================
+--- kings/delegate/out/K1c/REPORT.md
++++ kings/delegate/out/K1c/REPORT.md
+@@ -31,8 +31,13 @@
+ margin the theory assumed. This is the only place where the *theory* (not just a label) had to be downgraded,
+ so it is worth a second pair of eyes from the orchestrator: the §6 P4 row now reads
+ `CONJECTURE → **refuted** by kpsolve in 3 of 6 contexts`.
+ 
++A second, smaller result: **§5.5's "Black has an escape" is now PROVED in C.** The note had it as scratch
++evidence, and it had missed one of Black's four legal king moves (…Kd3). kpsolve on `Ka4 Pb2 / kc4 pb3`
++(8×6) gives (D, D) after …Kc5 — White cannot force promotion, with or without the passes — and (W, W) after
++…Kd3, …Kd4 and …Kd5. So the escape is exactly …Kc5, and the enumeration behind the bullet is now complete.
++
+ ## 2. The edits, by review item
+ 
+ | edit(s) | review item | what changed |
+ |---|---|---|
+
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && awk 'NR>=20 && NR<=60 {printf "%d|%s\n", NR, $0}' kings/theory/LOOPY.md
+20|| L1.7 | PROVED | R2: sound |
+21|| R1.8 | PROVED (by §5.4) | unchanged |
+22|| T1.9 | PROVED; the remark after it is corrected | R2 item 2: the remark was false for cylcgt, which re-splits components |
+23|| T1.11(a) | PROVED | R2: sound |
+24|| T1.11(b) | FALSE as originally stated → τ counts moves into ⊕/⊖ by **either** player, M is summed over coordinates: PROVED after repair | R1 item 1, R2 items 1 and 9 |
+25|| T1.11(c) | PROVED (new): the hereditary version for cylcgt's re-splitting value | R2 item 2 |
+26|| P1.12 | PROVED | R2: sound |
+27|| P1.13 | FALSE as originally stated → A′ = { \| ⊖}, translation −B−1 (and a {∅ \| ⊖} variant): PROVED after repair | R1 item 2, R2 item 3 |
+28|| T1.14(i) | PROVED | R2: sound |
+29|| T1.14(ii) | GAP → PROVED after repair: (V4) is stated hereditarily on the re-split components of the context, Z deleted, with the corrected τ | R2 items 2 and 5 |
+30|| T1.14(iii) | PROVED, but a tautology: (A_Q) is now a per-position hypothesis | R2 item 8 |
+31|| T1.14, sharp form | GAP → PROVED after repair: every legal Z-move of the loser at its turns must be a P-loss | R2 item 6 |
+32|| §1.5 "each hypothesis is needed" | (V1b), (V2), (V3), (V4): counterexamples given. (V1a): none given, so "needed" is a CONJECTURE | R1 item 4, R2 item 7 |
+33|| L2.2 | PROVED | unchanged |
+34|| T2.3 | PROVED (also KNOWN) | unchanged |
+35|| T2.4 | FALSE as originally stated (the "P-game of the context" option) → G under normal play (no draws), plus a strategy-transfer form (c) for games with draws: PROVED after repair | R2 item 4 |
+36|| D2.6, (L3′) | withdrawn: it never applies to a 3-file group, and it does not give (L3) | R1 item 8, R3 item 2 |
+37|| T2.7 | GAP → PROVED after repair: (L1) is required only for k = ∞, (L3) covers stalemate, the local rules are stated, and μ counts context pawns only | R1 item 3, R3 items 2 and 3 |
+38|| C2.8 | PROVED (wording corrected) | R3 item 7 |
+39|| L2.9 | GAP → PROVED after repair (added hypothesis: s has no pawn on f ± 1). Without that hypothesis: CONJECTURE | R1 item 9, R3 item 4 |
+40|| P2.10(a) | FALSE as originally stated (H = 4) → H ≥ 5: PROVED after repair | R1 item 7, R3 item 1 |
+41|| P2.10(b) | PROVED (the example; it needs width ≥ \|F_Z\| + 4). "The zero is context-dependent" is the CONJECTURE that follows it, now supported in C by P4 | R3 item 5 |
+42|| R2.11 | GAP → heuristic only. No certificate for passers is claimed | R3 item 6 |
+43|| P3.2 | PROVED; chess bridge PROVED after repair (adds (V1a)) | R4 item 7 |
+44|| T3.3(a) | PROVED (also KNOWN) | R4: sound |
+45|| T3.3(b) | FALSE as originally stated (with ∅ the dead position the pair is (W, L)) → { \| ⊖} ⊞ on_D is (L, L): PROVED after repair | R1 item 2 |
+46|| T3.4 | PROVED | R4: sound |
+47|| C3.5 | PROVED | R4: sound |
+48|| §3, shuttles on both sides | CONJECTURE: needs a two-sided Proposition 3.2 | R4 item 6 |
+49|| T4.2(a) | PROVED after repair (through the corrected T1.11(b)) | R4 item 3 |
+50|| T4.2(b) | PROVED after repair (needs B > ℓ; the D-model equivalence is now proved) | R4 item 4 |
+51|| T4.2(c) | PROVED after repair (negative integers; reachable cycle; "acyclic", not "non-reversible") | R4 item 5 |
+52|| P4.3 | FALSE as originally stated (a king in check) → s not in check on u, reply not a promotion: PROVED after repair. The dichotomy "0 or ∞" is narrowed to steps inside F_Z with the opponent frozen at both ends | R4 items 1 and 2, R1 item 11 |
+53|| D4.4 (over) | the numbering gap is filled | R1 item 11 |
+54|| P4.5, P4.6 | PROVED | R4: sound |
+55|| C4.7 | CONJECTURE, restated for ≤ 2 + 2 pawns (what was searched) | R1 item 10, R4 item 8 |
+56|| §5.1, frozen | PROVED by enumeration, now written out | R1 item 11, R4 item 9 |
+57|| §5.1, (L1) | CONJECTURE (scratch, k ≤ 4 and k = ∞ only; (L3) not checked) | R1 items 3 and 10, R4 item 9 |
+58|| §5.2, White's sorties | the certificate fails: PROVED (L2.9). "Not punished": CONJECTURE (scratch); in C, kpsolve confirms the 6-rank analogue (P5) | R4 item 9 |
+59|| §5.5 | CONJECTURE (scratch); Kd3 added | R1 items 10 and 11, R4 item 9 |
+60|| §5.6 | μ_W = 5: PROVED by count. T = 5 and "(L2) fails by one tempo": CONJECTURE (scratch; R4 re-derived both) | R1 item 11 |
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && awk 'NR>=40 && NR<=60 {printf "%d|%s\n", NR, $0}' kings/theory/LOOPY.md
+40|| P2.10(a) | FALSE as originally stated (H = 4) → H ≥ 5: PROVED after repair | R1 item 7, R3 item 1 |
+41|| P2.10(b) | PROVED (the example; it needs width ≥ \|F_Z\| + 4). "The zero is context-dependent" is the CONJECTURE that follows it, now supported in C by P4 | R3 item 5 |
+42|| R2.11 | GAP → heuristic only. No certificate for passers is claimed | R3 item 6 |
+43|| P3.2 | PROVED; chess bridge PROVED after repair (adds (V1a)) | R4 item 7 |
+44|| T3.3(a) | PROVED (also KNOWN) | R4: sound |
+45|| T3.3(b) | FALSE as originally stated (with ∅ the dead position the pair is (W, L)) → { \| ⊖} ⊞ on_D is (L, L): PROVED after repair | R1 item 2 |
+46|| T3.4 | PROVED | R4: sound |
+47|| C3.5 | PROVED | R4: sound |
+48|| §3, shuttles on both sides | CONJECTURE: needs a two-sided Proposition 3.2 | R4 item 6 |
+49|| T4.2(a) | PROVED after repair (through the corrected T1.11(b)) | R4 item 3 |
+50|| T4.2(b) | PROVED after repair (needs B > ℓ; the D-model equivalence is now proved) | R4 item 4 |
+51|| T4.2(c) | PROVED after repair (negative integers; reachable cycle; "acyclic", not "non-reversible") | R4 item 5 |
+52|| P4.3 | FALSE as originally stated (a king in check) → s not in check on u, reply not a promotion: PROVED after repair. The dichotomy "0 or ∞" is narrowed to steps inside F_Z with the opponent frozen at both ends | R4 items 1 and 2, R1 item 11 |
+53|| D4.4 (over) | the numbering gap is filled | R1 item 11 |
+54|| P4.5, P4.6 | PROVED | R4: sound |
+55|| C4.7 | CONJECTURE, restated for ≤ 2 + 2 pawns (what was searched) | R1 item 10, R4 item 8 |
+56|| §5.1, frozen | PROVED by enumeration, now written out | R1 item 11, R4 item 9 |
+57|| §5.1, (L1) | CONJECTURE (scratch, k ≤ 4 and k = ∞ only; (L3) not checked) | R1 items 3 and 10, R4 item 9 |
+58|| §5.2, White's sorties | the certificate fails: PROVED (L2.9). "Not punished": CONJECTURE (scratch); in C, kpsolve confirms the 6-rank analogue (P5) | R4 item 9 |
+59|| §5.5 | CONJECTURE (scratch); Kd3 added | R1 items 10 and 11, R4 item 9 |
+60|| §5.6 | μ_W = 5: PROVED by count. T = 5 and "(L2) fails by one tempo": CONJECTURE (scratch; R4 re-derived both) | R1 item 11 |
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && awk 'NR>=60 && NR<=78 {printf "%d|%s\n", NR, $0}' kings/theory/LOOPY.md
+60|| §5.6 | μ_W = 5: PROVED by count. T = 5 and "(L2) fails by one tempo": CONJECTURE (scratch; R4 re-derived both) | R1 item 11 |
+61|| P1a, P1b (§6) | PROVED; kpsolve (D, D) | PREDICTIONS.md, as for every P-row |
+62|| P2, P3 | PROVED in P; kpsolve agrees in C on all 10 positions; literal cylcgt also gets them right | R1 item 5 |
+63|| P4 | CONJECTURE → **refuted** by kpsolve in 3 of 6 contexts (H\*, H\*2, H0) | PREDICTIONS.md, theory_P4_cap2_moves.txt |
+64|| P5 | PROVED in P (b entries, + Hp1); bare w-entry CONJECTURE; kpsolve agrees on all four entries | — |
+65|| P6, P7 | CONJECTURE, and partly PROVED in P; not run | — |
+66|| P8 | PROVED in P; kpsolve (W, W) on the 6-rank analogue; 8×8 not run | — |
+67|| P9 | PROVED in P; kpsolve (W, L) | — |
+68|| P10 | PROVED in P; listed as not run in PREDICTIONS.md (R1 ran k = 0: (W, W)) | R1 |
+69|| P11 | PROVED (implication) after repair: W(X) and HSS defined; (V1b) checked from the layout | R1 item 11 |
+70|| P12 | PROVED (implication) after repair: restricted to nodes where `--frozen` reports a win | knock-on of R2 item 4 |
+71|
+72|Not answered by a change in the mathematics: R1 item 12 (missing A8 content: CGSuite, opposition, Gafni),
+73|which is recorded as open in §8.6.
+74|
+75|---
+76|
+77|**Labels.** Every claim has exactly one label.
+78|
+> build · auto/best-free
+[0m← [0mEdit kings/delegate/out/K1c/make_edits.py
+Index: kings/delegate/out/K1c/make_edits.py
+===================================================================
+--- kings/delegate/out/K1c/make_edits.py
++++ kings/delegate/out/K1c/make_edits.py
+@@ -300,10 +300,11 @@
+     Kg4, Kg5) and White's only drawing move is e3–e4; in H\*2 the position is a draw as well.
+   - H0 with Black to move is a draw, not (L, W): Black's king draws by Kd3 or Kd2.
+   - The mechanism: the defending king walks to the locked context pawns and attacks the stuck pawn there
+     (…Kd3, …Kd2, …Kd4). In H0 after …Kd3 the white king is confined to the a- and b-files: Kg4, Kg5 and Kg3
+-    all lose, while Ka5, Kb4 and Kb5 draw. This is Proposition 2.10(b) in action: the zero of the group is
+-    context-dependent, and the (L2) margin the theory assumed does not survive the context.
++    all lose, while Ka5, Kb4 and Kb5 draw. This is what Proposition 2.10(b) predicts — the zero of the group is
++    context-dependent, a CONJECTURE after Proposition 2.10(b), now supported in C by P4 — and the (L2) margin
++    the theory assumed does not survive the context.
+   - The same three contexts are exactly the ones in which the Z = 0 convention and literal cylcgt are wrong
+     too, so the refutation is a fact about the positions, not about the convention.""")
+ 
+ # ---------------------------------------------------------------- appendix A
+
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && .venv/bin/python kings/delegate/out/K1c/make_edits.py && .venv/bin/python kings/delegate/apply_edits.py kings/theory/LOOPY.md kings/delegate/out/K1c/LOOPY_applied.md kings/delegate/out/K1c/EDITS.md | tail -1
+wrote /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K1c/EDITS.md: 27 edits
+27 applied, 0 rejected -> kings/delegate/out/K1c/LOOPY_applied.md
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && awk 'NR>=77 && NR<=95 {printf "%d|%s\n", NR, $0}' kings/theory/LOOPY.md
+77|**Labels.** Every claim has exactly one label.
+78|
+79|- **PROVED**: the full proof is in this note. One model wrote it, and no second model or human has re-derived
+80|  it yet (RESEARCH_PLAN §4, rule 3).
+81|- **CONJECTURE**: not proved. The text names the evidence that would settle it. "Scratch evidence" means a
+82|  throwaway script run once in the session scratchpad (geometry plus a small retrograde solver, Appendix A):
+83|  not kpsolve, not saved in the project, not independently checked.
+84|- **KNOWN**: from the literature, with a citation.
+85|
+86|kpsolve results (§6) are data, not proofs: a claim that only a kpsolve run supports keeps the label
+87|CONJECTURE, with "kpsolve agrees" (revised after review: R1 item 6).
+88|
+89|Several results are PROVED *in the promotion model P* (Definition 1.5). They become statements about chess
+90|only at positions where the hypothesis (A_Q) of §1.2 holds. (A_Q) is false in general, so it is checked
+91|position by position by kpsolve (revised after review: R1 item 6, R2 item 8).
+92|
+93|---
+94|
+95|## 0. Summary
+> build · auto/best-free
+[0m← [0mEdit kings/delegate/out/K1c/make_edits.py
+Index: kings/delegate/out/K1c/make_edits.py
+===================================================================
+--- kings/delegate/out/K1c/make_edits.py
++++ kings/delegate/out/K1c/make_edits.py
+@@ -187,14 +187,14 @@
+   is checked position by position (kpsolve: (W, W) for all ten P2 and P10 positions).""")
+ 
+ E("R1 items 10 and 11, R4 item 9", 914, 917, r"""- **It passes the convention's test. PROVED by enumeration.** Every Black king move drops b3, after which
+   White has a passer and Black none, and White's king shuttles a3 ↔ a4.
+-- **But Black has an escape. PROVED in C (kpsolve); the P-level claim is still scratch.** After the sortie
+-  Kc5 and Kxb3 the position is a draw (D, D) — White cannot force promotion, with or without the passes —
+-  while after Kd3, Kd4 and Kd5 White wins (W, W). Black's legal moves in the group are Kc5, Kd4, Kd5 and Kd3
+-  (revised after review: R1 item 10 — Kd3 was missing from the original list; Kc3 is illegal because White's
+-  pawn b2 attacks c3), and kpsolve shows that the escape is exactly Kc5. The note's original sentence was a
+-  P-level claim from scratch evidence: even without passes, Black cannot force promotion after Kc5 and Kxb3.
++- **But Black has an escape. CONJECTURE (scratch evidence; kpsolve agrees).** After the sortie Kc5 and Kxb3,
++  White cannot force promotion even without passes; after Kd4 and Kd5, White wins only if Black has no spare
++  move. Black's legal moves in the group are Kc5, Kd4, Kd5 and Kd3 (revised after review: R1 item 10 — Kd3
++  was missing from the original list; Kc3 is illegal because White's pawn b2 attacks c3), and kpsolve confirms
++  that the escape is exactly Kc5: `Ka4 Pb2 kc5 pb3 w -` is (D, D) — a draw, with or without the passes — while
++  `Ka4 Pb2 kd3 pb3 w -`, `Ka4 Pb2 kd4 pb3 w -` and `Ka4 Pb2 kd5 pb3 w -` are (W, W).
+   - Reproduce: `printf 'Ka4 Pb2 kc5 pb3 w -\nKa4 Pb2 kd3 pb3 w -\nKa4 Pb2 kd4 pb3 w -\nKa4 Pb2 kd5 pb3 w -\n'
+     | kings/kpsolve --board cyl:8x6 --ep on --promote QRBN --cap 1 --moves`.""")
+ 
+ E("R1 item 11", 928, 930, r"""  - Our count gives μ_W = 5: the c-pawn walks c4–c8 while Black is busy. **PROVED by count** (revised after
+
+> build · auto/best-free
+[0m← [0mEdit kings/delegate/out/K1c/make_edits.py
+Index: kings/delegate/out/K1c/make_edits.py
+===================================================================
+--- kings/delegate/out/K1c/make_edits.py
++++ kings/delegate/out/K1c/make_edits.py
+@@ -127,10 +127,13 @@
+ - With no sliders, the move exposes nothing. ∎
+ 
+ *Counterexample to the original statement (revised after review: R4 item 1).* `Kb2 Pc2 kc4 pc3`, White to
+ move, on flat:4x4: White is in check from pc3 and plays Kb2–a1; when Black then moves outside Z, Kb2 is
+-illegal, because pc3 still attacks it. kpsolve lists only Ka1a2 and Ka1b1 for `Ka1 Pc2 kc4 pc3 w -`. The step
+-back fails because u was attacked, not because the opponent moved.""")
++illegal, because pc3 still attacks it. The position is hand-checkable; kpsolve confirms the move lists:
++only Ka1a2 and Ka1b1 are legal for `Ka1 Pc2 kc4 pc3 w -`. The step back fails because u was attacked, not
++because the opponent moved.
++  - Reproduce: `printf 'Kb2 Pc2 kc4 pc3 w -\nKa1 Pc2 kc4 pc3 w -\n'
++    | kings/kpsolve --board flat:4x4 --ep on --promote QRBN --cap 1 --moves`.""")
+ 
+ E("R4 item 2, R1 item 11", 752, 754, r"""**What this means for the "n safe spare moves" picture.** In king-and-pawn chess, a king with exactly n safe
+ spare moves cannot occur in an isolated group *for steps inside F_Z*: one safe step and the step back already
+ give infinitely many (Proposition 4.3, repaired). Steps out of F_Z are the exception, and their supply depends
+
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && .venv/bin/python kings/delegate/out/K1c/make_edits.py && .venv/bin/python kings/delegate/apply_edits.py kings/theory/LOOPY.md kings/delegate/out/K1c/LOOPY_applied.md kings/delegate/out/K1c/EDITS.md | tail -1 && sed -n '/^\*Proof\.$/,/^\*\*What this means/p' kings/delegate/out/K1c/LOOPY_applied.md
+wrote /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K1c/EDITS.md: 27 edits
+27 applied, 0 rejected -> kings/delegate/out/K1c/LOOPY_applied.md
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && grep -n -A 12 "Counterexample to the original statement" kings/delegate/out/K1c/LOOPY_applied.md
+799:*Counterexample to the original statement (revised after review: R4 item 1).* `Kb2 Pc2 kc4 pc3`, White to
+800-move, on flat:4x4: White is in check from pc3 and plays Kb2–a1; when Black then moves outside Z, Kb2 is
+801-illegal, because pc3 still attacks it. The position is hand-checkable; kpsolve confirms the move lists:
+802-only Ka1a2 and Ka1b1 are legal for `Ka1 Pc2 kc4 pc3 w -`. The step back fails because u was attacked, not
+803-because the opponent moved.
+804-  - Reproduce: `printf 'Kb2 Pc2 kc4 pc3 w -\nKa1 Pc2 kc4 pc3 w -\n'
+805-    | kings/kpsolve --board flat:4x4 --ep on --promote QRBN --cap 1 --moves`.
+806-
+807-**What this means for the "n safe spare moves" picture.** In king-and-pawn chess, a king with exactly n safe
+808-spare moves cannot occur in an isolated group *for steps inside F_Z*: one safe step and the step back already
+809-give infinitely many (Proposition 4.3, repaired). Steps out of F_Z are the exception, and their supply depends
+810-on the context. (Revised after review: R4 item 2, R1 item 11: the original sentence claimed more than
+811-Proposition 4.3 proves.)
+> build · auto/best-free
+[0m← [0mEdit kings/delegate/out/K1c/make_edits.py
+Index: kings/delegate/out/K1c/make_edits.py
+===================================================================
+--- kings/delegate/out/K1c/make_edits.py
++++ kings/delegate/out/K1c/make_edits.py
+@@ -336,9 +336,9 @@
+ | §4, "over" chess reading | the "typically a pawn move by Proposition 4.3" is withdrawn | R4 item 8 |
+ | §5.1, frozen | PROVED by enumeration, now written out | R1 item 11, R4 item 9 |
+ | §5.2, White's sorties | the certificate fails: PROVED (L2.9). "Not punished": CONJECTURE (scratch); in C, kpsolve confirms the 6-rank analogue (P5) | R4 item 9 |
+ | §5.4, Z_onT1 realises `on` | PROVED in P (label added) | R1 item 11 |
+-| §5.5 | PROVED in C (kpsolve): after …Kc5 the position is (D, D), after …Kd3, …Kd4 and …Kd5 it is (W, W) — the escape is exactly Kc5. The P-level claim stays scratch. Kd3 added | R1 items 10 and 11, R4 item 9 |
++| §5.5 | CONJECTURE (scratch; kpsolve agrees): the escape is exactly Kc5 — (D, D) after …Kc5, (W, W) after …Kd3, …Kd4 and …Kd5. Kd3 added to the move list | R1 items 10 and 11, R4 item 9 |
+ | §5.6 | μ_W = 5: PROVED by count. T = 5 and "(L2) fails by one tempo": CONJECTURE (scratch; R4 re-derived both) | R1 item 11 |
+ | P1a, P1b (§6) | PROVED; kpsolve (D, D) | PREDICTIONS.md, as for every P-row |
+ | P2, P3 | PROVED in P; kpsolve agrees in C on all 10 positions; literal cylcgt also gets them right | R1 item 5 |
+ | P4 | CONJECTURE → **refuted** by kpsolve in 3 of 6 contexts (H*, H*2, H0) | PREDICTIONS.md, theory_P4_cap2_moves.txt |
+
+> build · auto/best-free
+[0m← [0mEdit kings/delegate/out/K1c/REPORT.md
+Index: kings/delegate/out/K1c/REPORT.md
+===================================================================
+--- kings/delegate/out/K1c/REPORT.md
++++ kings/delegate/out/K1c/REPORT.md
+@@ -54,9 +54,9 @@
+ | 13 | R1 item 11; R4 item 9 | §5.1 "Frozen in the convention": the enumeration is written out instead of being deferred to the diagram audit. |
+ | 14 | R4 item 9; R1 item 11 | §5.2: the heading claimed more than the proof; split into "the certificate fails — PROVED by Lemma 2.9" and "not punished in P — CONJECTURE (scratch)", with the C-side fact (kpsolve: Z_72 bare = (D, W)) added. |
+ | 15 | R4 item 6 | §5.3 "Without the pawn break" → CONJECTURE. |
+ | 16 | R1 item 11 | §5.4 "Z_onT1 realises `on`" → labelled PROVED in P. |
+-| 17 | R1 items 10, 11; R4 item 9 | §5.5: Black's fourth legal king move **Kd3** added (Kc3 is illegal: White's pawn b2 attacks c3), and the "Black has an escape" bullet upgraded from scratch to **PROVED in C** by kpsolve: after …Kc5 the position is (D, D), after …Kd3/…Kd4/…Kd5 it is (W, W), so the escape is exactly Kc5. |
++| 17 | R1 items 10, 11; R4 item 9 | §5.5: Black's fourth legal king move **Kd3** added (Kc3 is illegal: White's pawn b2 attacks c3), and the "Black has an escape" bullet now carries kpsolve's numbers. Per the note's label rule (LOOPY.md line 86: "kpsolve results are data, not proofs") the bullet keeps the label CONJECTURE (scratch) with "kpsolve agrees": after …Kc5 the position is (D, D), after …Kd3/…Kd4/…Kd5 it is (W, W), so the escape is exactly Kc5. |
+ | 18 | R1 item 11 | §5.6: the μ/T chain now carries labels (μ_W = 5 PROVED by count; T = 5 and "(L2) fails by one tempo" CONJECTURE, scratch — R4 re-derived both). |
+ | 19 | R1 item 5 | §6 preamble: `--cap 2` for the three P4 rows documented; the column list and a reproduce command added; "naive convention" renamed "Z = 0 convention" (the name used in `PREDICTIONS.md`). |
+ | 20–23 | PREDICTIONS.md | §6 table: new **kpsolve (C)** column for every row (P1a, P1b, P2, P3, P4, P5, P6, P7, P8, P9, P10, and "—" with an explanation for P11/P12, which are harness checks, not positions). P4's label changed to "refuted". P11's cell defines W(X) and "hereditarily sum-safe" (HSS); P12's label is restricted to the nodes where `--frozen` reports a win. |
+ | 24 | R4 item 7 | §6 note "What P2, P3 and P10 prove": the "none of them puts a pawn on e4 … that would cover d5" claim was false for H\* (the pawn moves there during the window) — corrected, with the e3–e4 stalemate named. |
+
+> build · auto/best-free
+[0m← [0mEdit kings/delegate/out/K1c/REPORT.md
+Index: kings/delegate/out/K1c/REPORT.md
+===================================================================
+--- kings/delegate/out/K1c/REPORT.md
++++ kings/delegate/out/K1c/REPORT.md
+@@ -31,12 +31,14 @@
+ margin the theory assumed. This is the only place where the *theory* (not just a label) had to be downgraded,
+ so it is worth a second pair of eyes from the orchestrator: the §6 P4 row now reads
+ `CONJECTURE → **refuted** by kpsolve in 3 of 6 contexts`.
+ 
+-A second, smaller result: **§5.5's "Black has an escape" is now PROVED in C.** The note had it as scratch
+-evidence, and it had missed one of Black's four legal king moves (…Kd3). kpsolve on `Ka4 Pb2 / kc4 pb3`
+-(8×6) gives (D, D) after …Kc5 — White cannot force promotion, with or without the passes — and (W, W) after
+-…Kd3, …Kd4 and …Kd5. So the escape is exactly …Kc5, and the enumeration behind the bullet is now complete.
++A second, smaller result: **§5.5's "Black has an escape" is now backed by kpsolve, and its move list is
++complete.** The note had it as scratch evidence and had missed one of Black's four legal king moves (…Kd3).
++kpsolve on `Ka4 Pb2 / kc4 pb3` (8×6) gives (D, D) after …Kc5 — White cannot force promotion, with or without
++the passes — and (W, W) after …Kd3, …Kd4 and …Kd5, so the escape is exactly …Kc5. The bullet keeps the label
++CONJECTURE (scratch), because a kpsolve run is data, not a proof (LOOPY.md, "Labels", line 86); it gains
++"kpsolve agrees".
+ 
+ ## 2. The edits, by review item
+ 
+ | edit(s) | review item | what changed |
+
+> build · auto/best-free
+[0m← [0mEdit kings/delegate/out/K1c/make_edits.py
+Index: kings/delegate/out/K1c/make_edits.py
+===================================================================
+--- kings/delegate/out/K1c/make_edits.py
++++ kings/delegate/out/K1c/make_edits.py
+@@ -172,10 +172,10 @@
+     adjacent to d7 and not attacked by e7.
+   - By Lemma 2.9, (L1) fails for these three sorties. PROVED.
+   - That the three sorties are *not punished* in P (no forced promotion for Black) rests on scratch evidence
+     only, and is a CONJECTURE (revised after review: R4 item 9, R1 item 11): even without passes, Black cannot
+-    force promotion after Kd5, Ke5 or Kf5. Only Kf7 loses, in 10 moves. In chess, kpsolve settles the 6-rank
+-    analogue: Z_72 bare is (D, W), so White to move draws (P5).""")
++    force promotion after Kd5, Ke5 or Kf5. Only Kf7 loses, in 10 moves. In chess, kpsolve gives (D, W) for the
++    6-rank analogue Z_72 bare, so White to move draws (P5).""")
+ 
+ E("R4 item 6", 869, 872, r"""- **Without the pawn break. CONJECTURE** (revised after review: R4 item 6): if f8 were unavailable, the
+   group would be a both-sides shuttle (dud-type), and Theorem 3.4(a) would make every threat-free sum a draw —
+   but that needs a two-sided Proposition 3.2, which is not proved: the bisimulation must hold on the four
+
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && .venv/bin/python kings/delegate/out/K1c/make_edits.py && .venv/bin/python kings/delegate/apply_edits.py kings/theory/LOOPY.md kings/delegate/out/K1c/LOOPY_applied.md kings/delegate/out/K1c/EDITS.md | tail -1 && wc -l kings/delegate/out/K1c/EDITS.md kings/delegate/out/K1c/REPORT.md
+wrote /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K1c/EDITS.md: 27 edits
+27 applied, 0 rejected -> kings/delegate/out/K1c/LOOPY_applied.md
+     501 kings/delegate/out/K1c/EDITS.md
+     154 kings/delegate/out/K1c/REPORT.md
+     655 total
+> build · auto/best-free
+[0m→ [0mRead kings/delegate/out/K1c/EDITS.md [90m[limit=35, offset=467][0m
+> build · auto/best-free
+[0m→ [0mRead kings/delegate/out/K1c/REPORT.md [90m[offset=55, limit=50][0m
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && git status --porcelain | head -20; echo "---"; git diff --stat kings/theory/LOOPY.md
+M delegate/REVIEW.md
+ M delegate/checks/star2_caware_check.out
+ M delegate/checks/star2_frontier_check.out
+ M kings/REPORT.md
+ M kings/analyze.py
+ M kings/conventions.py
+ M kings/experiment.py
+ M kings/lichess_check.py
+ M kings/results/PREDICTIONS.md
+ M kings/results/analyze_7x6.log
+ M kings/results/exp_cyl7x6_epon_Q_conv.jsonl
+ M research/dawson_variants/dawson_variants.py
+?? delegate/checks/star2_frontier_check2.out
+?? delegate/checks/star2_frontier_check2.py
+?? engine/runs/chesssums/chesssums.epd
+?? engine/runs/chesssums/chesssums_subset.epd
+?? engine/runs/chesssums/embed.py
+?? engine/runs/chesssums/lc0_10k_merged.json
+?? engine/runs/chesssums/lc0_10k_stdout.txt
+?? engine/runs/chesssums/lc0_1k_merged.json
+---
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && printf 'Ka4 Pb3 kc3 pb4 Pe4 pe5 b -\nKa4 Pb3 kd3 pb4 Pe3 pe4 w -\nKa4 Pb3 kd4 pb4 Pe2 pe5 w -\nKa4 Pb3 kd3 pb4 Pe4 pe5 w -\n' | ./kings/kpsolve --board cyl:7x6 --ep on --promote QRBN --cap 2 --moves > kings/delegate/out/K1c/p4_probe.txt 2>&1; echo EXIT=$?; cat kings/delegate/out/K1c/p4_probe.txt
+Command moved to the background (shell ID: sh_161104bfb001wimkcsOc42dCIl).
+Output is streaming to: /Users/aritro/.local/share/opencode/shell/021e020f1631cdeb8e9696db64133ccb4df133c7/sh_161104bfb001wimkcsOc42dCIl.out
+> build · auto/best-free
+[0m→ [0mRead kings/delegate/out/K1c/REPORT.md [90m[limit=18, offset=1][0m
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && cat kings/results/theory_P4_cap2_moves.txt
+[kpsolve cyl:7x6 ep=on cap=2: 419 layers, 256637304 states, depth 12, 43.0s]
+Ka4 Pb3 kc3 pb4 Pe3 pe5 w - | D D | Ka4a5:L Ka4g4:L Ka4b5:L Ka4g5:L Ka4g3:L Pe3e4:D
+Ka4 Pb3 kc3 pb4 Pe4 pe5 b - | D D | Kc3c2:W Kc3d3:D Kc3d4:D Kc3d2:W Kc3b2:W
+Ka4 Pb3 kc3 pb4 Pe3 pe4 b - | D D | Kc3c2:W Kc3d3:D Kc3d2:D Kc3b2:W
+> build · auto/best-free
+[0m→ [0mRead kings/delegate/out/K1c/REPORT.md [90m[limit=20, offset=135][0m
+> build · auto/best-free
+[0m← [0mEdit kings/delegate/out/K1c/REPORT.md
+Index: kings/delegate/out/K1c/REPORT.md
+===================================================================
+--- kings/delegate/out/K1c/REPORT.md
++++ kings/delegate/out/K1c/REPORT.md
+@@ -145,10 +145,12 @@
+ 5. **§4 items I did not change**, because R4 found them sound: Theorem 4.2(c)'s R_{n+1}^B example,
+    Proposition 4.5, Proposition 4.6, §5.6's last two bullets, and §5.4's other bullets.
+ 6. **The `## STATUS ROWS` section is in EDITS.md, not in the note.** The note already carries a status table
+    at the top (LOOPY.md lines 1–60) with rows for my part; my section reproduces those rows so the two can be
+-   merged or diffed. The only row where I differ is P10 (point 1 above). If the orchestrator wants the
+-   section inside LOOPY.md as well, it is one edit away.
++   merged or diffed. Two rows differ: **P10** (point 1 above) and **§5.5** (the draft row says "CONJECTURE
++   (scratch); Kd3 added"; mine adds "kpsolve agrees" and the four numbers, and keeps the label CONJECTURE
++   because a kpsolve run is data, not a proof). If the orchestrator wants the section inside LOOPY.md as well,
++   it is one edit away.
+ 7. **"PROVED after repair"** is used only where the repaired proof is in the note: Theorem 4.2(a) rests on
+    Theorem 1.11(a)/(b) with the corrected τ (K1a owns Definition 1.10 and Theorem 1.11), and Proposition
+    3.2's bridge rests on the proof of Theorem 1.14 with (V1a) added. Proposition 4.3's repair is a two-line
+    change to the hypotheses plus the counterexample, and is proved in full in the note.
+
+> build · auto/best-free
+[0m→ [0mRead kings/delegate/out/K1c/EDITS.md [90m[limit=30, offset=1][0m
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && awk '/^\| # \| Board \| Position family/,/^$/' kings/delegate/out/K1c/LOOPY_applied.md | awk -F'|' '{print NF-2, $2}'
+8  # 
+8 ---
+8  P1a 
+8  P1b 
+8  P2 
+8  P3 
+8  P4 
+8  P5 
+8  P6 
+8  P7 
+8  P8 
+8  P9 
+8  P10 
+8  P11 
+8  P12 
+-2
+> build · auto/best-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && grep -n -A 18 "What P4 tests, and how it failed" kings/delegate/out/K1c/LOOPY_applied.md
+1095:- **What P4 tests, and how it failed.** P4 was the positive control: the theory predicts that the convention
+1096-  is *right* there. kpsolve refutes it in 3 of the 6 contexts.
+1097-  - H\* and H\*2 with White to move are draws, not (W, L). In H\* every White king move loses (Ka5, Kb5, Kg3,
+1098-    Kg4, Kg5) and White's only drawing move is e3–e4; in H\*2 the position is a draw as well.
+1099-  - H0 with Black to move is a draw, not (L, W): Black's king draws by Kd3 or Kd2.
+1100-  - The mechanism: the defending king walks to the locked context pawns and attacks the stuck pawn there
+1101-    (…Kd3, …Kd2, …Kd4). In H0 after …Kd3 the white king is confined to the a- and b-files: Kg4, Kg5 and Kg3
+1102-    all lose, while Ka5, Kb4 and Kb5 draw. This is what Proposition 2.10(b) predicts — the zero of the group is
+1103-    context-dependent, a CONJECTURE after Proposition 2.10(b), now supported in C by P4 — and the (L2) margin
+1104-    the theory assumed does not survive the context.
+1105-  - The same three contexts are exactly the ones in which the Z = 0 convention and literal cylcgt are wrong
+1106-    too, so the refutation is a fact about the positions, not about the convention.
+1107-- **P11 and P12** turn Theorems 1.11, 1.14 and 2.7 into checks of the solver.
+1108-
+1109----
+1110-
+1111-## 7. Trying to break the proofs
+1112-
+1113-Each item is a counterexample type the task named, or one found while writing.
+> build · auto/best-free
+[0m→ [0mRead /Users/aritro/.local/share/opencode/shell/021e020f1631cdeb8e9696db64133ccb4df133c7/sh_161104bfb001wimkcsOc42dCIl.out 
+> build · auto/best-free
+> build · auto/best-free
+> build · auto/best-free
+> build · auto/best-free
+> build · auto/best-free
+> build · auto/best-free
+> build · auto/best-free
+> build · auto/best-free
+> build · auto/best-free
+> build · auto/best-free

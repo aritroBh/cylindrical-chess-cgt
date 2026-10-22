@@ -26,6 +26,11 @@ from collections import Counter
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 from cylcgt import cgt, pawns  # noqa: E402
+
+# The sweeps were run with cylcgt's textbook passed test (before the e.p.-aware test became the default
+# on 2026-10-16); pin it so reruns reproduce them. kings/conventions.py scores both tests.
+if hasattr(pawns, "PASSED_RESPECTS_EP"):
+    pawns.PASSED_RESPECTS_EP = False
 from kings.experiment import PREDICT, layout  # noqa: E402
 
 FILES = "abcdefgh"
@@ -37,7 +42,7 @@ def sq(t):
 
 def kpsolve_moves(lines, summary):
     cmd = [f"{ROOT}/kings/kpsolve", "--board", summary["board"], "--ep", summary["ep"], "--promote",
-           summary["promote"], "--cap", str(summary["cap"]), "--threads", str(os.cpu_count() or 8), "--moves"]
+           summary["promote"], "--cap", str(summary["cap"]), "--threads", os.environ.get("KP_THREADS", "4"), "--moves"]
     out = subprocess.run(cmd, input="\n".join(lines) + "\n", capture_output=True, text=True, check=True)
     res = {}
     for line in out.stdout.splitlines():
@@ -147,6 +152,8 @@ def main():
                     wins.append((m, val))
             c["convention_winning_moves"] = [m for m, _ in wins]
             c["creates_passer"] = [m for m, val in wins if val in ("+W", "-W")]
+            if not wins:
+                c["diagnosis"] = "no pawn move the convention counts as winning (its win is by zugzwang)"
             for m, _ in wins:
                 child = apply_move(c["line"], m, ep_on)
                 c.setdefault("children", {})[m] = child

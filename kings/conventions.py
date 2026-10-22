@@ -46,7 +46,16 @@ def passed_ep_aware(board, pos, side):
 
 
 def set_rule(rule):
-    pawns.passed = TEXTBOOK if rule == "textbook" else passed_ep_aware
+    """textbook: cylcgt with PASSED_RESPECTS_EP = False; ep-aware: cylcgt's own e.p.-aware test
+    (PASSED_RESPECTS_EP = True, merged into the main checkout on 2026-10-16); ep-aware-ours: our earlier
+    reimplementation, kept as a cross-check of cylcgt's."""
+    pawns.passed = TEXTBOOK
+    if hasattr(pawns, "PASSED_RESPECTS_EP"):
+        pawns.PASSED_RESPECTS_EP = rule == "ep-aware"
+    if rule == "ep-aware-ours":
+        if hasattr(pawns, "PASSED_RESPECTS_EP"):
+            pawns.PASSED_RESPECTS_EP = False
+        pawns.passed = passed_ep_aware
     pawns._value.cache_clear()
 
 
@@ -76,7 +85,7 @@ def main():
         ep = summary["ep"] == "on"
         rows = [json.loads(l) for l in open(path)]
         tallies = {}
-        for rule in ("textbook", "ep-aware"):
+        for rule in ("textbook", "ep-aware", "ep-aware-ours"):
             set_rule(rule)
             t = Counter()
             for row in rows:
@@ -96,10 +105,12 @@ def main():
             tallies[rule] = dict(t)
         set_rule("textbook")
         changed = [r["P"] for r in rows if r["verdict_textbook"] != r["verdict_ep-aware"]]
+        ours_vs_cylcgt = [r["P"] for r in rows if r["verdict_ep-aware"] != r["verdict_ep-aware-ours"]]
         with open(path.replace(".jsonl", "_conv.jsonl"), "w") as fh:
             for row in rows:
                 fh.write(json.dumps(row) + "\n")
-        print(json.dumps({"file": path, "tallies": tallies, "verdict_changes": changed}, indent=1))
+        print(json.dumps({"file": path, "tallies": tallies, "verdict_changes": changed,
+                          "our_ep_aware_differs_from_cylcgt": ours_vs_cylcgt}, indent=1))
 
 
 if __name__ == "__main__":

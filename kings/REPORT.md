@@ -163,7 +163,7 @@ The convention's prediction is cylcgt's outcome class of P alone:
 |---|---|---|---|
 | 6×6 cylinder | 20 | 12 | 8 |
 | 5×6 ordinary | 3 | 3 | 0 |
-| 7×6 cylinder | PENDING | | |
+| 7×6 cylinder | deferred: the move-level rerun needs about 9 GB and waits for a free machine. The sweep's own split (91 king effects, 52 convention failures) is in the table above | | |
 
 **Example** (6×6 cylinder; Z = Pa3 / pa4, Kf4, kb3; P = W d2 / B d3).
 - The convention says 0: the side to move loses.
@@ -209,11 +209,11 @@ Under the e.p.-aware convention the 7×6 mismatch count drops from 143 to 138.
 kpsolve then solved them; the full table is [results/PREDICTIONS.md](results/PREDICTIONS.md).
 
 **Score.**
-- **Theory:** 22 of 25 exactly determined predictions hold: 19 of 22 on the 7×6 cylinder, plus P6, P7 and P8
-  on 8×8. The 3 that fail are all P4, which the theory had labelled a CONJECTURE.
-- **Literal cylcgt:** 13 of 19. This runs `cylcgt.pawns.value` on the whole pawn set with the kings ignored.
-  It gives no prediction for P5 and P8, which it scores as races at move 0.
-- **P10** (8×6 cylinder) is still running.
+- **Theory:** 25 of 28 exactly determined predictions hold: 22 of 25 in
+  [results/PREDICTIONS.md](results/PREDICTIONS.md), plus P6, P7 and P8 on 8×8. The 3 that fail are all P4,
+  which the theory had labelled a CONJECTURE.
+- **Literal cylcgt:** 16 of 22 (cylcgt on the whole pawn set, kings ignored). It gives no prediction for P5
+  and P8, which it scores as races at move 0.
 
 **Which baseline.** The theory's own "naive convention" column reads the king group as 0 and values only
 the rest with cylcgt. The theory review (§7) pointed out that this is a strawman: literal cylcgt calls the
@@ -229,7 +229,7 @@ comparison is with literal cylcgt.
 | P5 | 6-rank 7.2 analogue `Kc4 Pb5 / kb6 pc5`: bare, and + Hp1 | (D, W); (W, W) | race: no prediction | (D, W); (W, W) |
 | P6, P7, P8 | 5.1, 7.2, 7.3 on 8×8 (§3); 6-rank 7.3 analogue | (L, W); (D, W); (W, W) | 7.2 and 7.3 have both pawns passed: race | as the theory predicts |
 | P9 | `Ka5 Pb4 Pc5 Pe2 / kc6 pb5 pf3` | (W, L) | (W, W): **wrong** | (W, L) |
-| P10 | Z_onT1 + k Black tempo units, k = 0, 1, 2 (8×6 cylinder) | (W, W) for every k | (W, W) | still running |
+| P10 | Z_onT1 + k Black tempo units, k = 0, 1, 2 (8×6 cylinder) | (W, W) for every k | (W, W) | (W, W) for k = 0, 1, 2 |
 
 **The P4 failures.**
 - P4 is a frozen trébuchet (Ka4 Pb3 / Kc3 Pb4) whose punishment takes several moves (T > 1). The theory
@@ -288,7 +288,7 @@ Every deliverable was given to independent referees (Claude models) told to brea
 | Reference solver `kings/ref/` | 1 | No defect. The referee wrote a **third** solver of its own (dict boards, plain repeated passes, no counters) and compared all 282,816 input lines of 19 material sets with `kings/ref/`, with **0 differences**. Its harness caught a deliberately broken control (1,488 differences). Minor defects: random-test seeds were not reproducible (fixed), and input leniencies were documented. |
 | kpsolve (indirectly) | 2 | Two referees ran kpsolve on 25 hand-analysed positions of their own (stalemates, mates across the seam, e.p. pins, underpromotion, 4-rank double steps). All agree with their analysis. |
 | Data extraction `kings/data/` | 1 | Every count matches the sources. It found two frozen-king failures the extraction had missed, double counting, and some over-labelled claims. All are recorded in the erratum at the end of [data/DATA.md](data/DATA.md) and added to [results/FAILURES.md](results/FAILURES.md). |
-| Theory [theory/LOOPY.md](theory/LOOPY.md) | 4 (one general, three on separate theorem clusters) | **Sound:** Lemmas 1.6, 1.7; Theorems 1.9, 1.11(a), 1.14(i), 3.3, 3.4 (the loopy outcome rules, including draws); Corollaries 2.8, 3.5; Propositions 1.12, 2.10(b), 4.5, 4.6; the applications in §5 (label slips only). **False as stated, with a known repair:** Theorem 1.11(b) (the threat set missed suicides), Proposition 1.13, Theorem 2.4 for drawish contexts, Proposition 2.10(a) on 4-rank boards, Proposition 4.3, and the promotion-to-chess bridge (A_Q). **Gaps:** Theorems 1.14(ii), 2.7 (the pass-budget step; repairable with an unlimited-pass argument), 4.2; Lemma 2.9 (a hidden hypothesis); Remark 2.11. THEORY_REVISION_STATUS |
+| Theory [theory/LOOPY.md](theory/LOOPY.md) | 4 (one general, three on separate theorem clusters) | **Sound:** Lemmas 1.6, 1.7; Theorems 1.9, 1.11(a), 1.14(i), 3.3, 3.4 (the loopy outcome rules, including draws); Corollaries 2.8, 3.5; Propositions 1.12, 2.10(b), 4.5, 4.6; the applications in §5 (label slips only). **False as stated, with a known repair:** Theorem 1.11(b) (the threat set missed suicides), Proposition 1.13, Theorem 2.4 for drawish contexts, Proposition 2.10(a) on 4-rank boards, Proposition 4.3, and the promotion-to-chess bridge (A_Q). **Gaps:** Theorems 1.14(ii), 2.7 (the pass-budget step; repairable with an unlimited-pass argument), 4.2; Lemma 2.9 (a hidden hypothesis); Remark 2.11. **Revision (2026-10-21):** the note was revised against all four reports by three external models (kilo minimax, opencode nemotron, opencode best-free; 64 edits, `kings/delegate/out/K1a..K1c/`). It now opens with a status table giving every result's final label. The repaired proofs are written but not yet independently re-checked (task K3). |
 | This report | — | The literal-cylcgt baseline in §5 and the weakened 8×8 asymmetry claim in §4 come from these reviews. |
 
 **What the reviews change in the conclusions.**
@@ -298,6 +298,8 @@ Every deliverable was given to independent referees (Claude models) told to brea
 - The parts that tie it to cylcgt's BIG arithmetic, 1.14(ii), and the certificate for slow punishments,
   2.7, need the repairs listed.
 - The loopy rules for spare tempo, Theorem 3.4, survived every check.
+- In the revised note, "PROVED after repair" marks a proof written by an external model and read once by
+  the integrator. Treat it as unverified until K3 reports.
 
 ## 8. Open questions
 

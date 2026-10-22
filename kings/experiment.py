@@ -39,9 +39,14 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 from cylcgt import cgt, pawns  # noqa: E402  (read-only use)
 
+# The sweeps were run with cylcgt's textbook passed test (before the e.p.-aware test became the default
+# on 2026-10-16); pin it so reruns reproduce them. kings/conventions.py scores both tests.
+if hasattr(pawns, "PASSED_RESPECTS_EP"):
+    pawns.PASSED_RESPECTS_EP = False
+
 FILES = "abcdefgh"
 COUNTS = [(1, 1), (2, 1), (1, 2), (2, 2)]
-THREADS = os.cpu_count() or 8
+THREADS = int(os.environ.get("KP_THREADS", "4"))  # shared machine: keep it modest
 PREDICT = {"L": ("W", "W"), "R": ("L", "L"), "N": ("W", "L"), "P": ("L", "W")}  # (wtm, btm), White's view
 
 
@@ -109,7 +114,7 @@ def main():
     ap.add_argument("--ep", default="on")
     ap.add_argument("--promote", default="QRBN")
     ap.add_argument("--cap", type=int, default=1)
-    ap.add_argument("--threads", type=int, default=os.cpu_count() or 8)
+    ap.add_argument("--threads", type=int, default=int(os.environ.get("KP_THREADS", "4")))
     ap.add_argument("--limit", type=int, default=0, help="only the first N components (testing)")
     a = ap.parse_args()
     global THREADS
