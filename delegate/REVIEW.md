@@ -288,3 +288,36 @@ Rewritten into §X-A as Table VI plus the "Other widths" paragraph.
 
 It reads only repo text and runs no web searches, and it repeats the unverified Muller claim. The Kilo rerun
 of T29 is pending.
+
+## T26 (partial; Kilo stopped at its usage limit) and orchestrator follow-up: C6 nine-pawn rings
+
+**T26's scans** (`research/star26_rings/*.summary.txt`, not pilots), default setting:
+
+| Cylinder | Pawns | Rings | Default \*2 | Notes |
+|---|---|---|---|---|
+| C3 | 7 | 92,072 | 0 | |
+| C3 | 8 | 235,720 | 4 | |
+| C3 | 9 | 341,086 | 0 | |
+| C3 | 10 | 372,595 | 0 | |
+| C4 | 8 | 1,344,419 | 3 | One \*3, under opponent/e.p. off only |
+| C4 | 9 | 4,890,628 | 0 | |
+
+No \*k with k ≥ 3 in the default setting anywhere.
+
+**C6, 9 pawns** (the n+3 prediction):
+- **Splits 2+7, 7+2, 3+6 and 6+3** gave 0 \*2 (3+6 and 6+3 ran in the default setting only).
+- **Split 4+5** (9,399,689 roots) failed in T26 and was run by the orchestrator in 4 chunks:
+  - chunk 1 (6,121,447 roots) found 3 \*2 rings;
+  - chunk 2 (456,170 roots) found 0;
+  - chunk 3 has 0 roots;
+  - chunk 0 (2,822,072 roots) segfaults in the scanner, even with a 64 MB stack. A Sonnet agent is fixing
+    the bug (`research/star26_rings/BUGFIX_frontier_split1.md`).
+- **Split 5+4** is the color reversal of 4+5 and has the same \*2 count.
+- **cylcgt** (`delegate/checks/c6_star2_*.txt`) confirms all 3 hits as \*2 on C6 (count, e.p. on, e.p.-aware):
+  - `W a4 c4 d2 e2 / B b6 b7 d6 e5 f6`;
+  - `W a5 b3 d4 e2 / B c6 d7 e6 e7 f7`;
+  - `W a5 c4 d4 e3 / B b7 d7 e4 e6 f7`.
+
+  These values are CHECKED-2.
+- **Conclusion:** with no ring \*2 on C6 up to 8 pawns (C1), the first ring \*2 on Cn has n+3 pawns for
+  n = 3, …, 6. The minimality is C1. Paper §VIII and open problem 3 are updated.
