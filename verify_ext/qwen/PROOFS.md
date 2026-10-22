@@ -1,3 +1,9 @@
+> **Erratum (2026-10-22, orchestrator).** The claim below that the P2.10(b) example `W (f,H-2); B (f,H-1),
+> (f+1,H-1)` is a terminal context is wrong. For Black, "ahead" means lower ranks, and White's pawn on (f, H-2)
+> stands ahead of both black pawns on files f and f+1. `cylcgt.pawns.passed` finds no passed pawn for either side
+> at H = 6, 7, 8 (T30 audit, `notes/proof_audit2/REPORT.md`, confirmed by its verifier). P2.10(b) has no gap on
+> this point.
+
 # Second-Model Re-Derivation of Proofs
 
 *Task T2 (qwen) — verification of proofs from `notes/lemmas.md` and `kings/theory/LOOPY.md`*
