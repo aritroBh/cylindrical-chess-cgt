@@ -1,0 +1,45 @@
+% Draft for Section X-A ("King and Pawn Against King") of paper/ieee/sections/10_tablebases.tex.
+% Sources: research/odd_cylinders_verify/REPORT.md (T25), summary.txt, counterexamples.txt;
+%          delegate/REVIEW.md (T25 section).  Number-to-source map: notes/paper_drafts/odd_width_notes.md.
+% Labels: \lab{C2} = two independently written programs agree; \lab{C1} = one program.
+% Not installed into paper/ by this task.
+
+\paragraph{Odd widths.}
+We solved every legal king-and-pawn-against-king position on the cylinders $C_n\times 8$, $n=3,\dots,10$.
+Table~\ref{tab:oddw} gives, for $n\le 8$, the share White wins with White to move and the number of
+mutual zugzwangs; two independently written solvers agree on every entry \lab{C2}. For $n=9,10$ a
+single widened build of the first solver gives 79.41\% and 79.94\%, with 279 and 310 mutual
+zugzwangs \lab{C1}. No statistic alternates with the parity of $n$: the win rate rises and the
+zugzwang rate falls monotonically, and the large count at $n=4$ is a small-board effect, not a
+parity effect. The only even-only feature is one extra file at distance $n/2$, which adds $3n$, $2n$
+or $0$ mutual zugzwangs for $n=6,8,10$. The tr\'ebuchet of Fig.~\ref{fig:trebuchet_2025} is a mutual
+zugzwang in all 84 tested placements with $n\ge 4$, and is illegal on $\cyl{3}$, where its two kings
+touch \lab{C2}. Two positions show what the seam does. \pos{W~Ka3~a2 / \mbox{B~Ka5}} is a draw with
+either side to move on the ordinary board, but on every cylinder of four files or more it is a mutual
+zugzwang: Black must step aside and lose \lab{C2}. \pos{W~Ka1~a7 / \mbox{B~Ka3}} is a White win on
+$\cyl{3}$, by 1.~a8=Q\#, the queen mating along the wrapped diagonal \lab{C2}.
+
+\begin{table}[!t]
+\centering
+\caption{King and Pawn Against King on $C_n\times 8$: White-to-Move Wins and Mutual Zugzwangs
+\lab{C2} (the $n=9,10$ figures quoted in the text are \lab{C1})}
+\label{tab:oddw}
+\footnotesize
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+& Legal & Won (\%) & Draw (\%) & Mutual \\
+$n$ & (White to move) & White to move & White to move & zugzwangs \\
+\midrule
+3 & 5,706   & 53.00 & 47.00 & 0   \\
+4 & 16,008  & 65.87 & 34.13 & 208 \\
+5 & 34,350  & 73.92 & 26.08 & 95  \\
+6 & 63,036  & 76.55 & 23.45 & 132 \\
+7 & 104,370 & 77.49 & 22.51 & 175 \\
+8 & 160,656 & 78.89 & 21.11 & 216 \\
+\bottomrule
+\end{tabular}
+
+\smallskip
+\parbox{\columnwidth}{\footnotesize Mutual zugzwangs are counted over triples (pawn, white king,
+black king): a draw with White to move and a loss for Black with Black to move.}
+\end{table}

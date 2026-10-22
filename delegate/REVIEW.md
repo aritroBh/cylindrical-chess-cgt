@@ -273,3 +273,18 @@ So the disagreement is the known sum-vs-whole-board difference.
 - The paper's three ring-derived positions are \*2 in both models.
 
 **Paper:** §VIII-D rewritten; §IX no longer says "the one of the three".
+
+## T31: odd-width paragraph (`notes/paper_drafts/odd_width.tex`). Accepted after checking.
+
+Every number matches `research/odd_cylinders_verify/summary.txt`:
+- 5,706 / 53.00% on C3;
+- 16,008 / 65.87% / 208 zugzwangs on C4;
+- 160,656 / 78.89% / 216 zugzwangs on C8;
+- 79.41% and 79.94% for n = 9 and 10.
+
+Rewritten into §X-A as Table VI plus the "Other widths" paragraph.
+
+## T29 (first attempt): `notes/novelty2/REPORT.md` from the aborted aihubmix run. Not used.
+
+It reads only repo text and runs no web searches, and it repeats the unverified Muller claim. The Kilo rerun
+of T29 is pending.

@@ -324,3 +324,14 @@ Still open after this round: L1 (anonymous mirror), L2 (turn the notice on after
   - Minimality: the atlas covers up to 5 pawns, and the C scan covers every 6- and 7-pawn split. That is
     [C1].
 - Both builds: 13 pages, no errors, no overfull boxes, no undefined references.
+
+## Orchestrator, 2026-10-22 01:00
+
+- **VIII-D:** 21 five-file \*2 positions as whole-board games (C scanner, whole-board solver, and cylcgt with
+  splitting off), 15 of them as sums. Replaces "three".
+- **X-A:** new "Other widths" paragraph and Table VI, KPK on Cn for n = 3–10.
+  - Drafted by T31 from T25's verified data.
+  - Numbers checked by the orchestrator against `research/odd_cylinders_verify/summary.txt`.
+  - "Odd-width cylinders" removed from open problem 5.
+- **Layout:** both builds are now 14 pages (the review build's limit). `\IEEEtriggeratref{11}` balances the
+  reference columns on page 14.
