@@ -443,3 +443,22 @@ the other 19 are applied:
   the widths checked (C2 to n = 8, C1 for 9–10); the a8=Q mate mechanism is corrected (a-file check);
 - RESULTS 6b's "306 sides" is corrected to 302 (290 one-sided, 12 races).
 
+**C7 minimality (n = 7) done.** The scanner's nine-pawn splits (4+5, 3+6, 2+7, 1+8; the mirrors by colour
+reversal) give no \*2 and no \*3, with largest value \*1. T43's solver, run with the model's conventions
+(`delegate/checks/c7_epconv/enum9/`), enumerates 19,961,100 nine-pawn ring classes and finds no \*2: CHECKED-2.
+With the earlier ≤ 8-pawn ring scan (C1), the first ring \*2 on C7 has 10 pawns. The full 5+5 ten-pawn split has
+90,313,025 rings, exactly 63 \*2 and 8 \*3. The 4+6, 3+7, 2+8 and 1+9 splits are still running. The paper now says
+n+3 for n = 3, …, 7 (C1) and asks about eleven pawns on C8.
+
+**Review of the round-9 edits** (`delegate/checks/paper_review_r9.json`): 10 confirmed (several are
+duplicates across lenses), 9 rejected. Applied:
+- the intro now says "some ten-pawn rings are \*3";
+- the draw-as-0 treatment is defined as {BIG r_W | BIG r_B};
+- the a8=Q mate sentence is split, with each flight square assigned to the right piece;
+- "9 and 10 files";
+- §VIII's opener is scoped to ordinary boards of width ≤ 4;
+- one term ("whole-board game") throughout;
+- open problem 7 is again a question.
+The acknowledgement now names the Sonnet/Haiku agents and Codex's third ring solver, and it is shorter, so the
+main build stays at 14 pages.
+

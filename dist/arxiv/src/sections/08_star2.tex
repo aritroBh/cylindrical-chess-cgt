@@ -2,8 +2,8 @@
 
 The $\nim{2}$ question of Section~\ref{sec:intro} asks whether a king-and-pawn position on a board with eight
 ranks can have this value. We show that the only $\nim{2}$ in the census under the textbook test
-comes from that test, that none exists with six pawns or fewer in the default setting, and that $\nim{2}$
-appears with seven.
+comes from that test, that on ordinary boards of width at most four none exists with six pawns or fewer in the
+default setting, and that $\nim{2}$ appears with seven.
 
 \subsection{The Textbook Candidate}
 
@@ -135,22 +135,25 @@ are \pos{W a4 b2 c2 / B b6 c5 d6 d7} and its color-reversed twin, with seven; ou
 \lab{C2}. No ring with fewer pawns is a $\nim{2}$ on either cylinder: the atlas up to five pawns, a C scan
 of every six- and seven-pawn split, and an independent ring solver agree \lab{C2}. On $\cyl{6}$ the first rings have nine pawns: a scan of every
 nine-pawn ring finds six \lab{C1}, among them \pos{W a4 c4 d2 e2 / B b6 b7 d6 e5 f6}; both programs confirm
-three, and the other three are their color-reversed twins \lab{C2}. So the first ring
-$\nim{2}$ on $\cyl{n}$ has $n+3$ pawns for $n=3,\dots,6$ \lab{C1}. The $\cyl{3}$ ring is a $\nim{2}$ with one pawn fewer than any ordinary board of width at most four allows,
+three, and the other three are their color-reversed twins \lab{C2}. On $\cyl{7}$ no ring with nine pawns is a
+$\nim{2}$, and a third solver written from the rules agrees \lab{C2}; the ten-pawn rings with five pawns a side
+include $63$ of value $\nim{2}$ \lab{C1}, such as \pos{W a2 a3 c3 e3 f2 / B a4 b5 d5 f5 g5}, which all three
+programs confirm \lab{C2}. So the first ring $\nim{2}$ on $\cyl{n}$ has $n+3$ pawns for $n=3,\dots,7$
+\lab{C1}. The $\cyl{3}$ ring is a $\nim{2}$ with one pawn fewer than any ordinary board of width at most four allows,
 and it needs two en passant captures: without black's b4$\times$a3 it is $\uparrow$, without white's
 b5$\times$c6 it is $\downarrow$, and with e.p.\ off it is $0$ \lab{C2}.
 
 A $\nim{3}$ lies just beyond these scans, since $\nim{2}+\star=\nim{3}$. In the default setting, position A
 beside a one-file group worth $\star$, \pos{W a4 b3 d2 d3 f4 / B a7 b7 c5 f6}, is $\nim{3}$ on six files with
-nine pawns, and our engine, as a sum and as a whole board, and the independent whole-board solver agree
-\lab{C2}. With e.p.\ off eight pawns suffice: \pos{W a2 a4 c2 e2 / B a3 a6
+nine pawns, and our engine as a sum, our engine as a whole-board game and the independent whole-board solver
+agree \lab{C2}. With e.p.\ off eight pawns suffice: \pos{W a2 a4 c2 e2 / B a3 a6
 d7 f7} is the candidate, moved two files over, beside an a-file group worth $\star$ \lab{C2}. Rings give
 $\nim{3}$ in a single component. Outside the default setting it comes early: with e.p.\ off, the eight-pawn
 ring \pos{W a5 b3 c2 d2 / B a7 b5 c6 d4} on $\cyl{4}$ under the opponent rule, and the ten-pawn ring
 \pos{W a2 a3 b2 b3 c3 / B a6 a7 b6 b7 c6} on $\cyl{3}$ under the count rule \lab{C2}. In the default setting it
-appears on $\cyl{7}$: a partial scan of the ten-pawn rings with five pawns a side finds eight of value
+appears on $\cyl{7}$: the same ten-pawn rings include eight of value
 $\nim{3}$, among them \pos{W a2 a5 c4 e2 f2 / B a7 b4 d7 e5 g7}, which is $\nim{3}$ in both models. For all
-eight the scanner, our engine as a whole-board game and a third solver written from the rules agree
+eight the scanner, our engine as a whole-board game and the third solver agree
 \lab{C2}; as sums of components six keep the value. So $\nim{3}$, like $\nim{2}$, needs no more than eight ranks.
 
 In the model, then, the $\nim{2}$ question has a positive answer on the ordinary $8\times8$ board: four files

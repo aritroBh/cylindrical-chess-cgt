@@ -36,7 +36,7 @@ Status: ✅ banked · 🔄 running · ⏳ waiting (quota or owner) · ⬜ not st
 | R11 | Prop. 2.10(b) in a non-terminal context | settled in kings/ (LOOPY.md: PROVED, reviewer-confirmed; context dependence for T ≥ 2 supported by P4) | §IV | ✅ AI-reviewed |
 | R12 | Larger \*k; fewest pawns for \*2 on each cylinder | T24 + orchestrator split completion: first ring \*2 on Cn has n+3 pawns for n = 3, 4, 5 [values C2, minimality C1]. Added to §VIII, intro, abstract | §VIII | ✅ |
 
-| R13 | Does n+3 continue (C6 with 9 pawns, C7 with 10)? First \*3 on narrow cylinders | T26 (kilo) + orchestrator; scanner bug fixed by a Sonnet agent. C6: six 9-pawn ring \*2, so n+3 holds for n = 3–6. \*3 rings exist outside the default setting (C4 8 pawns, opponent/e.p. off; C3 10 pawns) [C2]. C7 open | §VIII | ✅ |
+| R13 | Does n+3 continue (C6 with 9 pawns, C7 with 10)? First \*3 on narrow cylinders | T26 + T43 (Codex) + orchestrator. n+3 holds for n = 3–7; C7: no nine-pawn ring \*2 (two programs), 63 ten-pawn \*2. **Default-setting single-component \*3**: 8 ten-pawn C7 rings (three programs). C8 open | §VIII | ✅ |
 | R14 | A \*3 under count with e.p. OFF on six files (T24: 16 hits at C/off, 26 count/mover rows) | T27: cylcgt + whole-board solver | §VIII | 🔄 |
 
 ## Plans and quotas (2026-10-21, 7 PM)

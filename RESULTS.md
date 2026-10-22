@@ -326,6 +326,12 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   - **Proof audit:** Thm 3 and Thm 8 got precise statements and sketches, and Conj 4 is now a Corollary [AI].
     Repo defects in `kings/theory/LOOPY.md` were sent to the kings session.
 
+- **C7 (2026-10-22 afternoon).** The first ring \*2 on C7 has ten pawns: no nine-pawn ring is \*2 (scanner, and
+  T43's independent solver over 19,961,100 classes). The five-a-side ten-pawn rings include 63 \*2 and
+  **8 single-component \*3 in the default setting**: the first default-setting \*3 that is not a sum. The scanner,
+  T43's solver and cylcgt (whole board) agree on all 8; 6 stay \*3 as sums. Example:
+  `W a2 a5 c4 e2 f2 / B a7 b4 d7 e5 g7`. So n+3 holds for n = 3, …, 7.
+
 ## 7. Pending
 
 **Verification gaps.** 35 adversarial verifiers were cut off by the Claude usage limit. Not verified:
