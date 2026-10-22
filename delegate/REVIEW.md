@@ -390,3 +390,24 @@ as taste.
   solver (`delegate/checks/a_plus_star/`), so CHECKED-2: \*2 + \* = \*3 with nine pawns. Open problem 3 now asks
   for a single-component \*3, or one with fewer than nine pawns, in the default setting.
 
+## C7 rings: \*2 at ten pawns and the first single-component default \*3 (orchestrator, round 9; in progress)
+
+- **Scanner** (`research/star26_rings/c7/`, fixed2 build): about 200 of the 1,024 pieces of the 5+5 ten-pawn
+  split are done. They give 63 roots of value \*2 and **8 of value \*3** in the default setting. Every \*3 root is
+  a single component (cylcgt `components` gives 1). Example: `W a4 b2 d2 e2 f2 / B b3 c5 e4 f6 g7`.
+- **Independent checks:**
+  - T43's Codex-written solver agrees on all 62 hits it was given (57 \*2, 5 not \*2). With heaps up to 5 it
+    gives \*3 for the two \*3 tested.
+  - cylcgt whole-board gives \*3 for `W a4 b2 d2 e2 f2 / B b3 c5 e4 f6 g7`.
+  - The scanner family's single-position evaluator (`research/c3_star2/cyl_eval`) also gives N,3.
+  - In the sum model (splitting on) values can differ: that position is {0, \*2 | 0, \*} as a sum, while
+    `W a2 a5 c4 e2 f2 / B a7 b4 d7 e5 g7` is \*3 in both models.
+- **cylcgt cross-check of the first 15 \*2 hits (sum model):** 13 are \*2, one is the \*3 above, and
+  `W a2 a6 b2 d3 f2 / B a7 c7 e5 e6 g4` is ↑\* as a sum. That one is \*2 as a whole board (T43, scanner); the
+  cylcgt whole-board value is pending.
+- **Pending:** all 8 \*3 through T43 and cylcgt in both models (`delegate/checks/c7_star3/`); minimality, i.e. no
+  nine-pawn ring \*2 on C7, by the scanner (`c7/p9_*`) and by T43's solver (`delegate/checks/c7_epconv/enum9/`).
+- **False alarm, recorded:** T43's 5 "disagreements" were \*3 lines, because the brief mislabelled the hits file.
+  A re-run of piece c41 with both scanner builds reproduces N,3 exactly. The table-replacement change (fixed2)
+  changes no value.
+
