@@ -110,14 +110,17 @@ four have eight. One exhaustive scan of $5{,}503{,}282$ root positions gives the
 completeness is \lab{C1}; our engine re-checked every position it reported \lab{C2}. With
 Theorem~\ref{thm:census}, seven is the least number of pawns in a $\nim{2}$ on these boards \lab{C2}.
 
-On five files, three eight-pawn positions are $\nim{2}$ on the ordinary board in the default setting \lab{C2}:
+On five files a scan of all $14{,}680{,}983$ eight-pawn positions finds $21$ of value $\nim{2}$ in the default
+setting \lab{C1}, each using all five files. As whole-board games all $21$ are $\nim{2}$: the whole-board solver
+and our engine with splitting switched off agree \lab{C2}. As sums of components (Section~\ref{sec:sums-hss})
+$15$ keep the value; the other six change only through the splitting. Three of the
+$21$ come from the $14$ eight-pawn $\nim{2}$ rings on $\cyl{5}$ \lab{C1} by opening them onto files a--e:
 \begin{itemize}
 \item \pos{W a3 b3 c2 e2 / B a6 c5 d5 e3},
 \item \pos{W a4 b3 c2 d2 / B a7 b6 c7 e4},
-\item \pos{W a6 b4 c4 e3 / B a7 c7 d6 e6}.
+\item \pos{W a6 b4 c4 e3 / B a7 c7 d6 e6},
 \end{itemize}
-They are the three of the $14$ eight-pawn $\nim{2}$ rings on $\cyl{5}$ \lab{C1} that keep their value when
-opened onto files a--e. We call the first \emph{the five-file $\nim{2}$} (Section~\ref{sec:sums-hss}). No $\nim{3}$ or higher nimber occurs in the default setting in any scope we searched
+and these are $\nim{2}$ in both models. We call the first \emph{the five-file $\nim{2}$}. No $\nim{3}$ or higher nimber occurs in the default setting in any scope we searched
 \lab{C1}.
 
 By Theorem~\ref{thm:cut}, a pawn position on $\cyl{n}$ with an empty file is one on $\flatb{n-1}$, so these

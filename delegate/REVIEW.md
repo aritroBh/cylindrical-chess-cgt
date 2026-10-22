@@ -252,3 +252,24 @@ sections, and its font claim is wrong (pdffonts shows NimbusRomNo9L, a Times clo
 
 **Real but up to the author:** the affiliation, city and country in the byline, which the repo does not
 record.
+
+## The 21 five-file \*2 positions: settled (orchestrator, 2026-10-22 00:50)
+
+**Scan.** T21's scan of the ordinary 5-file board with 8 pawns finds 21 positions of value \*2 in the default
+setting. All 21 use every file, and no two are mirror images.
+
+**Sum model.** cylcgt agrees on 15 of the 21 and disagrees on 6.
+
+**The 6 disputed positions** (`delegate/checks/w5_arbiter/`, `out_*.txt` and `nosplit_*.txt`) are \*2 in two
+other programs:
+- the independent whole-board solver (`verify_ext/codex`);
+- cylcgt with component splitting switched off.
+
+So the disagreement is the known sum-vs-whole-board difference.
+
+**Result.**
+- All 21 are \*2 as whole-board games: CHECKED-2, with scan completeness COMPUTED-1.
+- 15 are \*2 as sums.
+- The paper's three ring-derived positions are \*2 in both models.
+
+**Paper:** §VIII-D rewritten; §IX no longer says "the one of the three".
