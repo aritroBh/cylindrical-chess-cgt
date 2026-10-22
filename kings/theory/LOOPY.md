@@ -9,14 +9,18 @@ The revision was delegated to three external models: kilo minimax-m3.1-flash for
 opencode nemotron-3-ultra for §2, and opencode best-free for §§3–6 (`kings/delegate/out/K1a..K1c/`). Their
 64 edits were applied by script and integrated by Claude, which read the repaired proofs once.*
 
-## Status after review (2026-10-21)
+## Status after review (2026-10-21, amended 2026-10-22)
 
 Every numbered result, its final label, and the review item behind any change. "PROVED after repair" means
 the statement or its proof was changed and the complete repaired proof is now in the note. **Caveat:** every
 repaired proof was written by a free external model and read once by the integrator. Each was then checked
 independently by a fourth model (task K3, opencode beam-free, `kings/delegate/out/K3/REPORT.md`): 13 of the
 17 are SOUND, and 4 are downgraded to GAP (the sharp form of 1.14, Theorem 2.7, P11, P12). No repaired proof
-was found false. All checkers are AI models; no human has re-derived these proofs. "FALSE as
+was found false. All checkers are AI models; no human has re-derived these proofs. The fixes marked "T30
+proof audit" (2026-10-22) answer the main project's audit (`notes/proof_audit2/REPORT.md`). The kings/ side session
+wrote them. Two AI reviewers (Sonnet) read the first draft, which led to the correction of the audit's
+reading of P2.10(a). Two more read the revised text, and their remaining wording points were applied. K3 did
+not see any of them, and K3's SOUND verdicts on T1.11(b) and P2.10(a) predate them. "FALSE as
 originally stated → …" gives the corrected statement and its label. Each change in the text is marked
 "(revised after review: Rk item n)".
 
@@ -28,23 +32,23 @@ originally stated → …" gives the corrected statement and its label. Each cha
 | R1.8 | PROVED (by §5.4) | unchanged |
 | T1.9 | PROVED; the remark after it is corrected | R2 item 2: the remark was false for cylcgt, which re-splits components |
 | T1.11(a) | PROVED | R2: sound |
-| T1.11(b) | FALSE as originally stated → τ counts moves into ⊕/⊖ by **either** player, M is summed over coordinates: PROVED after repair | R1 item 1, R2 items 1 and 9 |
-| T1.11(c) | PROVED (new): the hereditary version for cylcgt's re-splitting value | R2 item 2 |
+| T1.11(b) | FALSE as originally stated → τ counts moves into ⊕/⊖ by **either** player, M is summed over coordinates: PROVED after repair | R1 item 1, R2 items 1 and 9; T30 audit: a move count one short and the canonical form of 0 corrected in (b) and (c), conclusions unchanged |
+| T1.11(c) | PROVED after repair (new in the revision): the hereditary version for cylcgt's re-splitting value | R2 item 2; T30 audit: a move count corrected |
 | P1.12 | PROVED | R2: sound |
 | P1.13 | FALSE as originally stated → A′ = { \| ⊖}, translation −B−1 (and a {∅ \| ⊖} variant): PROVED after repair | R1 item 2, R2 item 3 |
 | T1.14(i) | PROVED | R2: sound |
 | T1.14(ii) | GAP → PROVED after repair: (V4) is stated hereditarily on the re-split components of the context, Z deleted, with the corrected τ | R2 items 2 and 5 |
-| T1.14(iii) | PROVED, but a tautology: (A_Q) is now a per-position hypothesis | R2 item 8 |
+| T1.14(iii) | PROVED after repair, but a tautology: (A_Q) is now a per-position hypothesis | R2 item 8 |
 | T1.14, sharp form | GAP → GAP (proof incomplete): every legal Z-move of the loser at its turns must be a P-loss (revised after K3 check) | R2 item 6 |
 | §1.5 "each hypothesis is needed" | (V1b), (V2), (V3), (V4): counterexamples given. (V1a): none given, so "needed" is a CONJECTURE | R1 item 4, R2 item 7 |
 | L2.2 | PROVED | unchanged |
-| T2.3 | PROVED (also KNOWN) | unchanged |
+| T2.3 | PROVED (also KNOWN), for every integer B ≥ 1 | its direct proof, overwritten by a misanchored edit in the 2026-10-21 revision, was restored after the T30 audit |
 | T2.4 | FALSE as originally stated (the "P-game of the context" option) → G under normal play (no draws), plus a strategy-transfer form (c) for games with draws: PROVED after repair | R2 item 4 |
 | D2.6, (L3′) | withdrawn: it never applies to a 3-file group, and it does not give (L3) | R1 item 8, R3 item 2 |
-| T2.7 | GAP → GAP (proof incomplete): (L1) is required only for k = ∞, (L3) covers stalemate, the local rules are stated, and μ counts context pawns only (revised after K3 check). K3's objection: a context passer within the window is not ruled out by (L2). Integrator's note: in the promotion model P only a promotion ends the game, which (L2) does exclude, so the objection may conflate P with the D-model. Unresolved until a further check | R1 item 3, R3 items 2 and 3; K3 |
+| T2.7 | GAP → GAP (proof incomplete): (L1) is required only for k = ∞, (L3) covers stalemate, the local rules are stated, and μ counts context pawns only (revised after K3 check). K3's objection: a context passer within the window is not ruled out by (L2). Integrator's note: in the promotion model P only a promotion ends the game, which (L2) does exclude, so the objection may conflate P with the D-model. Unresolved until a further check. T30 recheck: Definition 2.6 (L2) counts s's king and pawns, Z-pawns included, while this row's "μ counts context pawns only" follows the proof, which leaves s's Z-pawns to (L1); the two are not yet reconciled | R1 item 3, R3 items 2 and 3; K3 |
 | C2.8 | PROVED (wording corrected) | R3 item 7 |
 | L2.9 | GAP → PROVED after repair (added hypothesis: s has no pawn on f ± 1). Without that hypothesis: CONJECTURE | R1 item 9, R3 item 4 |
-| P2.10(a) | FALSE as originally stated (H = 4) → H ≥ 5: PROVED after repair | R1 item 7, R3 item 1 |
+| P2.10(a) | FALSE as originally stated (H = 4) → H ≥ 5: PROVED after repair, under both the textbook and the e.p.-aware passed test, for chess-legal contexts and s's context pawns; s's Z-pawns are a separate check. T30 audit: the proof lacked a step for en passant (now added). The stronger claim that no pawn of *either* colour stands one move from promotion needs H ≥ 6 under the e.p.-aware test | R1 item 7, R3 item 1; T30 audit and recheck |
 | P2.10(b) | PROVED (the example; it needs width ≥ \|F_Z\| + 4). "The zero is context-dependent" is the CONJECTURE that follows it, now supported in C by P4 | R3 item 5 |
 | R2.11 | GAP → heuristic only. No certificate for passers is claimed | R3 item 6 |
 | P3.2 | PROVED; chess bridge PROVED after repair (adds (V1a)) | R4 item 7 |
@@ -108,7 +112,8 @@ the king group Z (the trébuchet) as the game 0. When does this give the chess r
 with the per-position hypothesis (A_Q)(X) that a won promotion race is a won game (Theorem 1.14; (A_Q) is
 false as a general statement, so it is checked position by position by kpsolve; revised after review: R1 item
 6, R2 item 8):
-- (V1) the king group never interacts with the components, and nobody is ever stalemated;
+- (V1) the king group never interacts with the components, nobody is ever stalemated, and en passant obeys
+  condition (E) of L1.6 in `notes/lemmas.md`;
 - (V2) every "decisive event" really decides the game;
 - (V3) every move inside Z is decisively punished;
 - (V4) no two components carry threats of opposite sign, and BIG exceeds every tempo count. The check is
@@ -118,9 +123,13 @@ false as a general statement, so it is checked position by position by kpsolve; 
 Only (V4) concerns BIG. Without it, +BIG and −BIG cancel and no value of BIG helps (Proposition 1.12).
 The other three are chess facts.
 - For a king move, (V2)+(V3) reduce to a local certificate: the punisher promotes within T moves against a
-  defender who may pass, and the defender cannot promote within T moves elsewhere (Theorem 2.7). The
-  counter-promotion half of the certificate holds in every non-terminal context exactly when T = 1
-  (Proposition 2.10). Slower punishments make the zero context-dependent.
+  defender who may pass, and the defender cannot promote within T moves elsewhere (Theorem 2.7, whose proof
+  has a gap). The
+  counter-promotion half of the certificate holds in every chess-legal non-terminal context when T = 1, on
+  boards with at least 5 ranks, provided the defender has no Z-pawn one move from promotion (Proposition
+  2.10(a)). For T ≥ 2 it fails in some context on boards at least |F_Z| + 4 files wide (Proposition 2.10(b)),
+  so a slower punishment's zero is not certified in every context; that it is context-dependent is a
+  CONJECTURE, supported by P4.
 - When a king has a safe square to shuttle to, Z is not 0 but the loopy game `on`/`off` (or `dud`). On that
   side BIG is meaningless, because `on` exceeds every number. The correct rule replaces ±BIG by
   game-ending outcomes (Theorem 3.4):
@@ -138,21 +147,21 @@ The other three are chess facts.
 | T1.9 | One component: o(A^B) is the decisive-event outcome for every B ≥ 1 | PROVED |
 | T1.11 | Sums: o(S) = decisive-event outcome under first-event dominance; sufficient: no opposite-sign threats in different components (a threat is a move into a terminal by either player), and B > every tempo count. (c) is the re-splitting version | PROVED (a); (b) and (c) PROVED after repair |
 | P1.12 | {⊕ \| ∅} ⊞ {∅ \| ⊖} is 𝓝 in chess semantics, but its BIG translation is 0 (𝓟) for every B | PROVED |
-| P1.13 | B must exceed every tempo count: with n tempi against the threat { \| ⊖}, the BIG outcome is right iff n ≤ B | PROVED after repair |
-| T1.14 | Validity: (V1)–(V3) give P = D (no draws), (V4) gives o(S) = P, and (A_Q)(X) gives C = P | PROVED (the C part is the per-position hypothesis (A_Q)(X)) |
-| T2.3 | {−B \| B} = 0 | PROVED (and KNOWN: simplicity theorem) |
+| P1.13 | B must be at least the tempo count: with n tempi against the threat { \| ⊖}, the BIG outcome is right iff n ≤ B | PROVED after repair |
+| T1.14 | Validity: (V1)–(V3) give P = D (no draws), (V4) gives o(S) = P, and (A_Q)(X) gives C = P | (i) PROVED; (ii), (iii) PROVED after repair; the sharp form is a GAP. The C part is the per-position hypothesis (A_Q)(X) |
+| T2.3 | {−B \| B} = 0 for every integer B ≥ 1 | PROVED (and KNOWN: simplicity theorem) |
 | T2.4 | Freeze theorem: if Z-moves are punished at every position where the mover is losing, then G + Z has the result of G, for a G scored under normal play (no draws) | PROVED after repair |
-| T2.7 | Local certificate LC_T (local forced promotion against a passing defender, no faster counter-promotion, no stalemate) ⇒ decisive punishment | PROVED (in P) |
+| T2.7 | Local certificate LC_T (local forced promotion against a passing defender, no faster counter-promotion, no stalemate) ⇒ decisive punishment | GAP (proof incomplete; see the status table) |
 | C2.8 | Square-rule form: d(defender's king, promotion square) ≥ D + 2 suffices for the local part | PROVED |
-| L2.9 | Blockade: a defender who may pass and whose king stands in front of the pawn is never beaten | PROVED |
-| P2.10 | For one-move punishments (T = 1) the counter-promotion condition holds in every non-terminal context; for T ≥ 2 it fails in some | PROVED |
-| T3.3 | G + `on` is 𝓛 for every short G, ±BIG included, so BIG plus a shuttle predicts "White always wins" | PROVED (on > numbers: KNOWN) |
+| L2.9 | Blockade: a defender who may pass and whose king stands in front of the pawn is never beaten | PROVED after repair, with the added hypothesis that s has no pawn on f ± 1 (CONJECTURE without it) |
+| P2.10 | For one-move punishments (T = 1) the counter-promotion condition holds in every chess-legal non-terminal context, on boards with at least 5 ranks, if the defender has no Z-pawn one move from promotion; for T ≥ 2 it fails in some (width ≥ \|F_Z\| + 4) | (a) PROVED after repair; (b) PROVED |
+| T3.3 | G + `on` is 𝓛 for every short G, ±BIG included, so BIG plus a shuttle predicts "White always wins" | (a) PROVED (on > numbers: KNOWN); (b) PROVED after repair |
 | T3.4 | Outcome rules for G ⊞ on, G ⊞ off, G ⊞ dud with game-ending decisive events | PROVED |
 | C3.5 | Monotone chain: White wins with dud ⇒ with off ⇒ with nothing ⇒ with on | PROVED |
-| T4.2 | n non-reversible spare moves = the integer n; a 2-cycle is `on`, never an integer | PROVED |
-| P4.3 | In an isolated K+P group with a frozen opponent, a king's spare tempo is 0 or ∞, never a finite n ≥ 1 | PROVED |
+| T4.2 | n spare moves forming an acyclic graph = the integer n; a reachable cycle is `on`, never an integer | PROVED after repair |
+| P4.3 | In an isolated K+P group, a king's spare tempo from safe steps inside F_Z (opponent frozen at both ends, mover not in check) is 0 or ∞, never a finite n ≥ 1 | PROVED after repair (hypotheses added) |
 | P4.5–4.6 | 0 < over < x for every number x > 0; White wins G ⊞ over whenever White wins G moving second | PROVED (over: KNOWN) |
-| §5 | 5.1 is a frozen trébuchet whose local certificate holds with T ≤ 7 (scratch); 7.2 is frozen for Black only (T = 1) and White escapes by blockade; 7.3 is not a zugzwang (f7–f8=Q at once). New groups realise `on`, `off` and a stalemate trap | mixed, per item |
+| §5 | 5.1 is a frozen trébuchet whose local certificate holds with T ≤ 7 (scratch); 7.2 is frozen for Black only (T = 1) and White escapes by blockade; 7.3 is not a zugzwang (f7–f8=Q at once). New groups realise `on`, `off` and a stalemate trap | per item, as in the status table: 5.1 frozen PROVED, its certificate (L1) a CONJECTURE (scratch); 7.2 and 7.3 PROVED in P where stated |
 
 The testable predictions are in §6.
 
@@ -360,10 +369,13 @@ D-games.
     coordinate form a sequence of moves in that coordinate, so the total is at most Σ_{i≠j} M_R(y′_i) ≤ M_R(Y)
     (M is monotone, and for a sum M is the sum over the coordinates). A Right move into a terminal can only
     create another +B, because −B is unreachable.
-  - Left needs at most M_R(Y) moves (one for each Right move, and none after Right has run out) and the first
-    stack has B ≥ M_R(Y) + 1 > M_R(Y) moves, so Left always has a move while Right still has one; the stack
-    also never reaches 0, whose canonical form {−1 | 1} would give Right a move. Right runs out of moves
-    first and loses, whoever started. ∎
+  - Left needs at most M_R(Y) + 1 moves: one reply to each Right move, plus one more if Left moves first at
+    the frontier. The first stack has B ≥ M_R(Y) + 1 moves, so Left has a move at every turn of its own.
+    The stack can reach 0 = { | } only with Left's last move: reaching 0 takes B ≥ M_R(Y) + 1 Left turns, so
+    by then Right has made M_R(Y) moves, the most it can make, and Right, to move, has no move. Right runs
+    out of moves first and loses, whoever started. (Revised after the T30 proof audit,
+    `notes/proof_audit2/REPORT.md`, 2026-10-22: the count was M_R(Y), one short when Left starts, and 0 was
+    given the canonical form {−1 | 1}; neither changes the conclusion.) ∎
 
 **(c) The re-splitting version. PROVED after repair (R2 item 2).** Let X be a pawn position, let S(X) be its
 BIG value computed with re-splitting (§1.5), and let D(X) be the decisive-event game of X, in which the
@@ -385,9 +397,12 @@ N; otherwise Z is replaced by its new components. This is `cylcgt.pawns.value` u
   positive integer summand on every turn, which is possible while it has a move left; the opponent cannot move
   in a positive integer (its canonical form is {B−1 | }), and every integer frozen later is +B, because a −B
   would need a − threat and a race needs both threats. So every opponent move is a pawn move in a live
-  component, and the opponent has at most M_{−σ}(Y) moves in all; σ needs at most M_{−σ}(Y) moves and the
-  first stack has B ≥ M_{−σ}(Y) + 1 > that many, so the opponent runs out of moves first (the stack never
-  reaches 0, whose canonical form {−1 | 1} would let the opponent move).
+  component, and the opponent has at most M_{−σ}(Y) moves in all. σ needs at most M_{−σ}(Y) + 1 moves (one
+  reply to each opponent move, plus one if σ moves first), and the first stack has B ≥ M_{−σ}(Y) + 1, so σ
+  has a move at every turn of its own and the opponent runs out of moves first. The stack can reach
+  0 = { | } only with σ's last move: that takes B ≥ M_{−σ}(Y) + 1 turns of σ, so by then the opponent has made
+  all M_{−σ}(Y) of its moves. (Revised after the T30 proof audit, `notes/proof_audit2/REPORT.md`,
+  2026-10-22.)
 - **Induction.** o(F(Y, ∅)) = o(D(Y)) for every non-terminal Y reachable from X, by induction on the total
   number of pawn moves Φ(Y). Take a move of Y, made in component Z.
   - If the child is non-terminal, both models give the child and the induction hypothesis applies.
@@ -424,7 +439,7 @@ uses the either-player τ.
 The 10 multi-component disagreements in `crosscheck/` and the counterexamples to `sum_safe` in L2.2 of
 `notes/lemmas.md` are pawn-game instances of this mechanism.
 
-**Proposition 1.13 (BIG must exceed every tempo count; sharp). PROVED after repair (R1 item 2, R2 item 3).**
+**Proposition 1.13 (BIG must be at least the tempo count; sharp). PROVED after repair (R1 item 2, R2 item 3).**
 Let A′ = { | ⊖} be a Black threat (no Left option at all) and R_n be n consecutive one-shot White moves with
 no terminals (the integer n).
 - **In chess semantics,** A′ ⊞ R_n is 𝓡 for every n ≥ 1: White can only spend tempi, and Black plays ⊖ when
@@ -447,9 +462,11 @@ m ≥ 1, 𝓟 if m = 0 and 𝓡 if m ≤ −1.
 - Left moving first goes to n − 1 + { | −B}. Right answers n − 1 − B. Left, to move, wins iff
   n − 1 − B ≥ 1. ∎
 
-So "BIG dominates" means exactly that BIG exceeds the largest tempo count either side can bring against a
-threat. With BIG = 256 and pawns only this always holds: M ≤ 6p ≤ 48 on 8 ranks. With a shuttling king the
-tempo count is infinite, and no BIG works (§3).
+So BIG must be large compared with the tempo counts. In Proposition 1.13 the BIG outcome is right exactly when
+n ≤ B, and Theorem 1.11(b) asks for B > M, so that the owner of the stack wins even when it must move first.
+With BIG = 256 and pawns only, B > M holds as long as p ≤ 42, since M ≤ 6p (and M ≤ 48 on 8 ranks when
+p ≤ 8). With a shuttling king the tempo count is infinite, and no BIG works (§3) (revised after review: R2
+item 9; wording corrected after the T30 recheck, which found "exactly … exceeds" off by one).
 
 ### 1.5 The exact validity statement
 
@@ -561,14 +578,17 @@ are pawn-free; they are the *buffer*. A *Z-move* is a move of a king or of a Z-p
   pawn-free, so by induction on the number of moves none ever holds a pawn.
 - Pawns attack only the two adjacent files. ∎
 
-**Theorem 2.3 ({−B | B} = 0). PROVED** (also KNOWN: the simplicity theorem, [WW] ch. 2, [S] ch. II, since 0
+**Theorem 2.3 ({−B | B} = 0 for every integer B ≥ 1). PROVED**
+(also KNOWN: the simplicity theorem, [WW] ch. 2, [S] ch. II, since 0
 is the simplest number strictly between −B and B).
 
-*Direct proof.*
-So "BIG dominates" means exactly that BIG exceeds the largest tempo count either side can bring against a
-threat. With BIG = 256 and pawns only this holds as long as p ≤ 42, since M ≤ 6p (and M ≤ 48 on 8 ranks when
-p ≤ 8). With a shuttling king the tempo count is infinite, and no BIG works (§3) (revised after review: R2
-item 9).
+*Direct proof.* (Restored after the T30 proof audit, `notes/proof_audit2/REPORT.md`, 2026-10-22. In the 2026-10-21
+revision, edit 24 of `kings/delegate/out/K1a/EDITS.md`, meant for the tempo-bound paragraph after Proposition
+1.13, was anchored here by mistake and replaced this proof; it now stands in §1.4.) The proof uses B ≥ 1: for
+B = 0 the game is {0 | 0} = \*.
+- Left moving first goes to −B. Right, to move, moves to −(B − 1), and Left then has no move in a
+  non-positive integer and loses.
+- Right moving first loses by symmetry.
 - A 𝓟-position equals 0 (KNOWN, [WW] ch. 1). ∎
 
 So "every White Z-move gives Black a passer and vice versa" makes Z = {−BIG | +BIG} = 0 in the convention.
@@ -725,15 +745,41 @@ has no pawn on f ± 1 that an s̄ pawn could capture.** If s may pass (k = ∞),
 letting an s̄ pawn leave f). The uses in §5.2 and P5 are unaffected because s has no pawns there (revised
 after review: R1 item 9, R3 item 4).
 
-**Proposition 2.10 (which punishments are universal). PROVED.**
-- **(a)** If T = 1 and **H ≥ 5**, (L2) holds in every non-terminal context, that is, every context without a
-  passer. *Proof:* an s-pawn that can promote in one move stands on its seventh rank. No enemy pawn can stand
-  ahead of it, so it is passed, and the context would be terminal. The king's help does not change this:
-  removing a blocker takes a move of its own. For H = 4, a pawn on its second rank promotes by a double step
-  onto the last rank in one move and need not be passed, so (L2) can fail with μ_s = 1 (revised after review:
-  R1 item 7, R3 item 1). So a group whose punishments satisfy (L1) with T = 1 is decisively punished in every
-  non-terminal context on boards with H ≥ 5, provided (L3) holds. For T = 1, (L3) asks only that s has a
-  legal move at its single turn.
+**Proposition 2.10 (which punishments are universal). (a) PROVED after repair; (b) PROVED.**
+- **(a)** If T = 1 and **H ≥ 5**, then in every chess-legal non-terminal context (every context without a
+  passer) no s context pawn can promote in one move, under both the textbook and the e.p.-aware passed test.
+  Hence (L2) holds whenever, in addition, no s Z-pawn is one move from promotion in Q. *Proof:* an s-pawn that
+  can promote in one move stands on its penultimate rank (the seventh on 8 ranks).
+  - No enemy pawn can stand ahead of it, since no pawn stands on the last rank.
+  - It cannot be taken en passant. Only a pawn that has just made a double step can be. In a chess position
+    the last move before Y was s̄'s, and r, the last move before Q, is not a double step: it is a king capture,
+    or the promotion in §5.3.
+  - So it is passed under either test, and the context would be terminal. (This step was missing; added after
+    the T30 proof audit, `notes/proof_audit2/REPORT.md`, 2026-10-22.) The argument needs chess-legal
+    contexts: cylcgt's component model can keep a stale right in a component after its owner has moved
+    elsewhere.
+  - The king's help does not change this: removing a blocker takes a move of its own.
+  - *Z-pawns.* In the uses in §5.2–5.4, P3, P5 and P7, the s Z-pawn is captured by r. In §5.3 and P8 it
+    survives; it is Black's and at least 2 moves from promotion in Q. So μ_s ≥ 2 = T + 1, which is enough for
+    (L2), though not always for the margin (L2⁺).
+
+  *A stronger statement needs six ranks.* "In a non-terminal context no pawn of *either* colour is one move
+  from promotion" is false on 5 ranks under the e.p.-aware test. In `W a2 / B a3 b2` with White to move just
+  after ...b4–b2, White may capture en passant on b3, so nothing is passed; yet b2 is one move from promotion.
+  - The pawn belongs to the side *not* to move, so (L2) is unaffected.
+  - A search of flat 4-file boards with at most 2 pawns a side finds 156 such (position, e.p. right) pairs on 5
+    ranks and none on 6 or 7 ranks (`notes/proof_audit2/checks/prop6_check.out`). The audit's verifier
+    reports 120 when the double-step origin must be empty, and none on 8 ranks. Those two results are recorded
+    only in the verifier section of `notes/proof_audit2/REPORT.md`, without a saved script.
+  - On H ≥ 6 a double step lands H − 4 ≥ 2 moves from promotion, so the stronger statement holds. The paper's
+    proof argues this stronger form, hence its six ranks; its statement concerns the defender only.
+
+  *Four ranks.* For H = 4, a pawn on its second rank promotes by a double step onto the last rank in one move
+  and need not be passed, so (L2) can fail with μ_s = 1 (revised after review: R1 item 7, R3 item 1).
+
+  So, by Theorem 2.7, whose proof has a gap, a group whose punishments satisfy (L1) with T = 1 is decisively
+  punished in every chess-legal non-terminal context on boards with H ≥ 5, provided (L3) holds and no s
+  Z-pawn is one move from promotion in Q. For T = 1, (L3) asks only that s has a legal move at its single turn.
 - **(b)** For every T ≥ 2 there is a non-terminal context with μ_s = 2 (this requires board width ≥ |F_Z| + 4).
   - *Example (White):* W (f, H−2); B (f, H−1) and (f+1, H−1). No pawn is passed. White captures to
     (f+1, H−1) and promotes next move.
@@ -798,7 +844,7 @@ deviation decisive for Black. The mirror statement holds for Black wins.
 stalemates Black, so the bridge may only be used along a strategy that avoids that move; kpsolve gives (W, W)
 for P2 + H\*.)
 
-**Theorem 3.3 (BIG fails with a shuttle). PROVED.**
+**Theorem 3.3 (BIG fails with a shuttle). (a) PROVED; (b) PROVED after repair.**
 - **(a)** For every short CGT game G, including games with ±B terminals, G + on is in 𝓛.
   *Proof:* Left always has the move on → on, and Right never has a move in on. Right's moves in G are
   finitely many in any play, so Right runs out and loses, whoever starts.
@@ -939,7 +985,7 @@ So a group's tempo is *finite* (a stopper equal to an integer) exactly when its 
 (Revised after review: R4 item 5: the old sentence conflated acyclicity with the absence of a 2-cycle.)
 
 **Proposition 4.3 (no finite king tempo in isolated K+P groups). FALSE as originally stated →
-repaired.** Let Z be a king group in a position without officers, with a buffer. Suppose side s plays a
+PROVED after repair.** Let Z be a king group in a position without officers, with a buffer. Suppose side s plays a
 non-capturing king move u → v inside F_Z, and the opponent replies outside Z. **As stated this is false:** the
 step back fails if s was in check on u, or if the reply promotes. The repaired statement adds two hypotheses:
 - (H1) s is not in check on u;
