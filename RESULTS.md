@@ -175,8 +175,8 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   appears, from reading its code, to miss checks, pins and en passant across the seam.
   [engine/FAIRY_CYLINDER.md](engine/FAIRY_CYLINDER.md) gives a corrected design.
 - **Lc0 v0.32.1 on the suite** (bundled network, Metal; [engine/runs/lc0/analysis.md](engine/runs/lc0/analysis.md)).
-  - **Perfect at 1k, 10k and 100k nodes.** At every budget all 233 best moves win and all 233 evals match the
-    tablebase, in every CGT class. The 1M-node run is still going (114/233 so far, all correct).
+  - **Perfect at every budget.** At 1k, 10k, 100k and 1M nodes all 233 best moves win and all 233 evals match the
+    tablebase, in every CGT class.
   - **Lc0 never shows the shallow-depth class effect** that Stockfish shows. Caveat: 216 of the 233 positions are
     wins, so the 17 draws are the real test. Lc0 calls all 17 draws at 1k nodes; Stockfish 19 at 1k rates one +183.
   - **The suite is too easy for both engines.** That again points to ChessSums beyond 7 men for a real contrast.
@@ -321,13 +321,14 @@ The completeness critic did not run either. The rest of the verdicts are in each
 - **Solver check.** `kings/kpsolve` agrees with an independent solver on 1,418,480 positions.
 - **Real chess.** Both trébuchets are real mutual zugzwangs. The 7.2 king group is not (confirmed by Lichess).
 
-**Lc0** at 1M nodes stopped at 114/233 positions, all correct.
+**Lc0** at 1M nodes finished: 233/233 best moves win and 233/233 evals match (commit 1cc5ebb).
 
 ## 8. Decisions
 
 Answered 2026-10-16:
 - **E.p.:** respect it (done).
-- **Kings:** model them explicitly (A8 started).
+- **Kings:** model them explicitly (A8 done; see §7 and [kings/REPORT.md](kings/REPORT.md)). The exact 7×6 per-move
+  tally is deferred: it needs about 9 GB at cap 2, over the shared-machine limit, and cap 1 proved unreliable.
 - **Mentor:** no contact with Prof. Morley yet.
 - **Installs:** Stockfish 19 is built; Lc0 v0.32.1 is installed through Homebrew with its bundled network. PyTorch and MLX are in the separate `.venv-ml`.
-- **Repository:** local only, with no remote and nothing pushed. It stays private.
+- **Repository:** private GitHub repo `aritroBh/cylindrical-chess-cgt` (approved 2026-10-21); push only when asked.
