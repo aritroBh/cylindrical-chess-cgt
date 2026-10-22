@@ -509,3 +509,13 @@ issue seen by different lenses; 4 rejected. Applied as about 13 edits:
 - the scans' "no \*3" now says "as whole-board games";
 - the conclusion summary mentions nine-pawn \*3 on ordinary boards.
 
+**Loose ends closed (orchestrator, about 16:45):**
+- **Seven-pawn census (cylcgt-based, independent enumerator).** After the width-3 re-run with the final script, the
+  widths 2–4 generated counts equal the expected scope counts exactly (49,896 / 1,911,576 / 17,844,624). The only
+  seven-pawn \*2 are A and B (mirrored). This is a second program for the width ≤ 4 count, next to the C scanner.
+- **C7 4+6 ten-pawn split complete** after re-running the piece killed by the pkill (58,578,841 rings): no \*2 and no
+  \*3. All C7 ten-pawn \*2/\*3 rings lie in the 5+5 split (63 \*2, 8 \*3); 3+7 has 13.4M rings with no nimber, and
+  2+8 and 1+9 have no roots.
+- **Codex solver:** \*3 for `W a2 b4 c2 d2 / B a4 a6 a7 c6 d5` (431 s) and `W a4 b3 d2 d3 e4 / B a7 b7 c5 e6` (1,025 s),
+  so both nine-pawn single-component \*3 are confirmed by three programs (cylcgt sum and whole-board, Codex).
+
