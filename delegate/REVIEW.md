@@ -462,3 +462,9 @@ duplicates across lenses), 9 rejected. Applied:
 The acknowledgement now names the Sonnet/Haiku agents and Codex's third ring solver, and it is shorter, so the
 main build stays at 14 pages.
 
+**The 1/8 is pinned (orchestrator).** `realchess/targets18/kp_eighth_cap2.out` reads `W W` (exact) for Black to move in
+`W b2 b5 / B a5 b4`. `apply_kpsolve.py min_support_after2.json kp_eighth_{8man,9man,cap2}.out` gives 1/8 .. 1/8
+(pinned), with every needed terminal exact and matching the model. Paper §IX (Proposition: O = 1/8 with queen
+promotions only, C1), intro, abstract and conclusion item 1 are updated. The rerun with all four promotions is
+open; the 9-man queen-only run peaked at 26 GB, beyond this machine's shared-use limits.
+

@@ -332,6 +332,11 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   T43's solver and cylcgt (whole board) agree on all 8; 6 stay \*3 as sums. Example:
   `W a2 a5 c4 e2 f2 / B a7 b4 d7 e5 g7`. So n+3 holds for n = 3, …, 7.
 
+- **A real-chess 1/8 (2026-10-22, 15:48).** The cap-2 kpsolve run (6.1×10^10 states, 15.5 h, queen promotions)
+  shows White wins `W b2 b5 / B a5 b4` with Black to move (exact, W W). With every decisive end position now
+  exact, `apply_kpsolve.py` pins the oracle value: **O = 1/8** (queen promotions only, frozen kings; C1).
+  Still open: a rerun with underpromotions for a full-chess certificate.
+
 ## 7. Pending
 
 **Verification gaps.** 35 adversarial verifiers were cut off by the Claude usage limit. Not verified:

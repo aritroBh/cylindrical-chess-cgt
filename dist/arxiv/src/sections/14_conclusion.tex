@@ -1,17 +1,18 @@
 \section{Conclusion and Open Problems}\label{sec:conclusion}
 
 Elkies' sum model holds up on a board without edges once the passed-pawn test respects en passant and the
-frozen kings are checked. The textbook $\nim{2}$ comes from the textbook passed-pawn test, and $\nim{2}$ appears
-with seven pawns. On the cylinder, king and rook can no longer force mate, and the rook-pawn draw Ka6, Pa5
+frozen kings are checked. The textbook $\nim{2}$ comes from the textbook passed-pawn test, $\nim{2}$ appears
+with seven pawns, single-component $\nim{3}$ appear on the seven-file cylinder, and with queen promotions the
+$1/8$ survives in real chess. On the cylinder, king and rook can no longer force mate, and the rook-pawn draw Ka6, Pa5
 against Ka8 becomes a win. On the $3\times n$ cylinder, Dawson's chess is a first-player win exactly when the
 strip three files shorter is a second-player win. Stockfish at small fixed depth loses most on the tempo and
 parity fights that CGT singles out, and on sums of 15 to 20 men both engines often miss the model's winning
 moves. Seven problems are open.
 
 \begin{enumerate}
-\item \emph{A certified $1/8$.} One decisive side of the $1/8$ remains, black to move in
-  \pos{W b2 b5 / B a5 b4}. If it is a white win, as the model predicts, and the queen-only results survive a
-  rerun with all four promotions, the oracle value is exactly $1/8$ (with the kings frozen inside the tree). The same pipeline applies to $\upsec\star$ and Tiny~1
+\item \emph{A certified $1/8$.} With queen promotions only the oracle value is exactly $1/8$ (with the
+  kings frozen inside the tree). Do the decisive end positions keep their results when all four promotions are
+  allowed? The same pipeline applies to $\upsec\star$ and Tiny~1
   (Section~\ref{sec:real-eighth}).
 \item \emph{The seven-pawn $\nim{2}$ in real chess.} Positions A and B have open oracle values: the 8-man
   end positions that decide them agree with the model, and those with 9 to 11 men are unsolved

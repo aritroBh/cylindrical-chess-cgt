@@ -24,7 +24,7 @@ Status: ✅ banked · 🔄 running · ⏳ waiting (quota or owner) · ⬜ not st
 | # | Checkpoint | Trigger / check | Paper | Status |
 |---|---|---|---|---|
 | R1 | \*2 with 7 pawns (model) | three programs agree | §VIII | ✅ |
-| R2 | **1/8 certified in real chess** | 9-man done (all 6 sides exact, all match the model) → bounds [0, 1/8]. Last side `W b2 b5 / B a5 b4`, Black to move: cap-2 run → then QRBN rerun | §IX, abstract | 🔄 one side left |
+| R2 | **1/8 certified in real chess** | Done with queen promotions: the cap-2 run (15.5 h) makes the last side `W b2 b5 / B a5 b4`, Black to move, a White win, so O = 1/8 exactly [C1]. A QRBN rerun would make it a full-chess certificate (memory-bound on this machine) | §IX, abstract, intro, conclusion | ✅ (Q-only) |
 | R3 | Real-chess oracle of the 7-pawn \*2 positions | T20 on Codex since 22:33, resuming from the decisive 8-man end positions | §IX | 🔄 Codex |
 | R4 | The rest of the \*2 search: flat width 5 with 8 pawns | T21: 21 \*2 at count/aware. All 21 use all five files, no mirror pairs. cylcgt agrees on 15 (incl. the paper's 3), disagrees on 6. Third-program arbitration of the 6 is running (`delegate/checks/w5_arbiter/`). The paper says "three"; fix it to "at least 15" once the arbiter is done | §VIII | 🔄 arbiter |
 | R5 | Independent 7-pawn census (raises "exactly two" to [C2]) | T22 died after widths 1–3 (0 hits) with its one width-4 hit unsaved; T22b reruns it in resumable chunks | §VIII | 🔄 |
