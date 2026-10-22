@@ -34,7 +34,7 @@ typeset -A TOOLS MODELS BRIEF
 # default tool and model per task (free models where possible; reassigned 2026-10-21 after quota failures)
 TOOLS=(T1 codex T2 kilo T3 opencode T4 opencode T5 opencode T6 opencode T7 kilo
        T8 codex T9 opencode T10 opencode T11 opencode T12 kilo T13 opencode T14 kilo T15 kilo T1b opencode T8b opencode
-       T16 codex T17 opencode T18 opencode T19 codex T20 codex T21 opencode T22 opencode T23 opencode T22b opencode T21b opencode T24 opencode T25 kilo T26 kilo T27 kilo T28 kilo T29 kilo T30 kilo T31 kilo T32 kilo T33 kilo T34 kilo T35 kilo)
+       T16 codex T17 opencode T18 opencode T19 codex T20 codex T21 opencode T22 opencode T23 opencode T22b opencode T21b opencode T24 opencode T25 kilo T26 kilo T27 kilo T28 kilo T29 kilo T30 kilo T31 kilo T32 kilo T33 kilo T34 kilo T35 kilo T43 codex T44 kilo T45 opencode T46 kilo T47 kilo)
 # free models verified working on 2026-10-21 (aihubmix free tier = 10 tries; opencode deepseek rate-limited)
 MODELS=(T1 "" T2 kilo/nvidia/nemotron-3-ultra-550b-a55b:free T3 omniroute/auto/coding:free
         T4 omniroute/auto/coding:free T5 omniroute/auto/best-free T6 opencode/beam-free
@@ -43,7 +43,7 @@ MODELS=(T1 "" T2 kilo/nvidia/nemotron-3-ultra-550b-a55b:free T3 omniroute/auto/c
         T14 kilo/nvidia/nemotron-3-ultra-550b-a55b:free T15 kilo/kilo-auto/free
         T1b omniroute/auto/coding:free T8b omniroute/oc/nemotron-3-ultra-free
         T16 "" T17 omniroute/auto/best-free T18 opencode/beam-free T19 "" T20 ""
-        T21 omniroute/auto/coding:free T22 omniroute/oc/nemotron-3-ultra-free T23 omniroute/auto/coding:free T22b omniroute/auto/coding:free T21b omniroute/auto/best-free T24 omniroute/auto/coding:free T25 kilo/minimax/minimax-m3.1-flash:free T26 kilo/minimax/minimax-m3.1-flash:free T27 kilo/cohere/north-mini-code:free T28 kilo/poolside/laguna-s-2.1:free T29 kilo/nvidia/nemotron-3.5-lightning:free T30 kilo/nvidia/nemotron-3-ultra-550b-a55b:free T31 kilo/minimax/minimax-m3.1-flash:free T32 kilo/nvidia/nemotron-3.5-super-vl:free T33 kilo/recursive/flint-v1.0:free T34 kilo/dots-studio/dots-3-note-preview:free T35 kilo/nvidia/nemotron-3-ultra-550b-a55b:free)
+        T21 omniroute/auto/coding:free T22 omniroute/oc/nemotron-3-ultra-free T23 omniroute/auto/coding:free T22b omniroute/auto/coding:free T21b omniroute/auto/best-free T24 omniroute/auto/coding:free T25 kilo/minimax/minimax-m3.1-flash:free T26 kilo/minimax/minimax-m3.1-flash:free T27 kilo/cohere/north-mini-code:free T28 kilo/poolside/laguna-s-2.1:free T29 kilo/nvidia/nemotron-3.5-lightning:free T30 kilo/nvidia/nemotron-3-ultra-550b-a55b:free T31 kilo/minimax/minimax-m3.1-flash:free T32 kilo/nvidia/nemotron-3.5-super-vl:free T33 kilo/recursive/flint-v1.0:free T34 kilo/dots-studio/dots-3-note-preview:free T35 kilo/nvidia/nemotron-3-ultra-550b-a55b:free T43 "" T44 kilo/nvidia/nemotron-3-ultra-550b-a55b:free T45 opencode/beam-free T46 kilo/poolside/laguna-s-2.1:free T47 kilo/kilo-auto/free)
 BRIEF=(T1 T1_codex_independent_verify.md T2 T2_qwen_proof_check.md T3 T3_agy_elkies_targets.md
        T4 T4_opencode_cylinder_ep_aware.md T5 T5_cursor_ml_chesssums.md T6 T6_muse_ml_dawson.md
        T7 T7_kilo_completeness_review.md T8 T8_star2_frontier_search.md T9 T9_mobius_klein.md
@@ -51,7 +51,7 @@ BRIEF=(T1 T1_codex_independent_verify.md T2 T2_qwen_proof_check.md T3 T3_agy_elk
        T13 T13_engines_on_chesssums.md T14 T14_dawson_variants.md T15 T15_novelty_literature.md
        T1b T1b_free_independent_verify.md T8b T8b_star2_frontier_search.md
        T16 T16_ieee_paper_draft.md T17 T17_ieee_factcheck.md T18 T18_ieee_style_review.md T19 T19_ieee_revise.md
-       T20 T20_star2_real_oracle.md T21 T21_width5_census.md T22 T22_seven_pawn_independent.md T23 T23_kpkp_cylinder.md T22b T22b_seven_pawn_resume.md T21b T21b_width5_finish.md T24 T24_star3_hunt.md T25 T25_odd_cylinders_verify.md T26 T26_ring_pattern.md T27 T27_textbook_star3.md T28 T28_arxiv_package.md T29 T29_novelty_check.md T30 T30_ai_proof_audit.md T31 T31_odd_width_paragraph.md T32 T32_five_file_legality.md T33 T33_c3_walkthrough.md T34 T34_ring_min_independent.md T35 T35_mobius_resume.md)
+       T20 T20_star2_real_oracle.md T21 T21_width5_census.md T22 T22_seven_pawn_independent.md T23 T23_kpkp_cylinder.md T22b T22b_seven_pawn_resume.md T21b T21b_width5_finish.md T24 T24_star3_hunt.md T25 T25_odd_cylinders_verify.md T26 T26_ring_pattern.md T27 T27_textbook_star3.md T28 T28_arxiv_package.md T29 T29_novelty_check.md T30 T30_ai_proof_audit.md T31 T31_odd_width_paragraph.md T32 T32_five_file_legality.md T33 T33_c3_walkthrough.md T34 T34_ring_min_independent.md T35 T35_mobius_resume.md T43 T43_c7_independent.md T44 T44_kpkp_cylinder.md T45 T45_ring_min_c5_c6.md T46 T46_paper_consistency.md T47 T47_reproduce_paths.md)
 ALL=(T1 T2 T3 T4 T5 T6 T7 T8 T9 T10 T11 T12 T13 T14 T15)
 
 tasks=()
@@ -76,15 +76,15 @@ for task in $tasks; do
   tool=${TOOL:-$TOOLS[$task]}
   model=${MODEL:-$MODELS[$task]}
   cmd=($(cmd_for $tool $model)) || continue
-  fb=($(cmd_for kilo ${FALLBACK:-kilo/minimax/minimax-m3.1-flash:free}))
+  fb=($(cmd_for kilo ${FALLBACK:-kilo/kilo-auto/free}))
   log="delegate/logs/$task.log"; text="$(prompt $BRIEF[$task])"
   (
     $cmd "$text" > "$log" 2>&1 < /dev/null
-    if tail -c 2000 "$log" | grep -qiE "usage limit|RESOURCE_EXHAUSTED|Rate limit exceeded|Endpoint is unavailable|billing|quota reached|only try 10 times|Model is unavailable|Free usage limit|Upstream request failed"; then
+    if tail -c 2000 "$log" | grep -qiE "usage limit|RESOURCE_EXHAUSTED|Rate limit exceeded|Endpoint is unavailable|billing|quota reached|only try 10 times|Model is unavailable|Free usage limit|Upstream request failed|need to sign in|Sign up for free"; then
       echo "\n=== $(date): $tool failed to start; falling back to $fb" >> "$log"
       $fb "$text" >> "$log" 2>&1 < /dev/null
     fi
   ) &!
   echo $! > "delegate/logs/$task.pid"
-  echo "launched $task (pid $!): $tool ${model:-default} (fallback: opencode ${FALLBACK:-omniroute/auto/coding:free})"
+  echo "launched $task (pid $!): $tool ${model:-default} (fallback: kilo ${FALLBACK:-kilo/kilo-auto/free})"
 done

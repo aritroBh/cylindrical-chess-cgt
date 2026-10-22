@@ -1,7 +1,7 @@
 #!/bin/zsh
 # C7 ring scan for the n+3 question (default setting only), fixed scanner with cap replacement (fixed2), one process at a time under nice 15,
 # memo table capped at 2^26 entries (3.76 GB). Splits with nw > nb are the colour-reversal images of nw < nb and
-# are not run. Order: 10-pawn balanced splits first (existence), then 9 pawns (minimality), then the rest.
+# are not run. Order (changed 2026-10-22 noon, after 5+5 had already found ten-pawn *2 rings): 9 pawns first (minimality), then 10.
 cd "${0:A:h}/.."
 run_split() {  # P NW NB N
   local P=$1 NW=$2 NB=$3 N=$4 D=c7/p$1_$2_$3
@@ -15,13 +15,13 @@ run_split() {  # P NW NB N
   python3 -I fixed_rerun/merge_subchunks.py $D > $D/MERGE.txt 2>&1
   echo "[$(date +%H:%M)] done p$P $NW+$NB: $(sed -n 2p $D/MERGE.txt)" >> c7/progress.txt
 }
-run_split 10 5 5 1024
-run_split 10 4 6 1024
 run_split 9 4 5 512
-run_split 10 3 7 256
 run_split 9 3 6 256
 run_split 9 2 7 64
-run_split 10 2 8 64
 run_split 9 1 8 16
+run_split 10 5 5 1024
+run_split 10 4 6 1024
+run_split 10 3 7 256
+run_split 10 2 8 64
 run_split 10 1 9 16
 echo "[$(date +%H:%M)] ALL DONE" >> c7/progress.txt
