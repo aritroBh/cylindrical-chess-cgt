@@ -11,11 +11,11 @@ mkdir -p kings/delegate/logs
 setopt NO_HUP NO_CHECK_JOBS
 
 typeset -A TOOLS MODELS BRIEF
-TOOLS=(K1 codex K1a kilo K1b opencode K1c opencode K2 kilo)
+TOOLS=(K1 codex K1a kilo K1b opencode K1c opencode K2 kilo K3 opencode)
 MODELS=(K1 "" K1a kilo/minimax/minimax-m3.1-flash:free K1b omniroute/oc/nemotron-3-ultra-free
-        K1c omniroute/auto/best-free K2 kilo/nvidia/nemotron-3-ultra-550b-a55b:free)
+        K1c omniroute/auto/best-free K2 kilo/nvidia/nemotron-3-ultra-550b-a55b:free K3 opencode/beam-free)
 BRIEF=(K1 K1_loopy_revision.md K1a K1a_validity_full.md K1b K1b_certificate_full.md
-       K1c K1c_loopy_full.md K2 K2_report_referee.md)
+       K1c K1c_loopy_full.md K2 K2_report_referee.md K3 K3_repair_check.md)
 
 prompt() { cat delegate/COMMON.md; echo; echo "---"; echo; cat "kings/delegate/briefs/$1"; }
 cmd_for() {

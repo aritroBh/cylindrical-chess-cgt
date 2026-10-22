@@ -32,7 +32,7 @@ Every claim below carries one label.
   pawns, en passant, all four promotions, stalemate, and no 50-move rule.
 - **CHECKED-2:**
   - It agrees with an independent Python solver on every one of 1,418,480 positions on 3- to 5-file
-    boards (§2).
+    boards (§2). This checks the solver; the theory's predictions rest on kpsolve alone (COMPUTED-1, §5).
   - It is consistent with the Lichess tablebase on all 45 positions we could compare: 42 agree exactly, and
     in the other 3 (which need a second promotion) the true value lies inside kpsolve's bounds (§2).
 
@@ -57,7 +57,9 @@ say can be repaired with an unlimited-pass argument (§7).
 **Spare king tempo moves.** A king that can shuttle forever without loss is not 0 but a loopy game:
 `on` = {on | } for White, `off` = { | off} for Black, or `dud` when both sides can shuttle.
 - `on` exceeds every number, BIG included, so the BIG convention breaks completely there.
-- The correct rule uses terminal outcomes (Theorem 3.4; **PROVED**, and it survived every referee):
+- The correct rule uses terminal outcomes (Theorem 3.4; **PROVED**, and no referee broke it; all referees were AI
+  models). Its chess consequences hold where the promotion-to-chess hypothesis (A_Q) holds, which kpsolve
+  checks position by position:
   - with only White able to pass, Black wins iff Black can force a decisive event against a passing White,
     and otherwise White wins;
   - with both able to pass, a side wins iff it can force a decisive event against a passing opponent, and
@@ -288,7 +290,7 @@ Every deliverable was given to independent referees (Claude models) told to brea
 | Reference solver `kings/ref/` | 1 | No defect. The referee wrote a **third** solver of its own (dict boards, plain repeated passes, no counters) and compared all 282,816 input lines of 19 material sets with `kings/ref/`, with **0 differences**. Its harness caught a deliberately broken control (1,488 differences). Minor defects: random-test seeds were not reproducible (fixed), and input leniencies were documented. |
 | kpsolve (indirectly) | 2 | Two referees ran kpsolve on 25 hand-analysed positions of their own (stalemates, mates across the seam, e.p. pins, underpromotion, 4-rank double steps). All agree with their analysis. |
 | Data extraction `kings/data/` | 1 | Every count matches the sources. It found two frozen-king failures the extraction had missed, double counting, and some over-labelled claims. All are recorded in the erratum at the end of [data/DATA.md](data/DATA.md) and added to [results/FAILURES.md](results/FAILURES.md). |
-| Theory [theory/LOOPY.md](theory/LOOPY.md) | 4 (one general, three on separate theorem clusters) | **Sound:** Lemmas 1.6, 1.7; Theorems 1.9, 1.11(a), 1.14(i), 3.3, 3.4 (the loopy outcome rules, including draws); Corollaries 2.8, 3.5; Propositions 1.12, 2.10(b), 4.5, 4.6; the applications in §5 (label slips only). **False as stated, with a known repair:** Theorem 1.11(b) (the threat set missed suicides), Proposition 1.13, Theorem 2.4 for drawish contexts, Proposition 2.10(a) on 4-rank boards, Proposition 4.3, and the promotion-to-chess bridge (A_Q). **Gaps:** Theorems 1.14(ii), 2.7 (the pass-budget step; repairable with an unlimited-pass argument), 4.2; Lemma 2.9 (a hidden hypothesis); Remark 2.11. **Revision (2026-10-21):** the note was revised against all four reports by three external models (kilo minimax, opencode nemotron, opencode best-free; 64 edits, `kings/delegate/out/K1a..K1c/`). It now opens with a status table giving every result's final label. The repaired proofs are written but not yet independently re-checked (task K3). |
+| Theory [theory/LOOPY.md](theory/LOOPY.md) | 4 Claude referees, then K3 (an external model) on the repairs | **Sound:** Lemmas 1.6, 1.7; Theorems 1.9, 1.11(a), 1.14(i), 3.3, 3.4 (the loopy outcome rules, including draws); Corollaries 2.8, 3.5; Propositions 1.12, 2.10(b), 4.5, 4.6; the applications in §5 (label slips only). **False as stated, with a known repair:** Theorem 1.11(b) (the threat set missed suicides), Proposition 1.13, Theorem 2.4 for drawish contexts, Proposition 2.10(a) on 4-rank boards, Proposition 4.3, and the promotion-to-chess bridge (A_Q). **Gaps:** Theorems 1.14(ii), 2.7 (the pass-budget step; repairable with an unlimited-pass argument), 4.2; Lemma 2.9 (a hidden hypothesis); Remark 2.11. **Revision (2026-10-21):** the note was revised against all four reports by three external models (kilo minimax, opencode nemotron, opencode best-free; 64 edits, `kings/delegate/out/K1a..K1c/`). It now opens with a status table giving every result's final label. K3 then checked the repairs: 13 of 17 sound, 4 downgraded to GAP. |
 | This report | — | The literal-cylcgt baseline in §5 and the weakened 8×8 asymmetry claim in §4 come from these reviews. |
 
 **What the reviews change in the conclusions.**
@@ -297,9 +299,17 @@ Every deliverable was given to independent referees (Claude models) told to brea
   stalemate, the result is the normal-play result.
 - The parts that tie it to cylcgt's BIG arithmetic, 1.14(ii), and the certificate for slow punishments,
   2.7, need the repairs listed.
-- The loopy rules for spare tempo, Theorem 3.4, survived every check.
-- In the revised note, "PROVED after repair" marks a proof written by an external model and read once by
-  the integrator. Treat it as unverified until K3 reports.
+- The loopy rules for spare tempo, Theorem 3.4, were found sound by every theory referee (all AI models).
+  In chess they are confirmed on the positions kpsolve solved (§5), not in general.
+- In the revised note, "PROVED after repair" marks a proof written by an external model, read by the
+  integrator, and then checked by another external model (K3). K3 found 13 of the 17 repairs sound, and
+  downgraded 4 to GAP: the sharp form of 1.14, Theorem 2.7, and predictions P11 and P12.
+- A non-Claude referee (K2, kilo nemotron, `kings/delegate/out/K2/REPORT.md`) recomputed every number in
+  this report from the raw files and confirmed all of them. It also re-ran the cross-check and the 8×8 king
+  groups, with identical results.
+  - Its own mini-solver disagreed with kpsolve on 3 of 20 random 4×4 positions. The independent reference
+    solver sides with kpsolve on all 3, so the mini-solver was wrong.
+  - Its wording criticisms are reflected in §1 and §7.
 
 ## 8. Open questions
 

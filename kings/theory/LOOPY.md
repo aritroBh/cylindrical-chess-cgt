@@ -13,9 +13,10 @@ opencode nemotron-3-ultra for §2, and opencode best-free for §§3–6 (`kings/
 
 Every numbered result, its final label, and the review item behind any change. "PROVED after repair" means
 the statement or its proof was changed and the complete repaired proof is now in the note. **Caveat:** every
-repaired proof was written by a free external model and read once by the integrator. None has had an
-independent second check yet (task K3 in `kings/delegate/`). Until then, treat "PROVED after repair" as
-"proof written, unverified". "FALSE as
+repaired proof was written by a free external model and read once by the integrator. Each was then checked
+independently by a fourth model (task K3, opencode beam-free, `kings/delegate/out/K3/REPORT.md`): 13 of the
+17 are SOUND, and 4 are downgraded to GAP (the sharp form of 1.14, Theorem 2.7, P11, P12). No repaired proof
+was found false. All checkers are AI models; no human has re-derived these proofs. "FALSE as
 originally stated → …" gives the corrected statement and its label. Each change in the text is marked
 "(revised after review: Rk item n)".
 
@@ -34,13 +35,13 @@ originally stated → …" gives the corrected statement and its label. Each cha
 | T1.14(i) | PROVED | R2: sound |
 | T1.14(ii) | GAP → PROVED after repair: (V4) is stated hereditarily on the re-split components of the context, Z deleted, with the corrected τ | R2 items 2 and 5 |
 | T1.14(iii) | PROVED, but a tautology: (A_Q) is now a per-position hypothesis | R2 item 8 |
-| T1.14, sharp form | GAP → PROVED after repair: every legal Z-move of the loser at its turns must be a P-loss | R2 item 6 |
+| T1.14, sharp form | GAP → GAP (proof incomplete): every legal Z-move of the loser at its turns must be a P-loss (revised after K3 check) | R2 item 6 |
 | §1.5 "each hypothesis is needed" | (V1b), (V2), (V3), (V4): counterexamples given. (V1a): none given, so "needed" is a CONJECTURE | R1 item 4, R2 item 7 |
 | L2.2 | PROVED | unchanged |
 | T2.3 | PROVED (also KNOWN) | unchanged |
 | T2.4 | FALSE as originally stated (the "P-game of the context" option) → G under normal play (no draws), plus a strategy-transfer form (c) for games with draws: PROVED after repair | R2 item 4 |
 | D2.6, (L3′) | withdrawn: it never applies to a 3-file group, and it does not give (L3) | R1 item 8, R3 item 2 |
-| T2.7 | GAP → PROVED after repair: (L1) is required only for k = ∞, (L3) covers stalemate, the local rules are stated, and μ counts context pawns only | R1 item 3, R3 items 2 and 3 |
+| T2.7 | GAP → GAP (proof incomplete): (L1) is required only for k = ∞, (L3) covers stalemate, the local rules are stated, and μ counts context pawns only (revised after K3 check). K3's objection: a context passer within the window is not ruled out by (L2). Integrator's note: in the promotion model P only a promotion ends the game, which (L2) does exclude, so the objection may conflate P with the D-model. Unresolved until a further check | R1 item 3, R3 items 2 and 3; K3 |
 | C2.8 | PROVED (wording corrected) | R3 item 7 |
 | L2.9 | GAP → PROVED after repair (added hypothesis: s has no pawn on f ± 1). Without that hypothesis: CONJECTURE | R1 item 9, R3 item 4 |
 | P2.10(a) | FALSE as originally stated (H = 4) → H ≥ 5: PROVED after repair | R1 item 7, R3 item 1 |
@@ -72,8 +73,8 @@ originally stated → …" gives the corrected statement and its label. Each cha
 | P8 | PROVED in P. kpsolve (W, W) on the 6-rank analogue and on 8×8, cylinder and flat; the flat 8×8 result is confirmed by Lichess | `kings/results/king_groups_8x8.txt`, `king_groups_lichess.txt` |
 | P9 | PROVED in P; kpsolve (W, L) | — |
 | P10 | PROVED in P; kpsolve (W, W) for k = 0, 1, 2 on the 8×6 cylinder | PREDICTIONS.md |
-| P11 | PROVED (implication) after repair: W(X) and HSS defined; (V1b) checked from the layout | R1 item 11 |
-| P12 | PROVED (implication) after repair: restricted to nodes where `--frozen` reports a win | knock-on of R2 item 4 |
+| P11 | GAP (proof incomplete): W(X) and HSS defined; (V1b) checked from the layout (revised after K3 check) | R1 item 11 |
+| P12 | GAP (proof incomplete): restricted to nodes where `--frozen` reports a win (revised after K3 check) | knock-on of R2 item 4 |
 
 Not answered by a change in the mathematics: R1 item 12 (missing A8 content: CGSuite, opposition, Gafni),
 which is recorded as open in §8.6.
@@ -497,7 +498,7 @@ Then, with either side to move:
   the bound, the outcome class of S(X) is the outcome class of that D-result pair.
 - **(iii)** Definition of (A_Q)(X). ∎
 
-**Sharp form (PROVED after repair: R2 item 6).**
+**Sharp form (GAP (proof incomplete): R2 item 6).** (revised after K3 check)
 - (V2) is needed only for the terminals reached under *one* D-winning strategy of the D-winner.
 - (V3) is needed in the stronger form: at every loser-to-move node of that strategy, **every** legal Z-move of
   the loser is a P-loss for the loser. The earlier wording ("needed only for terminals") was false as stated: a
@@ -654,7 +655,7 @@ at Y if:
     ball of radius T+1 spans at least 5 files while |F_Z| = 3.** (revised after review: R1 item 8)
   - For T = 1, (L3) is a single check: after r, s has a legal move.
 
-**Theorem 2.7 (sufficiency of the certificate). PROVED after repair (in P).** If LC_T(m) holds at Y, then the
+**Theorem 2.7 (sufficiency of the certificate). GAP (proof incomplete) (in P).** If LC_T(m) holds at Y, then the (revised after K3 check)
 Z-move m is decisively punished in P.
 
 *Proof.* s̄ plays r and then follows its local winning strategy σ_Z (which exists by (L1) with k = ∞), using
@@ -1227,8 +1228,8 @@ Each is a single file with no possible capture, so pure tempo.
 | P8 | cyl:8x8; cyl:7x6 | 7.3 group `Kg8 Pf7 kf6 pg7`; 6-rank analogue `Kc6 Pb5 kb4 pc5` | (W, W) | (L, W) (read as 0) | (W, W) on 8×8 (kpsolve; Lichess on flat) and on the 6-rank analogue | unparriable safe promotion (§5.3) | PROVED in P |
 | P9 | cyl:7x6 | `Ka5 Pb4 Pc5 Pe2 kc6 pb5 pf3` | (W, L): class 𝓝 | BIG with Z as `on`: (W, W) | (W, L) | Thm 3.3 versus Thm 3.4(b). Black: fxe2 and e1=Q; White: exf3, then zugzwang (Kd5 forced) | PROVED in P; kpsolve agrees |
 | P10 | cyl:8x6 | Z_onT1 + k Black tempo units: k = 0 nothing; k = 1 `Pe2 pe3 pe5`; k = 2 also `Pg2 pg3 pg5` | (W, W) for k = 0, 1, 2 | (L,W), (L,L), (L,L) | (W, W) for k = 0, 1, 2 | Prop 4.3 + Thm 3.4(b): the result does not depend on k, and there is no integer threshold | PROVED in P; kpsolve agrees for k = 0, 1, 2 |
-| P11 | cyl:8x6, `--frozen` | Kings parked on the a-file (`Ka1 ka6`, b- and h-files empty); pawn components on c–g; every passer and race node speed-certified (Remark 2.11 with frozen kings); condition (E). Here W(X) is the D-game of X with its own winning side, and "hereditarily sum-safe" (HSS) means that every component of X is itself sum-safe in the sense of Theorem 1.14(ii) | kpsolve `--frozen` = o(W(X)); also = o(S(X)) when hereditarily sum-safe. Where o(S) ≠ o(W) (opposite threats, Prop 1.12), `--frozen` sides with W | — | — (a harness check, not one position) | Thm 1.11 + Thm 1.14 (frozen kings satisfy V1 and V3 by fiat) | PROVED (as an implication; the harness checks the hypotheses) |
-| P12 | cyl:7x6 | Z_T + any context on e–f | Every disagreement between kpsolve (real) and `kpsolve --frozen` is witnessed, at some loser-to-move node, by a king move that violates (L1), (L2) or (L3), or by an (A_Q) or (V2) failure | — | — (a harness check, not one position) | Thm 2.4(b) + Thm 2.7 (contrapositive) | PROVED (implication), restricted to the nodes where `--frozen` reports a win |
+| P11 | cyl:8x6, `--frozen` | Kings parked on the a-file (`Ka1 ka6`, b- and h-files empty); pawn components on c–g; every passer and race node speed-certified (Remark 2.11 with frozen kings); condition (E). Here W(X) is the D-game of X with its own winning side, and "hereditarily sum-safe" (HSS) means that every component of X is itself sum-safe in the sense of Theorem 1.14(ii) | kpsolve `--frozen` = o(W(X)); also = o(S(X)) when hereditarily sum-safe. Where o(S) ≠ o(W) (opposite threats, Prop 1.12), `--frozen` sides with W | — | — (a harness check, not one position) | Thm 1.11 + Thm 1.14 (frozen kings satisfy V1 and V3 by fiat) | GAP (proof incomplete): the harness checks the hypotheses (revised after K3 check) |
+| P12 | cyl:7x6 | Z_T + any context on e–f | Every disagreement between kpsolve (real) and `kpsolve --frozen` is witnessed, at some loser-to-move node, by a king move that violates (L1), (L2) or (L3), or by an (A_Q) or (V2) failure | — | — (a harness check, not one position) | Thm 2.4(b) + Thm 2.7 (contrapositive) | GAP (proof incomplete), restricted to the nodes where `--frozen` reports a win (revised after K3 check) |
 
 **Notes on the table.**
 - **What P2, P3 and P10 prove.** The derivations use only enumerated move lists (§5.4) and Theorem 3.4(b).
