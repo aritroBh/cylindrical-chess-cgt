@@ -20,3 +20,9 @@ replace entries when full. Compress any output over 100 MB with zstd once it is 
 
 **Report** (final message): counts by pawn number, the \*2 lists, agreement with the claims (CHECKED-2 if
 so), runtime, reproduce commands.
+
+**Resume (2026-10-22, 18:00).** A first run (opencode beam-free) copied `ring.c` here and raised `MAXN` to 7, then
+its C5 eight-pawn run was killed at 15:02 by another agent's `pkill -f 0`. `data/*.out` are empty. Continue from the
+existing `ring.c`, check that it still reproduces the C3/C4 results of `research/ring_min_independent/`, and then run
+C5 (5–8 pawns) and C6 (6–8, then 9 if it fits). Record the PID of every process you start and stop only those, by
+PID. Never use pkill or killall (COMMON.md rule 7).
