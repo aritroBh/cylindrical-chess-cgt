@@ -519,3 +519,20 @@ issue seen by different lenses; 4 rejected. Applied as about 13 edits:
 - **Codex solver:** \*3 for `W a2 b4 c2 d2 / B a4 a6 a7 c6 d5` (431 s) and `W a4 b3 d2 d3 e4 / B a7 b7 c5 e6` (1,025 s),
   so both nine-pawn single-component \*3 are confirmed by three programs (cylcgt sum and whole-board, Codex).
 
+## T44: KPKP on the cylinder (Sonnet, after Kilo walled its free tier; `research/kpkp/t44/REPORT.md`). ACCEPT_WITH_FIXES
+
+- **Old data invalid:** `research/kpkp/enumerate.c` wrote the black pawn as `P`. So the old `kpkp_*` files are
+  K+2P v K and the `kppk_*` files K+3P v K, including the large cylinder KPPK run of the night of 2026-10-21.
+  `research/kpkp/COMPRESSED.md` now warns about this.
+- **Fresh solve:** all legal KPKP positions with no pending e.p. right, 14.6M on the cylinder and 14.9M flat,
+  `kpsolve --promote QRBN --cap 1`. Exact on 89.1% (cylinder) and 83.5% (flat).
+- **Results:**
+  - of the pairs exact on both boards, 10.3% differ, 73.7% of them ending in a cylinder draw;
+  - 576 mutual-zugzwang pairs exist only on the cylinder, 20 of them strict, e.g. Ka3 Ph2 / Kg2 Ph3;
+  - 992 versus 452 certain pairs are lower bounds, so not comparable as totals.
+- **Checks:** the verifier recomputed every count with its own code. The reference solver agrees on 128 chosen
+  positions (CHECKED-2 on that sample), and the flat board agrees with the Lichess tablebase on 40 positions.
+- **Paper:** §X-A has one paragraph ("A pawn each"; counts C1, sampled checks C2), and the conclusion's item now
+  says KPKP still has undecided positions and KPPK comes next. To stay at 14 pages, Fig. 10 was redrawn shorter,
+  the redundant Puzzle 3 appendix row was dropped, and §XII prose was tightened.
+

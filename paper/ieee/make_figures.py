@@ -182,7 +182,7 @@ def dawson_grundy():
     pts = " ".join(f"({n},{g[n]})" for n in range(len(g)))
     ring = " ".join(f"({m},0)" for m in range(len(g)) if g[m] == 0)
     return "\n".join([
-        r"\begin{tikzpicture}\begin{axis}[scale only axis, width=16.0cm, height=2.9cm, xmin=-1, xmax=121,",
+        r"\begin{tikzpicture}\begin{axis}[scale only axis, width=16.0cm, height=2.0cm, xmin=-1, xmax=121,",
         r"  ymin=-0.5, ymax=9.5, xlabel={strip length $n$}, ylabel={Grundy value $g(n)$}, ytick={0,2,...,8},",
         r"  xtick={0,10,...,120}, ymajorgrids, grid style={gray!25}, axis line style={edge}, tick style={edge},",
         r"  major tick length=2pt,",

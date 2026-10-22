@@ -139,3 +139,9 @@ $4\le n\le8$ \lab{C2} and $n=9$ \lab{C1}, and illegal on $\cyl{3}$. Ka3, Pa2 aga
 board, is a mutual zugzwang for $4\le n\le8$ \lab{C2} and $n=9,10$ \lab{C1}. On $\cyl{3}$, Ka1, Pa7 against Ka3
 wins at once: a8=Q checks along the a-file, which covers a4, and the wrapped diagonals and the white king cover
 the other flight squares \lab{C2}.
+
+\emph{A pawn each.} With all promotions but at most one new piece, our solver decides 89\% of the 14.6 million
+legal KPKP positions on the cylinder and 83\% on the ordinary board \lab{C1}. Of the positions decided on both,
+10\% change result, three quarters of them to a draw, and 576 pairs of mutual zugzwangs exist only on the
+cylinder, 20 of them strict: in Ka3, Ph2 against Kg2, Ph3 whoever moves loses, since each king reaches the
+locked pawns across the seam; a second solver agrees on every sampled position \lab{C2}.

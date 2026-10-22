@@ -1,0 +1,27 @@
+# E1 seam standoff
+Kd1 Ph5 kd3 pa7 w - | W W | A: Kd1e1:W Kd1c1:W Ph5h6:W | B: Kd1e1:W Kd1c1:W Ph5h6:W
+Kd1 Ph5 kd3 pa7 b - | W W | A: Kd3d4:W Kd3e3:W Kd3c3:W Kd3e4:W Kd3c4:W Pa7a6:W Pa7a5:W | B: Kd3d4:W Kd3e3:W Kd3c3:W Kd3e4:W Kd3c4:W Pa7a6:W Pa7a5:W
+# E1b mirror: a-pawn white, h-pawn black
+Ke1 Pa5 ke3 ph7 w - | W W | A: Ke1f1:W Ke1d1:W Pa5a6:W | B: Ke1f1:W Ke1d1:W Pa5a6:W
+Ke1 Pa5 ke3 ph7 b - | W W | A: Ke3e4:W Ke3f3:W Ke3d3:W Ke3f4:W Ke3d4:W Ph7h6:W Ph7h5:W | B: Ke3e4:W Ke3f3:W Ke3d3:W Ke3f4:W Ke3d4:W Ph7h6:W Ph7h5:W
+# E2 strict MZ locked h-pawns, kings across the seam
+Ka3 Ph2 kg2 ph3 w - | L L | A: Ka3a4:L Ka3a2:L Ka3b3:L Ka3b4:L Ka3b2:L | B: Ka3a4:L Ka3a2:L Ka3b3:L Ka3b4:L Ka3b2:L
+Ka3 Ph2 kg2 ph3 b - | L L | A: Kg2g1:L Kg2h2:L Kg2f2:L Kg2h1:L Kg2f3:L Kg2f1:L | B: Kg2g1:L Kg2h2:L Kg2f2:L Kg2h1:L Kg2f3:L Kg2f1:L
+# E3 strict MZ locked a-pawns
+Kb3 Pa2 kh2 pa3 w - | W W | A: Kb3b4:W Kb3c3:D Kb3a3:W Kb3c4:D Kb3c2:D Kb3a4:W | B: Kb3b4:W Kb3c3:D Kb3a3:W Kb3c4:D Kb3c2:D Kb3a4:W
+Kb3 Pa2 kh2 pa3 b - | W W | A: Kh2h3:W Kh2h1:W Kh2g2:W Kh2g3:W Kh2g1:W | B: Kh2h3:W Kh2h1:W Kh2g2:W Kh2g3:W Kh2g1:W
+# E4 pawns on the 7th, kings guard across the seam
+Ka6 Ph7 kh8 pa7 w - | D D | A: Ka6a7:D Ka6a5:D Ka6b7:L Ka6b5:D | B: Ka6a7:D Ka6a5:D Ka6b7:L Ka6b5:D
+Ka6 Ph7 kh8 pa7 b - | D D | A: Kh8h7:D Kh8g7:D | B: Kh8h7:D Kh8g7:D
+# E5 pawn race a6/h6 with kings a5, b7
+Ka5 Ph6 kb7 pa6 w - | W W | A: Ka5a4:W Ka5b4:W Ph6h7:W | B: Ka5a4:W Ka5b4:W Ph6h7:W
+Ka5 Ph6 kb7 pa6 b - | W W | A: Kb7b8:W Kb7c7:W Kb7a7:W Kb7c8:W Kb7c6:W Kb7a8:W | B: Kb7b8:W Kb7c7:W Kb7a7:W Kb7c8:W Kb7c6:W Kb7a8:W
+# E6 king protects the pawn across the seam
+Ka1 Ph2 kh3 pa2 w - | D D | A: Ka1a2:D Ka1b2:D | B: Ka1a2:D Ka1b2:D
+Ka1 Ph2 kh3 pa2 b - | D D | A: Kh3h4:D Kh3h2:D Kh3g4:D Kh3g2:W | B: Kh3h4:D Kh3h2:D Kh3g4:D Kh3g2:W
+# E7 pawn race that the seam freezes: a6 guards h5, h4 guards a5
+Ke1 Ph4 ke3 pa6 w - | W W | A: Ke1f1:D Ke1d1:D Ph4h5:W | B: Ke1f1:D Ke1d1:D Ph4h5:W
+Ke1 Ph4 ke3 pa6 b - | D D | A: Ke3e4:D Ke3f3:W Ke3d3:W Ke3f4:D Ke3d4:D Pa6a5:W | B: Ke3e4:D Ke3f3:W Ke3d3:W Ke3f4:D Ke3d4:D Pa6a5:D
+# E8 seam capture decides a race that Black wins on the flat board
+Kd5 Ph2 ke8 pa3 w - | L L | A: Kd5d6:L Kd5d4:L Kd5e5:L Kd5c5:L Kd5e6:L Kd5e4:L Kd5c6:L Kd5c4:L Ph2h3:L Ph2h4:L | B: Kd5d6:L Kd5d4:L Kd5e5:L Kd5c5:L Kd5e6:L Kd5e4:L Kd5c6:L Kd5c4:L Ph2h3:L Ph2h4:L
+Kd5 Ph2 ke8 pa3 b - | L L | A: Ke8e7:L Ke8f8:L Ke8d8:L Ke8f7:L Ke8d7:L Pa3a2:L | B: Ke8e7:L Ke8f8:L Ke8d8:L Ke8f7:L Ke8d7:L Pa3a2:L

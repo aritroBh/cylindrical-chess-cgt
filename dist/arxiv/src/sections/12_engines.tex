@@ -1,9 +1,8 @@
 \section{Engines and Learning}\label{sec:engines}
 
-CGT predicts which endgames should be hard for an engine. Numbers and hot positions show in the material count
-or within a few moves, but an infinitesimal such as ${\uparrow}$ is a fight over one spare tempo and a nimber
-such as $\star$ a fight over parity. Neither changes the material, so a static evaluation misses them until the
-search reaches the end of the fight. We test this prediction on two engines.
+CGT predicts which endgames are hard for an engine: an infinitesimal such as ${\uparrow}$ is a fight over one
+spare tempo and a nimber such as $\star$ a fight over parity, and neither shows in the material, so a static
+evaluation misses them until the search reaches the end of the fight.
 
 \subsection{A CGT Test Suite}
 
@@ -71,16 +70,13 @@ nodes, and Lc0 $32.5$--$33.5\%$ at $10^3$ and $10^4$ nodes \lab{C1} ($45$ of the
 wins with no winning move; excluding them, $34$--$36\%$ and $42$--$43\%$). More nodes barely help, both engines get
 worse as components are added, and the errors do not single out nimbers or infinitesimals.
 
-The ground truth here is the CGT model with frozen kings, not real chess, and frozen kings are not always exact
-(Section~\ref{sec:kings-sweep}). These numbers therefore measure agreement with the model. Proving real-chess
-errors would need the kind of certification that Section~\ref{sec:real} begins for $1/8$.
+The ground truth here is the model with frozen kings, which is not always exact
+(Section~\ref{sec:kings-sweep}), so these numbers measure agreement with the model, not real-chess errors.
 
 \subsection{Learning Dawson's Chess}
 
 Can a network learn CGT? In normal-play Dawson's chess (Section~\ref{sec:dawson}) the first player wins exactly
 when the strips' Grundy values have a nonzero nim-sum~\cite{GuySmith1956,WinningWays}. An LSTM value network
 in PyTorch~\cite{PyTorch}, trained on total lengths up to $30$, reaches $0.82$ test accuracy on total lengths
-$31$--$80$, against about $0.79$ for the majority guess \lab{C1}. Linear probes on its strip embedding do no better than
-the majority guess, either for a strip's Grundy value ($0.06$ against $0.24$) or for whether a single strip is
-a first-player win ($0.84$, the share of such strips). The rule itself scores $1.0$, so the network has not
-learned it, and the probes find no sign of it either.
+$31$--$80$, against about $0.79$ for the majority guess \lab{C1}. The rule itself scores $1.0$, so the network has not
+learned it, and linear probes on its strip embedding do no better than the majority guess.
