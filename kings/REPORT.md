@@ -165,7 +165,7 @@ The convention's prediction is cylcgt's outcome class of P alone:
 |---|---|---|---|
 | 6×6 cylinder | 20 | 12 | 8 |
 | 5×6 ordinary | 3 | 3 | 0 |
-| 7×6 cylinder | deferred: the move-level rerun needs about 9 GB and waits for a free machine. The sweep's own split (91 king effects, 52 convention failures) is in the table above | | |
+| 7×6 cylinder | deferred: an exact per-move tally needs cap 2 (about 9 GB), above the shared machine's 4 GB per-process rule. A cap-1 variant was validated on 6×6 and found unreliable ([results/analyze_7x6.log](results/analyze_7x6.log)). The sweep's own split (91 king effects, 52 convention failures) is in the table above | | |
 
 **Example** (6×6 cylinder; Z = Pa3 / pa4, Kf4, kb3; P = W d2 / B d3).
 - The convention says 0: the side to move loses.

@@ -1,1 +1,13 @@
-Deferred again 2026-10-22 00:14: the 7x6 move-level diagnosis rerun (analyze.py, KP_THREADS=4) finished its root pass, but its second kpsolve (the children) was terminated by SIGTERM while the machine was saturated (load ~193, swap 17.2/18.4 GB). It will be rerun when the machine is quiet; the sweep-level split (91 king effects, 52 convention failures) in REPORT.md does not depend on it.
+7x6 cylinder: per-move diagnosis of the 143 mismatches (escape / king refutes) -- DEFERRED.
+
+2026-10-22 00:14  The cap-2 rerun (KP_THREADS=4, ~9 GB) was terminated by SIGTERM while the machine was
+                  saturated (load ~193, swap 17.2/18.4 GB); the cause was not one of our processes.
+2026-10-22 02:2x  Tried a low-memory variant within the shared-machine rules (delegate/COMMON.md rule 7:
+                  < 4 GB RSS per process): KP_CAP=1 under nice with a 3.8 GB watchdog. Validated first on
+                  the 6x6 cylinder, where the exact (cap-2) diagnosis is known (12 escapes, 8 king
+                  refutations): at cap 1 every one of the 20 diagnoses depends on move values whose two cap
+                  bounds differ, and the categories come out wrong. So cap 1 is not usable on 6-rank boards
+                  (double promotions are common), peak RSS was only 134 MB.
+Conclusion: an honest 7x6 tally needs cap 2 (~9 GB), which the shared-machine rule does not allow. The
+sweep-level split in REPORT.md (91 king effects, 52 convention failures) does not depend on it.
+To run later, on a quiet machine: KP_CAP=2 KP_THREADS=4 KP_MAX_RSS_MB=12000 python3 kings/analyze.py kings/results/exp_cyl7x6_epon_Q.jsonl

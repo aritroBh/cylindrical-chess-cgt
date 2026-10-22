@@ -41,20 +41,58 @@ def sq(t):
 
 
 def kpsolve_moves(lines, summary):
-    cmd = [f"{ROOT}/kings/kpsolve", "--board", summary["board"], "--ep", summary["ep"], "--promote",
-           summary["promote"], "--cap", str(summary["cap"]), "--threads", os.environ.get("KP_THREADS", "4"), "--moves"]
-    out = subprocess.run(cmd, input="\n".join(lines) + "\n", capture_output=True, text=True, check=True)
+    """Run kpsolve --moves on `lines`. Shared-machine settings from the environment:
+    KP_THREADS (default 4), KP_CAP (default: the experiment's cap), KP_NICE (default 10),
+    KP_MAX_RSS_MB (default 3800): kill our own kpsolve if its RSS exceeds this."""
+    import threading
+    import time
+    cap = os.environ.get("KP_CAP", str(summary["cap"]))
+    cmd = ["nice", "-n", os.environ.get("KP_NICE", "10"), f"{ROOT}/kings/kpsolve", "--board", summary["board"],
+           "--ep", summary["ep"], "--promote", summary["promote"], "--cap", cap,
+           "--threads", os.environ.get("KP_THREADS", "4"), "--moves"]
+    limit_kb = int(os.environ.get("KP_MAX_RSS_MB", "3800")) * 1024
+    proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    tripped = []
+
+    def watchdog():
+        while proc.poll() is None:
+            try:
+                rss = int(subprocess.run(["ps", "-o", "rss=", "-p", str(proc.pid)], capture_output=True,
+                                         text=True).stdout.strip() or 0)
+            except ValueError:
+                rss = 0
+            if rss > limit_kb:
+                tripped.append(rss)
+                proc.kill()  # our own child only
+                return
+            time.sleep(5)
+
+    threading.Thread(target=watchdog, daemon=True).start()
+    stdout, stderr = proc.communicate("\n".join(lines) + "\n")
+    if tripped:
+        raise MemoryError(f"kpsolve exceeded {limit_kb // 1024} MB RSS ({tripped[0] // 1024} MB); stopped")
+    if proc.returncode:
+        raise subprocess.CalledProcessError(proc.returncode, cmd, stdout, stderr)
+
+    class Out:
+        pass
+    out = Out()
+    out.stdout = stdout
     res = {}
     for line in out.stdout.splitlines():
         parts = [p.strip() for p in line.split("|")]
         pos, (a, b) = parts[0], parts[1].split()
         mv = {}
         if len(parts) >= 3:
-            # with differing bounds the format is "A: ... | B: ..."; keep bound A (cap 2 runs are exact here)
-            text = parts[2][3:] if parts[2].startswith("A: ") else parts[2]
-            for tok in text.split():
-                m, v = tok.rsplit(":", 1)
-                mv[m] = v
+            # with differing cap bounds the format is "A: ... | B: ..."; a move's value is exact only
+            # where both bounds agree, otherwise "?"
+            def parse(text):
+                return dict(tok.rsplit(":", 1) for tok in text.split())
+            if parts[2].startswith("A: ") and len(parts) >= 4:
+                va, vb = parse(parts[2][3:]), parse(parts[3][3:])
+                mv = {m: (va[m] if va[m] == vb.get(m) else "?") for m in va}
+            else:
+                mv = parse(parts[2])
         res[pos] = (a, b, mv)
     return res
 
@@ -157,6 +195,7 @@ def main():
             for m, _ in wins:
                 child = apply_move(c["line"], m, ep_on)
                 c.setdefault("children", {})[m] = child
+                c.setdefault("_children", []).append(child)
                 need.append(child)
     if need:
         children = kpsolve_moves(sorted(set(need)), summary)
@@ -176,8 +215,15 @@ def main():
             else:
                 c["diagnosis"] = "pawn or mixed refutation of the convention's winning moves"
             c.pop("children")
+        uncertain = "?" in c.get("moves", {}).values() or any(
+            "?" in children[ch][2].values() or children[ch][0] != children[ch][1]
+            for ch in c.get("_children", []))
+        if uncertain:
+            c["diagnosis"] += " [some move values undetermined at this cap]"
+        c.pop("_children", None)
         tally[c["diagnosis"]] += 1
-    out_path = path.replace(".jsonl", "_diagnosis.jsonl")
+    suffix = "" if os.environ.get("KP_CAP") in (None, str(summary["cap"])) else f"_cap{os.environ['KP_CAP']}"
+    out_path = path.replace(".jsonl", f"_diagnosis{suffix}.jsonl")
     with open(out_path, "w") as fh:
         for c in cases:
             fh.write(json.dumps(c) + "\n")
