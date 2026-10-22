@@ -1,0 +1,44 @@
+test game 0     bisimilar: True
+test game 1     bisimilar: True
+test game 2     bisimilar: True
+test game -1    bisimilar: True
+test game -2    bisimilar: True
+test game *     bisimilar: True
+test game up    bisimilar: True
+test game down  bisimilar: True
+test game 1/2   bisimilar: True
+test game -1/2  bisimilar: True
+test game +-1   bisimilar: True
+test game on    bisimilar: True
+test game off   bisimilar: True
+test game dud   bisimilar: True
+test game over  bisimilar: True
+test game under bisimilar: True
+candidate 0         V bisimilar: True   -V bisimilar: True
+candidate 1         V bisimilar: True   -V bisimilar: True
+candidate 2         V bisimilar: True   -V bisimilar: True
+candidate -1        V bisimilar: True   -V bisimilar: True
+candidate -2        V bisimilar: True   -V bisimilar: True
+candidate *         V bisimilar: True   -V bisimilar: True
+candidate up        V bisimilar: True   -V bisimilar: True
+candidate down      V bisimilar: True   -V bisimilar: True
+candidate 1/2       V bisimilar: True   -V bisimilar: True
+candidate -1/2      V bisimilar: True   -V bisimilar: True
+candidate +-1       V bisimilar: True   -V bisimilar: True
+candidate on        V bisimilar: True   -V bisimilar: True
+candidate off       V bisimilar: True   -V bisimilar: True
+candidate dud       V bisimilar: True   -V bisimilar: True
+candidate over      V bisimilar: True   -V bisimilar: True
+candidate under     V bisimilar: True   -V bisimilar: True
+candidate on+*      V bisimilar: True   -V bisimilar: True
+candidate off+*     V bisimilar: True   -V bisimilar: True
+candidate 1+*       V bisimilar: True   -V bisimilar: True
+candidate -1+*      V bisimilar: True   -V bisimilar: True
+candidate up+*      V bisimilar: True   -V bisimilar: True
+candidate {on|0}    V bisimilar: True   -V bisimilar: True
+candidate {0|off}   V bisimilar: True   -V bisimilar: True
+candidate {on|off}  V bisimilar: True   -V bisimilar: True
+candidate {0|on}    V bisimilar: True   -V bisimilar: True
+candidate {off|0}   V bisimilar: True   -V bisimilar: True
+integers -10..10 bisimilar: True
+NOT bisimilar count: 0

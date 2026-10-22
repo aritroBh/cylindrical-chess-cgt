@@ -1,0 +1,12 @@
+check2 PASS 1 + (-1)               ('L', 'W')
+check2 PASS * + *                  ('L', 'W')
+check2 PASS up + down              ('L', 'W')
+check2 PASS 1/2 + 1/2 + (-1)       ('L', 'W')
+check2 PASS on + (-2)              ('W', 'W')
+check2 PASS on + off               ('D', 'D')
+check2 PASS dud + 1                ('D', 'D')
+check2 PASS over + (-1/2)          ('L', 'L')
+check2 PASS over                   ('W', 'W')
+check2 PASS up + *                 ('W', 'L')
+cyl:6x4 {'board': 'cyl:6x4', 'nodes': 66588, 'edges': 444762, 'kpk_positions': 8388, 'quiet_placements': 3996, 'check1': {'board': 'cyl:6x4', 'kpk': 8388, 'other': 58200, 'x': 0, 'stale_loss_kpk': 612, 'stale_loss_all': 1152, 'nodes': 66588, 'cmd': 'nice -n 10 /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K6/kp --board cyl:6x4 --ep on --promote QRBN --cap 1 --threads 2'}, 'check1_differences': 0, 'decisive_white': 2382, 'decisive_black': 0, 'unmatched': 1254, 'seconds': 1.9, 'jsonl': 'cyl_6x4.jsonl'}
+{"label": "gafni cyl:6x4", "rc": 0, "seconds": 3.3, "peak_single_rss_mb": 70.6, "peak_total_rss_mb": 70.6, "killed": null, "tree_maxrss_mb": 71.2}

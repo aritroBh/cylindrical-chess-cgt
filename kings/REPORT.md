@@ -349,9 +349,15 @@ Every deliverable was given to independent referees (Claude models) told to brea
     off, dud, or unmatched. off is exactly the White-stalemated pattern, so it is an artefact of the convention.
   - **Edges.** 12.5%–20.5% of the placements change class when the edges go, and on is more frequent on the
     cylinder at every size.
-  - **Tempo.** On the odd-width cylinders (3×4, 3×5, 5×5) no finite test game or integer n ∈ [−10, 10] changes
-    any result. On flat boards and 4-file cylinders a few placements have tempo thresholds at n ∈ {−2, −1, 0}.
-    So "no finite king tempo" fails as a whole-board statement, though Proposition 4.3 is not tested by this.
+  - **Tempo.** Task K6 ([delegate/out/K6/REPORT.md](delegate/out/K6/REPORT.md)) extends this to 27 boards,
+    CHECKED-2 by an independent pipeline.
+    - On cylinders of 3 and 5–8 files, with 4–6 ranks, no finite test game or integer n ∈ [−10, 10] changes any
+      result.
+    - The 4-file cylinders and every flat board have some tempo-sensitive placements. Their thresholds lie at
+      n ∈ {−3, …, 0}, deepening by one with each extra rank.
+    - K4's odd-width explanation is withdrawn. Sensitivity coincides with White being stalemated in
+      front of its own pawn (CONJECTURE).
+    - So "no finite king tempo" fails as a whole-board statement, though Proposition 4.3 is not tested by this.
   - **Gafni.** His reported values (a second-hand summary) do not appear: on + \* only as a tie with on, and no
     {on | 0} or 1 + \*. That is no contradiction, because his conventions are unknown.
 - **CGSuite modelling** (plan A8) is open. It needs CGSuite and a Java runtime to be installed, which needs

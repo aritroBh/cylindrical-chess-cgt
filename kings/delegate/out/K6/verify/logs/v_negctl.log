@@ -1,0 +1,14 @@
+control 1: -1/2 replaced by * ({0|0})
+cyl:3x6 quiet placements mine/jsonl 1710 1710 mismatches {'rowset': 0, 'sig': 0, 'dec': 0, 'matched': 0, 'cls': 0, 'chess': 0, 'diff': 0, 'diff_second': 0} 1.0s
+control 2: up replaced by the switch {0|0} copy of *  (up = {0|*} -> {0|0})
+cyl:3x6 quiet placements mine/jsonl 1710 1710 mismatches {'rowset': 0, 'sig': 0, 'dec': 0, 'matched': 0, 'cls': 0, 'chess': 0, 'diff': 0, 'diff_second': 0} 1.3s
+control 3: stalemate-as-draw solver flag (sd=1) used for the signatures instead of normal play
+cyl:3x6 quiet placements mine/jsonl 1710 1710 mismatches {'rowset': 0, 'sig': 549, 'dec': 0, 'matched': 549, 'cls': 549, 'chess': 0, 'diff': 1098, 'diff_second': 549} 1.6s
+mismatch totals (each must be > 0 for the control to bite): 0 0 3294
+control 1: -1/2 replaced by * ({0|0})
+flat:3x6 quiet placements mine/jsonl 2102 2102 mismatches {'rowset': 0, 'sig': 20, 'dec': 0, 'matched': 0, 'cls': 0, 'chess': 0, 'diff': 0, 'diff_second': 0} 1.0s
+control 2: up replaced by the switch {0|0} copy of *  (up = {0|*} -> {0|0})
+flat:3x6 quiet placements mine/jsonl 2102 2102 mismatches {'rowset': 0, 'sig': 18, 'dec': 0, 'matched': 0, 'cls': 0, 'chess': 0, 'diff': 0, 'diff_second': 0} 1.0s
+control 3: stalemate-as-draw solver flag (sd=1) used for the signatures instead of normal play
+flat:3x6 quiet placements mine/jsonl 2102 2102 mismatches {'rowset': 0, 'sig': 709, 'dec': 14, 'matched': 622, 'cls': 636, 'chess': 0, 'diff': 1094, 'diff_second': 472} 1.2s
+mismatch totals (each must be > 0 for the control to bite): 20 18 3547
