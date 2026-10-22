@@ -45,3 +45,12 @@ Read first:
    - Report negative results plainly, and never overstate novelty.
 6. **Deliverable.** Finish by writing `REPORT.md` in your output directory. Its first section is a 5-line
    summary of what you established.
+7. **Shared machine (added 2026-10-22).**
+   - Other projects and other agents run on this machine.
+   - **Never kill, stop or signal a process you did not start yourself.** No `pkill`, `killall` or `kill` on
+     anything but your own PIDs.
+   - Memory is tight. Keep every process under 4 GB RSS, and run at most 2 heavy processes at once, under
+     `nice -n 10`.
+   - Never feed kpsolve a whole-board position list larger than 100 MB.
+   - Never commit, push or edit `paper/`.
+   - Do not create a file over 50 MB.
