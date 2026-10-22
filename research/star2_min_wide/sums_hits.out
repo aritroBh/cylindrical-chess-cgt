@@ -1,0 +1,22 @@
+== pairs (3-pawn part, 4-pawn part) with sum = *2
+  4-pawn class value {-W, -W* | -W, -W*}   (1 position classes up to mirror)
+     e.g. [('W: a2 / B: a4 b3 b4', 2)]
+  3-pawn class value +W  (7 position classes up to mirror)
+     e.g. [('W: a2 b2 / B: a4', 2), ('W: a3 b3 / B: a5', 2), ('W: a4 b4 / B: a7', 2), ('W: a4 b5 / B: b6', 2)]
+     outcome 3-part=L nim=None; 4-part=R nim=None
+  4-pawn class value {+W, +W* | +W, +W*}   (1 position classes up to mirror)
+     e.g. [('W: a5 a6 b5 / B: b7', 2)]
+  3-pawn class value -W  (7 position classes up to mirror)
+     e.g. [('W: a2 / B: a3 b4', 2), ('W: a2 / B: a5 b5', 2), ('W: a3 / B: a4 b5', 2), ('W: a4 / B: a6 b6', 2)]
+     outcome 3-part=R nim=None; 4-part=L nim=None
+== pairs (3-pawn part, 4-pawn part) with sum = *3
+  4-pawn class value {-W, -W* | -W, -W*}   (1 position classes up to mirror)
+     e.g. [('W: a2 / B: a4 b3 b4', 2)]
+  3-pawn class value +W*  (7 position classes up to mirror)
+     e.g. [('W: a2 b2 / B: a5', 2), ('W: a3 b3 / B: a6', 2), ('W: a4 b5 / B: a7', 2), ('W: a5 b5 / B: a6', 2)]
+     outcome 3-part=L nim=None; 4-part=R nim=None
+  4-pawn class value {+W, +W* | +W, +W*}   (1 position classes up to mirror)
+     e.g. [('W: a5 a6 b5 / B: b7', 2)]
+  3-pawn class value -W*  (7 position classes up to mirror)
+     e.g. [('W: a2 / B: a3 b3', 2), ('W: a2 / B: a5 b4', 2), ('W: a3 / B: a4 b4', 2), ('W: a3 / B: a6 b6', 2)]
+     outcome 3-part=R nim=None; 4-part=L nim=None

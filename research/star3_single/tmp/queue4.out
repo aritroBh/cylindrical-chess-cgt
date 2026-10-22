@@ -1,0 +1,6 @@
+ALL DONE flat_w6_p9_2_7
+ALL DONE flat_w6_p9_3_6
+ALL DONE flat_w7_p9_3_6
+ALL DONE flat_w7_p9_4_5
+cyl_w5_p10_5_5: line 1:   800 Terminated: 15          nice -n 15 ./s3 $args --chunk $i $n --max-entries 33554432 > $out.part 2> scans/$tag/c${i}of${n}.err
+cyl_w5_p10_5_5: line 1:   838 Terminated: 15          nice -n 15 ./s3 $args --chunk $i $n --max-entries 33554432 > $out.part 2> scans/$tag/c${i}of${n}.err

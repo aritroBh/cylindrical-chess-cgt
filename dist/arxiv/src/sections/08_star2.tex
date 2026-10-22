@@ -111,18 +111,17 @@ needs the textbook test but survives e.p.\ off; A and B need en passant but not 
 On ordinary boards of width at most four, in the default setting, two $\nim{2}$ positions, A and its color-reversed
 twin B, have seven pawns and four have eight. One exhaustive scan of $5{,}503{,}282$ root positions gives these counts, so their
 completeness is \lab{C1}; our engine re-checked every position it reported \lab{C2}. With
-Theorem~\ref{thm:census}, seven is the least number of pawns in a $\nim{2}$ on these boards \lab{C2}.
+Theorem~\ref{thm:census}, seven is the least number of pawns in a $\nim{2}$ on these boards \lab{C2}. A scan of
+every position with at most seven pawns on up to nine files, which covers every width, extends this to ordinary
+boards of any width; in the whole-board game the only seven-pawn ones are A and B \lab{C2}.
 
 On five files a scan of all $14{,}680{,}983$ eight-pawn positions finds $21$ of value $\nim{2}$ in the default
 setting \lab{C1}, each using all five files. As whole-board games all $21$ are $\nim{2}$: the whole-board solver
 and our engine with splitting switched off agree \lab{C2}. As sums of components (Section~\ref{sec:sums-hss})
 $15$ keep the value; the other six change only through the splitting. Three of the
 $21$ come from the $14$ eight-pawn $\nim{2}$ rings on $\cyl{5}$ \lab{C1} by opening them onto files a--e:
-\begin{itemize}
-\item \pos{W a3 b3 c2 e2 / B a6 c5 d5 e3},
-\item \pos{W a4 b3 c2 d2 / B a7 b6 c7 e4},
-\item \pos{W a6 b4 c4 e3 / B a7 c7 d6 e6},
-\end{itemize}
+\pos{W a3 b3 c2 e2 / B a6 c5 d5 e3}, \pos{W a4 b3 c2 d2 / B a7 b6 c7 e4} and
+\pos{W a6 b4 c4 e3 / B a7 c7 d6 e6},
 and these are $\nim{2}$ in both models. We call the first \emph{the five-file $\nim{2}$}. No $\nim{3}$ or higher nimber occurs in the default setting in any of these scans
 \lab{C1}.
 
@@ -139,22 +138,25 @@ three, and the other three are their color-reversed twins \lab{C2}. On $\cyl{7}$
 $\nim{2}$, and a third solver written from the rules agrees \lab{C2}; the ten-pawn rings with five pawns a side
 include $63$ of value $\nim{2}$ \lab{C1}, such as \pos{W a2 a3 c3 e3 f2 / B a4 b5 d5 f5 g5}, which all three
 programs confirm \lab{C2}. So the first ring $\nim{2}$ on $\cyl{n}$ has $n+3$ pawns for $n=3,\dots,7$
-\lab{C1}. The $\cyl{3}$ ring is a $\nim{2}$ with one pawn fewer than any ordinary board of width at most four allows,
+\lab{C1}. Beyond $n=7$ we cannot scan, but $n+3$ pawns still suffice: a window of five or six files closed by
+a wall of single pawns on alternate files, each of which would be captured into a passed pawn if it moved, is a
+ring $\nim{2}$ with $n+3$ pawns on every $\cyl{n}$ with $5\le n\le21$, for example \pos{W b2 c3 c5 d2 f2 h2 / B
+a5 b5 c6 e4 g4} on $\cyl{8}$. Our engine confirms the family to $n=12$, and two other programs to $n=21$ and
+$n=26$ \lab{C2}. The $\cyl{3}$ ring is a $\nim{2}$ with one pawn fewer than any ordinary board of width at most four allows,
 and it needs two en passant captures: without black's b4$\times$a3 it is $\uparrow$, without white's
 b5$\times$c6 it is $\downarrow$, and with e.p.\ off it is $0$ \lab{C2}.
 
-A $\nim{3}$ lies just beyond these scans, since $\nim{2}+\star=\nim{3}$. In the default setting, position A
-beside a one-file group worth $\star$, \pos{W a4 b3 d2 d3 f4 / B a7 b7 c5 f6}, is $\nim{3}$ on six files with
-nine pawns, and our engine as a sum, our engine as a whole-board game and the independent whole-board solver
-agree \lab{C2}. With e.p.\ off eight pawns suffice: \pos{W a2 a4 c2 e2 / B a3 a6
-d7 f7} is the candidate, moved two files over, beside an a-file group worth $\star$ \lab{C2}. Rings give
-$\nim{3}$ in a single component. Outside the default setting it comes early: with e.p.\ off, the eight-pawn
-ring \pos{W a5 b3 c2 d2 / B a7 b5 c6 d4} on $\cyl{4}$ under the opponent rule, and the ten-pawn ring
-\pos{W a2 a3 b2 b3 c3 / B a6 a7 b6 b7 c6} on $\cyl{3}$ under the count rule \lab{C2}. In the default setting it
-appears on $\cyl{7}$: the same ten-pawn rings include eight of value
-$\nim{3}$, among them \pos{W a2 a5 c4 e2 f2 / B a7 b4 d7 e5 g7}, which is $\nim{3}$ in both models. For all
-eight the scanner, our engine as a whole-board game and the third solver agree
-\lab{C2}; as sums of components six keep the value. So $\nim{3}$, like $\nim{2}$, needs no more than eight ranks.
+A $\nim{3}$ lies just beyond these scans. In the default setting it comes in one piece on four files: B with
+a white a2 and a black a4 added, \pos{W a2 b4 c2 d2 / B a4 a6 a7 c6 d5}, is $\nim{3}$ with nine pawns, and so is
+A with a pair added on file e, \pos{W a4 b3 d2 d3 e4 / B a7 b7 c5 e6} \lab{C2}; A beside a separate group worth
+$\star$ on six files is $\nim{2}+\star=\nim{3}$ \lab{C2}. In the whole-board game no position with eight pawns or
+fewer is $\nim{3}$ \lab{C1}; as sums of components some seven-pawn positions are, but only because a $+\BIG$
+cancels a $-\BIG$ (Section~\ref{sec:sums-hss}). With e.p.\ off eight pawns suffice, for example the candidate
+beside a group worth $\star$ on six files, \pos{W a2 a4 c2 e2 / B a3 a6 d7 f7}, and the ring \pos{W a5 b3 c2 d2
+/ B a7 b5 c6 d4} on $\cyl{4}$ under the opponent rule \lab{C2}. On $\cyl{7}$ the ten-pawn rings above include
+eight of value $\nim{3}$, among them \pos{W a2 a5 c4 e2 f2 / B a7 b4 d7 e5 g7}, which is $\nim{3}$ in both
+models; for all eight the scanner, our engine as a whole-board game and the third solver agree \lab{C2}, and as
+sums six keep the value. So $\nim{3}$, like $\nim{2}$, needs no more than eight ranks.
 
 In the model, then, the $\nim{2}$ question has a positive answer on the ordinary $8\times8$ board: four files
 and seven pawns beside T suffice, while Elkies' higher nimbers need larger boards~\cite{Elkies2002}. Whether real

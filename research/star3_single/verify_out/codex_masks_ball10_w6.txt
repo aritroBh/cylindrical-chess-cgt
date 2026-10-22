@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/Users/aritro/Downloads/Research/Chessendgames/research/star3_single/verify_masks.py", line 18, in <module>
+    w, b = cx.parse_position(line.replace(":", ""), width)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/aritro/Downloads/Research/Chessendgames/verify_ext/codex/solver.py", line 228, in parse_position
+    white, black = mask(m.group(1)), mask(m.group(2))
+                   ^^^^^^^^^^^^^^^^
+  File "/Users/aritro/Downloads/Research/Chessendgames/verify_ext/codex/solver.py", line 221, in mask
+    raise ValueError(f"{square} is outside width {width}")
+ValueError: g4 is outside width 6

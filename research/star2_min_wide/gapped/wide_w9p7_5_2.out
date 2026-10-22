@@ -1,0 +1,9 @@
+gapped rows=265545 elapsed=28s
+confusion (scanner class, sum-model class)  [class = nimber 0/1/2, -1 = anything else]:
+   scanner=-1 sum_model=-1  rows=265318
+   scanner=-1 sum_model= 0  rows=123
+   scanner= 0 sum_model= 0  rows=84
+   scanner= 1 sum_model= 1  rows=20
+rows by minimal span (gaps collapsed to one empty file): {3: 390, 4: 18530, 5: 102850, 6: 122050, 7: 21725}
+mismatching rows: 123; explained by +BIG/-BIG in different parts: 123; NOT explained: 0
+sum-model *2 rows: 0; scanner says (first 3): []

@@ -1,0 +1,9 @@
+board	pawns	class	position	structure	checked_by
+flat5	9	C1	W: a4 b3 d2 d3 e4 / B: a7 b7 c5 e6	A + one-file * group e4/e6 on the adjacent file	scanner;cylcgt sum;cylcgt whole;Codex canonical;Codex masks
+flat5	9	C2	W: a4 b3 d2 d3 e5 / B: a7 b7 c5 e7	A + one-file * group e5/e7	scanner;cylcgt sum;cylcgt whole;Codex masks
+flat5	9	C3	W: a4 b3 d2 d3 e4 / B: a7 b7 c5 d7	entangled: A + B d7 alone is negative (outcome R); W e4 repairs it	scanner;cylcgt sum;cylcgt whole;Codex masks
+flat5	9	C4	W: a2 b4 c3 e2 e3 / B: a4 b7 c7 d5	A shifted one file right + one-file * group a2/a4 on file a	scanner;cylcgt sum;cylcgt whole;Codex masks
+flat6	9	D1	W: a4 c2 d2 e4 / B: b7 c5 d6 f6 f7	colour-reversed A + two-file * group (a4,b7)	scanner;cylcgt sum;cylcgt whole;Codex masks
+flat6	9	D2	W: a2 b2 c4 f2 / B: a5 b6 d6 d7 e5	colour-reversed A + two-file * group (f2,e5)	scanner;cylcgt sum;cylcgt whole;Codex masks
+flat6	9	D3	W: a2 b2 c4 e3 / B: a5 b6 d6 d7 f6	colour-reversed A + two-file * group (e3,f6)	scanner;cylcgt sum;cylcgt whole;Codex masks
+flat6	9	D4	W: a2 b2 c4 e2 / B: a5 b6 d6 d7 f5	colour-reversed A + two-file * group (e2,f5)	scanner;cylcgt sum;cylcgt whole;Codex masks

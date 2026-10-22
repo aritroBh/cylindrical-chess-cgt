@@ -53,14 +53,11 @@ rule with en passant on (Section~\ref{sec:star2}); its oracle value is positive 
 The $1/8$ position of Section~\ref{sec:targets} (Fig.~\ref{fig:eighth}(a)) has $10$ men. Its e.p.-aware tree
 has $302$ end-position sides with at most seven men, and the tablebase resolves them all. In $290$ of them
 only one side has a passed pawn: $283$ agree with the model, $5$ disagree and $2$ are draws; the other $12$ are
-races. The remaining end positions have more men. A search for the end positions that decide the value finds
-five with eight men and three with nine: if these go as the model says, then $O=1/8$ whatever the rest do.
-Four of the eight-man positions agree with the model on both sides, except black to move in
-\pos{W a3 a5 / B b4 b5}, a black win; a second search allows for that result and adds one more eight-man
-position, which agrees on both sides. Our king-and-pawn solver (queen promotions only) shows that the three
-nine-man positions agree on both sides, and that white wins the last eight-man position,
-\pos{W b2 b5 / B a5 b4}, with either side to move. With black to move this needed a search that allows two
-promoted queens: $6.1\times10^{10}$ states in $15$ hours.
+races. A search for the larger end positions that decide the value finds five with eight men and three with
+nine. Black to move in one eight-man position, \pos{W a3 a5 / B b4 b5}, is a black win against the model, and a
+second search replaces it with another eight-man position. Our king-and-pawn solver (queen promotions only)
+shows that all the deciding positions agree with the model on both sides; the hardest, black to move in
+\pos{W b2 b5 / B a5 b4}, needed two promoted queens in the search, $6.1\times10^{10}$ states in $15$ hours.
 
 \begin{proposition}[A real-chess $1/8$; \lab{C1}]\label{prop:eighth-real}
 For the $1/8$ position, with queen promotions only in our solver, $O=1/8$, whatever the end positions that are

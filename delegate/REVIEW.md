@@ -483,3 +483,14 @@ aritro with a 0 in its command line.
   - memory note `no-pattern-kills-in-agents`;
   - the user was told.
 
+## Round 8 (Sonnet workflow `wf_8a174151`; reports in each task directory, verifier first)
+
+| Task | Verdict | Banked |
+|---|---|---|
+| T40 least pawns for \*2 on flat boards | ACCEPT_WITH_FIXES. The verifier's own solver gives CHECKED-2 for the whole-board game. | **Seven is the least on ordinary boards of any width.** Every width reduces to ≤ 9 files with ≤ 7 pawns; the only seven-pawn \*2 are A and B in the whole-board game. In the sum model, 3+4-pawn sums give spurious \*2 through ±BIG cancellation. Paper §VIII, abstract, intro. |
+| T41 ring family | ACCEPT_WITH_FIXES. The "no single-step family" claim is refuted: the verifier found one. | **Wall construction:** a window of 5 or 6 files closed by a wall of frozen single pawns gives a ring \*2 with n+3 pawns on every Cn, 5 ≤ n ≤ 21. cylcgt confirms to n = 12, the scanner-derived C solver to 21, and the verifier's own solver to 26. An all-n proof is a sketch only. Paper §VIII; open problem 3. |
+| T42 single-component default \*3 | ACCEPT_WITH_FIXES. "None on 4 files" is refuted. | **A single-component default \*3 on ordinary boards with nine pawns:** `W a4 b3 d2 d3 e4 / B a7 b7 c5 e6` (5 files; scanner, cylcgt, Codex) and `W a2 b4 c2 d2 / B a4 a6 a7 c6 d5` (4 files; verifier's solver, and orchestrator's cylcgt in both models). None with ≤ 8 pawns in the whole-board game (C1); the sum model has 7-pawn two-component \*3 through ±BIG cancellation. Paper §VIII. |
+
+Process breaches in round 8: T41 and T42 ran over 4 GB and 3 heavy processes, and **the T40 verifier ran
+`pkill -f 0`** (see INCIDENT above).
+

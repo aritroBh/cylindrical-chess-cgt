@@ -1,0 +1,219 @@
+=== 1. scan (frontier_split1_fixed2, flat, default setting, edge files occupied, mirror-reduced), every width 1..8 and 2..7 pawns
+row-count mismatches vs independent counter: []
+ w  p  splits  roots(scanned)    *2   *k>=3  max_nimber
+ 1  2      1             15     0      0      1
+ 1  3      2             40     0      0      0
+ 1  4      3             60     0      0      1
+ 1  5      4             48     0      0      1
+ 1  6      5             16     0      0      0
+ 1  7      6              0     0      0     -1
+ 2  2      1             15     0      0      1
+ 2  3      2            150     0      0      0
+ 2  4      3            755     0      0      1
+ 2  5      4           2360     0      0      1
+ 2  6      5           5188     0      0      1
+ 2  7      6           8080     0      0      1
+ 3  2      1              0     0      0     -1
+ 3  3      2             70     0      0      0
+ 3  4      3           1365     0      0      1
+ 3  5      4          10476     0      0      1
+ 3  6      5          51089     0      0      1
+ 3  7      6         178662     0      0      1
+ 4  2      1              0     0      0     -1
+ 4  3      2              0     0      0     -1
+ 4  4      3           1035     0      0      1
+ 4  5      4          16054     0      0      1
+ 4  6      5         142335     0      0      1
+ 4  7      6         866564     2      0      2
+ 5  2      1              0     0      0     -1
+ 5  3      2              0     0      0     -1
+ 5  4      3           1035     0      0      1
+ 5  5      4          19634     0      0      1
+ 5  6      5         246724     0      0      1
+ 5  7      6        2186534     0      0      1
+ 6  2      1              0     0      0     -1
+ 6  3      2              0     0      0     -1
+ 6  4      3           1035     0      0      1
+ 6  5      4          20250     0      0      1
+ 6  6      5         314897     0      0      1
+ 6  7      6        3660080     0      0      1
+ 7  2      1              0     0      0     -1
+ 7  3      2              0     0      0     -1
+ 7  4      3           1035     0      0      1
+ 7  5      4          20250     0      0      1
+ 7  6      5         363150     0      0      1
+ 7  7      6        5051070     0      0      1
+ 8  2      1              0     0      0     -1
+ 8  3      2              0     0      0     -1
+ 8  4      3           1035     0      0      1
+ 8  5      4          20250     0      0      1
+ 8  6      5         408375     0      0      1
+ 8  7      6        6416370     0      0      1
+
+=== 1b. colour-reversal twin consistency
+twin split pairs compared: 96, mismatching: 0
+
+=== 2. width 9 (scan_wide, 128-bit masks), 7 pawns: variant S and variant R
+wide/w9p7_1_6.summary: rows=0 star2=0 star_ge3=0 max_nimber=-1 
+wide/w9p7_2_5.summary: rows=265545 star2=0 star_ge3=0 max_nimber=1 outcome=L nimber=-1 count=8 outcome=N nimber=-1 count=39504 outcome=N nimber
+wide/w9p7_3_4.summary: rows=3626865 star2=0 star_ge3=0 max_nimber=1 outcome=L nimber=-1 count=46411 outcome=N nimber=-1 count=1753168 outcome=N
+wide/w9p7_4_3.summary: rows=3626865 star2=0 star_ge3=0 max_nimber=1 outcome=L nimber=-1 count=1770127 outcome=N nimber=-1 count=1753168 outcome
+wide/w9p7_5_2.summary: rows=265545 star2=0 star_ge3=0 max_nimber=1 outcome=L nimber=-1 count=225929 outcome=N nimber=-1 count=39504 outcome=N n
+wide/w9p7_6_1.summary: rows=0 star2=0 star_ge3=0 max_nimber=-1 
+wide/R_w9p7_2_5.summary: rows=265545 star2=0 star_ge3=0 max_nimber=1 outcome=L nimber=-1 count=8 outcome=N nimber=-1 count=39504 outcome=N nimber
+wide/R_w9p7_3_4.summary: rows=3626865 star2=0 star_ge3=0 max_nimber=1 outcome=L nimber=-1 count=46401 outcome=N nimber=-1 count=1753196 outcome=N
+wide/R_w9p7_4_3.summary: rows=3626865 star2=0 star_ge3=0 max_nimber=1 outcome=L nimber=-1 count=1770109 outcome=N nimber=-1 count=1753196 outcome
+wide/R_w9p7_5_2.summary: rows=265545 star2=0 star_ge3=0 max_nimber=1 outcome=L nimber=-1 count=225929 outcome=N nimber=-1 count=39504 outcome=N n
+
+=== 3. sum of parts (cylcgt sum model), any width
+k=2: 30 part classes, 7 distinct cylcgt values  (0s)
+k=3: 260 part classes, 122 distinct cylcgt values  (0s)
+k=4: 2525 part classes, 659 distinct cylcgt values  (13s)
+k=5: 24722 part classes, 7203 distinct cylcgt values  (179s)
+
+shape      pawns                     0                    *1                    *2                    *3
+(2, 2)       4         7 cls         228 pos       2 cls         168 pos       0 cls           0 pos       0 cls           0 pos
+(2, 3)       5         2 cls         252 pos       1 cls         112 pos       0 cls           0 pos       0 cls           0 pos
+(2, 4)       6         7 cls        4925 pos       6 cls        3462 pos       0 cls           0 pos       0 cls           0 pos
+(2, 5)       7         7 cls        9408 pos       6 cls        4764 pos       0 cls           0 pos       0 cls           0 pos
+(3, 3)       6       122 cls        1292 pos      12 cls         216 pos       0 cls           0 pos       0 cls           0 pos
+(3, 4)       7        64 cls        8296 pos      17 cls        2968 pos       2 cls          14 pos       2 cls          14 pos
+(2, 2, 2)    6         7 cls        4752 pos       7 cls        4126 pos       0 cls           0 pos       0 cls           0 pos
+(2, 2, 3)    7         2 cls        5088 pos       2 cls        3528 pos       0 cls           0 pos       0 cls           0 pos
+elapsed 182s
+
+=== 4. gapped rows: scanner vs sum of cylcgt part values
+Traceback (most recent call last):
+  File "/Users/aritro/Downloads/Research/Chessendgames/research/star2_min_wide/aggregate_gapped.py", line 6, in <module>
+    m = re.match(r"gapped/w(\d+)p(\d+)_(\d+)_(\d+)\.out", f); w, p = int(m.group(1)), int(m.group(2))
+                                                                         ^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'group'
+
+=== 5. connected rows: cylcgt vs scanner
+file                                        checked   mismatches
+conn/w1p2_1_0_99999999.out                         15      0
+conn/w1p3_1_0_99999999.out                         20      0
+conn/w1p3_2_0_99999999.out                         20      0
+conn/w1p4_1_0_99999999.out                         15      0
+conn/w1p4_2_0_99999999.out                         30      0
+conn/w1p4_3_0_99999999.out                         15      0
+conn/w1p5_1_0_99999999.out                          6      0
+conn/w1p5_2_0_99999999.out                         18      0
+conn/w1p5_3_0_99999999.out                         18      0
+conn/w1p5_4_0_99999999.out                          6      0
+conn/w1p6_1_0_99999999.out                          1      0
+conn/w1p6_2_0_99999999.out                          4      0
+conn/w1p6_3_0_99999999.out                          6      0
+conn/w1p6_4_0_99999999.out                          4      0
+conn/w1p6_5_0_99999999.out                          1      0
+conn/w2p2_1_0_99999999.out                         15      0
+conn/w2p3_1_0_99999999.out                         75      0
+conn/w2p3_2_0_99999999.out                         75      0
+conn/w2p4_1_0_99999999.out                        185      0
+conn/w2p4_2_0_99999999.out                        385      0
+conn/w2p4_3_0_99999999.out                        185      0
+conn/w2p5_1_0_99999999.out                        290      0
+conn/w2p5_2_0_99999999.out                        890      0
+conn/w2p5_3_0_99999999.out                        890      0
+conn/w2p5_4_0_99999999.out                        290      0
+conn/w2p6_1_0_99999999.out                        313      0
+conn/w2p6_2_0_99999999.out                       1302      0
+conn/w2p6_3_0_99999999.out                       1958      0
+conn/w2p6_4_0_99999999.out                       1302      0
+conn/w2p6_5_0_99999999.out                        313      0
+conn/w3p3_1_0_99999999.out                         35      0
+conn/w3p3_2_0_99999999.out                         35      0
+conn/w3p4_1_0_99999999.out                        225      0
+conn/w3p4_2_0_99999999.out                        795      0
+conn/w3p4_3_0_99999999.out                        225      0
+conn/w3p5_1_0_99999999.out                        760      0
+conn/w3p5_2_0_99999999.out                       4178      0
+conn/w3p5_3_0_99999999.out                       4178      0
+conn/w3p5_4_0_99999999.out                        760      0
+conn/w3p6_1_0_99999999.out                       1727      0
+conn/w3p6_2_0_99999999.out                      12355      0
+conn/w3p6_3_0_99999999.out                      21205      0
+conn/w3p6_4_0_99999999.out                      12355      0
+conn/w3p6_5_0_99999999.out                       1727      0
+conn/w4p4_1_0_99999999.out                          0      0
+conn/w4p4_2_0_99999999.out                        465      0
+conn/w4p4_3_0_99999999.out                          0      0
+conn/w4p5_1_0_99999999.out                          0      0
+conn/w4p5_2_0_99999999.out                       4877      0
+conn/w4p5_3_0_99999999.out                       4877      0
+conn/w4p5_4_0_99999999.out                          0      0
+conn/w4p6_1_0_99999999.out                          0      0
+conn/w4p6_2_0_99999999.out                      25748      0
+conn/w4p6_3_0_99999999.out                      52894      0
+conn/w4p6_4_0_99999999.out                      25748      0
+conn/w4p6_5_0_99999999.out                          0      0
+conn/w5p5_2_0_2000.out                           1342      0
+conn/w5p5_3_0_2000.out                           1342      0
+conn/w5p6_2_0_16052.out                         16052      0
+conn/w5p6_3_0_23000.out                         23000      0
+conn/w5p6_3_23000_46000.out                     22375      0
+conn/w5p6_4_0_16052.out                         16052      0
+conn/w5p7_2_14599_15399.out                       800      0
+conn/w5p7_2_48663_49463.out                       800      0
+conn/w5p7_2_82727_83527.out                       800      0
+conn/w5p7_3_211647_212447.out                     800      0
+conn/w5p7_3_359800_360600.out                     800      0
+conn/w5p7_3_63494_64294.out                       800      0
+conn/w6p6_2_0_1540.out                           1540      0
+conn/w6p6_3_0_14172.out                         14172      0
+conn/w6p6_4_0_2000.out                           1540      0
+conn/w6p7_2_10862_11662.out                       800      0
+conn/w6p7_2_18466_19266.out                       800      0
+conn/w6p7_2_3258_4058.out                         800      0
+conn/w6p7_3_100000_100600.out                     600     32
+conn/w6p7_3_132940_133740.out                     800     27
+conn/w6p7_3_225998_226798.out                     800      0
+conn/w6p7_3_39882_40682.out                       800      3
+conn/w7p7_3_27172_27972.out                       800      8
+conn/w7p7_3_46193_46993.out                       800     14
+conn/w7p7_3_8151_8951.out                         800      1
+conn/whole_w5p7_2_14599_15399.out                 800      0
+conn/whole_w5p7_2_48663_49463.out                 800      0
+conn/whole_w5p7_2_82727_83527.out                 800      0
+conn/whole_w5p7_3_211647_212447.out               800      0
+conn/whole_w5p7_3_359800_360600.out               800      0
+conn/whole_w5p7_3_63494_64294.out                 800      0
+conn/whole_w6p7_2_10862_11662.out                 800      0
+conn/whole_w6p7_2_18466_19266.out                 800      0
+conn/whole_w6p7_2_3258_4058.out                   800      0
+conn/whole_w6p7_3_100000_100600.out               600      0
+conn/whole_w6p7_3_132940_133740.out               800      0
+conn/whole_w6p7_3_225998_226798.out               800      0
+conn/whole_w6p7_3_39882_40682.out                 800      0
+conn/whole_w7p7_3_27172_27972.out                 800      0
+conn/whole_w7p7_3_46193_46993.out                 800      0
+conn/whole_w7p7_3_8151_8951.out                   800      0
+TOTAL checked=306431 mismatches=85
+
+=== 6. e.p. variant S vs R
+ w p        rows   S!=R  *2(S) *2(R)
+ 3  4        1365      0     0     0
+ 3  5       10476      0     0     0
+ 3  6       51089      0     0     0
+ 3  7      178662      0     0     0
+ 4  4        1035      0     0     0
+ 4  5       16054      0     0     0
+ 4  6      142335      0     0     0
+ 4  7      866564      0     2     2
+ 5  4        1035      0     0     0
+ 5  5       19634      0     0     0
+ 5  6      246724      8     0     0
+ 5  7     2186534     36     0     0
+ 6  4        1035      0     0     0
+ 6  5       20250      0     0     0
+ 6  6      314897      8     0     0
+ 6  7     3660080     72     0     0
+ 7  4        1035      0     0     0
+ 7  5       20250      0     0     0
+ 7  6      363150      8     0     0
+ 7  7     5051070     72     0     0
+ 8  4        1035      0     0     0
+ 8  5       20250      0     0     0
+ 8  6      408375      8     0     0
+ 8  7     6416370     72     0     0
+TOTAL {'rows': 19999304, 'diff': 284, 'S2': 2, 'R2': 2}

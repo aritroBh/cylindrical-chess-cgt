@@ -1,0 +1,20 @@
+W: a4 b3 d2 d3 / B: a7 b7 c5    colour-reversal: W: a2 b2 c4 / B: a5 b6 d6 d7    mirror: W: a2 a3 c3 d4 / B: b5 c7 d7
+  cylcgt files=4 components : *2  nim=2  outcome=N
+  cylcgt files=4 whole-board: *2  nim=2  outcome=N
+  cylcgt files=8 components : *2  nim=2  outcome=N
+  cylcgt files=8 whole-board: *2  nim=2  outcome=N
+  codex  width=4 count/e.p./aware: *2  nimber=2
+  codex bitmask test (no canonicalisation): G+*k is a second-player win exactly for k = [2]
+  twin W: a2 b2 c4 / B: a5 b6 d6 d7: cylcgt *2 / codex *2 nimber=2
+  twin W: a2 a3 c3 d4 / B: b5 c7 d7: cylcgt *2 / codex *2 nimber=2
+  twin W: b4 c2 d2 / B: a6 a7 c6 d5: cylcgt *2 / codex *2 nimber=2
+W: b4 c2 d2 / B: a6 a7 c6 d5    colour-reversal: W: a2 a3 c3 d4 / B: b5 c7 d7    mirror: W: a2 b2 c4 / B: a5 b6 d6 d7
+  cylcgt files=4 components : *2  nim=2  outcome=N
+  cylcgt files=4 whole-board: *2  nim=2  outcome=N
+  cylcgt files=8 components : *2  nim=2  outcome=N
+  cylcgt files=8 whole-board: *2  nim=2  outcome=N
+  codex  width=4 count/e.p./aware: *2  nimber=2
+  codex bitmask test (no canonicalisation): G+*k is a second-player win exactly for k = [2]
+  twin W: a2 a3 c3 d4 / B: b5 c7 d7: cylcgt *2 / codex *2 nimber=2
+  twin W: a2 b2 c4 / B: a5 b6 d6 d7: cylcgt *2 / codex *2 nimber=2
+  twin W: a4 b3 d2 d3 / B: a7 b7 c5: cylcgt *2 / codex *2 nimber=2

@@ -131,14 +131,11 @@ $n$ & Legal, white to move & White wins (\%) & Mutual zugzwangs \\
 \end{tabular}
 \end{table}
 
-\emph{Other widths.} We solved the same ending on every cylinder $\cyl{n}$, $n=3,\dots,10$
-(Table~\ref{tab:oddw}). Two independently written solvers agree for $n\le8$ \lab{C2}; for $n=9$ and $10$ one
-widened solver gives 79.41\% and 79.94\% \lab{C1}. Odd and even widths behave alike: the win rate rises with $n$,
-and from $n=4$ on the share of mutual zugzwangs among white-to-move positions falls, from 1.30\% to 0.13\% at
-$n=8$; $\cyl{3}$ has none, and the only even-only feature, a king on the opposite file, adds a few. The
-tr\'ebuchet of Fig.~\ref{fig:trebuchet_2025} is a mutual zugzwang on $\cyl{n}$ for $4\le n\le8$ \lab{C2}
-and $n=9$ \lab{C1}, and illegal on $\cyl{3}$, where its kings touch \lab{C2}. Two positions show
-the seam at work. Ka3, Pa2 against Ka5 is a draw with either side to move on the ordinary board, but a
-mutual zugzwang on every cylinder with 4 to 8 files \lab{C2}, and with 9 and 10 files \lab{C1}. On $\cyl{3}$, Ka1, Pa7 against Ka3 wins
-at once, since a8=Q is mate. The queen checks along the a-file, which also covers a4; its wrapped diagonals
-cover b3, b4, c3 and c4, and the white king covers a2, b2 and c2 \lab{C2}.
+\emph{Other widths.} Table~\ref{tab:oddw} covers $\cyl{n}$ for $n=3,\dots,10$; two independently written
+solvers agree for $n\le8$ \lab{C2}, and one widened solver gives 79.41\% and 79.94\% for $n=9,10$ \lab{C1}. Odd
+and even widths behave alike: the win rate rises with $n$, and from $n=4$ on the share of mutual zugzwangs falls,
+from 1.30\% to 0.13\% at $n=8$. The tr\'ebuchet of Fig.~\ref{fig:trebuchet_2025} is a mutual zugzwang for
+$4\le n\le8$ \lab{C2} and $n=9$ \lab{C1}, and illegal on $\cyl{3}$. Ka3, Pa2 against Ka5, a draw on the ordinary
+board, is a mutual zugzwang for $4\le n\le8$ \lab{C2} and $n=9,10$ \lab{C1}. On $\cyl{3}$, Ka1, Pa7 against Ka3
+wins at once: a8=Q checks along the a-file, which covers a4, and the wrapped diagonals and the white king cover
+the other flight squares \lab{C2}.

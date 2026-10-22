@@ -1,0 +1,10 @@
+gapped rows=1298615 elapsed=92s
+confusion (scanner class, sum-model class)  [class = nimber 0/1/2, -1 = anything else]:
+   scanner=-1 sum_model=-1  rows=1270221
+   scanner=-1 sum_model= 0  rows=5189
+   scanner=-1 sum_model= 1  rows=994
+   scanner=-1 sum_model= 2  rows=26
+   scanner= 0 sum_model= 0  rows=13208
+   scanner= 1 sum_model= 1  rows=8977
+mismatching rows: 6209; explained by +BIG/-BIG in different parts: 6209; NOT explained: 0
+sum-model *2 rows: 26; scanner says (first 3): [('W: a5 a6 b5 e2 / B: b7 d5 f6', 'L,-1'), ('W: a5 a6 b5 e2 / B: b7 d6 f5', 'L,-1'), ('W: a5 a6 b5 e2 / B: b7 e3 f4', 'L,-1')]
