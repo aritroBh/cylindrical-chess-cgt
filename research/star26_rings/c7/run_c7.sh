@@ -1,5 +1,5 @@
 #!/bin/zsh
-# C7 ring scan for the n+3 question (default setting only), fixed scanner, one process at a time under nice 15,
+# C7 ring scan for the n+3 question (default setting only), fixed scanner with cap replacement (fixed2), one process at a time under nice 15,
 # memo table capped at 2^26 entries (3.76 GB). Splits with nw > nb are the colour-reversal images of nw < nb and
 # are not run. Order: 10-pawn balanced splits first (existence), then 9 pawns (minimality), then the rest.
 cd "${0:A:h}/.."
@@ -8,7 +8,7 @@ run_split() {  # P NW NB N
   mkdir -p $D
   for ((i=0; i<N; i++)); do
     [[ -s $D/c${i}of${N}.summary.txt ]] && continue
-    nice -n 15 ./frontier_split1_fixed --cylinder --width 7 --min $P --max $P --nw $NW --nb $NB --only-setting 2 \
+    nice -n 15 ./frontier_split1_fixed2 --cylinder --width 7 --min $P --max $P --nw $NW --nb $NB --only-setting 2 \
       --chunk $i $N --max-entries 67108864 2> $D/c${i}of${N}.log \
       | awk -v sumfile=$D/c${i}of${N}.summary.txt -f filter.awk > $D/c${i}of${N}.hits.tsv
   done
