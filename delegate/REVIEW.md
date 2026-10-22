@@ -536,3 +536,20 @@ issue seen by different lenses; 4 rejected. Applied as about 13 edits:
   says KPKP still has undecided positions and KPPK comes next. To stay at 14 pages, Fig. 10 was redrawn shorter,
   the redundant Puzzle 3 appendix row was dropped, and §XII prose was tightened.
 
+## Certificate theorem (kings session K7/K9, cf297cb) and the paper
+
+- **LOOPY Theorem 2.7 is PROVED after repair, in the promotion model P only** (first promotion wins). The bound
+  μ ≥ T+1 is sharp in P. It was reviewed by two rounds of three Sonnet reviewers; no human has checked it.
+- **In chess no margin suffices.** kpsolve cap 2, exact, on cyl 7×6: `Kb4 ka1 Pe4 pa2` w, m = Kb4–c5, horizon 1,
+  μ = 2, yet a chess draw. Other examples, including flat 6×6 `Ke6 kb1 Pf2 pc2` with μ = T+2, are also draws or
+  wins in chess. So the paper's old Conjecture ("a certificate implies (V3)") was false as worded for chess.
+- **Paper §IV:**
+  - the conjecture is replaced by Theorem [AI] (thm:cert): in the promotion game a certificate makes every
+    Z-move lose, and the bound cannot be weakened;
+  - one sentence gives the chess counterexample (C1);
+  - the conclusion's item 4 now asks for a local test for chess.
+- **The sharp form of 1.14** is also PROVED after repair (simulation lemma; AI-checked only). Paper Thm 3 stays
+  [AI].
+- **Page count:** the main (arXiv) build is now 15 pages (page 15 holds six references). The anonymous review build,
+  which has the 14-page journal limit, stays at 14.
+

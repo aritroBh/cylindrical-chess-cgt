@@ -86,13 +86,17 @@ race (V2), a king walks over to the pawns or, in Fig.~\ref{fig:kinggroup72}, whi
 
 A local test for (V3) is the \emph{certificate of horizon $h$}: with all other pawns removed, the punisher
 promotes within $h$ moves of its reply even if the defender may pass at any time, the defender cannot promote
-anywhere within $h$ moves (the \emph{counter-promotion condition}), and the defender is never stalemated.
+anywhere within $h$ moves (the \emph{counter-promotion condition}), and the defender is never stalemated. It
+works in the \emph{promotion game}, chess in which the first promotion wins.
 
-\begin{conjecture}[\lab{Conj}]\label{conj:cert}
-A certificate of horizon $h$ implies (V3).
-\end{conjecture}
+\begin{theorem}[\lab{AI}]\label{thm:cert}
+In the promotion game, a certificate of horizon $h$ makes every move in $Z$ a loss for its mover. The
+counter-promotion condition cannot be weakened to $h-1$ moves.
+\end{theorem}
 
-Our proof of this has a gap.
+In chess no margin suffices. On the cylinder with seven files and six ranks, Kb4, Pe4 against Ka1, Pa2 with
+white to move, the king move Kb4--c5 has a certificate of horizon~1, yet the chess result after it is a draw, and
+on the $6\times6$ board a margin of one more move fails as well \lab{C1}.
 
 \begin{proposition}[\lab{AI}]\label{prop:horizon1}
 On boards with at least six ranks, for $h=1$, the counter-promotion condition holds in every chess-legal
