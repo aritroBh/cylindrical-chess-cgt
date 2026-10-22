@@ -1,0 +1,9 @@
+== c3 default setting: root W: a2 a3 b2 / B: b7 c6 c7 value *2; equals *2? True
+-- W to move:
+  W01 W: a2 a3 b3 / B: b7 c6 c7 value {{{⇑* | 0, *} | 0} | 0} [R] | dominated by W03
+  W02 W: a2 a3 b4 / B: b7 c6 c7 (ep b3) value {{⇑* | 0, *} | 0} [R] | dominated by W03; reversible via B W: a2 a3 b4 / B: b6 c6 c7 (value ↓);     -> W W: a2 a4 b4 / B: b6 c6 c7 value * [N];     -> W W: a2 a3 b5 / B: b6 c6 c7 value {3/2±1/2 | -W} [N]
+  W03 W: a2 a4 b2 / B: b7 c6 c7 value {0 | {*, {+W | {0 | ⇓*}} | -2}, {0 | {0 | ⇓*}}} [L] | reversible via B W: a2 a4 b2 / B: b5 c6 c7 (ep b6) (value {*, {+W | {0 | ⇓*}} | -2});     -> W W: a3 a4 b2 / B: b5 c6 c7 value {0, +W±+W | -3} [N];     -> W W: a2 a4 b3 / B: b5 c6 c7 value * [N];     -> W W: a2 a4 b4 / B: b5 c6 c7 (ep b3) value {{+W | 0, {{+W | {+W, {+W, {+W, +W* | +W} | +W} | +W}} | 0}} | -1*} [R];     -> W W: a2 a5 b2 / B: b5 c6 c7 value {+W* | {-W | {-W | -W, {-W | -W, {-W | -W, -W*}}}}} [N];     -> W W: a2 b2 b5 / B: c6 c7 value {+W | {0 | ⇓*}} [L]
+-- B to move:
+  B01 W: a2 a3 b2 / B: b6 c6 c7 value {0 | {0 | {0, * | ⇓*}}} [L] | dominated by B03
+  B02 W: a2 a3 b2 / B: b5 c6 c7 (ep b6) value {0 | {0, * | ⇓*}} [L] | dominated by B03; reversible via W W: a2 a3 b3 / B: b5 c6 c7 (value ↑);     -> B W: a2 a3 b3 / B: b5 c5 c7 value * [N];     -> B W: a2 a3 b3 / B: b4 c6 c7 value {+W | -3/2±1/2} [N]
+  B03 W: a2 a3 b2 / B: b7 c5 c7 value {{2 | *, {{⇑* | 0} | -W}}, {{⇑* | 0} | 0} | 0} [R] | reversible via W W: a2 a3 b4 / B: b7 c5 c7 (ep b3) (value {2 | *, {{⇑* | 0} | -W}});     -> B W: a2 a3 b4 / B: b6 c5 c7 value * [N];     -> B W: a2 a3 b4 / B: b5 c5 c7 (ep b6) value {1* | {0, {0 | {{-W | -W, {-W | -W, {-W | -W, -W*}}} | -W}} | -W}} [L];     -> B W: a2 a3 b4 / B: b7 c4 c7 value {{{+W, {+W, {+W, +W* | +W} | +W} | +W} | +W} | -W*} [N];     -> B W: a2 a3 / B: b4 b7 c7 value {{⇑* | 0} | -W} [R];     -> B W: a2 a3 b4 / B: b7 c5 c6 value {3 | 0, -W±+W} [N]

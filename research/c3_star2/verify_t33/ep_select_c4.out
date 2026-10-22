@@ -1,0 +1,8 @@
+states 2130 e.p. capture types 4
+all: (2, 'N')  none: (None, 'N')
+  disable B b4xc3 -> (None, 'N')    <-- needed (removing it destroys *2)
+  disable B c4xb3 -> (None, 'N')    <-- needed (removing it destroys *2)
+  disable W a5xd6 -> (2, 'N') 
+  disable W c5xd6 -> (2, 'N') 
+individually needed: [('B', 'b4xc3'), ('B', 'c4xb3')]
+only the needed ones: (2, 'N')

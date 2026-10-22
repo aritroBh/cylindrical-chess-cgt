@@ -45,7 +45,9 @@ d-files empty and the c-file blocked for good, since a pawn enters a file only b
 row the same push takes three plies and empties its one neighbor; a push with no untouched neighbor is
 simply blocked.
 
-A strip of $n$ untouched files is therefore the octal game $\mathbf{0.137}$~\cite{GuySmith1956,WinningWays},
+Each such sequence is forced and touches only the pushed file and its neighbors. Counting a whole sequence as
+one move, strips separated by empty files never interact, and both players have the same sequences, so this
+game of sequences is impartial. A strip of $n$ untouched files is therefore the octal game $\mathbf{0.137}$~\cite{GuySmith1956,WinningWays},
 in which a move removes a file and its untouched neighbors. Its Grundy values are $g(0)=0$, $g(1)=1$ and,
 for $n\ge2$,
 \begin{equation}\label{eq:dawson}

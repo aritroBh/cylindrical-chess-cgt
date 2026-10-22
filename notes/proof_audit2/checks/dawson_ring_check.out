@@ -1,0 +1,16 @@
+n= 1 strip: first-player-wins=True g=1 ok
+n= 2 strip: first-player-wins=True g=1 ok
+n= 3 strip: first-player-wins=True g=2 ok | ring: first-player-wins=True g(n-3)=0 ok
+n= 4 strip: first-player-wins=False g=0 ok | ring: first-player-wins=False g(n-3)=1 ok
+n= 5 strip: first-player-wins=True g=3 ok | ring: first-player-wins=False g(n-3)=1 ok
+n= 6 strip: first-player-wins=True g=1 ok | ring: first-player-wins=False g(n-3)=2 ok
+n= 7 strip: first-player-wins=True g=1 ok | ring: first-player-wins=True g(n-3)=0 ok
+n= 8 strip: first-player-wins=False g=0 ok | ring: first-player-wins=False g(n-3)=3 ok
+n= 9 strip: first-player-wins=True g=3 ok | ring: first-player-wins=False g(n-3)=1 ok
+n=10 strip: first-player-wins=True g=3 ok | ring: first-player-wins=False g(n-3)=1 ok
+n=11 strip: first-player-wins=True g=2 ok | ring: first-player-wins=True g(n-3)=0 ok
+n=12 strip: first-player-wins=True g=2 ok | ring: first-player-wins=False g(n-3)=3 ok
+mismatches: 0
+ring first-player wins (n<=82): [3, 7, 11, 17, 23, 27, 31, 37, 41, 45, 57, 61, 65, 75, 79]
+g(m) != g(m-34) for m in [200,300): []
+largest m<300 with g(m) != g(m-34): 85

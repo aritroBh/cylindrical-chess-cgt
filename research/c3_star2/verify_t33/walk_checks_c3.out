@@ -1,0 +1,26 @@
+== root options, outcome class (L>0, R<0, N fuzzy, P=0)
+  W01 b2-b3    outcome R   =0? False  =*? False
+  W02 b2-b4    outcome R   =0? False  =*? False
+  W03 a3-a4    outcome L   =0? False  =*? False
+  B01 b7-b6    outcome L   =0? False  =*? False
+  B02 b7-b5    outcome L   =0? False  =*? False
+  B03 c6-c5    outcome R   =0? False  =*? False
+== reversal / value claims (explicit sum tests)
+Q1 (a3-a4 b7-b5) <= G(root): True
+Q1 <= *2 : True
+W a2 a4 b3 / B b5 c6 c7 (b2-b3 reply) = * : True
+P1 (X after c6xb5) <= G(root): True  <= *2: True
+W a2 b4 / B b5 c7 (b2-b4 in P1) = 0 : True
+X (a4xb5) outcome: L  (X>0 expected 'L')
+-- Black side
+V (c6-c5 b2-b4) >= G(root): True  >= *2: False (le_H is V<=*2, ignore)
+V b7-b6 reply = * : True
+Z (a3xb4) >= G(root): True
+Z b7-b5 reply W a2 b4 / B b5 c7 = 0 : True
+Y2 (c5xb4) >= * ? None
+Y2 outcome: R (R expected: Y2 < 0 ... )
+V-options vs Y2: (right dominance means option >= Y2)
+   V b7-b6     >= Y2: False   >= *: None
+   V b7-b5 ep  >= Y2: True   >= *: None
+   V c5-c4     >= Y2: True   >= *: None
+   V c7-c6     >= Y2: True   >= *: None

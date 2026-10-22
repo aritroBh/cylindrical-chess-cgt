@@ -12,15 +12,18 @@ CGT singles out, at low depth and on sums. Seven problems are open.
   \pos{W b2 b5 / B a5 b4}. If it is a white win, as the model predicts, and the queen-only results survive a
   rerun with all four promotions, the oracle value is exactly $1/8$ (with the kings frozen inside the tree). The same pipeline applies to $\upsec\star$ and Tiny~1
   (Section~\ref{sec:real-eighth}).
-\item \emph{The seven-pawn $\nim{2}$ in real chess.} Positions A and B have open oracle values, and that they are
-  the only seven-pawn $\nim{2}$ positions of width at most four rests on one program \lab{C1}.
+\item \emph{The seven-pawn $\nim{2}$ in real chess.} Positions A and B have open oracle values: the 8-man
+  end positions that decide them agree with the model, and those with 9 to 11 men are unsolved
+  (Section~\ref{sec:real-eighth}). That A and B are the only seven-pawn $\nim{2}$ positions of width at most four rests on one program \lab{C1}.
 \item \emph{Higher nimbers.} Does the first ring $\nim{2}$ on $\cyl{n}$ keep having $n+3$ pawns (ten on
-  $\cyl{7}$), and is there a $\nim{3}$ in the default setting on five files or more?
+  $\cyl{7}$)? In the default setting, is there a $\nim{3}$ in a single component, or with fewer than nine pawns?
 \item \emph{When is a tr\'ebuchet zero?} Prove Conjecture~\ref{conj:cert}, or settle
   Conjecture~\ref{conj:horizon2}; real tr\'ebuchets have $h$ of about 5
   to 7.
-\item \emph{Endgames without edges.} KPKP and KPPK on the cylinder come next, then the
-  M\"obius strip and Klein bottle, where a pawn that crosses the twisted seam reverses direction.
+\item \emph{Endgames without edges.} KPKP and KPPK on the cylinder come next. On the M\"obius strip, where files a and h are
+  joined with the ranks reversed, KPK is won from $78.94\%$ of the legal positions with white to move, against
+  $78.89\%$ on the cylinder \lab{C2}. Pawn play across its twisted seam, where a pawn reverses direction, and
+  the Klein bottle remain open.
 \item \emph{Mis\`ere Dawson's chess.} Dawson's own question was about mis\`ere play \cite{Dawson1935}, and our
   computation of the quotient after that of Plambeck and Siegel \cite{PlambeckSiegel2008} did not finish: is
   the mis\`ere

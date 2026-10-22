@@ -78,7 +78,8 @@ In position B (Fig.~\ref{fig:star2_seven_b}), if white moves first, d2--d4 leave
 $\star$. The moves d2--d3 and c2--c4 are reversible, since black's replies reach $-2$ and $-3$, and b4--b5
 loses to a6$\times$b5. If black moves first, d5--d4 leaves $0$, and a6--a5 attacks b4: every white reply except
 b4$\times$a5 loses at once, and after b4$\times$a5 black continues c6--c5 to $\star$, so a6--a5 counts as a move
-to $\star$. Black's third move, c6--c5, loses to b4$\times$c5. Thus $G=\nim{2}$ again.
+to $\star$. Black's third move, c6--c5, loses to b4$\times$c5. Thus $G=\nim{2}$ again. The two analyses
+match move for move because B is A with the colors reversed and the files mirrored.
 
 \begin{table}[!t]
 \centering
@@ -105,8 +106,8 @@ needs the textbook test but survives e.p.\ off; A and B need en passant but not 
 
 \subsection{Counts and Five Files}\label{sec:star2-five}
 
-On ordinary boards of width at most four, in the default setting, two $\nim{2}$ positions have seven pawns and
-four have eight. One exhaustive scan of $5{,}503{,}282$ root positions gives these counts, so their
+On ordinary boards of width at most four, in the default setting, two $\nim{2}$ positions, A and its color-reversed
+twin B, have seven pawns and four have eight. One exhaustive scan of $5{,}503{,}282$ root positions gives these counts, so their
 completeness is \lab{C1}; our engine re-checked every position it reported \lab{C2}. With
 Theorem~\ref{thm:census}, seven is the least number of pawns in a $\nim{2}$ on these boards \lab{C2}.
 
@@ -120,7 +121,7 @@ $21$ come from the $14$ eight-pawn $\nim{2}$ rings on $\cyl{5}$ \lab{C1} by open
 \item \pos{W a4 b3 c2 d2 / B a7 b6 c7 e4},
 \item \pos{W a6 b4 c4 e3 / B a7 c7 d6 e6},
 \end{itemize}
-and these are $\nim{2}$ in both models. We call the first \emph{the five-file $\nim{2}$}. No $\nim{3}$ or higher nimber occurs in the default setting in any scope we searched
+and these are $\nim{2}$ in both models. We call the first \emph{the five-file $\nim{2}$}. No $\nim{3}$ or higher nimber occurs in the default setting in any of these scans
 \lab{C1}.
 
 By Theorem~\ref{thm:cut}, a pawn position on $\cyl{n}$ with an empty file is one on $\flatb{n-1}$, so these
@@ -129,15 +130,21 @@ $\cyl{5}$ to $\cyl{8}$ with at most eight pawns finds $\nim{2}$ in the default s
 eight-pawn rings on $\cyl{5}$ \lab{C1}. Narrower cylinders need fewer pawns. On $\cyl{3}$ the only ring
 $\nim{2}$ with six pawns in the default setting is \pos{W a2 a3 b2 / B b7 c6 c7}, and on $\cyl{4}$ the first
 are \pos{W a4 b2 c2 / B b6 c5 d6 d7} and its color-reversed twin, with seven; our engine confirms both values
-\lab{C2}. No ring with fewer pawns is a $\nim{2}$ on either cylinder (the atlas up to five pawns, and a C scan
-of every six- and seven-pawn split) \lab{C1}. On $\cyl{6}$ the first rings have nine pawns: a scan of every
+\lab{C2}. No ring with fewer pawns is a $\nim{2}$ on either cylinder: the atlas up to five pawns, a C scan
+of every six- and seven-pawn split, and an independent ring solver agree \lab{C2}. On $\cyl{6}$ the first rings have nine pawns: a scan of every
 nine-pawn ring finds six \lab{C1}, among them \pos{W a4 c4 d2 e2 / B b6 b7 d6 e5 f6}; both programs confirm
 three, and the other three are their color-reversed twins \lab{C2}. So the first ring
-$\nim{2}$ on $\cyl{n}$ has $n+3$ pawns for $n=3,\dots,6$. The $\cyl{3}$ ring needs en passant (with e.p.\ off its value is $0$), and it is a $\nim{2}$ with
-one pawn fewer than any ordinary board of width at most four allows. Rings also carry $\nim{3}$, though not in
-the default setting: with e.p.\ off, the eight-pawn ring \pos{W a5 b3 c2 d2 / B a7 b5 c6 d4} on $\cyl{4}$ is
-$\nim{3}$ under the opponent rule, and the ten-pawn ring \pos{W a2 a3 b2 b3 c3 / B a6 a7 b6 b7 c6} on $\cyl{3}$
-under the count rule \lab{C2}.
+$\nim{2}$ on $\cyl{n}$ has $n+3$ pawns for $n=3,\dots,6$. The $\cyl{3}$ ring is a $\nim{2}$ with one pawn fewer than any ordinary board of width at most four allows,
+and it needs two en passant captures: without black's b4$\times$a3 it is $\uparrow$, without white's
+b5$\times$c6 it is $\downarrow$, and with e.p.\ off it is $0$ \lab{C2}.
+
+A $\nim{3}$ lies just beyond these scans, since $\nim{2}+\star=\nim{3}$. In the default setting, position A
+beside a one-file group worth $\star$, \pos{W a4 b3 d2 d3 f4 / B a7 b7 c5 f6}, is $\nim{3}$ on six files with
+nine pawns, and three programs agree \lab{C2}. With e.p.\ off eight pawns suffice: \pos{W a2 a4 c2 e2 / B a3 a6
+d7 f7} is the candidate, moved two files over, beside an a-file group worth $\star$ \lab{C2}. Rings give
+$\nim{3}$ in a single component, but so far only outside the default setting: with e.p.\ off, the eight-pawn
+ring \pos{W a5 b3 c2 d2 / B a7 b5 c6 d4} on $\cyl{4}$ under the opponent rule, and the ten-pawn ring
+\pos{W a2 a3 b2 b3 c3 / B a6 a7 b6 b7 c6} on $\cyl{3}$ under the count rule \lab{C2}.
 
 In the model, then, the $\nim{2}$ question has a positive answer on the ordinary $8\times8$ board: four files
 and seven pawns beside T suffice, while Elkies' higher nimbers need larger boards~\cite{Elkies2002}. Whether real

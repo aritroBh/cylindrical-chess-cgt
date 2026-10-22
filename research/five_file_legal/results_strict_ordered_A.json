@@ -1,0 +1,487 @@
+[
+ {
+  "idx": 1,
+  "position": "W: a2 b2 c2 d2 / B: a5 b4 d7 e4",
+  "n_W": 4,
+  "n_B": 4,
+  "captures_W_exact": 4,
+  "captures_B_exact": 4,
+  "LB_W_fileshift": 0,
+  "LB_B_fileshift": 0,
+  "covering": true,
+  "S0": {
+   "status": "timeout",
+   "nodes": null
+  },
+  "legal_beside_T": false,
+  "checks": [],
+  "king_capture_conflicts": [
+   "White king f5 can capture e4"
+  ],
+  "efile_touching": [
+   {
+    "square": "e4",
+    "colour": "B",
+    "adjacent_to_WK": true,
+    "adjacent_to_BK": false
+   }
+  ],
+  "mirror_legal_beside_T": false,
+  "mirror_consistent": true,
+  "seconds": 120.1
+ },
+ {
+  "idx": 3,
+  "position": "W: a2 b2 c2 e2 / B: a6 b4 d5 e3",
+  "n_W": 4,
+  "n_B": 4,
+  "captures_W_exact": 4,
+  "captures_B_exact": 4,
+  "LB_W_fileshift": 0,
+  "LB_B_fileshift": 0,
+  "covering": true,
+  "S0": {
+   "status": "timeout",
+   "nodes": null
+  },
+  "legal_beside_T": true,
+  "checks": [],
+  "king_capture_conflicts": [],
+  "efile_touching": [],
+  "mirror_legal_beside_T": true,
+  "mirror_consistent": true,
+  "seconds": 120.2
+ },
+ {
+  "idx": 5,
+  "position": "W: a3 b2 b3 e2 / B: b6 c5 c7 d6",
+  "n_W": 4,
+  "n_B": 4,
+  "captures_W_exact": 4,
+  "captures_B_exact": 4,
+  "LB_W_fileshift": 1,
+  "LB_B_fileshift": 2,
+  "covering": true,
+  "S0": {
+   "status": "timeout",
+   "nodes": null
+  },
+  "legal_beside_T": true,
+  "checks": [],
+  "king_capture_conflicts": [],
+  "efile_touching": [],
+  "mirror_legal_beside_T": true,
+  "mirror_consistent": true,
+  "seconds": 120.0
+ },
+ {
+  "idx": 7,
+  "position": "W: a3 b4 c2 d2 / B: a7 b7 c6 e5",
+  "n_W": 4,
+  "n_B": 4,
+  "captures_W_exact": 4,
+  "captures_B_exact": 4,
+  "LB_W_fileshift": 0,
+  "LB_B_fileshift": 0,
+  "covering": true,
+  "S0": {
+   "status": "timeout",
+   "nodes": null
+  },
+  "legal_beside_T": false,
+  "checks": [],
+  "king_capture_conflicts": [
+   "White king f5 can capture e5"
+  ],
+  "efile_touching": [
+   {
+    "square": "e5",
+    "colour": "B",
+    "adjacent_to_WK": true,
+    "adjacent_to_BK": false
+   }
+  ],
+  "mirror_legal_beside_T": false,
+  "mirror_consistent": true,
+  "seconds": 120.0
+ },
+ {
+  "idx": 9,
+  "position": "W: a4 b2 c3 e2 / B: a7 c6 d7 e5",
+  "n_W": 4,
+  "n_B": 4,
+  "captures_W_exact": 4,
+  "captures_B_exact": 4,
+  "LB_W_fileshift": 0,
+  "LB_B_fileshift": 0,
+  "covering": true,
+  "S0": {
+   "status": "timeout",
+   "nodes": null
+  },
+  "legal_beside_T": false,
+  "checks": [],
+  "king_capture_conflicts": [
+   "White king f5 can capture e5"
+  ],
+  "efile_touching": [
+   {
+    "square": "e5",
+    "colour": "B",
+    "adjacent_to_WK": true,
+    "adjacent_to_BK": false
+   }
+  ],
+  "mirror_legal_beside_T": false,
+  "mirror_consistent": true,
+  "seconds": 120.1
+ },
+ {
+  "idx": 11,
+  "position": "W: a4 b3 c3 e2 / B: a7 c6 d6 e5",
+  "n_W": 4,
+  "n_B": 4,
+  "captures_W_exact": 4,
+  "captures_B_exact": 4,
+  "LB_W_fileshift": 0,
+  "LB_B_fileshift": 0,
+  "covering": true,
+  "S0": {
+   "status": "found",
+   "nodes": 1463205,
+   "replay": true,
+   "replay_msg": "valid, 33 moves",
+   "n_moves": 33,
+   "history": [
+    "W a2-a3",
+    "W a3-a4",
+    "W b2-b3",
+    "B b7-b6",
+    "B b6-b5",
+    "B b5-b4",
+    "W c2-c3",
+    "B c7-c6",
+    "B d7-d6",
+    "B e7-e6",
+    "B e6-e5",
+    "W f2-f3",
+    "W f3-f4",
+    "W f4-f5",
+    "W f5-f6",
+    "W g2-g3",
+    "W g3-g4",
+    "W g4-g5",
+    "W g5-g6",
+    "B g7xf6",
+    "B f6-f5",
+    "B f5-f4",
+    "B f7-f6",
+    "B h7xg6",
+    "B g6-g5",
+    "B g5-g4",
+    "B g4-g3",
+    "W h2xg3",
+    "W g3xf4",
+    "B b4xc3",
+    "W d2xc3",
+    "W f4xe5",
+    "B f6xe5"
+   ]
+  },
+  "legal_beside_T": true,
+  "checks": [],
+  "king_capture_conflicts": [],
+  "efile_touching": [
+   {
+    "square": "e5",
+    "colour": "B",
+    "adjacent_to_WK": true,
+    "adjacent_to_BK": false
+   }
+  ],
+  "mirror_legal_beside_T": true,
+  "mirror_consistent": true,
+  "seconds": 53.9
+ },
+ {
+  "idx": 13,
+  "position": "W: a4 b4 c3 e2 / B: a7 c6 d5 e5",
+  "n_W": 4,
+  "n_B": 4,
+  "captures_W_exact": 4,
+  "captures_B_exact": 4,
+  "LB_W_fileshift": 0,
+  "LB_B_fileshift": 0,
+  "covering": true,
+  "S0": {
+   "status": "found",
+   "nodes": 2545342,
+   "replay": true,
+   "replay_msg": "valid, 36 moves",
+   "n_moves": 36,
+   "history": [
+    "W a2-a3",
+    "W a3-a4",
+    "W b2-b3",
+    "W b3-b4",
+    "B b7-b6",
+    "B b6-b5",
+    "W c2-c3",
+    "B c7-c6",
+    "B d7-d6",
+    "B d6-d5",
+    "B e7-e6",
+    "B e6-e5",
+    "W f2-f3",
+    "W f3-f4",
+    "W f4-f5",
+    "W f5-f6",
+    "W g2-g3",
+    "W g3-g4",
+    "W g4-g5",
+    "W g5-g6",
+    "B g7xf6",
+    "B f6-f5",
+    "B f5-f4",
+    "B f7-f6",
+    "B h7xg6",
+    "B g6-g5",
+    "B g5-g4",
+    "B g4-g3",
+    "W h2xg3",
+    "W g3xf4",
+    "W c3-c4",
+    "B b5xc4",
+    "B c4-c3",
+    "W d2xc3",
+    "W f4xe5",
+    "B f6xe5"
+   ]
+  },
+  "legal_beside_T": false,
+  "checks": [],
+  "king_capture_conflicts": [
+   "White king f5 can capture e5"
+  ],
+  "efile_touching": [
+   {
+    "square": "e5",
+    "colour": "B",
+    "adjacent_to_WK": true,
+    "adjacent_to_BK": false
+   }
+  ],
+  "mirror_legal_beside_T": false,
+  "mirror_consistent": true,
+  "seconds": 89.6
+ },
+ {
+  "idx": 15,
+  "position": "W: a4 c3 d2 d4 / B: b6 b7 c5 e6",
+  "n_W": 4,
+  "n_B": 4,
+  "captures_W_exact": 4,
+  "captures_B_exact": 4,
+  "LB_W_fileshift": 1,
+  "LB_B_fileshift": 1,
+  "covering": true,
+  "S0": {
+   "status": "found",
+   "nodes": 1737,
+   "replay": true,
+   "replay_msg": "valid, 37 moves",
+   "n_moves": 37,
+   "history": [
+    "W a2-a3",
+    "W a3-a4",
+    "W b2-b3",
+    "W b3-b4",
+    "W b4-b5",
+    "W b5-b6",
+    "B a7xb6",
+    "W c2-c3",
+    "B c7-c6",
+    "B c6-c5",
+    "B d7-d6",
+    "B d6-d5",
+    "B d5-d4",
+    "B d4-d3",
+    "W e2xd3",
+    "W d3-d4",
+    "B e7-e6",
+    "W f2-f3",
+    "W f3-f4",
+    "W f4-f5",
+    "W f5-f6",
+    "W g2-g3",
+    "W g3-g4",
+    "W g4-g5",
+    "W g5-g6",
+    "B g7xf6",
+    "B f6-f5",
+    "B f5-f4",
+    "B h7xg6",
+    "B g6-g5",
+    "B g5-g4",
+    "B g4-g3",
+    "W h2xg3",
+    "W g3xf4",
+    "W f4-f5",
+    "W f5xe6",
+    "B f7xe6"
+   ]
+  },
+  "legal_beside_T": false,
+  "checks": [
+   "black pawn e6 attacks WK f5"
+  ],
+  "king_capture_conflicts": [
+   "White king f5 can capture e6"
+  ],
+  "efile_touching": [
+   {
+    "square": "e6",
+    "colour": "B",
+    "adjacent_to_WK": true,
+    "adjacent_to_BK": false
+   }
+  ],
+  "mirror_legal_beside_T": false,
+  "mirror_consistent": true,
+  "seconds": 0.0
+ },
+ {
+  "idx": 17,
+  "position": "W: a5 b2 d5 e4 / B: b7 c7 d7 e7",
+  "n_W": 4,
+  "n_B": 4,
+  "captures_W_exact": 4,
+  "captures_B_exact": 4,
+  "LB_W_fileshift": 0,
+  "LB_B_fileshift": 0,
+  "covering": true,
+  "S0": {
+   "status": "timeout",
+   "nodes": null
+  },
+  "legal_beside_T": true,
+  "checks": [],
+  "king_capture_conflicts": [],
+  "efile_touching": [
+   {
+    "square": "e4",
+    "colour": "W",
+    "adjacent_to_WK": true,
+    "adjacent_to_BK": false
+   }
+  ],
+  "mirror_legal_beside_T": true,
+  "mirror_consistent": true,
+  "seconds": 120.1
+ },
+ {
+  "idx": 19,
+  "position": "W: a6 b4 c4 e3 / B: a7 c7 d6 e6",
+  "n_W": 4,
+  "n_B": 4,
+  "captures_W_exact": 4,
+  "captures_B_exact": 4,
+  "LB_W_fileshift": 0,
+  "LB_B_fileshift": 0,
+  "covering": true,
+  "S0": {
+   "status": "found",
+   "nodes": 1879045,
+   "replay": true,
+   "replay_msg": "valid, 36 moves",
+   "n_moves": 36,
+   "history": [
+    "W a2-a3",
+    "W a3-a4",
+    "W a4-a5",
+    "W a5-a6",
+    "W b2-b3",
+    "W b3-b4",
+    "B b7-b6",
+    "B b6-b5",
+    "W c2-c3",
+    "W c3-c4",
+    "W d2-d3",
+    "B d7-d6",
+    "W e2-e3",
+    "B e7-e6",
+    "W f2-f3",
+    "W f3-f4",
+    "W f4-f5",
+    "W f5-f6",
+    "W g2-g3",
+    "W g3-g4",
+    "W g4-g5",
+    "W g5-g6",
+    "B g7xf6",
+    "B f6-f5",
+    "B f5-f4",
+    "B h7xg6",
+    "B g6-g5",
+    "B g5-g4",
+    "B g4-g3",
+    "W h2xg3",
+    "W g3xf4",
+    "W f4-f5",
+    "B b5xc4",
+    "W d3xc4",
+    "W f5xe6",
+    "B f7xe6"
+   ]
+  },
+  "legal_beside_T": false,
+  "checks": [
+   "black pawn e6 attacks WK f5"
+  ],
+  "king_capture_conflicts": [
+   "White king f5 can capture e6"
+  ],
+  "efile_touching": [
+   {
+    "square": "e6",
+    "colour": "B",
+    "adjacent_to_WK": true,
+    "adjacent_to_BK": false
+   }
+  ],
+  "mirror_legal_beside_T": false,
+  "mirror_consistent": true,
+  "seconds": 74.0
+ },
+ {
+  "idx": 21,
+  "position": "W: b3 c2 c4 d3 / B: a7 d6 d7 e6",
+  "n_W": 4,
+  "n_B": 4,
+  "captures_W_exact": 4,
+  "captures_B_exact": 4,
+  "LB_W_fileshift": 2,
+  "LB_B_fileshift": 1,
+  "covering": true,
+  "S0": {
+   "status": "timeout",
+   "nodes": null
+  },
+  "legal_beside_T": false,
+  "checks": [
+   "black pawn e6 attacks WK f5"
+  ],
+  "king_capture_conflicts": [],
+  "efile_touching": [
+   {
+    "square": "e6",
+    "colour": "B",
+    "adjacent_to_WK": true,
+    "adjacent_to_BK": false
+   }
+  ],
+  "mirror_legal_beside_T": false,
+  "mirror_consistent": true,
+  "seconds": 120.1
+ }
+]

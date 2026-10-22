@@ -360,3 +360,33 @@ model and with splitting off, agree on every case:
 Each is its own color-reversed twin, up to the file symmetries of C3. All 14 nimber ≥ 2 hits of the 5+5 run
 were recomputed, and cylcgt matches the scanner on each. No \*3 occurs in the default setting.
 
+## Round 7 on Sonnet 5.5 / Haiku 5.5 (workflow `wf_8b421f7a`), each report checked by a Sonnet skeptic
+
+Free providers were exhausted, so the eight pending briefs ran as Workflow agents. Subagents may not write report
+files, so the orchestrator saved each final message with its verifier's findings first (the `REPORT*.md` files
+named below). Seven verdicts were ACCEPT_WITH_FIXES; T32 was NO_REPORT, though the verifier refuted none of its claims.
+
+| Task | Report | Outcome | Banked |
+|---|---|---|---|
+| T20b oracle for A, B | `research/star2_oracle/REPORT.md` | All 12 decisive 8-man end positions (24 sides) agree with the model. B's 14 sides are CHECKED-2 via the verifier's tablebase run. The bounds do not move: they are the trivial sandwich until 9–11-man sides are known. **B is A colour-reversed and mirrored**, so the two \*2 are one result up to symmetry. `apply.py` flip bug fixed. | Paper §VIII (mirror sentence), abstract, conclusion item 2 |
+| T27 \*3, e.p. off | `research/star27_textbook3/REPORT.md` | 16 flat 6-file 8-pawn \*3 under count/e.p. off (8 up to colour reversal), confirmed by the scanner, cylcgt and the Codex solver. 12 are the candidate (\*2) plus a \* group. The aware test kills the count and mover ones. 122 opponent-rule cells are unchecked (C1). | Paper §VIII \*3 paragraph; T24 erratum |
+| T30 proof audit | `notes/proof_audit2/REPORT.md` | Thm 3 GAP as printed (fixed in the paper); Prop 6 sound (repo P2.10(a) H ≥ 5 false, H ≥ 6 right); Thm 8 sound with no sketch (added); Thm 10 sound with 2 minor gaps (fixed); Conj 4 follows from Thm 3 + Thm 10 with (E) (now a Corollary [AI]); Thm 21 needs one sentence (added). The "436,504 HSS positions" are samples, about 170k distinct. | Paper §IV, §V, §XI, intro; kings/ defects sent to the peer session |
+| T34 ring minimum | `research/ring_min_independent/REPORT.md` | Independent C and Python solvers, plus the verifier's third solver and full cylcgt scans: C3 has no ring \*2 below 6 pawns (exactly 1 class at 6); C4 none below 7 (2 classes at 7, colour twins). | Paper §VIII ring minimum C1 → C2 |
+| T29 novelty | `notes/novelty2/REPORT.md`, `VERIFY_T29.md` | \*2 on 8×8, n+3, KPK numbers: NOT FOUND elsewhere. KRK (cylinder) and KQK (torus) are known in prose; the HGM page says two bishops cannot mate, which our KBBK refutes. Elkies 1996 asks for a systematic e.p. treatment and constructs tiny-one with knights. T15 errors listed. | Paper: citations WikiCylinder and HGMCylinder, Elkies 1996 e.p. sentence, abstract wording |
+| T33 C3 walk-through | `research/c3_star2/REPORT.md` | Both walk-throughs check out. Refuted: "c5×b6 decides". Ablation (two implementations, re-run by the orchestrator): the C3 ring is \*2 only with both B b4×a3 and W b5×c6 e.p.; without the first it is ↑, without the second ↓. C3 ring unreachable from the start; the C4 ring is reachable in 7 plies. | Paper §VIII e.p. sentence |
+| T32 five-file legality | `research/five_file_legal/REPORT.md` | 11 of 21 sit beside T without conflict; 17 have push-only covering histories; strict-model histories for 8, 11, 13, 15 and 19 (an S1 history for #11 found by the verifier); #5 impossible under pawn-only captures. | No paper change (§IX's five-file \*2 is #6, legal) |
+| T35 Möbius | `research/mobius/REPORT_T35.md` | KPK on the Möbius 8×8: 78.94% White-to-move wins (CHECKED-2, verifier's own solver). T9's pawn part ignored the seam, and its Part A counts are corrupted by a ray-array overflow (unverified). Corrected pawn values: 1,190/1,286 Möbius-only values, mostly ±BIG; 28/34 are BIG-free. | Paper conclusion item 5 |
+
+**Review of the round-7 paper edits** (workflow `wf_f2d540b3`; 4 Sonnet lenses, one skeptic per finding; full
+output in `delegate/checks/paper_review_r7.json`). 15 findings were confirmed and all were applied; 8 were rejected
+as taste.
+- **Overclaims fixed.** The abstract's bishop claim is now scoped to the cylinder and to opposite-colored bishops.
+  The Corollary's BIG bound now matches Thm 10. Thm 3 now names X, the position with Z deleted, so the Corollary
+  follows literally. The Dawson independence sentence is restricted to the game of whole sequences. The A/B
+  twelve-end-position claim got a home in §IX with C1 and "queen promotions only". The Möbius board is defined.
+  The abstract is back under 200 words.
+- **New default-setting \*3 (found by the review, checked by the orchestrator).** Position A beside a one-file
+  \* group, `W a4 b3 d2 d3 f4 / B a7 b7 c5 f6` on flat 6×8, is \*3 by cylcgt (sum and whole-board) and by the Codex
+  solver (`delegate/checks/a_plus_star/`), so CHECKED-2: \*2 + \* = \*3 with nine pawns. Open problem 3 now asks
+  for a single-component \*3, or one with fewer than nine pawns, in the default setting.
+

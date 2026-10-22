@@ -1,3 +1,9 @@
+> **Erratum (2026-10-22, orchestrator).** This report says three times that there is no \*3 under the count or
+> mover rule. Its own table contradicts that: on flat 6×8 with 8 pawns (4+4 split) there are 16, 16, 14 and 22 \*3
+> hits under count/textbook, count/e.p. off, mover/textbook and mover/e.p. off. T27
+> (`research/star27_textbook3/REPORT.md`) confirms them with three programs. Twelve of the 16 count/e.p.-off hits are
+> the 4-file candidate (\*2) plus a \* group on the a-file. The statement holds only for the e.p.-aware test.
+
 # Star-3 Hunt Report
 
 **Date:** 2026-10-21  

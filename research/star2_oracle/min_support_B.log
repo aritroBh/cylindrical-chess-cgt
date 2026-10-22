@@ -1,0 +1,345 @@
+model-filled value *2; with only resolved sides fixed: {-W | {-W, -W±+W | -W}} .. {+W | {+W, +W* | +W, {+W, {+W, {+W | +W, +W*} | +W, +W*} | +W, {+W, {+W | +W, +W*} | +W, {+W, {+W | +W, +W*} | +W, {+W, {+W | +W, +W*} | +W, +W*}}}}}}
+1405 terminals carry model-filled sides
+  0/1405 examined, 0 needed, 0s
+  50/1405 examined, 0 needed, 4s
+  100/1405 examined, 0 needed, 8s
+  150/1405 examined, 1 needed, 12s
+  200/1405 examined, 3 needed, 18s
+  250/1405 examined, 5 needed, 22s
+  300/1405 examined, 5 needed, 27s
+  350/1405 examined, 5 needed, 32s
+  400/1405 examined, 5 needed, 36s
+  450/1405 examined, 6 needed, 41s
+  500/1405 examined, 8 needed, 46s
+  550/1405 examined, 8 needed, 52s
+  600/1405 examined, 11 needed, 57s
+  650/1405 examined, 13 needed, 62s
+  700/1405 examined, 16 needed, 68s
+  750/1405 examined, 18 needed, 73s
+  800/1405 examined, 22 needed, 79s
+  850/1405 examined, 23 needed, 84s
+  900/1405 examined, 28 needed, 89s
+  950/1405 examined, 34 needed, 95s
+  1000/1405 examined, 44 needed, 100s
+  1050/1405 examined, 47 needed, 105s
+  1100/1405 examined, 47 needed, 111s
+  1150/1405 examined, 49 needed, 116s
+  1200/1405 examined, 51 needed, 122s
+  1250/1405 examined, 53 needed, 128s
+  1300/1405 examined, 53 needed, 134s
+  1350/1405 examined, 57 needed, 139s
+  1400/1405 examined, 60 needed, 145s
+{
+ "component": "W: b4 c2 d2 / B: a6 a7 c6 d5",
+ "treatment": "free (only L/R fixed)",
+ "race_rule_for_fill": "count",
+ "value_if_needed_sides_as_model": "*2",
+ "bounds_with_resolved_only": [
+  "{-W | {-W, -W\u00b1+W | -W}}",
+  "{+W | {+W, +W* | +W, {+W, {+W, {+W | +W, +W*} | +W, +W*} | +W, {+W, {+W | +W, +W*} | +W, {+W, {+W | +W, +W*} | +W, {+W, {+W | +W, +W*} | +W, +W*}}}}}}"
+ ],
+ "candidates": 1405,
+ "needed": 60,
+ "needed_terminals": [
+  {
+   "terminal": "W: b5 c2 d2 / B: a5 a7 c6 d5",
+   "men": 11,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: b5 c2 d3 / B: a5 a7 c6 d4",
+   "men": 11,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: b5 c3 d2 / B: a5 a7 c6 d5",
+   "men": 11,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: b5 c3 d4 / B: a5 a7 c6 d5",
+   "men": 11,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: b5 c5 d3 / B: a5 a7 c6 d4",
+   "men": 11,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: b4 d3 / B: a6 a7 c3 c6",
+   "men": 10,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: b4 d4 / B: a6 a7 c3 c6 (ep d3)",
+   "men": 10,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: b4 d4 / B: a6 a7 c4 c6",
+   "men": 10,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: c2 c5 d2 / B: a6 a7 d4",
+   "men": 10,
+   "model_assignment": "(1, 1)"
+  },
+  {
+   "terminal": "W: c2 c5 d2 / B: a6 a7 d5",
+   "men": 10,
+   "model_assignment": "(1, 1)"
+  },
+  {
+   "terminal": "W: c2 c5 d4 / B: a6 a7 d5",
+   "men": 10,
+   "model_assignment": "(1, 1)"
+  },
+  {
+   "terminal": "W: c2 d2 / B: a7 b4 c6 d5",
+   "men": 10,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: c2 d2 / B: a7 b5 c6 d4",
+   "men": 10,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: c2 d3 / B: a7 b4 c6 d5",
+   "men": 10,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: c2 d4 / B: a7 b4 c6 d5",
+   "men": 10,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: c2 d4 / B: a7 b5 c6 d5",
+   "men": 10,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: c3 c5 d2 / B: a6 a7 d5",
+   "men": 10,
+   "model_assignment": "(1, 1)"
+  },
+  {
+   "terminal": "W: c3 c5 d3 / B: a6 a7 d5",
+   "men": 10,
+   "model_assignment": "(1, 1)"
+  },
+  {
+   "terminal": "W: c3 d3 / B: a7 b4 c6 d4",
+   "men": 10,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: c3 d3 / B: a7 b4 c6 d5",
+   "men": 10,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: c3 d3 / B: a7 b5 c6 d5",
+   "men": 10,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: c3 d4 / B: a7 b4 c6 d5",
+   "men": 10,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: c4 d2 / B: a7 b4 c6 d5",
+   "men": 10,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: c4 d2 / B: a7 b5 c6 d5",
+   "men": 10,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: c4 d3 / B: a7 b4 c6 d4",
+   "men": 10,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: c4 d3 / B: a7 b5 c6 d4",
+   "men": 10,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: c4 d4 / B: a7 b4 c6 d5",
+   "men": 10,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: c5 d2 / B: a7 b5 c6 d4",
+   "men": 10,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: a5 c2 c5 / B: a7 d5",
+   "men": 9,
+   "model_assignment": "(1, 1)"
+  },
+  {
+   "terminal": "W: a5 c3 / B: a6 d3 d5",
+   "men": 9,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: a5 c3 c5 / B: a6 d5",
+   "men": 9,
+   "model_assignment": "(1, 1)"
+  },
+  {
+   "terminal": "W: a5 c4 / B: a6 d4 d5 (ep c3)",
+   "men": 9,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: a5 c4 / B: a7 d4 d5",
+   "men": 9,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: a5 c4 / B: a7 d4 d5 (ep c3)",
+   "men": 9,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: a5 d2 d4 / B: a6 c4",
+   "men": 9,
+   "model_assignment": "(1, 1)"
+  },
+  {
+   "terminal": "W: a5 d3 / B: a6 c3 c5",
+   "men": 9,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: a5 d3 / B: a6 c3 c6",
+   "men": 9,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: a5 d3 d5 / B: a6 c5",
+   "men": 9,
+   "model_assignment": "(1, 1)"
+  },
+  {
+   "terminal": "W: a5 d4 / B: a6 c4 c5 (ep d3)",
+   "men": 9,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: a5 d4 / B: a6 c4 c6",
+   "men": 9,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: a5 d4 / B: a7 c4 c5",
+   "men": 9,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: a5 d4 / B: a7 c4 c5 (ep d3)",
+   "men": 9,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: a6 c2 c4 / B: a7 d4",
+   "men": 9,
+   "model_assignment": "(1, 1)"
+  },
+  {
+   "terminal": "W: a6 c3 / B: a7 d3 d5",
+   "men": 9,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: a6 c4 / B: a7 d4 d5 (ep c3)",
+   "men": 9,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: a6 d3 / B: a7 c3 c5",
+   "men": 9,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: a6 d4 / B: a7 c4 c5 (ep d3)",
+   "men": 9,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: b5 c3 / B: a5 a7 c6",
+   "men": 9,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: b5 d4 / B: a5 a7 d5",
+   "men": 9,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: c5 d2 d3 / B: a6 a7",
+   "men": 9,
+   "model_assignment": "(1, 1)"
+  },
+  {
+   "terminal": "W: c5 d2 d4 / B: a6 a7",
+   "men": 9,
+   "model_assignment": "(1, 1)"
+  },
+  {
+   "terminal": "W: c5 d3 d4 / B: a6 a7",
+   "men": 9,
+   "model_assignment": "(1, 1)"
+  },
+  {
+   "terminal": "W: d2 / B: a7 b5 c3 c6",
+   "men": 9,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: a5 c5 d2 / B: a6",
+   "men": 8,
+   "model_assignment": "(1, 1)"
+  },
+  {
+   "terminal": "W: a5 c5 d2 / B: a7",
+   "men": 8,
+   "model_assignment": "(1, 1)"
+  },
+  {
+   "terminal": "W: a5 c5 d3 / B: a7",
+   "men": 8,
+   "model_assignment": "(1, 1)"
+  },
+  {
+   "terminal": "W: a6 c4 d2 / B: a7",
+   "men": 8,
+   "model_assignment": "(1, 1)"
+  },
+  {
+   "terminal": "W: c4 / B: a7 b4 c6",
+   "men": 8,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: d2 / B: a7 b5 d5",
+   "men": 8,
+   "model_assignment": "(-1, -1)"
+  },
+  {
+   "terminal": "W: d3 / B: a7 b5 d4",
+   "men": 8,
+   "model_assignment": "(-1, -1)"
+  }
+ ]
+}

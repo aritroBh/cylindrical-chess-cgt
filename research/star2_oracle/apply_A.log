@@ -1,0 +1,55 @@
+sensitivity done: free (only L/R fixed) 51 s
+sensitivity done: switch, draw = Black win 115 s
+sensitivity done: switch, draw = White win 189 s
+sensitivity done: switch, draw = 0 1813 s
+wrote research/star2_oracle/apply_A.json
+{
+ "component": "W: a4 b3 d2 d3 / B: a7 b7 c5",
+ "min_support_treatment": "free (only L/R fixed)",
+ "race_rule_for_fill": "count",
+ "model_value": "*2",
+ "needed": 61,
+ "kp_positions": 10,
+ "needed_by_men": {
+  "8": 5,
+  "9": 28,
+  "10": 23,
+  "11": 5
+ },
+ "sides_exact": 10,
+ "sides_exact_disagree_with_model": 0,
+ "sides_exact_also_by_searcher_tb": 10,
+ "sides_exact_searcher_tb_disagree": 0,
+ "men_solved": [
+  8
+ ],
+ "sides_open": 112,
+ "open_by_men": {
+  "9": 56,
+  "10": 46,
+  "11": 10
+ },
+ "open_terminals_by_men": {
+  "9": 28,
+  "10": 23,
+  "11": 5
+ },
+ "sensitivity_treatments_done": [
+  "free (only L/R fixed)",
+  "switch, draw = Black win",
+  "switch, draw = White win",
+  "switch, draw = 0 (PARTIAL: deadline)"
+ ]
+}
+--- switch, draw = Black win: pinned=False excludes*2=False excludes0=False cond(open at model) pinned=True = *2
+    G_lo = {{-W, {-W, {-W, {-W, {-W, -W* | -W, {-W, -W* | -W}} | -W, {-W, -W* | -W}} | -W, {-W, -W* | -W}} | -W
+    G_hi = {{+W | +W, +W±+W} | +W}
+--- switch, draw = White win: pinned=False excludes*2=False excludes0=False cond(open at model) pinned=True = *2
+    G_lo = {{-W, {-W, {-W, {-W, {-W, -W* | -W, {-W, -W* | -W}} | -W, {-W, -W* | -W}} | -W, {-W, -W* | -W}} | -W
+    G_hi = {{+W | +W, +W±+W} | +W}
+--- switch, draw = 0: pinned=False excludes*2=False excludes0=False cond(open at model) pinned=True = *2
+    G_lo = {{-W, {-W, {-W, {-W, {-W, -W* | -W, {-W, -W* | -W}} | -W, {-W, -W* | -W}} | -W, {-W, -W* | -W}} | -W
+    G_hi = {{+W | +W, +W±+W} | +W}
+--- free (only L/R fixed): pinned=False excludes*2=False excludes0=False cond(open at model) pinned=True = *2
+    G_lo = {{-W, {-W, {-W, {-W, {-W, -W* | -W, {-W, -W* | -W}} | -W, {-W, -W* | -W}} | -W, {-W, -W* | -W}} | -W
+    G_hi = {{+W | +W, +W±+W} | +W}

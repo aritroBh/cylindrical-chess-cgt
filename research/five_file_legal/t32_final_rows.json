@@ -1,0 +1,263 @@
+[
+ {
+  "idx": 1,
+  "pos": "W: a2 b2 c2 d2 / B: a5 b4 d7 e4",
+  "legal": false,
+  "notes": "White king f5 can capture e4",
+  "strict": "timeout",
+  "strict_hist": "",
+  "strict_replay": null,
+  "cov": [
+   "B a7-a5 B e7-e5 B e5-e4 B b7-b5 B b5-b4",
+   true
+  ]
+ },
+ {
+  "idx": 2,
+  "pos": "W: a2 b2 c2 e2 / B: a5 b5 c6 d7",
+  "legal": true,
+  "notes": "-",
+  "strict": "timeout",
+  "strict_hist": "",
+  "strict_replay": null,
+  "cov": [
+   "B c7-c6 B a7-a5 B b7-b5",
+   true
+  ]
+ },
+ {
+  "idx": 3,
+  "pos": "W: a2 b2 c2 e2 / B: a6 b4 d5 e3",
+  "legal": true,
+  "notes": "-",
+  "strict": "timeout",
+  "strict_hist": "",
+  "strict_replay": null,
+  "cov": [
+   "B a7-a6 B d7-d5 B b7-b5 B b5-b4 B e7-e5 B e5-e4 B e4-e3",
+   true
+  ]
+ },
+ {
+  "idx": 4,
+  "pos": "W: a2 b3 c3 e2 / B: a5 b5 c5 d5",
+  "legal": true,
+  "notes": "-",
+  "strict": "timeout",
+  "strict_hist": "",
+  "strict_replay": null,
+  "cov": [
+   "W c2-c3 W b2-b3 B c7-c5 B d7-d5 B a7-a5 B b7-b5",
+   true
+  ]
+ },
+ {
+  "idx": 5,
+  "pos": "W: a3 b2 b3 e2 / B: b6 c5 c7 d6",
+  "legal": true,
+  "notes": "-",
+  "strict": "timeout",
+  "strict_hist": "",
+  "strict_replay": null,
+  "cov": null
+ },
+ {
+  "idx": 6,
+  "pos": "W: a3 b3 c2 e2 / B: a6 c5 d5 e3",
+  "legal": true,
+  "notes": "-",
+  "strict": "timeout",
+  "strict_hist": "",
+  "strict_replay": null,
+  "cov": [
+   "W a2-a3 W b2-b3 B a7-a6 B c7-c5 B d7-d5 B e7-e5 B e5-e4 B e4-e3",
+   true
+  ]
+ },
+ {
+  "idx": 7,
+  "pos": "W: a3 b4 c2 d2 / B: a7 b7 c6 e5",
+  "legal": false,
+  "notes": "White king f5 can capture e5",
+  "strict": "timeout",
+  "strict_hist": "",
+  "strict_replay": null,
+  "cov": [
+   "W a2-a3 W b2-b4 B c7-c6 B e7-e5",
+   true
+  ]
+ },
+ {
+  "idx": 8,
+  "pos": "W: a3 c4 d2 d3 / B: b5 b7 c6 e5",
+  "legal": false,
+  "notes": "White king f5 can capture e5",
+  "strict": "found",
+  "strict_hist": "W a2-a3 B a7-a6 W b2-b3 W b3-b4 W b4-b5 B a6xb5 W c2-c3 W c3-c4 B c7-c6 B d7-d6 B d6-d5 B d5-d4 B d4-d3 W e2xd3 B e7-e6 B e6-e5 W f2-f3 W f3-f4 W f4-f5 W f5-f6 W g2-g3 W g3-g4 W g4-g5 W g5-g6 B g7xf6 B f6-f5 B f5-f4 B f7-f6 B h7xg6 B g6-g5 B g5-g4 B g4-g3 W h2xg3 W g3xf4 W f4xe5 B f6xe5",
+  "strict_replay": true,
+  "cov": null
+ },
+ {
+  "idx": 9,
+  "pos": "W: a4 b2 c3 e2 / B: a7 c6 d7 e5",
+  "legal": false,
+  "notes": "White king f5 can capture e5",
+  "strict": "timeout",
+  "strict_hist": "",
+  "strict_replay": null,
+  "cov": [
+   "W c2-c3 W a2-a4 B c7-c6 B e7-e5",
+   true
+  ]
+ },
+ {
+  "idx": 10,
+  "pos": "W: a4 b3 c2 d2 / B: a7 b6 c7 e4",
+  "legal": false,
+  "notes": "White king f5 can capture e4",
+  "strict": "timeout",
+  "strict_hist": "",
+  "strict_replay": null,
+  "cov": [
+   "W b2-b3 W a2-a4 B b7-b6 B e7-e5 B e5-e4",
+   true
+  ]
+ },
+ {
+  "idx": 11,
+  "pos": "W: a4 b3 c3 e2 / B: a7 c6 d6 e5",
+  "legal": true,
+  "notes": "-",
+  "strict": "found",
+  "strict_hist": "W a2-a3 W a3-a4 W b2-b3 B b7-b6 B b6-b5 B b5-b4 W c2-c3 B c7-c6 B d7-d6 B e7-e6 B e6-e5 W f2-f3 W f3-f4 W f4-f5 W f5-f6 W g2-g3 W g3-g4 W g4-g5 W g5-g6 B g7xf6 B f6-f5 B f5-f4 B f7-f6 B h7xg6 B g6-g5 B g5-g4 B g4-g3 W h2xg3 W g3xf4 B b4xc3 W d2xc3 W f4xe5 B f6xe5",
+  "strict_replay": true,
+  "cov": [
+   "W c2-c3 W b2-b3 W a2-a4 B c7-c6 B d7-d6 B e7-e5",
+   true
+  ]
+ },
+ {
+  "idx": 12,
+  "pos": "W: a4 b4 c3 d2 / B: a7 b7 c7 e7",
+  "legal": true,
+  "notes": "-",
+  "strict": "timeout",
+  "strict_hist": "",
+  "strict_replay": null,
+  "cov": [
+   "W c2-c3 W a2-a4 W b2-b4",
+   true
+  ]
+ },
+ {
+  "idx": 13,
+  "pos": "W: a4 b4 c3 e2 / B: a7 c6 d5 e5",
+  "legal": false,
+  "notes": "White king f5 can capture e5",
+  "strict": "found",
+  "strict_hist": "W a2-a3 W a3-a4 W b2-b3 W b3-b4 B b7-b6 B b6-b5 W c2-c3 B c7-c6 B d7-d6 B d6-d5 B e7-e6 B e6-e5 W f2-f3 W f3-f4 W f4-f5 W f5-f6 W g2-g3 W g3-g4 W g4-g5 W g5-g6 B g7xf6 B f6-f5 B f5-f4 B f7-f6 B h7xg6 B g6-g5 B g5-g4 B g4-g3 W h2xg3 W g3xf4 W c3-c4 B b5xc4 B c4-c3 W d2xc3 W f4xe5 B f6xe5",
+  "strict_replay": true,
+  "cov": [
+   "W c2-c3 W a2-a4 W b2-b4 B c7-c6 B e7-e5 B d7-d5",
+   true
+  ]
+ },
+ {
+  "idx": 14,
+  "pos": "W: a4 b4 c4 d4 / B: a7 b6 c6 e7",
+  "legal": true,
+  "notes": "-",
+  "strict": "timeout",
+  "strict_hist": "",
+  "strict_replay": null,
+  "cov": [
+   "W c2-c4 W a2-a4 W d2-d4 W b2-b4 B b7-b6 B c7-c6",
+   true
+  ]
+ },
+ {
+  "idx": 15,
+  "pos": "W: a4 c3 d2 d4 / B: b6 b7 c5 e6",
+  "legal": false,
+  "notes": "black pawn e6 attacks WK f5; White king f5 can capture e6",
+  "strict": "found",
+  "strict_hist": "W a2-a3 W a3-a4 W b2-b3 W b3-b4 W b4-b5 W b5-b6 B a7xb6 W c2-c3 B c7-c6 B c6-c5 B d7-d6 B d6-d5 B d5-d4 B d4-d3 W e2xd3 W d3-d4 B e7-e6 W f2-f3 W f3-f4 W f4-f5 W f5-f6 W g2-g3 W g3-g4 W g4-g5 W g5-g6 B g7xf6 B f6-f5 B f5-f4 B h7xg6 B g6-g5 B g5-g4 B g4-g3 W h2xg3 W g3xf4 W f4-f5 W f5xe6 B f7xe6",
+  "strict_replay": true,
+  "cov": null
+ },
+ {
+  "idx": 16,
+  "pos": "W: a4 c3 d2 e2 / B: b7 c7 d5 e6",
+  "legal": false,
+  "notes": "black pawn e6 attacks WK f5; White king f5 can capture e6",
+  "strict": "timeout",
+  "strict_hist": "",
+  "strict_replay": null,
+  "cov": [
+   "W c2-c3 W a2-a4 B e7-e6 B d7-d5",
+   true
+  ]
+ },
+ {
+  "idx": 17,
+  "pos": "W: a5 b2 d5 e4 / B: b7 c7 d7 e7",
+  "legal": true,
+  "notes": "-",
+  "strict": "timeout",
+  "strict_hist": "",
+  "strict_replay": null,
+  "cov": [
+   "W e2-e4 W d2-d4 W d4-d5 W a2-a4 W a4-a5",
+   true
+  ]
+ },
+ {
+  "idx": 18,
+  "pos": "W: a5 c2 d3 e2 / B: b7 c7 d6 e5",
+  "legal": true,
+  "notes": "-",
+  "strict": "timeout",
+  "strict_hist": "",
+  "strict_replay": null,
+  "cov": [
+   "W d2-d3 W a2-a4 W a4-a5 B d7-d6 B e7-e5",
+   true
+  ]
+ },
+ {
+  "idx": 19,
+  "pos": "W: a6 b4 c4 e3 / B: a7 c7 d6 e6",
+  "legal": false,
+  "notes": "black pawn e6 attacks WK f5; White king f5 can capture e6",
+  "strict": "found",
+  "strict_hist": "W a2-a3 W a3-a4 W a4-a5 W a5-a6 W b2-b3 W b3-b4 B b7-b6 B b6-b5 W c2-c3 W c3-c4 W d2-d3 B d7-d6 W e2-e3 B e7-e6 W f2-f3 W f3-f4 W f4-f5 W f5-f6 W g2-g3 W g3-g4 W g4-g5 W g5-g6 B g7xf6 B f6-f5 B f5-f4 B h7xg6 B g6-g5 B g5-g4 B g4-g3 W h2xg3 W g3xf4 W f4-f5 B b5xc4 W d3xc4 W f5xe6 B f7xe6",
+  "strict_replay": true,
+  "cov": [
+   "W e2-e3 W c2-c4 W b2-b4 W a2-a4 W a4-a5 W a5-a6 B e7-e6 B d7-d6",
+   true
+  ]
+ },
+ {
+  "idx": 20,
+  "pos": "W: a6 b4 d5 e3 / B: a7 c7 d7 e7",
+  "legal": true,
+  "notes": "-",
+  "strict": "timeout",
+  "strict_hist": "",
+  "strict_replay": null,
+  "cov": [
+   "W e2-e3 W b2-b4 W d2-d4 W d4-d5 W a2-a4 W a4-a5 W a5-a6",
+   true
+  ]
+ },
+ {
+  "idx": 21,
+  "pos": "W: b3 c2 c4 d3 / B: a7 d6 d7 e6",
+  "legal": false,
+  "notes": "black pawn e6 attacks WK f5",
+  "strict": "timeout",
+  "strict_hist": "",
+  "strict_replay": null,
+  "cov": null
+ }
+]

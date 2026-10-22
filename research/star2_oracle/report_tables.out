@@ -1,0 +1,109 @@
+
+######## A: W: a4 b3 d2 d3 / B: a7 b7 c5
+needed by men: {'8': 5, '9': 28, '10': 23, '11': 5}  exact sides: 10  disagree with model: 0  also by searcher+TB: 10  searcher disagree: 0
+open sides: 112 {'9': 56, '10': 46, '11': 10}  open terminals: {'9': 28, '10': 23, '11': 5}
+
+solved 8-man decisive terminals (White's view, W/D/L; model; searcher+TB):
+  W: a4 c4 d2 / B: a6          W to move  kp=WW  tb=WW  model=W  8/8/p7/5Kp1/P1P3Pk/8/3P4/8 w - - 0 1
+  W: a4 c4 d2 / B: a6          B to move  kp=WW  tb=WW  model=W  8/8/p7/5Kp1/P1P3Pk/8/3P4/8 b - - 0 1
+  W: b3 c5 d2 / B: b5          W to move  kp=WW  tb=WW  model=W  8/8/8/1pP2Kp1/6Pk/1P6/3P4/8 w - - 0 1
+  W: b3 c5 d2 / B: b5          B to move  kp=WW  tb=WW  model=W  8/8/8/1pP2Kp1/6Pk/1P6/3P4/8 b - - 0 1
+  W: d2 / B: a6 b4 d4          W to move  kp=LL  tb=LL  model=L  8/8/p7/5Kp1/1p1p2Pk/8/3P4/8 w - - 0 1
+  W: d2 / B: a6 b4 d4          B to move  kp=LL  tb=LL  model=L  8/8/p7/5Kp1/1p1p2Pk/8/3P4/8 b - - 0 1
+  W: d2 / B: a7 b4 d4          W to move  kp=LL  tb=LL  model=L  8/p7/8/5Kp1/1p1p2Pk/8/3P4/8 w - - 0 1
+  W: d2 / B: a7 b4 d4          B to move  kp=LL  tb=LL  model=L  8/p7/8/5Kp1/1p1p2Pk/8/3P4/8 b - - 0 1
+  W: d3 / B: a7 b4 d4          W to move  kp=LL  tb=LL  model=L  8/p7/8/5Kp1/1p1p2Pk/3P4/8/8 w - - 0 1
+  W: d3 / B: a7 b4 d4          B to move  kp=LL  tb=LL  model=L  8/p7/8/5Kp1/1p1p2Pk/3P4/8/8 b - - 0 1
+
+bounds per treatment:
+  switch, draw = Black win     same-as-first=True pinned=False outcome_lo=R outcome_hi=L excl*2=False excl0=False cond=*2/True before_same=True cert*2={'left': False, 'right': False} cert0={'left': False, 'right': False}
+  switch, draw = White win     same-as-first=True pinned=False outcome_lo=R outcome_hi=L excl*2=False excl0=False cond=*2/True before_same=True cert*2={'left': False, 'right': False} cert0={'left': False, 'right': False}
+  switch, draw = 0             same-as-first=True pinned=False outcome_lo=R outcome_hi=L excl*2=False excl0=False cond=*2/True before_same=True cert*2={'left': False, 'right': False} cert0={'left': False, 'right': False}
+  free (only L/R fixed)        same-as-first=True pinned=False outcome_lo=R outcome_hi=L excl*2=False excl0=False cond=*2/True before_same=True cert*2={'left': False, 'right': False} cert0={'left': False, 'right': False}
+  G_lo = {{-W, {-W, {-W, {-W, {-W, -W* | -W, {-W, -W* | -W}} | -W, {-W, -W* | -W}} | -W, {-W, -W* | -W}} | -W, {-W, -W* | -W, {-W, -W* | -W}}} | -W, -W*} | -W}
+  G_hi = {{+W | +W, +W±+W} | +W}
+
+sensitivity treatments done: ['free (only L/R fixed)', 'switch, draw = Black win', 'switch, draw = White win', 'switch, draw = 0 (merged, complete)']
+  deviations from the model, free (only L/R fixed): {'unpinned, *2 not excluded': 224}
+  deviations from the model, switch, draw = Black win: {'unpinned, *2 not excluded': 110, 'pinned to *2 (no change)': 104, 'excludes *2': 10}
+  deviations from the model, switch, draw = White win: {'pinned to *2 (no change)': 140, 'unpinned, *2 not excluded': 79, 'excludes *2': 5}
+  deviations from the model, switch, draw = 0: {'pinned to *2 (no change)': 125, 'unpinned, *2 not excluded': 92, 'excludes *2': 7}
+  single deviations that exclude *2 under 'switch, draw = Black win': 10
+      ('W: a4 a5 d2 / B: b5 d4', 9, 'W', 'W', 'D', '-1/4±1/4..{0, * | {{1±1, {0, +W±+W | 0, ')
+      ('W: a4 a5 d2 / B: b5 d4', 9, 'W', 'W', 'L', '-1/4±1/4..{0, * | {{1±1, {0, +W±+W | 0, ')
+      ('W: a4 a5 d3 / B: b5 d4 (ep b6)', 9, 'W', 'W', 'D', '↓*')
+      ('W: a4 a5 d3 / B: b5 d4 (ep b6)', 9, 'W', 'W', 'L', '↓*')
+      ('W: a4 a6 d2 / B: b6 d3', 9, 'B', 'W', 'D', '-1/4±1/4..{0, * | {miny(2), {1±1, {0, +W')
+      ('W: a4 a6 d2 / B: b6 d3', 9, 'B', 'W', 'L', '-1/4±1/4..{0, * | {miny(2), {1±1, {0, +W')
+      ('W: b4 b5 d3 / B: a5 d4 (ep a6)', 9, 'W', 'W', 'D', '↓*')
+      ('W: b4 b5 d3 / B: a5 d4 (ep a6)', 9, 'W', 'W', 'L', '↓*')
+      ('W: b4 b6 d3 / B: a6 d4', 9, 'B', 'W', 'D', '↓*')
+      ('W: b4 b6 d3 / B: a6 d4', 9, 'B', 'W', 'L', '↓*')
+  single deviations that exclude *2 under 'switch, draw = White win': 5
+      ('W: a4 a5 d2 / B: b5 d4', 9, 'W', 'W', 'L', '-1/4±1/4..{0, * | {{1±1, {0, +W±+W | 0, ')
+      ('W: a4 a5 d3 / B: b5 d4 (ep b6)', 9, 'W', 'W', 'L', '↓*')
+      ('W: a4 a6 d2 / B: b6 d3', 9, 'B', 'W', 'L', '-1/4±1/4..{0, * | {miny(2), {1±1, {0, +W')
+      ('W: b4 b5 d3 / B: a5 d4 (ep a6)', 9, 'W', 'W', 'L', '↓*')
+      ('W: b4 b6 d3 / B: a6 d4', 9, 'B', 'W', 'L', '↓*')
+  single deviations that exclude *2 under 'switch, draw = 0': 7
+      ('W: a4 a5 d2 / B: b5 d4', 9, 'W', 'W', 'L', '-1/4±1/4..{0, * | {{1±1, {0, +W±+W | 0, ')
+      ('W: a4 a5 d3 / B: b5 d4 (ep b6)', 9, 'W', 'W', 'L', '↓*')
+      ('W: a4 a6 d2 / B: b6 d3', 9, 'B', 'W', 'D', '-1/4±1/4..{0, * | {miny(2), {1±1, {0, +W')
+      ('W: a4 a6 d2 / B: b6 d3', 9, 'B', 'W', 'L', '-1/4±1/4..{0, * | {miny(2), {1±1, {0, +W')
+      ('W: b4 b5 d3 / B: a5 d4 (ep a6)', 9, 'W', 'W', 'L', '↓*')
+      ('W: b4 b6 d3 / B: a6 d4', 9, 'B', 'W', 'D', '↓*')
+      ('W: b4 b6 d3 / B: a6 d4', 9, 'B', 'W', 'L', '↓*')
+  distinct open sides whose single deviation excludes *2 under some treatment: 5
+   by men: {9: 5}
+
+######## B: W: b4 c2 d2 / B: a6 a7 c6 d5
+needed by men: {'8': 7, '9': 25, '10': 23, '11': 5}  exact sides: 14  disagree with model: 0  also by searcher+TB: 0  searcher disagree: 0
+open sides: 106 {'9': 50, '10': 46, '11': 10}  open terminals: {'9': 25, '10': 23, '11': 5}
+
+solved 8-man decisive terminals (White's view, W/D/L; model; searcher+TB):
+  W: a5 c5 d2 / B: a6          W to move  kp=WW  tb=-  model=W  8/8/p7/P1P2Kp1/6Pk/8/3P4/8 w - - 0 1
+  W: a5 c5 d2 / B: a6          B to move  kp=WW  tb=-  model=W  8/8/p7/P1P2Kp1/6Pk/8/3P4/8 b - - 0 1
+  W: a5 c5 d2 / B: a7          W to move  kp=WW  tb=-  model=W  8/p7/8/P1P2Kp1/6Pk/8/3P4/8 w - - 0 1
+  W: a5 c5 d2 / B: a7          B to move  kp=WW  tb=-  model=W  8/p7/8/P1P2Kp1/6Pk/8/3P4/8 b - - 0 1
+  W: a5 c5 d3 / B: a7          W to move  kp=WW  tb=-  model=W  8/p7/8/P1P2Kp1/6Pk/3P4/8/8 w - - 0 1
+  W: a5 c5 d3 / B: a7          B to move  kp=WW  tb=-  model=W  8/p7/8/P1P2Kp1/6Pk/3P4/8/8 b - - 0 1
+  W: a6 c4 d2 / B: a7          W to move  kp=WW  tb=-  model=W  8/p7/P7/5Kp1/2P3Pk/8/3P4/8 w - - 0 1
+  W: a6 c4 d2 / B: a7          B to move  kp=WW  tb=-  model=W  8/p7/P7/5Kp1/2P3Pk/8/3P4/8 b - - 0 1
+  W: c4 / B: a7 b4 c6          W to move  kp=LL  tb=-  model=L  8/p7/2p5/5Kp1/1pP3Pk/8/8/8 w - - 0 1
+  W: c4 / B: a7 b4 c6          B to move  kp=LL  tb=-  model=L  8/p7/2p5/5Kp1/1pP3Pk/8/8/8 b - - 0 1
+  W: d2 / B: a7 b5 d5          W to move  kp=LL  tb=-  model=L  8/p7/8/1p1p1Kp1/6Pk/8/3P4/8 w - - 0 1
+  W: d2 / B: a7 b5 d5          B to move  kp=LL  tb=-  model=L  8/p7/8/1p1p1Kp1/6Pk/8/3P4/8 b - - 0 1
+  W: d3 / B: a7 b5 d4          W to move  kp=LL  tb=-  model=L  8/p7/8/1p3Kp1/3p2Pk/3P4/8/8 w - - 0 1
+  W: d3 / B: a7 b5 d4          B to move  kp=LL  tb=-  model=L  8/p7/8/1p3Kp1/3p2Pk/3P4/8/8 b - - 0 1
+
+bounds per treatment:
+  switch, draw = Black win     same-as-first=True pinned=False outcome_lo=R outcome_hi=L excl*2=False excl0=False cond=*2/True before_same=True cert*2={'left': False, 'right': False} cert0={'left': False, 'right': False}
+  switch, draw = White win     same-as-first=True pinned=False outcome_lo=R outcome_hi=L excl*2=False excl0=False cond=*2/True before_same=True cert*2={'left': False, 'right': False} cert0={'left': False, 'right': False}
+  switch, draw = 0             same-as-first=True pinned=False outcome_lo=R outcome_hi=L excl*2=False excl0=False cond=*2/True before_same=True cert*2={'left': False, 'right': False} cert0={'left': False, 'right': False}
+  free (only L/R fixed)        same-as-first=True pinned=False outcome_lo=R outcome_hi=L excl*2=False excl0=False cond=*2/True before_same=True cert*2={'left': False, 'right': False} cert0={'left': False, 'right': False}
+  G_lo = {-W | {-W, -W±+W | -W}}
+  G_hi = {+W | {+W, +W* | +W, {+W, {+W, {+W | +W, +W*} | +W, +W*} | +W, {+W, {+W | +W, +W*} | +W, {+W, {+W | +W, +W*} | +W, {+W, {+W | +W, +W*} | +W, +W*}}}}}}
+
+sensitivity treatments done: ['free (only L/R fixed)', 'switch, draw = Black win', 'switch, draw = White win', 'switch, draw = 0 (merged, complete)']
+  deviations from the model, free (only L/R fixed): {'unpinned, *2 not excluded': 212}
+  deviations from the model, switch, draw = Black win: {'unpinned, *2 not excluded': 77, 'pinned to *2 (no change)': 132, 'excludes *2': 3}
+  deviations from the model, switch, draw = White win: {'unpinned, *2 not excluded': 103, 'pinned to *2 (no change)': 103, 'excludes *2': 6}
+  deviations from the model, switch, draw = 0: {'unpinned, *2 not excluded': 93, 'pinned to *2 (no change)': 115, 'excludes *2': 4}
+  single deviations that exclude *2 under 'switch, draw = Black win': 3
+      ('W: a5 c3 / B: a6 d3 d5', 9, 'W', 'L', 'W', '↑*')
+      ('W: a5 c4 / B: a6 d4 d5 (ep c3)', 9, 'B', 'L', 'W', '↑*')
+      ('W: a5 d4 / B: a6 c4 c5 (ep d3)', 9, 'B', 'L', 'W', '↑*')
+  single deviations that exclude *2 under 'switch, draw = White win': 6
+      ('W: a5 c3 / B: a6 d3 d5', 9, 'W', 'L', 'W', '↑*')
+      ('W: a5 c3 / B: a6 d3 d5', 9, 'W', 'L', 'D', '↑*')
+      ('W: a5 c4 / B: a6 d4 d5 (ep c3)', 9, 'B', 'L', 'W', '↑*')
+      ('W: a5 c4 / B: a6 d4 d5 (ep c3)', 9, 'B', 'L', 'D', '↑*')
+      ('W: a5 d4 / B: a6 c4 c5 (ep d3)', 9, 'B', 'L', 'W', '↑*')
+      ('W: a5 d4 / B: a6 c4 c5 (ep d3)', 9, 'B', 'L', 'D', '↑*')
+  single deviations that exclude *2 under 'switch, draw = 0': 4
+      ('W: a5 c3 / B: a6 d3 d5', 9, 'W', 'L', 'W', '↑*')
+      ('W: a5 c3 / B: a6 d3 d5', 9, 'W', 'L', 'D', '↑*')
+      ('W: a5 c4 / B: a6 d4 d5 (ep c3)', 9, 'B', 'L', 'W', '↑*')
+      ('W: a5 d4 / B: a6 c4 c5 (ep d3)', 9, 'B', 'L', 'W', '↑*')
+  distinct open sides whose single deviation excludes *2 under some treatment: 3
+   by men: {9: 3}

@@ -1,0 +1,99 @@
+  20000 positions, 39s, mob 148 cyl 131 flat 131
+  40000 positions, 76s, mob 283 cyl 249 flat 249
+  60000 positions, 125s, mob 283 cyl 249 flat 249
+  80000 positions, 180s, mob 364 cyl 358 flat 330
+  100000 positions, 229s, mob 445 cyl 472 flat 387
+  120000 positions, 274s, mob 501 cyl 472 flat 439
+  140000 positions, 328s, mob 528 cyl 472 flat 472
+  160000 positions, 376s, mob 528 cyl 472 flat 472
+  180000 positions, 415s, mob 528 cyl 472 flat 472
+  200000 positions, 463s, mob 528 cyl 472 flat 472
+  220000 positions, 490s, mob 528 cyl 472 flat 472
+  240000 positions, 618s, mob 1687 cyl 1244 flat 1153
+  260000 positions, 719s, mob 2280 cyl 1431 flat 1382
+  280000 positions, 784s, mob 2554 cyl 1498 flat 1484
+  300000 positions, 824s, mob 2678 cyl 1499 flat 1506
+  320000 positions, 861s, mob 2710 cyl 1499 flat 1524
+  340000 positions, 1009s, mob 2760 cyl 1499 flat 1580
+  360000 positions, 1105s, mob 2787 cyl 1499 flat 1608
+  380000 positions, 1149s, mob 2787 cyl 1499 flat 1608
+  400000 positions, 1240s, mob 2787 cyl 1499 flat 1608
+  420000 positions, 1292s, mob 2787 cyl 1499 flat 1608
+  440000 positions, 1352s, mob 2889 cyl 1593 flat 1702
+  460000 positions, 1452s, mob 2993 cyl 1688 flat 1795
+  480000 positions, 1523s, mob 3012 cyl 1706 flat 1814
+  500000 positions, 1566s, mob 3018 cyl 1712 flat 1820
+  520000 positions, 1598s, mob 3018 cyl 1712 flat 1820
+  540000 positions, 1654s, mob 3018 cyl 1712 flat 1820
+  560000 positions, 1703s, mob 3018 cyl 1712 flat 1820
+  580000 positions, 1751s, mob 3018 cyl 1712 flat 1820
+  600000 positions, 1808s, mob 3018 cyl 1712 flat 1820
+{
+ "width": 4,
+ "max_pawns": 4,
+ "positions": 617088,
+ "seconds": 1849.5,
+ "distinct_values": {
+  "mob": 3018,
+  "cyl": 1712,
+  "flat": 1820
+ },
+ "excluded_race_positions": {
+  "mob": 233500,
+  "cyl": 234056,
+  "flat": 228100
+ },
+ "unique_to_mobius_not_on_cyl_or_flat": 1286,
+ "mobius_not_on_cyl_only": 1398,
+ "mobius_not_on_flat_only": 1288,
+ "fork_vs_cylcgt_checked_and_mismatched": {
+  "cyl": [
+   88155,
+   0
+  ],
+  "flat": [
+   88155,
+   0
+  ]
+ },
+ "unique_examples": [
+  "4*",
+  "3*",
+  "5/2",
+  "-3*",
+  "9/4",
+  "-4*",
+  "-9/4",
+  "-5/2",
+  "5/4\u00b1+W",
+  "3/4\u00b1+W",
+  "7/4\u00b1+W",
+  "9/4\u00b1+W",
+  "-7/4\u00b1+W",
+  "-3/4\u00b1+W",
+  "-5/4\u00b1+W",
+  "-9/4\u00b1+W",
+  "-W\u00b1507/4",
+  "tiny(+W)",
+  "{+W | \u21d3}",
+  "miny(+W)",
+  "{\u21d3 | -W}",
+  "{+W | \u21d1}",
+  "+W\u00b1507/4",
+  "{\u21d1 | -W}",
+  "-W\u00b11019/8",
+  "{+W | \u2191*}",
+  "-W\u00b11015/8",
+  "+W\u00b11015/8",
+  "{+W | 3*}",
+  "-W\u00b11023/8"
+ ],
+ "common_domain_positions": 357164,
+ "common_domain_distinct": {
+  "mob": 3018,
+  "cyl": 1712,
+  "flat": 1820
+ },
+ "common_domain_unique_to_mobius": 1286
+}
+wrote research/mobius/pawn_w4_p4c_summary.json research/mobius/pawn_w4_p4c_unique.tsv

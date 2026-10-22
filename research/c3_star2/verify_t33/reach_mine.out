@@ -1,0 +1,21 @@
+== C3 (3 files, 6 pawns): reach W a2 a3 b2 / B b7 c6 c7
+  states 2971 hits 0
+== C4: reach W a4 b2 c2 / B b6 c5 d6 d7
+  states 456784 hits 2 min depth 7
+  shortest: W:d2-d4 B:b7-b6 W:d4-d5 B:c7-c5 W:d5-d6 B:a7xd6 W:a2-a4
+   after W:d2-d4 passed W: [] B: []
+   after B:b7-b6 passed W: [] B: []
+   after W:d4-d5 passed W: [] B: []
+   after B:c7-c5 passed W: [] B: []
+   after W:d5-d6 passed W: [] B: []
+   after B:a7xd6 passed W: [] B: []
+   after W:a2-a4 passed W: [] B: []
+   W d2 -> d4 legal
+   B b7 -> b6 legal
+   W d4 -> d5 legal
+   B c7 -> c5 legal
+   W d5 -> d6 legal
+   B a7 -> d6 legal
+   W a2 -> a4 legal
+  final: ((0, 4), (1, 2), (2, 2)) ((1, 6), (2, 5), (3, 6), (3, 7))
+material: start 8 pawns, target 7 -> exactly one capture on any history

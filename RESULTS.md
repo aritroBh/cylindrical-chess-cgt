@@ -311,6 +311,21 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   - It crashed large runs, but never changed a value.
   - The crashed runs are re-run with `frontier_split1_fixed`; details in [delegate/REVIEW.md](delegate/REVIEW.md).
 
+- **Round 7 (Sonnet/Haiku workflow; see [delegate/REVIEW.md](delegate/REVIEW.md)).**
+  - **Positions A and B are one \*2:** B is A with the colours reversed and the files mirrored. All 12 decisive
+    8-man end positions of their real-chess trees agree with the model; the oracle bounds stay open until the
+    9–11-man sides are solved.
+  - **\*3 with e.p. off on six files** (scanner, cylcgt, Codex): 16 positions, 8 up to colour reversal. Twelve are
+    the 4-file candidate (\*2) plus a \* group, so \*3 = \*2 + \*. With the aware test they are not nimbers.
+  - **\*3 in the default setting, as a sum:** `W a4 b3 d2 d3 f4 / B a7 b7 c5 f6` (position A plus a \* group) on
+    flat 6×8 is \*3 by three programs. No single-component default \*3 is known.
+  - **Ring minimum on C3 and C4 is now CHECKED-2:** independent solvers and full cylcgt scans.
+  - **The C3 ring \*2 needs two e.p. captures,** B b4×a3 and W b5×c6. Without the first it is ↑, without the
+    second ↓.
+  - **Möbius 8×8:** KPK is won from 78.94% of positions with White to move (cylinder 78.89%). CHECKED-2.
+  - **Proof audit:** Thm 3 and Thm 8 got precise statements and sketches, and Conj 4 is now a Corollary [AI].
+    Repo defects in `kings/theory/LOOPY.md` were sent to the kings session.
+
 ## 7. Pending
 
 **Verification gaps.** 35 adversarial verifiers were cut off by the Claude usage limit. Not verified:

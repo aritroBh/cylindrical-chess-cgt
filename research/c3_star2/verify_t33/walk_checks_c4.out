@@ -1,0 +1,18 @@
+== C4 root options (W a4 b2 c2 / B b6 c5 d6 d7)
+W01 b2-b3 = * : True
+W05 c2-c4 (ep c3) = 0 : True
+W02 b2-b4 <= * (dominated by b2-b3): True
+W04 c2-c3 <= * (dominated by b2-b3): True
+W03 a4-a5 : <=0 False  <=* False  (not dominated by 0 or *: need reversal)
+Ya (a4-a5, b6-b5) <= *2 (a4-a5 reversible): True
+B02 c5-c4 = 0 : True
+Yb (b6-b5, a4xb5) outcome: L  >= *2: True
+   reply W: b2 b5 c2 / B: c4 d6 d7 outcome L  >= 0: True  >= *: True
+   reply W: b2 b5 c2 / B: c5 d5 d7 outcome L  >= 0: True  >= *: True
+Yd (d6-d5, a4xd5) >= *2 (d6-d5 reversible): True
+   reply b6-b5: outcome N  =* : True  >=*: True
+   reply c5-c4: outcome L  =* : False  >=*: True
+   reply d7-d6: outcome N  =* : False  >=*: True
+B01 b6-b5 outcome: N  >=0: False  >=*: False
+B03 d6-d5 outcome: N  >=0: False  >=*: False
+elapsed 0.1s

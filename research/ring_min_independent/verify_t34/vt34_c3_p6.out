@@ -1,0 +1,9 @@
+N=3 MAXP=6 textbook=False noep=False race=count
+pawns | raw placements | classes | classes by value [0,*1,*2,other] | placements by value
+3 330 70 [0, 0, 0, 70] [0, 0, 0, 330]
+4 4740 865 [43, 22, 0, 800] [252, 120, 0, 4368]
+5 34170 5970 [46, 16, 0, 5908] [276, 96, 0, 33798]
+6 160515 27405 [380, 170, 1, 26854] [2184, 976, 6, 157349]
+STAR2 6 ('W: b2 c2 c3 / B: a6 a7 b7', 6)
+states 119582 14s
+nice -n 10 .venv/bin/python $V/vt34_solver.py 3 6  5.00s user 0.03s system 34% cpu 14.393 total

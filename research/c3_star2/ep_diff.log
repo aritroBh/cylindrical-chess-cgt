@@ -1,0 +1,10 @@
+root on: *2  root off: 0
+-- ply 1 done, frontier 3
+-- ply 2 done, frontier 9
+-- ply 3 done, frontier 23
+-- ply 4 done, frontier 56
+ply 5: W: a2 a3 c5 / B: b5 c7 (ep b6) side W; e.p. capture(s) ['W:c5xb6(b5)']; on 3/2±1/2 vs off 1*
+ply 5: W: a2 a5 b2 / B: b5 c5 c7 (ep b6) side W; e.p. capture(s) ['W:a5xb6(b5)']; on 0 vs off 0
+ply 5: W: a2 b2 c5 / B: b5 c7 (ep b6) side W; e.p. capture(s) ['W:c5xb6(b5)']; on {+W* | +W*} vs off +W±1/2
+-- ply 5 done, frontier 139
+first differences: ["ply 5: W: a2 a3 c5 / B: b5 c7 (ep b6) side W; e.p. capture(s) ['W:c5xb6(b5)']; on 3/2±1/2 vs off 1*", "ply 5: W: a2 b2 c5 / B: b5 c7 (ep b6) side W; e.p. capture(s) ['W:c5xb6(b5)']; on {+W* | +W*} vs off +W±1/2"] 5

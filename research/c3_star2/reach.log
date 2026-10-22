@@ -1,0 +1,11 @@
+== start: ranks 2 and 7 full (C3: 6 pawns; C4: 8 pawns)
+C3 target W: a2 a3 b2 / B: b7 c6 c7 | unrestricted: states searched 4173, target reached: NO
+C3 target W: a2 a3 b2 / B: b7 c6 c7 | model (no expansion past a passed pawn): states searched 4173, target reached: NO
+C4 target W: a4 b2 c2 / B: b6 c5 d6 d7 | unrestricted: states searched 624325, target reached: YES
+  shortest history (7 plies): W:d2-d4 B:b7-b6 W:d4-d5 B:c7-c5 W:d5-d6 B:a7xd6(d6) W:a2-a4
+  captures in that history: ['B:a7xd6(d6)']
+  number of target keys reached: 3
+C4 target W: a4 b2 c2 / B: b6 c5 d6 d7 | model (no expansion past a passed pawn): states searched 333221, target reached: YES
+  shortest history (7 plies): W:d2-d4 B:b7-b6 W:d4-d5 B:c7-c5 W:d5-d6 B:a7xd6(d6) W:a2-a4
+  captures in that history: ['B:a7xd6(d6)']
+  number of target keys reached: 3

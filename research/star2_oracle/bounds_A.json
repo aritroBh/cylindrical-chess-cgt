@@ -1,0 +1,259 @@
+{
+ "component": "W: a4 b3 d2 d3 / B: a7 b7 c5",
+ "tree": "e.p.-aware",
+ "internal_nodes": 861,
+ "terminals": 1405,
+ "model_values": {
+  "count": "*2",
+  "mover": "*2",
+  "opponent": "{{+W, {+W | +W, {+W | \u2193*}} | +W, \u00b1+W} | 0}"
+ },
+ "policies": {
+  "free": {
+   "fill_stats": {
+    "free": 2810
+   },
+   "switch, draw = Black win": {
+    "G_lo": "{{-W, {-W, {-W, {-W, {-W, -W* | -W, {-W, -W* | -W}} | -W, {-W, -W* | -W}} | -W, {-W, -W* | -W}} | -W, {-W, -W* | -W, {-W, -W* | -W}}} | -W, -W*} | -W}",
+    "G_hi": "{{+W | +W, +W\u00b1+W} | +W}",
+    "pinned": false,
+    "outcome_G_lo": "R",
+    "outcome_G_hi": "L",
+    "excludes *2": false,
+    "excludes 0": false,
+    "excludes model value under count": false,
+    "excludes model value under mover": false,
+    "excludes model value under opponent": false
+   },
+   "switch, draw = White win": {
+    "G_lo": "{{-W, {-W, {-W, {-W, {-W, -W* | -W, {-W, -W* | -W}} | -W, {-W, -W* | -W}} | -W, {-W, -W* | -W}} | -W, {-W, -W* | -W, {-W, -W* | -W}}} | -W, -W*} | -W}",
+    "G_hi": "{{+W | +W, +W\u00b1+W} | +W}",
+    "pinned": false,
+    "outcome_G_lo": "R",
+    "outcome_G_hi": "L",
+    "excludes *2": false,
+    "excludes 0": false,
+    "excludes model value under count": false,
+    "excludes model value under mover": false,
+    "excludes model value under opponent": false
+   },
+   "switch, draw = 0": {
+    "G_lo": "{{-W, {-W, {-W, {-W, {-W, -W* | -W, {-W, -W* | -W}} | -W, {-W, -W* | -W}} | -W, {-W, -W* | -W}} | -W, {-W, -W* | -W, {-W, -W* | -W}}} | -W, -W*} | -W}",
+    "G_hi": "{{+W | +W, +W\u00b1+W} | +W}",
+    "pinned": false,
+    "outcome_G_lo": "R",
+    "outcome_G_hi": "L",
+    "excludes *2": false,
+    "excludes 0": false,
+    "excludes model value under count": false,
+    "excludes model value under mover": false,
+    "excludes model value under opponent": false
+   },
+   "free (only L/R fixed)": {
+    "G_lo": "{{-W, {-W, {-W, {-W, {-W, -W* | -W, {-W, -W* | -W}} | -W, {-W, -W* | -W}} | -W, {-W, -W* | -W}} | -W, {-W, -W* | -W, {-W, -W* | -W}}} | -W, -W*} | -W}",
+    "G_hi": "{{+W | +W, +W\u00b1+W} | +W}",
+    "pinned": false,
+    "outcome_G_lo": "R",
+    "outcome_G_hi": "L",
+    "excludes *2": false,
+    "excludes 0": false,
+    "excludes model value under count": false,
+    "excludes model value under mover": false,
+    "excludes model value under opponent": false
+   }
+  },
+  "one-sided model-filled, races free": {
+   "fill_stats": {
+    "free": 296,
+    "model-filled one-sided": 2514
+   },
+   "switch, draw = Black win": {
+    "G_lo": "*2",
+    "G_hi": "+W\u00b1+W",
+    "pinned": false,
+    "outcome_G_lo": "N",
+    "outcome_G_hi": "N",
+    "excludes *2": false,
+    "excludes 0": true,
+    "excludes model value under count": false,
+    "excludes model value under mover": false,
+    "excludes model value under opponent": false
+   },
+   "switch, draw = White win": {
+    "G_lo": "*2",
+    "G_hi": "+W\u00b1+W",
+    "pinned": false,
+    "outcome_G_lo": "N",
+    "outcome_G_hi": "N",
+    "excludes *2": false,
+    "excludes 0": true,
+    "excludes model value under count": false,
+    "excludes model value under mover": false,
+    "excludes model value under opponent": false
+   },
+   "switch, draw = 0": {
+    "G_lo": "*2",
+    "G_hi": "+W\u00b1+W",
+    "pinned": false,
+    "outcome_G_lo": "N",
+    "outcome_G_hi": "N",
+    "excludes *2": false,
+    "excludes 0": true,
+    "excludes model value under count": false,
+    "excludes model value under mover": false,
+    "excludes model value under opponent": false
+   },
+   "free (only L/R fixed)": {
+    "G_lo": "*2",
+    "G_hi": "+W\u00b1+W",
+    "pinned": false,
+    "outcome_G_lo": "N",
+    "outcome_G_hi": "N",
+    "excludes *2": false,
+    "excludes 0": true,
+    "excludes model value under count": false,
+    "excludes model value under mover": false,
+    "excludes model value under opponent": false
+   }
+  },
+  "all unknown sides model-filled (races: count)": {
+   "fill_stats": {
+    "model-filled race (count)": 296,
+    "model-filled one-sided": 2514
+   },
+   "switch, draw = Black win": {
+    "G_lo": "*2",
+    "G_hi": "*2",
+    "pinned": true,
+    "outcome_G_lo": "N",
+    "outcome_G_hi": "N",
+    "excludes *2": false,
+    "excludes 0": true,
+    "excludes model value under count": false,
+    "excludes model value under mover": false,
+    "excludes model value under opponent": true,
+    "value": "*2",
+    "mean": "0",
+    "temperature": "0"
+   },
+   "switch, draw = White win": {
+    "G_lo": "*2",
+    "G_hi": "*2",
+    "pinned": true,
+    "outcome_G_lo": "N",
+    "outcome_G_hi": "N",
+    "excludes *2": false,
+    "excludes 0": true,
+    "excludes model value under count": false,
+    "excludes model value under mover": false,
+    "excludes model value under opponent": true,
+    "value": "*2",
+    "mean": "0",
+    "temperature": "0"
+   },
+   "switch, draw = 0": {
+    "G_lo": "*2",
+    "G_hi": "*2",
+    "pinned": true,
+    "outcome_G_lo": "N",
+    "outcome_G_hi": "N",
+    "excludes *2": false,
+    "excludes 0": true,
+    "excludes model value under count": false,
+    "excludes model value under mover": false,
+    "excludes model value under opponent": true,
+    "value": "*2",
+    "mean": "0",
+    "temperature": "0"
+   },
+   "free (only L/R fixed)": {
+    "G_lo": "*2",
+    "G_hi": "*2",
+    "pinned": true,
+    "outcome_G_lo": "N",
+    "outcome_G_hi": "N",
+    "excludes *2": false,
+    "excludes 0": true,
+    "excludes model value under count": false,
+    "excludes model value under mover": false,
+    "excludes model value under opponent": true,
+    "value": "*2",
+    "mean": "0",
+    "temperature": "0"
+   }
+  },
+  "all unknown sides model-filled (races: opponent)": {
+   "fill_stats": {
+    "model-filled race (opponent)": 296,
+    "model-filled one-sided": 2514
+   },
+   "switch, draw = Black win": {
+    "G_lo": "{+W | 0, +W\u00b1+W}",
+    "G_hi": "{+W | 0, +W\u00b1+W}",
+    "pinned": true,
+    "outcome_G_lo": "N",
+    "outcome_G_hi": "N",
+    "excludes *2": true,
+    "excludes 0": true,
+    "excludes model value under count": true,
+    "excludes model value under mover": true,
+    "excludes model value under opponent": true,
+    "value": "{+W | 0, +W\u00b1+W}",
+    "mean": "128",
+    "temperature": "128"
+   },
+   "switch, draw = White win": {
+    "G_lo": "{+W | 0, +W\u00b1+W}",
+    "G_hi": "{+W | 0, +W\u00b1+W}",
+    "pinned": true,
+    "outcome_G_lo": "N",
+    "outcome_G_hi": "N",
+    "excludes *2": true,
+    "excludes 0": true,
+    "excludes model value under count": true,
+    "excludes model value under mover": true,
+    "excludes model value under opponent": true,
+    "value": "{+W | 0, +W\u00b1+W}",
+    "mean": "128",
+    "temperature": "128"
+   },
+   "switch, draw = 0": {
+    "G_lo": "{+W | 0, +W\u00b1+W}",
+    "G_hi": "{+W | 0, +W\u00b1+W}",
+    "pinned": true,
+    "outcome_G_lo": "N",
+    "outcome_G_hi": "N",
+    "excludes *2": true,
+    "excludes 0": true,
+    "excludes model value under count": true,
+    "excludes model value under mover": true,
+    "excludes model value under opponent": true,
+    "value": "{+W | 0, +W\u00b1+W}",
+    "mean": "128",
+    "temperature": "128"
+   },
+   "free (only L/R fixed)": {
+    "G_lo": "*2",
+    "G_hi": "+W\u00b1+W",
+    "pinned": false,
+    "outcome_G_lo": "N",
+    "outcome_G_hi": "N",
+    "excludes *2": false,
+    "excludes 0": true,
+    "excludes model value under count": false,
+    "excludes model value under mover": false,
+    "excludes model value under opponent": false
+   }
+  }
+ },
+ "sides_resolved_by_kind_and_men": {
+  "one-sided 8-man open": 196,
+  "one-sided 9-man open": 678,
+  "one-sided 10-man open": 1040,
+  "one-sided 11-man open": 600,
+  "race 8-man open": 26,
+  "race 9-man open": 84,
+  "race 10-man open": 186
+ },
+ "one_sided_real_vs_model": {}
+}

@@ -94,13 +94,13 @@ the whole-board game, which ends at the first passed pawn.
 
 \begin{definition}[Hereditary sum safety]\label{def:hss}
 A component carries a \emph{threat} for a side if a position reachable from it gives that side a passed pawn. A
-position $X$ is \emph{hereditarily sum-safe} (HSS) if no position reachable from $X$ before the first passed
-pawn, $X$ included, has two components with threats for opposite sides.
+position $X$ is \emph{hereditarily sum-safe} (HSS) if no position reachable from $X$ by moves of either side,
+in any order, before the first passed pawn, $X$ included, has two components with threats for opposite sides.
 \end{definition}
 
 \begin{theorem}[Sum safety; \lab{AI}]\label{thm:hss}
-Suppose that $X$ is HSS, that no position with two or more components has a usable en passant right (condition
-(E)), and that $\BIG$ exceeds the number of moves either side can make. Then $S(X)$ and $W(X)$ have the same
+Suppose that $X$ is HSS, that no position reachable from $X$ with two or more components has a usable en
+passant right (condition (E)), and that $\BIG$ exceeds the number of moves either side can make. Then $S(X)$ and $W(X)$ have the same
 outcome.
 \end{theorem}
 

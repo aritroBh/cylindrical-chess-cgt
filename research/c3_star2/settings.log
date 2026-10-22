@@ -1,0 +1,22 @@
+== C3 W a2 a3 b2 / B b7 c6 c7
+  count, e.p. on, aware test (default)   value           *2  outcome N  nimber *2  (13.0s)
+  count, e.p. on, textbook test          value           *2  outcome N  nimber *2  (13.4s)
+  count, e.p. off                        value            0  outcome P  nimber *0  (9.3s)
+  mover, e.p. on, aware test             value            0  outcome P  nimber *0  (13.1s)
+  mover, e.p. on, textbook test          value            0  outcome P  nimber *0  (13.8s)
+  mover, e.p. off                        value            0  outcome P  nimber *0  (11.5s)
+  opponent, e.p. on, aware test          value           *2  outcome N  nimber *2  (13.6s)
+  opponent, e.p. on, textbook test       value           *2  outcome N  nimber *2  (14.1s)
+  opponent, e.p. off                     value           *2  outcome N  nimber *2  (9.8s)
+
+== C4 W a4 b2 c2 / B b6 c5 d6 d7
+  count, e.p. on, aware test (default)   value           *2  outcome N  nimber *2  (19.6s)
+  count, e.p. on, textbook test          value           *2  outcome N  nimber *2  (18.5s)
+  count, e.p. off                        value {{0 | {0 | {0, {{+W | {+W | +W, {+W | +W, ±+W}}, {+W | {+W, {+W, ±+W | -W} | -W, ±+W}}} | 0} | 0, -W±+W}}} | 0}  outcome N  nimber -  (15.5s)
+  mover, e.p. on, aware test             value           *2  outcome N  nimber *2  (20.0s)
+  mover, e.p. on, textbook test          value           *2  outcome N  nimber *2  (17.3s)
+  mover, e.p. off                        value {{0 | {0 | {0, {{+W | {+W | +W, {+W | +W, ±+W}}, {+W | {+W, {+W, ±+W | -W} | -W, ±+W}}} | 0} | 0, -W±+W}}} | 0}  outcome N  nimber -  (13.4s)
+  opponent, e.p. on, aware test          value           *2  outcome N  nimber *2  (19.9s)
+  opponent, e.p. on, textbook test       value           *2  outcome N  nimber *2  (16.8s)
+  opponent, e.p. off                     value {{0 | {0 | {0, {{+W | {+W | +W, {+W | +W, ±+W}}, {+W | {+W, {+W, ±+W | -W} | -W, ±+W}}} | 0} | 0, -W±+W}}} | 0}  outcome N  nimber -  (12.9s)
+

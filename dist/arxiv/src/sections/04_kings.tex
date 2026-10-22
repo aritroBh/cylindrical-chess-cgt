@@ -56,28 +56,33 @@ first decisive event:
 \begin{enumerate}
 \item[(V1)] the legal chess moves are exactly the moves of the model, nobody is in check, and the side to move
   has a legal move;
-\item[(V2)] the side that gets a passed pawn wins;
-\item[(V3)] every move in $Z$ is decisively punished.
+\item[(V2)] in chess, the side that gets a passed pawn wins, and a race is won as the race rule says;
+\item[(V3)] in chess, every move in $Z$ loses (it is \emph{decisively punished}).
 \end{enumerate}
-Then the chess result, with either side to move, is the normal-play outcome of the components, without draws.
+Then the chess result, with either side to move, is the outcome of $W(X)$, the pawn game that ends at the first
+passed pawn (Section~\ref{sec:sums-hss}), without draws, where $X$ is the position with $Z$ and its pawns deleted.
 \end{theorem}
 
 \begin{proof}[Proof sketch]
-By (V3) the model is the normal-play sum of the components, without draws; its winner never moves in $Z$, and by
-(V1) the loser has only model moves, so play ends at a decisive event that wins the chess game for the winner by
-(V2) and (V3). The full proof is in the repository.
+By (V3) neither side moves in $Z$ without losing, so until the first decisive event both play the pawn game;
+by (V1) the side to move always has a model move, so play ends at a decisive event, and by (V2) and (V3) that event
+decides the chess game as it decides $W(X)$. The full proof is in the repository.
 \end{proof}
 
-\begin{conjecture}[\lab{Conj}]\label{conj:v4}
-If also (V4) the pawn part is hereditarily sum-safe (Definition~\ref{def:hss}) and $\BIG$ exceeds every tempo
-count, the chess result in Theorem~\ref{thm:validity} is the outcome class of the $\pm\BIG$ value of the
-components.
-\end{conjecture}
+\begin{corollary}[\lab{AI}]\label{cor:v4}
+If also (V4) $X$ is hereditarily sum-safe (Definition~\ref{def:hss}) and satisfies condition (E) of
+Theorem~\ref{thm:hss}, and $\BIG$ exceeds the number of moves either side can make, the chess result in
+Theorem~\ref{thm:validity} is the outcome class of the $\pm\BIG$ value of the components.
+\end{corollary}
 
-A proof, repaired after review and building on Theorem~\ref{thm:hss}, is in the repository; it has been
-checked only by AI models, so we state the result as a conjecture. Each condition can fail: a king walks over to the pawns (V1),
-a passed pawn does not win its race (V2), white's king moves in Fig.~\ref{fig:kinggroup72} go unpunished (V3),
-and a $+\BIG$ cancels a $-\BIG$ (V4; Section~\ref{sec:sums-hss}).
+\begin{proof}
+By Theorem~\ref{thm:validity} the chess result is the outcome of $W(X)$, and by Theorem~\ref{thm:hss} this is
+the outcome of $S(X)$.
+\end{proof}
+
+Each condition can fail: a stalemate trap leaves the loser without a move (V1), a passed pawn does not win its
+race (V2), a king walks over to the pawns or, in Fig.~\ref{fig:kinggroup72}, white's king moves go unpunished
+(V3), and a $+\BIG$ cancels a $-\BIG$ (V4; Section~\ref{sec:sums-hss}).
 
 A local test for (V3) is the \emph{certificate of horizon $h$}: with all other pawns removed, the punisher
 promotes within $h$ moves of its reply even if the defender may pass at any time, the defender cannot promote
@@ -90,8 +95,8 @@ A certificate of horizon $h$ implies (V3).
 Our proof of this has a gap.
 
 \begin{proposition}[\lab{AI}]\label{prop:horizon1}
-On boards with at least six ranks, for $h=1$, the counter-promotion condition holds in every context without a
-passed pawn.
+On boards with at least six ranks, for $h=1$, the counter-promotion condition holds in every chess-legal
+context without a passed pawn.
 \end{proposition}
 
 \begin{proof}
@@ -101,8 +106,8 @@ already passed.
 \end{proof}
 
 \begin{conjecture}[\lab{Conj}]\label{conj:horizon2}
-For every king group whose punishment needs $h\ge2$ moves, some context without a passed pawn leaves a move in
-the group unpunished.
+On a board with room for two files beyond the buffer, for every king group whose punishment needs $h\ge2$
+moves, some context without a passed pawn leaves a move in the group unpunished.
 \end{conjecture}
 
 Real tr\'ebuchets need $h\approx5$--$7$, so we trust their zero only beside slow or locked components.
@@ -115,10 +120,18 @@ $\textsf{off}=-\textsf{on}$ if only black can, and $\textsf{dud}$ if both can. S
 decisive event must instead end the game.
 
 \begin{theorem}[Outcomes with spare moves; \lab{AI}]\label{thm:loopy}
-Let every decisive event end the game. If only white can wait, black wins exactly when it can force a decisive
+Let the components form a short game in which every decisive event ends the game, let a side that can wait pass
+at any time, and let every other move in $Z$ lose. If only white can wait, black wins exactly when it can force a decisive
 event in its favor against a white who may pass at any time; otherwise white wins. If both can wait, either side
 wins exactly when it can do so against a passing opponent; otherwise the game is drawn.
 \end{theorem}
+
+\begin{proof}[Proof sketch]
+If only white can wait, every play is finite, since black's moves are, so the game is determined, and black
+wins exactly when some move of black's wins against every white reply, a pass included. If both can wait, a
+winning side never needs to pass, so it wins exactly when it can force a decisive event against passes;
+otherwise play can go on forever. The full proof is in the repository.
+\end{proof}
 
 Beside a spare king move, then, component values matter only through their forcing threats. The kings
 alone are already loopy: in normal play (a stalemate loses), every quiet K+P against K placement on the boards

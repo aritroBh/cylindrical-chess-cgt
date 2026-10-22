@@ -1,0 +1,19 @@
+V value {2 | *, {{⇑* | 0} | -W}} G<=V True
+  V B-option W: a2 a3 b4 / B: b6 c5 c7 *
+  V B-option W: a2 a3 b4 / B: b5 c5 c7 (ep b6) {1* | {0, {0 | {{-W | -W, {-W | -W, {-W | -W, -W*}}} | -W}} | -W}}
+  V B-option W: a2 a3 b4 / B: b7 c4 c7 {{{+W, {+W, {+W, +W* | +W} | +W} | +W} | +W} | -W*}
+  V B-option W: a2 a3 / B: b4 b7 c7 {{⇑* | 0} | -W}
+  V B-option W: a2 a3 b4 / B: b7 c5 c6 {3 | 0, -W±+W}
+Y2 value {{⇑* | 0} | -W} Y2 = c5xb4 result; Y2 Right-option check G<=Y2 ? False
+Z value {⇑* | 0} G<=Z True
+  Z B-option W: a2 b4 / B: b6 c7 {2 | 0, {*, {+W | *} | -2}} dominated by 0 (0<=w): False  w<=0: False
+  Z B-option W: a2 b4 / B: b5 c7 (ep b6) 0 dominated by 0 (0<=w): True  w<=0: True
+  Z B-option W: a2 b4 / B: b7 c6 3/4 dominated by 0 (0<=w): True  w<=0: False
+  Z B-option W: a2 b4 / B: b7 c5 (ep c6) {{{{{+W, +W* | +W, ±+W} | +W} | +W}, {{{{+W, +W* | +W, ±+W} | +W} | +W} | +W} | +W} | -3} dominated by 0 (0<=w): False  w<=0: False
+  Y2 W-option W: a2 a4 / B: b4 b7 c7 {{-W | {-W | {-W | {-W | {-W, ±+W | -W, -W*}}}}} | {-W | {-W | {-W | {-W, ±+W | -W, -W*}}}, {-W | {-W | {-W | {-W, ±+W | -W, -W*}}}}}} G<=w: False
+  Y2 W-option W: a2 b4 / B: b7 c7 {⇑* | 0} G<=w: True
+  V B-option W: a2 a3 b4 / B: b6 c5 c7 * w>=*: True w>=Y2: False
+  V B-option W: a2 a3 b4 / B: b5 c5 c7 (ep b6) {1* | {0, {0 | {{-W | -W, {-W | -W, {-W | -W, -W*}}} | -W}} | -W}} w>=*: False w>=Y2: True
+  V B-option W: a2 a3 b4 / B: b7 c4 c7 {{{+W, {+W, {+W, +W* | +W} | +W} | +W} | +W} | -W*} w>=*: False w>=Y2: True
+  V B-option W: a2 a3 / B: b4 b7 c7 {{⇑* | 0} | -W} w>=*: False w>=Y2: True
+  V B-option W: a2 a3 b4 / B: b7 c5 c6 {3 | 0, -W±+W} w>=*: True w>=Y2: True

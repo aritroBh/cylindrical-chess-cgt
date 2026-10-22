@@ -1,0 +1,51 @@
+
+=== whole position: W: a2 a4 c2 e2 / B: a3 a6 d7 f7   value = *3
+  independent components (empty files separate them):
+    W: a2 a4 / B: a3 a6   = *
+    W: c2 e2 / B: d7 f7   = *2
+  Left (White): 5 raw moves
+    W: a2 a5 c2 e2 / B: a3 a6 d7 f7                -> *2                           
+    W: a2 a4 c2 e3 / B: a3 a6 d7 f7                -> {* | -1*}                    dominated by *2 / 0; reversible through -1*
+    W: a2 a4 c2 e4 / B: a3 a6 d7 f7                -> *                            
+    W: a2 a4 c3 e2 / B: a3 a6 d7 f7                -> {0 | -1*}                    dominated by *2 / *; reversible through -1*
+    W: a2 a4 c4 e2 / B: a3 a6 d7 f7                -> 0                            
+  Right (Black): 5 raw moves
+    W: a2 a4 c2 e2 / B: a3 a6 d6 f7                -> {1* | *}                     dominated by 0 / *2; reversible through 1*
+    W: a2 a4 c2 e2 / B: a3 a6 d5 f7                -> *                            
+    W: a2 a4 c2 e2 / B: a3 a6 d7 f6                -> {1* | 0}                     dominated by * / *2; reversible through 1*
+    W: a2 a4 c2 e2 / B: a3 a6 d7 f5                -> 0                            
+    W: a2 a4 c2 e2 / B: a3 a5 d7 f7                -> *2                           
+  canonical form: Left options ['0', '*', '*2'], Right options ['0', '*', '*2']
+
+=== a-file component: W: a2 a4 / B: a3 a6   value = *
+  Left (White): 1 raw moves
+    W: a2 a5 / B: a3 a6                            -> 0                            
+  Right (Black): 1 raw moves
+    W: a2 a4 / B: a3 a5                            -> 0                            
+  canonical form: Left options ['0'], Right options ['0']
+
+=== c-f gadget (translated *2): W: c2 e2 / B: d7 f7   value = *2
+  Left (White): 4 raw moves
+    W: c2 e3 / B: d7 f7                            -> -1/2±1/2                     dominated by *; reversible through -1
+    W: c2 e4 / B: d7 f7                            -> 0                            
+    W: c3 e2 / B: d7 f7                            -> {* | -1}                     dominated by 0; reversible through -1
+    W: c4 e2 / B: d7 f7                            -> *                            
+  Right (Black): 4 raw moves
+    W: c2 e2 / B: d6 f7                            -> 1/2±1/2                      dominated by *; reversible through 1
+    W: c2 e2 / B: d5 f7                            -> 0                            
+    W: c2 e2 / B: d7 f6                            -> {1 | *}                      dominated by 0; reversible through 1
+    W: c2 e2 / B: d7 f5                            -> *                            
+  canonical form: Left options ['0', '*'], Right options ['0', '*']
+
+=== 4-file original *2: W: a2 c2 / B: b7 d7   value = *2
+  Left (White): 4 raw moves
+    W: a3 c2 / B: b7 d7                            -> {* | -1}                     dominated by 0; reversible through -1
+    W: a4 c2 / B: b7 d7                            -> *                            
+    W: a2 c3 / B: b7 d7                            -> -1/2±1/2                     dominated by *; reversible through -1
+    W: a2 c4 / B: b7 d7                            -> 0                            
+  Right (Black): 4 raw moves
+    W: a2 c2 / B: b7 d6                            -> {1 | *}                      dominated by 0; reversible through 1
+    W: a2 c2 / B: b7 d5                            -> *                            
+    W: a2 c2 / B: b6 d7                            -> 1/2±1/2                      dominated by *; reversible through 1
+    W: a2 c2 / B: b5 d7                            -> 0                            
+  canonical form: Left options ['0', '*'], Right options ['0', '*']

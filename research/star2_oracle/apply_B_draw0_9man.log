@@ -1,0 +1,49 @@
+sensitivity done: switch, draw = 0 1205 s
+wrote research/star2_oracle/apply_B_draw0_9man.json
+{
+ "component": "W: b4 c2 d2 / B: a6 a7 c6 d5",
+ "min_support_treatment": "free (only L/R fixed)",
+ "race_rule_for_fill": "count",
+ "model_value": "*2",
+ "needed": 60,
+ "kp_positions": 14,
+ "needed_by_men": {
+  "8": 7,
+  "9": 25,
+  "10": 23,
+  "11": 5
+ },
+ "sides_exact": 14,
+ "sides_exact_disagree_with_model": 0,
+ "sides_exact_also_by_searcher_tb": 0,
+ "sides_exact_searcher_tb_disagree": 0,
+ "men_solved": [
+  8
+ ],
+ "sides_open": 106,
+ "open_by_men": {
+  "9": 50,
+  "10": 46,
+  "11": 10
+ },
+ "open_terminals_by_men": {
+  "9": 25,
+  "10": 23,
+  "11": 5
+ },
+ "sensitivity_treatments_done": [
+  "switch, draw = 0"
+ ]
+}
+--- switch, draw = Black win: pinned=False excludes*2=False excludes0=False cond(open at model) pinned=True = *2
+    G_lo = {-W | {-W, -W±+W | -W}}
+    G_hi = {+W | {+W, +W* | +W, {+W, {+W, {+W | +W, +W*} | +W, +W*} | +W, {+W, {+W | +W, +W*} | +W, {+W, {+W | 
+--- switch, draw = White win: pinned=False excludes*2=False excludes0=False cond(open at model) pinned=True = *2
+    G_lo = {-W | {-W, -W±+W | -W}}
+    G_hi = {+W | {+W, +W* | +W, {+W, {+W, {+W | +W, +W*} | +W, +W*} | +W, {+W, {+W | +W, +W*} | +W, {+W, {+W | 
+--- switch, draw = 0: pinned=False excludes*2=False excludes0=False cond(open at model) pinned=True = *2
+    G_lo = {-W | {-W, -W±+W | -W}}
+    G_hi = {+W | {+W, +W* | +W, {+W, {+W, {+W | +W, +W*} | +W, +W*} | +W, {+W, {+W | +W, +W*} | +W, {+W, {+W | 
+--- free (only L/R fixed): pinned=False excludes*2=False excludes0=False cond(open at model) pinned=True = *2
+    G_lo = {-W | {-W, -W±+W | -W}}
+    G_hi = {+W | {+W, +W* | +W, {+W, {+W, {+W | +W, +W*} | +W, +W*} | +W, {+W, {+W | +W, +W*} | +W, {+W, {+W | 
