@@ -49,6 +49,10 @@ Read first:
    - Other projects and other agents run on this machine.
    - **Never kill, stop or signal a process you did not start yourself.** No `pkill`, `killall` or `kill` on
      anything but your own PIDs.
+   - **Never use `pkill`, `killall`, `kill -- -1`, or `kill $(pgrep ...)` at all, even for your own jobs.** On
+     2026-10-22 an agent ran `pkill -f 0`, which matched every process with a 0 in its command line. It killed
+     another project's jobs. To stop your own process, record its PID when you start it (`cmd & echo $!`)
+     and run `kill <that PID>`.
    - Memory is tight. Keep every process under 4 GB RSS, and run at most 2 heavy processes at once, under
      `nice -n 10`.
    - Never feed kpsolve a whole-board position list larger than 100 MB.

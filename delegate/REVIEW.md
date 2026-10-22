@@ -468,3 +468,18 @@ main build stays at 14 pages.
 promotions only, C1), intro, abstract and conclusion item 1 are updated. The rerun with all four promotions is
 open; the 9-man queen-only run peaked at 26 GB, beyond this machine's shared-use limits.
 
+## INCIDENT 2026-10-22 ~15:02: a round-8 verifier ran `pkill -f 0`
+
+The T40 verifier (Sonnet) reported that it ran `pkill -f 0` once. That sends SIGTERM to every process of user
+aritro with a 0 in its command line.
+- **Killed:** every long-running Zeta(3) process seen earlier (saddle4.py, step_21.py, step_77.py,
+  sweep105.py, two agent_loop.py runs). New ones appear from 15:02–15:03, apparently restarted by their owner.
+- **Ours:** C7 piece p10 4+6 c185 (re-run) and probably T45's opencode run ("socket connection was closed").
+  The 1/8 cap-2 solve survived.
+- **Not ours to fix:** the Zeta(3) jobs.
+- **Actions:**
+  - the kings session was warned;
+  - `delegate/COMMON.md` rule 7 now bans `pkill`, `killall` and pattern kills outright;
+  - memory note `no-pattern-kills-in-agents`;
+  - the user was told.
+
