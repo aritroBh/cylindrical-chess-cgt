@@ -222,3 +222,33 @@ Accepted. Two of T12's four claims are refuted.
   e.p.-aware test.
   - These \*3s are unverified. They are probably e.p. artifacts, like the textbook \*2.
   - Next: verify one with cylcgt and Codex, and check its value under the e.p.-aware test.
+
+## T17 and T18: outside fact and style reviews of the finished paper (`notes/ieee_review/`). Checked; one change.
+
+### T17 (fact check)
+
+**Its two "WRONG" walk-throughs are themselves wrong.** Recomputed with cylcgt at count/aware on 4 files:
+
+| Position | Line | Value reached |
+|---|---|---|
+| A | d3–d4, c5×d4, b3–b4 | \* (`W a4 b4 d2 / B a7 b7 d4`), as the paper says |
+| B | a6–a5, b4×a5, c6–c5 | \* (`W a5 c2 d2 / B a7 c5 d5`) |
+
+For B, the intermediate values are {{1\*|\*}|−W} and then {1\*|\*}.
+
+Its other items refer to text that no longer exists or are mistaken:
+- "306 sides": the paper now says 302.
+- "conditional only on the king freeze": gone.
+- The minimax-winners sentence: already fixed.
+- "2,483,775 is for one race rule": wrong. 55,195 × 3 × 15 = 2,483,775, all three rules.
+- "every king move loses": supported by RESULTS.md row 30, checked two ways.
+
+**Applied:** the abstract now reads "hinges on one side of one end position".
+
+### T18 (style)
+
+Its report mostly copies the old REVIEW_FINDINGS list. None of the phrases it quotes is still in the
+sections, and its font claim is wrong (pdffonts shows NimbusRomNo9L, a Times clone).
+
+**Real but up to the author:** the affiliation, city and country in the byline, which the repo does not
+record.
