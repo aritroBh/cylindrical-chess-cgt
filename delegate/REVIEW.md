@@ -107,3 +107,65 @@ win/loss of single strips but not Grundy values. Not re-run here. It does not af
 - **T14** (Dawson variants): died in a 2-minute shell timeout. No REPORT.
 - **T15** (novelty check): finished its research phase, then died while writing. No REPORT.
 - **T8b:** validated its census (6,724 zeros, 4,042 stars, no \*2), then stopped while extending the scope (no error in the log).
+
+## T1b: second re-check (`verify_ext/omniroute/`, free model) — agrees, but not independent
+
+It agrees on all five headlines and gets the same census count, 793,299. Its log shows it read
+`verify_ext/codex/solver.py` and `selfcheck.py` before writing its own solver, so it is not counted as an
+independent implementation.
+
+## T13: engines on ChessSums (`engine/runs/chesssums/`) — accepted as COMPUTED-1, with the stated caveat
+
+- On a 200-position subset, Stockfish 19 picks a move in the winning set 27.5–28.0% of the time, from 1k to
+  1M nodes; Lc0 does so 32.5–33.5% of the time.
+- Both drop sharply with the number of components.
+- The ground truth is the CGT model under a frozen king group with 15–20 men. "Wrong" engine moves are
+  therefore wrong only relative to the model, not shown to be wrong in real chess. The report says this
+  (§6).
+- Not re-run here.
+
+## T8: the \*2 frontier (`research/star2_frontier/`, Codex) — main finding accepted and re-checked
+
+- **Accepted: \*2 returns with 7 pawns** under the paper's main convention (count rule, e.p.-aware test, e.p.
+  on).
+  - Positions: `W a4 b3 d2 d3 / B a7 b7 c5` and `W b4 c2 d2 / B a6 a7 c6 d5`.
+  - Three solvers give \*2: T8's C solver, cylcgt on 4 and 8 files, and the Codex whole-board Python solver
+    (`delegate/checks/star2_seven.out`).
+  - Both are also \*2 under count/textbook, mover/textbook and mover/aware. They are not \*2 with e.p. off,
+    nor under the opponent rule.
+- **Accepted: 8-pawn hits.** Every T8 hit at count/e.p.-aware on flat boards of width ≤ 4 (2 with 7 pawns, 4 with
+  8 pawns) is \*2 in cylcgt (`delegate/checks/star2_caware_check.out`). The three flat 5-file 8-pawn witnesses
+  are \*2 in cylcgt and in the Codex solver.
+- **Not checked independently:** the claim "no other \*2" in T8's new scopes (5.5M + 2.2M roots). It rests on
+  one implementation (COMPUTED-1). The old scope, ≤ 6 pawns, is CHECKED-2 (three implementations).
+- **Not robust:** the C5-ring hits are \*2 on the cylinder only. On the flat board the same pawns have other
+  values.
+- **Explained: the opponent-rule "discrepancy" T8 reported.**
+  - It is a difference of definition, not a bug: cylcgt adds up components (Elkies' sum model), while the
+    Codex solvers end the whole game at the first passed pawn.
+  - With splitting switched off, cylcgt equals the Codex solver on every disagreeing case tested.
+  - Example: `W a3 b3 c2 e2 / B a6 c5 d5 e3` under opponent/aware is ⇑ as a sum of components and \*2 on the
+    whole board.
+  - The two models agree on every headline value: 1/8 and ↑²\* in all nine settings; the 7-pawn \*2 at
+    count/aware.
+- **Real chess:** these are model values. Their real-chess oracle values are open (milestone M4).
+
+## T15: novelty and literature (`notes/novelty_check/`) — accepted with corrections
+
+- **Accepted:** no published CGT of pawn endgames on cylinder or torus boards was found, and no tablebases for
+  those boards.
+- **Rejected / removed: the Muller claim.** It could not be located (T15 marks it UNVERIFIED). The paper no
+  longer mentions it.
+- **Mäser 2002** ("Global Threats in Combinatorial Games ...", More Games of No Chance) exists. Its pages still need
+  checking against the volume.
+- **Flagged:** T15 gives Elkies 2002 as pp. 1–21, but the volume lists pp. 61–78 (our bib). Re-check before
+  submission.
+- Its claims about what Elkies left open are not used without a source check.
+
+## T12: odd-width cylinders (`research/odd_cylinders/`) — pending verification
+
+- All claims are COMPUTED-1 by a free model, using kpsolve.
+- Headline: parity of n does not affect the trébuchet or opposition for n ≥ 4, and on C3 every KPK position is a
+  draw.
+- It needs an independent check before any use (milestone M7). Its sweeping statement "direct opposition is
+  always a draw" is suspicious.

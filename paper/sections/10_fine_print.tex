@@ -1,0 +1,75 @@
+\begin{center}
+\section*{10. The Fine Print: En Passant and Passed Pawns}
+\end{center}
+
+\indent \indent All of our values rest on one rule: a passed pawn is an automatic win. Following Elkies [3], we
+give a position where exactly one side has a passed pawn the value $+\BIG$ (for white) or $-\BIG$ (for black),
+where $\BIG = 256$ is a number bigger than any count of tempo moves that can come up. But what exactly counts as
+``passed''? The usual answer is: no enemy pawn stands in front of it on its own file or on a file next to it.
+It turns out that en passant breaks this.
+
+\position{figures/elkies_dup.pdf}{Position 10.1 (ordinary board). On one file, white a2 against black a6 is
+$\Uparrow\star$, one of Elkies' examples [3].}
+
+\indent Before the problem, here is a reminder of how much a single file can hold. In Position 10.1, white (left)
+can play a2--a3, which leaves the zero game, or the double step a2--a4, which leaves $\star$. Black (right) can only
+play a6--a5, which leaves $\uparrow$. So $G = \{0, \star \mid \uparrow\}$. Just as in Position 4.2, $\star$ is a
+reversible move for white, so $G = \{0 \mid \uparrow\} = \Uparrow\star$, ``double-up star''.
+
+\subsection*{10.1 The problem with en passant}
+
+\indent Put a white pawn on a2 and a black pawn on b4. After white plays a2--a4, no black pawn stands in front
+of the a-pawn on the a-file or the b-file, so the usual test says the a-pawn is passed, and the position is worth
+$+\BIG$. But black can answer b4xa3 en passant! The ``passed'' pawn disappears. So we use a stricter test.
+
+\indent \textbf{Definition 10.2 (e.p.-aware passed pawn).} A pawn is passed if no enemy pawn stands in front of
+it on its own file or a neighbouring file, \emph{and} it cannot be captured en passant on the opponent's next
+move.
+
+\indent This change is small, but it matters. It changes 21,441 of the 231,071 values in our census of small
+positions (Section 13), and 4,068 of them change who wins. From now on, every value in this paper uses the
+e.p.-aware test unless we say ``textbook test''. None of the corrections in Table 9.1 changes because of it.
+
+\subsection*{10.2 Breaking a position into pieces}
+
+\indent Sections 1--8 broke big positions into sums of small ones. Here is why that is allowed, and what is
+special about the cylinder.
+
+\indent A pawn only changes file when it captures, and it can only capture onto a file that already has a pawn
+on it. So an empty file stays empty forever, and the pawns on either side of it can never interact. Each group of
+neighbouring occupied files is its own game, which we call a \emph{component}, and the whole position is the sum
+of its components. On an ordinary board the components are groups of files next to each other. On a cylinder they
+are arcs around the cylinder, or one ``ring'' that uses every file.
+
+\indent \textbf{Theorem 10.3 (the cut lemma)} \proved, \checkedtwo. A pawn position on an $n$-file cylinder with
+at least one empty file has the same value as the flat position you get by cutting the cylinder open along that
+file.
+
+\indent \textit{Why this is true.} No pawn can ever move onto the empty file, so no move ever crosses it. Cutting
+the board there changes no legal move and no passed-pawn test.
+
+\indent The cut lemma tells us where to look for values that only a cylinder can make: in rings, positions with
+a pawn on every file. A ring on an $n$-file cylinder needs at least $n$ pawns, so with only a few pawns the
+interesting cylinders are the narrow ones, with 3, 4 or 5 files. That is exactly what we find in Section 11.
+
+\subsection*{10.3 When does adding up the pieces work?}
+
+\indent In real chess the first passed pawn ends the game. In a sum of games, a $+\BIG$ in one component and a
+$-\BIG$ in another just cancel out, and the game goes on. So the sum is only a model of the real game. We found
+the exact condition that makes them agree.
+
+\indent \textbf{Theorem 10.4} \proved. Suppose that in no position reachable from the start do two different
+components both threaten a passed pawn, one for each side; that nobody ever has an en passant capture available
+while the position is split into several components; and that $\BIG$ is bigger than the number of moves either
+side can make. Then the sum of the components predicts the same winner as the whole-board game.
+
+\indent The condition really is needed. On the 8-file cylinder with en passant off, the position
+\pos{W b2 d4 g3 h5 / B a7 c7 f7 g4} passes the older test (which only looks at the starting position), yet the sum
+says black wins while the real whole-board game is a first-player win \checkedtwo. The trouble comes from sums
+that only appear later in the game.
+
+\indent We also compared our main program, which adds up components, with a program written separately by
+another AI system that never splits the board and simply stops the game at the first passed pawn. On all of the
+headline values of this paper the two agree. They can disagree elsewhere: for example, under the ``opponent''
+race rule of Section 13, \pos{W a3 b3 c2 e2 / B a6 c5 d5 e3} is $\Uparrow$ as a sum of components but $\star2$
+on the whole board. Whenever the two models differ, we say which one we mean.

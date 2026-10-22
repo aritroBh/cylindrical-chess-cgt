@@ -1,0 +1,20 @@
+W: a4 b3 d2 d3 / B: a7 b7 c5
+  count/off       cylcgt {0 | {{{0, {+W* | 0} | 0, {0 | -W*}} | 0} | 0}} codex {0 | {{{0, +W±+W | 0, -W±+W} | 0} | 0}} DIFFER
+  count/textbook  cylcgt *2                     codex *2                     agree
+  count/aware     cylcgt *2                     codex *2                     agree
+  mover/off       cylcgt {0 | {{{0, {+W* | 0} | 0, {0 | -W*}} | 0} | 0}} codex {0 | {{{0, +W±+W | 0, -W±+W} | 0} | 0}} DIFFER
+  mover/textbook  cylcgt *2                     codex *2                     agree
+  mover/aware     cylcgt *2                     codex *2                     agree
+  opponent/off       cylcgt {{+W | +W, ±+W, {+W | +W, ±+W}} | 0} codex {{+W | +W, ±+W, {+W | +W, ±+W}} | 0} agree
+  opponent/textbook  cylcgt {{+W, {+W | +W, {+W | ↓*}} | +W, ±+W} | 0} codex {{+W, {+W | +W, {+W | ↓*}} | +W, ±+W, {+W | +W, ±+W}} | 0} DIFFER
+  opponent/aware     cylcgt {{+W, {+W | +W, {+W | ↓*}} | +W, ±+W} | 0} codex {{+W, {+W | +W, {+W | ↓*}} | +W, ±+W, {+W | +W, ±+W}} | 0} DIFFER
+W: b4 c2 d2 / B: a6 a7 c6 d5
+  count/off       cylcgt {{0 | {0 | {0, {+W* | 0} | 0, {0 | -W*}}}} | 0} codex {{0 | {0 | {0, +W±+W | 0, -W±+W}}} | 0} DIFFER
+  count/textbook  cylcgt *2                     codex *2                     agree
+  count/aware     cylcgt *2                     codex *2                     agree
+  mover/off       cylcgt {{0 | {0 | {0, {+W* | 0} | 0, {0 | -W*}}}} | 0} codex {{0 | {0 | {0, +W±+W | 0, -W±+W}}} | 0} DIFFER
+  mover/textbook  cylcgt *2                     codex *2                     agree
+  mover/aware     cylcgt *2                     codex *2                     agree
+  opponent/off       cylcgt {0 | {-W, ±+W, {-W, ±+W | -W} | -W}} codex {0 | {-W, ±+W, {-W, ±+W | -W} | -W}} agree
+  opponent/textbook  cylcgt {0 | {-W, ±+W | -W, {-W, {↑* | -W} | -W}}} codex {0 | {-W, ±+W, {-W, ±+W | -W} | -W, {-W, {↑* | -W} | -W}}} DIFFER
+  opponent/aware     cylcgt {0 | {-W, ±+W | -W, {-W, {↑* | -W} | -W}}} codex {0 | {-W, ±+W, {-W, ±+W | -W} | -W, {-W, {↑* | -W} | -W}}} DIFFER

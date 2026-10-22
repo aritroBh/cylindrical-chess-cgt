@@ -1,105 +1,68 @@
-\documentclass[11pt]{article}
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{caption}
+\usepackage{bm} % Required for \bm
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
 
-% ---------------------------------------------------------------- packages
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{lmodern}
-\usepackage{microtype}
-\usepackage[margin=1in]{geometry}
-\usepackage{amsmath,amssymb,amsthm,mathtools}
-\usepackage{booktabs,tabularx,array,multirow}
-\usepackage{graphicx}
-\usepackage{xcolor}
-\usepackage{enumitem}
-% chess diagrams: xskak/chessboard are in TeX Live (Overleaf). Elsewhere a placeholder box is drawn.
-\IfFileExists{xskak.sty}{\usepackage{xskak}\newif\ifchess\chesstrue}{%
-  \IfFileExists{chessboard.sty}{\usepackage{chessboard}\newif\ifchess\chesstrue}{\newif\ifchess\chessfalse}}
-\usepackage[numbers,sort&compress]{natbib}
-\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
-\usepackage[capitalise,noabbrev]{cleveref}
+\setlength{\parindent}{15pt}   % Indent paragraphs
+\setlength{\parskip}{6pt}      % Add space between paragraphs
 
-\setlist{itemsep=2pt,topsep=4pt}
-
-% ---------------------------------------------------------------- theorems
-\theoremstyle{plain}
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Corollary}
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{convention}[theorem]{Convention}
-\newtheorem{example}[theorem]{Example}
-\newtheorem{question}[theorem]{Question}
-\theoremstyle{remark}
-\newtheorem{remark}[theorem]{Remark}
-
-% ---------------------------------------------------------------- CGT notation
-\newcommand{\up}{\mathord{\uparrow}}
-\newcommand{\down}{\mathord{\downarrow}}
-\newcommand{\dup}{\mathord{\Uparrow}}
-\newcommand{\ddown}{\mathord{\Downarrow}}
-\newcommand{\upsec}{\mathord{\uparrow^{2}}}          % up-second, {0 | down*}
-\newcommand{\tinyg}[1]{\operatorname{tiny}(#1)}
-\renewcommand{\star}{\mathord{\ast}}
-\newcommand{\nim}[1]{\mathord{\ast #1}}
+% ---- added in 2026 for Sections 9 onward (Sections 1-8 do not use them) ----
+\newcommand{\proved}{(\textsc{proved})}
+\newcommand{\checkedtwo}{(\textsc{checked twice})}
+\newcommand{\computedone}{(\textsc{computed once})}
+\newcommand{\conjecture}{(\textsc{conjecture})}
+\newcommand{\pos}[1]{\texttt{#1}}
 \newcommand{\BIG}{\mathsf{B}}
-\newcommand{\game}[2]{\{\,#1 \mid #2\,\}}
-\newcommand{\ggame}[2]{\{\,#1 \parallel #2\,\}}
-\newcommand{\Lout}{\mathcal{L}}
-\newcommand{\Rout}{\mathcal{R}}
-\newcommand{\Nout}{\mathcal{N}}
-\newcommand{\Pout}{\mathcal{P}}
-\newcommand{\cyl}[1]{C_{#1}}
-\newcommand{\flatb}[1]{F_{#1}}
-\newcommand{\pos}[1]{\texttt{#1}}                        % pawn position, e.g. \pos{W a2 c2 / B b7 d7}
-\newcommand{\fen}[1]{\texttt{\small #1}}
-\newcommand{\status}[1]{\textsc{#1}}                    % evidence label
-\newcommand{\file}[1]{\texttt{#1}}
+\newcommand{\position}[3][0.5]{% \position[width]{file}{caption}
+  \begin{figure}[h]
+      \centering
+      \includegraphics[width=#1\textwidth]{#2}
+      \caption*{#3}
+  \end{figure}}
 
-\ifchess
-  \setchessboard{smallboard,showmover=false}
-\else
-  \newcommand{\chessboard}[1][]{\fbox{\parbox[c][3.2cm][c]{3.6cm}{\centering\small chess diagram\\(compile on Overleaf)}}}
-\fi
-
-% ---------------------------------------------------------------- title
-\title{Pawn Endgames Without Edges:\\
-Exact Combinatorial Game Values, Real-Chess Certification,\\
-and Tablebases on the Cylindrical Chessboard}
-\author{Aritro Bhattacharjee}
-\date{October 2026 \quad (draft)}
+\title{Analysis of Chess Endgames on a Cylindrical Chessboard}
+\author{Aritro Bhattacharjee\thanks{Sections 1--8 were written in June 2025, mentored under Thomas Morley,
+and are reproduced here as written. Sections 9--20 were added in 2026; Section 9 lists the corrections to
+Sections 1--8.}}
+\date{June 2025, extended October 2026}
 
 \begin{document}
 \maketitle
 
-\begin{abstract}
-\input{sections/abstract}
-\end{abstract}
+% ======================= Part one: the 2025 paper, as written =======================
+\input{part1_2025}
 
-\tableofcontents
-\bigskip
+% ======================= Part two: continuing the analysis (2026) =======================
+\newpage
+\input{sections/09_looking_back}
+\input{sections/10_fine_print}
+\input{sections/11_every_small_position}
+\input{sections/12_smaller_values}
+\input{sections/13_star2}
+\input{sections/14_real_chess}
+\input{sections/15_kings}
+\input{sections/16_checkmate_without_corners}
+\input{sections/17_dawson_revisited}
+\input{sections/18_engines}
+\input{sections/19_how_we_checked}
+\input{sections/20_open}
 
-\input{sections/01_introduction}
-\input{sections/02_background}
-\input{sections/03_model}
-\input{sections/04_audit}
-\input{sections/05_atlas}
-\input{sections/06_star2}
-\input{sections/07_kings}
-\input{sections/08_tablebases}
-\input{sections/09_dawson}
-\input{sections/10_engines}
-\input{sections/11_methods}
-\input{sections/12_open}
-
+\newpage
+\begin{center}
 \section*{Acknowledgements}
+\end{center}
 \input{sections/acknowledgements}
 
-\bibliographystyle{plainnat}
-\bibliography{refs}
-
-\appendix
-\input{sections/appendix}
+\newpage
+\begin{center}
+\section*{Citations}
+\end{center}
+\input{sections/citations}
 
 \end{document}

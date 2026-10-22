@@ -1,0 +1,55 @@
+\begin{center}
+\section*{11. Every Small Position}
+\end{center}
+
+\indent \indent In Sections 2--4 we found each value by hand, one position at a time. With a computer we can
+instead find the value of \emph{every} small position and see which values appear at all. We did this twice:
+\begin{itemize}
+\item \textbf{The cylinder atlas.} Every pawn position with at most 5 pawns on cylinders and flat boards with 3 to
+  8 files (and 8 ranks): 1,223,689 positions. Under the e.p.-aware rule of Section 10 they have 10,561 different
+  values.
+\item \textbf{The flat census.} Every position with at most 6 pawns on flat boards with 1 to 4 files: 231,071
+  positions after removing mirror images. We use it for the smallest values (Section 12) and for $\star2$
+  (Section 13).
+\end{itemize}
+
+\subsection*{11.1 Which values do we see?}
+
+\indent With at most five pawns, the values we find are:
+\begin{itemize}
+\item \textbf{Nimbers:} only $\star$ (and, under the textbook test only, $\star2$; see Section 13).
+\item \textbf{Ups:} $\uparrow$, $\uparrow\star$, $\Uparrow$ and $\Uparrow\star$, each in a single component.
+\item \textbf{Fractions:} $\pm1/2$, $\pm1/4$, $\pm3/2$ and $\pm5/2$ on both kinds of board, and $\pm3/4$ only on
+  3-file cylinders.
+\item \textbf{Switches:} the hottest position, apart from the passed-pawn values $\pm\BIG$, has temperature 3. It is
+  Position 11.1, and it is the same on every board width.
+\end{itemize}
+
+\position{figures/hot3.pdf}{Position 11.1 (ordinary board, or any cylinder)}
+
+\indent In Position 11.1, whoever moves first captures. If white goes first, b4xa5 leaves white's a-pawns facing
+only the black pawn on b7, and white is 3 spare moves ahead. If black goes first, a5xb4 does the same for black.
+So $G = \{3 \mid -3\} = \pm3$, and by Principle 2 of Section 6, this is the first place either player should move.
+
+\subsection*{11.2 What only the cylinder can do}
+
+\indent By the cut lemma (Theorem 10.3), a value that appears on a cylinder but on no flat board must come from a
+ring, a position with a pawn on every file. With five pawns or fewer, that means cylinders with 3, 4 or 5 files.
+Here is what we found \computedone{} (the winners were also checked by a second program):
+\begin{itemize}
+\item 53 values, not counting the $\pm\BIG$ ones, appear on some cylinder of width at most 8 but on no flat board
+  of width at most 8 (textbook test).
+  \begin{itemize}
+  \item 40 of them come from rings on 3 files. For example, white a2, b4 against black b7, c6 on the
+    3-file cylinder is worth $3/4$, and white a2, b2 against black c5, c6 is worth $1/4 \pm 1/4$.
+  \item 13 come from rings on 4 files. For example, white a2, c2 against black b7, d7 on the 4-file cylinder is
+    worth $\{3/2 \pm 1/2 \mid -3/2 \pm 1/2\}$, which becomes $\{2 \pm 1 \mid -2 \pm 1\}$ under the e.p.-aware test.
+  \end{itemize}
+\item The other way round is empty: every value we found on a flat board also appears on some cylinder.
+\end{itemize}
+
+\indent One honest correction. At first our program reported that none of the cylinder-only values depended on
+the race rule (what happens when both sides get a passed pawn at once, Section 13). A second, separate check showed
+this is wrong. The 3-file ring values do depend on it: $3/4$ becomes $0$ under the ``mover wins'' rule. The 4-file
+values do not, but they change when en passant is switched off. So no value is cylinder-only under every
+version of the rules.

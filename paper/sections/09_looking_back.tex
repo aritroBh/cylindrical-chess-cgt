@@ -1,0 +1,77 @@
+\begin{center}
+\section*{9. Looking Back, and Looking Ahead}
+\end{center}
+
+\indent \indent In Sections 1--8 we built up the basic games 0, 1, 2, $\star$, $\uparrow$ and Tiny 1 with pawns,
+added the Trebuchet so that kings could join, and used sums of games to solve three puzzles. In the rest of this
+paper we continue that analysis, but this time we check every position with a computer. We wrote programs that
+compute the exact value of any pawn position on a flat or cylindrical board, that play out real chess with
+kings, and that build complete endgame tables. With these we went back over Sections 1--8, and then pushed on
+to questions that, as far as we could find, nobody has studied on a board without edges.
+
+\indent Because so much of this work is computational, we mark how strongly each claim was checked:
+\begin{itemize}
+\item \proved: we have a written proof;
+\item \checkedtwo: two programs, written separately from the rules alone, give the same answer;
+\item \computedone: one program computed it, and nothing else has checked it yet;
+\item \conjecture: we believe it, but it is neither proved nor computed.
+\end{itemize}
+
+\indent As in Sections 1--8, white is left and black is right, a passed pawn counts as a win, and kings are
+frozen in a Trebuchet so that they count as the zero game. Section 15 asks when that last assumption is
+actually true.
+
+\subsection*{9.1 What held up, and what did not}
+
+\indent The first thing we did was re-check every pawn position of Sections 1--8. Each diagram was copied out
+again without looking at our earlier answer, and the values were computed from scratch. Most of the paper holds
+up: the zero games of Section 2, the $\pm1$ and $\pm2$ games of Section 3, $\star$ and Tiny 1 in Section 4, the
+Trebuchet in Section 5, and the c-file and f-file games of Puzzle 7.1 are all correct. A few things are not, and
+we list them here so that the reader can trust the rest.
+
+\begin{table}[h]
+\centering\small
+\begin{tabularx}{\textwidth}{@{}l l l X@{}}
+\toprule
+Where & We said & The computer says & Why \\
+\midrule
+Position 2.2 & $0$ & $0$ & correct, but the white pawn on h1 could never stand there in chess \\
+Position 3.1 & $1$ & $1$ & correct, but only because of en passant across the a/h seam \\
+Position 3.2 & $2$ & $2$ & the value is right, the list of options is not \\
+Position 4.2 & $\uparrow$ & $0$ & the diagram is one rank off; with the pawns on e2 and e5 it is $\uparrow$ \\
+Position 5.1 & $0$ & mutual zugzwang & correct, and only because of the seam; it is a real zugzwang in chess \\
+Puzzle 7.1, a/h files & $1$ & $\{\BIG \mid \star\}$ & this part is hot, not a number \\
+Puzzle 7.2, pawns & $\pm1$ & an infinitesimal & the pawn game is infinitely small (mean 0), not a switch \\
+Puzzle 7.2, kings & $0$ & not a zugzwang & in real chess white to move draws (Section 15) \\
+Puzzle 7.3 & $2$ & already decided & the pawns on a5 and f7 are already passed \\
+Section 1 & knight h1 to a1, a2 & a3, b2 & a1 and a2 are extra \emph{king} squares, not knight squares \\
+Section 8 & the ring rule & see Section 17 & under the rule as stated nobody can make a first move \\
+\bottomrule
+\end{tabularx}
+\caption*{Table 9.1: Re-checking Sections 1--8 \checkedtwo. None of these answers changes under the stricter
+passed-pawn rule of Section 10.}
+\end{table}
+
+\indent So the method of Sections 1--8, breaking a position into a sum of smaller games and reading off
+numbers, infinitesimals and temperatures, is sound. The mistakes were in individual positions, and the biggest
+one, Section 8, is fixed in Section 17.
+
+\subsection*{9.2 What is new}
+
+\indent Here is a short guide to the rest of the paper.
+\begin{itemize}
+\item \textbf{Section 10} makes the rules exact. En passant turns out to break the usual test for a passed pawn,
+  so we fix the test.
+\item \textbf{Section 11} computes the value of every small pawn position on boards of 3 to 8 files, flat and
+  cylindrical, and finds which values only a cylinder can make.
+\item \textbf{Section 12} finds Elkies' smallest values, $1/8$, $\uparrow^{2}\star$ and Tiny 1, in positions
+  that can really happen in a game.
+\item \textbf{Section 13} is about $\star2$. Elkies asked whether $\star2$ can happen with only kings and pawns.
+  We show that it does not happen with six pawns or fewer, but that it \emph{does} come back with seven.
+\item \textbf{Section 14} checks these values against real chess, using endgame tablebases.
+\item \textbf{Section 15} unfreezes the kings.
+\item \textbf{Section 16} asks which pieces can still checkmate when there are no corners or edges.
+\item \textbf{Section 17} corrects and finishes Dawson's chess on the cylinder.
+\item \textbf{Section 18} tests chess engines on these positions.
+\item \textbf{Sections 19 and 20} explain how everything was checked and list what we still do not know.
+\end{itemize}

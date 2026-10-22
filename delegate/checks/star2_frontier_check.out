@@ -1,0 +1,13 @@
+W: a3 b3 c2 e2 / B: a6 c5 d5 e3
+  count/off          cylcgt F5 {1 | 0, *}     cylcgt F8 {1 | 0, *}     codex F5 {1|0,*}        (80s)   <-- DIFFER
+  count/textbook     cylcgt F5 {1 | 0, *}     cylcgt F8 {1 | 0, *}     codex F5 {1|0,*}        (15s)   <-- DIFFER
+  count/aware        cylcgt F5 *2             cylcgt F8 *2             codex F5 *2             (20s)
+  mover/off          cylcgt F5 {+W* | 0}      cylcgt F8 {+W* | 0}      codex F5 {{256|{256,128±128|-256,0±256},{{256|256,{256|-256,{256|-256,0±256}}}|256}}|0} (55s)   <-- DIFFER
+  mover/textbook     cylcgt F5 {+W* | 0}      cylcgt F8 {+W* | 0}      codex F5 {{256|{256,128±128|-256,0±256},{{256|256,{256|-256,{256|-256,0±256}}}|256}}|0} (13s)   <-- DIFFER
+  mover/aware        cylcgt F5 {+W* | 0}      cylcgt F8 {+W* | 0}      codex F5 {{256|{256,128±128|-256,0±256},{{256|256,{256|-256,{256|-256,0±256}}}|256}}|0} (22s)   <-- DIFFER
+  opponent/off       cylcgt F5 {1 | ↑*}       cylcgt F8 {1 | ↑*}       codex F5 {1|0,*}        (59s)   <-- DIFFER
+  opponent/textbook  cylcgt F5 {1 | ↑*}       cylcgt F8 {1 | ↑*}       codex F5 {1|0,*}        (20s)   <-- DIFFER
+  opponent/aware     cylcgt F5 ⇑              cylcgt F8 ⇑              codex F5 *2             (21s)   <-- DIFFER
+W: a4 b3 c2 d2 / B: a7 b6 c7 e4
+  count/off          cylcgt F5 ⇓*             cylcgt F8 ⇓*             codex F5 {↓|0}          (994s)   <-- DIFFER
+  count/textbook     cylcgt F5 *2             cylcgt F8 *2             codex F5 *2             (486s)

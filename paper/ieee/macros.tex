@@ -1,0 +1,13 @@
+% Shared notation for every section (do not redefine elsewhere)
+\newcommand{\BIG}{\mathsf{B}}                       % value of a passed pawn, B = 256
+\newcommand{\pos}[1]{\texttt{#1}}                   % pawn list, e.g. \pos{W a2 c2 / B b7 d7}
+\newcommand{\fen}[1]{\texttt{\small #1}}
+\newcommand{\lab}[1]{\textsc{[#1]}}                 % evidence label: \lab{P}, \lab{C2}, \lab{C1}, \lab{Conj}
+\newcommand{\nim}[1]{\mathord{\star#1}}             % nimbers, as in the 2025 paper: \star, \nim{2}
+\newcommand{\upsec}{\mathord{\uparrow^{2}}}         % up-second {0 | down star}
+\newcommand{\tinyg}[1]{\operatorname{tiny}(#1)}
+\newcommand{\game}[2]{\{\,#1 \mid #2\,\}}
+\newcommand{\ggame}[2]{\{\,#1 \parallel #2\,\}}
+\newcommand{\cyl}[1]{C_{#1}}                        % n-file cylinder
+\newcommand{\flatb}[1]{F_{#1}}                      % n-file flat board
+\newcommand{\repourl}{https://github.com/aritroBh/cylindrical-chess-cgt}
