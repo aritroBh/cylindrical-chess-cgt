@@ -62,9 +62,11 @@ positions are $\nim{2}$; Section~\ref{sec:real-cand} tests one of them in real c
 
 \begin{theorem}[$\nim{2}$ with seven pawns; \lab{C2}]\label{thm:star2seven}
 In the default setting, position~A, \pos{W a4 b3 d2 d3 / B a7 b7 c5}, and position~B,
-\pos{W b4 c2 d2 / B a6 a7 c6 d5}, on files a--d of the ordinary board, have value $\nim{2}$, and both fit beside T, with the capture
-histories c2$\times$d3 (A) and b7$\times$a6 (B). Neither is $\nim{2}$ with e.p.\ off or under the opponent rule.
+\pos{W b4 c2 d2 / B a6 a7 c6 d5}, on files a--d of the ordinary board, have value $\nim{2}$. Neither is $\nim{2}$ with e.p.\ off or under the opponent rule.
 \end{theorem}
+
+Both fit beside T, and their pawns can arise in a game, A with the capture c2$\times$d3 and B with
+b7$\times$a6, pieces taking the other missing men; we checked these histories by hand.
 
 In position A (Fig.~\ref{fig:star2_seven_a}), if white moves first, a4--a5 leaves $0$. The move d3--d4 attacks
 c5; every black reply except c5$\times$d4 loses at once, and after c5$\times$d4 white continues b3--b4 to
@@ -134,17 +136,22 @@ are \pos{W a4 b2 c2 / B b6 c5 d6 d7} and its color-reversed twin, with seven; ou
 of every six- and seven-pawn split, and an independent ring solver agree \lab{C2}. On $\cyl{6}$ the first rings have nine pawns: a scan of every
 nine-pawn ring finds six \lab{C1}, among them \pos{W a4 c4 d2 e2 / B b6 b7 d6 e5 f6}; both programs confirm
 three, and the other three are their color-reversed twins \lab{C2}. So the first ring
-$\nim{2}$ on $\cyl{n}$ has $n+3$ pawns for $n=3,\dots,6$. The $\cyl{3}$ ring is a $\nim{2}$ with one pawn fewer than any ordinary board of width at most four allows,
+$\nim{2}$ on $\cyl{n}$ has $n+3$ pawns for $n=3,\dots,6$ \lab{C1}. The $\cyl{3}$ ring is a $\nim{2}$ with one pawn fewer than any ordinary board of width at most four allows,
 and it needs two en passant captures: without black's b4$\times$a3 it is $\uparrow$, without white's
 b5$\times$c6 it is $\downarrow$, and with e.p.\ off it is $0$ \lab{C2}.
 
 A $\nim{3}$ lies just beyond these scans, since $\nim{2}+\star=\nim{3}$. In the default setting, position A
 beside a one-file group worth $\star$, \pos{W a4 b3 d2 d3 f4 / B a7 b7 c5 f6}, is $\nim{3}$ on six files with
-nine pawns, and three programs agree \lab{C2}. With e.p.\ off eight pawns suffice: \pos{W a2 a4 c2 e2 / B a3 a6
+nine pawns, and our engine, as a sum and as a whole board, and the independent whole-board solver agree
+\lab{C2}. With e.p.\ off eight pawns suffice: \pos{W a2 a4 c2 e2 / B a3 a6
 d7 f7} is the candidate, moved two files over, beside an a-file group worth $\star$ \lab{C2}. Rings give
-$\nim{3}$ in a single component, but so far only outside the default setting: with e.p.\ off, the eight-pawn
+$\nim{3}$ in a single component. Outside the default setting it comes early: with e.p.\ off, the eight-pawn
 ring \pos{W a5 b3 c2 d2 / B a7 b5 c6 d4} on $\cyl{4}$ under the opponent rule, and the ten-pawn ring
-\pos{W a2 a3 b2 b3 c3 / B a6 a7 b6 b7 c6} on $\cyl{3}$ under the count rule \lab{C2}.
+\pos{W a2 a3 b2 b3 c3 / B a6 a7 b6 b7 c6} on $\cyl{3}$ under the count rule \lab{C2}. In the default setting it
+appears on $\cyl{7}$: a partial scan of the ten-pawn rings with five pawns a side finds eight of value
+$\nim{3}$, among them \pos{W a2 a5 c4 e2 f2 / B a7 b4 d7 e5 g7}, which is $\nim{3}$ in both models. For all
+eight the scanner, our engine as a whole-board game and a third solver written from the rules agree
+\lab{C2}; as sums of components six keep the value. So $\nim{3}$, like $\nim{2}$, needs no more than eight ranks.
 
 In the model, then, the $\nim{2}$ question has a positive answer on the ordinary $8\times8$ board: four files
 and seven pawns beside T suffice, while Elkies' higher nimbers need larger boards~\cite{Elkies2002}. Whether real

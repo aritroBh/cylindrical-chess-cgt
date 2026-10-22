@@ -235,8 +235,8 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
 
 - **Toward a real-chess 1/8** (`realchess/targets18/`). Position: the robust 1/8, `W a2 b2 b3 / B a5 a6 b6`,
   beside the trébuchet, FEN `8/8/pp6/p4Kp1/6Pk/1P6/PP6/8 w`.
-  - **Small end positions.** All 306 sides with at most 7 men are resolved against the tablebase: 283 agree with
-    the model, 5 disagree and 2 are draws.
+  - **Small end positions.** All 302 sides with at most 7 men (290 one-sided, 12 races) are resolved against
+    the tablebase. Of the 290 one-sided sides, 283 agree with the model, 5 disagree and 2 are draws.
   - **Bounds.** With only these exact results fixed, the oracle value lies in [−1/2, 3/4].
   - **The decisive set.** A greedy minimal-support search shows the value is **exactly 1/8** whenever 8
     unresolved end positions (5 with 8 men, 3 with 9) go as the model predicts. The other 312 open ones may be

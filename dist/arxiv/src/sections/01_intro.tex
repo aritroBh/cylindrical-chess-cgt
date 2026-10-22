@@ -39,11 +39,12 @@ are:
   result of the whole-board pawn game \lab{AI}, and a fourth condition (V4) for the $\pm\BIG$ value \lab{AI}.
 \item \emph{Small values} (Sections~\ref{sec:basic}, \ref{sec:atlas} and~\ref{sec:targets}): cylinder-only values
   come from rings \lab{P}; $1/8$ and $\upsec\star$ \lab{C2}, and Tiny~1 \lab{C1}, occur in 10-man positions
-  that can arise in a game.
+  with a legal pawn history.
 \item \emph{The $\nim{2}$ question} (Section~\ref{sec:star2}): in the default setting (count rule, e.p.-aware
   test; Section~\ref{sec:ep}) no $\nim{2}$ has six
   pawns or fewer on ordinary boards of width at most four, but $\nim{2}$ appears with seven
-  \lab{C2}; on the cylinder $\cyl{3}$ a six-pawn ring suffices \lab{C2}.
+  \lab{C2}; on the cylinder $\cyl{3}$ a six-pawn ring suffices \lab{C2}, and on $\cyl{7}$ ten-pawn rings are
+  $\nim{3}$ \lab{C2}.
 \item \emph{Real chess} (Section~\ref{sec:real}): with the new test the textbook $\nim{2}$ candidate is not
   $\nim{2}$, however draws are treated; with queen promotions only and frozen kings, the $1/8$ hinges on one side of
   one end position \lab{C1}.

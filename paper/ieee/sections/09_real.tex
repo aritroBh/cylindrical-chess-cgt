@@ -8,8 +8,9 @@ king-and-pawn solver (Section~\ref{sec:kings}).
 Let $X$ be a pawn component on the ordinary board beside T (Fig.~\ref{fig:trebuchet}). An \emph{end position}
 of its model tree is a position where a line of play first reaches a passed pawn; its two \emph{sides} are
 white to move and black to move. Replace each end position by $+\BIG$ if white wins it in real chess with either
-side to move, by $-\BIG$ if black does, and otherwise by one fixed game $t$ with $-2\BIG\le t\le 2\BIG$; the
-choice of $t$ is the \emph{draw treatment}. The canonical value of the resulting tree is the \emph{oracle value} $O(X)$.
+side to move, by $-\BIG$ if black does, by $\game{+\BIG}{-\BIG}$ if the side to move wins, and by $0$ if the
+side to move loses. If a side is drawn, the \emph{draw treatment} counts that draw as a win for black, as a win
+for white, or as worth $0$. All these games lie between $-2\BIG$ and $2\BIG$. The canonical value of the resulting tree is the \emph{oracle value} $O(X)$.
 \end{definition}
 
 \begin{lemma}[Sandwich; \lab{P}]\label{lem:sandwich}
@@ -44,7 +45,7 @@ candidate's $\nim{2}$ depends on the textbook test.
 
 A second candidate, \pos{W a3 b3 c2 / B b5 b7 c6} ($10$ men with T), is $\nim{2}$ under the opponent
 rule with en passant on (Section~\ref{sec:star2}); its oracle value is positive under every draw treatment
-\lab{C2}. The other non-default $\nim{2}$ positions are open.
+\lab{C1}. The other non-default $\nim{2}$ positions are open.
 
 \subsection{Towards a Real-Chess \texorpdfstring{$1/8$}{1/8}}\label{sec:real-eighth}
 
@@ -60,7 +61,7 @@ nine-man positions agree on both sides, and that white to move in the last eight
 \pos{W b2 b5 / B a5 b4}, wins. Black to move there is the last open side.
 
 \begin{proposition}[Status of $1/8$; \lab{C1}]\label{prop:eighth-real}
-For the $1/8$ position, $0\le O\le 1/8$; if black to move loses in \pos{W b2 b5 / B a5 b4}, as the model
+For the $1/8$ position, with queen promotions only in our solver, $0\le O\le 1/8$; if black to move loses in \pos{W b2 b5 / B a5 b4}, as the model
 assigns, then $O=1/8$, whatever the other open sides do.
 \end{proposition}
 

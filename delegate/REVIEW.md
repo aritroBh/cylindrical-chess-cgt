@@ -411,3 +411,35 @@ as taste.
   A re-run of piece c41 with both scanner builds reproduces N,3 exactly. The table-replacement change (fixed2)
   changes no value.
 
+**C7 \*3 checks done (orchestrator).** All 8 ten-pawn \*3 rings found so far are \*3 in three programs:
+- the scanner;
+- T43's independent solver, extended to heaps up to 5 (`delegate/checks/c7_star3/t43_*.txt`): G + \*3 is a
+  second-player win, and no other heap from 0 to 5 is;
+- cylcgt as a whole-board game (`delegate/checks/c7p10/s3_*_nosplit.txt`).
+
+As sums of components 6 of the 8 keep \*3; the other two are {0, \*2 | 0, \*} and {0, \* | 0, \*2}. Each \*3 is a
+single component at the root. The paper (§VIII, intro, abstract, open problem 3) now states this as C2; open
+problem 3 asks for a default \*3 with fewer than nine pawns, or a \*4 on eight ranks.
+The ↑\*-as-a-sum ring `W a2 a6 b2 d3 f2 / B a7 c7 e5 e6 g4` is \*2 as a whole board (cylcgt), agreeing with the
+scanner.
+
+## T46 paper consistency audit (Kilo died at the sign-up wall; redone on Sonnet, `delegate/checks/t46_consistency_sonnet.json`)
+
+20 findings were confirmed by skeptics and 3 rejected. One (open problem 3) was already handled by the C7 edit;
+the other 19 are applied:
+- the abstract now names the count rule, says "Tablebases" rather than "Four-man" (KRK has three men), and
+  scopes "three programs" to the values;
+- the intro says "with a legal pawn history" instead of "can arise in a game";
+- the tiny(x) row is restricted to numbers x (tiny(1\*) does occur);
+- the oracle definition now matches what was computed: N end positions are {+BIG | −BIG}, P ones are 0, and
+  draws follow the draw treatment;
+- labels: the n+3 sentence gets C1; the second candidate's oracle C2 → C1; the 1/8 proposition says "queen
+  promotions only"; h ≈ 5–7 is Conj;
+- the A/B history clause moved out of the C2 theorem ("checked by hand");
+- A + \* is credited to two code bases, not three;
+- engines: the conclusion no longer says the engines fail "on sums" by CGT class;
+- the probe sentence now rests on the 0.82 versus 1.0 gap;
+- odd widths: the zugzwang-share trend is stated from n = 4; the trébuchet and Ka3/Pa2/Ka5 claims are scoped to
+  the widths checked (C2 to n = 8, C1 for 9–10); the a8=Q mate mechanism is corrected (a-file check);
+- RESULTS 6b's "306 sides" is corrected to 302 (290 one-sided, 12 races).
+

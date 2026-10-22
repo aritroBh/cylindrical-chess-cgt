@@ -4,8 +4,9 @@ Elkies' sum model holds up on a board without edges once the passed-pawn test re
 frozen kings are checked. The textbook $\nim{2}$ comes from the textbook passed-pawn test, and $\nim{2}$ appears
 with seven pawns. On the cylinder, king and rook can no longer force mate, and the rook-pawn draw Ka6, Pa5
 against Ka8 becomes a win. On the $3\times n$ cylinder, Dawson's chess is a first-player win exactly when the
-strip three files shorter is a second-player win, and engines lose most on the tempo and parity fights that
-CGT singles out, at low depth and on sums. Seven problems are open.
+strip three files shorter is a second-player win. Stockfish at small fixed depth loses most on the tempo and
+parity fights that CGT singles out, and on sums of 15 to 20 men both engines often miss the model's winning
+moves. Seven problems are open.
 
 \begin{enumerate}
 \item \emph{A certified $1/8$.} One decisive side of the $1/8$ remains, black to move in
@@ -16,10 +17,11 @@ CGT singles out, at low depth and on sums. Seven problems are open.
   end positions that decide them agree with the model, and those with 9 to 11 men are unsolved
   (Section~\ref{sec:real-eighth}). That A and B are the only seven-pawn $\nim{2}$ positions of width at most four rests on one program \lab{C1}.
 \item \emph{Higher nimbers.} Does the first ring $\nim{2}$ on $\cyl{n}$ keep having $n+3$ pawns (ten on
-  $\cyl{7}$)? In the default setting, is there a $\nim{3}$ in a single component, or with fewer than nine pawns?
+  $\cyl{7}$)? In the default setting, is there a $\nim{3}$ with fewer than nine pawns, or a $\nim{4}$ on eight
+  ranks?
 \item \emph{When is a tr\'ebuchet zero?} Prove Conjecture~\ref{conj:cert}, or settle
-  Conjecture~\ref{conj:horizon2}; real tr\'ebuchets have $h$ of about 5
-  to 7.
+  Conjecture~\ref{conj:horizon2}; real tr\'ebuchets seem to have $h$ of about 5
+  to 7 \lab{Conj}.
 \item \emph{Endgames without edges.} KPKP and KPPK on the cylinder come next. On the M\"obius strip, where files a and h are
   joined with the ranks reversed, KPK is won from $78.94\%$ of the legal positions with white to move, against
   $78.89\%$ on the cylinder \lab{C2}. Pawn play across its twisted seam, where a pawn reverses direction, and
@@ -29,7 +31,6 @@ CGT singles out, at low depth and on sums. Seven problems are open.
   the mis\`ere
   quotient of Dawson's chess infinite? By the ring rule (Theorem~\ref{thm:ring}), any answer for strips also
   answers the cylinder.
-\item \emph{Engines beyond the tablebases.} On sums of 15 to 20 men engines often miss the model's winning
-  moves, but there the model is the only judge; certified components beyond seven men would give real-chess
-  ground truth.
+\item \emph{Engines beyond the tablebases.} There the model is the only judge; certified components beyond
+  seven men would give real-chess ground truth.
 \end{enumerate}

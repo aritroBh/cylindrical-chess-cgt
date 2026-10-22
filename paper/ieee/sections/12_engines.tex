@@ -80,6 +80,7 @@ errors would need the kind of certification that Section~\ref{sec:real} begins f
 Can a network learn CGT? In normal-play Dawson's chess (Section~\ref{sec:dawson}) the first player wins exactly
 when the strips' Grundy values have a nonzero nim-sum~\cite{GuySmith1956,WinningWays}. An LSTM value network
 in PyTorch~\cite{PyTorch}, trained on total lengths up to $30$, reaches $0.82$ test accuracy on total lengths
-$31$--$80$, against about $0.79$ for the majority guess \lab{C1}. Linear probes on its features do no better than the
-majority guess, either for a strip's Grundy value ($0.06$ against $0.24$) or for whether a single strip is a
-first-player win ($0.84$, the share of such strips), so the network has not learned the nim-sum rule.
+$31$--$80$, against about $0.79$ for the majority guess \lab{C1}. Linear probes on its strip embedding do no better than
+the majority guess, either for a strip's Grundy value ($0.06$ against $0.24$) or for whether a single strip is
+a first-player win ($0.84$, the share of such strips). The rule itself scores $1.0$, so the network has not
+learned it, and the probes find no sign of it either.
