@@ -1,0 +1,109 @@
+{
+ "label": "COMPUTED-1",
+ "board": "flat:3x4",
+ "nodes": 5552,
+ "quiet": 338,
+ "critical_nodes": {
+  "zugzwang_white": 6,
+  "zugzwang_black": 6,
+  "zugzwang_white_that_are_kpk": 6,
+  "zugzwang_black_that_are_kpk": 6,
+  "forced_pass_white": 4,
+  "forced_pass_black": 227
+ },
+ "mask_test chess rule n=+1": {
+  "pass_allowed_at_nodes": 10,
+  "states_that_differ": 0,
+  "quiet_placements_that_differ": 0
+ },
+ "mask_test chess rule n=-1": {
+  "pass_allowed_at_nodes": 233,
+  "states_that_differ": 0,
+  "quiet_placements_that_differ": 0
+ },
+ "mask_test optional-pass rule n=+1": {
+  "pass_allowed_at_nodes": 6,
+  "states_that_differ": 0,
+  "quiet_placements_that_differ": 0
+ },
+ "mask_test optional-pass rule n=-1": {
+  "pass_allowed_at_nodes": 6,
+  "states_that_differ": 0,
+  "quiet_placements_that_differ": 0
+ },
+ "spare_move_for_White_turns_non_win_into_win": {
+  "placements_states": 34,
+  "first_pass_node_type": {
+   "zugzwang/KPK": 34
+  },
+  "plies_before_the_pass": {
+   "0": 2,
+   "1": 2,
+   "2": 8,
+   "3": 2,
+   "4": 3,
+   "5": 3,
+   "6": 3,
+   "7": 11
+  },
+  "examples": {
+   "zugzwang/KPK": [
+    {
+     "placement": "Ka1 Pb2 kc2",
+     "start": "B to move",
+     "kpsolve": "WD",
+     "plies_to_win_with_spare": 14,
+     "plies_before_the_pass": 7,
+     "line": [
+      "Ka1 kc2 Pb2 b -",
+      "Ka1 kb3 Pb2 w -",
+      "Kb1 kb3 Pb2 b -",
+      "Kb1 kb4 Pb2 w -",
+      "Kc2 kb4 Pb2 b -",
+      "Kc2 kc4 Pb2 w -",
+      "Kc2 kc4 Pb3 b -",
+      "Kc2 kb4 Pb3 w -",
+      "PASS Kc2 kb4 Pb3 b -",
+      "Kc2 ka3 Pb3 w -",
+      "Kc3 ka3 Pb3 b -"
+     ]
+    },
+    {
+     "placement": "Ka1 Pb2 kb3",
+     "start": "W to move",
+     "kpsolve": "DD",
+     "plies_to_win_with_spare": 13,
+     "plies_before_the_pass": 6,
+     "line": [
+      "Ka1 kb3 Pb2 w -",
+      "Kb1 kb3 Pb2 b -",
+      "Kb1 kb4 Pb2 w -",
+      "Kc2 kb4 Pb2 b -",
+      "Kc2 kc4 Pb2 w -",
+      "Kc2 kc4 Pb3 b -",
+      "Kc2 kb4 Pb3 w -",
+      "PASS Kc2 kb4 Pb3 b -",
+      "Kc2 ka3 Pb3 w -",
+      "Kc3 ka3 Pb3 b -"
+     ]
+    },
+    {
+     "placement": "Ka1 Pb3 kc3",
+     "start": "W to move",
+     "kpsolve": "DD",
+     "plies_to_win_with_spare": 9,
+     "plies_before_the_pass": 2,
+     "line": [
+      "Ka1 kc3 Pb3 w -",
+      "Ka2 kc3 Pb3 b -",
+      "Ka2 kb4 Pb3 w -",
+      "PASS Ka2 kb4 Pb3 b -",
+      "Ka2 kc3 Pb3 w -",
+      "Ka3 kc3 Pb3 b -"
+     ]
+    }
+   ]
+  }
+ },
+ "seconds": 0.1
+}

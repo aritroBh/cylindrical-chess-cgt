@@ -1,0 +1,4998 @@
+{
+ "label": "COMPUTED-1",
+ "board": "flat:4x4",
+ "rule": "chess stalemate rule (stalemate draws, checkmate loses)",
+ "quiet": 1000,
+ "check2": {
+  "passed": true,
+  "facts": 10
+ },
+ "kpsolve_check": {
+  "passed": true,
+  "kpk": 2112,
+  "other": 14572,
+  "compared": 16684,
+  "differences": 0,
+  "x": 0
+ },
+ "tempo_sensitive": 126,
+ "sensitive_to_finite_tests": 126,
+ "sensitive_to_n_scan": 126,
+ "thresholds": {
+  "-10": 100,
+  "-9": 100,
+  "-8": 100,
+  "-7": 100,
+  "-6": 100,
+  "-5": 100,
+  "-4": 100,
+  "-3": 100,
+  "-2": 100,
+  "-1": 110,
+  "0": 88
+ },
+ "tails_n_minus20_to_minus2": {
+  "constant": 900,
+  "period2": 100,
+  "other": 0
+ },
+ "tails_n_2_to_20": {
+  "constant": 1000,
+  "period2": 0,
+  "other": 0
+ },
+ "sensitive_at_pm1": 126,
+ "sensitive_at_plus1": 88,
+ "sensitive_at_minus1": 110,
+ "mutual_zugzwangs": 10,
+ "mutual_also_pm1": 10,
+ "mutual_and_sensitive_at_both_plus1_and_minus1": 10,
+ "mutual_not_pm1": 0,
+ "pm1_not_mutual": 116,
+ "mutual_not_tempo_sensitive": 0,
+ "tempo_sensitive_not_mutual": 116,
+ "mutual_not_pm1_examples": [],
+ "pm1_not_mutual_examples": [
+  {
+   "placement": "Ka1 Pb2 ka4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "chess_n": "WDDDWDDDWDDDWDDDWDDDWDWWWWWWWWWWWWWWWWWWWW",
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Ka1 Pb2 kb3",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "chess_n": "DDDDDDDDDDDDDDDDDDDDDDWWWWWWWWWWWWWWWWWWWW",
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Ka1 Pb2 kb4",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "chess_n": "DDWDDDWDDDWDDDWDDDWDDDWWWWWWWWWWWWWWWWWWWW",
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Ka1 Pb2 kc2",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "chess_n": "WDWDWDWDWDWDWDWDWDWDWDWWWWWWWWWWWWWWWWWWWW",
+   "plies_to_zugzwang": 4,
+   "plies_to_pass_effect": 3
+  },
+  {
+   "placement": "Ka1 Pb2 kc4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "chess_n": "WDDDWDDDWDDDWDDDWDDDWDWWWWWWWWWWWWWWWWWWWW",
+   "plies_to_zugzwang": 3,
+   "plies_to_pass_effect": 3
+  },
+  {
+   "placement": "Ka1 Pb2 kd3",
+   "kpsolve": [
+    "W",
+    "W"
+   ],
+   "chess_n": "WWWDWWWDWWWDWWWDWWWDWWWWWWWWWWWWWWWWWWWWWW",
+   "plies_to_zugzwang": 3,
+   "plies_to_pass_effect": 3
+  }
+ ],
+ "diagnostics": {
+  "sens_pm1_not_zugzwang_by_kpsolve_pair": {
+   "WD": 62,
+   "DD": 34,
+   "WW": 20
+  },
+  "sens_pm1_not_zugzwang_direction": {
+   "+1-1": 62,
+   "+1": 16,
+   "-1": 38
+  },
+  "sens_pm1_not_zugzwang_plies_to_zugzwang": {
+   "1": 38,
+   "2": 48,
+   "3": 18,
+   "4": 10,
+   "5": 2
+  },
+  "sens_pm1_not_zugzwang_plies_to_pass_effect": {
+   "0": 10,
+   "1": 48,
+   "2": 42,
+   "3": 16
+  },
+  "zugzwang_plies_to_zugzwang": {
+   "0": 10
+  },
+  "insensitive_plies_to_zugzwang": {
+   "-1": 510,
+   "1": 8,
+   "2": 18,
+   "3": 42,
+   "4": 84,
+   "5": 122,
+   "6": 64,
+   "7": 24,
+   "8": 2
+  },
+  "insensitive_plies_to_pass_effect": {
+   "1": 30,
+   "2": 30,
+   "3": 350,
+   "4": 154,
+   "5": 234,
+   "6": 66,
+   "7": 10
+  },
+  "pass_effect_source_nodes": {
+   "zugzwang_nodes": 20,
+   "forced_pass_nodes": 214
+  },
+  "zugzwang_by_kpsolve_pair": {
+   "DW": 10
+  },
+  "zugzwang_direction": {
+   "+1-1": 10
+  },
+  "all_by_kpsolve_pair": {
+   "DD": 160,
+   "WW": 518,
+   "WD": 312,
+   "DW": 10
+  }
+ },
+ "normal_rule_same_placements": {
+  "tempo_sensitive": 22,
+  "thresholds": {
+   "-1": 8,
+   "0": 18
+  },
+  "sensitive_under_both_rules": 0,
+  "only_chess_rule": 126,
+  "only_normal_rule": 22
+ },
+ "sensitive_examples": [
+  {
+   "placement": "Ka1 Pb2 ka4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "DD",
+    "-2": "WD",
+    "*": "DD",
+    "up": "WD",
+    "down": "DD",
+    "1/2": "WW",
+    "-1/2": "DD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DD | n=-8: WD | n=-7: DD | n=-6: WD | n=-5: DD | n=-4: WD | n=-3: DD | n=-2: WD | n=-1: DD | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Ka1 Pb2 kb3",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "DD",
+    "-2": "DD",
+    "*": "DD",
+    "up": "DD",
+    "down": "DD",
+    "1/2": "WW",
+    "-1/2": "DD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=0: DD | n>=1: WW",
+   "thresholds": [
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Ka1 Pb2 kb4",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "DD",
+    "*": "WD",
+    "up": "DD",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: DD | n=-9: WD | n=-8: DD | n=-7: WD | n=-6: DD | n=-5: WD | n=-4: DD | n=-3: WD | n=-2: DD | n=-1: WD | n=0: DD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Ka1 Pb2 kc2",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "WD",
+    "*": "WD",
+    "up": "WD",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=0: WD | n>=1: WW",
+   "thresholds": [
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 4,
+   "plies_to_pass_effect": 3
+  },
+  {
+   "placement": "Ka1 Pb2 kc4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "DD",
+    "-2": "WD",
+    "*": "DD",
+    "up": "WD",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DD | n=-8: WD | n=-7: DD | n=-6: WD | n=-5: DD | n=-4: WD | n=-3: DD | n=-2: WD | n=-1: DD | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 3,
+   "plies_to_pass_effect": 3
+  }
+ ],
+ "sensitive": [
+  {
+   "placement": "Ka1 Pb2 ka4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "DD",
+    "-2": "WD",
+    "*": "DD",
+    "up": "WD",
+    "down": "DD",
+    "1/2": "WW",
+    "-1/2": "DD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DD | n=-8: WD | n=-7: DD | n=-6: WD | n=-5: DD | n=-4: WD | n=-3: DD | n=-2: WD | n=-1: DD | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Ka1 Pb2 kb3",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "DD",
+    "-2": "DD",
+    "*": "DD",
+    "up": "DD",
+    "down": "DD",
+    "1/2": "WW",
+    "-1/2": "DD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=0: DD | n>=1: WW",
+   "thresholds": [
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Ka1 Pb2 kb4",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "DD",
+    "*": "WD",
+    "up": "DD",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: DD | n=-9: WD | n=-8: DD | n=-7: WD | n=-6: DD | n=-5: WD | n=-4: DD | n=-3: WD | n=-2: DD | n=-1: WD | n=0: DD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Ka1 Pb2 kc2",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "WD",
+    "*": "WD",
+    "up": "WD",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=0: WD | n>=1: WW",
+   "thresholds": [
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 4,
+   "plies_to_pass_effect": 3
+  },
+  {
+   "placement": "Ka1 Pb2 kc4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "DD",
+    "-2": "WD",
+    "*": "DD",
+    "up": "WD",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DD | n=-8: WD | n=-7: DD | n=-6: WD | n=-5: DD | n=-4: WD | n=-3: DD | n=-2: WD | n=-1: DD | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 3,
+   "plies_to_pass_effect": 3
+  },
+  {
+   "placement": "Ka1 Pb2 kd3",
+   "kpsolve": [
+    "W",
+    "W"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WW",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "WW",
+    "*": "WD",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WW | n=-9: WD | n=-8: WW | n=-7: WD | n=-6: WW | n=-5: WD | n=-4: WW | n=-3: WD | n=-2: WW | n=-1: WD | n>=0: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 3,
+   "plies_to_pass_effect": 3
+  },
+  {
+   "placement": "Ka1 Pb2 kd4",
+   "kpsolve": [
+    "W",
+    "W"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WW",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "WW",
+    "*": "WD",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WW | n=-9: WD | n=-8: WW | n=-7: WD | n=-6: WW | n=-5: WD | n=-4: WW | n=-3: WD | n=-2: WW | n=-1: WD | n>=0: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 3,
+   "plies_to_pass_effect": 3
+  },
+  {
+   "placement": "Ka1 Pb3 kc3",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "WD",
+    "-2": "DD",
+    "*": "WD",
+    "up": "WD",
+    "down": "WD",
+    "1/2": "WD",
+    "-1/2": "WD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: DD | n=-9: WD | n=-8: DD | n=-7: WD | n=-6: DD | n=-5: WD | n=-4: DD | n=-3: WD | n=-2: DD | n=-1: WD | n=0: DD | n>=1: WD",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Ka1 Pb3 kd2",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WW",
+    "-2": "WD",
+    "*": "WW",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WD | n=-9: WW | n=-8: WD | n=-7: WW | n=-6: WD | n=-5: WW | n=-4: WD | n=-3: WW | n=-2: WD | n=-1: WW | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 3,
+   "plies_to_pass_effect": 3
+  },
+  {
+   "placement": "Ka1 Pb3 kd3",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WW",
+    "-2": "WD",
+    "*": "WW",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WD | n=-9: WW | n=-8: WD | n=-7: WW | n=-6: WD | n=-5: WW | n=-4: WD | n=-3: WW | n=-2: WD | n=-1: WW | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 3,
+   "plies_to_pass_effect": 3
+  },
+  {
+   "placement": "Ka1 Pb3 kd4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WW",
+    "-2": "WD",
+    "*": "WW",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WD | n=-9: WW | n=-8: WD | n=-7: WW | n=-6: WD | n=-5: WW | n=-4: WD | n=-3: WW | n=-2: WD | n=-1: WW | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 3,
+   "plies_to_pass_effect": 3
+  },
+  {
+   "placement": "Ka1 Pc2 ka3",
+   "kpsolve": [
+    "W",
+    "W"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WW",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "WW",
+    "*": "WD",
+    "up": "WW",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WW | n=-9: WD | n=-8: WW | n=-7: WD | n=-6: WW | n=-5: WD | n=-4: WW | n=-3: WD | n=-2: WW | n=-1: WD | n>=0: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Ka1 Pc2 ka4",
+   "kpsolve": [
+    "W",
+    "W"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WW",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "WW",
+    "*": "WD",
+    "up": "WW",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WW | n=-9: WD | n=-8: WW | n=-7: WD | n=-6: WW | n=-5: WD | n=-4: WW | n=-3: WD | n=-2: WW | n=-1: WD | n>=0: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Ka1 Pc2 kb4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "DD",
+    "-2": "WD",
+    "*": "DD",
+    "up": "WD",
+    "down": "DD",
+    "1/2": "WW",
+    "-1/2": "DD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DD | n=-8: WD | n=-7: DD | n=-6: WD | n=-5: DD | n=-4: WD | n=-3: DD | n=-2: WD | n=-1: DD | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Ka1 Pc2 kc3",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "DD",
+    "-2": "DD",
+    "*": "DD",
+    "up": "DD",
+    "down": "DD",
+    "1/2": "WD",
+    "-1/2": "DD",
+    "+-1": "DD"
+   },
+   "n_profile": "n<=0: DD | n>=1: WD",
+   "thresholds": [
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Ka1 Pc2 kc4",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "DD",
+    "*": "WD",
+    "up": "DD",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: DD | n=-9: WD | n=-8: DD | n=-7: WD | n=-6: DD | n=-5: WD | n=-4: DD | n=-3: WD | n=-2: DD | n=-1: WD | n=0: DD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Ka1 Pc2 kd4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "DD",
+    "-2": "WD",
+    "*": "DD",
+    "up": "WD",
+    "down": "DD",
+    "1/2": "WW",
+    "-1/2": "DD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DD | n=-8: WD | n=-7: DD | n=-6: WD | n=-5: DD | n=-4: WD | n=-3: DD | n=-2: WD | n=-1: DD | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Ka1 Pc3 kc4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "DD",
+    "-2": "WD",
+    "*": "DD",
+    "up": "WD",
+    "down": "DD",
+    "1/2": "WD",
+    "-1/2": "DD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DD | n=-8: WD | n=-7: DD | n=-6: WD | n=-5: DD | n=-4: WD | n=-3: DD | n=-2: WD | n=-1: DD | n>=0: WD",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Ka1 Pc3 kd3",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "WD",
+    "-2": "DD",
+    "*": "WD",
+    "up": "WD",
+    "down": "WD",
+    "1/2": "WD",
+    "-1/2": "WD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: DD | n=-9: WD | n=-8: DD | n=-7: WD | n=-6: DD | n=-5: WD | n=-4: DD | n=-3: WD | n=-2: DD | n=-1: WD | n=0: DD | n>=1: WD",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Ka2 Pb2 ka4",
+   "kpsolve": [
+    "D",
+    "W"
+   ],
+   "mutual_zugzwang": true,
+   "finite_tests": {
+    "0": "DW",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "DW",
+    "*": "WD",
+    "up": "WW",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: DW | n=-9: WD | n=-8: DW | n=-7: WD | n=-6: DW | n=-5: WD | n=-4: DW | n=-3: WD | n=-2: DW | n=-1: WD | n=0: DW | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 0,
+   "plies_to_pass_effect": 0
+  },
+  {
+   "placement": "Ka2 Pb2 kb4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "DW",
+    "-2": "WD",
+    "*": "DW",
+    "up": "WD",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DW | n=-8: WD | n=-7: DW | n=-6: WD | n=-5: DW | n=-4: WD | n=-3: DW | n=-2: WD | n=-1: DW | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Ka2 Pb2 kc4",
+   "kpsolve": [
+    "W",
+    "W"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WW",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "WW",
+    "*": "WD",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WW | n=-9: WD | n=-8: WW | n=-7: WD | n=-6: WW | n=-5: WD | n=-4: WW | n=-3: WD | n=-2: WW | n=-1: WD | n>=0: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Ka2 Pb3 kb4",
+   "kpsolve": [
+    "D",
+    "W"
+   ],
+   "mutual_zugzwang": true,
+   "finite_tests": {
+    "0": "DW",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "DW",
+    "*": "WD",
+    "up": "WW",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: DW | n=-9: WD | n=-8: DW | n=-7: WD | n=-6: DW | n=-5: WD | n=-4: DW | n=-3: WD | n=-2: DW | n=-1: WD | n=0: DW | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 0,
+   "plies_to_pass_effect": 0
+  },
+  {
+   "placement": "Ka2 Pb3 kc3",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WW",
+    "-2": "WD",
+    "*": "WW",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WD | n=-9: WW | n=-8: WD | n=-7: WW | n=-6: WD | n=-5: WW | n=-4: WD | n=-3: WW | n=-2: WD | n=-1: WW | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Ka2 Pc2 ka4",
+   "kpsolve": [
+    "W",
+    "W"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WW",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "WW",
+    "*": "WD",
+    "up": "WW",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WW | n=-9: WD | n=-8: WW | n=-7: WD | n=-6: WW | n=-5: WD | n=-4: WW | n=-3: WD | n=-2: WW | n=-1: WD | n>=0: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Ka2 Pc2 kb4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "DD",
+    "-2": "WD",
+    "*": "DD",
+    "up": "WD",
+    "down": "DD",
+    "1/2": "WW",
+    "-1/2": "DD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DD | n=-8: WD | n=-7: DD | n=-6: WD | n=-5: DD | n=-4: WD | n=-3: DD | n=-2: WD | n=-1: DD | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Ka2 Pc2 kc3",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "DD",
+    "-2": "DD",
+    "*": "DD",
+    "up": "DD",
+    "down": "DD",
+    "1/2": "WD",
+    "-1/2": "DD",
+    "+-1": "DD"
+   },
+   "n_profile": "n<=0: DD | n>=1: WD",
+   "thresholds": [
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Ka2 Pc2 kc4",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "DD",
+    "*": "WD",
+    "up": "DD",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: DD | n=-9: WD | n=-8: DD | n=-7: WD | n=-6: DD | n=-5: WD | n=-4: DD | n=-3: WD | n=-2: DD | n=-1: WD | n=0: DD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Ka2 Pc2 kd4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "WD",
+    "*": "WD",
+    "up": "WD",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=0: WD | n>=1: WW",
+   "thresholds": [
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Ka2 Pc3 ka4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "WW",
+    "-2": "WW",
+    "*": "WW",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-1: WW | n>=0: WD",
+   "thresholds": [
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 5,
+   "plies_to_pass_effect": 0
+  },
+  {
+   "placement": "Ka2 Pc3 kc4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "DD",
+    "-2": "WD",
+    "*": "DD",
+    "up": "WD",
+    "down": "DD",
+    "1/2": "WD",
+    "-1/2": "DD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DD | n=-8: WD | n=-7: DD | n=-6: WD | n=-5: DD | n=-4: WD | n=-3: DD | n=-2: WD | n=-1: DD | n>=0: WD",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Ka3 Pc2 kc4",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "WD",
+    "-2": "DD",
+    "*": "WD",
+    "up": "DD",
+    "down": "WD",
+    "1/2": "WD",
+    "-1/2": "WD",
+    "+-1": "DD"
+   },
+   "n_profile": "n<=-10: DD | n=-9: WD | n=-8: DD | n=-7: WD | n=-6: DD | n=-5: WD | n=-4: DD | n=-3: WD | n=-2: DD | n=-1: WD | n=0: DD | n>=1: WD",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Ka3 Pc3 kc4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "DD",
+    "-2": "WD",
+    "*": "DD",
+    "up": "WD",
+    "down": "DD",
+    "1/2": "WD",
+    "-1/2": "DD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DD | n=-8: WD | n=-7: DD | n=-6: WD | n=-5: DD | n=-4: WD | n=-3: DD | n=-2: WD | n=-1: DD | n>=0: WD",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Ka4 Pc2 kd4",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "DD",
+    "2": "DD",
+    "-1": "WD",
+    "-2": "WD",
+    "*": "WD",
+    "up": "WD",
+    "down": "WD",
+    "1/2": "WD",
+    "-1/2": "WD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-1: WD | n>=0: DD",
+   "thresholds": [
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 4,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kb1 Pb2 ka4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "DD",
+    "-2": "WD",
+    "*": "DD",
+    "up": "WD",
+    "down": "DD",
+    "1/2": "WW",
+    "-1/2": "DD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DD | n=-8: WD | n=-7: DD | n=-6: WD | n=-5: DD | n=-4: WD | n=-3: DD | n=-2: WD | n=-1: DD | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kb1 Pb2 kb3",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "DD",
+    "-2": "DD",
+    "*": "DD",
+    "up": "DD",
+    "down": "DD",
+    "1/2": "WW",
+    "-1/2": "DD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=0: DD | n>=1: WW",
+   "thresholds": [
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Kb1 Pb2 kb4",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "DD",
+    "*": "WD",
+    "up": "DD",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: DD | n=-9: WD | n=-8: DD | n=-7: WD | n=-6: DD | n=-5: WD | n=-4: DD | n=-3: WD | n=-2: DD | n=-1: WD | n=0: DD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Kb1 Pb2 kc4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "DD",
+    "-2": "WD",
+    "*": "DD",
+    "up": "WD",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DD | n=-8: WD | n=-7: DD | n=-6: WD | n=-5: DD | n=-4: WD | n=-3: DD | n=-2: WD | n=-1: DD | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kb1 Pb2 kd3",
+   "kpsolve": [
+    "W",
+    "W"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WW",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "WW",
+    "*": "WD",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WW | n=-9: WD | n=-8: WW | n=-7: WD | n=-6: WW | n=-5: WD | n=-4: WW | n=-3: WD | n=-2: WW | n=-1: WD | n>=0: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kb1 Pb2 kd4",
+   "kpsolve": [
+    "W",
+    "W"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WW",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "WW",
+    "*": "WD",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WW | n=-9: WD | n=-8: WW | n=-7: WD | n=-6: WW | n=-5: WD | n=-4: WW | n=-3: WD | n=-2: WW | n=-1: WD | n>=0: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Kb1 Pb3 ka3",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "WD",
+    "-2": "DD",
+    "*": "WD",
+    "up": "WD",
+    "down": "WD",
+    "1/2": "WD",
+    "-1/2": "WD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: DD | n=-9: WD | n=-8: DD | n=-7: WD | n=-6: DD | n=-5: WD | n=-4: DD | n=-3: WD | n=-2: DD | n=-1: WD | n=0: DD | n>=1: WD",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Kb1 Pb3 kc3",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "WD",
+    "-2": "DD",
+    "*": "WD",
+    "up": "WD",
+    "down": "WD",
+    "1/2": "WD",
+    "-1/2": "WD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: DD | n=-9: WD | n=-8: DD | n=-7: WD | n=-6: DD | n=-5: WD | n=-4: DD | n=-3: WD | n=-2: DD | n=-1: WD | n=0: DD | n>=1: WD",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Kb1 Pb3 kd2",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WW",
+    "-2": "WD",
+    "*": "WW",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WD | n=-9: WW | n=-8: WD | n=-7: WW | n=-6: WD | n=-5: WW | n=-4: WD | n=-3: WW | n=-2: WD | n=-1: WW | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 3,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Kb1 Pb3 kd3",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WW",
+    "-2": "WD",
+    "*": "WW",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WD | n=-9: WW | n=-8: WD | n=-7: WW | n=-6: WD | n=-5: WW | n=-4: WD | n=-3: WW | n=-2: WD | n=-1: WW | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 3,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kb1 Pb3 kd4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WW",
+    "-2": "WD",
+    "*": "WW",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WD | n=-9: WW | n=-8: WD | n=-7: WW | n=-6: WD | n=-5: WW | n=-4: WD | n=-3: WW | n=-2: WD | n=-1: WW | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 3,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kb1 Pc2 ka3",
+   "kpsolve": [
+    "W",
+    "W"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WW",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "WW",
+    "*": "WD",
+    "up": "WW",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WW | n=-9: WD | n=-8: WW | n=-7: WD | n=-6: WW | n=-5: WD | n=-4: WW | n=-3: WD | n=-2: WW | n=-1: WD | n>=0: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kb1 Pc2 ka4",
+   "kpsolve": [
+    "W",
+    "W"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WW",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "WW",
+    "*": "WD",
+    "up": "WW",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WW | n=-9: WD | n=-8: WW | n=-7: WD | n=-6: WW | n=-5: WD | n=-4: WW | n=-3: WD | n=-2: WW | n=-1: WD | n>=0: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Kb1 Pc2 kb4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "DD",
+    "-2": "WD",
+    "*": "DD",
+    "up": "WD",
+    "down": "DD",
+    "1/2": "WW",
+    "-1/2": "DD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DD | n=-8: WD | n=-7: DD | n=-6: WD | n=-5: DD | n=-4: WD | n=-3: DD | n=-2: WD | n=-1: DD | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kb1 Pc2 kc3",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "DD",
+    "-2": "DD",
+    "*": "DD",
+    "up": "DD",
+    "down": "DD",
+    "1/2": "WW",
+    "-1/2": "DD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=0: DD | n>=1: WW",
+   "thresholds": [
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Kb1 Pc2 kc4",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "DD",
+    "*": "WD",
+    "up": "DD",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: DD | n=-9: WD | n=-8: DD | n=-7: WD | n=-6: DD | n=-5: WD | n=-4: DD | n=-3: WD | n=-2: DD | n=-1: WD | n=0: DD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Kb1 Pc2 kd2",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "WD",
+    "*": "WD",
+    "up": "WD",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=0: WD | n>=1: WW",
+   "thresholds": [
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 4,
+   "plies_to_pass_effect": 3
+  },
+  {
+   "placement": "Kb1 Pc2 kd4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "DD",
+    "-2": "WD",
+    "*": "DD",
+    "up": "WD",
+    "down": "DD",
+    "1/2": "WW",
+    "-1/2": "DD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DD | n=-8: WD | n=-7: DD | n=-6: WD | n=-5: DD | n=-4: WD | n=-3: DD | n=-2: WD | n=-1: DD | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kb1 Pc3 kd3",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "WD",
+    "-2": "DD",
+    "*": "WD",
+    "up": "WD",
+    "down": "WD",
+    "1/2": "WD",
+    "-1/2": "WD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: DD | n=-9: WD | n=-8: DD | n=-7: WD | n=-6: DD | n=-5: WD | n=-4: DD | n=-3: WD | n=-2: DD | n=-1: WD | n=0: DD | n>=1: WD",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Kb2 Pb3 kb4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "DW",
+    "-2": "WD",
+    "*": "DW",
+    "up": "WD",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DW | n=-8: WD | n=-7: DW | n=-6: WD | n=-5: DW | n=-4: WD | n=-3: DW | n=-2: WD | n=-1: DW | n>=0: WD",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 0
+  },
+  {
+   "placement": "Kb2 Pc2 ka4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WW",
+    "-2": "WD",
+    "*": "WW",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WD | n=-9: WW | n=-8: WD | n=-7: WW | n=-6: WD | n=-5: WW | n=-4: WD | n=-3: WW | n=-2: WD | n=-1: WW | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kb2 Pc2 kb4",
+   "kpsolve": [
+    "D",
+    "W"
+   ],
+   "mutual_zugzwang": true,
+   "finite_tests": {
+    "0": "DW",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "DW",
+    "*": "WD",
+    "up": "WW",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: DW | n=-9: WD | n=-8: DW | n=-7: WD | n=-6: DW | n=-5: WD | n=-4: DW | n=-3: WD | n=-2: DW | n=-1: WD | n=0: DW | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 0,
+   "plies_to_pass_effect": 0
+  },
+  {
+   "placement": "Kb2 Pc2 kc4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "DW",
+    "-2": "WD",
+    "*": "DW",
+    "up": "WD",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DW | n=-8: WD | n=-7: DW | n=-6: WD | n=-5: DW | n=-4: WD | n=-3: DW | n=-2: WD | n=-1: DW | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kb2 Pc2 kd4",
+   "kpsolve": [
+    "D",
+    "W"
+   ],
+   "mutual_zugzwang": true,
+   "finite_tests": {
+    "0": "DW",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "WW",
+    "*": "WD",
+    "up": "WW",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WW | n=-9: WD | n=-8: WW | n=-7: WD | n=-6: WW | n=-5: WD | n=-4: WW | n=-3: WD | n=-2: WW | n=-1: WD | n=0: DW | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 0,
+   "plies_to_pass_effect": 0
+  },
+  {
+   "placement": "Kb2 Pc3 ka4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "WW",
+    "-2": "WW",
+    "*": "WW",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-1: WW | n>=0: WD",
+   "thresholds": [
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 4,
+   "plies_to_pass_effect": 0
+  },
+  {
+   "placement": "Kb2 Pc3 kc4",
+   "kpsolve": [
+    "D",
+    "W"
+   ],
+   "mutual_zugzwang": true,
+   "finite_tests": {
+    "0": "DW",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "DW",
+    "*": "WD",
+    "up": "WW",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: DW | n=-9: WD | n=-8: DW | n=-7: WD | n=-6: DW | n=-5: WD | n=-4: DW | n=-3: WD | n=-2: DW | n=-1: WD | n=0: DW | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 0,
+   "plies_to_pass_effect": 0
+  },
+  {
+   "placement": "Kb2 Pc3 kd3",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WW",
+    "-2": "WD",
+    "*": "WW",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WD | n=-9: WW | n=-8: WD | n=-7: WW | n=-6: WD | n=-5: WW | n=-4: WD | n=-3: WW | n=-2: WD | n=-1: WW | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kb3 Pc2 kd4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "WW",
+    "-2": "WW",
+    "*": "WW",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-1: WW | n>=0: WD",
+   "thresholds": [
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 0
+  },
+  {
+   "placement": "Kb4 Pc2 kd4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "WW",
+    "-2": "WW",
+    "*": "WW",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-1: WW | n>=0: WD",
+   "thresholds": [
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 4,
+   "plies_to_pass_effect": 0
+  },
+  {
+   "placement": "Kc1 Pb2 ka2",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "WD",
+    "*": "WD",
+    "up": "WD",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=0: WD | n>=1: WW",
+   "thresholds": [
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 4,
+   "plies_to_pass_effect": 3
+  },
+  {
+   "placement": "Kc1 Pb2 ka4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "DD",
+    "-2": "WD",
+    "*": "DD",
+    "up": "WD",
+    "down": "DD",
+    "1/2": "WW",
+    "-1/2": "DD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DD | n=-8: WD | n=-7: DD | n=-6: WD | n=-5: DD | n=-4: WD | n=-3: DD | n=-2: WD | n=-1: DD | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kc1 Pb2 kb3",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "DD",
+    "-2": "DD",
+    "*": "DD",
+    "up": "DD",
+    "down": "DD",
+    "1/2": "WW",
+    "-1/2": "DD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=0: DD | n>=1: WW",
+   "thresholds": [
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Kc1 Pb2 kb4",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "DD",
+    "*": "WD",
+    "up": "DD",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: DD | n=-9: WD | n=-8: DD | n=-7: WD | n=-6: DD | n=-5: WD | n=-4: DD | n=-3: WD | n=-2: DD | n=-1: WD | n=0: DD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Kc1 Pb2 kc4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "DD",
+    "-2": "WD",
+    "*": "DD",
+    "up": "WD",
+    "down": "DD",
+    "1/2": "WW",
+    "-1/2": "DD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DD | n=-8: WD | n=-7: DD | n=-6: WD | n=-5: DD | n=-4: WD | n=-3: DD | n=-2: WD | n=-1: DD | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kc1 Pb2 kd3",
+   "kpsolve": [
+    "W",
+    "W"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WW",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "WW",
+    "*": "WD",
+    "up": "WW",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WW | n=-9: WD | n=-8: WW | n=-7: WD | n=-6: WW | n=-5: WD | n=-4: WW | n=-3: WD | n=-2: WW | n=-1: WD | n>=0: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kc1 Pb2 kd4",
+   "kpsolve": [
+    "W",
+    "W"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WW",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "WW",
+    "*": "WD",
+    "up": "WW",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WW | n=-9: WD | n=-8: WW | n=-7: WD | n=-6: WW | n=-5: WD | n=-4: WW | n=-3: WD | n=-2: WW | n=-1: WD | n>=0: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Kc1 Pb3 ka3",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "WD",
+    "-2": "DD",
+    "*": "WD",
+    "up": "WD",
+    "down": "WD",
+    "1/2": "WD",
+    "-1/2": "WD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: DD | n=-9: WD | n=-8: DD | n=-7: WD | n=-6: DD | n=-5: WD | n=-4: DD | n=-3: WD | n=-2: DD | n=-1: WD | n=0: DD | n>=1: WD",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Kc1 Pc2 ka3",
+   "kpsolve": [
+    "W",
+    "W"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WW",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "WW",
+    "*": "WD",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WW | n=-9: WD | n=-8: WW | n=-7: WD | n=-6: WW | n=-5: WD | n=-4: WW | n=-3: WD | n=-2: WW | n=-1: WD | n>=0: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kc1 Pc2 ka4",
+   "kpsolve": [
+    "W",
+    "W"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WW",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "WW",
+    "*": "WD",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WW | n=-9: WD | n=-8: WW | n=-7: WD | n=-6: WW | n=-5: WD | n=-4: WW | n=-3: WD | n=-2: WW | n=-1: WD | n>=0: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Kc1 Pc2 kb4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "DD",
+    "-2": "WD",
+    "*": "DD",
+    "up": "WD",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DD | n=-8: WD | n=-7: DD | n=-6: WD | n=-5: DD | n=-4: WD | n=-3: DD | n=-2: WD | n=-1: DD | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kc1 Pc2 kc3",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "DD",
+    "-2": "DD",
+    "*": "DD",
+    "up": "DD",
+    "down": "DD",
+    "1/2": "WW",
+    "-1/2": "DD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=0: DD | n>=1: WW",
+   "thresholds": [
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Kc1 Pc2 kc4",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "DD",
+    "*": "WD",
+    "up": "DD",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: DD | n=-9: WD | n=-8: DD | n=-7: WD | n=-6: DD | n=-5: WD | n=-4: DD | n=-3: WD | n=-2: DD | n=-1: WD | n=0: DD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Kc1 Pc2 kd4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "DD",
+    "-2": "WD",
+    "*": "DD",
+    "up": "WD",
+    "down": "DD",
+    "1/2": "WW",
+    "-1/2": "DD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DD | n=-8: WD | n=-7: DD | n=-6: WD | n=-5: DD | n=-4: WD | n=-3: DD | n=-2: WD | n=-1: DD | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kc1 Pc3 ka2",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WW",
+    "-2": "WD",
+    "*": "WW",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WD | n=-9: WW | n=-8: WD | n=-7: WW | n=-6: WD | n=-5: WW | n=-4: WD | n=-3: WW | n=-2: WD | n=-1: WW | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 3,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Kc1 Pc3 ka3",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WW",
+    "-2": "WD",
+    "*": "WW",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WD | n=-9: WW | n=-8: WD | n=-7: WW | n=-6: WD | n=-5: WW | n=-4: WD | n=-3: WW | n=-2: WD | n=-1: WW | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 3,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kc1 Pc3 ka4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WW",
+    "-2": "WD",
+    "*": "WW",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WD | n=-9: WW | n=-8: WD | n=-7: WW | n=-6: WD | n=-5: WW | n=-4: WD | n=-3: WW | n=-2: WD | n=-1: WW | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 3,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kc1 Pc3 kb3",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "WD",
+    "-2": "DD",
+    "*": "WD",
+    "up": "WD",
+    "down": "WD",
+    "1/2": "WD",
+    "-1/2": "WD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: DD | n=-9: WD | n=-8: DD | n=-7: WD | n=-6: DD | n=-5: WD | n=-4: DD | n=-3: WD | n=-2: DD | n=-1: WD | n=0: DD | n>=1: WD",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Kc1 Pc3 kd3",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "WD",
+    "-2": "DD",
+    "*": "WD",
+    "up": "WD",
+    "down": "WD",
+    "1/2": "WD",
+    "-1/2": "WD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: DD | n=-9: WD | n=-8: DD | n=-7: WD | n=-6: DD | n=-5: WD | n=-4: DD | n=-3: WD | n=-2: DD | n=-1: WD | n=0: DD | n>=1: WD",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Kc2 Pb2 ka4",
+   "kpsolve": [
+    "D",
+    "W"
+   ],
+   "mutual_zugzwang": true,
+   "finite_tests": {
+    "0": "DW",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "WW",
+    "*": "WD",
+    "up": "WW",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WW | n=-9: WD | n=-8: WW | n=-7: WD | n=-6: WW | n=-5: WD | n=-4: WW | n=-3: WD | n=-2: WW | n=-1: WD | n=0: DW | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 0,
+   "plies_to_pass_effect": 0
+  },
+  {
+   "placement": "Kc2 Pb2 kb4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "DW",
+    "-2": "WD",
+    "*": "DW",
+    "up": "WD",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DW | n=-8: WD | n=-7: DW | n=-6: WD | n=-5: DW | n=-4: WD | n=-3: DW | n=-2: WD | n=-1: DW | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kc2 Pb2 kc4",
+   "kpsolve": [
+    "D",
+    "W"
+   ],
+   "mutual_zugzwang": true,
+   "finite_tests": {
+    "0": "DW",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "DW",
+    "*": "WD",
+    "up": "WW",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: DW | n=-9: WD | n=-8: DW | n=-7: WD | n=-6: DW | n=-5: WD | n=-4: DW | n=-3: WD | n=-2: DW | n=-1: WD | n=0: DW | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 0,
+   "plies_to_pass_effect": 0
+  },
+  {
+   "placement": "Kc2 Pb2 kd4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WW",
+    "-2": "WD",
+    "*": "WW",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WD | n=-9: WW | n=-8: WD | n=-7: WW | n=-6: WD | n=-5: WW | n=-4: WD | n=-3: WW | n=-2: WD | n=-1: WW | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kc2 Pb3 ka3",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WW",
+    "-2": "WD",
+    "*": "WW",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WD | n=-9: WW | n=-8: WD | n=-7: WW | n=-6: WD | n=-5: WW | n=-4: WD | n=-3: WW | n=-2: WD | n=-1: WW | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kc2 Pb3 kb4",
+   "kpsolve": [
+    "D",
+    "W"
+   ],
+   "mutual_zugzwang": true,
+   "finite_tests": {
+    "0": "DW",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "DW",
+    "*": "WD",
+    "up": "WW",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: DW | n=-9: WD | n=-8: DW | n=-7: WD | n=-6: DW | n=-5: WD | n=-4: DW | n=-3: WD | n=-2: DW | n=-1: WD | n=0: DW | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 0,
+   "plies_to_pass_effect": 0
+  },
+  {
+   "placement": "Kc2 Pb3 kd4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "WW",
+    "-2": "WW",
+    "*": "WW",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-1: WW | n>=0: WD",
+   "thresholds": [
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 4,
+   "plies_to_pass_effect": 0
+  },
+  {
+   "placement": "Kc2 Pc3 kc4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "DW",
+    "-2": "WD",
+    "*": "DW",
+    "up": "WD",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DW | n=-8: WD | n=-7: DW | n=-6: WD | n=-5: DW | n=-4: WD | n=-3: DW | n=-2: WD | n=-1: DW | n>=0: WD",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 0
+  },
+  {
+   "placement": "Kc3 Pb2 ka4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "WW",
+    "-2": "WW",
+    "*": "WW",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-1: WW | n>=0: WD",
+   "thresholds": [
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 0
+  },
+  {
+   "placement": "Kc4 Pb2 ka4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "WW",
+    "-2": "WW",
+    "*": "WW",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-1: WW | n>=0: WD",
+   "thresholds": [
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 4,
+   "plies_to_pass_effect": 0
+  },
+  {
+   "placement": "Kd1 Pb2 ka4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "DD",
+    "-2": "WD",
+    "*": "DD",
+    "up": "WD",
+    "down": "DD",
+    "1/2": "WW",
+    "-1/2": "DD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DD | n=-8: WD | n=-7: DD | n=-6: WD | n=-5: DD | n=-4: WD | n=-3: DD | n=-2: WD | n=-1: DD | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kd1 Pb2 kb3",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "DD",
+    "-2": "DD",
+    "*": "DD",
+    "up": "DD",
+    "down": "DD",
+    "1/2": "WD",
+    "-1/2": "DD",
+    "+-1": "DD"
+   },
+   "n_profile": "n<=0: DD | n>=1: WD",
+   "thresholds": [
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Kd1 Pb2 kb4",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "DD",
+    "*": "WD",
+    "up": "DD",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: DD | n=-9: WD | n=-8: DD | n=-7: WD | n=-6: DD | n=-5: WD | n=-4: DD | n=-3: WD | n=-2: DD | n=-1: WD | n=0: DD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Kd1 Pb2 kc4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "DD",
+    "-2": "WD",
+    "*": "DD",
+    "up": "WD",
+    "down": "DD",
+    "1/2": "WW",
+    "-1/2": "DD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DD | n=-8: WD | n=-7: DD | n=-6: WD | n=-5: DD | n=-4: WD | n=-3: DD | n=-2: WD | n=-1: DD | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kd1 Pb2 kd3",
+   "kpsolve": [
+    "W",
+    "W"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WW",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "WW",
+    "*": "WD",
+    "up": "WW",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WW | n=-9: WD | n=-8: WW | n=-7: WD | n=-6: WW | n=-5: WD | n=-4: WW | n=-3: WD | n=-2: WW | n=-1: WD | n>=0: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kd1 Pb2 kd4",
+   "kpsolve": [
+    "W",
+    "W"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WW",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "WW",
+    "*": "WD",
+    "up": "WW",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WW | n=-9: WD | n=-8: WW | n=-7: WD | n=-6: WW | n=-5: WD | n=-4: WW | n=-3: WD | n=-2: WW | n=-1: WD | n>=0: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Kd1 Pb3 ka3",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "WD",
+    "-2": "DD",
+    "*": "WD",
+    "up": "WD",
+    "down": "WD",
+    "1/2": "WD",
+    "-1/2": "WD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: DD | n=-9: WD | n=-8: DD | n=-7: WD | n=-6: DD | n=-5: WD | n=-4: DD | n=-3: WD | n=-2: DD | n=-1: WD | n=0: DD | n>=1: WD",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Kd1 Pb3 kb4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "DD",
+    "-2": "WD",
+    "*": "DD",
+    "up": "WD",
+    "down": "DD",
+    "1/2": "WD",
+    "-1/2": "DD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DD | n=-8: WD | n=-7: DD | n=-6: WD | n=-5: DD | n=-4: WD | n=-3: DD | n=-2: WD | n=-1: DD | n>=0: WD",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kd1 Pc2 ka3",
+   "kpsolve": [
+    "W",
+    "W"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WW",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "WW",
+    "*": "WD",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WW | n=-9: WD | n=-8: WW | n=-7: WD | n=-6: WW | n=-5: WD | n=-4: WW | n=-3: WD | n=-2: WW | n=-1: WD | n>=0: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 3,
+   "plies_to_pass_effect": 3
+  },
+  {
+   "placement": "Kd1 Pc2 ka4",
+   "kpsolve": [
+    "W",
+    "W"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WW",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "WW",
+    "*": "WD",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WW | n=-9: WD | n=-8: WW | n=-7: WD | n=-6: WW | n=-5: WD | n=-4: WW | n=-3: WD | n=-2: WW | n=-1: WD | n>=0: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 3,
+   "plies_to_pass_effect": 3
+  },
+  {
+   "placement": "Kd1 Pc2 kb2",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "WD",
+    "*": "WD",
+    "up": "WD",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=0: WD | n>=1: WW",
+   "thresholds": [
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 4,
+   "plies_to_pass_effect": 3
+  },
+  {
+   "placement": "Kd1 Pc2 kb4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "DD",
+    "-2": "WD",
+    "*": "DD",
+    "up": "WD",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DD | n=-8: WD | n=-7: DD | n=-6: WD | n=-5: DD | n=-4: WD | n=-3: DD | n=-2: WD | n=-1: DD | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 3,
+   "plies_to_pass_effect": 3
+  },
+  {
+   "placement": "Kd1 Pc2 kc3",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "DD",
+    "-2": "DD",
+    "*": "DD",
+    "up": "DD",
+    "down": "DD",
+    "1/2": "WW",
+    "-1/2": "DD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=0: DD | n>=1: WW",
+   "thresholds": [
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Kd1 Pc2 kc4",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "DD",
+    "*": "WD",
+    "up": "DD",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: DD | n=-9: WD | n=-8: DD | n=-7: WD | n=-6: DD | n=-5: WD | n=-4: DD | n=-3: WD | n=-2: DD | n=-1: WD | n=0: DD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Kd1 Pc2 kd4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "DD",
+    "-2": "WD",
+    "*": "DD",
+    "up": "WD",
+    "down": "DD",
+    "1/2": "WW",
+    "-1/2": "DD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DD | n=-8: WD | n=-7: DD | n=-6: WD | n=-5: DD | n=-4: WD | n=-3: DD | n=-2: WD | n=-1: DD | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kd1 Pc3 ka2",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WW",
+    "-2": "WD",
+    "*": "WW",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WD | n=-9: WW | n=-8: WD | n=-7: WW | n=-6: WD | n=-5: WW | n=-4: WD | n=-3: WW | n=-2: WD | n=-1: WW | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 3,
+   "plies_to_pass_effect": 3
+  },
+  {
+   "placement": "Kd1 Pc3 ka3",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WW",
+    "-2": "WD",
+    "*": "WW",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WD | n=-9: WW | n=-8: WD | n=-7: WW | n=-6: WD | n=-5: WW | n=-4: WD | n=-3: WW | n=-2: WD | n=-1: WW | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 3,
+   "plies_to_pass_effect": 3
+  },
+  {
+   "placement": "Kd1 Pc3 ka4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WW",
+    "-2": "WD",
+    "*": "WW",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WD | n=-9: WW | n=-8: WD | n=-7: WW | n=-6: WD | n=-5: WW | n=-4: WD | n=-3: WW | n=-2: WD | n=-1: WW | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 3,
+   "plies_to_pass_effect": 3
+  },
+  {
+   "placement": "Kd1 Pc3 kb3",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "WD",
+    "-2": "DD",
+    "*": "WD",
+    "up": "WD",
+    "down": "WD",
+    "1/2": "WD",
+    "-1/2": "WD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: DD | n=-9: WD | n=-8: DD | n=-7: WD | n=-6: DD | n=-5: WD | n=-4: DD | n=-3: WD | n=-2: DD | n=-1: WD | n=0: DD | n>=1: WD",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Kd2 Pb2 ka4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "WD",
+    "*": "WD",
+    "up": "WD",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=0: WD | n>=1: WW",
+   "thresholds": [
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kd2 Pb2 kb3",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "DD",
+    "-2": "DD",
+    "*": "DD",
+    "up": "DD",
+    "down": "DD",
+    "1/2": "WD",
+    "-1/2": "DD",
+    "+-1": "DD"
+   },
+   "n_profile": "n<=0: DD | n>=1: WD",
+   "thresholds": [
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Kd2 Pb2 kb4",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "DD",
+    "*": "WD",
+    "up": "DD",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: DD | n=-9: WD | n=-8: DD | n=-7: WD | n=-6: DD | n=-5: WD | n=-4: DD | n=-3: WD | n=-2: DD | n=-1: WD | n=0: DD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Kd2 Pb2 kc4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "DD",
+    "-2": "WD",
+    "*": "DD",
+    "up": "WD",
+    "down": "DD",
+    "1/2": "WW",
+    "-1/2": "DD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DD | n=-8: WD | n=-7: DD | n=-6: WD | n=-5: DD | n=-4: WD | n=-3: DD | n=-2: WD | n=-1: DD | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kd2 Pb2 kd4",
+   "kpsolve": [
+    "W",
+    "W"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WW",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "WW",
+    "*": "WD",
+    "up": "WW",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WW | n=-9: WD | n=-8: WW | n=-7: WD | n=-6: WW | n=-5: WD | n=-4: WW | n=-3: WD | n=-2: WW | n=-1: WD | n>=0: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kd2 Pb3 kb4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "DD",
+    "-2": "WD",
+    "*": "DD",
+    "up": "WD",
+    "down": "DD",
+    "1/2": "WD",
+    "-1/2": "DD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DD | n=-8: WD | n=-7: DD | n=-6: WD | n=-5: DD | n=-4: WD | n=-3: DD | n=-2: WD | n=-1: DD | n>=0: WD",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kd2 Pb3 kd4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "WW",
+    "-2": "WW",
+    "*": "WW",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-1: WW | n>=0: WD",
+   "thresholds": [
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 5,
+   "plies_to_pass_effect": 0
+  },
+  {
+   "placement": "Kd2 Pc2 kb4",
+   "kpsolve": [
+    "W",
+    "W"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WW",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "WW",
+    "*": "WD",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WW | n=-9: WD | n=-8: WW | n=-7: WD | n=-6: WW | n=-5: WD | n=-4: WW | n=-3: WD | n=-2: WW | n=-1: WD | n>=0: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Kd2 Pc2 kc4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "DW",
+    "-2": "WD",
+    "*": "DW",
+    "up": "WD",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DW | n=-8: WD | n=-7: DW | n=-6: WD | n=-5: DW | n=-4: WD | n=-3: DW | n=-2: WD | n=-1: DW | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kd2 Pc2 kd4",
+   "kpsolve": [
+    "D",
+    "W"
+   ],
+   "mutual_zugzwang": true,
+   "finite_tests": {
+    "0": "DW",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "DW",
+    "*": "WD",
+    "up": "WW",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: DW | n=-9: WD | n=-8: DW | n=-7: WD | n=-6: DW | n=-5: WD | n=-4: DW | n=-3: WD | n=-2: DW | n=-1: WD | n=0: DW | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 0,
+   "plies_to_pass_effect": 0
+  },
+  {
+   "placement": "Kd2 Pc3 kb3",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WW",
+    "-2": "WD",
+    "*": "WW",
+    "up": "WW",
+    "down": "WW",
+    "1/2": "WW",
+    "-1/2": "WW",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: WD | n=-9: WW | n=-8: WD | n=-7: WW | n=-6: WD | n=-5: WW | n=-4: WD | n=-3: WW | n=-2: WD | n=-1: WW | n=0: WD | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kd2 Pc3 kc4",
+   "kpsolve": [
+    "D",
+    "W"
+   ],
+   "mutual_zugzwang": true,
+   "finite_tests": {
+    "0": "DW",
+    "1": "WW",
+    "2": "WW",
+    "-1": "WD",
+    "-2": "DW",
+    "*": "WD",
+    "up": "WW",
+    "down": "WD",
+    "1/2": "WW",
+    "-1/2": "WD",
+    "+-1": "WW"
+   },
+   "n_profile": "n<=-10: DW | n=-9: WD | n=-8: DW | n=-7: WD | n=-6: DW | n=-5: WD | n=-4: DW | n=-3: WD | n=-2: DW | n=-1: WD | n=0: DW | n>=1: WW",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 0,
+   "plies_to_pass_effect": 0
+  },
+  {
+   "placement": "Kd3 Pb2 kb4",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "WD",
+    "-2": "DD",
+    "*": "WD",
+    "up": "DD",
+    "down": "WD",
+    "1/2": "WD",
+    "-1/2": "WD",
+    "+-1": "DD"
+   },
+   "n_profile": "n<=-10: DD | n=-9: WD | n=-8: DD | n=-7: WD | n=-6: DD | n=-5: WD | n=-4: DD | n=-3: WD | n=-2: DD | n=-1: WD | n=0: DD | n>=1: WD",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 2,
+   "plies_to_pass_effect": 2
+  },
+  {
+   "placement": "Kd3 Pb3 kb4",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "WD",
+    "1": "WD",
+    "2": "WD",
+    "-1": "DD",
+    "-2": "WD",
+    "*": "DD",
+    "up": "WD",
+    "down": "DD",
+    "1/2": "WD",
+    "-1/2": "DD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-10: WD | n=-9: DD | n=-8: WD | n=-7: DD | n=-6: WD | n=-5: DD | n=-4: WD | n=-3: DD | n=-2: WD | n=-1: DD | n>=0: WD",
+   "thresholds": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 1,
+   "plies_to_pass_effect": 1
+  },
+  {
+   "placement": "Kd4 Pb2 ka4",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "mutual_zugzwang": false,
+   "finite_tests": {
+    "0": "DD",
+    "1": "DD",
+    "2": "DD",
+    "-1": "WD",
+    "-2": "WD",
+    "*": "WD",
+    "up": "WD",
+    "down": "WD",
+    "1/2": "WD",
+    "-1/2": "WD",
+    "+-1": "WD"
+   },
+   "n_profile": "n<=-1: WD | n>=0: DD",
+   "thresholds": [
+    -1
+   ],
+   "sens_pm1": true,
+   "normal_rule_sensitive": false,
+   "plies_to_zugzwang": 4,
+   "plies_to_pass_effect": 1
+  }
+ ],
+ "per_placement_jsonl": "chess_tempo_flat_4x4.jsonl",
+ "seconds": 3.3
+}

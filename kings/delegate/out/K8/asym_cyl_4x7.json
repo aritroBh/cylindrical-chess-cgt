@@ -1,0 +1,135 @@
+{
+ "label": "COMPUTED-1",
+ "board": "cyl:4x7",
+ "quiet": 9576,
+ "rules": {
+  "WlBl": {
+   "tempo_sensitive": 240,
+   "sensitive_at_pm1": 108,
+   "sensitive_at_plus1": 60,
+   "sensitive_at_minus1": 72,
+   "thresholds": {
+    "-4": 36,
+    "-3": 84,
+    "-2": 80,
+    "-1": 72,
+    "0": 60
+   },
+   "tails_n_minus10_to_minus2": {
+    "constant": 9480,
+    "period2": 0,
+    "other": 96
+   },
+   "tails_n_2_to_10": {
+    "constant": 9576,
+    "period2": 0,
+    "other": 0
+   },
+   "sensitive_profiles_containing_a_Black_win": 0
+  },
+  "WdBd": {
+   "tempo_sensitive": 3332,
+   "sensitive_at_pm1": 3224,
+   "sensitive_at_plus1": 3048,
+   "sensitive_at_minus1": 980,
+   "thresholds": {
+    "-10": 536,
+    "-9": 536,
+    "-8": 536,
+    "-7": 536,
+    "-6": 536,
+    "-5": 536,
+    "-4": 612,
+    "-3": 700,
+    "-2": 576,
+    "-1": 980,
+    "0": 3048,
+    "1": 60
+   },
+   "tails_n_minus10_to_minus2": {
+    "constant": 8816,
+    "period2": 476,
+    "other": 284
+   },
+   "tails_n_2_to_10": {
+    "constant": 9576,
+    "period2": 0,
+    "other": 0
+   },
+   "sensitive_profiles_containing_a_Black_win": 0
+  },
+  "WdBl": {
+   "tempo_sensitive": 240,
+   "sensitive_at_pm1": 108,
+   "sensitive_at_plus1": 60,
+   "sensitive_at_minus1": 72,
+   "thresholds": {
+    "-4": 36,
+    "-3": 84,
+    "-2": 80,
+    "-1": 72,
+    "0": 60
+   },
+   "tails_n_minus10_to_minus2": {
+    "constant": 9480,
+    "period2": 0,
+    "other": 96
+   },
+   "tails_n_2_to_10": {
+    "constant": 9576,
+    "period2": 0,
+    "other": 0
+   },
+   "sensitive_profiles_containing_a_Black_win": 0
+  },
+  "WlBd": {
+   "tempo_sensitive": 3332,
+   "sensitive_at_pm1": 3224,
+   "sensitive_at_plus1": 3048,
+   "sensitive_at_minus1": 980,
+   "thresholds": {
+    "-10": 536,
+    "-9": 536,
+    "-8": 536,
+    "-7": 536,
+    "-6": 536,
+    "-5": 536,
+    "-4": 612,
+    "-3": 700,
+    "-2": 576,
+    "-1": 980,
+    "0": 3048,
+    "1": 60
+   },
+   "tails_n_minus10_to_minus2": {
+    "constant": 8816,
+    "period2": 476,
+    "other": 284
+   },
+   "tails_n_2_to_10": {
+    "constant": 9576,
+    "period2": 0,
+    "other": 0
+   },
+   "sensitive_profiles_containing_a_Black_win": 0
+  }
+ },
+ "symmetric_rules_reproduce_chess_scan": "not scanned by chess_scan.py",
+ "sensitive_set_overlaps": {
+  "WdBd&WlBl": 240,
+  "WdBd&WdBl": 240,
+  "WdBd&WlBd": 3332,
+  "WdBl&WlBl": 240,
+  "WdBl&WlBd": 240,
+  "WlBd&WlBl": 240
+ },
+ "same_sensitive_set": {
+  "WdBl == WlBl (White's stalemate result irrelevant, Black loses)": true,
+  "WlBd == WdBd (White's stalemate result irrelevant, Black draws)": true
+ },
+ "same_pm1_set": {
+  "WdBl == WlBl": true,
+  "WlBd == WdBd": true
+ },
+ "seconds": 36.8
+}

@@ -1,0 +1,107 @@
+{
+ "label": "COMPUTED-1",
+ "board": "cyl:2x6",
+ "quiet": 492,
+ "rules": {
+  "WlBl": {
+   "tempo_sensitive": 0,
+   "sensitive_at_pm1": 0,
+   "sensitive_at_plus1": 0,
+   "sensitive_at_minus1": 0,
+   "thresholds": {},
+   "tails_n_minus10_to_minus2": {
+    "constant": 492,
+    "period2": 0,
+    "other": 0
+   },
+   "tails_n_2_to_10": {
+    "constant": 492,
+    "period2": 0,
+    "other": 0
+   },
+   "sensitive_profiles_containing_a_Black_win": 0
+  },
+  "WdBd": {
+   "tempo_sensitive": 48,
+   "sensitive_at_pm1": 18,
+   "sensitive_at_plus1": 0,
+   "sensitive_at_minus1": 18,
+   "thresholds": {
+    "-4": 4,
+    "-3": 12,
+    "-2": 30,
+    "-1": 18
+   },
+   "tails_n_minus10_to_minus2": {
+    "constant": 478,
+    "period2": 0,
+    "other": 14
+   },
+   "tails_n_2_to_10": {
+    "constant": 492,
+    "period2": 0,
+    "other": 0
+   },
+   "sensitive_profiles_containing_a_Black_win": 0
+  },
+  "WdBl": {
+   "tempo_sensitive": 0,
+   "sensitive_at_pm1": 0,
+   "sensitive_at_plus1": 0,
+   "sensitive_at_minus1": 0,
+   "thresholds": {},
+   "tails_n_minus10_to_minus2": {
+    "constant": 492,
+    "period2": 0,
+    "other": 0
+   },
+   "tails_n_2_to_10": {
+    "constant": 492,
+    "period2": 0,
+    "other": 0
+   },
+   "sensitive_profiles_containing_a_Black_win": 0
+  },
+  "WlBd": {
+   "tempo_sensitive": 48,
+   "sensitive_at_pm1": 18,
+   "sensitive_at_plus1": 0,
+   "sensitive_at_minus1": 18,
+   "thresholds": {
+    "-4": 4,
+    "-3": 12,
+    "-2": 30,
+    "-1": 18
+   },
+   "tails_n_minus10_to_minus2": {
+    "constant": 478,
+    "period2": 0,
+    "other": 14
+   },
+   "tails_n_2_to_10": {
+    "constant": 492,
+    "period2": 0,
+    "other": 0
+   },
+   "sensitive_profiles_containing_a_Black_win": 0
+  }
+ },
+ "symmetric_rules_reproduce_chess_scan": true,
+ "sensitive_set_overlaps": {
+  "WdBd&WlBl": 0,
+  "WdBd&WdBl": 0,
+  "WdBd&WlBd": 48,
+  "WdBl&WlBl": 0,
+  "WdBl&WlBd": 0,
+  "WlBd&WlBl": 0
+ },
+ "same_sensitive_set": {
+  "WdBl == WlBl (White's stalemate result irrelevant, Black loses)": true,
+  "WlBd == WdBd (White's stalemate result irrelevant, Black draws)": true
+ },
+ "same_pm1_set": {
+  "WdBl == WlBl": true,
+  "WlBd == WdBd": true
+ },
+ "seconds": 1.0
+}

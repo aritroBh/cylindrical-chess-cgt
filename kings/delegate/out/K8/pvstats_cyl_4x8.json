@@ -1,0 +1,363 @@
+{
+ "label": "COMPUTED-1",
+ "board": "cyl:4x8",
+ "quiet": 16008,
+ "normal play": {
+  "zugzwang_nodes": {
+   "total": 48,
+   "with_pawn": 48,
+   "without_pawn": 0,
+   "kpk_placements": 24
+  },
+  "mask_tests_quiet_placements_that_differ_from_the_full_result": {
+   "all zugzwang nodes": {
+    "n=+1": 0,
+    "n=-1": 0
+   },
+   "zugzwang nodes with a pawn": {
+    "n=+1": 0,
+    "n=-1": 0
+   },
+   "zugzwang nodes without a pawn": {
+    "n=+1": 76,
+    "n=-1": 80
+   },
+   "no spare move": {
+    "n=+1": 76,
+    "n=-1": 80
+   }
+  },
+  "spare_move_wins": {
+   "states": 76,
+   "where_the_spare_move_is_spent": {
+    "zugzwang node with a pawn": 76
+   },
+   "how_the_win_ends": {
+    "Black stalemated": 76
+   },
+   "plies_before_the_pass": {
+    "0": 20,
+    "1": 24,
+    "2": 16,
+    "3": 16
+   },
+   "examples": {
+    "zugzwang node with a pawn / Black stalemated": [
+     {
+      "placement": "Ka1 Pc3 ka3",
+      "start": "W to move",
+      "plies": 35,
+      "line": [
+       "Ka1 ka3 Pc3 w -",
+       "PASS Ka1 ka3 Pc3 b -",
+       "Ka1 kb3 Pc3 w -",
+       "Kd2 kb3 Pc3 b -",
+       "Kd2 kc4 Pc3 w -",
+       "Kc2 kc4 Pc3 b -",
+       "Kc2 kc5 Pc3 w -",
+       "Kd3 kc5 Pc3 b -",
+       "Kd3 kd5 Pc3 w -",
+       "Kd3 kd5 Pc4 b -",
+       "Kd3 kc5 Pc4 w -",
+       "Kc3 kc5 Pc4 b -",
+       "Kc3 kc6 Pc4 w -",
+       "Kd4 kc6 Pc4 b -",
+       "Kd4 kd6 Pc4 w -",
+       "Kd4 kd6 Pc5 b -",
+       "Kd4 kc6 Pc5 w -",
+       "Kc4 kc6 Pc5 b -",
+       "Kc4 kc7 Pc5 w -",
+       "Kd5 kc7 Pc5 b -",
+       "Kd5 kd7 Pc5 w -",
+       "Kd5 kd7 Pc6 b -",
+       "Kd5 ka7 Pc6 w -",
+       "Ka5 ka7 Pc6 b -",
+       "Ka5 kb8 Pc6 w -",
+       "Kb6 kb8 Pc6 b -",
+       "Kb6 kc8 Pc6 w -",
+       "Kb6 kc8 Pc7 b -",
+       "Kb6 kd7 Pc7 w -",
+       "Kb7 kd7 Pc7 b -",
+       "Kb7 kd6 Pc7 w -",
+       "Kb7 kd6 Qc8 b -",
+       "Kb7 kd5 Qc8 w -",
+       "Kb7 kd5 Qc3 b -",
+       "Kb7 ka4 Qc3 w -",
+       "Kc6 ka4 Qc3 b -"
+      ]
+     },
+     {
+      "placement": "Ka1 Pc3 ka4",
+      "start": "B to move",
+      "plies": 36,
+      "line": [
+       "Ka1 ka4 Pc3 b -",
+       "Ka1 ka3 Pc3 w -",
+       "PASS Ka1 ka3 Pc3 b -",
+       "Ka1 kb3 Pc3 w -",
+       "Kd2 kb3 Pc3 b -",
+       "Kd2 kc4 Pc3 w -",
+       "Kc2 kc4 Pc3 b -",
+       "Kc2 kc5 Pc3 w -",
+       "Kd3 kc5 Pc3 b -",
+       "Kd3 kd5 Pc3 w -",
+       "Kd3 kd5 Pc4 b -",
+       "Kd3 kc5 Pc4 w -",
+       "Kc3 kc5 Pc4 b -",
+       "Kc3 kc6 Pc4 w -",
+       "Kd4 kc6 Pc4 b -",
+       "Kd4 kd6 Pc4 w -",
+       "Kd4 kd6 Pc5 b -",
+       "Kd4 kc6 Pc5 w -",
+       "Kc4 kc6 Pc5 b -",
+       "Kc4 kc7 Pc5 w -",
+       "Kd5 kc7 Pc5 b -",
+       "Kd5 kd7 Pc5 w -",
+       "Kd5 kd7 Pc6 b -",
+       "Kd5 ka7 Pc6 w -",
+       "Ka5 ka7 Pc6 b -",
+       "Ka5 kb8 Pc6 w -",
+       "Kb6 kb8 Pc6 b -",
+       "Kb6 kc8 Pc6 w -",
+       "Kb6 kc8 Pc7 b -",
+       "Kb6 kd7 Pc7 w -",
+       "Kb7 kd7 Pc7 b -",
+       "Kb7 kd6 Pc7 w -",
+       "Kb7 kd6 Qc8 b -",
+       "Kb7 kd5 Qc8 w -",
+       "Kb7 kd5 Qc3 b -",
+       "Kb7 ka4 Qc3 w -",
+       "Kc6 ka4 Qc3 b -"
+      ]
+     }
+    ]
+   }
+  }
+ },
+ "chess rule": {
+  "zugzwang_nodes": {
+   "total": 416,
+   "with_pawn": 416,
+   "without_pawn": 0,
+   "kpk_placements": 208
+  },
+  "mask_tests_quiet_placements_that_differ_from_the_full_result": {},
+  "spare_move_wins": {
+   "states": 7084,
+   "where_the_spare_move_is_spent": {
+    "no pass in the longest line": 4012,
+    "zugzwang node with a pawn": 3072
+   },
+   "how_the_win_ends": {
+    "Black checkmated": 7084
+   },
+   "plies_before_the_pass": {
+    "0": 16,
+    "1": 8,
+    "2": 32,
+    "3": 32,
+    "4": 52,
+    "5": 44,
+    "6": 116,
+    "7": 144,
+    "8": 284,
+    "9": 188,
+    "10": 312,
+    "11": 224,
+    "12": 212,
+    "13": 180,
+    "14": 236,
+    "15": 224,
+    "16": 180,
+    "17": 200,
+    "18": 196,
+    "19": 116,
+    "20": 68,
+    "21": 8
+   },
+   "examples": {
+    "no pass in the longest line / Black checkmated": [
+     {
+      "placement": "Ka1 Pa2 kc2",
+      "start": "B to move",
+      "plies": 40,
+      "line": [
+       "Ka1 kc2 Pa2 b -",
+       "Ka1 kc3 Pa2 w -",
+       "Kb1 kc3 Pa2 b -",
+       "Kb1 kd4 Pa2 w -",
+       "Kb2 kd4 Pa2 b -",
+       "Kb2 ka4 Pa2 w -",
+       "Kb2 ka4 Pa3 b -",
+       "Kb2 ka5 Pa3 w -",
+       "Kb3 ka5 Pa3 b -",
+       "Kb3 kb5 Pa3 w -",
+       "Kb3 kb5 Pa4 b -",
+       "Kb3 ka5 Pa4 w -",
+       "Ka3 ka5 Pa4 b -",
+       "Ka3 ka6 Pa4 w -",
+       "Kb4 ka6 Pa4 b -",
+       "Kb4 kb6 Pa4 w -",
+       "Kb4 kb6 Pa5 b -",
+       "Kb4 ka6 Pa5 w -",
+       "Ka4 ka6 Pa5 b -",
+       "Ka4 ka7 Pa5 w -",
+       "Kb5 ka7 Pa5 b -",
+       "Kb5 kb7 Pa5 w -",
+       "Kb5 kb7 Pa6 b -",
+       "Kb5 kc7 Pa6 w -",
+       "Kc5 kc7 Pa6 b -",
+       "Kc5 kc8 Pa6 w -",
+       "Kc6 kc8 Pa6 b -",
+       "Kc6 kd8 Pa6 w -",
+       "Kd6 kd8 Pa6 b -",
+       "Kd6 ka8 Pa6 w -",
+       "Kd6 ka8 Pa7 b -",
+       "Kd6 kb7 Pa7 w -",
+       "Kd7 kb7 Pa7 b -",
+       "Kd7 kb6 Pa7 w -",
+       "Kd7 kb6 Qa8 b -",
+       "Kd7 kb5 Qa8 w -",
+       "Kd7 kb5 Qa3 b -",
+       "Kd7 kc4 Qa3 w -",
+       "Kd6 kc4 Qa3 b -",
+       "Kd6 kb5 Qa3 w -",
+       "Kd6 kb5 Qb3 b -"
+      ]
+     },
+     {
+      "placement": "Ka1 Pb2 kc2",
+      "start": "B to move",
+      "plies": 42,
+      "line": [
+       "Ka1 kc2 Pb2 b -",
+       "Ka1 kb3 Pb2 w -",
+       "Kb1 kb3 Pb2 b -",
+       "Kb1 kb4 Pb2 w -",
+       "Kc2 kb4 Pb2 b -",
+       "Kc2 kc4 Pb2 w -",
+       "Kc2 kc4 Pb3 b -",
+       "Kc2 kb4 Pb3 w -",
+       "Kb2 kb4 Pb3 b -",
+       "Kb2 kb5 Pb3 w -",
+       "Kc3 kb5 Pb3 b -",
+       "Kc3 kc5 Pb3 w -",
+       "Kc3 kc5 Pb4 b -",
+       "Kc3 kb5 Pb4 w -",
+       "Kb3 kb5 Pb4 b -",
+       "Kb3 kb6 Pb4 w -",
+       "Kc4 kb6 Pb4 b -",
+       "Kc4 kc6 Pb4 w -",
+       "Kc4 kc6 Pb5 b -",
+       "Kc4 kb6 Pb5 w -",
+       "Kb4 kb6 Pb5 b -",
+       "Kb4 kb7 Pb5 w -",
+       "Kc5 kb7 Pb5 b -",
+       "Kc5 kc7 Pb5 w -",
+       "Kc5 kc7 Pb6 b -",
+       "Kc5 kd7 Pb6 w -",
+       "Kd5 kd7 Pb6 b -",
+       "Kd5 kd8 Pb6 w -",
+       "Kd6 kd8 Pb6 b -",
+       "Kd6 ka8 Pb6 w -",
+       "Ka6 ka8 Pb6 b -",
+       "Ka6 kb8 Pb6 w -",
+       "Ka6 kb8 Pb7 b -",
+       "Ka6 kc7 Pb7 w -",
+       "Ka7 kc7 Pb7 b -",
+       "Ka7 kc6 Pb7 w -",
+       "Ka7 kc6 Qb8 b -",
+       "Ka7 kc5 Qb8 w -",
+       "Ka7 kc5 Qb3 b -",
+       "Ka7 kd4 Qb3 w -",
+       "Ka6 kd4 Qb3 b -",
+       "Ka6 kc5 Qb3 w -",
+       "Ka6 kc5 Qc3 b -"
+      ]
+     }
+    ],
+    "zugzwang node with a pawn / Black checkmated": [
+     {
+      "placement": "Ka1 Pa3 ka8",
+      "start": "W to move",
+      "plies": 31,
+      "line": [
+       "Ka1 ka8 Pa3 w -",
+       "Ka2 ka8 Pa3 b -",
+       "Ka2 kb8 Pa3 w -",
+       "Kb3 kb8 Pa3 b -",
+       "Kb3 kb7 Pa3 w -",
+       "Kb4 kb7 Pa3 b -",
+       "Kb4 kb8 Pa3 w -",
+       "Kb5 kb8 Pa3 b -",
+       "Kb5 kb7 Pa3 w -",
+       "Kb5 kb7 Pa4 b -",
+       "Kb5 kc7 Pa4 w -",
+       "Kc5 kc7 Pa4 b -",
+       "Kc5 kd7 Pa4 w -",
+       "Kb6 kd7 Pa4 b -",
+       "Kb6 kd8 Pa4 w -",
+       "Kb6 kd8 Pa5 b -",
+       "Kb6 ka8 Pa5 w -",
+       "Kb6 ka8 Pa6 b -",
+       "Kb6 kb8 Pa6 w -",
+       "Kb6 kb8 Pa7 b -",
+       "Kb6 ka8 Pa7 w -",
+       "PASS Kb6 ka8 Pa7 b -",
+       "Kb6 kd7 Pa7 w -",
+       "Kb7 kd7 Pa7 b -",
+       "Kb7 kd6 Pa7 w -",
+       "Kb7 kd6 Qa8 b -",
+       "Kb7 kd5 Qa8 w -",
+       "Kb7 kd5 Qa3 b -",
+       "Kb7 kc4 Qa3 w -",
+       "Kb6 kc4 Qa3 b -",
+       "Kb6 kd5 Qa3 w -",
+       "Kb6 kd5 Qd3 b -"
+      ]
+     },
+     {
+      "placement": "Ka1 Pb3 ka8",
+      "start": "W to move",
+      "plies": 31,
+      "line": [
+       "Ka1 ka8 Pb3 w -",
+       "Ka2 ka8 Pb3 b -",
+       "Ka2 kb8 Pb3 w -",
+       "Ka3 kb8 Pb3 b -",
+       "Ka3 kc8 Pb3 w -",
+       "Ka4 kc8 Pb3 b -",
+       "Ka4 kc7 Pb3 w -",
+       "Ka5 kc7 Pb3 b -",
+       "Ka5 kc6 Pb3 w -",
+       "Ka5 kc6 Pb4 b -",
+       "Ka5 kd7 Pb4 w -",
+       "Kd5 kd7 Pb4 b -",
+       "Kd5 ka7 Pb4 w -",
+       "Kc6 ka7 Pb4 b -",
+       "Kc6 ka8 Pb4 w -",
+       "Kc6 ka8 Pb5 b -",
+       "Kc6 kb8 Pb5 w -",
+       "Kc6 kb8 Pb6 b -",
+       "Kc6 kc8 Pb6 w -",
+       "Kc6 kc8 Pb7 b -",
+       "Kc6 kb8 Pb7 w -",
+       "PASS Kc6 kb8 Pb7 b -",
+       "Kc6 ka7 Pb7 w -",
+       "Kc7 ka7 Pb7 b -",
+       "Kc7 ka6 Pb7 w -",
+       "Kc7 ka6 Qb8 b -",
+       "Kc7 ka5 Qb8 w -",
+       "Kc7 ka5 Qa3 b -",
+       "Kc7 kb5 Qa3 w -",
+       "Kc7 kb5 Qd4 b -",
+       "Kc7 ka6 Qd4 w -",
+       "Kc7 ka6 Qa4 b -"
+      ]
+     }
+    ]
+   }
+  }
+ },
+ "seconds": 10.6
+}

@@ -1,0 +1,31 @@
+{
+ "board": "cyl:4x7",
+ "nodes": 114604,
+ "edges": 849044,
+ "kpk_positions": 19936,
+ "quiet_placements": 9576,
+ "check1": {
+  "board": "cyl:4x7",
+  "kpk": 19936,
+  "other": 94668,
+  "x": 0,
+  "stale_loss_kpk": 4908,
+  "stale_loss_all": 48784,
+  "nodes": 114604,
+  "cmd": "nice -n 10 /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K8/kp --board cyl:4x7 --ep on --promote QRBN --cap 1 --threads 2",
+  "mutual_zugzwangs": 120,
+  "mutual_examples": [
+   "Ka2 Pc2 ka4",
+   "Ka2 Pc2 ka6",
+   "Kb2 Pd2 kb4",
+   "Kb2 Pd2 kb6",
+   "Kc2 Pa2 kc4"
+  ]
+ },
+ "check1_differences": 0,
+ "decisive_white": 3788,
+ "decisive_black": 0,
+ "unmatched": 2524,
+ "seconds": 4.5,
+ "jsonl": "cyl_4x7.jsonl"
+}

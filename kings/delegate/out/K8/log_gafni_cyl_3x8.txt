@@ -1,0 +1,11 @@
+check2 PASS 1 + (-1)               ('L', 'W')
+check2 PASS * + *                  ('L', 'W')
+check2 PASS up + down              ('L', 'W')
+check2 PASS 1/2 + 1/2 + (-1)       ('L', 'W')
+check2 PASS on + (-2)              ('W', 'W')
+check2 PASS on + off               ('D', 'D')
+check2 PASS dud + 1                ('D', 'D')
+check2 PASS over + (-1/2)          ('L', 'L')
+check2 PASS over                   ('W', 'W')
+check2 PASS up + *                 ('W', 'L')
+cyl:3x8 {'board': 'cyl:3x8', 'nodes': 62577, 'edges': 445221, 'kpk_positions': 11970, 'quiet_placements': 5706, 'check1': {'board': 'cyl:3x8', 'kpk': 11970, 'other': 50607, 'x': 0, 'stale_loss_kpk': 3501, 'stale_loss_all': 23184, 'nodes': 62577, 'cmd': 'nice -n 10 /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K8/kp --board cyl:3x8 --ep on --promote QRBN --cap 1 --threads 2', 'mutual_zugzwangs': 0, 'mutual_examples': []}, 'check1_differences': 0, 'decisive_white': 2187, 'decisive_black': 0, 'unmatched': 990, 'seconds': 2.1, 'jsonl': 'cyl_3x8.jsonl'}

@@ -1,0 +1,26 @@
+{
+ "board": "cyl:6x5",
+ "nodes": 147426,
+ "edges": 1123218,
+ "kpk_positions": 21672,
+ "quiet_placements": 10440,
+ "check1": {
+  "board": "cyl:6x5",
+  "kpk": 21672,
+  "other": 125754,
+  "x": 0,
+  "stale_loss_kpk": 2400,
+  "stale_loss_all": 3120,
+  "nodes": 147426,
+  "cmd": "nice -n 10 /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K8/kp --board cyl:6x5 --ep on --promote QRBN --cap 1 --threads 2",
+  "mutual_zugzwangs": 24
+ },
+ "check1_differences": 0,
+ "mutual_examples": [
+  "Ka3 Pb3 ka5",
+  "Ka3 Pf3 ka5",
+  "Ka3 Pb4 kb5",
+  "Ka3 Pf4 kf5",
+  "Kb3 Pa4 ka5"
+ ]
+}

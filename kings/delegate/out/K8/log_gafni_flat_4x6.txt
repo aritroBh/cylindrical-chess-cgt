@@ -1,0 +1,11 @@
+check2 PASS 1 + (-1)               ('L', 'W')
+check2 PASS * + *                  ('L', 'W')
+check2 PASS up + down              ('L', 'W')
+check2 PASS 1/2 + 1/2 + (-1)       ('L', 'W')
+check2 PASS on + (-2)              ('W', 'W')
+check2 PASS on + off               ('D', 'D')
+check2 PASS dud + 1                ('D', 'D')
+check2 PASS over + (-1/2)          ('L', 'L')
+check2 PASS over                   ('W', 'W')
+check2 PASS up + *                 ('W', 'L')
+flat:4x6 {'board': 'flat:4x6', 'nodes': 74712, 'edges': 446086, 'kpk_positions': 11856, 'quiet_placements': 5728, 'check1': {'board': 'flat:4x6', 'kpk': 11856, 'other': 62856, 'x': 0, 'stale_loss_kpk': 2550, 'stale_loss_all': 31878, 'nodes': 74712, 'cmd': 'nice -n 10 /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K8/kp --board flat:4x6 --ep on --promote QRBN --cap 1 --threads 2', 'mutual_zugzwangs': 16, 'mutual_examples': ['Ka3 Pb2 ka5', 'Kb3 Pb2 kb5', 'Kb3 Pc2 kb5', 'Kc3 Pb2 kc5', 'Kc3 Pc2 kc5']}, 'check1_differences': 0, 'decisive_white': 2458, 'decisive_black': 0, 'unmatched': 1678, 'seconds': 2.5, 'jsonl': 'flat_4x6.jsonl'}

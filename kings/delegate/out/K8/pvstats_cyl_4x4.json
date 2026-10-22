@@ -1,0 +1,201 @@
+{
+ "label": "COMPUTED-1",
+ "board": "cyl:4x4",
+ "quiet": 840,
+ "normal play": {
+  "zugzwang_nodes": {
+   "total": 32,
+   "with_pawn": 16,
+   "without_pawn": 16,
+   "kpk_placements": 8
+  },
+  "mask_tests_quiet_placements_that_differ_from_the_full_result": {
+   "all zugzwang nodes": {
+    "n=+1": 0,
+    "n=-1": 0
+   },
+   "zugzwang nodes with a pawn": {
+    "n=+1": 0,
+    "n=-1": 0
+   },
+   "zugzwang nodes without a pawn": {
+    "n=+1": 20,
+    "n=-1": 16
+   },
+   "no spare move": {
+    "n=+1": 20,
+    "n=-1": 16
+   }
+  },
+  "spare_move_wins": {
+   "states": 20,
+   "where_the_spare_move_is_spent": {
+    "zugzwang node with a pawn": 20
+   },
+   "how_the_win_ends": {
+    "Black stalemated": 20
+   },
+   "plies_before_the_pass": {
+    "0": 4,
+    "1": 8,
+    "2": 4,
+    "3": 4
+   },
+   "examples": {
+    "zugzwang node with a pawn / Black stalemated": [
+     {
+      "placement": "Ka3 Pa2 kc2",
+      "start": "B to move",
+      "plies": 8,
+      "line": [
+       "Ka3 kc2 Pa2 b -",
+       "Ka3 kc3 Pa2 w -",
+       "PASS Ka3 kc3 Pa2 b -",
+       "Ka3 kc4 Pa2 w -",
+       "Kb2 kc4 Pa2 b -",
+       "Kb2 kb4 Pa2 w -",
+       "Kb2 kb4 Pa3 b -",
+       "Kb2 kc4 Pa3 w -",
+       "Kc2 kc4 Pa3 b -"
+      ]
+     },
+     {
+      "placement": "Ka3 Pa2 kc3",
+      "start": "W to move",
+      "plies": 7,
+      "line": [
+       "Ka3 kc3 Pa2 w -",
+       "PASS Ka3 kc3 Pa2 b -",
+       "Ka3 kc4 Pa2 w -",
+       "Kb2 kc4 Pa2 b -",
+       "Kb2 kb4 Pa2 w -",
+       "Kb2 kb4 Pa3 b -",
+       "Kb2 kc4 Pa3 w -",
+       "Kc2 kc4 Pa3 b -"
+      ]
+     }
+    ]
+   }
+  }
+ },
+ "chess rule": {
+  "zugzwang_nodes": {
+   "total": 48,
+   "with_pawn": 48,
+   "without_pawn": 0,
+   "kpk_placements": 24
+  },
+  "mask_tests_quiet_placements_that_differ_from_the_full_result": {},
+  "spare_move_wins": {
+   "states": 236,
+   "where_the_spare_move_is_spent": {
+    "zugzwang node with a pawn": 232,
+    "no pass in the longest line": 4
+   },
+   "how_the_win_ends": {
+    "Black checkmated": 236
+   },
+   "plies_before_the_pass": {
+    "0": 8,
+    "1": 8,
+    "2": 40,
+    "3": 32,
+    "4": 28,
+    "5": 16,
+    "6": 24,
+    "7": 76
+   },
+   "examples": {
+    "zugzwang node with a pawn / Black checkmated": [
+     {
+      "placement": "Ka1 Pb2 kc2",
+      "start": "B to move",
+      "plies": 14,
+      "line": [
+       "Ka1 kc2 Pb2 b -",
+       "Ka1 kb3 Pb2 w -",
+       "Kb1 kb3 Pb2 b -",
+       "Kb1 kb4 Pb2 w -",
+       "Kc2 kb4 Pb2 b -",
+       "Kc2 kc4 Pb2 w -",
+       "Kc2 kc4 Pb3 b -",
+       "Kc2 kb4 Pb3 w -",
+       "PASS Kc2 kb4 Pb3 b -",
+       "Kc2 ka3 Pb3 w -",
+       "Kc3 ka3 Pb3 b -",
+       "Kc3 ka2 Pb3 w -",
+       "Kc3 ka2 Qb4 b -",
+       "Kc3 ka1 Qb4 w -",
+       "Kc3 ka1 Qa4 b -"
+      ]
+     },
+     {
+      "placement": "Ka1 Pd2 kc2",
+      "start": "B to move",
+      "plies": 14,
+      "line": [
+       "Ka1 kc2 Pd2 b -",
+       "Ka1 kd3 Pd2 w -",
+       "Kd1 kd3 Pd2 b -",
+       "Kd1 kd4 Pd2 w -",
+       "Ka2 kd4 Pd2 b -",
+       "Ka2 ka4 Pd2 w -",
+       "Ka2 ka4 Pd3 b -",
+       "Ka2 kd4 Pd3 w -",
+       "PASS Ka2 kd4 Pd3 b -",
+       "Ka2 kc3 Pd3 w -",
+       "Ka3 kc3 Pd3 b -",
+       "Ka3 kc2 Pd3 w -",
+       "Ka3 kc2 Qd4 b -",
+       "Ka3 kc1 Qd4 w -",
+       "Ka3 kc1 Qc4 b -"
+      ]
+     }
+    ],
+    "no pass in the longest line / Black checkmated": [
+     {
+      "placement": "Ka1 Pc3 ka4",
+      "start": "B to move",
+      "plies": 12,
+      "line": [
+       "Ka1 ka4 Pc3 b -",
+       "Ka1 ka3 Pc3 w -",
+       "Ka1 ka3 Rc4 b -",
+       "Ka1 kb3 Rc4 w -",
+       "Ka1 kb3 Rc1 b -",
+       "Ka1 ka3 Rc1 w -",
+       "Ka1 ka3 Rb1 b -",
+       "Ka1 kd3 Rb1 w -",
+       "Kb2 kd3 Rb1 b -",
+       "Kb2 kd4 Rb1 w -",
+       "Kb3 kd4 Rb1 b -",
+       "Kb3 kd3 Rb1 w -",
+       "Kb3 kd3 Rd1 b -"
+      ]
+     },
+     {
+      "placement": "Kb1 Pd3 kb4",
+      "start": "B to move",
+      "plies": 12,
+      "line": [
+       "Kb1 kb4 Pd3 b -",
+       "Kb1 kb3 Pd3 w -",
+       "Kb1 kb3 Rd4 b -",
+       "Kb1 kc3 Rd4 w -",
+       "Kb1 kc3 Rd1 b -",
+       "Kb1 kb3 Rd1 w -",
+       "Kb1 kb3 Ra1 b -",
+       "Kb1 kc3 Ra1 w -",
+       "Ka2 kc3 Ra1 b -",
+       "Ka2 kc4 Ra1 w -",
+       "Ka3 kc4 Ra1 b -",
+       "Ka3 kc3 Ra1 w -",
+       "Ka3 kc3 Rc1 b -"
+      ]
+     }
+    ]
+   }
+  }
+ },
+ "seconds": 0.5
+}

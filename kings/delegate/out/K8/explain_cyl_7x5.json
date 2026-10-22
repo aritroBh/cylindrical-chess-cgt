@@ -1,0 +1,245 @@
+{
+ "label": "COMPUTED-1",
+ "board": "cyl:7x5",
+ "nodes": 251566,
+ "quiet": 17766,
+ "critical_nodes": {
+  "zugzwang_white": 28,
+  "zugzwang_black": 28,
+  "zugzwang_white_that_are_kpk": 28,
+  "zugzwang_black_that_are_kpk": 28,
+  "forced_pass_white": 0,
+  "forced_pass_black": 217
+ },
+ "mask_test chess rule n=+1": {
+  "pass_allowed_at_nodes": 28,
+  "states_that_differ": 0,
+  "quiet_placements_that_differ": 0
+ },
+ "mask_test chess rule n=-1": {
+  "pass_allowed_at_nodes": 245,
+  "states_that_differ": 0,
+  "quiet_placements_that_differ": 0
+ },
+ "mask_test optional-pass rule n=+1": {
+  "pass_allowed_at_nodes": 28,
+  "states_that_differ": 0,
+  "quiet_placements_that_differ": 0
+ },
+ "mask_test optional-pass rule n=-1": {
+  "pass_allowed_at_nodes": 28,
+  "states_that_differ": 0,
+  "quiet_placements_that_differ": 0
+ },
+ "spare_move_for_White_turns_non_win_into_win": {
+  "placements_states": 3269,
+  "first_pass_node_type": {
+   "zugzwang/KPK": 3213,
+   "no pass in the longest line": 56
+  },
+  "plies_before_the_pass": {
+   "0": 14,
+   "1": 14,
+   "2": 56,
+   "3": 154,
+   "4": 63,
+   "5": 21,
+   "6": 98,
+   "7": 196,
+   "8": 434,
+   "9": 595,
+   "10": 238,
+   "11": 392,
+   "12": 245,
+   "13": 231,
+   "14": 126,
+   "15": 336
+  },
+  "examples": {
+   "zugzwang/KPK": [
+    {
+     "placement": "Ka1 Pb2 kc2",
+     "start": "B to move",
+     "kpsolve": "WD",
+     "plies_to_win_with_spare": 30,
+     "plies_before_the_pass": 13,
+     "line": [
+      "Ka1 kc2 Pb2 b -",
+      "Ka1 kb3 Pb2 w -",
+      "Kb1 kb3 Pb2 b -",
+      "Kb1 kb4 Pb2 w -",
+      "Kc2 kb4 Pb2 b -",
+      "Kc2 kc4 Pb2 w -",
+      "Kc2 kc4 Pb3 b -",
+      "Kc2 kb4 Pb3 w -",
+      "Kb2 kb4 Pb3 b -",
+      "Kb2 kb5 Pb3 w -",
+      "Kc3 kb5 Pb3 b -",
+      "Kc3 kc5 Pb3 w -",
+      "Kc3 kc5 Pb4 b -",
+      "Kc3 kb5 Pb4 w -",
+      "PASS Kc3 kb5 Pb4 b -",
+      "Kc3 ka4 Pb4 w -",
+      "Kc4 ka4 Pb4 b -"
+     ]
+    },
+    {
+     "placement": "Ka1 Pg2 kc2",
+     "start": "B to move",
+     "kpsolve": "WD",
+     "plies_to_win_with_spare": 28,
+     "plies_before_the_pass": 11,
+     "line": [
+      "Ka1 kc2 Pg2 b -",
+      "Ka1 kb3 Pg2 w -",
+      "Kg1 kb3 Pg2 b -",
+      "Kg1 ka4 Pg2 w -",
+      "Ka2 ka4 Pg2 b -",
+      "Ka2 kg4 Pg2 w -",
+      "Ka2 kg4 Pg3 b -",
+      "Ka2 kg5 Pg3 w -",
+      "Ka3 kg5 Pg3 b -",
+      "Ka3 ka5 Pg3 w -",
+      "Ka3 ka5 Pg4 b -",
+      "Ka3 kg5 Pg4 w -",
+      "PASS Ka3 kg5 Pg4 b -",
+      "Ka3 kf4 Pg4 w -",
+      "Ka4 kf4 Pg4 b -"
+     ]
+    },
+    {
+     "placement": "Ka1 Pa3 kc2",
+     "start": "B to move",
+     "kpsolve": "WD",
+     "plies_to_win_with_spare": 26,
+     "plies_before_the_pass": 9,
+     "line": [
+      "Ka1 kc2 Pa3 b -",
+      "Ka1 kb3 Pa3 w -",
+      "Kg2 kb3 Pa3 b -",
+      "Kg2 ka4 Pa3 w -",
+      "Ka2 ka4 Pa3 b -",
+      "Ka2 ka5 Pa3 w -",
+      "Kb3 ka5 Pa3 b -",
+      "Kb3 kb5 Pa3 w -",
+      "Kb3 kb5 Pa4 b -",
+      "Kb3 ka5 Pa4 w -",
+      "PASS Kb3 ka5 Pa4 b -",
+      "Kb3 kg4 Pa4 w -",
+      "Kb4 kg4 Pa4 b -"
+     ]
+    }
+   ],
+   "no pass in the longest line": [
+    {
+     "placement": "Ka1 Pf3 ka5",
+     "start": "B to move",
+     "kpsolve": "WD",
+     "plies_to_win_with_spare": 26,
+     "plies_before_the_pass": null,
+     "line": [
+      "Ka1 ka5 Pf3 b -",
+      "Ka1 kg5 Pf3 w -",
+      "Ka2 kg5 Pf3 b -",
+      "Ka2 ka4 Pf3 w -",
+      "Kg2 ka4 Pf3 b -",
+      "Kg2 ka5 Pf3 w -",
+      "Kf2 ka5 Pf3 b -",
+      "Kf2 kg5 Pf3 w -",
+      "Kg3 kg5 Pf3 b -",
+      "Kg3 kf5 Pf3 w -",
+      "Kg3 kf5 Pf4 b -",
+      "Kg3 ke4 Pf4 w -",
+      "Kg4 ke4 Pf4 b -",
+      "Kg4 kd4 Pf4 w -",
+      "Kf3 kd4 Pf4 b -",
+      "Kf3 kc4 Pf4 w -",
+      "Kf3 kc4 Qf5 b -",
+      "Kf3 kb4 Qf5 w -",
+      "Kf3 kb4 Qc1 b -",
+      "Kf3 kb5 Qc1 w -",
+      "Kg3 kb5 Qc1 b -",
+      "Kg3 kb4 Qc1 w -",
+      "Kg3 kb4 Qc2 b -",
+      "Kg3 kb5 Qc2 w -",
+      "Ka3 kb5 Qc2 b -",
+      "Ka3 ka5 Qc2 w -",
+      "Ka3 ka5 Qa4 b -"
+     ]
+    },
+    {
+     "placement": "Ka1 Pe3 kf5",
+     "start": "W to move",
+     "kpsolve": "DD",
+     "plies_to_win_with_spare": 25,
+     "plies_before_the_pass": null,
+     "line": [
+      "Ka1 kf5 Pe3 w -",
+      "Kg2 kf5 Pe3 b -",
+      "Kg2 kg4 Pe3 w -",
+      "Kf2 kg4 Pe3 b -",
+      "Kf2 kg5 Pe3 w -",
+      "Ke2 kg5 Pe3 b -",
+      "Ke2 kf5 Pe3 w -",
+      "Kf3 kf5 Pe3 b -",
+      "Kf3 ke5 Pe3 w -",
+      "Kf3 ke5 Pe4 b -",
+      "Kf3 kd4 Pe4 w -",
+      "Kf4 kd4 Pe4 b -",
+      "Kf4 kc4 Pe4 w -",
+      "Ke3 kc4 Pe4 b -",
+      "Ke3 kb4 Pe4 w -",
+      "Ke3 kb4 Qe5 b -",
+      "Ke3 ka4 Qe5 w -",
+      "Ke3 ka4 Qb1 b -",
+      "Ke3 ka5 Qb1 w -",
+      "Kf3 ka5 Qb1 b -",
+      "Kf3 ka4 Qb1 w -",
+      "Kf3 ka4 Qb2 b -",
+      "Kf3 ka5 Qb2 w -",
+      "Kg3 ka5 Qb2 b -",
+      "Kg3 kg5 Qb2 w -",
+      "Kg3 kg5 Qg4 b -"
+     ]
+    },
+    {
+     "placement": "Ka1 Pf3 kf5",
+     "start": "B to move",
+     "kpsolve": "DD",
+     "plies_to_win_with_spare": 26,
+     "plies_before_the_pass": null,
+     "line": [
+      "Ka1 kf5 Pf3 b -",
+      "Ka1 kg5 Pf3 w -",
+      "Ka2 kg5 Pf3 b -",
+      "Ka2 ka4 Pf3 w -",
+      "Kg2 ka4 Pf3 b -",
+      "Kg2 ka5 Pf3 w -",
+      "Kf2 ka5 Pf3 b -",
+      "Kf2 kg5 Pf3 w -",
+      "Kg3 kg5 Pf3 b -",
+      "Kg3 kf5 Pf3 w -",
+      "Kg3 kf5 Pf4 b -",
+      "Kg3 ke4 Pf4 w -",
+      "Kg4 ke4 Pf4 b -",
+      "Kg4 kd4 Pf4 w -",
+      "Kf3 kd4 Pf4 b -",
+      "Kf3 kc4 Pf4 w -",
+      "Kf3 kc4 Qf5 b -",
+      "Kf3 kb4 Qf5 w -",
+      "Kf3 kb4 Qc1 b -",
+      "Kf3 kb5 Qc1 w -",
+      "Kg3 kb5 Qc1 b -",
+      "Kg3 kb4 Qc1 w -",
+      "Kg3 kb4 Qc2 b -",
+      "Kg3 kb5 Qc2 w -",
+      "Ka3 kb5 Qc2 b -",
+      "Ka3 ka5 Qc2 w -",
+      "Ka3 ka5 Qa4 b -"
+     ]
+    }
+   ]
+  }
+ },
+ "seconds": 6.1
+}

@@ -1,0 +1,92 @@
+{
+ "label": "COMPUTED-1",
+ "board": "cyl:3x6",
+ "rule": "chess stalemate rule (stalemate draws, checkmate loses)",
+ "quiet": 1710,
+ "check2": {
+  "passed": true,
+  "facts": 10
+ },
+ "kpsolve_check": {
+  "passed": true,
+  "kpk": 3654,
+  "other": 17217,
+  "compared": 20871,
+  "differences": 0,
+  "x": 0
+ },
+ "tempo_sensitive": 0,
+ "sensitive_to_finite_tests": 0,
+ "sensitive_to_n_scan": 0,
+ "thresholds": {},
+ "tails_n_minus20_to_minus2": {
+  "constant": 1710,
+  "period2": 0,
+  "other": 0
+ },
+ "tails_n_2_to_20": {
+  "constant": 1710,
+  "period2": 0,
+  "other": 0
+ },
+ "sensitive_at_pm1": 0,
+ "sensitive_at_plus1": 0,
+ "sensitive_at_minus1": 0,
+ "mutual_zugzwangs": 0,
+ "mutual_also_pm1": 0,
+ "mutual_and_sensitive_at_both_plus1_and_minus1": 0,
+ "mutual_not_pm1": 0,
+ "pm1_not_mutual": 0,
+ "mutual_not_tempo_sensitive": 0,
+ "tempo_sensitive_not_mutual": 0,
+ "mutual_not_pm1_examples": [],
+ "pm1_not_mutual_examples": [],
+ "diagnostics": {
+  "sens_pm1_not_zugzwang_by_kpsolve_pair": {},
+  "sens_pm1_not_zugzwang_direction": {},
+  "sens_pm1_not_zugzwang_plies_to_zugzwang": {},
+  "sens_pm1_not_zugzwang_plies_to_pass_effect": {},
+  "zugzwang_plies_to_zugzwang": {},
+  "insensitive_plies_to_zugzwang": {
+   "-1": 1710
+  },
+  "insensitive_plies_to_pass_effect": {
+   "3": 9,
+   "5": 81,
+   "7": 108,
+   "9": 273,
+   "10": 18,
+   "11": 312,
+   "12": 27,
+   "13": 234,
+   "14": 45,
+   "15": 198,
+   "16": 81,
+   "17": 162,
+   "19": 108,
+   "21": 54
+  },
+  "pass_effect_source_nodes": {
+   "zugzwang_nodes": 0,
+   "forced_pass_nodes": 18
+  },
+  "zugzwang_by_kpsolve_pair": {},
+  "zugzwang_direction": {},
+  "all_by_kpsolve_pair": {
+   "DD": 756,
+   "WD": 333,
+   "WW": 621
+  }
+ },
+ "normal_rule_same_placements": {
+  "tempo_sensitive": 0,
+  "thresholds": {},
+  "sensitive_under_both_rules": 0,
+  "only_chess_rule": 0,
+  "only_normal_rule": 0
+ },
+ "sensitive_examples": [],
+ "sensitive": [],
+ "per_placement_jsonl": "chess_tempo_cyl_3x6.jsonl",
+ "seconds": 2.7
+}

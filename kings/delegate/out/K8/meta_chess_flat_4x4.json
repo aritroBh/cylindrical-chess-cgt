@@ -1,0 +1,26 @@
+{
+ "board": "flat:4x4",
+ "nodes": 16684,
+ "edges": 75814,
+ "kpk_positions": 2112,
+ "quiet_placements": 1000,
+ "check1": {
+  "board": "flat:4x4",
+  "kpk": 2112,
+  "other": 14572,
+  "x": 0,
+  "stale_loss_kpk": 280,
+  "stale_loss_all": 6916,
+  "nodes": 16684,
+  "cmd": "nice -n 10 /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K8/kp --board flat:4x4 --ep on --promote QRBN --cap 1 --threads 2",
+  "mutual_zugzwangs": 10
+ },
+ "check1_differences": 0,
+ "mutual_examples": [
+  "Ka2 Pb2 ka4",
+  "Ka2 Pb3 kb4",
+  "Kb2 Pc2 kb4",
+  "Kb2 Pc3 kc4",
+  "Kb2 Pc2 kd4"
+ ]
+}

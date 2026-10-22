@@ -23,7 +23,9 @@ A quiet placement is **tempo-sensitive** if its result (White starts, Black star
    therefore unsupported. It is withdrawn as an odd-width effect.
 4. **Every flat board is sensitive.** For width ≥ 4 the count depends only on the ranks: 22, 86 and 174
    placements on 4, 5 and 6 ranks. The deepest threshold also deepens with the ranks: n = −1, −2 and −3.
-5. **CONJECTURE (from the data).** Across all 27 boards (K4 and K6), a board has tempo-sensitive placements
+5. **CONJECTURE (from the data; tested further by K8, [../K8/REPORT.md](../K8/REPORT.md)).** K8 confirmed all 8
+   new predictions. It also found that the effect belongs to normal play, where stalemate loses: under the
+   chess stalemate rule the 5-, 6- and 7-file cylinders are sensitive, and only Black's stalemate rule matters. Across all 27 boards (K4 and K6), a board has tempo-sensitive placements
    exactly when White can be stalemated in front of its own pawn, that is, when the off/off+\* class exists.
    - That happens on flat boards, in a corner.
    - It happens on 4-file cylinders, where one Black king two files away covers both of the White king's

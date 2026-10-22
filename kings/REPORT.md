@@ -357,6 +357,14 @@ Every deliverable was given to independent referees (Claude models) told to brea
       n ∈ {−3, …, 0}, deepening by one with each extra rank.
     - K4's odd-width explanation is withdrawn. Sensitivity coincides with White being stalemated in
       front of its own pawn (CONJECTURE).
+    - Task K8 ([delegate/out/K8/REPORT.md](delegate/out/K8/REPORT.md); CHECKED-2 by K8v) confirms all 8 new
+      predictions of that pattern, which now holds on 38 boards. It also shows that the insensitivity comes from
+      the stalemate-loses convention.
+      - Under chess's stalemate rule, 5- to 7-file cylinders are sensitive too. Only 3-file cylinders stay
+        insensitive.
+      - Only Black's stalemate rule decides which placements are sensitive; White's never changes the set.
+      - Every kpsolve mutual zugzwang is sensitive to one spare move (PROVED). Most sensitive placements are
+        not zugzwangs.
     - So "no finite king tempo" fails as a whole-board statement, though Proposition 4.3 is not tested by this.
   - **Gafni.** His reported values (a second-hand summary) do not appear: on + \* only as a tie with on, and no
     {on | 0} or 1 + \*. That is no contradiction, because his conventions are unknown.

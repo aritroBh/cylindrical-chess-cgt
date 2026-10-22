@@ -1,0 +1,89 @@
+{
+ "label": "COMPUTED-1",
+ "board": "flat:5x6",
+ "quiet": 12234,
+ "chess": {
+  "tempo_sensitive": 1843,
+  "sensitive_at_pm1": 1777,
+  "tails_n_minus20_to_minus2": {
+   "constant": 11793,
+   "period2": 441,
+   "other": 0
+  },
+  "mutual_zugzwangs": 23
+ },
+ "normal": {
+  "tempo_sensitive": 174
+ },
+ "spare_blind_stalemate": {
+  "tempo_sensitive": 1983,
+  "sensitive_at_pm1": 1792,
+  "thresholds": {
+   "-3": 218,
+   "-2": 286,
+   "-1": 498,
+   "0": 1525
+  },
+  "tails_n_minus20_to_minus2": {
+   "constant": 12016,
+   "period2": 0,
+   "other": 218
+  },
+  "tails_n_2_to_20": {
+   "constant": 12234,
+   "period2": 0,
+   "other": 0
+  },
+  "mutual_zugzwangs_also_sensitive_at_pm1": 23,
+  "sensitive_under_both_chess_and_blind": 1833,
+  "sensitive_under_chess_only": 10,
+  "sensitive_under_blind_only": 150
+ },
+ "examples_chess_only": [
+  {
+   "placement": "Ka4 Pc5 ka6",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "chess_n": "WWWWWWWWWWWWWWWWWWWWWDWDWDWDWDWDWDWDWDWDWD",
+   "blind_n": "WDWDWDWDWDWDWDWDWDWDWDWDWDWDWDWDWDWDWDWDWD"
+  },
+  {
+   "placement": "Kb4 Pc5 ka6",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "chess_n": "WWWWWWWWWWWWWWWWWWWWWDWDWDWDWDWDWDWDWDWDWD",
+   "blind_n": "WDWDWDWDWDWDWDWDWDWDWDWDWDWDWDWDWDWDWDWDWD"
+  },
+  {
+   "placement": "Kb6 Pd4 ke6",
+   "kpsolve": [
+    "D",
+    "D"
+   ],
+   "chess_n": "WDWDWDWDWDWDWDWDWDWDDDDDDDDDDDDDDDDDDDDDDD",
+   "blind_n": "DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"
+  },
+  {
+   "placement": "Kc5 Pb4 ka6",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "chess_n": "WWWWWWWWWWWWWWWWWWWWWDWDWDWDWDWDWDWDWDWDWD",
+   "blind_n": "WDWDWDWDWDWDWDWDWDWDWDWDWDWDWDWDWDWDWDWDWD"
+  },
+  {
+   "placement": "Kc5 Pd4 ke6",
+   "kpsolve": [
+    "W",
+    "D"
+   ],
+   "chess_n": "WWWWWWWWWWWWWWWWWWWWWDWDWDWDWDWDWDWDWDWDWD",
+   "blind_n": "WDWDWDWDWDWDWDWDWDWDWDWDWDWDWDWDWDWDWDWDWD"
+  }
+ ]
+}

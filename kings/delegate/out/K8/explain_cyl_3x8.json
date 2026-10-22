@@ -1,0 +1,41 @@
+{
+ "label": "COMPUTED-1",
+ "board": "cyl:3x8",
+ "nodes": 62577,
+ "quiet": 5706,
+ "critical_nodes": {
+  "zugzwang_white": 0,
+  "zugzwang_black": 0,
+  "zugzwang_white_that_are_kpk": 0,
+  "zugzwang_black_that_are_kpk": 0,
+  "forced_pass_white": 0,
+  "forced_pass_black": 129
+ },
+ "mask_test chess rule n=+1": {
+  "pass_allowed_at_nodes": 0,
+  "states_that_differ": 0,
+  "quiet_placements_that_differ": 0
+ },
+ "mask_test chess rule n=-1": {
+  "pass_allowed_at_nodes": 129,
+  "states_that_differ": 0,
+  "quiet_placements_that_differ": 0
+ },
+ "mask_test optional-pass rule n=+1": {
+  "pass_allowed_at_nodes": 0,
+  "states_that_differ": 0,
+  "quiet_placements_that_differ": 0
+ },
+ "mask_test optional-pass rule n=-1": {
+  "pass_allowed_at_nodes": 0,
+  "states_that_differ": 0,
+  "quiet_placements_that_differ": 0
+ },
+ "spare_move_for_White_turns_non_win_into_win": {
+  "placements_states": 0,
+  "first_pass_node_type": {},
+  "plies_before_the_pass": {},
+  "examples": {}
+ },
+ "seconds": 1.1
+}

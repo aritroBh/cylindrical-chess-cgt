@@ -1,0 +1,11 @@
+check2 PASS 1 + (-1)               ('L', 'W')
+check2 PASS * + *                  ('L', 'W')
+check2 PASS up + down              ('L', 'W')
+check2 PASS 1/2 + 1/2 + (-1)       ('L', 'W')
+check2 PASS on + (-2)              ('W', 'W')
+check2 PASS on + off               ('D', 'D')
+check2 PASS dud + 1                ('D', 'D')
+check2 PASS over + (-1/2)          ('L', 'L')
+check2 PASS over                   ('W', 'W')
+check2 PASS up + *                 ('W', 'L')
+cyl:5x4 {'board': 'cyl:5x4', 'nodes': 33460, 'edges': 196200, 'kpk_positions': 4310, 'quiet_placements': 2030, 'check1': {'board': 'cyl:5x4', 'kpk': 4310, 'other': 29150, 'x': 0, 'stale_loss_kpk': 425, 'stale_loss_all': 705, 'nodes': 33460, 'cmd': 'nice -n 10 /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K8/kp --board cyl:5x4 --ep on --promote QRBN --cap 1 --threads 2', 'mutual_zugzwangs': 20, 'mutual_examples': ['Ka2 Pb2 ka4', 'Ka2 Pe2 ka4', 'Ka2 Pb3 kb4', 'Ka2 Pe3 ke4', 'Kb2 Pa3 ka4']}, 'check1_differences': 0, 'decisive_white': 1065, 'decisive_black': 0, 'unmatched': 760, 'seconds': 2.0, 'jsonl': 'cyl_5x4.jsonl'}

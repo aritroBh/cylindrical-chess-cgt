@@ -1,0 +1,42 @@
+{
+ "label": "COMPUTED-1",
+ "board": "cyl:6x5",
+ "quiet": 10440,
+ "chess": {
+  "tempo_sensitive": 2154,
+  "sensitive_at_pm1": 2154,
+  "tails_n_minus20_to_minus2": {
+   "constant": 9708,
+   "period2": 732,
+   "other": 0
+  },
+  "mutual_zugzwangs": 24
+ },
+ "normal": {
+  "tempo_sensitive": 0
+ },
+ "spare_blind_stalemate": {
+  "tempo_sensitive": 2424,
+  "sensitive_at_pm1": 2238,
+  "thresholds": {
+   "-2": 468,
+   "-1": 726,
+   "0": 1764
+  },
+  "tails_n_minus20_to_minus2": {
+   "constant": 10440,
+   "period2": 0,
+   "other": 0
+  },
+  "tails_n_2_to_20": {
+   "constant": 10440,
+   "period2": 0,
+   "other": 0
+  },
+  "mutual_zugzwangs_also_sensitive_at_pm1": 24,
+  "sensitive_under_both_chess_and_blind": 2154,
+  "sensitive_under_chess_only": 0,
+  "sensitive_under_blind_only": 270
+ },
+ "examples_chess_only": []
+}
