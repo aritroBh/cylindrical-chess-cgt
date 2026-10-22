@@ -45,7 +45,8 @@ The candidate was `W a2 c2 / B b7 d7` on files a–d, frozen by a trébuchet (W 
 - *E.p.-aware test (count rule; computed once, `atlas/flat8/compare_ep_aware.out`):*
   - **No \*k with k ≥ 2 occurs anywhere in scope.** The nimber census goes from 6,470 zeros, 3,891 stars and one
     \*2 to 6,724 zeros, 4,042 stars and no \*2.
-  - 21,441 of the 231,071 values change, 4,068 of them in outcome.
+  - At least 18,137 of the 231,071 values change, and 4,070 change outcome ([atlas/flat8/rerun/REPORT.md](atlas/flat8/rerun/REPORT.md)).
+    The first count (21,441 and 4,068) compared raw display strings and was wrong in both directions.
   - So within flat boards of ≤4 files and ≤6 pawns, the only route to \*2 was the e.p. artefact.
 
 **The other \*2 candidates** ([realchess/certify/REPORT.md](realchess/certify/REPORT.md)). Each is \*2 only
@@ -249,7 +250,18 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
     - The same position with Black to move is undecided at one promotion (bounds L..W). A two-promotion
       run is going (`kp_eighth_cap2.*`).
     - `W a2 b4 b5 / B a5`, which is no longer decisive: White wins with either side to move.
-    - The three 9-man positions are still running.
+    - **The three 9-man positions (2026-10-21, 20:35).** All 6 sides are exact (the two promotion bounds
+      agree) and match the model:
+      - `W a2 a5 b2 / B a4 b5`: White wins, with either side to move.
+      - `W a3 a5 b2 / B a4 b5`: White wins, with either side to move.
+      - `W a3 b4 / B a6 b3 b5`: Black wins, with either side to move.
+      - The run took 2 h 12 min: 29.8 G states, peak footprint 26 GB (`kp_eighth_9man.out`).
+    - **New bounds: 0 ≤ O ≤ 1/8.** Only one decisive side is open: `W b2 b5 / B a5 b4`, Black to move.
+      - If it is a White win (the model's verdict), O = 1/8 exactly.
+      - If it is a draw or a Black win, O stays in [0, 1/8].
+      - Reproduce: `PYTHONPATH=. .venv/bin/python realchess/targets18/apply_kpsolve.py
+        realchess/targets18/min_support_after2.json realchess/targets18/kp_eighth_{8man,9man}.out`.
+      - Caveat: queen promotions only. A full certificate also needs a `--promote QRBN` rerun.
   - **Sensitivity.** Each of the 7 open sides must go as the model says. Changing any single one of them unpins
     the value (the lower bound drops to 0, ↑\* or below).
   - ↑²\* and tiny(1): every resolved end position agrees with the model, and the lower bound already equals the

@@ -28,3 +28,23 @@
 - whether \*2 is excluded, still possible, or certified;
 - the decisive end positions, with FENs;
 - every number labelled, with a reproduce command.
+
+**Resume (21:30): a first run stopped partway; its files are in `research/star2_oracle/`.**
+- Done:
+  - steps 1–3 (`bounds_A.json` and `bounds_B.json`: \*2 is not yet excluded under any treatment);
+  - the tablebase ledger (`ledger.jsonl`);
+  - the minimal supports (`min_support_A.json`, `min_support_B.json`).
+- Not done:
+  - **A:** `kp_A_8needed.txt` lists the 5 decisive 8-man end positions (both sides each). `kp_A_8men.out` is
+    empty because the run was killed.
+  - **B:** `kp_B_needed.txt` has not been split by men yet.
+  - Do not trust or rerun `kp_A_needed.txt` (it includes 9- to 11-man sides).
+- Next:
+  1. Solve `kp_A_8needed.txt`, then B's 8-man decisive sides, with
+     `nice -n 10 ./kings/kpsolve --board flat:8x8 --ep on --promote Q --cap 1 --threads 2`.
+     Run one job of your own at a time. Another long kpsolve (the 1/8 and R7 queue) runs alongside, so expect
+     slow runs; give each job up to 90 minutes.
+  2. Apply the results (`apply.py`, or the `realchess/targets18/apply_kpsolve.py` pattern), and recompute the
+     bounds.
+  3. List any decisive sides with 9 or more men that are still open, with their men counts. Do not run them.
+  4. Write `REPORT.md`.

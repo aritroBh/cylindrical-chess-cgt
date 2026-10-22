@@ -101,7 +101,7 @@ read those files. If it is not there, leave the number out.
 - Under the e.p.-aware test (count rule, e.p. on): 6,724 zeros, 4,042 stars, no \*k for k ≥ 2 [C2]. The C solver
   and cylcgt agree on all records. The Codex solver finds no \*k for 2 ≤ k ≤ 292 among 793,299 labelled
   placements.
-- The e.p.-aware test changes 21,441 of the 231,071 values, and 4,068 of them in outcome.
+- The e.p.-aware test changes at least 18,137 of the 231,071 values, and 4,070 of them in outcome (atlas/flat8/rerun/REPORT.md; the old 21,441 / 4,068 came from a raw-string comparison and is wrong).
 - Textbook candidate `W a2 c2 / B b7 d7` (FEN `8/1p1p4/8/5Kp1/6Pk/8/P1P5/8`):
   - \*2 under count and mover, e.p. on or off; 0 under opponent;
   - e.p.-aware: {2±1 | −2±1} [C2].
@@ -246,7 +246,7 @@ read those files. If it is not there, leave the number out.
 - ChessSums: 418 components, 37 values, 26,000 rows; whole-board alpha–beta confirmed; it grows 4–9× per added
   component.
 - Engines on sums (15–20 men, model ground truth, [C1]): on 200 positions, Stockfish picks a move in the winning
-  set 27.5–28.0% of the time (10^3–10^6 nodes), Lc0 32.5–33.5%. Both drop with the number of components. The
+  set 26.5–28.0% of the time (10^3–10^6 nodes), Lc0 32.5–33.5%. Both drop with the number of components. The
   caveat: this is agreement with the model, not proof of real-chess error.
 
 **Verification**

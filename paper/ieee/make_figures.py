@@ -51,7 +51,8 @@ PREAMBLE = r"""\documentclass[border=3pt]{standalone}
 
 # square size (cm), glyph size (pt), label font, frame width (pt)
 SIZES = {
-    "small": (0.44, 12.0, r"\fontsize{6}{6}\selectfont", 0.6),    # about 1.6 in wide
+    "small": (0.44, 12.0, r"\fontsize{9}{9}\selectfont", 0.6),    # about 1.6 in wide; 9 pt labels print
+                                                                   # at 6.5-8 pt after scaling
     "column": (0.74, 20.3, r"\fontsize{7.5}{7.5}\selectfont", 0.8),  # about 2.5 in wide
 }
 
@@ -78,9 +79,9 @@ def _grid(out, files, ranks, size):
             out.append(rf"\fill[{col}] ({f},{r}) rectangle ({f + 1},{r + 1});")
     out.append(r"\draw[edge, line width=%.1fpt] (0,0) rectangle (%d,%d);" % (frame, files, ranks))
     for r in range(ranks):
-        out.append(rf"\node[anchor=east, text=gray, font=\sffamily{label}] at (-0.04,{r + 0.5}) {{{r + 1}}};")
+        out.append(rf"\node[anchor=east, text=black!70, font=\sffamily{label}] at (-0.04,{r + 0.5}) {{{r + 1}}};")
     for f in range(files):
-        out.append(rf"\node[anchor=north, text=gray, text height=1.45ex, text depth=0.2ex, inner sep=1.5pt, font=\sffamily{label}]"
+        out.append(rf"\node[anchor=north, text=black!70, text height=1.45ex, text depth=0.2ex, inner sep=1.5pt, font=\sffamily{label}]"
                    rf" at ({f + 0.5},-0.04) {{{FILES[f]}}};")
 
 
@@ -108,7 +109,7 @@ def board(pieces, size="small", files=8, ranks=8, marks=(), arrows=()):
 
 def dawson_strip(n=6, ring=False, size="small"):
     """Dawson's chess: 3 rows, n files, white pawns on rank 1 and black pawns on rank 3.
-    With `ring`, the last file is adjacent to file a (the cylinder); an arrow under the board says so."""
+    With `ring`, the last file is adjacent to file a (the cylinder); the two glued edges are dashed."""
     s, glyph, label, frame = SIZES[size]
     out = [r"\begin{tikzpicture}[x=%.2fcm,y=%.2fcm]" % (s, s)]
     _grid(out, n, 3, size)
@@ -116,7 +117,8 @@ def dawson_strip(n=6, ring=False, size="small"):
         _piece(out, "P", f, 0, glyph)
         _piece(out, "p", f, 2, glyph)
     if ring:
-        out.append(r"\draw[->, line width=1.2pt, red!70!black, opacity=0.8] (%.2f,-0.95) -- (0.3,-0.95);" % (n - 0.3))
+        for x in (0, n):  # the seam: the left edge of file a is glued to the right edge of the last file
+            out.append(r"\draw[red!70!black, line width=2pt, dash pattern=on 4pt off 3pt] (%d,-0.25) -- (%d,3.25);" % (x, x))
     out.append(r"\end{tikzpicture}")
     return "\n".join(out)
 
@@ -187,7 +189,7 @@ def dawson_grundy():
         r"  legend style={at={(0.5,1.03)}, anchor=south, legend columns=-1, draw=none,",
         r"    /tikz/every even column/.append style={column sep=10pt}}]",
         rf"\addplot[ycomb, dark, line width=1.3pt] coordinates {{{pts}}};",
-        r"\addlegendentry{$g(n)$ for the flat $3\times n$ board}",
+        r"\addlegendentry{$g(n)$ for the ordinary $3\times n$ board}",
         rf"\addplot[only marks, mark=*, mark size=1.3pt, red!70!black] coordinates {{{ring}}};",
         r"\addlegendentry{$g(m)=0$: the $3\times(m+3)$ cylinder is a first-player win}",
         r"\end{axis}\end{tikzpicture}"])
@@ -214,9 +216,9 @@ BOARDS = {
     "trebuchet":      (T, "flat", "small", None, None),
     "kinggroup72":    ("Ke6 Pd7 kd8 pe7", "cyl", "small", None, None),
     # Section V: the 2025 puzzles (cylinder)
-    "puzzle71":       ("Pa4 Pa5 Pc2 Pc3 Pf3 Pf4 Ph2 Ph3 pa7 pc5 pc6 pf7 ph6", "cyl", "column", None, None),
-    "puzzle72":       ("Ke6 Pa2 Pb2 Pd7 Ph3 kd8 pa6 pb7 pe7 ph7", "cyl", "column", None, None),
-    "puzzle73":       ("Kg8 Pa1 Pa5 Pc1 Pc3 Pd3 Pf7 Pg1 Ph1 kf6 pc2 pd4 pd5 pd6 pg3 pg7 ph4", "cyl", "column",
+    "puzzle71":       ("Pa4 Pa5 Pc2 Pc3 Pf3 Pf4 Ph2 Ph3 pa7 pc5 pc6 pf7 ph6", "cyl", "small", None, None),
+    "puzzle72":       ("Ke6 Pa2 Pb2 Pd7 Ph3 kd8 pa6 pb7 pe7 ph7", "cyl", "small", None, None),
+    "puzzle73":       ("Kg8 Pa1 Pa5 Pc1 Pc3 Pd3 Pf7 Pg1 Ph1 kf6 pc2 pd4 pd5 pd6 pg3 pg7 ph4", "cyl", "small",
                        "W: a1 a5 c1 c3 d3 f7 g1 h1 / B: c2 d4 d5 d6 g3 g7 h4", "+W"),
     "sum_counter":    ("Pb2 Pd4 Pg3 Ph5 pa7 pc7 pf7 pg4", "cyl", "small", None, None),
     # Section II: the e.p.-aware passed test
@@ -232,7 +234,7 @@ BOARDS = {
     "upsecstar":      ("Pa2 Pb2 Pb6 pa6 pb7 pc5 " + T, "flat", "small", "W: a2 b2 b6 / B: a6 b7 c5", "{0, * | ↓}"),
     "tiny1":          ("Pa2 Pb2 Pb6 pa6 pb7 pc6 " + T, "flat", "small", "W: a2 b2 b6 / B: a6 b7 c6", "tiny(1)"),
     # Section VIII: the *2 question
-    "star2_textbook": ("Pa2 Pc2 pb7 pd7 " + T, "flat", "column", "W: a2 c2 / B: b7 d7", "{2±1 | -2±1}"),
+    "star2_textbook": ("Pa2 Pc2 pb7 pd7 " + T, "flat", "small", "W: a2 c2 / B: b7 d7", "{2±1 | -2±1}"),
     "star2_seven_a":  ("Pa4 Pb3 Pd2 Pd3 pa7 pb7 pc5 " + T, "flat", "small", "W: a4 b3 d2 d3 / B: a7 b7 c5", "*2"),
     "star2_seven_b":  ("Pb4 Pc2 Pd2 pa6 pa7 pc6 pd5 " + T, "flat", "small", "W: b4 c2 d2 / B: a6 a7 c6 d5", "*2"),
     "star2_eight_five": ("Pa3 Pb3 Pc2 Pe2 pa6 pc5 pd5 pe3 " + T, "flat", "small",

@@ -1,0 +1,81 @@
+## Totals per board (cylinders, 8 ranks unless stated)
+
+board     positions    WTM W    WTM D    WTM L |    BTM W    BTM D    BTM L |   W win %  mut. zug
+cyl:3x8       11970     3024     2682        0 |     2187     4077        0 |    53.00%         0
+cyl:4x8       33144    10544     5464        0 |     7244     9892        0 |    65.87%       208
+cyl:5x8       70590    25390     8960        0 |    17340    18900        0 |    73.92%        95
+cyl:6x8      128916    48252    14784        0 |    33834    32046        0 |    76.55%       132
+cyl:7x8      212730    80878    23492        0 |    57316    51044        0 |    77.49%       175
+cyl:8x8      326640   126736    33920        0 |    92760    73224        0 |    78.89%       216
+cyl:5x6       23850     9185     2305        0 |     5820     6540        0 |    79.94%        35
+cyl:7x6       74382    30051     6195        0 |    21098    17038        0 |    82.91%        49
+cyl:9x8      475254   185976    48222        0 |   138312   102744        0 |    79.41%       279
+cyl:10x8     663180   261640    65660        0 |   201480   134400        0 |    79.94%       310
+
+## Triples (WP, WK, BK) by outcome of the two side-to-move variants
+
+board        both draw both white win mutual zugzwang  W win iff White moves
+cyl:3x8           2682           2187              0                    837
+cyl:4x8           5256           6988            208                   3556
+cyl:5x8           8865          17155             95                   8235
+cyl:6x8          14652          33594            132                  14658
+cyl:7x8          23317          57015            175                  23863
+cyl:8x8          33704          92400            216                  34336
+cyl:5x6           2270           5715             35                   3470
+cyl:7x6           6146          20951             49                   9100
+cyl:9x8          47943         137871            279                  48105
+cyl:10x8         65350         200990            310                  60650
+
+## Relation "direct" (df, dr) per board
+
+board        both draw both white win mutual zugzwang  W win iff White moves
+cyl:3x8            234            228              0                     66
+cyl:4x8            248            512             80                    152
+cyl:5x8            425            875             85                    215
+cyl:6x8            540           1398            120                    294
+cyl:7x8            861           1799            161                    427
+cyl:8x8            984           2584            200                    520
+cyl:5x6            160            370             25                    125
+cyl:7x6            308            812             35                    245
+cyl:9x8           1395           3105            261                    711
+cyl:10x8          1550           4170            290                    790
+
+## Relation "diag2" (df, dr) per board
+
+board        both draw both white win mutual zugzwang  W win iff White moves
+cyl:3x8            468            456              0                    132
+cyl:4x8            504            912              8                    560
+cyl:5x8            620           1730             10                    840
+cyl:6x8            756           2388             12                   1548
+cyl:7x8           1204           3444             14                   1834
+cyl:8x8           1376           4368             16                   2816
+cyl:5x6            230            710             10                    410
+cyl:7x6            462           1498             14                    826
+cyl:9x8           1944           5832             18                   3150
+cyl:10x8          2160           7140             20                   4280
+
+## Relation "horiz" (df, dr) per board
+
+board        both draw both white win mutual zugzwang  W win iff White moves
+cyl:3x8              0              0              0                      0
+cyl:4x8            168            384             24                     96
+cyl:5x8            210           1620              0                    330
+cyl:6x8            492           2520              0                    156
+cyl:7x8            574           3178              0                    616
+cyl:8x8           1040           4384              0                    336
+cyl:5x6            100            760              0                    180
+cyl:7x6            266           1512              0                    350
+cyl:9x8           1170           5274              0                    900
+cyl:10x8          1720           6820              0                    580
+
+## Odd vs even (8 ranks)
+
+n          positions W win % (WTM)   mut. zug WTM draw %
+cyl:3x8         5706         53.00%          0         47.00%
+cyl:4x8        16008         65.87%        208         34.13%
+cyl:5x8        34350         73.92%         95         26.08%
+cyl:6x8        63036         76.55%        132         23.45%
+cyl:7x8       104370         77.49%        175         22.51%
+cyl:8x8       160656         78.89%        216         21.11%
+cyl:9x8       234198         79.41%        279         20.59%
+cyl:10x8      327300         79.94%        310         20.06%

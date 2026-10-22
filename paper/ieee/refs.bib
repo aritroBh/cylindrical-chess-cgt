@@ -1,5 +1,6 @@
 % References for the IEEE version (IEEEtran.bst). Details checked on 2026-10-21 against arXiv, the SLMath
-% (MSRI) volume contents, the Integers volume index, Wikimedia Commons and the GitHub release pages.
+% (MSRI) volume contents, the Integers volume index and the GitHub release pages. The 2025 study's author
+% and title are the macros \studyauthor and \studytitle (main.tex), so that the review build prints "Anonymous".
 
 @incollection{Elkies1996,
   author    = {Noam D. Elkies},
@@ -59,7 +60,7 @@
 
 @article{DrummondCole2005,
   author  = {Gabriel C. Drummond-Cole},
-  title   = {Positions of value *2 in generalized {D}omineering and chess},
+  title   = {Positions of value {$\star2$} in generalized {D}omineering and chess},
   journal = {Integers},
   volume  = {5},
   number  = {1},
@@ -81,6 +82,7 @@
   title   = {Mis\`ere quotients for impartial games},
   journal = {J. Combin. Theory Ser. A},
   volume  = {115},
+  number  = {4},
   year    = {2008},
   pages   = {593--622},
   note    = {arXiv:math/0609825}
@@ -101,6 +103,7 @@
   editor    = {John D. Beasley},
   title     = {The Classified Encyclopedia of Chess Variants},
   publisher = {John Beasley},
+  address   = {Harpenden, U.K.},
   year      = {2007}
 }
 
@@ -118,22 +121,16 @@
   pages     = {137--149}
 }
 
-@misc{WuYuLandry2020,
+@techreport{WuYuLandry2010,
   author       = {Qingyun Wu and Frank Y{\"u} and Michael Landry},
   title        = {A combinatorial game theoretic analysis of chess endgames},
-  howpublished = {Unpublished manuscript},
+  institution  = {Stanford Univ.},
+  address      = {Stanford, CA, USA},
+  type         = {Math 191 paper},
+  month        = dec,
   year         = {2010},
   url          = {https://academic.timwylie.com/19CSCI4341F/chess_endgames_wqy.pdf},
-  note         = {Accessed: Oct. 21, 2026}
-}
-
-@electronic{CoverImage,
-  author       = {Serge Clair},
-  title        = {Echecs {C}ylindriques {S}erge {C}lair.jpg},
-  organization = {Wikimedia Commons},
-  year         = {1990},
-  url          = {https://commons.wikimedia.org/wiki/File:Echecs_Cylindriques_Serge_Clair.jpg},
-  note         = {Photograph of a cylindrical chess set; licensed under CC BY-SA 3.0. Accessed: Oct. 21, 2026}
+  note         = {{A}ccessed: Oct. 21, 2026}
 }
 
 @electronic{Stockfish,
@@ -165,17 +162,17 @@
 }
 
 @inproceedings{PyTorch,
-  author    = {Adam Paszke and Sam Gross and Francisco Massa and Adam Lerer and James Bradbury and
-               Gregory Chanan and others},
+  author    = {Adam Paszke and others},
   title     = {{PyTorch}: An imperative style, high-performance deep learning library},
-  booktitle = {Advances in Neural Information Processing Systems 32 (NeurIPS 2019)},
+  booktitle = {Proc. Adv. Neural Inf. Process. Syst. (NeurIPS)},
+  volume    = {32},
   year      = {2019},
   pages     = {8024--8035}
 }
 
-@unpublished{Bhattacharjee2025,
-  author = {Aritro Bhattacharjee},
-  title  = {Analysis of chess endgames on a cylindrical chessboard},
+@unpublished{Study2025,
+  author = {{\studyauthor}},
+  title  = {{\studytitle}},
   note   = {Unpublished manuscript},
   year   = {2025}
 }

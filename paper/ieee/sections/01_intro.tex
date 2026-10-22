@@ -1,72 +1,63 @@
 \section{Introduction}\label{sec:intro}
 
-\IEEEPARstart{C}{ylinder} chess is ordinary chess played on a board whose a-file and h-file are joined
-\cite{Pritchard}. A white pawn on h4 can capture on a5, a king on a1 can step to h2, and every file is like every
-other: the board has no edges and no corners (Fig.~\ref{fig:cover}). In this paper we use combinatorial game
-theory (CGT) to study king-and-pawn endgames on this board.
+\IEEEPARstart{C}{ylinder} chess is ordinary chess on a board whose a-file and h-file are joined
+\cite{Pritchard}: a white pawn on h4 can capture on a5, a king on a1 can step to h2, and there are no edges or
+corners. We use combinatorial game theory (CGT) to study its king-and-pawn endgames.
 
-Under normal play, the player who cannot move loses. CGT gives each position of such a game a value, and the
-value of a sum of independent games is the sum of their values \cite{ONAG,WinningWays,Siegel2013}. Chess is not
-such a game: it can be drawn, and the kings can walk from one part of the board to another. Even so, Elkies
-\cite{Elkies1996} showed that many pawn endgames split into local fights whose values are numbers, star,
-infinitesimals such as up, and hot switches. Two conventions make this work:
+Under normal play the player who cannot move loses; CGT gives each position a value, and a sum of independent
+games has the sum of their values \cite{ONAG,WinningWays,Siegel2013}. Chess can be drawn and its kings roam,
+yet Elkies \cite{Elkies1996} showed that many pawn endgames split into local fights with exact values, under
+two conventions:
 \begin{itemize}
-\item a side that gets a passed pawn wins, so a passed pawn is worth a large number $\pm\BIG$;
-\item the kings stand in a mutual zugzwang, the \emph{tr\'ebuchet}, which counts as $0$.
+\item a passed pawn wins, and is worth a large number $\pm\BIG$;
+\item the kings stand in a mutual zugzwang, the \emph{tr\'ebuchet}, worth $0$.
 \end{itemize}
-Wu, Y\"u and Landry \cite{WuYuLandry2020} worked through these ideas position by position, and we follow
-their format.
 
-The cylinder changes this picture in three ways. There are no rook pawns, and a position can be shifted
-sideways by any number of files without changing its value. A position with a pawn on every file, a
-\emph{ring}, has no edge at which to cut it. And the corners that decide mates and fortresses on the ordinary
-board are gone.
+The cylinder changes this picture in three ways. There are no rook pawns, and shifting a position sideways
+does not change its value. A position with a pawn on every file, a \emph{ring}, has no edge at which to cut
+it. And the corners that decide mates and fortresses are gone.
 
-\begin{figure}[!t]
-\centering
-\includegraphics[width=0.6\columnwidth]{figures/CoverPic.png}
-\caption{Cylindrical chessboard with all pieces on their starting squares; files a and h are adjacent.
-Photograph by S.~Clair, Wikimedia Commons, CC BY-SA 3.0~\cite{CoverImage}.}
-\label{fig:cover}
-\end{figure}
+A nimber $\nim{k}$ is a game in which either player may move to any of $\nim{0}=0$, $\nim{1}=\star$,
+\dots, $\nim{(k-1)}$. The simplest after $\star=\game{0}{0}$ is $\nim{2}=\game{0,\star}{0,\star}$: either player
+may move to $0$ or to $\star$. Elkies built higher nimbers on large boards from Dawson's pawn game \cite{Elkies2002,Dawson1935}, and
+Drummond-Cole built positions of value $\nim{2}$ in chess with the help of pieces other than kings and
+pawns~\cite{DrummondCole2005}. We ask whether $\nim{2}$ occurs in a king-and-pawn endgame on an 8-rank board,
+the \emph{$\nim{2}$ question}, and whether real chess agrees.
 
-The simplest nimber after $\star$ is $\nim{2}=\game{0,\star}{0,\star}$, a game in which either player may move
-to $0$ or to $\star$. Elkies later built higher nimbers in pawn endgames on large boards by
-adapting Dawson's pawn game \cite{Elkies2002,Dawson1935}, and Drummond-Cole gave positions of value $\nim{2}$
-in generalized Domineering and in chess \cite{DrummondCole2005}. We ask whether $\nim{2}$ occurs in a
-king-and-pawn endgame on a board with eight ranks, the \emph{$\nim{2}$ question}, and, where the model says
-$\nim{2}$, whether real chess agrees.
-
-This paper extends an unpublished 2025 study\bytheauthor~\cite{Bhattacharjee2025}, which built the basic
-values on the cylinder by hand; here every position is checked by computer, the errors of that study are
-corrected where they occur, and the analysis is carried on to the questions above. Because so much of the work
-is computational, each theorem and headline number carries a label: \lab{P} proved, \lab{C2} checked by two
-independent programs, \lab{C1} computed by one program, and \lab{Conj} a conjecture. Our contributions are as
-follows.
+This paper extends an unpublished 2025 study of the basic values\bytheauthor~\cite{Study2025}: we check
+every position by computer, correct its errors and carry the analysis on, in the position-by-position format
+of Wu, Y\"u and Landry~\cite{WuYuLandry2010}. Theorems and headline numbers
+carry labels: \lab{P}, proved here; \lab{AI}, proof given or sketched here (in full in the
+repository), checked by AI models, human check pending; \lab{C2}, two independently written programs agree,
+the second written from the rules alone; \lab{C1}, one program; \lab{Conj}, a conjecture. Our contributions
+are:
 \begin{itemize}
-\item \emph{An exact model} (Sections~\ref{sec:rules} and~\ref{sec:sums}). The textbook passed-pawn test ignores
-  en passant; we replace it, prove a cut lemma and a sum-safety theorem \lab{P}, and show that the earlier
-  sum-safety test fails \lab{C2}.
-\item \emph{Kings} (Section~\ref{sec:kings}). We give conditions (V1)--(V4) under which a frozen tr\'ebuchet
-  gives the true chess result \lab{P}; on small boards the convention, with the textbook test, fails for 159 of
-  500 components \lab{C1}.
-\item \emph{Small values} (Sections~\ref{sec:atlas} and~\ref{sec:targets}). Every value that only the cylinder
-  can make comes from a ring \lab{P}, and $1/8$, $\upsec\star$ and Tiny~1 occur in legal 10-man positions
-  \lab{C2}.
-\item \emph{The $\nim{2}$ question} (Section~\ref{sec:star2}). Under the new test no $\nim{2}$ exists with six
-  pawns or fewer on boards of width at most four, but two exist with seven \lab{C2}.
-\item \emph{Real chess} (Section~\ref{sec:real}). In the e.p.-aware pawn tree, the real-chess value of the
-  textbook candidate is never $\nim{2}$, however draws are treated, and the $1/8$ hinges on one end position
-  that a queen-promotion search leaves open \lab{C1}.
-\item \emph{Tablebases} (Section~\ref{sec:tb}). On the cylinder king and rook win only 2.80\% of positions
-  \lab{C2}.
-\item \emph{Dawson's chess} (Section~\ref{sec:dawson}). The $3\times n$ cylinder is a first-player win if and
+\item \emph{Model} (Sections~\ref{sec:rules} and~\ref{sec:sums}): a passed-pawn test that respects en passant,
+  a cut lemma \lab{P}, a sum-safety theorem \lab{AI}, and a position showing that checking only the
+  top-level components is not enough \lab{C2}.
+\item \emph{Kings} (Section~\ref{sec:kings}): conditions (V1)--(V3) under which a frozen tr\'ebuchet gives the
+  normal-play result \lab{AI}, and a fourth condition (V4) for the $\pm\BIG$ value \lab{Conj}.
+\item \emph{Small values} (Sections~\ref{sec:basic}, \ref{sec:atlas} and~\ref{sec:targets}): cylinder-only values
+  come from rings \lab{P}; $1/8$ and $\upsec\star$ \lab{C2}, and Tiny~1 \lab{C1}, occur in 10-man positions
+  that can arise in a game.
+\item \emph{The $\nim{2}$ question} (Section~\ref{sec:star2}): in the default setting (count rule, e.p.-aware
+  test; Section~\ref{sec:ep}) no $\nim{2}$ has six
+  pawns or fewer on ordinary boards of width at most four, but $\nim{2}$ appears with seven
+  \lab{C2}; on the cylinder $\cyl{3}$ a six-pawn ring suffices \lab{C2}.
+\item \emph{Real chess} (Section~\ref{sec:real}): with the new test the textbook $\nim{2}$ candidate is not
+  $\nim{2}$, however draws are treated; with queen promotions only and frozen kings, the $1/8$ hinges on one side of
+  one end position \lab{C1}.
+\item \emph{Tablebases} (Section~\ref{sec:tb}): king and rook win only 2.80\% of cylinder positions, and on the
+  torus only two major pieces force mate \lab{C2}.
+\item \emph{Dawson's chess} (Section~\ref{sec:dawson}): the $3\times n$ cylinder is a first-player win if and
   only if the $3\times(n-3)$ strip has Grundy value $0$ \lab{P}.
-\item \emph{Engines} (Section~\ref{sec:engines}). Stockfish is weakest on infinitesimals at low depth \lab{C1}.
+\item \emph{Engines} (Section~\ref{sec:engines}): Stockfish is weakest on infinitesimals at low depth, and on sums
+  of components engines often miss the model's winning moves \lab{C1}.
 \end{itemize}
 
-Sections~\ref{sec:rules}--\ref{sec:basic} set up the rules and the basic values,
-Sections~\ref{sec:kings}--\ref{sec:sums} add kings and sums, Sections~\ref{sec:atlas}--\ref{sec:real} search for
-small values and test them against real chess, and Sections~\ref{sec:tb}--\ref{sec:engines} turn to tablebases,
-Dawson's chess and engines. Section~\ref{sec:verify} explains how each result was checked, and
-Section~\ref{sec:conclusion} lists open problems.
+Sections~\ref{sec:rules} and~\ref{sec:basic} set up the rules and the basic values,
+Sections~\ref{sec:kings} and~\ref{sec:sums} add kings and sums, Sections~\ref{sec:atlas}--\ref{sec:star2}
+search for small values and $\nim{2}$, and Section~\ref{sec:real} tests them against real chess.
+Sections~\ref{sec:tb}--\ref{sec:engines} turn to tablebases, Dawson's chess and engines,
+Section~\ref{sec:verify} gives the cross-checks and the code, Section~\ref{sec:conclusion} lists open
+problems, and the Appendix gives the FEN of each position with kings.

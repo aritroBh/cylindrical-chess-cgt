@@ -116,7 +116,7 @@ independent implementation.
 
 ## T13: engines on ChessSums (`engine/runs/chesssums/`) — accepted as COMPUTED-1, with the stated caveat
 
-- On a 200-position subset, Stockfish 19 picks a move in the winning set 27.5–28.0% of the time, from 1k to
+- On a 200-position subset, Stockfish 19 picks a move in the winning set 26.5–28.0% of the time (55, 53, 55, 56 of 200), from 1k to
   1M nodes; Lc0 does so 32.5–33.5% of the time.
 - Both drop sharply with the number of components.
 - The ground truth is the CGT model under a frozen king group with 15–20 men. "Wrong" engine moves are
@@ -135,11 +135,18 @@ independent implementation.
     nor under the opponent rule.
 - **Accepted: 8-pawn hits.** Every T8 hit at count/e.p.-aware on flat boards of width ≤ 4 (2 with 7 pawns, 4 with
   8 pawns) is \*2 in cylcgt (`delegate/checks/star2_caware_check.out`). The three flat 5-file 8-pawn witnesses
-  are \*2 in cylcgt and in the Codex solver.
+  are \*2 in cylcgt. In the Codex solver, `W a3 b3 c2 e2 / B a6 c5 d5 e3` and `W a4 b3 c2 d2 / B a7 b6 c7 e4`
+  are \*2 too (`star2_frontier_check.out`, which then hit its timeout). The third, `W a6 b4 c4 e3 /
+  B a7 c7 d6 e6`, is \*2 in both as well (`star2_frontier_check2.out`). So all three are CHECKED-2 at
+  count/aware.
+  - The other DIFFER flags in `star2_frontier_check.out` are display formats (`{1 | 0, *}` = `{1|0,*}`;
+    ⇓\* = {↓|0}) or the known sum-versus-whole-board difference (mover and opponent rules). None is at
+    count/aware.
 - **Not checked independently:** the claim "no other \*2" in T8's new scopes (5.5M + 2.2M roots). It rests on
   one implementation (COMPUTED-1). The old scope, ≤ 6 pawns, is CHECKED-2 (three implementations).
-- **Not robust:** the C5-ring hits are \*2 on the cylinder only. On the flat board the same pawns have other
-  values.
+- **Mostly not robust:** the 14 C5-ring hits at count/aware are all \*2 on the 5-file cylinder (cylcgt, full
+  run of `star2_caware_check.out`). On the flat 8-file board, 11 of them have other values. The other 3 stay \*2
+  on the flat board, and they are the three flat 5-file witnesses above.
 - **Explained: the opponent-rule "discrepancy" T8 reported.**
   - It is a difference of definition, not a bug: cylcgt adds up components (Elkies' sum model), while the
     Codex solvers end the whole game at the first passed pawn.
@@ -169,3 +176,49 @@ independent implementation.
   draw.
 - It needs an independent check before any use (milestone M7). Its sweeping statement "direct opposition is
   always a draw" is suspicious.
+
+## T25: skeptical re-check of T12, odd-width cylinders (`research/odd_cylinders_verify/`)
+
+Accepted. Two of T12's four claims are refuted.
+
+- **(a) Trébuchet:** CONFIRMED (CHECKED-2). It is a mutual zugzwang on every Cn×R with n = 4–9 and R = 5–8
+  (84/84), and illegal on C3 (14/14 placements have adjacent kings).
+- **(b) "Direct opposition is always a draw, diagonal a White win":** REFUTED.
+  - On C8×8, of 4,288 direct-opposition triples, 984 are draws, 2,584 are White wins either way and 200 are
+    mutual zugzwangs.
+  - Orchestrator spot check (`kings/kpsolve --promote QRBN`): `Ka3 Pa2 ka5` is D/D on the flat 8×8 board but
+    D (White to move) and W (Black to move) on cyl:8x8 and cyl:5x8, so it is a mutual zugzwang that exists only
+    on the cylinder.
+- **(c) "Every K+P vs K on C3 is a draw":** REFUTED.
+  - White to move wins 53% of positions on C3×8.
+  - Orchestrator spot check: `Ka1 Pa7 ka3` on cyl:3x8 is W, because a8=Q mates along the wrapped diagonals.
+- **(d) No odd/even effect for n ≥ 4:** CONFIRMED (CHECKED-2) for n ≤ 10.
+  - The statistics are monotone in n.
+  - The only even-only effect is the opposite-file relation (d = n/2).
+  - The n = 4 outlier is a 4-cycle effect.
+- **Side result:** independently confirms the cylinder KPK rate of 78.89% (White to move), against T10's 76.35%.
+  This is the correction already recorded under T10.
+
+## T24: the \*3 hunt and the cylinder minimum for \*2 (`research/star3_hunt/`). Partly accepted.
+
+- **Cosmetic bug in the scanner logs.** frontier_split's log line hard-codes "flat". The `cylinder_*` runs did
+  pass `--cylinder` (`run_scans.sh`), and their values match cylcgt's cylinder values, not the flat ones.
+  - Example: `W a2 a3 b2 / B b7 c6 c7` is 0 flat (cylcgt and Codex) and \*2 on C3 (cylcgt).
+- **Incomplete splits.** T24 scanned only one split per pawn count. The orchestrator added every other 6- and
+  7-pawn split on C3 and C4 (`research/star3_hunt_extra/`).
+- **Result (default setting), the first ring \*2 on Cn:**
+
+  | Cylinder | Pawns | Positions | Programs |
+  |---|---|---|---|
+  | C3 | 6 | `W a2 a3 b2 / B b7 c6 c7` | cylcgt and C scanner |
+  | C4 | 7 | `W a4 b2 c2 / B b6 c5 d6 d7`, plus its color-reversed twin `W a4 b2 b3 d3 / B a7 c5 d7` | C scanner; the first also cylcgt |
+  | C5 | 8 | the 14 known rings | known before T24 |
+
+  - **Labels:** values CHECKED-2; minimality COMPUTED-1 (atlas ≤5 pawns + C scan).
+  - **Pattern:** n+3 pawns for n = 3, 4, 5.
+  - **Settings:** the C3 ring is 0 with e.p. off and 0 under the mover rule.
+- **REJECTED: T24's "no \*3 under count or mover" headline.** Its own table shows \*3 under count/textbook
+  and mover/textbook on flat 6×8 with 8 pawns (16 and 14 positions). The headline holds only for the
+  e.p.-aware test.
+  - These \*3s are unverified. They are probably e.p. artifacts, like the textbook \*2.
+  - Next: verify one with cylcgt and Codex, and check its value under the e.p.-aware test.

@@ -1,75 +1,18 @@
+% \codeavail is defined in main.tex (named build: the repository URL; review build: anonymized).
+% The fallback below only keeps this file compiling if main.tex does not define it.
+\providecommand{\codeavail}{available at \expandafter\url\expandafter{\repourl}}
+
 \section{Verification and Reproducibility}\label{sec:verify}
 
-Most results in this paper come from computer searches, and several proofs were written with machine help. In
-this section we say how each claim was checked, so that the reader can judge how far to trust it.
+\emph{Cross-checks.} Our CGT engine agrees with a separate brute-force sum solver on $55{,}195$ positions $G$
+(at most two pawns a side, $3$--$5$ files), for three race rules and $15$ reference games $X$: all
+$4{,}967{,}550$ outcomes of $G+X$ match under the textbook test, e.p.\ on and off, and all $2{,}483{,}775$
+under the e.p.-aware test. A whole-board minimax confirms its outcomes on $1{,}070$ single components. Our
+legal-move generator matches Lichess on all $160$ test positions, covering en passant, promotions, pins, checks,
+mates and stalemates. Each section states its other cross-checks. The AI
+systems used, and what each did, are listed in the Acknowledgment.
 
-\subsection{Evidence Labels}
-
-Every theorem and headline number carries a label. \lab{P} means a written proof. \lab{C2} means that two
-independently written programs agree, where ``independent'' means that the second program was written from the
-rules alone, without reading the code of the first. \lab{C1} means that one program computed the result.
-\lab{Conj} marks a statement that is neither proved nor fully computed. A claim with both a proof and a
-computer check gets both labels.
-
-\subsection{Cross-Checks}
-
-Table~\ref{tab:checks} lists the main cross-checks. In every row the programs agree on every case tested. The ``nine settings'' are those of Theorem~\ref{thm:eighth}. Where the independent whole-board solver and our
-CGT engine give different values outside the main setting, the cause is the difference between the two models
-of Section~\ref{sec:sums-hss}, not an error in either program.
-
-\begin{table}[!t]
-\centering
-\caption{Independent Cross-Checks}
-\label{tab:checks}
-\footnotesize
-\begin{tabular}{@{}p{0.40\columnwidth}p{0.55\columnwidth}@{}}
-\toprule
-What was compared & Scale \\
-\midrule
-\raggedright CGT engine vs a brute-force sum solver & \raggedright $55{,}195$ positions with at most two pawns a side on $3$--$5$ files, three
-race rules and $15$ reference games $X$: $4{,}967{,}550$ predictions of the outcome of $G+X$ (textbook test,
-e.p.\ on and off), plus $2{,}483{,}775$ (e.p.-aware test) \tabularnewline\addlinespace[1.5pt]
-\raggedright CGT engine vs a whole-board minimax & \raggedright $1{,}070$ single components \tabularnewline\addlinespace[1.5pt]
-\raggedright Flat census vs an independent C solver & \raggedright all $231{,}071$ records, under both passed-pawn tests \tabularnewline\addlinespace[1.5pt]
-\raggedright Headline values vs an independent whole-board solver & \raggedright all headline values in all nine settings; the $\nim{k}$ census
-(Theorem~\ref{thm:census}) \tabularnewline\addlinespace[1.5pt]
-\raggedright $\nim{2}$ with seven pawns & \raggedright three programs: the C scanner, the CGT engine and the independent whole-board
-solver \tabularnewline\addlinespace[1.5pt]
-\raggedright King-and-pawn solver vs a reference solver & \raggedright $1{,}418{,}480$ positions \tabularnewline\addlinespace[1.5pt]
-\raggedright KPK, two solvers & \raggedright all $326{,}640$ cylinder positions; on the flat board they differ only on $6$ positions where
-the second solver cannot underpromote to a rook \tabularnewline\addlinespace[1.5pt]
-\raggedright Pawnless $4$-man tablebases, two solvers & \raggedright $24$ tables, about $607$ million values \tabularnewline\addlinespace[1.5pt]
-\raggedright Dawson's chess, two implementations & \raggedright Grundy values for $n\le300$; the mis\`ere quotient against exhaustive
-search on $7.4$ million positions \tabularnewline\addlinespace[1.5pt]
-\raggedright Move generator vs Lichess & \raggedright $160$ of $160$ test positions \tabularnewline\addlinespace[1.5pt]
-\raggedright Sum model vs whole board, on hereditarily sum-safe positions & \raggedright all $1{,}297$ such positions in a random sample
-of $1{,}500$ \tabularnewline
-\bottomrule
-\end{tabular}
-\end{table}
-
-\subsection{Real-Chess Tools}
-
-Real-chess statements rest on three tools. Positions with at most seven men were probed in the Lichess Syzygy
-tablebase~\cite{LichessTB}, and every response was cached. Larger positions were searched exactly, down to the
-tablebase, with our own legal-move generator, whose $160$ test positions (Table~\ref{tab:checks}) cover en passant,
-promotions, pins, checks, mates and stalemates. The largest king-and-pawn
-positions were solved by our king-and-pawn solver, which agrees with a reference solver
-(Table~\ref{tab:checks}).
-
-\subsection{Use of AI Tools}\label{sec:ai}
-
-The software, the searches and the first drafts of the proofs were produced with AI coding assistants (Claude
-by Anthropic, Codex by OpenAI, and others) under the author's direction. Each proof was then re-derived
-independently by a second model from a different developer. Eight of the nine were confirmed, one of them
-after a repair, and one gap was found; that statement now appears as a conjecture. A human check of the proofs
-is still pending. The cross-checking programs were kept apart in the same spirit: the independent whole-board solver, for
-example, was written by Codex from the rules alone and imports none of the project's code. The labels above record how
-far each claim has been checked.
-
-\subsection{Code Availability}
-
-The code and data are available at \expandafter\url\expandafter{\repourl}. The CGT engine (\texttt{cylcgt}) and most tools are in
-Python~3 (standard library only). The fast solvers (\texttt{kpsolve}, the census scanner, the tablebase
-generators) are in C. Real-chess checks use the Lichess Syzygy tablebase API. The engine experiments use
-Stockfish~19 and Lc0. The learning baselines use PyTorch.
+\emph{Code availability.} The code and data are \codeavail. Our CGT engine and most tools are in
+Python~3 (standard library only). The fast solvers (the king-and-pawn solver, the census scanner, the tablebase
+generators) are in C. Real-chess checks use the Lichess Syzygy tablebase API. The engine
+experiments use Stockfish~19 and Lc0. The learning baselines use PyTorch.
