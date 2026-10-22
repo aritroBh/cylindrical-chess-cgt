@@ -1,0 +1,19 @@
+# Overleaf / latexmk settings for the arXiv package of
+# "Chess Endgames on a Cylindrical Chessboard" (A. Bhattacharjee).
+#
+# The document itself is plain pdflatex-compatible LaTeX (IEEEtran + T1 fontenc,
+# no fontspec, no unicode-math), so it builds under any of pdfLaTeX, XeLaTeX and
+# LuaLaTeX.  This file pins the project to XeLaTeX so that the Overleaf build
+# reproduces, font for font, the PDF that the arXiv package was verified with
+# (tectonic, which is XeTeX-based).
+#
+# $pdf_mode = 3 selects xelatex; $xelatex is the command latexmk will use.
+# -no-shell-escape is deliberate: the paper needs no shell escape and arXiv
+# disables it anyway.
+$pdf_mode = 3;
+$xelatex  = 'xelatex -no-shell-escape %O %o';
+$bibtex   = 'bibtex %O %B';
+
+# Give latexmk enough passes to settle the table of contents and the
+# hyperref bookmarks.
+$max_repeat = 6;

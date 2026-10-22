@@ -1,0 +1,72 @@
+\section{From the Model to Real Chess}\label{sec:real}
+
+To test a model value, we keep its tree of pawn moves and replace only the leaves by real results: from the
+Lichess Syzygy tablebase~\cite{LichessTB} up to seven men, and beyond from tablebase-backed search and our
+king-and-pawn solver (Section~\ref{sec:kings}).
+
+\begin{definition}[Real-chess oracle value]\label{def:oracle}
+Let $X$ be a pawn component on the ordinary board beside T (Fig.~\ref{fig:trebuchet}). An \emph{end position}
+of its model tree is a position where a line of play first reaches a passed pawn; its two \emph{sides} are
+white to move and black to move. Replace each end position by $+\BIG$ if white wins it in real chess with either
+side to move, by $-\BIG$ if black does, and otherwise by one fixed game $t$ with $-2\BIG\le t\le 2\BIG$; the
+choice of $t$ is the \emph{draw treatment}. The canonical value of the resulting tree is the \emph{oracle value} $O(X)$.
+\end{definition}
+
+\begin{lemma}[Sandwich; \lab{P}]\label{lem:sandwich}
+Replace every end position not known to be $\pm\BIG$ by $-2\BIG$, or by $+2\BIG$, and let $O^-$ and $O^+$ be the
+resulting values. Then $O^-\le O(X)\le O^+$ whatever the draw treatment and the unknown results; if $O^-=O^+$, then
+$O(X)$ is certified.
+\end{lemma}
+\begin{proof}
+Every leaf lies between $-2\BIG$ and $2\BIG$, and raising an option never lowers a
+game~\cite{Siegel2013}; induct from the leaves.
+\end{proof}
+
+\subsection{The Textbook Candidate in Real Chess}\label{sec:real-cand}
+
+We build the tree under either passed-pawn test, the \emph{textbook tree} or the \emph{e.p.-aware tree}.
+
+\begin{theorem}[Candidate in real chess; \lab{C1}]\label{thm:oracle-cand}
+For the candidate \pos{W a2 c2 / B b7 d7} beside T (Fig.~\ref{fig:star2_textbook}):
+\begin{enumerate}
+\item[(a)] In real chess the side to move wins; only 1\ldots~b5 wins for black, 1.~c4 wins for white, and every
+  king move loses \lab{C2}.
+\item[(b)] In the e.p.-aware tree, under every draw treatment, $O$ has left stop $\ge1$ and right stop $\le-1$, so
+  $O$ is neither $0$ nor $\nim{2}$.
+\item[(c)] If draws count as wins for black, $O=\game{2\pm1}{-2\pm1}$ in both trees.
+\end{enumerate}
+\end{theorem}
+
+Real chess thus agrees with $\nim{2}$ on the outcome and on every winning first move resolved so far
+(1.~a4 is still open), but not on the value: in the e.p.-aware tree, which matches chess, $O$ is always hot. In
+the textbook tree $\nim{2}$ is ruled out only when draws count as wins for one side, as in (c), so the
+candidate's $\nim{2}$ depends on the textbook test.
+
+A second candidate, \pos{W a3 b3 c2 / B b5 b7 c6} ($10$ men with T), is $\nim{2}$ under the opponent
+rule with en passant on (Section~\ref{sec:star2}); its oracle value is positive under every draw treatment
+\lab{C2}. The other non-default $\nim{2}$ positions are open.
+
+\subsection{Towards a Real-Chess \texorpdfstring{$1/8$}{1/8}}\label{sec:real-eighth}
+
+The $1/8$ position of Section~\ref{sec:targets} (Fig.~\ref{fig:eighth}(a)) has $10$ men. Its e.p.-aware tree
+has $302$ end-position sides with at most seven men, and the tablebase resolves them all. In $290$ of them
+only one side has a passed pawn: $283$ agree with the model, $5$ disagree and $2$ are draws; the other $12$ are
+races. The remaining end positions have more men. A search for the end positions that decide the value finds
+five with eight men and three with nine: if these go as the model says, then $O=1/8$ whatever the rest do.
+Four of the eight-man positions agree with the model on both sides, except black to move in
+\pos{W a3 a5 / B b4 b5}, a black win; a second search allows for that result and adds one more eight-man
+position, which agrees on both sides. Our king-and-pawn solver (queen promotions only) shows that the three
+nine-man positions agree on both sides, and that white to move in the last eight-man position,
+\pos{W b2 b5 / B a5 b4}, wins. Black to move there is the last open side.
+
+\begin{proposition}[Status of $1/8$; \lab{C1}]\label{prop:eighth-real}
+For the $1/8$ position, $0\le O\le 1/8$; if black to move loses in \pos{W b2 b5 / B a5 b4}, as the model
+assigns, then $O=1/8$, whatever the other open sides do.
+\end{proposition}
+
+A real-chess $1/8$ is still conditional on the frozen kings
+(Section~\ref{sec:kings}) and on a rerun with underpromotions. The same method applies to $\upsec\star$ and $\tinyg{1}$: their lower bounds already equal the
+target values, with $11$ and $13$ end positions of $8$ to $10$ men still open \lab{C1}. Positions A and B have $11$ men beside
+T, and the five-file $\nim{2}$ \pos{W a3 b3 c2 e2 / B a6 c5 d5 e3}, which sits legally
+beside T, has $12$, with only file f free of pawns between them; their oracle values are open, so the
+$\nim{2}$ of Theorem~\ref{thm:star2seven} is so far a model value.

@@ -1,0 +1,137 @@
+\section{Kings: The Tr\'ebuchet and When It Is Exact}\label{sec:kings}
+
+So far a player with no pawn move simply lost. In chess that player would move the king instead, or, with no
+king move either, be stalemated, which is a draw. The tr\'ebuchet of Section~\ref{sec:rules} removes
+stalemate: a side with no pawn move must move a king, and loses. We now ask when this gives the true chess
+result. Our king-and-pawn solver plays real chess, with en passant, stalemate and any of the four
+promotions, but no fifty-move rule; an independent reference solver, written from the rules alone, agrees with
+it on all $1{,}418{,}480$ positions of its test runs \lab{C2}. This validates the solver; its results below are
+\lab{C1} unless a second program or the Lichess tablebase~\cite{LichessTB} confirms them.
+
+\subsection{Two Tr\'ebuchets}
+
+In Fig.~\ref{fig:trebuchet_2025} only the kings can move. White to move must give up a4, since the only square
+next to a4 that the king on h5 can move to, h4, is attacked by the a5 pawn across the seam; black to move loses
+a5 in the same way. Whoever moves first loses a pawn and then the game, so this is a zero game, and with the
+kings played out a real mutual zugzwang that exists only because of the seam \lab{C2}.
+
+Fig.~\ref{fig:trebuchet} shows the same idea on files f to h of the ordinary board; the Lichess tablebase
+confirms that it is a mutual zugzwang \lab{C2}. We call this group T and place it beside every ordinary-board
+pawn position in this paper.
+
+\begin{figure}[!t]
+\centering
+\begin{subfigure}{0.32\columnwidth}
+\centering
+\includegraphics[width=\linewidth]{figures/trebuchet_2025.pdf}
+\caption{\pos{W~Kh5~a4 / \mbox{B~Kb4~a5}}}
+\label{fig:trebuchet_2025}
+\end{subfigure}\hfill
+\begin{subfigure}{0.32\columnwidth}
+\centering
+\includegraphics[width=\linewidth]{figures/trebuchet.pdf}
+\caption{\pos{W~Kf5~g4 / \mbox{B~Kh4~g5}}}
+\label{fig:trebuchet}
+\end{subfigure}\hfill
+\begin{subfigure}{0.32\columnwidth}
+\centering
+\includegraphics[width=\linewidth]{figures/kinggroup72.pdf}
+\caption{\pos{W~Ke6~d7 / \mbox{B~Kd8~e7}}}
+\label{fig:kinggroup72}
+\end{subfigure}
+\caption{King groups that count as $0$: (a) a tr\'ebuchet on the cylinder (files a and h adjacent) and (b) the
+tr\'ebuchet T (ordinary board), both real mutual zugzwangs; (c) a king group from the 2025 study (cylinder;
+Section~\ref{sec:sums}), a draw with white to move.}
+\label{fig:kings}
+\end{figure}
+
+\subsection{When Is the Frozen Tr\'ebuchet Exact?}\label{sec:kings-valid}
+
+A \emph{king group} $Z$ is the two kings and some pawns on a block of files whose neighboring files, the
+\emph{buffer}, hold no pawns; a \emph{decisive event} is a move that creates a passed pawn, or a move in $Z$.
+
+\begin{theorem}[Validity of the convention; \lab{AI}]\label{thm:validity}
+Let a position consist of pawn components and a king group $Z$ with its buffer, and suppose that before the
+first decisive event:
+\begin{enumerate}
+\item[(V1)] the legal chess moves are exactly the moves of the model, nobody is in check, and the side to move
+  has a legal move;
+\item[(V2)] the side that gets a passed pawn wins;
+\item[(V3)] every move in $Z$ is decisively punished.
+\end{enumerate}
+Then the chess result, with either side to move, is the normal-play outcome of the components, without draws.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+By (V3) the model is the normal-play sum of the components, without draws; its winner never moves in $Z$, and by
+(V1) the loser has only model moves, so play ends at a decisive event that wins the chess game for the winner by
+(V2) and (V3). The full proof is in the repository.
+\end{proof}
+
+\begin{conjecture}[\lab{Conj}]\label{conj:v4}
+If also (V4) the pawn part is hereditarily sum-safe (Definition~\ref{def:hss}) and $\BIG$ exceeds every tempo
+count, the chess result in Theorem~\ref{thm:validity} is the outcome class of the $\pm\BIG$ value of the
+components.
+\end{conjecture}
+
+A proof, repaired after review and building on Theorem~\ref{thm:hss}, is in the repository; it has been
+checked only by AI models, so we state the result as a conjecture. Each condition can fail: a king walks over to the pawns (V1),
+a passed pawn does not win its race (V2), white's king moves in Fig.~\ref{fig:kinggroup72} go unpunished (V3),
+and a $+\BIG$ cancels a $-\BIG$ (V4; Section~\ref{sec:sums-hss}).
+
+A local test for (V3) is the \emph{certificate of horizon $h$}: with all other pawns removed, the punisher
+promotes within $h$ moves of its reply even if the defender may pass at any time, the defender cannot promote
+anywhere within $h$ moves (the \emph{counter-promotion condition}), and the defender is never stalemated.
+
+\begin{conjecture}[\lab{Conj}]\label{conj:cert}
+A certificate of horizon $h$ implies (V3).
+\end{conjecture}
+
+Our proof of this has a gap.
+
+\begin{proposition}[\lab{AI}]\label{prop:horizon1}
+On boards with at least six ranks, for $h=1$, the counter-promotion condition holds in every context without a
+passed pawn.
+\end{proposition}
+
+\begin{proof}
+A pawn that can promote in one move stands on the rank before its last. With six or more ranks it got there by a
+single step or a capture, so it cannot be taken en passant, and no enemy pawn can stand ahead of it: it is
+already passed.
+\end{proof}
+
+\begin{conjecture}[\lab{Conj}]\label{conj:horizon2}
+For every king group whose punishment needs $h\ge2$ moves, some context without a passed pawn leaves a move in
+the group unpunished.
+\end{conjecture}
+
+Real tr\'ebuchets need $h\approx5$--$7$, so we trust their zero only beside slow or locked components.
+
+\subsection{Spare King Moves Are Loopy}
+
+A king that can step back and forth without loss gives its side unlimited waiting moves, a loopy
+game~\cite{WinningWays,Siegel2013}: $\textsf{on}=\game{\textsf{on}}{}$ if only white can wait,
+$\textsf{off}=-\textsf{on}$ if only black can, and $\textsf{dud}$ if both can. Since $\textsf{on}$ exceeds every number, $\BIG$ included, the $\pm\BIG$ convention fails there, and a
+decisive event must instead end the game.
+
+\begin{theorem}[Outcomes with spare moves; \lab{AI}]\label{thm:loopy}
+Let every decisive event end the game. If only white can wait, black wins exactly when it can force a decisive
+event in its favor against a white who may pass at any time; otherwise white wins. If both can wait, either side
+wins exactly when it can do so against a passing opponent; otherwise the game is drawn.
+\end{theorem}
+
+Beside a spare king move, then, component values matter only through their forcing threats.
+
+\subsection{How Often Does the Convention Fail?}\label{sec:kings-sweep}
+
+We solved, with the kings played out, every component with at most two pawns a side beside a
+tr\'ebuchet on boards with six ranks: on one file of the six-file cylinder and of the five-file ordinary board,
+and on files d and e of the seven-file cylinder (queen promotions only, at most two; on the six-file cylinder
+the all-promotion results agree in $42$ of $42$ cases). Of these, $500$ start without a race and have a
+determined result. Under the textbook test, $159$ of the $500$ get the wrong outcome \lab{C1}: $107$ through
+the kings alone, $18$ through en passant and $34$ because a passed pawn does not win its race. $143$ of the
+$159$ are on the seven-file cylinder. The e.p.-aware test repairs the convention in the $18$ e.p.\ failures,
+but in $13$ of them the free kings change the result again, so the count there falls only from $143$ to
+$138$. On the ordinary $8\times8$ board we checked $94$ positions beside a tr\'ebuchet against the
+tablebase. The convention says every one of their $449$ king moves loses, yet $41$ of them draw and $7$ win
+\lab{C1}.

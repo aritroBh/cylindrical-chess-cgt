@@ -1,0 +1,52 @@
+\section{Basic Positions on the Cylinder}\label{sec:basic}
+
+We now build the basic values of Fig.~\ref{fig:basic} with pawns alone. Each board leaves a file empty, so by
+Theorem~\ref{thm:cut} its value is that of an ordinary-board position, cut open along that
+file~\cite{Elkies1996,WuYuLandry2010}; in four of them the play crosses the seam. A move that the
+opponent can answer with a passed pawn is a losing move, and it drops out, since having only losing moves is
+the same as having no moves at all~\cite{WuYuLandry2010}. A move that the opponent can answer by reaching a
+position at least as good for him as the one we started from is \emph{reversible}: in the canonical
+form~\cite{WinningWays} it is replaced by the player's moves from that reply, and so drops out when there are
+none.
+
+\subsection{The Zero Game}
+Let us begin with the zero game, in which neither player can move: $0=\game{}{}$, a second-player win. In
+\pos{W~e4 / B~e5} the two pawns are stuck, so the value is $0$.
+
+Fig.~\ref{fig:basic}(a) is a zero game that uses the seam. If white goes first, it must play h3--h4, and black
+captures across the seam, a5$\times$h4, with a passed pawn. If black goes first, h6--h5 is met by a4$\times$h5
+in the same way. Whoever moves first loses, so this is again $0$.
+
+\subsection{The Games \texorpdfstring{$1$}{1} and \texorpdfstring{$2$}{2}}
+In Fig.~\ref{fig:basic}(b) the white h-pawn starts one square further back. White can play h2--h3, which leaves
+the zero game of (a); the double step h2--h4 only loses the pawn to a5$\times$h4. Black has one move, h6--h5,
+and a4$\times$h5 gives white a passed pawn. Thus $G=\game{0}{}=1$.
+
+In Fig.~\ref{fig:basic}(c) the a-pawns stand one rank higher. White can play h2--h4 or h2--h3, which leave the
+games (a) and (b) moved up one rank, $0$ and $1$. Black has only losing moves: h7--h6 is met by
+a5$\times$h6, and h7--h5 by a5$\times$h6 en passant across the seam. Thus $G=\game{0,1}{}=2$. With e.p.\
+off, h7--h5 is safe and the value falls to an infinitesimal, ${\Uparrow}\star$ (defined below). Switching the colors and turning the board through $180^\circ$ gives $-1$ and
+$-2$~\cite{WuYuLandry2010}.
+
+\subsection{The Infinitesimals \texorpdfstring{$\star$, ${\uparrow}$}{Star, Up} and Tiny~1}\label{sec:basic-inf}
+Star is the game in which both players can move to $0$: $\star=\game{0}{0}$. In Fig.~\ref{fig:basic}(d),
+e4--e5 and e6--e5 each lock the file, so $G=\star$, a first-player win.
+
+Up is ${\uparrow}=\game{0}{\star}$. In Fig.~\ref{fig:basic}(e), white can play e2--e3, which leaves star, or
+e2--e4, which locks the file: $0$. Black can only play e5--e4, which leaves star. Thus
+$G=\game{0,\star}{\star}$. Star is reversible for white: black answers e2--e3 with e5--e4, reaching
+$0\le G$, since white wins $G$ when black starts. So $G=\game{0}{\star}={\uparrow}$. Up is positive, yet
+smaller than every positive number: it is an \emph{infinitesimal}. Switching the colors gives
+${\downarrow}=-{\uparrow}$, and we write ${\Uparrow}={\uparrow}+{\uparrow}$.
+
+Tiny~1 is $\tinyg{1}=\ggame{0}{0\mid -1}$, that is, $\game{0}{\game{0}{-1}}$. In Fig.~\ref{fig:basic}(f), white
+can take across the seam, h4$\times$a5, which leaves every pawn blocked: $0$. White's h4--h5 drops out, since
+a6$\times$h5 wins for black. Black can only play a5$\times$h4; from there white locks the a-file with a4--a5,
+leaving $0$, while black plays a6--a5 and keeps the spare move a7--a6, leaving $-1$. So black's capture leads
+to $\game{0}{-1}=-\tfrac12\pm\tfrac12$, and $G=\tinyg{1}$, a positive infinitesimal.
+
+A single file can do more. In \pos{W~a2 / B~a6}, white can play a2--a3, leaving $0$ (either move then leaves
+star), or a2--a4, leaving $\star$. Black can only play a6--a5, which leaves the up position of
+Fig.~\ref{fig:basic}(e) on the a-file. So $G=\game{0,\star}{{\uparrow}}$. As in (e), star is reversible for
+white, so $G=\game{0}{{\uparrow}}={\Uparrow}\star$, ``double-up star'', one of Elkies'
+examples~\cite{Elkies1996}.

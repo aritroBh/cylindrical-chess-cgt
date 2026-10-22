@@ -1,0 +1,18 @@
+% \codeavail is defined in main.tex (named build: the repository URL; review build: anonymized).
+% The fallback below only keeps this file compiling if main.tex does not define it.
+\providecommand{\codeavail}{available at \expandafter\url\expandafter{\repourl}}
+
+\section{Verification and Reproducibility}\label{sec:verify}
+
+\emph{Cross-checks.} Our CGT engine agrees with a separate brute-force sum solver on $55{,}195$ positions $G$
+(at most two pawns a side, $3$--$5$ files), for three race rules and $15$ reference games $X$: all
+$4{,}967{,}550$ outcomes of $G+X$ match under the textbook test, e.p.\ on and off, and all $2{,}483{,}775$
+under the e.p.-aware test. A whole-board minimax confirms its outcomes on $1{,}070$ single components. Our
+legal-move generator matches Lichess on all $160$ test positions, covering en passant, promotions, pins, checks,
+mates and stalemates. Each section states its other cross-checks. The AI
+systems used, and what each did, are listed in the Acknowledgment.
+
+\emph{Code availability.} The code and data are \codeavail. Our CGT engine and most tools are in
+Python~3 (standard library only). The fast solvers (the king-and-pawn solver, the census scanner, the tablebase
+generators) are in C. Real-chess checks use the Lichess Syzygy tablebase API. The engine
+experiments use Stockfish~19 and Lc0. The learning baselines use PyTorch.

@@ -1,0 +1,179 @@
+\documentclass[journal]{IEEEtran}
+
+\usepackage[T1]{fontenc}
+
+\usepackage{cite}
+\usepackage{amsmath}
+\interdisplaylinepenalty=2500
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage[caption=false,font=footnotesize,labelformat=simple,justification=centering]{subfig}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+% URLs break only after a slash or a dot, never right after "https:" (":" is a relation by default, and the
+% url package prefers a break there); as an "open" character it allows no break.
+\def\UrlBigBreaks{}
+\def\UrlBreaks{\do\/\do\.\do\-\do\_}
+\def\UrlNoBreaks{\do\(\do\[\do\{\do\<\do\:}
+
+\input{macros}
+
+% Two builds. main.tex is the named (arXiv) build. main_review.tex defines \anonbuild and inputs this file,
+% which gives the double-anonymous review build for IEEE Transactions on Games.
+% \submittedtrue adds IEEE's preprint notice to the named build. Turn it on only once the paper has been
+% submitted to the IEEE (GUIDELINES F); it never appears in the review build.
+\newif\ifsubmitted
+\submittedfalse
+\ifdefined\anonbuild
+  \newcommand{\codeurl}{}
+  \newcommand{\codeavail}{available in an anonymized repository supplied to the editor}
+  \newcommand{\bytheauthor}{}
+  \newcommand{\studyauthor}{Anonymous}
+  \newcommand{\studytitle}{Title withheld for review}
+  \hypersetup{pdftitle={Chess Endgames on a Cylindrical Chessboard: Exact Combinatorial Game Values,
+    Real-Chess Checks, and Tablebases}, pdfauthor={}}
+\else
+  \newcommand{\codeurl}{\url{https://github.com/aritroBh/cylindrical-chess-cgt}}
+  \newcommand{\codeavail}{available at \codeurl}
+  \newcommand{\bytheauthor}{ by the author}
+  \newcommand{\studyauthor}{A.~Bhattacharjee}
+  \newcommand{\studytitle}{Analysis of chess endgames on a cylindrical chessboard}
+  \hypersetup{pdftitle={Chess Endgames on a Cylindrical Chessboard: Exact Combinatorial Game Values,
+    Real-Chess Checks, and Tablebases}, pdfauthor={Aritro Bhattacharjee}}
+\fi
+
+% The sections use the subcaption-style environment
+%   \begin{subfigure}[pos]{width} ... \caption{...}\label{...} \end{subfigure}.
+% IEEEtran's captions are kept by implementing it with subfig's \subfloat (caption=false), as the
+% IEEEtran HOWTO recommends. A subfigure is labelled (a) and referenced as Fig. 3(a).
+\renewcommand{\thesubfigure}{(\alph{subfigure})}
+\makeatletter
+\newsavebox{\sf@box}
+\newcommand{\sf@setcap}[2][]{\gdef\sf@cap{#2}}
+\newcommand{\sf@setlab}[1]{\gdef\sf@lab{#1}}
+\newenvironment{subfigure}[2][c]{%
+  \gdef\sf@cap{}\gdef\sf@lab{}%
+  \begin{lrbox}{\sf@box}\begin{minipage}[#1]{#2}%
+  \let\caption\sf@setcap\let\label\sf@setlab}%
+  {\end{minipage}\end{lrbox}%
+   \ifx\sf@lab\@empty\def\sf@labcmd{}\else\edef\sf@labcmd{\noexpand\label{\sf@lab}}\fi
+   \ifx\sf@cap\@empty\subfloat[]{\usebox{\sf@box}\sf@labcmd}%
+   \else\subfloat[\sf@cap\sf@labcmd]{\usebox{\sf@box}}\fi}
+\makeatother
+
+% One counter for all numbered statements, through the whole paper, in IEEE style:
+% an indented italic head ending in a colon ("Theorem 2 (Cut lemma; [P]):"). A head whose note is
+% only an evidence label prints it without parentheses ("Proposition 4 [P]:").
+\makeatletter
+\def\ieeethmnote#1{\ieee@thmnote#1\@empty\@nil}
+\def\ieee@thmnote#1#2\@nil{\ifx#1\lab\expandafter\@firstoftwo\else\expandafter\@secondoftwo\fi
+  {\lab#2}{(#1#2)}}
+\makeatother
+\newtheoremstyle{ieeeplain}{3pt}{3pt}{\itshape}{\parindent}{\itshape}{:}{0.5em}%
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ \ieeethmnote{#3}}}
+\newtheoremstyle{ieeedef}{3pt}{3pt}{\normalfont}{\parindent}{\itshape}{:}{0.5em}%
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ \ieeethmnote{#3}}}
+\theoremstyle{ieeeplain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{ieeedef}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+% Proofs use IEEEtran's proof layout; \begin{proof}[Proof sketch] prints "Proof sketch:".
+\renewenvironment{proof}[1][Proof]{\begin{IEEEproof}[#1]}{\end{IEEEproof}}
+
+\hyphenation{tr\'e-bu-chet tr\'e-bu-chets table-base table-bases}
+
+\begin{document}
+
+\title{Chess Endgames on a Cylindrical Chessboard: Exact Combinatorial Game Values, Real-Chess Checks,
+and Tablebases}
+
+\ifdefined\anonbuild
+\author{Anonymized for review}
+\markboth{IEEE Transactions on Games}{Chess Endgames on a Cylindrical Chessboard}
+\else
+\ifsubmitted
+  \newcommand{\ieeenotice}{\thanks{This work has been submitted to the IEEE for possible publication.
+    Copyright may be transferred without notice, after which this version may no longer be accessible.}}
+\else
+  \newcommand{\ieeenotice}{}
+\fi
+\author{Aritro~Bhattacharjee%
+\ieeenotice
+\thanks{A.~Bhattacharjee, e-mail: aritro.sonu@gmail.com.}}
+\markboth{Bhattacharjee: Chess Endgames on a Cylindrical Chessboard}%
+{Bhattacharjee: Chess Endgames on a Cylindrical Chessboard}
+\fi
+
+\maketitle
+
+\input{sections/00_abstract}
+
+% Table of contents: named (arXiv) build only; the author asked for one. The review build omits it.
+\ifdefined\anonbuild\else
+\begingroup
+\makeatletter
+\footnotesize
+\setcounter{tocdepth}{1}
+\renewcommand{\l@section}[2]{\par\noindent\hangindent 2.4em #1\nobreak\hfill #2\par}
+\renewcommand{\numberline}[1]{\makebox[2.4em][l]{#1}}
+\section*{\contentsname}
+\vspace{-0.4\baselineskip}
+\@starttoc{toc}
+\makeatother
+\endgroup
+\vspace{0.3\baselineskip}
+\fi
+
+\input{sections/01_intro}
+\input{sections/02_rules}
+\input{sections/03_basic}
+\input{sections/04_kings}
+\input{sections/05_sums}
+\input{sections/06_atlas}
+\input{sections/07_targets}
+\input{sections/08_star2}
+\input{sections/09_real}
+\input{sections/10_tablebases}
+\input{sections/11_dawson}
+\input{sections/appendix_table}
+\input{sections/12_engines}
+\input{sections/13_verify}
+\input{sections/14_conclusion}
+
+% The last page is short; keep its left column from being stretched to full height.
+\raggedbottom
+\appendix[Positions]
+\input{sections/appendix_positions}
+
+\section*{Acknowledgment}
+The author thanks
+\ifdefined\anonbuild\else
+Prof.~T.~Morley for mentoring the 2025 study on which this work builds, and
+\fi
+the maintainers of the Lichess tablebase, Stockfish and Lc0 for making their tools freely available. AI
+systems were used throughout this work, under the author's direction, and the author is responsible for the
+content. Claude (Opus 5.5, Anthropic), run in Claude Code, wrote most of the software, ran the searches,
+drafted the proofs and the figures, and drafted and revised the text of every section from
+\ifdefined\anonbuild the 2025 study~\cite{Study2025}\else the author's 2025 study\fi{} and the project notes. Codex (OpenAI) wrote the independent whole-board solver and the census scanner
+that found the seven-pawn positions. Nemotron 3 Ultra (NVIDIA) and MiniMax M3.1 Flash (MiniMax), run through
+the Kilo and OpenCode tools, re-derived and repaired proofs and recomputed the reported king-and-pawn numbers.
+Further models, chosen automatically by the Kilo, OpenCode and OmniRoute routers and not recorded by name,
+carried out delegated checks and ran the engine experiments on sums and the Dawson learning experiment of
+Section~\ref{sec:engines}. Statements labeled \lab{AI} have been checked only by these systems.
+
+
+% (the odd-width table of Section X moved the references onto page 14)
+% balance the last page's two columns of references
+\IEEEtriggeratref{11}
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+
+\end{document}
