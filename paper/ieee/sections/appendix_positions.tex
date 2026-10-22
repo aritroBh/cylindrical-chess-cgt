@@ -1,0 +1,97 @@
+\section{Positions}\label{app:positions}
+
+Table~\ref{tab:positions} lists the main positions of this paper. Each list gives the white men, then the black
+men; pawns are named by their square and kings by K and their square. $\cyl{n}$ is the $n$-file cylinder, on
+which the a-file and the last file are adjacent, and $\flatb{n}$ is the ordinary board with $n$ files; both
+have eight ranks unless stated. ``$\flatb{8}$+T'' means that the position stands on the ordinary $8\times8$
+board beside the tr\'ebuchet T, white Kf5 and g4 against black Kh4 and g5, and its FEN includes T. Positions
+with pawns only have no kings. Each FEN gives the piece placement only; white is to move unless the table says
+otherwise. Values use the count race rule, the e.p.-aware passed-pawn test and en passant on, unless the table
+says otherwise.
+
+\begin{table*}[!t]
+\centering
+\caption{Main Positions of This Paper}
+\label{tab:positions}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}p{0.25\textwidth}p{0.05\textwidth}>{\raggedright\arraybackslash}p{0.26\textwidth}%
+  >{\raggedright\arraybackslash}p{0.37\textwidth}@{}}
+\toprule
+Role and value & Board & Men (white / black) & FEN or remark \\
+\midrule
+\multicolumn{4}{@{}l}{\emph{Rules and basic positions}} \\
+\raggedright En passant past b4 (Fig.~\ref{fig:ep_test}): $0$ & $\flatb{8}$ & \pos{W a2 / B b4} & \fen{8/8/8/8/1p6/8/P7/8} \\
+\raggedright E.p.-aware test example: $0$; $+\BIG$ under the textbook test & $\flatb{8}$ & \pos{W a2 b3 / B b4} & \fen{8/8/8/8/1p6/1P6/P7/8} \\
+\raggedright $0$ & $\cyl{8}$ & \pos{W e4 / B e5} & \fen{8/8/8/4p3/4P3/8/8/8} \\
+\raggedright $0$ across the seam & $\cyl{8}$ & \pos{W a4 h3 / B a5 h6} & \fen{8/8/7p/p7/P7/7P/8/8} \\
+\raggedright $1$ & $\cyl{8}$ & \pos{W a4 h2 / B a5 h6} & \fen{8/8/7p/p7/P7/8/7P/8} \\
+\raggedright $2$ & $\cyl{8}$ & \pos{W a5 h2 / B a6 h7} & \fen{8/7p/p7/P7/8/8/7P/8} \\
+\raggedright $\star$ & $\cyl{8}$ & \pos{W e4 / B e6} & \fen{8/8/4p3/8/4P3/8/8/8} \\
+\raggedright ${\uparrow}$ & $\cyl{8}$ & \pos{W e2 / B e5} & \fen{8/8/8/4p3/8/8/4P3/8} \\
+\raggedright $\tinyg{1}$ & $\cyl{8}$ & \pos{W a4 h2 h4 / B a5 a6 a7 h3} & \fen{8/p7/p7/p7/P6P/7p/7P/8} \\
+\midrule
+\multicolumn{4}{@{}l}{\emph{Kings}} \\
+\raggedright Tr\'ebuchet across the seam: mutual zugzwang & $\cyl{8}$ & \pos{W Kh5 a4 / B Kb4 a5} &
+\fen{8/8/8/p6K/Pk6/8/8/8} \\
+\raggedright Tr\'ebuchet T: mutual zugzwang & $\flatb{8}$ & \pos{W Kf5 g4 / B Kh4 g5} &
+\fen{8/8/8/5Kp1/6Pk/8/8/8} \\
+\raggedright King group of Puzzle~2: white to move draws & $\cyl{8}$ & \pos{W Ke6 d7 / B Kd8 e7} &
+\fen{3k4/3Pp3/4K3/8/8/8/8/8} \\
+\midrule
+\multicolumn{4}{@{}l}{\emph{Sums and puzzles}} \\
+\raggedright Puzzle~1: white wins whoever moves first & $\cyl{8}$ &
+\pos{W a4 a5 c2 c3 f3 f4 h2 h3 / B a7 c5 c6 f7 h6} & \fen{8/p4p2/2p4p/P1p5/P4P2/2P2P1P/2P4P/8} \\
+\raggedright Puzzle~2: pawn part an infinitesimal of mean $0$, not $\pm1$ & $\cyl{8}$ &
+\pos{W Ke6 a2 b2 d7 h3 / B Kd8 a6 b7 e7 h7} & \fen{3k4/1p1Pp2p/p3K3/8/8/7P/PP6/8} \\
+\raggedright Puzzle~3 as drawn: $+\BIG$; illegal (white pawns on rank~1) & $\cyl{8}$ &
+\pos{W Kg8 a1 a5 c1 c3 d3 f7 g1 h1 / B Kf6 c2 d4 d5 d6 g3 g7 h4} &
+\fen{6K1/5Pp1/3p1k2/P2p4/}\newline\fen{3p3p/2PP2p1/2p5/P1P3PP} \\
+\raggedright Old sum-safety test fails (e.p.\ off): the sum says R, the board is N & $\cyl{8}$ &
+\pos{W b2 d4 g3 h5 / B a7 c7 f7 g4} & \fen{8/p1p2p2/8/7P/3P2p1/6P1/1P6/8} \\
+\raggedright Without condition (E): the sum says R, the board is N & $\flatb{6}$ & \pos{W a4 f4 / B b4 e5} &
+six ranks; black holds an e.p.\ right on a3 \\
+\midrule
+\multicolumn{4}{@{}l}{\emph{Value atlases}} \\
+\raggedright ${\Uparrow}\star$ on one file & $\flatb{8}$ & \pos{W a2 / B a6} & \fen{8/8/p7/8/8/8/P7/8} \\
+\raggedright $\pm3$, the hottest value without $\pm\BIG$ & $\flatb{8}$ & \pos{W a2 b4 / B a5 b7} &
+\fen{8/1p6/8/p7/1P6/8/P7/8} \\
+\raggedright $3/4$, 3-file ring; $0$ under the mover rule & $\cyl{3}$ & \pos{W a2 b4 / B b7 c6} & --- \\
+\raggedright $1/4\pm1/4$, 3-file ring & $\cyl{3}$ & \pos{W a2 b2 / B c5 c6} & --- \\
+\raggedright $\game{2\pm1}{-2\pm1}$, 4-file ring; $\game{3/2\pm1/2}{-3/2\pm1/2}$ under the textbook test &
+$\cyl{4}$ & \pos{W a2 c2 / B b7 d7} & --- \\
+\midrule
+\multicolumn{4}{@{}l}{\emph{Elkies' targets}} \\
+\raggedright $1/8$, in all nine settings & $\flatb{8}$+T & \pos{W a2 b2 b3 / B a5 a6 b6} &
+\fen{8/8/pp6/p4Kp1/6Pk/1P6/PP6/8} \\
+\raggedright $\upsec\star$, in all nine settings & $\flatb{8}$+T & \pos{W a2 b2 b6 / B a6 b7 c5} &
+\fen{8/1p6/pP6/2p2Kp1/6Pk/8/PP6/8} \\
+\raggedright $\tinyg{1}$ & $\flatb{8}$+T & \pos{W a2 b2 b6 / B a6 b7 c6} & \fen{8/1p6/pPp5/5Kp1/6Pk/8/PP6/8} \\
+\raggedright Textbook $1/8$, now $-3/2\pm3/2$ & $\flatb{8}$+T & \pos{W a2 b2 d2 / B a5 c4 d7} &
+\fen{8/3p4/8/p4Kp1/2p3Pk/8/PP1P4/8} \\
+\raggedright Textbook $\upsec$, now $\game{3/4}{{\downarrow}\star}$ & $\flatb{8}$+T & \pos{W a3 c5 d4 / B a7 b7 d7} &
+\fen{8/pp1p4/8/2P2Kp1/3P2Pk/P7/8/8} \\
+\midrule
+\multicolumn{4}{@{}l}{\emph{The $\nim{2}$ question}} \\
+\raggedright Textbook $\nim{2}$ candidate; $\game{2\pm1}{-2\pm1}$ under the e.p.-aware test & $\flatb{8}$+T &
+\pos{W a2 c2 / B b7 d7} & \fen{8/1p1p4/8/5Kp1/6Pk/8/P1P5/8} \\
+\raggedright Second candidate, refuted in real chess & $\flatb{8}$+T & \pos{W a3 b3 c2 / B b5 b7 c6} &
+\fen{8/1p6/2p5/1p3Kp1/6Pk/PP6/2P5/8} \\
+\raggedright $\nim{2}$ with seven pawns (A) & $\flatb{8}$+T & \pos{W a4 b3 d2 d3 / B a7 b7 c5} &
+\fen{8/pp6/8/2p2Kp1/P5Pk/1P1P4/3P4/8} \\
+\raggedright $\nim{2}$ with seven pawns (B) & $\flatb{8}$+T & \pos{W b4 c2 d2 / B a6 a7 c6 d5} &
+\fen{8/p7/p1p5/3p1Kp1/1P4Pk/8/2PP4/8} \\
+\raggedright $\nim{2}$ with eight pawns on five files; under the opponent rule ${\Uparrow}$ as a sum and $\nim{2}$
+on the whole board & $\flatb{8}$+T & \pos{W a3 b3 c2 e2 / B a6 c5 d5 e3} &
+\fen{8/8/p7/2pp1Kp1/6Pk/PP2p3/2P1P3/8} \\
+\midrule
+\multicolumn{4}{@{}l}{\emph{Real chess and tablebases}} \\
+\raggedright Last decisive end position for $1/8$: white to move wins, black to move open & $\flatb{8}$+T & \pos{W b2 b5 / B a5 b4} &
+\fen{8/8/8/pP3Kp1/1p4Pk/8/1P6/8} \\
+\raggedright End position where model and chess disagree: black to move, black wins & $\flatb{8}$+T &
+\pos{W a3 a5 / B b4 b5} & \fen{8/8/8/Pp3Kp1/1p4Pk/P7/8/8} \\
+\raggedright KPK rook pawn, either side to move: a cylinder win, a flat-board draw & $\cyl{8}$ &
+\pos{W Ka6 a5 / B Ka8} & \fen{k7/8/K7/P7/8/8/8/8} \\
+\bottomrule
+\end{tabular}
+\end{table*}

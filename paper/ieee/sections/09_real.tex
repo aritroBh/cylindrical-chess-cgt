@@ -1,0 +1,95 @@
+\section{From the Model to Real Chess}\label{sec:real}
+
+A model value rests on conventions: a passed pawn wins, the kings stay frozen, and a race between two passed
+pawns is settled by a fixed rule. None of these is exact chess. To test a value against chess, we keep the
+model's tree of pawn moves and replace only its leaves by real results.
+
+\begin{definition}[Real-chess oracle value]\label{def:oracle}
+Let $X$ be a pawn component on the ordinary board beside the tr\'ebuchet. An \emph{end position} of the model tree of
+$X$ is the first position on a line of play in which some side has a passed pawn. Each end position has two sides,
+white to move and black to move. Replace each end position by $+\BIG$ if white wins it in real chess with either
+side to move, by $-\BIG$ if black does, and otherwise (the side to move wins, the second player wins, or a side
+is drawn) by a game $t$ with $-2\BIG\le t\le 2\BIG$ fixed in advance, called a \emph{treatment}. The canonical
+value of the resulting tree is the \emph{oracle value} $O(X)$.
+\end{definition}
+
+The real results come from the Lichess Syzygy tablebase~\cite{LichessTB} for at most seven men, and from
+tablebase-backed search and our king-and-pawn solver (Section~\ref{sec:kings}) beyond that. End positions with more
+than seven men are slow to resolve, so we need a way to bound $O(X)$ while some of them are unknown.
+
+\begin{lemma}[Sandwich; \lab{P}]\label{lem:sandwich}
+Let $O^-$ and $O^+$ be the values obtained when every end position that is not known to be $+\BIG$ or $-\BIG$ is
+replaced by $-2\BIG$ and by $+2\BIG$, respectively. Then $O^-\le O(X)\le O^+$ for every treatment and every real
+outcome of the unknown end positions. If $O^-=O^+$, then $O(X)$ is certified.
+\end{lemma}
+\begin{proof}
+Raising an option never lowers a game: if $H\le H'$, then a game with $H$ among its options is at most the same
+game with $H'$ in its place~\cite{Siegel2013}. Every leaf of the tree lies between $-2\BIG$ and $2\BIG$, so by
+induction from the leaves to the root, $O^-\le O(X)\le O^+$.
+\end{proof}
+
+We also use the \emph{stops} of a game: the numbers reached when white or black moves first and both sides play
+until a number appears. Both stops of $0$ and of $\nim{2}$ are $0$.
+
+\subsection{The Textbook Candidate in Real Chess}
+
+\begin{theorem}[Candidate in real chess; end positions \lab{C2}, values \lab{C1}]\label{thm:oracle-cand}
+For the candidate \pos{W a2 c2 / B b7 d7} beside the tr\'ebuchet (Fig.~\ref{fig:star2_textbook}):
+\begin{enumerate}
+\item[(a)] In real chess the side to move wins, with either side to move. With black to move, only 1\ldots b5 wins.
+  With white to move, 1.c4 wins and every king move loses.
+\item[(b)] In the e.p.-aware tree, $O\ne\nim{2}$ and $O\ne0$ under every treatment: the bounds force white's stop
+  to be at least $1$ and black's stop to be at most $-1$.
+\item[(c)] If draws count as wins for black, then $O=\game{2\pm1}{-2\pm1}$ exactly, in both the textbook and the
+  e.p.-aware tree.
+\end{enumerate}
+\end{theorem}
+
+Part (a) is proved by explicit certificates checked against the tablebase. So real chess agrees with
+$\nim{2}$ on the outcome, a first-player win, and the winning first moves found, 1.c4 and 1\ldots b5, are the
+ones the model predicts. It disagrees on the value. In the e.p.-aware tree the two stops differ under every
+treatment, so the oracle value is a hot game, as the e.p.-aware model value $\game{2\pm1}{-2\pm1}$ of
+Section~\ref{sec:star2} is. In the textbook tree, $\nim{2}$ is excluded only when draws count as wins for one
+side. The textbook $\nim{2}$ therefore does not survive real chess.
+
+A few other positions are $\nim{2}$ under a single non-default setting, and each needs $10$ men beside the
+tr\'ebuchet. One of them, \pos{W a3 b3 c2 / B b5 b7 c6}, is refuted: its oracle value is positive under every
+treatment \lab{C2}. For three others, the tablebase contradicts the race verdicts that their $\nim{2}$ needs,
+but their oracle values cannot be pinned with seven-man tablebases.
+
+\subsection{Towards a Real-Chess \texorpdfstring{$1/8$}{1/8}}
+
+The $1/8$ position of Section~\ref{sec:targets}, \pos{W a2 b2 b3 / B a5 a6 b6} beside the tr\'ebuchet
+(Fig.~\ref{fig:eighth}(a)), has $10$ men. We computed its oracle value as far as the end positions allow.
+\begin{itemize}
+\item All $306$ end-position sides with at most seven men are resolved by the tablebase: $283$ agree with the
+  model, $5$ disagree and $2$ are draws.
+\item A greedy search for a smallest decisive set then left eight open end positions that matter, five with
+  eight men and three with nine. Resolving eight-man sides gave seven agreements and one disagreement: with
+  black to move in \pos{W a3 a5 / B b4 b5}, black wins, although the model scores a white win.
+\item After these results the bounds were $-1/2\le O\le 3/8\pm1/8$, and four decisive end positions
+  remained: three with nine men, and \pos{W b2 b5 / B a5 b4} with eight. Our king-and-pawn solver showed that
+  white wins the last with white to move, as the model says. Each of the other seven sides was then needed on
+  its own: if any one went against the model, the lower bound would fall to $0$, ${\uparrow}{\star}$ or below.
+\item The solver then settled all six sides of the three nine-man positions exactly, and all six agree with
+  the model.
+\end{itemize}
+
+\begin{proposition}[Status of $1/8$; \lab{C1}]\label{prop:eighth-real}
+For the $1/8$ position beside the tr\'ebuchet, the exact results give $0\le O\le 1/8$. If black, to move in
+\pos{W b2 b5 / B a5 b4}, loses, as the model assigns, then $O=1/8$ exactly, whatever the other open end
+positions do.
+\end{proposition}
+
+The tablebase and tablebase-backed results are \lab{C2}; the king-and-pawn solver results and the values
+are \lab{C1}. The solver runs allow queen promotions only, so a full certificate
+also needs the under-promotions. The value $1/8$ has survived every real-chess test so far, including one
+disagreement at a decisive end position. If the last side goes as the model says, this gives a king-and-pawn
+position on the $8\times8$ board whose oracle value is $1/8$, conditional only on the king freeze.
+
+\subsection{The Seven-Pawn \texorpdfstring{$\nim{2}$}{*2} in Real Chess}
+
+Positions A and B have $11$ men beside the tr\'ebuchet, and the five-file witnesses have $12$. Their oracle
+values are open. Computing them needs end positions beyond the reach of the seven-man tablebase, so it is
+a task for the king-and-pawn solver (Section~\ref{sec:conclusion}). Until then, the $\nim{2}$ of
+Theorem~\ref{thm:star2seven} is a model value.

@@ -1,0 +1,61 @@
+\documentclass[border=3pt]{standalone}
+\usepackage{fontspec}
+\newfontfamily\chessfont{Apple Symbols}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\definecolor{light}{HTML}{EDEDED}
+\definecolor{dark}{HTML}{7389B8}
+\definecolor{edge}{HTML}{4A4A4A}
+\definecolor{blue2}{HTML}{B9C6E0}
+\begin{document}
+\begin{tikzpicture}[x=0.62cm,y=0.62cm]
+\fill[dark] (0,0) rectangle (1,1);
+\fill[light] (0,1) rectangle (1,2);
+\fill[dark] (0,2) rectangle (1,3);
+\fill[light] (1,0) rectangle (2,1);
+\fill[dark] (1,1) rectangle (2,2);
+\fill[light] (1,2) rectangle (2,3);
+\fill[dark] (2,0) rectangle (3,1);
+\fill[light] (2,1) rectangle (3,2);
+\fill[dark] (2,2) rectangle (3,3);
+\fill[light] (3,0) rectangle (4,1);
+\fill[dark] (3,1) rectangle (4,2);
+\fill[light] (3,2) rectangle (4,3);
+\fill[dark] (4,0) rectangle (5,1);
+\fill[light] (4,1) rectangle (5,2);
+\fill[dark] (4,2) rectangle (5,3);
+\fill[light] (5,0) rectangle (6,1);
+\fill[dark] (5,1) rectangle (6,2);
+\fill[light] (5,2) rectangle (6,3);
+\draw[edge, line width=0.8pt] (0,0) rectangle (6,3);
+\node[anchor=east, text=gray, font=\sffamily\scriptsize] at (-0.05,0.5) {1};
+\node[anchor=east, text=gray, font=\sffamily\scriptsize] at (-0.05,1.5) {2};
+\node[anchor=east, text=gray, font=\sffamily\scriptsize] at (-0.05,2.5) {3};
+\node[anchor=north, text=gray, font=\sffamily\scriptsize] at (0.5,-0.05) {a};
+\node[anchor=north, text=gray, font=\sffamily\scriptsize] at (1.5,-0.05) {b};
+\node[anchor=north, text=gray, font=\sffamily\scriptsize] at (2.5,-0.05) {c};
+\node[anchor=north, text=gray, font=\sffamily\scriptsize] at (3.5,-0.05) {d};
+\node[anchor=north, text=gray, font=\sffamily\scriptsize] at (4.5,-0.05) {e};
+\node[anchor=north, text=gray, font=\sffamily\scriptsize] at (5.5,-0.05) {f};
+\node[text=white] at (0.5,0.47) {\chessfont{\fontsize{17}{17}\selectfont}{♟}};
+\node[text=black] at (0.5,0.47) {\chessfont{\fontsize{17}{17}\selectfont}{♙}};
+\node[text=black] at (0.5,2.4699999999999998) {\chessfont{\fontsize{17}{17}\selectfont}{♟}};
+\node[text=white] at (1.5,0.47) {\chessfont{\fontsize{17}{17}\selectfont}{♟}};
+\node[text=black] at (1.5,0.47) {\chessfont{\fontsize{17}{17}\selectfont}{♙}};
+\node[text=black] at (1.5,2.4699999999999998) {\chessfont{\fontsize{17}{17}\selectfont}{♟}};
+\node[text=white] at (2.5,0.47) {\chessfont{\fontsize{17}{17}\selectfont}{♟}};
+\node[text=black] at (2.5,0.47) {\chessfont{\fontsize{17}{17}\selectfont}{♙}};
+\node[text=black] at (2.5,2.4699999999999998) {\chessfont{\fontsize{17}{17}\selectfont}{♟}};
+\node[text=white] at (3.5,0.47) {\chessfont{\fontsize{17}{17}\selectfont}{♟}};
+\node[text=black] at (3.5,0.47) {\chessfont{\fontsize{17}{17}\selectfont}{♙}};
+\node[text=black] at (3.5,2.4699999999999998) {\chessfont{\fontsize{17}{17}\selectfont}{♟}};
+\node[text=white] at (4.5,0.47) {\chessfont{\fontsize{17}{17}\selectfont}{♟}};
+\node[text=black] at (4.5,0.47) {\chessfont{\fontsize{17}{17}\selectfont}{♙}};
+\node[text=black] at (4.5,2.4699999999999998) {\chessfont{\fontsize{17}{17}\selectfont}{♟}};
+\node[text=white] at (5.5,0.47) {\chessfont{\fontsize{17}{17}\selectfont}{♟}};
+\node[text=black] at (5.5,0.47) {\chessfont{\fontsize{17}{17}\selectfont}{♙}};
+\node[text=black] at (5.5,2.4699999999999998) {\chessfont{\fontsize{17}{17}\selectfont}{♟}};
+\draw[->, line width=1.6pt, red!70!black, opacity=0.8] (5.5,-0.45) -- (-0.4,-0.45);
+\end{tikzpicture}
+\end{document}

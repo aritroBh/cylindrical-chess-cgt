@@ -1,0 +1,95 @@
+\section{Engines and Learning}\label{sec:engines}
+
+CGT predicts which endgames should be hard for a chess engine. A number or a hot position shows up in the
+material count or within the first few moves. An infinitesimal such as ${\uparrow}$, however, is a fight over one
+spare tempo, and a nimber such as $\star$ is a fight over parity. Neither changes the material, so a static
+evaluation sees nothing until the search reaches the end of the fight. In this section we test that prediction
+on two engines, first on small positions that a tablebase can check and then on sums too large for any
+tablebase. We end with a small learning experiment on Dawson's chess.
+
+\subsection{A CGT Test Suite}
+
+We built $233$ legal $8\times8$ positions with at most seven men, each labeled by the class of its CGT value:
+a number, a switch $\game{x}{y}$ with $x>y$, a hot position containing a $\pm\BIG$ switch, an infinitesimal, a
+nimber, or another value. Every position was checked against the Lichess tablebase~\cite{LichessTB}. In $181$
+of them the winning moves predicted by CGT are confirmed by the tablebase, and in the other $52$ the model and
+the tablebase disagree. We keep all $233$ and score the engines against the tablebase, since that is the real
+answer.
+
+\subsection{Stockfish and Lc0}
+
+We ran Stockfish~19~\cite{Stockfish} on one thread with a $64$~MB hash and no tablebases. It solves all $233$
+positions at $10^5$ nodes, and $232$ of them already at $10^3$ nodes \lab{C1}.
+
+The interesting part is what happens at a small fixed depth (Table~\ref{tab:sf}). At depth~1 the engine reads
+hot positions, numbers and switches correctly $73$--$81\%$ of the time. It reads infinitesimals correctly only
+$30\%$ of the time at depth~1 and $26\%$ at depth~2, and nimbers $53\%$ of the time at depth~1 \lab{C1}. These
+are exactly the tempo and parity fights that CGT singles out. Both classes reach $100\%$ by depth~8. This is one
+engine on a small sample, so we treat it as a pilot result. Table~\ref{tab:sf} leaves out the seven positions
+whose result is already decided.
+
+\begin{table}[!t]
+\centering
+\caption{Stockfish~19 at Fixed Depth: Share of Evaluations (\%) That Match the Tablebase, by CGT Class}
+\label{tab:sf}
+\footnotesize
+\begin{tabular}{@{}lrrrrrrr@{}}
+\toprule
+ & & \multicolumn{6}{c}{Search depth} \\
+\cmidrule(l){3-8}
+CGT class & $n$ & 1 & 2 & 4 & 6 & 8 & 12 \\
+\midrule
+hot ($\pm\BIG$ switch) & 68 & 81 & 78 & 91 & 97 & 99 & 100 \\
+number & 57 & 79 & 81 & 84 & 93 & 95 & 98 \\
+switch & 37 & 73 & 78 & 89 & 100 & 100 & 100 \\
+other & 20 & 60 & 50 & 75 & 95 & 100 & 100 \\
+nimber & 17 & 53 & 65 & 88 & 100 & 100 & 100 \\
+infinitesimal & 27 & 30 & 26 & 59 & 85 & 100 & 100 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Lc0~v0.32.1~\cite{Lc0}, with its bundled network, is perfect at $10^3$, $10^4$ and $10^5$ nodes: in every class,
+every best move keeps the tablebase result and every evaluation matches it \lab{C1}. Since $216$ of the $233$
+positions are wins, the $17$ draws are the real test, and Lc0 calls all of them correctly. So the suite is too
+easy for both engines. A real contrast needs positions with more than seven men, where only CGT supplies the
+answer.
+
+\subsection{ChessSums}
+
+ChessSums is a benchmark of pawn-endgame sums with exact answers. Each row is a sum of components drawn from a
+library of $418$ components with $37$ distinct values. Every component has the same value under both
+passed-pawn tests, all three race rules, and with en passant on or off, so the answer does not depend on our
+conventions. The data set has $26{,}000$ rows. Every outcome was confirmed by a whole-board alpha--beta search,
+and $4{,}887$ of them also by an independent minimax \lab{C2}. The test rows have more components than the
+training rows, and some component types are held out entirely.
+
+The benchmark also shows what the decomposition is worth. Alpha--beta on the whole board, which does not know
+that the position splits, needs about $4$--$9$ times as many nodes for each component added \lab{C1}. Adding
+up the CGT values of the components costs almost nothing.
+
+\subsection{Engines on Sums}
+
+To test the engines on ChessSums, we placed each row on an $8\times8$ board and added a frozen king group: a
+tr\'ebuchet, or a shifted copy of it that our king-and-pawn solver confirms is a mutual zugzwang. The kings
+then count as $0$ and the position is legal chess. These positions have $15$--$20$ men, far beyond any
+tablebase. On $200$ of them, Stockfish~19 picks a move in the winning set only $27.5$--$28.0\%$ of the time,
+from $10^3$ to $10^6$ nodes, and Lc0 does so $32.5$--$33.5\%$ of the time \lab{C1}. More nodes barely help
+either engine, and both get worse as the number of components grows.
+
+There is an important caveat. The ground truth here is the CGT model with frozen kings, not real chess. A move
+that the model calls wrong may still win, or at least draw, at the board, because the convention can fail once
+the kings take part (Section~\ref{sec:kings}). So these numbers measure how often the engines agree with the model; they do not prove
+that the engines make real mistakes. Turning them into real-chess errors would need the kind of certification
+that we carried out for $1/8$ in Section~\ref{sec:real}.
+
+\subsection{Learning Dawson's Chess}
+
+Can a neural network learn CGT? We tried the simplest case, normal-play Dawson's chess (Section~\ref{sec:dawson}).
+There a position is a set of strips, and the first player wins exactly when the nim-sum of the Grundy values of the strips is not
+zero~\cite{GuySmith1956,WinningWays}. We trained an LSTM value network, written in PyTorch~\cite{PyTorch}, on
+positions of small total length and tested it on totals from $31$ to $80$. It reaches a test accuracy of
+$0.82$, against about $0.79$ for always guessing the more common outcome \lab{C1}. Linear probes of the network
+show why the margin is so small: its features tell whether a single strip is a first-player win, but they do
+not recover the strip's Grundy value. The network has learned a hot/cold signal, not the nim-sum rule. We
+report this as a negative result.

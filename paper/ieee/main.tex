@@ -1,0 +1,99 @@
+\documentclass[journal]{IEEEtran}
+
+\usepackage[T1]{fontenc}
+
+\usepackage{cite}
+\usepackage{amsmath}
+\interdisplaylinepenalty=2500
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage[caption=false,font=footnotesize,labelformat=simple,justification=centering]{subfig}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+
+\input{macros}
+
+% The sections use the subcaption-style environment
+%   \begin{subfigure}[pos]{width} ... \caption{...}\label{...} \end{subfigure}.
+% IEEEtran's captions are kept by implementing it with subfig's \subfloat (caption=false), as the
+% IEEEtran HOWTO recommends. A subfigure is labelled (a) and referenced as Fig. 3(a).
+\renewcommand{\thesubfigure}{(\alph{subfigure})}
+\makeatletter
+\newsavebox{\sf@box}
+\newcommand{\sf@setcap}[2][]{\gdef\sf@cap{#2}}
+\newcommand{\sf@setlab}[1]{\gdef\sf@lab{#1}}
+\newenvironment{subfigure}[2][c]{%
+  \gdef\sf@cap{}\gdef\sf@lab{}%
+  \begin{lrbox}{\sf@box}\begin{minipage}[#1]{#2}%
+  \let\caption\sf@setcap\let\label\sf@setlab}%
+  {\end{minipage}\end{lrbox}%
+   \ifx\sf@lab\@empty\def\sf@labcmd{}\else\edef\sf@labcmd{\noexpand\label{\sf@lab}}\fi
+   \ifx\sf@cap\@empty\subfloat[]{\usebox{\sf@box}\sf@labcmd}%
+   \else\subfloat[\sf@cap\sf@labcmd]{\usebox{\sf@box}}\fi}
+\makeatother
+
+% One counter for all numbered statements, through the whole paper, in IEEE style:
+% an indented italic head ending in a colon ("Theorem 2 (Cut lemma; [P]):").
+\newtheoremstyle{ieeeplain}{3pt}{3pt}{\itshape}{\parindent}{\itshape}{:}{0.5em}{}
+\newtheoremstyle{ieeedef}{3pt}{3pt}{\normalfont}{\parindent}{\itshape}{:}{0.5em}{}
+\theoremstyle{ieeeplain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{ieeedef}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+% Proofs use IEEEtran's proof layout; \begin{proof}[Proof sketch] prints "Proof sketch:".
+\renewenvironment{proof}[1][Proof]{\begin{IEEEproof}[#1]}{\end{IEEEproof}}
+
+\hyphenation{tr\'e-bu-chet tr\'e-bu-chets table-base table-bases}
+
+\begin{document}
+
+\title{Chess Endgames on a Cylindrical Chessboard: Exact Combinatorial Game Values, Real-Chess Checks,
+and Tablebases}
+
+\author{Aritro~Bhattacharjee%
+\thanks{A.~Bhattacharjee, e-mail: aritro.sonu@gmail.com.}}
+
+\markboth{Bhattacharjee: Chess Endgames on a Cylindrical Chessboard}%
+{Bhattacharjee: Chess Endgames on a Cylindrical Chessboard}
+
+\maketitle
+
+\input{sections/00_abstract}
+
+\input{sections/01_intro}
+\input{sections/02_rules}
+\input{sections/03_basic}
+\input{sections/04_kings}
+\input{sections/05_sums}
+\input{sections/06_atlas}
+\input{sections/07_targets}
+\input{sections/08_star2}
+\input{sections/09_real}
+\input{sections/10_tablebases}
+\input{sections/11_dawson}
+\input{sections/12_engines}
+\input{sections/13_verify}
+\input{sections/14_conclusion}
+
+\appendices
+\input{sections/appendix_positions}
+
+\section*{Acknowledgment}
+The author thanks Prof.~Thomas Morley for mentoring the 2025 study on which this work builds, and the
+maintainers of the Lichess tablebase, Stockfish and Lc0 for making their tools freely available. The software,
+the searches and the first drafts of the proofs were produced with AI coding assistants, Claude (Anthropic) and
+Codex (OpenAI), under the author's direction, and the proofs were re-derived by Nemotron Ultra (NVIDIA); the
+details are in Section~\ref{sec:ai}.
+
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+
+\end{document}

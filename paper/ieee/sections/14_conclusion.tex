@@ -1,0 +1,38 @@
+\section{Conclusion and Open Problems}\label{sec:conclusion}
+
+We set out to test Elkies' sum model on a board without edges. Its method, splitting a position into small
+games and reading off numbers, infinitesimals and temperatures, holds up on the cylinder. It needs two repairs:
+the passed-pawn test must respect en passant, and the frozen kings must be checked rather than assumed. With
+these repairs the $\nim{2}$ question has a sharper answer. In our census no $\nim{2}$ occurs with six pawns or
+fewer, and the textbook candidate owed its value to the old test; with seven pawns, $\nim{2}$ returns. The
+missing edges also change the endgames themselves: king and rook can no longer force mate, and the rook-pawn
+draw with Ka6 and Pa5 against Ka8 becomes a win. We close with six problems that we think are within reach.
+
+\begin{enumerate}
+\item \emph{A certified $1/8$.} One decisive side remains (Section~\ref{sec:real}): black to move in
+  \pos{W b2 b5 / B a5 b4}. If it is a white win, as the model predicts, the oracle value is exactly $1/8$; with
+  underpromotion allowed and the king freeze checked, this would give a king-and-pawn position on the
+  $8\times8$ board whose value $1/8$ holds in real chess. The same pipeline then applies to $\upsec\star$ and $\tinyg{1}$, where the lower bounds
+  already equal the target values and 11 and 13 end positions with 8 to 10 men, respectively, remain.
+\item \emph{The seven-pawn $\nim{2}$ in real chess.} The two positions of Section~\ref{sec:star2} are $\nim{2}$
+  in the model, but with the tr\'ebuchet they have eleven men, and their oracle values are open. That they are
+  the only seven-pawn $\nim{2}$ positions of width at most four rests on one program \lab{C1}. The search of
+  five-file boards with eight pawns, which has found three more $\nim{2}$ positions, is
+  not complete. And no $\nim{3}$ has appeared
+  under the e.p.-aware test in any scope we searched: does one exist?
+\item \emph{When is a tr\'ebuchet zero?} A punishment with a local certificate of horizon $T=1$ is decisive in
+  every context \lab{P}, but real tr\'ebuchets have $T$ of about 5 to 7. Conjecture~\ref{conj:horizon2} asks
+  for a context without a passed pawn that defeats the certificate for each $T\ge2$. Beyond it, we would like
+  an automatic proof that a given tr\'ebuchet is $0$ beside a given component.
+\item \emph{Endgames without edges.} King and pawn against king is solved on the cylinder; king and pawn against
+  king and pawn, and king and two pawns against king, are next. Further on lie cylinders with an odd number of
+  files, and the M\"obius strip and the Klein bottle, where a pawn that crosses the twisted seam comes back
+  moving the other way.
+\item \emph{Mis\`ere Dawson's chess.} Dawson's original question was about mis\`ere play \cite{Dawson1935}. We
+  reproduced the Plambeck--Siegel quotient for strips of at most 32 files \cite{PlambeckSiegel2008}, but the
+  next quotient did not converge. Is the mis\`ere quotient of Dawson's chess infinite, and what is the mis\`ere
+  form of the ring theorem?
+\item \emph{Engines beyond the tablebases.} On sums of 15 to 20 men, engines often miss the moves that the model
+  calls winning, but there the model is the only judge. A benchmark with real-chess ground truth beyond seven
+  men, built from certified components, would show whether the engines or the model are wrong.
+\end{enumerate}
