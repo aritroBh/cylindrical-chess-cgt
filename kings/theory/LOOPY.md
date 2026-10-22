@@ -13,10 +13,25 @@ opencode nemotron-3-ultra for §2, and opencode best-free for §§3–6 (`kings/
 
 Every numbered result, its final label, and the review item behind any change. "PROVED after repair" means
 the statement or its proof was changed and the complete repaired proof is now in the note. **Caveat:** every
-repaired proof was written by a free external model and read once by the integrator. Each was then checked
+repaired proof, except those of T2.7, P12 and the sharp form of 1.14 (see the K7 and K9 caveats below), was written by a free external model and
+read once by the integrator. Each was then checked
 independently by a fourth model (task K3, opencode beam-free, `kings/delegate/out/K3/REPORT.md`): 13 of the
 17 are SOUND, and 4 are downgraded to GAP (the sharp form of 1.14, Theorem 2.7, P11, P12). No repaired proof
-was found false. All checkers are AI models; no human has re-derived these proofs. The fixes marked "T30
+was found false. Theorem 2.7 and P12 were repaired afterwards (task K7, 2026-10-22): they are PROVED after
+repair in P (revised after K7, 2026-10-22). K3's objection to Theorem 2.7 read it as a statement about the
+D-model; it is a statement about P (Remark after Theorem 2.7). **Caveat for the K7 repair:** it is one
+AI-written proof. Three AI reviewers read its first draft and found one real error, in the window form (b),
+which was false when Q carried an en passant right with its target off F_Z; the text now accounts for that
+right (revised after K7, 2026-10-22). Three more AI reviewers (logic, chess, consistency) then read the
+final text, with the e.p. clause. They found no counterexample and no false step in the proof, only wording and
+bookkeeping errors, which were corrected in the same pass (revised after K7, 2026-10-22). The corrected text has
+not been read again. K3 did not see the repair, and no human has re-derived it. **Caveat for the K9 repair (sharp
+form of Theorem 1.14):** a free model drafted it; two AI reviewers found real errors (the draft claimed that the
+D-winner never moves in Z, and never fixed what D(X) is on Z); a Sonnet agent rewrote it as a simulation lemma
+(an induction on the rank of the D-win), and the integrator read the rewrite. It has not been re-checked by
+another reviewer (revised after K9, 2026-10-22). So, of K3's four GAP downgrades, only P11 remains GAP. The scripts behind the checks
+of Appendix A are copied to `kings/delegate/out/K7/scripts/` (their paths point at the old scratchpad), and their raw
+output is in the local, untracked archive `kings/delegate/out/K7/k7_k9_scratch.tar.zst`. All checkers are AI models; no human has re-derived these proofs. The fixes marked "T30
 proof audit" (2026-10-22) answer the main project's audit (`notes/proof_audit2/REPORT.md`). The kings/ side session
 wrote them. Two AI reviewers (Sonnet) read the first draft, which led to the correction of the audit's
 reading of P2.10(a). Two more read the revised text, and their remaining wording points were applied. K3 did
@@ -39,16 +54,17 @@ originally stated → …" gives the corrected statement and its label. Each cha
 | T1.14(i) | PROVED | R2: sound |
 | T1.14(ii) | GAP → PROVED after repair: (V4) is stated hereditarily on the re-split components of the context, Z deleted, with the corrected τ | R2 items 2 and 5 |
 | T1.14(iii) | PROVED after repair, but a tautology: (A_Q) is now a per-position hypothesis | R2 item 8 |
-| T1.14, sharp form | GAP → GAP (proof incomplete): every legal Z-move of the loser at its turns must be a P-loss (revised after K3 check) | R2 item 6 |
+| T1.14, sharp form | GAP → PROVED after repair: simulation form on a σ-certified set N of P-positions, with (S1) the winner's step, (S2) the loser's step (a D-move or a P-loss) and (S3) no stalemate; proof by induction on the D-rank. The winner may move in Z. Not yet independently re-checked (revised after K9, 2026-10-22) | R2 item 6; K3, K9 |
 | §1.5 "each hypothesis is needed" | (V1b), (V2), (V3), (V4): counterexamples given. (V1a): none given, so "needed" is a CONJECTURE | R1 item 4, R2 item 7 |
 | L2.2 | PROVED | unchanged |
 | T2.3 | PROVED (also KNOWN), for every integer B ≥ 1 | its direct proof, overwritten by a misanchored edit in the 2026-10-21 revision, was restored after the T30 audit |
 | T2.4 | FALSE as originally stated (the "P-game of the context" option) → G under normal play (no draws), plus a strategy-transfer form (c) for games with draws: PROVED after repair | R2 item 4 |
 | D2.6, (L3′) | withdrawn: it never applies to a 3-file group, and it does not give (L3) | R1 item 8, R3 item 2 |
-| T2.7 | GAP → GAP (proof incomplete): (L1) is required only for k = ∞, (L3) covers stalemate, the local rules are stated, and μ counts context pawns only (revised after K3 check). K3's objection: a context passer within the window is not ruled out by (L2). Integrator's note: in the promotion model P only a promotion ends the game, which (L2) does exclude, so the objection may conflate P with the D-model. Unresolved until a further check. T30 recheck: Definition 2.6 (L2) counts s's king and pawns, Z-pawns included, while this row's "μ counts context pawns only" follows the proof, which leaves s's Z-pawns to (L1); the two are not yet reconciled | R1 item 3, R3 items 2 and 3; K3 |
-| C2.8 | PROVED (wording corrected) | R3 item 7 |
+| T2.7 | GAP → PROVED after repair, in P (revised after K7, 2026-10-22). K7 made the local game of (L1) explicit (the first promotion ends it, a promotion by s is a failure for s̄, s̄'s king stays on F_Z, no pass in check, a mate of s is a win for s̄, a stalemate of s̄ is a failure; s cannot be stalemated in the local game because it may pass). K7 also fixed the choice that K3 and the T30 recheck left open: (L2) counts s's king and **context** pawns only, and s's Z-pawns are covered by (L1); (L3) is stated over the real play of a guided strategy, in which s̄ makes Z-moves only. K3's objection (a context passer within the window ends the game in s's favour) assumes that a passer is terminal. That holds in the D-model and not in P: in P only a promotion is terminal, and (L2) bounds it. Whether a passer is decisive in D is (V2), a hypothesis of Theorem 1.14, which Theorem 2.7 does not claim. The window form (b) of the first K7 draft was FALSE when Q carried an e.p. right with its target off F_Z (counterexample in the text); (L2) now counts that right. The theorem gives a P-win only. The bound μ_s ≥ T + 1 is sharp in P, and in chess no margin of μ_s replaces (A_Q) (examples in the text). A second review round found no false step | R1 item 3, R3 items 2 and 3; K3; K7 |
+| C2.7′ | PROVED in P (revised after K7, 2026-10-22): the contrapositive of Theorem 2.7(a), the content of P12. If `--frozen` reports a win for σ and every king move of σ̄ at the nodes of σ's winning strategy is a P-loss, then σ wins P. The chess form adds (A_Q) | K7 |
+| C2.8 | PROVED (wording corrected). The finite-k clause was made a side remark after K7 (revised after K7, 2026-10-22). A reviewer found no counterexample in 9566 placements on 4 boards (scratch) | R3 item 7; K7 |
 | L2.9 | GAP → PROVED after repair (added hypothesis: s has no pawn on f ± 1). Without that hypothesis: CONJECTURE | R1 item 9, R3 item 4 |
-| P2.10(a) | FALSE as originally stated (H = 4) → H ≥ 5: PROVED after repair, under both the textbook and the e.p.-aware passed test, for chess-legal contexts and s's context pawns; s's Z-pawns are a separate check. T30 audit: the proof lacked a step for en passant (now added). The stronger claim that no pawn of *either* colour stands one move from promotion needs H ≥ 6 under the e.p.-aware test | R1 item 7, R3 item 1; T30 audit and recheck |
+| P2.10(a) | FALSE as originally stated (H = 4) → H ≥ 5: PROVED after repair, under both the textbook and the e.p.-aware passed test, for chess-legal contexts and s's context pawns. (L2) counts context pawns only, so there is no Z-pawn proviso: s's Z-pawns are covered by (L1), whatever their distance from promotion (revised after K7, 2026-10-22). T30 audit: the proof lacked a step for en passant (now added). The stronger claim that no pawn of *either* colour stands one move from promotion needs H ≥ 6 under the e.p.-aware test | R1 item 7, R3 item 1; T30 audit and recheck |
 | P2.10(b) | PROVED (the example; it needs width ≥ \|F_Z\| + 4). "The zero is context-dependent" is the CONJECTURE that follows it, now supported in C by P4 | R3 item 5 |
 | R2.11 | GAP → heuristic only. No certificate for passers is claimed | R3 item 6 |
 | P3.2 | PROVED; chess bridge PROVED after repair (adds (V1a)) | R4 item 7 |
@@ -65,7 +81,7 @@ originally stated → …" gives the corrected statement and its label. Each cha
 | P4.5, P4.6 | PROVED | R4: sound |
 | C4.7 | CONJECTURE, restated for ≤ 2 + 2 pawns (what was searched) | R1 item 10, R4 item 8 |
 | §5.1, frozen | PROVED by enumeration, now written out | R1 item 11, R4 item 9 |
-| §5.1, (L1) | CONJECTURE (scratch, k ≤ 4 and k = ∞ only; (L3) not checked) | R1 items 3 and 10, R4 item 9 |
+| §5.1, (L1) | CONJECTURE (scratch, k ≤ 4 and k = ∞ only; (L3) not checked). The k = ∞ case was re-run in K7 against the local game of Definition 2.6 ((L1_P): T = 5 to 6; (L1) with the queen clause: T = 6 to 7), same label (revised after K7, 2026-10-22) | R1 items 3 and 10, R4 item 9; K7 |
 | §5.2, White's sorties | the certificate fails: PROVED (L2.9). "Not punished": CONJECTURE (scratch); in C, kpsolve confirms the 6-rank analogue (P5) | R4 item 9 |
 | §5.5 | CONJECTURE (scratch); Kd3 added | R1 items 10 and 11, R4 item 9 |
 | §5.6 | μ_W = 5: PROVED by count. T = 5 and "(L2) fails by one tempo": CONJECTURE (scratch; R4 re-derived both) | R1 item 11 |
@@ -78,7 +94,7 @@ originally stated → …" gives the corrected statement and its label. Each cha
 | P9 | PROVED in P; kpsolve (W, L) | — |
 | P10 | PROVED in P; kpsolve (W, W) for k = 0, 1, 2 on the 8×6 cylinder | PREDICTIONS.md |
 | P11 | GAP (proof incomplete): W(X) and HSS defined; (V1b) checked from the layout (revised after K3 check) | R1 item 11 |
-| P12 | GAP (proof incomplete): restricted to nodes where `--frozen` reports a win (revised after K3 check) | knock-on of R2 item 4 |
+| P12 | GAP → PROVED after repair in P (Corollary 2.7′, from the repaired Theorem 2.7), restricted to nodes where `--frozen` reports a win. The chess form adds (A_Q) at the root; the earlier alternative "(V2) failure" is not needed (revised after K7, 2026-10-22) | knock-on of R2 item 4; K3; K7 |
 
 Not answered by a change in the mathematics: R1 item 12 (missing A8 content: CGSuite, opposition, Gafni),
 which is recorded as open in §8.6.
@@ -123,11 +139,11 @@ false as a general statement, so it is checked position by position by kpsolve; 
 Only (V4) concerns BIG. Without it, +BIG and −BIG cancel and no value of BIG helps (Proposition 1.12).
 The other three are chess facts.
 - For a king move, (V2)+(V3) reduce to a local certificate: the punisher promotes within T moves against a
-  defender who may pass, and the defender cannot promote within T moves elsewhere (Theorem 2.7, whose proof
-  has a gap). The
-  counter-promotion half of the certificate holds in every chess-legal non-terminal context when T = 1, on
-  boards with at least 5 ranks, provided the defender has no Z-pawn one move from promotion (Proposition
-  2.10(a)). For T ≥ 2 it fails in some context on boards at least |F_Z| + 4 files wide (Proposition 2.10(b)),
+  defender who may pass, and the defender cannot promote within T moves elsewhere (Theorem 2.7: PROVED after
+  repair, in P; it gives a P-win, not a C-win; revised after K7, 2026-10-22). The counter-promotion half
+  counts the defender's king and context pawns only: its Z-pawns are covered by the local game. That half holds
+  in every chess-legal non-terminal context when T = 1, on boards with at least 5 ranks (Proposition 2.10(a)).
+  For T ≥ 2 it fails in some context on boards at least |F_Z| + 4 files wide (Proposition 2.10(b)),
   so a slower punishment's zero is not certified in every context; that it is context-dependent is a
   CONJECTURE, supported by P4.
 - When a king has a safe square to shuttle to, Z is not 0 but the loopy game `on`/`off` (or `dud`). On that
@@ -148,13 +164,14 @@ The other three are chess facts.
 | T1.11 | Sums: o(S) = decisive-event outcome under first-event dominance; sufficient: no opposite-sign threats in different components (a threat is a move into a terminal by either player), and B > every tempo count. (c) is the re-splitting version | PROVED (a); (b) and (c) PROVED after repair |
 | P1.12 | {⊕ \| ∅} ⊞ {∅ \| ⊖} is 𝓝 in chess semantics, but its BIG translation is 0 (𝓟) for every B | PROVED |
 | P1.13 | B must be at least the tempo count: with n tempi against the threat { \| ⊖}, the BIG outcome is right iff n ≤ B | PROVED after repair |
-| T1.14 | Validity: (V1)–(V3) give P = D (no draws), (V4) gives o(S) = P, and (A_Q)(X) gives C = P | (i) PROVED; (ii), (iii) PROVED after repair; the sharp form is a GAP. The C part is the per-position hypothesis (A_Q)(X) |
+| T1.14 | Validity: (V1)–(V3) give P = D (no draws), (V4) gives o(S) = P, and (A_Q)(X) gives C = P | (i) PROVED; (ii), (iii) PROVED after repair; the sharp form is PROVED after repair (simulation form on a certified set; revised after K9, 2026-10-22). The C part is the per-position hypothesis (A_Q)(X) |
 | T2.3 | {−B \| B} = 0 for every integer B ≥ 1 | PROVED (and KNOWN: simplicity theorem) |
 | T2.4 | Freeze theorem: if Z-moves are punished at every position where the mover is losing, then G + Z has the result of G, for a G scored under normal play (no draws) | PROVED after repair |
-| T2.7 | Local certificate LC_T (local forced promotion against a passing defender, no faster counter-promotion, no stalemate) ⇒ decisive punishment | GAP (proof incomplete; see the status table) |
+| T2.7 | Local certificate LC_T (local forced promotion against a passing defender, no faster counter-promotion by a context pawn, no stalemate of s) ⇒ decisive punishment in P; μ_s ≥ T + 1 is sharp | PROVED after repair (revised after K7, 2026-10-22) |
+| C2.7′ | If `--frozen` reports a win for σ and every king move of σ̄ on the nodes of its winning strategy is a P-loss, σ wins P (content of P12) | PROVED in P (revised after K7, 2026-10-22) |
 | C2.8 | Square-rule form: d(defender's king, promotion square) ≥ D + 2 suffices for the local part | PROVED |
 | L2.9 | Blockade: a defender who may pass and whose king stands in front of the pawn is never beaten | PROVED after repair, with the added hypothesis that s has no pawn on f ± 1 (CONJECTURE without it) |
-| P2.10 | For one-move punishments (T = 1) the counter-promotion condition holds in every chess-legal non-terminal context, on boards with at least 5 ranks, if the defender has no Z-pawn one move from promotion; for T ≥ 2 it fails in some (width ≥ \|F_Z\| + 4) | (a) PROVED after repair; (b) PROVED |
+| P2.10 | For one-move punishments (T = 1) the counter-promotion condition holds in every chess-legal non-terminal context, on boards with at least 5 ranks (the defender's Z-pawns are covered by (L1), not by (L2)); for T ≥ 2 it fails in some (width ≥ \|F_Z\| + 4) | (a) PROVED after repair; (b) PROVED |
 | T3.3 | G + `on` is 𝓛 for every short G, ±BIG included, so BIG plus a shuttle predicts "White always wins" | (a) PROVED (on > numbers: KNOWN); (b) PROVED after repair |
 | T3.4 | Outcome rules for G ⊞ on, G ⊞ off, G ⊞ dud with game-ending decisive events | PROVED |
 | C3.5 | Monotone chain: White wins with dud ⇒ with off ⇒ with nothing ⇒ with on | PROVED |
@@ -515,22 +532,109 @@ Then, with either side to move:
   the bound, the outcome class of S(X) is the outcome class of that D-result pair.
 - **(iii)** Definition of (A_Q)(X). ∎
 
-**Sharp form (GAP (proof incomplete): R2 item 6).** (revised after K3 check)
-- (V2) is needed only for the terminals reached under *one* D-winning strategy of the D-winner.
-- (V3) is needed in the stronger form: at every loser-to-move node of that strategy, **every** legal Z-move of
-  the loser is a P-loss for the loser. The earlier wording ("needed only for terminals") was false as stated: a
-  loser's Z-move that is not punished is not a terminal, and then the Lemma 1.7 reduction and the shortness of
-  D both fail.
-- (V1a) splits into two halves:
-  - the winner's prescribed D-moves must be legal chess moves;
-  - every legal chess move of the loser must be a D-option.
+**Sharp form (PROVED after repair; revised after K9, 2026-10-22).** (revised after K3 check; statement and proof
+rewritten as a simulation lemma, revised after K9, 2026-10-22)
 
-  The winner may have extra legal moves (Lemma 1.6).
-- The conclusion of the sharp form is the result of the strategy itself, not a normal-play result: the D-winner
-  σ wins P(X) by that strategy. The claim "the result is the normal-play result of G₁ ⊞ … ⊞ G_k (Z deleted)"
-  belongs to (i), not to the sharp form.
+*Setting.*
+- A *P-position* is a chess position before the first promotion, with the side to move. σ is one side and σ̄ the
+  other. A *P-win for σ* is a forced win in finitely many moves (the least fixed point, as in Definition 1.2):
+  a promotion by σ or a checkmate of σ̄. Stalemate and infinite play are not wins. The defining clauses are:
+  - with σ to move, a position is a P-win if σ has a legal move that promotes or leads to a P-win;
+  - with σ̄ to move, a position is a P-win if σ̄ is not stalemated (it has a legal move, or it is in check) and
+    every legal move of σ̄ leads to a P-win (so none of them promotes).
+- Fix a D-game D (Definition 1.1, possibly loopy) and a map π from P-positions to the positions of D that keeps
+  the side to move. For D(X) of Definition 1.5, π is the identity. D(X) can be fixed in two ways, and the theorem
+  below holds for both and for any other D:
+  - (a) every Z-move is a terminal for the opponent of the mover, as under (V3);
+  - (b) Z is a loopy component. Its terminals are the P-punished Z-moves (Definition 1.5), and its other
+    Z-moves are ordinary options: the shuttle of Z_onT1 is `on_D`.
 
-Theorem 2.4 is the version of this statement for Z.
+  For the chess bridge after Proposition 3.2, D = G ⊞ on_D and π sends both shuttle states to ω.
+- A legal chess move y → y′ is a *D-move* if it does not promote and π(y′) is a D-option of π(y). Legal chess
+  moves that are not D-moves may exist, and so may D-options that are not legal chess moves (the move Kd5 of
+  §5.4 when e4 covers d5). Both are allowed.
+- W_σ is the set of D-positions (x, s) from which σ forces a D-win in finitely many moves: the least fixed
+  point of "(x, σ) ∈ W_σ if some option is the σ-terminal or lies in W_σ; (x, σ̄) ∈ W_σ if every option is the
+  σ-terminal or lies in W_σ" (with no option, σ̄ loses by normal play). ρ(x, s) is the stage at which (x, s)
+  enters, and ρ = ∞ outside W_σ. So every option of a σ̄-node of W_σ is the σ-terminal or lies in W_σ with
+  smaller ρ, and every σ-node of W_σ has such an option. Write ρ(y) for ρ(π(y), side to move at y).
+
+*Statement.* A legal move is *closing* if it promotes with σ or leads to a P-win for σ. A set N of P-positions is
+*σ-certified* if ρ(y) < ∞ for every y ∈ N and, for every y ∈ N:
+- **(S1)** (σ to move) σ has a legal move that is closing, or is a D-move to some y′ ∈ N with ρ(y′) < ρ(y);
+- **(S2)** (σ̄ to move) every legal move of σ̄ is closing, or is a D-move to some y′ ∈ N;
+- **(S3)** (σ̄ to move) σ̄ is not stalemated.
+
+**Theorem 1.14, sharp form.** If a σ-certified set N contains X, then X is a P-win for σ.
+
+*Proof.* We show by induction on ρ(y) that every y ∈ N is a P-win for σ. Let y ∈ N, and assume the claim for all
+members of N of smaller ρ.
+- *σ to move.* Take the move of (S1). If it is closing, y is a P-win by the clause above. Otherwise it leads to
+  y′ ∈ N with ρ(y′) < ρ(y), a P-win by the induction hypothesis, so y is a P-win.
+- *σ̄ to move.* By (S3), σ̄ has a legal move or is in check. Consider any legal move of σ̄. By (S2) it is
+  closing, so it does not promote and leads to a P-win; or it is a D-move to some y′ ∈ N. In the second case π(y′)
+  is a D-option of the σ̄-node π(y) of W_σ, and it is a position of D, not a terminal, so ρ(y′) < ρ(y) by the
+  definition of ρ, and y′ is a P-win by the induction hypothesis. So σ̄ is not stalemated
+  and every legal move of σ̄ leads to a P-win: y is a P-win. (If σ̄ has no legal move, it is checkmated and the
+  condition is vacuous.)
+
+ρ takes values in the natural numbers, so the induction covers N. ∎ The proof is also a strategy: σ plays
+rank-lowering D-moves until a closing move, and then plays a winning strategy of the P-position reached. Every
+move lowers ρ or ends the D-phase, so the win takes finitely many moves.
+
+*Reading in the vocabulary of Theorem 1.14.* Take a D-winning strategy Σ of σ that lowers ρ at every σ-move,
+and let N be the P-positions that occur when σ plays Σ as legal chess moves and σ̄ plays any legal D-move.
+- (S1) is (V1a) for the winner, along Σ only: Σ's move is a legal chess move **and the resulting position is the
+  prescribed D-successor** (this is what "the same resulting positions" means; it excludes a king move that
+  captures a context pawn or steps onto a buffer file). If Σ prescribes a σ-terminal, the move must be a P-win:
+  this is (V2) at the winner's terminals. The winner may move in Z: the shuttle of Z_onT1 is a Z-move that is an
+  ordinary D-option, legal in every context by Lemma 2.2 (Proposition 3.2). The claim "σ never plays a Z-move"
+  belongs to the proof of (i), where (V3) makes every Z-move a suicide, and is not used here. The winner's other
+  legal moves are never played and need no hypothesis.
+- (S2) is (V1a) for the loser, together with (V2) and (V3): every legal move of σ̄ at a node of N is a D-move
+  or a P-loss for σ̄. In reading (a) every Z-move of σ̄ is a σ-terminal, so (S2) says that **every legal Z-move
+  of σ̄ is a P-loss**: this is the strong form of (V3) found by the K3 check, for all legal Z-moves and not only
+  those played, because σ̄ chooses. In reading (b) an unpunished Z-move of σ̄ (a loser that owns a shuttle) is a
+  D-move and needs no punishment. A decisive event that σ̄ makes for σ is a closing move, which is (V2).
+- (S3) is (V1b) restricted to the loser's nodes of N. Checkmate of σ̄ is a P-win, so only stalemate must be
+  excluded. The normal-play rule of D, "no option loses", is never used.
+- Checks need no separate hypothesis: the loser's moves are legal chess moves, and the winner's are legal by (S1).
+- Existence is what is needed: N depends on the choice of Σ. In P2 + H\* White's e3–e4 stalemates Black (§6),
+  so N has to be built from the shuttle Ka6.
+
+The conclusion is a strategy win in P, not a normal-play result; the claim "the result is the normal-play result
+of G₁ ⊞ … ⊞ G_k (Z deleted)" belongs to (i). Lemmas 1.6 and 1.7 are not used: Z is not deleted, and the winner's
+extra legal moves are simply not played. Exhibiting N at a concrete position is a separate check, which this
+paragraph does not do for any position of §6 beyond what the text says there. The chess bridge after Proposition
+3.2 is the instance D = G ⊞ on_D; its proof cites the proof of (i), whose "σ never moves in Z" step does not cover
+White's shuttle, so the sharp form is the right citation for it.
+
+*Sharpness of (S1)–(S3)* (examples already in the note; revised after K9, 2026-10-22).
+- **(S3).** P1a with real kings, `Ka5 Pb4 Pc5 Pe2 Pe4 / kc6 pb5 pe5` (§5.4; PROVED by enumeration, kpsolve
+  (D, D)). The convention reads it as (W, W), and so does D, where Black's only option is
+  the suicide Kd5. In chess Kd5 is illegal, Black has no legal move and is not in check, so (S2) holds vacuously
+  and (S1) holds (the shuttle Ka6), yet the position is a draw. Only (S3) fails.
+- **(S2), a legal Z-move of the loser that is not a P-loss.** 7.3 (§5.3), P8 `Kc6 Pb5 kb4 pc5` (kpsolve (W, W),
+  PROVED in P): the convention (reading (a)) gives (L, W), but White's Z-move b5–b6=Q (f7–f8=Q on 8×8) is a legal
+  move of the loser that wins. P2 + H0, `Ka5 Pb4 Pc5 kc6 pb5 Pe3 pe4` (kpsolve (W, W)): reading (a) gives (L, W)
+  and White's Ka6 is not a P-loss; reading (b) is the one that applies (Proposition 3.2). P4 with H0, Black to
+  move: Black's king sorties Kd3 and Kd2 are legal Z-moves of the loser that do not lose (a king-context
+  interaction; kpsolve with cap 2 gives a draw instead of the predicted (L, W); COMPUTED-1 in C, and P was not
+  run).
+- **(S2), a decisive event that is not a P-win (V2).** Races (L4.1 of `notes/lemmas.md`, modulo KQK) and §5.5,
+  `Ka4 Pb2 kc5 pb3 w -` = (D, D): Black's Kc5 is scored as a White passer in D but is not a P-win (CONJECTURE,
+  scratch evidence, kpsolve agrees). For the winner, the same failure removes closing moves: in 7.3 a Black
+  passer is a ⊖ in D and loses to f8=Q in P.
+- **(S1).** For an abstract D the need is trivial: with no legal move realising Σ's step, nothing transfers. For
+  the natural D(X) no isolated counterexample is known, so "(S1) is needed" is a CONJECTURE, as for (V1a).
+
+*Relation to Theorem 2.4.* Theorem 2.4 is a statement inside D (G short and under normal play, Z a king group, σ
+never moving in Z). The sharp form compares P with D and lets σ move in Z. Neither is a special case of the
+other. Both say that a winning strategy of a model transfers to the real game when every real move of the loser
+is a model move or loses on the spot.
+
+*Label.* PROVED after repair: the proof above is complete for the abstract statement. It has not yet been
+independently re-checked, because K3 saw only the earlier draft.
 
 **Why "exact" does not mean "iff".** (V1)–(V4) are sufficient, and none can be dropped, except that for
 (V1a) this is a CONJECTURE (table below). But no condition on local data can be *necessary*: the convention is
@@ -645,63 +749,285 @@ position after m. The win must hold against every defence of s:
 "Whatever the other components contain" means: for every context in the class one claims the zero for.
 Theorem 2.4(b) needs this only at positions where s is losing the context.
 
-**Definition 2.6 (local certificate LC_T).** Let m be a Z-move of s, and r the punishing reply of s̄ (a
-king capture of a Z-pawn). Let Q be the position after m and r, with s to move. Let Q_Z be Q with every
-context pawn deleted: only the kings and the remaining Z-pawns are left, on the whole board. LC_T(m) holds
-at Y if:
+**Definition 2.6 (local certificate LC_T). (revised after K7, 2026-10-22)**
 
-- **(L1) local forced promotion against a passing defender.** s̄ wins the following game in Q_Z within T of its
-  own moves against a defender s who may pass **arbitrarily many times** (k = ∞):
-  - s may pass at any turn, but not while in check;
-  - s with no legal move and no pass left is stalemated, which counts as a failure for s̄;
-  - s̄ wins by promoting to a queen that s cannot capture at once;
-  - s̄'s king never leaves F_Z.
+*Data.*
+- Y is a position as in Definition 2.1 with s to move: both kings on F_Z, the Z-pawns on F_Z, the context on files
+  at distance ≥ 2 from F_Z, the buffer empty, no officer, no promotion yet. An e.p. right carried by Y is cleared by m. The proof of (a) does not
+  use that Y is chess-legal: it uses that m and r are legal moves (see (b)).
+- m is a legal Z-move of s that is not a promotion. It may take s's king off F_Z.
+- r is a legal reply of s̄ to m that is not a promotion, is a Z-move, and leaves s̄'s king on F_Z. The standard r
+  is a king capture of a Z-pawn of s. (If s̄ can promote at once there is nothing to certify: that is a P-win.)
+- Q is the position after m and r, with s to move. T ≥ 1 is an integer.
+- The *window* is the sequence s, s̄, s, s̄, … from Q. So s̄'s t-th move after r comes after s's t-th move, and
+  s̄ must have won by its T-th move.
+- The *projection* π(R) of a position R is R with every pawn deleted that stands off F_Z, of both colours. The
+  kings (wherever they stand), the Z-pawns, the side to move, and an e.p. right whose target square is on F_Z
+  are kept. Put Q_Z = π(Q). (Earlier text: "Q with every context pawn deleted". The e.p. right and the place of
+  s's king were not said.)
+- In (a), r is a Z-move, so an e.p. right carried by Q has its target on F_Z. In the window form (b) the
+  target may be anywhere, and (L2) accounts for it (revised after K7, 2026-10-22).
 
-  The unlimited budget models the fact that s's spare moves in the context are not known in advance; the real
-  defender's options are a subset of the k = ∞ game's, and its only gain from having fewer options is
-  stalemate, which (L3) excludes. The earlier phrasing "for every k" and the remark that "every k is needed"
-  are withdrawn (revised after review: R1 item 3, R3 items 2 and 3).
-- **(L2) no faster counter-promotion.** Let μ_s be the least number of s-moves (king and pawns) in which s
-  could promote in Q if s̄ never moved, s̄'s Z-pieces were removed and s̄'s context pawns stood fixed.
-  Then μ_s ≥ T + 1.
-  - **(L2⁺)**, the recommended margin before invoking (A_Q), is μ_s ≥ T + 2. With μ_s = T + 1, s's pawn
-    reaches its seventh rank just as s̄ queens, and queen-against-seventh-rank-pawn endings can be drawn.
-- **(L3) no stalemate in the window.** At every s-turn during the window, s has a legal move in the real
-  position.
-  - (L1) already excludes stalemate in Q_Z. The extra danger is context pieces taking away king squares that
-    are free in Q_Z.
-  - Sufficient (L3′): every square within distance T + 1 of s's king (after m) lies on F_Z. Then s's king has
-    the same legal moves as in Q_Z. **This condition can never apply for T ≥ 2 on a 3-file group, because the
-    ball of radius T+1 spans at least 5 files while |F_Z| = 3.** (revised after review: R1 item 8)
-  - For T = 1, (L3) is a single check: after r, s has a legal move.
+LC_T(m) holds at Y if some such reply r satisfies (L1), (L2) and (L3).
 
-**Theorem 2.7 (sufficiency of the certificate). GAP (proof incomplete) (in P).** If LC_T(m) holds at Y, then the (revised after K3 check)
-Z-move m is decisively punished in P.
+- **(L1) local forced promotion against a passing defender.** The *local game* L_T(Q_Z) is played on the same
+  board (same files and ranks, flat or cylinder) from Q_Z with s to move, by the rules of chess, with these
+  changes:
+  1. *Promotion (P semantics).* The first promotion by either side ends the game. A promotion by s is a win for
+     s, whatever happens to the new piece: it is a **failure** for s̄. A promotion by s̄ is a win for s̄ if the
+     new queen cannot be captured at once, that is, if no legal move of s captures it. An unsafe
+     promotion ends the game as a failure for s̄.
+  2. *Passes.* s may pass at any turn in which it is not in check, as often as it likes (k = ∞). s̄ may not
+     pass. A pass changes only the side to move and clears the e.p. right.
+  3. *Confinement.* s̄'s king may only step onto squares of F_Z. s̄'s pawn moves are not restricted; by Lemma 2.2
+     they stay on F_Z.
+  4. *Mate and stalemate.* If s is in check and has no legal move, s is mated and s̄ wins. With unlimited
+     passes s can never be stalemated in the local game. If s̄ has no permitted move at its turn (checkmate,
+     stalemate, or only king moves that leave F_Z), that is a failure for s̄.
+  5. *Time.* s̄ must win with one of its first T moves, by a promotion as in 1 or by a move that mates s.
+     Anything else is a failure.
 
-*Proof.* s̄ plays r and then follows its local winning strategy σ_Z (which exists by (L1) with k = ∞), using
-only Z-moves. It ignores the context. Check that the strategy survives in the full position, for t ≤ T.
+  (L1) holds if s̄ has a strategy that wins L_T(Q_Z) against every behaviour of s, passes included.
+  **(L1_P)** is the weaker condition in which every promotion by s̄ is a win (no queen clause). Theorem 2.7 holds
+  with (L1_P) in place of (L1); the queen clause is for the chess statement (A_Q).
+  - The unlimited budget models the fact that s's spare moves in the context are not known in advance; the real
+    defender's options are a subset of the k = ∞ game's, and its only gain from having fewer options is
+    stalemate, which (L3) excludes. The earlier phrasing "for every k" and the remark that "every k is needed"
+    are withdrawn (revised after review: R1 item 3, R3 items 2 and 3).
+  - The earlier clause "s with no legal move and no pass left is stalemated, which counts as a failure for s̄"
+    has no content for k = ∞. Stalemate enters in two places only: a stalemate of s̄ is a failure (rule 4),
+    and a stalemate of the *real* s is excluded by (L3).
+- **(L2) no faster counter-promotion by a context pawn.** Let Q° be Q with s̄'s king and all Z-pawns of both
+  colours deleted. s's king and the context pawns of both colours stay. Let μ_s be the least number of
+  consecutive s-moves (s̄ never moves) after which a context pawn of s promotes in Q°, and ∞ if none can. The
+  moves are chess moves: a king may not step onto a square attacked by a pawn of s̄, an s̄ context pawn stays
+  where it is unless s captures it, and no e.p. right exists except the one described next. If Q carries an
+  e.p. right whose target square is **off F_Z**, Q° keeps it: s may use it at its first move, and only then
+  (the capture lands on the target and removes the s̄ pawn that has just double-stepped). A right whose target
+  is on F_Z concerns Z-pawns only, which Q° has deleted, so it is dropped. In (a) Q carries no right of the first
+  kind. Then **μ_s ≥ T + 1**.
+  - μ_s is a breadth-first search over s's king and context pawns. A king move that captures an s̄ context
+    blocker is one of the moves, so the king's help is counted, and so is the e.p. capture just described.
+  - **Which s-pawns are counted.** Only the context pawns. s's Z-pawns are not counted by (L2): their
+    promotions belong to the local game, where s̄'s Z-pieces stay on the board and a promotion by s is a failure
+    for s̄. This replaces the earlier text, in which μ_s counted s's king and all pawns, Z-pawns included, with
+    s̄'s Z-pieces removed. Reasons:
+    - The proof needs (L2) only for the promotions that (L1) cannot see, and what (L1) deletes is the context.
+    - The earlier count was not a lower bound for a Z-pawn: deleting s̄'s Z-pieces can raise or lower it (R3
+      item 3b: 3 moves against the real 2).
+    - As a hypothesis it was stronger than needed. `Ke6 ka1 Pc4 pb3 pc5`, White to move (cyl:7×6), is a Black
+      win in P. Black's local win has T = 2 (b2, b1=Q), no White context pawn exists, but the old count gave
+      μ_s = 2 for White's Z-pawn c4 once Black's c5 was deleted, although c5 locks it. (L1), (L2), (L3) as now
+      stated all hold; the old (L2) failed.
+    - With context pawns only, Proposition 2.10(a) needs no Z-pawn proviso: s's Z-pawns are covered by (L1),
+      whatever their distance from promotion (a promotion by s is a failure for s̄ in the local game).
+    - Anyone who wants the stronger hypothesis may assume both; the theorem holds a fortiori.
+  - **μ_s ≥ T + 1 is the exact bound for P.** Step 4 shows that s promotes no earlier than its (T + 1)-th turn, and
+    s̄ queens on its T-th move, which follows s's T-th turn. With μ_s = T, s promotes first (example below).
+  - **(L2⁺)**, μ_s ≥ T + 2, is only a margin, and it does not give a chess win. With μ_s = T + 1, s promotes at once
+    after s̄ queens (queen against queen, not against a pawn on its seventh rank). With μ_s = T + 2, s̄ has one move
+    with its new queen, and a draw can still follow. No margin of μ_s replaces (A_Q) at the position (examples in
+    "What Theorem 2.7 does not give"). The earlier wording, "queen-against-seventh-rank-pawn endings can be
+    drawn", described the T + 1 case wrongly (revised after K7, 2026-10-22).
+- **(L3) no stalemate of s in the window.** A *guided strategy* of s̄ is a strategy in the real game that at each
+  of its turns plays a Z-move (a king step onto a square of F_Z, a move of a Z-pawn, or a promotion) whose
+  projection is a winning move of L_T(Q_Z) at the projected position, with the remaining time. s̄ never moves a
+  context pawn. (A winning strategy of the local game, read in the real game, is guided.) (L3) asks for a
+  guided strategy such that, in every real play from Q in which s̄ follows it and s plays legal moves as it
+  likes, s is never stalemated at one of its turns in the window. A mate of s ends the play in s̄'s favour and
+  is not excluded.
+  - (L1) cannot see (L3): it lets s pass, while the real s has only the context moves that exist. The danger is
+    a context pawn taking away king squares that are free in Q_Z, or the context running out of moves.
+  - **Sufficient local condition (L3_F).** In every line of L_T(Q_Z) in which s̄ plays only winning moves, s has
+    at each of its turns before s̄'s win a legal Z-pawn move or a legal king move onto a square of F_Z. By
+    Lemma 2.2 nothing off F_Z occupies or attacks a square of F_Z, so that move is legal in every real position
+    reached as well.
+  - The earlier sufficient condition (L3′) (every square within distance T + 1 of s's king lies on F_Z) can never
+    apply for T ≥ 2 on a 3-file group, because the ball of radius T + 1 spans at least 5 files while
+    |F_Z| = 3 (revised after review: R1 item 8).
+  - For T = 1, (L3) is a single check: s is not stalemated at Q.
 
-- **s's moves map onto the k = ∞ local game.** A king move of s is the same king move in Q_Z. In Q_Z there
-  are fewer pieces, so it is still legal there, and a capture of a context pawn becomes a plain move to the
-  same square. A context move of s is a pass in Q_Z. It is never made while s is in check (the only checks
-  during the window come from s̄'s Z-pieces, which are present in Q_Z), so the pass is allowed in the k = ∞
-  game. The real defender's options are a subset of the k = ∞ game's options; its only possible gain from
-  having fewer options is stalemate, which (L3) excludes (revised after review: R1 item 3, R3 items 2 and 3).
-- **s̄'s prescribed moves are legal.** s̄'s king stays on F_Z, so by Lemma 2.2 no context pawn attacks it,
-  occupies its squares or gives it check. s̄'s pawn moves stay on F_Z. Without sliders there are no pins.
-- **s does not promote first.** After r, s moves first. Before s̄'s T-th move, s has made T moves, and by
-  (L2) it needs at least T + 1. The removed Z-pieces of s̄ could only slow s down **except that s̄'s
-  Z-pawns are capture targets for s; the theorem survives only if (L1)'s local game counts an s-promotion as
-  a failure for s̄, which it does by "s̄ wins by promoting… s cannot capture at once"**. s's own Z-pawns are
-  part of Q_Z, and σ_Z wins against them. (revised after review: R3 item 3b)
-- **No other way out.**
-  - (L3) excludes stalemate of s in the real position. (L1) at k = ∞ excludes it in Q_Z.
-  - s cannot checkmate s̄. s has no officers; s's Z-pawns do attack F_Z, but σ_Z has a legal move on F_Z at
-    every turn, and s̄'s real moves include its local ones, so s̄ is never forced to skip a move (revised
-    after review: R3 item 3c).
-  - The new queen stands on F_Z, out of reach of context pawns (Lemma 2.2).
+**Theorem 2.7 (sufficiency of the certificate). PROVED after repair (in P). (revised after K7, 2026-10-22)**
+(The first K7 draft of (b) had no e.p. clause in (L2) and was FALSE; see the example in the list "The conditions
+cannot be dropped" below.)
+- **(a)** If LC_T(m) holds at Y, with reply r, then s̄ has a forced win in P after m: it plays r and then wins
+  with one of its next T moves. So m is decisively punished in P.
+- **(b) Window form.** The proof does not use how Q arose. Let Q be a position with s to move which is
+  chess-legal, or which arises from a position Y of Definition 2.1 by legal moves m and r as in (a), and in which
+  every pawn is a Z-pawn on F_Z or a context pawn on a context file, the buffer is empty, there is no officer,
+  s̄'s king stands on F_Z, and no s̄ context pawn attacks s's king (automatic if s's king is on F_Z). Q may
+  carry an e.p. right with its target anywhere: (L2) counts a right whose target is off F_Z, and π keeps a
+  right whose target is on F_Z. If (L1),
+  (L2) and (L3) hold at Q, s̄ has a forced win in P from Q. This is the form used in §5.3 and P8, with Q = Y.
+  The window form does not cover a legal position in which s is in check from an s̄ context pawn that has just
+  moved (s's king on a context or buffer file): there (I4) fails, and the theorem says nothing.
 
-So s̄ promotes within T moves, which is a P-win. ∎
+*Proof.* Fix a guided strategy ρ of s̄ with the property (L3). s̄ plays r and then ρ. Only Z-moves are made
+by s̄, and its king stays on F_Z. Consider any real play from Q in which s plays legal moves, and write R for
+the real positions in it.
+
+- **Step 0: invariants.**
+  - (I1) Every pawn is a Z-pawn on F_Z or a context pawn on a context file; the buffer is empty. This is Lemma
+    2.2, applied from Q (from Y in (a)); it holds for every legal play before the first promotion.
+  - (I2) No context pawn of either colour attacks a square of F_Z. A pawn attacks only adjacent files, and a
+    context file is at distance ≥ 2 from F_Z. Also, a Z-pawn can capture only on F_Z or on the buffer, which is
+    empty, so its captures take Z-pawns (or e.p.).
+  - (I3) s̄'s king stands on F_Z.
+  - (I4) s̄'s context pawns never move and are only removed (by s). No s̄ context pawn ever attacks s's king:
+    none does at Q (m was legal, r changes no context pawn; in (b) this is a hypothesis), the set of squares
+    they attack only shrinks, and a king never steps onto an attacked square. So s is in check at R iff an s̄
+    Z-pawn attacks its king, iff s is in check in π(R).
+  - (I5) *E.p. rights.* A right created by s̄ comes from a Z-pawn double step, since s̄ plays Z-moves only, so its
+    target is on F_Z, and only Z-pawns of s can use it (a context pawn is not adjacent to F_Z). A right created by
+    s concerns an s pawn, so it is of no use to an s context pawn. If its target is on F_Z, s̄'s Z-pawns may use it,
+    and the local game accounts for this (π keeps such a right). If its target is off F_Z, no s̄ pawn that s̄
+    moves can use it, and π drops it. So the only e.p. capture that an s context pawn can ever make is the
+    one of the right carried by Q, if its target is off F_Z, and it can be made at s's first turn only.
+- **Step 1: s's moves are local moves.** Let R have s to move. π(R) is a position of L_T(Q_Z) reached with s̄
+  playing winning moves only (by induction on the play). A legal real move of s is one of three kinds.
+  - *A king move* to d. Legal in R: d is not occupied by an own pawn, not adjacent to s̄'s king, not attacked by
+    an s̄ pawn after the capture (if any), and if s is in check the move removes the check. Every condition
+    holds in π(R): the kings are the same, the pawns present are a subset, and the checkers are Z-pawns by (I4).
+    A capture of a context pawn becomes a plain king move in π(R). So the move is legal in π(R) and the
+    projection of the result is the local result.
+  - *A Z-pawn move* (step, double step, capture of an s̄ Z-pawn, e.p. capture of an s̄ Z-pawn, promotion). The
+    squares involved lie on F_Z or on the empty buffer, and F_Z holds the same pieces in R and π(R) by (I1). King
+    safety is as in the previous case. So it is legal in π(R) with the same result. In particular a promotion of
+    a Z-pawn of s is a promotion by s in the local game.
+  - *A context-pawn move.* It changes only context pawns, so π(R) is unchanged except for the side to move; an
+    e.p. right it creates has a target off F_Z and is dropped by π, as a pass does. The e.p. capture of the right
+    of Q (target off F_Z, I5) is such a move too: it moves an s context pawn and removes an s̄ context pawn. A
+    context move is legal only if s is not
+    in check: the checkers are s̄ Z-pawns (I4), and a context pawn can neither capture on F_Z (I2) nor block a
+    pawn check. So s is not in check in π(R) and the pass is allowed. (A context promotion is treated in Step 4.)
+  So the projection of the play is a play of L_T(Q_Z) in which context moves are passes. Real s-turns and local
+  s-turns correspond one to one, as do s̄'s moves.
+- **Step 2: s̄'s permitted local moves are legal real moves.** Let R′ have s̄ to move, and let μ̃ be a permitted
+  move of s̄ at π(R′): a king step onto a square of F_Z, a Z-pawn move, or a promotion. Then μ̃ is legal in R′.
+  - F_Z holds the same pieces in R′ and π(R′), and so does the e.p. right on F_Z (it comes from a Z-pawn double
+    step, and only Z-pawns can capture it, because the squares next to F_Z are F_Z and the empty buffer).
+  - s̄'s king ends on F_Z. The only pieces that could attack it are s's pawns and king. s's context pawns do not
+    attack F_Z (I2); the rest is the same in π(R′). The kings are not adjacent, as in π(R′).
+  - There are no sliders, so there are no pins.
+  So guided strategies exist, and a winning strategy of the local game, read in the real game, is one.
+- **Step 3: s̄ is never stuck.** A winning move of the local game exists whenever s̄ is to move before its win,
+  and by Step 2 it is a legal real move. So s̄ always has a legal real move, and is never mated or stalemated before
+  winning.
+- **Step 4: s does not win first.** By Step 1 the projection of the play so far is a play of L_T(Q_Z) in which
+  s̄ plays winning moves only, and such a play is over by s̄'s T-th move. So s has at most T turns, and the
+  turn j at which s might promote has j ≤ T.
+  - *A Z-pawn.* By Step 1 this is a promotion by s in a line of L_T(Q_Z) in which s̄ played winning moves only.
+    That contradicts rule 1 (a promotion by s is a failure).
+  - *A context pawn.* **Claim M:** μ_s ≤ j. Delete from the real play s̄'s moves and s's Z-pawn moves. What is
+    left is a sequence of at most j moves of s, each a king move or a context-pawn move, ending with the
+    promotion. It is a legal sequence in Q° (the position of (L2)). Indeed, s's king and the context pawns of
+    both colours stand on the same squares in the real play and in the sequence, because s̄'s context pawns
+    do not move and only s moves them (captures included). A king move is legal in Q°: its destination is not
+    occupied by an own context pawn, it is not attacked by an s̄ context pawn (the same attackers), and Q°
+    has fewer other pieces (no s̄ king, no Z-pawn), so no condition is added. A context-pawn move is legal
+    in Q°: its target squares are on context files, where the real occupants are context pawns and possibly
+    s's king (same in Q°); s̄'s king and all Z-pawns are on F_Z (I1, I3); the own king is not attacked
+    (I4); and the only e.p. right that can be used is the one of Q (I5), at s's first turn. If it is used, it is
+    the first move of the sequence, and Q° keeps exactly that right for its first move. So μ_s ≤ j ≤ T, which
+    contradicts (L2). This is where the king's help in removing blockers is counted: it uses moves of s.
+  - A context *passer* that exists but has not promoted in the window does nothing: in P only a promotion ends
+    the game.
+- **Step 5: no other ending.**
+  - s cannot mate s̄: s̄ is never mated before winning (Step 3). In particular s's Z-pawns and king, which do
+    attack F_Z, cannot take s̄'s last move away, because the prescribed local move is legal in the real
+    position (Step 2).
+  - s̄ is not stalemated (Step 3). s is not stalemated by (L3). There is no infinite play: the window has at
+    most T moves of s̄.
+- **Step 6: s̄ wins in time.** The projection is a play of the winning local game, so it ends within s̄'s first T
+  moves with a promotion by s̄ or a mate of s. A promotion by s̄ is a legal real move (Step 2) and ends the real
+  game in s̄'s favour in P. A mate of s in π(R) is a mate in R: s is in check in R (I4), and every legal real
+  move of s is a local move or a pass (Step 1), and no pass exists in check, so s has no legal move in R either.
+  Since s moves first after r, s̄'s t-th move comes after s's t-th, and the count is the one used in Step 4. ∎
+
+*Part (b)* is the same proof with Q as the starting point: only (I1)–(I5) at Q were used, that s̄'s king is not
+attacked at Q, and that an e.p. right is that of a pawn standing where the right says. These are the hypotheses of
+(b) (they hold for a chess-legal Q, and for the Q of (a) because m and r are legal), together with Lemma 2.2.
+*Part (a)* is part (b) applied to Q: m and r are Z-moves, so
+every pawn is still a Z-pawn on F_Z or a context pawn on a context file and the buffer is empty (Lemma 2.2);
+s̄'s king is on F_Z by the Data; no s̄ context pawn attacks s's king, because m was legal and r moves no context
+pawn; and the only e.p. right Q can carry is one created by r, with its target on F_Z.
+
+**Remark (K3's objection, answered).** K3 wrote that (L2) counts promotions only and that a context passer within
+T ends the game in s's favour. In the D-model a passer is a terminal. Whether it is decisive is (V2), a hypothesis
+of Theorem 1.14 (Remark 2.11, P11), and Theorem 2.7 does not claim it. Theorem 2.7 is a statement about P. In P a
+context passer of s is not terminal. Only a promotion ends the game, and (L2) bounds the first promotion of every
+context pawn of s, passer or not, by T + 1 moves of s. A passer that stands at the end of the window has not
+promoted, and s̄ has. So the objection does not apply to Theorem 2.7: it reads a P-statement as a D-statement.
+
+**What Theorem 2.7 does not give.**
+- *No C-win, and no margin of μ_s gives one.* In P a promotion wins at once. In chess the new queen must survive
+  and the ending must be won. (L1) asks for a queen that s cannot capture at once, which is not enough: that s̄ wins
+  chess after the promotion is the per-position hypothesis (A_Q), checked by kpsolve (§1.2). (L2⁺) is only a margin.
+  The examples below are kpsolve results (`--promote QRBN --cap 2`, both bounds equal; the P values come from the
+  private `--pmodel` copy of Appendix A). By the Labels rule they are data and keep the label CONJECTURE. In each,
+  s̄ is Black, and (L1) with the queen clause, (L2) with the e.p. clause and (L3) hold (revised after K7, 2026-10-22).
+  - μ_s = T + 1, window form with Q = the position: cyl:7×6 `Ka4 ka6 Pf4 pb2`, White to move. T = 1 (b1=Q), and the
+    White pawn f4 has μ_s = 2. Black wins P. **White wins chess**, and 1.f5 is the only winning move.
+  - μ_s = T + 1, form (a): cyl:7×6, Y = `Kc5 ka3 Pe2 pc4`, White to move, m = Kc5–d5, r = c4–c3,
+    Q = `Kd5 ka3 Pe2 pc3`, T = 2 (c2, c1=Q), μ_s = 3. Corollary 2.8 applies (d(Kd5, c1) = 4 = D + 2). After m, Black
+    wins P and **White wins chess**.
+  - μ_s = T + 1, form (a): cyl:7×6, Y = `Kb4 ka1 Pe4 pa2`, White to move, m = Kb4–c5, r = Ka1–b1,
+    Q = `Kc5 kb1 Pe4 pa2`, T = 1, μ_s = 2. After m, Black wins P and chess is **drawn**.
+  - μ_s = T + 2: flat:6×6 `Ke6 kb1 Pf2 pc2`, White to move. T = 1, μ_s = 3 (f4, f5, f6=Q). Black wins P and chess
+    is **drawn**.
+  - In a sampled enumeration of one Black Z-pawn and one White context pawn, a reviewer found draws still present at
+    μ_s ≥ T + 3 on flat:6×6 (4 of 659), and none at μ_s ≥ T + 2 on cyl:7×6 (scratch).
+  - Hence a chess form of (V3) does not follow from any horizon condition. The paper's Conjecture `conj:cert`
+    (`paper/ieee/sections/04_kings.tex`, "a certificate of horizon h implies (V3)") and the matching sentence of
+    `kings/REPORT.md` are refuted as worded by the second and third example. Theorem 2.7 supports the P-version only.
+- *No D-model statement.* For Theorem 1.14 the theorem supplies (V2) for the terminal "a Z-move is punished",
+  at one Z-move and only in contexts where LC_T holds. It says nothing about (V2) for the passer terminals,
+  nothing about (V3) for the other Z-moves, and nothing about (V1) or (V4).
+- *No converse.* LC_T is sufficient only. A Z-move can be punished in P although (L1), (L2) or (L3) fails for
+  every reply, for example by a different reply that the certificate does not use.
+- *One Z-move at one position.* Theorem 2.4 needs every Z-move of the loser at every loser-to-move node, each with
+  its own certificate. (L2) is context-dependent: for T = 1 it holds in every chess-legal non-terminal context
+  when H ≥ 5, and for T ≥ 2 it fails in some context (Proposition 2.10).
+- *The conditions cannot be dropped.* All examples are in cyl:7×6. The P values are kpsolve results from the private
+  `--pmodel` copy of Appendix A (source: `kings/delegate/out/K7/scripts/draft/kp_p.c`). By the Labels rule they are data, and the claim that
+  the conditions cannot be dropped keeps the label CONJECTURE; the races can be checked by hand.
+  - (L3): `Kb5 kd5 Pb4 Pc5 Pe3 Pf3 Pf4 Pf5`, Black to move, is a draw in P. (L1) holds with T = 1 (c6=Q), Black
+    has no pawn, and the White pawns on e3, f3, f4, f5 cover d4, e4, e5, e6, so Black is stalemated. This is
+    the position after `Kd5 Kxb5` in `Ka5 kc6 Pb4 Pc5 pb5` with that context. In that start position Kd5 is
+    still punished in P, by a different reply, so this is also an example of the missing converse.
+  - (L2): `Kd6 kc2 pa3 Pe4 pe5 pf5`, White to move, is a White win in P. Black's local win has T = 2 (a2, a1=Q),
+    the context is non-terminal, but μ_s = 2: exf5 and f6=Q (Proposition 2.10(b)). For T = 1 the same happens
+    with a passer: `Kb5 kd5 Pb4 Pc5 pe2`, Black to move, is a Black win.
+  - (L2), the e.p. clause: `Kd6 kc4 Pe3 pa4 pe4 pf3`, White to move, e.p. right on f4 (Black has just played
+    f5–f3). Black (s̄) has a local win with T = 3 (a3, a2, a1=Q), (L3) holds, and without the clause μ_s = 6, so
+    (L1), (L2) and (L3) would all hold. Yet White wins in P: exf4 e.p., f5, f6=Q, and its third move promotes
+    before Black's third. With the clause μ_s = 3 < T + 1 = 4, as it should. The same position without the right
+    is a Black win in P. This is why the first K7 draft of (b) was false. Part (a) cannot meet this case.
+  - (L2), sharpness of μ_s ≥ T + 1: `Kf5 kc6 Pe4 pb3`, White to move, has T = 2 (b2, b1=Q) and μ_s = 2, and White wins
+    P (1.e5 b2 2.e6=Q). With the pawn on e3 instead, μ_s = 3 and Black wins P (1.e4 b2 2.e5 b1=Q). The example
+    `Kd6 kc2 pa3 Pe4 pe5 pf5` above also has μ_s = T = 2.
+  - (L1) is the substance: with no local win there is nothing to transfer.
+
+**Corollary 2.7′ (the contrapositive; the content of P12). PROVED in P (revised after K7, 2026-10-22).** Let X
+have the structure of Definition 2.1 (kings and Z-pawns on F_Z, context on context files), let F be the
+`--frozen` model (a king move loses at once for the mover, a promotion wins at once, stalemate and infinite play
+are draws), and suppose σ has a winning strategy S in F from X. If at every node of S with σ̄ to move every
+legal king move of σ̄ is a P-loss for σ̄, then σ wins P from X. Hence, if σ wins F but not P, then for every
+winning strategy S of σ in F some node of S with σ̄ to move has a legal king move m of σ̄ that is not a
+P-loss, and for that m, every admissible reply r (Definition 2.6, with s = σ̄ and s̄ = σ: a non-promoting Z-move
+of σ that leaves σ's king on F_Z) and every T ≥ 1, (L1), (L2) or (L3) fails. A promoting reply by σ would make m a
+P-loss for σ̄, so it does not occur for a move that is not a P-loss; replies that are not admissible are outside
+LC_T.
+- *Proof.* In P, σ plays S. S uses no king move of σ, since in F a king move is a loss for its maker, so the
+  kings stand where they did at X, and the nodes of S keep the structure (a pawn move preserves it by Lemma
+  2.2; a promotion ends the game). Every legal pawn move of σ̄ is the same move in F and in P, and S answers
+  it. Every king move of σ̄ is a P-loss by hypothesis. Stalemates are draws in both
+  models and do not occur in S. Terminals of S are promotions by σ, a P-win, and mates, equal in both. So the
+  play is finite and σ wins P. The second statement is the contrapositive. Its last clause is the contrapositive
+  of Theorem 2.7(a): a king move m with a reply r and T such that LC_T holds would be punished. ∎
+- In chess: if `--frozen` reports a win for σ at X and the chess result at X is not a σ-win, then either P(X) is
+  not a σ-win (the statement above) or (A_Q) fails at X. The comparison is one-directional: σ may win real chess
+  by king moves that F forbids.
 
 **Corollary 2.8 (square-rule form of (L1)). PROVED.** Suppose:
 - Q_Z consists of the two kings and one s̄-pawn p, and s̄'s king is not on p's path;
@@ -712,6 +1038,10 @@ Then s̄ wins the local game of (L1) within T ≤ D moves:
 - for k = ∞;
 - for every finite k, provided s's king always has a legal move in Q_Z. This is the stalemate proviso: a
   king boxed in at a rank edge, with no pass left, would be stalemated.
+
+The finite-k clause is a side remark (revised after K7, 2026-10-22). The local game of Definition 2.6 has k = ∞
+only, and Theorem 2.7 uses nothing else. The first clause gives (L1) of Definition 2.6 for this Q_Z: p promotes
+by pushes with s̄'s king never moving, s has no pawn to promote, and s cannot be stalemated because it may pass.
 
 *Proof.*
 - **Distances to every path square.** Let q_j be the path square j ranks ahead, with q₀ = p's square. The
@@ -748,20 +1078,26 @@ after review: R1 item 9, R3 item 4).
 **Proposition 2.10 (which punishments are universal). (a) PROVED after repair; (b) PROVED.**
 - **(a)** If T = 1 and **H ≥ 5**, then in every chess-legal non-terminal context (every context without a
   passer) no s context pawn can promote in one move, under both the textbook and the e.p.-aware passed test.
-  Hence (L2) holds whenever, in addition, no s Z-pawn is one move from promotion in Q. *Proof:* an s-pawn that
+  Hence (L2), which counts context pawns only, holds (revised after K7, 2026-10-22). *Proof:* an s-pawn that
   can promote in one move stands on its penultimate rank (the seventh on 8 ranks).
   - No enemy pawn can stand ahead of it, since no pawn stands on the last rank.
   - It cannot be taken en passant. Only a pawn that has just made a double step can be. In a chess position
-    the last move before Y was s̄'s, and r, the last move before Q, is not a double step: it is a king capture,
-    or the promotion in §5.3.
+    the last move before Y was s̄'s, and so was the last move before Q (r, or in the window form the move that led
+    to Q), so no pawn of s has just double-stepped. In §5.3 the window Q is Y itself (revised after K7, 2026-10-22).
   - So it is passed under either test, and the context would be terminal. (This step was missing; added after
     the T30 proof audit, `notes/proof_audit2/REPORT.md`, 2026-10-22.) The argument needs chess-legal
     contexts: cylcgt's component model can keep a stale right in a component after its owner has moved
     elsewhere.
   - The king's help does not change this: removing a blocker takes a move of its own.
-  - *Z-pawns.* In the uses in §5.2–5.4, P3, P5 and P7, the s Z-pawn is captured by r. In §5.3 and P8 it
-    survives; it is Black's and at least 2 moves from promotion in Q. So μ_s ≥ 2 = T + 1, which is enough for
-    (L2), though not always for the margin (L2⁺).
+  - *Z-pawns* (revised after K7, 2026-10-22). (L2) no longer counts them. They are covered by (L1), whatever their
+    distance from promotion: a promotion by s is a failure for s̄ in the local game, and Step 4 of Theorem 2.7 uses
+    exactly that. (If s can promote at its first turn, (L1) fails. If an s Z-pawn stands on its penultimate rank but s
+    is in check at Q and cannot promote at once, (L1) may hold, and then the theorem applies.) In the uses in §5.2–5.4, P3, P5 and
+    P7 the s Z-pawn is captured by r. In §5.3 and P8 it survives; it is far from promotion.
+  - *The e.p. clause of (L2)* (revised after K7, 2026-10-22). In the window form (b), Q may carry an e.p. right with
+    its target off F_Z, and Q° then lets s use it at its first move. It does not change the T = 1 argument: the
+    capture lands on the target square, which is on the third rank of s̄'s side and so is never s's last rank, and a
+    pawn that promotes at once still has to stand on its penultimate rank.
 
   *A stronger statement needs six ranks.* "In a non-terminal context no pawn of *either* colour is one move
   from promotion" is false on 5 ranks under the e.p.-aware test. In `W a2 / B a3 b2` with White to move just
@@ -777,9 +1113,9 @@ after review: R1 item 9, R3 item 4).
   *Four ranks.* For H = 4, a pawn on its second rank promotes by a double step onto the last rank in one move
   and need not be passed, so (L2) can fail with μ_s = 1 (revised after review: R1 item 7, R3 item 1).
 
-  So, by Theorem 2.7, whose proof has a gap, a group whose punishments satisfy (L1) with T = 1 is decisively
-  punished in every chess-legal non-terminal context on boards with H ≥ 5, provided (L3) holds and no s
-  Z-pawn is one move from promotion in Q. For T = 1, (L3) asks only that s has a legal move at its single turn.
+  So, by Theorem 2.7 (PROVED after repair, in P), a group whose punishments satisfy (L1) with T = 1 is decisively
+  punished in P in every chess-legal non-terminal context on boards with H ≥ 5, provided (L3) holds. No Z-pawn
+  proviso is needed. For T = 1, (L3) asks only that s is not stalemated at its single turn (revised after K7, 2026-10-22).
 - **(b)** For every T ≥ 2 there is a non-terminal context with μ_s = 2 (this requires board width ≥ |F_Z| + 4).
   - *Example (White):* W (f, H−2); B (f, H−1) and (f+1, H−1). No pawn is passed. White captures to
     (f+1, H−1) and promotes next move.
@@ -829,7 +1165,9 @@ Z-moves.
   have the legal suicide.
 - Any further White Z-moves only help White (Lemma 1.6). ∎
 
-**Chess bridge** (PROVED after repair, by the proof of Theorem 1.14 with (V1a) added).
+**Chess bridge** (PROVED after repair, by the sharp form of Theorem 1.14 with D = G ⊞ on_D; revised after K9,
+2026-10-22: the earlier citation, the proof of Theorem 1.14(i), assumes that σ never moves in Z, which White's
+shuttle violates).
 Suppose r(G ⊞ on_D) = W, White plays that strategy (shuttling for its passes), and along it:
 - (V1a) every legal chess move of the side to move is one of the D-options of the D-model, and leads to the
   matching position;
@@ -1101,6 +1439,13 @@ move lists below were enumerated by hand. A scratch script reproduced them, and 
     pass budgets **k ≤ 4 and k = ∞**, with the punisher's king confined to {h, a, b}. Budgets k = 5, 6 were
     not checked; they differ from ∞ when T ≥ 6. This is scratch evidence (Appendix A) (revised after review:
     R1 item 10, R4 item 9).
+    - These runs used the local game as it was before K7 (finite budgets, optional confinement). K7 re-ran the local
+      game of Definition 2.6 (k = ∞, king confined to {h, a, b}, a mate of s a win) on the five sorties, after the
+      reply Kxa4, with a second scratch implementation. (L1_P), which has no queen clause, holds with
+      T = 6, 6, 5, 6, 6 for Kg4, Kg5, Kg6, Kh6, Ka6. (L1), with the queen clause, holds with T = 6, 6, 6, 7, 7.
+      A reviewer's independent implementation gave the same two lists. So in P the freeze needs μ_s ≥ 7 at the
+      zugzwang nodes (Theorem 2.7 holds with (L1_P)), and μ_s ≥ 8 with the queen clause, which is the value used
+      above. This is still scratch evidence: the label stays CONJECTURE (revised after K7, 2026-10-22).
   - With (L1), Theorem 2.7 makes the freeze valid in P for every context in which (L2) holds with
     μ ≥ 8 at the zugzwang nodes, and (L3) holds.
   - On 8 ranks a single free White pawn on rank 2 has μ = 5. So the certificate covers only locked or slow
@@ -1152,7 +1497,7 @@ move lists below were enumerated by hand. A scratch script reproduced them, and 
   available and safe.
 - So Z₇.₃ is a White win **with either side to move**, in every non-terminal context, in P (P8):
   - the decisive event has T = 0 with White to move and T = 1 with Black to move;
-  - Proposition 2.10(a) gives (L2), because Black cannot promote in one move from a non-terminal context;
+  - Proposition 2.10(a) gives (L2), because Black cannot promote in one move from a non-terminal context; for Black to move this is Theorem 2.7(b), the window form, with Q = the position itself, and (L3) is the one-turn check that Black is not stalemated: its Z-pawn g7 has the moves g6 and g5 in every context; if Y carries an e.p. right, (L2) counts it, and it cannot promote at once (revised after K7, 2026-10-22);
   - (A_Q) is still needed for C.
 - **Why the paper's "trébuchet = 0" is wrong here.** Z is not even a tempo game. It is also an instance of
   "a zugzwang where the other side's decisive event elsewhere is too slow": a Black passer created elsewhere
@@ -1231,8 +1576,8 @@ on the flat 8×8 board, with the component on a–d and only the e-file between.
   - Black's local win after Ke6 Kxg4 takes T = 5 (scratch). **CONJECTURE** (scratch evidence).
   - So μ = T, and (L2) fails by one tempo. **CONJECTURE** (scratch evidence; Review 4 re-derived both
     numbers independently: μ = 5 = T, so (L2) does fail by one tempo — R4 item 10).
-- PROVED: by Theorem 2.7 (contrapositive), every king move that does not lose in P violates (L1), (L2) or
-  (L3). A move that loses in P but not in C is an (A_Q) failure.
+- PROVED: by Theorem 2.7 (contrapositive), for every admissible reply r (Definition 2.6) and every T ≥ 1, every king
+  move that does not lose in P violates (L1), (L2) or (L3) (revised after K7, 2026-10-22). A move that loses in P but not in C is an (A_Q) failure.
 - CONJECTURE: every one of the 48 non-losing king moves has μ ≤ T + 1 at its node: an (L2) failure, or an
   (A_Q) failure with margin one. *To settle:* compute μ and T at those 48 nodes from `engine/suite/results.json`.
 
@@ -1267,7 +1612,7 @@ Each is a single file with no possible capture, so pure tempo.
 | P1b | cyl:7x6 | `Kc1 Pb2 Pe2 ka2 pb3 pc2 pe3 pe5` | (D, D) | (L, L) | (D, D) | mirror of P1a | PROVED; kpsolve agrees |
 | P2 | cyl:7x6 | Z_onT1 `Ka5 Pb4 Pc5 kc6 pb5` + each of {nothing, Hm1, H\*, H\*2, H0} | (W, W) in all five | (L,W), (L,L), (W,L), (W,L), (L,W) | (W, W) in all five | Thm 3.4(b) + Prop 3.2 + Prop 2.10(a) | PROVED in P; C modulo (A_Q); kpsolve agrees on all ten |
 | P3 | cyl:7x6 | Z_offT1 `Kc1 Pb2 ka2 pb3 pc2` + each of {nothing, Hp1, H\*, H\*2, H0} | (L, L) in all five | (L,W), (W,W), (W,L), (W,L), (L,W) | (L, L) in all five | mirror of P2 | PROVED in P; C modulo (A_Q); kpsolve agrees on all ten |
-| P4 | cyl:7x6 | Z_T `Ka4 Pb3 kc3 pb4` + each of {nothing, Hm1, Hp1, H\*, H\*2, H0} | equal to the convention: (L,W), (L,L), (W,W), (W,L), (W,L), (L,W) | same | (L,W), (L,L), (W,W), (D,L), (D,L), (L,D) | Thm 2.4(b) + Thm 2.7. (L1) holds: scratch, T ≤ 5, all budgets, confined king. (L2) holds at every loser-to-move node: scratch. (L3) not checked | CONJECTURE → **refuted** by kpsolve in 3 of 6 contexts (H\*, H\*2, H0) |
+| P4 | cyl:7x6 | Z_T `Ka4 Pb3 kc3 pb4` + each of {nothing, Hm1, Hp1, H\*, H\*2, H0} | equal to the convention: (L,W), (L,L), (W,W), (W,L), (W,L), (L,W) | same | (L,W), (L,L), (W,W), (D,L), (D,L), (L,D) | Thm 2.4(b) + Thm 2.7. (L1) holds: scratch, T ≤ 5, all budgets, confined king. (L2) holds at every loser-to-move node: scratch. (L3) not checked. These checks used the local game and the μ before K7: the old μ counted the king and all pawns, and Definition 2.6 now counts the king and context pawns, with the e.p. clause (revised after K7, 2026-10-22) | CONJECTURE → **refuted** by kpsolve in 3 of 6 contexts (H\*, H\*2, H0) |
 | P5 | cyl:7x6 | Z_72 `Kc4 Pb5 kb6 pc5`, bare; and + Hp1 | bare (D, W); + Hp1 (W, W) | bare (L, W); (W, W) | bare (D, W); + Hp1 (W, W) | Black side: Prop 2.10(a) with T = 1 (PROVED in P). White side: Lemma 2.9 (escape by blockade) | all entries PROVED in P except the bare w-entry, which is a CONJECTURE (scratch: no forced promotion); kpsolve agrees on all four entries |
 | P6 | cyl:8x8 | 5.1 `Kh5 Pa4 kb4 pa5` | (L, W): a real mutual zugzwang | (L, W) | (L, W) (kpsolve, exact) | Thm 2.4 + Thm 2.7 ((L1) scratch, T ≤ 7) + self-duality | CONJECTURE; kpsolve agrees |
 | P7 | cyl:8x8 and flat:8x8 | 7.2 group `Ke6 Pd7 kd8 pe7` | (D, W) | (L, W) | (D, W) on both boards (kpsolve; Lichess on flat) | Prop 2.10(a) for Black; Lemma 2.9 for White | b PROVED in P; w CONJECTURE; kpsolve and Lichess agree |
@@ -1275,7 +1620,7 @@ Each is a single file with no possible capture, so pure tempo.
 | P9 | cyl:7x6 | `Ka5 Pb4 Pc5 Pe2 kc6 pb5 pf3` | (W, L): class 𝓝 | BIG with Z as `on`: (W, W) | (W, L) | Thm 3.3 versus Thm 3.4(b). Black: fxe2 and e1=Q; White: exf3, then zugzwang (Kd5 forced) | PROVED in P; kpsolve agrees |
 | P10 | cyl:8x6 | Z_onT1 + k Black tempo units: k = 0 nothing; k = 1 `Pe2 pe3 pe5`; k = 2 also `Pg2 pg3 pg5` | (W, W) for k = 0, 1, 2 | (L,W), (L,L), (L,L) | (W, W) for k = 0, 1, 2 | Prop 4.3 + Thm 3.4(b): the result does not depend on k, and there is no integer threshold | PROVED in P; kpsolve agrees for k = 0, 1, 2 |
 | P11 | cyl:8x6, `--frozen` | Kings parked on the a-file (`Ka1 ka6`, b- and h-files empty); pawn components on c–g; every passer and race node speed-certified (Remark 2.11 with frozen kings); condition (E). Here W(X) is the D-game of X with its own winning side, and "hereditarily sum-safe" (HSS) means that every component of X is itself sum-safe in the sense of Theorem 1.14(ii) | kpsolve `--frozen` = o(W(X)); also = o(S(X)) when hereditarily sum-safe. Where o(S) ≠ o(W) (opposite threats, Prop 1.12), `--frozen` sides with W | — | — (a harness check, not one position) | Thm 1.11 + Thm 1.14 (frozen kings satisfy V1 and V3 by fiat) | GAP (proof incomplete): the harness checks the hypotheses (revised after K3 check) |
-| P12 | cyl:7x6 | Z_T + any context on e–f | Every disagreement between kpsolve (real) and `kpsolve --frozen` is witnessed, at some loser-to-move node, by a king move that violates (L1), (L2) or (L3), or by an (A_Q) or (V2) failure | — | — (a harness check, not one position) | Thm 2.4(b) + Thm 2.7 (contrapositive) | GAP (proof incomplete), restricted to the nodes where `--frozen` reports a win (revised after K3 check) |
+| P12 | cyl:7x6 | Z_T + any context on e–f | If `--frozen` reports a win for σ at X, then either σ wins in P, or, for every `--frozen` winning strategy of σ, some node of it with σ̄ to move has a king move of σ̄ that is not a P-loss. For that move, and for every admissible reply r (Definition 2.6) and every T ≥ 1, (L1), (L2) or (L3) fails. In chess, add (A_Q) at X | — | — (a harness check, not one position) | Thm 2.7 (contrapositive) + the transfer argument of Corollary 2.7′ | PROVED after repair, in P, for the nodes where `--frozen` reports a win; the chess form needs (A_Q) (revised after K7, 2026-10-22) |
 
 **Notes on the table.**
 - **What P2, P3 and P10 prove.** The derivations use only enumerated move lists (§5.4) and Theorem 3.4(b).
@@ -1343,7 +1688,7 @@ Each item is a counterexample type the task named, or one found while writing.
      allowed.
 3. **Stalemate.**
    - It broke the naive argument: Lemma 1.7 is false under chess rules.
-   - Hence (V1b) in Theorem 1.14, (L3) in Definition 2.6, the "every budget" clause in (L1), and the traps
+   - Hence (V1b) in Theorem 1.14, (L3) in Definition 2.6, the unlimited-pass clause in (L1) (the earlier "every budget" phrasing is withdrawn; revised after K7, 2026-10-22), and the traps
      of §5.4.
    - Remaining gap: (L3) is not checked for P4.
 4. **En passant.**
@@ -1364,8 +1709,8 @@ Each item is a counterexample type the task named, or one found while writing.
    - Context pawns never attack F_Z (Lemma 2.2).
    - Inside Z, checks are part of Z's own move lists. The scratch geometry includes legality under check.
 7. **Extra moves of the winner.**
-   - Z_onT1 gives White king moves to g4–g6 that are not shuttle moves. Lemma 1.6 and the sharp form of
-     Theorem 1.14 cover the winner.
+   - Z_onT1 gives White king moves to g4–g6 that are not shuttle moves. The sharp form of Theorem 1.14 covers
+     the winner: those moves are simply not played, and Lemma 1.6 is not needed (revised after K9, 2026-10-22).
    - When Black is the winner (P9, Black to move), Black's forced line was checked against *all* White moves.
      Black promotes on e1 at its second move, and no White king square is within reach of e1.
 8. **Is the 2-cycle really equivalent to a self-loop?**
@@ -1396,7 +1741,8 @@ Downgraded while writing:
    against passes. Is it still decisive in contexts that are second-player wins for the punisher, with each
    defender tempo answered by a punisher tempo?
    - The question is untested. Every trébuchet placement checked on the 7×6 cylinder satisfied (L1) for every
-     budget.
+     budget k ≤ 4 and for k = ∞ (the local game before K7; Definition 2.6 now has k = ∞ only; revised after K7,
+     2026-10-22).
    - The only plain-but-not-passing wins found are Z_on's sorties Kd4 and Kd5 (§5.5). Z_on also has an
      outright escape, Kc5, so it cannot test the question.
 2. Do both-sides-shuttle (dud) groups exist without a pawn break on the cylinder? Do over-groups exist? Both
@@ -1430,15 +1776,71 @@ Re-implement them before relying on any number.
   - Z_on (§5.5);
   - no dud and no over group.
 - **Local promotion game.** Retrograde least fixed point over (position, side to move, pass budget k ≤ 4 or
-  ∞), with only Z's pieces on the board.
+  ∞), with only Z's pieces on the board. (This is the game as it was before K7. Definition 2.6 now has k = ∞
+  only, counts a mate of s as a win for s̄, and always confines s̄'s king to F_Z. The K7 checks below use the new
+  game; revised after K7, 2026-10-22.)
   - The attacker wins by promoting to a queen that cannot be captured at once.
   - Stalemate, a defender promotion and infinite play are attacker failures.
   - Option: confine the attacker's king to F_Z.
   - The reported T is the number of attacker moves under best play.
 - **μ.** A breadth-first search over the defender's moves alone (king and pawns), with the other side's
   context pawns fixed and its king absent. It covers every context position reachable inside the e-file
-  context.
+  context. (This is the μ_s before K7. Definition 2.6 now counts the defender's king and the context pawns only,
+  with s̄'s king and all Z-pawns deleted and the e.p. clause. The K7 checks below use the new count; revised after
+  K7, 2026-10-22.)
 - **Full P-model check.** The local promotion game run on the full positions of §6, with no budget (k = 0).
+- **K7 checks of Theorem 2.7 (2026-10-22; scripts copied to `kings/delegate/out/K7/scripts/`, raw output in the local
+  archive `kings/delegate/out/K7/k7_k9_scratch.tar.zst`).** They test the
+  statement, not the proof, on random positions with at most 3 pawns a side (revised after K7, 2026-10-22):
+  - a Python move generator, which agrees with `kpsolve --moves` on 1200 random positions (cyl:7×6, cyl:6×5,
+    flat:5×4) and on 600 positions with an e.p. right (cyl:7×6, flat:6×6);
+  - a solver of the local game of (L1) (passes, confined king, mate of s a win, promotion by s a failure, T ≤ 5),
+    a search for μ_s (context pawns only, and the old count with Z-pawns), and a search of the real window game
+    for (L3). In that search s is free, and s̄ plays any move whose projection is a winning local move, except
+    king moves off F_Z. It did **not** exclude context moves of s̄, so its strategies are wider than the guided
+    strategies of Definition 2.6 as now worded (Z-moves only). The runs are therefore not an exact test of the
+    stated (L3); a reviewer's corrected harness (below) restricts s̄ to Z-moves;
+  - the exact P value from a private copy of `kings/kpsolve.c` with one added switch, `--pmodel` (a promotion wins at
+    once for the promoter, kings move normally). The project file is unchanged. The whole patch is three lines:
+    `PMODEL = 0` added to the static flags next to `FROZEN`; the test `if (FROZEN) emit(..., 'P', ...)` at the
+    promotion move generator changed to `if (FROZEN || PMODEL) emit(..., 'P', ...)`; and
+    `else if (!strcmp(argv[i], "--pmodel")) PMODEL = 1;` in the option parser.
+  - All K7 runs of the drafter used F_Z = {a, b, c}.
+  - **Run 1 (first draft; no e.p. right at Q).** Window positions (Theorem 2.7(b); Z-group on files a–c): 9300
+    positions on cyl:7×6, 7×5, 7×7, 8×6 and flat:6×6; (L1) holds in 2221, and LC_T (with (L2) on context pawns and
+    (L3)) in 1379. In all 1379 s̄ wins P. Random Y, Z-move m, reply r (any non-promoting Z-move reply keeping s̄'s king
+    on F_Z), cyl:7×6: 3787 triples, LC_T in 508, again all P-wins. The generator set no e.p. right at Q, so this run
+    could not meet the case that broke the first draft of (b). Its (L3) routine also rejected any real promotion
+    by s, which cannot happen under (L1) and (L2), so it tested a subset of the stated hypotheses.
+  - **Run 2 (after the review of the first draft; e.p. right at Q).** Each position has an e.p. right: an s̄ pawn has
+    just double-stepped, and an s pawn stands beside it in 85% of the cases. The target is off F_Z, except in one
+    cyl:7×6 run where half of the positions have it on F_Z (934 positions with LC_T in that run, 522 of them with the target on F_Z). 34000 random positions
+    on cyl:7×6 (twice), 8×6, 7×5, 7×7 and flat:6×6, T ≤ 4 (T ≤ 3 on 7×5), with (L3) as stated (stalemate of s only). (L1) holds in 7559.
+    LC_T with the e.p. clause of (L2) holds in 4998, and **in all 4998 s̄ wins P: no counterexample**. LC_T read
+    without the e.p. clause (the first draft) holds in 5128, and in 70 of them s̄ does not win P, which are
+    counterexamples to the first draft of (b).
+  - Where hypotheses fail (run 1): (L1) holds and (L2) fails in 709 non-wins; (L3) fails in 3 of the window positions
+    and in 3 of the triples (all draws by stalemate of s); the old Z-pawn count would have rejected 105 window
+    positions that are P-wins; in 221 the queen clause of (L1) fails while (L1_P) holds and s̄ wins P.
+  - Examples: `Kb5 kd5 Pb4 Pc5 Pe3 Pf3 Pf4 Pf5` (b), `Kd6 kc2 pa3 Pe4 pe5 pf5` (w), `Ke6 ka1 Pc4 pb3 pc5` (w),
+    `Kd6 kc4 Pe3 pa4 pe4 pf3` with e.p. right f4 (w) (cyl:7×6). The last one, found by the reviewers, is a White
+    win in P and a Black win in P without the right (private patched copy of `kpsolve.c`).
+  - **Independent re-check by a reviewer (2026-10-22; scripts in `kings/delegate/out/K7/scripts/review2/`).** A second implementation,
+    written without the drafter's code, using kpsolve only for P values. Numbers as reported by the reviewer, not
+    re-run by me, except where stated:
+    - its move generator agrees with `kpsolve --moves` on 1600 random positions; it reproduces the (L1) values of
+      §5.1 (below); Corollary 2.8 holds on 9566 placements on 4 boards, with the queen clause;
+    - window form (b), random Q with 1 to 3 pawns a side, about 45000 pairs satisfying (L1) to (L3) on cyl:7×6
+      (F_Z = a–c, b–d, a–b, a–d), cyl:7×5, cyl:6×6, flat:6×6 and flat:7×6 (middle group): no non-win. A structured
+      e.p. family (an s pawn blocked by an s̄ pawn beside one that has just double-stepped): 19525 pairs with the
+      e.p. clause, no non-win. The same positions without the clause: 53210 pairs, 8387 of them P non-wins. So the
+      harness has power, and the clause cures the first draft's error. A stalemate-focused family: 40308 pairs, no
+      non-win. When (L1) and (L2) hold and (L3) fails, 109 of 139 are P non-wins, so (L3) is needed;
+    - form (a): 117232 triples (random Y, every Z-move m, every admissible r), and in all of them both Y·m and Q are
+      P-wins for s̄. The quantitative claim, that a guided strategy of s̄ wins within T moves against every legal real
+      play of s, had no failure in about 70000 pairs. With μ_s = T instead of T + 1, about 23 percent of the LC
+      positions are non-wins;
+    - sharpness examples of the text above: I re-ran them myself with the private builds, and they agree.
 
 ---
 

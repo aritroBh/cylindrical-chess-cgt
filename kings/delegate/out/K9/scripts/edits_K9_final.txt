@@ -1,0 +1,137 @@
+### EDIT 1: status row T1.14, sharp form
+<<<<<<< OLD
+| T1.14, sharp form | GAP → GAP (proof incomplete): every legal Z-move of the loser at its turns must be a P-loss (revised after K3 check) | R2 item 6 |
+=======
+| T1.14, sharp form | GAP → PROVED after repair: simulation form on a σ-certified set N of P-positions, with (S1) the winner's step, (S2) the loser's step (a D-move or a P-loss) and (S3) no stalemate; proof by induction on the D-rank. The winner may move in Z. Not yet independently re-checked (revised after K9, 2026-10-22) | R2 item 6; K3, K9 |
+>>>>>>> NEW
+
+### EDIT 2: section 0 table row T1.14, sharp-form clause
+<<<<<<< OLD
+| T1.14 | Validity: (V1)–(V3) give P = D (no draws), (V4) gives o(S) = P, and (A_Q)(X) gives C = P | (i) PROVED; (ii), (iii) PROVED after repair; the sharp form is a GAP. The C part is the per-position hypothesis (A_Q)(X) |
+=======
+| T1.14 | Validity: (V1)–(V3) give P = D (no draws), (V4) gives o(S) = P, and (A_Q)(X) gives C = P | (i) PROVED; (ii), (iii) PROVED after repair; the sharp form is PROVED after repair (simulation form on a certified set; revised after K9, 2026-10-22). The C part is the per-position hypothesis (A_Q)(X) |
+>>>>>>> NEW
+
+### EDIT 3: Sharp form paragraph
+<<<<<<< OLD
+**Sharp form (GAP (proof incomplete): R2 item 6).** (revised after K3 check)
+- (V2) is needed only for the terminals reached under *one* D-winning strategy of the D-winner.
+- (V3) is needed in the stronger form: at every loser-to-move node of that strategy, **every** legal Z-move of
+  the loser is a P-loss for the loser. The earlier wording ("needed only for terminals") was false as stated: a
+  loser's Z-move that is not punished is not a terminal, and then the Lemma 1.7 reduction and the shortness of
+  D both fail.
+- (V1a) splits into two halves:
+  - the winner's prescribed D-moves must be legal chess moves;
+  - every legal chess move of the loser must be a D-option.
+
+  The winner may have extra legal moves (Lemma 1.6).
+- The conclusion of the sharp form is the result of the strategy itself, not a normal-play result: the D-winner
+  σ wins P(X) by that strategy. The claim "the result is the normal-play result of G₁ ⊞ … ⊞ G_k (Z deleted)"
+  belongs to (i), not to the sharp form.
+
+Theorem 2.4 is the version of this statement for Z.
+=======
+**Sharp form (PROVED after repair; revised after K9, 2026-10-22).** (revised after K3 check; statement and proof
+rewritten as a simulation lemma, revised after K9, 2026-10-22)
+
+*Setting.*
+- A *P-position* is a chess position before the first promotion, with the side to move. σ is one side and σ̄ the
+  other. A *P-win for σ* is a forced win in finitely many moves (the least fixed point, as in Definition 1.2):
+  a promotion by σ or a checkmate of σ̄. Stalemate and infinite play are not wins. The defining clauses are:
+  - with σ to move, a position is a P-win if σ has a legal move that promotes or leads to a P-win;
+  - with σ̄ to move, a position is a P-win if σ̄ is not stalemated (it has a legal move, or it is in check) and
+    every legal move of σ̄ leads to a P-win (so none of them promotes).
+- Fix a D-game D (Definition 1.1, possibly loopy) and a map π from P-positions to the positions of D that keeps
+  the side to move. For D(X) of Definition 1.5, π is the identity. D(X) can be fixed in two ways, and the theorem
+  below holds for both and for any other D:
+  - (a) every Z-move is a terminal for the opponent of the mover, as under (V3);
+  - (b) Z is a loopy component. Its terminals are the P-punished Z-moves (Definition 1.5), and its other
+    Z-moves are ordinary options: the shuttle of Z_onT1 is `on_D`.
+
+  For the chess bridge after Proposition 3.2, D = G ⊞ on_D and π sends both shuttle states to ω.
+- A legal chess move y → y′ is a *D-move* if it does not promote and π(y′) is a D-option of π(y). Legal chess
+  moves that are not D-moves may exist, and so may D-options that are not legal chess moves (the move Kd5 of
+  §5.4 when e4 covers d5). Both are allowed.
+- W_σ is the set of D-positions (x, s) from which σ forces a D-win in finitely many moves: the least fixed
+  point of "(x, σ) ∈ W_σ if some option is the σ-terminal or lies in W_σ; (x, σ̄) ∈ W_σ if every option is the
+  σ-terminal or lies in W_σ" (with no option, σ̄ loses by normal play). ρ(x, s) is the stage at which (x, s)
+  enters, and ρ = ∞ outside W_σ. So every option of a σ̄-node of W_σ is the σ-terminal or lies in W_σ with
+  smaller ρ, and every σ-node of W_σ has such an option. Write ρ(y) for ρ(π(y), side to move at y).
+
+*Statement.* A legal move is *closing* if it promotes with σ or leads to a P-win for σ. A set N of P-positions is
+*σ-certified* if ρ(y) < ∞ for every y ∈ N and, for every y ∈ N:
+- **(S1)** (σ to move) σ has a legal move that is closing, or is a D-move to some y′ ∈ N with ρ(y′) < ρ(y);
+- **(S2)** (σ̄ to move) every legal move of σ̄ is closing, or is a D-move to some y′ ∈ N;
+- **(S3)** (σ̄ to move) σ̄ is not stalemated.
+
+**Theorem 1.14, sharp form.** If a σ-certified set N contains X, then X is a P-win for σ.
+
+*Proof.* We show by induction on ρ(y) that every y ∈ N is a P-win for σ. Let y ∈ N, and assume the claim for all
+members of N of smaller ρ.
+- *σ to move.* Take the move of (S1). If it is closing, y is a P-win by the clause above. Otherwise it leads to
+  y′ ∈ N with ρ(y′) < ρ(y), a P-win by the induction hypothesis, so y is a P-win.
+- *σ̄ to move.* By (S3), σ̄ has a legal move or is in check. Consider any legal move of σ̄. By (S2) it is
+  closing, so it does not promote and leads to a P-win; or it is a D-move to some y′ ∈ N. In the second case π(y′)
+  is a D-option of the σ̄-node π(y) of W_σ, and it is a position of D, not a terminal, so ρ(y′) < ρ(y) by the
+  definition of ρ, and y′ is a P-win by the induction hypothesis. So σ̄ is not stalemated
+  and every legal move of σ̄ leads to a P-win: y is a P-win. (If σ̄ has no legal move, it is checkmated and the
+  condition is vacuous.)
+
+ρ takes values in the natural numbers, so the induction covers N. ∎ The proof is also a strategy: σ plays
+rank-lowering D-moves until a closing move, and then plays a winning strategy of the P-position reached. Every
+move lowers ρ or ends the D-phase, so the win takes finitely many moves.
+
+*Reading in the vocabulary of Theorem 1.14.* Take a D-winning strategy Σ of σ that lowers ρ at every σ-move,
+and let N be the P-positions that occur when σ plays Σ as legal chess moves and σ̄ plays any legal D-move.
+- (S1) is (V1a) for the winner, along Σ only: Σ's move is a legal chess move **and the resulting position is the
+  prescribed D-successor** (this is what "the same resulting positions" means; it excludes a king move that
+  captures a context pawn or steps onto a buffer file). If Σ prescribes a σ-terminal, the move must be a P-win:
+  this is (V2) at the winner's terminals. The winner may move in Z: the shuttle of Z_onT1 is a Z-move that is an
+  ordinary D-option, legal in every context by Lemma 2.2 (Proposition 3.2). The claim "σ never plays a Z-move"
+  belongs to the proof of (i), where (V3) makes every Z-move a suicide, and is not used here. The winner's other
+  legal moves are never played and need no hypothesis.
+- (S2) is (V1a) for the loser, together with (V2) and (V3): every legal move of σ̄ at a node of N is a D-move
+  or a P-loss for σ̄. In reading (a) every Z-move of σ̄ is a σ-terminal, so (S2) says that **every legal Z-move
+  of σ̄ is a P-loss**: this is the strong form of (V3) found by the K3 check, for all legal Z-moves and not only
+  those played, because σ̄ chooses. In reading (b) an unpunished Z-move of σ̄ (a loser that owns a shuttle) is a
+  D-move and needs no punishment. A decisive event that σ̄ makes for σ is a closing move, which is (V2).
+- (S3) is (V1b) restricted to the loser's nodes of N. Checkmate of σ̄ is a P-win, so only stalemate must be
+  excluded. The normal-play rule of D, "no option loses", is never used.
+- Checks need no separate hypothesis: the loser's moves are legal chess moves, and the winner's are legal by (S1).
+- Existence is what is needed: N depends on the choice of Σ. In P2 + H\* White's e3–e4 stalemates Black (§6),
+  so N has to be built from the shuttle Ka6.
+
+The conclusion is a strategy win in P, not a normal-play result; the claim "the result is the normal-play result
+of G₁ ⊞ … ⊞ G_k (Z deleted)" belongs to (i). Lemmas 1.6 and 1.7 are not used: Z is not deleted, and the winner's
+extra legal moves are simply not played. Exhibiting N at a concrete position is a separate check, which this
+paragraph does not do for any position of §6 beyond what the text says there. The chess bridge after Proposition
+3.2 is the instance D = G ⊞ on_D; its proof cites the proof of (i), whose "σ never moves in Z" step does not cover
+White's shuttle, so the sharp form is the right citation for it.
+
+*Sharpness of (S1)–(S3)* (examples already in the note; revised after K9, 2026-10-22).
+- **(S3).** P1a with real kings, `Ka5 Pb4 Pc5 Pe2 Pe4 / kc6 pb5 pe5` (§5.4; PROVED by enumeration, kpsolve
+  (D, D)). The convention reads it as (W, W), and so does D, where Black's only option is
+  the suicide Kd5. In chess Kd5 is illegal, Black has no legal move and is not in check, so (S2) holds vacuously
+  and (S1) holds (the shuttle Ka6), yet the position is a draw. Only (S3) fails.
+- **(S2), a legal Z-move of the loser that is not a P-loss.** 7.3 (§5.3), P8 `Kc6 Pb5 kb4 pc5` (kpsolve (W, W),
+  PROVED in P): the convention (reading (a)) gives (L, W), but White's Z-move b5–b6=Q (f7–f8=Q on 8×8) is a legal
+  move of the loser that wins. P2 + H0, `Ka5 Pb4 Pc5 kc6 pb5 Pe3 pe4` (kpsolve (W, W)): reading (a) gives (L, W)
+  and White's Ka6 is not a P-loss; reading (b) is the one that applies (Proposition 3.2). P4 with H0, Black to
+  move: Black's king sorties Kd3 and Kd2 are legal Z-moves of the loser that do not lose (a king-context
+  interaction; kpsolve with cap 2 gives a draw instead of the predicted (L, W); COMPUTED-1 in C, and P was not
+  run).
+- **(S2), a decisive event that is not a P-win (V2).** Races (L4.1 of `notes/lemmas.md`, modulo KQK) and §5.5,
+  `Ka4 Pb2 kc5 pb3 w -` = (D, D): Black's Kc5 is scored as a White passer in D but is not a P-win (CONJECTURE,
+  scratch evidence, kpsolve agrees). For the winner, the same failure removes closing moves: in 7.3 a Black
+  passer is a ⊖ in D and loses to f8=Q in P.
+- **(S1).** For an abstract D the need is trivial: with no legal move realising Σ's step, nothing transfers. For
+  the natural D(X) no isolated counterexample is known, so "(S1) is needed" is a CONJECTURE, as for (V1a).
+
+*Relation to Theorem 2.4.* Theorem 2.4 is a statement inside D (G short and under normal play, Z a king group, σ
+never moving in Z). The sharp form compares P with D and lets σ move in Z. Neither is a special case of the
+other. Both say that a winning strategy of a model transfers to the real game when every real move of the loser
+is a model move or loses on the spot.
+
+*Label.* PROVED after repair: the proof above is complete for the abstract statement. It has not yet been
+independently re-checked, because K3 saw only the earlier draft.
+>>>>>>> NEW

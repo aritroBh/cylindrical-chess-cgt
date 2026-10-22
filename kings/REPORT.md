@@ -48,8 +48,15 @@ to cylcgt's BIG arithmetic, 1.14(ii), needs the corrected (V4) below (§7). The 
   *either* side's move, a correction from the review in §7), and BIG exceeds every tempo count.
 
 (V3) has a checkable local certificate: the punisher promotes within T moves even if the defender may
-pass, and the defender cannot promote anywhere in T moves (Theorem 2.7). Its proof still has a gap after the
-unlimited-pass repair (K3; LOOPY's status table; §7).
+pass, and the defender cannot promote anywhere in T moves (Theorem 2.7).
+- **Theorem 2.7 is PROVED after repair, in the promotion model P** (task K7, 2026-10-22). P is chess in which
+  the first promotion wins. The bound μ ≥ T + 1 on the defender's counter-promotion is exact there.
+- **It does not give a chess win, and no margin on μ does.** Examples on the 7×6 cylinder, each a Black win in
+  P (kpsolve, cap 2):
+  - `Kb4 ka1 Pe4 pa2` with Kb4–c5 meets the horizon-1 certificate, yet the chess result is a draw;
+  - `Kc5 ka3 Pe2 pc4` with Kc5–d5 meets the horizon-2 certificate, yet White wins in chess.
+- A chess conclusion therefore needs the per-position check (A_Q).
+- See LOOPY.md, "What Theorem 2.7 does not give". The repaired proof was checked only by AI reviewers.
 - With **T = 1**, condition (L2) of the certificate holds in every chess-legal context without a passer, on
   boards with at least 5 ranks, provided the defender has no king-group pawn one move from promotion
   (Proposition 2.10a). (L1) must still be checked for the group, and (L3) in each context.
@@ -298,7 +305,7 @@ Every deliverable was given to independent referees (Claude models) told to brea
 | Reference solver `kings/ref/` | 1 | No defect. The referee wrote a **third** solver of its own (dict boards, plain repeated passes, no counters) and compared all 282,816 input lines of 19 material sets with `kings/ref/`, with **0 differences**. Its harness caught a deliberately broken control (1,488 differences). Minor defects: random-test seeds were not reproducible (fixed), and input leniencies were documented. |
 | kpsolve (indirectly) | 2 | Two referees ran kpsolve on 25 hand-analysed positions of their own (stalemates, mates across the seam, e.p. pins, underpromotion, 4-rank double steps). All agree with their analysis. |
 | Data extraction `kings/data/` | 1 | Every count matches the sources. It found two frozen-king failures the extraction had missed, double counting, and some over-labelled claims. All are recorded in the erratum at the end of [data/DATA.md](data/DATA.md) and added to [results/FAILURES.md](results/FAILURES.md). |
-| Theory [theory/LOOPY.md](theory/LOOPY.md) | 4 Claude referees, then K3 (an external model) on the repairs | **Sound:** Lemmas 1.6, 1.7; Theorems 1.9, 1.11(a), 1.14(i), 3.3, 3.4 (the loopy outcome rules, including draws); Corollaries 2.8, 3.5; Propositions 1.12, 2.10(b), 4.5, 4.6; the applications in §5 (label slips only). **False as stated, with a known repair:** Theorem 1.11(b) (the threat set missed suicides), Proposition 1.13, Theorem 2.4 for drawish contexts, Proposition 2.10(a) on 4-rank boards, Proposition 4.3, and the promotion-to-chess bridge (A_Q). **Gaps in the reviewed version:** Theorems 1.14(ii), 2.7 (the pass-budget step; repairable with an unlimited-pass argument), 4.2; Lemma 2.9 (a hidden hypothesis); Remark 2.11. **Revision (2026-10-21):** the note was revised against all four reports by three external models (kilo minimax, opencode nemotron, opencode best-free; 64 edits, `kings/delegate/out/K1a..K1c/`). It now opens with a status table giving every result's final label. K3 then checked the repairs: 13 of 17 sound, 4 downgraded to GAP. **Final labels** (LOOPY's status table): 1.14(ii), 4.2 and Lemma 2.9 (with its added hypothesis) are PROVED after repair; the sharp form of 1.14, Theorem 2.7, P11 and P12 remain GAP; Remark 2.11 is a heuristic. **T30 proof audit (main project, 2026-10-22, `notes/proof_audit2/REPORT.md`):** the proof of Proposition 2.10(a) lacked a step for en passant; it is added, and H ≥ 5 stands under both passed tests. (The audit read 2.10(a) as false on 5 ranks, but its example concerns a pawn of the side not to move, which (L2) does not count; the stronger either-colour statement does need 6 ranks.) The proof of Theorem 2.3 had been overwritten by a misanchored edit (restored, and the edit moved to §1.4). A count in Theorem 1.11(b)–(c) was one short and the canonical form of 0 was misstated (fixed; conclusions unchanged). The §0 summary labels now match the status table. The kings/ side session wrote these fixes. Two Sonnet reviewers read the first draft, which led to the correction of the audit's reading of 2.10(a). Two more read the revised text, and their remaining wording points were applied. K3 saw none of them, and its SOUND verdicts on 1.11(b) and 2.10(a) predate them. |
+| Theory [theory/LOOPY.md](theory/LOOPY.md) | 4 Claude referees, then K3 (an external model) on the repairs | **Sound:** Lemmas 1.6, 1.7; Theorems 1.9, 1.11(a), 1.14(i), 3.3, 3.4 (the loopy outcome rules, including draws); Corollaries 2.8, 3.5; Propositions 1.12, 2.10(b), 4.5, 4.6; the applications in §5 (label slips only). **False as stated, with a known repair:** Theorem 1.11(b) (the threat set missed suicides), Proposition 1.13, Theorem 2.4 for drawish contexts, Proposition 2.10(a) on 4-rank boards, Proposition 4.3, and the promotion-to-chess bridge (A_Q). **Gaps in the reviewed version:** Theorems 1.14(ii), 2.7 (the pass-budget step; repairable with an unlimited-pass argument), 4.2; Lemma 2.9 (a hidden hypothesis); Remark 2.11. **Revision (2026-10-21):** the note was revised against all four reports by three external models (kilo minimax, opencode nemotron, opencode best-free; 64 edits, `kings/delegate/out/K1a..K1c/`). It now opens with a status table giving every result's final label. K3 then checked the repairs: 13 of 17 sound, 4 downgraded to GAP. **Final labels** (LOOPY's status table): 1.14(ii), 4.2 and Lemma 2.9 (with its added hypothesis) are PROVED after repair; after K7 and K9 (2026-10-22) Theorem 2.7, P12 (in P) and the sharp form of 1.14 are PROVED after repair, and only P11 remains GAP; Remark 2.11 is a heuristic. **T30 proof audit (main project, 2026-10-22, `notes/proof_audit2/REPORT.md`):** the proof of Proposition 2.10(a) lacked a step for en passant; it is added, and H ≥ 5 stands under both passed tests. (The audit read 2.10(a) as false on 5 ranks, but its example concerns a pawn of the side not to move, which (L2) does not count; the stronger either-colour statement does need 6 ranks.) The proof of Theorem 2.3 had been overwritten by a misanchored edit (restored, and the edit moved to §1.4). A count in Theorem 1.11(b)–(c) was one short and the canonical form of 0 was misstated (fixed; conclusions unchanged). The §0 summary labels now match the status table. The kings/ side session wrote these fixes. Two Sonnet reviewers read the first draft, which led to the correction of the audit's reading of 2.10(a). Two more read the revised text, and their remaining wording points were applied. K3 saw none of them, and its SOUND verdicts on 1.11(b) and 2.10(a) predate them. |
 | This report | — | The literal-cylcgt baseline in §5 and the weakened 8×8 asymmetry claim in §4 come from these reviews. |
 
 **What the reviews change in the conclusions.**
@@ -306,13 +313,19 @@ Every deliverable was given to independent referees (Claude models) told to brea
 - The general validity theorem stands in its main part, 1.14(i): with frozen kings, decisive events and no
   stalemate, the result is the normal-play result.
 - The step to cylcgt's BIG arithmetic, 1.14(ii), holds with the corrected (V4): PROVED after repair, and K3
-  found the repair sound. The certificate for slow punishments, Theorem 2.7, still has a gap.
+  found the repair sound. The certificate for slow punishments, Theorem 2.7, is PROVED after repair in P (K7),
+  but gives no chess win without (A_Q).
 - The loopy rules for spare tempo, Theorem 3.4, were found sound by every theory referee (all AI models).
   In chess they are confirmed on the positions kpsolve solved (§5), not in general.
 - In the revised note, "PROVED after repair" marks a proof written by an external model, read by the
   integrator, and then checked by another external model (K3). K3 found 13 of the 17 repairs sound, and
-  downgraded 4 to GAP: the sharp form of 1.14, Theorem 2.7, and predictions P11 and P12. The T30 fixes of
-  2026-10-22 came later. They were reviewed by Sonnet reviewers in two rounds, not by K3 (see the Theory row
+  downgraded 4 to GAP: the sharp form of 1.14, Theorem 2.7, and predictions P11 and P12.
+  - K7 (2026-10-22) later repaired Theorem 2.7 and P12, in P. A Sonnet agent drafted the repair, and two rounds of
+    three Sonnet reviewers checked it. The first round refuted a window form, which was then fixed.
+  - K9 repaired the sharp form of 1.14. A free model drafted it, and Sonnet reviewers and a fixer rewrote it as a
+    simulation lemma.
+  - Only P11 remains GAP.
+  - The T30 fixes of 2026-10-22 came later. They were reviewed by Sonnet reviewers in two rounds, not by K3 (see the Theory row
   above).
 - A non-Claude referee (K2, kilo nemotron, `kings/delegate/out/K2/REPORT.md`) recomputed every number in
   this report from the raw files and confirmed all of them. It also re-ran the cross-check and the 8×8 king
