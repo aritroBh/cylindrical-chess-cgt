@@ -130,10 +130,14 @@ eight-pawn rings on $\cyl{5}$ \lab{C1}. Narrower cylinders need fewer pawns. On 
 $\nim{2}$ with six pawns in the default setting is \pos{W a2 a3 b2 / B b7 c6 c7}, and on $\cyl{4}$ the first
 are \pos{W a4 b2 c2 / B b6 c5 d6 d7} and its color-reversed twin, with seven; our engine confirms both values
 \lab{C2}. No ring with fewer pawns is a $\nim{2}$ on either cylinder (the atlas up to five pawns, and a C scan
-of every six- and seven-pawn split) \lab{C1}. On $\cyl{6}$ the first rings have nine pawns, among them
-\pos{W a4 c4 d2 e2 / B b6 b7 d6 e5 f6}; both programs confirm three of them \lab{C2}. So the first ring
+of every six- and seven-pawn split) \lab{C1}. On $\cyl{6}$ the first rings have nine pawns: a scan of every
+nine-pawn ring finds six \lab{C1}, among them \pos{W a4 c4 d2 e2 / B b6 b7 d6 e5 f6}; both programs confirm
+three, and the other three are their color-reversed twins \lab{C2}. So the first ring
 $\nim{2}$ on $\cyl{n}$ has $n+3$ pawns for $n=3,\dots,6$. The $\cyl{3}$ ring needs en passant (with e.p.\ off its value is $0$), and it is a $\nim{2}$ with
-one pawn fewer than any ordinary board of width at most four allows.
+one pawn fewer than any ordinary board of width at most four allows. Rings also carry $\nim{3}$, though not in
+the default setting: with e.p.\ off, the eight-pawn ring \pos{W a5 b3 c2 d2 / B a7 b5 c6 d4} on $\cyl{4}$ is
+$\nim{3}$ under the opponent rule, and the ten-pawn ring \pos{W a2 a3 b2 b3 c3 / B a6 a7 b6 b7 c6} on $\cyl{3}$
+under the count rule \lab{C2}.
 
 In the model, then, the $\nim{2}$ question has a positive answer on the ordinary $8\times8$ board: four files
 and seven pawns beside T suffice, while Elkies' higher nimbers need larger boards~\cite{Elkies2002}. Whether real

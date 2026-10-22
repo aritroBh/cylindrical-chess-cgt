@@ -21,6 +21,10 @@
 - **Drummond-Cole**, *Positions of value \*2 in generalized Domineering and chess*, Integers 5 (2005) G06. Gets \*2 in a legal 8×8 game, but **needs bishops, knights, rooks and queens** to freeze the pawns.
 - **Siegel**, *Coping with cycles*, GONC3 (MSRI 56, 2009). Chess positions of value on and upon.
 - **Gafni**, *Chess as a combinatorial game*, thesis 2011. K+P vs K on 3×3 and 3×4 boards as loopy games: on\*, {on|0}, 1\*.
+  **[unverified, 2026-10-22]** A later search ([novelty_check/REPORT.md](novelty_check/REPORT.md)) could not
+  locate this thesis in arXiv, Google Scholar or Semantic Scholar, so the "full text" claim in the header does
+  not hold for Gafni. The paper does not cite it. `kings/delegate/out/K4/REPORT.md` tests these values without
+  the source.
 - **Wu, Yü, Landry**, Stanford Math 191 paper. **Dated Dec 2010, not 2020** — the 2025 draft's citation needs correcting. Nothing beyond Elkies.
 - **Khan & Ahmad** (c. 2004): claims \*2/dud/over in historical games. Unreliable: its \*2 contradicts Elkies.
 - **Haworth et al.**: mutual zugzwangs mined from tablebases (ICGA J. 2001, 2011; ACG12).

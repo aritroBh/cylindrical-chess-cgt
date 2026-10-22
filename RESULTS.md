@@ -288,6 +288,29 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   - Its self-check, re-run here, gives 27 PASS.
 - **Review log of external reports:** [delegate/REVIEW.md](delegate/REVIEW.md).
 
+## 6c. New on 2026-10-22
+
+- **Rings: the first ring \*2 on Cn has n+3 pawns for n = 3, …, 6** (default setting; values CHECKED-2,
+  minimality C1).
+  - On C6, a scan of every nine-pawn ring finds exactly six \*2, three positions and their color-reversed twins,
+    among them `W a4 c4 d2 e2 / B b6 b7 d6 e5 f6`.
+  - No ring with eight pawns or fewer is \*2 on C6.
+  - Paper §VIII; open problem 3 asks about C7 with ten pawns.
+- **\*3 rings in non-default settings (CHECKED-2: the C scanner, and cylcgt with and without component
+  splitting).**
+  - C4, 8 pawns, opponent rule, e.p. off: `W a5 b3 c2 d2 / B a7 b5 c6 d4` and its twin `W a5 b3 c4 d2 / B a7 b7 c6 d4`.
+  - C3, 10 pawns:
+    - count rule, e.p. off: `W a2 a3 b2 b3 c3 / B a6 a7 b6 b7 c6` and `W a2 a4 b2 b3 c3 / B a5 a7 b6 b7 c6`;
+    - opponent rule, e.p. on: `W a2 a3 b2 b3 c3 / B a6 a7 b6 c6 c7` and `W a2 a4 b2 b3 c3 / B a5 a7 b6 c6 c7`.
+  - No \*3 occurs in the default setting in any scope searched. Paper §VIII has one sentence.
+  - Checks: `delegate/checks/c3p10/`, `delegate/checks/c4p8/`.
+- **C3, 10 pawns, default setting:** 741,110 rings, two of them \*2 (twins):
+  `W a2 a5 b2 b4 c2 / B a7 b5 b6 c4 c7`. CHECKED-2.
+- **Scanner bug fixed** (`research/star26_rings/BUGFIX_frontier_split1.md`).
+  - Cause: a stale memo-table pointer.
+  - It crashed large runs, but never changed a value.
+  - The crashed runs are re-run with `frontier_split1_fixed`; details in [delegate/REVIEW.md](delegate/REVIEW.md).
+
 ## 7. Pending
 
 **Verification gaps.** 35 adversarial verifiers were cut off by the Claude usage limit. Not verified:
@@ -320,6 +343,19 @@ The completeness critic did not run either. The rest of the verdicts are in each
   - The trébuchet's zero is context-dependent.
 - **Solver check.** `kings/kpsolve` agrees with an independent solver on 1,418,480 positions.
 - **Real chess.** Both trébuchets are real mutual zugzwangs. The 7.2 king group is not (confirmed by Lichess).
+- **K+P vs K without edges (K4, CHECKED-2; [kings/delegate/out/K4/REPORT.md](kings/delegate/out/K4/REPORT.md)).**
+  - Setup: normal play (stalemate loses), boards 3×4 to 5×5, flat and cylinder, 20,556 quiet placements, each
+    summed with 16 test games.
+  - Every placement is a decisive win, on, off, dud or unmatched; no number or infinitesimal occurs. off is
+    exactly the White-stalemated pattern.
+  - Removing the edges changes the class of 12.5–20.5% of placements. Paper §IV-D has one sentence.
+  - Gafni's on\*, {on|0} and 1\* do not occur (on + \* only tied with on). The Gafni thesis itself was not located.
+- **Canonical values by difference games (K5b, CHECKED-2; [kings/delegate/out/K5b/REPORT.md](kings/delegate/out/K5b/REPORT.md)).**
+  - `sumtest/sumsolver.py`, which computes no canonical forms, finds G − V to be a second-player win for 72
+    of 81 target × setting pairs: 1/8 (×3), 1/16, ↑², ↑²\*, tiny(1), a2 c2 / b7 d7 and the C3 ring \*2.
+  - The other 9 contain ±BIG and are not testable this way.
+  - Caveat: sumsolver is also Claude-written. K5, a free-model "independent" engine, was a copy of cylcgt and is
+    rejected.
 
 **Lc0** at 1M nodes finished: 233/233 best moves win and 233/233 evals match (commit 1cc5ebb).
 

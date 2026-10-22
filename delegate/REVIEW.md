@@ -297,8 +297,8 @@ of T29 is pending.
 |---|---|---|---|---|
 | C3 | 7 | 92,072 | 0 | |
 | C3 | 8 | 235,720 | 4 | |
-| C3 | 9 | 341,086 | 0 | |
-| C3 | 10 | 372,595 | 0 | |
+| C3 | 9 | 341,086 | 0 | Superseded: 470,832 after the scanner fix (below) |
+| C3 | 10 | 372,595 | 0 | Superseded: 741,110 rings and 2 \*2 after the scanner fix (below) |
 | C4 | 8 | 1,344,419 | 3 | One \*3, under opponent/e.p. off only |
 | C4 | 9 | 4,890,628 | 0 | |
 
@@ -321,3 +321,42 @@ No \*k with k ≥ 3 in the default setting anywhere.
   These values are CHECKED-2.
 - **Conclusion:** with no ring \*2 on C6 up to 8 pawns (C1), the first ring \*2 on Cn has n+3 pawns for
   n = 3, …, 6. The minimality is C1. Paper §VIII and open problem 3 are updated.
+
+## Scanner bug in `frontier_split1` (Sonnet agent; `research/star26_rings/BUGFIX_frontier_split1.md`). Accepted.
+
+**The bug.** `solve()` held a pointer into the memo table across its recursive calls. A nested call could grow
+the table and free the old one, so the later store wrote into freed memory. A second bug: `iw[8]`/`ib[8]`
+overflowed for a side with 9 pawns.
+- The orchestrator read the diff: the fix re-looks-up the slot just before the store and sizes the arrays 16.
+- **Values were never wrong.** A lost store only drops a memo entry, which is recomputed. The fixed binary
+  reproduces stored outputs byte for byte (C4 8-pawn 4+4; C6 chunks 1 and 2; one-line patches of the
+  `star3_hunt` and `star2_width5` scanners reproduce their stored files).
+- **What the bug did do.** It crashed runs, and the summaries of crashed runs read as "0 hits" (blank `rows`).
+  Six such artifacts were found; blank `rows` with a log line `roots=0` are genuine empty splits, not crashes.
+
+**Re-runs with the fixed binary** (`research/star26_rings/fixed_rerun/`):
+
+| Run | Roots | Result |
+|---|---|---|
+| C6 p9 4+5, chunk 0 (32 sub-chunks; a second partition agrees) | 2,822,072 | 0 \*2, max nimber \*1 |
+| C6 p9 5+4 (128 sub-chunks), default setting | 9,399,689 | 3 \*2: the color-reversed twins of the three 4+5 rings; outcome counts are the exact mirror of 4+5 |
+| C3 p9 4+5 | 129,746 | 0 hits in all nine settings |
+| C3 p10 5+5 | 205,280 | 2 \*2 in the default setting (twins of each other); \*3 in other settings, below |
+| C3 p10 6+4 | 163,114 | 0 hits |
+| C3 p10 1+9 and 9+1 | 2,681 each | 0 hits (the original 1+9 had 2,560 roots because of the array overflow) |
+
+- **C6, 9 pawns, default setting:** exactly 6 ring \*2 (three and their twins), C1 for the count. cylcgt confirms
+  the three 4+5 values (CHECKED-2). Paper §VIII updated.
+- **C3, 10 pawns:** 741,110 rings, 2 default \*2: `W a2 a5 b2 b4 c2 / B a7 b5 b6 c4 c7` and
+  `W a2 a5 b3 b4 c2 / B a7 b5 b7 c4 c7`. cylcgt gives \*2 for both, in the sum model and with splitting off
+  (CHECKED-2). They do not change the six-pawn minimum on C3.
+
+**\*3 on C3 with ten pawns (CHECKED-2; `delegate/checks/c3p10/`).** The fixed scanner and cylcgt, in the sum
+model and with splitting off, agree on every case:
+- count rule, e.p. off: `W a2 a3 b2 b3 c3 / B a6 a7 b6 b7 c6` and `W a2 a4 b2 b3 c3 / B a5 a7 b6 b7 c6`;
+- opponent rule, e.p. on (textbook and e.p.-aware): `W a2 a3 b2 b3 c3 / B a6 a7 b6 c6 c7` and
+  `W a2 a4 b2 b3 c3 / B a5 a7 b6 c6 c7`.
+
+Each is its own color-reversed twin, up to the file symmetries of C3. All 14 nimber ≥ 2 hits of the 5+5 run
+were recomputed, and cylcgt matches the scanner on each. No \*3 occurs in the default setting.
+

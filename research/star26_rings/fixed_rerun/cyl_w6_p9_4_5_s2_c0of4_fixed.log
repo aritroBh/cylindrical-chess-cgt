@@ -1,0 +1,5 @@
+W=6 flat split=4+5 chunk 0 of 4 run with frontier_split1_fixed as 32 sub-chunks 0..31 of 128 (see c0_sub128/)
+sub-chunk roots sum=2822072 (original frontier_split1 reported roots_ready=2822072 for chunk 0 of 4)
+sub-chunk states sum=185137464 (each sub-chunk has its own memo table, so shared states are counted once per sub-chunk)
+cross-check: 64 sub-chunks 0..63 of 256 (c0_sub256/) give the same rows, outcome histogram and hit list (states sum 204307844)
+elapsed_s_sum 182
