@@ -54,9 +54,10 @@ The $1/8$ position of Section~\ref{sec:targets} (Fig.~\ref{fig:eighth}(a)) has $
 has $302$ end-position sides with at most seven men, and the tablebase resolves them all. In $290$ of them
 only one side has a passed pawn: $283$ agree with the model, $5$ disagree and $2$ are draws; the other $12$ are
 races. A search for the larger end positions that decide the value finds five with eight men and three with
-nine. Black to move in one eight-man position, \pos{W a3 a5 / B b4 b5}, is a black win against the model, and a
-second search replaces it with another eight-man position. Our king-and-pawn solver (queen promotions only)
-shows that all the deciding positions agree with the model on both sides; the hardest, black to move in
+nine. Four of the eight-man ones are resolved: seven of their sides agree with the model, and black to move in
+\pos{W a3 a5 / B b4 b5} is a black win against it. A second search allows for that result and leaves one
+eight-man position and the three of nine men to decide the value. Our king-and-pawn solver (queen promotions
+only) shows that all four agree with the model on both sides; the hardest, black to move in
 \pos{W b2 b5 / B a5 b4}, needed two promoted queens in the search, $6.1\times10^{10}$ states in $15$ hours.
 
 \begin{proposition}[A real-chess $1/8$; \lab{C1}]\label{prop:eighth-real}

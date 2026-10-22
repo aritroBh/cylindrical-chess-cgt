@@ -2,7 +2,7 @@
 
 The $\nim{2}$ question of Section~\ref{sec:intro} asks whether a king-and-pawn position on a board with eight
 ranks can have this value. We show that the only $\nim{2}$ in the census under the textbook test
-comes from that test, that on ordinary boards of width at most four none exists with six pawns or fewer in the
+comes from that test, that on ordinary boards of any width none exists with six pawns or fewer in the
 default setting, and that $\nim{2}$ appears with seven.
 
 \subsection{The Textbook Candidate}
@@ -109,11 +109,13 @@ needs the textbook test but survives e.p.\ off; A and B need en passant but not 
 \subsection{Counts and Five Files}\label{sec:star2-five}
 
 On ordinary boards of width at most four, in the default setting, two $\nim{2}$ positions, A and its color-reversed
-twin B, have seven pawns and four have eight. One exhaustive scan of $5{,}503{,}282$ root positions gives these counts, so their
-completeness is \lab{C1}; our engine re-checked every position it reported \lab{C2}. With
+twin B, have seven pawns and four have eight. One exhaustive scan of $5{,}503{,}282$ root positions gives these counts; that there are no
+other eight-pawn ones rests on it \lab{C1}, and our engine re-checked every position it reported \lab{C2}. With
 Theorem~\ref{thm:census}, seven is the least number of pawns in a $\nim{2}$ on these boards \lab{C2}. A scan of
-every position with at most seven pawns on up to nine files, which covers every width, extends this to ordinary
-boards of any width; in the whole-board game the only seven-pawn ones are A and B \lab{C2}.
+every position with at most seven pawns on up to nine files extends this to ordinary boards of any width, since
+a run of empty files acts like one and every part of a position without a passed pawn has pawns of both colors.
+It finds no $\nim{k}$ with $k\ge2$ with six pawns or fewer, and in the whole-board game the only seven-pawn
+$\nim{2}$ are A and B \lab{C2}.
 
 On five files a scan of all $14{,}680{,}983$ eight-pawn positions finds $21$ of value $\nim{2}$ in the default
 setting \lab{C1}, each using all five files. As whole-board games all $21$ are $\nim{2}$: the whole-board solver
@@ -122,7 +124,7 @@ $15$ keep the value; the other six change only through the splitting. Three of t
 $21$ come from the $14$ eight-pawn $\nim{2}$ rings on $\cyl{5}$ \lab{C1} by opening them onto files a--e:
 \pos{W a3 b3 c2 e2 / B a6 c5 d5 e3}, \pos{W a4 b3 c2 d2 / B a7 b6 c7 e4} and
 \pos{W a6 b4 c4 e3 / B a7 c7 d6 e6},
-and these are $\nim{2}$ in both models. We call the first \emph{the five-file $\nim{2}$}. No $\nim{3}$ or higher nimber occurs in the default setting in any of these scans
+and these are $\nim{2}$ in both models. We call the first \emph{the five-file $\nim{2}$}. As whole-board games, none of these scans shows a $\nim{3}$ or higher nimber in the default setting
 \lab{C1}.
 
 By Theorem~\ref{thm:cut}, a pawn position on $\cyl{n}$ with an empty file is one on $\flatb{n-1}$, so these
@@ -138,19 +140,20 @@ three, and the other three are their color-reversed twins \lab{C2}. On $\cyl{7}$
 $\nim{2}$, and a third solver written from the rules agrees \lab{C2}; the ten-pawn rings with five pawns a side
 include $63$ of value $\nim{2}$ \lab{C1}, such as \pos{W a2 a3 c3 e3 f2 / B a4 b5 d5 f5 g5}, which all three
 programs confirm \lab{C2}. So the first ring $\nim{2}$ on $\cyl{n}$ has $n+3$ pawns for $n=3,\dots,7$
-\lab{C1}. Beyond $n=7$ we cannot scan, but $n+3$ pawns still suffice: a window of five or six files closed by
-a wall of single pawns on alternate files, each of which would be captured into a passed pawn if it moved, is a
-ring $\nim{2}$ with $n+3$ pawns on every $\cyl{n}$ with $5\le n\le21$, for example \pos{W b2 c3 c5 d2 f2 h2 / B
-a5 b5 c6 e4 g4} on $\cyl{8}$. Our engine confirms the family to $n=12$, and two other programs to $n=21$ and
-$n=26$ \lab{C2}. The $\cyl{3}$ ring is a $\nim{2}$ with one pawn fewer than any ordinary board of width at most four allows,
+\lab{C1}. For $n\ge8$ our scans stop short of
+$n+3$ pawns, but $n+3$ pawns still suffice. Close a window of five or six files with a wall of single pawns of
+alternating colors on consecutive files; if a wall pawn moves, its neighbor captures it and gets a passed pawn.
+This gives a ring $\nim{2}$ with $n+3$ pawns on every $\cyl{n}$ with $5\le n\le21$, for example \pos{W b2 c3 c5
+d2 f2 h2 / B a5 b5 c6 e4 g4} on $\cyl{8}$: our engine confirms the family to $n=12$ and a second program to
+$n=21$ \lab{C2}, and a third, written from the rules alone, to $n=26$ \lab{C1}. The $\cyl{3}$ ring is a $\nim{2}$ with one pawn fewer than any ordinary board of width at most four allows,
 and it needs two en passant captures: without black's b4$\times$a3 it is $\uparrow$, without white's
 b5$\times$c6 it is $\downarrow$, and with e.p.\ off it is $0$ \lab{C2}.
 
-A $\nim{3}$ lies just beyond these scans. In the default setting it comes in one piece on four files: B with
-a white a2 and a black a4 added, \pos{W a2 b4 c2 d2 / B a4 a6 a7 c6 d5}, is $\nim{3}$ with nine pawns, and so is
-A with a pair added on file e, \pos{W a4 b3 d2 d3 e4 / B a7 b7 c5 e6} \lab{C2}; A beside a separate group worth
+A $\nim{3}$ lies just beyond these scans. In the default setting it comes as a single component with nine
+pawns: B with a white a2 and a black a4 added, \pos{W a2 b4 c2 d2 / B a4 a6 a7 c6 d5}, is $\nim{3}$ on four
+files, and so is A with a pair added on file e, \pos{W a4 b3 d2 d3 e4 / B a7 b7 c5 e6}, on five \lab{C2}; A beside a separate group worth
 $\star$ on six files is $\nim{2}+\star=\nim{3}$ \lab{C2}. In the whole-board game no position with eight pawns or
-fewer is $\nim{3}$ \lab{C1}; as sums of components some seven-pawn positions are, but only because a $+\BIG$
+fewer on up to eight files, ordinary or cylinder, is $\nim{3}$ \lab{C1}; as sums of components some seven-pawn positions are, but only because a $+\BIG$
 cancels a $-\BIG$ (Section~\ref{sec:sums-hss}). With e.p.\ off eight pawns suffice, for example the candidate
 beside a group worth $\star$ on six files, \pos{W a2 a4 c2 e2 / B a3 a6 d7 f7}, and the ring \pos{W a5 b3 c2 d2
 / B a7 b5 c6 d4} on $\cyl{4}$ under the opponent rule \lab{C2}. On $\cyl{7}$ the ten-pawn rings above include

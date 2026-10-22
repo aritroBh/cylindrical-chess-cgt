@@ -494,3 +494,18 @@ aritro with a 0 in its command line.
 Process breaches in round 8: T41 and T42 ran over 4 GB and 3 heavy processes, and **the T40 verifier ran
 `pkill -f 0`** (see INCIDENT above).
 
+**Review of the round-8 paper edits** (`delegate/checks/paper_review_r8.json`): 26 confirmed, many of them the same
+issue seen by different lenses; 4 rejected. Applied as about 13 edits:
+- "no \*3 with eight pawns or fewer" is now scoped to ≤ 8 files, ordinary or cylinder (the 9–11-file gapped
+  shapes were never scanned as whole-board games);
+- the conclusion's A/B uniqueness is now "any width, whole-board, C2", and the eight-pawn count stays C1;
+- wall family: our engine to n = 12 and a second program to 21 (C2), the verifier's solver to 26 (C1); the
+  conclusion says 21; the wall is now "of alternating colors on consecutive files";
+- the abstract says "scan", not "census", and the body backs "no nimber above star with ≤ 6 pawns, any width" with
+  the width-reduction reason;
+- the \*3 examples say four and five files;
+- the odd-width table range is n = 3..8;
+- the 1/8 second-search narrative is corrected (one eight-man and three nine-man positions decide it);
+- the scans' "no \*3" now says "as whole-board games";
+- the conclusion summary mentions nine-pawn \*3 on ordinary boards.
+
