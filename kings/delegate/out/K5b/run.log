@@ -1,0 +1,280 @@
+### [sanity] nice -n 10 .venv/bin/python kings/delegate/out/K5b/identities.py sanity
+K5b sanity checks: G0 = 'W: a4 / B: a5' (flat 8x8, no moves for either side) plus an explicit tree.
+Trees nodes: 244.  Each check is run in both modes under all 9 settings (G0 has no moves, so the settings cannot matter; any difference would be a solver bug).
+
+== required ==
+PASS  V + (-V) is P, V = 1                                                 expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = 2                                                 expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = 3                                                 expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = -1                                                expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = -2                                                expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = -3                                                expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = 1/2                                               expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = 1/4                                               expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = 1/8                                               expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = 1/16                                              expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = *                                                 expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = *2                                                expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = up                                                expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = down                                              expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = down*                                             expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = up2                                               expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = up2*                                              expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = up2*[literal]                                     expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = tiny1                                             expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = sw                                                expected=P   whole=P comp=P
+PASS  1/8 + 1/8 + (-1/4) is P                                              expected=P   whole=P comp=P
+PASS  up2 is L                                                             expected=L   whole=L comp=L
+PASS  up - up2 is L                                                        expected=L   whole=L comp=L
+PASS  tiny(1) is L                                                         expected=L   whole=L comp=L
+PASS  *2 + *2 is P                                                         expected=P   whole=P comp=P
+PASS  G + G is P, G = {2+-1 | -2+-1}                                       expected=P   whole=P comp=P
+
+== control ==
+PASS  control: 0 is P                                                      expected=P   whole=P comp=P
+PASS  control: 1/2 + 1/2 - 1 is P                                          expected=P   whole=P comp=P
+PASS  control: 1/16 + 1/16 - 1/8 is P                                      expected=P   whole=P comp=P
+PASS  control: 1/8 - 1/16 is L                                             expected=L   whole=L comp=L
+PASS  control: 1/16 - 1/8 is R                                             expected=R   whole=R comp=R
+PASS  control: * is N                                                      expected=N   whole=N comp=N
+PASS  control: *2 - * is N                                                 expected=N   whole=N comp=N
+PASS  control: up + * is N                                                 expected=N   whole=N comp=N
+PASS  control: up2* - up2 (= *) is N                                       expected=N   whole=N comp=N
+PASS  control: 1/8 - 1/4 is R                                              expected=R   whole=R comp=R
+PASS  control: 2 - 3 is R                                                  expected=R   whole=R comp=R
+
+== record ==
+INFO  up2 - tiny(1) (no expected answer)                                   expected=-   whole=L comp=L
+
+== info ==
+INFO  up2*[literal {0,*|down}] - up2*[up2 + *] (P means equal)             expected=-   whole=P comp=P
+INFO  up2*[literal] outcome                                                expected=-   whole=N comp=N
+INFO  up2*[sum] outcome                                                    expected=-   whole=N comp=N
+
+ALL REQUIRED AND CONTROL CHECKS PASSED
+### [sanity] done in 0 s
+### [guardtest] nice -n 10 .venv/bin/python kings/delegate/out/K5b/identities.py guardtest
+watchdog self-test (tick 0.5 s).  ru_maxrss now = 19760 KB; run-time limit RSS_LIMIT_KB = 2600000 KB.
+PASS  memory limit below current RSS: aborted with 'memory' after 0.5 s (expected 'memory')
+PASS  wall-clock limit 0 s: aborted with 'timeout' after 0.5 s (expected 'timeout')
+PASS  no limit hit (control): aborted with None after 2.0 s (expected None)
+WATCHDOG SELF-TEST PASSED
+### [guardtest] done in 3 s
+### [run] nice -n 10 .venv/bin/python kings/delegate/out/K5b/identities.py run 40
+t1 off/count whole: ok 0.0s states=568 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t1 off/count comp: ok 0.06s states=549 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t1 off/mover whole: ok 0.0s states=568 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t1 off/mover comp: ok 0.01s states=549 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t1 off/opponent whole: ok 0.0s states=568 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t1 off/opponent comp: ok 0.01s states=549 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t1 textbook/count whole: ok 0.0s states=593 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t1 textbook/count comp: ok 0.02s states=574 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t1 textbook/mover whole: ok 0.01s states=593 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t1 textbook/mover comp: ok 0.01s states=574 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t1 textbook/opponent whole: ok 0.0s states=593 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t1 textbook/opponent comp: ok 0.01s states=574 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t1 aware/count whole: ok 0.0s states=594 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t1 aware/count comp: ok 0.01s states=575 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t1 aware/mover whole: ok 0.0s states=594 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t1 aware/mover comp: ok 0.01s states=575 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t1 aware/opponent whole: ok 0.0s states=593 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t1 aware/opponent comp: ok 0.01s states=574 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t2 off/count whole: ok 0.01s states=569 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t2 off/count comp: ok 0.07s states=550 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t2 off/mover whole: ok 0.0s states=569 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t2 off/mover comp: ok 0.01s states=550 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t2 off/opponent whole: ok 0.0s states=569 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t2 off/opponent comp: ok 0.01s states=550 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t2 textbook/count whole: ok 0.0s states=592 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t2 textbook/count comp: ok 0.04s states=573 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t2 textbook/mover whole: ok 0.03s states=592 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t2 textbook/mover comp: ok 0.03s states=573 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t2 textbook/opponent whole: ok 0.0s states=592 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t2 textbook/opponent comp: ok 0.04s states=573 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t2 aware/count whole: ok 0.03s states=593 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t2 aware/count comp: ok 0.02s states=574 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t2 aware/mover whole: ok 0.0s states=593 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t2 aware/mover comp: ok 0.04s states=574 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t2 aware/opponent whole: ok 0.01s states=592 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t2 aware/opponent comp: ok 0.01s states=573 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t3 aware/count whole: ok 0.0s states=521 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t3 aware/count comp: ok 0.03s states=523 claim=1/8 cyl=1/8 {'claim': 'P', 'cyl': 'P'}
+t4 aware/count whole: ok 0.01s states=1440 claim=1/16 cyl=1/16 {'claim': 'P', 'cyl': 'P'}
+t4 aware/count comp: ok 0.08s states=1431 claim=1/16 cyl=1/16 {'claim': 'P', 'cyl': 'P'}
+t5 aware/count whole: ok 0.05s states=1939 claim=up2 cyl={0 | ↓*} {'claim': 'P', 'cyl': 'P'}
+t5 aware/count comp: ok 0.04s states=1816 claim=up2 cyl={0 | ↓*} {'claim': 'P', 'cyl': 'P'}
+t6 off/count whole: ok 0.0s states=94 claim=up2* cyl={0, * | ↓} {'claim': 'P', 'claim_literal': 'P', 'cyl': 'P'}
+t6 off/count comp: ok 0.01s states=94 claim=up2* cyl={0, * | ↓} {'claim': 'P', 'claim_literal': 'P', 'cyl': 'P'}
+t6 off/mover whole: ok 0.0s states=100 claim=up2* cyl={0, * | ↓} {'claim': 'P', 'claim_literal': 'P', 'cyl': 'P'}
+t6 off/mover comp: ok 0.0s states=100 claim=up2* cyl={0, * | ↓} {'claim': 'P', 'claim_literal': 'P', 'cyl': 'P'}
+t6 off/opponent whole: ok 0.0s states=94 claim=up2* cyl={0, * | ↓} {'claim': 'P', 'claim_literal': 'P', 'cyl': 'P'}
+t6 off/opponent comp: ok 0.0s states=94 claim=up2* cyl={0, * | ↓} {'claim': 'P', 'claim_literal': 'P', 'cyl': 'P'}
+t6 textbook/count whole: ok 0.0s states=96 claim=up2* cyl={0, * | ↓} {'claim': 'P', 'claim_literal': 'P', 'cyl': 'P'}
+t6 textbook/count comp: ok 0.0s states=96 claim=up2* cyl={0, * | ↓} {'claim': 'P', 'claim_literal': 'P', 'cyl': 'P'}
+t6 textbook/mover whole: ok 0.0s states=102 claim=up2* cyl={0, * | ↓} {'claim': 'P', 'claim_literal': 'P', 'cyl': 'P'}
+t6 textbook/mover comp: ok 0.0s states=102 claim=up2* cyl={0, * | ↓} {'claim': 'P', 'claim_literal': 'P', 'cyl': 'P'}
+t6 textbook/opponent whole: ok 0.0s states=96 claim=up2* cyl={0, * | ↓} {'claim': 'P', 'claim_literal': 'P', 'cyl': 'P'}
+t6 textbook/opponent comp: ok 0.0s states=96 claim=up2* cyl={0, * | ↓} {'claim': 'P', 'claim_literal': 'P', 'cyl': 'P'}
+t6 aware/count whole: ok 0.0s states=96 claim=up2* cyl={0, * | ↓} {'claim': 'P', 'claim_literal': 'P', 'cyl': 'P'}
+t6 aware/count comp: ok 0.01s states=96 claim=up2* cyl={0, * | ↓} {'claim': 'P', 'claim_literal': 'P', 'cyl': 'P'}
+t6 aware/mover whole: ok 0.0s states=102 claim=up2* cyl={0, * | ↓} {'claim': 'P', 'claim_literal': 'P', 'cyl': 'P'}
+t6 aware/mover comp: ok 0.0s states=102 claim=up2* cyl={0, * | ↓} {'claim': 'P', 'claim_literal': 'P', 'cyl': 'P'}
+t6 aware/opponent whole: ok 0.0s states=96 claim=up2* cyl={0, * | ↓} {'claim': 'P', 'claim_literal': 'P', 'cyl': 'P'}
+t6 aware/opponent comp: ok 0.0s states=96 claim=up2* cyl={0, * | ↓} {'claim': 'P', 'claim_literal': 'P', 'cyl': 'P'}
+t7 aware/count whole: ok 0.0s states=144 claim=tiny1 cyl=tiny(1) {'claim': 'P', 'cyl': 'P'}
+t7 aware/count comp: ok 0.0s states=144 claim=tiny1 cyl=tiny(1) {'claim': 'P', 'cyl': 'P'}
+t8 off/count whole: ok 0.0s states=225 claim=*2 cyl=*2 {'claim': 'P', 'cyl': 'P'}
+t8 off/count comp: ok 0.0s states=225 claim=*2 cyl=*2 {'claim': 'P', 'cyl': 'P'}
+t8 off/mover whole: ok 0.0s states=225 claim=*2 cyl=*2 {'claim': 'P', 'cyl': 'P'}
+t8 off/mover comp: ok 0.0s states=225 claim=*2 cyl=*2 {'claim': 'P', 'cyl': 'P'}
+t8 off/opponent whole: ok 0.0s states=225 claim=0 cyl=0 {'claim': 'P', 'cyl': 'P'}
+t8 off/opponent comp: ok 0.0s states=225 claim=0 cyl=0 {'claim': 'P', 'cyl': 'P'}
+t8 textbook/count whole: ok 0.0s states=231 claim=*2 cyl=*2 {'claim': 'P', 'cyl': 'P'}
+t8 textbook/count comp: ok 0.0s states=231 claim=*2 cyl=*2 {'claim': 'P', 'cyl': 'P'}
+t8 textbook/mover whole: ok 0.0s states=231 claim=*2 cyl=*2 {'claim': 'P', 'cyl': 'P'}
+t8 textbook/mover comp: ok 0.0s states=231 claim=*2 cyl=*2 {'claim': 'P', 'cyl': 'P'}
+t8 textbook/opponent whole: ok 0.0s states=228 claim=0 cyl=0 {'claim': 'P', 'cyl': 'P'}
+t8 textbook/opponent comp: ok 0.0s states=228 claim=0 cyl=0 {'claim': 'P', 'cyl': 'P'}
+t8 aware/count whole: ok 0.0s states=248 claim=sw cyl={2±1 | -2±1} {'claim': 'P', 'cyl': 'P'}
+t8 aware/count comp: ok 0.0s states=248 claim=sw cyl={2±1 | -2±1} {'claim': 'P', 'cyl': 'P'}
+t9 aware/count whole: ok 0.11s states=6323 claim=*2 cyl=*2 {'claim': 'P', 'cyl': 'P'}
+t9 aware/count comp: ok 0.16s states=6298 claim=*2 cyl=*2 {'claim': 'P', 'cyl': 'P'}
+t3 off/count whole: ok 0.0s states=482 claim=None cyl=1/8 {'cyl': 'P'}
+t3 off/count comp: ok 0.02s states=484 claim=None cyl=1/8 {'cyl': 'P'}
+t3 off/mover whole: ok 0.0s states=440 claim=None cyl={0 | {-W, {+W | -W, ±+W} | -W}} {}
+t3 off/mover comp: ok 0.01s states=442 claim=None cyl={0 | {-W, {+W | -W, ±+W} | -W}} {}
+t3 off/opponent whole: ok 0.0s states=478 claim=None cyl=* {'cyl': 'P'}
+t3 off/opponent comp: ok 0.01s states=480 claim=None cyl=* {'cyl': 'P'}
+t3 textbook/count whole: ok 0.0s states=521 claim=None cyl=1/8 {'cyl': 'P'}
+t3 textbook/count comp: ok 0.01s states=523 claim=None cyl=1/8 {'cyl': 'P'}
+t3 textbook/mover whole: ok 0.01s states=479 claim=None cyl={0 | {-W, {+W | -W, ±+W} | -W}} {}
+t3 textbook/mover comp: ok 0.01s states=481 claim=None cyl={0 | {-W, {+W | -W, ±+W} | -W}} {}
+t3 textbook/opponent whole: ok 0.01s states=517 claim=None cyl=* {'cyl': 'P'}
+t3 textbook/opponent comp: ok 0.03s states=519 claim=None cyl=* {'cyl': 'P'}
+t3 aware/mover whole: ok 0.01s states=479 claim=None cyl={0 | {-W, {+W | -W, ±+W} | -W}} {}
+t3 aware/mover comp: ok 0.01s states=481 claim=None cyl={0 | {-W, {+W | -W, ±+W} | -W}} {}
+t3 aware/opponent whole: ok 0.01s states=517 claim=None cyl=* {'cyl': 'P'}
+t3 aware/opponent comp: ok 0.02s states=519 claim=None cyl=* {'cyl': 'P'}
+t4 off/count whole: ok 0.01s states=1339 claim=None cyl=1/2 {'cyl': 'P'}
+t4 off/count comp: ok 0.02s states=1330 claim=None cyl=1/2 {'cyl': 'P'}
+t4 off/mover whole: ok 0.01s states=1339 claim=None cyl=3/4 {'cyl': 'P'}
+t4 off/mover comp: ok 0.06s states=1330 claim=None cyl=3/4 {'cyl': 'P'}
+t4 off/opponent whole: ok 0.01s states=1340 claim=None cyl=1/2 {'cyl': 'P'}
+t4 off/opponent comp: ok 0.05s states=1331 claim=None cyl=1/2 {'cyl': 'P'}
+t4 textbook/count whole: ok 0.03s states=1416 claim=None cyl=1/16 {'cyl': 'P'}
+t4 textbook/count comp: ok 0.04s states=1407 claim=None cyl=1/16 {'cyl': 'P'}
+t4 textbook/mover whole: ok 0.03s states=1424 claim=None cyl=1/16 {'cyl': 'P'}
+t4 textbook/mover comp: ok 0.05s states=1415 claim=None cyl=1/16 {'cyl': 'P'}
+t4 textbook/opponent whole: ok 0.03s states=1417 claim=None cyl=1/8 {'cyl': 'P'}
+t4 textbook/opponent comp: ok 0.03s states=1408 claim=None cyl=1/8 {'cyl': 'P'}
+t4 aware/mover whole: ok 0.05s states=1445 claim=None cyl=1/16 {'cyl': 'P'}
+t4 aware/mover comp: ok 0.02s states=1436 claim=None cyl=1/16 {'cyl': 'P'}
+t4 aware/opponent whole: ok 0.01s states=1440 claim=None cyl=1/8 {'cyl': 'P'}
+t4 aware/opponent comp: ok 0.02s states=1431 claim=None cyl=1/8 {'cyl': 'P'}
+t5 off/count whole: ok 0.04s states=1885 claim=None cyl={0 | {0 | {0, * | {↓, {+W | ↓} | -W}}}} {}
+t5 off/count comp: ok 0.06s states=1762 claim=None cyl={0 | {0 | {0, * | {↓, {+W | ↓} | -W}}}} {}
+t5 off/mover whole: ok 0.06s states=1696 claim=None cyl={0, ↓* | 0, {0, {{+W | +W, {+W | +W, ±+W}} | -W} | -W}} {}
+t5 off/mover comp: ok 0.06s states=1596 claim=None cyl={0, ↓* | 0, {0, {{+W | +W, {+W | +W, ±+W}} | -W} | -W}} {}
+t5 off/opponent whole: ok 0.02s states=1875 claim=None cyl={1 | {1 | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}}} {}
+t5 off/opponent comp: ok 0.03s states=1756 claim=None cyl={1 | {1 | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}}} {}
+t5 textbook/count whole: ok 0.04s states=1934 claim=None cyl={0 | ↓*} {'cyl': 'P'}
+t5 textbook/count comp: ok 0.07s states=1811 claim=None cyl={0 | ↓*} {'cyl': 'P'}
+t5 textbook/mover whole: ok 0.02s states=1738 claim=None cyl={0, ↓* | 0, {0, {{+W | +W, {+W | +W, ±+W}} | -W} | -W}} {}
+t5 textbook/mover comp: ok 0.03s states=1638 claim=None cyl={0, ↓* | 0, {0, {{+W | +W, {+W | +W, ±+W}} | -W} | -W}} {}
+t5 textbook/opponent whole: ok 0.06s states=1920 claim=None cyl={1 | {1 | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}}} {}
+t5 textbook/opponent comp: ok 0.08s states=1801 claim=None cyl={1 | {1 | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}}} {}
+t5 aware/mover whole: ok 0.05s states=1761 claim=None cyl=* {'cyl': 'P'}
+t5 aware/mover comp: ok 0.09s states=1652 claim=None cyl=* {'cyl': 'P'}
+t5 aware/opponent whole: ok 0.04s states=1927 claim=None cyl={1 | {1 | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}}} {}
+t5 aware/opponent comp: ok 0.09s states=1808 claim=None cyl={1 | {1 | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}}} {}
+t7 off/count whole: ok 0.0s states=140 claim=None cyl=↑ {'cyl': 'P'}
+t7 off/count comp: ok 0.0s states=140 claim=None cyl=↑ {'cyl': 'P'}
+t7 off/mover whole: ok 0.0s states=140 claim=None cyl=↑ {'cyl': 'P'}
+t7 off/mover comp: ok 0.0s states=140 claim=None cyl=↑ {'cyl': 'P'}
+t7 off/opponent whole: ok 0.0s states=140 claim=None cyl=↑ {'cyl': 'P'}
+t7 off/opponent comp: ok 0.07s states=140 claim=None cyl=↑ {'cyl': 'P'}
+t7 textbook/count whole: ok 0.0s states=144 claim=None cyl=tiny(1) {'cyl': 'P'}
+t7 textbook/count comp: ok 0.0s states=144 claim=None cyl=tiny(1) {'cyl': 'P'}
+t7 textbook/mover whole: ok 0.0s states=144 claim=None cyl=tiny(1) {'cyl': 'P'}
+t7 textbook/mover comp: ok 0.0s states=144 claim=None cyl=tiny(1) {'cyl': 'P'}
+t7 textbook/opponent whole: ok 0.0s states=144 claim=None cyl=tiny(1) {'cyl': 'P'}
+t7 textbook/opponent comp: ok 0.0s states=144 claim=None cyl=tiny(1) {'cyl': 'P'}
+t7 aware/mover whole: ok 0.0s states=144 claim=None cyl=tiny(1) {'cyl': 'P'}
+t7 aware/mover comp: ok 0.0s states=144 claim=None cyl=tiny(1) {'cyl': 'P'}
+t7 aware/opponent whole: ok 0.0s states=144 claim=None cyl=tiny(1) {'cyl': 'P'}
+t7 aware/opponent comp: ok 0.0s states=144 claim=None cyl=tiny(1) {'cyl': 'P'}
+t8 aware/mover whole: ok 0.0s states=247 claim=None cyl={2±1 | -2±1} {'cyl': 'P'}
+t8 aware/mover comp: ok 0.0s states=247 claim=None cyl={2±1 | -2±1} {'cyl': 'P'}
+t8 aware/opponent whole: ok 0.01s states=250 claim=None cyl=0 {'cyl': 'P'}
+t8 aware/opponent comp: ok 0.0s states=250 claim=None cyl=0 {'cyl': 'P'}
+t9 off/count whole: ok 0.13s states=5865 claim=None cyl=0 {'cyl': 'P'}
+t9 off/count comp: ok 0.17s states=5840 claim=None cyl=0 {'cyl': 'P'}
+t9 off/mover whole: ok 0.08s states=6018 claim=None cyl=0 {'cyl': 'P'}
+t9 off/mover comp: ok 0.25s states=5993 claim=None cyl=0 {'cyl': 'P'}
+t9 off/opponent whole: ok 0.08s states=5823 claim=None cyl=*2 {'cyl': 'P'}
+t9 off/opponent comp: ok 0.24s states=5798 claim=None cyl=*2 {'cyl': 'P'}
+t9 textbook/count whole: ok 0.16s states=6306 claim=None cyl=*2 {'cyl': 'P'}
+t9 textbook/count comp: ok 0.18s states=6281 claim=None cyl=*2 {'cyl': 'P'}
+t9 textbook/mover whole: ok 0.1s states=6505 claim=None cyl=0 {'cyl': 'P'}
+t9 textbook/mover comp: ok 0.23s states=6480 claim=None cyl=0 {'cyl': 'P'}
+t9 textbook/opponent whole: ok 0.26s states=6273 claim=None cyl=*2 {'cyl': 'P'}
+t9 textbook/opponent comp: ok 0.36s states=6248 claim=None cyl=*2 {'cyl': 'P'}
+t9 aware/mover whole: ok 0.06s states=6425 claim=None cyl=0 {'cyl': 'P'}
+t9 aware/mover comp: ok 0.21s states=6400 claim=None cyl=0 {'cyl': 'P'}
+t9 aware/opponent whole: ok 0.07s states=6283 claim=None cyl=*2 {'cyl': 'P'}
+t9 aware/opponent comp: ok 0.21s states=6258 claim=None cyl=*2 {'cyl': 'P'}
+### [run] done in 258 s
+### [tables] nice -n 10 .venv/bin/python kings/delegate/out/K5b/identities.py tables
+{
+ "claims_tested": 39,
+ "claims_confirmed": 39,
+ "claim_non_P": [],
+ "cyl_tested": 72,
+ "cyl_confirmed": 72,
+ "cyl_skipped": [
+  "T3 off/mover: V_cyl contains integer of absolute value 256 (>= 64)",
+  "T3 textbook/mover: V_cyl contains integer of absolute value 256 (>= 64)",
+  "T3 aware/mover: V_cyl contains integer of absolute value 256 (>= 64)",
+  "T5 off/count: V_cyl contains integer of absolute value 256 (>= 64)",
+  "T5 off/mover: V_cyl contains integer of absolute value 256 (>= 64)",
+  "T5 off/opponent: V_cyl contains integer of absolute value 256 (>= 64)",
+  "T5 textbook/mover: V_cyl contains integer of absolute value 256 (>= 64)",
+  "T5 textbook/opponent: V_cyl contains integer of absolute value 256 (>= 64)",
+  "T5 aware/opponent: V_cyl contains integer of absolute value 256 (>= 64)"
+ ],
+ "cyl_non_P": [],
+ "cyl_not_run": [],
+ "mode_disagreements": [],
+ "claims_not_run": []
+}
+### [tables] done in 0 s
+### [controls] nice -n 10 .venv/bin/python kings/delegate/out/K5b/identities.py controls
+target	position	mode	claimed	P_decoys	non_P_decoys
+1	W: a2 a3 b2 / B: a6 b5 b6	whole	1/8	1/8	0:L *:L *2:L up:L down:L up2:L up2*:L tiny1:L 1/16:L 1/4:R 1/2:R 1:R 2:R sw:N -1/16:L -1/8:L -1/2:L -1:L
+1	W: a2 a3 b2 / B: a6 b5 b6	comp	1/8	1/8	0:L *:L *2:L up:L down:L up2:L up2*:L tiny1:L 1/16:L 1/4:R 1/2:R 1:R 2:R sw:N -1/16:L -1/8:L -1/2:L -1:L
+2	W: a2 b2 b3 / B: a5 a6 b6	whole	1/8	1/8	0:L *:L *2:L up:L down:L up2:L up2*:L tiny1:L 1/16:L 1/4:R 1/2:R 1:R 2:R sw:N -1/16:L -1/8:L -1/2:L -1:L
+2	W: a2 b2 b3 / B: a5 a6 b6	comp	1/8	1/8	0:L *:L *2:L up:L down:L up2:L up2*:L tiny1:L 1/16:L 1/4:R 1/2:R 1:R 2:R sw:N -1/16:L -1/8:L -1/2:L -1:L
+3	W: a2 b4 c4 / B: a7 b7 d6	whole	1/8	1/8	0:L *:L *2:L up:L down:L up2:L up2*:L tiny1:L 1/16:L 1/4:R 1/2:R 1:R 2:R sw:N -1/16:L -1/8:L -1/2:L -1:L
+3	W: a2 b4 c4 / B: a7 b7 d6	comp	1/8	1/8	0:L *:L *2:L up:L down:L up2:L up2*:L tiny1:L 1/16:L 1/4:R 1/2:R 1:R 2:R sw:N -1/16:L -1/8:L -1/2:L -1:L
+4	W: a2 b2 c3 / B: b5 b6 c7	whole	1/16	1/16	0:L *:L *2:L up:L down:L up2:L up2*:L tiny1:L 1/8:R 1/4:R 1/2:R 1:R 2:R sw:N -1/16:L -1/8:L -1/2:L -1:L
+4	W: a2 b2 c3 / B: b5 b6 c7	comp	1/16	1/16	0:L *:L *2:L up:L down:L up2:L up2*:L tiny1:L 1/8:R 1/4:R 1/2:R 1:R 2:R sw:N -1/16:L -1/8:L -1/2:L -1:L
+5	W: a2 b2 d4 / B: a7 c6 d7	whole	up2	up2	0:L *:N *2:N up:R down:L up2*:N tiny1:L 1/16:R 1/8:R 1/4:R 1/2:R 1:R 2:R sw:N -1/16:L -1/8:L -1/2:L -1:L
+5	W: a2 b2 d4 / B: a7 c6 d7	comp	up2	up2	0:L *:N *2:N up:R down:L up2*:N tiny1:L 1/16:R 1/8:R 1/4:R 1/2:R 1:R 2:R sw:N -1/16:L -1/8:L -1/2:L -1:L
+6	W: a2 b2 b6 / B: a6 b7 c5	whole	up2*	up2*	0:N *:L *2:N up:N down:N up2:N tiny1:N 1/16:R 1/8:R 1/4:R 1/2:R 1:R 2:R sw:N -1/16:L -1/8:L -1/2:L -1:L
+6	W: a2 b2 b6 / B: a6 b7 c5	comp	up2*	up2*	0:N *:L *2:N up:N down:N up2:N tiny1:N 1/16:R 1/8:R 1/4:R 1/2:R 1:R 2:R sw:N -1/16:L -1/8:L -1/2:L -1:L
+7	W: a2 b2 b6 / B: a6 b7 c6	whole	tiny(1)	tiny1	0:L *:N *2:N up:R down:L up2:R up2*:N 1/16:R 1/8:R 1/4:R 1/2:R 1:R 2:R sw:N -1/16:L -1/8:L -1/2:L -1:L
+7	W: a2 b2 b6 / B: a6 b7 c6	comp	tiny(1)	tiny1	0:L *:N *2:N up:R down:L up2:R up2*:N 1/16:R 1/8:R 1/4:R 1/2:R 1:R 2:R sw:N -1/16:L -1/8:L -1/2:L -1:L
+8	W: a2 c2 / B: b7 d7	whole	{2+-1|-2+-1}	sw	0:N *:N *2:N up:N down:N up2:N up2*:N tiny1:N 1/16:N 1/8:N 1/4:N 1/2:N 1:R 2:R -1/16:N -1/8:N -1/2:N -1:L
+8	W: a2 c2 / B: b7 d7	comp	{2+-1|-2+-1}	sw	0:N *:N *2:N up:N down:N up2:N up2*:N tiny1:N 1/16:N 1/8:N 1/4:N 1/2:N 1:R 2:R -1/16:N -1/8:N -1/2:N -1:L
+9	W: a2 a3 b2 / B: b7 c6 c7	whole	*2	*2	0:N *:N up:R down:L up2:N up2*:N tiny1:N 1/16:R 1/8:R 1/4:R 1/2:R 1:R 2:R sw:N -1/16:L -1/8:L -1/2:L -1:L
+9	W: a2 a3 b2 / B: b7 c6 c7	comp	*2	*2	0:N *:N up:R down:L up2:N up2*:N tiny1:N 1/16:R 1/8:R 1/4:R 1/2:R 1:R 2:R sw:N -1/16:L -1/8:L -1/2:L -1:L
+### [controls] done in 0 s
+### [spotcheck] nice -n 10 .venv/bin/python kings/delegate/out/K5b/spotcheck.py
+PASS T1 1/8: whole=P comp=P (expected P)
+PASS T4 1/16: whole=P comp=P (expected P)
+PASS T7 tiny(1): whole=P comp=P (expected P)
+PASS T8 {2+-1|-2+-1}: whole=P comp=P (expected P)
+PASS T9 *2 (cyl 3x8): whole=P comp=P (expected P)
+PASS negative: T1 vs 1/16: whole=L comp=L (expected L)
+### [spotcheck] done in 1 s
+### ALL STAGES FINISHED

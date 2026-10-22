@@ -11,11 +11,13 @@ mkdir -p kings/delegate/logs
 setopt NO_HUP NO_CHECK_JOBS
 
 typeset -A TOOLS MODELS BRIEF
-TOOLS=(K1 codex K1a kilo K1b opencode K1c opencode K2 kilo K3 opencode)
+TOOLS=(K1 codex K1a kilo K1b opencode K1c opencode K2 kilo K3 opencode K4 kilo K5 opencode)
 MODELS=(K1 "" K1a kilo/minimax/minimax-m3.1-flash:free K1b omniroute/oc/nemotron-3-ultra-free
-        K1c omniroute/auto/best-free K2 kilo/nvidia/nemotron-3-ultra-550b-a55b:free K3 opencode/beam-free)
+        K1c omniroute/auto/best-free K2 kilo/nvidia/nemotron-3-ultra-550b-a55b:free K3 opencode/beam-free
+        K4 kilo/nvidia/nemotron-3-ultra-550b-a55b:free K5 opencode/beam-free)
 BRIEF=(K1 K1_loopy_revision.md K1a K1a_validity_full.md K1b K1b_certificate_full.md
-       K1c K1c_loopy_full.md K2 K2_report_referee.md K3 K3_repair_check.md)
+       K1c K1c_loopy_full.md K2 K2_report_referee.md K3 K3_repair_check.md
+       K4 K4_gafni_cylinder.md K5 K5_canonical_check.md)
 
 prompt() { cat delegate/COMMON.md; echo; echo "---"; echo; cat "kings/delegate/briefs/$1"; }
 cmd_for() {
@@ -42,7 +44,7 @@ for task in "$@"; do
   log="kings/delegate/logs/$task.log"; text="$(prompt $BRIEF[$task])"
   (
     $cmd "$text" > "$log" 2>&1 < /dev/null
-    if tail -c 2000 "$log" | grep -qiE "usage limit|RESOURCE_EXHAUSTED|Rate limit exceeded|Endpoint is unavailable|billing|quota reached|only try 10 times"; then
+    if tail -c 2000 "$log" | grep -qiE "usage limit|RESOURCE_EXHAUSTED|Rate limit exceeded|Endpoint is unavailable|billing|quota reached|only try 10 times|idle timeout|Too Many Requests"; then
       echo "\n=== $(date): $tool failed; falling back to $fb" >> "$log"
       $fb "$text" >> "$log" 2>&1 < /dev/null
     fi

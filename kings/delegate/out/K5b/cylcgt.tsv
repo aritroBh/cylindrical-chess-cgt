@@ -1,0 +1,82 @@
+target	setting	cylcgt_value	whole	comp	confirmed	modes_differ	note
+1	off/count	1/8	P	P	yes	no	
+1	off/mover	1/8	P	P	yes	no	
+1	off/opponent	1/8	P	P	yes	no	
+1	textbook/count	1/8	P	P	yes	no	
+1	textbook/mover	1/8	P	P	yes	no	
+1	textbook/opponent	1/8	P	P	yes	no	
+1	aware/count	1/8	P	P	yes	no	
+1	aware/mover	1/8	P	P	yes	no	
+1	aware/opponent	1/8	P	P	yes	no	
+2	off/count	1/8	P	P	yes	no	
+2	off/mover	1/8	P	P	yes	no	
+2	off/opponent	1/8	P	P	yes	no	
+2	textbook/count	1/8	P	P	yes	no	
+2	textbook/mover	1/8	P	P	yes	no	
+2	textbook/opponent	1/8	P	P	yes	no	
+2	aware/count	1/8	P	P	yes	no	
+2	aware/mover	1/8	P	P	yes	no	
+2	aware/opponent	1/8	P	P	yes	no	
+3	off/count	1/8	P	P	yes	no	
+3	off/mover	{0 | {-W, {+W | -W, ±+W} | -W}}	-	-	skipped	-	V_cyl contains integer of absolute value 256 (>= 64)
+3	off/opponent	*	P	P	yes	no	
+3	textbook/count	1/8	P	P	yes	no	
+3	textbook/mover	{0 | {-W, {+W | -W, ±+W} | -W}}	-	-	skipped	-	V_cyl contains integer of absolute value 256 (>= 64)
+3	textbook/opponent	*	P	P	yes	no	
+3	aware/count	1/8	P	P	yes	no	
+3	aware/mover	{0 | {-W, {+W | -W, ±+W} | -W}}	-	-	skipped	-	V_cyl contains integer of absolute value 256 (>= 64)
+3	aware/opponent	*	P	P	yes	no	
+4	off/count	1/2	P	P	yes	no	
+4	off/mover	3/4	P	P	yes	no	
+4	off/opponent	1/2	P	P	yes	no	
+4	textbook/count	1/16	P	P	yes	no	
+4	textbook/mover	1/16	P	P	yes	no	
+4	textbook/opponent	1/8	P	P	yes	no	
+4	aware/count	1/16	P	P	yes	no	
+4	aware/mover	1/16	P	P	yes	no	
+4	aware/opponent	1/8	P	P	yes	no	
+5	off/count	{0 | {0 | {0, * | {↓, {+W | ↓} | -W}}}}	-	-	skipped	-	V_cyl contains integer of absolute value 256 (>= 64)
+5	off/mover	{0, ↓* | 0, {0, {{+W | +W, {+W | +W, ±+W}} | -W} | -W}}	-	-	skipped	-	V_cyl contains integer of absolute value 256 (>= 64)
+5	off/opponent	{1 | {1 | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}}}	-	-	skipped	-	V_cyl contains integer of absolute value 256 (>= 64)
+5	textbook/count	{0 | ↓*}	P	P	yes	no	
+5	textbook/mover	{0, ↓* | 0, {0, {{+W | +W, {+W | +W, ±+W}} | -W} | -W}}	-	-	skipped	-	V_cyl contains integer of absolute value 256 (>= 64)
+5	textbook/opponent	{1 | {1 | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}}}	-	-	skipped	-	V_cyl contains integer of absolute value 256 (>= 64)
+5	aware/count	{0 | ↓*}	P	P	yes	no	
+5	aware/mover	*	P	P	yes	no	
+5	aware/opponent	{1 | {1 | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}}}	-	-	skipped	-	V_cyl contains integer of absolute value 256 (>= 64)
+6	off/count	{0, * | ↓}	P	P	yes	no	
+6	off/mover	{0, * | ↓}	P	P	yes	no	
+6	off/opponent	{0, * | ↓}	P	P	yes	no	
+6	textbook/count	{0, * | ↓}	P	P	yes	no	
+6	textbook/mover	{0, * | ↓}	P	P	yes	no	
+6	textbook/opponent	{0, * | ↓}	P	P	yes	no	
+6	aware/count	{0, * | ↓}	P	P	yes	no	
+6	aware/mover	{0, * | ↓}	P	P	yes	no	
+6	aware/opponent	{0, * | ↓}	P	P	yes	no	
+7	off/count	↑	P	P	yes	no	
+7	off/mover	↑	P	P	yes	no	
+7	off/opponent	↑	P	P	yes	no	
+7	textbook/count	tiny(1)	P	P	yes	no	
+7	textbook/mover	tiny(1)	P	P	yes	no	
+7	textbook/opponent	tiny(1)	P	P	yes	no	
+7	aware/count	tiny(1)	P	P	yes	no	
+7	aware/mover	tiny(1)	P	P	yes	no	
+7	aware/opponent	tiny(1)	P	P	yes	no	
+8	off/count	*2	P	P	yes	no	
+8	off/mover	*2	P	P	yes	no	
+8	off/opponent	0	P	P	yes	no	
+8	textbook/count	*2	P	P	yes	no	
+8	textbook/mover	*2	P	P	yes	no	
+8	textbook/opponent	0	P	P	yes	no	
+8	aware/count	{2±1 | -2±1}	P	P	yes	no	
+8	aware/mover	{2±1 | -2±1}	P	P	yes	no	
+8	aware/opponent	0	P	P	yes	no	
+9	off/count	0	P	P	yes	no	
+9	off/mover	0	P	P	yes	no	
+9	off/opponent	*2	P	P	yes	no	
+9	textbook/count	*2	P	P	yes	no	
+9	textbook/mover	0	P	P	yes	no	
+9	textbook/opponent	*2	P	P	yes	no	
+9	aware/count	*2	P	P	yes	no	
+9	aware/mover	0	P	P	yes	no	
+9	aware/opponent	*2	P	P	yes	no	

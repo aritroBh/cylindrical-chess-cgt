@@ -1,0 +1,53 @@
+K5b sanity checks: G0 = 'W: a4 / B: a5' (flat 8x8, no moves for either side) plus an explicit tree.
+Trees nodes: 244.  Each check is run in both modes under all 9 settings (G0 has no moves, so the settings cannot matter; any difference would be a solver bug).
+
+== required ==
+PASS  V + (-V) is P, V = 1                                                 expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = 2                                                 expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = 3                                                 expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = -1                                                expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = -2                                                expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = -3                                                expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = 1/2                                               expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = 1/4                                               expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = 1/8                                               expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = 1/16                                              expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = *                                                 expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = *2                                                expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = up                                                expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = down                                              expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = down*                                             expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = up2                                               expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = up2*                                              expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = up2*[literal]                                     expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = tiny1                                             expected=P   whole=P comp=P
+PASS  V + (-V) is P, V = sw                                                expected=P   whole=P comp=P
+PASS  1/8 + 1/8 + (-1/4) is P                                              expected=P   whole=P comp=P
+PASS  up2 is L                                                             expected=L   whole=L comp=L
+PASS  up - up2 is L                                                        expected=L   whole=L comp=L
+PASS  tiny(1) is L                                                         expected=L   whole=L comp=L
+PASS  *2 + *2 is P                                                         expected=P   whole=P comp=P
+PASS  G + G is P, G = {2+-1 | -2+-1}                                       expected=P   whole=P comp=P
+
+== control ==
+PASS  control: 0 is P                                                      expected=P   whole=P comp=P
+PASS  control: 1/2 + 1/2 - 1 is P                                          expected=P   whole=P comp=P
+PASS  control: 1/16 + 1/16 - 1/8 is P                                      expected=P   whole=P comp=P
+PASS  control: 1/8 - 1/16 is L                                             expected=L   whole=L comp=L
+PASS  control: 1/16 - 1/8 is R                                             expected=R   whole=R comp=R
+PASS  control: * is N                                                      expected=N   whole=N comp=N
+PASS  control: *2 - * is N                                                 expected=N   whole=N comp=N
+PASS  control: up + * is N                                                 expected=N   whole=N comp=N
+PASS  control: up2* - up2 (= *) is N                                       expected=N   whole=N comp=N
+PASS  control: 1/8 - 1/4 is R                                              expected=R   whole=R comp=R
+PASS  control: 2 - 3 is R                                                  expected=R   whole=R comp=R
+
+== record ==
+INFO  up2 - tiny(1) (no expected answer)                                   expected=-   whole=L comp=L
+
+== info ==
+INFO  up2*[literal {0,*|down}] - up2*[up2 + *] (P means equal)             expected=-   whole=P comp=P
+INFO  up2*[literal] outcome                                                expected=-   whole=N comp=N
+INFO  up2*[sum] outcome                                                    expected=-   whole=N comp=N
+
+ALL REQUIRED AND CONTROL CHECKS PASSED

@@ -1,0 +1,82 @@
+target	setting	V_own	equals_V_cyl	equals_claim	seconds
+1	off/count	1/8	yes	yes	0.72
+1	off/mover	1/8	yes	yes	1.00
+1	off/opponent	1/8	yes	yes	1.03
+1	textbook/count	1/8	yes	yes	1.11
+1	textbook/mover	1/8	yes	yes	1.23
+1	textbook/opponent	1/8	yes	yes	1.19
+1	aware/count	1/8	yes	yes	1.22
+1	aware/mover	1/8	yes	yes	1.14
+1	aware/opponent	1/8	yes	yes	1.21
+2	off/count	1/8	yes	yes	1.00
+2	off/mover	1/8	yes	yes	1.04
+2	off/opponent	1/8	yes	yes	1.02
+2	textbook/count	1/8	yes	yes	1.22
+2	textbook/mover	1/8	yes	yes	1.24
+2	textbook/opponent	1/8	yes	yes	1.25
+2	aware/count	1/8	yes	yes	1.25
+2	aware/mover	1/8	yes	yes	1.26
+2	aware/opponent	1/8	yes	yes	1.21
+3	off/count	1/8	yes	no claim	3.38
+3	off/mover	{0 | {-W, {+W | -W, ±+W} | -W}}	yes	no claim	3.29
+3	off/opponent	*	yes	no claim	3.45
+3	textbook/count	1/8	yes	no claim	4.98
+3	textbook/mover	{0 | {-W, {+W | -W, ±+W} | -W}}	yes	no claim	4.75
+3	textbook/opponent	*	yes	no claim	4.76
+3	aware/count	1/8	yes	yes	5.44
+3	aware/mover	{0 | {-W, {+W | -W, ±+W} | -W}}	yes	no claim	5.46
+3	aware/opponent	*	yes	no claim	5.16
+4	off/count	1/2	yes	no claim	4.63
+4	off/mover	3/4	yes	no claim	4.42
+4	off/opponent	1/2	yes	no claim	4.16
+4	textbook/count	1/16	yes	no claim	5.83
+4	textbook/mover	1/16	yes	no claim	6.15
+4	textbook/opponent	1/8	yes	no claim	6.27
+4	aware/count	1/16	yes	yes	6.55
+4	aware/mover	1/16	yes	no claim	6.04
+4	aware/opponent	1/8	yes	no claim	6.89
+5	off/count	{0 | {0 | {0, * | {↓, {+W | ↓} | -W}}}}	yes	no claim	6.63
+5	off/mover	{0, ↓* | 0, {0, {{+W | +W, {+W | +W, ±+W}} | -W} | -W}}	yes	no claim	6.15
+5	off/opponent	{1 | {1 | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}}}	yes	no claim	6.20
+5	textbook/count	{0 | ↓*}	yes	no claim	12.02
+5	textbook/mover	{0, ↓* | 0, {0, {{+W | +W, {+W | +W, ±+W}} | -W} | -W}}	yes	no claim	10.11
+5	textbook/opponent	{1 | {1 | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}}}	yes	no claim	10.19
+5	aware/count	{0 | ↓*}	yes	yes	10.30
+5	aware/mover	*	yes	no claim	9.19
+5	aware/opponent	{1 | {1 | {*, {+W | *} | -W, {-W, ±+W, {-W, ±+W | -W} | -W}}}}	yes	no claim	10.27
+6	off/count	{0, * | ↓}	yes	yes	0.32
+6	off/mover	{0, * | ↓}	yes	yes	0.38
+6	off/opponent	{0, * | ↓}	yes	yes	0.31
+6	textbook/count	{0, * | ↓}	yes	yes	0.41
+6	textbook/mover	{0, * | ↓}	yes	yes	0.33
+6	textbook/opponent	{0, * | ↓}	yes	yes	0.42
+6	aware/count	{0, * | ↓}	yes	yes	0.39
+6	aware/mover	{0, * | ↓}	yes	yes	0.37
+6	aware/opponent	{0, * | ↓}	yes	yes	0.35
+7	off/count	↑	yes	no claim	0.36
+7	off/mover	↑	yes	no claim	0.37
+7	off/opponent	↑	yes	no claim	0.45
+7	textbook/count	tiny(1)	yes	no claim	0.48
+7	textbook/mover	tiny(1)	yes	no claim	0.50
+7	textbook/opponent	tiny(1)	yes	no claim	0.52
+7	aware/count	tiny(1)	yes	yes	0.57
+7	aware/mover	tiny(1)	yes	no claim	0.52
+7	aware/opponent	tiny(1)	yes	no claim	0.52
+8	off/count	*2	yes	yes	1.25
+8	off/mover	*2	yes	yes	1.20
+8	off/opponent	0	yes	yes	1.42
+8	textbook/count	*2	yes	yes	2.35
+8	textbook/mover	*2	yes	yes	2.39
+8	textbook/opponent	0	yes	yes	2.32
+8	aware/count	{2±1 | -2±1}	yes	yes	2.57
+8	aware/mover	{2±1 | -2±1}	yes	no claim	2.37
+8	aware/opponent	0	yes	no claim	2.32
+9	off/count	0	yes	no claim	23.45
+9	off/mover	0	yes	no claim	23.46
+9	off/opponent	*2	yes	no claim	24.95
+9	textbook/count	*2	yes	no claim	36.31
+9	textbook/mover	0	yes	no claim	33.84
+9	textbook/opponent	*2	yes	no claim	32.76
+9	aware/count	*2	yes	yes	28.67
+9	aware/mover	0	yes	no claim	29.89
+9	aware/opponent	*2	yes	no claim	35.19

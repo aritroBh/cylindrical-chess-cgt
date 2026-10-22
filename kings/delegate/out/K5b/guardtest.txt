@@ -1,0 +1,5 @@
+watchdog self-test (tick 0.5 s).  ru_maxrss now = 19760 KB; run-time limit RSS_LIMIT_KB = 2600000 KB.
+PASS  memory limit below current RSS: aborted with 'memory' after 0.5 s (expected 'memory')
+PASS  wall-clock limit 0 s: aborted with 'timeout' after 0.5 s (expected 'timeout')
+PASS  no limit hit (control): aborted with None after 2.0 s (expected None)
+WATCHDOG SELF-TEST PASSED

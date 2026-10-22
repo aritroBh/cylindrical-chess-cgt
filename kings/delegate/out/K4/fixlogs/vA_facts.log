@@ -1,0 +1,10 @@
+1 + (-1): second player wins               got (W-starts,B-starts)=('L', 'W') want=('L', 'W') PASS
+* + *: second player wins                  got (W-starts,B-starts)=('L', 'W') want=('L', 'W') PASS
+up + down: second player wins              got (W-starts,B-starts)=('L', 'W') want=('L', 'W') PASS
+1/2 + 1/2 + (-1): second player wins       got (W-starts,B-starts)=('L', 'W') want=('L', 'W') PASS
+on + (-2): Left wins either way            got (W-starts,B-starts)=('W', 'W') want=('W', 'W') PASS
+on + off: draw either way                  got (W-starts,B-starts)=('D', 'D') want=('D', 'D') PASS
+dud + 1: draw either way                   got (W-starts,B-starts)=('D', 'D') want=('D', 'D') PASS
+over + (-1/2): Right wins either way       got (W-starts,B-starts)=('L', 'L') want=('L', 'L') PASS
+over: Left wins either way                 got (W-starts,B-starts)=('W', 'W') want=('W', 'W') PASS
+up + *: first player wins                  got (W-starts,B-starts)=('W', 'L') want=('W', 'L') PASS

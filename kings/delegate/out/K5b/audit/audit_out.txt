@@ -1,0 +1,89 @@
+====================================================================================================
+C. SANITY  (own parser trees, G0 = 'W: a4 / B: a5', 9 settings x 2 modes) vs lazy evaluator vs sanity.txt
+ok  V + (-V) is P, V = 1                                                 exp=P whole=P comp=P lazy=P 
+ok  V + (-V) is P, V = 2                                                 exp=P whole=P comp=P lazy=P 
+ok  V + (-V) is P, V = 3                                                 exp=P whole=P comp=P lazy=P 
+ok  V + (-V) is P, V = -1                                                exp=P whole=P comp=P lazy=P 
+ok  V + (-V) is P, V = -2                                                exp=P whole=P comp=P lazy=P 
+ok  V + (-V) is P, V = -3                                                exp=P whole=P comp=P lazy=P 
+ok  V + (-V) is P, V = 1/2                                               exp=P whole=P comp=P lazy=P 
+ok  V + (-V) is P, V = 1/4                                               exp=P whole=P comp=P lazy=P 
+ok  V + (-V) is P, V = 1/8                                               exp=P whole=P comp=P lazy=P 
+ok  V + (-V) is P, V = 1/16                                              exp=P whole=P comp=P lazy=P 
+ok  V + (-V) is P, V = *                                                 exp=P whole=P comp=P lazy=P 
+ok  V + (-V) is P, V = *2                                                exp=P whole=P comp=P lazy=P 
+ok  V + (-V) is P, V = up                                                exp=P whole=P comp=P lazy=P 
+ok  V + (-V) is P, V = down                                              exp=P whole=P comp=P lazy=P 
+ok  V + (-V) is P, V = down*                                             exp=P whole=P comp=P lazy=P 
+ok  V + (-V) is P, V = up2                                               exp=P whole=P comp=P lazy=P 
+ok  V + (-V) is P, V = up2*                                              exp=P whole=P comp=P lazy=P 
+ok  V + (-V) is P, V = up2*[literal]                                     exp=P whole=P comp=P lazy=P 
+ok  V + (-V) is P, V = tiny1                                             exp=P whole=P comp=P lazy=P 
+ok  V + (-V) is P, V = sw                                                exp=P whole=P comp=P lazy=P 
+ok  1/8 + 1/8 + (-1/4) is P                                              exp=P whole=P comp=P lazy=P 
+ok  up2 is L                                                             exp=L whole=L comp=L lazy=L 
+ok  up - up2 is L                                                        exp=L whole=L comp=L lazy=L 
+ok  tiny(1) is L                                                         exp=L whole=L comp=L lazy=L 
+ok  up2 - tiny(1) (no expected answer)                                   exp=- whole=L comp=L lazy=L 
+ok  *2 + *2 is P                                                         exp=P whole=P comp=P lazy=P 
+ok  G + G is P, G = {2+-1 | -2+-1}                                       exp=P whole=P comp=P lazy=P 
+ok  up2*[literal {0,*|down}] - up2*[up2 + *] (P means equal)             exp=- whole=P comp=P lazy=P 
+ok  up2*[literal] outcome                                                exp=- whole=N comp=N lazy=N 
+ok  up2*[sum] outcome                                                    exp=- whole=N comp=N lazy=N 
+ok  neg(star) + star is P (lazy)                                         exp=P got=P
+ok  neg(down) + down is P (lazy)                                         exp=P got=P
+ok  neg(up) + up is P (lazy)                                             exp=P got=P
+ok  neg(h8) + h8 is P (lazy)                                             exp=P got=P
+ok  neg(tiny1) + tiny1 is P (lazy)                                       exp=P got=P
+ok  neg(sw) + sw is P (lazy)                                             exp=P got=P
+ok  neg(up2) + up2 is P (lazy)                                           exp=P got=P
+ok  neg(downstar) + downstar is P (lazy)                                 exp=P got=P
+ok  T.add(down,*) - down - * is P (lazy)                                 exp=P got=P
+ok  T.add(up2,*) - up2 - * is P (lazy)                                   exp=P got=P
+ok  literal {0,*|down} - up2 - * is P (lazy)                             exp=P got=P
+ok  down* is down + * : lazy [down*, -down, -*] P                        exp=P got=P
+ok  1/8+1/8-1/4 is P (lazy, components apart)                            exp=P got=P
+ok  up > up2 > 0: up - up2 is L (lazy)                                   exp=L got=L
+ok  up2 > tiny1 > 0: up2 - tiny1 is L (lazy)                             exp=L got=L
+ok  sw + sw is P (lazy, components apart)                                exp=P got=P
+ok  *2 + *2 is P (lazy, components apart)                                exp=P got=P
+sanity discrepancies (bad flags or differences vs sanity.txt): 0
+sanity.txt check-lines parsed: 41; my required/record/info checks: 30
+====================================================================================================
+D. PASS 1: claims, both modes (own script)
+claims: 39
+pass 1: 39 claims, mine confirmed in both modes: 39; rows differing from claims.tsv: 0; claims.tsv rows: 39
+====================================================================================================
+E. WIRING / NEGATIVE CHECKS (expected non-P in the 'must fail' rows)
+ok  T8 textbook/count  G - (sw): whole=N comp=N  [must-fail] textbook T8 is *2, not {2+-1|-2+-1}
+ok  T8 aware/count  G - (star2): whole=N comp=N  [must-fail] aware T8 is {2+-1|-2+-1}, not *2
+ok  T8 off/count  G - (sw): whole=N comp=N  [must-fail] off T8 is *2
+ok  T8 off/opponent  G - (star2): whole=N comp=N  [must-fail] off/opponent T8 is 0, not *2
+ok  T8 textbook/opponent  G - (star2): whole=N comp=N  [must-fail] textbook/opponent T8 is 0, not *2
+ok  T8 off/mover  G - (0): whole=N comp=N  [must-fail] off/mover T8 is *2, not 0
+ok  T9 off/count  G - (star2): whole=N comp=N  [must-fail] off T9: cylcgt says 0 (claim only for aware)
+ok  T9 aware/count  G - (0): whole=N comp=N  [must-fail] aware T9 is *2, not 0
+ok  T1 aware/count  G - (h16): whole=L comp=L  [must-fail] T1 is 1/8, not 1/16
+ok  T1 aware/count  G - (h4): whole=R comp=R  [must-fail] T1 is 1/8, not 1/4
+ok  T1 aware/count  G - (0): whole=L comp=L  [must-fail] T1 is 1/8, not 0
+ok  T4 aware/count  G - (h8): whole=R comp=R  [must-fail] T4 is 1/16, not 1/8
+ok  T4 aware/count  G - (h16+h16-h8+h16): whole=P comp=P  [P-expected] T4 = 1/16 (sanity of sum form: should be P)
+ok  T5 aware/count  G - (up): whole=R comp=R  [must-fail] T5 is up2, not up
+ok  T5 aware/count  G - (up2star): whole=N comp=N  [must-fail] T5 is up2, not up2*
+ok  T6 aware/count  G - (up2): whole=N comp=N  [must-fail] T6 is up2*, not up2
+ok  T6 aware/count  G - (up2-star): whole=P comp=P  [P-expected] up2 - * as an alternative; up2* != up2 - * ... is the same game (** = 0): expect P
+ok  T7 aware/count  G - (up2): whole=R comp=R  [must-fail] T7 is tiny1, not up2
+ok  T7 aware/count  G - (0): whole=L comp=L  [must-fail] T7 is tiny1, not 0
+ok  T3 aware/count  G - (h4): whole=R comp=R  [must-fail] T3 is 1/8, not 1/4
+wiring checks failing: 0
+====================================================================================================
+F. PASS 2: cylcgt value at all 81 pairs; convert through .L/.R only; solve G + (-V_cyl)
+pass 2: pairs 81; tested 72; confirmed (P/P) 72; skipped 9; rows differing from cylcgt.tsv: 0; elapsed 303.5s
+skipped pairs: T3 off/mover (max int 256); T3 textbook/mover (max int 256); T3 aware/mover (max int 256); T5 off/count (max int 256); T5 off/mover (max int 256); T5 off/opponent (max int 256); T5 textbook/mover (max int 256); T5 textbook/opponent (max int 256); T5 aware/opponent (max int 256)
+max |integer| among tested pairs: 3
+tested pairs with an integer in (8,64) (comp-mode BIGC/bank>8 shortcut region): []
+cylcgt integer tags disagreeing with structure (diagnostic): 0
+'off' value changes with PASSED_RESPECTS_EP: 0
+distinct printed values at tested pairs: *, *2, 0, 1/16, 1/2, 1/8, 3/4, tiny(1), {0 | ↓*}, {0, * | ↓}, {2±1 | -2±1}, ↑
+====================================================================================================
+TOTAL FLAGS: sanity=0 pass1_vs_tsv=0 wiring=0 pass2_vs_tsv=0

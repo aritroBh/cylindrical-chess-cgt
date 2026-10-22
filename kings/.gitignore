@@ -2,3 +2,14 @@ kpsolve
 __pycache__/
 delegate/out/*/kp
 delegate/logs/*.pid
+# K4 bulk that run.sh regenerates
+delegate/out/K4/check1/
+delegate/out/K4/audit_rerun/
+delegate/out/K4/verify_B/work/
+delegate/out/K4/verify_B/rerun_copy/
+delegate/out/K4/verify_A/rows_*.json
+delegate/out/**/kp
+delegate/out/**/kpv
+delegate/out/**/v_prod
+delegate/out/**/__pycache__/
+delegate/out/**/.pytest_cache/

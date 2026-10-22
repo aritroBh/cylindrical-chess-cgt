@@ -320,7 +320,44 @@ Every deliverable was given to independent referees (Claude models) told to brea
   solve here. Theory §5.2 says it is still a White win when White wins the pawn part.
 - **`dud`.** No small king-and-pawn group with both kings able to shuttle and no pawn break was found
   (CONJECTURE, theory §5.3).
-- **Gafni's K+P vs K values without edges** (plan A8) were not re-examined.
+- **Opposition on cylinders** (plan A8) is covered by the main project's tasks T12 and T25, not by this
+  report. [research/odd_cylinders_verify/REPORT.md](../research/odd_cylinders_verify/REPORT.md) checks it
+  with kpsolve and `kings/ref` together (CHECKED-2: 1,058,628 cylinder positions, 0 disagreements).
+  - "Direct opposition is always a draw" is refuted: of the 4,288 direct-opposition triples on C8×8, 984 are
+    draws and 200 are mutual zugzwangs.
+  - `Ka3 Pa2 ka5` is a draw on the flat board and a mutual zugzwang on every cylinder.
+  - The paper gives the table in §X-A (Table VI).
+- **Gafni's K+P vs K values without edges** (plan A8), task K4 ([delegate/out/K4/REPORT.md](delegate/out/K4/REPORT.md)).
+  The thesis itself was not located (`notes/novelty_check/REPORT.md`). So K4 computed the same kind of object
+  under a stated convention: normal play, so a stalemate loses; infinite play draws; a test-game move is illegal
+  while in check.
+  - **Scope.** K+P vs K on flat and cylinder boards 3×4, 4×4, 3×5, 4×5 and 5×5: 20,556 quiet placements, each
+    summed with 16 test games and compared with 26 candidate values. The 3×3 board is outside SPEC.
+  - **Checks (CHECKED-2).** With stalemate a draw, the solver agrees with kpsolve on 294,749 positions (0
+    differences). Two independent re-implementations reproduce every placement (0 differences).
+  - **No number or infinitesimal occurs.** Every placement is a decisive White win, on (tied with on + \*),
+    off, dud, or unmatched. off is exactly the White-stalemated pattern, so it is an artefact of the convention.
+  - **Edges.** 12.5%–20.5% of the placements change class when the edges go, and on is more frequent on the
+    cylinder at every size.
+  - **Tempo.** On the odd-width cylinders (3×4, 3×5, 5×5) no finite test game or integer n ∈ [−10, 10] changes
+    any result. On flat boards and 4-file cylinders a few placements have tempo thresholds at n ∈ {−2, −1, 0}.
+    So "no finite king tempo" fails as a whole-board statement, though Proposition 4.3 is not tested by this.
+  - **Gafni.** His reported values (a second-hand summary) do not appear: on + \* only as a tie with on, and no
+    {on | 0} or 1 + \*. That is no contradiction, because his conventions are unknown.
+- **CGSuite modelling** (plan A8) is open. It needs CGSuite and a Java runtime to be installed, which needs
+  the user's approval; neither is installed. A partial stand-in, task K5b, checks cylcgt's canonical forms by
+  a different method. For each value V it plays G + (−V) out with the brute-force solver `sumtest/sumsolver.py`,
+  which computes no canonical forms; G = V exactly when that sum is a second-player win (𝓟).
+  - The targets were 1/8 (three positions), 1/16, ↑², ↑²\*, tiny(1), the 4-pawn \*2 candidate and the C3 ring
+    \*2, each under 9 settings (race rule × e.p. treatment).
+  - **CHECKED-2:** all 39 claimed values hold. cylcgt's own value holds at 72 of the 81 target × setting pairs,
+    with 0 failures; the other 9 contain ±BIG and were not tested.
+  - An auditor recomputed everything with its own script and found 0 differences. Results:
+    [delegate/out/K5b/REPORT.md](delegate/out/K5b/REPORT.md).
+  - Caveat: sumsolver was also written by a Claude model. So the check is independent of cylcgt's code but
+    not of the model family, and a rules misreading shared by both programs would not be caught.
+  - The first attempt, K5, is rejected. Its "independent" engine copied `cylcgt/cgt.py`
+    ([delegate/out/K5/REVIEW.md](delegate/out/K5/REVIEW.md)).
 
 ## 9. Reproduce
 
