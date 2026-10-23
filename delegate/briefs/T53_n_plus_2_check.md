@@ -35,7 +35,8 @@ The proof is in `research/ring_n_plus_2_proof/PROOF.md`. It reuses T50's Lemmas 
 ## What to do
 
 1. **Read** `PROOF.md`, and `research/ring_family_proof/proof.tex` (Lemmas 1–3 and the theorem's proof) as a referee
-   looking for a gap. In particular, check that every hypothesis of Lemmas 2 and 3 holds for P_n. That includes the
+   looking for a gap. Give a separate verdict on section 2b of `PROOF.md`. It is a new written-out proof of Lemma 3
+   (ii)–(iii), and no model other than its author has refereed it yet. In particular, check that every hypothesis of Lemmas 2 and 3 holds for P_n. That includes the
    wall's phase and its ends next to the core, the cut c = 12, and the claim that files 8..17 stay pattern files in
    every node.
 2. **Reproduce** with the project's scripts. Do not edit them. From the project root, run
