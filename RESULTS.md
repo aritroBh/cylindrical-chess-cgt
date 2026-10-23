@@ -337,6 +337,30 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   exact, `apply_kpsolve.py` pins the oracle value: **O = 1/8** (queen promotions only, frozen kings; C1).
   Still open: a rerun with underpromotions for a full-chess certificate.
 
+- **Round 10 (2026-10-22 evening).**
+  - **The wall rings are \*2 for every n ≥ 5, in the whole-board game** (proved [AI], finite checks CHECKED-2).
+    - Families: O_n = `W23B4, B5, W2B5, (W3,B5)^k` and E_n = `B5, W2B5, W35B6, W2, (B4,W2)^(m+1)`, with n+3 pawns.
+    - Proof: delete the losing wall moves, then show that two more wall files leave the reduced game unchanged.
+      This reduces everything to two graphs of 144 and 104 nodes plus n < 17.
+    - Refereed SOUND by OpenCode beam-free (T51), a non-Claude model. A Sonnet verifier with its own engine
+      accepted it, asking only for label and scope fixes.
+    - As sums of components it is still checked only to n = 12, because wall captures split the ring.
+    - `research/ring_family_proof/`.
+  - **No \*4 found (T49).**
+    - All 134,920,191 one-component ten-pawn positions on five files: 75 \*2, 3 \*3, nothing higher.
+    - All 48,649,934 eleven-pawn positions on four files: 9 \*2, 1 \*3.
+    - Root counts are reproduced exactly by an independent count. This is under the scanner's e.p. convention,
+      which keeps an e.p. right across components.
+    - The 13 minimal \*3 cores are each a \*2 plus a \*1 pair (CHECKED-2). Two of the four C7 \*3 ring classes are
+      primitive.
+    - `research/star4_hunt/`.
+  - **C8 breaks the n+3 pattern: the first ring \*2 on C8 has ten pawns (n+2).**
+    - No nine-pawn ring is \*2. The scanner and `c8check_gen` agree over all 7,039,362 classes (CHECKED-2).
+    - The ten-pawn 5+5 split has 18 \*2 and 2 \*3 classes (scanner, C1). Example:
+      `W a3 b3 c3 d2 f2 / B b6 d5 e5 g4 h5`, \*2 in cylcgt both as a sum and whole-board (CHECKED-2).
+    - cylcgt checks of the other 19 classes and the 4+6, 3+7, 2+8 and 1+9 splits are running.
+    - T52 (OpenCode) is looking for an n+2 family on C9 and up.
+
 ## 7. Pending
 
 **Verification gaps.** 35 adversarial verifiers were cut off by the Claude usage limit. Not verified:

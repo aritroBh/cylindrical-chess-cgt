@@ -1,11 +1,12 @@
 #!/bin/zsh
-# Orchestrator takeover of T48 (Codex hit its limit at 19:14, Kilo fallback walled): run chunks 1-3 of the
-# 9-pawn C8 ring enumeration one at a time after chunk 0 (pid 31645, started by T48) exits.
+# Orchestrator takeover of T48 (Codex hit its limit at 19:14, Kilo fallback walled). c8check_gen = c8check with a
+# generation stamp in place of the per-class memset (same search; node counts identical on the test positions).
+# Chunk 0 is re-run with it as a cross-check of the memset run (out9_0.memset.txt), then chunks 1-3.
 cd "${0:A:h}"
-while kill -0 31645 2>/dev/null; do sleep 60; done
-for c in 1 2 3; do
-  nice -n 15 ./c8check --enum $c 4 8 9 > out9_$c.txt 2> out9_$c.err &
+for c in 0 1 2 3; do
+  start=$(date +%s)
+  nice -n 15 ./c8check_gen --enum $c 4 8 9 > out9_$c.txt 2> out9_$c.err &
   echo $! > chunk$c.pid; wait $!
-  echo "[$(date +%H:%M)] chunk $c done: $(tail -2 out9_$c.txt | head -1)" >> progress.txt
+  echo "[$(date +%H:%M)] chunk $c done in $(( $(date +%s) - start )) s: $(head -1 out9_$c.txt | grep -v STAR; grep -c STAR out9_$c.txt) star lines" >> progress.txt
 done
 echo "[$(date +%H:%M)] ALL DONE" >> progress.txt

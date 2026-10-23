@@ -642,3 +642,7 @@ first ring \*2 has at most ten pawns = n+2, below the wall family's n+3. That br
 pattern at n = 8, once confirmed. cylcgt (sum and whole-board) is checking all 20 (`research/star26_rings/c8/cylcgt_p10.py`).
 The 4+6, 3+7, 2+8 and 1+9 splits are still running. T45's C6 eight-pawn run: 0 \*2 (2,722,305 classes), agreeing
 with the scanner; its nine-pawn run is going.
+
+**C8 nine-pawn minimality is CHECKED-2 (21:29).** `c8check_gen` (independent of the scanner and cylcgt) solved all
+7,039,362 canonical nine-pawn ring classes in four chunks (666,748 + 2,818,992 + 1,347,020 + 2,206,602), with
+star2 = 0 and star3 = 0. This agrees with the scanner's zero hits.
