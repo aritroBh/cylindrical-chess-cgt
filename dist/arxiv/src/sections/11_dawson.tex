@@ -19,7 +19,7 @@ we restate it and redo the analysis.
 \label{fig:dawson_ring}
 \end{subfigure}
 \caption{Starting position of Dawson's chess on six files. (a) $3\times6$ ordinary board. (b) $3\times6$
-cylinder: files a and f are adjacent, and the two dashed edges are glued.}
+cylinder: files a and f are adjacent; dashed edges are glued.}
 \label{fig:dawson_boards}
 \end{figure}
 
@@ -79,7 +79,7 @@ rotation all first moves are alike, and the cylinder has one option.
 \end{proof}
 
 The ring formula of~\cite{Study2025} and its remark that the ring's value is always 0 or 1 are
-therefore right once the correct $g$ is used (Fig.~\ref{fig:dawson_grundy}).
+right once the correct $g$ is used (Fig.~\ref{fig:dawson_grundy}).
 
 \emph{Mis\`ere play.} A forced sequence has odd length and ends with the player who began it, so the
 ring rule carries over: the first player wins the mis\`ere cylinder exactly when the strip of $n-3$ files is
@@ -87,6 +87,6 @@ a mis\`ere P-position. Our implementation of the Plambeck--Siegel algorithm~\cit
 reproduces their partial quotient for strips of at most 32 files (order 638, 109 P-positions) and agrees
 with exhaustive search on 7.4 million positions \lab{C2}; our computation of the next quotient, for longer strips, did not finish.
 
-\emph{A warning about sums.} Valued on its own as a partizan game, the ordinary $3\times5$ board is $\star$,
-although $g(5)=3$. The outcome agrees, but only $g$ adds up: a sum of such values would let a player answer
-in another strip while a capture is pending.
+\emph{A warning about sums.} As a partizan game on its own, the ordinary $3\times5$ board is $\star$,
+although $g(5)=3$. The outcome agrees, but only $g$ adds up: a sum of such values would let a player reply
+elsewhere while a capture is pending.

@@ -33,8 +33,8 @@ For the candidate \pos{W a2 c2 / B b7 d7} beside T (Fig.~\ref{fig:star2_textbook
 \begin{enumerate}
 \item[(a)] In real chess the side to move wins; only 1\ldots~b5 wins for black, 1.~c4 wins for white, and every
   king move loses \lab{C2}.
-\item[(b)] In the e.p.-aware tree, under every draw treatment, $O$ has left stop $\ge1$ and right stop $\le-1$, so
-  $O$ is neither $0$ nor $\nim{2}$.
+\item[(b)] In the e.p.-aware tree, for every draw treatment, $O$ has left stop $\ge1$ and right stop $\le-1$, so
+  it is not $0$ or $\nim{2}$.
 \item[(c)] If draws count as wins for black, $O=\game{2\pm1}{-2\pm1}$ in both trees.
 \end{enumerate}
 \end{theorem}
@@ -70,6 +70,6 @@ would make it a full-chess certificate. The same method applies to $\upsec\star$
 target values, with $11$ and $13$ end positions of $8$ to $10$ men still open \lab{C1}. Positions A and B have $11$ men beside
 T, and the five-file $\nim{2}$ \pos{W a3 b3 c2 e2 / B a6 c5 d5 e3}, which sits legally
 beside T, has $12$, with only file f free of pawns between them. Their oracle values are open. For A and B a
-search finds end positions that decide the value; the five and seven of them with $8$ men agree with the model
+search finds the deciding end positions; the five and seven of them with $8$ men agree with the model
 (queen promotions only) \lab{C1}, but those with $9$ to $11$ men are unsolved, so the $\nim{2}$ of
-Theorem~\ref{thm:star2seven} is so far a model value.
+Theorem~\ref{thm:star2seven} is a model value.

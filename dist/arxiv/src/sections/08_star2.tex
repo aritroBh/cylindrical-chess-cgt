@@ -23,7 +23,7 @@ default setting, and that $\nim{2}$ appears with seven.
 \end{subfigure}
 \caption{Positions of the $\nim{2}$ question beside T (Fig.~\ref{fig:trebuchet}; ordinary board). (a)~Candidate:
 $\nim{2}$ under the textbook test, $\game{2\pm1}{-2\pm1}$ under the e.p.-aware test. (b)~Position A and
-(c)~position B: $\nim{2}$ in the default setting (count rule, e.p.-aware test).}
+(c)~position B: $\nim{2}$ in the default setting.}
 \label{fig:star2}
 \end{figure}
 
@@ -140,12 +140,16 @@ three, and the other three are their color-reversed twins \lab{C2}. On $\cyl{7}$
 $\nim{2}$, and a third solver written from the rules agrees \lab{C2}; the ten-pawn rings with five pawns a side
 include $63$ of value $\nim{2}$ \lab{C1}, such as \pos{W a2 a3 c3 e3 f2 / B a4 b5 d5 f5 g5}, which all three
 programs confirm \lab{C2}. So the first ring $\nim{2}$ on $\cyl{n}$ has $n+3$ pawns for $n=3,\dots,7$
-\lab{C1}. For $n\ge8$ our scans stop short of
-$n+3$ pawns, but $n+3$ pawns still suffice. Close a window of five or six files with a wall of single pawns of
+\lab{C1}, but on $\cyl{8}$ it has ten \lab{C1}: no nine-pawn ring there is a $\nim{2}$ \lab{C2}, while of the ten-pawn
+rings $18$ are $\nim{2}$ and two $\nim{3}$, all with five pawns a side \lab{C1}, such as
+\pos{W a3 b3 c3 d2 f2 / B b6 d5 e5 g4 h5}, a $\nim{2}$ in both models \lab{C2}. For $n\ge9$ our scans stop short.
+Close a window of five or six files with a wall of single pawns of
 alternating colors on consecutive files; if a wall pawn moves, its neighbor captures it and gets a passed pawn.
-This gives a ring $\nim{2}$ with $n+3$ pawns on every $\cyl{n}$ with $5\le n\le21$, for example \pos{W b2 c3 c5
-d2 f2 h2 / B a5 b5 c6 e4 g4} on $\cyl{8}$: our engine confirms the family to $n=12$ and a second program to
-$n=21$ \lab{C2}, and a third, written from the rules alone, to $n=26$ \lab{C1}. The $\cyl{3}$ ring is a $\nim{2}$ with one pawn fewer than any ordinary board of width at most four allows,
+As a whole-board game this gives a ring $\nim{2}$ with $n+3$ pawns on every $\cyl{n}$ with $n\ge5$, for example
+\pos{W b2 c3 c5 d2 f2 h2 / B a5 b5 c6 e4 g4} on $\cyl{8}$ \lab{AI}: once the losing wall moves are deleted, two more
+wall files change nothing, so all rests on two games of $144$ and $104$ positions and on the cylinders with fewer than $17$
+files, which two programs check \lab{C2}. As a sum of components, where captures can split the ring, our engine confirms it only
+to $n=12$ \lab{C1}. The $\cyl{3}$ ring is a $\nim{2}$ with one pawn fewer than any ordinary board of width at most four allows,
 and it needs two en passant captures: without black's b4$\times$a3 it is $\uparrow$, without white's
 b5$\times$c6 it is $\downarrow$, and with e.p.\ off it is $0$ \lab{C2}.
 
@@ -159,7 +163,9 @@ beside a group worth $\star$ on six files, \pos{W a2 a4 c2 e2 / B a3 a6 d7 f7}, 
 / B a7 b5 c6 d4} on $\cyl{4}$ under the opponent rule \lab{C2}. On $\cyl{7}$ the ten-pawn rings above include
 eight of value $\nim{3}$, among them \pos{W a2 a5 c4 e2 f2 / B a7 b4 d7 e5 g7}, which is $\nim{3}$ in both
 models; for all eight the scanner, our engine as a whole-board game and the third solver agree \lab{C2}, and as
-sums six keep the value. So $\nim{3}$, like $\nim{2}$, needs no more than eight ranks.
+sums six keep the value. So $\nim{3}$, like $\nim{2}$, needs no more than eight ranks, but no $\nim{4}$ has turned up: none of
+the $134{,}920{,}191$ ten-pawn positions on five files that form one component has a nimber above $\nim{3}$
+in the default setting \lab{C1}.
 
 In the model, then, the $\nim{2}$ question has a positive answer on the ordinary $8\times8$ board: four files
 and seven pawns beside T suffice, while Elkies' higher nimbers need larger boards~\cite{Elkies2002}. Whether real

@@ -5,7 +5,7 @@ king move either, be stalemated, which is a draw. The tr\'ebuchet of Section~\re
 stalemate: a side with no pawn move must move a king, and loses. We now ask when this gives the true chess
 result. Our king-and-pawn solver plays real chess, with en passant, stalemate and any of the four
 promotions, but no fifty-move rule; an independent reference solver, written from the rules alone, agrees with
-it on all $1{,}418{,}480$ positions of its test runs \lab{C2}. This validates the solver; its results below are
+it on all $1{,}418{,}480$ positions of its test runs \lab{C2}. Our solver's results below are
 \lab{C1} unless a second program or the Lichess tablebase~\cite{LichessTB} confirms them.
 
 \subsection{Two Tr\'ebuchets}
@@ -66,13 +66,13 @@ passed pawn (Section~\ref{sec:sums-hss}), without draws, where $X$ is the positi
 \begin{proof}[Proof sketch]
 By (V3) neither side moves in $Z$ without losing, so until the first decisive event both play the pawn game;
 by (V1) the side to move always has a model move, so play ends at a decisive event, and by (V2) and (V3) that event
-decides the chess game as it decides $W(X)$. The full proof is in the repository.
+decides the chess game as it decides $W(X)$.
 \end{proof}
 
 \begin{corollary}[\lab{AI}]\label{cor:v4}
 If also (V4) $X$ is hereditarily sum-safe (Definition~\ref{def:hss}) and satisfies condition (E) of
-Theorem~\ref{thm:hss}, and $\BIG$ exceeds the number of moves either side can make, the chess result in
-Theorem~\ref{thm:validity} is the outcome class of the $\pm\BIG$ value of the components.
+Theorem~\ref{thm:hss}, and $\BIG$ exceeds the number of moves either side can make, the chess result is
+the outcome class of the components' $\pm\BIG$ value.
 \end{corollary}
 
 \begin{proof}
@@ -82,7 +82,7 @@ the outcome of $S(X)$.
 
 Each condition can fail: a stalemate trap leaves the loser without a move (V1), a passed pawn does not win its
 race (V2), a king walks over to the pawns or, in Fig.~\ref{fig:kinggroup72}, white's king moves go unpunished
-(V3), and a $+\BIG$ cancels a $-\BIG$ (V4; Section~\ref{sec:sums-hss}).
+(V3), and a $+\BIG$ cancels a $-\BIG$ (V4).
 
 A local test for (V3) is the \emph{certificate of horizon $h$}: with all other pawns removed, the punisher
 promotes within $h$ moves of its reply even if the defender may pass at any time, the defender cannot promote
@@ -97,6 +97,11 @@ holds where every move in $Z$ has one. The counter-promotion condition cannot be
 In chess no margin suffices. On the cylinder with seven files and six ranks, Kb4, Pe4 against Ka1, Pa2 with
 white to move, the king move Kb4--c5 has a certificate of horizon~1, yet the chess result after it is a draw, and
 on the $6\times6$ board a margin of one more move fails as well \lab{C1}.
+
+For (V2) a local test is known only if king moves also lose \lab{AI}: a passed pawn then wins the promotion
+game if, besides conditions on checks, stalemates and its own nearby pawns, its path is empty and every enemy
+pawn, passed or not, needs a move more to promote. The model looks only at passed pawns: with Pc2, Pd4 against
+Pd3 on the $8\times6$ cylinder, black to move, it credits white, yet d3$\times$c2 and c1=Q come first \lab{C1}.
 
 \begin{proposition}[\lab{AI}]\label{prop:horizon1}
 On boards with at least six ranks, for $h=1$, the counter-promotion condition holds in every chess-legal
@@ -114,7 +119,7 @@ On a board with room for two files beyond the buffer, for every king group whose
 moves, some context without a passed pawn leaves a move in the group unpunished.
 \end{conjecture}
 
-A search we ran once suggests that real tr\'ebuchets need $h\approx5$--$7$ \lab{Conj}, so we trust their zero only beside slow or locked components.
+Real tr\'ebuchets seem to need $h\approx5$--$7$ \lab{Conj}, so we trust their zero only beside slow or locked components.
 
 \subsection{Spare King Moves Are Loopy}
 
@@ -154,5 +159,5 @@ the kings alone, $18$ through en passant and $34$ because a passed pawn does not
 $159$ are on the seven-file cylinder. The e.p.-aware test repairs the convention in the $18$ e.p.\ failures,
 but in $13$ of them the free kings change the result again, so the count there falls only from $143$ to
 $138$. On the ordinary $8\times8$ board we checked $94$ positions beside a tr\'ebuchet against the
-tablebase. The convention says every one of their $449$ king moves loses, yet $41$ of them draw and $7$ win
+tablebase. The convention says all $449$ of their king moves lose, yet $41$ draw and $7$ win
 \lab{C1}.
