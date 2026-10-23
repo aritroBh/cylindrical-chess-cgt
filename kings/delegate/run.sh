@@ -11,15 +11,15 @@ mkdir -p kings/delegate/logs
 setopt NO_HUP NO_CHECK_JOBS
 
 typeset -A TOOLS MODELS BRIEF
-TOOLS=(K1 codex K1a kilo K1b opencode K1c opencode K2 kilo K3 opencode K4 kilo K5 opencode K8 codex K8v kilo K9 kilo)
+TOOLS=(K1 codex K1a kilo K1b opencode K1c opencode K2 kilo K3 opencode K4 kilo K5 opencode K8 codex K8v kilo K9 kilo K10 opencode K10v codex)
 MODELS=(K1 "" K1a kilo/minimax/minimax-m3.1-flash:free K1b omniroute/oc/nemotron-3-ultra-free
         K1c omniroute/auto/best-free K2 kilo/nvidia/nemotron-3-ultra-550b-a55b:free K3 opencode/beam-free
         K4 kilo/nvidia/nemotron-3-ultra-550b-a55b:free K5 opencode/beam-free
-        K8 "" K8v kilo/nvidia/nemotron-3-ultra-550b-a55b:free K9 kilo/nvidia/nemotron-3-ultra-550b-a55b:free)
+        K8 "" K8v kilo/nvidia/nemotron-3-ultra-550b-a55b:free K9 kilo/nvidia/nemotron-3-ultra-550b-a55b:free K10 opencode/beam-free K10v "")
 BRIEF=(K1 K1_loopy_revision.md K1a K1a_validity_full.md K1b K1b_certificate_full.md
        K1c K1c_loopy_full.md K2 K2_report_referee.md K3 K3_repair_check.md
        K4 K4_gafni_cylinder.md K5 K5_canonical_check.md
-       K8 K8_stalemate_tempo.md K8v K8v_verify.md K9 K9_sharp_1_14.md)
+       K8 K8_stalemate_tempo.md K8v K8v_verify.md K9 K9_sharp_1_14.md K10 K10_passer_certificate.md K10v K10v_verify.md)
 
 prompt() { cat delegate/COMMON.md; echo; echo "---"; echo; cat "kings/delegate/briefs/$1"; }
 cmd_for() {

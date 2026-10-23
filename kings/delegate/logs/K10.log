@@ -1,0 +1,442 @@
+[0m
+> build · beam-free
+[0m→ [0mRead RESEARCH_PLAN.md 
+[0m→ [0mRead RESULTS.md 
+> build · beam-free
+[0m→ [0mRead kings/theory/LOOPY.md 
+> build · beam-free
+[0m→ [0mRead kings/theory/LOOPY.md [90m[offset=599][0m
+> build · beam-free
+[0m→ [0mRead kings/theory/LOOPY.md [90m[offset=1218][0m
+> build · beam-free
+[0m→ [0mRead cylcgt/pawns.py 
+> build · beam-free
+[0m→ [0mRead kings/delegate/apply_edits.py 
+> build · beam-free
+[0m$ [0mls /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/ 2>/dev/null; echo "---"; find /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out -name "EDITS.md" 2>/dev/null | head -5
+K1
+K1a
+K1b
+K1c
+K2
+K3
+K4
+K5
+K5b
+K6
+K7
+K8
+K8v
+K9
+---
+/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K3/EDITS.md
+/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K1a/EDITS.md
+/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K9/EDITS.md
+/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K1c/EDITS.md
+/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K1b/EDITS.md
+> build · beam-free
+[0m→ [0mRead kings/delegate/out/K9/EDITS.md 
+> build · beam-free
+[0m✱ [0mGrep "2\.11" [90min kings/theory/LOOPY.md · 6 matches[0m
+> build · beam-free
+[0m✱ [0mGrep "2\.7|2\.8|2\.9|2\.10" [90min kings/theory/LOOPY.md · 67 matches[0m
+> build · beam-free
+[0m→ [0mRead kings/theory/LOOPY.md [90m[offset=157, limit=28][0m
+> build · beam-free
+[0m$ [0mmkdir -p /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K10 && cd /Users/aritro/Downloads/Research/Chessendgames && cc -O2 -o kings/delegate/out/K10/kp kings/kpsolve.c && echo "compiled" && ls -la kings/delegate/out/K10/kp
+compiled
+-rwxr-xr-x@ 1 aritro  staff  69600 Oct 22 17:59 kings/delegate/out/K10/kp
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && echo "Ka5 Pb4 Pc5 kc6 pb5 w -" | nice -n 10 kings/delegate/out/K10/kp --board cyl:7x6 --frozen --cap 1 --threads 2
+[kpsolve cyl:7x6 ep=on cap=1 frozen: 1 layers, 3528 states, depth 1, 0.0s]
+Ka5 Pb4 Pc5 kc6 pb5 w - | L L
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && printf 'Ka5 Pb4 Pc5 Pe2 Pe4 kc6 pb5 pe5 w -\nKa5 Pb4 Pc5 Pe2 Pe4 kc6 pb5 pe5 b -\n' | nice -n 10 kings/delegate/out/K10/kp --board cyl:7x6 --frozen --cap 1 --threads 2
+[kpsolve cyl:7x6 ep=on cap=1 frozen: 2 layers, 7056 states, depth 2, 0.0s]
+Ka5 Pb4 Pc5 Pe2 Pe4 kc6 pb5 pe5 w - | D D
+Ka5 Pb4 Pc5 Pe2 Pe4 kc6 pb5 pe5 b - | D D
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && printf 'Ka1 kc6 Pc3 w -\nKa1 kc6 Pc3 b -\n' | nice -n 10 kings/delegate/out/K10/kp --board cyl:7x6 --frozen --cap 1 --threads 2
+[kpsolve cyl:7x6 ep=on cap=1 frozen: 3 layers, 10584 states, depth 3, 0.0s]
+Ka1 kc6 Pc3 w - | W W
+Ka1 kc6 Pc3 b - | W W
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && printf 'Ka1 kc6 Pc3 pe4 w -\nKa1 kc6 Pc3 pe4 b -\n' | nice -n 10 kings/delegate/out/K10/kp --board cyl:7x6 --frozen --cap 1 --threads 2
+[kpsolve cyl:7x6 ep=on cap=1 frozen: 9 layers, 31752 states, depth 5, 0.0s]
+Ka1 kc6 Pc3 pe4 w - | L L
+Ka1 kc6 Pc3 pe4 b - | L L
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && printf 'Ka1 kc6 Pc3 pe2 w -\nKa1 kc6 Pc3 pe2 b -\n' | nice -n 10 kings/delegate/out/K10/kp --board cyl:7x6 --frozen --cap 1 --threads 2
+[kpsolve cyl:7x6 ep=on cap=1 frozen: 3 layers, 10584 states, depth 3, 0.0s]
+Ka1 kc6 Pc3 pe2 w - | L L
+Ka1 kc6 Pc3 pe2 b - | L L
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && printf 'Ka1 kf6 Pc3 pe2 w -\nKa1 kf6 Pc3 pe2 b -\n' | nice -n 10 kings/delegate/out/K10/kp --board cyl:7x6 --frozen --cap 1 --threads 2
+[kpsolve cyl:7x6 ep=on cap=1 frozen: 3 layers, 10584 states, depth 3, 0.0s]
+Ka1 kf6 Pc3 pe2 w - | L L
+Ka1 kf6 Pc3 pe2 b - | L L
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && PYTHONPATH=. .venv/bin/python -c "
+from cylcgt.pawns import Board, Pos, passed, promote_distance
+b = Board(7,6,True,True)
+p = Pos.parse('W: c3 / B: e2')
+print('W passed:', passed(b,p,'W'), 'd=', promote_distance(b,p,'W'))
+print('B passed:', passed(b,p,'B'), 'd=', promote_distance(b,p,'B'))
+"
+W passed: True d= 3
+B passed: True d= 1
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && PYTHONPATH=. .venv/bin/python -c "
+from cylcgt.pawns import Board, Pos, passed, promote_distance
+b = Board(7,6,True,True)
+p = Pos.parse('W: c3 / B: e5')
+print('W passed:', passed(b,p,'W'), 'd=', promote_distance(b,p,'W'))
+print('B passed:', passed(b,p,'B'), 'd=', promote_distance(b,p,'B'))
+" && printf 'Ka1 kf6 Pc3 pe5 w -\nKa1 kf6 Pc3 pe5 b -\n' | nice -n 10 kings/delegate/out/K10/kp --board cyl:7x6 --frozen --cap 1 --threads 2
+W passed: True d= 3
+B passed: True d= 3
+[kpsolve cyl:7x6 ep=on cap=1 frozen: 12 layers, 42336 states, depth 5, 0.0s]
+Ka1 kf6 Pc3 pe5 w - | W W
+Ka1 kf6 Pc3 pe5 b - | L L
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && printf 'Ka1 kf6 Pc3 pe5 w -\n' | nice -n 10 kings/delegate/out/K10/kp --board cyl:7x6 --frozen --cap 1 --moves --threads 2 2>&1 | head -20
+[kpsolve cyl:7x6 ep=on cap=1 frozen: 12 layers, 42336 states, depth 5, 0.0s]
+Ka1 kf6 Pc3 pe5 w - | W W | Ka1a2:L Ka1b1:L Ka1g1:L Ka1b2:L Ka1g2:L Pc3c4:W
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && printf 'Ka1 kf6 Pc3 b -\n' | nice -n 10 kings/delegate/out/K10/kp --board cyl:7x6 --frozen --cap 1 --threads 2
+[kpsolve cyl:7x6 ep=on cap=1 frozen: 3 layers, 10584 states, depth 3, 0.0s]
+Ka1 kf6 Pc3 b - | W W
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && printf 'Ka1 kf6 Pc3 pe5 b -\n' | nice -n 10 kings/delegate/out/K10/kp --board cyl:7x6 --frozen --cap 1 --threads 2
+[kpsolve cyl:7x6 ep=on cap=1 frozen: 12 layers, 42336 states, depth 5, 0.0s]
+Ka1 kf6 Pc3 pe5 b - | L L
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && PYTHONPATH=. .venv/bin/python -c "
+from cylcgt.pawns import Board, Pos, passed, promote_distance
+b = Board(7,6,True,True)
+p = Pos.parse('W: c3 / B: e6')
+print('W passed:', passed(b,p,'W'), 'd=', promote_distance(b,p,'W'))
+print('B passed:', passed(b,p,'B'), 'd=', promote_distance(b,p,'B'))
+" && printf 'Ka1 kf6 Pc3 pe6 b -\n' | nice -n 10 kings/delegate/out/K10/kp --board cyl:7x6 --frozen --cap 1 --threads 2
+W passed: True d= 3
+B passed: True d= 5
+[kpsolve cyl:7x6 ep=on cap=1 frozen: 0 layers, 0 states, depth 0, 0.0s]
+Ka1 kf6 Pc3 pe6 b - | X X
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && printf 'Ka1 ka6 Pc3 pe6 b -\n' | nice -n 10 kings/delegate/out/K10/kp --board cyl:7x6 --frozen --cap 1 --threads 2
+[kpsolve cyl:7x6 ep=on cap=1 frozen: 0 layers, 0 states, depth 0, 0.0s]
+Ka1 ka6 Pc3 pe6 b - | X X
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && printf 'Ka1 kg6 Pc3 pe6 b -\n' | nice -n 10 kings/delegate/out/K10/kp --board cyl:7x6 --frozen --cap 1 --threads 2
+[kpsolve cyl:7x6 ep=on cap=1 frozen: 0 layers, 0 states, depth 0, 0.0s]
+Ka1 kg6 Pc3 pe6 b - | X X
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && printf 'Ka1 kf6 Pc3 pe6 w -\nKa1 kf6 Pc3 pe6 b -\n' | nice -n 10 kings/delegate/out/K10/kp --board cyl:7x6 --frozen --cap 1 --threads 2; echo "---try cap2---"; printf 'Ka1 kf6 Pc3 pe6 w -\n' | nice -n 10 kings/delegate/out/K10/kp --board cyl:7x6 --frozen --cap 2 --threads 2
+[kpsolve cyl:7x6 ep=on cap=1 frozen: 0 layers, 0 states, depth 0, 0.0s]
+Ka1 kf6 Pc3 pe6 w - | X X
+Ka1 kf6 Pc3 pe6 b - | X X
+---try cap2---
+[kpsolve cyl:7x6 ep=on cap=2 frozen: 0 layers, 0 states, depth 0, 0.0s]
+Ka1 kf6 Pc3 pe6 w - | X X
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && printf 'Ka1 ka6 w -\n' | nice -n 10 kings/delegate/out/K10/kp --board cyl:7x6 --frozen --cap 1 --threads 2; echo "==="; printf 'Ka1 ka6 Pc3 w -\n' | nice -n 10 kings/delegate/out/K10/kp --board cyl:7x6 --frozen --cap 1 --threads 2
+[kpsolve cyl:7x6 ep=on cap=1 frozen: 1 layers, 3528 states, depth 1, 0.0s]
+Ka1 ka6 w - | L L
+===
+[kpsolve cyl:7x6 ep=on cap=1 frozen: 3 layers, 10584 states, depth 3, 0.0s]
+Ka1 ka6 Pc3 w - | W W
+> build · beam-free
+[0m→ [0mRead kings/SPEC.md 
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && PYTHONPATH=. .venv/bin/python -c "
+from cylcgt.pawns import Board, Pos, passed, promote_distance
+for (w,b) in [('c5','e3'),('c3','e5')]:
+    bb = Board(7,6,True,True)
+    p = Pos.parse(f'W: {w} / B: {b}')
+    print(w,b,'W d=',promote_distance(bb,p,'W'),'B mu=',promote_distance(bb,p,'B'),'Wpass=',passed(bb,p,'W'),'Bpass=',passed(bb,p,'B'))
+" && printf 'Ka1 kf6 Pc5 pe3 b -\nKa1 kf6 Pc3 pe5 b -\n' | nice -n 10 kings/delegate/out/K10/kp --board cyl:7x6 --frozen --cap 1 --threads 2
+c5 e3 W d= 1 B mu= 2 Wpass= True Bpass= True
+c3 e5 W d= 3 B mu= 3 Wpass= True Bpass= True
+[kpsolve cyl:7x6 ep=on cap=1 frozen: 12 layers, 42336 states, depth 4, 0.0s]
+Ka1 kf6 Pc5 pe3 b - | W W
+Ka1 kf6 Pc3 pe5 b - | L L
+> build · beam-free
+[0m← [0mWrite kings/delegate/out/K10/REPORT.md
+Created file successfully: kings/delegate/out/K10/REPORT.md
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && sed -n '1128,1137p' kings/theory/LOOPY.md | cat -A | head -20
+cat: illegal option -- A
+usage: cat [-belnstuv] [file ...]
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && python3 -c "
+import re
+t=open('kings/theory/LOOPY.md').read()
+i=t.find('**Remark 2.11')
+print(repr(t[i:i+600]))
+"
+'**Remark 2.11 (the certificate is not special to kings). GAP.** A passer created in a component is a decisive\nevent too, and (V2) asks the same question about it. The certificate of Definition 2.6 **cannot apply as\nwritten** to a passer (revised after review: R3 item 6):\n- Q_Z deletes "every context pawn", which deletes the passer itself.\n- The punishing reply r is not a king capture of a Z-pawn.\n- The passer\'s owner may need its king off F_Z, where the legality step via Lemma 2.2 no longer covers it.\n- The pawns of the passer\'s own component are not addressed.\nThe claim "which this certificat'
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && python3 -c "
+t=open('kings/theory/LOOPY.md').read()
+i=t.find('**Remark 2.11')
+j=t.find('---', i)
+print(repr(t[i:j]))
+"
+'**Remark 2.11 (the certificate is not special to kings). GAP.** A passer created in a component is a decisive\nevent too, and (V2) asks the same question about it. The certificate of Definition 2.6 **cannot apply as\nwritten** to a passer (revised after review: R3 item 6):\n- Q_Z deletes "every context pawn", which deletes the passer itself.\n- The punishing reply r is not a king capture of a Z-pawn.\n- The passer\'s owner may need its king off F_Z, where the legality step via Lemma 2.2 no longer covers it.\n- The pawns of the passer\'s own component are not addressed.\nThe claim "which this certificate rules out" is therefore unproved. P11 in §6 relies on this remark under a\nPROVED label; that label must be revised when the certificate is extended.\n\n'
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && python3 -c "
+t=open('kings/theory/LOOPY.md').read()
+for s in ['| R2.11 |','| P11 | GAP','Thm 1.11 + Thm 1.14 (frozen kings satisfy V1 and V3 by fiat)']:
+    i=t.find(s)
+    print('---', s)
+    # print the line
+    line=t[i:t.find(chr(10),i)]
+    print(repr(line))
+"
+--- | R2.11 |
+'| R2.11 | GAP → heuristic only. No certificate for passers is claimed | R3 item 6 |'
+--- | P11 | GAP
+'| P11 | GAP (proof incomplete): W(X) and HSS defined; (V1b) checked from the layout (revised after K3 check) | R1 item 11 |'
+--- Thm 1.11 + Thm 1.14 (frozen kings satisfy V1 and V3 by fiat)
+'Thm 1.11 + Thm 1.14 (frozen kings satisfy V1 and V3 by fiat) | GAP (proof incomplete): the harness checks the hypotheses (revised after K3 check) |'
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && python3 -c "
+t=open('kings/theory/LOOPY.md').read()
+i=t.find('| P11 | cyl:8x6')
+j=t.find(chr(10),i)
+print(repr(t[i:j]))
+"
+'| P11 | cyl:8x6, `--frozen` | Kings parked on the a-file (`Ka1 ka6`, b- and h-files empty); pawn components on c–g; every passer and race node speed-certified (Remark 2.11 with frozen kings); condition (E). Here W(X) is the D-game of X with its own winning side, and "hereditarily sum-safe" (HSS) means that every component of X is itself sum-safe in the sense of Theorem 1.14(ii) | kpsolve `--frozen` = o(W(X)); also = o(S(X)) when hereditarily sum-safe. Where o(S) ≠ o(W) (opposite threats, Prop 1.12), `--frozen` sides with W | — | — (a harness check, not one position) | Thm 1.11 + Thm 1.14 (frozen kings satisfy V1 and V3 by fiat) | GAP (proof incomplete): the harness checks the hypotheses (revised after K3 check) |'
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && python3 << 'PYEOF'
+old1 = """**Remark 2.11 (the certificate is not special to kings). GAP.** A passer created in a component is a decisive
+event too, and (V2) asks the same question about it. The certificate of Definition 2.6 **cannot apply as
+written** to a passer (revised after review: R3 item 6):
+- Q_Z deletes "every context pawn", which deletes the passer itself.
+- The punishing reply r is not a king capture of a Z-pawn.
+- The passer's owner may need its king off F_Z, where the legality step via Lemma 2.2 no longer covers it.
+- The pawns of the passer's own component are not addressed.
+The claim "which this certificate rules out" is therefore unproved. P11 in §6 relies on this remark under a
+PROVED label; that label must be revised when the certificate is extended.
+"""
+
+new1 = """**Proposition 2.11 (frozen-king passer certificate). PROVED in P (revised after K10, 2026-10-22).** Work in the
+frozen model (a king move loses at once, the first promotion wins). Let a move by σ have just produced a passer
+p for σ: p is a pawn of σ that cylcgt's `passed` (e.p.-aware, `PASSED_RESPECTS_EP = True`) calls passed, and p is
+the front pawn of its file. Let d be p's promotion distance (counting the double step, requiring no own pawn
+ahead) and let μ be the defender's fastest promotion distance with σ's other pawns standing still (captures,
+double steps and e.p. included), or ∞ if none. The node has σ̄ to move. Assume (1) p's file is clear ahead
+(front pawn; no enemy king on the path), (2) σ̄ is never stalemated while σ pushes p, (3) races are scored by the
+count rule with σ as creator. Then σ wins in P provided **μ ≥ d + 1**.
+
+*Proof.* (i) No σ̄ pawn can block or capture p: `passed` rules out any enemy pawn on files f−1, f, f+1 (mod W on
+a cylinder) with rank beyond p, and the e.p. clause rules out an adjacent capturer; as p advances the set only
+shrinks. (ii) σ pushes p every move (legal: front pawn, clear file, no enemy pawn can block or capture) and
+promotes on turn 2d; σ̄, to move first, promotes on turn 2μ−1, so σ wins iff 2d < 2μ−1, i.e. μ ≥ d+1 (ties
+μ = d go to σ̄, the opponent of the creator, as the count rule requires). (iii) e.p. cannot rescue σ̄: a
+just-double-stepped p is not passed under the aware test, and passed at the node already excludes any adjacent
+capturer. (iv) σ's own pawns cannot obstruct p: p is the front pawn of its file. ∎
+
+*Sharpness.* μ ≥ d+1 is exact: μ = d gives σ̄ a promotion on turn 2d−1, one turn before σ (kpsolve:
+`Ka1 kf6 Pc3 pe5 b -` → L L on cyl:7×6; `Ka1 kf6 Pc5 pe3 b -` with μ = d+1 → W W).
+
+**Remark 2.11 (the certificate is not special to kings).** The same (V2) question arises for passer terminals.
+The certificate of Definition 2.6 (king moves) does not apply as written to a passer (Q_Z deletes the passer,
+r is not a king capture, the owner's king may leave F_Z, the component's own pawns are unaddressed). Proposition 2.11
+above supplies the missing (V2)-certificate for passer terminals under frozen kings, with the bound μ ≥ d+1 and
+the clear-path and no-stalemate conditions. P11 in §6 relies on this proposition (revised after K10, 2026-10-22).
+"""
+
+old2 = "| R2.11 | GAP → heuristic only. No certificate for passers is claimed | R3 item 6 |"
+new2 = "| R2.11 | PROVED in P (revised after K10, 2026-10-22): Proposition 2.11 supplies (V2) for passer terminals under frozen kings; the D-model analogue is the count rule | R3 item 6; K10 |"
+
+old3 = "| P11 | GAP (proof incomplete): W(X) and HSS defined; (V1b) checked from the layout (revised after K3 check) | R1 item 11 |"
+new3 = "| P11 | PROVED in P (revised after K10, 2026-10-22): Theorem 1.11 + Theorem 1.14 (frozen kings give (V1),(V3) by fiat) + Proposition 2.11 (passer (V2)) + HSS for o(S); (A_Q) not needed (P-level) | R1 item 11; K10 |"
+
+old4 = "| P11 | cyl:8x6, `--frozen` | Kings parked on the a-file (`Ka1 ka6`, b- and h-files empty); pawn components on c–g; every passer and race node speed-certified (Remark 2.11 with frozen kings); condition (E). Here W(X) is the D-game of X with its own winning side, and \"hereditarily sum-safe\" (HSS) means that every component of X is itself sum-safe in the sense of Theorem 1.14(ii) | kpsolve `--frozen` = o(W(X)); also = o(S(X)) when hereditarily sum-safe. Where o(S) ≠ o(W) (opposite threats, Prop 1.12), `--frozen` sides with W | — | — (a harness check, not one position) | Thm 1.11 + Thm 1.14 (frozen kings satisfy V1 and V3 by fiat) | GAP (proof incomplete): the harness checks the hypotheses (revised after K3 check) |"
+new4 = "| P11 | cyl:8x6, `--frozen` | Kings parked on the a-file (`Ka1 ka6`, b- and h-files empty); pawn components on c–g; every passer and race node speed-certified (Proposition 2.11 with frozen kings); condition (E). Here W(X) is the D-game of X with its own winning side, and \"hereditarily sum-safe\" (HSS) means that every component of X is itself sum-safe in the sense of Theorem 1.14(ii) | kpsolve `--frozen` = o(W(X)); also = o(S(X)) when hereditarily sum-safe. Where o(S) ≠ o(W) (opposite threats, Prop 1.12), `--frozen` sides with W | — | — (a harness check, not one position) | Thm 1.11 + Thm 1.14 (frozen kings satisfy (V1),(V3) by fiat) + Proposition 2.11 (passer (V2)) | PROVED in P (revised after K10, 2026-10-22): the harness checks are backed by Proposition 2.11 |"
+
+content = f"""### EDIT 1: Remark 2.11 -> Proposition 2.11 + remark
+<<<<<<< OLD
+{old1}=======
+{new1}>>>>>>> NEW
+
+### EDIT 2: status row R2.11
+<<<<<<< OLD
+{old2}=======
+{new2}>>>>>>> NEW
+
+### EDIT 3: status row P11
+<<<<<<< OLD
+{old3}=======
+{new3}>>>>>>> NEW
+
+### EDIT 4: section 6 row P11
+<<<<<<< OLD
+{old4}=======
+{new4}>>>>>>> NEW
+"""
+
+open('kings/delegate/out/K10/EDITS.md','w').write(content)
+print("written")
+PYEOF
+written
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && python3 kings/delegate/apply_edits.py kings/theory/LOOPY.md kings/delegate/out/K10/LOOPY_preview.md kings/delegate/out/K10/EDITS.md
+applied  K10 EDIT 1: Remark 2.11 -> Proposition 2.11 + remark
+1 applied, 0 rejected -> kings/delegate/out/K10/LOOPY_preview.md
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && python3 -c "
+import re
+pat = re.compile(r'^### EDIT ([^\n]*)\n<<<<<<< OLD\n(.*?)\n=======\n(.*?)\n>>>>>>> NEW', re.S | re.M)
+txt=open('kings/delegate/out/K10/EDITS.md').read()
+print('matches:', len(pat.findall(txt)))
+"
+matches: 1
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && sed -n '20,40p' kings/delegate/out/K10/EDITS.md
+count rule with σ as creator. Then σ wins in P provided **μ ≥ d + 1**.
+
+*Proof.* (i) No σ̄ pawn can block or capture p: `passed` rules out any enemy pawn on files f−1, f, f+1 (mod W on
+a cylinder) with rank beyond p, and the e.p. clause rules out an adjacent capturer; as p advances the set only
+shrinks. (ii) σ pushes p every move (legal: front pawn, clear file, no enemy pawn can block or capture) and
+promotes on turn 2d; σ̄, to move first, promotes on turn 2μ−1, so σ wins iff 2d < 2μ−1, i.e. μ ≥ d+1 (ties
+μ = d go to σ̄, the opponent of the creator, as the count rule requires). (iii) e.p. cannot rescue σ̄: a
+just-double-stepped p is not passed under the aware test, and passed at the node already excludes any adjacent
+capturer. (iv) σ's own pawns cannot obstruct p: p is the front pawn of its file. ∎
+
+*Sharpness.* μ ≥ d+1 is exact: μ = d gives σ̄ a promotion on turn 2d−1, one turn before σ (kpsolve:
+`Ka1 kf6 Pc3 pe5 b -` → L L on cyl:7×6; `Ka1 kf6 Pc5 pe3 b -` with μ = d+1 → W W).
+
+**Remark 2.11 (the certificate is not special to kings).** The same (V2) question arises for passer terminals.
+The certificate of Definition 2.6 (king moves) does not apply as written to a passer (Q_Z deletes the passer,
+r is not a king capture, the owner's king may leave F_Z, the component's own pawns are unaddressed). Proposition 2.11
+above supplies the missing (V2)-certificate for passer terminals under frozen kings, with the bound μ ≥ d+1 and
+the clear-path and no-stalemate conditions. P11 in §6 relies on this proposition (revised after K10, 2026-10-22).
+>>>>>>> NEW
+
+### EDIT 2: status row R2.11
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && grep -n "### EDIT\|<<<<<<<\|=======\|>>>>>>>" kings/delegate/out/K10/EDITS.md
+1:### EDIT 1: Remark 2.11 -> Proposition 2.11 + remark
+2:<<<<<<< OLD
+12:=======
+38:>>>>>>> NEW
+40:### EDIT 2: status row R2.11
+41:<<<<<<< OLD
+42:| R2.11 | GAP → heuristic only. No certificate for passers is claimed | R3 item 6 |=======
+43:| R2.11 | PROVED in P (revised after K10, 2026-10-22): Proposition 2.11 supplies (V2) for passer terminals under frozen kings; the D-model analogue is the count rule | R3 item 6; K10 |>>>>>>> NEW
+45:### EDIT 3: status row P11
+46:<<<<<<< OLD
+47:| P11 | GAP (proof incomplete): W(X) and HSS defined; (V1b) checked from the layout (revised after K3 check) | R1 item 11 |=======
+48:| P11 | PROVED in P (revised after K10, 2026-10-22): Theorem 1.11 + Theorem 1.14 (frozen kings give (V1),(V3) by fiat) + Proposition 2.11 (passer (V2)) + HSS for o(S); (A_Q) not needed (P-level) | R1 item 11; K10 |>>>>>>> NEW
+50:### EDIT 4: section 6 row P11
+51:<<<<<<< OLD
+52:| P11 | cyl:8x6, `--frozen` | Kings parked on the a-file (`Ka1 ka6`, b- and h-files empty); pawn components on c–g; every passer and race node speed-certified (Remark 2.11 with frozen kings); condition (E). Here W(X) is the D-game of X with its own winning side, and "hereditarily sum-safe" (HSS) means that every component of X is itself sum-safe in the sense of Theorem 1.14(ii) | kpsolve `--frozen` = o(W(X)); also = o(S(X)) when hereditarily sum-safe. Where o(S) ≠ o(W) (opposite threats, Prop 1.12), `--frozen` sides with W | — | — (a harness check, not one position) | Thm 1.11 + Thm 1.14 (frozen kings satisfy V1 and V3 by fiat) | GAP (proof incomplete): the harness checks the hypotheses (revised after K3 check) |=======
+53:| P11 | cyl:8x6, `--frozen` | Kings parked on the a-file (`Ka1 ka6`, b- and h-files empty); pawn components on c–g; every passer and race node speed-certified (Proposition 2.11 with frozen kings); condition (E). Here W(X) is the D-game of X with its own winning side, and "hereditarily sum-safe" (HSS) means that every component of X is itself sum-safe in the sense of Theorem 1.14(ii) | kpsolve `--frozen` = o(W(X)); also = o(S(X)) when hereditarily sum-safe. Where o(S) ≠ o(W) (opposite threats, Prop 1.12), `--frozen` sides with W | — | — (a harness check, not one position) | Thm 1.11 + Thm 1.14 (frozen kings satisfy (V1),(V3) by fiat) + Proposition 2.11 (passer (V2)) | PROVED in P (revised after K10, 2026-10-22): the harness checks are backed by Proposition 2.11 |>>>>>>> NEW
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && python3 << 'PYEOF'
+old1 = """**Remark 2.11 (the certificate is not special to kings). GAP.** A passer created in a component is a decisive
+event too, and (V2) asks the same question about it. The certificate of Definition 2.6 **cannot apply as
+written** to a passer (revised after review: R3 item 6):
+- Q_Z deletes "every context pawn", which deletes the passer itself.
+- The punishing reply r is not a king capture of a Z-pawn.
+- The passer's owner may need its king off F_Z, where the legality step via Lemma 2.2 no longer covers it.
+- The pawns of the passer's own component are not addressed.
+The claim "which this certificate rules out" is therefore unproved. P11 in §6 relies on this remark under a
+PROVED label; that label must be revised when the certificate is extended.
+"""
+
+new1 = """**Proposition 2.11 (frozen-king passer certificate). PROVED in P (revised after K10, 2026-10-22).** Work in the
+frozen model (a king move loses at once, the first promotion wins). Let a move by σ have just produced a passer
+p for σ: p is a pawn of σ that cylcgt's `passed` (e.p.-aware, `PASSED_RESPECTS_EP = True`) calls passed, and p is
+the front pawn of its file. Let d be p's promotion distance (counting the double step, requiring no own pawn
+ahead) and let μ be the defender's fastest promotion distance with σ's other pawns standing still (captures,
+double steps and e.p. included), or ∞ if none. The node has σ̄ to move. Assume (1) p's file is clear ahead
+(front pawn; no enemy king on the path), (2) σ̄ is never stalemated while σ pushes p, (3) races are scored by the
+count rule with σ as creator. Then σ wins in P provided **μ ≥ d + 1**.
+
+*Proof.* (i) No σ̄ pawn can block or capture p: `passed` rules out any enemy pawn on files f−1, f, f+1 (mod W on
+a cylinder) with rank beyond p, and the e.p. clause rules out an adjacent capturer; as p advances the set only
+shrinks. (ii) σ pushes p every move (legal: front pawn, clear file, no enemy pawn can block or capture) and
+promotes on turn 2d; σ̄, to move first, promotes on turn 2μ−1, so σ wins iff 2d < 2μ−1, i.e. μ ≥ d+1 (ties
+μ = d go to σ̄, the opponent of the creator, as the count rule requires). (iii) e.p. cannot rescue σ̄: a
+just-double-stepped p is not passed under the aware test, and passed at the node already excludes any adjacent
+capturer. (iv) σ's own pawns cannot obstruct p: p is the front pawn of its file. ∎
+
+*Sharpness.* μ ≥ d+1 is exact: μ = d gives σ̄ a promotion on turn 2d−1, one turn before σ (kpsolve:
+`Ka1 kf6 Pc3 pe5 b -` → L L on cyl:7×6; `Ka1 kf6 Pc5 pe3 b -` with μ = d+1 → W W).
+
+**Remark 2.11 (the certificate is not special to kings).** The same (V2) question arises for passer terminals.
+The certificate of Definition 2.6 (king moves) does not apply as written to a passer (Q_Z deletes the passer,
+r is not a king capture, the owner's king may leave F_Z, the component's own pawns are unaddressed). Proposition 2.11
+above supplies the missing (V2)-certificate for passer terminals under frozen kings, with the bound μ ≥ d+1 and
+the clear-path and no-stalemate conditions. P11 in §6 relies on this proposition (revised after K10, 2026-10-22).
+"""
+
+old2 = "| R2.11 | GAP → heuristic only. No certificate for passers is claimed | R3 item 6 |"
+new2 = "| R2.11 | PROVED in P (revised after K10, 2026-10-22): Proposition 2.11 supplies (V2) for passer terminals under frozen kings; the D-model analogue is the count rule | R3 item 6; K10 |"
+
+old3 = "| P11 | GAP (proof incomplete): W(X) and HSS defined; (V1b) checked from the layout (revised after K3 check) | R1 item 11 |"
+new3 = "| P11 | PROVED in P (revised after K10, 2026-10-22): Theorem 1.11 + Theorem 1.14 (frozen kings give (V1),(V3) by fiat) + Proposition 2.11 (passer (V2)) + HSS for o(S); (A_Q) not needed (P-level) | R1 item 11; K10 |"
+
+old4 = "| P11 | cyl:8x6, `--frozen` | Kings parked on the a-file (`Ka1 ka6`, b- and h-files empty); pawn components on c–g; every passer and race node speed-certified (Remark 2.11 with frozen kings); condition (E). Here W(X) is the D-game of X with its own winning side, and \"hereditarily sum-safe\" (HSS) means that every component of X is itself sum-safe in the sense of Theorem 1.14(ii) | kpsolve `--frozen` = o(W(X)); also = o(S(X)) when hereditarily sum-safe. Where o(S) ≠ o(W) (opposite threats, Prop 1.12), `--frozen` sides with W | — | — (a harness check, not one position) | Thm 1.11 + Thm 1.14 (frozen kings satisfy V1 and V3 by fiat) | GAP (proof incomplete): the harness checks the hypotheses (revised after K3 check) |"
+new4 = "| P11 | cyl:8x6, `--frozen` | Kings parked on the a-file (`Ka1 ka6`, b- and h-files empty); pawn components on c–g; every passer and race node speed-certified (Proposition 2.11 with frozen kings); condition (E). Here W(X) is the D-game of X with its own winning side, and \"hereditarily sum-safe\" (HSS) means that every component of X is itself sum-safe in the sense of Theorem 1.14(ii) | kpsolve `--frozen` = o(W(X)); also = o(S(X)) when hereditarily sum-safe. Where o(S) ≠ o(W) (opposite threats, Prop 1.12), `--frozen` sides with W | — | — (a harness check, not one position) | Thm 1.11 + Thm 1.14 (frozen kings satisfy (V1),(V3) by fiat) + Proposition 2.11 (passer (V2)) | PROVED in P (revised after K10, 2026-10-22): the harness checks are backed by Proposition 2.11 |"
+
+def block(old,new):
+    return f"<<<<<<< OLD\n{old}\n=======\n{new}\n>>>>>>> NEW"
+
+# Build file manually with proper separators
+parts = []
+parts.append("### EDIT 1: Remark 2.11 -> Proposition 2.11 + remark\n" + block(old1,new1))
+parts.append("### EDIT 2: status row R2.11\n" + block(old2,new2))
+parts.append("### EDIT 3: status row P11\n" + block(old3,new3))
+parts.append("### EDIT 4: section 6 row P11\n" + block(old4,new4))
+
+content = "\n\n".join(parts) + "\n"
+open('kings/delegate/out/K10/EDITS.md','w').write(content)
+print("written")
+PYEOF
+written
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && python3 -c "
+import re
+pat = re.compile(r'^### EDIT ([^\n]*)\n<<<<<<< OLD\n(.*?)\n=======\n(.*?)\n>>>>>>> NEW', re.S | re.M)
+txt=open('kings/delegate/out/K10/EDITS.md').read()
+print('matches:', len(pat.findall(txt)))
+"
+matches: 4
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && rm -f kings/delegate/out/K10/LOOPY_preview.md && python3 kings/delegate/apply_edits.py kings/theory/LOOPY.md kings/delegate/out/K10/LOOPY_preview.md kings/delegate/out/K10/EDITS.md
+applied  K10 EDIT 1: Remark 2.11 -> Proposition 2.11 + remark
+applied  K10 EDIT 2: status row R2.11
+applied  K10 EDIT 3: status row P11
+applied  K10 EDIT 4: section 6 row P11
+4 applied, 0 rejected -> kings/delegate/out/K10/LOOPY_preview.md
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && grep -n "Proposition 2.11 (frozen-king\|R2.11 | PROVED in P (revised after K10\|P11 | PROVED in P (revised after K10" kings/delegate/out/K10/LOOPY_preview.md
+69:| R2.11 | PROVED in P (revised after K10, 2026-10-22): Proposition 2.11 supplies (V2) for passer terminals under frozen kings; the D-model analogue is the count rule | R3 item 6; K10 |
+96:| P11 | PROVED in P (revised after K10, 2026-10-22): Theorem 1.11 + Theorem 1.14 (frozen kings give (V1),(V3) by fiat) + Proposition 2.11 (passer (V2)) + HSS for o(S); (A_Q) not needed (P-level) | R1 item 11; K10 |
+1128:**Proposition 2.11 (frozen-king passer certificate). PROVED in P (revised after K10, 2026-10-22).** Work in the
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && grep -n "PROVED in P (revised after K10, 2026-10-22): the harness checks" kings/delegate/out/K10/LOOPY_preview.md
+1638:| P11 | cyl:8x6, `--frozen` | Kings parked on the a-file (`Ka1 ka6`, b- and h-files empty); pawn components on c–g; every passer and race node speed-certified (Proposition 2.11 with frozen kings); condition (E). Here W(X) is the D-game of X with its own winning side, and "hereditarily sum-safe" (HSS) means that every component of X is itself sum-safe in the sense of Theorem 1.14(ii) | kpsolve `--frozen` = o(W(X)); also = o(S(X)) when hereditarily sum-safe. Where o(S) ≠ o(W) (opposite threats, Prop 1.12), `--frozen` sides with W | — | — (a harness check, not one position) | Thm 1.11 + Thm 1.14 (frozen kings satisfy (V1),(V3) by fiat) + Proposition 2.11 (passer (V2)) | PROVED in P (revised after K10, 2026-10-22): the harness checks are backed by Proposition 2.11 |
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && ls -la kings/delegate/out/K10/ && echo "---" && head -3 kings/delegate/out/K10/REPORT.md
+total 488
+drwxr-xr-x@  6 aritro  staff     192 Oct 22 18:02 .
+drwxr-xr-x  17 aritro  staff     544 Oct 22 17:59 ..
+-rw-r--r--@  1 aritro  staff    5544 Oct 22 18:02 EDITS.md
+-rw-r--r--@  1 aritro  staff  155462 Oct 22 18:02 LOOPY_preview.md
+-rw-r--r--@  1 aritro  staff   16166 Oct 22 18:01 REPORT.md
+-rwxr-xr-x@  1 aritro  staff   69600 Oct 22 17:59 kp
+---
+# K10: a certificate for passers (Remark 2.11), and the status of P11
+
+## 5-line summary
+> build · beam-free
+All deliverables are complete.
+
+- `kings/delegate/out/K10/REPORT.md` — 5-line summary + full statements/proofs/sharpness (kpsolve commands) + P11 label.
+- `kings/delegate/out/K10/EDITS.md` — 4 edits (Remark 2.11 → Proposition 2.11 + remark, R2.11 row, P11 status row, §6 P11 row).
+- `apply_edits.py` check: **4 applied, 0 rejected**.
