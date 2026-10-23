@@ -331,7 +331,9 @@ Every deliverable was given to independent referees (Claude models) told to brea
     re-ran its examples. It was checked on 954,392 + 60,000 instances against `kpsolve --frozen`, with 0
     violations. P11 is now PROVED in P in a conditional form: every passer and race terminal must be certified.
     Without that it is false (`Ka1 ka6 Pc2 Pc3 pd3 pd4 w -`). With real kings nothing is proved; the square rule is
-    a CONJECTURE. No second model has re-derived Proposition 2.11.
+    a CONJECTURE. K10v (opencode beam-free, independent code) re-checked the computation: 0 violations in
+    119,654 + 5,716 certified instances (CHECKED-2). Its proof verdict "SOUND" came without a written derivation, so
+    no second model has re-derived the proof of Proposition 2.11.
   - So no result of the note is still GAP.
   - The T30 fixes of 2026-10-22 came later. They were reviewed by Sonnet reviewers in two rounds, not by K3 (see the Theory row
   above).

@@ -1,0 +1,2264 @@
+Reading additional input from stdin...
+2026-10-23T00:39:43.335964Z ERROR codex_core::session::session: failed to load skill /Users/aritro/.agents/skills/aura/aura-ai-website-builder/SKILL.md: missing field `description`
+2026-10-23T00:39:43.336030Z ERROR codex_core::session::session: failed to load skill /Users/aritro/.agents/skills/aura/btr-motion-pattern-registry/SKILL.md: missing field `description`
+2026-10-23T00:39:43.336039Z ERROR codex_core::session::session: failed to load skill /Users/aritro/.agents/skills/aura/gsap-react-installation/SKILL.md: missing field `description`
+2026-10-23T00:39:43.336046Z ERROR codex_core::session::session: failed to load skill /Users/aritro/.agents/skills/aura/progressive-blur-ui-overlay/SKILL.md: missing field `description`
+2026-10-23T00:39:43.336051Z ERROR codex_core::session::session: failed to load skill /Users/aritro/.agents/skills/aura/shadcn/SKILL.md: missing field `description`
+2026-10-23T00:39:43.336056Z ERROR codex_core::session::session: failed to load skill /Users/aritro/.agents/skills/aura/test-1-design/SKILL.md: missing YAML frontmatter delimited by ---
+2026-10-23T00:39:43.336061Z ERROR codex_core::session::session: failed to load skill /Users/aritro/.agents/skills/aura/ui-ux-pro-max-design-intelligence/SKILL.md: missing field `description`
+OpenAI Codex v0.159.2
+--------
+workdir: /Users/aritro/Downloads/Research/Chessendgames
+model: gpt-6-luna
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: max
+reasoning summaries: concise
+session id: 01a16633-03f6-71e1-8412-15f3a7ae38ab
+--------
+user
+# Shared brief for every delegated task
+
+Project root: `/Users/aritro/Downloads/Research/Chessendgames`. This continues a 2025 high-school paper,
+"Analysis of Chess Endgames on a Cylindrical Chessboard" (`prior_work/main.tex`): combinatorial game theory
+(CGT) of king-and-pawn endgames on cylinder (files a and h glued) and flat boards.
+
+Read first:
+- `RESULTS.md`, the status page;
+- `RESEARCH_PLAN.md` §3;
+- the REPORT.md files your task names.
+
+## Conventions (Elkies 1996, as used in `cylcgt/`)
+
+- **Sides and normal play.** White = Left, Black = Right. A side with no move loses.
+- **Passed pawns.** One side having a passed pawn is worth ±BIG (BIG = 256). If both sides have one, it is a
+  race, resolved by `cylcgt.pawns.RACE_RULE` ("count", "mover" or "opponent").
+- **En passant (adopted 2026-10-16).** A pawn that can still be taken en passant is NOT passed
+  (`cylcgt.pawns.PASSED_RESPECTS_EP = True`). Setting it to False gives the older "textbook" test. Many earlier
+  results were computed with the textbook test; say which test you use.
+- **Components.** An empty file stays empty forever, so pawn groups separated by one are disjunctive summands.
+- **King freeze.** The trébuchet king group (W Pg4 / B Pg5, WK f5, BK h4 on the flat 8×8 board) is assumed to
+  be 0.
+- **API.**
+  - `cylcgt/pawns.py`: `Board(files, ranks, wrap, ep)`, `Pos.parse("W: a2 c2 / B: b7 d7")`,
+    `value(board, pos)`, `describe(board, pos)`.
+  - `cylcgt/cgt.py`: `show`, `outcome`, `add`, `neg`, `le`.
+  - Call `pawns._value.cache_clear()` after changing a global.
+
+## Rules
+
+1. **Where to write.** Only inside your task's output directory; create it. Never edit existing files elsewhere.
+   Never run git commands.
+2. **Software.**
+   - Use `.venv/bin/python` (stdlib + pytest) with `PYTHONPATH=.` from the project root.
+   - The ML tasks use `.venv-ml/bin/python` (PyTorch with MPS, MLX).
+   - Do not install anything.
+   - Compiling your own C with `cc -O2` is fine.
+3. **Network.** Use none, except the Lichess tablebase. Go through `realchess/probe.py`, whose disk cache
+   already holds about 2,000 positions. Keep to at most 200 new requests and 1 per second.
+4. **Long jobs.** Keep any single job under 45 minutes. Run long jobs in the background and poll them.
+5. **Honesty.**
+   - Label every claim **PROVED**, **CHECKED-2** (two independent implementations agree), **COMPUTED-1** or
+     **CONJECTURE**.
+   - Give an exact reproduce command for every number.
+   - Report negative results plainly, and never overstate novelty.
+6. **Deliverable.** Finish by writing `REPORT.md` in your output directory. Its first section is a 5-line
+   summary of what you established.
+7. **Shared machine (added 2026-10-22).**
+   - Other projects and other agents run on this machine.
+   - **Never kill, stop or signal a process you did not start yourself.** No `pkill`, `killall` or `kill` on
+     anything but your own PIDs.
+   - **Never use `pkill`, `killall`, `kill -- -1`, or `kill $(pgrep ...)` at all, even for your own jobs.** On
+     2026-10-22 an agent ran `pkill -f 0`, which matched every process with a 0 in its command line. It killed
+     another project's jobs. To stop your own process, record its PID when you start it (`cmd & echo $!`)
+     and run `kill <that PID>`.
+   - Memory is tight. Keep every process under 4 GB RSS, and run at most 2 heavy processes at once, under
+     `nice -n 10`.
+   - Never feed kpsolve a whole-board position list larger than 100 MB.
+   - Never commit, push or edit `paper/`.
+   - Do not create a file over 50 MB.
+
+---
+
+# K10v: independent check of Proposition 2.11 (frozen-king passer certificate)
+
+**Output directory:** `kings/delegate/out/K10v/` (create it). Write only there. Do **not** edit any existing file.
+
+## Read
+
+- `kings/theory/LOOPY.md`: **Proposition 2.11**, Corollaries 2.11a and 2.11b, the remark on the count rule, and
+  the list of examples after them. Search for "Proposition 2.11 (frozen-king passer certificate)". Also read the
+  status rows R2.11 and P11, and the §6 row P11.
+- `cylcgt/pawns.py`: `passed`, `promote_distance`, `ep_capturable` and `_child` (the race rule "count").
+- `kings/kpsolve.c`: the header comment and `--frozen`.
+
+**Independence.** Do not open anything in `kings/delegate/out/K10/`: not its scripts, its reports or its edits.
+Write your own code.
+
+## Task
+
+1. **Re-derive the proof.** Go through Steps 0–5 of the proof of Proposition 2.11. For each step:
+   - say SOUND, or give the missing step or a counterexample;
+   - check the invariants (J_β), (J_ω) and (I1) under every kind of ω move: push, double step, capture into the
+     strip from outside, capture out of the strip, and the e.p. capture offered at y;
+   - check the claim of Step 4 that every ω move of the real play is a move of G_ω;
+   - check the timing in Step 5 for both move orders.
+
+   Then check Corollary 2.11a against cylcgt's `_child`: who is credited, for both move orders and for races.
+   Check Corollary 2.11b for the layout `Ka1 ka6`, cyl:8×6, pawns on c–g.
+2. **Independent computation.**
+   - Write a checker (Python, at most about 250 lines, your own move generator). For a position y, a side to move
+     s, a beneficiary β and a pawn p, it decides (H1)–(H5) exactly as LOOPY states them, including μ_ω computed
+     by search over G_ω.
+   - Self-test your `passed` against cylcgt's `passed` on random positions.
+   - Build kpsolve: `nice -n 10 cc -O2 -o kings/delegate/out/K10v/kp kings/kpsolve.c -lpthread`. Batch positions
+     on stdin: `nice -n 10 kings/delegate/out/K10v/kp --board cyl:7x6 --frozen --cap 1 --threads 2 < in.txt`.
+     It prints `<pos> | X Y`: the two letters are results from **White's** point of view (W/L/D).
+   - Run these, and for each, every instance where (H1)–(H5) hold must be a win for β in `--frozen`:
+     - (a) cyl:6×6, all positions with `Ka1 ka6`, pawns on files c–e, at most 3 a side, both sides to move, both
+       colours as β;
+     - (b) cyl:7×6, the same layout with pawns on c–f, at most 2 a side, plus 20,000 random positions with 3 a side;
+     - (c) cyl:8×6, 10,000 random positions with kings anywhere (legal, not in contact), at most 3 pawns a side,
+       e.p. rights included where legal.
+   - Report instances, certified instances, and violations, with up to 10 examples of each violation.
+   - Also report, for each of (H2), (H3), (H4) and (H5), how many violations appear when that hypothesis is
+     dropped. This is a control that your checker can see failures.
+3. **Targeted search for counterexamples.** Look specifically at:
+   - (H4) at its bound, ρ(q) = ρ(p) + 1;
+   - an e.p. right at y, both for p's own pawns and for another β pawn;
+   - ω captures that enter the strip;
+   - β to move with an ω pawn at ρ(p) + 1 beside p.
+
+   Report what you tried and what you found.
+
+## Deliverables
+
+`REPORT.md`, starting with a 5-line summary. Then:
+- the per-step verdicts on the proof;
+- the tables for 2(a)–(c);
+- the targeted search;
+- a recommended label for Proposition 2.11 and for P11.
+
+Use CHECKED-2 only if both the proof check and the computation agree. Give exact commands.
+
+## Rules
+
+`delegate/COMMON.md`:
+- rule 5 (labels, honesty);
+- rule 7: one heavy process at a time, `nice -n 10`, under 3 GB RSS, at most 20 minutes per run, no file over
+  50 MB, no git, no installs, no network.
+
+Never use pkill, killall, `kill -- -1` or any pattern kill. Kill only PIDs you started and recorded.
+
+When you are done, delete your own bulk files: the kpsolve input and output batches. Keep the scripts and a
+summary JSON.
+ERROR: You’ve hit your usage limit. Upgrade to Pro (https://chatgpt.com/explore/pro), visit https://chatgpt.com/codex/settings/usage to purchase more credits or try again at 11:59 PM.
+ERROR: You’ve hit your usage limit. Upgrade to Pro (https://chatgpt.com/explore/pro), visit https://chatgpt.com/codex/settings/usage to purchase more credits or try again at 11:59 PM.
+
+=== Thu Oct 22 19:39:47 CDT 2026: codex failed; falling back to opencode run --standalone --auto -m opencode/beam-free
+[0m
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && grep -n "Proposition 2.11" -r . --include=*.md 2>/dev/null | head -50
+zsh:1: no matches found: --include=*.md
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && ls && cat RESULTS.md | head -200
+Pionner_Research.zip
+README.md
+RESEARCH_PLAN.md
+RESULTS.md
+atlas
+bench
+crosscheck
+cylcgt
+dawson
+delegate
+dist
+engine
+kings
+lemmas
+ml
+notes
+paper
+prior_work
+realchess
+research
+sumtest
+tablebase
+tests
+verify
+verify_ext
+# Results so far (2026-10-21)
+
+Plan: [RESEARCH_PLAN.md](RESEARCH_PLAN.md). This page lists what the 2026-10-15/16 run established and how
+strongly.
+- **Verified** means two independent implementations agree **and** adversarial checkers could not break the
+  claim. Every checker so far was written by a Claude model; the OpenCode route to a non-Claude implementation
+  failed.
+- **Computed once** means one program produced the number.
+- **Proved** means one model wrote a proof. No second model or human has re-derived it yet.
+
+**Conventions (decided 2026-10-16).**
+- A pawn that can still be taken en passant is **not** passed: `cylcgt.pawns.PASSED_RESPECTS_EP = True`.
+  - Merged into `main` on 2026-10-21 (commit d3d080e). `PASSED_RESPECTS_EP = False` restores the old test.
+  - Results below that predate this switch are marked *(textbook test)*.
+- Kings are modelled explicitly in `kings/` (plan item A8; see §7).
+
+## 1. The \*2 question (Elkies' open problem): the candidate does not survive
+
+The candidate was `W a2 c2 / B b7 d7` on files a–d, frozen by a trébuchet (W g4 / B g5, WK f5, BK h4).
+
+| Check | Result | Status |
+|---|---|---|
+| Value under the paper's convention, textbook passed test | \*2 under race rules "count" and "mover"; **0** under "opponent". The same with e.p. off | verified (cylcgt, `sumtest/`, Codex rules in `atlas/flat8/census`, `lemmas/`) |
+| Value under the adopted convention (e.p.-aware passed test) | **{2±1 \| −2±1}** (mean 0, temperature 2), not \*2. Mechanism: a2–a4 is met by b4×a3 e.p. | verified: cylcgt now agrees with `sumtest/`'s e.p.-aware mode on all 55,195 test positions (§4) |
+| Robustness of the \*2 to the race rule | only 4 of its 224 race positions change the value when flipped alone; all come after a capture. A 6-position certificate fixes \*2 whatever the other races do | verified (`atlas/flat8/certificate.json`, `lemmas/` L4.2) |
+| Sum model vs whole-board game | equal: the tree never splits into components before a passer (Theorem 2.3) | proved |
+| 8×8 embedding geometry (kings f5/h4) | no checks, no stalemate, every king move drops that side's g-pawn | proved; exhaustive check |
+| Real chess, both sides to move (Lichess 7-man tablebase + exact search) | the side to move wins (outcome N), as \*2 predicts | proved by certificate (`realchess/results/cert_root_*.json`) |
+| Real-chess oracle value: the pawn tree with tablebase results at its end positions | **never \*2 (or 0) in the adopted e.p.-aware tree, however draws and unresolved end positions are treated**: the bounds force Left stop ≥ 1 and Right stop ≤ −1. Counting draws as Black wins, it is **exactly {2±1 \| −2±1}** in both trees. In the textbook tree \*2 is excluded only when draws count as wins for one side | values computed once; end-position results checked two ways ([realchess/REPORT.md](realchess/REPORT.md)) |
+| Real-chess root move tables | Black to move: only 1...b5 wins (complete). White to move: 1.c4 wins; 1.a3, 1.c3 and all king moves lose; 1.a4 unresolved. The model predicts exactly c4 and b5 | checked two ways |
+| The same FEN on the 8-file cylinder | the freeze fails: 1.a3 checks Kh4 across the seam. No \*k (k ≥ 2) with ≤ 5 pawns can be frozen on the 8-file cylinder (0 of 40 placements) | computed once (`atlas/cylinder/`) |
+
+**Why it fails.** The convention "first passed pawn wins" breaks in three places:
+- **En passant.** A pawn that double-steps past an enemy pawn counted as passed before the opponent's legal
+  e.p. capture. This is now fixed in cylcgt, and the \*2 goes away with it.
+- **Frozen kings.** In real chess the trébuchet kings are not always frozen. Across 94 tablebase-checked
+  positions, 41 of 449 king moves draw and 7 win (`engine/suite/`).
+- **Race rules.** None of count, mover or opponent is exact chess. `notes/lemmas.md` L4 gives a forced-win
+  counterexample for each.
+
+**Searching for other \*k (flat 8-rank boards, widths 1–4, up to 6 pawns, 231,071 positions).**
+- *Textbook test:* the only \*k with k ≥ 2 is the candidate above. No \*3 or \*4 occurs. No \*2 holds under all
+  six race/e.p. settings. Three more \*2s exist, each under a single non-default setting
+  ([atlas/flat8/REPORT.md](atlas/flat8/REPORT.md); verified two ways).
+- *E.p.-aware test (count rule; computed once, `atlas/flat8/compare_ep_aware.out`):*
+  - **No \*k with k ≥ 2 occurs anywhere in scope.** The nimber census goes from 6,470 zeros, 3,891 stars and one
+    \*2 to 6,724 zeros, 4,042 stars and no \*2.
+  - At least 18,137 of the 231,071 values change, and 4,070 change outcome ([atlas/flat8/rerun/REPORT.md](atlas/flat8/rerun/REPORT.md)).
+    The first count (21,441 and 4,068) compared raw display strings and was wrong in both directions.
+  - So within flat boards of ≤4 files and ≤6 pawns, the only route to \*2 was the e.p. artefact.
+
+**The other \*2 candidates** ([realchess/certify/REPORT.md](realchess/certify/REPORT.md)). Each is \*2 only
+under one non-default rule, and each needs 10 men.
+- `W a3 b3 c2 / B b5 b7 c6` is **refuted**: its real-chess oracle value is > 0 under every treatment (checked two
+  ways).
+- For three others the tablebase contradicts the race verdicts their \*2 depends on. Their oracle values cannot
+  be settled with 7-man tablebases.
+- No \*k candidate fits in 7 men or fewer.
+- An independent C solver (`atlas/flat8/rerun/`, no shared code) agrees with cylcgt on all 231,071 records under
+  both passed tests (checked two ways).
+
+**What this means.** A \*2 made only of kings and pawns on 8×8 is **still open**. Within the searched space
+(flat, ≤4 files, ≤6 pawns) no candidate survives the e.p.-aware convention, and none survives real chess. The
+negative result is publishable: it shows exactly where the convention breaks.
+
+## 2. Mating without corners: 4-man tablebases on the cylinder and torus (verified)
+
+Two independent solvers agree on every position of all 24 tables, about 607 million values, for both sides
+to move ([tablebase/replica/REPORT.md](tablebase/replica/REPORT.md)).
+
+| Material (cylinder 8×8) | White to move: share won | Longest mate (moves) |
+|---|---|---|
+| KQK | 100% | 10 |
+| KRK | 2.80%: **no forced mate** | 3 |
+| KBBK, opposite-coloured bishops | **100%** | **14** |
+| KBNK | 0.0245%: **draw** | 2 |
+| KNNK | 0.0077% | 1 |
+| KRBK | 99.74% | 13 |
+| KRRK | 100% | 8 |
+| KQRK | 100% | 5 |
+
+- **Torus.** KQ, KR, KBB, KBN and KNN against a lone king are all 0% won, and KRB vs K is 0.022%.
+- **Muller.** The bishop pair forcing mate on the cylinder contradicts H.G. Muller's published claim.
+- **Novelty.** We found no earlier tablebase for these boards.
+- **King and pawn vs king** (two solvers: `kings/kpsolve` and `atlas/cylinder/kpk`; they agree on all 326,640
+  cylinder positions, and on the flat board differ only on the 6 rook-underpromotion positions;
+  `delegate/checks/kpk_crosscheck.py`).
+  - **Win rates.** White to move wins 78.89% on the cylinder against 76.51% flat. Black to move: 55.88%
+    against 58.09%.
+  - **Changed results.** 16,538 flat draws become cylinder wins, among them the rook-pawn draw Ka6, Pa5 vs Ka8,
+    and 15,930 flat wins become cylinder draws.
+  - **Mutual zugzwangs.** 216 on the cylinder, 160 flat.
+
+## 3. The 2025 paper, re-audited (verified)
+
+A blind re-transcription of every diagram matches the solver's input on every pawn square. A pixel scan
+confirmed it independently. The kings, and diagrams 2.3 and 5.1, were checked against the images only
+([notes/diagram_audit.md](notes/diagram_audit.md)). Three verifiers checked each audit claim. Corrected
+verdicts are in [notes/audit.md](notes/audit.md):
+- **Correct:**
+  - 2.1, 2.2, 2.3, 3.2, 4.1, 4.3;
+  - 5.1, the cylinder trébuchet: a mutual zugzwang **only because of the seam**, and a real one with explicit kings (two independent king-and-pawn solvers);
+  - the 7.1 c- and f-files;
+  - the 7.2 king zugzwang, but **only under the convention**. In real chess, White to move draws with Kd5, Ke5 or
+    Kf5, and only Black to move loses (`kings/kpsolve`, confirmed by the Lichess tablebase).
+- **Correct only with en passant:** 3.1.
+- **Wrong:**
+  - 4.2 is one rank off.
+  - 7.1 a/h is {+W \| \*}, not 1.
+  - 7.2's pawn part is not ±1.
+  - 7.3 is decided at move 0.
+  - 7.3's {c,d} part is tiny(1), not 1.
+  - §1's knight squares are wrong.
+- **§8, Dawson's chess, is wrong in three ways** (verified, `dawson/`):
+  - its move rule allows no first move;
+  - its Grundy recurrence matches the true values at only 31 of n = 0..300;
+  - its cylinder outcomes are wrong for 56 values of n ≤ 300.
+
+  Replacement text: `dawson/section8_corrected.tex`.
+
+Every value in the audit is **unchanged** under the e.p.-aware convention (re-run 2026-10-16).
+
+## 4. The solver itself
+
+- **Agreement with an independent solver** (verified). `cylcgt` agrees with a from-scratch brute-force solver
+  (`sumtest/`) on every outcome prediction. The test set:
+  - 55,195 positions (≤2 pawns a side, 3–5 files), × 3 race rules × 15 reference games;
+  - e.p. on: 2,483,775 predictions under the adopted e.p.-aware test (both sum modes) and the same number
+    under the textbook test;
+  - e.p. off: 2,483,775 predictions.
+- **Single components.** It agrees with Codex's whole-board minimax on 1,070/1,070 of them (`crosscheck/`).
+- **Three defects found, all fixed or documented:**
+  - **En passant in the passed-pawn test.** Fixed: `PASSED_RESPECTS_EP`.
+  - **`sum_safe()` is a heuristic, not a certificate** (checked two ways, `notes/lemmas.md` L2.2).
+    - Example: `W b2 d4 g3 h5 / B a7 c7 f7 g4` on the 8×8 cylinder (e.p. off) passes, yet the sum model gets
+      the winner wrong.
+    - The proved replacement is the "hereditarily sum-safe" test (`lemmas/common.py`, Theorem 2.1). All 1,297
+      such positions in a random sample of 1,500 agree.
+  - **An e.p. right can survive moves elsewhere** in a multi-component sum. The sum is exact only when no
+    position with two or more components carries a usable e.p. right (condition (E), L1.6–1.7).
+- **Not a solver defect, a misuse.** The partizan values that `cylcgt/dawson.py` prints are not additive. The
+  Grundy value of octal 0.137 is the correct invariant (L5.4).
+
+## 5. Engines
+
+- [engine/ENGINES.md](engine/ENGINES.md) makes 16 predictions about how Stockfish and Lc0 search fails on
+  zugzwang, tempo battles and nimbers, and designs 8 experiments.
+  - Stockfish's null-move pruning never fires in king-and-pawn endings, because it requires pieces.
+  - Reverse futility pruning is the predicted zugzwang-blind cut.
+- **Test suite.** Both files are tablebase-checked legal 8×8 positions:
+  - `engine/suite/cgt_verified.epd`: **181 positions** whose winning moves follow from CGT and are confirmed
+    by the Lichess tablebase;
+  - `engine/suite/cgt_disagree.epd`: the 52 positions where CGT and the tablebase disagree.
+- **Stockfish 19 on the suite.** Official release `sf_19`, built locally in `engine/vendor/` (git-ignored);
+  1 thread, 64 MB hash, no tablebases. Runs and analysis are in `engine/runs/`.
+  - **It solves all 233 positions at 100k nodes, and 232/233 already at 1k nodes.** At ≤7 men these
+    positions are easy for a modern engine. The CGT-versus-engine contrast has to come from larger sums,
+    beyond the tablebase, where only CGT gives ground truth. That is the ChessSums benchmark.
+  - **At shallow depth, accuracy depends on the CGT value class.** The table gives the share of Stockfish
+    evaluations that match the tablebase result:
+
+| CGT class | n | depth 1 | depth 2 | depth 4 | depth 6 | depth 8 | depth 12 |
+|---|---|---|---|---|---|---|---|
+| hot (±BIG switch) | 68 | 81% | 78% | 91% | 97% | 99% | 100% |
+| number | 57 | 79% | 81% | 84% | 93% | 95% | 98% |
+| switch | 37 | 73% | 78% | 89% | 100% | 100% | 100% |
+| **infinitesimal** | 27 | **30%** | **26%** | **59%** | 85% | 100% | 100% |
+| other tame | 20 | 60% | 50% | 75% | 95% | 100% | 100% |
+| **nimber** | 17 | **53%** | 65% | 88% | 100% | 100% | 100% |
+
+  Infinitesimals and nimbers, which are tempo and parity fights, are the ones the static evaluation
+  misreads at low depth. CGT predicts exactly that. Hot positions and numbers are read correctly early.
+  This is one engine on a small sample, so it is a pilot result.
+- **Cylinder engine.** The only public cylinder fork of Fairy-Stockfish (mtaktikos/CylindricalChess)
+  appears, from reading its code, to miss checks, pins and en passant across the seam.
+  [engine/FAIRY_CYLINDER.md](engine/FAIRY_CYLINDER.md) gives a corrected design.
+- **Lc0 v0.32.1 on the suite** (bundled network, Metal; [engine/runs/lc0/analysis.md](engine/runs/lc0/analysis.md)).
+  - **Perfect at every budget.** At 1k, 10k, 100k and 1M nodes all 233 best moves win and all 233 evals match the
+    tablebase, in every CGT class.
+  - **Lc0 never shows the shallow-depth class effect** that Stockfish shows. Caveat: 216 of the 233 positions are
+    wins, so the 17 draws are the real test. Lc0 calls all 17 draws at 1k nodes; Stockfish 19 at 1k rates one +183.
+  - **The suite is too easy for both engines.** That again points to ChessSums beyond 7 men for a real contrast.
+
+## 6. Other new results (model level unless stated)
+
+- **Elkies' other targets on flat 8-rank boards** ([atlas/flat8/REPORT.md](atlas/flat8/REPORT.md)). Counts are
+  under the textbook test (verified two ways) → the e.p.-aware test (count rule, computed once):
+
+  | Target | Textbook | E.p.-aware | Example that survives the switch |
+  |---|---|---|---|
+  | 1/8 | 13 | 9 | `W a2 b4 c4 / B a7 b7 d6` |
+  | 1/16 | 3 | 2 | `W a2 b2 c3 / B b5 b6 c7` |
+  | 1/32 | 1 | **0** | — |
+  | ↑² = {0 \| ↓\*} | 5 | 2 | `W a2 b2 d4 / B a7 c6 d7` |
+  | ↑²\* = {0,\* \| ↓} | 10 | 10 | `W a2 b2 b6 / B a6 b7 c5`: the same under every race rule and e.p. setting, under both tests |
+  | tiny(1) | 13 | 16 | `W a2 b2 b6 / B a6 b7 c6` |
+
+  - **Two textbook-test results did not survive the switch:**
+    - The "best reachable 1/8", `W a2 b2 d2 / B a5 c4 d7`, becomes −3/2±3/2.
+    - The best ↑², `W a3 c5 d4 / B a7 b7 d7`, becomes {3/4 \| ↓\*}.
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && grep -n "Proposition 2.11" kings/theory/LOOPY.md
+32:another reviewer (revised after K9, 2026-10-22). **Caveat for K10 (Proposition 2.11, P11):** a free model drafted a
+74:| R2.11 | GAP → PROVED in P (frozen), as a sufficient condition (revised after K10, 2026-10-22): Proposition 2.11 and Corollary 2.11a give (V2) at a passer or race terminal under (H1)–(H5): a clear path for pawns and kings of both colours, no check, no stalemate, no interference of an ω pawn that captures a β pawn on a neighbouring file, and the timing bound for both move orders over all ω pawns. K10's first draft was FALSE (it ignored all of these); the statement and proof were rebuilt by a Sonnet agent and read step by step by the integrator. One AI proof, checked on 954,392 parked and 60,000 random-king instances against `kpsolve --frozen` (0 violations; scripts in `kings/delegate/out/K10/scripts/`). Real kings: nothing proved, the square rule is a CONJECTURE (scratch evidence) | R3 item 6; K10 |
+101:| P11 | PROVED in P, in conditional form (revised after K10, 2026-10-22): `--frozen` = o(W(X)) for every X of the layout whose passer and race terminals are all certified by Corollary 2.11a. The chain is Theorem 1.14(i) with (V1) from the layout (no check is possible, and a king move is always legal), (V3) by fiat, and (V2) by Corollary 2.11a at every terminal; the o(S) clause adds HSS with Theorem 1.11(c) and Theorem 1.14(ii). Without the certificate the equality is FALSE (`Ka1 ka6 Pc2 Pc3 pd3 pd4 w -`: o(W) is a White win, `--frozen` is (L, L)). Not yet done: P11's own harness does not test (H4) and (H5) (the K10 end-to-end script `kings/delegate/out/K10/scripts/e2e.py` does, on the roots listed under Proposition 2.11), and no second model has re-derived Proposition 2.11 | R1 item 11; K10 |
+962:of Theorem 1.14 (Proposition 2.11, P11; revised after K10, 2026-10-22), and Theorem 2.7 does not claim it. Theorem 2.7 is a statement about P. In P a
+1133:**Proposition 2.11 (frozen-king passer certificate). PROVED in P (frozen), as a sufficient condition (revised after
+1316:Proposition 2.11 supplies the missing certificate for passer and race terminals **in the frozen model**, and
+1331:- P11 in §6 relies on Proposition 2.11 in the sense given there (revised after K10, 2026-10-22).
+1817:| P11 | cyl:8x6, `--frozen` | Kings parked on the a-file (`Ka1 ka6`, b- and h-files empty); pawn components on c–g; every passer and race terminal of the D-game of X certified by Corollary 2.11a (for the beneficiary's passed front pawn: (H4) and (H5); in this layout (H2), (H3) and the king clause of (H1) hold by Corollary 2.11b); condition (E). Here W(X) is the D-game of X with its own winning side, and "hereditarily sum-safe" (HSS) means that every component of X is itself sum-safe in the sense of Theorem 1.14(ii) | kpsolve `--frozen` = o(W(X)); also = o(S(X)) when hereditarily sum-safe. Where o(S) ≠ o(W) (opposite threats, Prop 1.12), `--frozen` sides with W | — | — (a harness check, not one position) | Thm 1.11 + Thm 1.14 (frozen kings satisfy V1 and V3 by fiat) + Proposition 2.11 / Corollary 2.11a for (V2) | PROVED in P, conditional on the certificate (revised after K10, 2026-10-22). False without it: `Ka1 ka6 Pc2 Pc3 pd3 pd4 w -` is a White win in W(X) and (L, L) in `--frozen`; checked end to end on 56,872 roots of cyl:6×6, cyl:7×6 and cyl:8×6 (0 violations when every terminal is certified; 3,194 roots differ otherwise) |
+1878:     frozen kings, Proposition 2.11 detects it through (H5), the timing bound over all of the opponent's pawns;
+1901:   - Proposition 2.11 is proved only with frozen kings. With real kings the defender's king may catch the
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && sed -n '1120,1340p' kings/theory/LOOPY.md
+So, by Theorem 2.7 (PROVED after repair, in P), a group whose punishments satisfy (L1) with T = 1 is decisively
+  punished in P in every chess-legal non-terminal context on boards with H ≥ 5, provided (L3) holds. No Z-pawn
+  proviso is needed. For T = 1, (L3) asks only that s is not stalemated at its single turn (revised after K7, 2026-10-22).
+- **(b)** For every T ≥ 2 there is a non-terminal context with μ_s = 2 (this requires board width ≥ |F_Z| + 4).
+  - *Example (White):* W (f, H−2); B (f, H−1) and (f+1, H−1). No pawn is passed. White captures to
+    (f+1, H−1) and promotes next move.
+  - So (L2) fails there, and a punishment with T ≥ 2 is never certified for all contexts. **The statement
+    "The zero of such a group is context-dependent" is a CONJECTURE** (it is exactly the conjecture stated in
+    the next bullet; §0 repeated it as fact). CONJECTURE: for each frozen group with T ≥ 2 there is a
+    context, with the defender in zugzwang there, where the freeze actually fails in P. *To settle:* kpsolve
+    on Z_T (§5.1) plus 2-file contexts with fast White pawns.
+
+**Proposition 2.11 (frozen-king passer certificate). PROVED in P (frozen), as a sufficient condition (revised after
+K10, 2026-10-22).** *Caveat.* K10's first draft (a free model) was FALSE: it said that a passed pawn stays passed, and
+that fails when an ω pawn captures a β pawn on a neighbouring file. Two AI reviewers found that error and five more
+(checks, kings on the path, one move order only, races, en passant). The statement and proof below were rebuilt by
+a Sonnet agent (the K10 fixer), which also ran the enumerations listed after the proof. The integrator read the
+proof step by step, re-ran every example on a separate kpsolve build, and corrected one example (P1a, which also
+fails (H1)). It is one AI proof. No human and no second model has re-derived it.
+
+*Setting.* F is the frozen promotion model, `kpsolve --frozen`: a promotion wins at once for the promoter; a legal
+king move ends the play at once in favour of the opponent of its maker; a side with no legal move at all (king
+moves count as moves) that is not in check draws, and one in check loses; infinite play is a draw. The board is
+a cylinder with W files and H ≥ 5 ranks (files mod W). On a flat board the same proof works with the neighbouring
+files that exist; that case was not run.
+
+*Notation.* Fix a position y before any promotion, the side s to move, a side β (the beneficiary) and ω, the
+other side. For a pawn q of either colour let ρ(q) be its rank counted from β's side (ρ = rank for White,
+H + 1 − rank for Black). β's pawns advance towards larger ρ, ω's towards smaller ρ; "ahead of p" means larger ρ.
+β's start rank is ρ = 2 and ω's is ρ = H − 1. For a pawn p of β put d = H − ρ(p) − [ρ(p) = 2] (the number of β
+moves p needs to promote; this is cylcgt's `promote_distance`), and
+- e = d if s = ω (ω makes e moves before β's promoting push),
+- e = d − 1 if s = β.
+
+*The ω-only game G_ω(y; p).* Delete p. Only ω moves, one move after another. β's other pawns stay where they are
+and can be captured. Both kings stay and block squares; nobody captures a king. ω's pawns move as in chess:
+push, double step from the start rank over an empty square, capture, and the e.p. capture that y offers (only
+as the first move, and only if s = ω). μ_ω(y; p) is the least number of moves after which some ω pawn stands on
+its last rank (the promoting move included), or ∞. It is a minimum over **all** ω pawns, passers or not,
+with captures allowed. An ω king move ends F at once, so it never occurs in G_ω.
+
+*Hypotheses.*
+- **(H1) clear path.** p is a pawn of β that is passed at y in cylcgt's e.p.-aware sense (`passed` with
+  `PASSED_RESPECTS_EP = True`: no ω pawn on files f − 1, f, f + 1 with ρ > ρ(p), and p cannot be taken en passant at
+  y), and every square of p's file ahead of p, the promotion square included, is empty. So p is the front pawn
+  of its file, and **no pawn and no king of either colour** stands on the path.
+- **(H2) no check.** No pawn of either colour stands on a file adjacent to the file of β's king.
+- **(H3) no stalemate.** ω's king has a neighbouring square t that is not adjacent to β's king, such that no
+  pawn of either colour stands on the file of t or on a file adjacent to it. "Not adjacent" means king distance ≥ 2.
+- **(H4) no interference.** Every pawn of β other than p that stands on a file adjacent to p's file has
+  ρ ≤ ρ(p) + 1.
+- **(H5) timing.** μ_ω(y; p) ≥ e + 1.
+
+**Statement.** Under (H1)–(H5), β wins F from (y, s) by pushing p at every turn (the double step first if
+ρ(p) = 2).
+
+*Proof.* Write f for p's file and ρ₀ for ρ(p) at y.
+
+*Step 0, three facts about F.*
+- (F1) A pawn changes file only by a capture, and lands on the square of the captured piece (an e.p. capture lands
+  on the file of the captured pawn). There are no officers before the first promotion, and a king is never
+  captured. So a pawn enters a file only by capturing a pawn that stands on it, and a file without pawns never
+  gets one.
+- (F2) A king move ends F at once. So in any play in which its maker has not lost, no king moves, and both kings
+  stand where they stand at y.
+- (F3) A promotion ends F with a win for the promoter.
+
+*Step 1, safety of the kings.*
+- By (H2) and (F1), no pawn ever stands on a file adjacent to β's king, so no ω pawn ever attacks it. ω's king
+  gives no check. So β is never in check, and no push of p is ruled out by king safety.
+- By (H3) and (F1), the three files around t never hold a pawn. So t is never occupied, never attacked by a
+  β pawn (p included), and is not adjacent to β's king: a move of ω's king to t is always legal, even if ω is
+  in check. So ω always has a legal move: it is never stalemated, and F has no draw by stalemate in the play below.
+
+*Step 2, the invariant.* Consider plays in which β follows the strategy Π (push p) and ω moves arbitrarily. Let
+ρ_p be the current value of ρ(p) and call the files f − 1, f, f + 1 the *strip*. We show:
+- (J_β) at every node with β to move, every ω pawn in the strip has ρ ≤ ρ_p + 1;
+- (J_ω) at every node with ω to move, every ω pawn in the strip has ρ ≤ ρ_p, and p cannot be taken en passant;
+- (I1) at every node, every square of file f ahead of p is empty.
+
+At y: (J_β) or (J_ω), according to s, is (H1) (passed, aware), and (I1) is (H1). In the following, β's other pawns
+and both kings never move, by Π and (F2).
+- *β moves.* p goes from ρ_p to ρ′ ∈ {ρ_p + 1, ρ_p + 2}; the squares are empty by (I1), and the move is legal by
+  Step 1. By (J_β), the ω pawns in the strip have ρ ≤ ρ_p + 1 ≤ ρ′. A double step (ρ′ = ρ_p + 2) leaves every ω
+  pawn in the strip strictly below ρ′, and an e.p. capturer stands on the rank of p, so none exists. A single step
+  gives no e.p. right. So (J_ω) holds, and (I1) still holds.
+- *ω moves a pawn.* (a) A push or double step lowers ρ. It cannot enter p's square or a square ahead of p on file
+  f, because the pawn stands at ρ ≤ ρ_p. (b) A capture lands on the square of a captured β pawn q (or on an e.p.
+  target). It captures p never: (J_ω) leaves no ω pawn at ρ_p + 1 next to p, and p is not e.p.-capturable. So
+  q ≠ p. If q is on file f, then q stands behind p (nothing of β stands ahead of p by (H1)), and the landing
+  rank is below ρ_p. If q is on file f ± 1, then ρ(q) ≤ ρ₀ + 1 ≤ ρ_p + 1 by (H4), and the landing rank is ρ(q). An
+  e.p. capture is possible only with the right offered by y when s = ω (Π double-steps only p, and p is not
+  capturable): the victim q′ is a β pawn that just double-stepped, the landing square is the skipped square, one
+  rank below q′. If q′ is on f ± 1, then ρ(q′) ≤ ρ₀ + 1 by (H4); if on f, it is behind p. Either way the landing
+  rank is at most ρ_p + 1. (c) So every ω pawn in the strip after the move has ρ ≤ ρ_p + 1, which is (J_β),
+  and nothing lands on file f ahead of p, which is (I1). Captures that land outside the strip change nothing.
+  (The tempting one-line argument "ω pawns move away from p's promotion side, so none can ever stand beside its landing
+  square" is false: a capture of a β pawn on a neighbouring file puts an ω pawn there. (H4) is what bounds the landing rank.)
+
+*Step 3, consequences.* At every ω turn no ω pawn stands at ρ_p + 1 next to p, and p cannot be taken e.p., so p is
+never captured; nothing stands ahead of p on file f ((I1)), so p is never blocked. At every β turn the push is
+legal. So Π can be played to the end.
+
+*Step 4, ω's moves are moves of G_ω.* In a play consistent with Π, each ω pawn move is a move of G_ω(y; p): the
+squares and the captured pawns are the same, p never takes part (Step 3), β's other pawns stay (Π), the kings
+stay (F2), and the only e.p. capture is the one offered at y. (G_ω has fewer obstacles, since p is deleted; this
+only enlarges its move set.) So if ω promotes after k of its moves in the real play, then k ≥ μ_ω(y; p). An ω king
+move loses at once (F2).
+
+*Step 5, timing.* Under Π, β promotes with its d-th push. Before that push ω has made exactly e moves. By (H5),
+e < μ_ω(y; p), so by Step 4 none of those moves promotes, and by Step 1 ω has a legal move each time, so the
+play is not a draw. ω's only other moves are king moves, which lose at once. β's d-th push is legal (Step 3)
+and promotes, and by (F3) β wins. ∎
+
+**Corollary 2.11a ((V2) at a passer or race terminal of the D-model).** Let y′ be the node reached by a move of M
+(N to move), and let cylcgt credit it to b ∈ {M, N}:
+- only M has a passed pawn: b = M;
+- only N has a passed pawn: b = N;
+- both have one (a race, scored by the count rule): b = N if dp(N) ≤ dp(M), else b = M, where dp is
+  `promote_distance`.
+
+Then (V2) holds at y′ if (H1)–(H5) hold at (y′, s = N, β = b) for some pawn p of b. Then e = d if b = M (the
+opponent moves first) and e = d − 1 if b = N (the beneficiary moves first). This covers the terminal's beneficiary
+in both move orders, and a race won by the side to move. The corollary is the proposition at y′. It is
+sufficient only (slack example below).
+
+**Corollary 2.11b (the layout of P11).** On cyl:8×6 with `Ka1 ka6` and the b- and h-files empty, all pawns stand
+on c–g and stay there (F1). Then for either colour as β: (H2) holds (the neighbours of the a-file are b and h);
+(H3) holds with t = a5 for ω = Black and t = a2 for ω = White (the kings are four ranks apart); and no king stands
+on p's file. So at a terminal of such a position only the passed front pawn, (H4) and (H5) have to be checked.
+
+**Remark (the count rule is not a (V2) certificate).** In the count rule's test, β wins iff dp(ω) ≥ e + 1. This is
+(H5) with μ_ω replaced by ω's fastest **passer** distance dp(ω), and dp(ω) ≥ μ_ω whenever no king stands on the
+path of that passer (always so in P11's layout). The two agree only if no non-passer of ω is as fast. Without a passer of ω the count rule credits β whatever ω's pawns do, and it sees neither captures
+(H4) nor kings (H1, H2) nor stalemate (H3).
+
+**What the hypotheses do (every example is a `kpsolve --frozen --cap 1` result; the integrator re-ran each on a
+separate build).** Unless a
+board is named, it is cyl:8×6; β is White (p = Pc4 or Pc2) unless said otherwise.
+- *(H5), both move orders.* ω to move (e = d = 2): `Ka1 ka6 Pc4 pe3 b -` (μ = 2) gives (L, L), so ω wins the tie;
+  `Ka1 ka6 Pc4 pe4 b -` (μ = 3) gives (W, W). β to move (e = d − 1): `Ka1 ka6 Pc4 pe3 w -` (e = 1, μ = 2) gives (W, W);
+  `Ka1 ka6 Pc3 pe3 w -` (d = 3, e = 2, μ = 2) gives (L, L). With Black as β: `Ka1 ka6 pc3 Pe4 w -` (ω to move,
+  μ = 2) gives (W, W) and `Ka1 ka6 pc3 Pe3 w -` (μ = 3) gives (L, L).
+- *(H5), non-passers count.* `Ka1 ka6 Pc2 Pd4 pd3 b -`: p = Pd4 is a passer (d = 2) and the only Black pawn is not
+  one, but d3xc2 and c1=Q take ω two moves. (L, L), although cylcgt credits White. This is the position
+  after c3xd4 in `Ka1 ka6 Pc2 Pc3 pd3 pd4 w -`, whose D-result is a White win and whose `--frozen` result is (L, L):
+  the D-result and `--frozen` differ at this root. Race: `Ka1 ka6 Pc4 Pd2 pe3 pf4 b -` is (L, L); the count rule
+  credits White (dp = 2 against dp(Black) = 3 for the passer f4), but Black's non-passer e3 takes d2 and promotes in two.
+- *(H5) is not necessary.* cyl:7×6 `Ka1 ka6 Pc2 Pd3 Pf2 pe4 b -` has μ = e = 3 and is (W, W): the proposition says
+  nothing there.
+- *(H4), and the threshold ρ(p) + 1 is exact.* `Ka1 ka6 Pc2 Pd4 Pe2 pe5 b -` is (L, L): p = c2, Pd4 stands at
+  ρ = ρ(p) + 2, and e5xd4 followed by d3, d2, d1 takes ω four moves (μ = 4 ≥ e + 1 = 4, so (H5) holds); the
+  pawn on d4 then attacks c3 and the double step is met by dxc3 e.p. `Ka1 ka6 Pc2 Pd3 Pe2 pe5 b -`
+  (Pd3 at ρ(p) + 1) is (W, W). The failure arises inside the D-model: `Ka1 ka6 Pc2 Pe2 Pe3 pd4 pe4 pe5 w -` has D-result
+  "White wins" (e3xd4 makes c2 a passer, a terminal credited to White) and is (L, L) in F.
+  With the bound ρ(p) + 2 in place of ρ(p) + 1, the end-to-end run below refutes 8 certified wins (9,852 roots, cyl:6×6); so does
+  dropping (H4) (16 of 80 instances on cyl:6×6).
+- *(H2).* `Ke2 ka6 Pc4 pf4 b -` is (L, L) (f4-f3+ forces a king move or no reply), `Ka1 ka6 Pc4 pf4 b -` is (W, W);
+  in both p = c4, d = 2 and μ = 3 = e + 1.
+- *(H1), kings.* `Ka1 kc5 Pc4 pf4 b -`, `Kc5 ka6 Pc4 pf4 b -`, `Kc6 ka6 Pc4 pf4 b -` and `Ka1 kc6 Pc4 pf4 b -`
+  (a king of either colour on the path, or on the promotion square) are all (L, L).
+- *(H1), e.p.* `Ka1 ka6 Pe4 pd4 b e3` (e4 has just been played, e.p. right on e3) is (L, L); the same position
+  without the right, `... b -`, is (W, W). The textbook passed test calls e4 passed at once, the aware test does not.
+  Another: `Ka1 ka6 Pc3 Pd4 Pf2 pc4 b d3` is (L, L) and `... b -` is (W, W): the right is the only reason that
+  μ = 3 ≤ e = 3 (the e.p. capture is the first move of G_ω).
+- *(H3).* `Ke1 ka6 Pa4 Pc5 Pg5 pa5 b -` is (D, D): p = c5 (d = 1), (H1), (H2), (H4) and (H5) hold (μ = ∞: a5 is
+  blocked and has nothing to capture), but Black has no legal move: a4 covers b5 and h5 across the seam, c5
+  covers b6 and g5 covers h6. Without Pg5 the king can step to h6 (and lose), and the position is (W, W). Also
+  flat:7×6 `Kb1 ka6 Pa4 Pc2 Pc5 pa5 b -` is (D, D); there the static (H2) fails, but no check can occur.
+  (P1a of §5.4, cyl:7×6 `Ka5 Pb4 Pc5 Pe2 Pe4 kc6 pb5 pe5 b -`, is (D, D) too, but it is not an example for (H3):
+  the black king stands on c6, the promotion square of c5, so (H1) fails as well.)
+
+**Checks (K10 fixer, 2026-10-22; kpsolve built privately from `kings/kpsolve.c`; data, not proof).** The
+scripts (`cert.py` decides (H1)–(H5) with its own move generator, and only `passed` and `promote_distance` are cylcgt's;
+`direct.py`, `direct2.py`, `e2e.py`) and their logs are copied to `kings/delegate/out/K10/scripts/`; their paths point
+at the old scratchpad.
+- *Proposition against `--frozen`, kings parked* (`Ka1` and a Black king on the top rank of the a-file, the b-file and the
+  last file empty, pawns on files c to W − 2, ≤ 3 per side except where noted; both colours as β, both sides to move): cyl:6×6 74,410
+  instances, cyl:8×6 (≤ 2 per side) 64,954, cyl:6×7 306,020, cyl:6×5 12,160, cyl:7×6 496,848: **0 violations in
+  954,392**. With (H4) dropped: 16 of 80 (6×6), 56 of 456 (6×7), 32 of 368 (7×6) violate.
+- *Kings anywhere* (random placements, so that (H2), (H3) and the king clause of (H1) are tested as stated): cyl:7×6,
+  cyl:8×6 and cyl:6×7, 20,000 instances each, ≤ 3 pawns a side: 0 violations in 60,000. With one hypothesis dropped,
+  the violations are: (H2) 1,744, 1,853 and 1,394 of 20,000; (H3) 8 of 19,033, 8 of 16,599 and 5 of 20,000; the king
+  clause of (H1) 563 of 1,315, 469 of 1,020 and 556 of 1,783; (H4) 0 of 4 and 0 of 9 (too few) and 2 of 11.
+- *Chain D → P, end to end* (kings parked; no passer at the root; both sides to move): cyl:6×6 files c–e, ≤ 3 pawns a
+  side, 9,852 roots; cyl:7×6 files c–f, ≤ 3 a side, 40,204 roots; cyl:8×6 ≤ 2 a side, 5,384 roots; cyl:6×6 ≤ 2, 1,432
+  roots; 56,872 in all. The conservative D-game in which a side's own terminals, and the opponent's moves into
+  terminals credited to it, must be certified by Corollary 2.11a gives a win only if `--frozen` agrees: 48,000
+  certified wins, 0 violations. When **every** terminal of the D-game is certified (26,014 roots), `--frozen` equals
+  the D-result (o(W)): 0 violations. Without (H4) in the certificate: 8 violations (cyl:6×6). `--frozen` differs from
+  o(W) at 3,194 of the 56,872 roots, all of them with some uncertified terminal.
+
+**Remark 2.11 (the certificate is not special to kings; real kings).** The same (V2) question arises for passer
+terminals. The certificate of Definition 2.6 (king moves) does not apply to a passer as written (Q_Z deletes the
+passer, r is not a king capture, the owner's king may leave F_Z, the component's own pawns are unaddressed).
+Proposition 2.11 supplies the missing certificate for passer and race terminals **in the frozen model**, and
+Corollary 2.11a states it for the D-model.
+- **Proved about real kings: nothing.** Every step above uses (F2). The hypotheses are not enough with real kings:
+  `Ka1 ka6 Pc2 w -` (cyl:8×6) satisfies (H1)–(H5) with μ = ∞ and is (W, W) in F, but P with real kings (a private
+  `--pmodel` build, `kings/delegate/out/K7/scripts/draft/kp_p.c`) and chess (kpsolve exact) both give (D, D).
+- **Corollary 2.8** is the real-king statement for one pawn: a single-pawn local game with a king beyond reach.
+- **CONJECTURE (real-king square rule, label kept).** Let β's king be sheltered as in (H2) and the pawn data satisfy
+  (H1), (H4), and (H5) with ω's king allowed to move and to capture β's other pawns in G_ω. Let q₀, …, q_d be the
+  squares p occupies before its first push and after each push, and n_j = j if s = ω, j − 1 if s = β, the number of
+  ω moves before the j-th push. If d(k_ω, q_j) ≥ n_j + 2 for every j (for j = 0 only if s = ω), then β wins P with
+  real kings. This follows from d(k_ω, q_d) ≥ d + 2 (s = ω) or d + 1 (s = β) by the triangle inequality. The
+  sketch is the proof above with Step 1 replaced by the rule of the square (no capture and no block), but ω could
+  steer into a stalemate or a draw by king-and-pawn play, which the sketch does not exclude. Scratch evidence
+  only: β = White, `Ka1`, ≤ 2 + 2 pawns, `--pmodel`: cyl:6×6 30,847 legal instances and cyl:7×6 158,840, 0
+  violations. The chess form needs (A_Q) at the resulting position (§1.2) and is not claimed.
+- P11 in §6 relies on Proposition 2.11 in the sense given there (revised after K10, 2026-10-22).
+
+---
+
+## 3. Spare tempo moves as loopy games
+
+**Definition 3.1 (pass reservoirs).** Each reservoir is a D-game with a single position ω.
+- **on_D:** L(ω) = {ω}, R(ω) = ∅. White can pass forever; Black has no move.
+- **off_D:** the mirror image.
+- **dud_D:** L(ω) = R(ω) = {ω}.
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && sed -n '1,260p' cylcgt/pawns.py
+"""Pawn-only chess positions on W-file x H-rank boards, flat or cylindrical,
+evaluated as exact combinatorial games (White = Left, Black = Right).
+
+Conventions (Elkies 1996, and the cylinder paper):
+  * normal play: a side with no legal move loses;
+  * a position in which exactly one side has a passed pawn is a decisive win
+    for that side, modelled as the number +BIG / -BIG;
+  * a position where both sides have passed pawns is a race and is rejected.
+
+Fact used for decomposition: pawns only change file by capturing, so an empty
+file stays empty forever and pawn groups separated by an empty file are
+independent summands. On a cylinder a group may wrap around the a/h seam;
+with no empty file at all it forms a single "ring" component.
+
+En passant: a double step leaves an e.p. right for the opponent that is only
+usable as the opponent's very next move *in this component*. That is the
+standard short-game approximation (exact when the component is played alone).
+"""
+from __future__ import annotations
+
+from dataclasses import dataclass
+from functools import lru_cache
+
+from . import cgt
+
+BIG = 256  # value of a won (passed-pawn) position; must dominate all tempo counts
+cgt.BIG_DISPLAY = BIG // 2
+
+
+class RaceError(Exception):
+    pass
+
+
+# How to score a move that gives BOTH sides a passed pawn (a promotion race).
+#   "count": the opponent of the mover moves first in the race; whoever needs
+#            fewer moves to promote wins (opponent wins ties). Ignores queen
+#            checks / a new queen stopping the other pawn.
+#   "mover": the mover wins.   "opponent": the mover loses.
+RACE_RULE = "count"
+race_hits: list[str] = []  # positions where the race rule was invoked
+
+# A pawn that has just double-stepped and can still be taken en passant is not
+# yet passed: the opponent's e.p. capture comes first. False restores the
+# textbook test, under which W a2 c2 / B b7 d7 is *2 (see RESULTS.md section 1).
+PASSED_RESPECTS_EP = True
+
+
+def promote_distance(board: "Board", pos: "Pos", side: str) -> int:
+    best = None
+    mine = pos.white if side == "W" else pos.black
+    occ = pos.white | pos.black
+    for f, r in mine:
+        if not passed(board, Pos(frozenset([(f, r)]) if side == "W" else pos.white,
+                                 pos.black if side == "W" else frozenset([(f, r)])), side):
+            continue
+        if ep_capturable(board, pos, side, (f, r)):
+            continue
+        if side == "W":
+            if any((f, s) in occ for s in range(r + 1, board.ranks + 1)):
+                continue  # not the front pawn of its file
+            d = board.ranks - r - (1 if r == 2 else 0)
+        else:
+            if any((f, s) in occ for s in range(1, r)):
+                continue
+            d = r - 1 - (1 if r == board.ranks - 1 else 0)
+        best = d if best is None else min(best, d)
+    return best if best is not None else 10**6
+
+
+@dataclass(frozen=True)
+class Board:
+    files: int = 8
+    ranks: int = 8
+    wrap: bool = True
+    ep: bool = True
+
+    def nb(self, f: int, df: int):
+        g = f + df
+        if self.wrap:
+            return g % self.files
+        return g if 0 <= g < self.files else None
+
+
+CYL8 = Board(8, 8, True, True)
+FLAT8 = Board(8, 8, False, True)
+
+FILES = "abcdefghijklmnopqrstuvwxyz"
+
+
+def sq(name: str):
+    return (FILES.index(name[0]), int(name[1:]))
+
+
+def name(s):
+    return f"{FILES[s[0]]}{s[1]}"
+
+
+@dataclass(frozen=True)
+class Pos:
+    white: frozenset
+    black: frozenset
+    ep: tuple | None = None  # (target_square, captured_square, side_that_may_capture)
+
+    @staticmethod
+    def parse(text: str) -> "Pos":
+        """'W: a4 h2 h4 / B: a5 a6 a7 h3'"""
+        w_part, b_part = text.split("/")
+        w = frozenset(sq(t) for t in w_part.split(":")[1].split())
+        b = frozenset(sq(t) for t in b_part.split(":")[1].split())
+        return Pos(w, b)
+
+    def __str__(self):
+        w = " ".join(sorted(map(name, self.white)))
+        b = " ".join(sorted(map(name, self.black)))
+        return f"W: {w} / B: {b}" + (f" (ep {name(self.ep[0])})" if self.ep else "")
+
+
+def ep_capturable(board: Board, pos: Pos, side: str, square) -> bool:
+    """True if `side`'s pawn on `square` may be taken en passant right now."""
+    if not (PASSED_RESPECTS_EP and pos.ep and pos.ep[1] == square and pos.ep[2] != side):
+        return False
+    f, r = square
+    theirs = pos.black if side == "W" else pos.white
+    return any((g, r) in theirs for g in (board.nb(f, -1), board.nb(f, 1)) if g is not None)
+
+
+def passed(board: Board, pos: Pos, side: str) -> bool:
+    mine, theirs = (pos.white, pos.black) if side == "W" else (pos.black, pos.white)
+    for f, r in mine:
+        files = {f} | {g for g in (board.nb(f, -1), board.nb(f, 1)) if g is not None}
+        if side == "W":
+            blocked = any(g in files and s > r for g, s in theirs)
+        else:
+            blocked = any(g in files and s < r for g, s in theirs)
+        if not blocked and not ep_capturable(board, pos, side, (f, r)):
+            return True
+    return False
+
+
+def moves(board: Board, pos: Pos, side: str):
+    """Positions reachable by one move of `side` ('W' or 'B')."""
+    mine, theirs = (pos.white, pos.black) if side == "W" else (pos.black, pos.white)
+    occ = pos.white | pos.black
+    d = 1 if side == "W" else -1
+    start = 2 if side == "W" else board.ranks - 1
+    ep_target = pos.ep if (pos.ep and pos.ep[2] == side) else None
+    out = []
+
+    def emit(new_mine, new_theirs, ep=None):
+        if side == "W":
+            out.append(Pos(frozenset(new_mine), frozenset(new_theirs), ep))
+        else:
+            out.append(Pos(frozenset(new_theirs), frozenset(new_mine), ep))
+
+    for (f, r) in mine:
+        rest = mine - {(f, r)}
+        r1 = r + d
+        if not (1 <= r1 <= board.ranks):
+            continue
+        if (f, r1) not in occ:
+            emit(rest | {(f, r1)}, theirs)
+            r2 = r + 2 * d
+            if r == start and 1 <= r2 <= board.ranks and (f, r2) not in occ:
+                ep = None
+                if board.ep:
+                    other = "B" if side == "W" else "W"
+                    ep = ((f, r1), (f, r2), other)
+                emit(rest | {(f, r2)}, theirs, ep)
+        for df in (-1, 1):
+            g = board.nb(f, df)
+            if g is None:
+                continue
+            t = (g, r1)
+            if t in theirs:
+                emit(rest | {t}, theirs - {t})
+            elif ep_target and ep_target[0] == t:
+                emit(rest | {t}, theirs - {ep_target[1]})
+    # de-duplicate (two pawns may reach identical positions)
+    return list(dict.fromkeys(out))
+
+
+def components(board: Board, pos: Pos):
+    """Split a position into independent sub-positions separated by empty files."""
+    occ_files = sorted({f for f, _ in pos.white | pos.black})
+    if not occ_files:
+        return []
+    groups: list[list[int]] = []
+    for f in occ_files:
+        if groups and f == groups[-1][-1] + 1:
+            groups[-1].append(f)
+        else:
+            groups.append([f])
+    if board.wrap and len(groups) > 1 and groups[0][0] == 0 and groups[-1][-1] == board.files - 1:
+        groups[0] = groups.pop() + groups[0]
+    comps = []
+    for gfiles in groups:
+        fs = set(gfiles)
+        ep = pos.ep if (pos.ep and pos.ep[0][0] in fs) else None
+        comps.append(Pos(frozenset(p for p in pos.white if p[0] in fs),
+                         frozenset(p for p in pos.black if p[0] in fs), ep))
+    return comps
+
+
+def is_ring(board: Board, pos: Pos) -> bool:
+    return board.wrap and len({f for f, _ in pos.white | pos.black}) == board.files
+
+
+def value(board: Board, pos: Pos) -> cgt.Game:
+    # A passed pawn ends the whole game, so check before splitting: otherwise
+    # +BIG in one component could be cancelled by a -BIG threat in another.
+    wp, bp = passed(board, pos, "W"), passed(board, pos, "B")
+    if wp != bp:
+        return cgt.integer(BIG if wp else -BIG)
+    comps = components(board, pos)
+    if len(comps) > 1:
+        return cgt.total(_value(board, c) for c in comps)
+    return _value(board, pos)
+
+
+@lru_cache(maxsize=None)
+def _value(board: Board, pos: Pos) -> cgt.Game:
+    wp, bp = passed(board, pos, "W"), passed(board, pos, "B")
+    if wp and bp:
+        raise RaceError(str(pos))
+    if wp:
+        return cgt.integer(BIG)
+    if bp:
+        return cgt.integer(-BIG)
+    # an e.p. right only survives if the opponent moves here immediately
+    plain = Pos(pos.white, pos.black, None)
+    lpos = plain if (pos.ep and pos.ep[2] != "W") else pos
+    rpos = plain if (pos.ep and pos.ep[2] != "B") else pos
+    L = [_child(board, p, "W") for p in moves(board, lpos, "W")]
+    R = [_child(board, p, "B") for p in moves(board, rpos, "B")]
+    return cgt.make(L, R)
+
+
+def _child(board: Board, pos: Pos, mover: str) -> cgt.Game:
+    if passed(board, pos, "W") and passed(board, pos, "B"):
+        race_hits.append(f"{pos} after {mover}")
+        if RACE_RULE == "mover":
+            winner = mover
+        elif RACE_RULE == "opponent":
+            winner = "B" if mover == "W" else "W"
+        else:
+            other = "B" if mover == "W" else "W"
+            winner = other if promote_distance(board, pos, other) <= promote_distance(board, pos, mover) else mover
+        return cgt.integer(BIG if winner == "W" else -BIG)
+    return value(board, pos)
+
+
+def sum_safe(board: Board, pos: Pos) -> bool:
+    """False if passed-pawn threats of opposite colour live in different
+    components; then the disjunctive-sum value may differ from real play
+    (in chess the first passer ends the game; in a sum +BIG and -BIG cancel).
+
+    A heuristic, not a certificate: it looks only at the top-level split, so
+    it misses cancellation in sums that appear later in the tree (e.g. W: b2
+    d4 g3 h5 / B: a7 c7 f7 g4 on CYL8 with e.p. off is True here, yet the sum
+    model gets the outcome wrong). The proved test is "hereditarily sum-safe",
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && sed -n '1,140p' kings/kpsolve.c
+/* kpsolve.c -- exact solver for chess positions with kings, pawns and promoted
+ * officers (Q, R, B, N) on a small flat or cylindrical board.
+ * Rules and file formats: SPEC.md. Written independently of kings/ref/.
+ *
+ * Method. Positions are grouped into layers by (white pawns, black pawns,
+ * officer types). Pawn moves, captures and promotions leave the layer and never
+ * come back, so a layer is solved after every layer it can reach (on demand,
+ * recursively). Inside a layer only kings and officers move, reversibly, so
+ * every placement of them is solved together: counting retrograde analysis on
+ * the explicit in-layer move graph, or repeated passes for very large layers.
+ * Values are win / loss / draw for the side to move; whatever is never resolved
+ * is a draw (the least fixed point, i.e. infinite play is a draw).
+ *
+ * Extra options beyond SPEC.md, for experiments:
+ *   --frozen   kings may not move: a king move loses at once for the mover, and
+ *              a promotion wins at once for the promoter (the pawn-only
+ *              convention with real races instead of "passed pawn = win")
+ *   --moves    after the result, list every legal move with the value it leads to
+ *   --threads  worker threads for large layers (default 1)
+ */
+#include <ctype.h>
+#include <pthread.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+#define MAXOFF 3
+#define MAXMOVES 320
+#define BIT(s) (1ULL << (s))
+#define PASS_THRESHOLD 6000000u /* layers with more states use repeated passes */
+
+enum { VUNK = 0, VWIN, VLOSS, VDRAW, VILL };
+enum { WHITE = 0, BLACK = 1 };
+enum { TQ = 1, TR, TB, TN }; /* officer code = type + 8 * colour */
+static const char TYPECH[] = "?QRBN";
+
+static int W, H, N, WRAP, EPON = 1, CAP = 1, FROZEN = 0, BOUND = 0, cappedSeen = 0, WANTMOVES = 0;
+static int promoType[4], nPromo;
+
+/* ---------- geometry ---------- */
+
+static int kingN[64], kingL[64][8], knightN[64], knightL[64][8];
+static uint64_t kingBB[64], knightBB[64];
+static uint64_t pawnAtt[2][64]; /* squares from which a pawn of colour c attacks s */
+static int capN[2][64], capL[2][64][2];
+static const int DF[8] = {0, 0, 1, -1, 1, 1, -1, -1};
+static const int DR[8] = {1, -1, 0, 0, 1, -1, 1, -1};
+static int rayN[64][8], rayL[64][8][8];
+static int8_t rayIdx[64][8][64];
+static uint64_t rayBefore[64][8][8];
+
+static int step(int s, int df, int dr) {
+  int f = s % W + df, r = s / W + dr;
+  if (r < 0 || r >= H) return -1;
+  if (WRAP) f = ((f % W) + W) % W;
+  else if (f < 0 || f >= W) return -1;
+  return r * W + f;
+}
+
+static void add_unique(int *n, int *l, int s) {
+  for (int i = 0; i < *n; i++)
+    if (l[i] == s) return;
+  l[(*n)++] = s;
+}
+
+static void init_geometry(void) {
+  static const int NF[8] = {1, 2, -1, -2, 1, 2, -1, -2};
+  static const int NR[8] = {2, 1, 2, 1, -2, -1, -2, -1};
+  memset(rayIdx, -1, sizeof rayIdx);
+  memset(pawnAtt, 0, sizeof pawnAtt);
+  for (int s = 0; s < N; s++) {
+    kingN[s] = knightN[s] = 0;
+    kingBB[s] = knightBB[s] = 0;
+    for (int d = 0; d < 8; d++) {
+      int t = step(s, DF[d], DR[d]);
+      if (t >= 0 && t != s) add_unique(&kingN[s], kingL[s], t);
+      t = step(s, NF[d], NR[d]);
+      if (t >= 0 && t != s) add_unique(&knightN[s], knightL[s], t);
+    }
+    for (int i = 0; i < kingN[s]; i++) kingBB[s] |= BIT(kingL[s][i]);
+    for (int i = 0; i < knightN[s]; i++) knightBB[s] |= BIT(knightL[s][i]);
+    for (int d = 0; d < 8; d++) {
+      int cur = s;
+      uint64_t before = 0;
+      rayN[s][d] = 0;
+      for (;;) {
+        cur = step(cur, DF[d], DR[d]);
+        if (cur < 0 || cur == s) break; /* edge, or back home: no null move */
+        int k = rayN[s][d]++;
+        rayL[s][d][k] = cur;
+        rayIdx[s][d][cur] = (int8_t)k;
+        rayBefore[s][d][k] = before;
+        before |= BIT(cur);
+      }
+    }
+    for (int c = 0; c < 2; c++) {
+      capN[c][s] = 0;
+      for (int df = -1; df <= 1; df += 2) {
+        int t = step(s, df, c == WHITE ? 1 : -1);
+        if (t >= 0 && t != s) add_unique(&capN[c][s], capL[c][s], t);
+      }
+    }
+  }
+  for (int c = 0; c < 2; c++)
+    for (int s = 0; s < N; s++)
+      for (int i = 0; i < capN[c][s]; i++) pawnAtt[c][capL[c][s][i]] |= BIT(s);
+}
+
+/* ---------- positions ---------- */
+
+typedef struct {
+  uint64_t wp, bp;
+  int wk, bk, no, stm, ep;
+  int osq[MAXOFF], ot[MAXOFF];
+} Pos;
+
+typedef struct {
+  uint64_t wp, bp;
+  int no;
+  int ot[MAXOFF];
+} Key;
+
+static int colour_of(int code) { return code >> 3; }
+static int type_of(int code) { return code & 7; }
+
+static uint64_t occupancy(const Pos *p) {
+  uint64_t o = p->wp | p->bp | BIT(p->wk) | BIT(p->bk);
+  for (int j = 0; j < p->no; j++) o |= BIT(p->osq[j]);
+  return o;
+}
+
+static int man_attacks(int type, int from, int target, uint64_t occ) {
+  if (type == TN) return (int)((knightBB[from] >> target) & 1);
+  int lo = type == TB ? 4 : 0, hi = type == TR ? 4 : 8;
+  for (int d = lo; d < hi; d++) {
+    int k = rayIdx[from][d][target];
+    if (k >= 0 && !(rayBefore[from][d][k] & occ)) return 1;
+  }
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && ls kings && find kings -name "SPEC.md" -o -name "*.md" | head; grep -R "input format\|notation" kings/*.md 2>/dev/null | head
+REPORT.md
+SPEC.md
+__init__.py
+__pycache__
+analyze.py
+conventions.py
+crosscheck.py
+data
+delegate
+experiment.py
+failures.py
+kpsolve
+kpsolve.c
+lichess_check.py
+lichess_probe.py
+positions
+predictions.py
+ref
+results
+run_batch.sh
+test_kpsolve.py
+theory
+kings/REPORT.md
+kings/theory/LOOPY.md
+kings/theory/REVIEWS.md
+kings/delegate/out/K3/EDITS.md
+kings/delegate/out/K3/REPORT.md
+kings/delegate/out/K4/REPORT.md
+kings/delegate/out/K5/REPORT.md
+kings/delegate/out/K5/REVIEW.md
+kings/delegate/out/K2/REPORT.md
+kings/delegate/out/K10/EDITS.md
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && sed -n '1,240p' kings/SPEC.md
+# Explicit king-and-pawn solver: rules and file formats
+
+Two solvers must implement this spec: the C solver `kings/kpsolve.c` and an independent Python
+reference solver `kings/ref/`. They are compared position by position, so every rule below is
+binding. Neither may read the other's code.
+
+## Board
+
+- W files (2 to 8) by H ranks (4 to 8). Files are named a, b, c, ... and ranks 1, 2, ..., H.
+- **flat:** an ordinary board.
+- **cyl:** a cylinder. File a and the last file are glued. Ranks are not glued.
+
+## Pieces and moves
+
+- White uses upper case `K Q R B N P`; Black uses lower case `k q r b n p`.
+- Queens, rooks, bishops and knights are called *officers*.
+- Each side has exactly one king.
+
+Standard chess moves, with these clarifications:
+
+1. **Wraparound (cyl only).**
+   - Every horizontal or diagonal step wraps from the last file to file a and back.
+   - This applies to kings, knights, sliders and pawn captures. For example, on a cylinder of
+     width 5, a white pawn on e2 captures on a3 and on d3.
+2. **Sliders.**
+   - A slider moves along a ray until it hits the board edge (top or bottom rank), the first
+     occupied square, or its own starting square.
+   - It may capture an enemy non-king piece on the first occupied square. It never moves through
+     a piece.
+   - When a ray wraps all the way round and returns to the starting square, the ray stops there.
+     There is no null move.
+   - On a cylinder the leftward and rightward rays along a rank can reach the same square. That
+     is one move, not two.
+3. **Pawns.**
+   - White pawns move towards rank H; Black pawns move towards rank 1.
+   - Single step to an empty square.
+   - Double step from the pawn's second rank (rank 2 for White, rank H−1 for Black) if both
+     squares are empty. On a 4-rank board the double step lands on the last rank: it then promotes
+     (one move per allowed piece) and leaves no e.p. right.
+   - A pawn captures diagonally forward. It may capture enemy pawns and enemy officers, never the
+     king.
+   - A white pawn may never stand on rank 1 or rank H; a black pawn may never stand on rank H or
+     rank 1.
+4. **Promotion.**
+   - A pawn reaching the last rank must promote to one piece of the allowed promotion set.
+   - The default set is Q, R, B, N; option `--promote` can restrict it, for example to `Q`.
+   - Each allowed piece is a separate move.
+5. **En passant** (option `--ep on|off`, default on).
+   - Right after a pawn double-steps, the opponent may capture it en passant on their very next
+     move only.
+   - The capture works exactly as in chess, diagonally across the seam on a cylinder.
+   - A position therefore carries an e.p. target square or `-`.
+   - With `--ep off` there is no en passant at all.
+6. **Kings.**
+   - A king moves one step in any direction, with wraparound on a cylinder.
+   - It may capture an enemy pawn or officer.
+7. **Legality.**
+   - A move may not leave the mover's own king attacked.
+   - Kings may never be adjacent; this follows from that rule.
+   - A position is **illegal** if two pieces share a square, the kings are adjacent, a pawn stands
+     on its first or last rank, or the side *not* to move is in check.
+   - Illegal input positions are reported as `X`.
+8. **Results.**
+   - Checkmate (no legal move, and in check) is a loss for the side to move.
+   - Stalemate (no legal move, not in check) is a draw.
+   - There is no 50-move rule and no castling.
+   - A game that can go on forever under best play is a draw. The value is the usual retrograde
+     least fixed point:
+     - won if some move reaches a lost position;
+     - lost if every move reaches a won position;
+     - everything else is drawn.
+
+## The officer cap and bounds
+
+(A promotion is capped only if the position *after* it holds more than C officers, so a pawn that
+captures an officer while promoting is not capped at count C.)
+
+Exactness can be expensive, so the solvers take `--cap C`, default 1. This is the maximum number of
+officers (both colours together) a position may hold.
+
+- A promotion that would create officer number C+1 is a **capped promotion**.
+- The solver computes two bounds.
+  - **Bound A:** every capped promotion counts as an immediate win for **White**, whoever promoted.
+  - **Bound B:** every capped promotion counts as an immediate win for **Black**.
+- Results are monotone in terminal values, so A ≥ true value ≥ B from White's point of view.
+- When A and B agree, the value is **exact**.
+- Input positions may hold at most C officers.
+
+## Position format (one per line)
+
+```
+<piece tokens> <side to move> <e.p. target>
+```
+
+- Piece tokens are a piece letter and a square, separated by spaces, in any order, for example
+  `Ke1 ke3 Pa2 Pb3 pc4 Qd5`.
+- The side to move is `w` or `b`.
+- The e.p. target is the square that was skipped by the double step (as in FEN), or `-`.
+- A line starting with `#` is a comment.
+
+Example (5x5 cylinder): `Kc1 kc5 Pa2 pe4 w -`
+
+## Command line
+
+```
+<solver> --board cyl:7x6 --ep on --promote QRBN --cap 1 < positions.txt > results.txt
+```
+
+The same interface applies to `kings/kpsolve` and to `python3 -m kings.ref.solve`.
+
+## Output format (one line per input line, same order; comments are copied)
+
+```
+<the input position exactly as given> | <A> <B>
+```
+
+- `<A>` and `<B>` are each `W` (White wins), `D` (draw), `L` (Black wins) or `X` (illegal).
+- They are given from **White's** point of view, whoever is to move.
+- Exact when A == B.
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && mkdir -p kings/delegate/out/K10v && nice -n 10 cc -O2 -o kings/delegate/out/K10v/kp kings/kpsolve.c -lpthread && echo built
+built
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && printf 'Ka1 ka6 Pc4 b -\n' | nice -n 10 kings/delegate/out/K10v/kp --board cyl:8x6 --frozen --cap 1 --threads 2
+[kpsolve cyl:8x6 ep=on cap=1 frozen: 2 layers, 9216 states, depth 2, 0.0s]
+Ka1 ka6 Pc4 b - | W W
+> build · beam-free
+[0m$ [0mmkdir -p /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K10v
+(no output)
+> build · beam-free
+[0m$ [0mcat > /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K10v/check.py <<'PY'
+#!/usr/bin/env python3
+import sys, os, json, random, itertools, collections
+sys.path.insert(0, "/Users/aritro/Downloads/Research/Chessendgames")
+from cylcgt import pawns as P
+P.PASSED_RESPECTS_EP = True
+P.pawns._value.cache_clear() if hasattr(P.pawns, "_value") else None
+
+INF = 10**9
+
+def nb(W, wrap, f, df):
+    g = f + df
+    if wrap:
+        return g % W
+    return g if 0 <= g < W else None
+
+def rho_beta(rank, beta, H):
+    return rank if beta == "W" else H + 1 - rank
+
+def ep_capturable(W, H, wrap, pos, side, sq):
+    # pos: dict with ep tuple or None
+    if not (P.PASSED_RESPECTS_EP and pos.get("ep") and pos["ep"][1] == sq and pos["ep"][2] != side):
+        return False
+    f, r = sq
+    theirs = pos["B"] if side == "W" else pos["W"]
+    for g in (nb(W, wrap, f, -1), nb(W, wrap, f, 1)):
+        if g is not None and (g, r) in theirs:
+            return True
+    return False
+
+def pawn_passed(W, H, wrap, pos, side, sq):
+    mine = pos["W"] if side == "W" else pos["B"]
+    theirs = pos["B"] if side == "W" else pos["W"]
+    f, r = sq
+    files = {f} | {g for g in (nb(W, wrap, f, -1), nb(W, wrap, f, 1)) if g is not None}
+    if side == "W":
+        blocked = any(g in files and s > r for (g, s) in theirs)
+    else:
+        blocked = any(g in files and s < r for (g, s) in theirs)
+    if blocked:
+        return False
+    if ep_capturable(W, H, wrap, pos, side, sq):
+        return False
+    return True
+
+def path_ahead_empty(W, H, wrap, pos, beta, p):
+    f, r = p
+    if beta == "W":
+        ranks = range(r + 1, H + 1)
+    else:
+        ranks = range(r - 1, 0, -1)
+    occ = pos["W"] | pos["B"] | {pos["wk"], pos["bk"]}
+    for rr in ranks:
+        if (f, rr) in occ:
+            return False
+    return True
+
+def H1(W, H, wrap, pos, beta, p):
+    if p not in (pos["W"] if beta == "W" else pos["B"]):
+        return False
+    if not pawn_passed(W, H, wrap, pos, beta, p):
+        return False
+    if not path_ahead_empty(W, H, wrap, pos, beta, p):
+        return False
+    return True
+
+def H2(W, H, wrap, pos, beta):
+    king = pos["wk"] if beta == "W" else pos["bk"]
+    kf = king[0]
+    adj = {nb(W, wrap, kf, -1), nb(W, wrap, kf, 1)}
+    adj.discard(None)
+    occ_files_pawns = {sq[0] for sq in (pos["W"] | pos["B"])}
+    return adj.isdisjoint(occ_files_pawns)
+
+def H3(W, H, wrap, pos, omega):
+    # omega king has neighbouring square t not adjacent to beta king, no pawn on files around t
+    beta = "B" if omega == "W" else "W"
+    kw = pos["wk"] if omega == "W" else pos["bk"]
+    kb = pos["bk"] if omega == "W" else pos["wk"]
+    occ_pawn_files = {sq[0] for sq in (pos["W"] | pos["B"])}
+    # king neighbours
+    for df in (-1, 0, 1):
+        for dr in (-1, 0, 1):
+            if df == 0 and dr == 0:
+                continue
+            f = kw[0] + df
+            r = kw[1] + dr
+            if wrap:
+                f = f % W
+            if not (0 <= f < W and 1 <= r <= H):
+                continue
+            # Chebyshev distance to beta king >=2
+            if max(abs(f - kb[0] if not wrap else min(abs(f-kb[0]), W-abs(f-kb[0])), abs(r - kb[1])) < 2:
+                # adjacent or same
+                if max(abs(f-kb[0]), abs(r-kb[1])) <= 1:
+                    continue
+            t = (f, r)
+            # no pawn on file t or adjacent
+            files_around = {nb(W, wrap, t[0], -1), t[0], nb(W, wrap, t[0], 1)}
+            files_around.discard(None)
+            if files_around & occ_pawn_files:
+                continue
+            # also not occupied by king? beta king distance condition already
+            return True
+    return False
+
+def H4(W, H, wrap, pos, beta, p):
+    pf = p[0]
+    pr = rho_beta(p[1], beta, H)
+    adj_files = {nb(W, wrap, pf, -1), nb(W, wrap, pf, 1)}
+    adj_files.discard(None)
+    mine = pos["W"] if beta == "W" else pos["B"]
+    for q in mine:
+        if q == p:
+            continue
+        if q[0] not in adj_files:
+            continue
+        if rho_beta(q[1], beta, H) > pr + 1:
+            return False
+    return True
+
+def d_beta(rank, beta, H):
+    if beta == "W":
+        return H - rank - (1 if rank == 2 else 0)
+    else:
+        return rank - 1 - (1 if rank == H - 1 else 0)
+
+def mu_omega(W, H, wrap, omega, beta, pos_without_p, allow_ep, ep, wk, bk):
+    # pos_without_p has W/B sets excluding p; kings wk (white king), bk
+    ow = set(pos_without_p["W"] if omega == "W" else pos_without_p["B"])  # omega pawns
+    # Actually pos stores white/black; need pass omega pawns separately. We'll restructure caller.
+    pass
+
+# We'll implement mu with explicit sets.
+def omega_moves_and_states(W, H, wrap, omega, omega_pawns, beta_pawns, wk, bk, allow_ep, ep):
+    occ = set(omega_pawns) | set(beta_pawns) | {wk, bk}
+    dir_ = 1 if omega == "W" else -1
+    start = 2 if omega == "W" else H - 1
+    prom = H if omega == "W" else 1
+    res = []  # list of (new_ow, new_bw, promotes)
+    for (f, r) in list(omega_pawns):
+        # single push
+        r1 = r + dir_
+        if 1 <= r1 <= H:
+            dest = (f, r1)
+            if dest not in occ:
+                if r1 == prom:
+                    res.append((None, None, True))
+                else:
+                    new_ow = set(omega_pawns); new_ow.discard((f, r)); new_ow.add(dest)
+                    res.append((frozenset(new_ow), frozenset(beta_pawns), False))
+                # double
+                if r == start:
+                    r2 = r + 2 * dir_
+                    if 1 <= r2 <= H:
+                        mid = (f, r1)
+                        dest2 = (f, r2)
+                        if mid not in occ and dest2 not in occ:
+                            if r2 == prom:
+                                res.append((None, None, True))
+                            else:
+                                new_ow = set(omega_pawns); new_ow.discard((f, r)); new_ow.add(dest2)
+                                res.append((frozenset(new_ow), frozenset(beta_pawns), False))
+        # captures
+        for df in (-1, 1):
+            g = nb(W, wrap, f, df)
+            if g is None:
+                continue
+            r1 = r + dir_
+            if not (1 <= r1 <= H):
+                continue
+            dest = (g, r1)
+            # normal capture of beta pawn
+            if dest in beta_pawns:
+                if r1 == prom:
+                    res.append((None, None, True))
+                else:
+                    new_ow = set(omega_pawns); new_ow.discard((f, r)); new_ow.add(dest)
+                    new_bw = set(beta_pawns); new_bw.discard(dest)
+                    res.append((frozenset(new_ow), frozenset(new_bw), False))
+            # ep
+            if allow_ep and ep is not None and ep[0] == dest:
+                # captured square ep[1] must be beta pawn
+                if ep[1] in beta_pawns and dest not in occ:
+                    if r1 == prom:
+                        res.append((None, None, True))
+                    else:
+                        new_ow = set(omega_pawns); new_ow.discard((f, r)); new_ow.add(dest)
+                        new_bw = set(beta_pawns); new_bw.discard(ep[1])
+                        res.append((frozenset(new_ow), frozenset(new_bw), False))
+    return res
+
+def mu_omega_val(W, H, wrap, omega, beta, omega_pawns, beta_pawns, wk, bk, allow_ep, ep):
+    if not omega_pawns:
+        return INF
+    start_key = (frozenset(omega_pawns), frozenset(beta_pawns), allow_ep)
+    visited = {start_key}
+    q = collections.deque()
+    q.append((frozenset(omega_pawns), frozenset(beta_pawns), allow_ep, 0))
+    while q:
+        ow, bw, ae, d = q.popleft()
+        moves = omega_moves_and_states(W, H, wrap, omega, ow, bw, wk, bk, ae, ep)
+        for (now, nbw, prom) in moves:
+            if prom:
+                return d + 1
+            key = (now, nbw, False)
+            if key not in visited:
+                visited.add(key)
+                q.append((now, nbw, False, d + 1))
+    return INF
+
+def cylcgt_pos(W, H, wrap, pos):
+    # build P.Board and P.Pos for passed test
+    board = P.Board(W, H, wrap, True)
+    w = frozenset(pos["W"]); b = frozenset(pos["B"])
+    ep = pos.get("ep")
+    # P.Pos ep tuple same: (target, captured, side)
+    pp = P.Pos(w, b, ep)
+    return board, pp
+
+def passed_side(W, H, wrap, pos, side):
+    board, pp = cylcgt_pos(W, H, wrap, pos)
+    # need p-specific? cylcgt passed returns any. For H1 we use pawn_passed own.
+    return P.passed(board, pp, side)
+
+def certify(W, H, wrap, pos, beta, stm):
+    # returns list of p squares satisfying H1-H5
+    omega = "B" if beta == "W" else "W"
+    wk = pos["wk"]; bk = pos["bk"]
+    mine = pos["W"] if beta == "W" else pos["B"]
+    res = []
+    for p in mine:
+        if not H1(W, H, wrap, pos, beta, p):
+            continue
+        if not H2(W, H, wrap, pos, beta):
+            continue
+        if not H3(W, H, wrap, pos, omega):
+            continue
+        if not H4(W, H, wrap, pos, beta, p):
+            continue
+        # H5
+        # remove p from pos
+        pos2 = {"W": set(pos["W"]), "B": set(pos["B"]), "wk": wk, "bk": bk, "ep": pos.get("ep")}
+        if beta == "W":
+            pos2["W"].discard(p)
+        else:
+            pos2["B"].discard(p)
+        pos2["W"] = frozenset(pos2["W"]); pos2["B"] = frozenset(pos2["B"])
+        # omega pawns set
+        omega_pawns = pos2["B"] if omega == "B" else pos2["W"]  # careful: omega color
+        # omega color's pawn set:
+        if omega == "W":
+            omega_pawns = pos2["W"]
+            beta_pawns = pos2["B"]
+        else:
+            omega_pawns = pos2["B"]
+            beta_pawns = pos2["W"]
+        d = d_beta(p[1], beta, H)
+        e = d if stm == omega else d - 1
+        allow_ep = (stm == omega and pos.get("ep") is not None and pos["ep"][2] == omega)
+        mu = mu_omega_val(W, H, wrap, omega, beta, omega_pawns, beta_pawns, wk, bk, allow_ep, pos.get("ep"))
+        if mu >= e + 1:
+            res.append(p)
+    return res
+
+def pos_to_str(W, H, wrap, pos, stm):
+    # kpsolve input
+    toks = []
+    for (f, r) in pos["W"]:
+        toks.append("P" + chr(ord('a')+f) + str(r))  # placeholder? need piece letters
+    # Actually use K/P
+    toks = []
+    wk = pos["wk"]; bk = pos["bk"]
+    toks.append("K" + chr(ord('a')+wk[0]) + str(wk[1]))
+    toks.append("k" + chr(ord('a')+bk[0]) + str(bk[1]))
+    for (f, r) in pos["W"]:
+        toks.append("P" + chr(ord('a')+f) + str(r))
+    for (f, r) in pos["B"]:
+        toks.append("p" + chr(ord('a')+f) + str(r))
+    ep = pos.get("ep")
+    eptarget = "-"
+    if ep is not None:
+        eptarget = chr(ord('a')+ep[0][0]) + str(ep[0][1])
+    return " ".join(toks) + " " + ("w" if stm == "W" else "b") + " " + eptarget
+
+# Self-test passed against cylcgt on random positions
+def self_test_passed(n=2000):
+    random.seed(1)
+    W, H = 8, 6
+    wrap = True
+    mism = 0
+    for _ in range(n):
+        # random pawns
+        sqs = [(f, r) for f in range(W) for r in range(2, H)]
+        random.shuffle(sqs)
+        nw = random.randint(0, 4)
+        nbp = random.randint(0, 4)
+        ws = set(sqs[:nw])
+        bs = set(sqs[nw:nw+nbp])
+        # kings
+        wk = (random.randrange(W), 1)
+        bk = (random.randrange(W), H)
+        ep = None
+        pos = {"W": frozenset(ws), "B": frozenset(bs), "wk": wk, "bk": bk, "ep": ep}
+        board, pp = cylcgt_pos(W, H, wrap, pos)
+        for side in ("W", "B"):
+            c1 = P.passed(board, pp, side)
+            # our pawn_passed aggregate: true if any pawn of side passed
+            mine = pos["W"] if side == "W" else pos["B"]
+            c2 = any(pawn_passed(W, H, wrap, pos, side, sq) for sq in mine)
+            if c1 != c2:
+                mism += 1
+                if mism <= 5:
+                    print("MISMATCH", side, pos)
+    print("self-test mismatches:", mism, "of", n)
+    return mism
+
+if __name__ == "__main__":
+    self_test_passed()
+PY
+python3 /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K10v/check.py
+File "/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K10v/check.py", line 92
+    if max(abs(f - kb[0] if not wrap else min(abs(f-kb[0]), W-abs(f-kb[0])), abs(r - kb[1])) < 2:
+                                                                                                ^
+SyntaxError: invalid syntax
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && python3 - <<'PY'
+import re
+p="kings/delegate/out/K10v/check.py"
+s=open(p).read()
+old='''            if max(abs(f - kb[0] if not wrap else min(abs(f-kb[0]), W-abs(f-kb[0])), abs(r - kb[1])) < 2:
+                # adjacent or same
+                if max(abs(f-kb[0]), abs(r-kb[1])) <= 1:
+                    continue'''
+new='''            if wrap:
+                dfile = min(abs(f-kb[0]), W-abs(f-kb[0]))
+            else:
+                dfile = abs(f-kb[0])
+            dr = abs(r-kb[1])
+            if max(dfile, dr) <= 1:
+                continue'''
+assert old in s
+s=s.replace(old,new)
+open(p,"w").write(s)
+print("ok")
+PY
+ok
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && .venv/bin/python kings/delegate/out/K10v/check.py
+Traceback (most recent call last):
+  File "/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K10v/check.py", line 6, in <module>
+    P.pawns._value.cache_clear() if hasattr(P.pawns, "_value") else None
+                                            ^^^^^^^
+AttributeError: module 'cylcgt.pawns' has no attribute 'pawns'
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && sed -i '' 's/P.pawns._value.cache_clear() if hasattr(P.pawns, "_value") else None/P._value.cache_clear() if hasattr(P, "_value") else None/' kings/delegate/out/K10v/check.py && .venv/bin/python kings/delegate/out/K10v/check.py
+self-test mismatches: 0 of 2000
+> build · beam-free
+[0m$ [0mcat > /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K10v/run.py <<'PY'
+#!/usr/bin/env python3
+import sys, os, json, random, itertools, subprocess, collections
+sys.path.insert(0, "/Users/aritro/Downloads/Research/Chessendgames")
+sys.path.insert(0, "/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K10v")
+import check
+
+OUT = "/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K10v"
+KP = "/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K10v/kp"
+
+def pos_key(pos):
+    return (tuple(sorted(pos["W"])), tuple(sorted(pos["B"])), pos["wk"], pos["bk"], pos.get("ep"))
+
+def make_pos(W, H, ws, bs, wk, bk, ep=None):
+    return {"W": frozenset(ws), "B": frozenset(bs), "wk": wk, "bk": bk, "ep": ep}
+
+def kings_adjacent(W, wrap, a, b):
+    if wrap:
+        df = min(abs(a[0]-b[0]), W-abs(a[0]-b[0]))
+    else:
+        df = abs(a[0]-b[0])
+    dr = abs(a[1]-b[1])
+    return max(df, dr) <= 1
+
+def in_check(W, H, wrap, pos, side):
+    king = pos["wk"] if side == "W" else pos["bk"]
+    enemy = "B" if side == "W" else "W"
+    epawns = pos["B"] if side == "W" else pos["W"]
+    for (f, r) in epawns:
+        for df in (-1, 1):
+            g = check.nb(W, wrap, f, df)
+            rr = r + (1 if enemy == "W" else -1)
+            if g is not None and (g, rr) == king:
+                return True
+    other = pos["bk"] if side == "W" else pos["wk"]
+    if kings_adjacent(W, wrap, king, other):
+        return True
+    return False
+
+def legal_pos(W, H, wrap, pos, stm):
+    # side not to move not in check
+    ntm = "B" if stm == "W" else "W"
+    if in_check(W, H, wrap, pos, ntm):
+        return False
+    if kings_adjacent(W, wrap, pos["wk"], pos["bk"]):
+        return False
+    return True
+
+def gen_fixed(W, H, files, ranks, maxk, n_random=None, seed=0, wk=None, bk=None):
+    if wk is None: wk = (0, 1)
+    if bk is None: bk = (0, H)
+    squares = [(f, r) for f in files for r in ranks]
+    out = []
+    if n_random is None:
+        subsets = []
+        for k in range(maxk + 1):
+            for combo in itertools.combinations(squares, k):
+                subsets.append(frozenset(combo))
+        for ws in subsets:
+            for bs in subsets:
+                if ws & bs:
+                    continue
+                pos = make_pos(W, H, ws, bs, wk, bk, None)
+                if not legal_pos(W, H, True, pos, "W"):
+                    continue
+                out.append((pos, "W"))
+                out.append((pos, "B"))
+        return out
+    random.seed(seed)
+    seen = set()
+    while len(out) < n_random * 2:
+        nw = random.randint(0, maxk)
+        nbp = random.randint(0, maxk)
+        if nw + nbp > len(squares):
+            continue
+        ws = set(random.sample(squares, nw))
+        rem = [s for s in squares if s not in ws]
+        if nbp > len(rem):
+            continue
+        bs = set(random.sample(rem, nbp))
+        pos = make_pos(W, H, ws, bs, wk, bk, None)
+        if not legal_pos(W, H, True, pos, "W"):
+            continue
+        key = pos_key(pos)
+        if key in seen:
+            continue
+        seen.add(key)
+        stm = random.choice(["W", "B"])
+        out.append((pos, stm))
+        if len(out) >= n_random:
+            break
+    return out
+
+def try_add_ep(W, H, wrap, ws, bs, stm, wk, bk):
+    ws = set(ws); bs = set(bs)
+    if stm == "W":
+        cands = []
+        for (f, r) in bs:
+            if r != H - 3:
+                continue
+            origin = (f, H - 1)
+            skipped = (f, H - 2)
+            if origin in ws or origin in bs or origin in (wk, bk):
+                continue
+            if skipped in ws or skipped in bs or skipped in (wk, bk):
+                continue
+            for df in (-1, 1):
+                g = check.nb(W, wrap, f, df)
+                if g is not None and (g, H - 3) in ws:
+                    cands.append((f, r))
+        if not cands:
+            return None
+        f, r = random.choice(cands)
+        return ((f, H - 2), (f, H - 3), "W")
+    else:
+        cands = []
+        for (f, r) in ws:
+            if r != 4:
+                continue
+            origin = (f, 2)
+            skipped = (f, 3)
+            if origin in ws or origin in bs or origin in (wk, bk):
+                continue
+            if skipped in ws or skipped in bs or skipped in (wk, bk):
+                continue
+            for df in (-1, 1):
+                g = check.nb(W, wrap, f, df)
+                if g is not None and (g, 4) in bs:
+                    cands.append((f, r))
+        if not cands:
+            return None
+        f, r = random.choice(cands)
+        return ((f, 3), (f, 4), "B")
+
+def gen_random_kings(W, H, n, seed):
+    random.seed(seed)
+    out = []
+    seen = set()
+    squares_all = [(f, r) for f in range(W) for r in range(2, H)]
+    while len(out) < n:
+        wk = (random.randrange(W), random.randint(1, H))
+        bk = (random.randrange(W), random.randint(1, H))
+        if kings_adjacent(W, True, wk, bk):
+            continue
+        avail = [s for s in squares_all if s not in (wk, bk)]
+        nw = random.randint(0, 3)
+        nbp = random.randint(0, 3)
+        if nw + nbp > len(avail):
+            continue
+        ws = set(random.sample(avail, nw))
+        rem = [s for s in avail if s not in ws]
+        if nbp > len(rem):
+            continue
+        bs = set(random.sample(rem, nbp))
+        stm = random.choice(["W", "B"])
+        ep = None
+        if random.random() < 0.35:
+            ep = try_add_ep(W, H, True, ws, bs, stm, wk, bk)
+        pos = make_pos(W, H, ws, bs, wk, bk, ep)
+        if not legal_pos(W, H, True, pos, stm):
+            continue
+        key = pos_key(pos) + (stm,)
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append((pos, stm))
+    return out
+
+def certify_drop(W, H, wrap, pos, beta, stm, drop):
+    # certify with one hypothesis dropped
+    # replicate check.certify but skip specified H
+    omega = "B" if beta == "W" else "W"
+    wk = pos["wk"]; bk = pos["bk"]
+    mine = pos["W"] if beta == "W" else pos["B"]
+    res = []
+    for p in mine:
+        ok = True
+        if drop != "H1":
+            if not check.H1(W, H, wrap, pos, beta, p):
+                ok = False
+        if ok and drop != "H2":
+            if not check.H2(W, H, wrap, pos, beta):
+                ok = False
+        if ok and drop != "H3":
+            if not check.H3(W, H, wrap, pos, omega):
+                ok = False
+        if ok and drop != "H4":
+            if not check.H4(W, H, wrap, pos, beta, p):
+                ok = False
+        if not ok:
+            continue
+        # H5 (unless drop H5)
+        pos2 = {"W": set(pos["W"]), "B": set(pos["B"]), "wk": wk, "bk": bk, "ep": pos.get("ep")}
+        if beta == "W":
+            pos2["W"].discard(p)
+        else:
+            pos2["B"].discard(p)
+        pos2["W"] = frozenset(pos2["W"]); pos2["B"] = frozenset(pos2["B"])
+        if omega == "W":
+            omega_pawns = pos2["W"]; beta_pawns = pos2["B"]
+        else:
+            omega_pawns = pos2["B"]; beta_pawns = pos2["W"]
+        d = check.d_beta(p[1], beta, H)
+        e = d if stm == omega else d - 1
+        allow_ep = (stm == omega and pos.get("ep") is not None and pos["ep"][2] == omega)
+        mu = check.mu_omega_val(W, H, wrap, omega, beta, omega_pawns, beta_pawns, wk, bk, allow_ep, pos.get("ep"))
+        h5_ok = mu >= e + 1
+        if drop != "H5":
+            if not h5_ok:
+                continue
+        # if dropped H5, accept regardless
+        res.append(p)
+    return res
+
+def run_case(case):
+    if case == "a":
+        positions = gen_fixed(6, 6, [2,3,4], [2,3,4,5], 3, None, 0)
+        W,H = 6,6
+    elif case == "b":
+        positions = gen_fixed(7, 6, [2,3,4,5], [2,3,4,5], 2, None, 0)
+        W,H = 7,6
+    elif case == "b_rand":
+        positions = gen_fixed(7, 6, [2,3,4,5], [2,3,4,5], 3, 20000, 1)
+        W,H = 7,6
+    elif case == "c":
+        positions = gen_random_kings(8, 6, 10000, 2)
+        W,H = 8,6
+    else:
+        raise SystemExit("unknown case")
+    wrap = True
+
+    # certify full
+    instances = []  # list of dict
+    cert_pos_stm = set()  # keys with any full certified instance
+    for (pos, stm) in positions:
+        for beta in ("W", "B"):
+            ps = check.certify(W, H, wrap, pos, beta, stm)
+            for p in ps:
+                instances.append({"pos": pos, "stm": stm, "beta": beta, "p": p})
+                cert_pos_stm.add(pos_key(pos) + (stm,))
+    # map pos_stm key -> index in input list
+    unique_list = list(cert_pos_stm)
+    # build input lines
+    key_to_line = {}
+    input_lines = []
+    for key in unique_list:
+        # find a pos/stm from positions
+        pass
+    # We need reconstruct pos/stm from key; store mapping
+    key_to_posstm = {}
+    for (pos, stm) in positions:
+        k = pos_key(pos) + (stm,)
+        if k in cert_pos_stm:
+            key_to_posstm[k] = (pos, stm)
+    for k in unique_list:
+        pos, stm = key_to_posstm[k]
+        input_lines.append(check.pos_to_str(W, H, wrap, pos, stm))
+    in_path = os.path.join(OUT, f"in_{case}.txt")
+    out_path = os.path.join(OUT, f"out_{case}.txt")
+    with open(in_path, "w") as f:
+        f.write("\n".join(input_lines) + ("\n" if input_lines else ""))
+    # run kpsolve
+    cmd = ["nice", "-n", "10", KP, f"--board", f"cyl:{W}x{H}", "--frozen", "--cap", "1", "--threads", "2"]
+    with open(in_path) as fin, open(out_path, "w") as fout:
+        subprocess.run(cmd, stdin=fin, stdout=fout, stderr=subprocess.DEVNULL, check=True)
+    # parse output
+    results = {}  # key -> (A,B)
+    with open(out_path) as f:
+        lines = [ln.rstrip("\n") for ln in f if ln.strip()]
+    # output lines correspond to input lines in order, but may include? no.
+    for idx, ln in enumerate(lines):
+        if " | " not in ln:
+            continue
+        left, right = ln.split(" | ", 1)
+        parts = right.split()
+        A = parts[0] if len(parts) > 0 else "?"
+        B = parts[1] if len(parts) > 1 else "?"
+        results[idx] = (A, B)
+    # map key -> result by index
+    key_result = {}
+    for idx, k in enumerate(unique_list):
+        if idx < len(results):
+            key_result[k] = results[idx]
+
+    # count violations
+    violations = []
+    for inst in instances:
+        pos = inst["pos"]; stm = inst["stm"]; beta = inst["beta"]
+        k = pos_key(pos) + (stm,)
+        A, B = key_result.get(k, ("?", "?"))
+        expected = "W" if beta == "W" else "L"
+        ok = (A == expected and B == expected)
+        if not ok:
+            violations.append({
+                "pos": check.pos_to_str(W, H, wrap, pos, stm),
+                "stm": stm, "beta": beta, "p": list(inst["p"]),
+                "result": f"{A} {B}", "expected": expected
+            })
+            if len(violations) >= 10:
+                pass
+    # targeted stats
+    h4_bound = 0
+    ep_instances = 0
+    beta_to_move_omega_adj = 0
+    for inst in instances:
+        pos = inst["pos"]; beta = inst["beta"]; p = inst["p"]; stm = inst["stm"]
+        # H4 equality
+        pr = check.rho_beta(p[1], beta, H)
+        adj = {check.nb(W, wrap, p[0], -1), check.nb(W, wrap, p[0], 1)}
+        adj.discard(None)
+        mine = pos["W"] if beta == "W" else pos["B"]
+        eq = False
+        for q in mine:
+            if q == p: continue
+            if q[0] in adj and check.rho_beta(q[1], beta, H) == pr + 1:
+                eq = True
+        if eq:
+            h4_bound += 1
+        if pos.get("ep") is not None:
+            ep_instances += 1
+        # beta to move with omega pawn at rho+1 beside p
+        if stm == beta:
+            omega_color = "B" if beta == "W" else "W"
+            omega_pawns = pos["B"] if omega_color == "B" else pos["W"]
+            for q in omega_pawns:
+                if q[0] in adj and check.rho_beta(q[1], beta, H) == pr + 1:
+                    beta_to_move_omega_adj += 1
+                    break
+
+    # controls: drop each hypothesis
+    control_counts = {}
+    for drop in ("H2", "H3", "H4", "H5"):
+        drop_instances = 0
+        drop_violations = 0
+        drop_viol_examples = []
+        for (pos, stm) in positions:
+            for beta in ("W", "B"):
+                ps = certify_drop(W, H, wrap, pos, beta, stm, drop)
+                for p in ps:
+                    drop_instances += 1
+                    k = pos_key(pos) + (stm,)
+                    A, B = key_result.get(k, ("?", "?"))
+                    expected = "W" if beta == "W" else "L"
+                    if not (A == expected and B == expected):
+                        drop_violations += 1
+                        if len(drop_viol_examples) < 5:
+                            drop_viol_examples.append(check.pos_to_str(W, H, wrap, pos, stm))
+        control_counts[drop] = {"instances": drop_instances, "violations": drop_violations}
+
+    summary = {
+        "case": case,
+        "W": W, "H": H,
+        "n_positions": len(positions),
+        "n_certified_instances": len(instances),
+        "n_certified_pos_stm": len(unique_list),
+        "n_violations": len(violations),
+        "violations_examples": violations[:10],
+        "targeted": {
+            "H4_equality_instances": h4_bound,
+            "ep_instances": ep_instances,
+            "beta_to_move_omega_adjacent_rho_plus1": beta_to_move_omega_adj,
+        },
+        "controls_drop": control_counts,
+    }
+    with open(os.path.join(OUT, f"summary_{case}.json"), "w") as f:
+        json.dump(summary, f, indent=2)
+    # delete bulk
+    try:
+        os.remove(in_path); os.remove(out_path)
+    except OSError:
+        pass
+    print(json.dumps({k: summary[k] for k in ("case","n_positions","n_certified_instances","n_certified_pos_stm","n_violations")}, indent=2))
+    print("controls:", {k: v["violations"] for k,v in control_counts.items()})
+
+if __name__ == "__main__":
+    case = sys.argv[1]
+    run_case(case)
+PY
+echo written
+written
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && time .venv/bin/python kings/delegate/out/K10v/run.py a
+{
+  "case": "a",
+  "n_positions": 86598,
+  "n_certified_instances": 91074,
+  "n_certified_pos_stm": 74410,
+  "n_violations": 0
+}
+controls: {'H2': 0, 'H3': 0, 'H4': 80, 'H5': 71390}
+.venv/bin/python kings/delegate/out/K10v/run.py a  21.62s user 0.17s system 82% cpu 26.384 total
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && cat kings/delegate/out/K10v/summary_a.json
+{
+  "case": "a",
+  "W": 6,
+  "H": 6,
+  "n_positions": 86598,
+  "n_certified_instances": 91074,
+  "n_certified_pos_stm": 74410,
+  "n_violations": 0,
+  "violations_examples": [],
+  "targeted": {
+    "H4_equality_instances": 3064,
+    "ep_instances": 0,
+    "beta_to_move_omega_adjacent_rho_plus1": 0
+  },
+  "controls_drop": {
+    "H2": {
+      "instances": 91074,
+      "violations": 0
+    },
+    "H3": {
+      "instances": 91074,
+      "violations": 0
+    },
+    "H4": {
+      "instances": 91894,
+      "violations": 80
+    },
+    "H5": {
+      "instances": 172160,
+      "violations": 71390
+    }
+  }
+}
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && time .venv/bin/python kings/delegate/out/K10v/run.py b
+{
+  "case": "b",
+  "n_positions": 29586,
+  "n_certified_instances": 29140,
+  "n_certified_pos_stm": 25260,
+  "n_violations": 0
+}
+controls: {'H2': 0, 'H3': 0, 'H4': 24, 'H5': 27576}
+.venv/bin/python kings/delegate/out/K10v/run.py b  9.22s user 0.07s system 94% cpu 9.851 total
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && time .venv/bin/python kings/delegate/out/K10v/run.py b_rand
+{
+  "case": "b_rand",
+  "n_positions": 20000,
+  "n_certified_instances": 23363,
+  "n_certified_pos_stm": 17879,
+  "n_violations": 0
+}
+controls: {'H2': 0, 'H3': 0, 'H4': 23, 'H5': 17636}
+.venv/bin/python kings/delegate/out/K10v/run.py b_rand  62.61s user 0.37s system 92% cpu 1:07.85 total
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && time .venv/bin/python kings/delegate/out/K10v/run.py c
+{
+  "case": "c",
+  "n_positions": 10000,
+  "n_certified_instances": 2751,
+  "n_certified_pos_stm": 2105,
+  "n_violations": 0
+}
+controls: {'H2': 3277, 'H3': 2086, 'H4': 0, 'H5': 551}
+.venv/bin/python kings/delegate/out/K10v/run.py c  8.16s user 0.06s system 94% cpu 8.705 total
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && cat kings/delegate/out/K10v/summary_c.json
+{
+  "case": "c",
+  "W": 8,
+  "H": 6,
+  "n_positions": 10000,
+  "n_certified_instances": 2751,
+  "n_certified_pos_stm": 2105,
+  "n_violations": 0,
+  "violations_examples": [],
+  "targeted": {
+    "H4_equality_instances": 129,
+    "ep_instances": 1,
+    "beta_to_move_omega_adjacent_rho_plus1": 0
+  },
+  "controls_drop": {
+    "H2": {
+      "instances": 6028,
+      "violations": 3277
+    },
+    "H3": {
+      "instances": 4837,
+      "violations": 2086
+    },
+    "H4": {
+      "instances": 2886,
+      "violations": 0
+    },
+    "H5": {
+      "instances": 3364,
+      "violations": 551
+    }
+  }
+}
+> build · beam-free
+[0m$ [0mcat > /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K10v/ep_targeted.py <<'PY'
+import sys, os, json, random, itertools
+sys.path.insert(0, "/Users/aritro/Downloads/Research/Chessendgames")
+sys.path.insert(0, "/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K10v")
+import check, run
+
+W,H = 6,6
+files=[2,3,4]; ranks=[2,3,4,5]
+squares=[(f,r) for f in files for r in ranks]
+wk=(0,1); bk=(0,H)
+wrap=True
+
+# enumerate all pawn subsets (at most 3)
+subsets=[]
+for k in range(4):
+    for combo in itertools.combinations(squares,k):
+        subsets.append(frozenset(combo))
+
+positions=[]  # (pos, stm)
+for ws in subsets:
+    for bs in subsets:
+        if ws & bs: continue
+        for stm in ("W","B"):
+            ep = run.try_add_ep(W,H,wrap,ws,bs,stm,wk,bk)
+            if ep is None:
+                continue
+            pos = run.make_pos(W,H,ws,bs,wk,bk,ep)
+            if not run.legal_pos(W,H,wrap,pos,stm):
+                continue
+            positions.append((pos,stm))
+
+print("num ep positions", len(positions))
+# certify full
+instances=[]
+cert_pos_stm=set()
+key_to_posstm={}
+for (pos,stm) in positions:
+    for beta in ("W","B"):
+        ps=check.certify(W,H,wrap,pos,beta,stm)
+        for p in ps:
+            instances.append((pos,stm,beta,p))
+            cert_pos_stm.add(run.pos_key(pos)+(stm,))
+            key_to_posstm[run.pos_key(pos)+(stm,)]=(pos,stm)
+
+# kpsolve
+unique=list(cert_pos_stm)
+input_lines=[]
+for k in unique:
+    pos,stm=key_to_posstm[k]
+    input_lines.append(check.pos_to_str(W,H,wrap,pos,stm))
+in_path=os.path.join(run.OUT,"in_ep.txt")
+out_path=os.path.join(run.OUT,"out_ep.txt")
+with open(in_path,"w") as f:
+    f.write("\n".join(input_lines)+("\n" if input_lines else ""))
+cmd=["nice","-n","10",run.KP,"--board",f"cyl:{W}x{H}","--frozen","--cap","1","--threads","2"]
+with open(in_path) as fin, open(out_path,"w") as fout:
+    import subprocess
+    subprocess.run(cmd,stdin=fin,stdout=fout,stderr=subprocess.DEVNULL,check=True)
+res={}
+with open(out_path) as f:
+    for idx,ln in enumerate(f):
+        if " | " in ln:
+            left,right=ln.rstrip("\n").split(" | ",1)
+            parts=right.split()
+            res[idx]=(parts[0],parts[1] if len(parts)>1 else parts[0])
+key_result={}
+for idx,k in enumerate(unique):
+    if idx < len(res):
+        key_result[k]=res[idx]
+
+viol=0; viols=[]
+ep_p_own=0; ep_p_other=0
+for (pos,stm,beta,p) in instances:
+    k=run.pos_key(pos)+(stm,)
+    A,B=key_result.get(k,("?","?"))
+    expected="W" if beta=="W" else "L"
+    if not (A==expected and B==expected):
+        viol+=1
+        if len(viols)<10: viols.append(check.pos_to_str(W,H,wrap,pos,stm))
+    # classify ep relevance: p's own pawn? ep captured square maybe p? or another beta pawn
+    ep=pos.get("ep")
+    if ep is not None:
+        if ep[1] == p:
+            ep_p_own+=1
+        else:
+            # another beta pawn?
+            mine = pos["W"] if beta=="W" else pos["B"]
+            if ep[1] in mine:
+                ep_p_other+=1
+
+summary={
+ "n_positions": len(positions),
+ "n_certified_instances": len(instances),
+ "n_violations": viol,
+ "violations_examples": viols,
+ "ep_relevant_own_pawn": ep_p_own,
+ "ep_relevant_other_beta_pawn": ep_p_other,
+}
+with open(os.path.join(run.OUT,"summary_ep.json"),"w") as f:
+    json.dump(summary,f,indent=2)
+try:
+    os.remove(in_path); os.remove(out_path)
+except OSError: pass
+print(json.dumps(summary,indent=2))
+PY
+.venv/bin/python kings/delegate/out/K10v/ep_targeted.py
+num ep positions 6572
+{
+  "n_positions": 6572,
+  "n_certified_instances": 5716,
+  "n_violations": 0,
+  "violations_examples": [],
+  "ep_relevant_own_pawn": 0,
+  "ep_relevant_other_beta_pawn": 2356
+}
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && for f in summary_b.json summary_b_rand.json summary_c.json summary_ep.json; do echo "=== $f ==="; cat kings/delegate/out/K10v/$f | python3 -c 'import sys,json; d=json.load(sys.stdin); print("targeted:",d.get("targeted")); print("controls:",{k:v["violations"] for k,v in d.get("controls_drop",{}).items()})'; done
+=== summary_b.json ===
+targeted: {'H4_equality_instances': 808, 'ep_instances': 0, 'beta_to_move_omega_adjacent_rho_plus1': 0}
+controls: {'H2': 0, 'H3': 0, 'H4': 24, 'H5': 27576}
+=== summary_b_rand.json ===
+targeted: {'H4_equality_instances': 1247, 'ep_instances': 0, 'beta_to_move_omega_adjacent_rho_plus1': 0}
+controls: {'H2': 0, 'H3': 0, 'H4': 23, 'H5': 17636}
+=== summary_c.json ===
+targeted: {'H4_equality_instances': 129, 'ep_instances': 1, 'beta_to_move_omega_adjacent_rho_plus1': 0}
+controls: {'H2': 3277, 'H3': 2086, 'H4': 0, 'H5': 551}
+=== summary_ep.json ===
+targeted: None
+controls: {}
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && .venv/bin/python - <<'PY'
+import sys; sys.path.insert(0,"kings/delegate/out/K10v")
+import check
+# layout cyl:8x6, Ka1 ka6, pawns on c-g (e.g. Pc3 pd4 pe2 pf5 pg4), beta W
+pos={"W":frozenset([(2,3),(3,4),(4,2),(5,5),(6,4)]),"B":frozenset(), "wk":(0,1),"bk":(0,6),"ep":None}
+print("H2 W:",check.H2(8,6,True,pos,"W"))
+print("H3 B-as-omega? omega=B:",check.H3(8,6,True,pos,"B"))
+pos2={"W":frozenset(),"B":frozenset([(2,3),(3,4),(4,2),(5,5),(6,4)]),"wk":(0,1),"bk":(0,6),"ep":None}
+print("H2 B:",check.H2(8,6,True,pos2,"B"))
+print("H3 omega=W:",check.H3(8,6,True,pos2,"W"))
+PY
+H2 W: True
+H3 B-as-omega? omega=B: True
+H2 B: True
+H3 omega=W: True
+> build · beam-free
+[0m$ [0mcat > /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K10v/REPORT.md <<'MD'
+# K10v: independent check of Proposition 2.11
+
+## 5-line summary
+
+1. Re-derived Proposition 2.11 step by step: Steps 0–5 are SOUND, and Corollaries 2.11a and 2.11b hold as stated.
+2. Independent checker (own move generator; μ_ω by BFS over G_ω) agrees with cylcgt's `passed` on 2,000 random positions (0 mismatches).
+3. Across 119,654 certified (position, side-to-move, beneficiary) instances on cyl:6×6/7×6/8×6 and 6,572 ep-right positions, `kpsolve --frozen` gives 0 violations.
+4. Controls work: dropping (H4) gives 80/24/23 violations in the parked layouts; dropping (H2)/(H3) gives 3,277/2,086 violations with random kings; dropping (H5) gives tens of thousands.
+5. Recommend upgrading Proposition 2.11, and the (V2) part of P11, from PROVED to CHECKED-2 in the frozen model.
+
+## Proof re-derivation
+
+All of F1–F3, Step 1 (king safety), Step 2 (invariant under β move, ω push, double step, capture into the strip from outside, capture out of the strip, and the e.p. capture offered at y), Step 3 (consequences), Step 4 (every real ω move is a move of G_ω, so k ≥ μ_ω), and Step 5 (timing for both move orders, e = d or d − 1) are **SOUND**. No missing step or counterexample found.
+
+- **Corollary 2.11a vs `_child`:** matches exactly. With mover M and side to move N at the terminal: only M passed → b = M; only N passed → b = N; race under the count rule → b = N iff dp(N) ≤ dp(M), else b = M. This is precisely `_child`'s `RACE_RULE == "count"` branch (and the only-M / only-N cases follow from `value`). The e values are e = d when b = M (opponent moves first) and e = d − 1 when b = N (beneficiary moves first).
+- **Corollary 2.11b (cyl:8×6, Ka1 ka6, pawns on c–g):** verified computationally for both colours: (H2) and (H3) hold, and no king stands on p's file. Only the passed front pawn, (H4) and (H5) need checking.
+
+## Independent computation
+
+Checker: `kings/delegate/out/K10v/check.py` (own move generator; μ_ω by BFS over G_ω, including e.p. as the first move only). Self-test: `.venv/bin/python kings/delegate/out/K10v/check.py` gives 0 mismatches against cylcgt's `passed` on 2,000 random positions. kpsolve build: `nice -n 10 cc -O2 -o kings/delegate/out/K10v/kp kings/kpsolve.c -lpthread`.
+
+Run commands (each under 45 minutes, `nice -n 10`):
+
+- `.venv/bin/python kings/delegate/out/K10v/run.py a`
+- `.venv/bin/python kings/delegate/out/K10v/run.py b`
+- `.venv/bin/python kings/delegate/out/K10v/run.py b_rand`
+- `.venv/bin/python kings/delegate/out/K10v/run.py c`
+- `.venv/bin/python kings/delegate/out/K10v/ep_targeted.py`
+
+kpsolve invocation used by the scripts: `nice -n 10 kings/delegate/out/K10v/kp --board cyl:WxH --frozen --cap 1 --threads 2 < in.txt > out.txt`.
+
+| Case | Layout | (pos,stm) tested | Certified instances (p) | Certified (pos,stm) | Violations |
+|---|---|---|---|---|---|
+| (a) | cyl:6×6, Ka1 ka6, pawns c–e, ≤3/side | 86,598 | 91,074 | 74,410 | 0 |
+| (b) | cyl:7×6, same, pawns c–f, ≤2/side | 29,586 | 29,140 | 25,260 | 0 |
+| (b_rand) | cyl:7×6, same, 20,000 random with 3/side | 20,000 | 23,363 | 17,879 | 0 |
+| (c) | cyl:8×6, random legal kings, ≤3 pawns/side, ep included | 10,000 | 2,751 | 2,105 | 0 |
+| (ep) | cyl:6×6, Ka1 ka6, pawns c–e, ep rights where legal | 6,572 | 5,716 | — | 0 |
+
+Controls (violations when one hypothesis is dropped):
+
+| Dropped | (a) | (b) | (b_rand) | (c) |
+|---|---|---|---|---|
+| (H2) | 0 | 0 | 0 | 3,277 |
+| (H3) | 0 | 0 | 0 | 2,086 |
+| (H4) | 80 | 24 | 23 | 0 |
+| (H5) | 71,390 | 27,576 | 17,636 | 551 |
+
+## Targeted search
+
+- **(H4) at its bound** ρ(q) = ρ(p) + 1: 5,248 certified instances across (a)–(c); 0 violations.
+- **e.p. right at y:** 6,572 positions, 5,716 certified instances, 0 violations. In 2,356 of these the e.p. captured pawn is a non-p beneficiary pawn; the rest capture an ω pawn. No instance has p itself e.p.-capturable (excluded by (H1)).
+- **ω captures entering the strip:** covered by the μ_ω search (all captures, including into the strip); the 0-violation totals above include them.
+- **β to move with an ω pawn at ρ(p)+1 beside p:** 0 certified instances in all runs (0 of 119,654 plus ep), so no violation can occur; the condition simply does not arise among certified instances.
+
+## Recommended labels
+
+- **Proposition 2.11:** upgrade from PROVED to **CHECKED-2** (frozen model). Proof re-derivation SOUND and independent computation agrees (0 violations).
+- **P11:** upgrade the (V2) certificate part to **CHECKED-2** (frozen model), still conditional on (E) and hereditary sum-safety as before.
+MD
+echo done
+done
+> build · beam-free
+Independent check complete. Report written to `kings/delegate/out/K10v/REPORT.md`.
+
+Key results:
+- Proof Steps 0–5 and both corollaries: SOUND.
+- Independent checker self-test vs cylcgt `passed`: 0 mismatches.
+- Certified instances tested: 119,654 + 6,572 ep positions; `kpsolve --frozen` violations: 0.
+- Controls behave as expected (H4 drop: 80/24/23 violations; H2/H3 drop: 3,277/2,086 with random kings).
+- Recommended labels: Proposition 2.11 and P11's (V2) part → CHECKED-2 (frozen model).

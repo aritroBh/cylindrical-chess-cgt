@@ -32,7 +32,9 @@ D-winner never moves in Z, and never fixed what D(X) is on Z); a Sonnet agent re
 another reviewer (revised after K9, 2026-10-22). **Caveat for K10 (Proposition 2.11, P11):** a free model drafted a
 passer certificate; two Sonnet reviewers found it FALSE (a capture of a β pawn on a neighbouring file lets an ω pawn
 stop the passer, and checks, kings, one move order and races were ignored). A Sonnet agent rebuilt the statement and
-proof, and the integrator read it step by step and re-ran its examples. No second model has re-derived it. With it,
+proof, and the integrator read it step by step and re-ran its examples. K10v (opencode beam-free; Codex was out of quota) wrote an independent checker of (H1)–(H5) without reading K10's files and found 0 violations
+against `kpsolve --frozen` (the computation is CHECKED-2); its verdict "Steps 0–5 SOUND" came without a written derivation,
+so no second model has re-derived the proof (revised after K10v, 2026-10-22). With Proposition 2.11,
 P11 is PROVED in P in a conditional form: the passer and race terminals must be certified (revised after K10,
 2026-10-22). So none of K3's four GAP downgrades remains GAP. The scripts behind the checks
 of Appendix A are copied to `kings/delegate/out/K7/scripts/` (their paths point at the old scratchpad), and their raw
@@ -71,7 +73,7 @@ originally stated → …" gives the corrected statement and its label. Each cha
 | L2.9 | GAP → PROVED after repair (added hypothesis: s has no pawn on f ± 1). Without that hypothesis: CONJECTURE | R1 item 9, R3 item 4 |
 | P2.10(a) | FALSE as originally stated (H = 4) → H ≥ 5: PROVED after repair, under both the textbook and the e.p.-aware passed test, for chess-legal contexts and s's context pawns. (L2) counts context pawns only, so there is no Z-pawn proviso: s's Z-pawns are covered by (L1), whatever their distance from promotion (revised after K7, 2026-10-22). T30 audit: the proof lacked a step for en passant (now added). The stronger claim that no pawn of *either* colour stands one move from promotion needs H ≥ 6 under the e.p.-aware test | R1 item 7, R3 item 1; T30 audit and recheck |
 | P2.10(b) | PROVED (the example; it needs width ≥ \|F_Z\| + 4). "The zero is context-dependent" is the CONJECTURE that follows it, now supported in C by P4 | R3 item 5 |
-| R2.11 | GAP → PROVED in P (frozen), as a sufficient condition (revised after K10, 2026-10-22): Proposition 2.11 and Corollary 2.11a give (V2) at a passer or race terminal under (H1)–(H5): a clear path for pawns and kings of both colours, no check, no stalemate, no interference of an ω pawn that captures a β pawn on a neighbouring file, and the timing bound for both move orders over all ω pawns. K10's first draft was FALSE (it ignored all of these); the statement and proof were rebuilt by a Sonnet agent and read step by step by the integrator. One AI proof, checked on 954,392 parked and 60,000 random-king instances against `kpsolve --frozen` (0 violations; scripts in `kings/delegate/out/K10/scripts/`). Real kings: nothing proved, the square rule is a CONJECTURE (scratch evidence) | R3 item 6; K10 |
+| R2.11 | GAP → PROVED in P (frozen), as a sufficient condition (revised after K10, 2026-10-22): Proposition 2.11 and Corollary 2.11a give (V2) at a passer or race terminal under (H1)–(H5): a clear path for pawns and kings of both colours, no check, no stalemate, no interference of an ω pawn that captures a β pawn on a neighbouring file, and the timing bound for both move orders over all ω pawns. K10's first draft was FALSE (it ignored all of these); the statement and proof were rebuilt by a Sonnet agent and read step by step by the integrator. One AI proof, checked on 954,392 parked and 60,000 random-king instances against `kpsolve --frozen` (0 violations; scripts in `kings/delegate/out/K10/scripts/`). Computation CHECKED-2 by K10v (independent code, opencode beam-free): 0 violations in 119,654 certified instances and 5,716 with an e.p. right; its proof verdict SOUND has no written derivation, so the proof is not re-derived by a second model (revised after K10v, 2026-10-22). Real kings: nothing proved, the square rule is a CONJECTURE (scratch evidence) | R3 item 6; K10 |
 | P3.2 | PROVED; chess bridge PROVED after repair (adds (V1a)) | R4 item 7 |
 | T3.3(a) | PROVED (also KNOWN) | R4: sound |
 | T3.3(b) | FALSE as originally stated (with ∅ the dead position the pair is (W, L)) → { \| ⊖} ⊞ on_D is (L, L): PROVED after repair | R1 item 2 |
@@ -1136,7 +1138,9 @@ that fails when an ω pawn captures a β pawn on a neighbouring file. Two AI rev
 (checks, kings on the path, one move order only, races, en passant). The statement and proof below were rebuilt by
 a Sonnet agent (the K10 fixer), which also ran the enumerations listed after the proof. The integrator read the
 proof step by step, re-ran every example on a separate kpsolve build, and corrected one example (P1a, which also
-fails (H1)). It is one AI proof. No human and no second model has re-derived it.
+fails (H1)). It is one AI proof. No human and no second model has re-derived it. The computation is CHECKED-2: K10v
+(opencode beam-free) wrote its own checker without reading K10's files and found 0 violations (see the checks below;
+revised after K10v, 2026-10-22).
 
 *Setting.* F is the frozen promotion model, `kpsolve --frozen`: a promotion wins at once for the promoter; a legal
 king move ends the play at once in favour of the opponent of its maker; a side with no legal move at all (king
@@ -1298,6 +1302,13 @@ at the old scratchpad.
   last file empty, pawns on files c to W − 2, ≤ 3 per side except where noted; both colours as β, both sides to move): cyl:6×6 74,410
   instances, cyl:8×6 (≤ 2 per side) 64,954, cyl:6×7 306,020, cyl:6×5 12,160, cyl:7×6 496,848: **0 violations in
   954,392**. With (H4) dropped: 16 of 80 (6×6), 56 of 456 (6×7), 32 of 368 (7×6) violate.
+- *Independent check (K10v, opencode beam-free, own code; `kings/delegate/out/K10v/`; revised after K10v,
+  2026-10-22).* Its checker decides (H1)–(H5) with its own move generator and a search for μ_ω, and agrees with
+  cylcgt's `passed` on 2,000 random positions. Certified instances, all of them β wins in `--frozen`: cyl:6×6 parked,
+  ≤ 3 a side, 91,074 (74,410 positions with side to move, the same count as above); cyl:7×6 parked, ≤ 2 a side, 29,140,
+  and 20,000 random positions with 3 a side, 23,363; cyl:8×6 with random kings, 2,751; cyl:6×6 with an e.p. right, 5,716
+  (2,356 of them with another β pawn capturable e.p. and ω to move): **0 violations**. Dropping (H4) gives 80, 24 and
+  23 violations on the parked boards; dropping (H2) or (H3) gives 3,277 and 2,086 with random kings.
 - *Kings anywhere* (random placements, so that (H2), (H3) and the king clause of (H1) are tested as stated): cyl:7×6,
   cyl:8×6 and cyl:6×7, 20,000 instances each, ≤ 3 pawns a side: 0 violations in 60,000. With one hypothesis dropped,
   the violations are: (H2) 1,744, 1,853 and 1,394 of 20,000; (H3) 8 of 19,033, 8 of 16,599 and 5 of 20,000; the king
