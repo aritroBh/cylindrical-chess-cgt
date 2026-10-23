@@ -1,0 +1,28 @@
+import sys, time
+sys.path.insert(0,'/Users/aritro/Downloads/Research/Chessendgames')
+phase=sys.argv[1]; n=int(sys.argv[2]); extra=sys.argv[3]  # 'W' or 'B' trailing wall file
+import cylcgt.pawns as pawns
+from cylcgt.pawns import Board, Pos, value
+from cylcgt import cgt
+pawns.components = lambda b, p: [p]
+def make_pos(n, phase):
+    W={(0,5),(2,4),(3,4),(5,3)}
+    B={(1,7),(3,7),(4,6),(5,6)}
+    wr,br = (2,4) if phase=='W2/B4' else (3,5)
+    m=(n-6)//2
+    for k in range(m):
+        f=6+2*k
+        W.add((f,wr)); B.add((f+1,br))
+    # trailing file if odd
+    if (6+2*m) < n:
+        f=6+2*m
+        if extra=='W':
+            W.add((f,wr))
+        else:
+            B.add((f,br))
+    return Pos(frozenset(W),frozenset(B))
+pos=make_pos(n,phase)
+board=Board(files=n, ranks=8, wrap=True, ep=True)
+t=time.time()
+g=value(board,pos)
+print(f"phase={phase} n={n} extra={extra} value={cgt.show(g)} outcome={cgt.outcome(g)} time={time.time()-t:.1f}s", flush=True)
