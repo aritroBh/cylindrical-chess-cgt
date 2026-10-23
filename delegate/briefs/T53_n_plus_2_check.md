@@ -42,7 +42,7 @@ The proof is in `research/ring_n_plus_2_proof/PROOF.md`. It reuses T50's Lemmas 
 2. **Reproduce** with the project's scripts. Do not edit them. From the project root, run
    `sh research/ring_n_plus_2_proof/run_all.sh` under `nice -n 15`. Compare every number in `logs/` with `PROOF.md`.
 3. **Independent check by method.** Write your own program in your directory, in any language. Use ONLY the rules
-   above and `cylcgt.pawns.passed` for the passed test. Do NOT read or copy `rg.c`, `cylcgt`'s value code, or the
+   above and `cylcgt.pawns.passed` for the passed test. Do NOT read or copy `rg.c`, `cylcgt`'s value code, or the `check3` or
    `verify*` directories. With it:
    - compute G+*h for h = 0..3 for P_n, n = 8..24 (signature NNPN means *2);
    - for n = 8, 10, 12, also check one ring that is NOT claimed to be *2 (for example P_n with the B7 on file b moved to
