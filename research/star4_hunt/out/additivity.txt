@@ -1,0 +1,24 @@
+('*2 cores', 'NON-additive nimber') 98
+('*2 cores', 'additive nimber') 153
+('*2 cores', 'pair alone *0: core+pair not a nimber') 1756
+('*2 cores', 'pair alone *1: core+pair not a nimber') 1070
+('*2 cores', 'pair alone not a nimber') 2640
+('*2 cores', 'undecided') 906
+('*3 cores', 'NON-additive nimber') 77
+('*3 cores', 'additive nimber') 149
+('*3 cores', 'pair alone *0: core+pair not a nimber') 565
+('*3 cores', 'pair alone *1: core+pair not a nimber') 338
+('*3 cores', 'pair alone not a nimber') 978
+('*3 cores', 'undecided') 324
+non-additive (core,pair,result) -> count: {(2, 0, 0): 33, (2, 0, 1): 11, (2, 1, 0): 26, (2, 1, 1): 28, (3, 0, 0): 26, (3, 0, 1): 9, (3, 0, 2): 19, (3, 1, 0): 11, (3, 1, 1): 12}
+non-additive nimber cases: 175
+   ('W: a2 a3 b3 d2 / B: a4 a6 b6 c7', (1, 4), (1, 5), 2, 0, 0)
+   ('W: a2 a3 b3 d2 / B: a4 a6 b6 c7', (1, 4), (2, 6), 2, 0, 1)
+   ('W: a2 a3 b3 d2 / B: a4 a6 b6 c7', (4, 2), (4, 4), 2, 1, 1)
+   ('W: a2 b2 c2 d2 / B: a5 b4 d7 e4', (0, 4), (0, 6), 2, 1, 0)
+   ('W: a2 b2 c2 d2 / B: a5 b4 d7 e4', (1, 3), (1, 5), 2, 1, 0)
+   ('W: a2 b2 c2 d2 / B: a5 b4 d7 e4', (2, 5), (2, 7), 2, 1, 1)
+   ('W: a2 b2 c2 d2 / B: a5 b4 d7 e4', (3, 4), (2, 7), 2, 1, 1)
+   ('W: a2 b2 c2 d2 / B: a5 b4 d7 e4', (3, 4), (3, 5), 2, 0, 0)
+   ('W: a2 b2 c2 d2 / B: a5 b4 d7 e4', (3, 5), (2, 7), 2, 0, 0)
+   ('W: a2 b2 c2 d2 / B: a5 b4 d7 e4', (5, 2), (4, 5), 2, 1, 0)

@@ -1,0 +1,39 @@
+== exhaustive single-component scans (default setting)
+out/c3p11      chunks=  8 roots=     458,963 states=    15,274,103 *0=19 *1=0 *2=0 *3=0 >=*4=0 near3=0 near>=4=0 maxminmex=1
+out/c3p12      chunks=  8 roots=     441,279 states=    29,851,458 *0=104 *1=38 *2=1 *3=0 >=*4=0 near3=0 near>=4=0 maxminmex=1
+out/c3p13      chunks=  6 roots=     319,866 states=    35,963,118 *0=1 *1=0 *2=0 *3=0 >=*4=0 near3=0 near>=4=0 maxminmex=0
+out/c4p11      chunks=  0 roots=           0 states=             0 *0=0 *1=0 *2=0 *3=0 >=*4=0 near3=0 near>=4=0 maxminmex=-9
+out/c6p10      chunks=  2 roots=   4,682,590 states=    25,226,769 *0=658 *1=271 *2=0 *3=0 >=*4=0 near3=0 near>=4=0 maxminmex=1
+out/w4p11      chunks= 89 roots=  48,649,934 states=   750,934,018 *0=60514 *1=24230 *2=9 *3=1 >=*4=0 near3=13 near>=4=0 maxminmex=2
+out/w4p12      chunks=  4 roots=   9,460,122 states=    46,833,363 *0=544 *1=127 *2=0 *3=0 >=*4=0 near3=0 near>=4=0 maxminmex=1
+out/w5p10      chunks= 70 roots= 134,920,191 states=   919,636,834 *0=236231 *1=126597 *2=75 *3=3 >=*4=0 near3=45 near>=4=0 maxminmex=-9
+out/w6p10      chunks=  2 roots=   7,763,722 states=    15,991,975 *0=1486 *1=851 *2=0 *3=0 >=*4=0 near3=0 near>=4=0 maxminmex=1
+== extension / ring runs (histograms)
+out/ext_w4rep_w4_k3.out            evals=2433 nim:nim0=15 nim1=11 nim2=2 nim3=2 nim65=2403 near:
+out/ext_w4rep_w5_k3.out            evals=7819 nim:nim0=10 nim1=15 nim2=7 nim3=7 nim65=7780 near:
+out/ext_w4rep_w6_k3.out            evals=5062 nim:nim0=5 nim1=4 nim2=10 nim3=11 nim65=5032 near:
+out/ext_w5reps_w5_k3.out           evals=25052 nim:nim0=63 nim1=73 nim2=23 nim3=14 nim65=24879 near:
+out/ext_w5reps_w6_k3.out           evals=40748 nim:nim0=47 nim1=60 nim2=70 nim3=63 nim65=40508 near:
+out/ext_w6reps_w6_k3.out           evals=partial nim: near:
+out/j1a_A_w6_k5.out                evals=21106 nim:nim0=25 nim1=15 nim2=193 nim3=85 nim65=20788 near:n0=225 n1=124 n2=267 n3=107 n4=0 n5=0 n6=0 n7=0
+out/j2_cores2_w6_k3.out            evals=10384 nim:nim0=28 nim1=4 nim2=186 nim3=44 nim65=10122 near:n0=142 n1=46 n2=208 n3=44 n4=0 n5=0 n6=0 n7=0
+out/j3_cores3_w7_k3.out            evals=6224 nim:nim1=4 nim2=37 nim3=108 nim65=6075 near:n0=18 n1=31 n2=48 n3=129 n4=0 n5=0 n6=0 n7=0
+out/j4_c7star3_to_c8.out           evals=partial nim: near:
+out/r1_prim_c8_k5.out              evals=3416 nim:nim0=5 nim1=6 nim2=2 nim3=2 nim65=3401 near:n0=31 n1=35 n2=8 n3=5 n4=0 n5=0 n6=0 n7=0
+out/r1_prim_c9_k3.out              evals=6283 nim:nim0=4 nim1=2 nim3=9 nim65=6268 near:n0=45 n1=36 n2=19 n3=21 n4=0 n5=0 n6=0 n7=0
+out/r3_prim_c7_k3.out              evals=2855 nim:nim0=9 nim1=11 nim3=2 nim65=2833 near:n0=39 n1=48 n2=1 n3=15 n4=0 n5=0 n6=0 n7=0
+out/r4_ringfam_c8_k4.out           evals=1151 nim:nim0=18 nim1=5 nim65=1128 near:n0=38 n1=13 n2=0 n3=0 n4=0 n5=0 n6=0 n7=0
+out/rows_w4_k3.out                 evals=6620 nim:nim0=4 nim1=16 nim65=6600 near:n0=220 n1=128 n2=0 n3=0 n4=0 n5=0 n6=0 n7=0
+out/rows_w5_k2.out                 evals=1388 nim:nim1=4 nim65=1384 near:n0=66 n1=32 n2=0 n3=0 n4=0 n5=0 n6=0 n7=0
+out/rsa_c9.out                     evals=partial nim: near:
+== duel boards
+out/duel/cylinder_w5.tsv roots=759375 nim0=16843 nim1=12004 nim2=20 nim65=730508
+out/duel/flat_w5.tsv roots=381375 nim0=11503 nim1=9484 nim2=9 nim65=360379
+out/duel/flat_w6.tsv partial
+{}
+== periodic (2-file period, <=2 pawns per file)
+out/periodic2_w4.tsv {'outcome': 1, 'PASSED': 1030, 'nim-1': 899, 'nim0': 91, 'nim1': 5}
+out/periodic2_w5.tsv {'outcome': 1, 'PASSED': 1030, 'nim-1': 913, 'nim0': 60, 'nim1': 22}
+out/periodic2_w6.tsv {'outcome': 1, 'PASSED': 1030, 'nim-1': 886, 'nim0': 69, 'nim1': 24, 'BUDGET': 16}
+out/periodic2_w7.tsv {'outcome': 1, 'PASSED': 1030, 'nim-1': 840, 'nim0': 60, 'nim1': 22, 'BUDGET': 73}
+out/periodic2_w8.tsv {'outcome': 1, 'PASSED': 955, 'nim-1': 722, 'nim0': 81, 'BUDGET': 110, 'nim1': 4}

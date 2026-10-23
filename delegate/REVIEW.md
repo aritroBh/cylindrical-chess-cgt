@@ -583,3 +583,62 @@ had already started chunk 0 of 4. The orchestrator took over:
 
 **T45 (OpenCode, C5/C6 second program).** Its ring solver finds no ring \*2 on C5 with 5, 6 or 7 pawns
 (1,034 / 27,552 / 349,312 classes, mirror-consistent). Its eight-pawn run is still going.
+
+**K10v (kings session, c978e32).** Codex was out, so K10v ran on OpenCode beam-free. It wrote its own (H1)–(H5)
+checker without reading K10's files and found 0 violations against `kpsolve --frozen` in 119,654 certified
+instances, plus 5,716 with an e.p. right. Its cyl 6×6 count matches K10's (74,410). The computation is CHECKED-2.
+The proof is still one AI proof, so the paper keeps [AI] for the test.
+
+**T45 C5 result (orchestrator check).** T45's ring solver (`research/ring_min_c5c6/ring`, no cylcgt or scanner
+code) finds 14 classes of eight-pawn ring \*2 on C5 (140 raw rings, mirror-consistent) and none with ≤ 7 pawns. I
+ran all 14 through cylcgt (default setting, sum model), and every one is \*2. So the C5 minimum (8 = n+3) and the
+count of 14 are CHECKED-2 (scanner + T45). C6 is running.
+
+**T51 (OpenCode beam-free, non-Claude referee of T50's wall-family proof; `research/ring_family_proof_check/`).**
+Verdict SOUND for Lemmas 1–3, the induction and the finite checks. It re-ran `run_all.sh quick` and every number
+matched: 144/104 nodes, 209/246 and 177/97 edges, pumping to 61/60, 113 rings, value \*2 at n0. Its own Python
+check, which uses only cylcgt's passed test and its own move generator, found 0 exceptions to Lemma 2(b) in 37
+wall-pawn moves for n ≤ 13, double steps included. It raised two presentational points:
+- Lemma 2's table omits captures by q, which the pattern rules out;
+- Lemma 3(iii) uses the no-flag invariant implicitly.
+
+**T50 verifier (Sonnet 5.5, workflow `wf_77b2020d-87c`).** Verdict ACCEPT_WITH_FIXES. Its own engine, written
+from `pawns.py` and not from `rg.c`, reproduces:
+- \*2 for O_5..O_61 and E_6..E_60, plus spot checks at n = 100, 101, 200, 201;
+- the 144/209/246 and 104/177/97 graphs;
+- pumping with 0 differences;
+- 0 exceptions in about 10^5 adversarial tests of each lemma; the tests fail when the arc is shortened, so they
+  are not vacuous.
+
+The fixes it asks for are labels and scope, not mathematics:
+- the theorem is "proved given the finite checks";
+- Lemma 3's proof should spell out view-locality and the race rule's locality;
+- the theorem covers the whole-board game only, since 42 of 78 K-captures in O_17 split the ring.
+
+Report and scripts: `research/ring_family_proof/REPORT.md` and `verify/`.
+
+**Paper, round 10.** §VIII states the family as \*2 for every n ≥ 5 in the whole-board game [AI], with the finite
+checks [C2], and as a sum to n = 12 [C2]. The intro bullet and conclusion item 3 follow. To keep the review build
+at 14 pages, I trimmed ten paragraphs by a few words each, with no content cut.
+
+**T49 (Sonnet, ★4 hunt; `research/star4_hunt/REPORT.md`).** No \*4 and no nimber above \*3 anywhere.
+- Exhaustive over all 134,920,191 one-component ten-pawn positions on five files: 75 \*2, 3 \*3.
+- Also 48,649,934 positions on four files with 11 pawns.
+
+Verifier verdict ACCEPT_WITH_FIXES:
+- root counts are reproduced exactly by an independent DP and Burnside count;
+- 474k positions are scanner-vs-own-solver identical;
+- C3 is not complete (29,471 lopsided-split roots unscanned);
+- the scanner keeps an e.p. right across components (as the cylcgt sum model does), so "no \*4" holds under that
+  convention, not for the whole-board game; no single-component root of 388k differed;
+- the 263-position "core + \*1 pair" story needs groups of 2 or 5 pawns;
+- the 13 minimal \*3 cores are each a \*2 plus a \*1 pair (CHECKED-2);
+- two C7 \*3 ring classes are primitive.
+
+The paper adds one clause (no nimber above \*3 among those 134.9M positions [C1]).
+
+**C8 ten-pawn rings (scanner, default setting).** The 5+5 split gives 20 hits: 18 \*2 and 2 \*3. So on C8 the
+first ring \*2 has at most ten pawns = n+2, below the wall family's n+3. That breaks the "n+3 for n = 3..7"
+pattern at n = 8, once confirmed. cylcgt (sum and whole-board) is checking all 20 (`research/star26_rings/c8/cylcgt_p10.py`).
+The 4+6, 3+7, 2+8 and 1+9 splits are still running. T45's C6 eight-pawn run: 0 \*2 (2,722,305 classes), agreeing
+with the scanner; its nine-pawn run is going.

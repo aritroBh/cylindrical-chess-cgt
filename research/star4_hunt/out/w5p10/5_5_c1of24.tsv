@@ -1,0 +1,20 @@
+#position	width	n	outcome	nimber   (setting count/epon/aware, hits = nimber>=2)
+W: a2 a4 b2 c3 d2 / B: b4 b7 c4 d7 e4	5	10	N	2
+W: a2 a4 b2 c3 e2 / B: b6 b7 c4 c7 d7	5	10	N	2
+W: a2 a4 b3 c3 e2 / B: a3 a7 c6 d7 e5	5	10	N	2
+W: a2 a4 b4 c3 e2 / B: a3 a7 c6 d5 e5	5	10	N	2
+NEAR3	W: a2 a4 c2 d2 e2 / B: b5 b6 b7 d6 e5	10	N	NNNLNNNNNN
+W: a2 a4 c3 d2 d4 / B: a7 b6 c7 d3 e6	5	10	N	2
+W: a2 a4 c3 d2 d4 / B: a7 b6 c7 e4 e6	5	10	N	2
+W: a2 a4 c3 d2 e2 / B: a3 b7 c7 d5 e6	5	10	N	2
+NEAR3	W: a2 a4 c3 d2 e2 / B: b5 b6 b7 d6 e5	10	N	NNNLNNNNNN
+W: a2 a4 c3 d4 e2 / B: a7 b6 c7 e3 e6	5	10	N	2
+NEAR3	W: a2 a5 b2 d3 e4 / B: a7 b3 c6 d7 e7	10	N	NNNRNNNNNN
+NEAR3	W: a2 a5 b2 d3 e4 / B: a7 b3 c7 d7 e7	10	N	NNNRNNNNNN
+W: a2 a5 c2 d2 e2 / B: a3 a6 b5 d4 e6	5	10	N	2
+W: a2 a5 c2 d2 e2 / B: a3 a7 b5 d4 e6	5	10	N	3
+W: a2 a5 c2 d2 e2 / B: a3 b5 b7 d4 e6	5	10	N	2
+W: a2 a5 c2 d3 e2 / B: a3 b7 c7 d6 e5	5	10	N	2
+W: a2 a5 c2 d3 e2 / B: a4 b7 c7 d6 e5	5	10	N	3
+W: a2 a5 c2 d3 e3 / B: a3 a6 b5 c5 e6	5	10	N	2
+#summary roots=4592957 states=31457279 L=545475 R=1139195 N=2880773 P=27514 nim0=27514 nim1=16661 nim2=12 nim3=2 near0=107121 near1=66640 near2=27 near3=6 near4=0 near5=0 near6=0 near7=0 cpu=156.1s

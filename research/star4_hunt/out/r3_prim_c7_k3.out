@@ -1,0 +1,19 @@
+#extend width=7 wrap=1 K=2 seeds=2 rot=0 newonly=0 budget=500000 chunk=0/1
+NIM	W: a2 a5 c4 e2 f2 / B: a7 b4 d7 e5 g7	10	N	3	NNNPNNNN	X0.0
+NEAR	W: a2 a5 b3 c4 e2 f2 / B: a7 b4 b5 d7 e5 g7	12	N	-1	NNNLNNNN	X0.0
+NEAR	W: a2 a5 c4 d3 e2 f2 / B: a7 b4 b5 d7 e5 g7	12	N	-1	NNNLNNNN	X0.0
+NEAR	W: a2 a5 c4 e2 f2 g4 / B: a7 b4 b6 d7 e5 g7	12	N	-1	NNNLNNNN	X0.0
+NEAR	W: a2 a5 c3 c4 e2 f2 / B: a7 b4 c5 d7 e5 g7	12	N	-1	NNNRNNNN	X0.0
+NEAR	W: a2 a5 c4 e2 f2 g4 / B: a7 b4 d7 e5 g6 g7	12	N	-1	NNNLNNNN	X0.0
+NIM	W: a3 b3 d3 e2 g2 / B: b6 c7 e3 f7 g5	10	N	3	NNNPNNNN	X1.0
+NEAR	W: a3 a4 b3 d3 e2 g2 / B: a6 b6 c7 e3 f7 g5	12	N	-1	NNNRNNNN	X1.0
+NEAR	W: a3 a5 b3 d3 e2 g2 / B: a7 b6 c7 e3 f7 g5	12	N	-1	NNNRNNNN	X1.0
+NEAR	W: a3 b3 c2 d3 e2 g2 / B: b6 c4 c7 e3 f7 g5	12	N	-1	NNNLNNNN	X1.0
+NEAR	W: a3 b3 c2 d3 e2 g2 / B: b6 c7 e3 e4 f7 g5	12	N	-1	NNNLNNNN	X1.0
+NEAR	W: a3 b3 d2 d3 e2 g2 / B: b6 c7 d4 e3 f7 g5	12	N	-1	NNNRNNNN	X1.0
+NEAR	W: a3 b3 d2 d3 e2 g2 / B: b6 c7 e3 f4 f7 g5	12	N	-1	NNNRNNNN	X1.0
+NEAR	W: a3 b3 d3 e2 f2 g2 / B: b6 c7 d4 e3 f7 g5	12	N	-1	NNNRNNNN	X1.0
+NEAR	W: a3 b3 d3 e2 f2 g2 / B: b6 c7 e3 f4 f7 g5	12	N	-1	NNNRNNNN	X1.0
+#extend done evals=2855 skipped=151 budget_aborts=31
+#hist_nim nim0=9 nim1=11 nim3=2 nim65=2833
+#hist_near n0=39 n1=48 n2=1 n3=15 n4=0 n5=0 n6=0 n7=0
