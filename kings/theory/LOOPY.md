@@ -31,7 +31,7 @@ D-winner never moves in Z, and never fixed what D(X) is on Z); a Sonnet agent re
 (an induction on the rank of the D-win), and the integrator read the rewrite. It has not been re-checked by
 another reviewer (revised after K9, 2026-10-22). **Caveat for K10 (Proposition 2.11, P11):** a free model drafted a
 passer certificate; two Sonnet reviewers found it FALSE (a capture of a β pawn on a neighbouring file lets an ω pawn
-stop the passer, and checks, kings, one move order and races were ignored). A Sonnet agent rebuilt the statement and
+stop the passer, and checks, kings, one move order, races and en passant were mishandled). A Sonnet agent rebuilt the statement and
 proof, and the integrator read it step by step and re-ran its examples. K10v (opencode beam-free; Codex was out of quota) wrote an independent checker of (H1)–(H5) without reading K10's files and found 0 violations
 against `kpsolve --frozen` (the computation is CHECKED-2); its verdict "Steps 0–5 SOUND" came without a written derivation,
 so no second model has re-derived the proof (revised after K10v, 2026-10-22). With Proposition 2.11,
@@ -73,7 +73,7 @@ originally stated → …" gives the corrected statement and its label. Each cha
 | L2.9 | GAP → PROVED after repair (added hypothesis: s has no pawn on f ± 1). Without that hypothesis: CONJECTURE | R1 item 9, R3 item 4 |
 | P2.10(a) | FALSE as originally stated (H = 4) → H ≥ 5: PROVED after repair, under both the textbook and the e.p.-aware passed test, for chess-legal contexts and s's context pawns. (L2) counts context pawns only, so there is no Z-pawn proviso: s's Z-pawns are covered by (L1), whatever their distance from promotion (revised after K7, 2026-10-22). T30 audit: the proof lacked a step for en passant (now added). The stronger claim that no pawn of *either* colour stands one move from promotion needs H ≥ 6 under the e.p.-aware test | R1 item 7, R3 item 1; T30 audit and recheck |
 | P2.10(b) | PROVED (the example; it needs width ≥ \|F_Z\| + 4). "The zero is context-dependent" is the CONJECTURE that follows it, now supported in C by P4 | R3 item 5 |
-| R2.11 | GAP → PROVED in P (frozen), as a sufficient condition (revised after K10, 2026-10-22): Proposition 2.11 and Corollary 2.11a give (V2) at a passer or race terminal under (H1)–(H5): a clear path for pawns and kings of both colours, no check, no stalemate, no interference of an ω pawn that captures a β pawn on a neighbouring file, and the timing bound for both move orders over all ω pawns. K10's first draft was FALSE (it ignored all of these); the statement and proof were rebuilt by a Sonnet agent and read step by step by the integrator. One AI proof, checked on 954,392 parked and 60,000 random-king instances against `kpsolve --frozen` (0 violations; scripts in `kings/delegate/out/K10/scripts/`). Computation CHECKED-2 by K10v (independent code, opencode beam-free): 0 violations in 119,654 certified instances and 5,716 with an e.p. right; its proof verdict SOUND has no written derivation, so the proof is not re-derived by a second model (revised after K10v, 2026-10-22). Real kings: nothing proved, the square rule is a CONJECTURE (scratch evidence) | R3 item 6; K10 |
+| R2.11 | GAP → PROVED in P (frozen), as a sufficient condition (revised after K10, 2026-10-22): Proposition 2.11 and Corollary 2.11a give (V2) at a passer or race terminal under (H1)–(H5): a clear path for pawns and kings of both colours, no check, no stalemate, no interference of an ω pawn that captures a β pawn on a neighbouring file, and the timing bound for both move orders over all ω pawns. K10's first draft was FALSE (it ignored all of these); the statement and proof were rebuilt by a Sonnet agent and read step by step by the integrator. One AI proof, checked on 954,392 parked and 60,000 random-king instances against `kpsolve --frozen` (0 violations; scripts in `kings/delegate/out/K10/scripts/`). Computation CHECKED-2 by K10v (independent code, opencode beam-free): 0 violations in 146,328 certified instances (an instance is a position, side to move, β and p; 119,654 distinct positions with side to move) and 5,716 with an e.p. right; its proof verdict SOUND has no written derivation, so the proof is not re-derived by a second model (revised after K10v, 2026-10-22). Real kings: nothing proved, the square rule is a CONJECTURE (scratch evidence) | R3 item 6; K10 |
 | P3.2 | PROVED; chess bridge PROVED after repair (adds (V1a)) | R4 item 7 |
 | T3.3(a) | PROVED (also KNOWN) | R4: sound |
 | T3.3(b) | FALSE as originally stated (with ∅ the dead position the pair is (W, L)) → { \| ⊖} ⊞ on_D is (L, L): PROVED after repair | R1 item 2 |
@@ -1149,8 +1149,8 @@ a cylinder with W files and H ≥ 5 ranks (files mod W). On a flat board the sam
 files that exist; that case was not run.
 
 *Notation.* Fix a position y before any promotion, the side s to move, a side β (the beneficiary) and ω, the
-other side. For a pawn q of either colour let ρ(q) be its rank counted from β's side (ρ = rank for White,
-H + 1 − rank for Black). β's pawns advance towards larger ρ, ω's towards smaller ρ; "ahead of p" means larger ρ.
+other side. For a pawn q of either colour let ρ(q) be its rank counted from β's side: ρ(q) = rank(q) if β is
+White, and ρ(q) = H + 1 − rank(q) if β is Black, whatever the colour of q (revised after the K10 second round). β's pawns advance towards larger ρ, ω's towards smaller ρ; "ahead of p" means larger ρ.
 β's start rank is ρ = 2 and ω's is ρ = H − 1. For a pawn p of β put d = H − ρ(p) − [ρ(p) = 2] (the number of β
 moves p needs to promote; this is cylcgt's `promote_distance`), and
 - e = d if s = ω (ω makes e moves before β's promoting push),
@@ -1303,7 +1303,7 @@ at the old scratchpad.
   instances, cyl:8×6 (≤ 2 per side) 64,954, cyl:6×7 306,020, cyl:6×5 12,160, cyl:7×6 496,848: **0 violations in
   954,392**. With (H4) dropped: 16 of 80 (6×6), 56 of 456 (6×7), 32 of 368 (7×6) violate.
 - *Independent check (K10v, opencode beam-free, own code; `kings/delegate/out/K10v/`; revised after K10v,
-  2026-10-22).* Its checker decides (H1)–(H5) with its own move generator and a search for μ_ω, and agrees with
+  2026-10-22).* An instance is a position, a side to move, a beneficiary β and a pawn p. Its checker decides (H1)–(H5) with its own move generator and a search for μ_ω, and agrees with
   cylcgt's `passed` on 2,000 random positions. Certified instances, all of them β wins in `--frozen`: cyl:6×6 parked,
   ≤ 3 a side, 91,074 (74,410 positions with side to move, the same count as above); cyl:7×6 parked, ≤ 2 a side, 29,140,
   and 20,000 random positions with 3 a side, 23,363; cyl:8×6 with random kings, 2,751; cyl:6×6 with an e.p. right, 5,716
@@ -1886,7 +1886,8 @@ Each item is a counterexample type the task named, or one found while writing.
    - In the D-model a mover with a decisive option is not in zugzwang, so nothing breaks there.
    - In P the threat may be too slow. In 7.3, a Black passer elsewhere loses to f8=Q.
    - That is a (V2) failure for the passer, not a gap in Theorems 1.14 or 2.4, which assume (V2). With
-     frozen kings, Proposition 2.11 detects it through (H5), the timing bound over all of the opponent's pawns;
+     frozen kings, the certificate of Proposition 2.11 fails there at (H5), the timing bound over all of the opponent's pawns (a failed
+     certificate does not by itself prove a (V2) failure: 2.11 is sufficient only);
      with real kings only the square-rule CONJECTURE of Remark 2.11 applies (revised after K10, 2026-10-22).
 2. **Double threats.**
    - They are just Λ-positions in Theorem 3.4: every reply leaves a threat. No proof uses "one threat at a

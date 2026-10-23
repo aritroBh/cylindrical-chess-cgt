@@ -326,13 +326,13 @@ Every deliverable was given to independent referees (Claude models) told to brea
     simulation lemma.
   - K10 (2026-10-22) gave P11 its missing piece, a passer certificate with frozen kings (Proposition 2.11). A free
     model drafted it, and two Sonnet reviewers found it FALSE: an opponent pawn that captures a pawn on a
-    neighbouring file can stop the passer, and the draft also ignored checks, kings on the path, one move order
-    and races. A Sonnet agent rebuilt it with five hypotheses (H1)–(H5), and the integrator read the proof and
+    neighbouring file can stop the passer, and the draft also mishandled checks, kings on the path, one move
+    order, races and en passant. A Sonnet agent rebuilt it with five hypotheses (H1)–(H5), and the integrator read the proof and
     re-ran its examples. It was checked on 954,392 + 60,000 instances against `kpsolve --frozen`, with 0
     violations. P11 is now PROVED in P in a conditional form: every passer and race terminal must be certified.
     Without that it is false (`Ka1 ka6 Pc2 Pc3 pd3 pd4 w -`). With real kings nothing is proved; the square rule is
     a CONJECTURE. K10v (opencode beam-free, independent code) re-checked the computation: 0 violations in
-    119,654 + 5,716 certified instances (CHECKED-2). Its proof verdict "SOUND" came without a written derivation, so
+    146,328 certified instances (119,654 positions with side to move) + 5,716 with an e.p. right (CHECKED-2). Its proof verdict "SOUND" came without a written derivation, so
     no second model has re-derived the proof of Proposition 2.11.
   - So no result of the note is still GAP.
   - The T30 fixes of 2026-10-22 came later. They were reviewed by Sonnet reviewers in two rounds, not by K3 (see the Theory row
