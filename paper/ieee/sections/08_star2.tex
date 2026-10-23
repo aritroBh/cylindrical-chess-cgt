@@ -128,9 +128,9 @@ and these are $\nim{2}$ in both models. We call the first \emph{the five-file $\
 \lab{C1}.
 
 By Theorem~\ref{thm:cut}, a pawn position on $\cyl{n}$ with an empty file is one on $\flatb{n-1}$, so these
-scans also cover such positions on $\cyl{3}$ to $\cyl{5}$. A ring has no empty file. One scan of the rings on
-$\cyl{5}$ to $\cyl{8}$ with at most eight pawns finds $\nim{2}$ in the default setting only in the $14$
-eight-pawn rings on $\cyl{5}$ \lab{C1}. Narrower cylinders need fewer pawns. On $\cyl{3}$ the only ring
+scans also cover such positions on $\cyl{3}$ to $\cyl{5}$. A ring has no empty file. Two programs' scans of the rings on
+$\cyl{5}$ to $\cyl{8}$ with at most eight pawns find $\nim{2}$ in the default setting only in the $14$
+eight-pawn rings on $\cyl{5}$ \lab{C2}. Narrower cylinders need fewer pawns. On $\cyl{3}$ the only ring
 $\nim{2}$ with six pawns in the default setting is \pos{W a2 a3 b2 / B b7 c6 c7}, and on $\cyl{4}$ the first
 are \pos{W a4 b2 c2 / B b6 c5 d6 d7} and its color-reversed twin, with seven; our engine confirms both values
 \lab{C2}. No ring with fewer pawns is a $\nim{2}$ on either cylinder: the atlas up to five pawns, a C scan
@@ -140,7 +140,7 @@ three, and the other three are their color-reversed twins \lab{C2}. On $\cyl{7}$
 $\nim{2}$, and a third solver written from the rules agrees \lab{C2}; the ten-pawn rings with five pawns a side
 include $63$ of value $\nim{2}$ \lab{C1}, such as \pos{W a2 a3 c3 e3 f2 / B a4 b5 d5 f5 g5}, which all three
 programs confirm \lab{C2}. So the first ring $\nim{2}$ on $\cyl{n}$ has $n+3$ pawns for $n=3,\dots,7$
-\lab{C1}, but on $\cyl{8}$ it has ten \lab{C1}: no nine-pawn ring there is a $\nim{2}$ \lab{C2}, while of the ten-pawn
+\lab{C2}, but on $\cyl{8}$ it has ten: no nine-pawn ring there is a $\nim{2}$ \lab{C2}, while of the ten-pawn
 rings $18$ are $\nim{2}$ and two $\nim{3}$, all with five pawns a side \lab{C1}; our engine
 confirms each value in both models \lab{C2}, for example \pos{W a3 b3 c3 d2 f2 / B b6 d5 e5 g4 h5}. For $n\ge9$ our scans stop short.
 Close a window of five or six files with a wall of single pawns of

@@ -668,3 +668,13 @@ ring from each of the 11 colour-reversal classes of the 20 scanner hits. Ten are
 scanner every time: `W a4 c3 d3 e2 g2 / B b7 c6 e5 f5 h4` and its twin. Times ranged from 4 s to 926 s per ring;
 see `research/star26_rings/c8/cylcgt_p10_5_5.txt`. The scan is complete: the 4+6, 3+7, 2+8 and 1+9 splits have
 no hits. §VIII now says "our engine confirms each value in both models [C2]".
+
+**Ring minima up to C8 are now CHECKED-2 (22:51).** `c8check_gen` solved every ring with at most eight pawns that the
+second-program record still lacked:
+- C5, 8 pawns: 2,759,848 classes, 14 \*2, 0 \*3. This matches the scanner and T45.
+- C7, 7 pawns: 29,820 classes, none.
+- C7, 8 pawns: 1,107,065 classes, none.
+- C8, 8 pawns: 166,140 classes, none. This equals the scanner's root count.
+
+With T45 (C5 p5–p7, C6 p6–p8), T43 (C7 nine pawns) and the C8 nine-pawn run, every minimum on C3–C8 now rests on two
+programs. §VIII and conclusion item 3 change [C1] to [C2].
