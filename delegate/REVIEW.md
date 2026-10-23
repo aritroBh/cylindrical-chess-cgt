@@ -678,3 +678,18 @@ second-program record still lacked:
 
 With T45 (C5 p5–p7, C6 p6–p8), T43 (C7 nine pawns) and the C8 nine-pawn run, every minimum on C3–C8 now rests on two
 programs. §VIII and conclusion item 3 change [C1] to [C2].
+
+**n+2 family proof (Sonnet workflow `wf_d177bfd0-b29`: writer, logic and compute verifiers, synthesis).**
+`research/ring_n_plus_2_proof/PROOF.md`. Theorem [AI]: in the whole-board game,
+P_n = W5 B7 W4 W4B7 B6 W3B6 (W2 B4)^((n-6)/2) is \*2 for every even n ≥ 8 (n+2 pawns).
+- The proof reuses T50's Lemmas 1–3, with c = 12 and n0 = 18.
+- The finite checks are run by up to five programs:
+  - C1': R_18 has 813 nodes, no e.p. flag, zone {0,2,…,6};
+  - C2': n = 8..16 directly.
+- Logic verifier: ACCEPT_WITH_FIXES (wording; Lemma 3 (ii)–(iii) now written out in §2b). Compute verifier: ACCEPT,
+  with two more engines and no difference for all even n ≤ 60.
+- The result depends on the race rule: it holds under count and opponent, but under mover P_n is not \*2.
+- §2b is new text that no second model has refereed yet. That is T53's job, on Codex after its reset.
+
+Paper: §VIII adds one sentence and conclusion item 3 says "at most n+2 for even n ≥ 8". Eight more whole-line trims
+keep the review build at 14 pages.

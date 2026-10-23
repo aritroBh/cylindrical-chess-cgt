@@ -149,7 +149,9 @@ As a whole-board game this gives a ring $\nim{2}$ with $n+3$ pawns on every $\cy
 \pos{W b2 c3 c5 d2 f2 h2 / B a5 b5 c6 e4 g4} on $\cyl{8}$ \lab{AI}: once the losing wall moves are deleted, two more
 wall files change nothing, so all rests on two games of $144$ and $104$ positions and on the cylinders with fewer than $17$
 files, which two programs check \lab{C2}. As a sum of components, where captures can split the ring, our engine confirms it only
-to $n=12$ \lab{C1}. The $\cyl{3}$ ring is a $\nim{2}$ with one pawn fewer than any ordinary board of width at most four allows,
+to $n=12$ \lab{C1}. The same argument shows that the $\cyl{8}$ ring
+\pos{W a5 c4 d4 f3 g2 / B b7 d7 e6 f6 h4} followed by pairs of files W2, B4 is, as a whole-board game, a $\nim{2}$
+with $n+2$ pawns on every $\cyl{n}$ with even $n\ge8$ \lab{AI}. For odd $n$ we know no such ring. The $\cyl{3}$ ring is a $\nim{2}$ with one pawn fewer than any ordinary board of width at most four allows,
 and it needs two en passant captures: without black's b4$\times$a3 it is $\uparrow$, without white's
 b5$\times$c6 it is $\downarrow$, and with e.p.\ off it is $0$ \lab{C2}.
 
