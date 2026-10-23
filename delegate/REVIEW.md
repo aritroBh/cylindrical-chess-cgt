@@ -662,3 +662,9 @@ fixed, none on a number:
 
 The reviewers also confirmed that the C8 counts (18 and 2) list colour-reversed twins separately, as the C7 counts
 (63, 8) do: 10 \*2 classes and 1 \*3 class up to colour reversal.
+
+**C8 ten-pawn values CHECKED-2 in both models (22:22).** cylcgt, as a sum and as a whole-board game, checked one
+ring from each of the 11 colour-reversal classes of the 20 scanner hits. Ten are \*2 and one is \*3, matching the
+scanner every time: `W a4 c3 d3 e2 g2 / B b7 c6 e5 f5 h4` and its twin. Times ranged from 4 s to 926 s per ring;
+see `research/star26_rings/c8/cylcgt_p10_5_5.txt`. The scan is complete: the 4+6, 3+7, 2+8 and 1+9 splits have
+no hits. §VIII now says "our engine confirms each value in both models [C2]".

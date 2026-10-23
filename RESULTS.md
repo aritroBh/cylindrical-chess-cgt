@@ -358,7 +358,8 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
     - No nine-pawn ring is \*2. The scanner and `c8check_gen` agree over all 7,039,362 classes (CHECKED-2).
     - The ten-pawn 5+5 split has 18 \*2 and 2 \*3 classes (scanner, C1). Example:
       `W a3 b3 c3 d2 f2 / B b6 d5 e5 g4 h5`, \*2 in cylcgt both as a sum and whole-board (CHECKED-2).
-    - cylcgt checks of the other 19 classes and the 4+6, 3+7, 2+8 and 1+9 splits are running.
+    - All splits are done; every hit is in the 5+5 split. One ring from each of the 11 colour-reversal classes is
+      confirmed by cylcgt, sum and whole-board: 10 \*2 and 1 \*3, `W a4 c3 d3 e2 g2 / B b7 c6 e5 f5 h4` (CHECKED-2).
     - T52 (OpenCode) is looking for an n+2 family on C9 and up.
 
 ## 7. Pending
