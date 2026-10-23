@@ -34,8 +34,8 @@ passer certificate; two Sonnet reviewers found it FALSE (a capture of a β pawn 
 stop the passer, and checks, kings, one move order, races and en passant were mishandled). A Sonnet agent rebuilt the statement and
 proof, and the integrator read it step by step and re-ran its examples. K10v (opencode beam-free; Codex was out of quota) wrote an independent checker of (H1)–(H5) without reading K10's files and found 0 violations
 against `kpsolve --frozen` (the computation is CHECKED-2); its verdict "Steps 0–5 SOUND" came without a written derivation,
-so no second model has re-derived the proof (revised after K10v, 2026-10-22). With Proposition 2.11,
-P11 is PROVED in P in a conditional form: the passer and race terminals must be certified (revised after K10,
+so it was no re-derivation (revised after K10v, 2026-10-22). In a second round two fresh Sonnet reviewers found no error in the proof and 0 violations in 5.7 million certified positions; they found that P11 must also certify a root that already has a passer, which is now part of P11. No model outside the Sonnet family has re-derived the proof (revised after the K10 second round, 2026-10-22). With Proposition 2.11,
+P11 is PROVED in P in a conditional form: the passer and race terminals must be certified, and a root that already has a passer must itself satisfy Proposition 2.11 (revised after K10,
 2026-10-22). So none of K3's four GAP downgrades remains GAP. The scripts behind the checks
 of Appendix A are copied to `kings/delegate/out/K7/scripts/` (their paths point at the old scratchpad), and their raw
 output is in the local, untracked archive `kings/delegate/out/K7/k7_k9_scratch.tar.zst`. All checkers are AI models; no human has re-derived these proofs. The fixes marked "T30
@@ -73,7 +73,7 @@ originally stated → …" gives the corrected statement and its label. Each cha
 | L2.9 | GAP → PROVED after repair (added hypothesis: s has no pawn on f ± 1). Without that hypothesis: CONJECTURE | R1 item 9, R3 item 4 |
 | P2.10(a) | FALSE as originally stated (H = 4) → H ≥ 5: PROVED after repair, under both the textbook and the e.p.-aware passed test, for chess-legal contexts and s's context pawns. (L2) counts context pawns only, so there is no Z-pawn proviso: s's Z-pawns are covered by (L1), whatever their distance from promotion (revised after K7, 2026-10-22). T30 audit: the proof lacked a step for en passant (now added). The stronger claim that no pawn of *either* colour stands one move from promotion needs H ≥ 6 under the e.p.-aware test | R1 item 7, R3 item 1; T30 audit and recheck |
 | P2.10(b) | PROVED (the example; it needs width ≥ \|F_Z\| + 4). "The zero is context-dependent" is the CONJECTURE that follows it, now supported in C by P4 | R3 item 5 |
-| R2.11 | GAP → PROVED in P (frozen), as a sufficient condition (revised after K10, 2026-10-22): Proposition 2.11 and Corollary 2.11a give (V2) at a passer or race terminal under (H1)–(H5): a clear path for pawns and kings of both colours, no check, no stalemate, no interference of an ω pawn that captures a β pawn on a neighbouring file, and the timing bound for both move orders over all ω pawns. K10's first draft was FALSE (it ignored all of these); the statement and proof were rebuilt by a Sonnet agent and read step by step by the integrator. One AI proof, checked on 954,392 parked and 60,000 random-king instances against `kpsolve --frozen` (0 violations; scripts in `kings/delegate/out/K10/scripts/`). Computation CHECKED-2 by K10v (independent code, opencode beam-free): 0 violations in 146,328 certified instances (an instance is a position, side to move, β and p; 119,654 distinct positions with side to move) and 5,716 with an e.p. right; its proof verdict SOUND has no written derivation, so the proof is not re-derived by a second model (revised after K10v, 2026-10-22). Real kings: nothing proved, the square rule is a CONJECTURE (scratch evidence) | R3 item 6; K10 |
+| R2.11 | GAP → PROVED in P (frozen), as a sufficient condition (revised after K10, 2026-10-22): Proposition 2.11 and Corollary 2.11a give (V2) at a passer or race terminal under (H1)–(H5): a clear path for pawns and kings of both colours, no check, no stalemate, no interference of an ω pawn that captures a β pawn on a neighbouring file, and the timing bound for both move orders over all ω pawns. K10's first draft was FALSE (it ignored all of these); the statement and proof were rebuilt by a Sonnet agent and read step by step by the integrator. One AI proof, checked on 954,392 parked and 60,000 random-king positions with side to move against `kpsolve --frozen` (0 violations; scripts in `kings/delegate/out/K10/scripts/`). Computation CHECKED-2 by K10v (independent code, opencode beam-free): 0 violations in 146,328 certified instances (an instance is a position, side to move, β and p; 119,654 distinct positions with side to move) and 5,716 with an e.p. right; its proof verdict SOUND has no written derivation, so the proof is not re-derived by a second model (revised after K10v, 2026-10-22). Second round: two fresh Sonnet reviewers read the proof and found no error, and their own code found 0 violations in 5,730,596 certified positions with side to move (6,783,482 instances) on cylinders, plus 434,429 positions on flat boards, also 0 violations; no model outside the Sonnet family has re-derived it (revised after the K10 second round, 2026-10-22). Real kings: nothing proved, the square rule is a CONJECTURE (scratch evidence) | R3 item 6; K10 |
 | P3.2 | PROVED; chess bridge PROVED after repair (adds (V1a)) | R4 item 7 |
 | T3.3(a) | PROVED (also KNOWN) | R4: sound |
 | T3.3(b) | FALSE as originally stated (with ∅ the dead position the pair is (W, L)) → { \| ⊖} ⊞ on_D is (L, L): PROVED after repair | R1 item 2 |
@@ -100,7 +100,7 @@ originally stated → …" gives the corrected statement and its label. Each cha
 | P8 | PROVED in P. kpsolve (W, W) on the 6-rank analogue and on 8×8, cylinder and flat; the flat 8×8 result is confirmed by Lichess | `kings/results/king_groups_8x8.txt`, `king_groups_lichess.txt` |
 | P9 | PROVED in P; kpsolve (W, L) | — |
 | P10 | PROVED in P; kpsolve (W, W) for k = 0, 1, 2 on the 8×6 cylinder | PREDICTIONS.md |
-| P11 | PROVED in P, in conditional form (revised after K10, 2026-10-22): `--frozen` = o(W(X)) for every X of the layout whose passer and race terminals are all certified by Corollary 2.11a. The chain is Theorem 1.14(i) with (V1) from the layout (no check is possible, and a king move is always legal), (V3) by fiat, and (V2) by Corollary 2.11a at every terminal; the o(S) clause adds HSS with Theorem 1.11(c) and Theorem 1.14(ii). Without the certificate the equality is FALSE (`Ka1 ka6 Pc2 Pc3 pd3 pd4 w -`: o(W) is a White win, `--frozen` is (L, L)). Not yet done: P11's own harness does not test (H4) and (H5) (the K10 end-to-end script `kings/delegate/out/K10/scripts/e2e.py` does, on the roots listed under Proposition 2.11), and no second model has re-derived Proposition 2.11 | R1 item 11; K10 |
+| P11 | PROVED in P, in conditional form (revised after K10, 2026-10-22): `--frozen` = o(W(X)) for every X of the layout whose passer and race terminals are all certified: by Corollary 2.11a at every node reached by a move and, if X already has a passer (then W(X) ends at the root), by Proposition 2.11 at X itself, with s the side to move and β the side that W(X) credits. Without the root clause the claim is false: `Ka1 ka6 Pc2 Pd4 pd3 b -` is a White win in W(X) and (L, L) in `--frozen` (revised after the K10 second round). The chain is Theorem 1.14(i) with (V1) from the layout (no check is possible, and a king move is always legal) and condition (E) of L1.6 in `notes/lemmas.md`, (V3) by fiat, and (V2) by fiat at king moves, by Corollary 2.11a at every passer and race terminal reached by a move, and by Proposition 2.11 at a root that already has a passer; the o(S) clause adds HSS with Theorem 1.11(c) and Theorem 1.14(ii). Without the certificate the equality is FALSE (`Ka1 ka6 Pc2 Pc3 pd3 pd4 w -`: o(W) is a White win, `--frozen` is (L, L)). Not yet done: the root clause rests on Proposition 2.11 itself and one counterexample, with no end-to-end sweep over roots that have a passer; P11's own harness does not test (H4) and (H5) (the K10 end-to-end script `kings/delegate/out/K10/scripts/e2e.py` does, on the roots listed under Proposition 2.11), and no model outside the Sonnet family has re-derived Proposition 2.11 (in the K10 second round two fresh Sonnet reviewers found no error) | R1 item 11; K10 |
 | P12 | GAP → PROVED after repair in P (Corollary 2.7′, from the repaired Theorem 2.7), restricted to nodes where `--frozen` reports a win. The chess form adds (A_Q) at the root; the earlier alternative "(V2) failure" is not needed (revised after K7, 2026-10-22) | knock-on of R2 item 4; K3; K7 |
 
 Not answered by a change in the mathematics: R1 item 12 (missing A8 content: CGSuite, opposition, Gafni),
@@ -1138,7 +1138,7 @@ that fails when an ω pawn captures a β pawn on a neighbouring file. Two AI rev
 (checks, kings on the path, one move order only, races, en passant). The statement and proof below were rebuilt by
 a Sonnet agent (the K10 fixer), which also ran the enumerations listed after the proof. The integrator read the
 proof step by step, re-ran every example on a separate kpsolve build, and corrected one example (P1a, which also
-fails (H1)). It is one AI proof. No human and no second model has re-derived it. The computation is CHECKED-2: K10v
+fails (H1)). It is one AI proof. In the K10 second round two further Sonnet reviewers, in fresh contexts and without K10's files (they shared a scratch directory with each other for part of the run), read it step by step and found no error; no human and no model outside the Sonnet family has re-derived it. The computation is CHECKED-2: K10v
 (opencode beam-free) wrote its own checker without reading K10's files and found 0 violations (see the checks below;
 revised after K10v, 2026-10-22).
 
@@ -1146,9 +1146,9 @@ revised after K10v, 2026-10-22).
 king move ends the play at once in favour of the opponent of its maker; a side with no legal move at all (king
 moves count as moves) that is not in check draws, and one in check loses; infinite play is a draw. The board is
 a cylinder with W files and H ≥ 5 ranks (files mod W). On a flat board the same proof works with the neighbouring
-files that exist; that case was not run.
+files that exist (not separately written out); a second-round reviewer ran flat 5×6, 6×6, 7×6 and 6×7 (434,429 certified positions with side to move, 0 violations; see the checks).
 
-*Notation.* Fix a position y before any promotion, the side s to move, a side β (the beneficiary) and ω, the
+*Notation.* Fix a legal position y (kings not adjacent, the side not to move not in check) before any promotion, the side s to move, a side β (the beneficiary) and ω, the
 other side. For a pawn q of either colour let ρ(q) be its rank counted from β's side: ρ(q) = rank(q) if β is
 White, and ρ(q) = H + 1 − rank(q) if β is Black, whatever the colour of q (revised after the K10 second round). β's pawns advance towards larger ρ, ω's towards smaller ρ; "ahead of p" means larger ρ.
 β's start rank is ρ = 2 and ω's is ρ = H − 1. For a pawn p of β put d = H − ρ(p) − [ρ(p) = 2] (the number of β
@@ -1248,10 +1248,10 @@ opponent moves first) and e = d − 1 if b = N (the beneficiary moves first). Th
 in both move orders, and a race won by the side to move. The corollary is the proposition at y′. It is
 sufficient only (slack example below).
 
-**Corollary 2.11b (the layout of P11).** On cyl:8×6 with `Ka1 ka6` and the b- and h-files empty, all pawns stand
-on c–g and stay there (F1). Then for either colour as β: (H2) holds (the neighbours of the a-file are b and h);
-(H3) holds with t = a5 for ω = Black and t = a2 for ω = White (the kings are four ranks apart); and no king stands
-on p's file. So at a terminal of such a position only the passed front pawn, (H4) and (H5) have to be checked.
+**Corollary 2.11b (the layout of P11).** On cyl:8×6 with `Ka1 ka6` and every pawn on c–g (the a-, b- and h-files
+empty), the pawns stay on c–g (F1). Then for either colour as β: (H2) holds (the neighbours of the a-file are b and h);
+(H3) holds with t = a5 for ω = Black and t = a2 for ω = White (king distance d(a5, a1) = d(a2, a6) = 4 ≥ 2); and no king stands
+on p's file. So at a terminal of such a position only the passed front pawn, (H4) and (H5) have to be checked. A pawn on the a-file breaks (H3): in `Ka1 ka6 Pa3 Pc2 w -` no neighbour of a6 has three pawn-free files (revised after the K10 second round).
 
 **Remark (the count rule is not a (V2) certificate).** In the count rule's test, β wins iff dp(ω) ≥ e + 1. This is
 (H5) with μ_ω replaced by ω's fastest **passer** distance dp(ω), and dp(ω) ≥ μ_ω whenever no king stands on the
@@ -1259,7 +1259,8 @@ path of that passer (always so in P11's layout). The two agree only if no non-pa
 (H4) nor kings (H1, H2) nor stalemate (H3).
 
 **What the hypotheses do (every example is a `kpsolve --frozen --cap 1` result; the integrator re-ran each on a
-separate build).** Unless a
+separate build).** A pair such as (L, L) is kpsolve's printed line `A B` for the side to move given: the two cap
+bounds, equal in `--frozen`, from White's point of view. It is not the pair (r_w, r_b) of §1.1. Unless a
 board is named, it is cyl:8×6; β is White (p = Pc4 or Pc2) unless said otherwise.
 - *(H5), both move orders.* ω to move (e = d = 2): `Ka1 ka6 Pc4 pe3 b -` (μ = 2) gives (L, L), so ω wins the tie;
   `Ka1 ka6 Pc4 pe4 b -` (μ = 3) gives (W, W). β to move (e = d − 1): `Ka1 ka6 Pc4 pe3 w -` (e = 1, μ = 2) gives (W, W);
@@ -1278,7 +1279,7 @@ board is named, it is cyl:8×6; β is White (p = Pc4 or Pc2) unless said otherwi
   (Pd3 at ρ(p) + 1) is (W, W). The failure arises inside the D-model: `Ka1 ka6 Pc2 Pe2 Pe3 pd4 pe4 pe5 w -` has D-result
   "White wins" (e3xd4 makes c2 a passer, a terminal credited to White) and is (L, L) in F.
   With the bound ρ(p) + 2 in place of ρ(p) + 1, the end-to-end run below refutes 8 certified wins (9,852 roots, cyl:6×6); so does
-  dropping (H4) (16 of 80 instances on cyl:6×6).
+  dropping (H4) (16 of 80 positions with side to move on cyl:6×6).
 - *(H2).* `Ke2 ka6 Pc4 pf4 b -` is (L, L) (f4-f3+ forces a king move or no reply), `Ka1 ka6 Pc4 pf4 b -` is (W, W);
   in both p = c4, d = 2 and μ = 3 = e + 1.
 - *(H1), kings.* `Ka1 kc5 Pc4 pf4 b -`, `Kc5 ka6 Pc4 pf4 b -`, `Kc6 ka6 Pc4 pf4 b -` and `Ka1 kc6 Pc4 pf4 b -`
@@ -1299,8 +1300,9 @@ scripts (`cert.py` decides (H1)–(H5) with its own move generator, and only `pa
 `direct.py`, `direct2.py`, `e2e.py`) and their logs are copied to `kings/delegate/out/K10/scripts/`; their paths point
 at the old scratchpad.
 - *Proposition against `--frozen`, kings parked* (`Ka1` and a Black king on the top rank of the a-file, the b-file and the
-  last file empty, pawns on files c to W − 2, ≤ 3 per side except where noted; both colours as β, both sides to move): cyl:6×6 74,410
-  instances, cyl:8×6 (≤ 2 per side) 64,954, cyl:6×7 306,020, cyl:6×5 12,160, cyl:7×6 496,848: **0 violations in
+  last file empty, pawns on files c to W − 2, ≤ 3 per side except where noted; both colours as β, both sides to move; the
+  unit is a position with its side to move, certified for one β by some p): cyl:6×6 74,410
+  positions, cyl:8×6 (≤ 2 per side) 64,954, cyl:6×7 306,020, cyl:6×5 12,160, cyl:7×6 496,848: **0 violations in
   954,392**. With (H4) dropped: 16 of 80 (6×6), 56 of 456 (6×7), 32 of 368 (7×6) violate.
 - *Independent check (K10v, opencode beam-free, own code; `kings/delegate/out/K10v/`; revised after K10v,
   2026-10-22).* An instance is a position, a side to move, a beneficiary β and a pawn p. Its checker decides (H1)–(H5) with its own move generator and a search for μ_ω, and agrees with
@@ -1310,7 +1312,7 @@ at the old scratchpad.
   (2,356 of them with another β pawn capturable e.p. and ω to move): **0 violations**. Dropping (H4) gives 80, 24 and
   23 violations on the parked boards; dropping (H2) or (H3) gives 3,277 and 2,086 with random kings.
 - *Kings anywhere* (random placements, so that (H2), (H3) and the king clause of (H1) are tested as stated): cyl:7×6,
-  cyl:8×6 and cyl:6×7, 20,000 instances each, ≤ 3 pawns a side: 0 violations in 60,000. With one hypothesis dropped,
+  cyl:8×6 and cyl:6×7, 20,000 positions with side to move each, ≤ 3 pawns a side: 0 violations in 60,000. With one hypothesis dropped,
   the violations are: (H2) 1,744, 1,853 and 1,394 of 20,000; (H3) 8 of 19,033, 8 of 16,599 and 5 of 20,000; the king
   clause of (H1) 563 of 1,315, 469 of 1,020 and 556 of 1,783; (H4) 0 of 4 and 0 of 9 (too few) and 2 of 11.
 - *Chain D → P, end to end* (kings parked; no passer at the root; both sides to move): cyl:6×6 files c–e, ≤ 3 pawns a
@@ -1320,6 +1322,28 @@ at the old scratchpad.
   certified wins, 0 violations. When **every** terminal of the D-game is certified (26,014 roots), `--frozen` equals
   the D-result (o(W)): 0 violations. Without (H4) in the certificate: 8 violations (cyl:6×6). `--frozen` differs from
   o(W) at 3,194 of the 56,872 roots, all of them with some uncertified terminal.
+- *Second round (two Sonnet reviewers in fresh contexts, own code, without reading K10's or K10v's files;
+  scripts and result JSONs in `kings/delegate/out/K10r2/`; 2026-10-22).* An instance is (position, side to move, β, p).
+  - Exhaustive with kings parked on the a-file (all legal a-file king pairs): cyl:5×6 files c–d ≤ 3 a side, cyl:6×6
+    c–e ≤ 3, cyl:7×6 c–f ≤ 2, cyl:8×6 c–g ≤ 2, cyl:6×7 c–e ≤ 2. Exhaustive with free kings: cyl:5×6 c–d ≤ 3, cyl:4×6.
+    Random scenes built for the tight cases (cyl:5×6 to 8×6, 6×7, 6×5) and uniform random positions (cyl:5×6 to 8×6,
+    6×7). On these cylinders, in all,
+    5,730,596 certified positions with side to move (6,783,482 instances): **0 violations**, and no position is
+    certified for both colours. Flat 5×6, 6×6, 7×6 and 6×7: 434,429 positions (516,823 instances), 0 violations.
+  - The tight cases occur among the cylinder instances: (H5) with μ = e + 1 (3,306,911 instances), another β pawn at ρ(p) + 1 on an
+    adjacent file (242,044), an ω pawn entering the strip by a capture (307,127), an ω e.p. right against another
+    β pawn (333,474), ω in check at y (48,190), races (4,642,279).
+  - Controls: on cyl:6×6 parked (all legal a-file king pairs, so a larger sample than the 16 of 80 above), dropping (H4) gives 24 of 940 failures, and the same 24 fail with the bound
+    ρ(p) + 2 (`Ka1 ka6 Pe2 pc5 pd3 pe5 w -`); (H5) weakened to μ ≥ e gives 6,891 of 7,855; dropping the e.p. clause
+    of (H1) gives 272 of 692. With random kings, dropping (H2) or the king clause of (H1) gives hundreds of failures
+    per board, dropping (H3) 1 to 12.
+  - Reproduced exactly: every parked count above that was re-run (74,410; 64,954; 306,020; 12,160;
+    496,848; K10v's 91,074 and 29,140), the end-to-end figures (48,000 conservative wins, 26,014 fully certified
+    roots, 3,194 differences, 8 violations without (H4)), and every example above. On cyl:8×6 with pawns on c–g
+    (≤ 2 a side), (H2), (H3) and the king clause of (H1) held in all 371,250 instances (Corollary 2.11b), and
+    dp(ω) ≥ μ_ω held in all 378,407 instances with no king on the fastest passer's path (the count-rule remark).
+  - Both reviewers read Steps 0–5 and Corollaries 2.11a and 2.11b against `cylcgt/pawns.py` and `kings/kpsolve.c`
+    and found no error. Their findings were the root case of P11, the legality of y, and the wording fixed here.
 
 **Remark 2.11 (the certificate is not special to kings; real kings).** The same (V2) question arises for passer
 terminals. The certificate of Definition 2.6 (king moves) does not apply to a passer as written (Q_Z deletes the
@@ -1825,7 +1849,7 @@ Each is a single file with no possible capture, so pure tempo.
 | P8 | cyl:8x8; cyl:7x6 | 7.3 group `Kg8 Pf7 kf6 pg7`; 6-rank analogue `Kc6 Pb5 kb4 pc5` | (W, W) | (L, W) (read as 0) | (W, W) on 8×8 (kpsolve; Lichess on flat) and on the 6-rank analogue | unparriable safe promotion (§5.3) | PROVED in P |
 | P9 | cyl:7x6 | `Ka5 Pb4 Pc5 Pe2 kc6 pb5 pf3` | (W, L): class 𝓝 | BIG with Z as `on`: (W, W) | (W, L) | Thm 3.3 versus Thm 3.4(b). Black: fxe2 and e1=Q; White: exf3, then zugzwang (Kd5 forced) | PROVED in P; kpsolve agrees |
 | P10 | cyl:8x6 | Z_onT1 + k Black tempo units: k = 0 nothing; k = 1 `Pe2 pe3 pe5`; k = 2 also `Pg2 pg3 pg5` | (W, W) for k = 0, 1, 2 | (L,W), (L,L), (L,L) | (W, W) for k = 0, 1, 2 | Prop 4.3 + Thm 3.4(b): the result does not depend on k, and there is no integer threshold | PROVED in P; kpsolve agrees for k = 0, 1, 2 |
-| P11 | cyl:8x6, `--frozen` | Kings parked on the a-file (`Ka1 ka6`, b- and h-files empty); pawn components on c–g; every passer and race terminal of the D-game of X certified by Corollary 2.11a (for the beneficiary's passed front pawn: (H4) and (H5); in this layout (H2), (H3) and the king clause of (H1) hold by Corollary 2.11b); condition (E). Here W(X) is the D-game of X with its own winning side, and "hereditarily sum-safe" (HSS) means that every component of X is itself sum-safe in the sense of Theorem 1.14(ii) | kpsolve `--frozen` = o(W(X)); also = o(S(X)) when hereditarily sum-safe. Where o(S) ≠ o(W) (opposite threats, Prop 1.12), `--frozen` sides with W | — | — (a harness check, not one position) | Thm 1.11 + Thm 1.14 (frozen kings satisfy V1 and V3 by fiat) + Proposition 2.11 / Corollary 2.11a for (V2) | PROVED in P, conditional on the certificate (revised after K10, 2026-10-22). False without it: `Ka1 ka6 Pc2 Pc3 pd3 pd4 w -` is a White win in W(X) and (L, L) in `--frozen`; checked end to end on 56,872 roots of cyl:6×6, cyl:7×6 and cyl:8×6 (0 violations when every terminal is certified; 3,194 roots differ otherwise) |
+| P11 | cyl:8x6, `--frozen` | Kings parked on the a-file (`Ka1 ka6`, b- and h-files empty); pawn components on c–g; every passer and race terminal of the D-game of X certified by Corollary 2.11a, and, if X already has a passer, X itself certified by Proposition 2.11 (s the side to move, β the side W(X) credits) (for the beneficiary's passed front pawn: (H4) and (H5); in this layout (H2), (H3) and the king clause of (H1) hold by Corollary 2.11b); condition (E). Here W(X) is the D-game of X with its own winning side, and "hereditarily sum-safe" (HSS) means (HSS) and (B) of Theorem 1.11(c), that is (V4) of Theorem 1.14: at every position reachable before the first decisive event, the re-split components are pairwise safe and BIG exceeds every tempo count | kpsolve `--frozen` = o(W(X)); also = o(S(X)) when hereditarily sum-safe. Where o(S) ≠ o(W) (opposite threats, Prop 1.12), `--frozen` sides with W | — | — (a harness check, not one position) | Thm 1.11 + Thm 1.14 ((V3), and (V2) at king moves, hold by fiat; (V1) holds in the layout by Corollary 2.11b: no check, and a2 or a5 is always a legal king move) + Proposition 2.11 / Corollary 2.11a for (V2) at passer and race terminals | PROVED in P, conditional on the certificate (revised after K10, 2026-10-22). False without it: `Ka1 ka6 Pc2 Pc3 pd3 pd4 w -` is a White win in W(X) and (L, L) in `--frozen`; checked end to end on 56,872 roots (a root is a position with its side to move, here without a passer) of cyl:6×6, cyl:7×6 and cyl:8×6 (0 violations when every terminal is certified; 3,194 roots differ otherwise) |
 | P12 | cyl:7x6 | Z_T + any context on e–f | If `--frozen` reports a win for σ at X, then either σ wins in P, or, for every `--frozen` winning strategy of σ, some node of it with σ̄ to move has a king move of σ̄ that is not a P-loss. For that move, and for every admissible reply r (Definition 2.6) and every T ≥ 1, (L1), (L2) or (L3) fails. In chess, add (A_Q) at X | — | — (a harness check, not one position) | Thm 2.7 (contrapositive) + the transfer argument of Corollary 2.7′ | PROVED after repair, in P, for the nodes where `--frozen` reports a win; the chess form needs (A_Q) (revised after K7, 2026-10-22) |
 
 **Notes on the table.**

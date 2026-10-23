@@ -6,7 +6,8 @@
   R2.11, P11 (status table) and P11 (§6). Edits 5–8 bring the preamble, the K3 remark and §7 items 1 and 5 up to date.
 - New labels:
   - Proposition 2.11 is PROVED in P (frozen), as a sufficient condition.
-  - P11 is PROVED in P in a conditional form: every passer and race terminal must be certified.
+  - P11 is PROVED in P in a conditional form: every passer and race terminal must be certified (and, after the
+    second round, a root that already has a passer must itself satisfy Proposition 2.11).
   - The real-king square rule is a CONJECTURE.
 
 ## Who did what
@@ -35,9 +36,9 @@
    - It added Corollaries 2.11a ((V2) at every terminal shape, races included) and 2.11b (P11's layout needs only
      (H4) and (H5)).
    - It checked these against `kpsolve --frozen`, with 0 violations everywhere:
-     - 954,392 parked-king instances;
-     - 60,000 random-king instances;
-     - 56,872 roots end to end.
+     - 954,392 parked-king positions with side to move (each certified for one β);
+     - 60,000 random-king positions with side to move;
+     - 56,872 roots end to end (roots without a passer).
    - Dropping any one hypothesis produces violations.
 4. **Integrator (this session).**
    - Read the proof step by step: Step 0 (F1–F3), king safety, the invariants (J_β), (J_ω) and (I1), the e.p.
@@ -63,7 +64,8 @@
 
 ## Still open
 
-- No second model has re-derived Proposition 2.11; the next step is an independent check.
+- No model outside the Sonnet family has re-derived Proposition 2.11. K10v checked the computation, and the second
+  round (`../K10r2/REVIEW.md`) read the proof again and fixed P11's root case.
 - P11's own harness does not test (H4) and (H5). Only `scripts/e2e.py` does, on the roots listed in LOOPY.
 - With real kings nothing is proved. `Ka1 ka6 Pc2 w -` satisfies (H1)–(H5) and is (W, W) frozen, but (D, D) both
   in P with real kings and in chess.

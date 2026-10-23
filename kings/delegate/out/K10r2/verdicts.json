@@ -1,0 +1,148 @@
+{
+  "summary": "K10 second round (retry): two fresh Sonnet reviewers check the final Proposition 2.11 proof and search for counterexamples to its statement",
+  "agentCount": 2,
+  "logs": [
+    "proofcheck: GAP (7); search: SOUND (3)"
+  ],
+  "result": {
+    "verdicts": [
+      {
+        "verdict": "GAP",
+        "summary": "I read the proof of Proposition 2.11 and found no error in it. That covers Steps 0-5, the invariants (J_beta), (J_omega) and (I1), the timing, d = H - rho - [rho = 2] and the G_omega argument. Corollaries 2.11a and 2.11b also hold. The gaps are in how the P11 rows (status table and section 6) state their scope, and in a few places where the text is imprecise.\n\nPROOF CHECKS (by hand, against cylcgt/pawns.py and kings/kpsolve.c):\n- F1/F2/F3 match kpsolve --frozen. A king move, capture or not, emits a terminal win for the opponent. A promotion emits a terminal win for the promoter and is legal only if the promoter's king is not in check. A side with no move draws, or loses if in check, and king moves count as moves (kpsolve.c, `m == 0`).\n- Invariants under every kind of move:\n  - beta single push and double step: J_omega holds with (J_beta). No e.p. right can arise, because an e.p. capturer must stand on the destination rank rho_p+2 and J_beta caps omega pawns at rho_p+1.\n  - omega push and double step stay on their file and lower rho. Captures landing on file f are behind p by (H1). Captures landing on f+-1 land at rho(q) <= rho_0+1 by (H4), including captures from outside the strip. The e.p. capture offered at y lands at most one rank below its victim, and the victim is not p by (H1).\n  - Captures out of the strip change nothing. omega king moves end F (F2).\n- Step 4: every real omega move is a G_omega move. Deleting p and ignoring checks only enlarge the move set, and p is never captured.\n- Step 5: both orders give e = d (s = omega) and e = d-1 (s = beta). d agrees with promote_distance for H >= 5. For H = 4 the double step would promote, so H >= 5 is needed.\n- (H3) gives a legal king move to t even in check. t is empty, not attacked by a pawn (F1) and not adjacent to beta's king. (H2) via (F1) gives that beta is never in check.\n- Corollary 2.11a against `_child` for every terminal type:\n  - A one-sided passer gives b = the passer's owner. A race gives b = N iff dp(N) <= dp(M), which is exactly the count-rule test dp(opponent) >= e+1.\n  - The remark dp(omega) >= mu_omega holds: 0 failures in 377,608 random tests on cyl:8x6.\n  - e = d for b = M and e = d-1 for b = N both match H5.\n- Corollary 2.11b is correct. In the cyl:8x6 layout, (H2), (H3) and the king clause of (H1) hold for either colour as beta.\n\nCOMPUTATION (my own code in the scratchpad k10r2, not K10/K10v code; kpsolve --frozen --cap 1 under nice, 2 threads, one process at a time):\n- Own checker for (H1)-(H5), with its own G_omega search, against kpsolve --frozen: about 33,000 certified instances over boards cyl:4x6, 5x5, 5x6, 6x5, 6x6, 7x5, 7x6, 8x5 and 8x6, with e.p. rights, random kings, parked kings and narrow file windows. 0 violations.\n- Power check: dropping H1, H2, H4 or H5 gives violations (259, 260, 1 and 925 of about 2,500). Dropping H3 gave none in that random sample, but the note's own H3 example reproduces.\n- Corollary 2.11a, terminal by terminal: every certified terminal of all four kinds (single/M, single/N, race/M, race/N) is a b-win in kpsolve. 0 violations.\n- P11 end to end, exhaustive in the layout: boards cyl:6x6, 8x6 and 7x6 with sizes as in the Checks paragraph (56,872 lines, each a (position, side to move) pair).\n  - 48,000 conservative certified wins, 0 violations.\n  - 26,014 lines have every terminal certified; on them --frozen equals the D-result (0 differences).\n  - 3,194 lines differ from the D-result, and every one has an uncertified terminal.\n  - Slackening the H4 bound to rho(p)+2, or dropping H4, gives 8 violations on cyl:6x6 files c-e. The note's counts reproduce exactly.\n- All 28 examples in 'What the hypotheses do' reproduce their stated values, and the D-result claims for Pc2 Pc3 pd3 pd4 and Pc2 Pe2 Pe3 pd4 pe4 pe5 also match.\n\nCleanup note: k10r2 already held files that were not mine (ex.py, sweep.py, mine_h15). My cleanup `rm` of *.res, *.pos, *.json and *.err in k10r2 may have removed other agents' files of those types. The repository was not touched.",
+        "problems": [
+          {
+            "severity": "major",
+            "where": "LOOPY.md status row P11 and section 6 row P11 (scope of 'every X of the layout')",
+            "what": "As written, the claim '--frozen = o(W(X)) for every X of the layout whose passer and race terminals are all certified by Corollary 2.11a' is false for a root X that already has a passer. Corollary 2.11a certifies only a node y' reached by a move, so a root passer is not covered and the hypothesis holds vacuously. The Checks paragraph (K10's end-to-end run) restricts to roots with no passer, but P11 does not say so.",
+            "counterexample": "X = `Ka1 ka6 Pc2 Pd4 pd3 b -` on cyl:8x6 (the note's own example for (H5)). Pd4 is passed, so o(W(X)) is a White win by the root test (cylcgt `terminal` = +1), but kpsolve --frozen gives L L. The layout, (E) and a one-component X all hold.",
+            "fix": "Add 'X has no passer' to P11 in both places. Alternatively require that X itself satisfy (H1)-(H5) for its passer, with s the side to move; Proposition 2.11 applies at any legal y, not only at nodes reached by a move."
+          },
+          {
+            "severity": "minor",
+            "where": "Section 6 row P11, Basis column: '(frozen kings satisfy V1 and V3 by fiat)'",
+            "what": "Only (V3) holds by fiat. (V1) does not follow from freezing the kings: checks and stalemate occur in --frozen when kings are not parked (the note's own (H3) example `Ke1 ka6 Pa4 Pc5 Pg5 pa5 b -` is (D,D)). In the layout, (V1) holds because no check is possible and a king move to a2/a5 is always legal (Corollary 2.11b). This contradicts the status row, which attributes (V1) to the layout.",
+            "counterexample": "`Ke1 ka6 Pa4 Pc5 Pg5 pa5 b -` on cyl:8x6 is (D,D): a stalemate, so (V1b) fails once kings are not parked.",
+            "fix": "Replace the parenthesis by '(V3) by fiat; (V1a, no check) and (V1b) from the layout, as in Corollary 2.11b: a2/a5 is always a legal king move'."
+          },
+          {
+            "severity": "minor",
+            "where": "Status row P11: '(V1) from the layout (no check is possible, and a king move is always legal)'",
+            "what": "(V1a) of Theorem 1.14 also includes condition (E). The status row does not list it, while the section 6 row does. Also (V2) of Theorem 1.14 covers the Z-move terminals, which are P-wins for the opponent by fiat. The row mentions Corollary 2.11a only for passer and race terminals.",
+            "counterexample": "None. Computationally the equality with the whole-board W(X) holds without (E): the roots tested include multi-component roots with usable e.p. rights, and 0 violations. So (E) is needed only for the sum form and for the o(S) clause, which the row should say.",
+            "fix": "State that (E) is needed only for the o(S)/sum clause, because W(X) has global e.p. rights. Add 'and (V2) for king moves holds by fiat'."
+          },
+          {
+            "severity": "minor",
+            "where": "Section 6 row P11: 'hereditarily sum-safe (HSS) means that every component of X is itself sum-safe in the sense of Theorem 1.14(ii)'",
+            "what": "This is weaker than what Theorem 1.11(c) and Theorem 1.14(ii) need. They require pairwise safety of the re-split components of every position Y reachable before the first decisive event, with the either-player tau, and BIG > tempo counts. A property of the components of X alone is not that.",
+            "counterexample": "None computed. The definition in 1.11(c) is the hereditary one.",
+            "fix": "Quote (HSS) of Theorem 1.11(c) and (V4) of Theorem 1.14 verbatim, or refer to lemmas.common.hereditarily_safe."
+          },
+          {
+            "severity": "minor",
+            "where": "Proposition 2.11, Setting and Step 1 ('ω's king gives no check')",
+            "what": "The proof uses that y is a legal position: the kings are not adjacent. Without that, ω's king can attack β's king, and H2 (pawns only) does not exclude it. The statement says only 'fix a position y before any promotion'. All uses (Corollary 2.11a, kpsolve inputs) are legal, so this is a drafting gap, not a counterexample.",
+            "counterexample": "An illegal y with adjacent kings, e.g. Ka1 and ka2 plus a pawn configuration satisfying (H1)-(H5). kpsolve rejects it as X, so there is no counterexample in F.",
+            "fix": "Add 'y legal (kings not adjacent, the side not to move not in check)' to the Setting."
+          },
+          {
+            "severity": "minor",
+            "where": "Corollary 2.11b, '(H3) holds with t = a5 ... (the kings are four ranks apart)'",
+            "what": "Ka1 and ka6 are five ranks apart (four ranks lie between them). The needed fact is d(t, beta's king) = 4 >= 2.",
+            "counterexample": "Not applicable (wording).",
+            "fix": "Write 'd(a5, a1) = d(a2, a6) = 4 >= 2'."
+          },
+          {
+            "severity": "minor",
+            "where": "'What the hypotheses do' and Checks: result notation, and 'roots'",
+            "what": "Examples write '(L, L)' for a single kpsolve line, which is the printed pair of bounds A, B for one side to move. Section 1.1 defines (r_w, r_b) as the results with White to move and with Black to move. The two readings clash. In the Checks paragraph, 'roots' means (position, side to move) pairs: 9,852 = 2 x 4,926 positions.",
+            "counterexample": "None (presentation). A reader taking `Ka1 ka6 Pc4 pe3 b -` = (L, L) as 'Black wins whoever moves' would misread it.",
+            "fix": "Say 'kpsolve prints A B (bounds, equal in --frozen)' in the examples. Say 'lines (root, side to move)' in the Checks paragraph."
+          }
+        ],
+        "lens": "proofcheck"
+      },
+      {
+        "verdict": "SOUND",
+        "summary": "Result: no violation of Proposition 2.11 in about 6.8 million certified instances, and no wrong example. I found two small wording defects in the surrounding text.\n\nSetup. I wrote my own checker for (H1)-(H5) as worded in the note. It has its own move generator and legality test, and computes mu_omega by iterative-deepening search over G_omega. The brute-force reference was a private kpsolve build run with --frozen, --threads 2 and nice 10, one process at a time. Peak memory was 1.8 GB. Only my own pids were involved and no pattern kills were used. Another process shared the k10r2 directory and overwrote my first chk.py and kp. I moved to k10r2/mine_h15/, rebuilt there, and never touched K10/ or K10v/ outputs. The big scratch files are deleted; the scripts, logs and result JSONs (268 KB) remain in mine_h15/.\n\nTest design. I used no cylcgt code except where the task named it, in the dp and credit comparison. For every legal position y and side to move s, I tested every beta in {W,B} and every pawn p of beta. If (H1)-(H5) held, kpsolve had to report a beta win under both of its bounds. Positions that kpsolve rejected as illegal (result X) were recorded; there were none, so my legality test agrees with kpsolve's.\n\nInstances tested. Counts are not de-duplicated across runs. A \"position\" means a position with side to move, and an \"instance\" means (position, beta, p).\n- Cylinder sweep, all boards: 15.89M legal positions generated, 5,730,596 certified positions, 6,783,482 certified instances. Violations: 0. Positions where both colours were certified: 0.\n- Boards: cyl:5x6, 6x6, 7x6, 8x6 and 6x7 as asked, plus 6x5 and 4x6.\n- Kings parked on the a-file, exhaustive over the pawn configurations:\n  - 5x6, files c-d, up to 3 per side: 103,240 positions, 120,088 instances.\n  - 6x6, files c-e, up to 3: 1,655,328 positions, 2,008,164 instances.\n  - 7x6, files c-f, up to 2: 619,912 positions, 711,536 instances.\n  - 8x6, files c-g, up to 2: 1,662,392 positions, 1,943,352 instances.\n  - 6x7, files c-e, up to 2: 626,136 positions, 693,216 instances.\n  - Here the kings stand on all 20 or 21 legal a-file pairs.\n- Kings free and exhaustive: 5x6 with pawns on c-d, up to 3 per side, all legal king pairs: 334,788 positions, 383,076 instances. 4x6: 19,072 positions.\n- Random scenes built for the tight cases, 600k per board: 273,497 certified positions in total (13,354 on 5x6; 35,557 on 6x6; 63,440 on 7x6; 91,893 on 8x6; 35,933 on 6x7; 33,320 on 6x5).\n- Uniform random pawns, kings free: 265,911 certified positions on the five required boards. Same with kings parked: 170,320.\n- Flat boards (the note says \"not run\"): 434,429 certified positions, 516,823 instances, 0 violations.\n- Coverage of the tight cases among the certified cylinder instances, counted by a feature tagger:\n  - H5 tight (mu = e+1): 3,306,911.\n  - Another beta pawn at rho(p)+1 on an adjacent file (H4 at its bound): 242,044.\n  - A beta pawn behind p on p's file with a capture available: 596,788.\n  - An omega pawn entering the strip by a capture from two files away: 307,127.\n  - E.p. right for omega against another beta pawn: 333,474, of which 99,665 are capturable at once and 44,021 have the victim on an adjacent file.\n  - p gives check to omega's king: 26,414.\n  - Omega in check at y: 48,190.\n  - Omega has a passer, so a race: 4,642,279.\n  - Black as beta: 3,392,112 (White as beta: 3,391,370).\n  - Kings not both on the a-file: 845,614.\n\nHarness sensitivity. When a hypothesis is relaxed, kpsolve does show non-wins, so the zero-violation result is not vacuous.\n- Parked exhaustive 6x6:\n  - Dropping H4: 24 of 940 fail. The same 24 fail with the bound relaxed to rho(p)+2, so the bound is tight; the example is `Ka1 ka6 Pe2 pc5 pd3 pe5 w -`.\n  - Weakening H5 to mu >= e: 6,891 of 7,855 fail.\n  - Dropping the e.p. clause of H1: 272 of 692 fail.\n- Random kings, depending on board:\n  - Dropping H2: 308 of 4,826 on 5x6 and 555 of 5,059 on 7x6.\n  - Dropping the king clause of H1: 124 of 499 on 5x6 and 711 of 1,767 on 8x6.\n  - Dropping H3: 1 to 12 failures per board.\n\nOther claims checked.\n- Corollary 2.11b: on cyl:8x6 with Ka1 ka6 and pawns on c-g (up to 2 per side, 371,250 instances), H2, H3 and the king clause of H1 held every time.\n- Count-rule remark: my dp agrees with cylcgt promote_distance on 438,320 comparisons, and dp(omega) >= mu_omega held in all 378,407 instances where no king stands on the fastest passer's path. Whenever mu_omega exceeded dp, a king stood on that path.\n- Reproduction of the \"parked\" counts, for the positions the note calls \"instances\": 74,410 on 6x6 up to 3, 64,954 on 8x6 up to 2, 306,020 on 6x7 up to 3, 12,160 on 6x5 up to 3 and 496,848 on 7x6 up to 3, all exactly. K10v's 91,074 instances on 6x6 and 29,140 on 7x6 up to 2 are also exact.\n\nExamples. I re-ran all 27 positions of the list (25 on cyl:8x6, one on cyl:7x6, one on flat:7x6) with kpsolve --frozen --cap 1, and all stated results match. Every stated hypothesis status and value of d, e and mu also matches. I also confirmed with cylcgt that `W: c2 c3 / B: d3 d4` is a White win in the D-model, and that `W: c2 e2 e3 / B: d4 e4 e5` is too. In `Pc2 Pd4 pd3` only White has a passer, and in the race `Pc4 Pd2 pe3 pf4` dp(W)=2 and dp(B)=3.\n\nProof. I read the proof (Steps 0-5) against the code. Step 2 holds, in particular the bound rho <= rho_p+1 for captures landing in the strip, the e.p. case, and the double step. Step 4 (G_omega only enlarges omega's move set) holds, and Step 5 is correct with e = d or d-1. Step 1 holds because t is never attacked or occupied. I found no gap in the proof, and no counterexample from any run.",
+        "problems": [
+          {
+            "severity": "minor",
+            "where": "Corollary 2.11b, first sentence",
+            "what": "The premise says only that the b- and h-files are empty, then concludes 'all pawns stand on c-g'. That does not follow. With a pawn on the a-file (the kings' file), the conclusion that (H3) holds with t = a5 or t = a2 is false.",
+            "counterexample": "cyl:8x6 `Ka1 ka6 Pa3 Pc2 w -`: the position is legal, the kings stand on a1 and a6, and the b- and h-files are empty. For beta = White with p = c2, my checker gives H1, H2, H4 and H5 true and H3 false. Omega's king on a6 has no neighbouring square whose three files are free of pawns. This is a wording defect only: the P11 layout row says 'pawn components on c-g', and for pawns on c-g the corollary holds in all 371,250 instances tested.",
+            "fix": "State the premise as 'the a-, b- and h-files hold no pawn' (all pawns on c-g), instead of presenting 'all pawns on c-g' as a consequence."
+          },
+          {
+            "severity": "minor",
+            "where": "Checks paragraph (K10 fixer), and the matching figure in status row R2.11",
+            "what": "The counts 74,410 (6x6), 64,954 (8x6), 306,020 (6x7), 12,160 (6x5) and 496,848 (7x6) are called 'instances'. But the note defines an instance as (position, side to move, beta, p), and K10v's paragraph calls 74,410 'positions with side to move' against 91,074 instances. They are positions with side to move; R2.11 repeats the mislabel in its '954,392 instances'.",
+            "counterexample": "My exhaustive parked enumeration on cyl:6x6 (Ka1, black king on a6, files c-e, up to 3 pawns a side, no e.p.) gives exactly 74,410 certified positions with side to move and 91,074 certified instances. For 7x6 up to 3 pawns a side the positions number exactly 496,848, with 628,348 instances. The note's totals of 954,392 and 60,000 are therefore position counts, not instance counts.",
+            "fix": "Relabel those counts as 'positions with side to move' or give the instance counts (91,074; 628,348; and so on)."
+          },
+          {
+            "severity": "minor",
+            "where": "Setting: 'On a flat board the same proof works ... that case was not run.'",
+            "what": "The sentence is now out of date and can be upgraded: the flat case has been run.",
+            "counterexample": "I ran flat boards 5x6, 6x6, 7x6 and 6x7 (random scenes, uniform random pawns, and an exhaustive 6x6 enumeration with the kings on the a-file). That gave 434,429 certified positions, 516,823 instances and 0 violations, with the neighbouring-file rule meaning only files that exist.",
+            "fix": "Replace 'was not run' by a statement of the flat-board counts above."
+          }
+        ],
+        "lens": "search"
+      }
+    ]
+  },
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "Review"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "k10r2b:proofcheck",
+      "phaseIndex": 1,
+      "phaseTitle": "Review",
+      "agentId": "ac19fcfbec278a975",
+      "model": "claude-sonnet-5-5",
+      "state": "done",
+      "startedAt": 1792716907457,
+      "queuedAt": 1792716907446,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "GAP",
+      "promptPreview": "Project root /Users/aritro/Downloads/Research/Chessendgames. Read-only for the repository (edit no existing file; no git except show/log). Scratch only in /private/tmp/claude-501/-Users-aritro-Downloads-Research-Chessendgames/5e853794-e7f0-4f24-9541-471b59b05e33/scratchpad/k10r2/ (create it). Never use pkill, killall, kill -- -1 or any pattern-based kill; kill only PIDs you started and recorded. C…",
+      "promptFramed": true,
+      "lastProgressAt": 1792718113019,
+      "tokens": 238817,
+      "toolCalls": 39,
+      "durationMs": 1205561,
+      "resultPreview": "{\"verdict\":\"GAP\",\"summary\":\"I read the proof of Proposition 2.11 and found no error in it. That covers Steps 0-5, the invariants (J_beta), (J_omega) and (I1), the timing, d = H - rho - [rho = 2] and the G_omega argument. Corollaries 2.11a and 2.11b also hold. The gaps are in how the P11 rows (status table and section 6) state their scope, and in a few places where the text is imprecise.\\n\\nPROOF C…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "k10r2b:search",
+      "phaseIndex": 1,
+      "phaseTitle": "Review",
+      "agentId": "a3f07b583360d48f1",
+      "model": "claude-sonnet-5-5",
+      "state": "done",
+      "startedAt": 1792716907458,
+      "queuedAt": 1792716907446,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "SOUND",
+      "promptPreview": "Project root /Users/aritro/Downloads/Research/Chessendgames. Read-only for the repository (edit no existing file; no git except show/log). Scratch only in /private/tmp/claude-501/-Users-aritro-Downloads-Research-Chessendgames/5e853794-e7f0-4f24-9541-471b59b05e33/scratchpad/k10r2/ (create it). Never use pkill, killall, kill -- -1 or any pattern-based kill; kill only PIDs you started and recorded. C…",
+      "promptFramed": true,
+      "lastProgressAt": 1792722591674,
+      "tokens": 247371,
+      "toolCalls": 64,
+      "durationMs": 5680553,
+      "resultPreview": "{\"verdict\":\"SOUND\",\"summary\":\"Result: no violation of Proposition 2.11 in about 6.8 million certified instances, and no wrong example. I found two small wording defects in the surrounding text.\\n\\nSetup. I wrote my own checker for (H1)-(H5) as worded in the note. It has its own move generator and legality test, and computes mu_omega by iterative-deepening search over G_omega. The brute-force refer…"
+    }
+  ],
+  "totalTokens": 486188,
+  "totalToolCalls": 103
+}

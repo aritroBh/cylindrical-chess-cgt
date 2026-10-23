@@ -1,0 +1,40 @@
+20:04:14 START scene
+20:04:35 scene_5x6 legal 387974 tested 13354 inst 15318 VIOL 0 X 0 both 0 rss(MB) 43 21s
+20:05:27 scene_6x6 legal 420151 tested 35557 inst 42225 VIOL 0 X 0 both 0 rss(MB) 209 52s
+20:09:22 scene_7x6 legal 442129 tested 63440 inst 77867 VIOL 0 X 0 both 0 rss(MB) 721 236s
+20:22:04 scene_8x6 legal 458241 tested 91893 inst 115372 VIOL 0 X 0 both 0 rss(MB) 1843 762s
+20:23:52 scene_6x7 legal 441588 tested 35933 inst 42011 VIOL 0 X 0 both 0 rss(MB) 1843 108s
+20:24:15 scene_6x5 legal 382348 tested 33320 inst 40099 VIOL 0 X 0 both 0 rss(MB) 1843 23s
+20:24:15 DONE scene
+20:24:15 START ablate
+20:24:42 ablate_5x6 {"drop_H1_ep": [241, 171], "drop_H1_king_path": [499, 124], "drop_H2": [4826, 308], "drop_H3": [4664, 12], "drop_H4": [477, 0], "H4_bound_rho+2": [377, 0], "H5_weakened_mu>=e": [1944, 1446], "drop_H5": [4161, 3555]}
+20:25:30 ablate_6x6 {"drop_H1_ep": [674, 356], "drop_H1_king_path": [1147, 480], "drop_H2": [4911, 463], "drop_H3": [4801, 7], "drop_H4": [1169, 0], "H4_bound_rho+2": [955, 0], "H5_weakened_mu>=e": [4447, 3373], "drop_H5": [4454, 3814]}
+20:27:51 ablate_7x6 {"drop_H1_ep": [1542, 836], "drop_H1_king_path": [1686, 668], "drop_H2": [5059, 555], "drop_H3": [4943, 5], "drop_H4": [1940, 2], "H4_bound_rho+2": [1568, 2], "H5_weakened_mu>=e": [4468, 3250], "drop_H5": [4678, 3855]}
+20:33:49 ablate_8x6 {"drop_H1_ep": [2333, 1120], "drop_H1_king_path": [1767, 711], "drop_H2": [5113, 550], "drop_H3": [5008, 4], "drop_H4": [2724, 3], "H4_bound_rho+2": [2230, 3], "H5_weakened_mu>=e": [4609, 3340], "drop_H5": [4900, 4054]}
+20:35:57 ablate_6x7 {"drop_H1_ep": [111, 52], "drop_H1_king_path": [1074, 453], "drop_H2": [4758, 477], "drop_H3": [4683, 1], "drop_H4": [1408, 0], "H4_bound_rho+2": [1019, 0], "H5_weakened_mu>=e": [4312, 3378], "drop_H5": [4385, 3756]}
+20:35:57 DONE ablate
+20:35:57 START exh_parked
+20:36:04 exh_a_5x6_cd3 legal 143920 tested 103240 inst 120088 VIOL 0 X 0 both 0 rss(MB) 1843 7s
+20:39:08 exh_a_6x6_cde3 legal 2124440 tested 1655328 inst 2008164 VIOL 0 X 0 both 0 rss(MB) 1843 184s
+20:40:01 exh_a_7x6_cdef2 legal 770720 tested 619912 inst 711536 VIOL 0 X 0 both 0 rss(MB) 1843 53s
+20:42:51 exh_a_8x6_cdefg2 legal 1965000 tested 1662392 inst 1943352 VIOL 0 X 0 both 0 rss(MB) 1843 170s
+20:43:38 exh_a_6x7_cde2 legal 841140 tested 626136 inst 693216 VIOL 0 X 0 both 0 rss(MB) 1843 47s
+20:43:38 DONE exh_parked
+20:43:38 START exh_free
+20:45:23 exh_free_5x6_cd3 legal 2933300 tested 334788 inst 383076 VIOL 0 X 0 both 0 rss(MB) 1843 105s
+20:46:12 exh_free_4x6_cd3 legal 1495412 tested 19072 inst 19072 VIOL 0 X 0 both 0 rss(MB) 1843 48s
+20:46:12 DONE exh_free
+20:46:12 START uni_free
+20:46:23 uni_free_5x6 legal 312146 tested 21301 inst 23365 VIOL 0 X 0 both 0 rss(MB) 1843 11s
+20:46:47 uni_free_6x6 legal 341295 tested 44402 inst 52780 VIOL 0 X 0 both 0 rss(MB) 1843 24s
+20:48:04 uni_free_7x6 legal 361269 tested 64999 inst 81285 VIOL 0 X 0 both 0 rss(MB) 1843 78s
+20:51:41 uni_free_8x6 legal 374913 tested 85514 inst 111532 VIOL 0 X 0 both 0 rss(MB) 1843 217s
+20:52:36 uni_free_6x7 legal 361660 tested 49695 inst 58108 VIOL 0 X 0 both 0 rss(MB) 1843 54s
+20:52:36 DONE uni_free
+20:52:36 START uni_parked
+20:52:46 uni_parked_5x6 legal 220073 tested 9081 inst 11382 VIOL 0 X 0 both 0 rss(MB) 1843 10s
+20:53:03 uni_parked_6x6 legal 251630 tested 24029 inst 33240 VIOL 0 X 0 both 0 rss(MB) 1843 17s
+20:54:02 uni_parked_7x6 legal 274931 tested 42730 inst 62589 VIOL 0 X 0 both 0 rss(MB) 1843 58s
+20:56:57 uni_parked_8x6 legal 292669 tested 62937 inst 95481 VIOL 0 X 0 both 0 rss(MB) 1843 175s
+20:57:29 uni_parked_6x7 legal 288312 tested 31543 inst 42324 VIOL 0 X 0 both 0 rss(MB) 1843 32s
+20:57:29 DONE uni_parked
