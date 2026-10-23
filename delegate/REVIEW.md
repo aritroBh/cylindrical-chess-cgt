@@ -553,3 +553,33 @@ issue seen by different lenses; 4 rejected. Applied as about 13 edits:
 - **Page count:** the main (arXiv) build is now 15 pages (page 15 holds six references). The anonymous review build,
   which has the 14-page journal limit, stays at 14.
 
+
+## Round 10, part 1 (2026-10-22 evening)
+
+**Passer certificate (kings session K10, 20bd6c6).** LOOPY Proposition 2.11 is PROVED in the frozen promotion
+model F (king moves lose), as a sufficient condition. It has five hypotheses: (H1) clear path for pawns and kings;
+(H2) no pawn next to the beneficiary's king; (H3) the defender's king has a safe square; (H4) no own pawn on an
+adjacent file more than one rank ahead; (H5) every enemy pawn, passed or not, needs at least e + 1 moves. The free
+model's first draft was FALSE, and Sonnet rebuilt it. It is one AI proof, checked against `kpsolve --frozen` on
+about 1M instances with 0 violations. The model is not a (V2) certificate: in `Ka1 ka6 Pc2 Pd4 pd3 b -` (cyl
+8×6), kpsolve frozen gives L L and cylcgt +W. I re-ran both myself.
+- Paper §IV: one paragraph after the chess counterexample to the (V3) certificate. It gives the local (V2) test
+  [AI] and this example [C1].
+
+**T48 (Codex, independent C8 9-pawn ring check).** Codex hit its usage limit at 19:14 (it resets at 23:59). The
+Kilo fallback then rewrote `c8check.c` as a width-generic version of `c7check_persist_ds.c` and was walled. It
+had already started chunk 0 of 4. The orchestrator took over:
+- `c8check` gives \*2 for E_8 `W b2 c3 c5 d2 f2 h2 / B a5 b5 c6 e4 g4` and \*3 for the C7 ring
+  `W a2 a5 c4 e2 f2 / B a7 b4 d7 e5 g7`;
+- its `--count-only` totals over the four chunks give 7,039,362 canonical nine-pawn ring classes. That is exactly
+  2 × 3,519,681, the scanner's root count for the splits nw ≤ nb (4+5: 2,996,406; 3+6: 523,275; 2+7 and 1+8:
+  none). So the two enumerations agree up to colour reversal;
+- chunks 1–3 are queued after chunk 0 (`research/c8_independent/run_rest.sh`, `progress.txt`).
+- Independence: `c8check` descends from Codex's C7 solver (written from the rules), not from the scanner or
+  cylcgt.
+
+**C8 scan (scanner, default setting).** All nine-pawn splits are done, with no ring \*2 or higher (4+5: max nimber
+1; 3+6, 2+7, 1+8: no nimber). The ten-pawn 5+5 split is running.
+
+**T45 (OpenCode, C5/C6 second program).** Its ring solver finds no ring \*2 on C5 with 5, 6 or 7 pawns
+(1,034 / 27,552 / 349,312 classes, mirror-consistent). Its eight-pawn run is still going.

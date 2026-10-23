@@ -98,6 +98,11 @@ In chess no margin suffices. On the cylinder with seven files and six ranks, Kb4
 white to move, the king move Kb4--c5 has a certificate of horizon~1, yet the chess result after it is a draw, and
 on the $6\times6$ board a margin of one more move fails as well \lab{C1}.
 
+For (V2) a local test is known only if king moves also lose \lab{AI}: a passed pawn then wins the promotion
+game if, besides conditions on checks, stalemates and its own nearby pawns, its path is empty and every enemy
+pawn, passed or not, needs a move more to promote. The model looks only at passed pawns: with Pc2, Pd4 against
+Pd3 on the $8\times6$ cylinder, black to move, it credits white, yet d3$\times$c2 and c1=Q come first \lab{C1}.
+
 \begin{proposition}[\lab{AI}]\label{prop:horizon1}
 On boards with at least six ranks, for $h=1$, the counter-promotion condition holds in every chess-legal
 context without a passed pawn.
