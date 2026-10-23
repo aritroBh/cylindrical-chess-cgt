@@ -646,3 +646,19 @@ with the scanner; its nine-pawn run is going.
 **C8 nine-pawn minimality is CHECKED-2 (21:29).** `c8check_gen` (independent of the scanner and cylcgt) solved all
 7,039,362 canonical nine-pawn ring classes in four chunks (666,748 + 2,818,992 + 1,347,020 + 2,206,602), with
 star2 = 0 and star3 = 0. This agrees with the scanner's zero hits.
+
+**Round-10 paper review (Sonnet workflow `wf_681941de-b9e`, 4 skeptics + synthesis).** Nine findings confirmed and
+fixed, none on a number:
+- **Sum-model claim for the wall family:** [C2] became [C1]. The second program behind the old label is
+  whole-board.
+- **"n+3 pawns always suffice":** the unqualified sentence is dropped. The whole-board theorem carries the claim.
+- **C8 minimum:** "it has ten [C1]". The ≤ 8-pawn part rests on one scan; the nine-pawn part keeps [C2].
+- **Wall finite checks:** "which two programs check [C2]", so the label covers the checks, not the deduction.
+- **No-\*4 sentence:** gains "in the default setting".
+- **Conclusion item 3:** "3 ≤ n ≤ 7" and [C1].
+- **Intro bullet:** "some ring".
+- **§IV:** "Our solver's results", restoring the antecedent that fix O9 had made explicit.
+- **Atlas caption:** "(file a next to the last file)" replaces the ambiguous "(a, c adjacent)".
+
+The reviewers also confirmed that the C8 counts (18 and 2) list colour-reversed twins separately, as the C7 counts
+(63, 8) do: 10 \*2 classes and 1 \*3 class up to colour reversal.
