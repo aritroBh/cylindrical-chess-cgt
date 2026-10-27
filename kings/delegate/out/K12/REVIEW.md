@@ -15,7 +15,7 @@ CHECKED-2 there; the rest of K12 stays COMPUTED-1.
 
 ## Recheck (integrator)
 
-Script: `scratchpad/k12v/v.py`, not committed. It shares no code with K12's `gen.py`, `checker.py` or
+Script: `integrator_v.py` (run as `v.py W H maxp`). It shares no code with K12's `gen.py`, `checker.py` or
 `process.py`.
 
 - **Roots.** I enumerate the same layout without e.p. rights. That gives **76,744** roots on 6x6. K12's
@@ -46,4 +46,16 @@ Script: `scratchpad/k12v/v.py`, not committed. It shares no code with K12's `gen
   generators and two hypothesis implementations agree, with 0 certified violations.
 - The e.p. roots and 7x6: **COMPUTED-1**. K12's brute-force μ_ω check was written by the same author, so it does
   not count as a second check.
-- 8x6, ≤ 2 a side: the recheck is running (`v.py 8 6 2`). See below.
+- 8x6, ≤ 2 a side, no e.p. right: **CHECKED-2** as well. The recheck (`v.py 8 6 2`) gives 68,036 roots, the same number
+  as K12's `gen.process_board(8,6,2)` restricted to `ep is None` (its other 3,876 roots carry an e.p. right).
+
+| 8x6, no e.p. | single | race | total |
+|---|---|---|---|
+| certified, agree | 10,482 | 54,472 | 64,954 |
+| certified, **disagree** | **0** | **0** | **0** |
+| uncertified, agree | 872 | 88 | 960 |
+| uncertified, disagree | 1,746 | 376 | 2,122 |
+| roots | 13,100 | 54,936 | 68,036 |
+
+- Not rechecked: 7x6 (562,676 roots). At the current machine load the 6x6 run took 85 minutes for 76,744 roots, so a
+  7x6 run would take many hours.
