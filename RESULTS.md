@@ -364,6 +364,28 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
       confirmed by cylcgt, sum and whole-board: 10 \*2 and 1 \*3, `W a4 c3 d3 e2 g2 / B b7 c6 e5 f5 h4` (CHECKED-2).
     - T52 (OpenCode) is looking for an n+2 family on C9 and up.
 
+## 6d. New on 2026-10-23 to 10-27
+
+- **Rings with n+2 pawns for every n >= 10 (whole-board, [AI]).**
+
+  | Family | Value | n | Reduced graph | Proof note | Referee |
+  |---|---|---|---|---|---|
+  | P_n = W5 B7 W4 W4B7 B6 W3B6 (W2 B4)^k | \*2 | even n >= 8 | 813 nodes | PROOF.md | Codex T53, SOUND |
+  | Q_n = W4 B7 (B4 W2)^k W3B6 W3 W2B5 B5 W2 B4 | \*3 | even n >= 8 | 7,968 nodes | PROOF_Q.md | Codex T62, SOUND |
+  | R_n = W5 B7 (W2 B4)^k W2 W3B6 W3 W2B5 B5 W2 B4 | \*2 | odd n >= 11 | 429 nodes | PROOF_odd.md | see below |
+  | Qo_n = W4 B7 (W2 B4)^k W2 W3B6 W3 W2B5 B5 W2 B4 | \*3 | odd n >= 11 | 1,287 nodes | PROOF_odd.md | see below |
+
+  - PROOF_odd.md uses c = 6 and n0 = 19. A Sonnet workflow accepted it with fixes, with C1 on six programs and C2 on
+    five. The Codex referee T63 is queued.
+  - Both odd families fail at n = 9, so the C9 minimum (11 pawns?) is open: T54b on Codex and a C9 enumerator
+    workflow.
+  - As sums of components, P_10 is \*2 and Q_10 is \*3 (cylcgt). R_11 and Qo_11 as sums are running
+    (`research/sum_model_rings/`).
+- **No \*4.** None among T56's 14,090 candidates (329 are \*3, 178 \*2), nor among 1,280 C10 wall rings.
+- **Twisted tablebases.** A and B agree exactly under A's ray rule. KRK wins every position on the Möbius strip and
+  on RP² but only 0.66% on the Klein bottle (CHECKED-2). See `research/twisted_tablebases/COMPARE.md`.
+- **Paper fact-check round 11.** 15 findings confirmed and applied (`delegate/REVIEW.md`).
+
 ## 7. Pending
 
 **Verification gaps.** 35 adversarial verifiers were cut off by the Claude usage limit. Not verified:

@@ -776,3 +776,14 @@ the paper.
 - See `research/twisted_tablebases/COMPARE.md`. The conclusion's open problem now states the KRK result [C2].
 - Builds: main 15 pages, review 14 pages, after 4 whole-line trims (intro V4, Dawson, the §V proof sketch, the §V
   example).
+
+**Odd n+2 proof (Sonnet workflow `wf_8434216a`).** `research/ring_n_plus_2_proof/PROOF_odd.md`: ACCEPT_WITH_FIXES.
+- The logic lens re-derived the lemma transfer by hand: the left end at j = 3, the right end at j = 10 or 12, W2 at
+  both ends.
+- The compute lens rebuilt everything with fresh engines.
+- In all, C1 stands on six programs and C2 on five, and both lenses said ACCEPT.
+- The fixes are a stated e.p. convention, honest labels and a stronger control. No mathematical defect was found.
+- R_n (\*2) and Qo_n (\*3) go into §VIII, the intro and the conclusion as [AI]. The ring minimum is now at most n+2
+  for every n >= 10, so only C9 is open.
+- A non-Claude referee, T63 (Codex), is queued after T54b.
+- Builds: main 15 pages, review 14 pages, after 3 more whole-line trims (§IX (a), §X zugzwang count, conclusion).

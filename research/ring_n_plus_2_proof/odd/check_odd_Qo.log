@@ -1,0 +1,19 @@
+Qo_19: nodes=1287 K=2996 T=1959 flagged=0 zone=[0, 1, 12, 13, 14, 15, 16, 18] sig(h=0..4)=NNNPN; no passed pawn, no flag; files 2..11 are exact pattern files in every node; the start has W2 on file 2 and on file n-7=12 (W2 at both wall ends)
+  Lemma 2 at n=19: central files 3..10; windows {3: (2, 6), 4: (3, 7), 5: (4, 8), 6: (5, 9), 7: (6, 10), 8: (7, 11), 9: (6, 10), 10: (7, 11)}
+    q-positions=10296 moves=15444; (a) failures 0; (b) T/K moves 0; by (file, class) {(3, 'P'): 1287, (4, 'P'): 2574, (5, 'P'): 1287, (6, 'P'): 2574, (7, 'P'): 1287, (8, 'P'): 2574, (9, 'P'): 1287, (10, 'L'): 54, (10, 'P'): 2520}
+    arc ends: j=3 window (2, 6) (left wall end: file 2 is W2, file 1 is B7); j=10 window (7, 11)
+    (info) moves of the wall-end W2 pawns, file 2 and file n-7=12, by (file, class): {(2, 'P'): 2574, (12, 'K'): 27, (12, 'L'): 120, (12, 'P'): 2346}
+Qo_21: nodes=1287 K=2996 T=1959 flagged=0 zone=[0, 1, 14, 15, 16, 17, 18, 20] sig(h=0..4)=NNNPN; no passed pawn, no flag; files 2..13 are exact pattern files in every node; the start has W2 on file 2 and on file n-7=14 (W2 at both wall ends)
+  Lemma 2 at n=21: central files 3..12; windows {3: (2, 6), 4: (3, 7), 5: (4, 8), 6: (5, 9), 7: (6, 10), 8: (7, 11), 9: (8, 12), 10: (9, 13), 11: (8, 12), 12: (9, 13)}
+    q-positions=12870 moves=19305; (a) failures 0; (b) T/K moves 0; by (file, class) {(3, 'P'): 1287, (4, 'P'): 2574, (5, 'P'): 1287, (6, 'P'): 2574, (7, 'P'): 1287, (8, 'P'): 2574, (9, 'P'): 1287, (10, 'P'): 2574, (11, 'P'): 1287, (12, 'L'): 54, (12, 'P'): 2520}
+    arc ends: j=3 window (2, 6) (left wall end: file 2 is W2, file 1 is B7); j=12 window (9, 13)
+    (info) moves of the wall-end W2 pawns, file 2 and file n-7=14, by (file, class): {(2, 'P'): 2574, (14, 'K'): 27, (14, 'L'): 120, (14, 'P'): 2346}
+Qo_23: nodes=1287 K=2996 T=1959 flagged=0 zone=[0, 1, 16, 17, 18, 19, 20, 22] sig(h=0..4)=NNNPN; no passed pawn, no flag; files 2..15 are exact pattern files in every node; the start has W2 on file 2 and on file n-7=16 (W2 at both wall ends)
+  ins_6(start_19) = start_21; graph_21 = ins_6(graph_19): 1287 nodes onto 1287 nodes, K- and T-children equal for all 2574 (node, side) pairs; Lemma 3 recomputed on every ins_6(p): 0 mismatches
+  ins_6(start_21) = start_23; graph_23 = ins_6(graph_21): 1287 nodes onto 1287 nodes, K- and T-children equal for all 2574 (node, side) pairs; Lemma 3 recomputed on every ins_6(p): 0 mismatches
+  control, cut c=7 (arc 3..12, reaches the zone True): Lemma 3 conclusion fails at 0 of 2574 (node, side) pairs
+  control, cut c=8 (arc 4..13, reaches the zone True): Lemma 3 conclusion fails at 0 of 2574 (node, side) pairs
+  control, cut c=9 (arc 5..14, reaches the zone True): Lemma 3 conclusion fails at 0 of 2574 (node, side) pairs
+  control, cut c=10 (arc 6..15, reaches the zone True): Lemma 3 conclusion fails at 0 of 2574 (node, side) pairs
+  control, cut c=11 (arc 7..16, reaches the zone True): Lemma 3 conclusion fails at 150 of 2574 (node, side) pairs
+Qo: ALL CHECKS PASSED (158s)

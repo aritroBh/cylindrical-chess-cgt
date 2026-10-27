@@ -1,0 +1,42 @@
+R_19: graph built: nodes=429 K=805 T=653 flagged=0 zone=[12, 13, 14, 15, 16, 18] (2s)
+R_21: graph built: nodes=429 K=805 T=653 flagged=0 zone=[14, 15, 16, 17, 18, 20] (4s)
+R_23: graph built: nodes=429 K=805 T=653 flagged=0 zone=[16, 17, 18, 19, 20, 22] (7s)
+R_25: graph built: nodes=429 K=805 T=653 flagged=0 zone=[18, 19, 20, 21, 22, 24] (11s)
+R_27: graph built: nodes=429 K=805 T=653 flagged=0 zone=[20, 21, 22, 23, 24, 26] (17s)
+R_29: graph built: nodes=429 K=805 T=653 flagged=0 zone=[22, 23, 24, 25, 26, 28] (23s)
+R_31: graph built: nodes=429 K=805 T=653 flagged=0 zone=[24, 25, 26, 27, 28, 30] (31s)
+R_33: graph built: nodes=429 K=805 T=653 flagged=0 zone=[26, 27, 28, 29, 30, 32] (40s)
+--- R: ins_6 : G_n -> G_(n+2) at the fixed cut c=6
+  n=19->21 cut 6: start->start True, nodes onto True (injective True; 429 -> 429), K-children violations 0, T-children violations 0  => ISOMORPHIC   (side-moves with a different L+P count: 858)
+  n=21->23 cut 6: start->start True, nodes onto True (injective True; 429 -> 429), K-children violations 0, T-children violations 0  => ISOMORPHIC   (side-moves with a different L+P count: 858)
+  n=23->25 cut 6: start->start True, nodes onto True (injective True; 429 -> 429), K-children violations 0, T-children violations 0  => ISOMORPHIC   (side-moves with a different L+P count: 858)
+  n=25->27 cut 6: start->start True, nodes onto True (injective True; 429 -> 429), K-children violations 0, T-children violations 0  => ISOMORPHIC   (side-moves with a different L+P count: 858)
+  n=27->29 cut 6: start->start True, nodes onto True (injective True; 429 -> 429), K-children violations 0, T-children violations 0  => ISOMORPHIC   (side-moves with a different L+P count: 858)
+  n=29->31 cut 6: start->start True, nodes onto True (injective True; 429 -> 429), K-children violations 0, T-children violations 0  => ISOMORPHIC   (side-moves with a different L+P count: 858)
+  n=31->33 cut 6: start->start True, nodes onto True (injective True; 429 -> 429), K-children violations 0, T-children violations 0  => ISOMORPHIC   (side-moves with a different L+P count: 858)
+--- R: all cuts c=0..n-2 at which ins_c : G_n -> G_(n+2) is an isomorphism (note: admissible 6 <= c <= n-13)
+  n=19: iso holds for c in [2, 3, 4, 5, 6, 7, 8, 9, 10];  note's admissible cuts [6]: all iso = True
+  n=21: iso holds for c in [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];  note's admissible cuts [6, 7, 8]: all iso = True
+  n=23: iso holds for c in [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];  note's admissible cuts [6, 7, 8, 9, 10]: all iso = True
+  n=25: iso holds for c in [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];  note's admissible cuts [6, 7, 8, 9, 10, 11, 12]: all iso = True
+  n=27: iso holds for c in [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];  note's admissible cuts [6, 7, 8, 9, 10, 11, 12, 13, 14]: all iso = True
+  n=29: iso holds for c in [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];  note's admissible cuts [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]: all iso = True
+  n=31: iso holds for c in [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22];  note's admissible cuts [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]: all iso = True
+--- R: Lemma 3 recomputed on ins_6(p) for every node p and both sides
+  n=19: (node, side) pairs 858, mismatches 0
+  n=21: (node, side) pairs 858, mismatches 0
+  n=23: (node, side) pairs 858, mismatches 0
+--- R: Lemma 2 (a) no passed pawn for the mover after the move, (b) every move L or P
+  n=19 [note] q-positions 3432, moves 5148, (a) failures 0, (b) T/K moves 0; by (file, class) {(3, 'P'): 429, (4, 'P'): 858, (5, 'P'): 429, (6, 'P'): 858, (7, 'P'): 429, (8, 'P'): 858, (9, 'P'): 429, (10, 'L'): 18, (10, 'P'): 840}
+  n=19 [general] q-positions 3843, moves 5559, (a) failures 0, (b) T/K moves 0; by (file, class) {(3, 'P'): 429, (4, 'P'): 858, (5, 'P'): 429, (6, 'P'): 858, (7, 'P'): 429, (8, 'P'): 858, (9, 'P'): 429, (10, 'L'): 18, (10, 'P'): 840, (11, 'P'): 411}
+  n=21 [note] q-positions 4290, moves 6435, (a) failures 0, (b) T/K moves 0; by (file, class) {(3, 'P'): 429, (4, 'P'): 858, (5, 'P'): 429, (6, 'P'): 858, (7, 'P'): 429, (8, 'P'): 858, (9, 'P'): 429, (10, 'P'): 858, (11, 'P'): 429, (12, 'L'): 18, (12, 'P'): 840}
+  n=21 [general] q-positions 4701, moves 6846, (a) failures 0, (b) T/K moves 0; by (file, class) {(3, 'P'): 429, (4, 'P'): 858, (5, 'P'): 429, (6, 'P'): 858, (7, 'P'): 429, (8, 'P'): 858, (9, 'P'): 429, (10, 'P'): 858, (11, 'P'): 429, (12, 'L'): 18, (12, 'P'): 840, (13, 'P'): 411}
+  n=23 [note] q-positions 5148, moves 7722, (a) failures 0, (b) T/K moves 0; by (file, class) {(3, 'P'): 429, (4, 'P'): 858, (5, 'P'): 429, (6, 'P'): 858, (7, 'P'): 429, (8, 'P'): 858, (9, 'P'): 429, (10, 'P'): 858, (11, 'P'): 429, (12, 'P'): 858, (13, 'P'): 429, (14, 'L'): 18, (14, 'P'): 840}
+  n=23 [general] q-positions 5559, moves 8133, (a) failures 0, (b) T/K moves 0; by (file, class) {(3, 'P'): 429, (4, 'P'): 858, (5, 'P'): 429, (6, 'P'): 858, (7, 'P'): 429, (8, 'P'): 858, (9, 'P'): 429, (10, 'P'): 858, (11, 'P'): 429, (12, 'P'): 858, (13, 'P'): 429, (14, 'L'): 18, (14, 'P'): 840, (15, 'P'): 411}
+--- R: sensitivity control at n=19: Lemma 3 recomputed for cuts whose arc reaches the zone
+  n=19 cut c=7 (arc 3..12): Lemma 3 fails at 0 of 858 (node, side) pairs
+  n=19 cut c=8 (arc 4..13): Lemma 3 fails at 0 of 858 (node, side) pairs
+  n=19 cut c=9 (arc 5..14): Lemma 3 fails at 0 of 858 (node, side) pairs
+  n=19 cut c=10 (arc 6..15): Lemma 3 fails at 0 of 858 (node, side) pairs
+  n=19 cut c=11 (arc 7..16): Lemma 3 fails at 48 of 858 (node, side) pairs
+R: DONE (75s)
