@@ -15,6 +15,21 @@ The orchestrator also started a validation run on C8 (`search.py 8 6 2 2 0`). It
 `/private/tmp/claude-501/-Users-aritro-Downloads-Research-Chessendgames/57318271-9bbf-42b4-b8cf-b9d442308061/scratchpad/val_c8_w6_p0.log`
 (read it if it exists).
 
+
+## New since T54 (2026-10-27, 15:00)
+
+Every odd n from 11 to 59 now has n+2-pawn rings, *2 and *3, in the whole-board game, using odd walls:
+- R_n = W5 B7 (W2 B4)^k W2 W3B6 W3 W2B5 B5 W2 B4 (*2);
+- Qo_n = W4 B7 (W2 B4)^k W2 W3B6 W3 W2B5 B5 W2 B4 (*3).
+
+See `research/ring_n_plus_2_proof/logs/`. Both families fail at n = 9: the k = 0 members are LLLL.
+
+So **C9 is the only open case**: is there a *2 with 11 pawns on C9?
+- Add these to your search space: rings whose wall has length 1 or 3 and both ends of the same colour
+  (W2 … W2 or B4 … B4).
+- Also add the k = 0 analogues of every C8 hit with a single W2 or B4 wall file inserted.
+- Report the C9 answer for this space clearly.
+
 ## What to do
 
 1. **Validate first.** The search must find the C8 ten-pawn \*2 rings that have a W2/B4 wall. For example
