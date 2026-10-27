@@ -382,6 +382,13 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   - As sums of components, P_10 is \*2 and Q_10 is \*3 (cylcgt). R_11 and Qo_11 as sums are running
     (`research/sum_model_rings/`).
 - **No \*4.** None among T56's 14,090 candidates (329 are \*3, 178 \*2), nor among 1,280 C10 wall rings.
+  - The ★4 hunt workflow (`research/star4_rings/{core_wall,grow,two_core}/REPORT.md`) found no ★4 and nothing above
+    ★3 in about 23.6M rings. Those are 23.2M core-in-wall rings, 128,791 grown from known ★3 rings (4,723 new ★3)
+    and 207,975 two-core rings, all C1, with hits re-checked by the unmodified rg.
+  - Two cores separated by walls: whenever the ring is a nimber (1,513 of 1,890 rings) it equals the nim-sum of the
+    two cores' values, with no exception. The other rings are decisive, from a coupling that disappears once a wall
+    has 7 to 11 files.
+  - So a ★4 ring would need a single core worth ★4 on its own. None was found up to width 6.
 - **Twisted tablebases.** A and B agree exactly under A's ray rule. KRK wins every position on the Möbius strip and
   on RP² but only 0.66% on the Klein bottle (CHECKED-2). See `research/twisted_tablebases/COMPARE.md`.
 - **Paper fact-check round 11.** 15 findings confirmed and applied (`delegate/REVIEW.md`).

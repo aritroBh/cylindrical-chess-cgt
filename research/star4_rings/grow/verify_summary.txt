@@ -1,0 +1,5 @@
+Re-evaluation with the UNMODIFIED engine (rg.c built with -DMAXN=64, batches of 20, TBITS=22, fall back to one position per call):
+ hits:        403 rings (all 253 *3 of rounds 0-1, plus 150 random *3 of rounds 2-3): 403 agree, 0 disagree, all *3
+ sample 600:  random rings of every value: 599 agree, 0 disagree, 1 not solvable by rg inside TBITS=22 (not a disagreement)
+ sample 250:  random rings of every value (different seed): 250 agree, 0 disagree
+ "agree" = the full 8-character signature of rg matches rgf's signature on every position rgf computed (rgf stops at the first L/R and pads with '?').

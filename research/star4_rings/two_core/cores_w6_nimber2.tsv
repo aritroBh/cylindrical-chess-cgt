@@ -1,0 +1,143 @@
+block	width	f	value_by_wall_length(L=4..9)	stable_for_all_L_of_same_parity
+B4 B6 W24 W3B5 B67 W4	6	W	['ill', 2, 'ill', None, 'ill', None]	False
+B4 W4B7 W4B6 W4B6 W4 B7	6	W	['ill', 2, 'ill', None, 'ill', None]	False
+B4 W6B67 W24 W3B5 B67 W4	6	W	['ill', 2, 'ill', None, 'ill', None]	False
+B4 W6B7 W4 W4B7 B6 W3B6	6	W	['ill', 2, 'ill', 2, 'ill', 2]	True
+B5 W23 W4B6 B57 W3	5	W	[None, 2, None, 2, None, 2]	True
+B5 W23 W4B6 B57 W3 W5B6	6	W	[None, 2, None, 2, None, 2]	True
+B5 W23 W4B6 B57 W3 W6B7	6	W	[None, 2, None, 2, None, 2]	True
+B6 W24 W3B5 B67 W24B3 W6B47	6	W	[None, 2, None, None, None, None]	False
+B6 W24 W3B5 B67 W4	5	B	[2, None, 2, None, 2, 2]	False
+B6 W24 W3B5 B67 W4	5	W	[2, None, 2, None, None, None]	False
+B6 W24 W3B5 B67 W4 B4	6	W	[None, 2, None, 2, 2, 2]	False
+B6 W24 W3B5 B67 W4 W2	6	B	[None, 2, None, None, None, None]	False
+B6 W24 W3B5 B67 W4 W26B37	6	B	[2, None, 2, None, 2, None]	True
+B6 W24 W3B5 B67 W4 W2B3	6	B	[2, None, 2, 2, 2, 2]	False
+B6 W24 W3B5 B67 W4 W3B4	6	W	[2, None, 2, None, None, None]	False
+B6 W24 W3B5 B67 W4 W6B47	6	W	[None, 2, None, 2, None, 2]	True
+B6 W24 W3B5 B67 W4 W6B7	6	B	[2, None, 2, None, 2, None]	True
+B6 W24 W3B5 B67 W4 W6B7	6	W	[2, 2, 2, 2, 2, 2]	True
+W2 B6 W24 W3B5 B67 W4	6	B	[None, 2, None, 2, None, 2]	True
+W2 W3B6 W3 W2B5 B5 W2B3	6	B	[None, 2, None, 2, None, 2]	True
+W2 W5 W2B7 B7 W5B7 W4B7	6	B	['ill', 2, 'ill', 2, 'ill', 2]	True
+W2 W6B47 W4 W4B7 B6 W3B6	6	W	[2, 2, 2, 2, 2, 2]	True
+W2 W6B67 W24 W3B5 B67 W24B3	6	B	[None, 2, None, 2, None, 2]	True
+W2 W6B67 W24 W3B5 B67 W4	6	B	[None, 2, None, 2, None, 2]	True
+W2 W6B7 W4 W4B7 B6 W3B6	6	W	[2, None, 2, None, 2, None]	True
+W23B45 B5 W23 W4B6 B57 W3	6	W	[None, 2, None, 2, None, 2]	True
+W23B45 B6 W24 W3B5 B67 W4	6	B	[2, None, 2, None, 2, None]	True
+W23B45 W5 W2B7 B7 W5B7 W4B7	6	B	[2, None, 2, None, 2, None]	True
+W23B45 W6B7 W4 W4B7 B6 W3B6	6	W	[None, 2, None, 2, None, 2]	True
+W24B35 W6B7 W4 W4B7 B6 W3B6	6	W	[2, None, 2, None, 2, None]	True
+W24B5 W6B7 W4 W4B7 B6 W3B6	6	W	[2, None, 2, None, 2, None]	True
+W25B6 W6B47 W4 W4B7 B6 W3B6	6	W	[2, 2, 2, 2, 2, 2]	True
+W25B6 W6B7 W4 W4B7 B6 W3B6	6	W	[2, None, 2, None, 2, None]	True
+W26B37 B6 W24 W3B5 B67 W4	6	W	[2, 'N+', 2, 'N+', None, 'N+']	False
+W26B67 W24 W3B5 B67 W4	5	B	[None, 2, None, 2, None, None]	False
+W2B3 B6 W24 W3B5 B67 W4	6	B	[None, 2, None, 2, 'N+', 2]	False
+W2B3 W3B6 W3 W2B5 B5 W2B3	6	B	[None, 2, 'N+', 2, 'N+', 2]	False
+W2B3 W6B67 W24 W3B5 B67 W24B3	6	B	[None, 2, 'N+', 2, 'N+', 2]	False
+W2B3 W6B67 W24 W3B5 B67 W4	6	B	[None, 2, None, 2, 'N+', 2]	False
+W2B3 W6B7 W4 W4B7 B6 W3B6	6	W	[2, 'N+', 2, 'N+', 2, 'N+']	True
+W3 B57 W4B6 W23 B5	5	W	['N+', 2, 'N+', 2, 'N+', 2]	True
+W3 B57 W4B6 W23 B5 W23B45	6	W	['N+', 2, 'N+', 2, 'N+', 2]	True
+W3 B57 W4B6 W23 B5 W5B6	6	W	['N+', 2, 'N+', 2, 'N+', 2]	True
+W3 B57 W4B6 W23 B5 W6B7	6	W	['N+', 2, 'N+', 2, 'N+', 2]	True
+W3 W23B6 B57 B6 W2	5	W	[None, 2, 'N+', 2, 'N+', 2]	False
+W35B46 W6B7 W4 W4B7 B6 W3B6	6	W	[None, 2, None, 2, None, 2]	True
+W3B4 B6 W24 W3B5 B67 W4	6	B	[2, None, 2, None, 2, None]	True
+W3B4 W4B7 B7 W2 W2B47 W5	6	B	[2, None, 2, None, None, None]	False
+W3B4 W5 W2B7 B7 W5B7 W4B7	6	B	[2, None, 2, None, 2, None]	True
+W3B4 W6B7 W4 W4B7 B6 W3B6	6	W	[None, 2, None, 2, None, 2]	True
+W3B6 B6 W4B7 W4 B7 W5	6	B	[2, None, 2, None, 2, None]	True
+W3B6 B6 W4B7 W4 W46B7 B6	6	B	[2, None, 2, None, 2, None]	True
+W3B6 B6 W4B7 W4 W46B7 W5B6	6	B	[2, None, None, None, None, None]	False
+W3B6 B6 W4B7 W4 W6B47	5	W	[None, 2, None, 2, None, 2]	True
+W3B6 B6 W4B7 W4 W6B47 W2	6	B	[2, None, 2, None, 2, None]	True
+W3B6 B6 W4B7 W4 W6B47 W2	6	W	[None, 2, None, 2, None, 2]	True
+W3B6 B6 W4B7 W4 W6B47 W25B6	6	B	[2, None, 2, None, 2, None]	True
+W3B6 B6 W4B7 W4 W6B7	5	B	[2, None, 2, None, 2, None]	True
+W3B6 B6 W4B7 W4 W6B7	5	W	[None, 2, None, 2, None, 2]	True
+W3B6 B6 W4B7 W4 W6B7 B4	6	W	[None, 2, None, 2, None, 2]	True
+W3B6 B6 W4B7 W4 W6B7 W2	6	B	[2, None, 2, None, 2, None]	True
+W3B6 B6 W4B7 W4 W6B7 W23B45	6	W	[None, 2, None, 2, None, 2]	True
+W3B6 B6 W4B7 W4 W6B7 W24B35	6	B	[2, None, 2, None, 2, None]	True
+W3B6 B6 W4B7 W4 W6B7 W25B6	6	B	[2, None, 2, None, 2, None]	True
+W3B6 B6 W4B7 W4 W6B7 W2B3	6	B	[2, None, 2, None, 2, None]	True
+W3B6 B6 W4B7 W4 W6B7 W35B46	6	W	[None, 2, None, 2, None, 2]	True
+W3B6 B6 W4B7 W4 W6B7 W3B4	6	W	[None, 2, None, 2, None, 2]	True
+W3B6 B6 W4B7 W4 W6B7 W3B6	6	W	[None, 2, None, 2, None, 2]	True
+W3B6 B6 W4B7 W4 W6B7 W4B5	6	B	[2, None, 2, None, 2, None]	True
+W3B6 B6 W4B7 W4 W6B7 W4B5	6	W	[None, 2, None, 2, None, 2]	True
+W3B6 B6 W4B7 W4 W6B7 W5B6	6	B	[2, None, 2, None, 2, None]	True
+W3B6 B6 W4B7 W4 W6B7 W5B6	6	W	[None, 2, None, 2, None, 2]	True
+W3B6 B7 W4 W3B6 B6 W2B4	6	W	[None, 2, None, 2, None, 2]	True
+W3B6 W3 W2B5 B5 W2B3	5	B	[2, None, 2, None, 2, None]	True
+W3B6 W3 W2B5 B5 W2B3 B4	6	W	[None, 2, None, 2, None, 2]	True
+W3B6 W3 W2B5 B5 W2B3 W35B46	6	W	[None, 2, None, 2, None, 2]	True
+W3B6 W3 W2B5 B5 W2B3 W35B57	6	W	[None, 2, None, 2, None, 2]	True
+W3B6 W3 W2B5 B5 W2B3 W36B67	6	W	[None, 2, None, 2, None, 2]	True
+W3B6 W3 W2B5 B5 W2B3 W3B4	6	W	[None, 2, None, 2, None, 2]	True
+W3B6 W3 W2B5 B5 W2B3 W3B6	6	W	[None, 2, None, 2, None, 2]	True
+W3B6 W3 W2B5 B5 W2B3 W45B56	6	W	[None, 2, None, 2, None, 2]	True
+W3B6 W3 W2B5 B5 W2B3 W45B6	6	W	[None, 2, None, 2, None, 2]	True
+W3B6 W3 W2B5 B5 W2B3 W4B5	6	B	[2, None, 2, None, 2, None]	True
+W3B6 W3 W2B5 B5 W2B3 W4B5	6	W	[None, 2, None, 2, None, 2]	True
+W3B6 W3 W2B5 B5 W2B3 W56B47	6	W	[None, 2, None, 2, None, 2]	True
+W3B6 W3 W2B5 B5 W2B3 W56B67	6	W	[None, 2, None, 2, None, 2]	True
+W3B6 W3 W2B5 B5 W2B3 W56B7	6	W	[None, 2, None, 2, None, 2]	True
+W3B6 W3 W2B5 B5 W2B3 W5B6	6	B	[2, None, 2, None, 2, None]	True
+W3B6 W3 W2B5 B5 W2B3 W5B6	6	W	[None, 2, None, 2, None, 2]	True
+W3B6 W3 W2B5 B5 W2B3 W6B47	6	W	[None, 2, None, 2, None, 2]	True
+W3B6 W3 W2B5 B5 W2B3 W6B7	6	B	[2, None, 2, None, 2, None]	True
+W3B6 W3 W2B5 B5 W2B3 W6B7	6	W	[None, 2, None, 2, None, 2]	True
+W3B6 W3 W2B5 B5 W2B35 W3	6	W	[None, 2, None, 2, None, 2]	True
+W3B6 W3 W2B5 B5 W2B35 W35B46	6	W	[None, 2, None, 2, None, 2]	True
+W3B6 W3 W2B5 B5 W2B35 W3B4	6	W	[None, 2, None, 2, None, 2]	True
+W3B6 W6B7 W4 W4B7 B6 W3B6	6	W	[None, 2, None, 2, None, 2]	True
+W4B5 B7 W4 W3B6 B6 W2B4	6	W	[None, 2, None, 2, None, 2]	True
+W4B5 W3B47 W4 W3B6 B6 W2B4	6	W	[None, 2, None, 2, None, 2]	True
+W4B5 W6B7 W4 W4B7 B6 W3B6	6	W	[2, 2, 2, 2, 2, 2]	True
+W4B7 B7 W2 W2B47 W5	5	B	[2, None, None, None, None, None]	False
+W4B7 B7 W2 W2B47 W5 W6B7	6	B	[2, None, 2, None, None, None]	False
+W4B7 W4B6 W4B6 W4 B7	5	W	[2, None, 2, None, None, None]	False
+W5 B7 W4 W4B7 B6 W3B6	6	W	[2, None, 2, None, 2, None]	True
+W5 W2B7 B7 W5B7 W4B7	5	B	[2, None, 2, None, 2, 2]	False
+W5 W2B7 B7 W5B7 W4B7 B4	6	W	[None, 2, None, 2, 2, 2]	False
+W5B46 W6B7 W4 W4B7 B6 W3B6	6	W	['ill', 2, 'ill', 2, 'ill', 2]	True
+W5B6 B5 W23 W4B6 B57 W3	6	W	[2, 2, 2, 2, 2, 2]	True
+W5B6 W3 B57 W4B6 W23 B5	6	W	[2, 2, 2, 2, 2, 2]	True
+W5B6 W3 W23B6 B57 B6 W2	6	W	[2, 2, 2, 2, 2, 2]	True
+W5B6 W6B7 W4 W4B7 B6 W3B6	6	W	[2, 2, 2, 2, 2, 2]	True
+W6B47 B6 W24 W3B5 B67 W4	6	W	['ill', 2, 'ill', None, 'ill', None]	False
+W6B47 W4 B67 W3B5 W24 B6	6	W	['ill', 2, 'ill', 2, 'ill', 2]	True
+W6B47 W4 W4B7 B6 W3B6	5	W	['ill', 2, 'ill', 2, 'ill', 2]	True
+W6B47 W4 W4B7 B6 W3B6 W2	6	B	[2, 'ill', 2, 'ill', 2, 'ill']	True
+W6B47 W4 W4B7 B6 W3B6 W6B7	6	W	['ill', 2, 'ill', 2, 'ill', 2]	True
+W6B67 W24 W3B5 B67 W24B3 B4	6	W	[None, 2, 2, 2, 2, 2]	False
+W6B67 W24 W3B5 B67 W24B3 W6B47	6	W	[None, 2, None, 2, None, 2]	True
+W6B67 W24 W3B5 B67 W4	5	W	[2, None, 2, None, None, None]	False
+W6B67 W24 W3B5 B67 W4 B4	6	W	[None, 2, None, 2, 2, 2]	False
+W6B67 W24 W3B5 B67 W4 W2	6	B	[None, 2, None, None, None, None]	False
+W6B67 W24 W3B5 B67 W4 W3B4	6	W	[2, None, 2, None, None, None]	False
+W6B67 W24 W3B5 B67 W4 W6B47	6	W	[None, 2, None, 2, None, 2]	True
+W6B67 W24 W3B5 B67 W4 W6B7	6	B	[2, None, 2, None, 2, None]	True
+W6B67 W24 W3B5 B67 W4 W6B7	6	W	[2, 2, 2, 2, 2, 2]	True
+W6B67 W24 W3B5 B67 W45B7	5	W	[2, None, 2, None, None, None]	False
+W6B67 W24 W3B5 B67 W45B7 W3B4	6	W	[2, None, 2, None, None, None]	False
+W6B7 B5 W23 W4B6 B57 W3	6	W	[2, 2, 2, 2, 2, 2]	True
+W6B7 B6 W24 W3B5 B67 W24B3	6	B	[2, None, 2, 2, 2, 2]	False
+W6B7 B6 W24 W3B5 B67 W4	6	B	[2, None, 2, None, 2, 2]	False
+W6B7 B6 W24 W3B5 B67 W4	6	W	[2, None, 2, None, None, None]	False
+W6B7 W23B36 W3 W2B5 B5 W2B3	6	B	[2, None, 2, 2, 2, 2]	False
+W6B7 W3 B57 W4B6 W23 B5	6	W	[2, 2, 2, 2, 2, 2]	True
+W6B7 W3B6 B6 W4B7 W4 W6B47	6	W	[None, 2, None, 2, None, 2]	True
+W6B7 W3B6 B6 W4B7 W4 W6B7	6	B	[2, None, 2, None, 2, None]	True
+W6B7 W3B6 B6 W4B7 W4 W6B7	6	W	[2, 2, 2, 2, 2, 2]	True
+W6B7 W3B6 W3 W2B5 B5 W2B3	6	B	[2, None, 2, 2, 2, 2]	False
+W6B7 W4 W4B7 B6 W3B6	5	W	[2, 2, 2, 2, 2, 2]	True
+W6B7 W4 W4B7 B6 W3B6 W2	6	B	[2, 2, 2, 2, 2, 2]	True
+W6B7 W4 W4B7 B6 W3B6 W26B37	6	B	[2, None, 2, None, 2, None]	True
+W6B7 W4 W4B7 B6 W3B6 W2B3	6	B	[2, None, 2, 2, 2, 2]	False
+W6B7 W4 W4B7 B6 W3B6 W6B7	6	B	[2, None, 2, None, 2, None]	True
+W6B7 W4 W4B7 B6 W3B6 W6B7	6	W	[2, 2, 2, 2, 2, 2]	True

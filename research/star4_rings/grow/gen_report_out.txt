@@ -1,0 +1,57 @@
+{
+ "evaluated_total": 128791,
+ "by_round": {
+  "0": {
+   "*3": 14
+  },
+  "1": {
+   "non": 7037,
+   "allN": 3128,
+   "*1": 64,
+   "*0": 26,
+   "*2": 124,
+   "*3": 239
+  },
+  "2": {
+   "non": 65587,
+   "allN": 22768,
+   "*1": 461,
+   "*3": 3670,
+   "*2": 1562,
+   "*0": 108,
+   "ABORT": 26
+  },
+  "3": {
+   "non": 16876,
+   "allN": 5666,
+   "*3": 814,
+   "*2": 384,
+   "*0": 31,
+   "*1": 146,
+   "ABORT": 60
+  }
+ },
+ "tot": {
+  "*3": 4737,
+  "non": 89500,
+  "allN": 31562,
+  "*1": 671,
+  "*0": 165,
+  "*2": 2070,
+  "ABORT": 86
+ },
+ "new_star3": 4723,
+ "star3_rings_all_files": 4534,
+ "star3_nonring": 203
+}
+B47 W24 W6B7 B5 W2 W3B7 W5B7	NNNPNNNN	files=7	pawns=12	round=1	fewest pawns among new *3 rings
+B4 B7 W4 B4 W2 B5 W2B5 W3 W3B6 W2 W3B4 W2B5 W3B4 W24B56	NNNPNNNN	files=14	pawns=22	round=3	most pawns among new *3 rings
+B4 B5 W3 B7 W4 B4 W2 B5 W2B5 W3 W3B6 W2 B4 W2 B4 W2	NNNPNNNN	files=16	pawns=18	round=1	most files among new *3 rings
+B4 B7 W4 B47 W25 B5 W2B5 W3 W3B6 W2 W5B4 W2B7 B4 W2	NNNPNNNN	files=14	pawns=20	round=2	largest search among new *3 rings (nodes)
+B6 W2 W6B7 W3B6 W3B56 W4B7 W2 W6B7	NNNPNNNN	files=8	pawns=14	round=2	smallest new *3 reached by move class pair_same2
+B4 B7 W3 W2B3 B7 W2B5 W3 W3B6 W2	NNNPNNNN	files=9	pawns=12	round=1	smallest new *3 reached by move class ins2_single
+B5 W2 W2B4 W2B6 B7 W4 W3B4 W2B3	NNNPNNNN	files=8	pawns=12	round=1	smallest new *3 reached by move class ins1_wb
+B5 W2 W2B4 W2B6 B7 W24 W3B4 W2B3	NNNPNNNN	files=8	pawns=13	round=2	smallest new *3 reached by move class add1
+B4 B7 W5B6 B5 W2 W3B6 W3 W2B5 B5 W2	NNNPNNNN	files=10	pawns=13	round=2	smallest new *3 reached by move class remove1
+B4 W2 B7 W3 W2B3 B7 W2B5 W3 W3B6 W2	NNNPNNNN	files=10	pawns=13	round=2	smallest new *3 reached by move class ins1_single
+

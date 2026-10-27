@@ -787,3 +787,11 @@ the paper.
   for every n >= 10, so only C9 is open.
 - A non-Claude referee, T63 (Codex), is queued after T54b.
 - Builds: main 15 pages, review 14 pages, after 3 more whole-line trims (§IX (a), §X zugzwang count, conclusion).
+
+**★4 hunt (Sonnet workflow `wf_eaf51be7`).** No ★4 among about 23.6M rings in three strategies (core-in-wall, growth
+from ★3 rings, two-core rings).
+- Two cores joined by walls take the nim-sum of the cores' values whenever the ring is a nimber (1,513/1,513), so a
+  ★4 needs a primitive ★4 core.
+- Hits were re-checked with the unmodified rg. All results are C1.
+- Not yet in the paper; candidate sentence for §VIII: a ★4 ring would need a core worth ★4 on its own.
+- Large tables were zstd-compressed; binaries are not committed.
