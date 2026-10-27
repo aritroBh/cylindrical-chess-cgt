@@ -1,0 +1,95 @@
+SELFTEST geom=mobius ray=0: canon/gluing inconsistencies=0, non-reversible ray squares=0
+GEOM mobius ray=0
+  orthogonal-step graph: 1 component(s), NOT 2-colourable (odd cycle: no chessboard colouring)
+  bishop (diagonal-step) orbits: 1, sizes: 64
+  diagonal steps that change nominal (f+r) parity: 28 of 224
+  orthogonal steps that keep nominal (f+r) parity: 16 of 240
+  knight orbits: 1, sizes: 64; knight graph NOT bipartite
+  diagonal-step graph bipartite
+  empty-board rook range 37..37 squares, bishop range 14..14, knight range 4..8
+RESULT	geom=mobius	ray=0	mat=KQK	legal=106368	won=106368	pct=100.0000	maxdtm=7	all=1	bmates=896	bstale=640	maxB=7	iters=8	nonwon=0	nonwon_imm=0	ex=Ka1 Qb1 kh2
+PV	mobius	KQK	Ka1 Qb1 kh2	 1.Ka1-b2 kh2-a7 2.Qb1-h7 ka7-a8 3.Kb2-b3 ka8-b8 4.Kb3-b4 kb8-c8 5.Kb4-b5 kc8-d8 6.Kb5-c6 kd8-e8 7.Qh7-g8#
+  sym file shift  KQK: W differences 0, B differences 0
+  sym rank shift  KQK: not a board map
+  sym file mirror KQK: W differences 0, B differences 0
+  sym rank mirror KQK: W differences 0, B differences 0
+  sym transpose   KQK: not a symmetry of the move structure
+  sym rotate 180  KQK: W differences 0, B differences 0
+RESULT	geom=mobius	ray=0	mat=KRK	legal=147776	won=147776	pct=100.0000	maxdtm=12	all=1	bmates=400	bstale=64	maxB=12	iters=13	nonwon=0	nonwon_imm=0	ex=Ka1 Rb1 ka4
+PV	mobius	KRK	Ka1 Rb1 ka4	 1.Ka1-a2 ka4-a5 2.Ka2-a3 ka5-h4 3.Rb1-b4 kh4-h3 4.Ka3-a4 kh3-g3 5.Ka4-a5 kg3-f3 6.Ka5-h3 kf3-e3 7.Rb4-d5 ke3-e2 8.Kh3-g3 ke2-e3 9.Kg3-g2 ke3-e2 10.Rd5-d6 ke2-e1 11.Kg2-f3 ke1-f1 12.Rd6-d8#
+  sym file shift  KRK: W differences 0, B differences 0
+  sym rank shift  KRK: not a board map
+  sym file mirror KRK: W differences 0, B differences 0
+  sym rank mirror KRK: W differences 0, B differences 0
+  sym transpose   KRK: not a symmetry of the move structure
+  sym rotate 180  KRK: W differences 0, B differences 0
+RESULT	geom=mobius	ray=0	mat=KBK	legal=173024	won=0	pct=0.0000	maxdtm=0	all=0	bmates=0	bstale=80	maxB=0	iters=1	nonwon=173024	nonwon_imm=0	ex=none
+  sym file shift  KBK: W differences 0, B differences 0
+  sym rank shift  KBK: not a board map
+  sym file mirror KBK: W differences 0, B differences 0
+  sym rank mirror KBK: W differences 0, B differences 0
+  sym transpose   KBK: not a symmetry of the move structure
+  sym rotate 180  KBK: W differences 0, B differences 0
+RESULT	geom=mobius	ray=0	mat=KNK	legal=198560	won=0	pct=0.0000	maxdtm=0	all=0	bmates=0	bstale=0	maxB=0	iters=1	nonwon=198560	nonwon_imm=0	ex=none
+  sym file shift  KNK: W differences 0, B differences 0
+  sym rank shift  KNK: not a board map
+  sym file mirror KNK: W differences 0, B differences 0
+  sym rank mirror KNK: W differences 0, B differences 0
+  sym transpose   KNK: not a symmetry of the move structure
+  sym rotate 180  KNK: W differences 0, B differences 0
+RESULT	geom=mobius	ray=0	mat=KQRK	legal=4365248	won=4365248	pct=100.0000	maxdtm=4	all=1	bmates=926752	bstale=211328	maxB=12	iters=13	nonwon=0	nonwon_imm=0	ex=Ka2 Qb1 Ra1 kc7
+PV	mobius	KQRK	Ka2 Qb1 Ra1 kc7	 1.Ka2-b2 kc7-d7 2.Qb1-c8 kd7-d6 3.Ra1-a3 kd6-d5 4.Qc8-f5#
+  sym file shift  KQRK: W differences 0, B differences 0
+  sym rank shift  KQRK: not a board map
+  sym file mirror KQRK: W differences 0, B differences 0
+  sym rank mirror KQRK: W differences 0, B differences 0
+  sym transpose   KQRK: not a symmetry of the move structure
+  sym rotate 180  KQRK: W differences 0, B differences 0
+RESULT	geom=mobius	ray=0	mat=KRRK	legal=5974912	won=5974912	pct=100.0000	maxdtm=4	all=1	bmates=650912	bstale=51008	maxB=12	iters=13	nonwon=0	nonwon_imm=0	ex=Ka1 Rb1 Rd1 kc7	same_legal=2914912	same_won=2914912	opp_legal=3060000	opp_won=3060000
+PV	mobius	KRRK	Ka1 Rb1 Rd1 kc7	 1.Ka1-h8 kc7-c6 2.Rb1-b3 kc6-c7 3.Rd1-d2 kc7-c8 4.Rb3-b1#
+  sym file shift  KRRK: W differences 0, B differences 0
+  sym rank shift  KRRK: not a board map
+  sym file mirror KRRK: W differences 0, B differences 0
+  sym rank mirror KRRK: W differences 0, B differences 0
+  sym transpose   KRRK: not a symmetry of the move structure
+  sym rotate 180  KRRK: W differences 0, B differences 0
+RESULT	geom=mobius	ray=0	mat=KQQK	legal=3069312	won=3069312	pct=100.0000	maxdtm=2	all=1	bmates=1765920	bstale=388256	maxB=7	iters=8	nonwon=0	nonwon_imm=0	ex=Ka1 Qb1 Qc1 kg2	same_legal=1519128	same_won=1519128	opp_legal=1550184	opp_won=1550184
+PV	mobius	KQQK	Ka1 Qb1 Qc1 kg2	 1.Qb1-b6 kg2-h2 2.Qc1-f1#
+  sym file shift  KQQK: W differences 0, B differences 0
+  sym rank shift  KQQK: not a board map
+  sym file mirror KQQK: W differences 0, B differences 0
+  sym rank mirror KQQK: W differences 0, B differences 0
+  sym transpose   KQQK: not a symmetry of the move structure
+  sym rotate 180  KQQK: W differences 0, B differences 0
+RESULT	geom=mobius	ray=0	mat=KBBK	legal=8222848	won=8222848	pct=100.0000	maxdtm=11	all=1	bmates=17216	bstale=17312	maxB=11	iters=12	nonwon=0	nonwon_imm=0	ex=Ka1 Bb1 Ba2 kh3	same_legal=4086912	same_won=4086912	opp_legal=4135936	opp_won=4135936
+PV	mobius	KBBK	Ka1 Bb1 Ba2 kh3	 1.Ka1-h8 kh3-a6 2.Kh8-g7 ka6-b6 3.Kg7-f6 kb6-a6 4.Kf6-e6 ka6-b6 5.Bb1-c2 kb6-c6 6.Bc2-f2 kc6-b5 7.Ba2-d2 kb5-c6 8.Bf2-g1 kc6-c7 9.Bd2-f4 kc7-b7 10.Ke6-e7 kb7-c8 11.Bg1-a6#
+  sym file shift  KBBK: W differences 0, B differences 0
+  sym rank shift  KBBK: not a board map
+  sym file mirror KBBK: W differences 0, B differences 0
+  sym rank mirror KBBK: W differences 0, B differences 0
+  sym transpose   KBBK: not a symmetry of the move structure
+  sym rotate 180  KBBK: W differences 0, B differences 0
+RESULT	geom=mobius	ray=0	mat=KNNK	legal=10861312	won=832	pct=0.0077	maxdtm=1	all=0	bmates=128	bstale=1248	maxB=0	iters=2	nonwon=10860480	nonwon_imm=51040	ex=Ka1 Nb2 Ne6 kg8	same_legal=5363600	same_won=512	opp_legal=5497712	opp_won=320
+PV	mobius	KNNK	Ka1 Nb2 Ne6 kg8	 1.Nb2-h6#
+  sym file shift  KNNK: W differences 0, B differences 0
+  sym rank shift  KNNK: not a board map
+  sym file mirror KNNK: W differences 0, B differences 0
+  sym rank mirror KNNK: W differences 0, B differences 0
+  sym transpose   KNNK: not a symmetry of the move structure
+  sym rotate 180  KNNK: W differences 0, B differences 0
+RESULT	geom=mobius	ray=0	mat=KBNK	legal=9568672	won=9566464	pct=99.9769	maxdtm=19	all=0	bmates=1248	bstale=7344	maxB=19	iters=20	nonwon=2208	nonwon_imm=2112	ex=Ka1 Bf1 Ne3 kf2
+PV	mobius	KBNK	Ka1 Bf1 Ne3 kf2	 1.Bf1-d2 kf2-e2 2.Bd2-c1 ke2-d3 3.Ka1-a2 kd3-c3 4.Ka2-a3 kc3-d3 5.Ka3-a4 kd3-d4 6.Ka4-b5 kd4-e4 7.Ne3-c4 ke4-d4 8.Bc1-b1 kd4-c3 9.Nc4-d2 kc3-d4 10.Kb5-c6 kd4-e5 11.Nd2-f3 ke5-e6 12.Bb1-a1 ke6-e7 13.Ba1-h8 ke7-e8 14.Kc6-c7 ke8-f8 15.Nf3-g5 kf8-e7 16.Ng5-h7 ke7-e8 17.Bh8-a2 ke8-e7 18.Ba2-g8 ke7-e8 19.Nh7-f6#
+  sym file shift  KBNK: W differences 0, B differences 0
+  sym rank shift  KBNK: not a board map
+  sym file mirror KBNK: W differences 0, B differences 0
+  sym rank mirror KBNK: W differences 0, B differences 0
+  sym transpose   KBNK: not a symmetry of the move structure
+  sym rotate 180  KBNK: W differences 0, B differences 0
+RESULT	geom=mobius	ray=0	mat=KRBK	legal=7214576	won=7214576	pct=100.0000	maxdtm=11	all=1	bmates=63936	bstale=60368	maxB=12	iters=13	nonwon=0	nonwon_imm=0	ex=Ka3 Rg3 Ba5 kh4
+PV	mobius	KRBK	Ka3 Rg3 Ba5 kh4	 1.Rg3-h3 kh4xBa5 2.Rh3-e6 ka5-b5 3.Ka3-h5 kb5-c5 4.Re6-e4 kc5-c6 5.Kh5-h4 kc6-d6 6.Kh4-a6 kd6-d7 7.Ka6-b6 kd7-d6 8.Kb6-b7 kd6-d7 9.Re4-e3 kd7-d8 10.Kb7-c6 kd8-c8 11.Re3-e8#
+  sym file shift  KRBK: W differences 0, B differences 0
+  sym rank shift  KRBK: not a board map
+  sym file mirror KRBK: W differences 0, B differences 0
+  sym rank mirror KRBK: W differences 0, B differences 0
+  sym transpose   KRBK: not a symmetry of the move structure
+  sym rotate 180  KRBK: W differences 0, B differences 0

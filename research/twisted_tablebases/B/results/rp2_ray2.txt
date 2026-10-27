@@ -1,0 +1,22 @@
+SELFTEST geom=rp2 ray=2: canon/gluing inconsistencies=0, non-reversible ray squares=1848
+RESULT	geom=rp2	ray=2	mat=KQK	legal=65008	won=65008	pct=100.0000	maxdtm=3	all=1	bmates=10184	bstale=3468	maxB=3	iters=4	ex=Ka1 Qb2 ke1
+PV	rp2	KQK	Ka1 Qb2 ke1	 1.Ka1-b1 ke1-f1 2.Qb2-d2 kf1-g1 3.Qd2-a7#
+RESULT	geom=rp2	ray=2	mat=KRK	legal=124848	won=124848	pct=100.0000	maxdtm=12	all=1	bmates=872	bstale=44	maxB=12	iters=13	ex=Ka1 Rb1 ke3
+PV	rp2	KRK	Ka1 Rb1 ke3	 1.Ka1-a2 ke3-f3 2.Ka2-h6 kf3-e3 3.Rb1-d1 ke3-f3 4.Kh6-g5 kf3-g3 5.Rd1-f1 kg3-h3 6.Kg5-h5 kh3-a6 7.Rf1-g1 ka6-h3 8.Rg1-g6 kh3-h2 9.Kh5-h4 kh2-a7 10.Kh4-g3 ka7-a8 11.Kg3-h3 ka8-h1 12.Rg6-g8#
+RESULT	geom=rp2	ray=2	mat=KBK	legal=131008	won=131008	pct=100.0000	maxdtm=11	all=1	bmates=1232	bstale=448	maxB=11	iters=12	ex=Kd1 Bh4 ke4
+PV	rp2	KBK	Kd1 Bh4 ke4	 1.Kd1-e1 ke4-f4 2.Ke1-f2 kf4-g4 3.Bh4-b3 kg4-h5 4.Kf2-g3 kh5-a5 5.Bb3-e3 ka5-a6 6.Be3-f3 ka6-b5 7.Kg3-h4 kb5-c4 8.Bf3-e5 kc4-b4 9.Be5-d3 kb4-b3 10.Kh4-h5 kb3-a2 11.Bd3-e5#
+RESULT	geom=rp2	ray=2	mat=KNK	legal=191880	won=0	pct=0.0000	maxdtm=0	all=0	bmates=0	bstale=0	maxB=0	iters=1	ex=none
+RESULT	geom=rp2	ray=2	mat=KQRK	legal=2350408	won=2350408	pct=100.0000	maxdtm=2	all=1	bmates=2956704	bstale=333228	maxB=12	iters=13	ex=Ka1 Qb1 Rg1 ke3
+PV	rp2	KQRK	Ka1 Qb1 Rg1 ke3	 1.Ka1-h8 ke3-f3 2.Qb1-b7#
+RESULT	geom=rp2	ray=2	mat=KRRK	legal=4294080	won=4294080	pct=100.0000	maxdtm=3	all=1	bmates=1286152	bstale=61720	maxB=12	iters=13	ex=Ka1 Rd1 Re1 kc2	same_legal=2085696	same_won=2085696	opp_legal=2208384	opp_won=2208384
+PV	rp2	KRRK	Ka1 Rd1 Re1 kc2	 1.Ka1-a2 kc2-c3 2.Rd1-c1 kc3-b4 3.Rc1-f4#
+RESULT	geom=rp2	ray=2	mat=KQQK	legal=1162520	won=1162520	pct=100.0000	maxdtm=2	all=1	bmates=6185528	bstale=400872	maxB=3	iters=4	ex=Ka1 Qh1 Qa8 kf6	same_legal=574744	same_won=574744	opp_legal=587776	opp_won=587776
+PV	rp2	KQQK	Ka1 Qh1 Qa8 kf6	 1.Ka1-b1 kf6-g6 2.Qh1-d4#
+RESULT	geom=rp2	ray=2	mat=KBBK	legal=4819984	won=4819984	pct=100.0000	maxdtm=3	all=1	bmates=1013760	bstale=92112	maxB=11	iters=12	ex=Ka1 Bb1 Ba2 ke1	same_legal=2428464	same_won=2428464	opp_legal=2391520	opp_won=2391520
+PV	rp2	KBBK	Ka1 Bb1 Ba2 ke1	 1.Bb1-c2 ke1-f1 2.Ba2-d5 kf1-e1 3.Bc2-h4#
+RESULT	geom=rp2	ray=2	mat=KNNK	legal=10245072	won=936	pct=0.0091	maxdtm=1	all=0	bmates=176	bstale=704	maxB=0	iters=2	ex=Kb1 Na1 Nc1 kh7	same_legal=5053168	same_won=392	opp_legal=5191904	opp_won=544
+PV	rp2	KNNK	Kb1 Na1 Nc1 kh7	 1.Nc1-h8#
+RESULT	geom=rp2	ray=2	mat=KBNK	legal=7233044	won=7233044	pct=100.0000	maxdtm=7	all=1	bmates=103228	bstale=35564	maxB=11	iters=12	ex=Ka1 Bb1 Na3 kd6
+PV	rp2	KBNK	Ka1 Bb1 Na3 kd6	 1.Ka1-h8 kd6-e6 2.Kh8-g7 ke6-d6 3.Kg7-f7 kd6-d7 4.Bb1-d3 kd7-c8 5.Bd3-a6 kc8-d7 6.Na3-b5 kd7-c6 7.Ba6-f2#
+RESULT	geom=rp2	ray=2	mat=KRBK	legal=4772720	won=4772720	pct=100.0000	maxdtm=4	all=1	bmates=667392	bstale=120936	maxB=12	iters=13	ex=Kb1 Ra1 Bf8 kf4
+PV	rp2	KRBK	Kb1 Ra1 Bf8 kf4	 1.Kb1-c1 kf4-e5 2.Ra1-a3 ke5-d5 3.Ra3-d3 kd5-c4 4.Bf8-d6#

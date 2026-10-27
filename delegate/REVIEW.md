@@ -736,3 +736,43 @@ continues the search. Kilo's anonymous tier is capped ("Sign up for free"); agy'
 
 **Sum model.** cylcgt's sum model gives P_10 = \*2 and Q_10 = \*3, so the n+2 families keep their values as sums at
 n = 10 (`research/sum_model_rings/`).
+
+## Round 11 (2026-10-27): paper fact-check of non-VIII sections and twisted tablebase B (Sonnet workflow `wf_898fa285`)
+
+Each finding was refereed by an adversarial verifier. 15 were confirmed and 0 rejected, and all 15 are applied to
+the paper.
+- **Abstract and intro.** "No edges or corners" now reads "no side edges or corners", since ranks 1 and 8 are still
+  edges. "Confirm that king and rook cannot force mate" now reads "show that king and rook rarely force mate", since
+  KRK wins 2.80% of positions. The §X heading and the conclusion are changed to match.
+- **§IV.** "No margin suffices" now reads "small margins fail". The verifier's exhaustive run found no draws at
+  mu_s >= T+2 on cyl:7x6 (4,702 positions) and none at T+4 on flat:6x7.
+- **§II.** A grammar fix in the census sentence, keeping "ordinary".
+- **§V.**
+  - "Boards with eight ranks" now reads "boards up to 8x8", since M <= 21n exceeds 256 from n = 13.
+  - The kings cell "not a zugzwang" now reads "not mutual", since it is a zugzwang for black only.
+- **§IX.**
+  - The 8-man end positions of A and B are now [C2]: kpsolve plus the Searcher with the Lichess tablebase, 24 of
+    24 sides.
+  - ↑²\*/tiny(1) open counts are now 10 and 12, of 9–10 men (W b4 b6 / B a4 b7 was solved Oct 22).
+  - The cap-2 run time is now 15.6 h.
+  - The textbook-tree sentence now reads "we rule out \*2 only when".
+- **§X.**
+  - "Only a rook promotion avoids stalemate" now reads "only a rook promotion wins": B and N also avoid stalemate
+    but draw.
+  - "Each king reaches" now reads "Ka3 reaches".
+  - "The rook and the minor pieces do not" now reads "KRK, KBNK and KNNK do not": KBBK with opposite-coloured
+    bishops, KRRK and KQRK win 100%.
+- **§XII.** The opening is hedged ("suggests ... may trouble ... can miss"), since Lc0 is perfect in every class.
+- **Appendix.** The 1/8 last end position now reads "white wins either way (queens only)".
+
+**Twisted tablebase B.**
+- B was written blind of A, `replica.c` and `egt_prototype.c`. It reproduces the plane, cylinder and torus replica
+  exactly in 30 of 30 rows.
+- A's ray rule is B's naive variant 1, and under it A and B agree exactly on all 33 twisted rows.
+- Rook and knight endings do not depend on the ray rule, so these are [C2]:
+  - KRK wins 100% on the Möbius strip and on RP², mate in at most 12;
+  - KRK wins 0.66% on the Klein bottle.
+- Bishop and queen values under the geometric straight-ray rule are B only (C1).
+- See `research/twisted_tablebases/COMPARE.md`. The conclusion's open problem now states the KRK result [C2].
+- Builds: main 15 pages, review 14 pages, after 4 whole-line trims (intro V4, Dawson, the §V proof sketch, the §V
+  example).

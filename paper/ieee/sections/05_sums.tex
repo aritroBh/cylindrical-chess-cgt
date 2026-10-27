@@ -53,7 +53,7 @@ Part & Claimed~\cite{Study2025} & Exact \\
 1: files h, a & $1$ & $\game{+\BIG}{\star}$ (hot) \\
 1: total & $1\pm1+\game{\game{2}{1}}{0}$ & white wins either way \\
 2: pawns & $\pm1$ & infinitesimal, mean $0$ \\
-2: kings & $0$ & not a zugzwang \\
+2: kings & $0$ & not mutual \\
 3: files c, d & $1$ & $\tinyg{1}$ \\
 3: total & $2$ & $+\BIG$ before any move \\
 \bottomrule
@@ -66,7 +66,7 @@ outright, but black, moving first, plays h6$\times$a5 across the seam and leaves
 part is $\game{+\BIG}{\star}$, hot, not the number $1$. The total is still a white win whoever moves first, but
 play now starts in the h/a component, by far the hottest (Principle~2). White to move plays a5--a6 and wins.
 Black to move does best to take on a5 at once, since every other move lets white force a passed pawn (after
-h6--h5, for example, a4$\times$h5); white then plays c3--c4 in the next hottest component, and
+h6--h5, a4$\times$h5); white then plays c3--c4 in the next hottest component, and
 $1+\star+\game{\game{2}{1}}{0}$ is a white win whoever moves next.
 
 \emph{Puzzle 2} (Fig.~\ref{fig:puzzle72}) has one pawn component, on files h, a and b. The earlier walk-through
@@ -106,12 +106,12 @@ outcome.
 
 \begin{proof}[Proof sketch]
 The models differ only after a passed pawn appears, say for white. By HSS no other component can then give black
-one, so in the sum black runs out of moves before white's $+\BIG$ does. The full proof, by induction with (E),
+one, so black runs out of moves before white's $+\BIG$ does. The proof, by induction with (E),
 is in the repository.
 \end{proof}
 
 In a random sample of $1{,}500$ positions, all $1{,}297$ HSS ones agree \lab{C1}, and with $\BIG=256$ the move
-bound always holds on boards with eight ranks. HSS cannot be dropped (Proposition~\ref{prop:sumcounter});
+bound always holds on boards up to $8\times8$. HSS cannot be dropped (Proposition~\ref{prop:sumcounter});
 without (E) the decomposition already fails in the pure pawn game (Proposition~\ref{prop:condE}).
 
 \begin{proposition}[\lab{C2}]\label{prop:sumcounter}

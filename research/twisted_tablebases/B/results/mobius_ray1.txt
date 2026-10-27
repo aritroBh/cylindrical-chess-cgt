@@ -1,0 +1,22 @@
+SELFTEST geom=mobius ray=1: canon/gluing inconsistencies=0, non-reversible ray squares=644
+RESULT	geom=mobius	ray=1	mat=KQK	legal=98956	won=98956	pct=100.0000	maxdtm=5	all=1	bmates=2548	bstale=1676	maxB=5	iters=6	ex=Kb1 Qa1 ke6
+PV	mobius	KQK	Kb1 Qa1 ke6	 1.Kb1-b2 ke6-f6 2.Qa1-d1 kf6-g6 3.Qd1-d5 kg6-h6 4.Qd5-g4 kh6-h7 5.Qg4-f8#
+RESULT	geom=mobius	ray=1	mat=KRK	legal=147776	won=147776	pct=100.0000	maxdtm=12	all=1	bmates=400	bstale=64	maxB=12	iters=13	ex=Ka1 Rb1 ka4
+PV	mobius	KRK	Ka1 Rb1 ka4	 1.Ka1-a2 ka4-a5 2.Ka2-a3 ka5-h4 3.Rb1-b4 kh4-h3 4.Ka3-a4 kh3-g3 5.Ka4-a5 kg3-f3 6.Ka5-h3 kf3-e3 7.Rb4-d5 ke3-e2 8.Kh3-g3 ke2-e3 9.Kg3-g2 ke3-e2 10.Rd5-d6 ke2-e1 11.Kg2-f3 ke1-f1 12.Rd6-d8#
+RESULT	geom=mobius	ray=1	mat=KBK	legal=158852	won=158852	pct=100.0000	maxdtm=21	all=1	bmates=180	bstale=128	maxB=21	iters=22	ex=Kc1 Ba1 kg5
+PV	mobius	KBK	Kc1 Ba1 kg5	 1.Kc1-b1 kg5-h5 2.Kb1-a2 kh5-a4 3.Ba1-b2 ka4-b4 4.Ka2-h6 kb4-b5 5.Kh6-a3 kb5-c5 6.Ka3-a4 kc5-d5 7.Bb2-g6 kd5-c5 8.Ka4-a5 kc5-d5 9.Ka5-b5 kd5-d6 10.Kb5-b6 kd6-d5 11.Bg6-d3 kd5-e6 12.Kb6-c6 ke6-e7 13.Bd3-e4 ke7-e8 14.Kc6-d6 ke8-f7 15.Kd6-d7 kf7-g8 16.Kd7-e6 kg8-f8 17.Be4-g6 kf8-g8 18.Ke6-f5 kg8-f8 19.Kf5-f6 kf8-g8 20.Bg6-b1 kg8-h8 21.Kf6-f7#
+RESULT	geom=mobius	ray=1	mat=KNK	legal=198560	won=0	pct=0.0000	maxdtm=0	all=0	bmates=0	bstale=0	maxB=0	iters=1	ex=none
+RESULT	geom=mobius	ray=1	mat=KQRK	legal=4103984	won=4103984	pct=100.0000	maxdtm=3	all=1	bmates=1166184	bstale=253668	maxB=12	iters=13	ex=Ka1 Qb1 Rc1 kh2
+PV	mobius	KQRK	Ka1 Qb1 Rc1 kh2	 1.Ka1-h8 kh2-a7 2.Qb1-d3 ka7-b7 3.Qd3-e3#
+RESULT	geom=mobius	ray=1	mat=KRRK	legal=5974912	won=5974912	pct=100.0000	maxdtm=4	all=1	bmates=650912	bstale=51008	maxB=12	iters=13	ex=Ka1 Rb1 Rd1 kc7	same_legal=2914912	same_won=2914912	opp_legal=3060000	opp_won=3060000
+PV	mobius	KRRK	Ka1 Rb1 Rd1 kc7	 1.Ka1-h8 kc7-c6 2.Rb1-b3 kc6-c7 3.Rd1-d2 kc7-c8 4.Rb3-b1#
+RESULT	geom=mobius	ray=1	mat=KQQK	legal=2683320	won=2683320	pct=100.0000	maxdtm=2	all=1	bmates=2585848	bstale=452912	maxB=5	iters=6	ex=Ka1 Qb1 Qc1 kh2	same_legal=1304808	same_won=1304808	opp_legal=1378512	opp_won=1378512
+PV	mobius	KQQK	Ka1 Qb1 Qc1 kh2	 1.Qb1-b5 kh2-a7 2.Qc1-b8#
+RESULT	geom=mobius	ray=1	mat=KBBK	legal=7005328	won=7005328	pct=100.0000	maxdtm=7	all=1	bmates=172152	bstale=59584	maxB=21	iters=22	ex=Kc3 Ba1 Bh8 kg6	same_legal=3438552	same_won=3438552	opp_legal=3566776	opp_won=3566776
+PV	mobius	KBBK	Kc3 Ba1 Bh8 kg6	 1.Kc3-d3 kg6-f7 2.Kd3-e4 kf7-e7 3.Bh8-e5 ke7-f7 4.Be5-f4 kf7-e7 5.Ba1-g7 ke7-d7 6.Bg7-a4 kd7-c8 7.Bf4-h2#
+RESULT	geom=mobius	ray=1	mat=KNNK	legal=10861312	won=832	pct=0.0077	maxdtm=1	all=0	bmates=128	bstale=1248	maxB=0	iters=2	ex=Ka1 Nb2 Ne6 kg8	same_legal=5363600	same_won=512	opp_legal=5497712	opp_won=320
+PV	mobius	KNNK	Ka1 Nb2 Ne6 kg8	 1.Nb2-h6#
+RESULT	geom=mobius	ray=1	mat=KBNK	legal=8883740	won=8883740	pct=100.0000	maxdtm=20	all=1	bmates=19212	bstale=13432	maxB=21	iters=22	ex=Kd3 Bh7 Na4 kh6
+PV	mobius	KBNK	Kd3 Bh7 Na4 kh6	 1.Kd3-c3 kh6xNa4 2.Bh7-c1 ka4-a5 3.Kc3-b3 ka5-h4 4.Kb3-a3 kh4-g4 5.Bc1-e6 kg4-h4 6.Be6-d7 kh4-a5 7.Bd7-g5 ka5-b6 8.Ka3-b4 kb6-c6 9.Bg5-c4 kc6-d7 10.Kb4-c5 kd7-e7 11.Kc5-c6 ke7-f8 12.Kc6-d6 kf8-e8 13.Kd6-e6 ke8-d8 14.Bc4-a6 kd8-e8 15.Ba6-h4 ke8-f8 16.Ke6-f6 kf8-g8 17.Kf6-g6 kg8-f8 18.Bh4-a4 kf8-g8 19.Ba4-d1 kg8-h8 20.Bd1-b3#
+RESULT	geom=mobius	ray=1	mat=KRBK	legal=6694356	won=6694356	pct=100.0000	maxdtm=7	all=1	bmates=157280	bstale=81552	maxB=21	iters=22	ex=Kd4 Rf2 Bg2 kg1
+PV	mobius	KRBK	Kd4 Rf2 Bg2 kg1	 1.Rf2-f3 kg1xBg2 2.Kd4-e3 kg2-h2 3.Rf3-a3 kh2-h1 4.Ke3-f3 kh1-h2 5.Kf3-f2 kh2-h1 6.Kf2-g3 kh1-g1 7.Ra3-a8#

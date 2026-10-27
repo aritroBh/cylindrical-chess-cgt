@@ -2,7 +2,7 @@
 
 To test a model value, we keep its tree of pawn moves and replace only the leaves by real results: from the
 Lichess Syzygy tablebase~\cite{LichessTB} up to seven men, and beyond from tablebase-backed search and our
-king-and-pawn solver (Section~\ref{sec:kings}).
+king-and-pawn solver.
 
 \begin{definition}[Real-chess oracle value]\label{def:oracle}
 Let $X$ be a pawn component on the ordinary board beside T (Fig.~\ref{fig:trebuchet}). An \emph{end position}
@@ -11,7 +11,7 @@ white to move and black to move. Replace each end position by $+\BIG$ if white w
 side to move, by $-\BIG$ if black does, by $\game{+\BIG}{-\BIG}$ if the side to move wins, and by $0$ if the
 side to move loses. If a side is drawn, the \emph{draw treatment} counts that draw as a win for black, as a win
 for white, or as worth $0$; in the last case the end position is $\game{\BIG r_W}{\BIG r_B}$, where
-$r_W,r_B\in\{-1,0,1\}$ are white's results with white and with black to move. All these games lie between $-2\BIG$ and $2\BIG$. The canonical value of the resulting tree is the \emph{oracle value} $O(X)$.
+$r_W,r_B\in\{-1,0,1\}$ are white's results with white and with black to move. All lie between $-2\BIG$ and $2\BIG$. The canonical value of the resulting tree is the \emph{oracle value} $O(X)$.
 \end{definition}
 
 \begin{lemma}[Sandwich; \lab{P}]\label{lem:sandwich}
@@ -41,7 +41,7 @@ For the candidate \pos{W a2 c2 / B b7 d7} beside T (Fig.~\ref{fig:star2_textbook
 
 Real chess thus agrees with $\nim{2}$ on the outcome and on every winning first move resolved so far
 (1.~a4 is still open), but not on the value: in the e.p.-aware tree, which matches chess, $O$ is always hot. In
-the textbook tree $\nim{2}$ is ruled out only when draws count as wins for one side, as in (c), so the
+the textbook tree we rule out $\nim{2}$ only when draws count as wins for one side, as in (c), so the
 candidate's $\nim{2}$ depends on the textbook test.
 
 A second candidate, \pos{W a3 b3 c2 / B b5 b7 c6} ($10$ men with T), is $\nim{2}$ under the opponent
@@ -58,7 +58,7 @@ nine. Four of the eight-man ones are resolved: seven of their sides agree with t
 \pos{W a3 a5 / B b4 b5} is a black win against it. A second search allows for that result and leaves one
 eight-man position and the three of nine men to decide the value. Our king-and-pawn solver (queen promotions
 only) shows that all four agree with the model on both sides; the hardest, black to move in
-\pos{W b2 b5 / B a5 b4}, needed two promoted queens in the search, $6.1\times10^{10}$ states in $15$ hours.
+\pos{W b2 b5 / B a5 b4}, needed two promoted queens in the search, $6.1\times10^{10}$ states in $15.6$ hours.
 
 \begin{proposition}[A real-chess $1/8$; \lab{C1}]\label{prop:eighth-real}
 For the $1/8$ position, with queen promotions only in our solver, $O=1/8$, whatever the end positions that are
@@ -67,9 +67,8 @@ still open do.
 
 This $1/8$ assumes the frozen kings of the tree (Section~\ref{sec:kings}), and a rerun with underpromotions
 would make it a full-chess certificate. The same method applies to $\upsec\star$ and $\tinyg{1}$: their lower bounds already equal the
-target values, with $11$ and $13$ end positions of $8$ to $10$ men still open \lab{C1}. Positions A and B have $11$ men beside
+target values, with $10$ and $12$ end positions of $9$ or $10$ men still open \lab{C1}. Positions A and B have $11$ men beside
 T, and the five-file $\nim{2}$ \pos{W a3 b3 c2 e2 / B a6 c5 d5 e3}, which sits legally
 beside T, has $12$, with only file f free of pawns between them. Their oracle values are open. For A and B a
 search finds the deciding end positions; the five and seven of them with $8$ men agree with the model
-(queen promotions only) \lab{C1}, but those with $9$ to $11$ men are unsolved, so the $\nim{2}$ of
-Theorem~\ref{thm:star2seven} is a model value.
+\lab{C2}, but those with $9$ to $11$ men are unsolved, so their $\nim{2}$ is a model value.

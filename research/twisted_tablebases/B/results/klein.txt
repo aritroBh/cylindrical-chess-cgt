@@ -1,0 +1,94 @@
+SELFTEST geom=klein ray=0: canon/gluing inconsistencies=0, non-reversible ray squares=0
+GEOM klein ray=0
+  orthogonal-step graph: 1 component(s), NOT 2-colourable (odd cycle: no chessboard colouring)
+  bishop (diagonal-step) orbits: 1, sizes: 64
+  diagonal steps that change nominal (f+r) parity: 32 of 256
+  orthogonal steps that keep nominal (f+r) parity: 16 of 256
+  knight orbits: 1, sizes: 64; knight graph NOT bipartite
+  diagonal-step graph bipartite
+  empty-board rook range 44..44 squares, bishop range 60..60, knight range 8..8
+RESULT	geom=klein	ray=0	mat=KQK	legal=69120	won=69120	pct=100.0000	maxdtm=3	all=1	bmates=9920	bstale=576	maxB=3	iters=4	nonwon=0	nonwon_imm=0	ex=Ka1 Qe1 ka7
+PV	klein	KQK	Ka1 Qe1 ka7	 1.Ka1-b1 ka7-h2 2.Kb1-b8 kh2-a6 3.Qe1-h5#
+  sym file shift  KQK: W differences 0, B differences 0
+  sym rank shift  KQK: not a symmetry of the move structure
+  sym file mirror KQK: W differences 0, B differences 0
+  sym rank mirror KQK: W differences 0, B differences 0
+  sym transpose   KQK: not a symmetry of the move structure
+  sym rotate 180  KQK: W differences 0, B differences 0
+RESULT	geom=klein	ray=0	mat=KRK	legal=145344	won=960	pct=0.6605	maxdtm=1	all=0	bmates=320	bstale=0	maxB=0	iters=2	nonwon=144384	nonwon_imm=0	ex=Ka2 Rc1 ka4
+PV	klein	KRK	Ka2 Rc1 ka4	 1.Rc1-c4#
+  sym file shift  KRK: W differences 0, B differences 0
+  sym rank shift  KRK: not a symmetry of the move structure
+  sym file mirror KRK: W differences 0, B differences 0
+  sym rank mirror KRK: W differences 0, B differences 0
+  sym transpose   KRK: not a symmetry of the move structure
+  sym rotate 180  KRK: W differences 0, B differences 0
+RESULT	geom=klein	ray=0	mat=KBK	legal=124576	won=0	pct=0.0000	maxdtm=0	all=0	bmates=192	bstale=96	maxB=0	iters=1	nonwon=124576	nonwon_imm=0	ex=none
+  sym file shift  KBK: W differences 0, B differences 0
+  sym rank shift  KBK: not a symmetry of the move structure
+  sym file mirror KBK: W differences 0, B differences 0
+  sym rank mirror KBK: W differences 0, B differences 0
+  sym transpose   KBK: not a symmetry of the move structure
+  sym rotate 180  KBK: W differences 0, B differences 0
+RESULT	geom=klein	ray=0	mat=KNK	legal=190592	won=0	pct=0.0000	maxdtm=0	all=0	bmates=0	bstale=0	maxB=0	iters=1	nonwon=190592	nonwon_imm=0	ex=none
+  sym file shift  KNK: W differences 0, B differences 0
+  sym rank shift  KNK: not a symmetry of the move structure
+  sym file mirror KNK: W differences 0, B differences 0
+  sym rank mirror KNK: W differences 0, B differences 0
+  sym transpose   KNK: not a symmetry of the move structure
+  sym rotate 180  KNK: W differences 0, B differences 0
+RESULT	geom=klein	ray=0	mat=KQRK	legal=2827968	won=2827968	pct=100.0000	maxdtm=2	all=1	bmates=2014528	bstale=238080	maxB=3	iters=4	nonwon=0	nonwon_imm=0	ex=Ka1 Qb1 Rc1 kf2
+PV	klein	KQRK	Ka1 Qb1 Rc1 kf2	 1.Ka1-h1 kf2-e2 2.Qb1-e6#
+  sym file shift  KQRK: W differences 0, B differences 0
+  sym rank shift  KQRK: not a symmetry of the move structure
+  sym file mirror KQRK: W differences 0, B differences 0
+  sym rank mirror KQRK: W differences 0, B differences 0
+  sym transpose   KQRK: not a symmetry of the move structure
+  sym rotate 180  KQRK: W differences 0, B differences 0
+RESULT	geom=klein	ray=0	mat=KRRK	legal=5856768	won=5856768	pct=100.0000	maxdtm=4	all=1	bmates=578752	bstale=21504	maxB=4	iters=5	nonwon=0	nonwon_imm=0	ex=Ka1 Rb1 Rc1 kd2	same_legal=2856960	same_won=2856960	opp_legal=2999808	opp_won=2999808
+PV	klein	KRRK	Ka1 Rb1 Rc1 kd2	 1.Ka1-h8 kd2-e2 2.Rb1-b2 ke2-e3 3.Rc1-c6 ke3-e4 4.Rb2-b4#
+  sym file shift  KRRK: W differences 0, B differences 0
+  sym rank shift  KRRK: not a symmetry of the move structure
+  sym file mirror KRRK: W differences 0, B differences 0
+  sym rank mirror KRRK: W differences 0, B differences 0
+  sym transpose   KRRK: not a symmetry of the move structure
+  sym rotate 180  KRRK: W differences 0, B differences 0
+RESULT	geom=klein	ray=0	mat=KQQK	legal=1288960	won=1288960	pct=100.0000	maxdtm=1	all=1	bmates=5526464	bstale=376640	maxB=3	iters=4	nonwon=0	nonwon_imm=0	ex=Ka1 Qb1 Qc1 kf2	same_legal=610560	same_won=610560	opp_legal=678400	opp_won=678400
+PV	klein	KQQK	Ka1 Qb1 Qc1 kf2	 1.Qb1-c2#
+  sym file shift  KQQK: W differences 0, B differences 0
+  sym rank shift  KQQK: not a symmetry of the move structure
+  sym file mirror KQQK: W differences 0, B differences 0
+  sym rank mirror KQQK: W differences 0, B differences 0
+  sym transpose   KQQK: not a symmetry of the move structure
+  sym rotate 180  KQQK: W differences 0, B differences 0
+RESULT	geom=klein	ray=0	mat=KBBK	legal=4285120	won=4285120	pct=100.0000	maxdtm=5	all=1	bmates=513856	bstale=40192	maxB=5	iters=6	nonwon=0	nonwon_imm=0	ex=Ka1 Bb1 Bc1 kb5	same_legal=2081344	same_won=2081344	opp_legal=2203776	opp_won=2203776
+PV	klein	KBBK	Ka1 Bb1 Bc1 kb5	 1.Ka1-b8 kb5-c5 2.Bb1-d3 kc5-c6 3.Bc1-d2 kc6-d5 4.Bd2-e3 kd5-c6 5.Bd3-f1#
+  sym file shift  KBBK: W differences 0, B differences 0
+  sym rank shift  KBBK: not a symmetry of the move structure
+  sym file mirror KBBK: W differences 0, B differences 0
+  sym rank mirror KBBK: W differences 0, B differences 0
+  sym transpose   KBBK: not a symmetry of the move structure
+  sym rotate 180  KBBK: W differences 0, B differences 0
+RESULT	geom=klein	ray=0	mat=KNNK	legal=10129536	won=0	pct=0.0000	maxdtm=0	all=0	bmates=0	bstale=0	maxB=0	iters=1	nonwon=10129536	nonwon_imm=57600	ex=none	same_legal=5016800	same_won=0	opp_legal=5112736	opp_won=0
+  sym file shift  KNNK: W differences 0, B differences 0
+  sym rank shift  KNNK: not a symmetry of the move structure
+  sym file mirror KNNK: W differences 0, B differences 0
+  sym rank mirror KNNK: W differences 0, B differences 0
+  sym transpose   KNNK: not a symmetry of the move structure
+  sym rotate 180  KNNK: W differences 0, B differences 0
+RESULT	geom=klein	ray=0	mat=KBNK	legal=6693856	won=6693856	pct=100.0000	maxdtm=11	all=1	bmates=43840	bstale=11232	maxB=11	iters=12	nonwon=0	nonwon_imm=0	ex=Ka1 Bb1 Na4 kb4
+PV	klein	KBNK	Ka1 Bb1 Na4 kb4	 1.Bb1-c2 kb4-c4 2.Ka1-b2 kc4-d4 3.Bc2-a8 kd4-c4 4.Kb2-a3 kc4-b5 5.Ka3-h5 kb5-c4 6.Na4-g6 kc4-b4 7.Ba8-d5 kb4-b5 8.Kh5-h4 kb5-b4 9.Ng6-a4 kb4-b5 10.Bd5-h1 kb5-b4 11.Bh1-c5#
+  sym file shift  KBNK: W differences 0, B differences 0
+  sym rank shift  KBNK: not a symmetry of the move structure
+  sym file mirror KBNK: W differences 0, B differences 0
+  sym rank mirror KBNK: W differences 0, B differences 0
+  sym transpose   KBNK: not a symmetry of the move structure
+  sym rotate 180  KBNK: W differences 0, B differences 0
+RESULT	geom=klein	ray=0	mat=KRBK	legal=5154528	won=5154528	pct=100.0000	maxdtm=5	all=1	bmates=284032	bstale=106816	maxB=5	iters=6	nonwon=0	nonwon_imm=0	ex=Ka1 Ra8 Bc2 kd6
+PV	klein	KRBK	Ka1 Ra8 Bc2 kd6	 1.Ka1-b1 kd6-e6 2.Ra8-e8 ke6-f6 3.Re8-e2 kf6-g5 4.Re2-e3 kg5-g4 5.Re3-g3#
+  sym file shift  KRBK: W differences 0, B differences 0
+  sym rank shift  KRBK: not a symmetry of the move structure
+  sym file mirror KRBK: W differences 0, B differences 0
+  sym rank mirror KRBK: W differences 0, B differences 0
+  sym transpose   KRBK: not a symmetry of the move structure
+  sym rotate 180  KRBK: W differences 0, B differences 0

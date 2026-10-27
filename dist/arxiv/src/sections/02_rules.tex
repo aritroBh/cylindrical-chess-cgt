@@ -39,7 +39,7 @@ A move, usually a capture, can give both sides a passed pawn; such a race needs 
 \item \emph{mover}: the side that made the move wins;
 \item \emph{opponent}: the other side wins.
 \end{itemize}
-None is exact chess, since a new queen may give check or stop the other pawn.
+None is exact chess: a new queen may give check or stop the other pawn.
 
 \subsection{En Passant and the Passed-Pawn Test}\label{sec:ep}
 The textbook test calls a pawn passed if no enemy pawn stands ahead of it on its own file or a neighboring file
@@ -96,8 +96,8 @@ opponent's next move.
 One more white pawn makes the difference decisive. In \pos{W~a2~b3 / B~b4} black has no move, and the textbook
 test lets white win at once with a2--a4. Under Definition~\ref{def:epaware}, every white move lets black capture
 on a3, directly or en passant, and win the race that follows under the count rule, so the value is $0$. Across
-the census of Section~\ref{sec:atlas}, every position with at most six pawns on ordinary boards of width at
-most four, the stricter test changes at least $18{,}137$ of the $231{,}071$ values (a few more changes are hidden
+the census of Section~\ref{sec:atlas} (all positions with at most six pawns on ordinary boards of width at
+most four), the stricter test changes at least $18{,}137$ of the $231{,}071$ values (a few more changes are hidden
 where both values exceed the display range), and $4{,}070$ of them in outcome \lab{C1}.
 
 The three race rules and three e.p.\ options (textbook test, e.p.-aware test, e.p.\ off) give nine

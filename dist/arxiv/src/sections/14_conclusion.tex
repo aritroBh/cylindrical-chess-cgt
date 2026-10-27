@@ -4,7 +4,7 @@ Elkies' sum model holds up on a board without edges once the passed-pawn test re
 frozen kings are checked. The textbook $\nim{2}$ comes from the textbook passed-pawn test, $\nim{2}$ appears
 with seven pawns, single-component $\nim{3}$ appear with nine pawns on ordinary boards and with ten on the
 seven-file cylinder, and with queen promotions the
-$1/8$ survives in real chess. On the cylinder, king and rook can no longer force mate, and the rook-pawn draw Ka6, Pa5
+$1/8$ survives in real chess. On the cylinder, king and rook rarely force mate, and the rook-pawn draw Ka6, Pa5
 against Ka8 becomes a win. On the $3\times n$ cylinder, Dawson's chess is a first-player win exactly when the
 strip three files shorter is a second-player win. Stockfish at small fixed depth loses most on the tempo and
 parity fights that CGT singles out, and on sums of 15 to 20 men both engines often miss the model's winning
@@ -19,8 +19,8 @@ moves. Seven problems are open.
   end positions that decide them agree with the model, and those with 9 to 11 men are unsolved
   (Section~\ref{sec:real-eighth}). In the whole-board game A and B are the only seven-pawn $\nim{2}$ positions on ordinary boards of any width \lab{C2}.
 \item \emph{Higher nimbers.} The least number of pawns in a ring $\nim{2}$ on $\cyl{n}$ is $n+3$ for $3\le n\le7$ and
-  $n+2$ for $n=8$ \lab{C1}. Is it $n+2$ for every $n\ge8$, and is the wall family $\nim{2}$ as a sum of components for
-  all $n$? Is there a $\nim{4}$ on eight ranks?
+  $n+2$ for $n=8$ \lab{C2}, and at most $n+2$ for even $n\ge8$ as a whole-board game \lab{AI}. Is it $n+2$ for odd
+  $n\ge9$, and are the wall families $\nim{2}$ as sums of components for all $n$? Is there a $\nim{4}$ on eight ranks?
 \item \emph{When is a tr\'ebuchet zero?} Theorem~\ref{thm:cert} settles the promotion game but not chess: find a
   local test for chess, or settle
   Conjecture~\ref{conj:horizon2}; real tr\'ebuchets seem to have $h$ of about 5
@@ -28,8 +28,8 @@ moves. Seven problems are open.
 \item \emph{Endgames without edges.} KPKP still has undecided positions once a second promotion is
   allowed, and KPPK comes next. On the M\"obius strip, where files a and h are
   joined with the ranks reversed, KPK is won from $78.94\%$ of the legal positions with white to move, against
-  $78.89\%$ on the cylinder \lab{C2}. Pawn play across its twisted seam, where a pawn reverses direction, and
-  the Klein bottle remain open.
+  $78.89\%$ on the cylinder, and KRK from all of them, against $0.66\%$ on the Klein bottle, which also joins
+  ranks 1 and 8 \lab{C2}. Pawn play across the twisted seam, where a pawn reverses direction, remains open.
 \item \emph{Mis\`ere Dawson's chess.} Dawson's own question was about mis\`ere play \cite{Dawson1935}, and our
   computation of the quotient after that of Plambeck and Siegel \cite{PlambeckSiegel2008} did not finish: is
   the mis\`ere

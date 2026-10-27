@@ -1,0 +1,95 @@
+SELFTEST geom=plane ray=0: canon/gluing inconsistencies=0, non-reversible ray squares=0
+GEOM plane ray=0
+  orthogonal-step graph: 1 component(s), 2-colourable (chessboard colouring exists)
+  bishop (diagonal-step) orbits: 2, sizes: 32 32
+  diagonal steps that change nominal (f+r) parity: 0 of 196
+  orthogonal steps that keep nominal (f+r) parity: 0 of 224
+  knight orbits: 1, sizes: 64; knight graph bipartite (knight always changes side)
+  diagonal-step graph bipartite
+  empty-board rook range 14..14 squares, bishop range 7..13, knight range 2..8
+RESULT	geom=plane	ray=0	mat=KQK	legal=144508	won=144508	pct=100.0000	maxdtm=10	all=1	bmates=364	bstale=872	maxB=10	iters=11	nonwon=0	nonwon_imm=0	ex=Ka1 Qb2 kf5
+PV	plane	KQK	Ka1 Qb2 kf5	 1.Ka1-b1 kf5-e6 2.Kb1-c2 ke6-f5 3.Kc2-c3 kf5-g5 4.Kc3-d4 kg5-f5 5.Qb2-b6 kf5-f4 6.Qb6-f6 kf4-g4 7.Kd4-e3 kg4-g3 8.Qf6-g6 kg3-h3 9.Ke3-f3 kh3-h4 10.Qg6-h6#
+  sym file shift  KQK: not a board map
+  sym rank shift  KQK: not a board map
+  sym file mirror KQK: W differences 0, B differences 0
+  sym rank mirror KQK: W differences 0, B differences 0
+  sym transpose   KQK: W differences 0, B differences 0
+  sym rotate 180  KQK: W differences 0, B differences 0
+RESULT	geom=plane	ray=0	mat=KRK	legal=175168	won=175168	pct=100.0000	maxdtm=16	all=1	bmates=216	bstale=68	maxB=16	iters=17	nonwon=0	nonwon_imm=0	ex=Ka1 Rb2 kc3
+PV	plane	KRK	Ka1 Rb2 kc3	 1.Ka1-b1 kc3-d4 2.Kb1-c2 kd4-e4 3.Kc2-c3 ke4-e5 4.Kc3-d3 ke5-f5 5.Kd3-d4 kf5-f6 6.Kd4-e4 kf6-e6 7.Rb2-b6 ke6-e7 8.Ke4-d5 ke7-f7 9.Kd5-e5 kf7-g7 10.Ke5-f5 kg7-f7 11.Rb6-e6 kf7-g7 12.Re6-f6 kg7-h7 13.Rf6-g6 kh7-h8 14.Kf5-f6 kh8-h7 15.Kf6-f7 kh7-h8 16.Rg6-h6#
+  sym file shift  KRK: not a board map
+  sym rank shift  KRK: not a board map
+  sym file mirror KRK: W differences 0, B differences 0
+  sym rank mirror KRK: W differences 0, B differences 0
+  sym transpose   KRK: W differences 0, B differences 0
+  sym rotate 180  KRK: W differences 0, B differences 0
+RESULT	geom=plane	ray=0	mat=KBK	legal=193284	won=0	pct=0.0000	maxdtm=0	all=0	bmates=0	bstale=136	maxB=0	iters=1	nonwon=193284	nonwon_imm=24	ex=none
+  sym file shift  KBK: not a board map
+  sym rank shift  KBK: not a board map
+  sym file mirror KBK: W differences 0, B differences 0
+  sym rank mirror KBK: W differences 0, B differences 0
+  sym transpose   KBK: W differences 0, B differences 0
+  sym rotate 180  KBK: W differences 0, B differences 0
+RESULT	geom=plane	ray=0	mat=KNK	legal=205496	won=0	pct=0.0000	maxdtm=0	all=0	bmates=0	bstale=40	maxB=0	iters=1	nonwon=205496	nonwon_imm=204	ex=none
+  sym file shift  KNK: not a board map
+  sym rank shift  KNK: not a board map
+  sym file mirror KNK: W differences 0, B differences 0
+  sym rank mirror KNK: W differences 0, B differences 0
+  sym transpose   KNK: W differences 0, B differences 0
+  sym rotate 180  KNK: W differences 0, B differences 0
+RESULT	geom=plane	ray=0	mat=KQRK	legal=6911296	won=6911296	pct=100.0000	maxdtm=6	all=1	bmates=227592	bstale=141392	maxB=16	iters=17	nonwon=0	nonwon_imm=0	ex=Ka1 Qh1 Rc3 kd4
+PV	plane	KQRK	Ka1 Qh1 Rc3 kd4	 1.Ka1-b1 kd4-e5 2.Kb1-b2 ke5-f5 3.Qh1-d5 kf5-f6 4.Rc3-f3 kf6-g6 5.Qd5-g8 kg6-h6 6.Rf3-h3#
+  sym file shift  KQRK: not a board map
+  sym rank shift  KQRK: not a board map
+  sym file mirror KQRK: W differences 0, B differences 0
+  sym rank mirror KQRK: W differences 0, B differences 0
+  sym transpose   KQRK: W differences 0, B differences 0
+  sym rotate 180  KQRK: W differences 0, B differences 0
+RESULT	geom=plane	ray=0	mat=KRRK	legal=8325184	won=8325184	pct=100.0000	maxdtm=7	all=1	bmates=144784	bstale=39160	maxB=16	iters=17	nonwon=0	nonwon_imm=0	ex=Ka1 Rb1 Rc1 kd4	same_legal=4078464	same_won=4078464	opp_legal=4246720	opp_won=4246720
+PV	plane	KRRK	Ka1 Rb1 Rc1 kd4	 1.Ka1-b2 kd4-e4 2.Kb2-c3 ke4-f4 3.Kc3-d3 kf4-g4 4.Kd3-e4 kg4-h4 5.Ke4-f4 kh4-h5 6.Rb1-b6 kh5-h4 7.Rb6-h6#
+  sym file shift  KRRK: not a board map
+  sym rank shift  KRRK: not a board map
+  sym file mirror KRRK: W differences 0, B differences 0
+  sym rank mirror KRRK: W differences 0, B differences 0
+  sym transpose   KRRK: W differences 0, B differences 0
+  sym rotate 180  KRRK: W differences 0, B differences 0
+RESULT	geom=plane	ray=0	mat=KQQK	legal=5657120	won=5657120	pct=100.0000	maxdtm=4	all=1	bmates=503760	bstale=282352	maxB=10	iters=11	nonwon=0	nonwon_imm=0	ex=Ka1 Qb1 Qa2 ke5	same_legal=2865120	same_won=2865120	opp_legal=2792000	opp_won=2792000
+PV	plane	KQQK	Ka1 Qb1 Qa2 ke5	 1.Qb1-c1 ke5-f5 2.Qc1-e3 kf5-f6 3.Qa2-e6 kf6-g7 4.Qe3-h6#
+  sym file shift  KQQK: not a board map
+  sym rank shift  KQQK: not a board map
+  sym file mirror KQQK: W differences 0, B differences 0
+  sym rank mirror KQQK: W differences 0, B differences 0
+  sym transpose   KQQK: W differences 0, B differences 0
+  sym rotate 180  KQQK: W differences 0, B differences 0
+RESULT	geom=plane	ray=0	mat=KBBK	legal=10164056	won=5007216	pct=49.2640	maxdtm=19	all=0	bmates=3104	bstale=20408	maxB=19	iters=20	nonwon=5156840	nonwon_imm=2512	ex=Ka1 Bd1 Bb4 kc4	same_legal=5155800	same_won=0	opp_legal=5008256	opp_won=5007216
+PV	plane	KBBK	Ka1 Bd1 Bb4 kc4	 1.Bb4-d6 kc4-d5 2.Bd6-g3 kd5-c5 3.Ka1-b1 kc5-d5 4.Kb1-c1 kd5-c5 5.Kc1-d2 kc5-d5 6.Kd2-d3 kd5-c5 7.Bd1-f3 kc5-b4 8.Kd3-d4 kb4-b5 9.Bf3-g4 kb5-a5 10.Kd4-c4 ka5-a6 11.Kc4-c5 ka6-a5 12.Bg4-d1 ka5-a6 13.Kc5-c6 ka6-a5 14.Bg3-d6 ka5-a6 15.Bd6-b4 ka6-a7 16.Kc6-c7 ka7-a8 17.Bd1-e2 ka8-a7 18.Bb4-c5 ka7-a8 19.Be2-f3#
+  sym file shift  KBBK: not a board map
+  sym rank shift  KBBK: not a board map
+  sym file mirror KBBK: W differences 0, B differences 0
+  sym rank mirror KBBK: W differences 0, B differences 0
+  sym transpose   KBBK: W differences 0, B differences 0
+  sym rotate 180  KBBK: W differences 0, B differences 0
+RESULT	geom=plane	ray=0	mat=KNNK	legal=11499304	won=1232	pct=0.0107	maxdtm=1	all=0	bmates=240	bstale=7728	maxB=0	iters=2	nonwon=11498072	nonwon_imm=63864	ex=Ka1 Ne1 Nc5 ka3	same_legal=5685848	same_won=1232	opp_legal=5813456	opp_won=0
+PV	plane	KNNK	Ka1 Ne1 Nc5 ka3	 1.Ne1-c2#
+  sym file shift  KNNK: not a board map
+  sym rank shift  KNNK: not a board map
+  sym file mirror KNNK: W differences 0, B differences 0
+  sym rank mirror KNNK: W differences 0, B differences 0
+  sym transpose   KNNK: W differences 0, B differences 0
+  sym rotate 180  KNNK: W differences 0, B differences 0
+RESULT	geom=plane	ray=0	mat=KBNK	legal=10875504	won=10822184	pct=99.5097	maxdtm=33	all=0	bmates=464	bstale=12888	maxB=33	iters=34	nonwon=53320	nonwon_imm=42384	ex=Ka1 Bc1 Nb1 kc2
+PV	plane	KBNK	Ka1 Bc1 Nb1 kc2	 1.Bc1-d2 kc2-b3 2.Bd2-f4 kb3-c2 3.Ka1-a2 kc2-d3 4.Ka2-b3 kd3-d4 5.Bf4-g3 kd4-e4 6.Kb3-c4 ke4-e3 7.Bg3-d6 ke3-e4 8.Nb1-d2 ke4-e3 9.Kc4-c3 ke3-f2 10.Kc3-d3 kf2-g2 11.Kd3-e3 kg2-h1 12.Ke3-f3 kh1-g1 13.Bd6-e5 kg1-h1 14.Nd2-e4 kh1-g1 15.Ne4-f2 kg1-f1 16.Be5-h2 kf1-e1 17.Nf2-e4 ke1-d1 18.Kf3-e3 kd1-c2 19.Ne4-d2 kc2-b2 20.Bh2-d6 kb2-c3 21.Bd6-e7 kc3-c2 22.Be7-f6 kc2-c1 23.Ke3-d3 kc1-d1 24.Bf6-h4 kd1-c1 25.Nd2-c4 kc1-d1 26.Nc4-e3 kd1-c1 27.Kd3-c3 kc1-b1 28.Kc3-b3 kb1-c1 29.Bh4-e1 kc1-b1 30.Be1-d2 kb1-a1 31.Ne3-c4 ka1-b1 32.Nc4-a3 kb1-a1 33.Bd2-c3#
+  sym file shift  KBNK: not a board map
+  sym rank shift  KBNK: not a board map
+  sym file mirror KBNK: W differences 0, B differences 0
+  sym rank mirror KBNK: W differences 0, B differences 0
+  sym transpose   KBNK: W differences 0, B differences 0
+  sym rotate 180  KBNK: W differences 0, B differences 0
+RESULT	geom=plane	ray=0	mat=KRBK	legal=9366840	won=9366840	pct=100.0000	maxdtm=16	all=1	bmates=16336	bstale=35504	maxB=16	iters=17	nonwon=0	nonwon_imm=0	ex=Ka1 Rc2 Bd4 kd3
+PV	plane	KRBK	Ka1 Rc2 Bd4 kd3	 1.Ka1-b2 kd3xBd4 2.Kb2-b3 kd4-e4 3.Kb3-c3 ke4-e5 4.Kc3-d3 ke5-f5 5.Kd3-d4 kf5-f6 6.Kd4-d5 kf6-f5 7.Rc2-f2 kf5-g5 8.Kd5-e4 kg5-g6 9.Ke4-e5 kg6-g7 10.Ke5-f5 kg7-f7 11.Rf2-e2 kf7-g7 12.Re2-e7 kg7-f8 13.Kf5-f6 kf8-g8 14.Kf6-g6 kg8-f8 15.Re7-e6 kf8-g8 16.Re6-e8#
+  sym file shift  KRBK: not a board map
+  sym rank shift  KRBK: not a board map
+  sym file mirror KRBK: W differences 0, B differences 0
+  sym rank mirror KRBK: W differences 0, B differences 0
+  sym transpose   KRBK: W differences 0, B differences 0
+  sym rotate 180  KRBK: W differences 0, B differences 0

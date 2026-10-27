@@ -265,7 +265,9 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   - **Sensitivity.** Each of the 7 open sides must go as the model says. Changing any single one of them unpins
     the value (the lower bound drops to 0, ↑\* or below).
   - ↑²\* and tiny(1): every resolved end position agrees with the model, and the lower bound already equals the
-    target value. 11 and 13 end positions with 8–10 men still decide them.
+    target value. 10 and 12 end positions with 9–10 men still decide them. The one 8-man end position on both
+    lists, `W b4 b6 / B a4 b7`, was solved by kpsolve on Oct 22 (queen promotions, exact, Black wins, as the model
+    says; `realchess/targets18/r7_driver.log`).
   - **Status.** Resolution continues. The same pipeline is queued for ↑²\*
     and tiny(1).
 - **Paper.** A full draft is in `paper/` (Overleaf-ready; `paper/main.pdf`, 18 pages): "Pawn Endgames Without
@@ -332,7 +334,7 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   T43's solver and cylcgt (whole board) agree on all 8; 6 stay \*3 as sums. Example:
   `W a2 a5 c4 e2 f2 / B a7 b4 d7 e5 g7`. So n+3 holds for n = 3, …, 7.
 
-- **A real-chess 1/8 (2026-10-22, 15:48).** The cap-2 kpsolve run (6.1×10^10 states, 15.5 h, queen promotions)
+- **A real-chess 1/8 (2026-10-22, 15:48).** The cap-2 kpsolve run (6.1×10^10 states, 15.6 h, queen promotions)
   shows White wins `W b2 b5 / B a5 b4` with Black to move (exact, W W). With every decisive end position now
   exact, `apply_kpsolve.py` pins the oracle value: **O = 1/8** (queen promotions only, frozen kings; C1).
   Still open: a rerun with underpromotions for a full-chess certificate.

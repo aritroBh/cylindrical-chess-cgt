@@ -1,0 +1,90 @@
+SELFTEST geom=torus ray=0: canon/gluing inconsistencies=0, non-reversible ray squares=0
+GEOM torus ray=0
+  orthogonal-step graph: 1 component(s), 2-colourable (chessboard colouring exists)
+  bishop (diagonal-step) orbits: 2, sizes: 32 32
+  diagonal steps that change nominal (f+r) parity: 0 of 256
+  orthogonal steps that keep nominal (f+r) parity: 0 of 256
+  knight orbits: 1, sizes: 64; knight graph bipartite (knight always changes side)
+  diagonal-step graph bipartite
+  empty-board rook range 28..28 squares, bishop range 28..28, knight range 8..8
+RESULT	geom=torus	ray=0	mat=KQK	legal=124416	won=0	pct=0.0000	maxdtm=0	all=0	bmates=0	bstale=0	maxB=0	iters=1	nonwon=124416	nonwon_imm=0	ex=none
+  sym file shift  KQK: W differences 0, B differences 0
+  sym rank shift  KQK: W differences 0, B differences 0
+  sym file mirror KQK: W differences 0, B differences 0
+  sym rank mirror KQK: W differences 0, B differences 0
+  sym transpose   KQK: W differences 0, B differences 0
+  sym rotate 180  KQK: W differences 0, B differences 0
+RESULT	geom=torus	ray=0	mat=KRK	legal=169600	won=0	pct=0.0000	maxdtm=0	all=0	bmates=0	bstale=0	maxB=0	iters=1	nonwon=169600	nonwon_imm=0	ex=none
+  sym file shift  KRK: W differences 0, B differences 0
+  sym rank shift  KRK: W differences 0, B differences 0
+  sym file mirror KRK: W differences 0, B differences 0
+  sym rank mirror KRK: W differences 0, B differences 0
+  sym transpose   KRK: W differences 0, B differences 0
+  sym rotate 180  KRK: W differences 0, B differences 0
+RESULT	geom=torus	ray=0	mat=KBK	legal=173056	won=0	pct=0.0000	maxdtm=0	all=0	bmates=0	bstale=0	maxB=0	iters=1	nonwon=173056	nonwon_imm=0	ex=none
+  sym file shift  KBK: W differences 0, B differences 0
+  sym rank shift  KBK: W differences 0, B differences 0
+  sym file mirror KBK: W differences 0, B differences 0
+  sym rank mirror KBK: W differences 0, B differences 0
+  sym transpose   KBK: W differences 0, B differences 0
+  sym rotate 180  KBK: W differences 0, B differences 0
+RESULT	geom=torus	ray=0	mat=KNK	legal=190592	won=0	pct=0.0000	maxdtm=0	all=0	bmates=0	bstale=0	maxB=0	iters=1	nonwon=190592	nonwon_imm=0	ex=none
+  sym file shift  KNK: W differences 0, B differences 0
+  sym rank shift  KNK: W differences 0, B differences 0
+  sym file mirror KNK: W differences 0, B differences 0
+  sym rank mirror KNK: W differences 0, B differences 0
+  sym transpose   KNK: W differences 0, B differences 0
+  sym rotate 180  KNK: W differences 0, B differences 0
+RESULT	geom=torus	ray=0	mat=KQRK	legal=5874176	won=5874176	pct=100.0000	maxdtm=5	all=1	bmates=51712	bstale=35328	maxB=5	iters=6	nonwon=0	nonwon_imm=0	ex=Ka1 Qb1 Rc1 kd5
+PV	torus	KQRK	Ka1 Qb1 Rc1 kd5	 1.Ka1-a2 kd5-e5 2.Rc1-e1 ke5-d5 3.Qb1-b6 kd5-c4 4.Re1-d1 kc4-c3 5.Qb6-b3#
+  sym file shift  KQRK: W differences 0, B differences 0
+  sym rank shift  KQRK: W differences 0, B differences 0
+  sym file mirror KQRK: W differences 0, B differences 0
+  sym rank mirror KQRK: W differences 0, B differences 0
+  sym transpose   KQRK: W differences 0, B differences 0
+  sym rotate 180  KQRK: W differences 0, B differences 0
+RESULT	geom=torus	ray=0	mat=KRRK	legal=8002560	won=8002560	pct=100.0000	maxdtm=7	all=1	bmates=14848	bstale=1536	maxB=7	iters=8	nonwon=0	nonwon_imm=0	ex=Ka1 Rb1 Rc1 kd4	same_legal=3919872	same_won=3919872	opp_legal=4082688	opp_won=4082688
+PV	torus	KRRK	Ka1 Rb1 Rc1 kd4	 1.Ka1-h1 kd4-e4 2.Kh1-g2 ke4-f4 3.Rb1-b5 kf4-e4 4.Kg2-f2 ke4-d3 5.Kf2-f3 kd3-d4 6.Kf3-e2 kd4-e4 7.Rc1-c4#
+  sym file shift  KRRK: W differences 0, B differences 0
+  sym rank shift  KRRK: W differences 0, B differences 0
+  sym file mirror KRRK: W differences 0, B differences 0
+  sym rank mirror KRRK: W differences 0, B differences 0
+  sym transpose   KRRK: W differences 0, B differences 0
+  sym rotate 180  KRRK: W differences 0, B differences 0
+RESULT	geom=torus	ray=0	mat=KQQK	legal=4273920	won=4273920	pct=100.0000	maxdtm=3	all=1	bmates=328704	bstale=149504	maxB=3	iters=4	nonwon=0	nonwon_imm=0	ex=Ka1 Qb1 Qc1 ke5	same_legal=2320128	same_won=2320128	opp_legal=1953792	opp_won=1953792
+PV	torus	KQQK	Ka1 Qb1 Qc1 ke5	 1.Ka1-h1 ke5-d5 2.Qb1-f5 kd5-d6 3.Qc1-c5#
+  sym file shift  KQQK: W differences 0, B differences 0
+  sym rank shift  KQQK: W differences 0, B differences 0
+  sym file mirror KQQK: W differences 0, B differences 0
+  sym rank mirror KQQK: W differences 0, B differences 0
+  sym transpose   KQQK: W differences 0, B differences 0
+  sym rotate 180  KQQK: W differences 0, B differences 0
+RESULT	geom=torus	ray=0	mat=KBBK	legal=8335488	won=0	pct=0.0000	maxdtm=0	all=0	bmates=1536	bstale=1024	maxB=0	iters=1	nonwon=8335488	nonwon_imm=0	ex=none	same_legal=4418688	same_won=0	opp_legal=3916800	opp_won=0
+  sym file shift  KBBK: W differences 0, B differences 0
+  sym rank shift  KBBK: W differences 0, B differences 0
+  sym file mirror KBBK: W differences 0, B differences 0
+  sym rank mirror KBBK: W differences 0, B differences 0
+  sym transpose   KBBK: W differences 0, B differences 0
+  sym rotate 180  KBBK: W differences 0, B differences 0
+RESULT	geom=torus	ray=0	mat=KNNK	legal=10129536	won=0	pct=0.0000	maxdtm=0	all=0	bmates=0	bstale=0	maxB=0	iters=1	nonwon=10129536	nonwon_imm=57600	ex=none	same_legal=5054080	same_won=0	opp_legal=5075456	opp_won=0
+  sym file shift  KNNK: W differences 0, B differences 0
+  sym rank shift  KNNK: W differences 0, B differences 0
+  sym file mirror KNNK: W differences 0, B differences 0
+  sym rank mirror KNNK: W differences 0, B differences 0
+  sym transpose   KNNK: W differences 0, B differences 0
+  sym rotate 180  KNNK: W differences 0, B differences 0
+RESULT	geom=torus	ray=0	mat=KBNK	legal=9228288	won=0	pct=0.0000	maxdtm=0	all=0	bmates=0	bstale=512	maxB=0	iters=1	nonwon=9228288	nonwon_imm=41472	ex=none
+  sym file shift  KBNK: W differences 0, B differences 0
+  sym rank shift  KBNK: W differences 0, B differences 0
+  sym file mirror KBNK: W differences 0, B differences 0
+  sym rank mirror KBNK: W differences 0, B differences 0
+  sym transpose   KBNK: W differences 0, B differences 0
+  sym rotate 180  KBNK: W differences 0, B differences 0
+RESULT	geom=torus	ray=0	mat=KRBK	legal=8222336	won=1792	pct=0.0218	maxdtm=1	all=0	bmates=256	bstale=5120	maxB=0	iters=2	nonwon=8220544	nonwon_imm=23040	ex=Ka1 Rd2 Bh5 kc1
+PV	torus	KRBK	Ka1 Rd2 Bh5 kc1	 1.Rd2-d1#
+  sym file shift  KRBK: W differences 0, B differences 0
+  sym rank shift  KRBK: W differences 0, B differences 0
+  sym file mirror KRBK: W differences 0, B differences 0
+  sym rank mirror KRBK: W differences 0, B differences 0
+  sym transpose   KRBK: W differences 0, B differences 0
+  sym rotate 180  KRBK: W differences 0, B differences 0

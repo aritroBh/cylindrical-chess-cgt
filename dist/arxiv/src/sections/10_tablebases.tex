@@ -46,10 +46,10 @@ the bishops on opposite colors.}
 \end{table}
 
 On the cylinder the queen ignores the seam: KQK wins every position, as quickly as on the ordinary board.
-The rook and the minor pieces do not, and on the torus not even the queen can force mate
+KRK, KBNK and KNNK do not, and on the torus not even the queen can force mate
 (Table~\ref{tab:tb}).
 
-\emph{KRK and KBNK cannot force mate on the cylinder.} The first and eighth ranks are still edges, but now
+\emph{KRK and KBNK rarely force mate on the cylinder.} The first and eighth ranks are still edges, but now
 closed loops with no corner. The rook wins only 2.80\% of the positions, all from mating nets already
 in place, such as Ka3, Rb2 against Ka1: 1.~Rb3 Kh1 2.~Rg3 Ka1 3.~Rg1\#. The rook covers h1 and the
 white king h2, the two flight squares across the seam. Bishop and knight win even more rarely: their mate
@@ -70,7 +70,7 @@ produce.
 We solved every legal KPK position on the $8\times8$ ordinary board and cylinder twice, with our
 king-and-pawn solver of Section~\ref{sec:kings} (all four promotions) and with a separately written KPK
 solver (queen promotion only). They agree on all 326,640 cylinder positions and differ on exactly 6
-ordinary-board positions, where only a rook promotion avoids stalemate, such as Ka4, Pb7 against
+ordinary-board positions, where only a rook promotion wins, such as Ka4, Pb7 against
 Ka6 \lab{C2}. Table~\ref{tab:kpk} gives the counts; the cylinder has fewer legal positions, since the kings
 may not touch across the seam.
 
@@ -143,5 +143,5 @@ the other flight squares \lab{C2}.
 \emph{A pawn each.} With all promotions but at most one new piece, our solver decides 89\% of the 14.6 million
 legal KPKP positions on the cylinder and 83\% on the ordinary board \lab{C1}. Of the positions decided on both,
 10\% change result, three quarters of them to a draw, and 576 pairs of mutual zugzwangs exist only on the
-cylinder, 20 of them strict: in Ka3, Ph2 against Kg2, Ph3 whoever moves loses, since each king reaches the
+cylinder, 20 of them strict: in Ka3, Ph2 against Kg2, Ph3 whoever moves loses, since Ka3 reaches the
 locked pawns across the seam; a second solver agrees on every sampled position \lab{C2}.
