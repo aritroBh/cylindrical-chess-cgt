@@ -1,0 +1,210 @@
+{
+ "task": "K14",
+ "date": "2026-10-27",
+ "d_model_bruteforce": {
+  "script": "scripts/prop_check.py 400",
+  "EQ": [
+   44208,
+   0
+  ],
+  "GE": [
+   44208,
+   0
+  ],
+  "LE": [
+   44208,
+   0
+  ],
+  "HALF": [
+   4980,
+   0
+  ],
+  "NEG_differ_fraction": "10654/14736 .. 10714/14736",
+  "opposition_G0": "W L",
+  "one_arrow_missing_G0": "W D",
+  "dud_G0": "D D"
+ },
+ "closed_form_vs_lfp": {
+  "script": "scripts/closed_form.py",
+  "contexts": 4579,
+  "disagreements": 0
+ },
+ "search": {
+  "unique_candidates": 6674,
+  "all8DD": 1147,
+  "zero_leak": 0,
+  "min_leak_groups": [
+   {
+    "board": "flat:7x6",
+    "K": [
+     "a5",
+     "a6"
+    ],
+    "k": [
+     "c5",
+     "c6"
+    ],
+    "P": [
+     "b3"
+    ],
+    "p": [
+     "b4",
+     "b5"
+    ]
+   },
+   {
+    "board": "flat:7x6",
+    "K": [
+     "c1",
+     "c2"
+    ],
+    "k": [
+     "a1",
+     "a2"
+    ],
+    "P": [
+     "b2",
+     "b3"
+    ],
+    "p": [
+     "b4"
+    ]
+   },
+   {
+    "board": "flat:7x6",
+    "K": [
+     "a5",
+     "a6"
+    ],
+    "k": [
+     "c5",
+     "c6"
+    ],
+    "P": [
+     "b2",
+     "b3"
+    ],
+    "p": [
+     "b4",
+     "b5"
+    ]
+   },
+   {
+    "board": "flat:7x6",
+    "K": [
+     "c1",
+     "c2"
+    ],
+    "k": [
+     "a1",
+     "a2"
+    ],
+    "P": [
+     "b2",
+     "b3"
+    ],
+    "p": [
+     "b4",
+     "b5"
+    ]
+   },
+   {
+    "board": "flat:7x7",
+    "K": [
+     "a6",
+     "a7"
+    ],
+    "k": [
+     "c6",
+     "c7"
+    ],
+    "P": [
+     "b4"
+    ],
+    "p": [
+     "b5",
+     "b6"
+    ]
+   },
+   {
+    "board": "flat:7x7",
+    "K": [
+     "c1",
+     "c2"
+    ],
+    "k": [
+     "a1",
+     "a2"
+    ],
+    "P": [
+     "b2",
+     "b3"
+    ],
+    "p": [
+     "b4"
+    ]
+   },
+   {
+    "board": "flat:7x7",
+    "K": [
+     "c1",
+     "c2"
+    ],
+    "k": [
+     "a1",
+     "a2"
+    ],
+    "P": [
+     "b2",
+     "b3"
+    ],
+    "p": [
+     "b4",
+     "b5"
+    ]
+   },
+   {
+    "board": "flat:7x7",
+    "K": [
+     "a6",
+     "a7"
+    ],
+    "k": [
+     "c6",
+     "c7"
+    ],
+    "P": [
+     "b3",
+     "b4"
+    ],
+    "p": [
+     "b5",
+     "b6"
+    ]
+   }
+  ]
+ },
+ "Z_A": {
+  "group": "flat:7x6 Ka5/Ka6 kc5/kc6 Pb3 pb4 pb5",
+  "contexts": 68,
+  "roots": 544,
+  "contexts_all_match_P": 53,
+  "mismatch_roots": 40,
+  "mismatch_prediction_always": [
+   "D"
+  ],
+  "bridge_check": {
+   "ctx": 68,
+   "PunW": 14,
+   "PunB": 17,
+   "both": 2,
+   "a_checks": 200,
+   "a_fail": 0,
+   "b_checks": 16,
+   "b_fail": 0,
+   "mismatch_ctx": 15,
+   "mismatch_ctx_with_pun_failure": 15,
+   "mismatch_roots": 40
+  }
+ }
+}

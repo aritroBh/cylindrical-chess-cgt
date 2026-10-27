@@ -1,0 +1,19 @@
+--- cyl:8x8 P6, White to move: Kh5 Pa4 kb4 pa5 w -   P-value L; legal moves ['Kh5h6', 'Kh5g5', 'Kh5a6', 'Kh5g6', 'Kh5g4']
+--- cyl:8x8 P6, Black to move: Kh5 Pa4 kb4 pa5 b -   P-value W; legal moves ['Kb4b3', 'Kb4c4', 'Kb4c5', 'Kb4c3', 'Kb4a3']
+--- cyl:8x8 P7, Black to move: Ke6 Pd7 kd8 pe7 b -   P-value W; legal moves ['Kd8c7']
+    [P6, White to move] Kh5h6, reply Kb4a4: KPK [- a4 h6 a5 D] -> W
+    [P6, White to move] Kh5g5, reply Kb4a4: KPK [- a4 g5 a5 D] -> W
+    [P6, White to move] Kh5a6, reply Kb4a4: KPK [- a4 a6 a5 D] -> W
+    [P6, White to move] Kh5g6, reply Kb4a4: KPK [- a4 g6 a5 D] -> W
+    [P6, White to move] Kh5g4, reply Kb4a4: KPK [- a4 g4 a5 D] -> W
+    [P6, Black to move] Kb4b3, reply Kh5a5: KPK [+ a5 b3 a4 D] -> W
+    [P6, Black to move] Kb4c4, reply Kh5a5: KPK [+ a5 c4 a4 D] -> W
+    [P6, Black to move] Kb4c5, reply Kh5a5: KPK [+ a5 c5 a4 D] -> W
+    [P6, Black to move] Kb4c3, reply Kh5a5: KPK [+ a5 c3 a4 D] -> W
+    [P6, Black to move] Kb4a3, reply Kh5a5: KPK [+ a5 a3 a4 D] -> W
+    [P7, Black to move] Kd8c7, reply Ke6e7: KPK [+ e7 c7 d7 D] -> W
+--- flat:8x8 P7, Black to move: Ke6 Pd7 kd8 pe7 b -   P-value W; legal moves ['Kd8c7']
+    [P7, Black to move] Kd8c7, reply Ke6e7: KPK [+ e7 c7 d7 D] -> W
+--- cyl:7x6 P5, Black to move (Z_72, 6 ranks): Kc4 Pb5 kb6 pc5 b -   P-value W; legal moves ['Kb6a5']
+    [P5, Black to move (Z_72, 6 ranks)] Kb6a5, reply Kc4c5: KPK [+ c5 a5 b5 D] -> W
+EVERY MOVE ANSWERED BY THE CAPTURE AND A WON KPK: True

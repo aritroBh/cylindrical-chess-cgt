@@ -1,0 +1,49 @@
+### 5.7 A two-shuttle group (K14, 2026-10-27)
+
+**Z_A = Ka5, Ka6 (shuttle) / kc5, kc6 (shuttle) / Pb3 pb4 pb5**, on the flat 7×6 board (F_Z = {a, b, c}, buffer d, context
+on e–g). Kings at (a, c) ∈ {a5, a6} × {c5, c6}.
+- **Geometry. PROVED by enumeration.** The four states satisfy (K1) and (K2): pb4 and pb5 attack a3, c3, a4, c4, and Pb3
+  attacks a4, c4, none of the four shuttle squares; d(a, c) = 2 in all four. The Z-pawns are blocked (b3–b4–b5) and cannot
+  move. White's legal moves other than the shuttle: **Kxb4 at (a5, c6) only** (b4 is then undefended); at every other
+  state White has no other move (a4 is attacked by b5, b5 is guarded by the Black king, b6 is next to the Black king).
+  Black's legal moves other than the shuttle are the sorties c5–d4, d5, d6 and c6–d5, d6 (c4 is attacked by b3, b6 is next
+  to the White king).
+- **Z alone is (D, D) at all 8 roots** (4 states × 2 sides to move; kpsolve P model, real kings, exact: COMPUTED-1). Every
+  Black sortie loses at once (the position after it is a White win). White's Kxb4 draws: it is a non-suicidal further White
+  Z-move, so (T3) fails at (a5, c6) and Z_A is a two-shuttle component *up to one White break*. Reproduce: the 8 roots
+  (e.g. `Ka5 kc6 Pb3 pb4 pb5 w -`) piped into `kpp --board flat:7x6 --ep on --promote QRBN --cap 1 --pmodel --moves`,
+  where `kpp` is a private build of `kings/delegate/out/K7/scripts/draft/kp_p.c`.
+- **What Proposition 3.2′ gives for Z_A.** (T1), (T2), (T4) hold at all four states (T4 in the Z-alone sense above), so part
+  (b) gives r(G ⊞ Z_A) ≥ r(G ⊞ dud_D) in the D-model, part (c) transfers a White win from any state, and a Black win from
+  the two states with the Black king on c5 (there White has no move but the shuttle).
+- **Contexts. COMPUTED-1 (P model), prediction CHECKED-2.** 68 pawn-only contexts of ≤ 3 pawns on the files f and g (all six
+  outcome pairs of G ⊞ dud_D occur: (D,D), (D,L), (L,L), (W,D), (W,L), (W,W)), each with the four king states and both
+  sides to move (544 roots). In **53 contexts** the exact P-result of G ⊞ Z_A equals the prediction r(G ⊞ dud_D) at all 8
+  roots. Examples (White's, Black's pawns; prediction): none; f3 / f4 (D,D) blocked; f2 / — (W,W); — / f3 (L,L); f3 / g4
+  (W,L); f2 f4 / g5 (W,D); f2 / f5 g3 (D,L). In the **15 other contexts** (40 roots) the result differs, in every case at
+  a context in which (Pun) fails somewhere on the regular positions. In all 40 mismatching roots the prediction is D and the result is decisive: Black
+  wins in 10 contexts (a sortie beats the context race), White in 4 (White's break Kxb4 turns Black's shuttle into a
+  zugzwang), both in 1. Predicted W or L was never contradicted. Example f2 / f3 (blocked, so G has no move): the prediction is (D, D), but Black to move at (a5, c5) must
+  shuttle to c6, and Kxb4 then wins; four of the eight roots are W. With the context on files e–g (closer to the sortie
+  squares) 5 of 12 representative contexts fail (24 of 96 roots).
+- **Chess (C) for Z_A. Mostly not done.** In chess (`kpsolve --board flat:7x6 --ep on --promote QRBN --cap 1`) Z_A alone
+  is (D, D) at all 8 roots, exact (COMPUTED-1, 1.4 CPU-s). The chess results with contexts were not computed: a batch of 4
+  contexts was still running after one CPU-minute and was stopped, and the shared heavy slots were queued behind other
+  jobs. So (A_Q) is not checked for any context, and every context result above is a statement in P.
+- **The bridge on Z_A. COMPUTED-1.** `scripts/bridge_check.py` enumerates the regular positions of each context (8 to
+  about 330) and classifies every legal move as context move, shuttle or other. (Pun_White) holds at all regular positions
+  in 14 of the 68 contexts, (Pun_Black) in 17, both in 2. Theorem 3.2‴(a): at the 200 roots where (Pun) for the loser holds
+  everywhere and r_D = W (resp. L) for the winner, P agrees: 0 failures. Theorem 3.2‴(b): 16 roots with both (Pun)'s, 0
+  failures. All 15 mismatching contexts have a (Pun) failure: 0 contexts where the hypotheses hold and the conclusion
+  fails. (Pun) is sufficient, not necessary: many of the 53 matching contexts have a (Pun) failure at some regular position
+  that the winner's play never uses.
+- **Search for an exactly frozen two-shuttle group. Negative result, COMPUTED-1.** `scripts/search_groups.py` lists every
+  placement of the kings and of pawns on F_Z in which the four combined king states are legal (K1, K2: kings with two
+  adjacent safe squares each, never touching) and the number of other legal moves in the four states is at most 18
+  (12 for ≤ 3 + 3 pawns on three files). 6,674 groups: flat 7×6 (F_Z of 3 files, ≤ 2 + 2 and ≤ 3 + 3 pawns; F_Z of 2 files,
+  ≤ 3 + 3), flat 7×7 (≤ 2 + 2), cylinder 7×6 (≤ 2 + 2). 1,147 of them are (D, D) at all 8 roots with Z alone (P model),
+  and **none** has every non-shuttle move losing at once, which is a necessary condition for (T3), (T4) in P. The
+  minimum number of non-losing non-shuttle moves (over the 8 roots) is 1: it is attained only by Z_A (flat 7×6), its
+  colour-reversed mirror, a variant with an extra immobile White pawn on b2, and the corresponding groups on the 7×7 board. On the
+  cylinder 7×6 only 6 groups are drawn at all 8 roots and the minimum is 12. So an exactly frozen two-shuttle group is not
+  known: CONJECTURE that none exists in this family (one search, one solver, scored by a cut-off on the other-move count).

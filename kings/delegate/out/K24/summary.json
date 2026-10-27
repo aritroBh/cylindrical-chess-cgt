@@ -1,0 +1,53 @@
+{
+ "task": "K24 P6/P7",
+ "p_model": {
+  "cyl8x8_P6": "(L,W)",
+  "flat8x8_P6": "(L,L)",
+  "cyl8x8_P7": "(D,W)",
+  "flat8x8_P7": "(D,W)",
+  "cyl7x6_P5": "(D,W)",
+  "label": "CHECKED-2 (kpsolve --pmodel vs mine.c)"
+ },
+ "chess": {
+  "cyl8x8_P6": "(L,W)",
+  "P7": "(D,W) both boards",
+  "P5": "(D,W)",
+  "kpsolve_exact": true,
+  "P6_P7b_P5b_by": "KPK reduction, kpk2 vs atlas kpk.c: 0 diff on 326640 cyl + 331352 flat positions",
+  "P7w_P5w_by": "transfer lemma + bb/bw models + kpsolve exact"
+ },
+ "local_game_T": {
+  "5.1_white_L1": [
+   6,
+   6,
+   6,
+   7,
+   7
+  ],
+  "5.1_white_L1P": [
+   6,
+   6,
+   5,
+   6,
+   6
+  ],
+  "order": "Kg4,Kg5,Kg6,Kh6,Ka6",
+  "7.2_Kc7": 1,
+  "7.2_Kf7": [
+   11,
+   10
+  ],
+  "7.2_Ke5_Kd5_Kf5": null
+ },
+ "L3F_fails_everywhere": true,
+ "bare_L3_stalemates": 0,
+ "crossval": {
+  "random_legal_positions": 11102,
+  "one_pawn_8x8_legal": 769,
+  "differences": 0
+ },
+ "soundness_bbbw_cyl5x6": {
+  "legal": 423,
+  "violations": 0
+ }
+}

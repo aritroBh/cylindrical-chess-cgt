@@ -1,0 +1,14 @@
+== cyl:8x8 P model
+[kpsolve cyl:8x8 ep=on cap=1: 23 layers, 188416 states, depth 7, 0.0s]
+Kh5 Pa4 kb4 pa5 w - | L L | Kh5h6:L Kh5g5:L Kh5a6:L Kh5g6:L Kh5g4:L
+Kh5 Pa4 kb4 pa5 b - | W W | Kb4b3:W Kb4c4:W Kb4c5:W Kb4c3:W Kb4a3:W
+Ke6 Pd7 kd8 pe7 w - | D D | Ke6e5:D Ke6f7:L Ke6f5:D Ke6d5:D
+Ke6 Pd7 kd8 pe7 b - | W W | Kd8c7:W
+nice -n 15 ./kp_p --pmodel --board $b --ep on --cap 1 --moves < pos_8x8.txt  0.03s user 0.00s system 27% cpu 0.115 total
+== flat:8x8 P model
+[kpsolve flat:8x8 ep=on cap=1: 23 layers, 188416 states, depth 7, 0.0s]
+Kh5 Pa4 kb4 pa5 w - | L L | Kh5h6:L Kh5h4:L Kh5g5:L Kh5g6:L Kh5g4:L
+Kh5 Pa4 kb4 pa5 b - | L L | Kb4b3:L Kb4c4:L Kb4a4:L Kb4c5:L Kb4c3:L Kb4a3:L
+Ke6 Pd7 kd8 pe7 w - | D D | Ke6e5:D Ke6f7:L Ke6f5:D Ke6d5:D
+Ke6 Pd7 kd8 pe7 b - | W W | Kd8c7:W
+nice -n 15 ./kp_p --pmodel --board $b --ep on --cap 1 --moves < pos_8x8.txt  0.04s user 0.00s system 79% cpu 0.050 total

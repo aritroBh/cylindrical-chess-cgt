@@ -1,0 +1,12 @@
+**Checks of Proposition 3.2′ and Theorem 3.2‴ (K14; data, not proofs).**
+- *D-model, brute force* (`kings/delegate/out/K14/scripts/prop_check.py 400`): 400 random short D-games G (3 to 6 positions,
+  random options including ⊕, ⊖), each with random components Z of the kinds "exact (T1)–(T4) with extra suicides",
+  "(T1), (T2), (T4) plus random further White options", the mirror, and (c)'s half-slice, solved by least fixed point on the
+  explicit sum. (a): 44,208 of 44,208 instances agree. (b): 44,208 of 44,208 for each of the two inequalities. (c): 4,980 of
+  4,980. Deleting any one of the eight arrows changes the result in 72–73 % of the instances (COMPUTED-1: the solver is
+  new and one implementation; the statements are PROVED above).
+- *Predictions for pawn-only contexts:* the least-fixed-point solver `scripts/dmodel.py` and the closed recursion of
+  Theorem 3.4(a) (`scripts/closed_form.py`, a pass resets the e.p. flag) agree on all 4,579 contexts of ≤ 2 + 2 pawns on
+  files e–g of the flat 7×6 board (two implementations: CHECKED-2).
+- *Chess, a concrete group:* §5.7 (Z_A). Theorem 3.2‴(a), 200 instances with (Pun) at all regular positions and r_D = W
+  (resp. L), 0 failures; part (b), 16 instances, 0 failures; COMPUTED-1 in P.

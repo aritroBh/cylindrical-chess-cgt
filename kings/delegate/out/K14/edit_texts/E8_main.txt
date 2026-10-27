@@ -1,0 +1,141 @@
+**Proposition 3.2′ (two shuttling kings are a dud). PROVED (new, K14, 2026-10-27; the D-model part is one model's proof,
+not yet independently re-derived, plus a brute-force check).**
+
+*Two-shuttle component.* Let Z be a D-game with four distinct positions (a, b), a ∈ {z, z′}, b ∈ {w, w′}. Write ā for
+the other of z, z′ and b̄ for the other of w, w′. In chess z, z′ and w, w′ are the two shuttle squares of the White and
+the Black king, and the four positions are the four combined king states. In each of the four positions:
+- **(T1)** (ā, b) is a Left option (White's shuttle);
+- **(T2)** (a, b̄) is a Right option (Black's shuttle);
+- **(T3)** every other Left option is ⊖ (a suicide);
+- **(T4)** every other Right option is ⊕ (a suicide).
+
+Z may have further positions. Let G be any D-game (short or not) and x a position of G.
+- **(a) Equality.** Under (T1)–(T4), for all four states (a, b) and both sides to move, r(G ⊞ Z) at (x, (a, b)) equals
+  r(G ⊞ dud_D) at (x, ω). For short G the value is given by Theorem 3.4(a): a side wins iff it can force a decisive
+  event against an opponent who may pass at any time, and otherwise the game is drawn. There is no zugzwang
+  (Λ_R ⇒ Λ_L), and a G without terminals is a draw.
+- **(b) Further Z-moves.** Under (T1), (T2), (T4) (White may have further Z-moves, of any kind, even to new positions),
+  r(G ⊞ Z) ≥ r(G ⊞ dud_D) in the order L < D < W. Under (T1), (T2), (T3), r(G ⊞ Z) ≤ r(G ⊞ dud_D). If both sides have
+  further moves there is no comparison in general. The inequalities can be strict (a further White option ⊕ at
+  (z, w) makes G = 0 a White win, against D for dud_D).
+- **(c) Half-slice.** Suppose only (T2) and (T4) hold, and only at (z, w) and (z, w′), and everything else in Z is
+  arbitrary. If r(G ⊞ dud_D) = W at (x, ω) for a side to move s, then r(G ⊞ Z) = W at (x, (z, w)) and at (x, (z, w′))
+  for the same s. Mirror: (T1), (T3) at (z, w) and (z′, w) transfer a Black win. So *a win needs only the half of the
+  four states in which the winner's king stands still*; the draws, and the exact equality (a), need all four.
+- **(d) Each shuttle arrow is needed.** Take G = 0 (one position, no options), where r(G ⊞ dud_D) = (D, D).
+  - *Opposition.* Delete the diagonal state (z′, w′) (the kings would touch). Then (z′, w) has no Black shuttle and
+    (z, w′) has no White shuttle; their only options are suicides. At (z, w) the pair is (W, L): White to move goes to
+    (z′, w) and Black must suicide, Black to move goes to (z, w′) and White must suicide. The first player wins.
+  - *One arrow.* Delete Black's shuttle at (z′, w) only: the pair at (z, w) is (W, D).
+  - Brute force (K14, `scripts/prop_check.py`, 400 random short G with 3 to 6 positions): deleting any one of the
+    eight shuttle arrows from an otherwise exact Z changes the result in about 72 % of the (G, state, side) instances.
+
+*Proof.* Two lemmas, then the parts.
+
+**Lemma A (p-morphism).** Let A, B be D-games and φ a map from the positions of A to those of B (identity on terminals)
+such that, for every position u of A and each player s, (i) φ maps every s-option of u to an s-option of φ(u), and
+(ii) every s-option of φ(u) is φ of some s-option of u. Then r_A(u, s) = r_B(φ(u), s) for all u, s. A and B may be loopy.
+*Proof.* Let U_n^σ be the stage sets of Definition 1.2 (U_0 = ∅; (u, σ) enters at stage n+1 if some σ-option is a
+σ-terminal or a position t with (t, σ̄) in U_n^σ; (u, σ̄) enters if every option is a σ-terminal or a t with (t, σ) in
+U_n^σ, a position without options entering at stage 1). By induction on n, (u, s) is in U_n^σ(A) iff (φ(u), s) is in
+U_n^σ(B). For s = σ, an option of u that is good at stage n maps by (i) to a good option of φ(u), and a good option
+of φ(u) is φ of an option of u by (ii), which is good by induction. For s = σ̄, every option of φ(u) is φ of an option
+of u by (ii), and every option t of u maps to an option of φ(u) by (i). The union over n is the least fixed point. ∎
+
+**Lemma B (the winner of G ⊞ dud_D never passes).** Let (x, ω, σ) be in W^σ of G ⊞ dud_D, entering at stage n. Then
+some option that makes it enter at stage n is a G-move (a σ-terminal of G or a position (x′, ω) with σ̄ to move and
+stage ≤ n − 1). *Proof.* If the only such option were the pass, to (x, ω, σ̄) at stage m ≤ n − 1, then every option of
+(x, ω, σ̄), the pass back included, has stage ≤ m − 1, so (x, ω, σ) would enter at stage ≤ m < n. ∎
+This is the content of the proof of Theorem 3.4(a), "Left's winning moves are always G-moves".
+
+*(a)* Let A = G ⊞ Z and A⁰ = G ⊞ Z⁰, where Z⁰ keeps only the four shuttle options at the four states.
+- The stage sets of A and A⁰ coincide. A deleted option is a Left option ⊖ or a Right option ⊕. For the player to move
+  it never makes a position enter (it is a terminal for the opponent). For the opponent it is a terminal that is always
+  fine, so a position all of whose remaining options are fine, or that has none, enters at the same stage in A⁰ and A.
+  (This is Lemma 1.7; its proof does not use shortness.)
+- φ(x′, (a, b)) = (x′, ω) maps A⁰ onto G ⊞ dud_D. The Left options of (x′, (a, b)) are the terminals of G, the
+  positions (x′^L, (a, b)) and (x′, (ā, b)); their images are the Left options of (x′, ω): the terminals of G, the
+  positions (x′^L, ω) and (x′, ω), the pass. So (i) and (ii) hold for Left, and for Right with (x′, (a, b̄)). By
+  Lemma A the results agree. ∎
+
+*(b)* Delete White's further options (they can be added back as unreachable positions of the smaller game): (a) applies,
+and by option monotonicity (Lemma 1.6) the larger game is at least as good for White, since Black's options are
+unchanged. The second inequality is its mirror.
+
+*(c)* Take σ = White. By induction on n, (x′, ω, s) in U_n^White(G ⊞ dud_D) implies (x′, (z, b), s) in U_n^White(G ⊞ Z)
+for both b. For s = White, Lemma B gives a G-move making it enter, and the same move exists in G ⊞ Z. For s = Black,
+every option of (x′, ω, Black) is good: a G-option, or the pass. At (x′, (z, b)) Black has the same G-options, the
+shuttle to (x′, (z, b̄)) by (T2) (it corresponds to the pass), and otherwise only ⊕ options by (T4). All are good. ∎
+
+*(Remark on e.p.)* The sum of Definition 1.3 leaves G alone under a Z-move, and in chess an e.p. right expires under a
+king move. Model the flag as a coordinate of G that every Z-move resets, and the pass of dud_D likewise. Lemmas A and B and
+all of the above go through unchanged (φ forgets only the Z-state, and both games reset the flag at corresponding moves).
+The chess statements below use this reading.
+
+**Remark 3.2′a (what it says about the conjecture).** A two-shuttle component realises dud_D, so the "shuttles on both
+sides" bullet above is PROVED in the D-model for every component that satisfies (T1)–(T4). Whether a chess king group
+does is a separate question, answered by the hypotheses of Theorem 3.2‴ below and, for a concrete group, by a search.
+
+**Lemma 3.2″ (four-state geometry; PROVED).** Let z ≠ z′ and w ≠ w′ be empty squares of F_Z, z, z′ adjacent and w, w′
+adjacent, such that (K1) no Black Z-pawn attacks z or z′ and no White Z-pawn attacks w or w′, and (K2) the king distance
+d(a, b) ≥ 2 for all four (a, b) (the kings never touch). Then, in every context (files at distance ≥ 2 from F_Z), with
+the Z-pawns unmoved and the kings on {z, z′} and {w, w′}: neither king is in check, both shuttle moves are legal
+(whatever the other king's square), and each side has a legal move, so nobody is stalemated.
+*Proof.* A king is attacked only by an enemy pawn or the enemy king. By Lemma 2.2 no context pawn attacks a square of
+F_Z and no pawn stands on a buffer file; the Z-pawns do not attack the four squares by (K1), and the kings do not attack
+each other by (K2). So there is no check, and a shuttle move is legal: its target is empty, not attacked, and not
+adjacent to the enemy king. Each side has its shuttle as a legal move. ∎
+
+**Theorem 3.2‴ (chess bridge for two shuttles; PROVED in P, conditional on the stated hypotheses; the chess statement adds
+(A_Q)(X) as always).** Let X be a K+P position
+with a king group Z satisfying (K1), (K2), the kings on {z, z′} and {w, w′}, and a context with D-model G (the pawn-only
+game of Definition 1.5, with the e.p. flag as in the Remark). Let D = G ⊞ dud_D, with π sending a chess position to
+(x, ω) and keeping the side to move. A *regular* position is one reachable from X by D-moves (matching context moves and
+the two shuttles). Assume, at every regular position:
+- **(V1a-ctx)** the legal context moves of the side to move are exactly G's options for that side, with the same
+  resulting positions (e.p. through condition (E)); the shuttle is the pass;
+- **(V2-ctx)** every decisive event of G leads to a P-win for its beneficiary (automatic for a pawn-only G scored by
+  promotions);
+and write **(Pun_s)** for: *every legal move of s that is neither a context move nor s's shuttle (a king move off the
+shuttle, a Z-pawn move or capture) is decisively punished (Definition 2.5): the position after it is a P-win for s̄.*
+- **(a) Win transfer.** Suppose r_D(x, ω, s) = W. Let Σ be a rank-lowering White strategy in D (by Lemma B it never
+  passes) and N the set of chess positions arising when White plays Σ as chess moves and Black plays any legal D-move.
+  If (Pun_Black) holds at the nodes of N with Black to move, then White wins X in P. White's king stays on its square, so
+  only the two states (a, w), (a, w′) occur; White's shuttle and the square z′ are not used. The mirror statement for a
+  Black win needs (Pun_White) at the nodes of N with White to move.
+- **(b) Exactness.** If (Pun_White) and (Pun_Black) hold at all regular positions, the P-result of every regular
+  position equals r_D(π(y)), draws included. In particular, if G has no decisive event, X is a draw in P.
+
+*Proof.* (a) By the sharp form of Theorem 1.14 it is enough to exhibit a White-certified set; take N.
+- (S1): at a White node of N, Σ prescribes a G-move or a ⊕. By (V1a-ctx) the move is legal and leads to the prescribed
+  D-position; a promotion wins in P by (V2-ctx). The rank is lowered.
+- (S2): at a Black node of N every legal move is one of: a context move, a D-move by (V1a-ctx) to a position of N (a
+  decisive event of G for White is closing by (V2-ctx); a promotion by Black would be a ⊖ option of a Black node of
+  W^White, and there is none); Black's shuttle, a D-move (legal by Lemma 3.2″) whose rank is lower because the pass is
+  an option of a Black node of W^White; any other move, closing by (Pun_Black).
+- (S3): Black's shuttle is a legal move, so Black is not stalemated (Lemma 3.2″).
+The sharp form gives a P-win. ∎(a)
+
+(b) *D-win ⇒ P-win:* by (a) at every regular position, as (Pun) holds everywhere. *P-win ⇒ D-win:* by induction on the
+stage of the P-win, a regular position y that is a P-win for σ has π(y) in W^σ. Suppose π(y) = (x, ω) with side s and
+(x, ω, s) not in W^σ.
+- s = σ: σ has a legal move that promotes or leads to a P-win of smaller stage. A promotion is a σ-terminal option of D
+  by (V1a-ctx), which would put (x, ω, σ) in W^σ. A context move or a shuttle is a D-move to a regular y′ of smaller
+  stage, and by induction π(y′) is in W^σ, again a contradiction. Any other move is decisively punished (Pun_σ), a P-win
+  for σ̄, not for σ.
+- s = σ̄: being a P-win, y has every legal move of σ̄ leading to a P-win for σ, and σ̄ is not stalemated. As (x, ω, σ̄)
+  is not in W^σ and σ̄ has the pass, some option of it is neither a σ-terminal nor in W^σ. By (V1a-ctx) and Lemma 3.2″ it
+  is realised by a legal move of σ̄ (a promotion, or a context or shuttle move to a regular y′ with π(y′) the option).
+  By induction that move is not a P-win for σ. Contradiction.
+So the P-win sets of both sides are π^{-1}(W^σ). ∎
+
+**Which hypotheses hold (revised after K14).**
+- (K1), (K2) are a finite test on Z alone, and by Lemma 3.2″ they give legality of both shuttles, no check and no
+  stalemate in **every** context. (V1b) is therefore no hypothesis here: it is automatic, unlike in the one-sided bridge.
+- A win needs no hypothesis on the winner's shuttle (Lemma B): only (Pun) for the loser, in the two states in which the
+  winner's king stands still. Draws and the exact statement need (Pun) for both sides in all four states.
+- (V1a-ctx), (V2-ctx) are per-context facts, as in the one-sided bridge.
+- (Pun) is a per-group, per-context fact. It does not follow from the geometry of Z, and it fails when a counter-chance
+  is faster than the punishment (Proposition 2.10(b)). It is the one remaining gap of the bridge: no theorem here gives
+  it for a concrete group in all contexts. Theorem 2.7 and Proposition 2.10(a) give it in P for punishments of depth
+  T = 1 under their side conditions.

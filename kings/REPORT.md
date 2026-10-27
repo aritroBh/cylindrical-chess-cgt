@@ -354,6 +354,15 @@ Every deliverable was given to independent referees (Claude models) told to brea
     cyl:8×8 (new prediction P13). It is CHECKED-2: three implementations agree (the kpsolve family, the agent's
     `pk2.c`, and the referee's `ref3.cpp`, written from SPEC). The general statement is open question 6. P4's chess
     refutations are not P effects.
+  - K14 (2026-10-27) proved a two-sided Proposition 3.2′ (two shuttling kings act as dud_D in the D-model) and a chess
+    bridge, Theorem 3.2‴, conditional on (Pun). Its referee found **Z_B** on flat 7×6, which refutes K14's own "no
+    exactly frozen group" (the search had a move-count cut-off): White king b2/c3, Black king a4/b5, pawns Pa3 Pb4 pb3
+    pc4. In P every non-shuttle move loses at once, CHECKED-2 (kp_p and `ref3`). Beside 660 contexts its P result
+    equals the dud prediction (COMPUTED-1). In chess it is undecided at cap 1.
+  - K22 (2026-10-27) showed that Lemma 2.9 is false without its added hypothesis (counterexamples on flat:4×5, cyl:7×6
+    and flat:3×5) and proved it under the weaker hypothesis (B1).
+  - K24 (2026-10-27) added Lemma 2.7a (PROVED): a draw in both promotion models EPW and EPB is a chess draw. It
+    settles the chess w-entries of P5 and P7 as draws without relying on kpsolve, and four P solvers agree on P5–P7.
   - So no result of the note is still GAP.
   - The T30 fixes of 2026-10-22 came later. They were reviewed by Sonnet reviewers in two rounds, not by K3 (see the Theory row
   above).

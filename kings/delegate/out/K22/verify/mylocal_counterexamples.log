@@ -1,0 +1,18 @@
+Kd4 kb5 Pb2 Pb3 pc3 pc4 b - | queen_clause=False | minT = 3
+   black replies (white wins in <=T?): [('Kb4', True), ('Ka5', True), ('pawn:[(2, 3)]->[(2, 2)]', True), ('pawn:[(2, 3)]->[(1, 2)]', True), ('pawn:[(2, 4)]->[(1, 3)]', True), ('pass', True)]
+Kd4 kb5 Pb2 Pb3 pc3 pc4 b - | queen_clause=True | minT = 3
+   black replies (white wins in <=T?): [('Kb4', True), ('Ka5', True), ('pawn:[(2, 3)]->[(2, 2)]', True), ('pawn:[(2, 3)]->[(1, 2)]', True), ('pawn:[(2, 4)]->[(1, 3)]', True), ('pass', True)]
+Ka1 kb5 Pb2 Pb3 pc3 pc4 b - | queen_clause=False | minT = None
+Ka1 kb5 Pb2 Pb3 pc3 pc4 b - | queen_clause=True | minT = None
+Ka5 kc6 Pc3 Pc4 pb4 pb5 b - | queen_clause=False | minT = 3
+   black replies (white wins in <=T?): [('Kd6', True), ('Kc5', True), ('pawn:[(1, 4)]->[(1, 3)]', True), ('pawn:[(1, 4)]->[(2, 3)]', True), ('pawn:[(1, 5)]->[(2, 4)]', True), ('pass', True)]
+Ka5 kc6 Pc3 Pc4 pb4 pb5 b - | queen_clause=True | minT = 3
+   black replies (white wins in <=T?): [('Kd6', True), ('Kc5', True), ('pawn:[(1, 4)]->[(1, 3)]', True), ('pawn:[(1, 4)]->[(2, 3)]', True), ('pawn:[(1, 5)]->[(2, 4)]', True), ('pass', True)]
+Kc5 ka6 Pa3 Pa4 pb4 pb5 b - | queen_clause=False | minT = 3
+   black replies (white wins in <=T?): [('Ka5', True), ('Kg6', True), ('pawn:[(1, 4)]->[(1, 3)]', True), ('pawn:[(1, 4)]->[(0, 3)]', True), ('pawn:[(1, 5)]->[(0, 4)]', True), ('pass', True)]
+Kc5 ka6 Pa3 Pa4 pb4 pb5 b - | queen_clause=True | minT = 3
+   black replies (white wins in <=T?): [('Ka5', True), ('Kg6', True), ('pawn:[(1, 4)]->[(1, 3)]', True), ('pawn:[(1, 4)]->[(0, 3)]', True), ('pawn:[(1, 5)]->[(0, 4)]', True), ('pass', True)]
+Ka5 kc6 Pc3 Pc4 pb4 pb5 b - | queen_clause=False | minT = 3
+   black replies (white wins in <=T?): [('Kd6', True), ('Kc5', True), ('pawn:[(1, 4)]->[(1, 3)]', True), ('pawn:[(1, 4)]->[(2, 3)]', True), ('pawn:[(1, 5)]->[(2, 4)]', True), ('pass', True)]
+Ka5 kc6 Pc3 Pc4 pb4 pb5 b - | queen_clause=True | minT = 3
+   black replies (white wins in <=T?): [('Kd6', True), ('Kc5', True), ('pawn:[(1, 4)]->[(1, 3)]', True), ('pawn:[(1, 4)]->[(2, 3)]', True), ('pawn:[(1, 5)]->[(2, 4)]', True), ('pass', True)]

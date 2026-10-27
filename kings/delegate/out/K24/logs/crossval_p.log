@@ -1,0 +1,10 @@
+# kp_p --pmodel (K7 build of kpsolve) versus mine --model p on random legal and illegal positions (1-2 pawns a side), side to move random
+cyl:5x6 seed 1:     3000 positions, 0 differ   (910 rejected as illegal by both)
+flat:5x6 seed 2:     4000 positions, 0 differ
+cyl:6x6 seed 3:     4000 positions, 0 differ
+cyl:7x6 seed 4:     4000 positions, 0 differ
+# reproduce: scripts/crossval.sh BOARD N SEED   (the 8x8 and flat:6x7 runs were stopped: too many reachable positions for the forward-exploration method)
+# legal positions compared (rest rejected as illegal by both): cyl:5x6 2090, flat:5x6 2951, cyl:6x6 2967, cyl:7x6 3094  (total 11102, 0 differ)
+cyl:8x8 seed 21 (one pawn a side):  200 positions, 0 differ, 171 legal
+flat:8x8 seed 22 (one pawn a side): 300 positions, 0 differ, 259 legal
+cyl:8x8 seed 23 (one pawn a side):  400 positions, 0 differ, 339 legal   (769 legal in total)
