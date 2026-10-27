@@ -1,70 +1,74 @@
-# $Q_n=\star3$ for every even $n\ge 8$ (whole-board game): proof note
+# The whole-board Q family is $\star3$ for every even $n\ge8$
 
-**Summary**
-1. Theorem: in the whole-board game on $C_n$ (race rule "count", e.p. on, an e.p.-capturable pawn is not passed, the game ends at the first passed pawn) $Q_n=\star3$ for every even $n\ge8$; $Q_n$ has $n+2$ pawns. "$=\star3$" means: $Q_n+\star3$ is a P-position; $Q_n+\star h$ is N for $h\in\{0,1,2\}$ by direct check; for $h>3$, $Q_n+\star h$ is N via the heap move to $Q_n+\star3$ (by the same heap convention as H8).
-2. The proof mirrors T50's for $P_n=\star2$ (`research/ring_n_plus_2_proof/PROOF.md`): Lemmas 1–3 transfer to $Q_n$ with the zone/cut adapted. The wall/core appears on both ends (a two-part zone): with cut $c=9$, $n_0=22$, files $c-4..c+5=5..14$ are exact pattern files in every node of $R_n$ for $n\ge22$; $\mathrm{ins}_9(\mathrm{start}_n)=\mathrm{start}_{n+2}$ and Lemma 2(b)'s windows hold at both wall ends.
-3. Finite checks by multiple programs (section 4): $R_{22}$ has 7968 nodes, no e.p. flag, zone $\{0,1,2,3,n-7,\ldots,n-3,n-1\}$ in the form observed; unreduced $Q_n+\star h$ gives signature NNNP ($h\le3$) for even $n\ge8$; insertion holds for $c=9, n\ge22$; `run_all.sh` rerun matches the saved logs.
-4. Status: PROVED [AI] for even $n\ge22$ given T50's Lemmas 1–3 and C1''; CHECKED-2 for smaller even $n\ge8$ by direct search. This is a proof note by the task agent (not yet refereed by a second model).
+## Summary
+
+1. **PROVED [AI], conditional on finite checks:** the insertion proof gives $Q_n=\star3$ for even $n\ge22$.
+2. **CHECKED-2:** the $Q_{22}$ reduced graph has 7,968 nodes and signature NNNPN; two engines agree.
+3. **CHECKED-2:** full-game signatures for even $n=8,\ldots,24$ are NNNP for $h=0,1,2,3$.
+4. **COMPUTED-1:** an independent full-game run also checks $h=4$ and Lemma 2(b) on every $Q_{22}$ node.
+5. Scope: whole-board game, race rule `count`, en passant on, and the e.p.-aware passed-pawn test.
 
 ## 0. Claims and labels
-PROVED = by hand, given the lemmas ([AI], checked by AI models only). CHECKED-2 = two or more independently written programs agree. COMPUTED-1 = one program.
 
-Programs used: **A** = T50's `rg.c` (unchanged); **B** = `reduced_cyl.py` rebuilt on cylcgt's `pawns.moves/passed/_child`; **C** = `check3/eng.py` (T50 verifier); others as in `PROOF.md`. The logs in `research/ring_n_plus_2_proof/logs/` provide independent evidence.
+**PROVED** means a hand argument conditional on cited lemmas and finite checks; **CHECKED-2** means two independently written programs agree; **COMPUTED-1** means one program. The programs share the written rules, not implementation code.
 
-| id | claim | label |
-|---|---|---|
-| L1-L3 | T50 Lemmas 1-3 (reduction, wall pawns, insertion), transfer to $Q_n$ | PROVED in T50 (cited); conditions checked here |
-| M1 | "$=\star3$" meaning as stated (H8' analogue) | PROVED |
-| H1' | Wall/pattern-file definition matches (exact content); $Q_n$ has periodic wall structure on both ends | PROVED (inspection) |
-| H2' | Lemma 2(b) windows hold at both wall ends; end cases handled (no capture/e.p. by wall pawns) | PROVED |
-| H3' | Two-part zone: files $2..n-7$ form a wall with core files on BOTH ends; with $c=9,n_0=22$, $5..14$ are pattern files in every node of $R_n$, $n\ge22$ | PROVED given pump logs |
-| H4' | $\mathrm{ins}_9(\mathrm{start}_n)=\mathrm{start}_{n+2}$; cut preserves structure | PROVED |
-| C1'' | $R_{22}$: 7968 nodes, no e.p. flag, zone $\{0,1,2,3,n-7..n-3,n-1\}$ (two-part), $G+\star3$ is P-position (signature NNNP for $h\le3$) | CHECKED-2 (A, B via logs; rg/reduced_cyl) |
-| C2'' | Unreduced $Q_n+\star h$ signature NNNP for $h\le3$ for all even $n\ge8$ | CHECKED-2 (A `unreduced_Q_8_60.txt`, B `reduced_cyl_Q.txt`) |
-| T22 | $Q_n=\star3$ for even $n\ge22$ | PROVED [AI] given L1-L3, M1, C1'' |
-| TQ | $Q_n=\star3$ for even $n\ge8$ | PROVED [AI] given C1'', C2'' |
+| Claim | Status and evidence |
+|---|---|
+| T50 Lemmas 1–3 and the insertion detail in `PROOF.md` §2b | **PROVED** in T50; the generic insertion argument is reused here. |
+| H1–H8 and the induction below | **PROVED [AI]** conditional on C1 and on the T50 lemmas. |
+| C1: $R_{22}$ graph, zone, flags, and reduced signature | **CHECKED-2**: A (`rg.c`, saved `pump_Q_8_60.txt`) and E (`verify_compute/myeng.py`, rerun in `q/check_wall_q22.py`); E also checked no passer at every node. |
+| C2: unreduced signature NNNP, $h=0..3$, even $n=8..24$ | **CHECKED-2**: A (`unreduced_Q_8_60.txt`) and F (`q/independent.py`). |
+| F's $h=4$ result in both heap/e.p. interpretations; P8 control | **COMPUTED-1**. |
+| Lemma 2(a),(b) on actual $R_{22}$ nodes | **COMPUTED-1**: E, 111,552 wall-pawn moves, zero failures. |
 
+A is the saved C whole-board engine; E is the independently written Python engine in `verify_compute/myeng.py`; F has its own move generation and whole-board recursion and calls only `cylcgt.pawns.passed` for the passed-pawn predicate. B, `reduced_cyl.py`, rebuilds reduced graphs with `cylcgt`; its saved Q comparison stops at $n=8,10,12$, so it is **not** evidence for C1 at $n=22$ or for unreduced signatures. The pump log beyond $n=22$ is a one-program check and is not used in the proof.
 
-## 1. Setting
-Model: same as `PROOF.md` (T/L/P/K classes, reduced game). Race rule "count", e.p. on, e.p.-capturable pawn not passed, game ends at first passed pawn. 
-$Q_n$ ($n$ even $\ge8$), files $0..n-1$: $W4,\ B7,\ (B4,W2)^{((n-8)/2)},\ W3B6,\ W3,\ W2B5,\ B5,\ W2,\ B4$ (from `fam.py:Q`). $Q_8 = W4\ a4,\ c3?\ (by\ description)\ W4\ B7\ W3B6\ W3\ W2B5\ B5\ W2\ B4$ on $C_8$ matches the described ring. $R_n$ = reduced game of $G_n=Q_n$, $\mathrm{start}_n$ its root, $\mathrm{ins}_c$ as in Lemma 3.
+## 1. Model and lemmas
 
-## 2. Transfer of Lemmas 1-3
-**Pattern file (exact content).** As in `PROOF.md`, a pattern file is one whose content is *exactly* its starting pawn and nothing else. The wall/core structure of $Q_n$ is two-sided: periodic $B4/W2$ appears in the middle and the ends form the ring; the key is that in nodes of $R_n$ (for large enough $n$) there is a cyclic arc of files with exact pattern content on both sides of the zone.
-**Lemma 1 (Reduction).** Same as before.
-**Lemma 2 (Wall pawns).** Let $c$ have no passed pawn, with an e.p. flag (if any) protecting a pawn of the player not to move, and let $q$ be a wall pawn of player $Z$ to move with pattern files $j-1,j,j+1$. (a) After any move of $q$, $Z$ has no passed pawn. (b) If $c$ has no flag, $Z=X$, and files $j-1,\dots,j+3$ (or $j-3,\dots,j+1$) are pattern files, every move of $q$ is L or P. The windows must hold at both wall ends of $Q_n$ (H2'); this is satisfied by inspection of $Q_n$'s structure and verified by the pump/insertion checks.
-**Lemma 3 (Insertion).** Same statement with $\hat p=\mathrm{ins}_c(p)$ inserting two files after $c$ where files $c-4,\dots,c+5$ are pattern files. The proof (view lemma V, near/far replies) does not assume the wall is on a single end or a particular phase - it only needs pattern files in that arc and V1-V3; hence it transfers directly to $Q_n$ provided such an arc exists on both ends relative to the zone (H3').
+The game is the whole-board normal-play game on $C_n$: White is Left, Black is Right, and a side with no move loses. Race rule is `count`; en passant is on, and an e.p.-capturable pawn is not passed. A passer ends the game; if both sides have one, compare their shortest promotion distances, with a tie won by the side that did not just move. The terminal score convention is $\pm256$, so heaps considered in the value statement have $h<256$.
 
-### 2b. Meaning of "$=\star3$" (M1)
-As in H8 of `PROOF.md`: "$Q_n=\star3$" means for every nim-heap $\star h$ ($h<256$), $Q_n+\star h$ and $\star3+\star h$ have the same outcome. Concretely:
-- $G+\star3$ is a P-position (P);
-- $G+\star h$ is N for $h=0,1,2$ by direct check on the unreduced/reduced graphs;
-- for $h>3$, $G+\star h$ has the heap move $\star h \to \star3$ to $G+\star3$ (a P-position), so $G+\star h$ is N. The e.p. flag across heap moves is immaterial (no flags in reduced nodes/K-children; unreduced searches agree under both e.p. readings as in $P_n$).
+For even $n\ge8$, the files of $Q_n$ are
+\[
+ W4,\ B7,\ (B4,W2)^{(n-8)/2},\ W3B6,\ W3,\ W2B5,\ B5,\ W2,\ B4.
+\]
+Thus $Q_8$ is exactly `W4 B7 W3B6 W3 W2B5 B5 W2 B4` (the repeated block is empty), and every $Q_n$ has $n+2$ pawns. A **pattern file** is a file whose content is exactly its starting pawn and nothing else.
 
-## 3. Hypotheses for $Q_n$
-**H1' (wall/pattern).** $Q_n$ contains periodic wall structure; in $R_n$ for large $n$, an arc of exact pattern files exists around the cut. Definition follows `PROOF.md` section 2.
-**H2' (two ends).** The zone is split into two parts relative to the wall; Lemma 2(b)'s windows hold at both ends. No capture/e.p. by wall pawns holds given pattern-file views (H3 analogue).
-**H3' (two-part zone and cut).** From logs: for $n\ge18$, zone includes $\{0,1,2,3,...\}$ on one side and $\{n-k,...,n-1\}$ on the other; at $n=24$ the pump reports `cut c=9: start->start True, nodes onto True, kept+T edges equal True` (and similarly for larger $c$ up to 14). The task states: "with c = 9 and n0 = 22, files c-4..c+5 = 5..14 are exact pattern files in every node of R_n for n ≥ 22; ins_9(start_n) = start_{n+2}; Lemma 2(b)'s windows hold at both wall ends." We take $n_0=22$, $c=9$ as the cut (the pump shows cuts appear starting around $n=24$; $n_0=22$ matches the stated bound).
-**H4' (start and insertion).** $\mathrm{start}_n$ has no passed pawn/flag; $\mathrm{ins}_9(\mathrm{start}_n)=\mathrm{start}_{n+2}$ (verified by pump logs: `start->start True`).
-**H5' (race rule independence of proof).** The insertion/wall arguments are rule-independent; $Q_n=\star3$ is under "count" (the project rule). Signature differs under "mover" (informational only).
+Use T50's reduction and wall-pawn lemmas as stated in `research/ring_family_proof/proof.tex`; the exact-content pattern-file reading and the written-out insertion reply argument are in `PROOF.md` §§2–2b. Lemma 2(b) says that, with no flag and no passer at the position, a moving wall pawn with a five-file pattern window has only L or P moves. The Q wall has the opposite phase from P: W2 is on odd files and B4 on even files. The same local proof applies: W2 advances $2\to3$ or $2\to4$ (the latter is e.p.-capturable), and B4 advances $4\to3$; the adjacent opposite-colour wall pawn captures the advance, creating a passer unless the move is already L. The X pawn on $j+2$ remains blocked by Y's pawn on $j+3$; the reversed window is its mirror. Lemma 2(a) excludes a passer for the mover after every such advance.
 
-## 4. Finite checks
-**C1'' ($n_0=22$, cut $c=9$).** From `logs/pump_Q_8_60.txt`: $n=22$ gives $nodes=7968, kept=21063, T=17784, zone=[0,1,2,3,15,16,17,18,19,21], ep=0, sig=NNNPNNNN$ and pump shows cuts from $n=24$ onward with $c\ge9$ giving `start->start True, nodes onto True, kept+T edges equal True`. The reduced graph is constant-size ($7968$ nodes) from $n\ge18$ onward with same edge counts and signature NNNPNNNN for $h\le7$ (i.e. N,N,N,P for $h=0,1,2,3$), meaning $G+\star3$ is P. 
-Sources: A `pump_Q_8_60.txt`, A `unreduced_Q_8_60.txt`, B `reduced_cyl_Q.txt` (cylcgt-based rebuild identical to rg for tested $n$).
-**C2'' (all even $n\ge8$).** `unreduced_Q_8_60.txt` shows `NNNP nodes=...` for every even $n$ from 8 to 60 (signature N,N,N,P for $h\le3$), so $G+\star3$ is P and $G+\star0,\star1,\star2$ are N for all these $n$.
-**Insertion.** `pump_Q_fixc9.txt` reports $\mathrm{ins}_9(R_n)=R_{n+2}$ for $n=22..58$ (implied by `start->start True` and node/edge equality). `reduced_cyl_Q.txt` shows cylcgt rebuild identical to rg for $n=8..24$.
-**Re-run verification.** `sh research/ring_n_plus_2_proof/run_all.sh` was executed (rerun) and compared against logs (as instructed); the Q numbers match the saved logs.
+For Lemma 3 at $c=9$, the required pattern arc is $5..14$. In $p$, files $6..13$ have five-file windows inside that arc; after insertion, files $6..15$ do inside the extended arc $5..16$. As in `PROOF.md` §2b, central moves are L/P, far moves preserve the same three-file views and passed-pawn set, far replies correspond, and near wall replies cannot give Y a passer by Lemma 2(a). Hence T-flags and K-children correspond under insertion. No second or “symmetric” arc is used.
 
-## 5. Proof of the Theorem
-Let $n\ge22$ be even, $I_n$: no node of $R_n$ has flag, zone is two-part with pattern files in the required arcs. $I_{22}$ holds by C1''.
-Assume $I_n$. Every node $p\in R_n$ is non-terminal, no flag, and has exact pattern files in $5..14$ (and symmetric arc at the other end) so Lemma 3 applies with $c=9$: K-children/images agree, T-flags agree. $\mathrm{ins}_9(\mathrm{start}_n)=\mathrm{start}_{n+2}$ (H4') gives $R_{n+2}\cong R_{22}$ as graphs with same T-flags/edges. By C1'', $G+\star3$ is P in reduced game => P in whole-board by Lemma 1. For $h>3$, $G+\star h$ is N by heap move to $G+\star3$ (M1); for $h\le2$, N by C2''. Thus $Q_n=\star3$ for all even $n\ge22$. For $8\le n<22$, C2'' gives the signature directly and the same heap argument applies => $Q_n=\star3$. $\qquad\blacksquare$
+## 2. Q hypotheses H1–H8
 
-## 6. Gaps and caveats
-- **Scope:** whole-board game only, race rule "count". Not covered in cylcgt component-sum model in general; rule "mover" differs.
-- **Citations:** Lemmas 1-3 cited from T50, transferred (not re-proved). The two-part/dual-end condition is checked by logs/inspection.
-- **Finite checks:** $R_{22}$ is 7968 nodes (checked via programs/logs); independence caveat similar to $P_n$ (programs written from same rule description).
-- **Referee status:** proof note [AI], not yet refereed by a second model; 2b-style written-out details mirror $P_n$ structure.
-- **Evidence files:** `logs/unreduced_Q_8_60.txt`, `logs/pump_Q_8_60.txt`, `logs/pump_Q_fixc9.txt`, `logs/reduced_cyl_Q.txt` all match expectations.
+1. **H1 — Wall and pattern.** The periodic wall is files $2..n-7$: B4 on even files and W2 on odd files, with black two ranks above white. Pattern files require exact single-pawn content. The base graph has files $4..14$ fixed in every node; insertion preserves this, in particular $5..14$.
+2. **H2 — Phase and the two relevant ends.** The ten-file arc for $c=9$ is $5..14$. At the two ends of the invariant pattern run, the applicable Lemma 2(b) windows are $4..8$ at $q$ on file 5 and $10..14$ at $q$ on file 13. On all actual $R_{22}$ nodes these windows hold; both cases and every intervening wall move were checked explicitly (C1). Lemma 3 invokes Lemma 2(b) only on central files $6..13$ (and $6..15$ after insertion), not at the physical wall endpoints 2 or $n-7$, where its five-file premise need not hold.
+3. **H3 — No wall captures.** With pattern neighbors, a W2/B4 pawn's diagonal target on rank 3 is empty; B4 cannot e.p.-capture a W2 still on rank 2. Thus the wall moves in Lemma 2 are advances only. The lemma's L case covers any move after which Y already has a passer.
+4. **H4 — Race and passed test.** This theorem uses `count` and the e.p.-aware passed test. The wall lemma gives no passer to the mover; insertion preserves passer identities, ranks, and e.p. protection on far moves, so it preserves the race result.
+5. **H5 — Root and insertion.** The root has no passer: W4(0) is blocked by B7(1); B7(1) by W4(0); wall W2/B4 pawns by their adjacent opposite-colour wall pawns; W3B6, W3, W2B5, B5, and the closing W2/B4 pair by same-file or adjacent suffix pawns. It has no flag. For $n\ge22$, file 9 is W2 and file 10 is B4; inserting B4,W2 after file 9 extends the alternating block, so $\mathrm{ins}_9(\mathrm{start}_n)=\mathrm{start}_{n+2}$.
+6. **H6 — Base zone and cut.** Take $n_0=22$, $c=9$. The base zone is $Z_{22}=\{0,1,2,3\}\cup\{15,16,17,18,19\}\cup\{21\}$. Files $5..14$ lie outside it and are exact pattern files. The bound is the first even $n$ for which $c+5=14\le n-7$.
+7. **H7 — Inductive invariant.** Let $Z_n=\{0,1,2,3\}\cup\{n-7,\ldots,n-3\}\cup\{n-1\}$. Every node of $R_n$ has no passer or flag and agrees with its root outside $Z_n$. C1 gives this at $n=22$. If it holds at $n$, Lemmas 2–3 apply on $5..14$; H5 maps the root, and insertion maps every K-edge and T-flag. Since $\mathrm{ins}_9(Z_n)=Z_{n+2}$, the invariant holds at $n+2$ and $R_{n+2}$ is isomorphic to $R_n$ with T-flags.
+8. **H8 — Meaning of $Q_n=\star3$.** It means that for every nim heap $\star h$, $h<256$, $Q_n+\star h$ and $\star3+\star h$ have the same outcome; it does not claim equivalence against arbitrary addends. It suffices to show NNNP at $h=0,1,2,3$: for every $h>3$, the move $\star h\to\star3$ reaches the P-position $Q_n+\star3$, so the sum is N, as is $\star3+\star h$. The root has no flag; the reduced nodes and K-children have none, so the heap-move e.p. convention does not affect this argument.
 
-## 7. Reproduce
-From project root: `sh research/ring_n_plus_2_proof/run_all.sh` (reruns Q checks too). Our check script in `t55/` verifies the pattern-file condition on every node of $R_{22}$ for files $5..14$.
+## 3. Finite checks and theorem
+
+**C1 (CHECKED-2).** $R_{22}$ has 7,968 nodes, 21,063 K-edges, 17,784 T-edges, no flags, and zone $Z_{22}$; A and E agree on the graph and its NNNPN signature for $h=0..4$. E checked that no node has a passer and checked all 7,968 nodes and 71,712 q/node positions: 111,552 moves, zero Lemma 2(a) violations and zero Lemma 2(b) T/K violations. In particular, file-5 moves classify L/P as 5,691/10,245 and file-13 moves as 414/15,522. These end counts make the two boundary-window checks explicit.
+
+**C2 (CHECKED-2 / COMPUTED-1).** A's saved unreduced log and F agree on NNNP for every even $n=8..24$. F additionally computes $h=4$ and both e.p.-across-heap readings (`keep`, `expire`): NNNPN for each of those nine sizes. The control $P_8$ is NNPNN in both readings, so it is not $\star3$ (its P is at $h=2$). The $h=4$ row and the control are COMPUTED-1 by F.
+
+**Theorem (PROVED [AI], conditional on C1–C2 and T50 Lemmas 1–3).** H7 gives the same reduced game and T-flags as $R_{22}$ for every even $n\ge22$, so C1 and Lemma 1 give NNNP. H8 completes the heap comparison. For $8\le n<22$, C2 gives NNNP directly and H8 again completes it. Therefore $Q_n=\star3$ for every even $n\ge8$ in the stated whole-board model.
+
+**Reproduction, from the project root:**
+
+```sh
+PYTHONPATH=. .venv/bin/python -u research/ring_n_plus_2_check/q/check_wall_q22.py
+/usr/bin/time -l nice -n 15 env PYTHONPATH=. .venv/bin/python -u research/ring_n_plus_2_check/q/independent.py
+```
+
+The cited A outputs are the pre-existing `research/ring_n_plus_2_proof/logs/pump_Q_8_60.txt` and `unreduced_Q_8_60.txt`; their original reproduction command is `sh research/ring_n_plus_2_proof/run_all.sh` (not run here because it writes outside `q/`). `reduced_cyl_Q.txt` is only a reduced-graph comparison for n=8,10,12 and is not used for the claims above.
+
+## 4. Referee (T62)
+
+**Verdict: SOUND**, conditional on the finite computations C1–C2 and the cited T50 lemmas. No transfer gap remains for the even Q family at cut $c=9$ and base $n_0=22$.
+
+**Recomputed:** the Q22 reduced graph and signature with E; Lemma 2(a),(b) on all 7,968 actual nodes, including both boundary windows; the full-game signatures $h=0..4$ for Q_n, even $n=8..24$, in both e.p. heap modes; and P8 as a non-*3 control.
+
+**Changed:** replaced the “by inspection” window claim with explicit windows and actual-node counts; removed the unnecessary symmetric-arc assertion; corrected Q8's definition; separated reduced-graph evidence from unreduced signatures and marked B's limited range; stated H1–H8 and the exact meaning of $=\star3$; corrected labels and added exact reproduction commands.

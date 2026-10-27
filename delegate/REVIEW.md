@@ -716,3 +716,23 @@ and T59 (Kilo Laguna, non-Claude Q engine). T56 and T57 died once on a network c
 
 The orchestrator is running `c8check_gen` for C6 with 9 pawns (second program for the six C6 rings) and cylcgt sum
 values for P_10, Q_10, O_13 and E_14 (`research/sum_model_rings/`).
+
+**T62 (Codex referee of PROOF_Q.md, the \*3 family).** Verdict SOUND, given C1–C2 and T50's lemmas, for Q_n with
+c = 9 and n0 = 22.
+- Codex repaired agy's T55 draft:
+  - explicit H1–H8;
+  - Lemma 2(b) checked at both wall ends on all 7,968 actual nodes;
+  - the meaning of "= \*3" stated;
+  - honest labels.
+- Its own engine (`research/ring_n_plus_2_check/q/independent.py`) gives NNNP(N) for even n from 8 to 24.
+- It also found P_8 is not \*3 (control).
+- It then hit the Codex usage limit (resets 17:30).
+
+Paper: §VIII adds the \*3 family [AI]. Both builds fit (14 and 15 pages).
+
+**T54 (Codex, odd n) partial.** The core-plus-wall search on C9 finished one slice: core width 4, wall offset 2,
+white rank 2, phase 0. 208,633 rings, 0 \*2, 0 \*3. Codex hit its limit before writing REPORT.md, and the orchestrator
+continues the search. Kilo's anonymous tier is capped ("Sign up for free"); agy's quota resets in about 75 h.
+
+**Sum model.** cylcgt's sum model gives P_10 = \*2 and Q_10 = \*3, so the n+2 families keep their values as sums at
+n = 10 (`research/sum_model_rings/`).
