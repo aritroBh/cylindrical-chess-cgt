@@ -20,6 +20,8 @@ def family(name):
     if name == "Feven": return fam.F, 0, "F"
     if name == "P": return fam.P, 0, "P"
     if name == "Q": return fam.Q, 0, "Q"
+    if name == "R": return fam.R, 1, "R"
+    if name == "Qo": return fam.Qo, 1, "Qo"
     raise ValueError(name)
 
 def ins_tokens(toks, c):

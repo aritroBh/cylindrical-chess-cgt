@@ -42,7 +42,15 @@ def Q(n):
     assert n % 2 == 0 and n >= 8
     return toks("W4 B7") + toks("B4 W2") * ((n - 8) // 2) + toks("W3B6 W3 W2B5 B5 W2 B4")
 
-FAMILIES = {"odd": odd, "even": even, "F": F, "P": P, "Q": Q}
+def R(n):
+    assert n % 2 == 1 and n >= 9
+    return toks("W5 B7") + toks("W2 B4") * ((n - 9) // 2) + toks("W2 W3B6 W3 W2B5 B5 W2 B4")
+
+def Qo(n):
+    assert n % 2 == 1 and n >= 9
+    return toks("W4 B7") + toks("W2 B4") * ((n - 9) // 2) + toks("W2 W3B6 W3 W2B5 B5 W2 B4")
+
+FAMILIES = {"odd": odd, "even": even, "F": F, "P": P, "Q": Q, "R": R, "Qo": Qo}
 # wall blocks (the two files that are inserted when n -> n+2) and the file index (in the position lists above) at
 # which the block region starts, i.e. the files [start, start + 2k) are the periodic wall
 def wall_start(fam, n):
@@ -98,6 +106,7 @@ def wall_files(famname, n):
         return set(range(0, n - 6)) | {n - 1}                 # W2 | B4 W2 ... B4 W2 (files n-1, 0 .. n-7), K in between
     if famname == "P": return set(range(6, n))
     if famname == "Q": return set(range(2, n - 6))
+    if famname in ("R", "Qo"): return set(range(2, n - 6))
     raise ValueError(famname)
 
 def is_wall_pattern(famname, S, n):
