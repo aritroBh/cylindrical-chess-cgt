@@ -22,7 +22,7 @@ cmd_for() {
     codex)        echo codex exec -s workspace-write -c approval_policy=never -C "$ROOT" ${m:+-m $m} ;;
     qwen)         echo qwen --approval-mode yolo ${m:+-m $m} -p ;;
     agy)          echo agy --dangerously-skip-permissions ${m:+--model $m} -p ;;
-    opencode)     echo opencode run --standalone --auto ${m:+-m $m} ;;
+    opencode)     echo opencode run --auto ${m:+-m $m} ;;
     cursor-agent) echo cursor-agent --force ${m:+--model $m} -p ;;
     muse)         echo muse exec --approval-mode never ${m:+--model $m} ;;
     kilo)         echo kilo run --auto ${m:+-m $m} ;;
