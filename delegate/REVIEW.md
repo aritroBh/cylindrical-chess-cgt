@@ -693,3 +693,26 @@ P_n = W5 B7 W4 W4B7 B6 W3B6 (W2 B4)^((n-6)/2) is \*2 for every even n ≥ 8 (n+2
 
 Paper: §VIII adds one sentence and conclusion item 3 says "at most n+2 for even n ≥ 8". Eight more whole-line trims
 keep the review build at 14 pages.
+
+**T53 (Codex, non-Claude referee of the even n+2 \*2 proof; `research/ring_n_plus_2_check/`).** Verdict SOUND.
+- §2b, the new written-out proof of Lemma 3 (ii)–(iii), is also SOUND.
+- The P-wall hypotheses hold: phase, both ends, c = 12, files 8..17 stay pattern files.
+- Codex's own solver (`independent.py`, written from the rules) gives NNPN for P_n at every even n from 8 to 24, and
+  NNNN for the b7→b6 control at n = 8, 10 and 12.
+- Both runner replays match the saved logs.
+
+So the P-family theorem has two Sonnet verifiers and one non-Claude referee. The paper keeps [AI].
+
+**2026-10-27, CLI status.** Codex, agy, Kilo (kilo-auto/free and the Nemotron, Laguna, Flint and Cohere free
+models) and OpenCode beam-free work. Out:
+- Cursor: monthly limit, resets Nov 9.
+- Muse: billing error.
+- Qwen: no auth.
+- OpenCode omniroute routes: model unavailable.
+- Claude Sonnet/Haiku subagents: weekly limit until Oct 28, 17:00.
+
+Launched T54 (Codex, odd n), T55 (agy, PROOF_Q.md), T56 (OpenCode, \*4 rings), T57 and T58 (Kilo, paper fact-checks)
+and T59 (Kilo Laguna, non-Claude Q engine). T56 and T57 died once on a network change and were relaunched.
+
+The orchestrator is running `c8check_gen` for C6 with 9 pawns (second program for the six C6 rings) and cylcgt sum
+values for P_10, Q_10, O_13 and E_14 (`research/sum_model_rings/`).
