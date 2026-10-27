@@ -72,7 +72,7 @@ originally stated → …" gives the corrected statement and its label. Each cha
 | C2.8 | PROVED (wording corrected). The finite-k clause was made a side remark after K7 (revised after K7, 2026-10-22). A reviewer found no counterexample in 9566 placements on 4 boards (scratch) | R3 item 7; K7 |
 | L2.9 | GAP → PROVED after repair (added hypothesis: s has no pawn on f ± 1). Without that hypothesis: CONJECTURE | R1 item 9, R3 item 4 |
 | P2.10(a) | FALSE as originally stated (H = 4) → H ≥ 5: PROVED after repair, under both the textbook and the e.p.-aware passed test, for chess-legal contexts and s's context pawns. (L2) counts context pawns only, so there is no Z-pawn proviso: s's Z-pawns are covered by (L1), whatever their distance from promotion (revised after K7, 2026-10-22). T30 audit: the proof lacked a step for en passant (now added). The stronger claim that no pawn of *either* colour stands one move from promotion needs H ≥ 6 under the e.p.-aware test | R1 item 7, R3 item 1; T30 audit and recheck |
-| P2.10(b) | PROVED (the example; it needs width ≥ \|F_Z\| + 4). "The zero is context-dependent" is the CONJECTURE that follows it, now supported in C by P4 | R3 item 5 |
+| P2.10(b) | PROVED (the example; it needs width ≥ \|F_Z\| + 4). "The zero is context-dependent": CHECKED-2 for Z_T in P (revised after K23, 2026-10-27: Z_T acts as 0 beside {Pe3, pe4} and not beside {Pe2, pe3} on cyl:7×6, and the same for the group of §5.1 on cyl:8×8; three implementations agree; no hand proof, so not PROVED). For every frozen group with T ≥ 2 it is a CONJECTURE. P4 does not show it in P: its six rows equal the convention there | R3 item 5; K23 |
 | R2.11 | GAP → PROVED in P (frozen), as a sufficient condition (revised after K10, 2026-10-22): Proposition 2.11 and Corollary 2.11a give (V2) at a passer or race terminal under (H1)–(H5): a clear path for pawns and kings of both colours, no check, no stalemate, no interference of an ω pawn that captures a β pawn on a neighbouring file, and the timing bound for both move orders over all ω pawns. K10's first draft was FALSE (it ignored all of these); the statement and proof were rebuilt by a Sonnet agent and read step by step by the integrator. One AI proof, checked on 954,392 parked and 60,000 random-king positions with side to move against `kpsolve --frozen` (0 violations; scripts in `kings/delegate/out/K10/scripts/`). Computation CHECKED-2 by K10v (independent code, opencode beam-free): 0 violations in 146,328 certified instances (an instance is a position, side to move, β and p; 119,654 distinct positions with side to move) and 5,716 with an e.p. right; its proof verdict SOUND has no written derivation, so the proof is not re-derived by a second model (revised after K10v, 2026-10-22). Second round: two fresh Sonnet reviewers read the proof and found no error, and their own code found 0 violations in 5,730,596 certified positions with side to move (6,783,482 instances) on cylinders, plus 434,429 positions on flat boards, also 0 violations; no model outside the Sonnet family has re-derived it (revised after the K10 second round, 2026-10-22). Real kings: nothing proved, the square rule is a CONJECTURE (scratch evidence) | R3 item 6; K10 |
 | P3.2 | PROVED; chess bridge PROVED after repair (adds (V1a)) | R4 item 7 |
 | T3.3(a) | PROVED (also KNOWN) | R4: sound |
@@ -88,15 +88,15 @@ originally stated → …" gives the corrected statement and its label. Each cha
 | P4.5, P4.6 | PROVED | R4: sound |
 | C4.7 | CONJECTURE, restated for ≤ 2 + 2 pawns (what was searched) | R1 item 10, R4 item 8 |
 | §5.1, frozen | PROVED by enumeration, now written out | R1 item 11, R4 item 9 |
-| §5.1, (L1) | CONJECTURE (scratch, k ≤ 4 and k = ∞ only; (L3) not checked). The k = ∞ case was re-run in K7 against the local game of Definition 2.6 ((L1_P): T = 5 to 6; (L1) with the queen clause: T = 6 to 7), same label (revised after K7, 2026-10-22) | R1 items 3 and 10, R4 item 9; K7 |
-| §5.2, White's sorties | the certificate fails: PROVED (L2.9). "Not punished": CONJECTURE (scratch); in C, kpsolve confirms the 6-rank analogue (P5) | R4 item 9 |
-| §5.5 | CONJECTURE (scratch); Kd3 added | R1 items 10 and 11, R4 item 9 |
-| §5.6 | μ_W = 5: PROVED by count. T = 5 and "(L2) fails by one tempo": CONJECTURE (scratch; R4 re-derived both) | R1 item 11 |
+| §5.1, (L1) | CHECKED-2 (revised after K19, 2026-10-27). K19 wrote the local game again from Definition 2.6 and agrees with the K7 numbers: after the reply Kxa4, with k = ∞ and the king confined to {h, a, b}, T = 6, 6, 6, 7, 7 with the queen clause and T = 6, 6, 5, 6, 6 for (L1_P) (Kg4, Kg5, Kg6, Kh6, Ka6). With the pre-K7 rules the least T is 5 to 7 for each budget k = 0, …, 8 and k = ∞: the scratch run covered k ≤ 4 and k = ∞, and K19 and the referee also cover k = 5, 6, 8, which equal k = ∞. Every k ≥ 7 equals k = ∞, because the window holds at most T ≤ 7 moves of s. The five Black sorties give the mirrored numbers. (L3): CHECKED-2 (K19 and the referee's own code, each written from the definition): in the bare group it holds for all ten sorties (five White, five Black) at T, T + 1 and T + 2, with and without the queen clause | R1 items 3 and 10, R4 item 9; K7; K19 |
+| §5.2, White's sorties | the certificate fails: PROVED (L2.9). "Not punished": CHECKED-2 (revised after K19, 2026-10-27): after Kd5, Ke5 or Kf5 Black has no forced promotion. In the local game after ...Kxd7 (with or without passes, confined or not) there is no win up to T = 13 (K19 and the referee; K19's least fixed point finds none at any T, COMPUTED-1), and in the exact P-model after the sortie the result is D against every Black reply (two solvers). Only Kf7 loses, with T = 10 (11 with the queen clause and unlimited passes). In C, kpsolve agrees on both boards and on the 6-rank analogue (P5) | R4 item 9; K19 |
+| §5.5 | CHECKED-2 (revised after K19, 2026-10-27), with one correction. Confirmed: Black's moves are exactly Kc5, Kd3, Kd4, Kd5; after Kc5 Kxb3 White has no win for any budget k = 0, …, 6, 8 or ∞, up to T = 20 with the confinement and T = 12 without it (K19 and the referee; K19's least fixed point finds none at any T, COMPUTED-1); after Kd3 White wins with T = 5 for each budget k = 0, …, 6, 8 and ∞. Corrected: after Kd4 and Kd5 White wins the local game against each finite budget checked (T = 6 + k with the queen clause for k = 0, …, 6 and 8; without it T = 6 for k = 0 and T = 5 + k for k ≥ 1) and not against unlimited passes (no win up to the same bounds), so "only if Black has no spare move" holds for an unlimited supply only. kpsolve and the P-model agree on all four sorties | R1 items 10 and 11, R4 item 9; K19 |
+| §5.6 | μ_W = 5: PROVED by count (K19's breadth-first search agrees). T = 5 and "(L2) fails by one tempo": CHECKED-2 (revised after K19, 2026-10-27: T = 5 for each budget k = 0, …, 4 and k = ∞, with or without the queen clause and the confinement; μ_W = 5 < T + 1 = 6; the scratch run, R4 and K19 agree) | R1 item 11; K19 |
 | P1a, P1b (§6) | PROVED; kpsolve (D, D) | PREDICTIONS.md, as for every P-row |
 | P2, P3 | PROVED in P; kpsolve agrees in C on all 10 positions; literal cylcgt also gets them right | R1 item 5 |
-| P4 | CONJECTURE → **refuted** by kpsolve in 3 of 6 contexts (H\*, H\*2, H0) | PREDICTIONS.md, theory_P4_cap2_moves.txt |
-| P5 | PROVED in P (b entries, + Hp1); bare w-entry CONJECTURE; kpsolve agrees on all four entries | — |
-| P6, P7 | CONJECTURE, and partly PROVED in P. kpsolve (exact, 8×8): P6 = (L, W) on the cylinder, also confirmed by the main session's `atlas/cylinder/kpk`; P7 = (D, W) on the cylinder and the flat board, confirmed on the flat board by the Lichess tablebase | `kings/results/king_groups_8x8.txt`, `king_groups_lichess.txt` |
+| P4 | CONJECTURE → **refuted** by kpsolve in 3 of 6 contexts (H\*, H\*2, H0), in C (revised after K23, 2026-10-27). In P all six rows equal the convention (CHECKED-2, three implementations agree), so the C refutations are chess-only effects, not P effects; their cause was not examined | PREDICTIONS.md, theory_P4_cap2_moves.txt; K23 |
+| P5 | PROVED in P (b entries, + Hp1); bare w-entry CHECKED-2 (revised after K19, 2026-10-27: the P-value D from two independent solvers, and D in C from kpsolve); kpsolve agrees on all four entries | K19 |
+| P6, P7 | CHECKED-2 (revised after K19, 2026-10-27: P6 = (L, W) in P from two independent solvers on the cylinder, and P7 = (D, W) in P from two independent solvers on the cylinder and on the flat board; P7's w-entry is the draw that was a CONJECTURE), and partly PROVED in P. kpsolve (exact, 8×8): P6 = (L, W) on the cylinder, also confirmed by the main session's `atlas/cylinder/kpk`; P7 = (D, W) on the cylinder and the flat board, confirmed on the flat board by the Lichess tablebase | `kings/results/king_groups_8x8.txt`, `king_groups_lichess.txt` |
 | P8 | PROVED in P. kpsolve (W, W) on the 6-rank analogue and on 8×8, cylinder and flat; the flat 8×8 result is confirmed by Lichess | `kings/results/king_groups_8x8.txt`, `king_groups_lichess.txt` |
 | P9 | PROVED in P; kpsolve (W, L) | — |
 | P10 | PROVED in P; kpsolve (W, W) for k = 0, 1, 2 on the 8×6 cylinder | PREDICTIONS.md |
@@ -116,9 +116,15 @@ which is recorded as open in §8.6.
   throwaway script run once in the session scratchpad (geometry plus a small retrograde solver, Appendix A):
   not kpsolve, not saved in the project, not independently checked.
 - **KNOWN**: from the literature, with a citation.
+- **COMPUTED-1** and **CHECKED-2** (revised after K19, 2026-10-27): labels for a finite computation, never for a
+  theorem. COMPUTED-1: one implementation produced the numbers. CHECKED-2: two independently written
+  implementations agree on the exact numbers (for example the scratch run and a second program, or two solvers).
+  Neither label is a proof, and neither replaces PROVED for a statement over all contexts.
 
 kpsolve results (§6) are data, not proofs: a claim that only a kpsolve run supports keeps the label
-CONJECTURE, with "kpsolve agrees" (revised after review: R1 item 6).
+CONJECTURE (for a statement over all contexts) or COMPUTED-1 (for the finite computation itself), with
+"kpsolve agrees" (revised after review: R1 item 6; after K19, 2026-10-27: CHECKED-2 needs a second, independently
+written implementation, and a second run of the same code or of a build derived from it does not count).
 
 Several results are PROVED *in the promotion model P* (Definition 1.5). They become statements about chess
 only at positions where the hypothesis (A_Q) of §1.2 holds. (A_Q) is false in general, so it is checked
@@ -151,8 +157,9 @@ The other three are chess facts.
   counts the defender's king and context pawns only: its Z-pawns are covered by the local game. That half holds
   in every chess-legal non-terminal context when T = 1, on boards with at least 5 ranks (Proposition 2.10(a)).
   For T ≥ 2 it fails in some context on boards at least |F_Z| + 4 files wide (Proposition 2.10(b)),
-  so a slower punishment's zero is not certified in every context; that it is context-dependent is a
-  CONJECTURE, supported by P4.
+  so a slower punishment's zero is not certified in every context. That it is context-dependent is CHECKED-2 for
+  Z_T in P (Z_T beside {Pe3, pe4} and {Pe2, pe3}, three implementations agree, no hand proof, P13); for every
+  frozen group with T ≥ 2 it is a CONJECTURE (revised after K23, 2026-10-27).
 - When a king has a safe square to shuttle to, Z is not 0 but the loopy game `on`/`off` (or `dud`). On that
   side BIG is meaningless, because `on` exceeds every number. The correct rule replaces ±BIG by
   game-ending outcomes (Theorem 3.4):
@@ -178,14 +185,14 @@ The other three are chess facts.
 | C2.7′ | If `--frozen` reports a win for σ and every king move of σ̄ on the nodes of its winning strategy is a P-loss, σ wins P (content of P12) | PROVED in P (revised after K7, 2026-10-22) |
 | C2.8 | Square-rule form: d(defender's king, promotion square) ≥ D + 2 suffices for the local part | PROVED |
 | L2.9 | Blockade: a defender who may pass and whose king stands in front of the pawn is never beaten | PROVED after repair, with the added hypothesis that s has no pawn on f ± 1 (CONJECTURE without it) |
-| P2.10 | For one-move punishments (T = 1) the counter-promotion condition holds in every chess-legal non-terminal context, on boards with at least 5 ranks (the defender's Z-pawns are covered by (L1), not by (L2)); for T ≥ 2 it fails in some (width ≥ \|F_Z\| + 4) | (a) PROVED after repair; (b) PROVED |
+| P2.10 | For one-move punishments (T = 1) the counter-promotion condition holds in every chess-legal non-terminal context, on boards with at least 5 ranks (the defender's Z-pawns are covered by (L1), not by (L2)); for T ≥ 2 it fails in some (width ≥ \|F_Z\| + 4) | (a) PROVED after repair; (b) PROVED (the example). That the zero of Z_T is context-dependent in P is CHECKED-2 (three implementations agree, P13); for every frozen group with T ≥ 2 it is a CONJECTURE (revised after K23, 2026-10-27) |
 | T3.3 | G + `on` is 𝓛 for every short G, ±BIG included, so BIG plus a shuttle predicts "White always wins" | (a) PROVED (on > numbers: KNOWN); (b) PROVED after repair |
 | T3.4 | Outcome rules for G ⊞ on, G ⊞ off, G ⊞ dud with game-ending decisive events | PROVED |
 | C3.5 | Monotone chain: White wins with dud ⇒ with off ⇒ with nothing ⇒ with on | PROVED |
 | T4.2 | n spare moves forming an acyclic graph = the integer n; a reachable cycle is `on`, never an integer | PROVED after repair |
 | P4.3 | In an isolated K+P group, a king's spare tempo from safe steps inside F_Z (opponent frozen at both ends, mover not in check) is 0 or ∞, never a finite n ≥ 1 | PROVED after repair (hypotheses added) |
 | P4.5–4.6 | 0 < over < x for every number x > 0; White wins G ⊞ over whenever White wins G moving second | PROVED (over: KNOWN) |
-| §5 | 5.1 is a frozen trébuchet whose local certificate holds with T ≤ 7 (scratch); 7.2 is frozen for Black only (T = 1) and White escapes by blockade; 7.3 is not a zugzwang (f7–f8=Q at once). New groups realise `on`, `off` and a stalemate trap | per item, as in the status table: 5.1 frozen PROVED, its certificate (L1) a CONJECTURE (scratch); 7.2 and 7.3 PROVED in P where stated |
+| §5 | 5.1 is a frozen trébuchet whose local certificate holds with T ≤ 7 (CHECKED-2, K19); 7.2 is frozen for Black only (T = 1) and White escapes by blockade; 7.3 is not a zugzwang (f7–f8=Q at once). New groups realise `on`, `off` and a stalemate trap | per item, as in the status table: 5.1 frozen PROVED, its certificate (L1) and (L3) CHECKED-2 (K19, 2026-10-27); 7.2 and 7.3 PROVED in P where stated |
 
 The testable predictions are in §6.
 
@@ -624,10 +631,11 @@ White's shuttle, so the sharp form is the right citation for it.
 - **(S2), a legal Z-move of the loser that is not a P-loss.** 7.3 (§5.3), P8 `Kc6 Pb5 kb4 pc5` (kpsolve (W, W),
   PROVED in P): the convention (reading (a)) gives (L, W), but White's Z-move b5–b6=Q (f7–f8=Q on 8×8) is a legal
   move of the loser that wins. P2 + H0, `Ka5 Pb4 Pc5 kc6 pb5 Pe3 pe4` (kpsolve (W, W)): reading (a) gives (L, W)
-  and White's Ka6 is not a P-loss; reading (b) is the one that applies (Proposition 3.2). P4 with H0, Black to
-  move: Black's king sorties Kd3 and Kd2 are legal Z-moves of the loser that do not lose (a king-context
-  interaction; kpsolve with cap 2 gives a draw instead of the predicted (L, W); COMPUTED-1 in C, and P was not
-  run).
+  and White's Ka6 is not a P-loss; reading (b) is the one that applies (Proposition 3.2). P4 with H0 was listed
+  here before K23 and is not an instance of (S2) in P (revised after K23, 2026-10-27): H0 is G1 of P13, Black to
+  move is lost in P, so Black's sorties Kd3 and Kd2 are P-losses and the position is (L, W) as predicted (CHECKED-2,
+  three implementations agree). In C, kpsolve with cap 2 gives a draw instead of (L, W), so there the sorties do not
+  lose (COMPUTED-1 in C). That is a chess-only effect, outside this list; its cause was not examined.
 - **(S2), a decisive event that is not a P-win (V2).** Races (L4.1 of `notes/lemmas.md`, modulo KQK) and §5.5,
   `Ka4 Pb2 kc5 pb3 w -` = (D, D): Black's Kc5 is scored as a White passer in D but is not a P-win (CONJECTURE,
   scratch evidence, kpsolve agrees). For the winner, the same failure removes closing moves: in 7.3 a Black
@@ -1126,11 +1134,84 @@ after review: R1 item 9, R3 item 4).
 - **(b)** For every T ≥ 2 there is a non-terminal context with μ_s = 2 (this requires board width ≥ |F_Z| + 4).
   - *Example (White):* W (f, H−2); B (f, H−1) and (f+1, H−1). No pawn is passed. White captures to
     (f+1, H−1) and promotes next move.
-  - So (L2) fails there, and a punishment with T ≥ 2 is never certified for all contexts. **The statement
-    "The zero of such a group is context-dependent" is a CONJECTURE** (it is exactly the conjecture stated in
-    the next bullet; §0 repeated it as fact). CONJECTURE: for each frozen group with T ≥ 2 there is a
-    context, with the defender in zugzwang there, where the freeze actually fails in P. *To settle:* kpsolve
-    on Z_T (§5.1) plus 2-file contexts with fast White pawns.
+  - So (L2) fails there, and a punishment with T ≥ 2 is never certified for all contexts. That statement is PROVED
+    (the example above). Whether the freeze itself fails in P is a different statement. It is split below into a
+    checked example and a CONJECTURE (revised after K23, 2026-10-27).
+  - *Three implementations (K23).* Every number below is exact, in P with real kings, and every one was produced by
+    three codes: the kpsolve family (`kpsolve --frozen` and the private `--pmodel` build `kp_p.c`, which share one
+    source), the independent solver `kings/delegate/out/K23/scripts/pk2.c` (written by the K23 agent), and the
+    referee's solver `kings/delegate/out/K23/verify/ref3.cpp` (written by the K23 referee from `kings/SPEC.md`
+    alone). "CHECKED-2 (three implementations agree)" below means that they agree on every position of the
+    computation. It is a finite computation, not a proof.
+  - *Definition (the zero beside a context, in P).* For a group Z and a context G (Definition 2.1) let Φ(G ⊞ Z) be the
+    pair (w, b) of P results, White to move and Black to move, from White's view. Let Ψ(G ⊞ Z) be the same pair in the
+    frozen model `--frozen` (a king move loses at once, a promotion wins at once, stalemate draws). Ψ plays the role of
+    "the result of G": on the sample below it does not depend on the kings (cyl:7×6, contexts on e–f with at most two
+    pawns of each colour on ranks 2–5, 1,770 positions: Z_T replaced by two parked kings `Ka1 ka6` gives the same
+    Ψ, 0 differences; CHECKED-2, the referee's solver and the kpsolve family). That this holds for every G is not
+    shown here (a CONJECTURE; the reason one expects it is that kings on F_Z are never attacked by context pawns and
+    never block them, Lemma 2.2). **Z acts as 0 beside G (in P)** if Φ(G ⊞ Z) = Ψ(G ⊞ Z).
+  - **CHECKED-2 (three implementations agree; no hand proof is given): the zero of a frozen group depends on the
+    context, in P.** Z_T = `Ka4 Pb3 kc3 pb4` on cyl:7×6 (the trébuchet of P4, Pattern A of §5.1 with r = 3), and two
+    locked context pairs, each a single file with no passer and no move, so each has the value 0 and Ψ = (L, W):
+    - G1 = {Pe3, pe4}: Φ = (L, W) = Ψ(G1). Z_T acts as 0 beside G1.
+    - G2 = {Pe2, pe3}: Φ = (L, L) ≠ (L, W) = Ψ(G2). Black to move wins by the sortie 1...Kd2, the only winning move
+      (Kc2, Kb2 and Kd4 lose; Kd3 is illegal, the pawn e2 covers it; Kc4 and Kxb3 are illegal as well). Z_T does not act as 0
+      beside G2.
+    - The mirror (colours swapped, ranks reversed, files reflected about b) is G2′ = {Pf4, pf5}: Φ = (W, W) ≠ (L, W),
+      White to move wins by Kg5; and G1′ = {Pf3, pf4} behaves as G1 (Φ = Ψ = (L, W); the agent's run and `ref3`).
+    - Same on the group of §5.1 on cyl:8×8 (`Kh5 Pa4 kb4 pa5`, contexts on d–f, ranks 2–7): {Pe3, pe4} gives (L, W)
+      and {Pe2, pe3} gives (L, L); {Pe6, pe7} gives (W, W). The referee's solver also finds {Pd2, pd3} and
+      {Pd3, pd4} different with Black to move, and {Pf5, pf6} and {Pf6, pf7} different with White to move. The
+      mechanism was analysed for Z_T only, not for this group.
+    - *Mechanism for Z_T: a timing tie, decided by one tempo.* 1...Kd2 steps onto the buffer file next to the context.
+      If White punishes the sortie with 2.Kxb4, the b-pawn is free but its own king stands in front of it: it needs a
+      step aside and three pushes, four moves, with White to move after Black's capture. Black replies 2...Kxe2 in G2
+      and 2...Kxe3 in G1, which makes the black context pawn a passer. In G2 that pawn needs three more moves (king
+      steps off, e2, e1=Q), in G1 four (king steps off, e3, e2, e1=Q). White moves first, so White's fourth move
+      is before Black's fourth but after Black's third. The two race positions confirm it: `Kb4 Pb3 ke2 pe3`, White to
+      move, is lost for White; `Kb4 Pb3 ke3 pe4`, White to move, is won (three implementations). In P a promotion ends
+      the game, so no queen is ever captured. In G2 every other White reply to 1...Kd2 loses as well (by the
+      solvers); in G1 White wins after 1...Kd2, so the sortie is punished there.
+    - *The numbers of Theorem 2.7 (COMPUTED-1, the K23 referee's own code, one implementation).* The local game of
+      Definition 2.6 after m = 1...Kd2 and r = 2.Kxb4 (Black may pass, White's king confined to the a–c files) has T = 4,
+      both for (L1_P) and for (L1) with the queen clause (T = 3 fails). The breadth-first search for μ_s of (L2) gives
+      μ_s = 4 in G2 and μ_s = 5 in G1. So (L2) holds in G1 (μ_s = T + 1) and fails in G2 (μ_s = T) by exactly one tempo.
+      (L3) was not checked. The sortie is punished only if no context pawn becomes a passer that is at most as slow as
+      the punisher.
+    - *Distance.* On cyl:8×6 (Z_T on a–c, buffer d and h, context on e–g) the same pair {Pe2, pe3} fails, and moved one
+      file away, {Pf2, pf3} and {Pg2, pg3}, it holds (and so do all rank shifts on f and g, except the mirror image
+      {Pg4, pg5} of G2). Over all 4,579 contexts on e–g with at most two pawns of each colour on ranks 2–5, 152 have
+      Φ ≠ Ψ (47 with a passer, 105 without), and every one has a pawn on e or g, the files next to the buffer. None of
+      the 62 non-empty contexts confined to f differs (63 with the empty context), and neither does any of the 81
+      single-file contexts on f with up to four pawns of each colour (CHECKED-2: the kpsolve family and `pk2.c`; the
+      integrator re-ran the 81 with `ref3`: 0 differ). So in every failing context of this sample a context pawn stands within a step
+      of the buffer file the sortie king enters. Whether that is necessary in general is not shown.
+    - *The six P4 contexts do not show it in P.* In P all six rows of P4 equal the convention (CHECKED-2, three
+      implementations agree), including H*, H*2 and H0 (H0 is G1). The draws that kpsolve finds there in C are
+      therefore chess-only effects, not P effects. K23 did not examine their cause.
+    - *Scope.* Z_T on cyl:7×6, contexts on e–f with at most two pawns of each colour on ranks 2–5 (885 contexts):
+      838 have Φ = Ψ and 47 do not (43 of the 47 have no passer; CHECKED-2, three implementations). In the 23
+      passer-free contexts with Ψ = (L, W) that differ, the side to move loses in Ψ and not in P in 26 (context, side to
+      move) pairs, and in all 26 a king step to the buffer file (Kd2 or Kd3 for Black; Kg3, Kg4 or Kg5 for White) is
+      among its moves that do not lose. With at most three pawns of each colour (3,237 contexts, the same files and
+      ranks) 99 differ: 4 with a passer and 95 without; 39 of the passer-free ones have frozen (L, W); in 44 (context,
+      side to move) pairs the frozen mover loses and does not lose in P; no position was left unresolved. This
+      ≤ 3 count is CHECKED-2 (the K23 agent's `pk2.c` and kpsolve family, re-run by the integrator with the referee's
+      generator and solver `ref3`, boards `cyl:7x6`, with and without `--frozen`). Among these positions are cases of
+      Corollary 2.7′: `--frozen` reports a win for σ and σ does not win P (G2 with Black to move: `--frozen` is a
+      White win, P is a Black win).
+  - **CONJECTURE (what remains): the general statement.** For each frozen group with T ≥ 2 there is a context, with
+    the defender in zugzwang there, where the freeze fails in P. **A proof is not available as stated, and the
+    obstacle is not technical.** T belongs to a certificate, not to a group. A failure needs three things at once for
+    one sortie m: (i) the sortie king can reach a buffer square next to a context pawn it can capture (here Kd2, Kg4,
+    Kg5), which depends on where the kings stand in Z; (ii) the counter-passer that results is no slower than the
+    punisher's *exact* P-win, not the bound T of (L1); (iii) s has no other loss on the way. A converse of Theorem
+    2.7 (μ_s ≤ T implies that m is not punished) is false in general (see "No converse"), because s̄ may win faster
+    than T or by another reply. So the statement can be settled only group by group, by solving. What is checked
+    (CHECKED-2, not a proof): Z_T on cyl:7×6, cyl:8×6 and the group of §5.1 on cyl:8×8, each by an example of a
+    context. What is open: groups in which no sortie king can reach the buffer in time (they might be universal zeros
+    even with T ≥ 2), and every group other than these two.
 
 **Proposition 2.11 (frozen-king passer certificate). PROVED in P (frozen), as a sufficient condition (revised after
 K10, 2026-10-22).** *Caveat.* K10's first draft (a free model) was FALSE: it said that a passed pawn stays passed, and
@@ -1657,32 +1738,41 @@ move lists below were enumerated by hand. A scratch script reproduced them, and 
 - **Frozen in the convention. PROVED by enumeration** (revised after review: R1 item 11, R4 item 9: the
   proof is written out here, instead of being left to the diagram audit). The group is WK h5, WP a4, BK b4,
   BP a5 on the 8-file cylinder. WK's five legal moves are Kg4, Kg5, Kg6, Kh6 and Ka6; each of them abandons
-  WP a4, which Black's king then captures on a4, giving Black a passer. BK's five legal moves are Ka3, Kc3,
-  Kc4, Kc5 and Kb5; the first four abandon BP a5, which White's king then captures on a5, giving White a
-  passer, and the fifth (Kb5) puts Black's king on the square that guards both a4 and a5, so that White is in
-  zugzwang with only pawn-blocked moves left. So every king move in the group is decisively punished, and the
-  group is frozen. The enumeration agrees with `notes/diagram_audit.md` §C.3.
+  WP a4, which Black's king then captures on a4, giving Black a passer. BK's five legal moves are Ka3, Kb3,
+  Kc3, Kc4 and Kc5 (Kb5 is illegal: the pawn a4 attacks b5); each of them abandons BP a5, which White's king
+  then captures on a5, giving White a passer. (They are the mirror images of the White list: g4 ↔ c5, g5 ↔ c4,
+  g6 ↔ c3, h6 ↔ b3, a6 ↔ a3.) So every king move in the group is decisively punished, and the group is frozen.
+  (Corrected after K19, 2026-10-27: the earlier list had Kb5 in place of Kb3, and a zugzwang argument for a move
+  that is not legal. This was a transcription slip in this section: `notes/diagram_audit.md` §C.3 and the scratch
+  list of Appendix A both give the correct list a3, b3, c3, c4, c5. The conclusion stands. K19's move generator,
+  checked against `kpsolve --moves`, gives the list above, and so does the referee's.)
 - **Certificate.**
   - Corollary 2.8 fails for every sortie. After ...Kxa4 the punisher's king stands on its own pawn's path,
     so it needs a king step plus 4 pushes, and the defending king is within distance 5 of a1.
   - (L1) holds for all five White sorties with T ≤ 7 (5 to 7, depending on the sortie and the budget), for
-    pass budgets **k ≤ 4 and k = ∞**, with the punisher's king confined to {h, a, b}. Budgets k = 5, 6 were
-    not checked; they differ from ∞ when T ≥ 6. This is scratch evidence (Appendix A) (revised after review:
-    R1 item 10, R4 item 9).
+    every pass budget **k = 0, 1, …, 8 and k = ∞**, with the punisher's king confined to {h, a, b}: **CHECKED-2**
+    (revised after K19, 2026-10-27: for k ≤ 4 and k = ∞ the scratch run and K19's code agree. The budgets k = 5, 6, 8 were
+    never run before: K19's code and the referee's own code (K19/VERIFY.md) agree that they equal k = ∞. Every
+    k ≥ 7 equals k = ∞ for a reason: the window contains at most T ≤ 7 moves of s, so no budget is used up.)
+    (L3) holds in the bare group for these five sorties and for the five Black ones: **CHECKED-2** (K19's code and the
+    referee's own code; Appendix A).
     - These runs used the local game as it was before K7 (finite budgets, optional confinement). K7 re-ran the local
       game of Definition 2.6 (k = ∞, king confined to {h, a, b}, a mate of s a win) on the five sorties, after the
       reply Kxa4, with a second scratch implementation. (L1_P), which has no queen clause, holds with
       T = 6, 6, 5, 6, 6 for Kg4, Kg5, Kg6, Kh6, Ka6. (L1), with the queen clause, holds with T = 6, 6, 6, 7, 7.
       A reviewer's independent implementation gave the same two lists. So in P the freeze needs μ_s ≥ 7 at the
       zugzwang nodes (Theorem 2.7 holds with (L1_P)), and μ_s ≥ 8 with the queen clause, which is the value used
-      above. This is still scratch evidence: the label stays CONJECTURE (revised after K7, 2026-10-22).
+      above. K19's code reproduces both lists, so this is now CHECKED-2 (revised after K19, 2026-10-27).
   - With (L1), Theorem 2.7 makes the freeze valid in P for every context in which (L2) holds with
     μ ≥ 8 at the zugzwang nodes, and (L3) holds.
   - On 8 ranks a single free White pawn on rank 2 has μ = 5. So the certificate covers only locked or slow
-    contexts. Next to fast pawns the zero has to be checked case by case (Proposition 2.10b).
-- **Prediction.** The bare 5.1 is a real mutual zugzwang, (L, W) (P6 in §6). In the bare position the local
-  game is the whole game, so the scratch run is a full P-model computation. It is still one throwaway
-  implementation, hence a CONJECTURE.
+    contexts. Next to fast pawns the zero has to be checked case by case (Proposition 2.10b). For this group on
+    cyl:8×8 it fails beside {Pe2, pe3} in P: (L, L) instead of (L, W), CHECKED-2 (three implementations agree; P13;
+    revised after K23, 2026-10-27).
+- **Prediction.** The bare 5.1 is a real mutual zugzwang, (L, W) (P6 in §6). **CHECKED-2** (revised after K19,
+  2026-10-27): K19's own P-model solver and the P-model build of kpsolve both give (L, W) in P, and kpsolve gives
+  (L, W) in C. After each of the five White sorties (Black to move) White is lost in P, and after each of the five
+  Black sorties (White to move) Black is lost, in P and in C.
 
 ### 5.2 Position 7.2 (Ke6 Pd7 / Kd8 Pe7) — frozen for Black only
 
@@ -1701,10 +1791,14 @@ move lists below were enumerated by hand. A scratch script reproduced them, and 
   - Ke5 already stands on the e-pawn's path. Kd5 and Kf5 reach e5 next move: after ...Kxd7, e5 is not
     adjacent to d7 and not attacked by e7.
   - By Lemma 2.9, (L1) fails for these three sorties. PROVED.
-  - That the three sorties are *not punished* in P (no forced promotion for Black) rests on scratch evidence
-    only, and is a CONJECTURE (revised after review: R4 item 9, R1 item 11): even without passes, Black cannot
-    force promotion after Kd5, Ke5 or Kf5. Only Kf7 loses, in 10 moves. In chess, kpsolve gives (D, W) for the
-    6-rank analogue Z_72 bare, so White to move draws (P5).
+  - That the three sorties are *not punished* in P (no forced promotion for Black) is **CHECKED-2** (revised after
+    K19, 2026-10-27): even without passes, Black cannot force promotion after Kd5, Ke5 or Kf5. K19: in the local
+    game after ...Kxd7 Black has no win up to T = 13 (K19 and the referee; K19's least fixed point finds none at any
+    T, COMPUTED-1), with or without passes, with the king confined to {d, e, f} or not; in the exact P-model after the sortie, against every Black reply, the result is a draw (own solver and the
+    P build of kpsolve), and kpsolve gives a draw in C on the cylinder and on the flat board. Only Kf7 loses, in 10
+    moves (T = 10 in the local game without the queen clause, with or without passes; with the queen clause T = 10
+    without passes and 11 with unlimited passes). In chess, kpsolve gives (D, W) for the 6-rank analogue Z_72 bare,
+    so White to move draws (P5). In the analogue Kb3, Kc3 and Kd3 are not punished and Kd5 loses (T = 6).
 - **Theory for 7.2 + H** (H the {a,b,h} component). Theorem 2.4(b) needs the freeze only for the loser.
   - **If White wins H** (convention, V1–V2 assumed): White wins 7.2 + H. The loser is Black, and Black's
     Z-moves are universally punished. PROVED, modulo (A_Q), (V1) and (V2) for H's own events.
@@ -1783,9 +1877,17 @@ Ka5 Pb4 Pc5 Pe2 Pe4 / kc6 pb5 pe5.
 Z_on = Ka4 Pb2 / kc4 pb3 (8×6 cylinder).
 - **It passes the convention's test. PROVED by enumeration.** Every Black king move drops b3, after which
   White has a passer and Black none, and White's king shuttles a3 ↔ a4.
-- **But Black has an escape. CONJECTURE (scratch evidence; kpsolve agrees).** After the sortie Kc5 and Kxb3,
-  White cannot force promotion even without passes; after Kd4 and Kd5, White wins only if Black has no spare
-  move. Black's legal moves in the group are Kc5, Kd4, Kd5 and Kd3 (revised after review: R1 item 10 — Kd3
+- **But Black has an escape. CHECKED-2 (revised after K19, 2026-10-27; kpsolve agrees).** After the sortie Kc5
+  and Kxb3, White cannot force promotion even without passes, and not with unlimited passes either (no win up to T = 20
+  confined and T = 12 unconfined, for each budget k = 0, …, 6, 8 and ∞, K19 and the referee; K19's least fixed
+  point finds none at any T, COMPUTED-1). After Kd4 and Kd5, White wins the local game against each finite budget
+  of Black's passes that was checked (T = 6 + k with the queen clause, k = 0, …, 6 and 8; for larger k the formula
+  is a CONJECTURE) and does not win against unlimited passes (no win up to the same bounds): "wins only if Black
+  has no spare move" is right for an unlimited supply of passes and was too strong as written for a finite one.
+  After Kd3 White wins with T = 5 for each budget k = 0, …, 6, 8 and ∞. So (L1) holds for Kd3 and fails
+  at k = ∞ for Kd4 and Kd5, which are nevertheless punished in P and in C in the bare group, where Black has no spare move
+  (k = 0, T = 6). A context with k spare moves costs k tempi (T = 6 + k), and (L2) then asks for μ ≥ 7 + k.
+  Black's legal moves in the group are Kc5, Kd4, Kd5 and Kd3 (revised after review: R1 item 10 — Kd3
   was missing from the original list; Kc3 is illegal because White's pawn b2 attacks c3), and kpsolve confirms
   that the escape is exactly Kc5: `Ka4 Pb2 kc5 pb3 w -` is (D, D) — a draw, with or without the passes — while
   `Ka4 Pb2 kd3 pb3 w -`, `Ka4 Pb2 kd4 pb3 w -` and `Ka4 Pb2 kd5 pb3 w -` are (W, W).
@@ -1803,9 +1905,13 @@ on the flat 8×8 board, with the component on a–d and only the e-file between.
 - *Example:* the documented draw `8/8/3p4/5Kp1/6Pk/2P5/8/8 w`, with Ke6! Kxg4 Kxd6 (engine/suite README).
   - Our count gives μ_W = 5: the c-pawn walks c4–c8 while Black is busy. **PROVED by count** (revised after
     review: R1 item 11: this chain carried no labels).
-  - Black's local win after Ke6 Kxg4 takes T = 5 (scratch). **CONJECTURE** (scratch evidence).
-  - So μ = T, and (L2) fails by one tempo. **CONJECTURE** (scratch evidence; Review 4 re-derived both
-    numbers independently: μ = 5 = T, so (L2) does fail by one tempo — R4 item 10).
+  - Black's local win after Ke6 Kxg4 takes T = 5. **CHECKED-2** (revised after K19, 2026-10-27: the scratch run and
+    K19's code agree. T = 5 for every pass budget 0, …, 4 and ∞, with or without the queen clause and the
+    confinement to {f, g, h}. Here Q_Z = `Ke6 kg4 pg5`: the context pawns c3 and d6 are deleted.)
+  - So μ = T, and (L2) fails by one tempo. **CHECKED-2** (Review 4 re-derived both numbers, and K19's breadth-first
+    search gives μ_W = 5 with the same Q°, so μ_W = 5 < T + 1 = 6). The sortie nevertheless loses in P: the P build
+    of kpsolve gives Black the win after Ke6 (`Ke6 Pg4 Pc3 kh4 pg5 pd6 b -` is L from White's side;
+    COMPUTED-1, K19), so the documented draw is an (A_Q) failure, not a failure in P.
 - PROVED: by Theorem 2.7 (contrapositive), for every admissible reply r (Definition 2.6) and every T ≥ 1, every king
   move that does not lose in P violates (L1), (L2) or (L3) (revised after K7, 2026-10-22). A move that loses in P but not in C is an (A_Q) failure.
 - CONJECTURE: every one of the 48 non-losing king moves has μ ≤ T + 1 at its node: an (L2) failure, or an
@@ -1842,15 +1948,16 @@ Each is a single file with no possible capture, so pure tempo.
 | P1b | cyl:7x6 | `Kc1 Pb2 Pe2 ka2 pb3 pc2 pe3 pe5` | (D, D) | (L, L) | (D, D) | mirror of P1a | PROVED; kpsolve agrees |
 | P2 | cyl:7x6 | Z_onT1 `Ka5 Pb4 Pc5 kc6 pb5` + each of {nothing, Hm1, H\*, H\*2, H0} | (W, W) in all five | (L,W), (L,L), (W,L), (W,L), (L,W) | (W, W) in all five | Thm 3.4(b) + Prop 3.2 + Prop 2.10(a) | PROVED in P; C modulo (A_Q); kpsolve agrees on all ten |
 | P3 | cyl:7x6 | Z_offT1 `Kc1 Pb2 ka2 pb3 pc2` + each of {nothing, Hp1, H\*, H\*2, H0} | (L, L) in all five | (L,W), (W,W), (W,L), (W,L), (L,W) | (L, L) in all five | mirror of P2 | PROVED in P; C modulo (A_Q); kpsolve agrees on all ten |
-| P4 | cyl:7x6 | Z_T `Ka4 Pb3 kc3 pb4` + each of {nothing, Hm1, Hp1, H\*, H\*2, H0} | equal to the convention: (L,W), (L,L), (W,W), (W,L), (W,L), (L,W) | same | (L,W), (L,L), (W,W), (D,L), (D,L), (L,D) | Thm 2.4(b) + Thm 2.7. (L1) holds: scratch, T ≤ 5, all budgets, confined king. (L2) holds at every loser-to-move node: scratch. (L3) not checked. These checks used the local game and the μ before K7: the old μ counted the king and all pawns, and Definition 2.6 now counts the king and context pawns, with the e.p. clause (revised after K7, 2026-10-22) | CONJECTURE → **refuted** by kpsolve in 3 of 6 contexts (H\*, H\*2, H0) |
-| P5 | cyl:7x6 | Z_72 `Kc4 Pb5 kb6 pc5`, bare; and + Hp1 | bare (D, W); + Hp1 (W, W) | bare (L, W); (W, W) | bare (D, W); + Hp1 (W, W) | Black side: Prop 2.10(a) with T = 1 (PROVED in P). White side: Lemma 2.9 (escape by blockade) | all entries PROVED in P except the bare w-entry, which is a CONJECTURE (scratch: no forced promotion); kpsolve agrees on all four entries |
-| P6 | cyl:8x8 | 5.1 `Kh5 Pa4 kb4 pa5` | (L, W): a real mutual zugzwang | (L, W) | (L, W) (kpsolve, exact) | Thm 2.4 + Thm 2.7 ((L1) scratch, T ≤ 7) + self-duality | CONJECTURE; kpsolve agrees |
-| P7 | cyl:8x8 and flat:8x8 | 7.2 group `Ke6 Pd7 kd8 pe7` | (D, W) | (L, W) | (D, W) on both boards (kpsolve; Lichess on flat) | Prop 2.10(a) for Black; Lemma 2.9 for White | b PROVED in P; w CONJECTURE; kpsolve and Lichess agree |
+| P4 | cyl:7x6 | Z_T `Ka4 Pb3 kc3 pb4` + each of {nothing, Hm1, Hp1, H\*, H\*2, H0} | equal to the convention: (L,W), (L,L), (W,W), (W,L), (W,L), (L,W) | same | (L,W), (L,L), (W,W), (D,L), (D,L), (L,D) | Thm 2.4(b) + Thm 2.7. (L1) holds: scratch, T ≤ 5, all budgets, confined king. (L2) holds at every loser-to-move node: scratch. (L3) not checked. These checks used the local game and the μ before K7: the old μ counted the king and all pawns, and Definition 2.6 now counts the king and context pawns, with the e.p. clause (revised after K7, 2026-10-22) | CONJECTURE → **refuted** by kpsolve in 3 of 6 contexts (H\*, H\*2, H0), in C. In P all six rows equal the convention: CHECKED-2 (three implementations agree; revised after K23, 2026-10-27), so the refutation is a chess-only effect and its cause was not examined |
+| P5 | cyl:7x6 | Z_72 `Kc4 Pb5 kb6 pc5`, bare; and + Hp1 | bare (D, W); + Hp1 (W, W) | bare (L, W); (W, W) | bare (D, W); + Hp1 (W, W) | Black side: Prop 2.10(a) with T = 1 (PROVED in P). White side: Lemma 2.9 (escape by blockade) | all entries PROVED in P except the bare w-entry, which is CHECKED-2 (K19, 2026-10-27: the P-value D from an own solver and from the P build of kpsolve, and D in C from kpsolve); kpsolve agrees on all four entries |
+| P6 | cyl:8x8 | 5.1 `Kh5 Pa4 kb4 pa5` | (L, W): a real mutual zugzwang | (L, W) | (L, W) (kpsolve, exact) | Thm 2.4 + Thm 2.7 ((L1): CHECKED-2, T ≤ 7; (L2) holds trivially in the bare group, which has no context pawn; (L3): CHECKED-2) + self-duality (also checked numerically by K19) | CHECKED-2 (K19, 2026-10-27: (L, W) in P from two solvers); kpsolve agrees. The K23 referee's own solver (a third implementation) also gives (L, W) in P for the bare group (revised after K23, 2026-10-27). Beside contexts the zero of this group can fail: P13 |
+| P7 | cyl:8x8 and flat:8x8 | 7.2 group `Ke6 Pd7 kd8 pe7` | (D, W) | (L, W) | (D, W) on both boards (kpsolve; Lichess on flat) | Prop 2.10(a) for Black; Lemma 2.9 for White | b PROVED in P; w CHECKED-2 (K19, 2026-10-27: D in P from two solvers, on both boards); kpsolve and Lichess agree |
 | P8 | cyl:8x8; cyl:7x6 | 7.3 group `Kg8 Pf7 kf6 pg7`; 6-rank analogue `Kc6 Pb5 kb4 pc5` | (W, W) | (L, W) (read as 0) | (W, W) on 8×8 (kpsolve; Lichess on flat) and on the 6-rank analogue | unparriable safe promotion (§5.3) | PROVED in P |
 | P9 | cyl:7x6 | `Ka5 Pb4 Pc5 Pe2 kc6 pb5 pf3` | (W, L): class 𝓝 | BIG with Z as `on`: (W, W) | (W, L) | Thm 3.3 versus Thm 3.4(b). Black: fxe2 and e1=Q; White: exf3, then zugzwang (Kd5 forced) | PROVED in P; kpsolve agrees |
 | P10 | cyl:8x6 | Z_onT1 + k Black tempo units: k = 0 nothing; k = 1 `Pe2 pe3 pe5`; k = 2 also `Pg2 pg3 pg5` | (W, W) for k = 0, 1, 2 | (L,W), (L,L), (L,L) | (W, W) for k = 0, 1, 2 | Prop 4.3 + Thm 3.4(b): the result does not depend on k, and there is no integer threshold | PROVED in P; kpsolve agrees for k = 0, 1, 2 |
 | P11 | cyl:8x6, `--frozen` | Kings parked on the a-file (`Ka1 ka6`, b- and h-files empty); pawn components on c–g; every passer and race terminal of the D-game of X certified by Corollary 2.11a, and, if X already has a passer, X itself certified by Proposition 2.11 (s the side to move, β the side W(X) credits) (for the beneficiary's passed front pawn: (H4) and (H5); in this layout (H2), (H3) and the king clause of (H1) hold by Corollary 2.11b); condition (E). Here W(X) is the D-game of X with its own winning side, and "hereditarily sum-safe" (HSS) means (HSS) and (B) of Theorem 1.11(c), that is (V4) of Theorem 1.14: at every position reachable before the first decisive event, the re-split components are pairwise safe and BIG exceeds every tempo count | kpsolve `--frozen` = o(W(X)); also = o(S(X)) when hereditarily sum-safe. Where o(S) ≠ o(W) (opposite threats, Prop 1.12), `--frozen` sides with W | — | — (a harness check, not one position) | Thm 1.11 + Thm 1.14 ((V3), and (V2) at king moves, hold by fiat; (V1) holds in the layout by Corollary 2.11b: no check, and a2 or a5 is always a legal king move) + Proposition 2.11 / Corollary 2.11a for (V2) at passer and race terminals | PROVED in P, conditional on the certificate (revised after K10, 2026-10-22). False without it: `Ka1 ka6 Pc2 Pc3 pd3 pd4 w -` is a White win in W(X) and (L, L) in `--frozen`; checked end to end on 56,872 roots (a root is a position with its side to move, here without a passer) of cyl:6×6, cyl:7×6 and cyl:8×6 (0 violations when every terminal is certified; 3,194 roots differ otherwise) |
 | P12 | cyl:7x6 | Z_T + any context on e–f | If `--frozen` reports a win for σ at X, then either σ wins in P, or, for every `--frozen` winning strategy of σ, some node of it with σ̄ to move has a king move of σ̄ that is not a P-loss. For that move, and for every admissible reply r (Definition 2.6) and every T ≥ 1, (L1), (L2) or (L3) fails. In chess, add (A_Q) at X | — | — (a harness check, not one position) | Thm 2.7 (contrapositive) + the transfer argument of Corollary 2.7′ | PROVED after repair, in P, for the nodes where `--frozen` reports a win; the chess form needs (A_Q) (revised after K7, 2026-10-22) |
+| P13 | cyl:7x6; cyl:8x8 | Z_T `Ka4 Pb3 kc3 pb4` beside G1 = `Pe3 pe4` and G2 = `Pe2 pe3`; on cyl:8x8 the group of §5.1 `Kh5 Pa4 kb4 pa5` beside the same pairs | none made in advance. For Z_T, Theorem 2.7 would give (L, W) for G1 if (L3) holds ((L1) with T = 4 and (L2) with μ_s = 5: COMPUTED-1, K23 referee), and says nothing for G2 ((L2) fails by one tempo, μ_s = 4 = T) | G1 and G2 both (L, W) | P (exact, not C): G1 (L, W), G2 (L, L) on both boards; C not run (cap 2 is too large on cyl:7×6) | Prop 2.10(b) + Thm 2.7 for Z_T (race count in §2 after Proposition 2.10(b)); the mechanism was analysed for Z_T only, not for the group of §5.1 on cyl:8x8 | CHECKED-2 (K23, 2026-10-27: three implementations agree on every number; no hand proof): the zero fails in P beside G2, not beside G1. T = 4 and μ_s = 4, 5 are COMPUTED-1 (one implementation). The general statement for every frozen group is a CONJECTURE |
 
 **Notes on the table.**
 - **What P2, P3 and P10 prove.** The derivations use only enumerated move lists (§5.4) and Theorem 3.4(b).
@@ -1887,15 +1994,21 @@ Each is a single file with no possible capture, so pure tempo.
   the three positions literal cylcgt scores as a race (P5 bare, P5 + Hp1, P8 6-rank) have no answer from it
   at all.
 - **What P4 tests, and how it failed.** P4 was the positive control: the theory predicts that the convention
-  is *right* there. kpsolve refutes it in 3 of the 6 contexts.
+  is *right* there. kpsolve refutes it in 3 of the 6 contexts, in C. In P all six rows equal the convention
+  (CHECKED-2, three implementations agree, K23: `kings/delegate/out/K23/logs/key_digest.txt`), so the three
+  refutations are chess-only effects (not P effects), and their cause was not examined in K23. P4 does not show a
+  context-dependent zero in P; P13 does (revised after K23, 2026-10-27).
   - H\* and H\*2 with White to move are draws, not (W, L). In H\* every White king move loses (Ka5, Kb5, Kg3,
     Kg4, Kg5) and White's only drawing move is e3–e4; in H\*2 the position is a draw as well.
   - H0 with Black to move is a draw, not (L, W): Black's king draws by Kd3 or Kd2.
   - The mechanism: the defending king walks to the locked context pawns and attacks the stuck pawn there
     (…Kd3, …Kd2, …Kd4). In H0 after …Kd3 the white king is confined to the a- and b-files: Kg4, Kg5 and Kg3
-    all lose, while Ka5, Kb4 and Kb5 draw. This is what Proposition 2.10(b) predicts — the zero of the group is
-    context-dependent, a CONJECTURE after Proposition 2.10(b), now supported in C by P4 — and the (L2) margin
-    the theory assumed does not survive the context.
+    all lose, while Ka5, Kb4 and Kb5 draw. In C the sorties draw; K23 did not run C. In P the same sorties lose
+    (H0 is G1 of P13, where (L2) holds with μ_s = T + 1 = 5), so the C result is not a P effect, and it was not
+    shown to be an (L2) failure. By the note's own text a margin μ_s = T + 1 does not give a chess win (queen against
+    queen, (L2⁺)), so (A_Q) or this margin may be the cause; that is a guess and was not tested. The zero of Z_T
+    is context-dependent in P for a different reason (P13: a timing tie of one tempo in G2, Proposition 2.10(b);
+    revised after K23, 2026-10-27).
   - The same three contexts are exactly the ones in which the Z = 0 convention and literal cylcgt are wrong
     too, so the refutation is a fact about the positions, not about the convention.
 - **P11 and P12** turn Theorems 1.11, 1.14 and 2.7 into checks of the solver.
@@ -1963,9 +2076,13 @@ Each item is a counterexample type the task named, or one found while writing.
     - A reason for caution: on short boards a lone king is closer to the queen.
 
 Downgraded while writing:
-- "The trébuchet zero is universal": now Proposition 2.10(b) plus a CONJECTURE.
+- "The trébuchet zero is universal": downgraded then to Proposition 2.10(b) plus a CONJECTURE. After K23 it is false
+  for Z_T in P: Z_T does not act as 0 beside {Pe2, pe3} on cyl:7×6 (CHECKED-2, three implementations agree, P13). That
+  the zero of every frozen group with T ≥ 2 is context-dependent is still a CONJECTURE (revised after K23,
+  2026-10-27).
 - "A dud group exists in small K+P positions": now a CONJECTURE.
-- "The bare 5.1 / 7.2 / Z_72 results": CONJECTURES with scratch evidence.
+- "The bare 5.1 / 7.2 / Z_72 results": CONJECTURES with scratch evidence (raised to CHECKED-2 after K19,
+  2026-10-27; see the status table).
 
 ---
 
@@ -1986,6 +2103,11 @@ Downgraded while writing:
 4. A version of Theorem 1.11 for loopy components: the D-semantics analogue of Siegel's stopper sums.
 5. Gafni's K+P vs K values without edges (plan item A8): the cylinder KPK table in `atlas/cylinder/kpk` is the
    starting point.
+6. **Universal zeros** (CONJECTURE, after Proposition 2.10(b); revised after K23, 2026-10-27). The zero of Z_T is
+   context-dependent in P (P13, CHECKED-2). Is there a frozen group with T ≥ 2 that acts as 0 beside every context,
+   for instance one whose sortie king cannot reach the buffer before the punisher wins? Solving candidates
+   exhaustively on contexts of at most two pawns a side, as K23 did for Z_T (`kings/delegate/out/K23/scripts/` and
+   `kings/delegate/out/K23/verify/`), is feasible in P.
 
 ---
 
@@ -2075,6 +2197,19 @@ Re-implement them before relying on any number.
       play of s, had no failure in about 70000 pairs. With μ_s = T instead of T + 1, about 23 percent of the LC
       positions are non-wins;
     - sharpness examples of the text above: I re-ran them myself with the private builds, and they agree.
+- **K19 re-computation (2026-10-27; scripts, logs and `summary.json` in `kings/delegate/out/K19/`).** One new
+  implementation, written from Definition 2.6 and `kings/SPEC.md` without reading `kings/ref/` or the K7 scripts:
+  - a move generator (kings, pawns, e.p., promotion), which agrees with `kpsolve --moves` on 980 random
+    positions (4802 moves, 6 boards, with e.p. rights);
+  - the local game of Definition 2.6: bounded recursion with a pass budget k (0, …, 8, ∞), the queen clause and the
+    mate rule as switches, so that the pre-K7 and the K7 versions both run; the unbounded least fixed point; (L3) as
+    a search over guided strategies against a real s without passes; and μ_s as a breadth-first search;
+  - a full-board solver of the model P, which agrees with the P-model build of kpsolve on 350 random positions;
+  - the local game with no passes, no confinement and no queen clause is exactly P, and agrees with the P build of
+    kpsolve on 110 random positions (38 of them won by the attacker; bounded recursion and fixed point agree).
+  Results: §5.1 (L1) and (L3) (five White and five Black sorties), §5.2 (not punished), §5.5, §5.6, P5, P6, P7 as
+  recorded in the status table and in those sections. Every kpsolve run used a private build
+  (`cc -O2 -o kp kings/kpsolve.c -lpthread`; the P build is K7's `kp_p.c`).
 
 ---
 

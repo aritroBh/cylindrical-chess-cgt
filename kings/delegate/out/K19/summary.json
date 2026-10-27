@@ -1,0 +1,960 @@
+{
+ "task": "K19",
+ "date": "2026-10-27",
+ "validation": {
+  "movegen_vs_kpsolve_moves": "980 random positions, 4802 moves, 0 mismatches (6 boards, e.p.)",
+  "ownP_vs_kp_p": "350 random positions, 0 mismatches",
+  "local_game_vs_kp_p": "110 random positions (no passes, no confinement, no queen clause = P), 0 mismatches, bounded T=24 = lfp"
+ },
+ "5.1": {
+  "T_L1_queen_inf": {
+   "Kg4": 6,
+   "Kg5": 6,
+   "Kg6": 6,
+   "Kh6": 7,
+   "Ka6": 7
+  },
+  "T_L1P_inf": {
+   "Kg4": 6,
+   "Kg5": 6,
+   "Kg6": 5,
+   "Kh6": 6,
+   "Ka6": 6
+  },
+  "T_all_budgets_queen_K7": {
+   "Kg4": {
+    "0": 6,
+    "1": 6,
+    "2": 6,
+    "3": 6,
+    "4": 6,
+    "5": 6,
+    "6": 6,
+    "7": 6,
+    "8": 6,
+    "inf": 6
+   },
+   "Kg5": {
+    "0": 6,
+    "1": 6,
+    "2": 6,
+    "3": 6,
+    "4": 6,
+    "5": 6,
+    "6": 6,
+    "7": 6,
+    "8": 6,
+    "inf": 6
+   },
+   "Kg6": {
+    "0": 6,
+    "1": 6,
+    "2": 6,
+    "3": 6,
+    "4": 6,
+    "5": 6,
+    "6": 6,
+    "7": 6,
+    "8": 6,
+    "inf": 6
+   },
+   "Kh6": {
+    "0": 7,
+    "1": 7,
+    "2": 7,
+    "3": 7,
+    "4": 7,
+    "5": 7,
+    "6": 7,
+    "7": 7,
+    "8": 7,
+    "inf": 7
+   },
+   "Ka6": {
+    "0": 5,
+    "1": 7,
+    "2": 7,
+    "3": 7,
+    "4": 7,
+    "5": 7,
+    "6": 7,
+    "7": 7,
+    "8": 7,
+    "inf": 7
+   }
+  },
+  "T_pre_K7_queen_nomate": {
+   "Kg4": {
+    "0": 6,
+    "1": 6,
+    "2": 6,
+    "3": 6,
+    "4": 6,
+    "5": 6,
+    "6": 6,
+    "7": 6,
+    "8": 6,
+    "inf": 6
+   },
+   "Kg5": {
+    "0": 6,
+    "1": 6,
+    "2": 6,
+    "3": 6,
+    "4": 6,
+    "5": 6,
+    "6": 6,
+    "7": 6,
+    "8": 6,
+    "inf": 6
+   },
+   "Kg6": {
+    "0": 6,
+    "1": 6,
+    "2": 6,
+    "3": 6,
+    "4": 6,
+    "5": 6,
+    "6": 6,
+    "7": 6,
+    "8": 6,
+    "inf": 6
+   },
+   "Kh6": {
+    "0": 7,
+    "1": 7,
+    "2": 7,
+    "3": 7,
+    "4": 7,
+    "5": 7,
+    "6": 7,
+    "7": 7,
+    "8": 7,
+    "inf": 7
+   },
+   "Ka6": {
+    "0": 5,
+    "1": 7,
+    "2": 7,
+    "3": 7,
+    "4": 7,
+    "5": 7,
+    "6": 7,
+    "7": 7,
+    "8": 7,
+    "inf": 7
+   }
+  },
+  "L3_queen": {
+   "Kg4": {
+    "6": true,
+    "7": true,
+    "8": true
+   },
+   "Kg5": {
+    "6": true,
+    "7": true,
+    "8": true
+   },
+   "Kg6": {
+    "6": true,
+    "7": true,
+    "8": true
+   },
+   "Kh6": {
+    "7": true,
+    "8": true,
+    "9": true
+   },
+   "Ka6": {
+    "7": true,
+    "8": true,
+    "9": true
+   }
+  },
+  "L3_P": {
+   "Kg4": {
+    "6": true,
+    "7": true,
+    "8": true
+   },
+   "Kg5": {
+    "6": true,
+    "7": true,
+    "8": true
+   },
+   "Kg6": {
+    "5": true,
+    "6": true,
+    "7": true
+   },
+   "Kh6": {
+    "6": true,
+    "7": true,
+    "8": true
+   },
+   "Ka6": {
+    "6": true,
+    "7": true,
+    "8": true
+   }
+  },
+  "black_sorties_mirror_T_queen_inf": {
+   "ka3": 7,
+   "kb3": 7,
+   "kc3": 6,
+   "kc4": 6,
+   "kc5": 6
+  },
+  "black_sorties_mirror_T_P_inf": {
+   "ka3": 6,
+   "kb3": 6,
+   "kc3": 5,
+   "kc4": 6,
+   "kc5": 6
+  },
+  "black_sorties_L3": {
+   "ka3": {
+    "7": true,
+    "8": true,
+    "9": true
+   },
+   "kb3": {
+    "7": true,
+    "8": true,
+    "9": true
+   },
+   "kc3": {
+    "6": true,
+    "7": true,
+    "8": true
+   },
+   "kc4": {
+    "6": true,
+    "7": true,
+    "8": true
+   },
+   "kc5": {
+    "6": true,
+    "7": true,
+    "8": true
+   }
+  },
+  "erratum": "Black legal king moves are Ka3 Kb3 Kc3 Kc4 Kc5; LOOPY lists Kb5 (illegal, a4 attacks b5) and omits Kb3"
+ },
+ "5.2": {
+  "cyl8x8": {
+   "Kd5": {
+    "black_replies": [
+     "kc7",
+     "kd7x",
+     "pe6",
+     "pe5"
+    ],
+    "Q": "Kd5 kd7 pe7 w -",
+    "lfp_K7_queen_conf": {
+     "no_passes": false,
+     "passes": false
+    },
+    "T_K7_queen_conf": {
+     "0": null,
+     "inf": null
+    },
+    "lfp_K7_P_conf": {
+     "no_passes": false,
+     "passes": false
+    },
+    "T_K7_P_conf": {
+     "0": null,
+     "inf": null
+    },
+    "lfp_K7_P_unconf": {
+     "no_passes": false,
+     "passes": false
+    },
+    "T_K7_P_unconf": {
+     "0": null,
+     "inf": null
+    }
+   },
+   "Ke5": {
+    "black_replies": [
+     "kc7",
+     "kd7x",
+     "pe6"
+    ],
+    "Q": "Ke5 kd7 pe7 w -",
+    "lfp_K7_queen_conf": {
+     "no_passes": false,
+     "passes": false
+    },
+    "T_K7_queen_conf": {
+     "0": null,
+     "inf": null
+    },
+    "lfp_K7_P_conf": {
+     "no_passes": false,
+     "passes": false
+    },
+    "T_K7_P_conf": {
+     "0": null,
+     "inf": null
+    },
+    "lfp_K7_P_unconf": {
+     "no_passes": false,
+     "passes": false
+    },
+    "T_K7_P_unconf": {
+     "0": null,
+     "inf": null
+    }
+   },
+   "Kf5": {
+    "black_replies": [
+     "kc7",
+     "kd7x",
+     "pe6",
+     "pe5"
+    ],
+    "Q": "Kf5 kd7 pe7 w -",
+    "lfp_K7_queen_conf": {
+     "no_passes": false,
+     "passes": false
+    },
+    "T_K7_queen_conf": {
+     "0": null,
+     "inf": null
+    },
+    "lfp_K7_P_conf": {
+     "no_passes": false,
+     "passes": false
+    },
+    "T_K7_P_conf": {
+     "0": null,
+     "inf": null
+    },
+    "lfp_K7_P_unconf": {
+     "no_passes": false,
+     "passes": false
+    },
+    "T_K7_P_unconf": {
+     "0": null,
+     "inf": null
+    }
+   },
+   "Kf7": {
+    "black_replies": [
+     "kc7",
+     "kd7x",
+     "pe6",
+     "pe5"
+    ],
+    "Q": "Kf7 kd7 pe7 w -",
+    "lfp_K7_queen_conf": {
+     "no_passes": true,
+     "passes": true
+    },
+    "T_K7_queen_conf": {
+     "0": 10,
+     "inf": 11
+    },
+    "lfp_K7_P_conf": {
+     "no_passes": true,
+     "passes": true
+    },
+    "T_K7_P_conf": {
+     "0": 10,
+     "inf": 10
+    },
+    "lfp_K7_P_unconf": {
+     "no_passes": true,
+     "passes": true
+    },
+    "T_K7_P_unconf": {
+     "0": 10,
+     "inf": 10
+    }
+   }
+  },
+  "cyl7x6": {
+   "Kb3": {
+    "black_replies": [
+     "ka5",
+     "kb5x",
+     "pc4",
+     "pc3"
+    ],
+    "Q": "Kb3 kb5 pc5 w -",
+    "lfp_K7_queen_conf": {
+     "no_passes": false,
+     "passes": false
+    },
+    "T_K7_queen_conf": {
+     "0": null,
+     "inf": null
+    },
+    "lfp_K7_P_conf": {
+     "no_passes": false,
+     "passes": false
+    },
+    "T_K7_P_conf": {
+     "0": null,
+     "inf": null
+    },
+    "lfp_K7_P_unconf": {
+     "no_passes": false,
+     "passes": false
+    },
+    "T_K7_P_unconf": {
+     "0": null,
+     "inf": null
+    }
+   },
+   "Kc3": {
+    "black_replies": [
+     "ka5",
+     "kb5x",
+     "pc4"
+    ],
+    "Q": "Kc3 kb5 pc5 w -",
+    "lfp_K7_queen_conf": {
+     "no_passes": false,
+     "passes": false
+    },
+    "T_K7_queen_conf": {
+     "0": null,
+     "inf": null
+    },
+    "lfp_K7_P_conf": {
+     "no_passes": false,
+     "passes": false
+    },
+    "T_K7_P_conf": {
+     "0": null,
+     "inf": null
+    },
+    "lfp_K7_P_unconf": {
+     "no_passes": false,
+     "passes": false
+    },
+    "T_K7_P_unconf": {
+     "0": null,
+     "inf": null
+    }
+   },
+   "Kd3": {
+    "black_replies": [
+     "ka5",
+     "kb5x",
+     "pc4",
+     "pc3"
+    ],
+    "Q": "Kd3 kb5 pc5 w -",
+    "lfp_K7_queen_conf": {
+     "no_passes": false,
+     "passes": false
+    },
+    "T_K7_queen_conf": {
+     "0": null,
+     "inf": null
+    },
+    "lfp_K7_P_conf": {
+     "no_passes": false,
+     "passes": false
+    },
+    "T_K7_P_conf": {
+     "0": null,
+     "inf": null
+    },
+    "lfp_K7_P_unconf": {
+     "no_passes": false,
+     "passes": false
+    },
+    "T_K7_P_unconf": {
+     "0": null,
+     "inf": null
+    }
+   },
+   "Kd5": {
+    "black_replies": [
+     "ka5",
+     "kb5x",
+     "pc4",
+     "pc3"
+    ],
+    "Q": "Kd5 kb5 pc5 w -",
+    "lfp_K7_queen_conf": {
+     "no_passes": true,
+     "passes": true
+    },
+    "T_K7_queen_conf": {
+     "0": 6,
+     "inf": 6
+    },
+    "lfp_K7_P_conf": {
+     "no_passes": true,
+     "passes": true
+    },
+    "T_K7_P_conf": {
+     "0": 6,
+     "inf": 6
+    },
+    "lfp_K7_P_unconf": {
+     "no_passes": true,
+     "passes": true
+    },
+    "T_K7_P_unconf": {
+     "0": 6,
+     "inf": 6
+    }
+   }
+  },
+  "black_kc7": {
+   "T": 1,
+   "L3": true,
+   "black_moves_after": [
+    "b6",
+    "b7",
+    "b8",
+    "c6"
+   ]
+  }
+ },
+ "5.5": {
+  "kc5": {
+   "T_K7_queen": {
+    "0": null,
+    "1": null,
+    "2": null,
+    "3": null,
+    "4": null,
+    "5": null,
+    "6": null,
+    "8": null,
+    "inf": null
+   },
+   "lfp_K7_queen": {
+    "no_passes": false,
+    "passes": false
+   },
+   "T_K7_P": {
+    "0": null,
+    "1": null,
+    "2": null,
+    "3": null,
+    "4": null,
+    "5": null,
+    "6": null,
+    "8": null,
+    "inf": null
+   },
+   "lfp_K7_P": {
+    "no_passes": false,
+    "passes": false
+   },
+   "lfp_unconfined_queen": {
+    "no_passes": false,
+    "passes": false
+   }
+  },
+  "kd3": {
+   "T_K7_queen": {
+    "0": 5,
+    "1": 5,
+    "2": 5,
+    "3": 5,
+    "4": 5,
+    "5": 5,
+    "6": 5,
+    "8": 5,
+    "inf": 5
+   },
+   "lfp_K7_queen": {
+    "no_passes": true,
+    "passes": true
+   },
+   "T_K7_P": {
+    "0": 5,
+    "1": 5,
+    "2": 5,
+    "3": 5,
+    "4": 5,
+    "5": 5,
+    "6": 5,
+    "8": 5,
+    "inf": 5
+   },
+   "lfp_K7_P": {
+    "no_passes": true,
+    "passes": true
+   },
+   "lfp_unconfined_queen": {
+    "no_passes": true,
+    "passes": true
+   }
+  },
+  "kd4": {
+   "T_K7_queen": {
+    "0": 6,
+    "1": 7,
+    "2": 8,
+    "3": 9,
+    "4": 10,
+    "5": 11,
+    "6": 12,
+    "8": 14,
+    "inf": null
+   },
+   "lfp_K7_queen": {
+    "no_passes": true,
+    "passes": false
+   },
+   "T_K7_P": {
+    "0": 6,
+    "1": 6,
+    "2": 7,
+    "3": 8,
+    "4": 9,
+    "5": 10,
+    "6": 11,
+    "8": 13,
+    "inf": null
+   },
+   "lfp_K7_P": {
+    "no_passes": true,
+    "passes": false
+   },
+   "lfp_unconfined_queen": {
+    "no_passes": true,
+    "passes": false
+   }
+  },
+  "kd5": {
+   "T_K7_queen": {
+    "0": 6,
+    "1": 7,
+    "2": 8,
+    "3": 9,
+    "4": 10,
+    "5": 11,
+    "6": 12,
+    "8": 14,
+    "inf": null
+   },
+   "lfp_K7_queen": {
+    "no_passes": true,
+    "passes": false
+   },
+   "T_K7_P": {
+    "0": 6,
+    "1": 6,
+    "2": 7,
+    "3": 8,
+    "4": 9,
+    "5": 10,
+    "6": 11,
+    "8": 13,
+    "inf": null
+   },
+   "lfp_K7_P": {
+    "no_passes": true,
+    "passes": false
+   },
+   "lfp_unconfined_queen": {
+    "no_passes": true,
+    "passes": false
+   }
+  }
+ },
+ "5.6": {
+  "mu_W": 5,
+  "mu_W_no_enemy_pawn": 5,
+  "mu_W_pawn_only": null,
+  "T_K7_queen_confined": {
+   "0": 5,
+   "1": 5,
+   "2": 5,
+   "3": 5,
+   "4": 5,
+   "inf": 5
+  },
+  "T_K7_P_confined": {
+   "0": 5,
+   "1": 5,
+   "2": 5,
+   "3": 5,
+   "4": 5,
+   "inf": 5
+  },
+  "T_K7_queen_unconfined": {
+   "0": 5,
+   "1": 5,
+   "2": 5,
+   "3": 5,
+   "4": 5,
+   "inf": 5
+  },
+  "T_old_nomate_queen_confined": {
+   "0": 5,
+   "1": 5,
+   "2": 5,
+   "3": 5,
+   "4": 5,
+   "inf": 5
+  },
+  "L3_T": {
+   "5": true,
+   "6": true,
+   "7": true
+  },
+  "T_with_context_pawns_kept": 6,
+  "lfp_unbounded_inf_passes": [
+   true,
+   12850
+  ],
+  "mu_single_pawn_rank2": 5,
+  "mu_single_pawn_rank2_black": 5
+ },
+ "fullboard": {
+  "s51": [
+   {
+    "pos": "Kh5 Pa4 kb4 pa5 w -",
+    "own_P": "L",
+    "kp_p": "L",
+    "chess_kp": "L"
+   },
+   {
+    "pos": "Kh5 Pa4 kb4 pa5 b -",
+    "own_P": "W",
+    "kp_p": "W",
+    "chess_kp": "W"
+   },
+   {
+    "pos": "Kg4 Pa4 kb4 pa5 b -",
+    "own_P": "L",
+    "kp_p": "L",
+    "chess_kp": "L"
+   },
+   {
+    "pos": "Kg5 Pa4 kb4 pa5 b -",
+    "own_P": "L",
+    "kp_p": "L",
+    "chess_kp": "L"
+   },
+   {
+    "pos": "Kg6 Pa4 kb4 pa5 b -",
+    "own_P": "L",
+    "kp_p": "L",
+    "chess_kp": "L"
+   },
+   {
+    "pos": "Kh6 Pa4 kb4 pa5 b -",
+    "own_P": "L",
+    "kp_p": "L",
+    "chess_kp": "L"
+   },
+   {
+    "pos": "Ka6 Pa4 kb4 pa5 b -",
+    "own_P": "L",
+    "kp_p": "L",
+    "chess_kp": "L"
+   },
+   {
+    "pos": "Kh5 Pa4 ka3 pa5 w -",
+    "own_P": "W",
+    "kp_p": "W",
+    "chess_kp": "W"
+   },
+   {
+    "pos": "Kh5 Pa4 kb3 pa5 w -",
+    "own_P": "W",
+    "kp_p": "W",
+    "chess_kp": "W"
+   },
+   {
+    "pos": "Kh5 Pa4 kc3 pa5 w -",
+    "own_P": "W",
+    "kp_p": "W",
+    "chess_kp": "W"
+   },
+   {
+    "pos": "Kh5 Pa4 kc4 pa5 w -",
+    "own_P": "W",
+    "kp_p": "W",
+    "chess_kp": "W"
+   },
+   {
+    "pos": "Kh5 Pa4 kc5 pa5 w -",
+    "own_P": "W",
+    "kp_p": "W",
+    "chess_kp": "W"
+   }
+  ],
+  "s52": [
+   {
+    "pos": "Ke6 Pd7 kd8 pe7 w -",
+    "own_P": "D",
+    "kp_p": "D",
+    "chess_kp": "D"
+   },
+   {
+    "pos": "Ke6 Pd7 kd8 pe7 b -",
+    "own_P": "W",
+    "kp_p": "W",
+    "chess_kp": "W"
+   },
+   {
+    "pos": "Kd5 Pd7 kd8 pe7 b -",
+    "own_P": "D",
+    "kp_p": "D",
+    "chess_kp": "D"
+   },
+   {
+    "pos": "Ke5 Pd7 kd8 pe7 b -",
+    "own_P": "D",
+    "kp_p": "D",
+    "chess_kp": "D"
+   },
+   {
+    "pos": "Kf5 Pd7 kd8 pe7 b -",
+    "own_P": "D",
+    "kp_p": "D",
+    "chess_kp": "D"
+   },
+   {
+    "pos": "Kf7 Pd7 kd8 pe7 b -",
+    "own_P": "L",
+    "kp_p": "L",
+    "chess_kp": "L"
+   }
+  ],
+  "s52f": [
+   {
+    "pos": "Ke6 Pd7 kd8 pe7 w -",
+    "own_P": "D",
+    "kp_p": "D",
+    "chess_kp": "D"
+   },
+   {
+    "pos": "Ke6 Pd7 kd8 pe7 b -",
+    "own_P": "W",
+    "kp_p": "W",
+    "chess_kp": "W"
+   },
+   {
+    "pos": "Kd5 Pd7 kd8 pe7 b -",
+    "own_P": "D",
+    "kp_p": "D",
+    "chess_kp": "D"
+   },
+   {
+    "pos": "Ke5 Pd7 kd8 pe7 b -",
+    "own_P": "D",
+    "kp_p": "D",
+    "chess_kp": "D"
+   },
+   {
+    "pos": "Kf5 Pd7 kd8 pe7 b -",
+    "own_P": "D",
+    "kp_p": "D",
+    "chess_kp": "D"
+   },
+   {
+    "pos": "Kf7 Pd7 kd8 pe7 b -",
+    "own_P": "L",
+    "kp_p": "L",
+    "chess_kp": "L"
+   }
+  ],
+  "s52a": [
+   {
+    "pos": "Kc4 Pb5 kb6 pc5 w -",
+    "own_P": "D",
+    "kp_p": "D",
+    "chess_kp": "D"
+   },
+   {
+    "pos": "Kc4 Pb5 kb6 pc5 b -",
+    "own_P": "W",
+    "kp_p": "W",
+    "chess_kp": "W"
+   },
+   {
+    "pos": "Kb3 Pb5 kb6 pc5 b -",
+    "own_P": "D",
+    "kp_p": "D",
+    "chess_kp": "D"
+   },
+   {
+    "pos": "Kc3 Pb5 kb6 pc5 b -",
+    "own_P": "D",
+    "kp_p": "D",
+    "chess_kp": "D"
+   },
+   {
+    "pos": "Kd3 Pb5 kb6 pc5 b -",
+    "own_P": "D",
+    "kp_p": "D",
+    "chess_kp": "D"
+   },
+   {
+    "pos": "Kd5 Pb5 kb6 pc5 b -",
+    "own_P": "L",
+    "kp_p": "L",
+    "chess_kp": "L"
+   }
+  ],
+  "s52h": [
+   {
+    "pos": "Kc4 Pb5 kb6 pc5 Pe2 Pe4 pe5 w -",
+    "own_P": "W",
+    "kp_p": "W",
+    "chess_kp": "W"
+   },
+   {
+    "pos": "Kc4 Pb5 kb6 pc5 Pe2 Pe4 pe5 b -",
+    "own_P": "W",
+    "kp_p": "W",
+    "chess_kp": "W"
+   }
+  ],
+  "s55": [
+   {
+    "pos": "Ka4 Pb2 kc4 pb3 w -",
+    "own_P": "D",
+    "kp_p": "D",
+    "chess_kp": "D"
+   },
+   {
+    "pos": "Ka4 Pb2 kc4 pb3 b -",
+    "own_P": "D",
+    "kp_p": "D",
+    "chess_kp": "D"
+   },
+   {
+    "pos": "Ka4 Pb2 kc5 pb3 w -",
+    "own_P": "D",
+    "kp_p": "D",
+    "chess_kp": "D"
+   },
+   {
+    "pos": "Ka4 Pb2 kd3 pb3 w -",
+    "own_P": "W",
+    "kp_p": "W",
+    "chess_kp": "W"
+   },
+   {
+    "pos": "Ka4 Pb2 kd4 pb3 w -",
+    "own_P": "W",
+    "kp_p": "W",
+    "chess_kp": "W"
+   },
+   {
+    "pos": "Ka4 Pb2 kd5 pb3 w -",
+    "own_P": "W",
+    "kp_p": "W",
+    "chess_kp": "W"
+   }
+  ]
+ }
+}

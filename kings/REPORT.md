@@ -341,6 +341,19 @@ Every deliverable was given to independent referees (Claude models) told to brea
     passer (`Ka1 ka6 Pc2 Pd4 pd3 b -` is a White win in W(X) and (L, L) in `--frozen`). P11 now requires that root
     to be certified too. Their other fixes (y must be legal, the HSS definition in §6, the layout premise of
     Corollary 2.11b, count units) are applied in LOOPY. No model outside the Sonnet family has re-derived the proof.
+    K12 (2026-10-27) swept the root clause: 716,962 roots with a passer on cyl:6×6, 7×6 and 8×6, with 0 certified
+    violations. 20,376 of them are uncertified roots where the credit is wrong, and the clause is what excludes them.
+    The integrator re-ran 6×6 without e.p. rights with separate code and the K10r2 hypothesis checker: the same
+    76,744 roots and 0 certified disagreements (CHECKED-2 there; `kings/delegate/out/K12/REVIEW.md`).
+  - K19 (2026-10-27) re-computed the §5 scratch claims with new code (local game, μ, a P solver); a Sonnet referee
+    used its own code again. §5.1 (L1) and (L3), §5.2, §5.5, §5.6, P5–P7 are now CHECKED-2. Two corrections: Black's
+    move list in §5.1 had Kb5 for Kb3, and Kd4/Kd5 in §5.5 lose against every finite budget checked (T = 6 + k) but
+    not against unlimited passes. Unbounded "no win" claims rest on K19's fixed point alone and are COMPUTED-1.
+  - K23 (2026-10-27) showed that the zero of a frozen group depends on the context, in P. Z_T acts as 0 beside
+    {Pe3, pe4} and not beside {Pe2, pe3} on cyl:7×6, by a one-tempo race; the same holds for the §5.1 group on
+    cyl:8×8 (new prediction P13). It is CHECKED-2: three implementations agree (the kpsolve family, the agent's
+    `pk2.c`, and the referee's `ref3.cpp`, written from SPEC). The general statement is open question 6. P4's chess
+    refutations are not P effects.
   - So no result of the note is still GAP.
   - The T30 fixes of 2026-10-22 came later. They were reviewed by Sonnet reviewers in two rounds, not by K3 (see the Theory row
   above).

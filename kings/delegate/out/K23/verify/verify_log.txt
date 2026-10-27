@@ -1,0 +1,108 @@
+## key.txt P
+Ka4 Pb3 kc3 pb4 Pe3 pe4 w - | L
+Ka4 Pb3 kc3 pb4 Pe3 pe4 b - | W
+Ka4 Pb3 kc3 pb4 Pe2 pe3 w - | L
+Ka4 Pb3 kc3 pb4 Pe2 pe3 b - | L
+Ka4 Pb3 kc3 pb4 Pf4 pf5 w - | W
+Ka4 Pb3 kc3 pb4 Pf4 pf5 b - | W
+Kb4 Pb3 ke2 pe3 w - | L
+Kb4 Pb3 ke3 pe4 w - | W
+Ka4 Pb3 kc3 pb4 w - | L
+Ka4 Pb3 kc3 pb4 b - | W
+## key.txt frozen
+Ka4 Pb3 kc3 pb4 Pe3 pe4 w - | L
+Ka4 Pb3 kc3 pb4 Pe3 pe4 b - | W
+Ka4 Pb3 kc3 pb4 Pe2 pe3 w - | L
+Ka4 Pb3 kc3 pb4 Pe2 pe3 b - | W
+Ka4 Pb3 kc3 pb4 Pf4 pf5 w - | L
+Ka4 Pb3 kc3 pb4 Pf4 pf5 b - | W
+Kb4 Pb3 ke2 pe3 w - | L
+Kb4 Pb3 ke3 pe4 w - | L
+Ka4 Pb3 kc3 pb4 w - | L
+Ka4 Pb3 kc3 pb4 b - | W
+## key.txt moves
+Ka4 Pb3 kc3 pb4 Pe3 pe4 w - | L Ka4g3:L Ka4g4:L Ka4g5:L Ka4a5:L Ka4b5:L
+Ka4 Pb3 kc3 pb4 Pe3 pe4 b - | W Kc3b2:W Kc3c2:W Kc3d2:W Kc3d3:W
+Ka4 Pb3 kc3 pb4 Pe2 pe3 w - | L Ka4g3:L Ka4g4:L Ka4g5:L Ka4a5:L Ka4b5:L
+Ka4 Pb3 kc3 pb4 Pe2 pe3 b - | L Kc3b2:W Kc3c2:W Kc3d2:L Kc3d4:W
+Ka4 Pb3 kc3 pb4 Pf4 pf5 w - | W Ka4g3:L Ka4g5:W Ka4a5:L Ka4b5:L
+Ka4 Pb3 kc3 pb4 Pf4 pf5 b - | W Kc3b2:W Kc3c2:W Kc3d2:W Kc3d3:W Kc3d4:W
+Kb4 Pb3 ke2 pe3 w - | L Kb4a3:L Kb4a4:L Kb4a5:L Kb4b5:L Kb4c3:L Kb4c4:L Kb4c5:L
+Kb4 Pb3 ke3 pe4 w - | W Kb4a3:W Kb4a4:W Kb4a5:W Kb4b5:L Kb4c3:W Kb4c4:W Kb4c5:W
+Ka4 Pb3 kc3 pb4 w - | L Ka4g3:L Ka4g4:L Ka4g5:L Ka4a5:L Ka4b5:L
+Ka4 Pb3 kc3 pb4 b - | W Kc3b2:W Kc3c2:W Kc3d2:W Kc3d3:W Kc3d4:W
+## 7x6 <=2 analyze
+contexts 885 differ 47 X results 0
+differ with passer 4 passer-free differ 43
+passer-free contexts 215
+differ without a pawn on e or g: 3
+contexts confined to f (incl. empty): 63 differ: 3
+passer-free, frozen (L,W), differ: 23
+(context,stm) pairs where the frozen mover loses but not in P: 26
+## 8x6 <=2 analyze
+contexts 4579 differ 152 X results 0
+differ with passer 47 passer-free differ 105
+passer-free contexts 717
+differ without a pawn on e or g: 0
+contexts confined to f (incl. empty): 63 differ: 0
+passer-free, frozen (L,W), differ: 49
+(context,stm) pairs where the frozen mover loses but not in P: 56
+## local game
+T 1 L1_P False
+T 2 L1_P False
+T 3 L1_P False
+T 4 L1_P True
+T 5 L1_P True
+T 6 L1_P True
+T 7 L1_P True
+T 8 L1_P True
+T 1 L1 False
+T 2 L1 False
+T 3 L1 False
+T 4 L1 True
+T 5 L1 True
+T 6 L1 True
+T 7 L1 True
+T 8 L1 True
+## mu
+G2 mu_s 4
+G1 mu_s 5
+## edits
+10 blocks
+1 P2.10(b): split the conjecture; the example | old chars 488
+1 status table: P2.10(b) row | old chars 170
+1 status table: P4 row | old chars 122
+1 section 0: the conjecture sentence | old chars 131
+1 section 7, (S2): P4 with H0 | old chars 334
+1 section 6: P6 row | old chars 194
+1 section 6: new row P13 | old chars 84
+1 section 6 notes: what P4 tests | old chars 171
+1 section 6 notes: P4 mechanism sentence | old chars 382
+1 section 8: open question 6 | old chars 129
+## 26 pairs, non-losing moves of the frozen mover (stm, result, moves not losing for the mover)
+b L Kc3b2:W Kc3c2:W Kc3d2:L Kc3d4:W
+w W Ka4g4:W Ka4g5:W Ka4a5:L Ka4b5:L Pe2e3:L Pe2e4:L
+b L Kc3b2:W Kc3c2:W Kc3d2:L Kc3d4:W Pf4f3:W
+b L Kc3b2:W Kc3c2:W Kc3d2:L Kc3d4:W
+w W Ka4g3:L Ka4g5:W Ka4a5:L Ka4b5:L Pe3e4:L
+b L Kc3b2:W Kc3c2:W Kc3d2:L Kc3d3:L Pf5f4:W Pf5f3:W
+b L Kc3b2:W Kc3c2:W Kc3d2:L Kc3d3:L Pf5f4:W Pf5f3:W
+b L Kc3b2:W Kc3c2:W Kc3d2:W Kc3d3:L Kc3d4:L Pe5e4:L Pe5e3:L
+w W Ka4g3:L Ka4g5:W Ka4a5:L Ka4b5:L
+b L Kc3b2:W Kc3c2:W Kc3d2:L Pf5f4:W Pf5f3:W
+b L Kc3b2:W Kc3c2:W Kc3d2:L Kc3d4:W
+b L Kc3b2:W Kc3c2:W Kc3d2:L Kc3d4:W Pf4f3:W
+b L Kc3b2:W Kc3c2:W Kc3d2:L Kc3d4:W Pe4e3:L Pf4f3:W
+w W Ka4g4:W Ka4g5:W Ka4a5:L Ka4b5:L Pe2e3:L Pe2e4:L
+b L Kc3b2:W Kc3c2:W Kc3d2:L Kc3d4:W Pe5e4:W
+b L Kc3b2:W Kc3c2:W Kc3d2:L Kc3d4:W
+w W Ka4g5:W Ka4a5:L Ka4b5:L Pe2e3:L Pe2e4:L
+w W Ka4g3:L Ka4g5:W Ka4a5:L Ka4b5:L
+b L Kc3b2:W Kc3c2:W Kc3d2:L Kc3d4:W
+w W Ka4g3:W Ka4g4:W Ka4g5:L Ka4a5:L Ka4b5:L Pf2f3:W Pf2f4:W
+w W Ka4g3:L Ka4g5:W Ka4a5:L Ka4b5:L Pe3e4:L
+w W Ka4g3:L Ka4g5:W Ka4a5:L Ka4b5:L Pe3e4:L Pf3f4:W
+w W Ka4g3:L Ka4g5:W Ka4a5:L Ka4b5:L
+w W Ka4g3:L Ka4g5:W Ka4a5:L Ka4b5:L Pf2f3:L
+w W Ka4g3:L Ka4g5:W Ka4a5:L Ka4b5:L
+w W Ka4g3:L Ka4g5:W Ka4a5:L Ka4b5:L

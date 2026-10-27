@@ -1,0 +1,15 @@
+root Kf5 kh4 Pc3 Pg4 pg5 pd6 w -
+White legal moves: Ke4 Ke6 Kf6 Kg6 Pc4
+Black replies after Ke6: Kg3 Kg4x Kh3 pd5
+Q = Ke6 kg4 Pc3 pg5 pd6 w -
+Q_Z = Ke6 kg4 pg5 w -
+mu_W (king e6, context pawns c3 / d6): 5
+mu_W with d6 removed: 5
+T K7_queen_confined {0: 5, 1: 5, 2: 5, 3: 5, 4: 5, 'inf': 5}
+T K7_P_confined {0: 5, 1: 5, 2: 5, 3: 5, 4: 5, 'inf': 5}
+T K7_queen_unconfined {0: 5, 1: 5, 2: 5, 3: 5, 4: 5, 'inf': 5}
+T old_nomate_queen_confined {0: 5, 1: 5, 2: 5, 3: 5, 4: 5, 'inf': 5}
+L3 at T = {5: True, 6: True, 7: True}
+T with context pawns kept in the local game (not the definition): 6
+unbounded local game, passes: (True, 12850)
+mu of a single free pawn on rank 2 (8 ranks): 5

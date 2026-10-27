@@ -1,0 +1,16 @@
+{
+  "task": "K23: Prop 2.10(b) conjecture, the zero of a frozen group is context-dependent, in P",
+  "result": "PROVED by example in P (CHECKED-2): Z_T Ka4 Pb3 kc3 pb4 on cyl:7x6 acts as 0 beside G1 = Pe3 pe4 (P (L,W) = frozen (L,W)) and not beside G2 = Pe2 pe3 (P (L,L), frozen (L,W)); Black wins by 1...Kd2 (tie by one tempo in a race). Same on cyl:8x8 for the group of 5.1. P4's six rows all equal the convention in P (its refutations are in C only). General statement for every frozen group with T>=2: CONJECTURE, no proof available.",
+  "P_pair_cyl7x6": {"G1_Pe3_pe4": {"P": "LW", "frozen": "LW"}, "G2_Pe2_pe3": {"P": "LL", "frozen": "LW"}, "G2mirror_Pf4_pf5": {"P": "WW", "frozen": "LW"}},
+  "P_pair_cyl8x8_5.1": {"Pe3_pe4": {"P": "LW", "frozen": "LW"}, "Pe2_pe3": {"P": "LL", "frozen": "LW"}, "Pe6_pe7": {"P": "WW", "frozen": "LW"}},
+  "P4_in_P": "all six rows equal the convention: nothing LW, Hm1 LL, Hp1 WW, H* WL, H*2 WL, H0 LW",
+  "enumerations": {
+    "cyl7x6_ef_le2": {"contexts": 885, "differ": 47, "passer_free_differ": 43},
+    "cyl7x6_ef_le3": {"contexts": 3237, "differ": 99},
+    "cyl8x6_efg_le2": {"contexts": 4579, "differ": 152, "f_only_differ": 0},
+    "cyl8x6_f_le4": {"contexts": 81, "differ": 0}
+  },
+  "implementations": "pk2.c (independent, written for K23) and kp_p.c --pmodel / kpsolve --frozen agree on every position of every enumeration",
+  "not_run": "chess (C) value of the pair (cap 2 too large on cyl:7x6; the cap-1 job never got a heavy slot and was cancelled)",
+  "edits_file": "EDITS.md (10 edits, each OLD occurs once, verified by applying them to a copy)"
+}
