@@ -50,7 +50,7 @@ Section~\ref{sec:sums}), a draw with white to move.}
 A \emph{king group} $Z$ is the two kings and some pawns on a block of files whose neighboring files, the
 \emph{buffer}, hold no pawns; a \emph{decisive event} is a move that creates a passed pawn, or a move in $Z$.
 
-\begin{theorem}[Validity of the convention; \lab{AI}]\label{thm:validity}
+\begin{theorem}[Validity of the convention; \lab{S}]\label{thm:validity}
 Let a position consist of pawn components and a king group $Z$ with its buffer, and suppose that before the
 first decisive event:
 \begin{enumerate}
@@ -69,7 +69,7 @@ by (V1) the side to move always has a model move, so play ends at a decisive eve
 decides the chess game as it decides $W(X)$.
 \end{proof}
 
-\begin{corollary}[\lab{AI}]\label{cor:v4}
+\begin{corollary}[\lab{S}]\label{cor:v4}
 If also (V4) $X$ is hereditarily sum-safe (Definition~\ref{def:hss}) and satisfies condition (E) of
 Theorem~\ref{thm:hss}, and $\BIG$ exceeds the number of moves either side can make, the chess result is
 the outcome class of the components' $\pm\BIG$ value.
@@ -89,7 +89,7 @@ promotes within $h$ moves of its reply even if the defender may pass at any time
 anywhere within $h$ moves (the \emph{counter-promotion condition}), and the defender is never stalemated. It
 works in the \emph{promotion game}, chess in which the first promotion wins.
 
-\begin{theorem}[\lab{AI}]\label{thm:cert}
+\begin{theorem}[\lab{S}]\label{thm:cert}
 In the promotion game, a move in $Z$ with a certificate of horizon $h$ is a loss for its mover, so (V3)
 holds where every move in $Z$ has one. The counter-promotion condition cannot be weakened to $h-1$ moves.
 \end{theorem}
@@ -98,12 +98,12 @@ In chess small margins fail. On the cylinder with seven files and six ranks, Kb4
 white to move, the king move Kb4--c5 has a certificate of horizon~1, yet the chess result after it is a draw, and
 on the $6\times6$ board a margin of one more move fails as well \lab{C1}.
 
-For (V2) a local test is known only if king moves also lose \lab{AI}: a passed pawn then wins the promotion
+For (V2) a local test is known only if king moves also lose \lab{S}: a passed pawn then wins the promotion
 game if, besides conditions on checks, stalemates and its own nearby pawns, its path is empty and every enemy
 pawn, passed or not, needs a move more to promote. The model looks only at passed pawns: with Pc2, Pd4 against
 Pd3 on the $8\times6$ cylinder, black to move, it credits white, yet d3$\times$c2 and c1=Q come first \lab{C1}.
 
-\begin{proposition}[\lab{AI}]\label{prop:horizon1}
+\begin{proposition}[\lab{S}]\label{prop:horizon1}
 On boards with at least six ranks, for $h=1$, the counter-promotion condition holds in every chess-legal
 context without a passed pawn.
 \end{proposition}
@@ -128,7 +128,7 @@ game~\cite{WinningWays,Siegel2013}: $\textsf{on}=\game{\textsf{on}}{}$ if only w
 $\textsf{off}=-\textsf{on}$ if only black can, and $\textsf{dud}$ if both can. Since $\textsf{on}$ exceeds every number, $\BIG$ included, the $\pm\BIG$ convention fails there, and a
 decisive event must instead end the game.
 
-\begin{theorem}[Outcomes with spare moves; \lab{AI}]\label{thm:loopy}
+\begin{theorem}[Outcomes with spare moves; \lab{S}]\label{thm:loopy}
 Let the components form a short game in which every decisive event ends the game, let a side that can wait pass
 at any time, and let every other move in $Z$ lose. If only white can wait, black wins exactly when it can force a decisive
 event in its favor against a white who may pass at any time; otherwise white wins. If both can wait, either side
