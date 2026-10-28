@@ -384,7 +384,8 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   - The Codex referee T63 found PROOF_odd.md SOUND (`research/ring_n_plus_2_check/odd/REPORT.md`).
   - **C9 with 10 = n+1 pawns: 7 rings with signature \*2 in split 5+5 (COMPUTED-1, `research/c9_rings/`),** being
     verified. Verified on 2026-10-27, see the next bullet.
-- **Least pawns in a ring \*2: n+3 (n = 3..7), ten (n = 7..10), n (n = 10..60)** (`research/c9_rings/REPORT.md`).
+- **Least pawns in a ring \*2: n+3 (n = 3..7), ten (n = 7..10), n (n = 10..60), all CHECKED-2** (`research/c9_rings/REPORT.md`;
+  the independent engine E agrees for M_10..M_60, O_11..O_59 in `research/ring_n_proof/logs/base_N_60.log`).
   - C9: no 9-pawn ring is \*2 or \*3 (948,860 rings; rg and OpenCode's engine; two enumerators). 7 of the 44,960,428
     ten-pawn rings are \*2: rg, Codex's independent.py, OpenCode's engine and cylcgt (whole and sum) agree. CHECKED-2.
   - C10: M_10 = B4 W2 B6 W2 W3 B6 B7 W3 B7 W5 is \*2 with one pawn per file (CHECKED-2). It is the only one among the

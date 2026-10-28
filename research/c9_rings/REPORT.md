@@ -28,7 +28,8 @@ not exchanged. Signature = outcome of G+*h for h = 0..3; NNPN = *2, NNNP = *3.
    Lemma-3 insertion is an isomorphism from n = 18 and 19 on. Proof note T65, `research/ring_n_proof/`; referee T66.
    Also *2 (C1, n+1 pawns): N1_n = (B4 W2)^((n-7)/2) B6 W2 W3 B6 B7 W3 W6B7 for every odd n = 9..59.
 5. **Consequence.** The least number of pawns in a ring *2 is n+3 for n = 3..7, ten for n = 7..10 and n for
-   n = 10..60 (C1 for n > 11).
+   n = 10..60. This is C2 for every n: rg, and the independent engine E (`research/ring_n_proof/logs/base_N_60.log`,
+   M_10..M_60 and O_11..O_59, both e.p. readings).
 
 ## C9, 9 pawns (exhaustive)
 
