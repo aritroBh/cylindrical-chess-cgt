@@ -28,7 +28,8 @@ Following Elkies~\cite{Elkies1996}, we change chess just enough to fit normal pl
 \begin{itemize}
 \item In pawn-only positions, a player who has no move loses; there are no null moves.
 \item A position in which exactly one side has a passed pawn is decided, worth $+\BIG$ if that pawn is white and
-  $-\BIG$ if it is black, where $\BIG$ exceeds any count of spare moves (our programs use $\BIG=256$).
+  $-\BIG$ if it is black, where $\BIG$ exceeds any count of spare moves (our programs use $\BIG=256$);
+  M\"aser models such global threats with loopy games~\cite{Maeser2002}.
 \item Kings are added as a group in mutual zugzwang, the tr\'ebuchet, and are then \emph{frozen}: the model
   never moves them and counts the group as $0$, since whoever moves a king there first loses a pawn, and then
   the game. Section~\ref{sec:kings} asks when this is exact.
