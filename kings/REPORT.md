@@ -340,7 +340,11 @@ Every deliverable was given to independent referees (Claude models) told to brea
     plus 434,429 on flat boards. They found one real gap in P11's statement: it left out a root that already has a
     passer (`Ka1 ka6 Pc2 Pd4 pd3 b -` is a White win in W(X) and (L, L) in `--frozen`). P11 now requires that root
     to be certified too. Their other fixes (y must be legal, the HSS definition in §6, the layout premise of
-    Corollary 2.11b, count units) are applied in LOOPY. No model outside the Sonnet family has re-derived the proof.
+    Corollary 2.11b, count units) are applied in LOOPY. No model outside the Sonnet family had re-derived the proof.
+    K11b (2026-10-27, Codex) did, blind: it read only the statement, the definitions and the code, wrote its own proof
+    (13% word overlap with LOOPY's, against 96% for the rejected K11 copy), then compared and found Steps 0–5 SOUND.
+    It also noted that W(X) is undefined at a root race (`value()` raises RaceError), so the root clause needs the
+    count-rule convention that K12 used.
     K12 (2026-10-27) swept the root clause: 716,962 roots with a passer on cyl:6×6, 7×6 and 8×6, with 0 certified
     violations. 20,376 of them are uncertified roots where the credit is wrong, and the clause is what excludes them.
     The integrator re-ran 6×6 without e.p. rights with separate code and the K10r2 hypothesis checker: the same
