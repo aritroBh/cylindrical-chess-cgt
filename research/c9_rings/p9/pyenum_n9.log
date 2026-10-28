@@ -1,0 +1,9 @@
+n=9 split 1+8: pattern classes 1, labelled valid rings 0, dihedral orbits 0 (Burnside 0) [0s]
+n=9 split 2+7: pattern classes 4, labelled valid rings 0, dihedral orbits 0 (Burnside 0) [0s]
+n=9 split 3+6: pattern classes 7, labelled valid rings 499125, dihedral orbits 28160 (Burnside 28160) [3s]
+n=9 split 4+5: pattern classes 10, labelled valid rings 8016624, dihedral orbits 446270 (Burnside 446270) [24s]
+n=9 split 5+4: pattern classes 10, labelled valid rings 8016624, dihedral orbits 446270 (Burnside 446270) [45s]
+n=9 split 6+3: pattern classes 7, labelled valid rings 499125, dihedral orbits 28160 (Burnside 28160) [48s]
+n=9 split 7+2: pattern classes 4, labelled valid rings 0, dihedral orbits 0 (Burnside 0) [48s]
+n=9 split 8+1: pattern classes 1, labelled valid rings 0, dihedral orbits 0 (Burnside 0) [48s]
+nice -n 15 /usr/bin/python3 -I pyenum.py 9 py --regen-check  16.16s user 0.29s system 33% cpu 48.543 total

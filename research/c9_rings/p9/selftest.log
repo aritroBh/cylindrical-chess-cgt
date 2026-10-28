@@ -1,0 +1,34 @@
+n=3 split 1+2: pattern classes 1, labelled valid rings 165, dihedral orbits 35 (Burnside 35) [0s]
+n=3 split 2+1: pattern classes 1, labelled valid rings 165, dihedral orbits 35 (Burnside 35) [0s]
+selftest n=3 nw=1: labelled fast 165 brute 165 | orbits fast 35 brute 35 | orbit sets equal: True
+selftest n=3 nw=2: labelled fast 165 brute 165 | orbits fast 35 brute 35 | orbit sets equal: True
+n=3 brute+fast 0s
+n=4 split 1+3: pattern classes 1, labelled valid rings 0, dihedral orbits 0 (Burnside 0) [0s]
+n=4 split 2+2: pattern classes 2, labelled valid rings 1490, dihedral orbits 225 (Burnside 225) [0s]
+n=4 split 3+1: pattern classes 1, labelled valid rings 0, dihedral orbits 0 (Burnside 0) [0s]
+selftest n=4 nw=1: labelled fast 0 brute 0 | orbits fast 0 brute 0 | orbit sets equal: True
+selftest n=4 nw=2: labelled fast 1490 brute 1490 | orbits fast 225 brute 225 | orbit sets equal: True
+selftest n=4 nw=3: labelled fast 0 brute 0 | orbits fast 0 brute 0 | orbit sets equal: True
+n=4 brute+fast 0s
+n=5 split 1+4: pattern classes 1, labelled valid rings 0, dihedral orbits 0 (Burnside 0) [0s]
+n=5 split 2+3: pattern classes 2, labelled valid rings 4895, dihedral orbits 517 (Burnside 517) [0s]
+n=5 split 3+2: pattern classes 2, labelled valid rings 4895, dihedral orbits 517 (Burnside 517) [0s]
+n=5 split 4+1: pattern classes 1, labelled valid rings 0, dihedral orbits 0 (Burnside 0) [0s]
+selftest n=5 nw=1: labelled fast 0 brute 0 | orbits fast 0 brute 0 | orbit sets equal: True
+selftest n=5 nw=2: labelled fast 4895 brute 4895 | orbits fast 517 brute 517 | orbit sets equal: True
+selftest n=5 nw=3: labelled fast 4895 brute 4895 | orbits fast 517 brute 517 | orbit sets equal: True
+selftest n=5 nw=4: labelled fast 0 brute 0 | orbits fast 0 brute 0 | orbit sets equal: True
+n=5 brute+fast 2s
+n=6 split 1+5: pattern classes 1, labelled valid rings 0, dihedral orbits 0 (Burnside 0) [0s]
+n=6 split 2+4: pattern classes 3, labelled valid rings 9075, dihedral orbits 840 (Burnside 840) [0s]
+n=6 split 3+3: pattern classes 3, labelled valid rings 51450, dihedral orbits 4405 (Burnside 4405) [0s]
+n=6 split 4+2: pattern classes 3, labelled valid rings 9075, dihedral orbits 840 (Burnside 840) [0s]
+n=6 split 5+1: pattern classes 1, labelled valid rings 0, dihedral orbits 0 (Burnside 0) [0s]
+selftest n=6 nw=1: labelled fast 0 brute 0 | orbits fast 0 brute 0 | orbit sets equal: True
+selftest n=6 nw=2: labelled fast 9075 brute 9075 | orbits fast 840 brute 840 | orbit sets equal: True
+selftest n=6 nw=3: labelled fast 51450 brute 51450 | orbits fast 4405 brute 4405 | orbit sets equal: True
+selftest n=6 nw=4: labelled fast 9075 brute 9075 | orbits fast 840 brute 840 | orbit sets equal: True
+selftest n=6 nw=5: labelled fast 0 brute 0 | orbits fast 0 brute 0 | orbit sets equal: True
+n=6 brute+fast 27s
+SELFTEST PASSED
+nice -n 15 /usr/bin/python3 -I pyenum.py selftest  8.42s user 0.10s system 28% cpu 29.588 total

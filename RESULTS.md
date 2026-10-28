@@ -383,7 +383,19 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
     (`research/sum_model_rings/`).
   - The Codex referee T63 found PROOF_odd.md SOUND (`research/ring_n_plus_2_check/odd/REPORT.md`).
   - **C9 with 10 = n+1 pawns: 7 rings with signature \*2 in split 5+5 (COMPUTED-1, `research/c9_rings/`),** being
-    verified.
+    verified. Verified on 2026-10-27, see the next bullet.
+- **Least pawns in a ring \*2: n+3 (n = 3..7), ten (n = 7..10), n (n = 10..60)** (`research/c9_rings/REPORT.md`).
+  - C9: no 9-pawn ring is \*2 or \*3 (948,860 rings; rg and OpenCode's engine; two enumerators). 7 of the 44,960,428
+    ten-pawn rings are \*2: rg, Codex's independent.py, OpenCode's engine and cylcgt (whole and sum) agree. CHECKED-2.
+  - C10: M_10 = B4 W2 B6 W2 W3 B6 B7 W3 B7 W5 is \*2 with one pawn per file (CHECKED-2). It is the only one among the
+    4.3M ten-pawn rings (COMPUTED-1).
+  - C11: O_11 = B4 B7 W5 B7 W3 B7 B6 W3 W2 B6 W2 is \*2 (CHECKED-2); the 15.5M-ring scan is running.
+  - Families: M_n = (B4 W2)^((n-8)/2) B6 W2 W3 B6 B7 W3 B7 W5 (even n) and O_n = B4 (B7 W5)^((n-9)/2) B7 W3 B7 B6 W3 W2
+    B6 W2 (odd n) are \*2 for every n = 10..60 (COMPUTED-1, rg; n = 10..14 CHECKED-2). Their reduced graphs are constant
+    (441 / 2132 nodes, no flag), and the insertion isomorphism holds from n = 18 / 19 on. Proof note: T65 (OpenCode,
+    `research/ring_n_proof/`); referee: T66 (Codex).
+  - The paper (§VIII, intro, conclusion) now says "ten for 7 <= n <= 10 [C2], n for 10 <= n <= 60 [C1]".
+- **C9 ring hits are \*2 as sums too** (cylcgt, the H1 reversal, H3 and H4; H1/H2 whole and H2 sum queued).
 - **No \*4.** None among T56's 14,090 candidates (329 are \*3, 178 \*2), nor among 1,280 C10 wall rings.
   - The ★4 hunt workflow (`research/star4_rings/{core_wall,grow,two_core}/REPORT.md`) found no ★4 and nothing above
     ★3 in about 23.6M rings. Those are 23.2M core-in-wall rings, 128,791 grown from known ★3 rings (4,723 new ★3)

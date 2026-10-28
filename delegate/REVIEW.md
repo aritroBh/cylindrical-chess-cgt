@@ -819,3 +819,41 @@ from ★3 rings, two-core rings).
   - If confirmed, C9 needs only n+1 pawns, fewer than C8.
   - Verification workflow `wf_d471c5ae` is running: cylcgt and Codex's solver on the hits, the 9-pawn exhaustive
     case, the enumerator against the scanner and Burnside, and extension to C10/C11.
+
+## 2026-10-27 night (after the 20:43 reboot)
+
+- **Reboot.** The machine restarted at about 20:43 and killed every job. Restarted:
+  - QRBN cap 2, from scratch;
+  - the Qo_11 sum value (its whole-board value, \*3 in 4,981 s, had already finished);
+  - the C14 sum value;
+  - the C6 nine-pawn second program, now in 4 chunks;
+  - T64's solve, resumed from ring 420,000 of split 4+5;
+  - the cylcgt checks of the C9 hits, as queueC.
+- **Workflow `c9-n-plus-1-verify`.** Three of its four agents finished before the reboot:
+  - Enumeration: VALID. The counts equal a transfer-matrix/Burnside counter, and all 824 jobs were audited.
+  - Nine pawns on C9: none of 948,860 rings is \*2 or \*3. Two enumerators agree, rg and rg_copy agree, and samples
+    agree with cylcgt and Codex's solver.
+  - Extensions: n+1 \*2 rings on C10..C33.
+  - The fourth agent (hit checks) was cut. Its results so far, and the requeued cylcgt jobs, are in
+    `research/c9_rings/REPORT.md`.
+- **T64 (OpenCode beam-free; Kilo had failed on malformed tool calls).**
+  - Its own engine and enumerator gave NNPN for all 7 hits and their colour reversals, and the same 9-pawn counts.
+  - Its signature histograms for 3+6 and 4+5 equal rg's exactly.
+  - It died at the reboot; the orchestrator resumed its unchanged engine for 4+5 (finished), 5+4 and 6+3 (running).
+  - No REPORT.md from T64 itself.
+- **New: rings \*2 with one pawn per file.**
+  - The C10 ten-pawn scan (4.3M rings) has exactly one \*2: M_10.
+  - The C11 eleven-pawn scan found O_11.
+  - Codex's independent.py and OpenCode's engine confirm M_10, M_12, M_14, O_11 and O_13.
+  - The families M_n (even) and O_n (odd) are \*2 for every n = 10..60 under rg, with constant reduced graphs and the
+    insertion isomorphism from n = 18/19 on.
+  - The least number of pawns in a ring \*2 is therefore ten for n = 7..10 and n (the trivial lower bound) for
+    n = 10..60.
+- **Paper.**
+  - §VIII: the C9/C10/C11 results and the families; the n+2 sentence is compressed; a new ★4 sentence (no ★4 among
+    about 24M rings; the nim-sum of two cores).
+  - The intro bullet and conclusion item 3 are updated. Conclusion item 7 (engines beyond tablebases) is cut, along with
+    its repeat in item 2, the pipeline aside and the Möbius KPK percentages, to stay within 14 review pages.
+  - main 15 pages, review 14 pages; arXiv checks pass.
+- **T65 (OpenCode).** The proof note PROOF_N.md for M_n and O_n. The brief was retargeted twice as the results came in
+  (n+1 to n pawns); earlier drafts are kept. **T66 (Codex)** referees it after 22:32, once T65 is done.

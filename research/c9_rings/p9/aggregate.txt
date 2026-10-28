@@ -1,0 +1,53 @@
+== orig_c: original rg on the enum_rings.c set
+  split 3+6: rings 28160, solved 28160, unresolved 0, redone singly 0, nodes total 425882, max 447, wall 20.6s
+  split 4+5: rings 446270, solved 446270, unresolved 0, redone singly 0, nodes total 28805432, max 143289, wall 378.7s
+  split 5+4: rings 446270, solved 446270, unresolved 0, redone singly 0, nodes total 38060052, max 123873, wall 335.3s
+  split 6+3: rings 28160, solved 28160, unresolved 0, redone singly 0, nodes total 817267, max 752, wall 12.8s
+  signature counts, all splits: NNNN 668212, RRRR 130864, LLLL 130864, NLLL 3171, NRRR 3171, LNLL 2756, RNRR 2756, LNNN 1312, RNNN 1312, PNNN 1146, NLNN 1122, NRNN 1122, NPNN 948, NNLL 33, NNRR 33, RRNN 19, LLNN 19
+  rings with *2 (NNPN): 0, *3 (NNNP): 0, any P at h=2 or h=3: 0
+
+== copy_c: rg_copy on the enum_rings.c set
+  split 3+6: rings 28160, solved 28160, unresolved 0, redone singly 0, nodes total 235440, max 32, wall 0.6s
+  split 4+5: rings 446270, solved 446270, unresolved 0, redone singly 0, nodes total 12196452, max 143289, wall 14.0s
+  split 5+4: rings 446270, solved 446270, unresolved 0, redone singly 0, nodes total 17244284, max 123873, wall 18.8s
+  split 6+3: rings 28160, solved 28160, unresolved 0, redone singly 0, nodes total 473306, max 522, wall 0.5s
+  signature counts, all splits: NNNN 668212, RRRR 130864, LLLL 130864, NLLL 3171, NRRR 3171, LNLL 2756, RNRR 2756, LNNN 1312, RNNN 1312, PNNN 1146, NLNN 1122, NRNN 1122, NPNN 948, NNLL 33, NNRR 33, RRNN 19, LLNN 19
+  rings with *2 (NNPN): 0, *3 (NNNP): 0, any P at h=2 or h=3: 0
+
+== orig_py: original rg on the pyenum.py set
+  split 3+6: rings 28160, solved 28160, unresolved 0, redone singly 0, nodes total 425882, max 447, wall 16.7s
+  split 4+5: rings 446270, solved 446270, unresolved 0, redone singly 0, nodes total 23171680, max 79503, wall 317.3s
+  split 5+4: rings 446270, solved 446270, unresolved 0, redone singly 0, nodes total 34911096, max 71081, wall 327.2s
+  split 6+3: rings 28160, solved 28160, unresolved 0, redone singly 0, nodes total 817267, max 752, wall 24.6s
+  signature counts, all splits: NNNN 668212, RRRR 130864, LLLL 130864, NLLL 3171, NRRR 3171, LNLL 2756, RNRR 2756, LNNN 1312, RNNN 1312, PNNN 1146, NLNN 1122, NRNN 1122, NPNN 948, NNLL 33, NNRR 33, RRNN 19, LLNN 19
+  rings with *2 (NNPN): 0, *3 (NNNP): 0, any P at h=2 or h=3: 0
+
+== signature counts by split (original rg on the enum_rings.c set)
+  signature            3+6         4+5         5+4         6+3       total
+  LLLL G>0 (Le           0        5116      107647       18101      130864
+  LLNN                   0           0          19           0          19
+  LNLL                   0         183        2573           0        2756
+  LNNN                   0         175        1137           0        1312
+  NLLL                   0         181        2990           0        3171
+  NLNN                   0         133         989           0        1122
+  NNLL                   0           1          32           0          33
+  NNNN fuzzy (       10059      324047      324047       10059      668212
+  NNRR                   0          32           1           0          33
+  NPNN *1                0         474         474           0         948
+  NRNN                   0         989         133           0        1122
+  NRRR                   0        2990         181           0        3171
+  PNNN 0                 0         573         573           0        1146
+  RNNN                   0        1137         175           0        1312
+  RNRR                   0        2573         183           0        2756
+  RRNN                   0          19           0           0          19
+  RRRR G<0 (Ri       18101      107647        5116           0      130864
+
+== cross-run comparison
+  split 3+6: original rg vs rg_copy, per-ring signature lists (same enumeration order): 28160 vs 28160 rings, identical: True
+  split 3+6: histogram of C-enumerated set == histogram of Python-enumerated set (same orbits, different representatives): True
+  split 4+5: original rg vs rg_copy, per-ring signature lists (same enumeration order): 446270 vs 446270 rings, identical: True
+  split 4+5: histogram of C-enumerated set == histogram of Python-enumerated set (same orbits, different representatives): True
+  split 5+4: original rg vs rg_copy, per-ring signature lists (same enumeration order): 446270 vs 446270 rings, identical: True
+  split 5+4: histogram of C-enumerated set == histogram of Python-enumerated set (same orbits, different representatives): True
+  split 6+3: original rg vs rg_copy, per-ring signature lists (same enumeration order): 28160 vs 28160 rings, identical: True
+  split 6+3: histogram of C-enumerated set == histogram of Python-enumerated set (same orbits, different representatives): True

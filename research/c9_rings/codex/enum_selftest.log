@@ -1,0 +1,25 @@
+n=4 split 1+3: classes=1 orbits=0 [0.0s]
+n=4 split 2+2: classes=2 orbits=225 [0.0s]
+n=4 split 3+1: classes=1 orbits=0 [0.0s]
+selftest n=4 nw=1 fast=0 brute=0 sets_equal=True
+selftest n=4 nw=2 fast=225 brute=225 sets_equal=True
+selftest n=4 nw=3 fast=0 brute=0 sets_equal=True
+n=5 split 1+4: classes=1 orbits=0 [0.0s]
+n=5 split 2+3: classes=2 orbits=517 [0.0s]
+n=5 split 3+2: classes=2 orbits=517 [0.0s]
+n=5 split 4+1: classes=1 orbits=0 [0.0s]
+selftest n=5 nw=1 fast=0 brute=0 sets_equal=True
+selftest n=5 nw=2 fast=517 brute=517 sets_equal=True
+selftest n=5 nw=3 fast=517 brute=517 sets_equal=True
+selftest n=5 nw=4 fast=0 brute=0 sets_equal=True
+n=6 split 1+5: classes=1 orbits=0 [0.0s]
+n=6 split 2+4: classes=3 orbits=840 [0.0s]
+n=6 split 3+3: classes=3 orbits=4405 [0.0s]
+n=6 split 4+2: classes=3 orbits=840 [0.0s]
+n=6 split 5+1: classes=1 orbits=0 [0.0s]
+selftest n=6 nw=1 fast=0 brute=0 sets_equal=True
+selftest n=6 nw=2 fast=840 brute=840 sets_equal=True
+selftest n=6 nw=3 fast=4405 brute=4405 sets_equal=True
+selftest n=6 nw=4 fast=840 brute=840 sets_equal=True
+selftest n=6 nw=5 fast=0 brute=0 sets_equal=True
+SELFTEST PASSED

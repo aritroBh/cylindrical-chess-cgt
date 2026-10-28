@@ -50,7 +50,30 @@ def Qo(n):
     assert n % 2 == 1 and n >= 9
     return toks("W4 B7") + toks("W2 B4") * ((n - 9) // 2) + toks("W2 W3B6 W3 W2B5 B5 W2 B4")
 
-FAMILIES = {"odd": odd, "even": even, "F": F, "P": P, "Q": Q, "R": R, "Qo": Qo}
+N1_CORE = toks("B6 W2 W3 B6 B7 W3 W6B7")
+
+def N1(n):
+    """the n+1 rings of research/c9_rings (2026-10-27): n odd (B4 W2)^((n-7)/2) N1_CORE; n even (B4 W2)^((n-8)/2) N1_CORE W2"""
+    assert n >= 9
+    if n % 2 == 1:
+        return toks("B4 W2") * ((n - 7) // 2) + N1_CORE
+    return toks("B4 W2") * ((n - 8) // 2) + N1_CORE + toks("W2")
+
+M_CORE = toks("B6 W2 W3 B6 B7 W3 B7 W5")
+
+def M(n):
+    """the n-pawn rings of research/c9_rings (2026-10-27), even n >= 10: (B4 W2)^((n-8)/2) M_CORE"""
+    assert n % 2 == 0 and n >= 10
+    return toks("B4 W2") * ((n - 8) // 2) + M_CORE
+
+O_CORE = toks("B7 W3 B7 B6 W3 W2 B6 W2")
+
+def O(n):
+    """the n-pawn rings of research/c9_rings (2026-10-27), odd n >= 11: B4 (B7 W5)^((n-9)/2) O_CORE"""
+    assert n % 2 == 1 and n >= 11
+    return toks("B4") + toks("B7 W5") * ((n - 9) // 2) + O_CORE
+
+FAMILIES = {"odd": odd, "even": even, "F": F, "P": P, "Q": Q, "R": R, "Qo": Qo, "N1": N1, "M": M, "O": O}
 # wall blocks (the two files that are inserted when n -> n+2) and the file index (in the position lists above) at
 # which the block region starts, i.e. the files [start, start + 2k) are the periodic wall
 def wall_start(fam, n):
@@ -107,6 +130,11 @@ def wall_files(famname, n):
     if famname == "P": return set(range(6, n))
     if famname == "Q": return set(range(2, n - 6))
     if famname in ("R", "Qo"): return set(range(2, n - 6))
+    if famname == "N1":
+        if n % 2 == 1: return set(range(0, n - 7))            # B4 W2 ... B4 W2 (files 0 .. n-8), then the core
+        return set(range(0, n - 8)) | {n - 1}                 # W2 | B4 W2 ... B4 W2 (files n-1, 0 .. n-9), core between
+    if famname == "M": return set(range(0, n - 8))            # B4 W2 ... B4 W2 (files 0 .. n-9), then the core
+    if famname == "O": return set(range(1, n - 8))            # B4 | B7 W5 ... B7 W5 (files 1 .. n-9), then the core
     raise ValueError(famname)
 
 def is_wall_pattern(famname, S, n):

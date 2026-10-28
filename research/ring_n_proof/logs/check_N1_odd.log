@@ -1,0 +1,20 @@
+N1_odd_19: nodes=2404 K=7067 T=3348 flagged=0 zone=[0, 1, 12, 13, 14, 15, 16, 17] sig(h=0..4)=NNPNN; no passed pawn, no flag; files 2..11 are exact pattern files in every node
+  Lemma 2 at n=19: central files 3..10; windows {3: (2, 6), 4: (3, 7), 5: (4, 8), 6: (5, 9), 7: (6, 10), 8: (7, 11), 9: (6, 10), 10: (7, 11)}
+    q-positions=19232 moves=28848; (a) failures 0; (b) T/K moves 0; by (file, class) {(3, 'L'): 1646, (3, 'P'): 3162, (4, 'P'): 2404, (5, 'P'): 4808, (6, 'P'): 2404, (7, 'P'): 4808, (8, 'P'): 2404, (9, 'P'): 4808, (10, 'P'): 2404}
+    arc ends: j=3 window (2, 6) (left end); j=10 window (7, 11) (right end)
+N1_odd_21: nodes=2404 K=7067 T=3348 flagged=0 zone=[0, 1, 14, 15, 16, 17, 18, 19] sig(h=0..4)=NNPNN; no passed pawn, no flag; files 2..13 are exact pattern files in every node
+  Lemma 2 at n=21: central files 3..12; windows {3: (2, 6), 4: (3, 7), 5: (4, 8), 6: (5, 9), 7: (6, 10), 8: (7, 11), 9: (8, 12), 10: (9, 13), 11: (8, 12), 12: (9, 13)}
+    q-positions=24040 moves=36060; (a) failures 0; (b) T/K moves 0; by (file, class) {(3, 'L'): 1646, (3, 'P'): 3162, (4, 'P'): 2404, (5, 'P'): 4808, (6, 'P'): 2404, (7, 'P'): 4808, (8, 'P'): 2404, (9, 'P'): 4808, (10, 'P'): 2404, (11, 'P'): 4808, (12, 'P'): 2404}
+    arc ends: j=3 window (2, 6) (left end); j=12 window (9, 13) (right end)
+N1_odd_23: nodes=2404 K=7067 T=3348 flagged=0 zone=[0, 1, 16, 17, 18, 19, 20, 21] sig(h=0..4)=NNPNN; no passed pawn, no flag; files 2..15 are exact pattern files in every node
+  Lemma 2 at n=23: central files 3..14; windows {3: (2, 6), 4: (3, 7), 5: (4, 8), 6: (5, 9), 7: (6, 10), 8: (7, 11), 9: (8, 12), 10: (9, 13), 11: (10, 14), 12: (11, 15), 13: (10, 14), 14: (11, 15)}
+    q-positions=28848 moves=43272; (a) failures 0; (b) T/K moves 0; by (file, class) {(3, 'L'): 1646, (3, 'P'): 3162, (4, 'P'): 2404, (5, 'P'): 4808, (6, 'P'): 2404, (7, 'P'): 4808, (8, 'P'): 2404, (9, 'P'): 4808, (10, 'P'): 2404, (11, 'P'): 4808, (12, 'P'): 2404, (13, 'P'): 4808, (14, 'P'): 2404}
+    arc ends: j=3 window (2, 6) (left end); j=14 window (11, 15) (right end)
+  ins_6(start_19) = start_21; graph_21 = ins_6(graph_19): 2404 nodes onto 2404 nodes, K- and T-children equal for all 4808 (node, side) pairs; Lemma 3 recomputed on every ins_6(p): 0 mismatches
+  ins_6(start_21) = start_23; graph_23 = ins_6(graph_21): 2404 nodes onto 2404 nodes, K- and T-children equal for all 4808 (node, side) pairs; Lemma 3 recomputed on every ins_6(p): 0 mismatches
+  control, cut c=7 (arc 3..12): Lemma 3 conclusion fails at 0 of 4808 (node, side) pairs
+  control, cut c=8 (arc 4..13): Lemma 3 conclusion fails at 0 of 4808 (node, side) pairs
+  control, cut c=9 (arc 5..14): Lemma 3 conclusion fails at 0 of 4808 (node, side) pairs
+  control, cut c=10 (arc 6..15): Lemma 3 conclusion fails at 0 of 4808 (node, side) pairs
+  control, cut c=11 (arc 7..16): Lemma 3 conclusion fails at 2975 of 4808 (node, side) pairs
+N1 odd: ALL CHECKS PASSED (191s)
