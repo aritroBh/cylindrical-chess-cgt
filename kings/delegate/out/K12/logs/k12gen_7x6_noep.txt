@@ -1,0 +1,2 @@
+$ PYTHONPATH=.:kings/delegate/out/K12 .venv/bin/python -c "import gen; u,b=gen.process_board(7,6,3); n=sum(1 for r in u if r[4] is None); print(len(u), n, len(u)-n)"
+total 562676 no-ep 515780 ep 46896

@@ -1,4 +1,4 @@
-# K12 review: root clause sweep, rechecked on cyl:6x6 by a second checker
+# K12 review: root clause sweep, rechecked without e.p. rights on cyl:6x6, 7x6 and 8x6 by a second checker
 
 **Outcome (2026-10-27).** Accepted. On the 6x6 roots without an e.p. right, an independent recheck finds the
 same root set and **0 certified roots whose frozen value disagrees with the credit**. The P11 root clause is
@@ -44,7 +44,7 @@ Script: `integrator_v.py` (run as `v.py W H maxp`). It shares no code with K12's
 
 - P11 root clause on cyl:6x6, pawns on c..e, ≤ 3 a side, no e.p. right: **CHECKED-2**. Two checkers, two
   generators and two hypothesis implementations agree, with 0 certified violations.
-- The e.p. roots and 7x6: **COMPUTED-1**. K12's brute-force μ_ω check was written by the same author, so it does
+- The e.p. roots: **COMPUTED-1**. K12's brute-force μ_ω check was written by the same author, so it does
   not count as a second check.
 - 8x6, ≤ 2 a side, no e.p. right: **CHECKED-2** as well. The recheck (`v.py 8 6 2`) gives 68,036 roots, the same number
   as K12's `gen.process_board(8,6,2)` restricted to `ep is None` (its other 3,876 roots carry an e.p. right).
@@ -60,7 +60,7 @@ Script: `integrator_v.py` (run as `v.py W H maxp`). It shares no code with K12's
 - 7x6, ≤ 3 a side, no e.p. right: **CHECKED-2** (2026-10-28). `integrator_v2.py 7 6 3 20000`, the same check run in 26
   chunks of 20,000 roots through `heavy.sh`, so the slot was released between chunks (22:40–about 01:00, at load ~270).
   It gives 515,780 roots, the same number as K12's `gen.process_board(7,6,3)` restricted to `ep is None` (its other
-  46,896 roots carry an e.p. right). Output: `logs/v2_7x6_3.json`.
+  46,896 roots carry an e.p. right; `logs/k12gen_7x6_noep.txt`). Output: `logs/v2_7x6_3.json`.
 
 | 7x6, no e.p. | single | race | total |
 |---|---|---|---|

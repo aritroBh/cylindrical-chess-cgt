@@ -322,8 +322,8 @@ Every deliverable was given to independent referees (Claude models) told to brea
   downgraded 4 to GAP: the sharp form of 1.14, Theorem 2.7, and predictions P11 and P12.
   - K7 (2026-10-22) later repaired Theorem 2.7 and P12, in P. A Sonnet agent drafted the repair, and two rounds of
     three Sonnet reviewers checked it. The first round refuted a window form, which was then fixed.
-    K36 (2026-10-28, Codex) proved Theorem 2.7 blind and then audited the corrected text: every step SOUND, with one
-    citation of Lemma 2.2 justified in a sentence.
+    K36 (2026-10-28, Codex) proved Theorem 2.7 blind and then audited the corrected text. It found one repairable gap, a
+    citation of Lemma 2.2 outside its setup, now repaired by a sentence; every other step is SOUND.
   - K9 repaired the sharp form of 1.14. A free model drafted it, and Sonnet reviewers and a fixer rewrote it as a
     simulation lemma. K13 (2026-10-27, Codex, outside the Claude family) re-derived it in its own words (0.76% of its
     5-grams and none of its 8-grams occur in LOOPY's sharp-form section; `kings/delegate/out/K13/overlap.py`) and found
@@ -374,7 +374,7 @@ Every deliverable was given to independent referees (Claude models) told to brea
     pc4. In P every non-shuttle move loses by force, CHECKED-2 (kp_p and `ref3`; PROVED by hand since K27). Beside 660 contexts its P result
     equals the dud prediction (COMPUTED-1). In chess it is undecided at cap 1.
     K34 (2026-10-28, Codex) proved Proposition 3.2′, Lemma 3.2″ and Theorem 3.2‴ again from the statements alone and found
-    every step SOUND. Its one objection, about the G = 0 shuttle deletions, came from a script that did not test what it
+    every step SOUND, the e.p. and bridge steps under their stated hypotheses. Its one objection, about the G = 0 shuttle deletions, came from a script that did not test what it
     reported, and the integrator's own computation confirms the note.
   - K22 (2026-10-27) showed that Lemma 2.9 is false without its added hypothesis (counterexamples on flat:4×5, cyl:7×6
     and flat:3×5) and proved it under the weaker hypothesis (B1).
@@ -387,14 +387,14 @@ Every deliverable was given to independent referees (Claude models) told to brea
     CONJECTURE.
   - K18 (2026-10-27) tested tempo matching (§8 open question 1) in P. As worded it is FALSE: 42 of 2,305 legal cases
     fail (CHECKED-2 for the ES and ES7 cases), the smallest `Ka1 Pa2 kc1 pa3` with the sortie Ka1–h1 and context
-    `Pe2 Pg2 pf4`. It held in all 292 promotion-free cases (a CONJECTURE beyond them). Proposition 8.1 (tempo pairing)
+    `Pe2 Pg2 pf4`. It held in all 292 promotion-free cases that were tested (a CONJECTURE beyond them). Proposition 8.1 (tempo pairing)
     is PROVED after repair: the first referee found an e.p. gap, the fix added (P1e), and a second referee re-derived it.
   - K24 (2026-10-27) added Lemma 2.7a (PROVED): a draw in both promotion models EPW and EPB is a chess draw. It
     settles the chess w-entries of P5 and P7 as draws without relying on kpsolve, and four P solvers agree on P5–P7.
   - K16 (2026-10-27): the real-king square rule of Remark 2.11 is FALSE as stated, because ω can be stalemated
     (CHECKED-2 counterexamples). A corrected Theorem 2.11K, with a king-restricted timing condition and a no-stalemate
     condition, is PROVED in P, and 7.6 · 10⁸ certified instances give 0 violations.
-    K35 (2026-10-28, Codex) audited its proof step by step from outside the Claude family and found every step SOUND.
+    K35 (2026-10-28, Codex) audited the note's proof step by step from outside the Claude family and found every step SOUND.
     Its own blind proof missed one case, which the note's Step 2 covers.
   - K20 (2026-10-27): finite king tempo exists when the opponent is not frozen. On flat:6×6, `Kc3 ka4 Pa2 pa3 Pc4 pc5`
     is +1 in the D-model sum battery (CHECKED-2); Proposition 4.3 holds only against a frozen opponent.

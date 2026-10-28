@@ -26,8 +26,9 @@ right (revised after K7, 2026-10-22). Three more AI reviewers (logic, chess, con
 final text, with the e.p. clause. They found no counterexample and no false step in the proof, only wording and
 bookkeeping errors, which were corrected in the same pass (revised after K7, 2026-10-22). K3 did not see the
 repair, and no human has re-derived it. K36 (Codex, outside the Claude family) proved Theorem 2.7 blind from its
-statement and then read the corrected text: every step SOUND, and one citation (Lemma 2.2 in Step 0) needed a
-sentence of justification, now added (revised after K36, 2026-10-28). **Caveat for the K9 repair (sharp
+statement and then read the corrected text. It recorded one repairable gap: Step 0 cited Lemma 2.2 outside its stated
+setup (in part (b) s's king may be off F_Z). A sentence now repairs it, checked by the integrator against the proof of Lemma 2.2,
+which does not use the kings. Every other step is SOUND (revised after K36, 2026-10-28). **Caveat for the K9 repair (sharp
 form of Theorem 1.14):** a free model drafted it; two AI reviewers found real errors (the draft claimed that the
 D-winner never moves in Z, and never fixed what D(X) is on Z); a Sonnet agent rewrote it as a simulation lemma
 (an induction on the rank of the D-win), and the integrator read the rewrite (revised after K9, 2026-10-22). K13
@@ -68,7 +69,7 @@ originally stated → …" gives the corrected statement and its label. Each cha
 | T1.14(iii) | PROVED after repair, but a tautology: (A_Q) is now a per-position hypothesis | R2 item 8 |
 | T1.14, sharp form | GAP → PROVED after repair: simulation form on a σ-certified set N of P-positions, with (S1) the winner's step, (S2) the loser's step (a D-move or a P-loss) and (S3) no stalemate; proof by induction on the D-rank. The winner may move in Z (revised after K9, 2026-10-22). Re-derived independently by K13 (Codex, outside the Claude family): no false step. ρ is the stage of a least fixed point on the finite game D, so the induction does not need D to be short (revised after K13, 2026-10-27) | R2 item 6; K3, K9, K13 |
 | §1.5 "each hypothesis is needed" | (V1b), (V2), (V3), (V4): counterexamples given. (V1a), clause "no checks": needed, CHECKED-2, by an isolated counterexample (cyl:6×6 `Ka2 kb4 Pa3 pa4 Pd2 pe3 b -`, a Z-pawn check; P with real kings, three independent solvers agree; revised after K17 and its referee, 2026-10-27). (V1a), clause (E) (e.p. across components): no isolated counterexample in a bounded search, so "(E) is needed" stays a CONJECTURE. In the structured class of Definition 2.1 these two clauses are the only ways (V1a) can fail (Proposition 1.15(a), PROVED) | R1 item 4, R2 item 7, K17 |
-| P1.15 | (a) PROVED (hand proof, checked against Definition 2.1 and Lemma 2.2 by the K17 referee). (b) the search counts are CHECKED-2 as counts (reproduced by the referee's own generator, own D and an independent solver); "(E) can be dropped when (HSS) holds" is a CONJECTURE, bounded by the search (revised after K17 and its referee, 2026-10-27) | K17 and its referee |
+| P1.15 | (a) PROVED (hand proof, checked against Definition 2.1 and Lemma 2.2 by the K17 referee). (b) the search counts that the referee reproduced (`kings/delegate/out/K17/VERIFY.md` §2) are CHECKED-2 as counts, with its own generator, own D and an independent solver; the partial flat:6×6 ≤ 4 + 4 run is COMPUTED-1; "(E) can be dropped when (HSS) holds" is a CONJECTURE, bounded by the search (revised after K17 and its referee, 2026-10-27) | K17 and its referee |
 | L2.2 | PROVED | unchanged |
 | T2.3 | PROVED (also KNOWN), for every integer B ≥ 1 | its direct proof, overwritten by a misanchored edit in the 2026-10-21 revision, was restored after the T30 audit |
 | T2.4 | FALSE as originally stated (the "P-game of the context" option) → G under normal play (no draws), plus a strategy-transfer form (c) for games with draws: PROVED after repair | R2 item 4 |
@@ -85,7 +86,7 @@ originally stated → …" gives the corrected statement and its label. Each cha
 | T3.3(b) | FALSE as originally stated (with ∅ the dead position the pair is (W, L)) → { \| ⊖} ⊞ on_D is (L, L): PROVED after repair | R1 item 2 |
 | T3.4 | PROVED | R4: sound |
 | C3.5 | PROVED | R4: sound |
-| P3.2′ (two shuttling kings are a dud) | D-model: PROVED (new, K14; revised after the K14 referee, 2026-10-27): a p-morphism onto dud_D on the four combined king states, for every D-game G; inequalities when one side has further Z-moves; a win needs only the half of the states in which the winner's king stands still; all eight shuttle arrows are needed (counterexamples). The proof was re-checked by one referee (same model family) and the statements by two brute-force implementations, on short and loopy G, 0 violations (COMPUTED-1 for the data). K34 (Codex, outside the Claude family) proved Proposition 3.2′, Lemma B, Lemma 3.2″ and Theorem 3.2‴ again from the statements alone and marked every step of the proofs SOUND (revised after K34, 2026-10-28). Chess bridge (Theorem 3.2‴): PROVED in P, conditional on (V1a-ctx), (V2-ctx) and the per-group hypothesis (Pun) that every non-shuttle Z-move is decisively punished; stalemate is excluded automatically. (Pun) is the only gap of the bridge; the chess statement also needs (A_Q). Existence (revised after the K14 referee, 2026-10-27): Z_B (§5.7; flat 7×6; White king b2/c3, Black king a4/b5, pawns Pa3 Pb4 pb3 pc4) has every non-shuttle move losing by force, and Z_B alone is exactly two-shuttle in P, (D, D) at all 8 roots, every one of the 26 non-shuttle moves losing by force: PROVED by hand (revised after K27 and its referee, 2026-10-27; `kings/delegate/out/K27/PROOF.md`, 26 certificates), CHECKED-2 for the computations (kp_p, ref3, K27's pm.py, the K27 referee's own solver). Beside every context tested the P-result of G ⊞ Z_B equals r(G ⊞ dud_D): COMPUTED-1 (68 contexts, 12 contexts on files e–g, and the first 660 of 885 contexts of ≤ 2 + 2 pawns on f, g; 225 contexts untested). In chess Z_B is OPEN (revised after K27 and its referee, 2026-10-27): with cap 1 the bounds at the 8 roots are (W, L); 21 of the 26 deviations lose in chess (CHECKED-2: kpsolve and the K27 referee's own chess solver); five are not settled at cap 1, four with bounds (W, L) and Kc3–d2 from (c3, b5) with bounds (D, L); if any of the five does not lose, Z_B is not two-shuttle in chess; cap 2 was not run. Open: chess (those five deviations, cap 2), the cylinder, other boards. Z_A (§5.7) is a second group, with one White break (Kxb4). K14's first search found no frozen group only because of a move-count cut-off (18) that excluded Z_B | R4 item 6; K14 and its referee; K27 and its referee |
+| P3.2′ (two shuttling kings are a dud) | D-model: PROVED (new, K14; revised after the K14 referee, 2026-10-27): a p-morphism onto dud_D on the four combined king states, for every D-game G; inequalities when one side has further Z-moves; a win needs only the half of the states in which the winner's king stands still; all eight shuttle arrows are needed (counterexamples). The proof was re-checked by one referee (same model family) and the statements by two brute-force implementations, on short and loopy G, 0 violations (COMPUTED-1 for the data). K34 (Codex, outside the Claude family) proved Proposition 3.2′, Lemma B, Lemma 3.2″ and Theorem 3.2‴ again from the statements alone. It marked every step of Proposition 3.2′(a)–(c), Lemma B and Lemma 3.2″ SOUND, and the e.p. extension of Lemma B and Theorem 3.2‴ SOUND under the flag model and the bridge hypotheses (revised after K34, 2026-10-28). Chess bridge (Theorem 3.2‴): PROVED in P, conditional on (V1a-ctx), (V2-ctx) and the per-group hypothesis (Pun) that every non-shuttle Z-move is decisively punished; stalemate is excluded automatically. (Pun) is the only gap of the bridge; the chess statement also needs (A_Q). Existence (revised after the K14 referee, 2026-10-27): Z_B (§5.7; flat 7×6; White king b2/c3, Black king a4/b5, pawns Pa3 Pb4 pb3 pc4) has every non-shuttle move losing by force, and Z_B alone is exactly two-shuttle in P, (D, D) at all 8 roots, every one of the 26 non-shuttle moves losing by force: PROVED by hand (revised after K27 and its referee, 2026-10-27; `kings/delegate/out/K27/PROOF.md`, 26 certificates), CHECKED-2 for the computations (kp_p, ref3, K27's pm.py, the K27 referee's own solver). Beside every context tested the P-result of G ⊞ Z_B equals r(G ⊞ dud_D): COMPUTED-1 (68 contexts, 12 contexts on files e–g, and the first 660 of 885 contexts of ≤ 2 + 2 pawns on f, g; 225 contexts untested). In chess Z_B is OPEN (revised after K27 and its referee, 2026-10-27): with cap 1 the bounds at the 8 roots are (W, L); 21 of the 26 deviations lose in chess (CHECKED-2: kpsolve and the K27 referee's own chess solver); five are not settled at cap 1, four with bounds (W, L) and Kc3–d2 from (c3, b5) with bounds (D, L); if any of the five does not lose, Z_B is not two-shuttle in chess; cap 2 was not run. Open: chess (those five deviations, cap 2), the cylinder, other boards. Z_A (§5.7) is a second group, with one White break (Kxb4). K14's first search found no frozen group only because of a move-count cut-off (18) that excluded Z_B | R4 item 6; K14 and its referee; K27 and its referee |
 | T3.7, L3.8a, T3.8, C3.8b (loopy sums) | PROVED (new, K21, 2026-10-27): one AI proof each; the K21 referee re-derived every step against Definitions 1.1–1.4 and 1.10. K33 (Codex, outside the Claude family) proved T3.7, L3.8a and T3.8 again from the statements alone and marked every step of these proofs SOUND (revised after K33, 2026-10-28). T3.8(c) is necessity for dominance only, not for D = CGT (revised after the K21 referee, 2026-10-27). Brute force: CHECKED-2 (two solvers, 20,324 states), the statistics COMPUTED-1 (K21: 26,000 bridge instances; referee: 10,000 random and 2,080 exhaustive pairs, 0 violations) | K21 referee (`kings/delegate/out/K21/VERIFY.md` sections 1 and 3), `kings/delegate/out/K21/summary.json` |
 | P3.9, P3.10 | PROVED (new, K21, 2026-10-27; re-derived by the K21 referee); the reserve table CHECKED-2, the draw counts COMPUTED-1 | K21 referee |
 | T3.11, C3.11a | PROVED (new, K21, 2026-10-27; the three parts re-derived by the K21 referee; re-derived blind outside the Claude family by K33, revised after K33, 2026-10-28); K21's 142,798 states and the referee's 6,150 sampled instances, 0 violations, COMPUTED-1 | K21 referee |
@@ -121,8 +122,9 @@ which is recorded as open in §8.6.
 
 **Labels.** Every claim has exactly one label.
 
-- **PROVED**: the full proof is in this note. One model wrote it, and no second model or human has re-derived
-  it yet (RESEARCH_PLAN §4, rule 3).
+- **PROVED**: the full proof is in this note, or in a delegate file that the result cites. It is AI work: each result says
+  who wrote it and which reviewers, if any, re-derived it (same model family or not); no human has re-derived any of them
+  (RESEARCH_PLAN §4, rule 3; revised 2026-10-28, since many results now have a second AI derivation).
 - **CONJECTURE**: not proved. The text names the evidence that would settle it. "Scratch evidence" means a
   throwaway script run once in the session scratchpad (geometry plus a small retrograde solver, Appendix A):
   not kpsolve, not saved in the project, not independently checked.
@@ -725,7 +727,7 @@ Y be a chess position reachable from X by legal moves in which no Z-move has bee
     (some reachable position has ≥ 2 components and a genuine e.p. capture), and D_fix = D_whole at all of them. (The first
     K17 count, 1,128, also counted a later ordinary capture of a just-double-stepped pawn; that count is withdrawn. The 752
     is the referee's recount, `kings/delegate/out/K17/VERIFY.md` §2; K17's `summary.json` still has 1,128.) Not
-    completed: cyl:7×6 ≤ 3 + 3, and flat:6×6 ≤ 4 + 4 (stopped after about 60,000 contexts, no difference seen; K17's `summary.json` records 5,017 E-violating roots in that partial run, and the 0 differences are over those 5,017 roots; revised after the K17 referee check, 2026-10-27).
+    completed: cyl:7×6 ≤ 3 + 3, and flat:6×6 ≤ 4 + 4 (stopped after about 60,000 contexts, no difference seen; K17's `summary.json` records 5,017 E-violating roots in that partial run, and the 0 differences are over those 5,017 roots; COMPUTED-1, not reproduced by the referee, and counted with K17's loose e.p. test, the one whose 1,128 is withdrawn above; revised after the K17 referee check, 2026-10-27, and the post-commit check, 2026-10-28).
   - Result: the whole-board D (chess e.p.) and the sum D with persisting rights differ in 48 roots of the ≤ 5 + 5 run (16
     in the ≤ 4 + 4 run), all in flat:8×6, none of them hereditarily sum-safe (HSS false: opposite threats in different
     components); `kp --frozen` gives P = D_whole in 32 of the 48 and P = D_fix in 16, which says nothing about (V1a) under (V4)
@@ -1609,7 +1611,7 @@ Corollary 2.11a states it for the D-model.
     The control without king moves in G_ω (variant KV = 2) fails on 153,582 instances of cyl:6×6 ≤ 3 + 3 (ω promotes first; COMPUTED-1, K16's number). The simplest mechanism is that the king steps off its own pawn's path
     and its pawn then promotes: cyl:6×6 `Ka1 ke1 Pc2 pe2 w -` passes every hypothesis under KV = 2 (the king is frozen, so the pawn on e2 never moves) and is (L, L) in P, since Black plays Kd1 and e1=Q before c6 can be reached
     (kp_p, and the referee's certificate accepts it under KV = 2; COMPUTED-1). So (H5) must use the king.
-  - ***Theorem 2.11K.* PROVED in P (one AI proof, K16; read step by step by the referee K16v, who found no gap and no counterexample in about 1.1 million exhaustive and 16,500 random checks; not re-derived in full by a second model: K35 (Codex, outside the Claude family; revised after K35, 2026-10-28) wrote a blind proof that misses one case, an ω pawn that reaches a file next to p by capturing a β pawn (Step 2 below covers it), and then marked every step of this proof SOUND; Step 2 is Step 2 of Proposition 2.11, whose proof it quotes).** Notation of Proposition 2.11; Π is "β pushes p at every
+  - ***Theorem 2.11K.* PROVED in P (one AI proof, K16; read step by step by the referee K16v, who found no gap and no counterexample in about 1.1 million exhaustive and 16,500 random checks; not re-derived in full by a second model: K35 (Codex, outside the Claude family; revised after K35, 2026-10-28) wrote a blind proof that misses one case, an ω pawn that reaches a file next to p by capturing a β pawn (Step 2 below covers it), and then audited the proof below and marked every one of its steps SOUND; Step 2 is Step 2 of Proposition 2.11, whose proof it quotes).** Notation of Proposition 2.11; Π is "β pushes p at every
     turn (the double step first if ρ(p) = 2)". Assume (H1) (path free of pawns and kings), (H4), (H2) (no pawn of either colour on a file adjacent to β's king's file),
     (H5K) μ^K_ω(y; p) ≥ e + 1, where μ^K_ω is μ_ω in G^K_ω, which is G_ω with ω's king allowed one step per move onto a square that is not an ω pawn, not β's king and not adjacent to it,
     capturing β's other pawns (the variant that also forbids squares attacked by a remaining β pawn is covered too), (SQ) d(k_ω, q_j) ≥ n_j + 2 for j = 0, …, d (j = 0 only if s = ω), and
@@ -1671,10 +1673,11 @@ Z-moves. (Two shuttles, one for each king: Proposition 3.2′ below.)
 2026-10-22: the earlier citation, the proof of Theorem 1.14(i), assumes that σ never moves in Z, which White's
 shuttle violates).
 Here G is the pawn-only D-model of the context, with the e.p. flag as a coordinate. The pass of on_D resets the flag,
-as White's shuttle does in chess (a king move ends an e.p. right; Remark on e.p. after Proposition 3.2′). Suppose
-r(G ⊞ on_D) = W. Let Σ be a rank-lowering White strategy in G ⊞ on_D, with its passes played as the shuttle, and let
+as White's shuttle does in chess (a king move ends an e.p. right; Remark on e.p. after Proposition 3.2′). Let X be a
+chess position with Z and context G as in Proposition 3.2, and suppose r(G ⊞ on_D) = W at π(X). Let Σ be a rank-lowering White strategy in G ⊞ on_D, with its passes played as the shuttle, and let
 N be the set of chess positions before the first promotion that arise when White plays Σ as chess moves and Black
-plays any legal D-move, up to the first closing move (π sends both shuttle states to ω). Assume, at the nodes of N:
+plays any legal D-move, starting from X (so X ∈ N), up to the first closing move (π sends both shuttle
+states to ω). Assume, at the nodes of N:
 - (V1a) with White to move, the move Σ prescribes is legal; if Σ prescribes a position of G ⊞ on_D (not a ⊕), the
   move does not promote and leads to the matching position (the shuttle is legal by Lemma 2.2). With Black to move,
   every legal Black context move is an option of G, and if that option is a position, the move leads to the matching
@@ -1683,7 +1686,7 @@ plays any legal D-move, up to the first closing move (π sends both shuttle stat
 - every decisive event of G that is reached is a P-win for its beneficiary;
 - Black is not stalemated.
 
-Then White wins in P. *Proof:* N is White-certified for the sharp form of Theorem 1.14.
+Then X is a P-win for White. *Proof:* N is White-certified for the sharp form of Theorem 1.14.
 - (S1): if Σ prescribes a ⊕, White's move is a decisive event of G and is closing by the third bullet. Otherwise
   it is a D-move by (V1a), and it lowers ρ, a pass included, because Σ chooses an option of smaller rank.
 - (S2): before the first promotion every Black move is a context move or a Z-move (Definition 2.1, Lemma 2.2). A
@@ -1991,7 +1994,7 @@ and 6 colour-reversed contexts with Z_offT1 = `Kc1 Pb2 ka2 pb3 pc2` (prediction 
 
 **Proposition 3.2′ (two shuttling kings are a dud). PROVED (new, K14, 2026-10-27; revised after the K14 referee,
 2026-10-27: the D-model part was re-checked by one referee (same model family) and by two brute-force implementations,
-on short and loopy G; revised after K34, 2026-10-28: re-derived blind outside the Claude family, every step SOUND).**
+on short and loopy G; revised after K34, 2026-10-28: re-derived blind outside the Claude family, every step SOUND, the e.p. and bridge steps under their stated hypotheses).**
 
 *Two-shuttle component.* Let Z be a D-game with four distinct positions (a, b), a ∈ {z, z′}, b ∈ {w, w′}. Write ā for
 the other of z, z′ and b̄ for the other of w, w′. In chess z, z′ and w, w′ are the two shuttle squares of the White and
@@ -2937,7 +2940,7 @@ Downgraded while writing:
          tables cell by cell with its own code and its own contexts and sorties (ES, zero contexts: 7 draws, 235 Black wins, 7 White
          wins, 1 illegal; negative: 2, 753, 13 and 32 illegal), and confirmed each of the six E3 failures as a White win in P with
          `ref3`. The other 681 legal E3 cases are as K18 reported (COMPUTED-1: the referee did not re-run them, `ref3` needs more
-         than a minute of CPU per sortie there). The smallest counterexample, CHECKED-2: Y = `Ka1 Pa2 kc1 pa3`, m = Ka1–h1
+         than a minute of CPU per sortie there). A small counterexample (no minimality search was run), CHECKED-2: Y = `Ka1 Pa2 kc1 pa3`, m = Ka1–h1
          (plain-only, T = 4), context G = `Pe2 Pg2 pf4` (frozen value zero). `Ka1 kc6 Pe2 Pg2 pf4 w -` is a Black win and `… b -` a
          White win in `--frozen`, but `Kh1 Pa2 kc1 pa3 Pe2 Pg2 pf4 b -` is a White win in P (exact; all six Black moves lose), and
          `Ka1 Pa2 kc1 pa3 Pe2 Pg2 pf4 w -` is a White win in P, so beside this zero the group is not 0 (K7's `kpp` and the independent
@@ -2948,8 +2951,8 @@ Downgraded while writing:
          and did not re-run it): for 29 non-punished sorties of ES the lower bound B is D or W in 20, so Black cannot win chess
          either (this includes the two examples above); in 3 Black wins chess exactly (P and chess differ); 6 are undecided (bounds
          W or D against L). The 12 controls (punished in P): 11 Black wins in chess exactly, 1 undecided. None of the 35 failures of ES and E3 has a
-         promotion-free context (the referee checked ES; in E3 each failing context holds a pawn that can walk to promotion, and
-         the promotion-free contexts of E3 were all punished); the context sets of the 7 failures of ES7 were not checked for
+         promotion-free context (the referee checked ES; in E3 each failing context holds a pawn that can walk to promotion, K18's check only,
+         COMPUTED-1, and the promotion-free contexts of E3 were all punished); the context sets of the 7 failures of ES7 were not checked for
          this. In the 35 failures checked for it (the 29 of ES and the 6 of E3; the 7 of ES7 were not checked) the sortie
          king stands within 2 steps of a context pawn after m, while T ≥ 4.
          **A measured fact about the 29 ES failures (COMPUTED-1: one check, by the K18 referee, `kings/delegate/out/K18/VERIFY.md`; no second
@@ -2976,14 +2979,16 @@ Downgraded while writing:
        A context can be a second-player win for the punisher in the frozen convention and a plain-only sortie still wins: 42
        failures in 2,305 legal cases, the smallest above; in chess too for 20 of the 29 cases of ES, where Black cannot win
        (COMPUTED-1). The counterexamples refute the conjecture as worded; they do not refute Theorem 2.7, which needs (L2) and (L3)
-       and which the wording of the question does not assume (in the 29 ES failures (L2) fails: measured fact above). (b) **It held in every test in which the context contains no pawn race
-       or capture sequence that promotes** (promotion-free contexts, as defined above): 0 failures in the 292 cases in which s has no
+       and which the wording of the question does not assume (in the 29 ES failures (L2) fails: measured fact above). (b) **It held in every promotion-free test that was run** (contexts with no pawn race or capture sequence that
+       promotes, as defined above): 0 failures in the 292 cases in which s has no
        more spare moves than s̄ (CONJECTURE; 123 of the 292 cases CHECKED-2). The exact boundary: the 292 cases are the 5 promotion-free zero
        contexts of the 4160 against the 25 + 6 sorties (153 legal cases) and the reservoir contexts (139 cases with Δ ≤ 0). In all 292 s has no more spare moves than s̄: the shared-gap contexts have
        value 0, and the reservoir ones have Δ ≤ 0; the Δ > 0 cases are not among the 292. The family
        has no promotion-free negative or positive context, so nothing is tested for those; the sorties are plain-only king sorties of
-       the groups above. The 35 failures of ES and E3 have a context in which some sequence of pawn moves promotes (the 7 of ES7 were
-       not checked); the converse is not claimed (many contexts that are not promotion-free are punished). The only evidence
+       the groups above. The 35 failures of ES and E3 have a context in which some sequence of pawn moves promotes (CHECKED-2 for the 29 of ES;
+       COMPUTED-1 for the 6 of E3; the 7 of ES7 were not checked, so one of them could still be promotion-free). For the 139 reservoir
+       cases no promotion test was run: they count as promotion-free because their blocked modules have no pawn move that can reach
+       the last rank, which was read off the module, not computed (revised after the K18 post-commit check, 2026-10-28); the converse is not claimed (many contexts that are not promotion-free are punished). The only evidence
        about the sortie king is that in the 35 failures checked it stood within 2 steps of a context pawn after m. (c) With the
        hypotheses of Proposition 8.1 it is a theorem, but those hypotheses are very restrictive: in none of the tested cases does it
        hold. (P3) (called P4 in `scripts/p4_check.py`) fails in all 1,827 matched sortie–context pairs on `cyl:8×6` (ES 1,017, EP
@@ -3200,8 +3205,10 @@ Downgraded while writing:
 
 ## Appendix A. The scratch computations
 
-These are throwaway Python scripts in the session scratchpad. They are not in the project and were run once.
-Re-implement them before relying on any number.
+The scratch computations in the first bullets (geometry, group search and the others written before K19) are throwaway
+Python scripts in the session scratchpad. They are not in the project and were run once; re-implement them before relying on
+any number. The later bullets (K19 and after) are different: their scripts and logs are in `kings/delegate/out/<item>/`, and
+each was re-checked by its referee as stated there (revised 2026-10-28).
 
 - **Geometry.**
   - Legal king and pawn moves on a W×H board, flat or cylinder, following `kings/SPEC.md` without en passant
