@@ -1,0 +1,82 @@
+{
+ "search_roots": {
+  "c8x6_f3_22": {
+   "roots": 88758,
+   "root_cand_any_P": 17117,
+   "root_cand_any_Q": 15422,
+   "root_cand_noesc_P": 2505,
+   "root_cand_noesc_Q": 1870
+  },
+  "c7x6_f3_22": {
+   "roots": 88758,
+   "root_cand_any_P": 17055,
+   "root_cand_any_Q": 15370,
+   "root_cand_noesc_P": 2505,
+   "root_cand_noesc_Q": 1870
+  },
+  "c8x6_f4_22": {
+   "roots": 419414,
+   "root_cand_any_P": 90506,
+   "root_cand_any_Q": 98242,
+   "root_cand_noesc_P": 13728,
+   "root_cand_noesc_Q": 13204
+  },
+  "c7x6_f4_22": {
+   "roots": 419414,
+   "root_cand_any_P": 90052,
+   "root_cand_any_Q": 97820,
+   "root_cand_noesc_P": 13720,
+   "root_cand_noesc_Q": 13196
+  },
+  "c8x6_f3_32": {
+   "roots": 194791,
+   "root_cand_any_P": 23696,
+   "root_cand_any_Q": 21547,
+   "root_cand_noesc_P": 2773,
+   "root_cand_noesc_Q": 2138
+  },
+  "c7x6_f3_32": {
+   "roots": 194791,
+   "root_cand_any_P": 23588,
+   "root_cand_any_Q": 21445,
+   "root_cand_noesc_P": 2771,
+   "root_cand_noesc_Q": 2138
+  },
+  "flat6x6_f3_22": {
+   "roots": 88758,
+   "root_cand_any_P": 11850,
+   "root_cand_any_Q": 11801,
+   "root_cand_noesc_P": 1829,
+   "root_cand_noesc_Q": 1695
+  }
+ },
+ "search_distinct": "logs/search_c7x6_f3_22.out Q distinct(any)= 7708 distinct(noesc)= 941\nlogs/search_c7x6_f3_22.out P distinct(any)= 8549 distinct(noesc)= 1257\nlogs/search_c8x6_f4_22.out Q distinct(any)= 49121 distinct(noesc)= 6602\nlogs/search_c8x6_f4_22.out P distinct(any)= 45253 distinct(noesc)= 6864\nlogs/search_c7x6_f4_22.out Q distinct(any)= 48910 distinct(noesc)= 6598\nlogs/search_c7x6_f4_22.out P distinct(any)= 45026 distinct(noesc)= 6860\nlogs/search_c8x6_f3_32.out Q distinct(any)= 10801 distinct(noesc)= 1075\nlogs/search_c8x6_f3_32.out P distinct(any)= 11875 distinct(noesc)= 1391\nlogs/search_c7x6_f3_32.out Q distinct(any)= 10750 distinct(noesc)= 1075\nlogs/search_c7x6_f3_32.out P distinct(any)= 11821 distinct(noesc)= 1390\nlogs/search_flat6x6_f3_22.out Q distinct(any)= 7247 distinct(noesc)= 960\nlogs/search_flat6x6_f3_22.out P distinct(any)= 7364 distinct(noesc)= 1056\nlogs/search_c8x6_f3_22.out P distinct(any)= 8580 distinct(noesc)= 1257\n",
+ "bare_crosscheck": "[(('PLAIN-ONLY', 'L'), 1864), (('both', 'L'), 2726), (('pass-only', 'D'), 1), (('pass-only', 'L'), 2)]\nbad 0 []\n",
+ "lg_vs_lg2_random": "logs/rand_8x6_a.lg compared 80 with ep right: 20 with some finite value: 26\nlogs/rand_7x6_a.lg compared 60 with ep right: 20 with some finite value: 16\ntotal 140 mismatches 0\n",
+ "k_classes": {
+  "finite for every k<=6": 953,
+  "k*=0": 327,
+  "other finite pattern": 77,
+  "even k only": 15
+ },
+ "n_plain_only_king_sorties": 1372,
+ "verdict": {
+  "OQ1": "unrestricted tempo matching FALSE in P (explicit counterexamples, COMPUTED-1; chess: Black cannot win in 20 of 29 ES cases); promotion-free matched contexts: 292/292 punished (CONJECTURE); Proposition 8.1 PROVED under (P1)-(P3) but its king-clearance hypothesis holds in none of the tested cases",
+  "counterexample": "Y=Ka1 Pa2 kc1 pa3, m=Ka1-h1, G=Pe2 Pg2 pf4: echo 'Kh1 Pa2 kc1 pa3 Pe2 Pg2 pf4 b -' | kpp --board cyl:8x6 --ep on --pmodel --promote Q --cap 0  -> W W; frozen G alone zero",
+  "race_capture_matched_contexts": {
+   "punished": 2233,
+   "not_punished": 42
+  },
+  "promotion_free_matched": {
+   "punished": 292,
+   "not_punished": 0
+  },
+  "not_finished": [
+   "E3 6 of 12 sorties",
+   "E1 31 of 32 sorties",
+   "chess run on E3 zero contexts (logs/C_out.txt)",
+   "lg2k budget cross-check (1 of 60)"
+  ],
+  "note": "background jobs C_run.sh and kx.sh could not be killed (permission denied) and may still write logs/C_out.txt, logs/k_xcheck_out.txt"
+ }
+}

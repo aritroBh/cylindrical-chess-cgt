@@ -1,0 +1,41 @@
+('illegal', -1) 5
+('illegal', -2) 5
+('illegal', 0) 6
+('illegal', 1) 1
+('illegal', 2) 1
+(-1, 'pred punished', 'punished') 57
+(-2, 'pred punished', 'punished') 26
+(0, 'pred punished', 'punished') 56
+(1, 'pred not punished', 'NOT punished (D)') 2
+(1, 'pred not punished', 'NOT punished (W)') 2
+(1, 'pred not punished', 'punished') 11
+(1, 'pred punished', 'punished') 46
+(2, 'pred not punished', 'NOT punished (D)') 2
+(2, 'pred not punished', 'NOT punished (W)') 1
+(2, 'pred not punished', 'punished') 13
+(2, 'pred punished', 'punished') 14
+mismatches with the refined prediction: 24
+   1 Ka3 Pb3 kc3 pa5 pc5 w - Ka3-a2 T 7 ctx W1(e) delta 1 A L kvecP [7, None, None, None]
+   1 Ka3 Pb3 kc3 pa5 pc5 w - Ka3-a2 T 7 ctx W1(g) delta 1 A L kvecP [7, None, None, None]
+   1 Ka3 Pb3 kc3 pa5 pc5 w - Ka3-a2 T 7 ctx W1(e)+W1(g) delta 2 A L kvecP [7, None, None, None]
+   2 Kc2 Pa2 Pb4 ka1 pa4 pb5 w - Kc2-c1 T 9 ctx W1(e) delta 1 A L kvecP [7, None, None, None]
+   2 Kc2 Pa2 Pb4 ka1 pa4 pb5 w - Kc2-c1 T 9 ctx W1(g) delta 1 A L kvecP [7, None, None, None]
+   2 Kc2 Pa2 Pb4 ka1 pa4 pb5 w - Kc2-c1 T 9 ctx W1(e)+W1(g) delta 2 A L kvecP [7, None, None, None]
+   4 Kc1 Pc2 Pa4 ka1 pa5 pc5 w - Kc1-d1 T 6 ctx W1(e) delta 1 A L kvecP [6, None, None, None]
+   4 Kc1 Pc2 Pa4 ka1 pa5 pc5 w - Kc1-d1 T 6 ctx W1(g) delta 1 A L kvecP [6, None, None, None]
+   4 Kc1 Pc2 Pa4 ka1 pa5 pc5 w - Kc1-d1 T 6 ctx W1(e)+W1(g) delta 2 A L kvecP [6, None, None, None]
+   5 Kc3 Pa2 ka3 pa4 pa5 w - Kc3-d3 T 6 ctx W1(e) delta 1 A L kvecP [5, None, None, None]
+   5 Kc3 Pa2 ka3 pa4 pa5 w - Kc3-d3 T 6 ctx W1(g) delta 1 A L kvecP [5, None, None, None]
+   5 Kc3 Pa2 ka3 pa4 pa5 w - Kc3-d3 T 6 ctx W1(e)+W1(g) delta 2 A L kvecP [5, None, None, None]
+   7 Kc4 Pa3 kc2 pa4 pa5 w - Kc4-d4 T 8 ctx W1(g) delta 1 A L kvecP [7, None, None, None]
+   9 Kc1 Pa2 ka1 pa4 pa5 w - Kc1-c2 T 5 ctx W1(e)+W1(g) delta 2 A L kvecP [4, 5, None, None]
+   10 Ka3 Pc2 Pa4 kc1 pc4 pa5 w - Ka3-a2 T 5 ctx W1(e)+W1(g) delta 2 A L kvecP [4, 8, None, None]
+   11 Kc3 Pa2 ka3 pa4 pa5 w - Kc3-c2 T 5 ctx W1(e)+W1(g) delta 2 A L kvecP [4, 5, None, None]
+   12 Kc3 Pa2 Pc2 ka3 pa4 pb5 w - Kc3-d2 T 6 ctx W1(e)+W1(g) delta 2 A L kvecP [6, 7, None, None]
+   13 Kc1 Pa2 Pc2 ka1 pa4 pb5 w - Kc1-d1 T 6 ctx W1(e)+W1(g) delta 2 A L kvecP [6, 7, None, None]
+   14 Kc1 Pc2 Pa3 ka1 pa4 pb5 w - Kc1-d2 T 8 ctx W1(e)+W1(g) delta 2 A L kvecP [8, 9, None, None]
+   15 Kc1 Pa3 Pc3 ka1 pa4 pb5 w - Kc1-d1 T 8 ctx W1(e)+W1(g) delta 2 A L kvecP [8, 9, None, None]
+   22 Kc1 Pa2 kc4 pb3 pb4 w - Kc1-b1 T 5 ctx W1(e)+W1(g) delta 2 A L kvecP [5, 6, None, 7]
+   23 Kb1 Pa2 kc4 pb3 pb4 w - Kb1-b2 T 6 ctx W1(e)+W1(g) delta 2 A L kvecP [6, 6, None, 8]
+   26 Kc1 Pb2 kb3 pa4 pb4 w - Kc1-b1 T 4 ctx W1(e) delta 1 A L kvecP [3, None, 5, None]
+   26 Kc1 Pb2 kb3 pa4 pb4 w - Kc1-b1 T 4 ctx W1(g) delta 1 A L kvecP [3, None, 5, None]

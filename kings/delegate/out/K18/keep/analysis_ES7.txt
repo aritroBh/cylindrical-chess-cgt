@@ -1,0 +1,41 @@
+A = Y.m + G, Black to move; L = Black wins (the sortie is punished); X = sortie illegal in presence of G
+  zero {'D': 1, 'L': 318, 'W': 2, 'X': 4}
+  neg {'D': 2, 'L': 276, 'W': 2, 'X': 20}
+  pos {'L': 12, 'W': 285, 'X': 3}
+  fuzzy {'D': 1, 'L': 526, 'W': 13, 'X': 10}
+second-player-win contexts (zero, neg) in which the sortie is NOT punished: 7 of 601
+   sortie 0 Ka1 Pa2 kc1 pa3 w - Ka1-g1 T 4 ctx W ['e3'] B ['f3'] neg -> W dB 2 dX 1 promfree False
+   sortie 9 Ka1 Pb3 ka3 pa5 w - Ka1-g1 T 5 ctx W ['e3'] B ['f3'] neg -> D dB 2 dX 1 promfree False
+   sortie 11 Kc1 Pb3 kc3 pa5 w - Kc1-d1 T 5 ctx W ['f3'] B ['e3'] neg -> D dB 2 dX 1 promfree False
+   sortie 18 Ka2 Pb3 kc1 pb4 w - Ka2-g3 T 7 ctx W ['e3'] B ['f3'] neg -> W dB 1 dX 1 promfree False
+   sortie 18 Ka2 Pb3 kc1 pb4 w - Ka2-g3 T 7 ctx W ['e3'] B ['f5'] zero -> W dB 2 dX 1 promfree False
+   sortie 18 Ka2 Pb3 kc1 pb4 w - Ka2-g3 T 7 ctx W ['f2'] B ['e4'] zero -> D dB 2 dX 1 promfree False
+   sortie 18 Ka2 Pb3 kc1 pb4 w - Ka2-g3 T 7 ctx W ['e3', 'f2'] B ['f3', 'f5'] zero -> W dB 1 dX 1 promfree False
+pos contexts: 297 punished anyway: 12
+fuzzy contexts: 540 punished anyway: 526
+per sortie, pos/fuzzy contexts punished vs not:
+   0 6 [4, 5, 6, 7] {'L': 18, 'notL': 14}
+   1 6 [4, 5, 6, 7] {'L': 18, 'notL': 14}
+   2 6 [6, 6, 7, 8] {'L': 22, 'notL': 12}
+   3 6 [5, 5, 6, 7] {'L': 22, 'notL': 12}
+   4 6 [4, 6, 5, 8] {'L': 22, 'notL': 12}
+   5 6 [5, 5, 6, 7] {'L': 22, 'notL': 12}
+   6 0 [7, None, None, None] {'L': 21, 'notL': 13}
+   7 6 [4, 5, 6, 7] {'L': 22, 'notL': 12}
+   8 6 [5, 5, 6, 7] {'L': 23, 'notL': 11}
+   9 6 [5, 5, 6, 7] {'L': 20, 'notL': 12}
+   10 6 [5, 5, 6, 7] {'L': 23, 'notL': 11}
+   11 6 [4, 5, 6, 7] {'L': 20, 'notL': 12}
+   12 5 [4, 5, None, 6] {'L': 23, 'notL': 11}
+   13 0 [6, None, None, None] {'L': 22, 'notL': 12}
+   14 0 [6, None, None, None] {'L': 22, 'notL': 12}
+   15 5 [4, 5, None, 6] {'L': 23, 'notL': 11}
+   16 0 [6, None, None, None] {'L': 23, 'notL': 11}
+   17 0 [7, None, None, None] {'L': 22, 'notL': 12}
+   18 0 [6, None, None, None] {'notL': 16, 'L': 13}
+   19 6 [5, None, 6, None] {'L': 22, 'notL': 12}
+   20 6 [5, None, 6, None] {'L': 23, 'notL': 11}
+   21 5 [4, 5, None, 6] {'L': 23, 'notL': 11}
+   22 6 [5, None, 6, None] {'L': 23, 'notL': 11}
+   23 6 [5, None, 6, None] {'L': 23, 'notL': 11}
+   24 0 [6, None, None, None] {'L': 23, 'notL': 11}

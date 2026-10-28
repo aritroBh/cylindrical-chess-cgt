@@ -385,6 +385,10 @@ Every deliverable was given to independent referees (Claude models) told to brea
     In the structured class of Definition 2.1, (V1a) can fail only by such a check or by the e.p. clause (E)
     (Proposition 1.15, PROVED). For (E) a bounded search found no isolated counterexample, so "(E) is needed" stays a
     CONJECTURE.
+  - K18 (2026-10-27) tested tempo matching (§8 open question 1) in P. As worded it is FALSE: 42 of 2,305 legal cases
+    fail (CHECKED-2 for the ES and ES7 cases), the smallest `Ka1 Pa2 kc1 pa3` with the sortie Ka1–h1 and context
+    `Pe2 Pg2 pf4`. It held in all 292 promotion-free cases (a CONJECTURE beyond them). Proposition 8.1 (tempo pairing)
+    is PROVED after repair: the first referee found an e.p. gap, the fix added (P1e), and a second referee re-derived it.
   - K24 (2026-10-27) added Lemma 2.7a (PROVED): a draw in both promotion models EPW and EPB is a chess draw. It
     settles the chess w-entries of P5 and P7 as draws without relying on kpsolve, and four P solvers agree on P5–P7.
   - K16 (2026-10-27): the real-king square rule of Remark 2.11 is FALSE as stated, because ω can be stalemated

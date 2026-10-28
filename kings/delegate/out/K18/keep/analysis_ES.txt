@@ -1,0 +1,63 @@
+A = Y.m + G, Black to move; L = Black wins (the sortie is punished); X = sortie illegal in presence of G
+  zero {'D': 7, 'L': 235, 'W': 7, 'X': 1}
+  neg {'D': 2, 'L': 753, 'W': 13, 'X': 32}
+  pos {'L': 36, 'W': 759, 'X': 5}
+  fuzzy {'D': 3, 'L': 1192, 'W': 64, 'X': 16}
+second-player-win contexts (zero, neg) in which the sortie is NOT punished: 29 of 1017
+   sortie 0 Ka1 Pa2 kc1 pa3 w - Ka1-h1 T 4 ctx W ['e2'] B ['g3'] neg -> W dB 2 dX 1 promfree False
+   sortie 0 Ka1 Pa2 kc1 pa3 w - Ka1-h1 T 4 ctx W ['e3'] B ['g3'] neg -> W dB 2 dX 1 promfree False
+   sortie 0 Ka1 Pa2 kc1 pa3 w - Ka1-h1 T 4 ctx W ['f3'] B ['g3'] neg -> W dB 2 dX 1 promfree False
+   sortie 0 Ka1 Pa2 kc1 pa3 w - Ka1-h1 T 4 ctx W ['e2', 'g2'] B ['f4'] zero -> W dB 3 dX 1 promfree False
+   sortie 1 Ka1 Pa2 kc2 pa3 w - Ka1-h1 T 4 ctx W ['e2'] B ['g3'] neg -> W dB 2 dX 1 promfree False
+   sortie 1 Ka1 Pa2 kc2 pa3 w - Ka1-h1 T 4 ctx W ['e3'] B ['g3'] neg -> W dB 2 dX 1 promfree False
+   sortie 1 Ka1 Pa2 kc2 pa3 w - Ka1-h1 T 4 ctx W ['f3'] B ['g3'] neg -> W dB 2 dX 1 promfree False
+   sortie 1 Ka1 Pa2 kc2 pa3 w - Ka1-h1 T 4 ctx W ['e2', 'g2'] B ['f4'] zero -> W dB 3 dX 1 promfree False
+   sortie 6 Ka1 Pb2 kc1 pb4 w - Ka1-a2 T 7 ctx W ['e2', 'g2'] B ['f4'] zero -> W dB 3 dX 2 promfree False
+   sortie 7 Ka2 Pb2 kc2 pb4 w - Ka2-a1 T 4 ctx W ['e2', 'g2'] B ['f4'] zero -> D dB 3 dX 2 promfree False
+   sortie 9 Ka1 Pb3 ka3 pa5 w - Ka1-h1 T 5 ctx W ['e2'] B ['g3'] neg -> W dB 2 dX 1 promfree False
+   sortie 9 Ka1 Pb3 ka3 pa5 w - Ka1-h1 T 5 ctx W ['e3'] B ['g3'] neg -> W dB 2 dX 1 promfree False
+   sortie 9 Ka1 Pb3 ka3 pa5 w - Ka1-h1 T 5 ctx W ['f3'] B ['g3'] neg -> D dB 2 dX 1 promfree False
+   sortie 9 Ka1 Pb3 ka3 pa5 w - Ka1-h1 T 5 ctx W ['e2', 'g2'] B ['f4'] zero -> W dB 3 dX 1 promfree False
+   sortie 11 Kc1 Pb3 kc3 pa5 w - Kc1-d1 T 5 ctx W ['f3'] B ['e3'] neg -> D dB 2 dX 1 promfree False
+   sortie 11 Kc1 Pb3 kc3 pa5 w - Kc1-d1 T 5 ctx W ['g2'] B ['e3'] neg -> W dB 2 dX 1 promfree False
+   sortie 11 Kc1 Pb3 kc3 pa5 w - Kc1-d1 T 5 ctx W ['g3'] B ['e3'] neg -> W dB 2 dX 1 promfree False
+   sortie 11 Kc1 Pb3 kc3 pa5 w - Kc1-d1 T 5 ctx W ['e2', 'g2'] B ['f4'] zero -> W dB 3 dX 1 promfree False
+   sortie 13 Ka1 Pb3 kc1 pb4 w - Ka1-a2 T 6 ctx W ['e2', 'g2'] B ['f4'] zero -> D dB 3 dX 2 promfree False
+   sortie 14 Ka1 Pb3 kc2 pb4 w - Ka1-a2 T 6 ctx W ['e2', 'g2'] B ['f4'] zero -> D dB 3 dX 2 promfree False
+   sortie 16 Ka1 Pb3 kc3 pb4 w - Ka1-a2 T 6 ctx W ['e2', 'g2'] B ['f4'] zero -> D dB 3 dX 2 promfree False
+   sortie 17 Ka2 Pb3 kc1 pb4 w - Ka2-a1 T 7 ctx W ['e2', 'g2'] B ['f4'] zero -> D dB 3 dX 2 promfree False
+   sortie 18 Ka2 Pb3 kc1 pb4 w - Ka2-h3 T 7 ctx W ['e2'] B ['g3'] neg -> W dB 1 dX 1 promfree False
+   sortie 18 Ka2 Pb3 kc1 pb4 w - Ka2-h3 T 7 ctx W ['e3'] B ['g3'] neg -> W dB 1 dX 1 promfree False
+   sortie 18 Ka2 Pb3 kc1 pb4 w - Ka2-h3 T 7 ctx W ['f3'] B ['g3'] neg -> W dB 1 dX 1 promfree False
+   sortie 18 Ka2 Pb3 kc1 pb4 w - Ka2-h3 T 7 ctx W ['f3'] B ['g5'] zero -> W dB 2 dX 1 promfree False
+   sortie 18 Ka2 Pb3 kc1 pb4 w - Ka2-h3 T 7 ctx W ['g2'] B ['f4'] zero -> D dB 2 dX 1 promfree False
+   sortie 18 Ka2 Pb3 kc1 pb4 w - Ka2-h3 T 7 ctx W ['e2', 'g2'] B ['f4'] zero -> W dB 2 dX 1 promfree False
+   sortie 24 Kb1 Pb3 ka3 pb4 w - Kb1-c2 T 6 ctx W ['e2', 'g2'] B ['f4'] zero -> D dB 3 dX 2 promfree False
+pos contexts: 795 punished anyway: 36
+fuzzy contexts: 1259 punished anyway: 1192
+per sortie, pos/fuzzy contexts punished vs not:
+   0 6 [4, 5, 6, 7] {'L': 41, 'notL': 39}
+   1 6 [4, 5, 6, 7] {'L': 42, 'notL': 38}
+   2 6 [6, 6, 7, 8] {'L': 47, 'notL': 36}
+   3 6 [5, 5, 6, 7] {'L': 51, 'notL': 32}
+   4 6 [4, 6, 5, 8] {'L': 51, 'notL': 32}
+   5 6 [5, 5, 6, 7] {'L': 51, 'notL': 32}
+   6 0 [7, None, None, None] {'L': 43, 'notL': 40}
+   7 6 [4, 5, 6, 7] {'L': 49, 'notL': 34}
+   8 6 [5, 5, 6, 7] {'L': 54, 'notL': 29}
+   9 6 [5, 5, 6, 7] {'L': 45, 'notL': 35}
+   10 6 [5, 5, 6, 7] {'L': 54, 'notL': 29}
+   11 6 [4, 5, 6, 7] {'L': 45, 'notL': 35}
+   12 5 [4, 5, None, 6] {'L': 54, 'notL': 29}
+   13 0 [6, None, None, None] {'L': 47, 'notL': 36}
+   14 0 [6, None, None, None] {'L': 49, 'notL': 34}
+   15 5 [4, 5, None, 6] {'L': 54, 'notL': 29}
+   16 0 [6, None, None, None] {'L': 54, 'notL': 29}
+   17 0 [7, None, None, None] {'L': 47, 'notL': 36}
+   18 0 [6, None, None, None] {'L': 34, 'notL': 40}
+   19 6 [5, None, 6, None] {'L': 50, 'notL': 33}
+   20 6 [5, None, 6, None] {'L': 54, 'notL': 29}
+   21 5 [4, 5, None, 6] {'L': 54, 'notL': 29}
+   22 6 [5, None, 6, None] {'L': 50, 'notL': 33}
+   23 6 [5, None, 6, None] {'L': 54, 'notL': 29}
+   24 0 [6, None, None, None] {'L': 54, 'notL': 29}
