@@ -354,7 +354,9 @@ Every deliverable was given to independent referees (Claude models) told to brea
     K12 (2026-10-27) swept the root clause: 716,962 roots with a passer on cyl:6×6, 7×6 and 8×6, with 0 certified
     violations. 20,376 of them are uncertified roots where the credit is wrong, and the clause is what excludes them.
     The integrator re-ran 6×6 without e.p. rights with separate code and the K10r2 hypothesis checker: the same
-    76,744 roots and 0 certified disagreements (CHECKED-2 there; `kings/delegate/out/K12/REVIEW.md`).
+    76,744 roots and 0 certified disagreements (CHECKED-2 there; `kings/delegate/out/K12/REVIEW.md`). The same recheck
+    on 7×6 (515,780 roots) and 8×6 (68,036) also finds 0 certified disagreements; only the 56,402 roots with an e.p.
+    right rest on K12 alone.
   - K19 (2026-10-27) re-computed the §5 scratch claims with new code (local game, μ, a P solver); a Sonnet referee
     used its own code again. §5.1 (L1) and (L3), §5.2, §5.5, §5.6, P5–P7 are now CHECKED-2. Two corrections: Black's
     move list in §5.1 had Kb5 for Kb3, and Kd4/Kd5 in §5.5 lose against every finite budget checked (T = 6 + k) but

@@ -1,0 +1,45 @@
+{
+ "board": "7x6",
+ "maxp": 3,
+ "roots": 515780,
+ "classes": {
+  "race/cert/agree": 382932,
+  "race/uncert/agree": 204,
+  "race/uncert/disagree": 1636,
+  "single/cert/agree": 113916,
+  "single/uncert/agree": 4072,
+  "single/uncert/disagree": 13020
+ },
+ "examples": {
+  "single/cert/agree": [
+   "Ka1 ka6 pc2 w - -> LL",
+   "Ka1 ka6 pc2 b - -> LL",
+   "Ka1 ka6 pc3 w - -> LL"
+  ],
+  "race/cert/agree": [
+   "Ka1 ka6 Pc2 pd2 w - -> LL",
+   "Ka1 ka6 Pc2 pd2 b - -> LL",
+   "Ka1 ka6 Pc2 pe2 w - -> LL"
+  ],
+  "single/uncert/agree": [
+   "Ka1 ka6 Pc2 pd3 pe4 w - -> LL",
+   "Ka1 ka6 Pc2 pd3 pe5 b - -> LL",
+   "Ka1 ka6 Pc2 pd3 pf4 w - -> LL"
+  ],
+  "single/uncert/disagree": [
+   "Ka1 ka6 Pc2 pd3 pe5 w - -> WW",
+   "Ka1 ka6 Pc2 pc5 pd3 pe5 w - -> WW",
+   "Ka1 ka6 Pc2 pd3 pd4 pe5 w - -> WW"
+  ],
+  "race/uncert/disagree": [
+   "Ka1 ka6 Pc2 Pc3 pd3 pe4 w - -> LL",
+   "Ka1 ka6 Pc2 Pc3 pd3 pf4 w - -> LL",
+   "Ka1 ka6 Pc2 Pc3 pd3 pf5 w - -> LL"
+  ],
+  "race/uncert/agree": [
+   "Ka1 ka6 Pc2 Pc3 pd3 pe5 w - -> WW",
+   "Ka1 ka6 Pc2 Pc3 pd3 pe5 b - -> LL",
+   "Ka1 ka6 Pc2 Pd2 pe3 pf5 w - -> WW"
+  ]
+ }
+}

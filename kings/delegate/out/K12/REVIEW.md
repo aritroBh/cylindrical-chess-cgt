@@ -57,5 +57,17 @@ Script: `integrator_v.py` (run as `v.py W H maxp`). It shares no code with K12's
 | uncertified, disagree | 1,746 | 376 | 2,122 |
 | roots | 13,100 | 54,936 | 68,036 |
 
-- Not rechecked: 7x6 (562,676 roots). At the current machine load the 6x6 run took 85 minutes for 76,744 roots, so a
-  7x6 run would take many hours.
+- 7x6, ≤ 3 a side, no e.p. right: **CHECKED-2** (2026-10-28). `integrator_v2.py 7 6 3 20000`, the same check run in 26
+  chunks of 20,000 roots through `heavy.sh`, so the slot was released between chunks (22:40–about 01:00, at load ~270).
+  It gives 515,780 roots, the same number as K12's `gen.process_board(7,6,3)` restricted to `ep is None` (its other
+  46,896 roots carry an e.p. right). Output: `logs/v2_7x6_3.json`.
+
+| 7x6, no e.p. | single | race | total |
+|---|---|---|---|
+| certified, agree | 113,916 | 382,932 | 496,848 |
+| certified, **disagree** | **0** | **0** | **0** |
+| uncertified, agree | 4,072 | 204 | 4,276 |
+| uncertified, disagree | 13,020 | 1,636 | 14,656 |
+| roots | 131,008 | 384,772 | 515,780 |
+
+- Still COMPUTED-1: the 56,402 roots with an e.p. right (5,630 + 46,896 + 3,876 on 6x6, 7x6, 8x6).
