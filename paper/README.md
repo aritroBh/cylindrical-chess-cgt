@@ -1,20 +1,26 @@
 # Paper
 
-**Overleaf:**
-1. Zip this folder (`main.tex`, `refs.bib`, `sections/`).
-2. Upload it with New Project → Upload Project.
-3. Set the compiler to pdfLaTeX.
+- `Bhattacharjee_Cylinder_Chess_IEEE.pdf`: the paper (IEEE format, 15 pages).
+- `Bhattacharjee_Cylinder_Chess_IEEE_review_anonymous.pdf`: the anonymous version for double-blind review (14 pages).
+- `ieee/`: the LaTeX source (`main.tex`, `main_review.tex`, `sections/`, `refs.bib`, `figures/`).
+- `SUBMISSION.md`, `VENUES.md`: where and how to submit.
+- `part1_2025.tex` and `../prior_work/`: the June 2025 study this paper extends.
 
-On Overleaf the diagrams come from the `xskak` / `chessboard` packages. Elsewhere, if those packages are missing,
-a placeholder box is drawn instead.
+Build both PDFs from `ieee/`:
 
-**Local build:**
-```
+```bash
 tectonic -X compile main.tex
 ```
 
-**Before submission:**
-- Check every `refs.bib` entry marked VERIFY.
-- Fill in the acknowledgements.
-- Update §6.1 once the eight decisive end positions of the 1/8 position are resolved
-  (`realchess/targets18/`).
+```bash
+tectonic -X compile main_review.tex
+```
+
+Build and check the arXiv package from the repository root (writes `dist/arxiv/cylinder-chess-arxiv.zip`):
+
+```bash
+sh dist/arxiv/build.sh
+```
+
+All 19 references were checked against Crossref, OpenAlex, arXiv and the publishers' pages on 2026-10-27
+(`../delegate/out/citation_check/REPORT.md`).
