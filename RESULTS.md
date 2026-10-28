@@ -372,15 +372,18 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   |---|---|---|---|---|---|
   | P_n = W5 B7 W4 W4B7 B6 W3B6 (W2 B4)^k | \*2 | even n >= 8 | 813 nodes | PROOF.md | Codex T53, SOUND |
   | Q_n = W4 B7 (B4 W2)^k W3B6 W3 W2B5 B5 W2 B4 | \*3 | even n >= 8 | 7,968 nodes | PROOF_Q.md | Codex T62, SOUND |
-  | R_n = W5 B7 (W2 B4)^k W2 W3B6 W3 W2B5 B5 W2 B4 | \*2 | odd n >= 11 | 429 nodes | PROOF_odd.md | see below |
-  | Qo_n = W4 B7 (W2 B4)^k W2 W3B6 W3 W2B5 B5 W2 B4 | \*3 | odd n >= 11 | 1,287 nodes | PROOF_odd.md | see below |
+  | R_n = W5 B7 (W2 B4)^k W2 W3B6 W3 W2B5 B5 W2 B4 | \*2 | odd n >= 11 | 429 nodes | PROOF_odd.md | Codex T63, SOUND |
+  | Qo_n = W4 B7 (W2 B4)^k W2 W3B6 W3 W2B5 B5 W2 B4 | \*3 | odd n >= 11 | 1,287 nodes | PROOF_odd.md | Codex T63, SOUND |
 
   - PROOF_odd.md uses c = 6 and n0 = 19. A Sonnet workflow accepted it with fixes, with C1 on six programs and C2 on
     five. The Codex referee T63 is queued.
   - Both odd families fail at n = 9, so the C9 minimum (11 pawns?) is open: T54b on Codex and a C9 enumerator
     workflow.
-  - As sums of components, P_10 is \*2 and Q_10 is \*3 (cylcgt). R_11 and Qo_11 as sums are running
+  - As sums of components, P_10 is \*2, Q_10 is \*3 and R_11 is \*2 (cylcgt). Qo_11 as a sum is running
     (`research/sum_model_rings/`).
+  - The Codex referee T63 found PROOF_odd.md SOUND (`research/ring_n_plus_2_check/odd/REPORT.md`).
+  - **C9 with 10 = n+1 pawns: 7 rings with signature \*2 in split 5+5 (COMPUTED-1, `research/c9_rings/`),** being
+    verified.
 - **No \*4.** None among T56's 14,090 candidates (329 are \*3, 178 \*2), nor among 1,280 C10 wall rings.
   - The ★4 hunt workflow (`research/star4_rings/{core_wall,grow,two_core}/REPORT.md`) found no ★4 and nothing above
     ★3 in about 23.6M rings. Those are 23.2M core-in-wall rings, 128,791 grown from known ★3 rings (4,723 new ★3)

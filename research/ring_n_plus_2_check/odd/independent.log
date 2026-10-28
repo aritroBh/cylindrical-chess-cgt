@@ -1,0 +1,36 @@
+nice: setpriority: Operation not permitted
+Engine: standard-library whole-board minimax; custom moves, EP-aware passers, count race.
+EP-on-heap modes: expire (immediate-turn rule) and keep (sum convention).
+n | R expire | R keep | Qo expire | Qo keep | states expire R/Qo
+R n=9: LLLLL/LLLLL states=39733/39733 seconds=0.38
+Qo n=9: LLLLL/LLLLL states=42442/42442 seconds=0.70
+  row R=LLLLL Qo=LLLLL
+R n=11: NNPNN/NNPNN states=49091/49091 seconds=0.92
+Qo n=11: NNNPN/NNNPN states=103491/103491 seconds=2.31
+  row R=NNPNN Qo=NNNPN
+R n=13: NNPNN/NNPNN states=85413/85413 seconds=2.32
+Qo n=13: NNNPN/NNNPN states=181909/181909 seconds=4.61
+  row R=NNPNN Qo=NNNPN
+R n=15: NNPNN/NNPNN states=147930/147930 seconds=5.05
+Qo n=15: NNNPN/NNNPN states=316604/316604 seconds=11.61
+  row R=NNPNN Qo=NNNPN
+R n=17: NNPNN/NNPNN states=242656/242656 seconds=8.93
+Qo n=17: NNNPN/NNNPN states=520451/520451 seconds=21.29
+  row R=NNPNN Qo=NNNPN
+R n=19: NNPNN/NNPNN states=375459/375459 seconds=16.63
+Qo n=19: NNNPN/NNNPN states=805978/805978 seconds=33.82
+  row R=NNPNN Qo=NNNPN
+R n=21: NNPNN/NNPNN states=552207/552207 seconds=25.28
+Qo n=21: NNNPN/NNNPN states=1185713/1185713 seconds=60.49
+  row R=NNPNN Qo=NNNPN
+R n=23: NNPNN/NNPNN states=778768/778768 seconds=44.64
+Qo n=23: NNNPN/NNNPN states=1672184/1672184 seconds=103.55
+  row R=NNPNN Qo=NNNPN
+R reduced n=19: {'nodes': 429, 'K': 805, 'T': 653, 'T_node_side_pairs': 277, 'zone': [12, 13, 14, 15, 16, 18]}; signature=NNPNN
+R reduced n=21: {'nodes': 429, 'K': 805, 'T': 653, 'T_node_side_pairs': 277, 'zone': [14, 15, 16, 17, 18, 20]}; ins_6 node/K/T mapping=exact
+R Lemma 2 on n=19 files 3..10: positions=3432, moves=5148, failures=0, j=3 P=429, j=10 L/P=18/840
+Qo reduced n=19: {'nodes': 1287, 'K': 2996, 'T': 1959, 'T_node_side_pairs': 831, 'zone': [0, 1, 12, 13, 14, 15, 16, 18]}; signature=NNNPN
+Qo reduced n=21: {'nodes': 1287, 'K': 2996, 'T': 1959, 'T_node_side_pairs': 831, 'zone': [0, 1, 14, 15, 16, 17, 18, 20]}; ins_6 node/K/T mapping=exact
+Qo Lemma 2 on n=19 files 3..10: positions=10296, moves=15444, failures=0, j=3 P=1287, j=10 L/P=54/2520
+control R19 with file-1 B7 lowered to B6: NNNNN (not NNPNN; states=78815)
+All independent checker assertions passed.

@@ -100,6 +100,9 @@ def main():
     print("#14 fits the literal generalized pattern as a one-file W5 wall; it is excluded only by the older W2/B4 or W3/B5-only classification.")
     expected = keys_by_width.get(4, set())
     if expected:
+        bad_sample = parse("W: a4 c3 d4 f2 h2 / B: a4 b5 d5 e4 g4", 8)
+        bad_board, bad_desc = canonical(bad_sample)
+        assert no_passer(bad_sample) and any(w & b for w, b in bad_sample)
         proc = subprocess.Popen(
             [str(ROOT / "research/odd_n_plus_2/enumerate"), "8", "4"],
             cwd=ROOT, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
@@ -116,6 +119,7 @@ def main():
         rc = proc.wait()
         assert rc == 0, (rc, err)
         assert expected <= found, (len(expected), len(expected & found))
+        assert (bad_board, bad_desc) not in found, "enumerator emitted a same-square W/B overlap"
         print(f"C enumerator C8 w=4: emitted all {len(expected)} expected canonical reference hits")
 
 

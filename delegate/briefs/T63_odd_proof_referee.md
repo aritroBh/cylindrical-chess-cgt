@@ -11,8 +11,8 @@ You refereed the even families as T53 (P_n, *2) and T62 (Q_n, *3), both SOUND. S
 New claim, written and checked so far only by Claude models (`research/ring_n_plus_2_proof/PROOF_odd.md`). In the
 whole-board game with race rule count, e.p. on, and an e.p.-capturable pawn not counted as passed:
 
-  R_n  = W5 B7 (W2 B4)^((n-11)/2) W2 W3B6 W3 W2B5 B5 W2 B4    is *2 for every odd n >= 11
-  Qo_n = W4 B7 (W2 B4)^((n-11)/2) W2 W3B6 W3 W2B5 B5 W2 B4    is *3 for every odd n >= 11
+  R_n  = W5 B7 (W2 B4)^((n-9)/2) W2 W3B6 W3 W2B5 B5 W2 B4    is *2 for every odd n >= 11
+  Qo_n = W4 B7 (W2 B4)^((n-9)/2) W2 W3B6 W3 W2B5 B5 W2 B4    is *3 for every odd n >= 11
 
 Each has n+2 pawns, and both families fail at n = 9.
 

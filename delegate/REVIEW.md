@@ -795,3 +795,27 @@ from ★3 rings, two-core rings).
 - Hits were re-checked with the unmodified rg. All results are C1.
 - Not yet in the paper; candidate sentence for §VIII: a ★4 ring would need a core worth ★4 on its own.
 - Large tables were zstd-compressed; binaries are not committed.
+
+## 2026-10-27 evening
+
+- **T63 (Codex, non-Claude referee of PROOF_odd.md).**
+  - Verdict: SOUND for the family as PROOF_odd.md defines it, with exponent (n-9)/2. Its "GAP" was a typo in the
+    brief, which said (n-11)/2; the brief is now fixed.
+  - Its independent solver gives NNPNN for R_n and NNNPN for Qo_n at odd n = 11..23, and LLLLL at n = 9. It rebuilt
+    the 429/1287-node graphs, and the c = 6 insertion and Lemma 2 checks pass. B7 -> B6 control: NNNNN.
+  - The odd families now have the same standing as the even ones (Claude proof plus Codex referee). Report:
+    `research/ring_n_plus_2_check/odd/REPORT.md`.
+- **T54b (Codex).** Incomplete: the Codex sandbox refuses `nice` ("setpriority: Operation not permitted").
+  - It found that T54's `enumerate.c` can emit W/B pawns on the same square, so T54's C9 slice count (208,633) is not
+    trusted.
+  - The new enumerator `research/c9_rings/enum_rings.c` excludes shared squares.
+  - The orchestrator's C8 validation of T54's search was stopped (4.39M rings, 0 hits; superseded).
+- **QRBN.** The all-promotions rerun of the 1/8 8-man end positions (cap 1) is identical to queen-only: W W / W W
+  for W a2 b4 b5 / B a5, and W W / W L for W b2 b5 / B a5 b4. The cap-2 QRBN side is running.
+- **Sum model.** R_11 is \*2 both whole-board and as a sum of components (cylcgt, 5,019 s and 5,460 s); Qo_11 is
+  running.
+- **C9 with 10 pawns (n+1).** The C9 enumerator workflow died at the session limit, but its jobs had finished: all
+  824 chunks, about 36M root rings. Split 5+5 has 7 rings with signature NNPN (\*2), one program so far.
+  - If confirmed, C9 needs only n+1 pawns, fewer than C8.
+  - Verification workflow `wf_d471c5ae` is running: cylcgt and Codex's solver on the hits, the 9-pawn exhaustive
+    case, the enumerator against the scanner and Burnside, and extension to C10/C11.
