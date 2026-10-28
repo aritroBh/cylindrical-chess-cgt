@@ -77,7 +77,7 @@ originally stated → …" gives the corrected statement and its label. Each cha
 | P2.10(a) | FALSE as originally stated (H = 4) → H ≥ 5: PROVED after repair, under both the textbook and the e.p.-aware passed test, for chess-legal contexts and s's context pawns. (L2) counts context pawns only, so there is no Z-pawn proviso: s's Z-pawns are covered by (L1), whatever their distance from promotion (revised after K7, 2026-10-22). T30 audit: the proof lacked a step for en passant (now added). The stronger claim that no pawn of *either* colour stands one move from promotion needs H ≥ 6 under the e.p.-aware test | R1 item 7, R3 item 1; T30 audit and recheck |
 | P2.10(b) | PROVED (the example; it needs width ≥ \|F_Z\| + 4). "The zero is context-dependent": CHECKED-2 for Z_T in P (revised after K23, 2026-10-27: Z_T acts as 0 beside {Pe3, pe4} and not beside {Pe2, pe3} on cyl:7×6, and the same for the group of §5.1 on cyl:8×8; three implementations agree; no hand proof, so not PROVED). For every frozen group with T ≥ 2 it is a CONJECTURE. P4 does not show it in P: its six rows equal the convention there | R3 item 5; K23 |
 | R2.11 | GAP → PROVED in P (frozen), as a sufficient condition (revised after K10, 2026-10-22): Proposition 2.11 and Corollary 2.11a give (V2) at a passer or race terminal under (H1)–(H5): a clear path for pawns and kings of both colours, no check, no stalemate, no interference of an ω pawn that captures a β pawn on a neighbouring file, and the timing bound for both move orders over all ω pawns. K10's first draft was FALSE (it ignored all of these); the statement and proof were rebuilt by a Sonnet agent and read step by step by the integrator. One AI proof, checked on 954,392 parked and 60,000 random-king positions with side to move against `kpsolve --frozen` (0 violations; scripts in `kings/delegate/out/K10/scripts/`). Computation CHECKED-2 by K10v (independent code, opencode beam-free): 0 violations in 146,328 certified instances (an instance is a position, side to move, β and p; 119,654 distinct positions with side to move) and 5,716 with an e.p. right; its proof verdict SOUND has no written derivation, so the proof is not re-derived by a second model (revised after K10v, 2026-10-22). Second round: two fresh Sonnet reviewers read the proof and found no error, and their own code found 0 violations in 5,730,596 certified positions with side to move (6,783,482 instances) on cylinders, plus 434,429 positions on flat boards, also 0 violations; a blind re-derivation outside the Sonnet family exists since K11b (Codex, 2026-10-27; §2, Proposition 2.11). Real kings (revised after K16, 2026-10-27): the square-rule CONJECTURE of Remark 2.11 is FALSE as stated (ω can be stalemated; counterexamples CHECKED-2: kp_p, the referee's own P solver and K16's `pyp.py` agree); a corrected rule, Theorem 2.11K (a king-restricted timing condition (H5K) and a no-stalemate condition, static (H3K) or along the pushing line (NS)), is PROVED in P (one AI proof, read step by step by the referee K16v, who found no gap; not re-derived by a second model), and its checks are CHECKED-2 on the small exhaustive sweeps and COMPUTED-1 on the large ones | R3 item 6; K10; K16 |
-| P3.2 | PROVED; chess bridge PROVED after repair (adds (V1a)). After K13 the bridge's (V1a) covers only White's strategy moves and Black's context moves, and its proof cites the sharp form of Theorem 1.14 (revised after K13, 2026-10-27) | R4 item 7; K13 |
+| P3.2 | PROVED; chess bridge PROVED after repair (adds (V1a)). After K13 the bridge's (V1a) covers only White's strategy moves and Black's context moves, and its proof cites the sharp form of Theorem 1.14; after the K13b check its terminal moves, the e.p. flag under the shuttle and the no-stalemate condition are exact (revised after K13, 2026-10-27) | R4 item 7; K13 |
 | T3.3(a) | PROVED (also KNOWN) | R4: sound |
 | T3.3(b) | FALSE as originally stated (with ∅ the dead position the pair is (W, L)) → { \| ⊖} ⊞ on_D is (L, L): PROVED after repair | R1 item 2 |
 | T3.4 | PROVED | R4: sound |
@@ -639,8 +639,8 @@ The conclusion is a strategy win in P, not a normal-play result; the claim "the 
 of G₁ ⊞ … ⊞ G_k (Z deleted)" belongs to (i). Lemmas 1.6 and 1.7 are not used: Z is not deleted, and the winner's
 extra legal moves are simply not played. Exhibiting N at a concrete position is a separate check, which this
 paragraph does not do for any position of §6 beyond what the text says there. The chess bridge after Proposition
-3.2 is the instance D = G ⊞ on_D; its proof cites the proof of (i), whose "σ never moves in Z" step does not cover
-White's shuttle, so the sharp form is the right citation for it.
+3.2 is the instance D = G ⊞ on_D. Its earlier proof cited the proof of (i), whose "σ never moves in Z" step does not
+cover White's shuttle; since K13 its proof uses the sharp form (revised after K13, 2026-10-27).
 
 *Sharpness of (S1)–(S3)* (examples already in the note; revised after K9, 2026-10-22).
 - **(S3).** P1a with real kings, `Ka5 Pb4 Pc5 Pe2 Pe4 / kc6 pb5 pe5` (§5.4; PROVED by enumeration, kpsolve
@@ -1623,28 +1623,35 @@ Z-moves. (Two shuttles, one for each king: Proposition 3.2′ below.)
 **Chess bridge** (PROVED after repair, by the sharp form of Theorem 1.14 with D = G ⊞ on_D; revised after K9,
 2026-10-22: the earlier citation, the proof of Theorem 1.14(i), assumes that σ never moves in Z, which White's
 shuttle violates).
-Suppose r(G ⊞ on_D) = W. Let Σ be a rank-lowering White strategy in G ⊞ on_D, with its passes played as the
-shuttle, and let N be the set of chess positions that arise when White plays Σ as chess moves and Black plays any
-legal D-move (π sends both shuttle states to ω). Assume, at the nodes of N:
-- (V1a) with White to move, the move Σ prescribes is legal and leads to the matching position (the shuttle is legal
-  by Lemma 2.2); with Black to move, every legal Black context move is an option of G and leads to the matching
-  position (e.p. obeying condition (E));
+Here G is the pawn-only D-model of the context, with the e.p. flag as a coordinate. The pass of on_D resets the flag,
+as White's shuttle does in chess (a king move ends an e.p. right; Remark on e.p. after Proposition 3.2′). Suppose
+r(G ⊞ on_D) = W. Let Σ be a rank-lowering White strategy in G ⊞ on_D, with its passes played as the shuttle, and let
+N be the set of chess positions before the first promotion that arise when White plays Σ as chess moves and Black
+plays any legal D-move, up to the first closing move (π sends both shuttle states to ω). Assume, at the nodes of N:
+- (V1a) with White to move, the move Σ prescribes is legal; if Σ prescribes a position of G ⊞ on_D (not a ⊕), the
+  move does not promote and leads to the matching position (the shuttle is legal by Lemma 2.2). With Black to move,
+  every legal Black context move is an option of G, and if that option is a position, the move leads to the matching
+  position. The context moves of both sides obey condition (E) for e.p.;
 - every Black Z-move is decisively punished in P;
 - every decisive event of G that is reached is a P-win for its beneficiary;
-- Black always has a legal move.
+- Black is not stalemated.
 
 Then White wins in P. *Proof:* N is White-certified for the sharp form of Theorem 1.14.
-- (S1): White's move is the one Σ prescribes, legal by (V1a). It lowers ρ, a pass included, because Σ chooses an
-  option of smaller rank. A ⊕ that Σ prescribes is closing by the third bullet.
-- (S2): a Black context move is a D-move to a node of N, or a decisive event for White, which is closing by the
-  third bullet. A Black promotion would be a ⊖ option of a Black node of W_White, and there is none. Black has no
-  move in on_D, so a Black Z-move is not a D-option; it is closing by the second bullet.
-- (S3) is the last bullet.
+- (S1): if Σ prescribes a ⊕, White's move is a decisive event of G and is closing by the third bullet. Otherwise
+  it is a D-move by (V1a), and it lowers ρ, a pass included, because Σ chooses an option of smaller rank.
+- (S2): before the first promotion every Black move is a context move or a Z-move (Definition 2.1, Lemma 2.2). A
+  Black context move is a D-move to a node of N, or an option of G to a terminal. A ⊕ is closing by the third
+  bullet. A ⊖ (a Black promotion, for instance) would be a ⊖ option of a Black node of W_White, and there is none.
+  Black has no move in on_D, so a Black Z-move is not a D-option; it is closing by the second bullet.
+- (S3) is the last bullet. Checkmate of Black is a P-win, so only stalemate has to be excluded.
 
 The sharp form gives a P-win. The mirror statement holds for Black wins. (Revised after K13, 2026-10-27. Before,
 (V1a) read "every legal chess move of the side to move is one of the D-options". That excluded the Black Z-moves
 that the second bullet is about, and it asked for White moves that Σ never plays. The proof cited the proof of
-Theorem 1.14(i), which the header above had already replaced.)
+Theorem 1.14(i), which the header above had already replaced. The post-commit check K13b (Codex) then made three
+points exact: moves that Σ makes to a ⊕ have no matching position; the shuttle ends an e.p. right, so the pass must
+reset the flag; and the last bullet read "Black always has a legal move", which also excluded checkmate, a White win.
+`kings/delegate/out/K13/CHECK_774036f.md`.)
 (Revised after review: R4 item 7: the bridge needs (V1a). It fails in P2 + H\* if White plays e3–e4, which
 stalemates Black, so the bridge may only be used along a strategy that avoids that move; kpsolve gives (W, W)
 for P2 + H\*.)

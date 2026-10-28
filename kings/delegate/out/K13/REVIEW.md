@@ -7,8 +7,8 @@
 
 - **Its own proof.** It re-derived the sharp form. It defines the attractor stages A₀ ⊆ A₁ ⊆ … of σ's winning
   region on the finite D, induces on the first stage, and uses (S1)–(S3) as the winner's step, the loser's step and the
-  no-stalemate condition. The proof is in its own words: under 1 percent of the report's 5-grams, and none of its
-  8-grams, occur in LOOPY's sharp-form section (lines 548–640 before the edit).
+  no-stalemate condition. The proof is in its own words: 15 of the report's 1,971 5-grams (0.76 percent) and none of
+  its 8-grams occur in LOOPY's sharp-form section (lines 549–640 at 774036f~1; `overlap.py` in this directory).
 - **Per-step verdicts.** Every step of LOOPY's proof is SOUND, including the check and checkmate cases.
   - The brief said that D is short, so the rank induction is well founded. K13 correctly marks that justification
     FALSE if asserted: D may be loopy, as G ⊞ on_D is.
@@ -57,3 +57,19 @@ legal Z-move.
   - `K13_codex_neterr.log`: an earlier run lost to a network error;
   - `K13_opencode_attempt.log`: an OpenCode attempt;
   - `K13_chain.out`.
+
+## Post-commit check K13b (Codex, `CHECK_774036f.md`) and the follow-up commit
+
+Codex checked commit 774036f. Its points and what was done (`EDITS_K13b.md`, applied: 3 blocks, 0 rejected, cell counts
+unchanged):
+- (S1) and terminals: a ⊕ prescribed by Σ has no matching position. (V1a) now asks for matching only when Σ prescribes a
+  position; a ⊕ is closing by the decisive-event hypothesis. The same for Black context moves to a terminal.
+- e.p.: a king shuttle ends an e.p. right, but the pass of on_D left G unchanged. G now carries the e.p. flag as a
+  coordinate and the pass resets it, as in the e.p. remark after Proposition 3.2′; condition (E) is stated for both
+  sides' context moves.
+- (S3): "Black always has a legal move" also excluded checkmate, a White win. It is now "Black is not stalemated".
+- The stale sentence after the sharp form ("its proof cites the proof of (i)") now says that the earlier proof did.
+- `kings/REPORT.md` said the bridge "uses the scoped form of Theorem 3.2‴"; it now says that it has scoped hypotheses, as
+  Theorem 3.2‴ already had, and a proof by the sharp form.
+- The overlap statistic now has a script, `overlap.py`.
+- Codex's S2 coverage argument (every Black move before promotion is a context move or a Z-move) is now in the proof.
