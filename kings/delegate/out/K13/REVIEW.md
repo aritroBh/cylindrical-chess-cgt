@@ -73,3 +73,15 @@ unchanged):
   Theorem 3.2‴ already had, and a proof by the sharp form.
 - The overlap statistic now has a script, `overlap.py`.
 - Codex's S2 coverage argument (every Black move before promotion is a context move or a Z-move) is now in the proof.
+
+## Second re-check K13c (Codex, `CHECK_68f3ebf.md`, 2026-10-28)
+
+After the rewrites in 567af10 and 68f3ebf (the latter defines the root X and puts X in N), Codex re-checked the bridge.
+- K13b's three points are now handled correctly.
+- X, N and π are well defined, and the conclusion "X is a P-win for White" is exactly what the sharp form gives.
+- (S1), (S2) and (S3) are each discharged, including checks, Black promotions, Black Z-pawn moves, a White ⊕ and a
+  pass by Σ.
+- The label "PROVED after repair", conditional on the stated hypotheses, is right.
+
+One wording point: shuttle legality comes from the hypothesis of Proposition 3.2. Lemma 2.2 only secures it against
+context pawns. The text now says so.

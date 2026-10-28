@@ -1679,7 +1679,8 @@ N be the set of chess positions before the first promotion that arise when White
 plays any legal D-move, starting from X (so X ∈ N), up to the first closing move (π sends both shuttle
 states to ω). Assume, at the nodes of N:
 - (V1a) with White to move, the move Σ prescribes is legal; if Σ prescribes a position of G ⊞ on_D (not a ⊕), the
-  move does not promote and leads to the matching position (the shuttle is legal by Lemma 2.2). With Black to move,
+  move does not promote and leads to the matching position (the shuttle is legal by the hypothesis of Proposition 3.2,
+  which Lemma 2.2 secures against context pawns; revised after K13c, 2026-10-28). With Black to move,
   every legal Black context move is an option of G, and if that option is a position, the move leads to the matching
   position. The context moves of both sides obey condition (E) for e.p.;
 - every Black Z-move is decisively punished in P;
