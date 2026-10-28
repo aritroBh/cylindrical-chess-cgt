@@ -1,0 +1,39 @@
+  transfer: 629 states, 2 weight classes, 4380 transitions
+  starts 24/629  0s
+  starts 144/629  0s
+  starts 264/629  1s
+  starts 384/629  1s
+  starts 504/629  2s
+  starts 624/629  2s
+N=12 P=12 split 1+11 labelled 0 fixedsum 0 orbits 0
+N=12 P=12 split 2+10 labelled 0 fixedsum 0 orbits 0
+N=12 P=12 split 3+9 labelled 0 fixedsum 0 orbits 0
+N=12 P=12 split 4+8 labelled 27451875 fixedsum 101805 orbits 1148070
+N=12 P=12 split 5+7 labelled 932924520 fixedsum 324720 orbits 38885385
+N=12 P=12 split 6+6 labelled 2412582578 fixedsum 725494 orbits 100554503
+N=12 P=12 split 7+5 labelled 932924520 fixedsum 324720 orbits 38885385
+N=12 P=12 split 8+4 labelled 27451875 fixedsum 101805 orbits 1148070
+N=12 P=12 split 9+3 labelled 0 fixedsum 0 orbits 0
+N=12 P=12 split 10+2 labelled 0 fixedsum 0 orbits 0
+N=12 P=12 split 11+1 labelled 0 fixedsum 0 orbits 0
+  fixed by rot2: {6: 30}
+  fixed by rot3: {4: 165, 8: 165}
+  fixed by rot4: {6: 1490}
+  fixed by rot6: {4: 9075, 6: 51450, 8: 9075}
+  fixed by rot8: {6: 1490}
+  fixed by rot9: {4: 165, 8: 165}
+  fixed by rot10: {6: 30}
+  fixed by ref0: {5: 54120, 6: 83490, 7: 54120, 8: 12375, 4: 12375}
+  fixed by ref1: {4: 3025, 6: 28344, 8: 3025}
+  fixed by ref2: {4: 12375, 5: 54120, 6: 83490, 7: 54120, 8: 12375}
+  fixed by ref3: {6: 28344, 8: 3025, 4: 3025}
+  fixed by ref4: {4: 12375, 5: 54120, 6: 83490, 7: 54120, 8: 12375}
+  fixed by ref5: {6: 28344, 4: 3025, 8: 3025}
+  fixed by ref6: {5: 54120, 6: 83490, 7: 54120, 8: 12375, 4: 12375}
+  fixed by ref7: {4: 3025, 6: 28344, 8: 3025}
+  fixed by ref8: {5: 54120, 6: 83490, 4: 12375, 7: 54120, 8: 12375}
+  fixed by ref9: {6: 28344, 8: 3025, 4: 3025}
+  fixed by ref10: {4: 12375, 5: 54120, 6: 83490, 7: 54120, 8: 12375}
+  fixed by ref11: {4: 3025, 6: 28344, 8: 3025}
+  (95.8s)
+nice -n 15 python3 validate/ring_counter.py orbits 12 12  34.54s user 0.27s system 36% cpu 1:35.95 total
