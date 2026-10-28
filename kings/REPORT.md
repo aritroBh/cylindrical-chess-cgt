@@ -371,6 +371,9 @@ Every deliverable was given to independent referees (Claude models) told to brea
     exactly frozen group" (the search had a move-count cut-off): White king b2/c3, Black king a4/b5, pawns Pa3 Pb4 pb3
     pc4. In P every non-shuttle move loses by force, CHECKED-2 (kp_p and `ref3`; PROVED by hand since K27). Beside 660 contexts its P result
     equals the dud prediction (COMPUTED-1). In chess it is undecided at cap 1.
+    K34 (2026-10-28, Codex) proved Proposition 3.2′, Lemma 3.2″ and Theorem 3.2‴ again from the statements alone and found
+    every step SOUND. Its one objection, about the G = 0 shuttle deletions, came from a script that did not test what it
+    reported, and the integrator's own computation confirms the note.
   - K22 (2026-10-27) showed that Lemma 2.9 is false without its added hypothesis (counterexamples on flat:4×5, cyl:7×6
     and flat:3×5) and proved it under the weaker hypothesis (B1).
   - K24 (2026-10-27) added Lemma 2.7a (PROVED): a draw in both promotion models EPW and EPB is a chess draw. It
@@ -382,7 +385,8 @@ Every deliverable was given to independent referees (Claude models) told to brea
     is +1 in the D-model sum battery (CHECKED-2); Proposition 4.3 holds only against a frozen opponent.
   - K21 (2026-10-27): a sum theorem for loopy components. The reserve criterion T3.8 strictly extends Theorem 1.11(b)
     to arbitrary loopy components, and the sandwich T3.11 bounds every group between off/dud and on (PROVED, one AI
-    proof each, re-derived by the referee).
+    proof each, re-derived by the referee). K33 (2026-10-28, Codex) proved T3.7, Lemma 3.8a, T3.8 and T3.11 again from
+    the statements alone and found every step of the note's proofs SOUND.
   - K27 (2026-10-27): Z_B is exactly two-shuttle in P, and this is now PROVED by hand. Each of the 26 non-shuttle moves
     has a certificate (286 entries in all) and loses within 11 plies. The referee parsed every certificate with its own
     move generator, and four solvers agree on the numbers (CHECKED-2). The mirror group follows by a rank-flip and

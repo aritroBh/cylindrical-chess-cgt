@@ -1,0 +1,1111 @@
+Reading additional input from stdin...
+2026-10-28T04:29:52.182534Z ERROR codex_core::session::session: failed to load skill /Users/aritro/.agents/skills/aura/aura-ai-website-builder/SKILL.md: missing field `description`
+2026-10-28T04:29:52.182572Z ERROR codex_core::session::session: failed to load skill /Users/aritro/.agents/skills/aura/btr-motion-pattern-registry/SKILL.md: missing field `description`
+2026-10-28T04:29:52.182579Z ERROR codex_core::session::session: failed to load skill /Users/aritro/.agents/skills/aura/gsap-react-installation/SKILL.md: missing field `description`
+2026-10-28T04:29:52.182583Z ERROR codex_core::session::session: failed to load skill /Users/aritro/.agents/skills/aura/progressive-blur-ui-overlay/SKILL.md: missing field `description`
+2026-10-28T04:29:52.182586Z ERROR codex_core::session::session: failed to load skill /Users/aritro/.agents/skills/aura/shadcn/SKILL.md: missing field `description`
+2026-10-28T04:29:52.182589Z ERROR codex_core::session::session: failed to load skill /Users/aritro/.agents/skills/aura/test-1-design/SKILL.md: missing YAML frontmatter delimited by ---
+2026-10-28T04:29:52.182592Z ERROR codex_core::session::session: failed to load skill /Users/aritro/.agents/skills/aura/ui-ux-pro-max-design-intelligence/SKILL.md: missing field `description`
+OpenAI Codex v0.164.0
+--------
+workdir: /Users/aritro/Downloads/Research/Chessendgames
+model: gpt-6-luna
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: high
+reasoning summaries: concise
+session id: 01a180c5-8351-7701-a12b-76d3000e133f
+--------
+user
+# Shared brief for every delegated task
+
+Project root: `/Users/aritro/Downloads/Research/Chessendgames`. This continues a 2025 high-school paper,
+"Analysis of Chess Endgames on a Cylindrical Chessboard" (`prior_work/main.tex`): combinatorial game theory
+(CGT) of king-and-pawn endgames on cylinder (files a and h glued) and flat boards.
+
+Read first:
+- `RESULTS.md`, the status page;
+- `RESEARCH_PLAN.md` §3;
+- the REPORT.md files your task names.
+
+## Conventions (Elkies 1996, as used in `cylcgt/`)
+
+- **Sides and normal play.** White = Left, Black = Right. A side with no move loses.
+- **Passed pawns.** One side having a passed pawn is worth ±BIG (BIG = 256). If both sides have one, it is a
+  race, resolved by `cylcgt.pawns.RACE_RULE` ("count", "mover" or "opponent").
+- **En passant (adopted 2026-10-16).** A pawn that can still be taken en passant is NOT passed
+  (`cylcgt.pawns.PASSED_RESPECTS_EP = True`). Setting it to False gives the older "textbook" test. Many earlier
+  results were computed with the textbook test; say which test you use.
+- **Components.** An empty file stays empty forever, so pawn groups separated by one are disjunctive summands.
+- **King freeze.** The trébuchet king group (W Pg4 / B Pg5, WK f5, BK h4 on the flat 8×8 board) is assumed to
+  be 0.
+- **API.**
+  - `cylcgt/pawns.py`: `Board(files, ranks, wrap, ep)`, `Pos.parse("W: a2 c2 / B: b7 d7")`,
+    `value(board, pos)`, `describe(board, pos)`.
+  - `cylcgt/cgt.py`: `show`, `outcome`, `add`, `neg`, `le`.
+  - Call `pawns._value.cache_clear()` after changing a global.
+
+## Rules
+
+1. **Where to write.** Only inside your task's output directory; create it. Never edit existing files elsewhere.
+   Never run git commands.
+2. **Software.**
+   - Use `.venv/bin/python` (stdlib + pytest) with `PYTHONPATH=.` from the project root.
+   - The ML tasks use `.venv-ml/bin/python` (PyTorch with MPS, MLX).
+   - Do not install anything.
+   - Compiling your own C with `cc -O2` is fine.
+3. **Network.** Use none, except the Lichess tablebase. Go through `realchess/probe.py`, whose disk cache
+   already holds about 2,000 positions. Keep to at most 200 new requests and 1 per second.
+4. **Long jobs.** Keep any single job under 45 minutes. Run long jobs in the background and poll them.
+5. **Honesty.**
+   - Label every claim **PROVED**, **CHECKED-2** (two independent implementations agree), **COMPUTED-1** or
+     **CONJECTURE**.
+   - Give an exact reproduce command for every number.
+   - Report negative results plainly, and never overstate novelty.
+6. **Deliverable.** Finish by writing `REPORT.md` in your output directory. Its first section is a 5-line
+   summary of what you established.
+7. **Shared machine (added 2026-10-22).**
+   - Other projects and other agents run on this machine.
+   - **Never kill, stop or signal a process you did not start yourself.** No `pkill`, `killall` or `kill` on
+     anything but your own PIDs.
+   - **Never use `pkill`, `killall`, `kill -- -1`, or `kill $(pgrep ...)` at all, even for your own jobs.** On
+     2026-10-22 an agent ran `pkill -f 0`, which matched every process with a 0 in its command line. It killed
+     another project's jobs. To stop your own process, record its PID when you start it (`cmd & echo $!`)
+     and run `kill <that PID>`.
+   - Memory is tight. Keep every process under 4 GB RSS, and run at most 2 heavy processes at once, under
+     `nice -n 10`.
+   - Never feed kpsolve a whole-board position list larger than 100 MB.
+   - Never commit, push or edit `paper/`.
+   - Do not create a file over 50 MB.
+
+---
+
+# K34: blind proofs of the K14 two-shuttle results (Proposition 3.2′, Lemma 3.2″, Theorem 3.2‴), then comparison
+
+**Output directory:** `kings/delegate/out/K34/` (it exists and holds `blind_packet.md`). Write only there. Do **not**
+edit any existing file. Do not run git.
+
+Proposition 3.2′ (two shuttling kings act as dud_D) and its chess bridge, Theorem 3.2‴, are labelled PROVED (the
+bridge conditional on its hypotheses). Each proof is one AI proof (Claude family), re-checked by one referee of the
+same family. Nobody outside the Claude family has checked them. You are that check, and the order of work is fixed.
+
+## Phase 1: prove them blind
+
+Read **only** `kings/delegate/out/K34/blind_packet.md`. It holds §1.2 (Definitions 1.1–1.5), Definition 2.1,
+Lemma 2.2, Definition 2.5, Definition 3.1, Proposition 3.2, the setting and statement of the sharp form of Theorem
+1.14, and the statements of Proposition 3.2′, Lemma B, Lemma 3.2″ and Theorem 3.2‴, without proofs. Do not open
+`kings/theory/LOOPY.md` or anything under `kings/delegate/out/K14/` until Phase 1 is finished. You may cite Lemma 2.2,
+Proposition 3.2 and the sharp form of Theorem 1.14 as given (they were checked elsewhere).
+
+Write `PROOF.md` with your own complete proofs of:
+1. Proposition 3.2′, every part, including the inequalities when one side has further Z-moves and the claim that a win
+   needs only the states in which the winner's king stands still;
+2. Lemma B;
+3. Lemma 3.2″;
+4. Theorem 3.2‴ (a) win transfer and (b) exactness, from the sharp form of Theorem 1.14.
+
+Be explicit about:
+- what you induce on (stages of least fixed points; D may be loopy);
+- e.p. rights across a Z-move;
+- check, checkmate and stalemate;
+- which hypothesis is used at which step.
+
+If you think a statement is false, give the smallest counterexample you can find, and check it by a brute-force program
+written from the definitions (Python: `/Users/aritro/Downloads/Research/Chessendgames/.venv/bin/python`). For
+Proposition 3.2′, also run a random test on small D-games G (at most 5 positions, loopy allowed): compare r(G ⊞ Z) with
+r(G ⊞ dud_D) for a two-shuttle Z built as a 4-state D-game. Report the number of instances and the exact generator.
+
+## Phase 2: compare
+
+Only after `PROOF.md` is written, read `kings/theory/LOOPY.md` from "**Proposition 3.2′" to the end of the proof of
+Theorem 3.2‴ (the line before "**Which hypotheses hold"). Then write `FINDINGS.md`:
+- a 5-line summary;
+- where your route differs;
+- each proof step of LOOPY marked SOUND, GAP (give the missing step) or FALSE (give a counterexample);
+- your random tests (commands, counts);
+- your recommended labels.
+
+## Rules
+
+`delegate/COMMON.md`, rules 5 and 7. Runs over about one CPU-minute go through `kings/delegate/heavy.sh` (nice 15).
+Under 3 GB RSS and under 20 minutes per run. No file over 50 MB. No installs, no network. Never use pkill, killall,
+`kill -- -1` or any pattern kill. Kill only PIDs you started and recorded.
+**Assessing file reading constraints**
+**Following strict file access rules**
+codex
+I’ll follow the blind order: read only `blind_packet.md`, write the independent proof first, and only then inspect the specified LOOPY section for comparison.
+exec
+/bin/zsh -lc 'cat kings/delegate/out/K34/blind_packet.md' in /Users/aritro/Downloads/Research/Chessendgames
+ succeeded in 0ms:
+# K34 blind packet: definitions and statements only (extracted from kings/theory/LOOPY.md at commit 774036f)
+
+Proofs, remarks, checks and verification notes are omitted on purpose. Do not read LOOPY.md itself until Phase 2.
+
+## §1.2 (Definitions 1.1–1.5)
+
+### 1.2 Games with decisive terminals, and four models
+
+**Definition 1.1 (D-game).** A *D-game* is a finite set X of positions with, for each x ∈ X, finite option
+sets L(x) and R(x) contained in X ∪ {⊕, ⊖}.
+- ⊕ is the terminal "White has won". ⊖ is the terminal "Black has won".
+- The D-game is *short* if the directed graph of moves on X is acyclic, and *loopy* otherwise.
+- ∅ denotes a position with no options.
+
+**Definition 1.2 (play and results).**
+- Play alternates from (x, s), where s is the player to move.
+- A move to ⊕ or ⊖ ends the play with that result.
+- A player with no option loses (*normal play*).
+- Infinite play is a draw.
+- r(x, s) = W if White can force a White win in finitely many moves, L if Black can, and D otherwise.
+
+KNOWN: on a finite game graph these values are the least fixed point computed by retrograde analysis
+([S] ch. VI; this is also what kpsolve computes). A short D-game has no draws (Zermelo).
+
+**Definition 1.3 (sum with chess semantics).** For D-games A₁, …, A_k, the sum A₁ ⊞ … ⊞ A_k works as follows.
+- Its positions are tuples.
+- A move is a move in one coordinate.
+- A move to ⊕ or ⊖ in *any* coordinate ends the *whole* play. This is "the first decisive event ends the
+  game".
+- A player with no option in any coordinate loses.
+
+**Definition 1.4 (BIG translation).** For a short D-game A and an integer B ≥ 1, A^B is the short CGT game
+obtained by replacing ⊕ with the integer B and ⊖ with −B. For a sum, (A₁ ⊞ … ⊞ A_k)^B := A₁^B + … + A_k^B
+(the disjunctive CGT sum). In this sum a ±B summand does **not** end play: the other components continue.
+
+**Definition 1.5 (four models of a king-and-pawn position X).**
+- **C(X), chess.** The rules of `kings/SPEC.md`: checkmate wins, stalemate is a draw, infinite play is a draw.
+- **P(X), the promotion model.** Chess, except that the first promotion ends the game as a win for the
+  promoter. Stalemate and infinite play are still draws.
+  - `kpsolve --frozen` computes the frozen-king model F of Corollary 2.7′ (a king move loses at once for the mover), not P. P itself, with free kings, is computed by K7's build `kings/delegate/out/K7/scripts/draft/kp_p.c` (its flag is `--pmodel`; `kings/kpsolve.c` has no such flag) and by the independent solvers of K19 and K24 (revised after K24, 2026-10-27: this line used to say that `--frozen` computes P).
+- **D(X), the decisive-event model.** A D-game. Its positions are the positions before the first decisive
+  event. Its terminals are the decisive events:
+  - a passer appears (as in `cylcgt`), with races scored by a race rule;
+  - a punished move in the king group (§2). Under (V3) of Theorem 1.14 *every* move inside Z is a punished
+    move, so the king group then contributes only suicides and is deleted by Lemma 1.7; the setup of
+    Theorem 1.14 and this definition agree under (V3) (revised after review: R2 item 10).
+- **S(X), the BIG convention.** The BIG value of X: at every node of the game tree the position is split
+  into its components (files separated by an empty file, and an empty file stays empty), each component is
+  translated separately, and the translations are summed; a component with a passer is worth ±BIG, races being
+  scored by the race rule. This is the value `cylcgt.pawns.value` computes (COMPUTED-1, `cylcgt/pawns.py`).
+  - *What S(X) is not* (revised after review: R2 item 2): it is not the BIG translation D(X)^B of the D-game of
+    §1.2, in which the components are those of the root and the first decisive event ends the whole play.
+    `cylcgt` re-splits at every node, and a passer freezes only its own component, so the two differ as soon
+    as a component splits. Example: flat 7×6, e.p. on, count rule, `W: b2 d3 f2 / B: c4 c5 e5 g5` is one
+    component at the root, yet o(S) = 𝓝 while the decisive-event result is 𝓡 (COMPUTED-1, `lemmas/common.py`:
+    o(S) = N, o(W) = R).
+  - The re-splitting is why (V4) of Theorem 1.14 has to be checked hereditarily; see Theorem 1.11(c).
+
+The models are connected by bridges, each with its own hypotheses:
+
+*Notation.* o(G) is the outcome class of a CGT game G (𝓛, 𝓡, 𝓝, 𝓟); W(X) is the whole-board convention game
+of a pawn position X, in which the first passer ends the game (`notes/lemmas.md`); S(X) is the BIG value of
+§1.5; and HSS, hereditary sum-safety, is the hypothesis (HSS) of Theorem 1.11(c). (Revised after review:
+R1 item 11: §6 used o(W(X)) and "hereditarily sum-safe" without defining them.)
+
+```
+S  --Thm 1.11(c) (V4)-->  D  --Thm 1.14 (V1-V3)-->  P  --(A_Q)(X)-->  C
+```
+
+**Axiom (A_Q)(X) (per-position hypothesis, checked by kpsolve).** For a fixed position X: if X is a P-win
+for σ, then X is a C-win for σ.
+- **FALSE as a general statement (revised after review: R1 item 6, R2 item 8).** cyl:7×6 `Ke2 Pb5 ka5 w -` is
+  a P-win (b6=Q at once; `kpsolve --frozen` gives W W) and a chess draw (exact D D: every White move draws);
+  flat:4×4 `Kd1 Pb3 ka3 w -` is the same (b4=Q is met by Kxb4). So (A_Q) is not an axiom: it is a hypothesis
+  to be checked at each position, and every "PROVED in P" claim below is a chess claim only where it holds.
+- *Evidence for:* the cylinder KQK tables agree in two independent solvers ([RESULTS.md](../../RESULTS.md) §2:
+  KQK is 100% won on the 8×8 cylinder).
+- *Evidence against, in general:* L4.4 of `notes/lemmas.md` is a promotion race lost to a promotion with check.
+- *Settled by:* kpsolve with `--cap 1` computes C exactly whenever its bounds agree (A = B), and `--frozen`
+  computes P; the two runs decide (A_Q)(X) for that X.
+
+
+## Definition 2.1
+
+**Definition 2.1 (king group, buffer).** A *king group* Z consists of:
+- a set F_Z of files (an arc on a cylinder);
+- both kings and some pawns, the Z-pawns, all on F_Z.
+
+All other pawns, the *context*, stand on files at distance ≥ 2 from F_Z. The files at distance exactly 1
+are pawn-free; they are the *buffer*. A *Z-move* is a move of a king or of a Z-pawn.
+- On the 7×6 cylinder with F_Z = {a, b, c}, the buffer is {d, g} and the context lies on {e, f}.
+
+## Lemma 2.2 (statement only)
+
+**Lemma 2.2 (buffer invariance). PROVED.** Before the first promotion:
+- no pawn ever stands on a buffer file;
+- context pawns stay on context files, and Z-pawns stay on F_Z;
+- hence a king standing on F_Z is never attacked by a context pawn, and a context pawn never attacks a
+  square of F_Z.
+
+## Definition 2.5
+
+**Definition 2.5 (decisive punishment, in chess terms).** A Z-move m of side s, made at a chess position Y
+(context plus Z), is *decisively punished* if the opponent s̄ has a forced win in P (or in C) from the
+position after m. The win must hold against every defence of s:
+- s's moves in the context, including creating passers, starting races and capturing en passant;
+- s's king going anywhere, back into Z or into the context;
+- s promoting;
+- s steering for stalemate.
+
+"Whatever the other components contain" means: for every context in the class one claims the zero for.
+Theorem 2.4(b) needs this only at positions where s is losing the context.
+
+## Definition 3.1
+
+**Definition 3.1 (pass reservoirs).** Each reservoir is a D-game with a single position ω.
+- **on_D:** L(ω) = {ω}, R(ω) = ∅. White can pass forever; Black has no move.
+- **off_D:** the mirror image.
+- **dud_D:** L(ω) = R(ω) = {ω}.
+
+Their CGT analogues are on = {on | }, off = { | off} and dud = {dud | dud} (KNOWN: [WW] ch. 11 "Games
+Infinite and Indefinite"; [S] ch. VI). Also KNOWN [S, ch. VI]:
+- on exceeds every number;
+- on, off and over are stoppers, while dud is not;
+- G + dud is a draw for every G in which only running out of moves decides the game.
+
+## Proposition 3.2 (statement only)
+
+**Proposition 3.2 (a shuttling king is a pass). PROVED.** Let Z be a king group and z ↔ z′ two non-capturing
+White king moves inside F_Z, with:
+- in both z and z′, every Black Z-move a suicide in the D-model;
+- the two shuttle moves legal in every context, which Lemma 2.2 guarantees, since they stay on F_Z.
+
+Then, in the D-model and for a short context G, r(G ⊞ Z) ≥ r(G ⊞ on_D), with equality if White has no other
+Z-moves. (Two shuttles, one for each king: Proposition 3.2′ below.)
+
+## Theorem 1.14, sharp form (setting and statement only)
+
+*Setting.*
+- A *P-position* is a chess position before the first promotion, with the side to move. σ is one side and σ̄ the
+  other. A *P-win for σ* is a forced win in finitely many moves (the least fixed point, as in Definition 1.2):
+  a promotion by σ or a checkmate of σ̄. Stalemate and infinite play are not wins. The defining clauses are:
+  - with σ to move, a position is a P-win if σ has a legal move that promotes or leads to a P-win;
+  - with σ̄ to move, a position is a P-win if σ̄ is not stalemated (it has a legal move, or it is in check) and
+    every legal move of σ̄ leads to a P-win (so none of them promotes).
+- Fix a D-game D (Definition 1.1, possibly loopy) and a map π from P-positions to the positions of D that keeps
+  the side to move. For D(X) of Definition 1.5, π is the identity. D(X) can be fixed in two ways, and the theorem
+  below holds for both and for any other D:
+  - (a) every Z-move is a terminal for the opponent of the mover, as under (V3);
+  - (b) Z is a loopy component. Its terminals are the P-punished Z-moves (Definition 1.5), and its other
+    Z-moves are ordinary options: the shuttle of Z_onT1 is `on_D`.
+
+  For the chess bridge after Proposition 3.2, D = G ⊞ on_D and π sends both shuttle states to ω. For the two-sided
+  bridge (Theorem 3.2‴), D = G ⊞ dud_D and π sends all four combined king states to ω.
+- A legal chess move y → y′ is a *D-move* if it does not promote and π(y′) is a D-option of π(y). Legal chess
+  moves that are not D-moves may exist, and so may D-options that are not legal chess moves (the move Kd5 of
+  §5.4 when e4 covers d5). Both are allowed.
+- W_σ is the set of D-positions (x, s) from which σ forces a D-win in finitely many moves: the least fixed
+  point of "(x, σ) ∈ W_σ if some option is the σ-terminal or lies in W_σ; (x, σ̄) ∈ W_σ if every option is the
+  σ-terminal or lies in W_σ" (with no option, σ̄ loses by normal play). ρ(x, s) is the stage at which (x, s)
+  enters, and ρ = ∞ outside W_σ. So every option of a σ̄-node of W_σ is the σ-terminal or lies in W_σ with
+  smaller ρ, and every σ-node of W_σ has such an option. Write ρ(y) for ρ(π(y), side to move at y).
+
+*Statement.* A legal move is *closing* if it promotes with σ or leads to a P-win for σ. A set N of P-positions is
+*σ-certified* if ρ(y) < ∞ for every y ∈ N and, for every y ∈ N:
+- **(S1)** (σ to move) σ has a legal move that is closing, or is a D-move to some y′ ∈ N with ρ(y′) < ρ(y);
+- **(S2)** (σ̄ to move) every legal move of σ̄ is closing, or is a D-move to some y′ ∈ N;
+- **(S3)** (σ̄ to move) σ̄ is not stalemated.
+
+**Theorem 1.14, sharp form.** If a σ-certified set N contains X, then X is a P-win for σ.
+
+## Proposition 3.2′ (statement only)
+
+**Proposition 3.2′ (two shuttling kings are a dud). PROVED (new, K14, 2026-10-27; revised after the K14 referee,
+2026-10-27: the D-model part was re-checked by one referee (same model family) and by two brute-force implementations,
+on short and loopy G).**
+
+*Two-shuttle component.* Let Z be a D-game with four distinct positions (a, b), a ∈ {z, z′}, b ∈ {w, w′}. Write ā for
+the other of z, z′ and b̄ for the other of w, w′. In chess z, z′ and w, w′ are the two shuttle squares of the White and
+the Black king, and the four positions are the four combined king states. In each of the four positions:
+- **(T1)** (ā, b) is a Left option (White's shuttle);
+- **(T2)** (a, b̄) is a Right option (Black's shuttle);
+- **(T3)** every other Left option is ⊖ (a suicide);
+- **(T4)** every other Right option is ⊕ (a suicide).
+
+Z may have further positions. Let G be any D-game (short or not) and x a position of G.
+- **(a) Equality.** Under (T1)–(T4), for all four states (a, b) and both sides to move, r(G ⊞ Z) at (x, (a, b)) equals
+  r(G ⊞ dud_D) at (x, ω). For short G the value is given by Theorem 3.4(a): a side wins iff it can force a decisive
+  event against an opponent who may pass at any time, and otherwise the game is drawn. There is no zugzwang
+  (Λ_R ⇒ Λ_L), and a G without terminals is a draw.
+- **(b) Further Z-moves.** Under (T1), (T2), (T4) (White may have further Z-moves, of any kind, even to new positions),
+  r(G ⊞ Z) ≥ r(G ⊞ dud_D) in the order L < D < W. Under (T1), (T2), (T3), r(G ⊞ Z) ≤ r(G ⊞ dud_D). If both sides have
+  further moves there is no comparison in general. The inequalities can be strict (a further White option ⊕ at
+  (z, w) makes G = 0 a White win, against D for dud_D).
+- **(c) Half-slice.** Suppose only (T2) and (T4) hold, and only at (z, w) and (z, w′), and everything else in Z is
+  arbitrary. If r(G ⊞ dud_D) = W at (x, ω) for a side to move s, then r(G ⊞ Z) = W at (x, (z, w)) and at (x, (z, w′))
+  for the same s. Mirror: (T1), (T3) at (z, w) and (z′, w) transfer a Black win. So *a win needs only the half of the
+  four states in which the winner's king stands still*; the draws, and the exact equality (a), need all four.
+- **(d) Each shuttle arrow is needed.** Take G = 0 (one position, no options), where r(G ⊞ dud_D) = (D, D).
+  - *Opposition.* Delete the diagonal state (z′, w′) (the kings would touch). Then (z′, w) has no Black shuttle and
+    (z, w′) has no White shuttle; their only options are suicides. At (z, w) the pair is (W, L): White to move goes to
+    (z′, w) and Black must suicide, Black to move goes to (z, w′) and White must suicide. The first player wins.
+  - *One arrow.* Delete Black's shuttle at (z′, w) only: the pair at (z, w) is (W, D).
+  - *Every arrow.* Deleting any one of the eight shuttle arrows from an otherwise exact Z changes the result in a
+    positive fraction of random instances, and at G = 0 it changes the result at all four states (the referee's table of
+    all eight deletions; COMPUTED-1).
+
+
+## Lemma B (statement only)
+
+**Lemma B (the winner of G ⊞ dud_D never passes).** Let (x, ω, σ) be in W^σ of G ⊞ dud_D, entering at stage n. Then
+some option that makes it enter at stage n is a G-move (a σ-terminal of G or a position (x′, ω) with σ̄ to move and
+stage ≤ n − 1).
+
+## Lemma 3.2″ (statement only)
+
+**Lemma 3.2″ (four-state geometry; PROVED).** Let z ≠ z′ and w ≠ w′ be empty squares of F_Z, z, z′ adjacent and w, w′
+adjacent, such that (K1) no Black Z-pawn attacks z or z′ and no White Z-pawn attacks w or w′, and (K2) the king distance
+d(a, b) ≥ 2 for all four (a, b) (the kings never touch). Then, in every context (files at distance ≥ 2 from F_Z), with
+the Z-pawns unmoved and the kings on {z, z′} and {w, w′}: neither king is in check, both shuttle moves are legal
+(whatever the other king's square), and each side has a legal move, so nobody is stalemated.
+
+## Theorem 3.2‴ (statement only)
+
+**Theorem 3.2‴ (chess bridge for two shuttles; PROVED in P, conditional on the stated hypotheses; the chess statement adds
+(A_Q)(X) as always).** Let X be a K+P position
+with a king group Z satisfying (K1), (K2), the kings on {z, z′} and {w, w′}, and a context with D-model G (the pawn-only
+game of Definition 1.5, with the e.p. flag as in the Remark). Let D = G ⊞ dud_D, with π sending a chess position to
+(x, ω) and keeping the side to move. A *regular* position is one reachable from X by D-moves (matching context moves and
+the two shuttles). Assume, at every regular position:
+- **(V1a-ctx)** the legal context moves of the side to move are exactly G's options for that side, with the same
+  resulting positions (e.p. through condition (E)); the shuttle is the pass;
+- **(V2-ctx)** every decisive event of G leads to a P-win for its beneficiary (automatic for a pawn-only G scored by
+  promotions);
+and write **(Pun_s)** for: *every legal move of s that is neither a context move nor s's shuttle (a king move off the
+shuttle, a Z-pawn move or capture) is decisively punished (Definition 2.5): the position after it is a P-win for s̄.*
+- **(a) Win transfer.** Suppose r_D(x, ω, s) = W. Let Σ be a rank-lowering White strategy in D (by Lemma B it never
+  passes) and N the set of chess positions arising when White plays Σ as chess moves and Black plays any legal D-move.
+  If (Pun_Black) holds at the nodes of N with Black to move, then White wins X in P. White's king stays on its square, so
+  only the two states (a, w), (a, w′) occur; White's shuttle and the square z′ are not used. The mirror statement for a
+  Black win needs (Pun_White) at the nodes of N with White to move.
+- **(b) Exactness.** If (Pun_White) and (Pun_Black) hold at all regular positions, the P-result of every regular
+  position equals r_D(π(y)), draws included. In particular, if G has no decisive event, X is a draw in P.
+
+
+
+**Analyzing fixed point inequalities**
+**Examining option effects on outcomes**
+**Analyzing move ranks and stages**
+**Examining winning options and move legality**
+**Analyzing winning strategies and moves**
+**Preparing proof and testing framework**
+
+I’m outlining steps to write a rigorous proof while setting up random tests using a brute-force approach, focusing on finite game outcomes and exact position generation with plays involving shuttles, terminals, and loops.
+**Preparing detailed proof report**
+codex
+The key proof tools are least-fixed-point ranks for the loopy D-game and the sharp certification theorem for the chess bridge. I’m writing the proof with the hypotheses attached to each use; the e.p. condition is referenced in the packet but not defined there, so I’ll keep that step explicitly conditional on its stated matching property.
+exec
+/bin/zsh -lc "cat > kings/delegate/out/K34/PROOF.md <<'EOF'
+# Independent blind proofs
+
+## 1. Proposition 3.2′
+
+Write "'`A` for the sum arena `G ⊞ Z`, and `A₀` for `G ⊞ dud_D`. A node includes the position and the player to move. A terminal `⊕`/`⊖` ends the whole sum immediately. Otherwise use the least fixed point of the winning-attractor clauses in Definition 1.2: a White-turn node is White-winning when it has a White-winning option (or a White terminal option); a Black-turn node is White-winning when every Black option is White-winning (where an option to `⊖` is therefore a White win and one to `⊕` is not). The Black-winning attractor is the dual. Nodes in neither attractor are draws. Equivalently, give each winning node its first-entry stage; a chosen existential witness has smaller stage and every option at a universal node has smaller stage or is the appropriate terminal. This argument uses least-fixed-point induction, not induction on a well-founded graph, so it applies when `G` or `Z` is loopy.
+
+### (a) Exact four-state component
+
+Let `Q={(z,w),(z,w′),(z′,w),(z′,w′)}`. At a White-turn node in `Q`, the White shuttle reaches the other White state with the same Black state; at a Black-turn node the Black shuttle reaches the other Black state with the same White state. These are precisely White'"'s and Black's pass options in "'`A₀`. The other White options in `Z` end at `⊖`, and the other Black options end at `⊕`; each is an immediate loss for its mover. Thus neither player needs to select such an option in an existential winning witness, and such an option at a universal opponent node is already a win for the player whose attractor is being proved.
+
+Here is the precise least-fixed-point comparison. For either color `σ`, induct on the entry stage in `A₀` to show that every `A₀`-winning node `(x,ω,s)` has the corresponding `A` node `(x,q,s)` in `σ`'"'s attractor, for every "'`q∈Q`. At a `σ`-turn node, the stage witness is either a G-option or a pass. In the latter case use the shuttle to the corresponding `q′` and the induction hypothesis on the lower-stage opponent-turn node. A terminal G-option is unchanged. At a `σ̄`-turn node, every G-option is covered by induction, the pass is covered by the shuttle and induction, and every additional Z-option is a suicide by (T3) if `σ=White`, or by (T4) if `σ=Black`; hence it is immediately favorable to `σ`. This establishes inclusion of each attractor from `A₀` in `A`.
+
+For the reverse inclusion, induct on the entry stage in `A`. A winning existential witness that is a suicide cannot witness a win for its mover. Every remaining Z-option is the shuttle, which maps to the pass in `A₀`; every G-option and terminal is the same. At universal opponent nodes, shuttles map to passes, G-options map identically, and suicides are favorable terminals for the player being shown to win. Apply the induction hypothesis to all lower-stage nonterminal options. Thus both winning attractors agree on `Q`, and the complement (draw) agrees as well. This proves equality for all four king states and both turns, for arbitrary finite loopy `G` and arbitrary further positions of `Z` (none of which is reachable through the stipulated options from `Q`).
+
+For short `G`, the stated interpretation follows from the same attractors: finite forced wins are exactly wins, and all remaining play is a draw. Theorem 3.4(a)'"'s more descriptive “force a decisive event against an opponent who may pass” is its short-game formulation; it is not needed for the equality proof. Since both sides can shuttle, there is no zugzwang: if Right has an option witnessing a Right win against a pass-capable Left, then Left has at least the corresponding pass option as well, yielding "'`Λ_R ⇒ Λ_L` in the stated notation. If `G` has no terminals, neither player can force a decisive event; the only terminals from the sum are normal-play exhaustion, which cannot be forced while both can pass, so the result is a draw.
+
+### (b) Further options and inequalities
+
+The option sets of `G` and the required shuttles remain fixed. Under (T1), (T2), (T4), the only permitted extra options are Left options. Compare the least-fixed-point attractors by stage induction: every White win in the old arena remains a White win in the expanded arena, since at White nodes the old witness remains available and at Black nodes no Black options were added. Every Black win in the expanded arena implies a Black win in the old arena: at Black nodes a winning witness among unchanged options is retained; at White nodes the universal condition in the expanded arena implies it for the smaller old option set. Thus the outcome can only move upward in `L < D < W` (L may become D or W; D may become W). This is `r(G ⊞ Z) ≥ r(G ⊞ dud_D)` at the four distinguished roots. The argument permits arbitrary targets, including terminals and new Z states, for the added Left options.
+
+Dually, under (T1), (T2), (T3), only Right options may be added. The same attractor argument with colors exchanged gives `r(G ⊞ Z) ≤ r(G ⊞ dud_D)`. With extra options for both players the two monotonicity arguments point in opposite directions and imply no comparison. Strictness in the given example follows directly: from `G=0`, the extra Left option to `⊕` is a White terminal win on White'"'s turn, whereas in "'`0 ⊞ dud_D` each player can pass forever and neither can force a win; hence D there.
+
+### (c) Half-slice win transfer
+
+Suppose the winning color is White; the Black case is the color-reversed argument. Induct on the least-fixed-point entry stage of the White attractor in `G ⊞ dud_D`, restricted to the White strategy'"'s reachable nodes. The required hypotheses are only at "'`(z,w)` and `(z,w′)`: these states keep White'"'s king fixed at "'`z`. By Lemma B, at every White-turn winning node the rank-lowering witness can be chosen as a G-move, not White'"'s pass. Make that same G-move in "'`G ⊞ Z`; if it is a decisive White terminal it wins immediately, and otherwise the projected node has lower White-attractor stage. At a Black-turn node, every G-option is handled by induction; Black'"'s pass is simulated by the stipulated Black shuttle, which switches between the two states in the slice; and every other Black option is "'`⊕` by (T4), hence an immediate Black loss. Therefore the two slice states are White-winning. No property of the other two states or of moves from them is used. For a Black win, Lemma B gives a G-move at Black-turn strategy nodes, and (T1),(T3) at `(z,w),(z′,w)` simulate White'"'s pass and make White's other moves suicides. This proves the claimed transfer. The restriction to the winner-king-still states is exactly what makes the half-slice hypotheses sufficient.
+
+### (d) Arrow deletion
+
+The listed examples are direct evaluations of the finite attractor clauses. With all arrows deleted, the opposing king state blocks the only shuttle available at the corresponding neighbor, leaving only suicidal moves there; from "'`(z,w)` the first mover can shuttle to that neighbor, where the other mover loses. With just Black'"'s shuttle deleted at "'`(z′,w)`, the resulting positions are: White-to-move at `(z,w)` wins by the White shuttle to `(z′,w)`, while Black-to-move can shuttle to `(z,w′)` and then White can continue shuttling, giving a draw. The assertion about a positive fraction of random instances and the referee'"'s eight-deletion table are reported statements, not independently proved here.
+
+## 2. Lemma B
+
+Use the stage "'`n` of the least fixed point for `W''^σ` in `G ⊞ dud_D`. We show by induction on `n` that every winning node has a rank-decreasing G-option when it is σ to move. At a σ̄-turn node, membership means all options are either the σ-terminal or lower-stage winning nodes; in particular its pass option reaches the same G position with σ to move and lies at a lower stage. At a σ-turn node of stage `n`, membership has a witness: either the σ-terminal or a lower-stage winning node. If the witness is a G-option, the assertion follows. Otherwise the only non-G witness is the pass, and its child is `(x,ω,σ̄)` at a lower stage. This child is a universal winning node, so every Black/White G-option available to σ̄ is itself a σ-winning child (or the σ-terminal). If there were no G-option for σ at `x`, the only option at `(x,ω,σ̄)` would be its pass; that pass returns to `(x,ω,σ)` and would force a strictly descending stage cycle, impossible. Hence there is a G-option. More precisely, to see that one is rank-decreasing: the σ̄-node'"'s universal clause puts every σ-option G-child in the σ-attractor; its own pass child "'`(x,ω,σ)` is also lower-stage. If every G-child had stage at least `n`, it would not provide a witness at stage `n`, but the pass child does. This last possibility must be excluded by leastness: a σ-winning node whose only winning option is pass cannot arise at a least stage, since the paired σ̄-node can pass back and the two nodes would then depend only on each other. Removing such a two-node cycle preserves the fixed point, contradicting first entry. Thus some G-option is a stage witness.
+
+**Caution about the rank phrasing.** This proof exposes a needed convention in the statement: “entering at stage n” must use the simultaneous attractor iteration with the ordinary least stage and the pass self-cycle cannot be the first-entry witness. If the chosen attractor iteration assigns ranks differently, the claimed `≤ n−1` must be checked against that convention. The independently checked random finite-graph test below is intended to cover this point computationally, not replace the argument.
+
+## 3. Lemma 3.2″
+
+Fix any of the four king pairs. By (K1), neither king square is attacked by an opposing Z-pawn. By Lemma 2.2, no context pawn occupies a buffer file, context pawns remain at distance at least two files from `F_Z`, and Z-pawns remain in `F_Z`; a context pawn therefore cannot attack a square in `F_Z`. The opposing king does not attack either king square because (K2) says every cross-pair king distance is at least two. So neither king is in check. Each shuttle destination is empty by the stated empty-square condition, is not attacked by the opposing king by (K2), is not attacked by an opposing Z-pawn by (K1), and is not attacked by a context pawn by buffer invariance. Thus each shuttle is a legal king move in every context. In particular, each side has at least its shuttle move, so neither side is stalemated. This uses the buffer-invariance lemma, the pawn-attack clauses of (K1), and the all-four-pairs clause of (K2); it makes no claim about positions after a pawn or off-shuttle king move.
+
+## 4. Theorem 3.2‴
+
+All claims are conditional on the hypotheses listed in the theorem, including the (E) e.p. matching clause, (V1a-ctx), (V2-ctx), and the relevant punishment assumptions. In particular, (E) must ensure that a shuttle does not change the context'"'s available en-passant rights or resulting context positions; an e.p. capture that is a context move must correspond to the same G-option. The packet names (E) but does not give its full text, so no stronger assertion about its precise mechanics is made here.
+
+### (a) Win transfer
+
+Assume White wins "'`G ⊞ dud_D`. Theorem 1.14 supplies the winning attractor and its least ranks. Start with its rank-lowering White strategy. By Lemma B, White'"'s strategy uses G-moves only at White-turn strategy nodes; in chess these are legal context moves by (V1a-ctx), with the same G result including the e.p. condition (E). The White king can remain on its initial square throughout. When Black has the move, every legal context move is a G-option and is answered by the rank argument; Black's shuttle is the D pass and changes only the Black king square, keeping the position in the two-state slice. Any other legal Black move is decisively punished by (Pun_Black), so after such a move White has a forced P-win. The induction is on White's D-attractor stage: the chosen White G-move lowers stage; at a Black node every G response lowers stage or is the White terminal, while a shuttle is simulated by the pass and stays within the slice. By (K1),(K2) and Lemma 3.2″, the two shuttle states are legal and the opponent is not stalemated, which supplies (S3). A G decisive event is a P-win for its beneficiary by (V2-ctx). These facts give a White-certified set satisfying (S1)–(S3); the sharp Theorem 1.14 implies a P-win for White. The Black proof is symmetric, using (Pun_White) and the other half-slice.
+
+The phrase “White king stays on its square” follows because Lemma B gives only context moves at White turns, and the construction never uses White's pass/shuttle. Black shuttles preserve White's square. Consequently only "'`(a,w)` and `(a,w′)` are needed for a White win; the mirror uses `(z,w),(z′,w)` for a Black win.
+
+### (b) Exactness
+
+If D says White wins at a regular node, the same rank-lowering construction as in (a), with punishment at every regular position, proves White wins in P. Likewise for Black. It remains to show that a P-win cannot occur where D is a draw or a win for the other side. Induct on the finite least-fixed-point stage of the P-winning attractor (the number of attractor iterations, not chess-game length on arbitrary play). At a P-winner turn, choose a move witnessing entry. A move that is neither a matching context move nor a shuttle is punished by hypothesis and therefore cannot be a witness for that mover'"'s P win. A promotion is a decisive event of its beneficiary by (V2-ctx), hence gives the same immediate terminal in D. Every other witness is a D-move by (V1a-ctx), and its P-successor has smaller P stage. At the opponent-to-move clause, every legal opponent move is either (i) a matching D-move, to which induction applies; (ii) a non-D move that is punished, in which case the P-winner already wins after it and the corresponding D node is winning for that winner by the argument of (a); or (iii) a promotion/decisive event, whose beneficiary is the D winner by (V2-ctx). Stalemate is not a P-win for either side, and, at regular positions, Lemma 3.2″ plus the shuttle supplies an ordinary legal move; hence no missing universal response is being treated as a win. Thus every P-winning regular position is D-winning for the same side. Combining with both win transfers yields equality of White-win sets and Black-win sets; all remaining positions are draws in both models. If G has no decisive event, "'`G ⊞ dud_D` is a draw (the component can pass indefinitely and no decisive terminal is reachable), and exactness makes the regular chess position a P-draw.
+
+**Hypothesis use.** (V1a-ctx) is used to match context moves and their successors; (E) is needed for en-passant moves to be among those matches; the shuttle geometry and (K1),(K2) ensure legal passes and rule out stalemate; (Pun_s) disposes of every non-context, non-shuttle move of the losing/responding side, and for the converse rules out such a move as a winning witness by its mover; (V2-ctx) transfers decisive events/promotions to P-wins for their beneficiaries; Theorem 1.14 turns the constructed rank-certified set into a P-win. The result is a P statement. A chess (`C`) win follows only at positions where the separate per-position hypothesis `(A_Q)(X)` holds.
+
+## 5. Check log
+
+The prescribed small random test is run by `blind_check.py`; its exact generator, seed, sample count, and result are recorded in `FINDINGS.md` after Phase 2. The test uses independently coded least-fixed-point solvers for the summed D arenas. It checks Proposition 3.2′(a) on loopy as well as short contexts; it is evidence, not a proof.
+EOF' in /Users/aritro/Downloads/Research/Chessendgames
+ succeeded in 0ms:
+**Analyzing lemma validity and construction**
+**Examining pass option cycles and ranks**
+**Choosing G option for correction**
+**Preparing script for phase completion**
+exec
+/bin/zsh -lc "python3 - <<'PY'
+p='kings/delegate/out/K34/PROOF.md'
+s=open(p).read()
+a=s.index('## 2. Lemma B')
+b=s.index('\\n## 3. Lemma 3.2″', a)
+replacement='''## 2. Lemma B
+
+Use simultaneous least-fixed-point stages for the White attractor. At a White-turn node, stage "'`n` means that a White-terminal option or a White-winning successor first appears by stage `n−1`; at a Black-turn node, every option must be a White terminal or have entered by stage `n−1` (and an empty option set qualifies, since Black loses by normal play). Inductively consider a White-turn winning node `(x,ω,White)` of stage `n`. If its witnessing option is a G-option, the lemma follows. The only other nonterminal option is White'"'s pass, to "'`(x,ω,Black)`. Were that Black-turn node in the White attractor at any stage `m<n`, its universal clause would require its own pass option, back to `(x,ω,White)`, to have entered at a strictly earlier stage than `m`. That contradicts the definition of `n` as the first stage of the White-turn node. Thus the pass cannot witness first entry; a G-option (or a White terminal G-option) does. Its successor has White to move? A G-move changes the side to move, so its nonterminal successor is `(x′,ω,Black)` and is White-winning at stage at most `n−1`, as asserted. The proof uses only the least-stage clauses and the pass loop; it does not assume `G` is short. Black is symmetric.
+'"'''
+open(p,'w').write(s[:a]+replacement+s[b:])
+PY
+cat > kings/delegate/out/K34/blind_check.py <<'PY'
+\"\"\"Deterministic small random check of Proposition 3.2' (a).
+Run from project root with .venv/bin/python kings/delegate/out/K34/blind_check.py.
+\"\"\"
+import random
+
+SEED = 340027
+INSTANCES = 1000
+
+# Each G position stores (Left options, Right options); targets are integers
+# or terminal strings TOP/BOT. Empty lists model no move.
+def attractor(G, Z=None, start_z=None):
+    \"\"\"Return terminal result (W/L/D) for every (x,z,turn) in sum arena.\"\"\"
+    nz = 1 if Z is None else len(Z)
+    nodes = [(x, z, t) for x in range(len(G)) for z in range(nz) for t in (0, 1)]
+    edges = {}
+    for x, z, t in nodes:
+        opts = []
+        for v in G[x][t]:
+            opts.append((v, None) if isinstance(v, str) else ((v, z), None))
+        if Z is None:
+            opts.append(((x, z), None))  # dud pass
+        else:
+            for v in Z[z][t]:
+                opts.append((v, None) if isinstance(v, str) else ((x, v), None))
+        edges[(x, z, t)] = opts
+    white, black = set(), set()
+    changed = True
+    while changed:
+        changed = False
+        nw, nb = set(white), set(black)
+        for u, opts in edges.items():
+            t = u[2]
+            # Immediate terminals resolve the whole sum.
+            if t == 0:
+                if any(v == 'TOP' or (v not in ('TOP', 'BOT') and v in white) for v, _ in opts):
+                    nw.add(u)
+                if all(v == 'BOT' or (v not in ('TOP', 'BOT') and v in black) for v, _ in opts):
+                    nb.add(u)
+            else:
+                if all(v == 'TOP' or (v not in ('TOP', 'BOT') and v in white) for v, _ in opts):
+                    nw.add(u)
+                if any(v == 'BOT' or (v not in ('TOP', 'BOT') and v in black) for v, _ in opts):
+                    nb.add(u)
+        if nw "'!= white or nb != black:
+            changed = True
+            white, black = nw, nb
+    return {u: ('"'W' if u in white else 'L' if u in black else 'D') for u in nodes}
+
+
+def gen(rng):
+    n = rng.randint(1, 5)
+    G = []
+    choices = list(range(n)) + ['TOP', 'BOT']
+    for _ in range(n):
+        sides = []
+        for _t in (0, 1):
+            sides.append([rng.choice(choices) for _ in range(rng.randint(0, 3))])
+        G.append(tuple(sides))
+    # Exact four state two-shuttle Z; every non-shuttle option is suicide.
+    Z = []
+    for a in range(2):
+        for b in range(2):
+            left = [2 * (1-a) + b, 'BOT']
+            right = [2 * a + (1-b), 'TOP']
+            Z.append((left, right))
+    return G, Z
+
+
+def main():
+    rng = random.Random(SEED)
+    for i in range(INSTANCES):
+        G, Z = gen(rng)
+        exact = attractor(G, Z)
+        dud = attractor(G)
+        for x in range(len(G)):
+            for z in range(4):
+                for t in (0, 1):
+                    assert exact[(x, z, t)] == dud[(x, 0, t)], (i, G, exact, dud)
+    print(f'PASS instances={INSTANCES} seed={SEED} generator=n1..5; each G side has 0..3 IID options uniformly from positions plus TOP/BOT; Z is exact 4-cycle shuttles plus one suicide per side/state; compared all x, 4 states, 2 turns')
+
+if __name__ == '__main__':
+    main()
+PY
+.venv/bin/python kings/delegate/out/K34/blind_check.py" in /Users/aritro/Downloads/Research/Chessendgames
+ succeeded in 0ms:
+PASS instances=1000 seed=340027 generator=n1..5; each G side has 0..3 IID options uniformly from positions plus TOP/BOT; Z is exact 4-cycle shuttles plus one suicide per side/state; compared all x, 4 states, 2 turns
+
+**Analyzing solver correctness**
+**Considering section extraction methods**
+codex
+The independent proof file is now in place, and the required deterministic random check passes on 1,000 generated loopy/short contexts. I’m moving to Phase 2 and will read only the requested LOOPY section.
+exec
+/bin/zsh -lc "python3 - <<'PY'
+p='kings/theory/LOOPY.md'
+s=open(p).read()
+a=s.index('**Proposition 3.2′')
+b=s.index('**Which hypotheses hold', a)
+section=s[a:b]
+print(f'LOOPY excerpt lines {s[:a].count(chr(10))+1}-{s[:b].count(chr(10))}')
+print(section)
+PY" in /Users/aritro/Downloads/Research/Chessendgames
+ succeeded in 0ms:
+LOOPY excerpt lines 1942-2080
+**Proposition 3.2′ (two shuttling kings are a dud). PROVED (new, K14, 2026-10-27; revised after the K14 referee,
+2026-10-27: the D-model part was re-checked by one referee (same model family) and by two brute-force implementations,
+on short and loopy G).**
+
+*Two-shuttle component.* Let Z be a D-game with four distinct positions (a, b), a ∈ {z, z′}, b ∈ {w, w′}. Write ā for
+the other of z, z′ and b̄ for the other of w, w′. In chess z, z′ and w, w′ are the two shuttle squares of the White and
+the Black king, and the four positions are the four combined king states. In each of the four positions:
+- **(T1)** (ā, b) is a Left option (White's shuttle);
+- **(T2)** (a, b̄) is a Right option (Black's shuttle);
+- **(T3)** every other Left option is ⊖ (a suicide);
+- **(T4)** every other Right option is ⊕ (a suicide).
+
+Z may have further positions. Let G be any D-game (short or not) and x a position of G.
+- **(a) Equality.** Under (T1)–(T4), for all four states (a, b) and both sides to move, r(G ⊞ Z) at (x, (a, b)) equals
+  r(G ⊞ dud_D) at (x, ω). For short G the value is given by Theorem 3.4(a): a side wins iff it can force a decisive
+  event against an opponent who may pass at any time, and otherwise the game is drawn. There is no zugzwang
+  (Λ_R ⇒ Λ_L), and a G without terminals is a draw.
+- **(b) Further Z-moves.** Under (T1), (T2), (T4) (White may have further Z-moves, of any kind, even to new positions),
+  r(G ⊞ Z) ≥ r(G ⊞ dud_D) in the order L < D < W. Under (T1), (T2), (T3), r(G ⊞ Z) ≤ r(G ⊞ dud_D). If both sides have
+  further moves there is no comparison in general. The inequalities can be strict (a further White option ⊕ at
+  (z, w) makes G = 0 a White win, against D for dud_D).
+- **(c) Half-slice.** Suppose only (T2) and (T4) hold, and only at (z, w) and (z, w′), and everything else in Z is
+  arbitrary. If r(G ⊞ dud_D) = W at (x, ω) for a side to move s, then r(G ⊞ Z) = W at (x, (z, w)) and at (x, (z, w′))
+  for the same s. Mirror: (T1), (T3) at (z, w) and (z′, w) transfer a Black win. So *a win needs only the half of the
+  four states in which the winner's king stands still*; the draws, and the exact equality (a), need all four.
+- **(d) Each shuttle arrow is needed.** Take G = 0 (one position, no options), where r(G ⊞ dud_D) = (D, D).
+  - *Opposition.* Delete the diagonal state (z′, w′) (the kings would touch). Then (z′, w) has no Black shuttle and
+    (z, w′) has no White shuttle; their only options are suicides. At (z, w) the pair is (W, L): White to move goes to
+    (z′, w) and Black must suicide, Black to move goes to (z, w′) and White must suicide. The first player wins.
+  - *One arrow.* Delete Black's shuttle at (z′, w) only: the pair at (z, w) is (W, D).
+  - *Every arrow.* Deleting any one of the eight shuttle arrows from an otherwise exact Z changes the result in a
+    positive fraction of random instances, and at G = 0 it changes the result at all four states (the referee's table of
+    all eight deletions; COMPUTED-1).
+
+*Proof.* Two lemmas, then the parts.
+
+**Lemma A (p-morphism).** Let A, B be D-games and φ a map from the positions of A to those of B (identity on terminals)
+such that, for every position u of A and each player s, (i) φ maps every s-option of u to an s-option of φ(u), and
+(ii) every s-option of φ(u) is φ of some s-option of u. Then r_A(u, s) = r_B(φ(u), s) for all u, s. A and B may be loopy.
+*Proof.* Let U_n^σ be the stage sets of Definition 1.2 (U_0 = ∅; (u, σ) enters at stage n+1 if some σ-option is a
+σ-terminal or a position t with (t, σ̄) in U_n^σ; (u, σ̄) enters if every option is a σ-terminal or a t with (t, σ) in
+U_n^σ, a position without options entering at stage 1). By induction on n, (u, s) is in U_n^σ(A) iff (φ(u), s) is in
+U_n^σ(B). For s = σ, an option of u that is good at stage n maps by (i) to a good option of φ(u), and a good option
+of φ(u) is φ of an option of u by (ii), which is good by induction. For s = σ̄, every option of φ(u) is φ of an option
+of u by (ii), and every option t of u maps to an option of φ(u) by (i). The union over n is the least fixed point. ∎
+
+**Lemma B (the winner of G ⊞ dud_D never passes).** Let (x, ω, σ) be in W^σ of G ⊞ dud_D, entering at stage n. Then
+some option that makes it enter at stage n is a G-move (a σ-terminal of G or a position (x′, ω) with σ̄ to move and
+stage ≤ n − 1). *Proof.* If the only such option were the pass, to (x, ω, σ̄) at stage m ≤ n − 1, then every option of
+(x, ω, σ̄), the pass back included, has stage ≤ m − 1, so (x, ω, σ) would enter at stage ≤ m < n. ∎
+This is the content of the proof of Theorem 3.4(a), "Left's winning moves are always G-moves".
+
+*(a)* Let A = G ⊞ Z and A⁰ = G ⊞ Z⁰, where Z⁰ keeps only the four shuttle options at the four states.
+- The stage sets of A and A⁰ coincide. A deleted option is a Left option ⊖ or a Right option ⊕. For the player to move
+  it never makes a position enter (it is a terminal for the opponent). For the opponent it is a terminal that is always
+  fine, so a position all of whose remaining options are fine, or that has none, enters at the same stage in A⁰ and A.
+  (This is Lemma 1.7; its proof does not use shortness.)
+- φ(x′, (a, b)) = (x′, ω) maps A⁰ onto G ⊞ dud_D. The Left options of (x′, (a, b)) are the terminals of G, the
+  positions (x′^L, (a, b)) and (x′, (ā, b)); their images are the Left options of (x′, ω): the terminals of G, the
+  positions (x′^L, ω) and (x′, ω), the pass. So (i) and (ii) hold for Left, and for Right with (x′, (a, b̄)). By
+  Lemma A the results agree. ∎
+
+*(b)* Delete White's further options (they can be added back as unreachable positions of the smaller game): (a) applies,
+and by option monotonicity (Lemma 1.6) the larger game is at least as good for White, since Black's options are
+unchanged. The second inequality is its mirror.
+
+*(c)* Take σ = White. By induction on n, (x′, ω, s) in U_n^White(G ⊞ dud_D) implies (x′, (z, b), s) in U_n^White(G ⊞ Z)
+for both b. For s = White, Lemma B gives a G-move making it enter, and the same move exists in G ⊞ Z. For s = Black,
+every option of (x′, ω, Black) is good: a G-option, or the pass. At (x′, (z, b)) Black has the same G-options, the
+shuttle to (x′, (z, b̄)) by (T2) (it corresponds to the pass), and otherwise only ⊕ options by (T4). All are good. ∎
+
+*(Remark on e.p.; revised after the K14 referee, 2026-10-27.)* The sum of Definition 1.3 leaves G alone under a Z-move,
+and in chess an e.p. right expires under a king move. Model the flag as a coordinate of G that every Z-move resets, and
+the pass of dud_D likewise. Lemma A goes through unchanged (φ forgets only the Z-state, and both games reset the flag at
+corresponding moves). Lemma B needs one more line. The pass from (x, f, ω, σ) leads to (x, none, ω, σ̄), and the pass
+back leads to the flag-free state (x, none, ω, σ), which is not (x, f, ω, σ) when the flag f is set. The flag belongs
+to the side to move, so (x, f, σ) has all the options of (x, none, σ) and possibly an e.p. capture more. By option
+monotonicity (Lemma 1.6) its stage is at most the stage of (x, none, σ). So (x, f, σ) enters at stage ≤ m < n: the same
+contradiction. The conclusion of Lemma B also holds on all 4,579 pawn contexts of the checks below (155,400 winning
+nodes, 0 violations; the referee's `vpawn.py`; COMPUTED-1). The chess statements below use this reading.
+
+**Remark 3.2′a (what it says about the conjecture).** A two-shuttle component realises dud_D, so the "shuttles on both
+sides" bullet above is PROVED in the D-model for every component that satisfies (T1)–(T4). Whether a chess king group
+does is a separate question, answered by the hypotheses of Theorem 3.2‴ below and, for a concrete group, by a search
+(§5.7: Z_B in P).
+
+**Lemma 3.2″ (four-state geometry; PROVED).** Let z ≠ z′ and w ≠ w′ be empty squares of F_Z, z, z′ adjacent and w, w′
+adjacent, such that (K1) no Black Z-pawn attacks z or z′ and no White Z-pawn attacks w or w′, and (K2) the king distance
+d(a, b) ≥ 2 for all four (a, b) (the kings never touch). Then, in every context (files at distance ≥ 2 from F_Z), with
+the Z-pawns unmoved and the kings on {z, z′} and {w, w′}: neither king is in check, both shuttle moves are legal
+(whatever the other king's square), and each side has a legal move, so nobody is stalemated.
+*Proof.* A king is attacked only by an enemy pawn or the enemy king. By Lemma 2.2 no context pawn attacks a square of
+F_Z and no pawn stands on a buffer file; the Z-pawns do not attack the four squares by (K1), and the kings do not attack
+each other by (K2). So there is no check, and a shuttle move is legal: its target is empty, not attacked, and not
+adjacent to the enemy king. Each side has its shuttle as a legal move. ∎
+
+**Theorem 3.2‴ (chess bridge for two shuttles; PROVED in P, conditional on the stated hypotheses; the chess statement adds
+(A_Q)(X) as always).** Let X be a K+P position
+with a king group Z satisfying (K1), (K2), the kings on {z, z′} and {w, w′}, and a context with D-model G (the pawn-only
+game of Definition 1.5, with the e.p. flag as in the Remark). Let D = G ⊞ dud_D, with π sending a chess position to
+(x, ω) and keeping the side to move. A *regular* position is one reachable from X by D-moves (matching context moves and
+the two shuttles). Assume, at every regular position:
+- **(V1a-ctx)** the legal context moves of the side to move are exactly G's options for that side, with the same
+  resulting positions (e.p. through condition (E)); the shuttle is the pass;
+- **(V2-ctx)** every decisive event of G leads to a P-win for its beneficiary (automatic for a pawn-only G scored by
+  promotions);
+and write **(Pun_s)** for: *every legal move of s that is neither a context move nor s's shuttle (a king move off the
+shuttle, a Z-pawn move or capture) is decisively punished (Definition 2.5): the position after it is a P-win for s̄.*
+- **(a) Win transfer.** Suppose r_D(x, ω, s) = W. Let Σ be a rank-lowering White strategy in D (by Lemma B it never
+  passes) and N the set of chess positions arising when White plays Σ as chess moves and Black plays any legal D-move.
+  If (Pun_Black) holds at the nodes of N with Black to move, then White wins X in P. White's king stays on its square, so
+  only the two states (a, w), (a, w′) occur; White's shuttle and the square z′ are not used. The mirror statement for a
+  Black win needs (Pun_White) at the nodes of N with White to move.
+- **(b) Exactness.** If (Pun_White) and (Pun_Black) hold at all regular positions, the P-result of every regular
+  position equals r_D(π(y)), draws included. In particular, if G has no decisive event, X is a draw in P.
+
+*Proof.* (a) By the sharp form of Theorem 1.14 it is enough to exhibit a White-certified set; take N.
+- (S1): at a White node of N, Σ prescribes a G-move or a ⊕. By (V1a-ctx) the move is legal and leads to the prescribed
+  D-position; a promotion wins in P by (V2-ctx). The rank is lowered.
+- (S2): at a Black node of N every legal move is one of: a context move, a D-move by (V1a-ctx) to a position of N (a
+  decisive event of G for White is closing by (V2-ctx); a promotion by Black would be a ⊖ option of a Black node of
+  W^White, and there is none); Black's shuttle, a D-move (legal by Lemma 3.2″) whose rank is lower because the pass is
+  an option of a Black node of W^White; any other move, closing by (Pun_Black).
+- (S3): Black's shuttle is a legal move, so Black is not stalemated (Lemma 3.2″).
+The sharp form gives a P-win. ∎(a)
+
+(b) *D-win ⇒ P-win:* by (a) at every regular position, as (Pun) holds everywhere. *P-win ⇒ D-win:* by induction on the
+stage of the P-win, a regular position y that is a P-win for σ has π(y) in W^σ. Suppose π(y) = (x, ω) with side s and
+(x, ω, s) not in W^σ.
+- s = σ: σ has a legal move that promotes or leads to a P-win of smaller stage. A promotion is a σ-terminal option of D
+  by (V1a-ctx), which would put (x, ω, σ) in W^σ. A context move or a shuttle is a D-move to a regular y′ of smaller
+  stage, and by induction π(y′) is in W^σ, again a contradiction. Any other move is decisively punished (Pun_σ), a P-win
+  for σ̄, not for σ.
+- s = σ̄: being a P-win, y has every legal move of σ̄ leading to a P-win for σ, and σ̄ is not stalemated. As (x, ω, σ̄)
+  is not in W^σ and σ̄ has the pass, some option of it is neither a σ-terminal nor in W^σ. By (V1a-ctx) and Lemma 3.2″ it
+  is realised by a legal move of σ̄ (a promotion, or a context or shuttle move to a regular y′ with π(y′) the option).
+  By induction that move is not a P-win for σ. Contradiction.
+So the P-win sets of both sides are π^{-1}(W^σ). ∎
+
+
+
+**Auditing LOOPY proof steps**
+**Examining stage set properties**
+**Analyzing game move options**
+**Clarifying promotion and move classifications**
+**Analyzing game move outcomes**
+**Examining promotion and termination logic**
+**Reviewing phase 2 reading and writing rules**
+**Analyzing induction and promotion complexities**
+**Analyzing proof structure**
+**Evaluating proof labels and assumptions**
+**Reviewing test findings**
+exec
+/bin/zsh -lc "cat > kings/delegate/out/K34/FINDINGS.md <<'EOF'
+# Findings
+
+Proposition 3.2′(a) is SOUND by least-fixed-point attractor comparison, including loopy contexts.
+Its monotonicity, half-slice transfer, and the four-state geometry are SOUND under their stated hypotheses.
+Lemma B is SOUND; its pass-cycle contradiction works at first-entry stages and extends to e.p. flags as LOOPY explains.
+Theorem 3.2‴ is SOUND conditional on move matching, decisive-event transfer, geometry, and punishment hypotheses.
+Recommend retaining PROVED (conditional for the chess bridge); retain COMPUTED-1 for the random deletion claim.
+
+## Comparison with the blind proof
+
+My route for Proposition 3.2′(a) compares winning attractors directly on the full and exact four-state arenas. LOOPY first deletes the suicidal options, then uses a p-morphism to identify the remaining shuttle arena with "'`G ⊞ dud_D`. These are different presentations of the same least-fixed-point argument. Both work for loopy games.
+
+For (b), my proof spells out monotonicity separately for the two attractors; LOOPY cites option monotonicity. For (c), the arguments agree: Lemma B removes the winner'"'s pass, and induction needs only the two states where the winner's king stays still. My blind proof kept the en-passant condition abstract because the packet did not include the text of (E); LOOPY explicitly models the flag and explains why the stage argument survives its reset. Lemma 3.2″ and the chess bridge follow the same geometry, rank certification, and converse-induction routes.
+
+## LOOPY proof audit
+
+| LOOPY step | Assessment | Reason |
+|---|---|---|
+| Lemma A, stage-set definition and induction | **SOUND** | The option-surjectivity and option-preservation conditions transfer the existential and universal clauses at each finite stage. Taking the union gives equality of both least attractors; loopy edges do not affect this induction. |
+| Lemma B, first-entry pass contradiction | **SOUND** | If the pass is the only first-entry witness, the opponent-turn node must already be winning at a lower stage. Its pass-back option then forces the original node into an even earlier stage, contradiction. A G-option must witness entry. |
+| Proposition 3.2′(a), deletion of suicide options | **SOUND** | A mover's terminal loss cannot witness that mover's win; at an opponent-turn universal clause it is a terminal win for the attractor being proved. Removing these options preserves stages. |
+| Proposition 3.2′(a), shuttle p-morphism | **SOUND** | At every retained state, G options map identically and each side's shuttle maps to, and covers, the dud pass; the two option conditions of Lemma A hold. |
+| Proposition 3.2′(b), one-sided extra options | **SOUND** | Adding only White options preserves White's witnesses and can only strengthen White's universal conditions at Black-turn nodes; the dual argument gives the other inequality. |
+| Proposition 3.2′(c), half-slice induction | **SOUND** | White does not need to shuttle by Lemma B. At Black-turn nodes, the Black shuttle simulates pass, context options are handled inductively, and extra "'`⊕` options are favorable to White. Only the stipulated two states are visited. Color reversal gives the mirror. |
+| En-passant extension to Lemma B | **SOUND, CONDITIONAL ON THE FLAG MODEL** | The extra EP option is available only to the side to move at the flagged state. On a winner-to-move node, adding options cannot raise its first-entry stage. The pass-back reaches the flag-free node, so the stated option-monotonicity comparison closes the same contradiction. The text'"'s flag-reset rule must match the chess move semantics. |
+| Lemma 3.2″ geometry | **SOUND** | Buffer invariance excludes context pawn attacks; (K1) excludes Z-pawn attacks; (K2) excludes king attacks. Empty destinations and these attack exclusions make each shuttle legal and preclude stalemate. |
+| Theorem 3.2‴(a), certified-set construction | **SOUND, CONDITIONAL ON (V1a-ctx), (V2-ctx), (Pun), AND (E)** | The winner's G-only strategy supplies S1; the opponent's context moves and shuttle are D responses and all other moves close by punishment. Legal shuttle availability supplies S3. Decisive events and EP moves need the stated matching hypotheses. The sharp theorem then applies. |
+| Theorem 3.2‴(b), D-win to P-win | **SOUND, CONDITIONAL ON THE SAME BRIDGE HYPOTHESES** | This is the win transfer in either color, available at every regular position under global punishment. |
+| Theorem 3.2‴(b), P-win to D-win | **SOUND, CONDITIONAL ON THE SAME BRIDGE HYPOTHESES** | Induction on P attractor stage rules out a non-D winning witness by punishment; at the opponent node, failure of D-attractor membership supplies a nonterminal, non-winning D option, whose matching legal move contradicts the P-win clause. Promotions are handled as beneficiary terminals. |
+| Theorem 3.2‴, draw conclusion | **SOUND, CONDITIONAL ON EXACTNESS** | Since both finite-win attractors coincide, their complement is the draw set. If G has no decisive event, the D sum with dud is a draw. |
+| Proposition 3.2′(d), opposition and one-arrow examples | **SOUND** | Direct application of the finite normal-play attractor clauses gives the listed outcomes. |
+| Proposition 3.2′(d), random arrow-deletion frequency and eight-deletion table | **COMPUTED-1 (not rechecked here)** | The excerpt reports a referee's table, but the required random check tests the intact four-shuttle equality, not the deletion-frequency experiment. No independent deletion count was run in this task. |
+
+No proof step in the requested LOOPY passage is FALSE. I found no gap in the principal proofs. The bridge remains conditional, and the en-passant flag model must be part of (E)/(V1a-ctx), as stated.
+
+## Random check
+
+**CHECKED-2, finite randomized sample only:** an independently written finite-arena least-fixed-point solver compared "'`r(G ⊞ Z)` against `r(G ⊞ dud_D)` for each position of G, all four shuttle states, and both turns. The generator used seed `340027`; for each instance it chose `n` uniformly from 1 through 5, then gave each side at each G position 0–3 IID options chosen uniformly from the `n` positions plus `⊕,⊖`. `Z` had the exact four-state two-shuttle cycle and one suicide option for each side at every state. The sample contained **1,000 instances**; all comparisons matched. It includes both acyclic and loopy G by construction, but does not claim exhaustive coverage.
+
+Reproduce from the project root:
+
+```sh
+.venv/bin/python kings/delegate/out/K34/blind_check.py
+```
+
+Expected output begins `PASS instances=1000 seed=340027` and prints the exact generator description. This is one independently implemented solver, so the test itself is **COMPUTED-1**, not CHECKED-2; the equality proof is **PROVED** by the stage argument. The count is reproducible with the command above.
+EOF
+cat kings/delegate/out/K34/FINDINGS.md | sed -n '"'1,28p'
+" in /Users/aritro/Downloads/Research/Chessendgames
+ succeeded in 0ms:
+# Findings
+
+Proposition 3.2′(a) is SOUND by least-fixed-point attractor comparison, including loopy contexts.
+Its monotonicity, half-slice transfer, and the four-state geometry are SOUND under their stated hypotheses.
+Lemma B is SOUND; its pass-cycle contradiction works at first-entry stages and extends to e.p. flags as LOOPY explains.
+Theorem 3.2‴ is SOUND conditional on move matching, decisive-event transfer, geometry, and punishment hypotheses.
+Recommend retaining PROVED (conditional for the chess bridge); retain COMPUTED-1 for the random deletion claim.
+
+## Comparison with the blind proof
+
+My route for Proposition 3.2′(a) compares winning attractors directly on the full and exact four-state arenas. LOOPY first deletes the suicidal options, then uses a p-morphism to identify the remaining shuttle arena with `G ⊞ dud_D`. These are different presentations of the same least-fixed-point argument. Both work for loopy games.
+
+For (b), my proof spells out monotonicity separately for the two attractors; LOOPY cites option monotonicity. For (c), the arguments agree: Lemma B removes the winner's pass, and induction needs only the two states where the winner's king stays still. My blind proof kept the en-passant condition abstract because the packet did not include the text of (E); LOOPY explicitly models the flag and explains why the stage argument survives its reset. Lemma 3.2″ and the chess bridge follow the same geometry, rank certification, and converse-induction routes.
+
+## LOOPY proof audit
+
+| LOOPY step | Assessment | Reason |
+|---|---|---|
+| Lemma A, stage-set definition and induction | **SOUND** | The option-surjectivity and option-preservation conditions transfer the existential and universal clauses at each finite stage. Taking the union gives equality of both least attractors; loopy edges do not affect this induction. |
+| Lemma B, first-entry pass contradiction | **SOUND** | If the pass is the only first-entry witness, the opponent-turn node must already be winning at a lower stage. Its pass-back option then forces the original node into an even earlier stage, contradiction. A G-option must witness entry. |
+| Proposition 3.2′(a), deletion of suicide options | **SOUND** | A mover's terminal loss cannot witness that mover's win; at an opponent-turn universal clause it is a terminal win for the attractor being proved. Removing these options preserves stages. |
+| Proposition 3.2′(a), shuttle p-morphism | **SOUND** | At every retained state, G options map identically and each side's shuttle maps to, and covers, the dud pass; the two option conditions of Lemma A hold. |
+| Proposition 3.2′(b), one-sided extra options | **SOUND** | Adding only White options preserves White's witnesses and can only strengthen White's universal conditions at Black-turn nodes; the dual argument gives the other inequality. |
+| Proposition 3.2′(c), half-slice induction | **SOUND** | White does not need to shuttle by Lemma B. At Black-turn nodes, the Black shuttle simulates pass, context options are handled inductively, and extra `⊕` options are favorable to White. Only the stipulated two states are visited. Color reversal gives the mirror. |
+| En-passant extension to Lemma B | **SOUND, CONDITIONAL ON THE FLAG MODEL** | The extra EP option is available only to the side to move at the flagged state. On a winner-to-move node, adding options cannot raise its first-entry stage. The pass-back reaches the flag-free node, so the stated option-monotonicity comparison closes the same contradiction. The text's flag-reset rule must match the chess move semantics. |
+| Lemma 3.2″ geometry | **SOUND** | Buffer invariance excludes context pawn attacks; (K1) excludes Z-pawn attacks; (K2) excludes king attacks. Empty destinations and these attack exclusions make each shuttle legal and preclude stalemate. |
+| Theorem 3.2‴(a), certified-set construction | **SOUND, CONDITIONAL ON (V1a-ctx), (V2-ctx), (Pun), AND (E)** | The winner's G-only strategy supplies S1; the opponent's context moves and shuttle are D responses and all other moves close by punishment. Legal shuttle availability supplies S3. Decisive events and EP moves need the stated matching hypotheses. The sharp theorem then applies. |
+| Theorem 3.2‴(b), D-win to P-win | **SOUND, CONDITIONAL ON THE SAME BRIDGE HYPOTHESES** | This is the win transfer in either color, available at every regular position under global punishment. |
+
+**Reviewing proof requirements for Proposition 3.2**
+**Designing tests for arrow deletions**
+
+I’m planning to extend the existing script to run random and deterministic tests on all eight arrow deletions, checking outcomes at G=0 across all states, and verifying how each deletion affects results and root outcomes.
+**Adding comprehensive option checks**
+exec
+/bin/zsh -lc "cat >> kings/delegate/out/K34/blind_check.py.tmp <<'EOF'
+EOF
+" in /Users/aritro/Downloads/Research/Chessendgames
+ succeeded in 0ms:
+**Refining script cleanup**
+exec
+/bin/zsh -lc "rm kings/delegate/out/K34/blind_check.py.tmp
+cat > kings/delegate/out/K34/blind_deletions.py <<'PY'
+\"\"\"Deletion sensitivity check for Proposition 3.2' (d).
+Run from project root with .venv/bin/python kings/delegate/out/K34/blind_deletions.py.
+\"\"\"
+import random
+from blind_check import attractor, gen, SEED, INSTANCES
+
+
+def z_exact():
+    return [([2 * (1-a) + b, 'BOT'], [2*a + (1-b), 'TOP'])
+            for a in range(2) for b in range(2)]
+
+
+def main():
+    base = z_exact()
+    base0 = attractor([( [], [] )], base)
+    for idx, turn in [(z, t) for z in range(4) for t in (0, 1)]:
+        z = [ (list(l), list(r)) for l, r in base ]
+        z[idx][turn].remove((2 * (1-idx//2) + idx%2) if turn == 0 else (2*(idx//2) + (1-idx%2)))
+        # The removed edge is the shuttle arrow for this state and side.
+        out = attractor([([], [])], z)
+        assert all(out[(0, s, t)] "'!= base0[(0, 0, t)]
+                   for s in range(4) for t in (0, 1)), (idx, turn, out, base0)
+    print('"'PASS G=0: all 8 individual shuttle-arrow deletions change all 8 state/turn outcomes')
+
+    rng = random.Random(SEED)
+    counts = [0] * 8
+    for _ in range(INSTANCES):
+        G, _ = gen(rng)
+        base = z_exact()
+        original = attractor(G, base)
+        for k, (idx, turn) in enumerate((z, t) for z in range(4) for t in (0, 1)):
+            z = [(list(l), list(r)) for l, r in base]
+            if turn == 0:
+                target = 2 * (1-idx//2) + idx%2
+            else:
+                target = 2 * (idx//2) + (1-idx%2)
+            z[idx][turn].remove(target)
+            altered = attractor(G, z)
+            if any(altered[(x, idx, t)] "'!= original[(x, idx, t)]
+                   for x in range(len(G)) for t in (0, 1)):
+                counts[k] += 1
+    print(f'"'COMPUTED-1 seed={SEED} instances={INSTANCES} changed-instance-counts-per-deleted-arrow={counts}')
+
+if __name__ == '__main__':
+    main()
+PY
+.venv/bin/python kings/delegate/out/K34/blind_deletions.py" in /Users/aritro/Downloads/Research/Chessendgames
+ exited 1 in 0ms:
+Traceback (most recent call last):
+  File "/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K34/blind_deletions.py", line 45, in <module>
+    main()
+  File "/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K34/blind_deletions.py", line 21, in main
+    assert all(out[(0, s, t)] != base0[(0, 0, t)]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (0, 0, {(0, 0, 0): 'L', (0, 0, 1): 'D', (0, 1, 0): 'D', (0, 1, 1): 'D', (0, 2, 0): 'D', (0, 2, 1): 'D', (0, 3, 0): 'D', (0, 3, 1): 'D'}, {(0, 0, 0): 'D', (0, 0, 1): 'D', (0, 1, 0): 'D', (0, 1, 1): 'D', (0, 2, 0): 'D', (0, 2, 1): 'D', (0, 3, 0): 'D', (0, 3, 1): 'D'})
+
+**Verifying arrow deletion effects**
+exec
+/bin/zsh -lc "python3 - <<'PY'
+p='kings/delegate/out/K34/blind_deletions.py'
+s=open(p).read().replace(\"assert all(out[(0, s, t)] "'!= base0[(0, 0, t)]'"\\n                   for s in range(4) for t in (0, 1)), (idx, turn, out, base0)\",\"assert any(out[(0, s, t)] "'!= base0[(0, s, t)]'"\\n                   for s in range(4) for t in (0, 1)), (idx, turn, out, base0)\")
+s=s.replace(\"all 8 individual shuttle-arrow deletions change all 8 state/turn outcomes\",\"each of 8 individual shuttle-arrow deletions changes at least one of the 8 state/turn outcomes\")
+open(p,'w').write(s)
+PY
+.venv/bin/python kings/delegate/out/K34/blind_deletions.py" in /Users/aritro/Downloads/Research/Chessendgames
+ succeeded in 515ms:
+PASS G=0: each of 8 individual shuttle-arrow deletions changes at least one of the 8 state/turn outcomes
+COMPUTED-1 seed=340027 instances=1000 changed-instance-counts-per-deleted-arrow=[630, 621, 630, 621, 630, 621, 630, 621]
+
+**Clarifying LOOPY deletion effects**
+**Verifying outcome changes per deletion**
+exec
+/bin/zsh -lc "python3 - <<'PY'
+import sys
+sys.path.insert(0,'kings/delegate/out/K34')
+from blind_check import attractor
+base=[([2*(1-a)+b,'BOT'],[2*a+(1-b),'TOP']) for a in range(2) for b in range(2)]
+for idx in range(4):
+ for t in range(2):
+  z=[(list(l),list(r)) for l,r in base]
+  target=2*(1-idx//2)+idx%2 if t==0 else 2*(idx//2)+(1-idx%2)
+  z[idx][t].remove(target)
+  o=attractor([([],[])],z)
+  print(idx,t,[o[(0,s,turn)] for s in range(4) for turn in (0,1)])
+PY" in /Users/aritro/Downloads/Research/Chessendgames
+ succeeded in 0ms:
+0 0 ['L', 'D', 'D', 'D', 'D', 'D', 'D', 'D']
+0 1 ['D', 'W', 'D', 'D', 'D', 'D', 'D', 'D']
+1 0 ['D', 'D', 'L', 'D', 'D', 'D', 'D', 'D']
+1 1 ['D', 'D', 'D', 'W', 'D', 'D', 'D', 'D']
+2 0 ['D', 'D', 'D', 'D', 'L', 'D', 'D', 'D']
+2 1 ['D', 'D', 'D', 'D', 'D', 'W', 'D', 'D']
+3 0 ['D', 'D', 'D', 'D', 'D', 'D', 'L', 'D']
+3 1 ['D', 'D', 'D', 'D', 'D', 'D', 'D', 'W']
+
+**Analyzing state deletion effects**
+**Evaluating deletion impact claims**
+**Reviewing proof and test adjustments**
+**Clarifying proposition accuracy**
+exec
+/bin/zsh -lc "python3 - <<'PY'
+p='kings/delegate/out/K34/PROOF.md'
+s=open(p).read()
+old='''### (d) Arrow deletion
+
+The listed examples are direct evaluations of the finite attractor clauses. With all arrows deleted, the opposing king state blocks the only shuttle available at the corresponding neighbor, leaving only suicidal moves there; from "'`(z,w)` the first mover can shuttle to that neighbor, where the other mover loses. With just Black'"'s shuttle deleted at "'`(z′,w)`, the resulting positions are: White-to-move at `(z,w)` wins by the White shuttle to `(z′,w)`, while Black-to-move can shuttle to `(z,w′)` and then White can continue shuttling, giving a draw. The assertion about a positive fraction of random instances and the referee'"'s eight-deletion table are reported statements, not independently proved here.
+'''
+new='''### (d) Arrow deletion
+
+The opposition example follows from the finite attractor clauses: removing diagonal state "'`(z′,w′)` also removes Black'"'s shuttle from "'`(z′,w)` and White'"'s shuttle from "'`(z,w′)`. At `(z,w)`, White can shuttle to `(z′,w)` and Black then has only suicide; Black can instead shuttle to `(z,w′)` and White then has only suicide. Thus the first mover wins. For the one-arrow example, delete Black'"'s shuttle at "'`(z′,w)`. From `(z,w)`, White-to-move wins by shuttling to `(z′,w)`, where Black has only suicide. Black-to-move shuttles to `(z,w′)`; White can shuttle back and both can continue, so this state is a draw. The claimed change “at all four states” under deletion of any one arrow is false if it means all four combined king states (with either side to move): the script `blind_deletions.py` computes that for G=0 every single-arrow deletion changes only the deleted arrow'"'s source state, on the source side's turn. Each deletion still changes an outcome. On the stated random generator, each arrow changes at least one root outcome in a positive fraction of instances (counts are in FINDINGS.md). This is COMPUTED-1 evidence, not a general proof of the positive-fraction claim.
+'''
+assert old in s
+open(p,'w').write(s.replace(old,new))
+PY
+python3 - <<'PY'
+p='kings/delegate/out/K34/FINDINGS.md'
+s=open(p).read()
+a=s.index('# Findings')
+b=s.index('\\n## Comparison with the blind proof',a)
+summary='''# Findings
+
+Proposition 3.2′(a)–(c), Lemma B, Lemma 3.2″ and the principal bridge proofs are SOUND.
+The attractor and geometry arguments apply to loopy D-games under their stated hypotheses.
+The chess bridge remains conditional on move matching, decisive-event transfer, punishment, and e.p. handling.
+One subclaim in 3.2′(d) is FALSE: at G=0 a deleted arrow changes only its source state's result.
+Recommend PROVED for the core results; amend that subclaim and retain COMPUTED-1 for randomized deletion evidence.
+'''
+s=s[:a]+summary+s[b:]
+s=s.replace('''| Proposition 3.2′(d), opposition and one-arrow examples | **SOUND** | Direct application of the finite normal-play attractor clauses gives the listed outcomes. |
+| Proposition 3.2′(d), random arrow-deletion frequency and eight-deletion table | **COMPUTED-1 (not rechecked here)** | The excerpt reports a referee's table, but the required random check tests the intact four-shuttle equality, not the deletion-frequency experiment. No independent deletion count was run in this task. |
+
+No proof step in the requested LOOPY passage is FALSE. I found no gap in the principal proofs. The bridge remains conditional, and the en-passant flag model must be part of (E)/(V1a-ctx), as stated.''','''| Proposition 3.2′(d), opposition and one-arrow examples | **SOUND** | Direct application of the finite normal-play attractor clauses gives the listed outcomes. |
+| Proposition 3.2′(d), positive-fraction deletion claim | **COMPUTED-1** | The specified random generator found changed root outcomes for every arrow in 621–630 of 1,000 instances, depending on the arrow. This supports but does not prove the general positive-fraction claim. |
+| Proposition 3.2′(d), “at G=0 it changes the result at all four states” | **FALSE (under the literal all-states reading)** | For every single-arrow deletion at G=0, only the source state on the source side's turn changes; the other seven state/turn results remain D. The exact table is reproduced by "'`blind_deletions.py`. |
+
+The principal proofs have no identified gap. The all-four-states subclaim is false as worded; if the intended meaning was only that each deletion changes at least one outcome, the G=0 computation supports that narrower statement. The bridge remains conditional, and the en-passant flag model must be part of (E)/(V1a-ctx), as stated.'"''')
+s=s.replace('''**CHECKED-2, finite randomized sample only:** an independently written finite-arena least-fixed-point solver compared''','''**COMPUTED-1, finite randomized sample only:** an independently written finite-arena least-fixed-point solver compared''')
+s=s.replace('''This is one independently implemented solver, so the test itself is **COMPUTED-1**, not CHECKED-2; the equality proof is **PROVED** by the stage argument. The count is reproducible with the command above.''','''This is one independently implemented solver, so the test itself is **COMPUTED-1**; the equality proof is **PROVED** by the stage argument. The count is reproducible with the command above.''')
+s=s.replace('''Expected output begins "'`PASS instances=1000 seed=340027` and prints the exact generator description. This is one independently implemented solver, so the test itself is **COMPUTED-1**, not CHECKED-2; the equality proof is **PROVED** by the stage argument. The count is reproducible with the command above.'"''','''Expected output begins "'`PASS instances=1000 seed=340027` and prints the exact generator description. The count is reproducible with the command above.
+
+The additional deletion experiment is reproduced by:
+
+```sh
+.venv/bin/python kings/delegate/out/K34/blind_deletions.py
+```
+
+It checks all eight single-arrow deletions at G=0, then uses the same seeded generator and 1,000 G contexts to count instances where any root result changes. The observed per-arrow counts are `[630, 621, 630, 621, 630, 621, 630, 621]` (COMPUTED-1).'"''')
+open(p,'w').write(s)
+PY
+" in /Users/aritro/Downloads/Research/Chessendgames
+ succeeded in 0ms:
+**Validating state table replacements**
+**Reviewing theoretical claims and proof steps**
+exec
+/bin/zsh -lc "tail -n 34 kings/delegate/out/K34/FINDINGS.md && sed -n '30,65p' kings/delegate/out/K34/PROOF.md && ls -lh kings/delegate/out/K34" in /Users/aritro/Downloads/Research/Chessendgames
+ succeeded in 0ms:
+
+## LOOPY proof audit
+
+| LOOPY step | Assessment | Reason |
+|---|---|---|
+| Lemma A, stage-set definition and induction | **SOUND** | The option-surjectivity and option-preservation conditions transfer the existential and universal clauses at each finite stage. Taking the union gives equality of both least attractors; loopy edges do not affect this induction. |
+| Lemma B, first-entry pass contradiction | **SOUND** | If the pass is the only first-entry witness, the opponent-turn node must already be winning at a lower stage. Its pass-back option then forces the original node into an even earlier stage, contradiction. A G-option must witness entry. |
+| Proposition 3.2′(a), deletion of suicide options | **SOUND** | A mover's terminal loss cannot witness that mover's win; at an opponent-turn universal clause it is a terminal win for the attractor being proved. Removing these options preserves stages. |
+| Proposition 3.2′(a), shuttle p-morphism | **SOUND** | At every retained state, G options map identically and each side's shuttle maps to, and covers, the dud pass; the two option conditions of Lemma A hold. |
+| Proposition 3.2′(b), one-sided extra options | **SOUND** | Adding only White options preserves White's witnesses and can only strengthen White's universal conditions at Black-turn nodes; the dual argument gives the other inequality. |
+| Proposition 3.2′(c), half-slice induction | **SOUND** | White does not need to shuttle by Lemma B. At Black-turn nodes, the Black shuttle simulates pass, context options are handled inductively, and extra `⊕` options are favorable to White. Only the stipulated two states are visited. Color reversal gives the mirror. |
+| En-passant extension to Lemma B | **SOUND, CONDITIONAL ON THE FLAG MODEL** | The extra EP option is available only to the side to move at the flagged state. On a winner-to-move node, adding options cannot raise its first-entry stage. The pass-back reaches the flag-free node, so the stated option-monotonicity comparison closes the same contradiction. The text's flag-reset rule must match the chess move semantics. |
+| Lemma 3.2″ geometry | **SOUND** | Buffer invariance excludes context pawn attacks; (K1) excludes Z-pawn attacks; (K2) excludes king attacks. Empty destinations and these attack exclusions make each shuttle legal and preclude stalemate. |
+| Theorem 3.2‴(a), certified-set construction | **SOUND, CONDITIONAL ON (V1a-ctx), (V2-ctx), (Pun), AND (E)** | The winner's G-only strategy supplies S1; the opponent's context moves and shuttle are D responses and all other moves close by punishment. Legal shuttle availability supplies S3. Decisive events and EP moves need the stated matching hypotheses. The sharp theorem then applies. |
+| Theorem 3.2‴(b), D-win to P-win | **SOUND, CONDITIONAL ON THE SAME BRIDGE HYPOTHESES** | This is the win transfer in either color, available at every regular position under global punishment. |
+| Theorem 3.2‴(b), P-win to D-win | **SOUND, CONDITIONAL ON THE SAME BRIDGE HYPOTHESES** | Induction on P attractor stage rules out a non-D winning witness by punishment; at the opponent node, failure of D-attractor membership supplies a nonterminal, non-winning D option, whose matching legal move contradicts the P-win clause. Promotions are handled as beneficiary terminals. |
+| Theorem 3.2‴, draw conclusion | **SOUND, CONDITIONAL ON EXACTNESS** | Since both finite-win attractors coincide, their complement is the draw set. If G has no decisive event, the D sum with dud is a draw. |
+| Proposition 3.2′(d), opposition and one-arrow examples | **SOUND** | Direct application of the finite normal-play attractor clauses gives the listed outcomes. |
+| Proposition 3.2′(d), positive-fraction deletion claim | **COMPUTED-1** | The specified random generator found changed root outcomes for every arrow in 621–630 of 1,000 instances, depending on the arrow. This supports but does not prove the general positive-fraction claim. |
+| Proposition 3.2′(d), “at G=0 it changes the result at all four states” | **FALSE (under the literal all-states reading)** | For every single-arrow deletion at G=0, only the source state on the source side's turn changes; the other seven state/turn results remain D. The exact table is reproduced by `blind_deletions.py`. |
+
+The principal proofs have no identified gap. The all-four-states subclaim is false as worded; if the intended meaning was only that each deletion changes at least one outcome, the G=0 computation supports that narrower statement. The bridge remains conditional, and the en-passant flag model must be part of (E)/(V1a-ctx), as stated.
+
+## Random check
+
+**COMPUTED-1, finite randomized sample only:** an independently written finite-arena least-fixed-point solver compared `r(G ⊞ Z)` against `r(G ⊞ dud_D)` for each position of G, all four shuttle states, and both turns. The generator used seed `340027`; for each instance it chose `n` uniformly from 1 through 5, then gave each side at each G position 0–3 IID options chosen uniformly from the `n` positions plus `⊕,⊖`. `Z` had the exact four-state two-shuttle cycle and one suicide option for each side at every state. The sample contained **1,000 instances**; all comparisons matched. It includes both acyclic and loopy G by construction, but does not claim exhaustive coverage.
+
+Reproduce from the project root:
+
+```sh
+.venv/bin/python kings/delegate/out/K34/blind_check.py
+```
+
+Expected output begins `PASS instances=1000 seed=340027` and prints the exact generator description. This is one independently implemented solver, so the test itself is **COMPUTED-1**; the equality proof is **PROVED** by the stage argument. The count is reproducible with the command above.
+
+## 2. Lemma B
+
+Use simultaneous least-fixed-point stages for the White attractor. At a White-turn node, stage `n` means that a White-terminal option or a White-winning successor first appears by stage `n−1`; at a Black-turn node, every option must be a White terminal or have entered by stage `n−1` (and an empty option set qualifies, since Black loses by normal play). Inductively consider a White-turn winning node `(x,ω,White)` of stage `n`. If its witnessing option is a G-option, the lemma follows. The only other nonterminal option is White's pass, to `(x,ω,Black)`. Were that Black-turn node in the White attractor at any stage `m<n`, its universal clause would require its own pass option, back to `(x,ω,White)`, to have entered at a strictly earlier stage than `m`. That contradicts the definition of `n` as the first stage of the White-turn node. Thus the pass cannot witness first entry; a G-option (or a White terminal G-option) does. Its successor has White to move? A G-move changes the side to move, so its nonterminal successor is `(x′,ω,Black)` and is White-winning at stage at most `n−1`, as asserted. The proof uses only the least-stage clauses and the pass loop; it does not assume `G` is short. Black is symmetric.
+
+## 3. Lemma 3.2″
+
+Fix any of the four king pairs. By (K1), neither king square is attacked by an opposing Z-pawn. By Lemma 2.2, no context pawn occupies a buffer file, context pawns remain at distance at least two files from `F_Z`, and Z-pawns remain in `F_Z`; a context pawn therefore cannot attack a square in `F_Z`. The opposing king does not attack either king square because (K2) says every cross-pair king distance is at least two. So neither king is in check. Each shuttle destination is empty by the stated empty-square condition, is not attacked by the opposing king by (K2), is not attacked by an opposing Z-pawn by (K1), and is not attacked by a context pawn by buffer invariance. Thus each shuttle is a legal king move in every context. In particular, each side has at least its shuttle move, so neither side is stalemated. This uses the buffer-invariance lemma, the pawn-attack clauses of (K1), and the all-four-pairs clause of (K2); it makes no claim about positions after a pawn or off-shuttle king move.
+
+## 4. Theorem 3.2‴
+
+All claims are conditional on the hypotheses listed in the theorem, including the (E) e.p. matching clause, (V1a-ctx), (V2-ctx), and the relevant punishment assumptions. In particular, (E) must ensure that a shuttle does not change the context's available en-passant rights or resulting context positions; an e.p. capture that is a context move must correspond to the same G-option. The packet names (E) but does not give its full text, so no stronger assertion about its precise mechanics is made here.
+
+### (a) Win transfer
+
+Assume White wins `G ⊞ dud_D`. Theorem 1.14 supplies the winning attractor and its least ranks. Start with its rank-lowering White strategy. By Lemma B, White's strategy uses G-moves only at White-turn strategy nodes; in chess these are legal context moves by (V1a-ctx), with the same G result including the e.p. condition (E). The White king can remain on its initial square throughout. When Black has the move, every legal context move is a G-option and is answered by the rank argument; Black's shuttle is the D pass and changes only the Black king square, keeping the position in the two-state slice. Any other legal Black move is decisively punished by (Pun_Black), so after such a move White has a forced P-win. The induction is on White's D-attractor stage: the chosen White G-move lowers stage; at a Black node every G response lowers stage or is the White terminal, while a shuttle is simulated by the pass and stays within the slice. By (K1),(K2) and Lemma 3.2″, the two shuttle states are legal and the opponent is not stalemated, which supplies (S3). A G decisive event is a P-win for its beneficiary by (V2-ctx). These facts give a White-certified set satisfying (S1)–(S3); the sharp Theorem 1.14 implies a P-win for White. The Black proof is symmetric, using (Pun_White) and the other half-slice.
+
+The phrase “White king stays on its square” follows because Lemma B gives only context moves at White turns, and the construction never uses White's pass/shuttle. Black shuttles preserve White's square. Consequently only `(a,w)` and `(a,w′)` are needed for a White win; the mirror uses `(z,w),(z′,w)` for a Black win.
+
+### (b) Exactness
+
+If D says White wins at a regular node, the same rank-lowering construction as in (a), with punishment at every regular position, proves White wins in P. Likewise for Black. It remains to show that a P-win cannot occur where D is a draw or a win for the other side. Induct on the finite least-fixed-point stage of the P-winning attractor (the number of attractor iterations, not chess-game length on arbitrary play). At a P-winner turn, choose a move witnessing entry. A move that is neither a matching context move nor a shuttle is punished by hypothesis and therefore cannot be a witness for that mover's P win. A promotion is a decisive event of its beneficiary by (V2-ctx), hence gives the same immediate terminal in D. Every other witness is a D-move by (V1a-ctx), and its P-successor has smaller P stage. At the opponent-to-move clause, every legal opponent move is either (i) a matching D-move, to which induction applies; (ii) a non-D move that is punished, in which case the P-winner already wins after it and the corresponding D node is winning for that winner by the argument of (a); or (iii) a promotion/decisive event, whose beneficiary is the D winner by (V2-ctx). Stalemate is not a P-win for either side, and, at regular positions, Lemma 3.2″ plus the shuttle supplies an ordinary legal move; hence no missing universal response is being treated as a win. Thus every P-winning regular position is D-winning for the same side. Combining with both win transfers yields equality of White-win sets and Black-win sets; all remaining positions are draws in both models. If G has no decisive event, `G ⊞ dud_D` is a draw (the component can pass indefinitely and no decisive terminal is reachable), and exactness makes the regular chess position a P-draw.
+
+**Hypothesis use.** (V1a-ctx) is used to match context moves and their successors; (E) is needed for en-passant moves to be among those matches; the shuttle geometry and (K1),(K2) ensure legal passes and rule out stalemate; (Pun_s) disposes of every non-context, non-shuttle move of the losing/responding side, and for the converse rules out such a move as a winning witness by its mover; (V2-ctx) transfers decisive events/promotions to P-wins for their beneficiaries; Theorem 1.14 turns the constructed rank-certified set into a P-win. The result is a P statement. A chess (`C`) win follows only at positions where the separate per-position hypothesis `(A_Q)(X)` holds.
+
+## 5. Check log
+
+The prescribed small random test is run by `blind_check.py`; its exact generator, seed, sample count, and result are recorded in `FINDINGS.md` after Phase 2. The test uses independently coded least-fixed-point solvers for the summed D arenas. It checks Proposition 3.2′(a) on loopy as well as short contexts; it is evidence, not a proof.
+total 104
+-rw-r--r--@ 1 aritro  staff   7.0K Oct 27 23:32 FINDINGS.md
+-rw-r--r--@ 1 aritro  staff    15K Oct 27 23:32 PROOF.md
+-rw-r--r--@ 1 aritro  staff   3.0K Oct 27 23:31 blind_check.py
+-rw-r--r--@ 1 aritro  staff   1.8K Oct 27 23:32 blind_deletions.py
+-rw-r--r--  1 aritro  staff    17K Oct 27 22:44 blind_packet.md
+
+**Analyzing lemma stage argument**
+**Verifying D-option mapping and proof details**
+**Finalizing claim labeling scheme**
+exec
+/bin/zsh -lc "python3 - <<'PY'
+p='kings/delegate/out/K34/FINDINGS.md'
+s=open(p).read()
+s=s.replace('''Proposition 3.2′(a)–(c), Lemma B, Lemma 3.2″ and the principal bridge proofs are SOUND.
+The attractor and geometry arguments apply to loopy D-games under their stated hypotheses.
+The chess bridge remains conditional on move matching, decisive-event transfer, punishment, and e.p. handling.
+One subclaim in 3.2′(d) is FALSE: at G=0 a deleted arrow changes only its source state's result.
+Recommend PROVED for the core results; amend that subclaim and retain COMPUTED-1 for randomized deletion evidence.''','''**PROVED:** Proposition 3.2′(a)–(c), Lemma B, Lemma 3.2″, and the principal bridge proofs under stated hypotheses.
+**PROVED:** The attractor and geometry arguments apply to loopy D-games under their stated hypotheses.
+**PROVED, conditional:** The chess bridge requires move matching, decisive-event transfer, punishment, and e.p. handling.
+**COMPUTED-1 / FALSE:** At G=0 a deleted arrow changes only its source state's result, not all four states.
+Recommend PROVED for the core results; amend that subclaim and retain COMPUTED-1 for randomized deletion evidence.''')
+s += '''\\n### Deletion check detail\\n\\nThe complete G=0 outcomes, in state order "'`(z,w), (z,w′), (z′,w), (z′,w′)` and turn order White then Black, are reproduced with `.venv/bin/python kings/delegate/out/K34/blind_deletions.py`. For each source state, deleting its White shuttle yields `L` for White-to-move at that source and `D` for the other seven entries. Deleting its Black shuttle yields `W` for Black-to-move at that source and `D` for the other seven entries. Thus each of the eight deletions changes one of the eight state/turn entries, not all four states.'"\\n\\nThe same command produces the randomized per-arrow changed-instance counts "'`[630, 621, 630, 621, 630, 621, 630, 621]`, with the eight arrows ordered by the four states listed above, White arrow then Black arrow.'"\\n'''
+open(p,'w').write(s)
+PY
+tail -n 20 kings/delegate/out/K34/FINDINGS.md" in /Users/aritro/Downloads/Research/Chessendgames
+ succeeded in 0ms:
+
+The principal proofs have no identified gap. The all-four-states subclaim is false as worded; if the intended meaning was only that each deletion changes at least one outcome, the G=0 computation supports that narrower statement. The bridge remains conditional, and the en-passant flag model must be part of (E)/(V1a-ctx), as stated.
+
+## Random check
+
+**COMPUTED-1, finite randomized sample only:** an independently written finite-arena least-fixed-point solver compared `r(G ⊞ Z)` against `r(G ⊞ dud_D)` for each position of G, all four shuttle states, and both turns. The generator used seed `340027`; for each instance it chose `n` uniformly from 1 through 5, then gave each side at each G position 0–3 IID options chosen uniformly from the `n` positions plus `⊕,⊖`. `Z` had the exact four-state two-shuttle cycle and one suicide option for each side at every state. The sample contained **1,000 instances**; all comparisons matched. It includes both acyclic and loopy G by construction, but does not claim exhaustive coverage.
+
+Reproduce from the project root:
+
+```sh
+.venv/bin/python kings/delegate/out/K34/blind_check.py
+```
+
+Expected output begins `PASS instances=1000 seed=340027` and prints the exact generator description. This is one independently implemented solver, so the test itself is **COMPUTED-1**; the equality proof is **PROVED** by the stage argument. The count is reproducible with the command above.
+
+### Deletion check detail
+
+The complete G=0 outcomes, in state order `(z,w), (z,w′), (z′,w), (z′,w′)` and turn order White then Black, are reproduced with `.venv/bin/python kings/delegate/out/K34/blind_deletions.py`. For each source state, deleting its White shuttle yields `L` for White-to-move at that source and `D` for the other seven entries. Deleting its Black shuttle yields `W` for Black-to-move at that source and `D` for the other seven entries. Thus each of the eight deletions changes one of the eight state/turn entries, not all four states.
+
+The same command produces the randomized per-arrow changed-instance counts `[630, 621, 630, 621, 630, 621, 630, 621]`, with the eight arrows ordered by the four states listed above, White arrow then Black arrow.
+
+**Verifying test runs and file checks**
+**Summarizing proof classifications and results**
+codex
+Completed both phases and wrote:
+
+- [PROOF.md](/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K34/PROOF.md)
+- [FINDINGS.md](/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K34/FINDINGS.md)
+
+The main proofs are sound under their stated hypotheses. I found one false subclaim in Proposition 3.2′(d): at `G=0`, deleting an arrow changes only its source state’s result, rather than the results at all four states. Both randomized checks and the G=0 deletion check are reproducible with the commands in `FINDINGS.md`; the randomized equality check matched all 1,000 instances.
+tokens used
+82,792
+Completed both phases and wrote:
+
+- [PROOF.md](/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K34/PROOF.md)
+- [FINDINGS.md](/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K34/FINDINGS.md)
+
+The main proofs are sound under their stated hypotheses. I found one false subclaim in Proposition 3.2′(d): at `G=0`, deleting an arrow changes only its source state’s result, rather than the results at all four states. Both randomized checks and the G=0 deletion check are reproducible with the commands in `FINDINGS.md`; the randomized equality check matched all 1,000 instances.
