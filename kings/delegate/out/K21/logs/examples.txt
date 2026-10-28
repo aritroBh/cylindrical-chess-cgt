@@ -1,0 +1,62 @@
+{+|} + off
+  D-result (L first, R first): W W
+  B=2  CGT outcome: L L   dominance=False  reserve-criterion=False
+  B=5  CGT outcome: L L   dominance=False  reserve-criterion=False
+  B=9  CGT outcome: L L   dominance=False  reserve-criterion=False
+{+|} + dud
+  D-result (L first, R first): W W
+  B=2  CGT outcome: D D   dominance=False  reserve-criterion=False
+  B=5  CGT outcome: D D   dominance=False  reserve-criterion=False
+  B=9  CGT outcome: D D   dominance=False  reserve-criterion=False
+{+|} + on
+  D-result (L first, R first): W W
+  B=2  CGT outcome: W W   dominance=True  reserve-criterion=True
+  B=5  CGT outcome: W W   dominance=True  reserve-criterion=True
+  B=9  CGT outcome: W W   dominance=True  reserve-criterion=True
+{+|} + over
+  D-result (L first, R first): W W
+  B=2  CGT outcome: W W   dominance=True  reserve-criterion=True
+  B=5  CGT outcome: W W   dominance=True  reserve-criterion=True
+  B=9  CGT outcome: W W   dominance=True  reserve-criterion=True
+{|-} + on
+  D-result (L first, R first): L L
+  B=2  CGT outcome: W W   dominance=False  reserve-criterion=False
+  B=5  CGT outcome: W W   dominance=False  reserve-criterion=False
+  B=9  CGT outcome: W W   dominance=False  reserve-criterion=False
+{|-} + off
+  D-result (L first, R first): L L
+  B=2  CGT outcome: L L   dominance=True  reserve-criterion=True
+  B=5  CGT outcome: L L   dominance=True  reserve-criterion=True
+  B=9  CGT outcome: L L   dominance=True  reserve-criterion=True
+{|-} + over
+  D-result (L first, R first): L L
+  B=2  CGT outcome: L L   dominance=True  reserve-criterion=True
+  B=5  CGT outcome: L L   dominance=True  reserve-criterion=True
+  B=9  CGT outcome: L L   dominance=True  reserve-criterion=True
+{|-} + under
+  D-result (L first, R first): L L
+  B=2  CGT outcome: L L   dominance=True  reserve-criterion=True
+  B=5  CGT outcome: L L   dominance=True  reserve-criterion=True
+  B=9  CGT outcome: L L   dominance=True  reserve-criterion=True
+{+|} + {|-}  (cancellation, Prop 1.12)
+  D-result (L first, R first): W L
+  B=2  CGT outcome: L W   dominance=False  reserve-criterion=False
+  B=5  CGT outcome: L W   dominance=False  reserve-criterion=False
+  B=9  CGT outcome: L W   dominance=False  reserve-criterion=False
+{+|} + {-|}  (a Left suicide beside a + threat: tau-unsafe, reserve-safe)
+  D-result (L first, R first): W W
+  B=2  CGT outcome: W W   dominance=False  reserve-criterion=False
+  B=5  CGT outcome: W W   dominance=False  reserve-criterion=False
+  B=9  CGT outcome: W W   dominance=False  reserve-criterion=False
+C1 counterexample: K={1|-,1} (1=0), S=0:{2/1,2}|1:{/0,1}|2:{1,2/}, stopper=True
+  D: L L
+  CGT B=3: W L
+  CGT B=14: W L
+  CGT B=40: W L
+  K+off: L L  K+on: W L
+non-stopper S={S,0|S}: stopper=False lam,rho=({0: 0, 1: 0}, {0: None, 1: 0})
+{+|} + S  (S={S,0|S}, a non-stopper with finite lambda)
+  D-result (L first, R first): W W
+  B=2  CGT outcome: W W   dominance=True  reserve-criterion=True
+  B=5  CGT outcome: W W   dominance=True  reserve-criterion=True
+  B=9  CGT outcome: W W   dominance=True  reserve-criterion=True

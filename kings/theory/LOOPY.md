@@ -73,13 +73,17 @@ originally stated → …" gives the corrected statement and its label. Each cha
 | L2.9 | GAP → PROVED after repair, now under the weaker hypothesis (B1): at most one s̄ pawn is attacked by an s pawn (it holds if s has no pawn on f ± 1, if s̄ has a single Z-pawn, and automatically on boards with 4 ranks) (revised after K22, 2026-10-27). **The statement without any hypothesis is FALSE** (revised after K22, 2026-10-27): with two attacked s̄ pawns s can lose, for example cyl:7×6 `Ka5 kc6 Pc3 Pc4 pb4 pb5` with Black (s) to move, F_Z = {a, b, c}: White (s̄) forces a promotion within 3 moves against a defender who may pass (CHECKED-2: K22's C++ and Python solvers and the referee's own solver agree). The flat:4×5 version `Kd4 kb5 Pb2 Pb3 pc3 pc4` is also hand-verified, and a flat:3×5 version `Kc4 ka5 Pa2 Pa3 pb3 pb4` is CHECKED-2. The cylinder position is also a White win in P with real kings (COMPUTED-1: one run of `kp_p --pmodel`, K7's P-model build of kpsolve). Bounded search (K22: up to 3 + 3 pawns, and 4 + 4 on some small boards): no White win with at most one attacked s̄ pawn among 74,469,430 roots, within the boards and pawn counts searched (COMPUTED-1: one C++ solver, with a Python spot check on 92 roots; the proof of (B1) is separate and does not use this search) | R1 item 9, R3 item 4; K22 |
 | P2.10(a) | FALSE as originally stated (H = 4) → H ≥ 5: PROVED after repair, under both the textbook and the e.p.-aware passed test, for chess-legal contexts and s's context pawns. (L2) counts context pawns only, so there is no Z-pawn proviso: s's Z-pawns are covered by (L1), whatever their distance from promotion (revised after K7, 2026-10-22). T30 audit: the proof lacked a step for en passant (now added). The stronger claim that no pawn of *either* colour stands one move from promotion needs H ≥ 6 under the e.p.-aware test | R1 item 7, R3 item 1; T30 audit and recheck |
 | P2.10(b) | PROVED (the example; it needs width ≥ \|F_Z\| + 4). "The zero is context-dependent": CHECKED-2 for Z_T in P (revised after K23, 2026-10-27: Z_T acts as 0 beside {Pe3, pe4} and not beside {Pe2, pe3} on cyl:7×6, and the same for the group of §5.1 on cyl:8×8; three implementations agree; no hand proof, so not PROVED). For every frozen group with T ≥ 2 it is a CONJECTURE. P4 does not show it in P: its six rows equal the convention there | R3 item 5; K23 |
-| R2.11 | GAP → PROVED in P (frozen), as a sufficient condition (revised after K10, 2026-10-22): Proposition 2.11 and Corollary 2.11a give (V2) at a passer or race terminal under (H1)–(H5): a clear path for pawns and kings of both colours, no check, no stalemate, no interference of an ω pawn that captures a β pawn on a neighbouring file, and the timing bound for both move orders over all ω pawns. K10's first draft was FALSE (it ignored all of these); the statement and proof were rebuilt by a Sonnet agent and read step by step by the integrator. One AI proof, checked on 954,392 parked and 60,000 random-king positions with side to move against `kpsolve --frozen` (0 violations; scripts in `kings/delegate/out/K10/scripts/`). Computation CHECKED-2 by K10v (independent code, opencode beam-free): 0 violations in 146,328 certified instances (an instance is a position, side to move, β and p; 119,654 distinct positions with side to move) and 5,716 with an e.p. right; its proof verdict SOUND has no written derivation, so the proof is not re-derived by a second model (revised after K10v, 2026-10-22). Second round: two fresh Sonnet reviewers read the proof and found no error, and their own code found 0 violations in 5,730,596 certified positions with side to move (6,783,482 instances) on cylinders, plus 434,429 positions on flat boards, also 0 violations; a blind re-derivation outside the Sonnet family exists since K11b (Codex, 2026-10-27; §2, Proposition 2.11). Real kings: nothing proved, the square rule is a CONJECTURE (scratch evidence) | R3 item 6; K10 |
+| R2.11 | GAP → PROVED in P (frozen), as a sufficient condition (revised after K10, 2026-10-22): Proposition 2.11 and Corollary 2.11a give (V2) at a passer or race terminal under (H1)–(H5): a clear path for pawns and kings of both colours, no check, no stalemate, no interference of an ω pawn that captures a β pawn on a neighbouring file, and the timing bound for both move orders over all ω pawns. K10's first draft was FALSE (it ignored all of these); the statement and proof were rebuilt by a Sonnet agent and read step by step by the integrator. One AI proof, checked on 954,392 parked and 60,000 random-king positions with side to move against `kpsolve --frozen` (0 violations; scripts in `kings/delegate/out/K10/scripts/`). Computation CHECKED-2 by K10v (independent code, opencode beam-free): 0 violations in 146,328 certified instances (an instance is a position, side to move, β and p; 119,654 distinct positions with side to move) and 5,716 with an e.p. right; its proof verdict SOUND has no written derivation, so the proof is not re-derived by a second model (revised after K10v, 2026-10-22). Second round: two fresh Sonnet reviewers read the proof and found no error, and their own code found 0 violations in 5,730,596 certified positions with side to move (6,783,482 instances) on cylinders, plus 434,429 positions on flat boards, also 0 violations; a blind re-derivation outside the Sonnet family exists since K11b (Codex, 2026-10-27; §2, Proposition 2.11). Real kings (revised after K16, 2026-10-27): the square-rule CONJECTURE of Remark 2.11 is FALSE as stated (ω can be stalemated; counterexamples CHECKED-2: kp_p, the referee's own P solver and K16's `pyp.py` agree); a corrected rule, Theorem 2.11K (a king-restricted timing condition (H5K) and a no-stalemate condition, static (H3K) or along the pushing line (NS)), is PROVED in P (one AI proof, read step by step by the referee K16v, who found no gap; not re-derived by a second model), and its checks are CHECKED-2 on the small exhaustive sweeps and COMPUTED-1 on the large ones | R3 item 6; K10; K16 |
 | P3.2 | PROVED; chess bridge PROVED after repair (adds (V1a)) | R4 item 7 |
 | T3.3(a) | PROVED (also KNOWN) | R4: sound |
 | T3.3(b) | FALSE as originally stated (with ∅ the dead position the pair is (W, L)) → { \| ⊖} ⊞ on_D is (L, L): PROVED after repair | R1 item 2 |
 | T3.4 | PROVED | R4: sound |
 | C3.5 | PROVED | R4: sound |
 | P3.2′ (two shuttling kings are a dud) | D-model: PROVED (new, K14; revised after the K14 referee, 2026-10-27): a p-morphism onto dud_D on the four combined king states, for every D-game G; inequalities when one side has further Z-moves; a win needs only the half of the states in which the winner's king stands still; all eight shuttle arrows are needed (counterexamples). The proof was re-checked by one referee (same model family) and the statements by two brute-force implementations, on short and loopy G, 0 violations (COMPUTED-1 for the data). Chess bridge (Theorem 3.2‴): PROVED in P, conditional on (V1a-ctx), (V2-ctx) and the per-group hypothesis (Pun) that every non-shuttle Z-move is decisively punished; stalemate is excluded automatically. (Pun) is the only gap of the bridge; the chess statement also needs (A_Q). Existence (revised after the K14 referee, 2026-10-27): Z_B (§5.7; flat 7×6; White king b2/c3, Black king a4/b5, pawns Pa3 Pb4 pb3 pc4) has every non-shuttle move losing at once, and Z_B alone is (D, D) at all 8 roots in P: CHECKED-2 (kp_p and the independent solver ref3). Beside every context tested the P-result of G ⊞ Z_B equals r(G ⊞ dud_D): COMPUTED-1 (68 contexts, 12 contexts on files e–g, and the first 660 of 885 contexts of ≤ 2 + 2 pawns on f, g; 225 contexts untested). In chess with cap 1 the bounds at the 8 roots are (W, L): undecided. Open: chess (cap 2), the cylinder, other boards. Z_A (§5.7) is a second group, with one White break (Kxb4). K14's first search found no frozen group only because of a move-count cut-off (18) that excluded Z_B | R4 item 6; K14 and its referee |
+| T3.7, L3.8a, T3.8, C3.8b (loopy sums) | PROVED (new, K21, 2026-10-27): one AI proof each; the K21 referee re-derived every step against Definitions 1.1–1.4 and 1.10. T3.8(c) is necessity for dominance only, not for D = CGT (revised after the K21 referee, 2026-10-27). Brute force: CHECKED-2 (two solvers, 20,324 states), the statistics COMPUTED-1 (K21: 26,000 bridge instances; referee: 10,000 random and 2,080 exhaustive pairs, 0 violations) | K21 referee (`kings/delegate/out/K21/VERIFY.md` sections 1 and 3), `kings/delegate/out/K21/summary.json` |
+| P3.9, P3.10 | PROVED (new, K21, 2026-10-27; re-derived by the K21 referee); the reserve table CHECKED-2, the draw counts COMPUTED-1 | K21 referee |
+| T3.11, C3.11a | PROVED (new, K21, 2026-10-27; the three parts re-derived by the K21 referee); K21's 142,798 states and the referee's 6,150 sampled instances, 0 violations, COMPUTED-1 | K21 referee |
+| P3.12 | Body PROVED (new, K21, 2026-10-27). The first draft's wording, "right exactly in the tempo regime" for on and off, was REFUTED by the K21 referee and is corrected: right exactly outside P_R (on), P_L (off), P_L ∪ P_R (dud). The claim that the translation can fail in the tempo regime: CHECKED-2 (two examples, two solvers, hand-checked). The "no translation" claims were narrowed to forcible threats | K21 referee, fixes F1 to F4 |
 | T4.2(a) | PROVED after repair (through the corrected T1.11(b)) | R4 item 3 |
 | T4.2(b) | PROVED after repair (needs B > ℓ; the D-model equivalence is now proved) | R4 item 4 |
 | T4.2(c) | PROVED after repair (negative integers; reachable cycle; "acyclic", not "non-reversible") | R4 item 5 |
@@ -193,9 +197,14 @@ The other three are chess facts.
 | T3.3 | G + `on` is 𝓛 for every short G, ±BIG included, so BIG plus a shuttle predicts "White always wins" | (a) PROVED (on > numbers: KNOWN); (b) PROVED after repair |
 | T3.4 | Outcome rules for G ⊞ on, G ⊞ off, G ⊞ dud with game-ending decisive events | PROVED |
 | C3.5 | Monotone chain: White wins with dud ⇒ with off ⇒ with nothing ⇒ with on | PROVED |
+| T3.7 | Loopy bridge: if the sum is first-event dominant for B (after every decisive event the frontier σB + rest is a forced σ-win whoever moves), the D-result of ⊞ y_i is the outcome, draws included, of the loopy CGT sum Σ y_i^B, at every reachable position; no shortness or stopper hypothesis | PROVED (new, K21, 2026-10-27; the K21 referee re-derived the proof step by step; brute force CHECKED-2 and COMPUTED-1) |
+| T3.8 | Reserve criterion, the loopy form of T1.11(b): reserves λ_B, ρ_B (spare tempo needed to win second); if the reserves of the other components add up to ≤ B−1 at every event, the sum is dominant (with Lemma 3.8a, subadditivity, and Corollary 3.8b: one terminal-free component of finite reserves plus short pairwise safe components). Contains T1.11(b), strictly: `{∣⊕} ⊞ {⊖∣}` qualifies although its threats have opposite signs. The criterion is sufficient, not necessary; part (c) is necessity for dominance only, for one rest component | PROVED (new, K21, 2026-10-27; the K21 referee re-derived each proof step by step; revised after the K21 referee, 2026-10-27: (c) is necessity for dominance, not for D = CGT) |
+| P3.9–P3.10 | Reserves (λ, ρ): on (0, ∞), off (∞, 0), over (0, 1), under (1, 0), dud (∞, ∞). One loopy stopper plus short components has no draws; dud and other non-stoppers do | PROVED (new, K21, 2026-10-27; re-derived by the K21 referee); the reserve table CHECKED-2 (two solvers), the draw counts COMPUTED-1 |
+| T3.11 | Sandwich: for every D-game K and every group S whose terminal options are suicides, W(K⊞off) = W(K⊞dud) ⊆ W(K⊞S) ⊆ W(K⊞on) and L(K⊞on) = L(K⊞dud) ⊆ L(K⊞S) ⊆ L(K⊞off). A side that can force a decisive event against a passing opponent wins K ⊞ S for every such S (Corollary 3.11a) | PROVED (new, K21, 2026-10-27; the K21 referee re-derived the three parts step by step); the sampled states (K21: 142,798; referee: 6,150 instances) COMPUTED-1, 0 violations |
+| P3.12 | For S ∈ {on, off, dud} the BIG/CGT translation of K ⊞ S is right exactly outside P_R (on), outside P_L (off), outside P_L ∪ P_R (dud): it is wrong exactly on the forced positions of the side the reservoir does not favour (of both sides for dud, where "right" is exactly the tempo regime). In general it can fail even in the tempo regime (3-node stopper, 2-node K) | PROVED (new, K21, 2026-10-27; revised after the K21 referee, 2026-10-27: the first draft said "right exactly in the tempo regime", which is false for on and off); the last claim CHECKED-2 (two solvers and a hand argument; two examples) |
 | P3.2′ | Two shuttling kings are a dud: a component with four combined shuttle states, each side's shuttle an option and every other option a suicide, has r(G ⊞ Z) = r(G ⊞ dud_D) for every G; inequalities with further Z-moves; the chess bridge has no stalemate hypothesis | D-model PROVED; chess bridge PROVED in P, conditional on (Pun); in chess it also needs (A_Q) (new, K14, 2026-10-27) |
 | T4.2 | n spare moves forming an acyclic graph = the integer n; a reachable cycle is `on`, never an integer | PROVED after repair |
-| P4.3 | In an isolated K+P group, a king's spare tempo from safe steps inside F_Z (opponent frozen at both ends, mover not in check) is 0 or ∞, never a finite n ≥ 1 | PROVED after repair (hypotheses added) |
+| P4.3 | In an isolated K+P group, a king's spare tempo from safe steps inside F_Z (opponent frozen at both ends, mover not in check) is 0 or ∞, never a finite n ≥ 1. The scope is a frozen opponent: against an opponent that is not frozen a finite king tempo exists (the +1 and -1 roots of K20, §8 question 3; CHECKED-2; revised after K20, 2026-10-27) | PROVED after repair (hypotheses added) |
 | P4.5–4.6 | 0 < over < x for every number x > 0; White wins G ⊞ over whenever White wins G moving second | PROVED (over: KNOWN) |
 | §5 | 5.1 is a frozen trébuchet whose local certificate holds with T ≤ 7 (CHECKED-2, K19 and K24); 7.2 is frozen for Black only (T = 1) and White escapes by blockade; 7.3 is not a zugzwang (f7–f8=Q at once). New groups realise `on`, `off` and a stalemate trap | per item, as in the status table: 5.1 frozen PROVED, its certificate (L1) and (L3) CHECKED-2 (K19, 2026-10-27, and K24, 2026-10-27); 7.2 and 7.3 PROVED in P where stated. The bare values in chess are CHECKED-2 (revised after K24, 2026-10-27): 5.1 is (L, W) by the reduction to KPK, 7.2 is (D, W) with the w-entry by Lemma 2.7a; there is no hand proof of the 7.2 draw (open question 7) |
 
@@ -1522,20 +1531,60 @@ terminals. The certificate of Definition 2.6 (king moves) does not apply to a pa
 passer, r is not a king capture, the owner's king may leave F_Z, the component's own pawns are unaddressed).
 Proposition 2.11 supplies the missing certificate for passer and race terminals **in the frozen model**, and
 Corollary 2.11a states it for the D-model.
-- **Proved about real kings: nothing.** Every step above uses (F2). The hypotheses are not enough with real kings:
+- **Proved about real kings: Theorem 2.11K below, a square rule with a no-stalemate clause (PROVED in P, one AI proof; revised after K16, 2026-10-27). Before K16: nothing.** Every step of Proposition 2.11 uses (F2). The hypotheses (H1)–(H5) are not enough with real kings:
   `Ka1 ka6 Pc2 w -` (cyl:8×6) satisfies (H1)–(H5) with μ = ∞ and is (W, W) in F, but P with real kings (a private
   `--pmodel` build, `kings/delegate/out/K7/scripts/draft/kp_p.c`) and chess (kpsolve exact) both give (D, D).
 - **Corollary 2.8** is the real-king statement for one pawn: a single-pawn local game with a king beyond reach.
-- **CONJECTURE (real-king square rule, label kept).** Let β's king be sheltered as in (H2) and the pawn data satisfy
-  (H1), (H4), and (H5) with ω's king allowed to move and to capture β's other pawns in G_ω. Let q₀, …, q_d be the
-  squares p occupies before its first push and after each push, and n_j = j if s = ω, j − 1 if s = β, the number of
-  ω moves before the j-th push. If d(k_ω, q_j) ≥ n_j + 2 for every j (for j = 0 only if s = ω), then β wins P with
-  real kings. This follows from d(k_ω, q_d) ≥ d + 2 (s = ω) or d + 1 (s = β) by the triangle inequality. The
-  sketch is the proof above with Step 1 replaced by the rule of the square (no capture and no block), but ω could
-  steer into a stalemate or a draw by king-and-pawn play, which the sketch does not exclude. Scratch evidence
-  only: β = White, `Ka1`, ≤ 2 + 2 pawns, `--pmodel`: cyl:6×6 30,847 legal instances and cyl:7×6 158,840, 0
-  violations. The chess form needs (A_Q) at the resulting position (§1.2) and is not claimed.
-- P11 in §6 relies on Proposition 2.11 in the sense given there (revised after K10, 2026-10-22).
+- **Real-king square rule: the first statement is FALSE (CHECKED-2); with a no-stalemate clause it is PROVED in P (revised after K16, 2026-10-27).**
+  - *The former CONJECTURE is false.* It said: let β's king be sheltered as in (H2), let the pawn data satisfy (H1), (H4) and (H5) with
+    ω's king allowed to move and to capture β's other pawns in G_ω, let q₀, …, q_d be the squares p occupies before its first push and
+    after each push, and n_j = j if s = ω, j − 1 if s = β; if d(k_ω, q_j) ≥ n_j + 2 for every j (j = 0 only if s = ω), then β wins P with real kings.
+    It drops (H3) of Proposition 2.11, and with real kings ω can be stalemated, or can walk into a stalemate, which is a draw in P (the Remark's own
+    caveat). CHECKED-2 (kp_p `--pmodel`, the referee K16v's own P solver and the pure-Python solver `kings/delegate/out/K16/scripts/pyp.py` agree; the referee's own
+    certificate accepts the named pawn in each case): cyl:6×6 `Ka4 ka6 Pa5 Pd5 b -` (β = White, p = d5, Black has no legal move at y itself), flat:6×6
+    `Kc1 ka1 Pc2 pa2 w -` (one pawn each, ω's king is shut in by its own pawn and β's king), `Kc1 ka1 Pc2 pa3 w -` (ω steers into the stalemate: c3 pa2 c4) and
+    `Kd2 kf1 Pa2 Pf3 pf2 pd3 w -` (stalemate after the first push) are (D, D) although every hypothesis holds. The earlier scratch evidence (`Ka1` only, ≤ 2 + 2 pawns) cannot meet such nets.
+    K16's own two implementations of the certificate agree on 15,000 random positions (COMPUTED-1, not re-run by the referee).
+  - *Counts (β = White; the flip of ranks and colours gives β = Black, checked on 175,454 positions, COMPUTED-1).* Exhaustive over all kings, both sides to move, e.p. rights,
+    COMPUTED-1 (K16's own code; the referee did not re-run these): certified positions and the violating ones (kp_p value not a β win): cyl:6×6 ≤ 4 + 4 pawns 142,434,153 certified, **496 violating**; cyl:6×6 ≤ 3 + 3 19,373,221, 32;
+    cyl:7×6 ≤ 3 + 3 117,348,760, 101 (≤ 3 + 2: 26,083,399, 93; ≤ 2 + 2: 3,740,009, 2); cyl:8×6 ≤ 2 + 2 10,378,374, 4; flat:6×6 ≤ 3 + 3 299,322,340, **54,452** (≤ 2 + 2: 11,838,544, 5,490); flat:7×6 ≤ 2 + 2 40,233,315, 9,662.
+    The small sweeps were reproduced exactly by the referee with his own enumeration, his own certificate and kp_p (CHECKED-2): flat:6×6 ≤ 1 + 1 156,528 certified, 208 violating (all (D, D)); flat:7×6 ≤ 1 + 1 357,542, 276; flat:6×6 ≤ 2 + 0 171,334, 36;
+    cyl:6×6 ≤ 2 + 2 1,072,469, 1 (`Ka4 ka6 Pa5 Pd5 b -`). One pawn in all (1 + 0) never violates (CHECKED-2 on flat:6×6, flat:7×6 and cyl:6×6); 1 + 1 violates on flat boards only (flat:6×6 208, flat:7×6 276 positions, kp_p on every position;
+    CHECKED-2), on cylinders from 2 pawns (cyl:6×6 ≤ 2 + 0 has 1; CHECKED-2).
+    A strategy simulation (own move generator, checked against `pyp.py`) plays "β pushes p every turn" against all ω lines on every certified instance: its only failures are ω stalemates
+    (at y or later) — no capture of p, no block, no earlier ω promotion in any sweep — so a violation can only sit where the simulation shows a stalemate line, and kp_p was run on all of those (COMPUTED-1 for the large sweeps; the referee's own simulation
+    reports a stalemate as the only failure on the small ones, CHECKED-2).
+    "ω not stalemated at y" is not enough (22 violating instances of the cyl:6×6 ≤ 4 + 4 sweep and 45,566 of the flat:6×6 ≤ 3 + 3 sweep remain; COMPUTED-1).
+    The control without king moves in G_ω (variant KV = 2) fails on 153,582 instances of cyl:6×6 ≤ 3 + 3 (ω promotes first; COMPUTED-1, K16's number). The simplest mechanism is that the king steps off its own pawn's path
+    and its pawn then promotes: cyl:6×6 `Ka1 ke1 Pc2 pe2 w -` passes every hypothesis under KV = 2 (the king is frozen, so the pawn on e2 never moves) and is (L, L) in P, since Black plays Kd1 and e1=Q before c6 can be reached
+    (kp_p, and the referee's certificate accepts it under KV = 2; COMPUTED-1). So (H5) must use the king.
+  - ***Theorem 2.11K.* PROVED in P (one AI proof, K16; read step by step by the referee K16v, who found no gap and no counterexample in about 1.1 million exhaustive and 16,500 random checks; not re-derived by a second model; Step 2 is Step 2 of Proposition 2.11, whose proof it quotes).** Notation of Proposition 2.11; Π is "β pushes p at every
+    turn (the double step first if ρ(p) = 2)". Assume (H1) (path free of pawns and kings), (H4), (H2) (no pawn of either colour on a file adjacent to β's king's file),
+    (H5K) μ^K_ω(y; p) ≥ e + 1, where μ^K_ω is μ_ω in G^K_ω, which is G_ω with ω's king allowed one step per move onto a square that is not an ω pawn, not β's king and not adjacent to it,
+    capturing β's other pawns (the variant that also forbids squares attacked by a remaining β pawn is covered too), (SQ) d(k_ω, q_j) ≥ n_j + 2 for j = 0, …, d (j = 0 only if s = ω), and
+    (NS) in no play of Π is ω stalemated at one of its turns (a search of depth ≤ e over ω's replies); (NS) follows from (H3K): every square x with d(x, k_ω) ≤ e − 1 has a king-neighbour t with
+    d(t, k_β) ≥ 2 and no pawn of either colour on the files of t, t − 1, t + 1. Then β wins P from (y, s) by Π.
+    *Proof.* (F1) a pawn changes file only by a capture, landing on the captured pawn's square (e.p.: on the captured pawn's file); a king capture only removes a pawn; so a pawn enters a file only by
+    capturing a pawn on it and a file without pawns never gets one. (F2) the first promotion ends P with a win for its maker. (F3) under Π only p moves.
+    *Step 1.* By (H2) and (F1) no pawn ever stands on a file adjacent to β's king, so no ω pawn attacks it, and ω's king is never adjacent to it: β is never in check and no push exposes β's king.
+    *Step 2.* Exactly Step 2 of Proposition 2.11, proved by induction on the plies of the play (Steps 2 and 3 use each other: Step 2 assumes that p is still on the board, Step 3 shows that ω's king never takes it; the induction runs over the plies, and at each ply both statements hold for the earlier plies):
+    (J_β) at β's turns every ω pawn in the strip f − 1, f, f + 1 has ρ ≤ ρ_p + 1; (J_ω) at ω's turns it has ρ ≤ ρ_p and p cannot be taken e.p.; (I1) no pawn stands ahead of p on its file.
+    The proof uses only pawn moves, (H1), (H4) and (F1)–(F3); king captures remove β pawns and add none, so every bound on a landing rank can only drop. Hence no ω pawn captures p or lands ahead of it.
+    *Step 3.* After β's j-th push p stands on q_j and ω has made n_j moves, its king at distance ≤ n_j from k_ω; to capture p it needs distance ≤ 1, i.e. d(k_ω, q_j) ≤ n_j + 1, against (SQ) (for j = 0, s = ω, no move has been made and d(k_ω, q₀) ≥ 2).
+    Before the (j + 1)-th push ω has made n_{j+1} moves, so its king is on q_{j+1} only if d(k_ω, q_{j+1}) ≤ n_{j+1}, against (SQ); the square skipped by the double step is adjacent to q₁ and at distance ≥ n₁ + 1. β's king is not on the path (H1).
+    With Step 2 every push of Π is legal.
+    *Step 4.* β always has the push; by (NS) ω has a legal move (or is mated, a win for β) at each turn.
+    *Step 5.* Every ω move before β's promoting push is a move of G^K_ω from y (pawn moves: the squares empty in the play are empty in G_ω, where p is deleted, captured pawns are β pawns other than p, the only e.p. capture is the one offered at y;
+    king moves: a legal king step goes to a square that is not an ω pawn, not β's king, not adjacent to it, and captures a β pawn other than p). Before β's d-th push ω has made exactly e moves, and (H5K) says that none of the e-move plays of G^K_ω puts an ω pawn on its last rank.
+    So ω does not promote first, and the d-th push promotes: β wins by (F2).
+    *(H3K) ⟹ (NS).* At ω's m-th turn (m ≤ e) its king stands on some x with d(x, k_ω) ≤ m − 1 ≤ e − 1. For the t of (H3K), the three files around t hold no pawn, hence (F1) never do: t is never occupied by or attacked by a pawn, t is not β's king and not adjacent to it, so the step x → t is legal even in check. ∎
+    Computational counterpart (COMPUTED-1): on every certified instance of every sweep (H3K) implies (NS) (0 exceptions among 761,023,066 certified instances, that is 609,716,942 certified positions, in the five top sweeps; an instance is a position with a choice of β and p; the nested sweeps are not added), and (NS) leaves 0 violations, kp_p and the simulation agreeing on all instances solved by both.
+    These are checks of the proved implication and of the theorem, not part of the proof. The referee's own samples agree (COMPUTED-1: 16,500 random positions on six boards, and all 1,072,467 certified positions of cyl:6×6 ≤ 2 + 2 without a stalemate line are (W, W) in kp_p; 0 exceptions).
+  - *CONJECTURE′ (evidence only).* Replace (NS) by (H3) of Proposition 2.11 at ω's own king: k_ω has a neighbouring square t, not adjacent to β's king, with no pawn on the files of t, t − 1, t + 1. 0 violations in all sweeps and hunts, but in 565
+    cases (172 instances in the exhaustive sweeps, 393 positions in random hunts; COMPUTED-1) ω has a line that stalemates Π and β still wins by another move (kp_p), so Theorem 2.11K does not cover them and a proof needs another strategy for β.
+    The 172 are 134 (flat:6×6 ≤ 3 + 3) + 36 (flat:7×6 ≤ 2 + 2) + 2 (cyl:8×6 ≤ 2 + 2); the flat:6×6 ≤ 2 + 2 sweep (8 instances) is nested in the ≤ 3 + 3 one and is not added again (revised after K16v, 2026-10-27).
+  - The chess form needs (A_Q) at the resulting position (§1.2) and is not claimed. Data, scripts and counts: `kings/delegate/out/K16/` (`logs/`, `scripts/`).
+- P11 in §6 relies on Proposition 2.11 in the sense given there (revised after K10, 2026-10-22). P11 is a frozen-model statement (`--frozen`); it does not use Theorem 2.11K, which is about P with real kings, and Theorem 2.11K does not change P11 (revised after K16, 2026-10-27).
 
 ---
 
@@ -1653,6 +1702,201 @@ and the mirror chain holds for L.
   behaviour, passes included. So it wins G ⊞ off_D.
 - **Second step.** G has fewer Black options (Lemma 1.6). A Black player without moves now simply loses.
 - **Third step.** on_D adds White options (Lemma 1.6). ∎
+
+**Sums with loopy components (new, K21, 2026-10-27; revised after the K21 referee, 2026-10-27; answers part of §8 item 4).** Everything here is about D-games in the
+sense of Definition 1.1, with loopy components allowed, the sum ⊞ of Definition 1.3 (the first decisive event ends the
+whole play, infinite play is a draw) and the loopy CGT translation y^B, which is Definition 1.4 used verbatim for loopy components (Definition 1.4 states it for short
+ones; ⊕ ↦ the chain +B, ⊖ ↦ −B; the translated components have no terminals, and Σ y_i^B is the ordinary disjunctive sum under normal play, with draws by
+infinite play). First-event dominance (below) is Definition 1.10 restated for loopy components.
+- *Labels (revised after the K21 referee, 2026-10-27).* The proofs of Theorem 3.7, Lemma 3.8a, Theorem 3.8, Corollary 3.8b, Propositions 3.9 and 3.10 and Theorem 3.11 are PROVED: each is one AI proof
+  (K21), and the K21 referee re-derived every step against Definitions 1.1–1.4 and 1.10 and found no gap (`kings/delegate/out/K21/VERIFY.md`, section 1); Corollary 3.11a is immediate from Theorem 3.11 and
+  the body of Proposition 3.12 follows from Theorems 3.3 and 3.4 (both PROVED). K21 did not write a REPORT.md; its experiments are in `summary.json`, `logs/` and `scripts/` of the same directory. The brute-force
+  results are CHECKED-2 where two independent solvers agree (K21's `dsum.py` and the referee's from-scratch `verify/ref.py`: 20,324 states, 0 disagreements) and COMPUTED-1 otherwise (a count from one
+  generator); the chess P-model counts are COMPUTED-1, because the referee could not re-run the oracle.
+- *Conventions.* "σ wins at a position" means "σ forces a win in finitely many moves", i.e. the position is in the least
+  fixed point W_σ of Definition 1.2; ρ(v) is its stage. W_L ∩ W_R = ∅ (KNOWN). "G + n" is G with n extra Left tokens (the
+  integer n; only the number of unused tokens matters, and Right cannot touch them). "Left wins G + n second" means that
+  (G + n, Right to move) ∈ W_L. For a component G, reach(G) is the set of nodes reachable from the root without passing a terminal;
+  the reachable tuples of a sum are the product of the reach sets, since the coordinates move independently.
+- A node has an *event of sign σ* if one of its options (by either player) is the terminal σ (a suicide counts, as in
+  Definition 1.10). A *frontier position* of (Y′, j, σ), with Y′ a reachable tuple and an event of sign σ at y′_j, is
+  σB + Σ_{i≠j} (y′_i)^B.
+- Y is *first-event dominant for B* if every frontier position is a σ-win whoever moves first (for short components this is
+  Definition 1.10).
+- *Reserves.* For a node y and B ≥ 1: λ_B(y) is the least C ≥ 0 such that Left wins y^B + C second (Right moves first), and ρ_B(y)
+  the least C ≥ 0 such that Right wins y^B − C second; ∞ if there is none. Λ_B(G) and P_B(G) are the maxima over reach(G).
+- A component is a *stopper* if the graph on (node, mover) with edges (x, L) → (x^L, R), (x, R) → (x^R, L) has no cycle
+  (no infinite alternating play from a reachable node). on, off, over, under are stoppers, dud is not.
+
+**Theorem 3.7 (loopy bridge). PROVED** (new, K21, 2026-10-27; re-derived by the K21 referee). If Y is first-event dominant for B, then for every reachable tuple Y′ and both
+movers the D-result of ⊞ y′_i equals the outcome of Σ (y′_i)^B (W, D or L). No shortness or stopper hypothesis.
+
+*Proof.* Let 𝒟 be the D-graph on reachable tuples with a mover and 𝒞 the CGT graph. A D-option to a non-terminal is the same
+move in 𝒞; a D-option to σ in coordinate j is the 𝒞-option to the frontier position (σB in coordinate j, the other mover to
+move); 𝒞 has no other options, and a node has an option in 𝒟 iff it has one in 𝒞.
+(⊆) By induction on the 𝒟-stage, W^𝒟_σ ⊆ W^𝒞_σ: a σ̄-node with no option has none in 𝒞. A σ-node with a σ-terminal option has the 𝒞-option
+to a frontier position of sign σ, a σ-win by dominance; one with an option in W^𝒟_{σ,n} has the same option in 𝒞, in W^𝒞_σ by induction.
+A σ̄-node of W^𝒟_σ has no σ̄-terminal option, and each other option is a σ-terminal (frontier, dominance) or in W^𝒟_σ (induction).
+(⊇) By induction on the 𝒞-stage, for nodes of 𝒟. A σ-node with a winning 𝒞-option: if it is a frontier position, its sign is σ,
+because a frontier of sign σ̄ is a σ̄-win by dominance and W_L ∩ W_R = ∅; so 𝒟 has the σ-terminal option. A σ̄-node all of whose 𝒞-options are in W^𝒞_σ has no
+frontier option of sign σ̄ (same reason), so each 𝒟-option is σ's terminal or a node in W^𝒞_σ, hence in W^𝒟_σ. ∎
+
+**Lemma 3.8a (subadditivity). PROVED** (new, K21, 2026-10-27; re-derived by the K21 referee). If Left wins G_1 + n_1 second and G_2 + n_2 second (any loopy normal-play games), Left wins
+G_1 + G_2 + (n_1 + n_2) second; and if Left wins G + n second she wins G + m second for m ≥ n. So the reserve of a sum is at most the
+sum of the reserves, for λ and for ρ.
+
+*Proof.* In H_i = G_i + n_i Left follows a stage-lowering strategy of W_L. Let Φ = ρ_1 + ρ_2 at positions with Right to move.
+Right moves in one component (not in tokens); Left answers in the same component with a stage-lowering move (a token or a G_i-move).
+Φ drops by at least 2 per round, Left always has a reply, and when Φ = 0 Right is to move with no option anywhere and loses.
+Extra tokens are never used and never hurt. ∎
+
+**Theorem 3.8 (reserve criterion; the loopy Theorem 1.11(b)). PROVED** (new, K21, 2026-10-27; re-derived by the K21 referee). Let Y = (G_1, …, G_k), B ≥ 1. If for every j and every σ for which
+some reachable node of G_j has an event of sign σ,
+
+  Σ_{i≠j} Λ_B(G_i) ≤ B − 1 (σ = +),  Σ_{i≠j} P_B(G_i) ≤ B − 1 (σ = −),
+
+then Y is first-event dominant for B, so by Theorem 3.7 the D-result of ⊞ is the CGT outcome of Σ y_i^B at every reachable position.
+Moreover:
+- (a) *Theorem 1.11(b) is the special case of short, pairwise safe components with B > max(M_L(Y), M_R(Y)).* For a short y with no
+  ⊖ reachable, λ_B(y) ≤ M_R(y): y^B has no −B, Right makes at most M_R(y) moves in it (a move into +B counts as one, and the chain has
+  no Right option), and Left answers each with a token. Pairwise safety (Definition 1.10) says that if + is a threat in G_j then no node of any
+  other component has an option ⊖, so Σ_{i≠j} Λ_B(G_i) ≤ M_R(Y) ≤ B − 1; σ = − is symmetric.
+- (b) *It is strictly stronger.* A = `{ ∣ ⊕}` (Right's only option is the suicide ⊕) and C = `{⊖ ∣ }` have threats of opposite sign
+  (Definition 1.10 counts the suicides, so they are not pairwise safe), yet all four reserves are 0: Left has no move in A, so Right, moving
+  second, wins A − 0 at once; Right has no move in C. The criterion holds for every B ≥ 1 and the D-result (L, W) is the outcome of `{ ∣ B} + {−B ∣ } = 0`.
+- (c) *Necessity of the reserve condition for dominance, for one rest component (revised after the K21 referee, 2026-10-27).* If the rest of an event is a single component G with a reserve ∞
+  opposite the event (e.g. `off` beside a ⊕ event), dominance fails for every B: it needs Left to win B + G^B second, i.e. λ_B(G) ≤ B. This is necessity for dominance only, not for D = CGT:
+  `{⊖∣} ⊞ on` is not dominant (the event ⊖ has the rest `on`, with ρ = ∞), yet D = CGT = (W, W) for B = 2, 5, 9, because Right can never force the −B (Proposition 3.12). The referee's 9,592 random cases
+  with an infinite reserve opposite an event: dominance failed in all (COMPUTED-1).
+
+*Proof.* Let (Y′, j, +) be an event, R = Σ_{i≠j} (y′_i)^B and Λ = Σ_{i≠j} λ_B(y′_i) ≤ B − 1. By Lemma 3.8a Left wins R + Λ second, hence
+R + (B − 1) and R + B second. The frontier position is B + R. If Right is to move, it cannot move in the stack B, so this is R + B second, a Left win.
+If Left is to move, she plays B → B − 1 and wins R + (B − 1) second. The case σ = − is the mirror image with ρ_B. ∎
+
+*Reading (the "value" of a loopy component). PROVED, from Theorem 3.8.* Under the criterion the D-result of the sum is the outcome of Σ y_i^B, so it is determined by the loopy-CGT class of each y_i^B (its equivalence class under
+outcomes in all loopy contexts) and by the reserve data that certify the criterion. If y_i is a stopper, so is y_i^B (the chains are acyclic), and its class is Siegel's simplest form [S, ch. VI] (KNOWN, not re-derived here). For the reservoirs `on`, `off`, `dud`
+opposite a threat that the threatening side can force, no B reproduces the D-result on the forced positions (Proposition 3.12); opposite a threat that cannot be forced (a suicide) the translation can
+still be right although dominance fails (Theorem 3.8(c)) (revised after the K21 referee, 2026-10-27).
+
+**Corollary 3.8b (one loopy component plus short components). PROVED from Theorem 3.8** (new, K21, 2026-10-27; re-derived by the K21 referee). Let S be a terminal-free component (stopper or not) with finite reserves at every reachable node, Λ(S) = max λ(y) < ∞ and P(S) = max ρ(y) < ∞
+(for terminal-free S the reserves do not depend on B), and let K = (K_1, …, K_m) be short and pairwise safe (Definition 1.10). If B ≥ 1 + max(Λ(S), P(S)) + max(M_L(K), M_R(K)), the criterion holds, so the D-result of S ⊞ K is the outcome of S + Σ K_i^B
+at every reachable position. *Proof.* All events are in K. For an event of sign + in K_j the rest is S together with the other K_i, and Λ(S) + Σ_{i≠j} Λ_B(K_i) ≤ Λ(S) + M_R(K) ≤ B − 1 by Theorem 3.8(a); σ = − is symmetric. ∎
+It is the finite-reserve half of the "one stopper plus short components" case: S = over and S = under qualify (Proposition 3.9) and so does every stopper whose reserves are finite; `on` and `off` are not covered by the corollary as stated (ρ(on) = λ(off) = ∞) but satisfy Theorem 3.8 directly: S = on when K has no ⊖ event
+(only the σ = + condition is needed, and Λ(on) = 0), S = off when it has no ⊕ event (the sign condition of Theorem 3.8 is what pairs the reservoir with the threats of the side it favours), with K pairwise safe and
+B ≥ 1 + max(M_L(K), M_R(K)) (argued from the proof of Corollary 3.8b with the one-sided condition; the K21 referee re-derived the finite-reserve statement, not this extension; tested on 1,810 referee instances, 0 failures, COMPUTED-1). The other pairings are Theorem 3.4 and Proposition 3.12 (revised after the K21 referee, 2026-10-27). Most random stoppers do not qualify: 9,488 of the 12,610 random stopper-plus-safe-short instances had an infinite reserve.
+
+**Proposition 3.9 (reserves of the named games). PROVED** (new, K21, 2026-10-27; re-derived by the K21 referee). (λ, ρ): on (0, ∞), off (∞, 0), over (0, 1), under (1, 0), dud (∞, ∞).
+
+*Proof.* on: Right has no move, so Left wins second at once: λ = 0. Whatever Right's tokens, Left passes forever and Right runs out: Right never wins, ρ = ∞.
+off is the mirror image. over: Right moves first (a pass or a token); Left plays ω → 0 and Right has no move: λ = 0. With no Right token Left moving first plays ω → 0
+and wins; with one token Left's only move is ω → 0 (tokens are Right's), Right plays the token and Left is stuck: ρ = 1. under is the mirror image.
+dud: Right can pass forever, so Left never forces a win; likewise Right: λ = ρ = ∞. ∎ (The same table was computed by K21's solver and by the referee's `ref.py`, B = 4: CHECKED-2. For over and under these are also Λ and P, the node 0 inside them having reserves (0, 0).)
+
+**Proposition 3.10 (no draws beside a stopper). PROVED** (new, K21, 2026-10-27; re-derived by the K21 referee). If all components are short except one stopper S, every play of ⊞ is finite and the D-result is W or L.
+*Proof.* A move in a short coordinate descends in a finite acyclic graph, so a play contains finitely many of them; after the last, all moves are in S and the movers
+alternate, an infinite alternating play of S, which a stopper does not have. ∎ For dud (a non-stopper) `G ⊞ dud` is a draw when G has no terminal, `on ⊞ off` is a draw,
+and a random non-stopper beside random short components has a draw in 1,315 of 3,335 instances (stoppers: 0 draws in 7,932 instances, 116,954 states; COMPUTED-1,
+`run_tests.py stopper`; the referee's own generator: 0 draws in 1,277 stopper instances and a draw in 320 of 1,223 non-stopper instances, so the draw rate depends on the generator).
+
+**Theorem 3.11 (sandwich). PROVED** (new, K21, 2026-10-27; re-derived by the K21 referee). Let K be any D-game (loopy allowed) and S a D-game none of whose options is a terminal of its own mover (no Left option ⊕, no Right
+option ⊖; suicides are allowed, as for the deleted Z-moves of a frozen group; every terminal-free S qualifies, stopper or not). Then for every k, s and mover:
+
+  (k, mover) ∈ W(K ⊞ off) ⇒ (k, s, mover) ∈ W(K ⊞ S) ⇒ (k, mover) ∈ W(K ⊞ on),
+  (k, mover) ∈ L(K ⊞ on) ⇒ (k, s, mover) ∈ L(K ⊞ S) ⇒ (k, mover) ∈ L(K ⊞ off),
+
+and W(K ⊞ off) = W(K ⊞ dud), L(K ⊞ on) = L(K ⊞ dud). Call P_L(K, mover) = "Left wins K ⊞ off" (Left can force a decisive event against a Right who may pass) and
+P_R(K, mover) = "Right wins K ⊞ on". For short K these are the predicates Λ and Ρ of Theorem 3.4.
+
+*Proof.* (1) Let σ be a stage-lowering Left strategy at (k, ω, mover) in K ⊞ off. In K ⊞ S Left keeps the virtual position (k, ω) in K ⊞ off. Off has no Left move, so σ prescribes
+only K-moves and the terminal ⊕, which she plays for real. A real Right move in K is a virtual Right move; a real Right move in S is treated as the virtual pass ω → ω; a real
+Right terminal is a suicide ⊕, or ⊖, which is not an option at a node of W_L. If Right has no real option it loses. The stage drops every round.
+(2) Let σ be a stage-lowering Left strategy at (k, s, mover) in K ⊞ S. In K ⊞ on Left keeps a virtual S-position; when σ prescribes an S-move s̃ → s̃′ she passes ω → ω and updates s̃
+(σ never prescribes a Left terminal in S, for S has none, nor a suicide). Right's real options are K-moves only, a subset of the virtual ones.
+(3) Suppose (k, ω, L) enters W_L(K ⊞ dud) at stage n ≥ 1 through the Left pass to (k, ω, R). Then (k, ω, R) ∈ W_{L,n−1}, so all its options, Right's pass back to (k, ω, L) among them,
+lie in W_{L,n−2}, and (k, ω, L) entered earlier: a contradiction. So by induction on the stage the Left pass is never needed, W_L(K ⊞ dud) ⊆ W_L(K ⊞ off), and the reverse inclusion
+is clear. The L-statements are the mirror images. ∎
+
+**Corollary 3.11a. PROVED** (new, K21, 2026-10-27; immediate from Theorem 3.11). P_L ∩ P_R = ∅. On P_L the D-result of K ⊞ S is W for every such S and every s, on P_R it is L. So whatever Z is, if one side can force a decisive event
+against a passing opponent, that side wins; Theorem 3.4 and Corollary 3.5 are the cases S = on, off, dud. For K short and S a stopper (no draws, Proposition 3.10), S can matter only
+in the *tempo regime* T = ¬(P_L ∪ P_R): outside T the result does not depend on S. (The inclusions W(K ⊞ S) ⊆ ¬P_R and L(K ⊞ S) ⊆ ¬P_L hold everywhere and are Theorem 3.11 itself; they say nothing inside T.
+Revised after the K21 referee, 2026-10-27.)
+
+**Proposition 3.12 (where the translation is right for the pure reservoirs). PROVED** (new, K21, 2026-10-27; revised after the K21 referee, 2026-10-27). Let K be short.
+- K^B + on ∈ 𝓛, so the translation says W at both movers and is right at (K, mover) iff (K, mover) ∉ P_R (Theorem 3.4(b)); on P_L, where Left forces, D = W as well.
+- K^B + off ∈ 𝓡, so the translation says L and is right iff ∉ P_L.
+- K^B + dud is a draw (Left can pass forever, so Right never wins, and conversely), right iff ∉ P_L ∪ P_R (Theorem 3.4(a)).
+So the translation is right exactly outside P_R for `on`, outside P_L for `off` and in the tempo regime T for `dud`; it is wrong exactly on the forced positions of the side that the reservoir
+does not favour (of both sides for `dud`). Theorem 3.4, not Theorem 1.11, is the sum theorem for them. *Proof.* Theorem 3.3(a) and its mirror for the first two; for dud, Left can pass forever. ∎
+(Revised after the K21 referee, 2026-10-27: the first draft said "right in the tempo regime, wrong on the forced positions of the side the reservoir favours", which is false for `on` and `off`.
+Referee check, 53,838 (K, mover, reservoir) cases with the statement as now written: 0 violations, COMPUTED-1.)
+
+**What fails (revised after the K21 referee, 2026-10-27). The named examples are CHECKED-2 at the root (K21's solver and the referee's `ref.py` agree, B = 2, 5, 9 unless stated); the statistics are COMPUTED-1
+(`kings/delegate/out/K21/logs/examples.txt`, `kings/delegate/out/K21/VERIFY.md` section 2); results are (Left first, Right first).**
+- *An infinite reserve opposite a threat that the threatening side can force kills every B.* `{⊕∣} ⊞ off`: D-result (W, W), CGT outcome (L, L) for B = 2, 5, 9. `{⊕∣} ⊞ dud`: D (W, W), CGT (D, D). `{∣⊖} ⊞ on`: D (L, L),
+  CGT (W, W). The favourable pairs are right: `{⊕∣} ⊞ on` and `⊞ over` are (W, W) in both; `{∣⊖} ⊞ off`, `⊞ over`, `⊞ under` are (L, L) in both.
+- *A threat that cannot be forced does not.* If the only event is a suicide (Left's own ⊖ in `{⊖∣}`, Right's own ⊕ in `{∣⊕}`), the other side never has to allow it and the translation can be right although
+  dominance and the criterion of Theorem 3.8 fail: `{⊖∣} ⊞ on` D = CGT = (W, W); `{∣⊕} ⊞ off` D = CGT = (L, L); `{⊖∣} ⊞ dud` and `{∣⊕} ⊞ dud` D = CGT = (D, D) (B = 2, 5, 9; referee, `verify/ex2.py`). The reserve
+  criterion is therefore not necessary for D = CGT (see also the last bullet).
+- *Non-stoppers.* Theorem 3.7 holds verbatim, and so does Theorem 3.8 with finite reserves: S = {S, 0 ∣ S} (not a stopper, λ = 0 at both nodes) beside `{⊕∣}` is dominant and D = CGT = (W, W). What is lost is
+  Proposition 3.10 (draws) and the compatibility of dud (λ = ρ = ∞) with a threat of either sign.
+- *The tempo-regime guess is false for general stoppers (the guess is refuted).* "For K short and S a terminal-free stopper, outside P_L ∪ P_R the translation K^B + S gives the D-result."
+  It fails in 60 of the 28,581 sampled tempo-regime states in which the criterion of Theorem 3.8 is violated (S = random stopper 39, short 7, arbitrary loopy 7, under 4, over 3; never for on, off, dud: 8,646 tempo-regime states;
+  the failures with a short, over or under S come from a K whose own components violate the criterion), and in none of the 40,380 states (all regimes) in which the criterion holds. Smallest counterexample, 2 + 3 nodes, B = 3, 14, 40 alike: K = `{1 ∣ ⊖, 1}` with node 1 = 0 (Left's only move is to 0; Right may
+  play ⊖, a Black win, or move to 0); S has nodes a, b, c with a: Left → c, Right → b, c; b: Right → a, b; c: Left → b, c (c is on-like, b off-like; S is a stopper).
+  At (K, a), Left to move, K ⊞ off is lost and K ⊞ on is won for Left, so it is in T. The D-result is **L**: K → 0 lets Right play a → b and Left is stuck; a → c lets Right play ⊖.
+  The translation says **W**: after a → c Right's ⊖ becomes −B and Left passes forever in c. (ρ_B(S) = ∞.) CHECKED-2 (K21's solver, the referee's `ref.py` for B = 1, 2, 3, 14, 40, and this hand argument).
+  A second, independent counterexample (found by the referee's random search): K = `{⊕, 0 ∣ 0}` (nodes k and 0; Left may play ⊕ or move to 0, Right may only move to 0), S = `{0 ∣ off}` (nodes s, 0 and off, a stopper). At the
+  root with Right to move K ⊞ on is (W, W) and K ⊞ off is (W, L), so Right-first is in T; the D-result is **W**, the translation gives **L**, for B = 1, 2, 5, 14. Hand check: Right's K → 0 loses to Left's S → 0 (Right is stuck);
+  Right's S → off lets Left play ⊕ at once, a White win in the D-game; in the translation that ⊕ is the stack +B, Right passes forever in `off` and Left runs out of moves. CHECKED-2.
+  Statistics (COMPUTED-1): the referee's generator is not K21's and does not reproduce the 60 of 28,581 bit for bit, but it reproduces the content: 1 failure in 6,882 tempo-regime states with the criterion violated and 0 in 3,594
+  with it true.
+- *The criterion is not necessary.* `{∣⊕, 0}` ⊞ `{⊖, 0 ∣ 0}` (each with a self-loop at its only node; the first is off-like with a Right suicide, the second dud-like with a Left suicide) is dominant at B = 5 and D = CGT = (D, D),
+  although the criterion fails: λ_5 of the second component is exactly B = 5 (Left stops Right's passes only by her suicide to −B), and the criterion asks for ≤ B − 1 (22 cases of this kind among the 4,693 dominant
+  loopy cases, `run_tests.py bridge`; this example from `search_incomplete.py`; the referee confirms D = CGT = (D, D) for B = 3, 5, 7, dominance true, criterion false, λ_5 of the second component exactly 5; CHECKED-2).
+
+**Computations (revised after the K21 referee, 2026-10-27; COMPUTED-1 for the experiments, CHECKED-2 where two independent solvers agree, as marked).** Code: `kings/delegate/out/K21/scripts/` (`dsum.py`, `run_tests.py`, `sumsolve.c`, `crosscheck.py`, `run_all.sh`, `summarize.py`);
+logs and `summary.json` one level up; the referee's independent code and logs are in `kings/delegate/out/K21/verify/` (`ref.py`, `xcheck.py`, `tests1.py`, `exh.py`, `ex.py`, `ex2.py`, `logs_bridge.txt`). Python: `PYTHONPATH=… .venv/bin/python`, `KRICH=1` for the richer generator. Random components: short DAGs (≤ 4 or 5 nodes, ≤ 2 or 3 options per side, both signs of terminal
+options), random loopy components with terminals (≤ 3 nodes), on, off, over, under, dud, random stoppers (≤ 4 or 5 nodes); 2 or 3 components.
+- *Solver cross-check:* Python (explicit reachable product, counter-based least fixed point) against `sumsolve.c` (dense product, naive iteration, its own translation) on the root tuple, both movers, D-result and CGT outcome:
+  0 disagreements on 6,000 instances (`crosscheck.py 6000 801 5`; 3,000 more with seed 7); 1,169 have D ≠ CGT, 1,468 a draw. With `K21_ALL=1` the C program prints the D-result and the CGT outcome at *every* tuple of original nodes and `crosscheck.py` compares them with the Python
+  results at every reachable tuple, both movers: 47,896 states (`K21_ALL=1 crosscheck.py 1500 77 5` and `4000 78 5`, KRICH=1 for the second), 0 disagreements. These all-states samples contain no instance with D ≠ CGT and no draw (`summary.json`, `crosscheck`), so they test only the agreeing regime; the differing regime is covered by the root cross-checks (1,169 and 557 instances with D ≠ CGT)
+  and by the referee's run. *Referee:* a third, independent solver (`verify/ref.py`, written from the definitions) agrees with `dsum.py` on 1,500 random instances (2 or 3 components of up to 4 nodes, loopy or short, with terminals, B in {1, 2, 4, 6}):
+  D-result and CGT outcome at every reachable tuple and both movers, 20,324 states, 0 disagreements, and dominance and the reserve criterion on all 1,500 instances: CHECKED-2. K21's own dominance, reserve and regime statistics use the Python solver only (COMPUTED-1).
+- *Theorems 3.7, 3.8:* `run_tests.py bridge 6000 {101,102,103} 5` and `bridge 4000 {111,112} 7`: 26,000 instances, D = CGT compared at all reachable tuples and both movers. 4,693 non-vacuous loopy cases with dominance
+  (4,671 with the criterion): 0 violations; criterion ⇒ dominance ⇒ equality, 0 violations; where dominance fails, D ≠ CGT in 6,898 + 1,115 instances (by accident equal in 2,123 + 667).
+- *Theorem 3.8(a):* `thm111b 6000 {901,902,903}`: 5,537 pairwise safe (Definition 1.10) short instances with B = max(M_L(Y), M_R(Y)) + 1, 5,127 of them with events: the criterion, dominance and D = CGT at every reachable tuple hold in all, 0 failures.
+- *Corollary 3.8b:* `onestopper 6000 {1101,1102,1103}`: 3,122 instances (2,625 with events) with a random terminal-free stopper S of finite reserves (or over, under) beside 1-2 pairwise safe short components, B as in the corollary: the criterion holds and D = CGT at every reachable position in all, 0 failures (9,488 further instances skipped because S had an infinite reserve).
+- *Proposition 3.12:* `pure 4000 {1001,1002} (B = 14)`: 189,072 (K, mover, reservoir) checks, translation right exactly as stated: 0 violations.
+- *Lemma 3.8a:* `subadd 3000 {501,502} 5`: 5,682 checks, 0 violations.
+- *Theorem 3.4 predicates:* `thm34 8000 {601,602}`: 225,312 (position, mover, reservoir) checks, 0 violations. *Proposition 4.6:* `over46 8000 701`: 20,628 checks, 0 violations.
+- *Theorem 3.11:* `sandwich 5000 {201,202,203}`: 15,000 instances, 142,798 states (K one or two components, short or loopy with terminals; S named, quiet short, stopper, quiet loopy, loopy with suicide-only terminals, 38,020
+  states of the last kind): 0 violations of the four inclusions and of W(off) = W(dud), L(on) = L(dud).
+- *The K21 referee's independent runs (own generator, own solver; COMPUTED-1, all 0 violations).* Theorem 3.7 (dominance ⇒ D = CGT at every reachable tuple, both movers; criterion ⇒ dominance): 10,000 random instances (1,778 dominant, 1,646 with the criterion), and exhaustively all
+  2,080 pairs of one-node components with options in {self-loop, ⊕, ⊖} (268 non-vacuous dominant, 49 dominant without the criterion), 2 × 3,000 one-node × random two-node, 1,200 random triples of one-node components. Theorem 3.8(a): 641 safe instances. Corollary 3.8b: 721 instances
+  (591 with events). Lemma 3.8a: 1,600 checks. Theorem 3.11: 6,150 instances. Proposition 3.12: 53,838 checks. Proposition 3.10: 1,277 stopper instances, no draw.
+- *Corollary 3.11a and the translation:* `regime 4000 {401,402,403} 14`: 102,883 states with (K, mover) ∈ P_L ∪ P_R, D-result = forced result in all of them; 40,380 states with the criterion true, D = CGT in all.
+
+**Chess instances with a shuttle beside small contexts (COMPUTED-1, P model; `scripts/chess_pred.py`, `chess/`; the oracle was not re-run by the referee, see the last-but-one bullet).** Z_onT1 = `Ka5 Pb4 Pc5 kc6 pb5` on cyl:7x6 is `on_D` (Proposition 3.2, §5.4); a pawn context on the e and f files is turned
+into a D-game (positions = pawn configurations with e.p. as in `cylcgt`, decisive events = a passer, races by the "count" rule, as in `lemmas/common.py`), and the prediction is the solver's D-result of K ⊞ on_D, which is
+Theorem 3.4(b) and, for the forced positions, Theorem 3.11. 18 contexts of 1-5 pawns (for each predicted class (W,W), (W,L), (L,L): the four smallest and two mid-size contexts found among 6,000 random placements, plus the P9 context `Pe2 pf3` as a control)
+and 6 colour-reversed contexts with Z_offT1 = `Kc1 Pb2 ka2 pb3 pc2` (prediction from the `off_D` model). Oracle: the P-model solver (first promotion wins, real kings) built privately from K7's `kp_p.c`
+(`--board cyl:7x6 --pmodel --ep on --promote Q --cap 0`, 24 s for all 48 positions).
+- **21 of 24 agree**: 6/6 Z_off contexts; for Z_on, 6/6 in (W,W), 5/6 in (L,L), 4/6 in (W,L); P9 `Pe2 pf3` gives (W, L) as in P9.
+- The 3 disagreements are (V1a)/(V2) failures on this narrow board (the seam makes the e-file 2-3 king steps from the a-file), not failures of the sum theory:
+  (i) `Pe2 pe3 pf4`, predicted (L,L), P-model (W,L): White's king sortie Ka5-g4 (not a shuttle move) wins, so P is better for White than D, as Proposition 3.2 allows (r(G ⊞ Z) ≥ r(G ⊞ on_D));
+  (ii) `Pe4 pf5`, predicted (W,L), P-model (W,W): after Black's capture f5xe4 the new Black passer is caught by Ka5-g4 (`Ka5 Pb4 Pc5 kc6 pb5 pe4 w` is a White win in P), so Black's decisive event is not a P-win ((V2));
+  (iii) `Pe2 Pe3 pe4 pf3 pf4`, predicted (W,L), P-model (L,L): every White move loses; White's capture e3xf4 creates a passer that the D-model scores as a win, but Black's f3xe2 and e1=Q is a faster counter-promotion (a race, (V2)).
+- **80 further random contexts** (`chess_rand.py gen 80 31337`, 1-4 pawns on e, f; same oracle, 27 s): 64 of 80 agree. Over all 98 Z_on contexts, 79 agree; 13 differ in White's favour (the P-result is at least the prediction, as the inequality
+  r(G ⊞ Z) ≥ r(G ⊞ on_D) of Proposition 3.2 allows: White's non-shuttle king moves); 5 are draws where the D-model predicts a decision (the stalemate mechanism, (V1b); `Pe4 pe5` is one: e4 covers d5 and pe5 is blocked, so Black has no legal move;
+  the other four were not diagnosed); 1 is worse for White than predicted ((iii) above, a race, (V2)). Direction table: `logs/chess_direction.txt`.
+- Reproduce: `scripts/chess_pred.py gen` (writes `chess/positions_all.txt`-compatible files and `chess/pred.json`), then
+  `cc -O2 -o bin/kp_p kings/delegate/out/K7/scripts/draft/kp_p.c -lpthread; bin/kp_p --board cyl:7x6 --pmodel --ep on --promote Q --cap 0 < chess/positions_all.txt` and compare with `chess/pred.json`.
+- **Referee status (revised after the K21 referee, 2026-10-27).** The P-model oracle was *not re-run*: the referee built `kp_p` and queued a 12-position sample, but both shared heavy-job slots were held by other jobs for 25 minutes and the run was withdrawn. What was checked:
+  the counts above were recounted from K21's own result files (`verify/count_chess.py`: 24 base contexts, 21 agree; 80 random contexts, 64 agree; 79 of 98 Z_on contexts agree; 13 + 5 + 1 differences as listed), and the prediction side was re-derived by hand
+  for `Pe2 pf3` ((W, L)), `Pe2 pe3` ((W, W)) and `Pe4 pf5` (predicted (W, L), P-model (W, W)), and the `Pe4 pe5` stalemate explanation is right. So the P-model results stay COMPUTED-1 (one run, not re-run); nothing in the chess part is CHECKED-2.
+- **kpsolve (C, cap 1): not obtained.** One cap-1 position (`Ka5 Pb4 Pc5 kc6 pb5 Pe2 pf3 w -`) used more than 55 CPU-seconds when run alone outside the lock (killed at the limit), and a batch of 4 contexts (8 positions, `chess/positions_C.txt`) waited in the
+  shared heavy-job queue (both slots held by other kings/ jobs for the whole session) and was withdrawn. So the new contexts are P-model results (the Z_on claims of §5.4 are "PROVED in P"; the chess claim needs (A_Q) at each position), and the only kpsolve (C) value
+  for a context here is the one already recorded for P9. Reproduce when the lock is free: `kings/delegate/heavy.sh bin/kp --board cyl:7x6 --ep on --promote QRBN --cap 1 --threads 2 < chess/positions_C.txt`.
 
 **What loopy kings do to the convention.**
 - **With a White shuttle (PROVED by Theorem 3.4(b)):** the components' values (numbers, infinitesimals, nimbers)
@@ -1902,8 +2146,11 @@ So a group's tempo is *finite* (a stopper equal to an integer) exactly when its 
 "non-reversible": a 3-cycle has no immediately reversible move and is still unbounded.
 (Revised after review: R4 item 5: the old sentence conflated acyclicity with the absence of a 2-cycle.)
 
-**Proposition 4.3 (no finite king tempo in isolated K+P groups). FALSE as originally stated →
-PROVED after repair.** Let Z be a king group in a position without officers, with a buffer. Suppose side s plays a
+**Proposition 4.3 (no finite king tempo from safe king steps inside F_Z against a frozen opponent; title revised
+after K20, 2026-10-27). FALSE as originally stated → PROVED after repair.** The statement and the proof are unchanged
+and were already scoped to a frozen opponent. A finite king tempo does exist in isolated K+P groups when the opponent
+is not frozen (K20, §8 question 3; CHECKED-2), so the old title ("in isolated K+P groups") suggested too much.
+Let Z be a king group in a position without officers, with a buffer. Suppose side s plays a
 non-capturing king move u → v inside F_Z, and the opponent replies outside Z. **As stated this is false:** the
 step back fails if s was in check on u, or if the reply promotes. The repaired statement adds two hypotheses:
 - (H1) s is not in check on u;
@@ -1941,14 +2188,17 @@ because the opponent moved.
     | kings/kpsolve --board flat:4x4 --ep on --promote QRBN --cap 1 --moves`.
 
 **What this means for the "n safe spare moves" picture.** In king-and-pawn chess, a king with exactly n safe
-spare moves cannot occur in an isolated group *for steps inside F_Z*: one safe step and the step back already
+spare moves cannot occur in an isolated group *for steps inside F_Z, against a frozen opponent*: one safe step and the step back already
 give infinitely many (Proposition 4.3, repaired). Steps out of F_Z are the exception, and their supply depends
 on the context. (Revised after review: R4 item 2, R1 item 11: the original sentence claimed more than
 Proposition 4.3 proves.)
 - Finite tempo comes from **pawn** moves. That is Elkies' integers, spare pawn moves that end blocked
   (KNOWN, Elkies 1996).
 - It can also come from genuine king-against-king fights, where the opponent *replies inside Z*: opposition
-  and shouldering. Those are not reservoirs, and they can have any value.
+  and shouldering. Those are not reservoirs. K20 found the finite values +1 and -1 and the switches {1|0} and
+  {0|-1} among them (§8, question 3) and, among the searched games (at most two pairs, boards up to 8 files,
+  battery B34), no other number; "any value" is not supported (CHECKED-2 for B34 on the searched games, battery
+  names only; revised after K20, 2026-10-27).
 
 **Definition 4.4 (over).** over = {0 | over} (KNOWN, [WW] ch. 11, [S] ch. VI). Right can pass forever
 (over → over), and Left has one move, to 0, that ends Right's passing. (Revised after review: R1 item 11: the
@@ -2404,7 +2654,7 @@ Each item is a counterexample type the task named, or one found while writing.
    - That is a (V2) failure for the passer, not a gap in Theorems 1.14 or 2.4, which assume (V2). With
      frozen kings, the certificate of Proposition 2.11 fails there at (H5), the timing bound over all of the opponent's pawns (a failed
      certificate does not by itself prove a (V2) failure: 2.11 is sufficient only);
-     with real kings only the square-rule CONJECTURE of Remark 2.11 applies (revised after K10, 2026-10-22).
+     with real kings the square-rule conjecture of Remark 2.11 is FALSE as stated (ω can be stalemated; CHECKED-2), and Theorem 2.11K (PROVED in P: a corrected rule with a no-stalemate condition) applies where its hypotheses hold (revised after K16, 2026-10-27).
 2. **Double threats.**
    - They are just Λ-positions in Theorem 3.4: every reply leaves a threat. No proof uses "one threat at a
      time".
@@ -2427,8 +2677,8 @@ Each item is a counterexample type the task named, or one found while writing.
    - That is a Z-move made while a context passer exists, so the D-model has already ended. The failure is
      (V2) for the passer.
    - Proposition 2.11 is proved only with frozen kings. With real kings the defender's king may catch the
-     passer (`Ka1 ka6 Pc2 w -` is (W, W) frozen and (D, D) with real kings); the real-king form is the square-rule
-     CONJECTURE of Remark 2.11 (revised after K10, 2026-10-22).
+     passer (`Ka1 ka6 Pc2 w -` is (W, W) frozen and (D, D) with real kings); the real-king form is Theorem 2.11K of
+     Remark 2.11 (the square rule with a no-stalemate clause, PROVED in P; without the clause the rule is FALSE, CHECKED-2, K16) (revised after K16, 2026-10-27).
    - The engine-suite escapes (§5.6) are this type. Theorem 2.7 explains them only as certificate failures;
      it does not claim to predict which ones draw.
 6. **Checks.**
@@ -2488,8 +2738,99 @@ Downgraded while writing:
    so its negative statements are withdrawn. Open: chess (cap 2; cap 1 gives bounds (W, L)), the cylinder, other
    boards.)
 3. King-against-king fights inside Z (opposition, shouldering) are genuine short or loopy games. What values
-   occur? This is where finite king tempo can live, by Proposition 4.3.
-4. A version of Theorem 1.11 for loopy components: the D-semantics analogue of Siegel's stopper sums.
+   occur? Proposition 4.3 excludes finite king tempo only against a frozen opponent, so this is where it can live. **Answered in part by K20**
+   (`kings/delegate/out/K20/summary.json`, task 2026-10-27, referee report `kings/delegate/out/K20/VERIFY.md`;
+   AI work, no human re-derivation; revised after K20, 2026-10-27).
+   - *Model.* The local game LK of K20: both kings move, the blocked pawn pairs (at most two, white pawn on rank
+     r and black pawn on r + 1, files within a window of 4) are frozen, a king capture after which exactly one
+     side has a passed pawn is a terminal for that side, a player with no move loses. A pass is a move in a
+     summand (on, off, dud, the integers); a sortie is a step outside a region R (free board, or the pawn files
+     widened by m = 0, 1, 2), and a sortie counted as a suicide gives the same values as a wall (PROVED, Lemma
+     1.7; this is an equality of two models, and "sortie as suicide" is a convention, since in chess a sortie can
+     be a useful move). A configuration is "faithful" when the frozen pawns are chess-frozen (two pairs on files
+     at cyclic distance >= 2); the non-faithful configurations of cyl:6x6 are models only.
+   - *Search.* cyl:6x6, 7x6, 8x6 and flat:6x6, 7x6, 8x6, 0 to 2 pairs, every legal king placement, free and
+     box(0, 1, 2): 22 configurations per cylinder and 67, 82, 97 per flat board. The free runs list 1,989,996 root
+     entries. A root is listed under every configuration whose pawn set contains its own (the pawnless king
+     placements again and again, every single pair under each two-pair configuration containing it), so the free
+     runs hold **341,931 distinct roots** (cyl:6x6 14,804, cyl:7x6 22,313, cyl:8x6 31,397, flat:6x6 47,196,
+     flat:7x6 85,655, flat:8x6 140,566; the referee's count, COMPUTED-1). Value = outcome pair in the D-sum with a
+     battery of 34 games (B34), and with 4553 games (B4553) for the named classes. The names are battery names:
+     on, off, {+|on} and {off|-} are not exact values (B4553 separates some of the roots they name, see "Not
+     settled"). For every faithful configuration of every free run (cyl 16 each, flat:6x6 43, flat:7x6 55,
+     flat:8x6 64) and for the boxes m = 0, 1, 2 of flat:6x6 and flat:8x6, all class counts of K20's `kg.cpp` equal
+     those of the referee's own `lk.cpp`, written from the definition text (CHECKED-2). K20's independent Python
+     implementation also agrees for B34 on 57,324 roots of 16 configurations, not all (0 mismatches over 3,898,032
+     outcomes; CHECKED-2). Percentages below are shares of the root entries (K20's tables, which the referee
+     reproduced) unless they say "distinct".
+   - *Values that occur* (battery sense; existence of each named value CHECKED-2, three implementations): dud
+     (both kings can shuffle; the largest named class among the entries, 26 to 30 percent of the free entries, but
+     only 3 to 10 percent of the distinct free roots), on and off (one king frozen), 0 (a mutual zugzwang in which
+     both kings have moves, cyl:6x6 `Kb3 kf2 Pa2 pa3`), \*, tis and tisn, {on|off}, the switches {1|0} and
+     {0|-1}, and the **finite tempi +1 and -1**. The `*` roots with pawns occur only for two pairs on cylinders
+     (faithful cases cyl:7x6 `Ke2 kf4 Pa2 pa3 Pc3 pc4` and cyl:8x6 `Kc2 kb4 Pa2 pa3 Pd3 pd4`; none with one pair,
+     none on a flat board). The `*` roots of one-file boxes are pawnless corridor roots, for example `Ka1 ka4`
+     (two kings walking on the pawn file, no pawn on the board), and no pawn-bearing root of a one-file box is
+     `*` (checked by the referee on flat:6x6, CHECKED-2 there; on the other boards K20's count only, COMPUTED-1). No root equals +-2, +-3, +-1/2, up, down, up\*, down\*, \*2, over or under in B34, on any of the six free
+     boards. Everything else is decisive (a forced decisive event in some context: {+|}, {|-}, {+|-}, {+|0},
+     {0|-}, {+|on}, {off|-}) or "loopy, not classified" (298 distinct B34 signatures on cyl:6x6 and 486 on
+     flat:6x6 over all configurations; COMPUTED-1). The unclassified share is 40.4 to 54.1 percent of the entries
+     of the free runs and of box(2), 26 to 31 percent in box(0) and box(1), and 45 to 62 percent of the distinct
+     free roots (COMPUTED-1). Short roots (acyclic game graphs) occur only in one-file boxes, with the kings on
+     the pawn file (for example `Ka4 ka6 Pa2 pa3` is {+|} and `Ka6 ka4 Pa2 pa3` is 0); the free runs and,
+     on flat:6x6, box(1) have none (CHECKED-2 on the 6x6 boards). Every other root is loopy.
+   - *A finite tempo exists* (CHECKED-2: `kg.cpp`, the Python implementation and the referee's `lk.cpp`).
+     flat:6x6 `Kc3 ka4 Pa2 pa3 Pc4 pc5` (faithful, F_Z = {a, b, c}, both kings on F_Z) has value +1 and `Ka3 kc4
+     Pa4 pa5 Pc2 pc3` has -1; `Kd3 ka4 Pa2 pa3 Pc4 pc5` is {1|0} and `Ka3 kd4 Pa4 pa5 Pc2 pc3` is {0|-1} (the same
+     names on flat:7x6 and 8x6). The +1 root agrees with the integer 1 on all 4553 games of B4553 and on all
+     23,716 games of the referee's own extended battery. Sum test: every ordered pair of named roots of this
+     configuration adds as the references do (referee's exhaustive `lk allpairs`: 73,984 pairs, and 2,601, 14,884,
+     34,969 in the boxes m = 0, 1, 2, 0 mismatches; CHECKED-2). K20 reports 115,085,243 pairs of root entries over
+     the configurations of three boards, 0 mismatches (COMPUTED-1; the referee did not rerun that count). On the
+     cylinders of width 6, 8, 10 with six ranks each single blocked pair has king placements of value +1 and -1
+     (cyl:6x6 `Kd3 kd1 Pa2 pa3`; 7, 11, 13 roots of each sign over the pawn ranks 2, 3, 4), on no cylinder of width
+     5, 7, 9 with six ranks, and no two-pair run of cyl:7x6 has one (B34 names; CHECKED-2). CONJECTURE: the same
+     parity holds for other heights and for other widths; it is untested. Proposition 4.3 is not contradicted:
+     its statement is scoped to a frozen opponent, and in these roots the opponent has king moves inside Z.
+     Interpretation, CONJECTURE: the tempo is a one-tempo race lead between two kings that reply inside Z, not a
+     reservoir (nothing computed distinguishes a race lead from other mechanisms). CONJECTURE: a lead of two
+     tempi is already decisive, which would explain why +-2 and +-3 never occur (untested).
+   - *The value depends on the room outside F_Z* (CHECKED-2). The same root `Kc3 ka4 Pa2 pa3 Pc4 pc5` is 0 when
+     the kings are confined to {a, b, c}, tis when they have {a..d}, +1 when they have {a..e} or the whole board;
+     `Kd3 ka4 ...` is unclassified with {a..d} and {1|0} with {a..e} or the whole board. So the tempo is a value
+     of the group together with its buffer, not of F_Z alone.
+   - *Full-board confirmation in the promotion model P* (kpsolve `kp_p --pmodel` with real kings, flat:8x6; the
+     referee's own P-model solver `pmini2` gives the same P results on every legal position, 48 + 56 + 69, CHECKED-2).
+     The group beside a context on file g (H0, Hp1, Hm1, H\*, H\*2 of PREDICTIONS.md; prediction = outcome of
+     value(G) + value(H), value(H) by cylcgt; the referee recomputed these predictions with its own sums) matches
+     in 46 of 48 positions, all 24 for the values +1 and -1; the two misses are the bare switch roots (a decisive
+     event that is not a P-win, a (V2) failure). With the context on file e (next to the buffer) 39 of 69 legal
+     positions match (3 of the 72 are illegal: a context pawn attacks a king), with contexts on f and h 31 of 56
+     (CHECKED-2). CONJECTURE: the misses on files e, f, h come from the room that the context pawns take away from
+     the kings; nothing computed tests this.
+   - *D-model against P and chess.* The D-model decisive event is not always a P-win. For the +-1 roots of cyl:6x6
+     the D-value agrees with the P result in every position tested (the referee's `pmini`: 28 of 28 single-pair
+     positions; the 8 two-pair roots were not rechecked); on cyl:8x6 it agrees in 171 of 198 positions of K20
+     (13.6 percent differ, the other king catches the new passer; the referee's solver reproduces the rate, 6 of
+     44 single-pair positions differ). The P parts are CHECKED-2. In chess (kpsolve, cap 1) the +-1 roots of
+     cyl:6x6 agree with the D-value in 254 of 256 positions (2 undecided bounds): COMPUTED-1, not checked by the
+     referee, and the chess rows of the flat:6x6 runs (some with differing bounds) were not checked either.
+   - *Not settled.* B34 and B4553 name values only up to those batteries (a proof of equality in all sums is
+     open question 4). The names on and off are not exact for about 1 percent of the roots they name (B4553
+     separates 40 of 3,883 on cyl:6x6; {on|off} 6 of 130 on flat:6x6; K20's counts, COMPUTED-1), and with the nested battery of the K20
+     description the referee found the roots named {+|on} and {off|-} separated as well, on two configurations of
+     cyl:6x6. The contexts tested are small pawn sets on one or two files. B4553 was run in full only on flat:6x6,
+     cyl:6x6 and cyl:8x6 (selected configurations elsewhere), and the full flat:8x6 run was stopped early. Nothing
+     was proved beyond Lemma 1.7 for the sortie convention.
+4. A version of Theorem 1.11 for loopy components: the D-semantics analogue of Siegel's stopper sums. **Answered in part (K21, §3 after Corollary 3.5; revised after the K21 referee, 2026-10-27).**
+   - PROVED (one AI proof each, re-derived step by step by the K21 referee): the bridge to the loopy CGT sum under dominance (Theorem 3.7), a reserve criterion that contains Theorem 1.11(b) and is strictly stronger (Theorem 3.8), the reserves of
+     on, off, over, under, dud (Proposition 3.9), no draws beside one stopper (Proposition 3.10), and the sandwich theorem, which makes the forced-event regime independent of the group (Theorem 3.11, Corollary 3.11a).
+   - What fails (examples CHECKED-2, statistics COMPUTED-1): an infinite reserve opposite a threat that the threatening side can force (on or off against the wrong sign, dud against both) makes the translation wrong for every B on the forced
+     positions (Proposition 3.12); an unforceable threat (a suicide) does not, although dominance still fails (Theorem 3.8(c)); dud and other non-stoppers draw; and the translation can be wrong even in the tempo regime for a stopper with an
+     infinite reserve (two examples with 3-node stoppers, §3, "What fails").
+   - OPEN: (a) the exact value of a stopper with an infinite reserve in the tempo regime (what replaces the CGT value); (b) a necessary and sufficient form of Theorem 3.8 (the criterion is sufficient, not necessary, and Theorem 3.8(c) is necessity
+     for dominance only, for one rest component; for three or more components the sum of the reserves at an event is open); (c) a theorem for two or more loopy stoppers (their sum need not be a stopper: on ⊞ off draws); (d) the relation between (λ, ρ) and
+     Siegel's stops (CONJECTURE, untested: λ(S) = ⌈−RS(S)⌉ or one more, for a terminal-free stopper with finite reserve).
 5. Gafni's K+P vs K values without edges (plan item A8): the cylinder KPK table in `atlas/cylinder/kpk` is the
    starting point.
 6. **Universal zeros** (CONJECTURE, after Proposition 2.10(b); revised after K23, 2026-10-27). The zero of Z_T is

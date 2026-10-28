@@ -1,0 +1,26 @@
+== results_P.txt
+on Ka5 Pb4 Pc5 kc6 pb5 Pe2 pe3 pf3 pred ('L', 'L') got ('L', 'L') ok
+on Ka5 Pb4 Pc5 kc6 pb5 Pe2 pe3 pf4 pred ('L', 'L') got ('W', 'L') DIFF
+on Ka5 Pb4 Pc5 kc6 pb5 Pe2 pe3 pf5 pred ('L', 'L') got ('L', 'L') ok
+on Ka5 Pb4 Pc5 kc6 pb5 Pe2 pe4 pf3 pred ('L', 'L') got ('L', 'L') ok
+on Ka5 Pb4 Pc5 kc6 pb5 Pe2 Pe3 pe4 pf3 pred ('L', 'L') got ('L', 'L') ok
+on Ka5 Pb4 Pc5 kc6 pb5 Pf2 Pf3 pe3 pf4 pred ('L', 'L') got ('L', 'L') ok
+on Ka5 Pb4 Pc5 kc6 pb5 Pe2 pf3 pred ('W', 'L') got ('W', 'L') ok
+on Ka5 Pb4 Pc5 kc6 pb5 Pe3 pf4 pred ('W', 'L') got ('W', 'L') ok
+on Ka5 Pb4 Pc5 kc6 pb5 Pe4 pf5 pred ('W', 'L') got ('W', 'W') DIFF
+on Ka5 Pb4 Pc5 kc6 pb5 Pf2 pe3 pred ('W', 'L') got ('W', 'L') ok
+on Ka5 Pb4 Pc5 kc6 pb5 Pe2 Pe3 pe4 pf3 pf4 pred ('W', 'L') got ('L', 'L') DIFF
+on Ka5 Pb4 Pc5 kc6 pb5 Pe2 Pe3 pe4 pf4 pf5 pred ('W', 'L') got ('W', 'L') ok
+on Ka5 Pb4 Pc5 kc6 pb5 Pe2 pe3 pred ('W', 'W') got ('W', 'W') ok
+on Ka5 Pb4 Pc5 kc6 pb5 Pe2 pe4 pred ('W', 'W') got ('W', 'W') ok
+on Ka5 Pb4 Pc5 kc6 pb5 Pe2 pe5 pred ('W', 'W') got ('W', 'W') ok
+on Ka5 Pb4 Pc5 kc6 pb5 Pe2 pf4 pred ('W', 'W') got ('W', 'W') ok
+on Ka5 Pb4 Pc5 kc6 pb5 Pe2 Pf3 pe5 pf5 pred ('W', 'W') got ('W', 'W') ok
+on Ka5 Pb4 Pc5 kc6 pb5 Pe2 Pf4 pe4 pf5 pred ('W', 'W') got ('W', 'W') ok
+off Kc1 Pb2 ka2 pb3 pc2 Pe4 Pf4 pe5 pred ('W', 'W') got ('W', 'W') ok
+off Kc1 Pb2 ka2 pb3 pc2 Pe3 Pf4 pe5 pred ('W', 'W') got ('W', 'W') ok
+off Kc1 Pb2 ka2 pb3 pc2 Pf4 pe5 pred ('W', 'L') got ('W', 'L') ok
+off Kc1 Pb2 ka2 pb3 pc2 Pe4 pf5 pred ('W', 'L') got ('W', 'L') ok
+off Kc1 Pb2 ka2 pb3 pc2 Pe4 pe5 pred ('L', 'L') got ('L', 'L') ok
+off Kc1 Pb2 ka2 pb3 pc2 Pf3 pe5 pred ('L', 'L') got ('L', 'L') ok
+agree 21 differ 3

@@ -1,0 +1,95 @@
+{
+ "referee": "K20 verify",
+ "own_code": [
+  "lk.cpp",
+  "pmini.cpp",
+  "pmini2.cpp"
+ ],
+ "distinct_roots_free": {
+  "cyl:6x6": 14804,
+  "cyl:7x6": 22313,
+  "cyl:8x6": 31397,
+  "flat:6x6": 47196,
+  "flat:7x6": 85655,
+  "flat:8x6": 140566,
+  "total": 341931,
+  "k20_entries": 1989996
+ },
+ "class_counts_vs_k20": "identical on all faithful configs: cyl 6x6/7x6/8x6 free, flat 6x6/7x6/8x6 free, flat 6x6 and 8x6 boxes 0,1,2 (cmpcfg_final.txt)",
+ "finite_tempo": {
+  "B34": "+1,-1,{1|0},{0|-1} reproduced",
+  "own_23716_games": "+1 root agrees on all",
+  "EXT2_flat6": "+1 and {1|0} agree"
+ },
+ "parity_counts_h6": {
+  "6": [
+   7,
+   7
+  ],
+  "8": [
+   11,
+   11
+  ],
+  "10": [
+   13,
+   13
+  ],
+  "5": [
+   0,
+   0
+  ],
+  "7": [
+   0,
+   0
+  ],
+  "9": [
+   0,
+   0
+  ]
+ },
+ "allpairs": {
+  "flat6_a2c4_free": [
+   73984,
+   0
+  ],
+  "cyl6_a2": [
+   104329,
+   0
+  ],
+  "cyl6_a2d2": [
+   252004,
+   0
+  ],
+  "cyl7_a2c3": [
+   199809,
+   0
+  ]
+ },
+ "on_off_inexact_EXT2": {
+  "cyl6_a2d2": {
+   "on": 16,
+   "off": 8
+  },
+  "cyl6_a3d3": {
+   "on": 16,
+   "off": 16
+  }
+ },
+ "P_model_own": {
+  "flat8x6_far_g": "46/48 (24/24 for +-1)",
+  "flat8x6_file_e": "39/72 (3 illegal)",
+  "flat8x6_far2_f_h": "31/56",
+  "cyl6x6_single_pair": "28/28 agree",
+  "cyl8x6_single_pair": "38/44 agree (6 differ = 3/22 per sign)"
+ },
+ "not_checked": [
+  "kpsolve chess cap 1 (heavy lock never served)",
+  "two-pair cyl6x6 roots vs P",
+  "115,085,243 pair total",
+  "cyl boxes"
+ ],
+ "edits": {
+  "open question 3": "OLD once; NEW needs 6 fixes",
+  "section 4": "OLD once; one hedge"
+ }
+}

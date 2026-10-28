@@ -1,0 +1,18 @@
++1 | a2 | DUMP +1 :: Kd3 kd1 Pa2 pa3
+-1 | a2 | DUMP -1 :: Kd4 kd2 Pa2 pa3
+-1 | a2 | DUMP -1 :: Kd5 kd1 Pa2 pa3
+-1 | a2 | DUMP -1 :: Kd5 kd3 Pa2 pa3
++1 | a3 | DUMP +1 :: Kd3 kd1 Pa3 pa4
++1 | a3 | DUMP +1 :: Kd4 kd2 Pa3 pa4
++1 | a3 | DUMP +1 :: Kd5 kd1 Pa3 pa4
+-1 | a3 | DUMP -1 :: Kd5 kd3 Pa3 pa4
+-1 | a3 | DUMP -1 :: Kd6 kd2 Pa3 pa4
+-1 | a3 | DUMP -1 :: Kd6 kd4 Pa3 pa4
++1 | a4 | DUMP +1 :: Kd4 kd2 Pa4 pa5
++1 | a4 | DUMP +1 :: Kd5 kd3 Pa4 pa5
++1 | a4 | DUMP +1 :: Kd6 kd2 Pa4 pa5
+-1 | a4 | DUMP -1 :: Kd6 kd4 Pa4 pa5
++1 | a2,d4 | DUMP +1 :: Kd3 kd1 Pa2 pa3 Pd4 pd5
+-1 | a2,d4 | DUMP -1 :: Ka6 ka4 Pa2 pa3 Pd4 pd5
++1 | a4,d2 | DUMP +1 :: Ka3 ka1 Pa4 pa5 Pd2 pd3
+-1 | a4,d2 | DUMP -1 :: Kd6 kd4 Pa4 pa5 Pd2 pd3

@@ -1,0 +1,21 @@
+{
+ "referee": "K16v",
+ "implementations_used": ["mine.py (own P solver)", "cert.py (own certificate)", "sweep.py (own enumeration)", "kp_p.c --pmodel (private build)", "kpsolve.c (private build, frozen / chess check of Ka1 ka6 Pc2)"],
+ "counterexamples": {"cyl:6x6 Ka4 ka6 Pa5 Pd5 b -": "D (mine) / D D (kp_p); omega stalemated at y", "flat:6x6 Kc1 ka1 Pc2 pa2 w -": "D / D D", "flat:6x6 Kc1 ka1 Pc2 pa3 w -": "D / D D", "flat:6x6 Kd2 kf1 Pa2 Pf3 pf2 pd3 w -": "D / D D", "cyl:8x6 Ka1 ka6 Pc2 w -": "D / D D (frozen W W)"},
+ "viol_small_resampled": {"positions": 31, "mine_solver_D": 31, "disagreements": 0},
+ "exhaustive_reproduced": [
+  {"board": "flat:6x6", "pawns": "<=1+1", "certified": 156528, "stalemate_line": 208, "violating": 208, "k16": [156528, 208]},
+  {"board": "flat:7x6", "pawns": "<=1+1", "certified": 357542, "stalemate_line": 276, "violating": 276, "k16": [357542, 276]},
+  {"board": "flat:6x6", "pawns": "<=2+0", "certified": 171334, "stalemate_line": 74, "violating": 36, "k16": [171334, 36]},
+  {"board": "cyl:6x6", "pawns": "<=1+0", "certified": 1835, "violating": 0},
+  {"board": "cyl:6x6", "pawns": "<=1+1", "certified": 17746, "violating": 0},
+  {"board": "cyl:6x6", "pawns": "<=2+0", "certified": 18926, "stalemate_line": 2, "violating": 1},
+  {"board": "cyl:6x6", "pawns": "<=1+2", "certified": 95398, "violating": 0},
+  {"board": "cyl:6x6", "pawns": "<=2+1", "certified": 199436, "stalemate_line": 2, "violating": 1},
+  {"board": "cyl:6x6", "pawns": "<=2+2", "certified": 1072469, "stalemate_line": 2, "violating": 1, "ns_ok_all_W_in_kpp": 1072467}
+ ],
+ "s0_flat": {"flat:6x6 1+1": {"violations": 208, "omega_stalemated_at_y": 58, "legal_move_at_y": 150}, "flat:7x6 1+1": {"violations": 276, "omega_stalemated_at_y": 74, "legal_move_at_y": 202}},
+ "random_theorem_test": {"samples": 16500, "ns_ok_beta_wins": 16494, "ns_ok_not_win": 0, "impossible_ep_rejected": 3, "ns_fail": 3, "ns_fail_but_beta_wins": 1, "beta_black_share": 0.5},
+ "found_problems": ["180 in CONJECTURE' count double-counts 8 (flat:6x6 <=2+2 is inside <=3+3): 172, total 565", "'Checked, not proved' line contradicts the proved H3K=>NS", "KV=2 mechanism wording: king unblocks its own pawn (cyl:6x6 Ka1 ke1 Pc2 pe2 w - is L L, certified under KV=2)"],
+ "not_checked": ["cyl:6x6 <=3+3 and <=4+4, cyl:7x6 <=3+3, cyl:8x6 <=2+2, flat:6x6 <=3+3, flat:7x6 <=2+2 sweeps", "KV=2 control numbers", "175,454 flip check", "393 hunt positions", "22 cyl:6x6 4+4 S0 violations"]
+}

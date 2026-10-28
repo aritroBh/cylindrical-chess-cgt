@@ -1,0 +1,26 @@
+short roots: 0 of 608
+board cyl:6x6 pairs a2,d2 margin free : legal nodes 12800 roots 608 races 0
+  0                                   4   e.g. [Kb3 kf2 Pa2 pa3 Pd2 pd3] [Kc3 ke2 Pa2 pa3 Pd2 pd3] [Ke3 kc2 Pa2 pa3 Pd2 pd3]
+  dud                               108   e.g. [Ka1 ka4 Pa2 pa3 Pd2 pd3] [Ka1 kb4 Pa2 pa3 Pd2 pd3] [Ka1 kc4 Pa2 pa3 Pd2 pd3]
+  off                                 8   e.g. [Kb1 kf1 Pa2 pa3 Pd2 pd3] [Kb1 kf2 Pa2 pa3 Pd2 pd3] [Kc1 ke1 Pa2 pa3 Pd2 pd3]
+  on                                 28   e.g. [Kb3 kf4 Pa2 pa3 Pd2 pd3] [Kc3 ke4 Pa2 pa3 Pd2 pd3] [Ke3 kc4 Pa2 pa3 Pd2 pd3]
+  other                             106   e.g. [Ka5 kc4 Pa2 pa3 Pd2 pd3] [Ka5 kd4 Pa2 pa3 Pd2 pd3] [Ka5 ke4 Pa2 pa3 Pd2 pd3]
+  {+|-}                              64   e.g. [Kb3 kc1 Pa2 pa3 Pd2 pd3] [Kb3 kd1 Pa2 pa3 Pd2 pd3] [Kb3 ke1 Pa2 pa3 Pd2 pd3]
+  {+|0}                               8   e.g. [Kb3 ka1 Pa2 pa3 Pd2 pd3] [Kb3 kf1 Pa2 pa3 Pd2 pd3] [Kc3 kd1 Pa2 pa3 Pd2 pd3]
+  {+|on}                             28   e.g. [Kb3 ke4 Pa2 pa3 Pd2 pd3] [Kb3 ka5 Pa2 pa3 Pd2 pd3] [Kb3 ke5 Pa2 pa3 Pd2 pd3]
+  {+|}                              100   e.g. [Kb3 kb1 Pa2 pa3 Pd2 pd3] [Kb3 kd4 Pa2 pa3 Pd2 pd3] [Kb3 kb5 Pa2 pa3 Pd2 pd3]
+  {0|-}                               8   e.g. [Ka4 kb2 Pa2 pa3 Pd2 pd3] [Ka4 kf2 Pa2 pa3 Pd2 pd3] [Kb4 kf2 Pa2 pa3 Pd2 pd3]
+  {off|-}                             8   e.g. [Kb1 ke1 Pa2 pa3 Pd2 pd3] [Kb1 ke2 Pa2 pa3 Pd2 pd3] [Kc1 kf1 Pa2 pa3 Pd2 pd3]
+  {|-}                              138   e.g. [Ka1 kc1 Pa2 pa3 Pd2 pd3] [Ka1 kd1 Pa2 pa3 Pd2 pd3] [Ka1 ke1 Pa2 pa3 Pd2 pd3]
+EXT battery (0 games in 8 chunks):
+  0                    agree 4 disagree 0
+  dud                  agree 108 disagree 0
+  off                  agree 0 disagree 8
+  on                   agree 12 disagree 16
+  {+|-}                agree 64 disagree 0
+  {+|0}                agree 8 disagree 0
+  {+|on}               agree 0 disagree 28
+  {+|}                 agree 100 disagree 0
+  {0|-}                agree 8 disagree 0
+  {off|-}              agree 0 disagree 8
+  {|-}                 agree 138 disagree 0

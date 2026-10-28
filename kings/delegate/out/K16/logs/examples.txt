@@ -1,0 +1,36 @@
+== cyl:8x6  Ka1 ka6 Pc2 w -   (beta=W, p=c2)
+Ka1 ka6 Pc2 w - | -
+frozen: Ka1 ka6 Pc2 w - | W W
+P real kings (kp_p): Ka1 ka6 Pc2 w - | D D
+P real kings (pyp.py): Ka1 ka6 Pc2 w - | D
+strategy 'beta pushes p': ('p_captured', ['B:c2c3', 'ka6b5', 'B:c3c4', 'kb5c4'])
+== cyl:6x6  Ka4 ka6 Pa5 Pd5 b -   (beta=W, p=d5)
+Ka4 ka6 Pa5 Pd5 b - | W:d5:11.0.0
+frozen: Ka4 ka6 Pa5 Pd5 b - | D D
+P real kings (kp_p): Ka4 ka6 Pa5 Pd5 b - | D D
+P real kings (pyp.py): Ka4 ka6 Pa5 Pd5 b - | D
+strategy 'beta pushes p': ('omega_stalemated_at_y', [])
+== flat:6x6  Kc1 ka1 Pc2 pa2 w -   (beta=W, p=c2)
+Kc1 ka1 Pc2 pa2 w - | W:c2:1.0.0
+frozen: Kc1 ka1 Pc2 pa2 w - | D D
+P real kings (kp_p): Kc1 ka1 Pc2 pa2 w - | D D
+P real kings (pyp.py): Kc1 ka1 Pc2 pa2 w - | D
+strategy 'beta pushes p': ('omega_stalemated', ['B:c2c3'])
+== flat:6x6  Kc1 ka1 Pc2 pa3 w -   (beta=W, p=c2)
+Kc1 ka1 Pc2 pa3 w - | W:c2:1.0.0
+frozen: Kc1 ka1 Pc2 pa3 w - | D D
+P real kings (kp_p): Kc1 ka1 Pc2 pa3 w - | D D
+P real kings (pyp.py): Kc1 ka1 Pc2 pa3 w - | D
+strategy 'beta pushes p': ('omega_stalemated', ['B:c2c3', 'pa3a2', 'B:c3c4'])
+== flat:6x6  Kd2 kf1 Pa2 Pf3 pf2 pd3 w -   (beta=W, p=a2)
+Kd2 kf1 Pa2 Pf3 pf2 pd3 w - | W:a2:1.0.0 W:f3:1.0.0
+frozen: Kd2 kf1 Pa2 Pf3 pf2 pd3 w - | D D
+P real kings (kp_p): Kd2 kf1 Pa2 Pf3 pf2 pd3 w - | D D
+P real kings (pyp.py): Kd2 kf1 Pa2 Pf3 pf2 pd3 w - | D
+strategy 'beta pushes p': ('omega_stalemated', ['B:a2a3'])
+== flat:6x6  Kc1 ka1 Pc2 pa3 b -   (beta=W, p=c2)
+Kc1 ka1 Pc2 pa3 b - | W:c2:1.0.0
+frozen: Kc1 ka1 Pc2 pa3 b - | D D
+P real kings (kp_p): Kc1 ka1 Pc2 pa3 b - | D D
+P real kings (pyp.py): Kc1 ka1 Pc2 pa3 b - | D
+strategy 'beta pushes p': ('omega_stalemated', ['pa3a2', 'B:c2c3'])

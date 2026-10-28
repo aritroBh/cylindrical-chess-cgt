@@ -1,0 +1,8 @@
+{"verdict":"ACCEPT_WITH_FIXES",
+ "independent_solver":"verify/ref.py; agrees with K21 dsum.py on 20324 states, 1500 instances (D, CGT, dominance, criterion)",
+ "tests":{"bridge_random_instances":10000,"bridge_dominant":1778,"bridge_violations":0,"exhaustive_pairs_1node":2080,"exhaustive_violations":0,
+  "sandwich_instances":6150,"sandwich_violations":0,"pure_checks":53838,"pure_violations":0,"thm111b_instances":641,"cor38b_instances":721,
+  "subadd_checks":1600,"stopper_instances_no_draw":1277,"thm38c_cases":9592,"lambda_le_MR_checks":12717},
+ "refuted_as_worded":["P3.12 table row and body sentence: 'right exactly in the tempo regime ... side the reservoir favours'","'infinite reserve opposite a threat => no translation' (false for unforcible suicide threats)"],
+ "chess":"P-model results recounted from K21 files (79/98 agree, 13/5/1 split); oracle re-run NOT done (heavy.sh slots never freed in 25 min); 3 contexts re-derived by hand",
+ "edits":"all 3 OLD blocks occur exactly once; fixes F1-F5 needed in NEW text"}

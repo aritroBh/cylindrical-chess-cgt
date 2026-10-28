@@ -1,0 +1,185 @@
+{
+ "bridge": {
+  "instances": 26000,
+  "violations(dominance-not-equal or criterion-not-dominance)": 0,
+  "table": {
+   "ev loopy dom crit eq": 4671,
+   "ev loopy dom nocrit eq": 22,
+   "ev loopy nodom nocrit NEQ": 6898,
+   "ev loopy nodom nocrit eq": 2123,
+   "ev short dom crit eq": 2147,
+   "ev short nodom nocrit NEQ": 1115,
+   "ev short nodom nocrit eq": 667,
+   "noev loopy dom crit eq": 8008,
+   "noev short dom crit eq": 349
+  }
+ },
+ "sandwich": {
+  "inst": 15000,
+  "states": 142798,
+  "viol": 0,
+  "dud_eq_viol": 0,
+  "nontrivial_S_between": 5769,
+  "states_suicide_S": 38020,
+  "viol_suicide_S": 0
+ },
+ "stopper": {
+  "stopper_states": 116954,
+  "stopper_draws": 0,
+  "nonstopper_inst": 3335,
+  "nonstopper_inst_with_draw": 1315,
+  "nonstopper_states": 57014,
+  "nonstopper_draws": 8288,
+  "stopper_inst": 7932
+ },
+ "regime": {
+  "ALL decided thmE_ok": 102883,
+  "dud crit T C1_ok": 366,
+  "dud nocrit T C1_ok": 2419,
+  "dud nocrit decided transl_NEQ": 5925,
+  "off crit T C1_ok": 846,
+  "off crit decided transl_eq": 350,
+  "off nocrit T C1_ok": 2238,
+  "off nocrit decided transl_NEQ": 3067,
+  "off nocrit decided transl_eq": 2567,
+  "on crit T C1_ok": 856,
+  "on crit decided transl_eq": 508,
+  "on nocrit T C1_ok": 1921,
+  "on nocrit decided transl_NEQ": 2987,
+  "on nocrit decided transl_eq": 2306,
+  "over crit T C1_ok": 4030,
+  "over crit decided transl_eq": 4270,
+  "over nocrit T C1_FAIL": 3,
+  "over nocrit T C1_ok": 1469,
+  "over nocrit decided transl_NEQ": 1089,
+  "over nocrit decided transl_eq": 6287,
+  "quiet_any crit T C1_ok": 586,
+  "quiet_any crit decided transl_eq": 328,
+  "quiet_any nocrit T C1_FAIL": 7,
+  "quiet_any nocrit T C1_ok": 2296,
+  "quiet_any nocrit decided transl_NEQ": 3976,
+  "quiet_any nocrit decided transl_eq": 1263,
+  "short crit T C1_ok": 4169,
+  "short crit decided transl_eq": 4859,
+  "short nocrit T C1_FAIL": 7,
+  "short nocrit T C1_ok": 1393,
+  "short nocrit decided transl_NEQ": 1165,
+  "short nocrit decided transl_eq": 5953,
+  "stopper crit T C1_ok": 6481,
+  "stopper crit decided transl_eq": 4843,
+  "stopper nocrit T C1_FAIL": 39,
+  "stopper nocrit T C1_ok": 15541,
+  "stopper nocrit decided transl_NEQ": 18882,
+  "stopper nocrit decided transl_eq": 21506,
+  "under crit T C1_ok": 3780,
+  "under crit decided transl_eq": 4108,
+  "under nocrit T C1_FAIL": 4,
+  "under nocrit T C1_ok": 1244,
+  "under nocrit decided transl_NEQ": 1171,
+  "under nocrit decided transl_eq": 5473
+ },
+ "subadd": {
+  "checked": 5682,
+  "violations": 0
+ },
+ "thm34": {
+  "checked": 225312,
+  "violations": 0
+ },
+ "over46": {
+  "checked": 20628,
+  "violations": 0,
+  "cases_W_second": 10314
+ },
+ "thm111b": {
+  "N": 18000,
+  "pairwise_safe_instances": 5537,
+  "with_events": 5127,
+  "criterion_fail": 0,
+  "dominance_fail": 0,
+  "D_neq_CGT": 0
+ },
+ "pure_reservoirs": {
+  "checked": 189072,
+  "violations": 0
+ },
+ "one_finite_stopper_plus_safe_short": {
+  "N": 18000,
+  "instances": 3122,
+  "with_events": 2625,
+  "skipped_infinite_reserve": 9488,
+  "criterion_fail": 0,
+  "D_neq_CGT": 0
+ },
+ "crosscheck": [
+  {
+   "exp": "crosscheck_py_vs_c_all_states",
+   "N": 1500,
+   "seed": 77,
+   "B": 5,
+   "states_compared": 10410,
+   "disagreements": 0,
+   "instances_with_D_vs_CGT_difference": 0,
+   "instances_with_a_draw": 0
+  },
+  {
+   "exp": "crosscheck_py_vs_c_all_states",
+   "N": 4000,
+   "seed": 78,
+   "B": 5,
+   "states_compared": 37486,
+   "disagreements": 0,
+   "instances_with_D_vs_CGT_difference": 0,
+   "instances_with_a_draw": 0
+  },
+  {
+   "exp": "crosscheck_py_vs_c",
+   "N": 3000,
+   "seed": 7,
+   "B": 5,
+   "states_compared": 0,
+   "disagreements": 0,
+   "instances_with_D_vs_CGT_difference": 557,
+   "instances_with_a_draw": 722
+  },
+  {
+   "exp": "crosscheck_py_vs_c",
+   "N": 6000,
+   "seed": 801,
+   "B": 5,
+   "states_compared": 0,
+   "disagreements": 0,
+   "instances_with_D_vs_CGT_difference": 1169,
+   "instances_with_a_draw": 1468
+  }
+ ],
+ "chess_P_model": {
+  "set24": "21 of 24 agree (18 Z_on contexts: 15 agree; 6 Z_off contexts: 6 agree); see logs/chess_P_compare.txt",
+  "random80": "64 of 80 agree; see logs/chess_rand_compare.txt",
+  "direction": "logs/chess_direction.txt",
+  "all98_Zon": "79 agree, 13 differ in White's favour, 5 draws where D predicts a decision, 1 worse for White (race)"
+ },
+ "chess_kpsolve_cap1": {
+  "positions": 8,
+  "contexts": 4,
+  "agree_with_D_prediction_and_P_model": 8,
+  "results": "chess/results_C.txt",
+  "cmd": "scripts/run_kp_cap1.sh",
+  "states": 1413517896,
+  "seconds": 407.1
+ },
+ "referee": {
+  "file": "VERIFY.md",
+  "verdict": "ACCEPT WITH FIXES",
+  "fixes_applied_in_EDITS": [
+   "F1",
+   "F2",
+   "F3",
+   "F4",
+   "F5",
+   "sec8 bullet"
+  ],
+  "script": "scripts/apply_referee_fixes.py"
+ },
+ "report_md": "not written: the Write tool refused; the proofs are the Section-3 block of EDITS.md"
+}

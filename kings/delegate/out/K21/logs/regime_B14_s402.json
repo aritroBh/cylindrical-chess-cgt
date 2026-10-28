@@ -1,0 +1,149 @@
+{
+ "exp": "regime",
+ "N": 4000,
+ "seed": 402,
+ "B": 14,
+ "stats": {
+  "ALL decided thmE_ok": 33520,
+  "dud crit T C1_ok": 114,
+  "dud nocrit T C1_ok": 865,
+  "dud nocrit decided transl_NEQ": 1907,
+  "off crit T C1_ok": 307,
+  "off crit decided transl_eq": 89,
+  "off nocrit T C1_ok": 660,
+  "off nocrit decided transl_NEQ": 989,
+  "off nocrit decided transl_eq": 837,
+  "on crit T C1_ok": 301,
+  "on crit decided transl_eq": 151,
+  "on nocrit T C1_ok": 706,
+  "on nocrit decided transl_NEQ": 1017,
+  "on nocrit decided transl_eq": 897,
+  "over crit T C1_ok": 1482,
+  "over crit decided transl_eq": 1446,
+  "over nocrit T C1_FAIL": 2,
+  "over nocrit T C1_ok": 444,
+  "over nocrit decided transl_NEQ": 396,
+  "over nocrit decided transl_eq": 2346,
+  "quiet_any crit T C1_ok": 114,
+  "quiet_any crit decided transl_eq": 140,
+  "quiet_any nocrit T C1_ok": 691,
+  "quiet_any nocrit decided transl_NEQ": 1093,
+  "quiet_any nocrit decided transl_eq": 466,
+  "short crit T C1_ok": 1349,
+  "short crit decided transl_eq": 1719,
+  "short nocrit T C1_FAIL": 1,
+  "short nocrit T C1_ok": 273,
+  "short nocrit decided transl_NEQ": 268,
+  "short nocrit decided transl_eq": 1534,
+  "stopper crit T C1_ok": 2185,
+  "stopper crit decided transl_eq": 1519,
+  "stopper nocrit T C1_FAIL": 14,
+  "stopper nocrit T C1_ok": 5372,
+  "stopper nocrit decided transl_NEQ": 6285,
+  "stopper nocrit decided transl_eq": 7353,
+  "under crit T C1_ok": 1150,
+  "under crit decided transl_eq": 1202,
+  "under nocrit T C1_FAIL": 1,
+  "under nocrit T C1_ok": 397,
+  "under nocrit decided transl_NEQ": 332,
+  "under nocrit decided transl_eq": 1534
+ },
+ "C1_examples": [
+  [
+   [
+    "0:{1,2/1,2}|1:{2/-,+,2}|2:{/+}",
+    "0:{+,1/}|1:{+,2/2}|2:{/}"
+   ],
+   "0:{0/1}|1:{/}",
+   "under",
+   1,
+   1,
+   "W",
+   "L"
+  ],
+  [
+   [
+    "0:{1,2,3/-,3}|1:{3/2}|2:{/+,3}|3:{+/}",
+    "0:{-,1/-,1}|1:{/+}"
+   ],
+   "0:{1/}|1:{/}",
+   "short",
+   0,
+   1,
+   "L",
+   "W"
+  ],
+  [
+   [
+    "0:{1,4/+,3}|1:{-,2,3/-,+}|2:{+/4}|3:{4/4}|4:{/}",
+    "0:{1/}|1:{-,2/-,2}|2:{/}"
+   ],
+   "0:{3/2,3}|1:{/1,3}|2:{1,3,4/1,4}|3:{/}|4:{4/}",
+   "stopper",
+   0,
+   2,
+   "L",
+   "W"
+  ],
+  [
+   [
+    "0:{1,4/+,3}|1:{-,2,3/-,+}|2:{+/4}|3:{4/4}|4:{/}",
+    "0:{1/}|1:{-,2/-,2}|2:{/}"
+   ],
+   "0:{3/2,3}|1:{/1,3}|2:{1,3,4/1,4}|3:{/}|4:{4/}",
+   "stopper",
+   1,
+   2,
+   "W",
+   "L"
+  ],
+  [
+   [
+    "0:{1,4/+,3}|1:{-,2,3/-,+}|2:{+/4}|3:{4/4}|4:{/}",
+    "0:{1/}|1:{-,2/-,2}|2:{/}"
+   ],
+   "0:{3/2,3}|1:{/1,3}|2:{1,3,4/1,4}|3:{/}|4:{4/}",
+   "stopper",
+   1,
+   2,
+   "W",
+   "L"
+  ],
+  [
+   [
+    "0:{1,4/+,3}|1:{-,2,3/-,+}|2:{+/4}|3:{4/4}|4:{/}",
+    "0:{1/}|1:{-,2/-,2}|2:{/}"
+   ],
+   "0:{3/2,3}|1:{/1,3}|2:{1,3,4/1,4}|3:{/}|4:{4/}",
+   "stopper",
+   0,
+   2,
+   "L",
+   "W"
+  ],
+  [
+   [
+    "0:{1,4/+,3}|1:{-,2,3/-,+}|2:{+/4}|3:{4/4}|4:{/}",
+    "0:{1/}|1:{-,2/-,2}|2:{/}"
+   ],
+   "0:{3/2,3}|1:{/1,3}|2:{1,3,4/1,4}|3:{/}|4:{4/}",
+   "stopper",
+   0,
+   2,
+   "L",
+   "W"
+  ],
+  [
+   [
+    "0:{1,2/1,2}|1:{+,2/}|2:{-/}",
+    "0:{/}"
+   ],
+   "0:{/2}|1:{/0,1}|2:{4/0,2}|3:{0,2/}|4:{0,3/1}",
+   "stopper",
+   1,
+   4,
+   "W",
+   "L"
+  ]
+ ]
+}

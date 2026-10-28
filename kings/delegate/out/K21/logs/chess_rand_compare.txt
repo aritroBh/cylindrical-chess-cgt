@@ -1,0 +1,18 @@
+DIFF Pf3 Pf4 pe4 pe5 pred ('W', 'L') P ('W', 'W')
+DIFF Pf3 pe5 pred ('W', 'W') P ('W', 'D')
+DIFF Pf4 pe5 pred ('W', 'L') P ('W', 'W')
+DIFF Pe4 pf5 pred ('W', 'L') P ('W', 'W')
+DIFF Pe2 Pe4 pe5 pf3 pred ('W', 'L') P ('D', 'L')
+DIFF Pe3 pe5 pf5 pred ('L', 'L') P ('W', 'W')
+DIFF Pe4 Pf2 pe5 pf5 pred ('W', 'W') P ('W', 'D')
+DIFF Pf2 pe5 pf3 pred ('L', 'L') P ('W', 'L')
+DIFF Pe3 Pe4 pe5 pred ('W', 'W') P ('D', 'D')
+DIFF Pf3 pe5 pf5 pred ('L', 'L') P ('W', 'W')
+DIFF Pe2 pe5 pf4 pf5 pred ('L', 'L') P ('W', 'L')
+DIFF Pf2 pe5 pf5 pred ('L', 'L') P ('W', 'W')
+DIFF Pe2 pe5 pf5 pred ('L', 'L') P ('W', 'L')
+DIFF Pf2 pe5 pf3 pf4 pred ('L', 'L') P ('W', 'L')
+DIFF Pe4 pe5 pred ('W', 'W') P ('D', 'D')
+DIFF Pf2 pe4 pf3 pf4 pred ('L', 'L') P ('W', 'L')
+{"(('L', 'L'), 'DIFF->WL')": 5, "(('L', 'L'), 'DIFF->WW')": 3, "(('L', 'L'), 'ok')": 11, "(('W', 'L'), 'DIFF->DL')": 1, "(('W', 'L'), 'DIFF->WW')": 3, "(('W', 'L'), 'ok')": 15, "(('W', 'W'), 'DIFF->DD')": 2, "(('W', 'W'), 'DIFF->WD')": 2, "(('W', 'W'), 'ok')": 38}
+agree 64 of 80

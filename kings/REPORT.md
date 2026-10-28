@@ -367,6 +367,14 @@ Every deliverable was given to independent referees (Claude models) told to brea
     and flat:3×5) and proved it under the weaker hypothesis (B1).
   - K24 (2026-10-27) added Lemma 2.7a (PROVED): a draw in both promotion models EPW and EPB is a chess draw. It
     settles the chess w-entries of P5 and P7 as draws without relying on kpsolve, and four P solvers agree on P5–P7.
+  - K16 (2026-10-27): the real-king square rule of Remark 2.11 is FALSE as stated, because ω can be stalemated
+    (CHECKED-2 counterexamples). A corrected Theorem 2.11K, with a king-restricted timing condition and a no-stalemate
+    condition, is PROVED in P, and 7.6 · 10⁸ certified instances give 0 violations.
+  - K20 (2026-10-27): finite king tempo exists when the opponent is not frozen. On flat:6×6, `Kc3 ka4 Pa2 pa3 Pc4 pc5`
+    is +1 in the D-model sum battery (CHECKED-2); Proposition 4.3 holds only against a frozen opponent.
+  - K21 (2026-10-27): a sum theorem for loopy components. The reserve criterion T3.8 strictly extends Theorem 1.11(b)
+    to arbitrary loopy components, and the sandwich T3.11 bounds every group between off/dud and on (PROVED, one AI
+    proof each, re-derived by the referee).
   - So no result of the note is still GAP.
   - The T30 fixes of 2026-10-22 came later. They were reviewed by Sonnet reviewers in two rounds, not by K3 (see the Theory row
   above).
