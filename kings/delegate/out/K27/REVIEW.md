@@ -51,3 +51,18 @@ The diff was reviewed word by word, and the table cell counts are unchanged.
 `REPORT.md` section 3, HA1, is not forcing: after 3...c2+ White has 4.Kxb2 and 4.Kxc2, as `VERIFY.md` §6.2 shows.
 The REPORT's cap-2 cost phrases ("CPU time of the order of hours", "far beyond 20 minutes") are unsupported, per
 `VERIFY.md` §6.3. Both are withdrawn. `REPORT.md` is kept verbatim as the delegate's output.
+
+## Post-commit check (Haiku, after 432907a)
+
+The checker passed every number, the 6 + 15 + 5 split, the move list and the table cell counts. A follow-up commit
+applies its wording and label fixes:
+- "loses at once" becomes "loses by force" wherever it refers to Z_B (a deviation can take up to 11 plies to lose).
+- Two of the six chess captures take a pawn other than the pushed one (Kxb4 after a3–a4, Kxb3 after c4–c3).
+- The 22-of-26 count gets COMPUTED-1, and the claim that a P certificate says nothing about chess is narrowed to
+  those 22.
+- The τ bound swap gets PROVED.
+- The cap-2 probe's 618 CPU-s and 151 MB are now described as covering the whole wrapper.
+- "15 of the 16 king moves" replaces "the 16 ..., with one exception".
+
+`summary.json` is K27's own output and stays verbatim. It is stale on chess: it predates the 21 + 5 split. The P result
+it summarises is unchanged.

@@ -361,7 +361,7 @@ Every deliverable was given to independent referees (Claude models) told to brea
   - K14 (2026-10-27) proved a two-sided Proposition 3.2′ (two shuttling kings act as dud_D in the D-model) and a chess
     bridge, Theorem 3.2‴, conditional on (Pun). Its referee found **Z_B** on flat 7×6, which refutes K14's own "no
     exactly frozen group" (the search had a move-count cut-off): White king b2/c3, Black king a4/b5, pawns Pa3 Pb4 pb3
-    pc4. In P every non-shuttle move loses at once, CHECKED-2 (kp_p and `ref3`). Beside 660 contexts its P result
+    pc4. In P every non-shuttle move loses by force, CHECKED-2 (kp_p and `ref3`; PROVED by hand since K27). Beside 660 contexts its P result
     equals the dud prediction (COMPUTED-1). In chess it is undecided at cap 1.
   - K22 (2026-10-27) showed that Lemma 2.9 is false without its added hypothesis (counterexamples on flat:4×5, cyl:7×6
     and flat:3×5) and proved it under the weaker hypothesis (B1).

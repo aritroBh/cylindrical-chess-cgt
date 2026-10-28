@@ -79,7 +79,7 @@ originally stated → …" gives the corrected statement and its label. Each cha
 | T3.3(b) | FALSE as originally stated (with ∅ the dead position the pair is (W, L)) → { \| ⊖} ⊞ on_D is (L, L): PROVED after repair | R1 item 2 |
 | T3.4 | PROVED | R4: sound |
 | C3.5 | PROVED | R4: sound |
-| P3.2′ (two shuttling kings are a dud) | D-model: PROVED (new, K14; revised after the K14 referee, 2026-10-27): a p-morphism onto dud_D on the four combined king states, for every D-game G; inequalities when one side has further Z-moves; a win needs only the half of the states in which the winner's king stands still; all eight shuttle arrows are needed (counterexamples). The proof was re-checked by one referee (same model family) and the statements by two brute-force implementations, on short and loopy G, 0 violations (COMPUTED-1 for the data). Chess bridge (Theorem 3.2‴): PROVED in P, conditional on (V1a-ctx), (V2-ctx) and the per-group hypothesis (Pun) that every non-shuttle Z-move is decisively punished; stalemate is excluded automatically. (Pun) is the only gap of the bridge; the chess statement also needs (A_Q). Existence (revised after the K14 referee, 2026-10-27): Z_B (§5.7; flat 7×6; White king b2/c3, Black king a4/b5, pawns Pa3 Pb4 pb3 pc4) has every non-shuttle move losing at once, and Z_B alone is exactly two-shuttle in P, (D, D) at all 8 roots, every one of the 26 non-shuttle moves losing by force: PROVED by hand (revised after K27 and its referee, 2026-10-27; `kings/delegate/out/K27/PROOF.md`, 26 certificates), CHECKED-2 for the computations (kp_p, ref3, K27's pm.py, the K27 referee's own solver). Beside every context tested the P-result of G ⊞ Z_B equals r(G ⊞ dud_D): COMPUTED-1 (68 contexts, 12 contexts on files e–g, and the first 660 of 885 contexts of ≤ 2 + 2 pawns on f, g; 225 contexts untested). In chess Z_B is OPEN (revised after K27 and its referee, 2026-10-27): with cap 1 the bounds at the 8 roots are (W, L); 21 of the 26 deviations lose in chess (CHECKED-2: kpsolve and the K27 referee's own chess solver); five are not settled at cap 1, four with bounds (W, L) and Kc3–d2 from (c3, b5) with bounds (D, L); if any of the five does not lose, Z_B is not two-shuttle in chess; cap 2 was not run. Open: chess (those five deviations, cap 2), the cylinder, other boards. Z_A (§5.7) is a second group, with one White break (Kxb4). K14's first search found no frozen group only because of a move-count cut-off (18) that excluded Z_B | R4 item 6; K14 and its referee; K27 and its referee |
+| P3.2′ (two shuttling kings are a dud) | D-model: PROVED (new, K14; revised after the K14 referee, 2026-10-27): a p-morphism onto dud_D on the four combined king states, for every D-game G; inequalities when one side has further Z-moves; a win needs only the half of the states in which the winner's king stands still; all eight shuttle arrows are needed (counterexamples). The proof was re-checked by one referee (same model family) and the statements by two brute-force implementations, on short and loopy G, 0 violations (COMPUTED-1 for the data). Chess bridge (Theorem 3.2‴): PROVED in P, conditional on (V1a-ctx), (V2-ctx) and the per-group hypothesis (Pun) that every non-shuttle Z-move is decisively punished; stalemate is excluded automatically. (Pun) is the only gap of the bridge; the chess statement also needs (A_Q). Existence (revised after the K14 referee, 2026-10-27): Z_B (§5.7; flat 7×6; White king b2/c3, Black king a4/b5, pawns Pa3 Pb4 pb3 pc4) has every non-shuttle move losing by force, and Z_B alone is exactly two-shuttle in P, (D, D) at all 8 roots, every one of the 26 non-shuttle moves losing by force: PROVED by hand (revised after K27 and its referee, 2026-10-27; `kings/delegate/out/K27/PROOF.md`, 26 certificates), CHECKED-2 for the computations (kp_p, ref3, K27's pm.py, the K27 referee's own solver). Beside every context tested the P-result of G ⊞ Z_B equals r(G ⊞ dud_D): COMPUTED-1 (68 contexts, 12 contexts on files e–g, and the first 660 of 885 contexts of ≤ 2 + 2 pawns on f, g; 225 contexts untested). In chess Z_B is OPEN (revised after K27 and its referee, 2026-10-27): with cap 1 the bounds at the 8 roots are (W, L); 21 of the 26 deviations lose in chess (CHECKED-2: kpsolve and the K27 referee's own chess solver); five are not settled at cap 1, four with bounds (W, L) and Kc3–d2 from (c3, b5) with bounds (D, L); if any of the five does not lose, Z_B is not two-shuttle in chess; cap 2 was not run. Open: chess (those five deviations, cap 2), the cylinder, other boards. Z_A (§5.7) is a second group, with one White break (Kxb4). K14's first search found no frozen group only because of a move-count cut-off (18) that excluded Z_B | R4 item 6; K14 and its referee; K27 and its referee |
 | T3.7, L3.8a, T3.8, C3.8b (loopy sums) | PROVED (new, K21, 2026-10-27): one AI proof each; the K21 referee re-derived every step against Definitions 1.1–1.4 and 1.10. T3.8(c) is necessity for dominance only, not for D = CGT (revised after the K21 referee, 2026-10-27). Brute force: CHECKED-2 (two solvers, 20,324 states), the statistics COMPUTED-1 (K21: 26,000 bridge instances; referee: 10,000 random and 2,080 exhaustive pairs, 0 violations) | K21 referee (`kings/delegate/out/K21/VERIFY.md` sections 1 and 3), `kings/delegate/out/K21/summary.json` |
 | P3.9, P3.10 | PROVED (new, K21, 2026-10-27; re-derived by the K21 referee); the reserve table CHECKED-2, the draw counts COMPUTED-1 | K21 referee |
 | T3.11, C3.11a | PROVED (new, K21, 2026-10-27; the three parts re-derived by the K21 referee); K21's 142,798 states and the referee's 6,150 sampled instances, 0 violations, COMPUTED-1 | K21 referee |
@@ -1909,7 +1909,7 @@ and 6 colour-reversed contexts with Z_offT1 = `Kc1 Pb2 ka2 pb3 pc2` (prediction 
   Proposition 3.2′). The chess bridge is Theorem 3.2‴. It needs, per group and context, that every non-shuttle Z-move
   is decisively punished; a win needs this only for the loser and only in the two states in which the winner's king
   stands still. The 7.3 group is **not** of this type: f7–f8=Q is a White Z-move that is no suicide (§5.3). A group of this type
-  exists in P on the flat 7×6 board: Z_B of §5.7 has every non-shuttle move losing at once at all 8 roots (PROVED by
+  exists in P on the flat 7×6 board: Z_B of §5.7 has every non-shuttle move losing by force at all 8 roots (PROVED by
   hand, revised after K27 and its referee, 2026-10-27; CHECKED-2 for the computations),
   and beside every context tested its P-result equals r(G ⊞ dud_D) (COMPUTED-1; 225 of 885 contexts untested);
   CONJECTURE that this holds in every context. Whether Z_B is exactly two-shuttle in chess is OPEN (cap 1 gives
@@ -2364,7 +2364,7 @@ move lists below were enumerated by hand. A scratch script reproduced them, and 
   distance ≥ 2 in all four; K1 holds: Black's g7 attacks f6 and h6, White's f7 attacks e8 and g8, so neither pawn attacks
   a shuttle square of the other king), so the geometry of Lemma 3.2″ holds. "If f8 were unavailable" does not define a group. The earlier sentence "would be dud-type" is
   withdrawn as unproved. The two-sided proposition it needed is now Proposition 3.2′ (PROVED in the D-model). A group of
-  this type exists elsewhere on the flat 7×6 board: Z_B of §5.7 (every non-shuttle move loses at once in P, PROVED by hand,
+  this type exists elsewhere on the flat 7×6 board: Z_B of §5.7 (every non-shuttle move loses by force in P, PROVED by hand,
   revised after K27, 2026-10-27),
   and Z_A of §5.7 is two-shuttle up to one White break.
   - *Scratch evidence:* no both-sides-shuttle group without a pawn break exists among 3-file groups with
@@ -2510,7 +2510,7 @@ on e–g). Kings at (a, c) ∈ {a5, a6} × {c5, c6}.
   approximate count of other moves (at most 18, and 12 for 3 + 3 pawns). The referee searched flat 7×6 with F_Z = {a, b, c}
   and at most 2 White and 2 Black pawns on ranks 2 to 5, **with no cut-off**: 817,270 placements in which the four
   combined king states are legal (K1, K2). At the two roots (z, w), White and Black to move, 535 placements have no
-  non-shuttle move that fails to lose at once. At all 8 roots **2 placements have none (mirror images of each other)**
+  non-shuttle move that fails to lose by force. At all 8 roots **2 placements have none (mirror images of each other)**
   and 12 have exactly one (Z_A type).
   - **Z_B:** White king b2, c3 (shuttle), Black king a4, b5 (shuttle), pawns Pa3 Pb4 pb3 pc4. Its mirror is
     Ka3, Kb2 / kb5, kc4 / Pb4 Pc3 pa4 pb3 (the file image a ↔ c of Z_B as a set of positions). Roots are written like
@@ -2523,7 +2523,7 @@ on e–g). Kings at (a, c) ∈ {a5, a6} × {c5, c6}.
       two-shuttle in P too. Checks: K27's `tau_check.py` (the 8 roots map onto the 8 roots of the mirror, and the legal
       moves correspond on 22,818 positions) and the referee's own solver (`kings/delegate/out/K27/verify/own.cpp`: τ maps
       the value and the distance to promotion of each of the 649,994 positions reachable from the 16 roots onto those of its
-      image, 0 mismatches). In chess with the promotion cap τ exchanges the two bounds, so a chess statement for the mirror
+      image, 0 mismatches). In chess with the promotion cap τ exchanges the two bounds (PROVED: τ maps a capped White promotion to a capped Black one), so a chess statement for the mirror
       carries over with the bounds swapped; none is claimed here.
   - *Geometry. PROVED by enumeration (K1; written out with the shuttle lemma in `kings/delegate/out/K27/PROOF.md`, section 3, and re-derived by the K27 referee).* (K1): pb3 attacks a2, c2; pc4 attacks b3, d3; Pa3 attacks b4; Pb4 attacks a5, c5;
     none of b2, c3, a4, b5. (K2): d(b2, a4) = 2, d(b2, b5) = 3, d(c3, a4) = 2, d(c3, b5) = 2.
@@ -2533,7 +2533,7 @@ on e–g). Kings at (a, c) ∈ {a5, a6} × {c5, c6}.
     - (b2, b5): Kb1 L, Kc1 L, Ka1 L, a3–a4 L, shuttle D | Kb6 W, Kc6 W, Ka6 W, c4–c3 W, shuttle D
     - (c3, a4): Kc4 L, Kd4 L, Kd2 L, b4–b5 L, shuttle D | Kxa3 W, b3–b2 W, shuttle D
     - (c3, b5): Kd4 L, Kd2 L, a3–a4 L, shuttle D | Kb6 W, Kc6 W, Ka6 W, b3–b2 W, shuttle D
-  - **Z_B alone is (D, D) at all 8 roots in P, and every non-shuttle move loses at once** (every non-shuttle move is a loss for the
+  - **Z_B alone is (D, D) at all 8 roots in P, and every non-shuttle move loses by force** (every non-shuttle move is a loss for the
     mover; the shuttle draws). So (Pun) holds for Z_B alone at all 8 roots, in both colours. **PROVED** (new, K27;
     revised after the K27 referee, 2026-10-27; hand proof in `kings/delegate/out/K27/PROOF.md`, summary in
     `kings/delegate/out/K27/summary.json`, report in `kings/delegate/out/K27/REPORT.md`, referee report in
@@ -2562,11 +2562,11 @@ on e–g). Kings at (a, c) ∈ {a5, a6} × {c5, c6}.
     is open, and so is every chess result beside contexts. Of the 26 deviations (the pushes and king moves of the P lists
     above):
     - *Six lose in chess. CHECKED-2* (kpsolve at cap 1, and the referee's own chess solver `ownchess.cpp`, which agrees with
-      kpsolve on 76 small test positions, 0 differences). After the push the opponent can capture the pushed pawn, and the
+      kpsolve on 76 small test positions, 0 differences). After the push the opponent captures a pawn (the pushed pawn; after a3–a4 it is Kxb4, after c4–c3 it is Kxb3), and the
       position after that capture is exact at cap 1 (A = B), so the push loses: b4–b5 from (b2, a4) and from (c3, a4) and
       a3–a4 from (b2, b5) lose for White; c4–c3 from (b2, b5) and b3–b2 from (c3, a4) and from (c3, b5) lose for Black.
-    - *Fifteen king moves lose in chess. CHECKED-2* (added by the integrator after K27, 2026-10-27). These are the 16
-      king moves that capture nothing, with one exception. They were computed after K27's report by its own scripts
+    - *Fifteen king moves lose in chess. CHECKED-2* (added by the integrator after K27, 2026-10-27). These are 15 of the
+      16 king moves that capture nothing; the 16th, Kc3–d2 from (c3, b5), is in the next item. They were computed after K27's report by its own scripts
       (`kings/delegate/out/K27/scripts/run16.sh` and `run16_own.sh`, outputs in `kings/delegate/out/K27/logs/run2/`).
       kpsolve at cap 1 gives A = B for 15 of the 16 children, lost for the side that moved its king, and `ownchess`
       gives the deciding bound in each (A = L, or B = W). They are: Ka1, Kb1 and Kc1 from (b2, a4) and from (b2, b5), and
@@ -2581,15 +2581,15 @@ on e–g). Kings at (a, c) ∈ {a5, a6} × {c5, c6}.
       The fifth is Kc3–d2 from (c3, b5): its child `Kd2 Pa3 Pb4 kb5 pb3 pc4 b -` has bounds (D, L). So White does not
       win after it, and cap 1 cannot say whether it draws. If any of the five does not lose for the side that plays it,
       Z_B is **not** exactly two-shuttle in chess.
-    - *Cap 2 was not run.* One probe (the Kxc4 child) did not finish in 20 minutes (618 CPU-s, peak RSS 151 MB), which is
+    - *Cap 2 was not run.* One probe (the Kxc4 child) was stopped at its 20-minute wall limit without finishing; the timing block of its wrapper, which also covers a stopped calibration run, shows 618 CPU-s and a peak RSS of 151 MB (COMPUTED-1, not re-run). That is
       all that is known about its cost. The layer counts of the over-approximation reproduce (33,561,864 upper-bound states
       at cap 1 and 1,041,751,368 at cap 2 for that child, COMPUTED-1); any byte figure derived from them (K27 guessed
       2–3 GB for a 3-pawn child and over 20 GB for the 4-pawn children) scales the cap-1 ratio of real to counted states and
       is a CONJECTURE, not a measurement.
-    - *The P certificates do not transfer to chess.* In 22 of the 26 certificates some promotion can be answered by an
-      immediate capture of the new piece (the referee's count; for example, in 1.Ka1 c3 2.Kb1 b2 3.Ka2 the P certificate
-      promotes, but b1=Q is met by Kxb1). So chess may differ from P, and the P result is no evidence for the chess value
-      of any deviation.
+    - *The P certificates do not transfer to chess.* In 22 of the 26 certificates (COMPUTED-1, the referee's count) some promotion can be answered by an
+      immediate capture of the new piece (for example, in 1.Ka1 c3 2.Kb1 b2 3.Ka2 the P certificate
+      promotes, but b1=Q is met by Kxb1). So chess may differ from P, and for those 22 deviations the P certificate says nothing
+      about chess.
   - *CONJECTURE* that Z_B is exactly two-shuttle in P in every context. Not proved: (Pun) is a per-context fact, and 225
     of the 885 contexts are untested. It is open on the cylinder and on other boards.
 - **K14's first search (superseded by Z_B). A record of what the script printed, not reproduced by the referee, and not a
@@ -2597,7 +2597,7 @@ on e–g). Kings at (a, c) ∈ {a5, a6} × {c5, c6}.
   `scripts/search_groups.py` lists every placement of the kings and of pawns on F_Z in which the four combined king states
   are legal (K1, K2: kings with two adjacent safe squares each, never touching) and the number of other legal moves in the
   four states is at most 18 (12 for ≤ 3 + 3 pawns on three files). It listed 6,674 groups (flat 7×6, flat 7×7, cylinder
-  7×6), 1,147 of them (D, D) at all 8 roots with Z alone, and found none with every non-shuttle move losing at once. **The
+  7×6), 1,147 of them (D, D) at all 8 roots with Z alone, and found none with every non-shuttle move losing by force. **The
   cut-off excluded Z_B:** with the cut-off raised to 40 the script lists Z_B, which has score 26. The statement "no exactly
   frozen group in this family" is therefore false for flat 7×6. The script's statements for the 7×7 board and the 7×6
   cylinder (including "the minimum is 12" and "none comes close") depend on the same cut-off, were not repeated without
@@ -2770,7 +2770,7 @@ Downgraded while writing:
 - "A dud group exists in small K+P positions": in P it now holds on the flat 7×6 board (Z_B, PROVED by hand, K27); in
   chess it is an open question, not a conjecture (revised after K27 and its referee, 2026-10-27). (After K14 and its
   referee, 2026-10-27: Z_B of §5.7
-  has every non-shuttle move losing at once in P, PROVED by hand (K27, 2026-10-27; CHECKED-2 for the computations), and
+  has every non-shuttle move losing by force in P, PROVED by hand (K27, 2026-10-27; CHECKED-2 for the computations), and
   equals dud_D beside every context tested, COMPUTED-1; Z_A is dud-type up to one White break. In chess Z_B is undecided
   (§5.7: 21 of the 26 deviations lose, five are not settled at cap 1), and the cylinder and other boards are open.)
 - "The bare 5.1 / 7.2 / Z_72 results": CONJECTURES with scratch evidence (raised to CHECKED-2 after K19,
@@ -2790,7 +2790,7 @@ Downgraded while writing:
      outright escape, Kc5, so it cannot test the question.
 2. Do both-sides-shuttle (dud) groups exist without a pawn break on the cylinder? Do over-groups exist? Both
    need wider searches. (After K14 and its referee, and after K27 and its referee, 2026-10-27: on the flat 7×6 board Z_B
-   of §5.7 has every non-shuttle move losing at once in P, PROVED by hand (K27), CHECKED-2 for the computations; a search
+   of §5.7 has every non-shuttle move losing by force in P, PROVED by hand (K27), CHECKED-2 for the computations; a search
    of flat 7×6 (F_Z = {a, b, c}, ≤ 2 + 2 pawns, no cut-off) found exactly
    two such placements, mirror images, among 817,270, COMPUTED-1. Beside every context tested its P-result equals that of
    dud_D (COMPUTED-1; 225 of 885 contexts untested). K14's own search had a move-count cut-off (18), which excluded Z_B,
