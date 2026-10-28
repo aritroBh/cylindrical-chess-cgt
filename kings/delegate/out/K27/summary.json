@@ -1,0 +1,24 @@
+{
+  "task": "K27",
+  "date": "2026-10-27",
+  "P_model": {
+    "Z_B_exactly_two_shuttle": "PROVED (hand proof, PROOF.md); CHECKED-2 (kpp, ref3/ref3m); third engine scripts/pm.py",
+    "roots_value": "D at all 8 roots (and all 8 of the mirror)",
+    "non_shuttle_moves_per_group": 26,
+    "non_shuttle_moves_note": "15 White (4+4+4+3) + 11 Black (1+4+2+4); the figure 27 in K14 and in the task is a miscount",
+    "certificate_entries_total": 286,
+    "certificate_entries_max_per_move": 37,
+    "max_plies_after_deviation": 11,
+    "mirror": "mirror group = tau(Z_B), tau = rank flip + colour swap + side swap, a true symmetry of the P model and of chess on flat 7x6 (the file mirror a<->c alone is not); PROVED by symmetry, tau_check.py: 8 roots map to 8 roots, move sets equivariant on 22,818 positions",
+    "en_passant": "never arises (no pawn on its second rank)",
+    "machine_check": "verify_certs.py: 409 opponent positions, 2,642 reply values, 626 leaves, 0 problems against kpp and ref3m"
+  },
+  "chess": {
+    "decided_losing_in_chess_COMPUTED_1": ["C04 b4-b5 (b2,a4)", "C09 a3-a4 (b2,b5)", "C13 c4-c3 (b2,b5)", "C17 b4-b5 (c3,a4)", "C19 b3-b2 (c3,a4)", "C26 b3-b2 (c3,b5)"],
+    "open_with_cap1_bounds_W_L": ["C05 c4-c3 (b2,a4) via capture", "C14 Kxc4 child", "C18 Kxa3 child", "C22 a3-a4 (c3,b5) via capture"],
+    "not_computed": "16 king-move deviations (4-pawn children): cap-1 batch never got a heavy.sh slot",
+    "cap2": "one-position probe (Kxc4 child) killed after 20 min wall, 618 CPU-s, peak RSS 151 MB, no result; layer-count extrapolation: ~2-3 GB for a 3-pawn child, >20 GB for 4-pawn children; not run",
+    "Z_B_exactly_two_shuttle_in_chess": "OPEN (CONJECTURE)"
+  },
+  "files": ["REPORT.md", "PROOF.md", "EDITS.md", "summary.json", "scripts/", "logs/"]
+}

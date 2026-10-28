@@ -375,6 +375,11 @@ Every deliverable was given to independent referees (Claude models) told to brea
   - K21 (2026-10-27): a sum theorem for loopy components. The reserve criterion T3.8 strictly extends Theorem 1.11(b)
     to arbitrary loopy components, and the sandwich T3.11 bounds every group between off/dud and on (PROVED, one AI
     proof each, re-derived by the referee).
+  - K27 (2026-10-27): Z_B is exactly two-shuttle in P, and this is now PROVED by hand. Each of the 26 non-shuttle moves
+    has a certificate (286 entries in all) and loses within 11 plies. The referee parsed every certificate with its own
+    move generator, and four solvers agree on the numbers (CHECKED-2). The mirror group follows by a rank-flip and
+    colour-swap symmetry. In chess, 21 of the 26 deviations lose (CHECKED-2: kpsolve and the referee's `ownchess`). Five
+    are not settled at cap 1, among them Kc3–d2 with bounds (D, L), so whether Z_B is two-shuttle in chess is open.
   - So no result of the note is still GAP.
   - The T30 fixes of 2026-10-22 came later. They were reviewed by Sonnet reviewers in two rounds, not by K3 (see the Theory row
   above).
