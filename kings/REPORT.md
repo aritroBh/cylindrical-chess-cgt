@@ -322,6 +322,8 @@ Every deliverable was given to independent referees (Claude models) told to brea
   downgraded 4 to GAP: the sharp form of 1.14, Theorem 2.7, and predictions P11 and P12.
   - K7 (2026-10-22) later repaired Theorem 2.7 and P12, in P. A Sonnet agent drafted the repair, and two rounds of
     three Sonnet reviewers checked it. The first round refuted a window form, which was then fixed.
+    K36 (2026-10-28, Codex) proved Theorem 2.7 blind and then audited the corrected text: every step SOUND, with one
+    citation of Lemma 2.2 justified in a sentence.
   - K9 repaired the sharp form of 1.14. A free model drafted it, and Sonnet reviewers and a fixer rewrote it as a
     simulation lemma. K13 (2026-10-27, Codex, outside the Claude family) re-derived it in its own words (0.76% of its
     5-grams and none of its 8-grams occur in LOOPY's sharp-form section; `kings/delegate/out/K13/overlap.py`) and found
@@ -376,6 +378,8 @@ Every deliverable was given to independent referees (Claude models) told to brea
     reported, and the integrator's own computation confirms the note.
   - K22 (2026-10-27) showed that Lemma 2.9 is false without its added hypothesis (counterexamples on flat:4×5, cyl:7×6
     and flat:3×5) and proved it under the weaker hypothesis (B1).
+    K37 (2026-10-28, Codex) audited that proof and found it SOUND; it is an audit, not a second proof (its blind
+    attempt had a gap).
   - K24 (2026-10-27) added Lemma 2.7a (PROVED): a draw in both promotion models EPW and EPB is a chess draw. It
     settles the chess w-entries of P5 and P7 as draws without relying on kpsolve, and four P solvers agree on P5–P7.
   - K16 (2026-10-27): the real-king square rule of Remark 2.11 is FALSE as stated, because ω can be stalemated
