@@ -5,7 +5,7 @@ For a family and a range of ring sizes n (one parity class at a time) build the 
   (I)  inserting two wall files at a cut deep inside the wall maps the nodes of R_n onto the nodes of R_{n+2},
        the kept edges onto the kept edges, and the terminal-win flags onto the terminal-win flags (so R_{n+2} = ins(R_n));
   (S)  the outcome string of G + *h (h = 0..7) on R_n.
-Usage: python pump_verify.py <odd|even|Fodd|Feven|P|Q|R|Qo|N1odd|N1even|M|O> <nlo> <nhi>
+Usage: python pump_verify.py <odd|even|Fodd|Feven|P|Q|R|Qo|N1odd|N1even|M|O|S3|T3> <nlo> <nhi>
 """
 import sys, os, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -26,6 +26,8 @@ def family(name):
     if name == "N1even": return fam.N1, 0, "N1"
     if name == "M": return fam.M, 0, "M"
     if name == "O": return fam.O, 1, "O"
+    if name == "S3": return fam.S3, 1, "S3"
+    if name == "T3": return fam.T3, 0, "T3"
     raise ValueError(name)
 
 def ins_tokens(toks, c):

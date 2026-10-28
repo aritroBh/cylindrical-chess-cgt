@@ -73,7 +73,19 @@ def O(n):
     assert n % 2 == 1 and n >= 11
     return toks("B4") + toks("B7 W5") * ((n - 9) // 2) + O_CORE
 
-FAMILIES = {"odd": odd, "even": even, "F": F, "P": P, "Q": Q, "R": R, "Qo": Qo, "N1": N1, "M": M, "O": O}
+S3_CORE = toks("W6B7 W3 B7 B6 W3 W2 B6 W2")
+
+def S3(n):
+    """the n+1-pawn rings *3 of research/c9_rings/star3 (2026-10-27), odd n >= 13: B4 B6 W3 (W2 B4)^((n-11)/2) S3_CORE"""
+    assert n % 2 == 1 and n >= 13
+    return toks("B4 B6 W3") + toks("W2 B4") * ((n - 11) // 2) + S3_CORE
+
+def T3(n):
+    """the n+1-pawn rings *3 of research/c9_rings/star3 (2026-10-27), even n >= 12: (B4 W2)^((n-10)/2) B5 W2 S3_CORE"""
+    assert n % 2 == 0 and n >= 12
+    return toks("B4 W2") * ((n - 10) // 2) + toks("B5 W2") + S3_CORE
+
+FAMILIES = {"odd": odd, "even": even, "F": F, "P": P, "Q": Q, "R": R, "Qo": Qo, "N1": N1, "M": M, "O": O, "S3": S3, "T3": T3}
 # wall blocks (the two files that are inserted when n -> n+2) and the file index (in the position lists above) at
 # which the block region starts, i.e. the files [start, start + 2k) are the periodic wall
 def wall_start(fam, n):
@@ -135,6 +147,8 @@ def wall_files(famname, n):
         return set(range(0, n - 8)) | {n - 1}                 # W2 | B4 W2 ... B4 W2 (files n-1, 0 .. n-9), core between
     if famname == "M": return set(range(0, n - 8))            # B4 W2 ... B4 W2 (files 0 .. n-9), then the core
     if famname == "O": return set(range(1, n - 8))            # B4 | B7 W5 ... B7 W5 (files 1 .. n-9), then the core
+    if famname == "S3": return set(range(3, n - 8))           # B4 B6 W3 | W2 B4 ... W2 B4 (files 3 .. n-9), then the core
+    if famname == "T3": return set(range(0, n - 10))          # B4 W2 ... B4 W2 (files 0 .. n-11), then B5 W2 and the core
     raise ValueError(famname)
 
 def is_wall_pattern(famname, S, n):

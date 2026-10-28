@@ -397,6 +397,14 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
     (441 / 2132 nodes, no flag), and the insertion isomorphism holds from n = 18 / 19 on. Proof note: T65 (OpenCode,
     `research/ring_n_proof/`); referee: T66 (Codex).
   - The paper (§VIII, intro, conclusion) now says "ten for 7 <= n <= 10 [C2], n for 10 <= n <= 60 [C1]".
+- **Rings \*3 with n+1 pawns on every C_n, 11 <= n <= 59** (`research/c9_rings/star3/REPORT.md`).
+  - C11: no eleven-pawn ring is \*3 (COMPUTED-1, exhaustive), and two twelve-pawn rings are (CHECKED-2). So the least is
+    n+1 there.
+  - Families T_n = (B4 W2)^((n-10)/2) B5 W2 W6B7 W3 B7 B6 W3 W2 B6 W2 (even n = 12..58) and S_n = B4 B6 W3
+    (W2 B4)^((n-11)/2) W6B7 W3 B7 B6 W3 W2 B6 W2 (odd n = 13..59) are \*3 (rg; CHECKED-2 for n <= 15).
+  - Reduced graphs: T has 1305 nodes, S has 40445; no flag; the insertion isomorphism holds from 20 / 25 on. Proof note:
+    T69 (OpenCode, `research/star3_proof/`).
+  - M_10 is \*2 as a sum of components too (cylcgt, `research/sum_model_rings/npawn_values.txt`).
 - **C9 ring hits are \*2 as sums too** (cylcgt, the H1 reversal, H3 and H4; H1/H2 whole and H2 sum queued).
 - **No \*4.** None among T56's 14,090 candidates (329 are \*3, 178 \*2), nor among 1,280 C10 wall rings.
   - The ★4 hunt workflow (`research/star4_rings/{core_wall,grow,two_core}/REPORT.md`) found no ★4 and nothing above
