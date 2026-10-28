@@ -1,0 +1,67 @@
+# n-pawn ring scans on C10 and C11 (rg, race rule count, e.p. on). Merged from c10p10_results.tar.zst, c11p11_results.tar.zst.
+# Ring counts per split equal validate/ring_counter.py (transfer matrix + Burnside): validate/c10_p10_orbits.txt, c11_p11_orbits.txt.
+# Splits 6+4 (C10) and 7+4, 6+5 (C11) are colour mirrors; 3+7 and 3+8 have no rings (each pawn needs an enemy on an adjacent file).
+c10p10 split 4_6
+  total 1050631
+  NNNN 693416
+  RRRR 352649
+  LLLL 3190
+  NRRR 569
+  RNRR 474
+  NRNN 120
+  RNNN 111
+  PNNN 47
+  NPNN 32
+  LNLL 11
+  NLLL 7
+  RRNN 3
+  NNRR 1
+  LNNN 1
+c10p10 split 5_5
+  total 3253612
+  NNNN 2710247
+  RRRR 219094
+  LLLL 219094
+  NRRR 13493
+  NLLL 13493
+  RNRR 11480
+  LNLL 11480
+  RNNN 9973
+  LNNN 9973
+  PNNN 9425
+  NPNN 8205
+  NRNN 8163
+  NLNN 8163
+  NNRR 455
+  NNLL 455
+  RRNN 209
+  LLNN 209
+  NNPN 1
+c11p11 split 4_7
+  total 1482250
+  NNNN 862018
+  RRRR 620232
+c11p11 split 5_6
+  total 13979135
+  NNNN 11270237
+  RRRR 2344770
+  LLLL 221363
+  NRRR 40389
+  RNRR 36029
+  RNNN 19813
+  NRNN 17845
+  PNNN 6653
+  NPNN 5806
+  NLLL 3986
+  LNLL 3819
+  LNNN 3780
+  NLNN 3217
+  NNRR 712
+  RRNN 571
+  NNLL 113
+  LLNN 30
+  RRNR 1
+  NNPN 1
+# unresolved: 0 in every job (110 jobs C10, 290 jobs C11). Hits (NNPN), with the job that found them:
+c10p10 B4 W2 B6 W2 W3 B6 B7 W3 B7 W5	NNPN	234
+c11p11 B4 B7 W5 B7 W3 B7 B6 W3 W2 B6 W2	NNPN	12

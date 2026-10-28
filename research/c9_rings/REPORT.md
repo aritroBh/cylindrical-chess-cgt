@@ -18,7 +18,8 @@ not exchanged. Signature = outcome of G+*h for h = 0..3; NNPN = *2, NNNP = *3.
    - Of the 4,304,243 ten-pawn rings in splits 4+6 and 5+5, exactly one is *2 (C1):
      M_10 = `B4 W2 B6 W2 W3 B6 B7 W3 B7 W5`. 6+4 is the colour mirror of 4+6.
 3. **C11: the least is 11 = n [C2].** O_11 = `B4 B7 W5 B7 W3 B7 B6 W3 W2 B6 W2` is *2.
-   - The scan of all 15.5M eleven-pawn rings is in progress; see `work/c11p11/`.
+   - Of the 15,461,385 eleven-pawn rings in splits 4+7 and 5+6, it is the only *2 (C1), and none is *3. 7+4 and 6+5
+     are the colour mirrors, so O_11 and its reversal are the only *2 eleven-pawn rings on C11.
 4. **Families with n pawns [C1].** Both are *2 at every n tested:
    - M_n = (B4 W2)^((n-8)/2) B6 W2 W3 B6 B7 W3 B7 W5, every even n = 10..60;
    - O_n = B4 (B7 W5)^((n-9)/2) B7 W3 B7 B6 W3 W2 B6 W2, every odd n = 11..59. O_9 is RRRR.
@@ -70,8 +71,15 @@ not exchanged. Signature = outcome of G+*h for h = 0..3; NNPN = *2, NNNP = *3.
 
 ## C10 and C11, n pawns
 
-- **C10.** `work/c10p10/`: 110 jobs, 4,304,243 rings, 0 unresolved, 1 NNPN (M_10), 0 NNNP.
-- **C11.** `work/c11p11/`: 290 jobs, 4+7 and 5+6; 7+4 and 6+5 are mirrors.
+- **C10.** 110 jobs, 4,304,243 rings, 0 unresolved, 1 NNPN (M_10, its own reversal), 0 NNNP.
+- **C11.** 290 jobs, 4+7 1,482,250 and 5+6 13,979,135 rings, 0 unresolved, 1 NNPN (O_11), 0 NNNP. 7+4 and 6+5 are
+  mirrors. The one RRNR ring, `B4 B7 W4 B7 W3 B7 B6 W3 W2 B6 W2`, is O_11 with W5 moved to W4.
+- **Counts.** Per split, the ring counts equal `validate/ring_counter.py` (transfer matrix and Burnside; written
+  without reading the enumerator): `validate/c10_p10_orbits.txt`, `validate/c11_p11_orbits.txt`. With one pawn per
+  file each pawn needs an enemy pawn on an adjacent file, so there are no 3+7 or 3+8 rings.
+- **Files.** The merged histograms and hits are in `work/c10c11_npawn_totals.txt`. The raw chunk outputs, including the
+  signature files, are in `work/c10p10_results.tar.zst`, `work/c11p11_results.tar.zst` and `work/c9p10_results.tar.zst`
+  (local only; `*.zst` is not committed).
 - **Second programs.** Codex's `independent.py` (both readings) and OpenCode's engine give NNPNN for M_10, M_12,
   M_14, O_11, O_13 and N1_11, N1_13, and RRRRR for O_9 (`npawn/cross_check*.out`).
 - **Families.** `extend/family_F_9_60.out` (N1 and its even variant), `extend/npawn_even.out` (M) and

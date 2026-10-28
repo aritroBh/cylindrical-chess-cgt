@@ -389,7 +389,9 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
     ten-pawn rings are \*2: rg, Codex's independent.py, OpenCode's engine and cylcgt (whole and sum) agree. CHECKED-2.
   - C10: M_10 = B4 W2 B6 W2 W3 B6 B7 W3 B7 W5 is \*2 with one pawn per file (CHECKED-2). It is the only one among the
     4.3M ten-pawn rings (COMPUTED-1).
-  - C11: O_11 = B4 B7 W5 B7 W3 B7 B6 W3 W2 B6 W2 is \*2 (CHECKED-2); the 15.5M-ring scan is running.
+  - C11: O_11 = B4 B7 W5 B7 W3 B7 B6 W3 W2 B6 W2 is \*2 (CHECKED-2). It is the only one among the 15,461,385
+    eleven-pawn rings in splits 4+7 and 5+6, and none is \*3 (COMPUTED-1). The ring counts for C10 and C11 equal an
+    independent transfer-matrix and Burnside counter.
   - Families: M_n = (B4 W2)^((n-8)/2) B6 W2 W3 B6 B7 W3 B7 W5 (even n) and O_n = B4 (B7 W5)^((n-9)/2) B7 W3 B7 B6 W3 W2
     B6 W2 (odd n) are \*2 for every n = 10..60 (COMPUTED-1, rg; n = 10..14 CHECKED-2). Their reduced graphs are constant
     (441 / 2132 nodes, no flag), and the insertion isomorphism holds from n = 18 / 19 on. Proof note: T65 (OpenCode,
