@@ -380,6 +380,11 @@ Every deliverable was given to independent referees (Claude models) told to brea
     and flat:3×5) and proved it under the weaker hypothesis (B1).
     K37 (2026-10-28, Codex) audited that proof and found it SOUND; it is an audit, not a second proof (its blind
     attempt had a gap).
+  - K17 (2026-10-27) showed that the clause "no checks" of (V1a) in Theorem 1.14 is needed: cyl:6×6
+    `Ka2 kb4 Pa3 pa4 Pd2 pe3 b -` (a Z-pawn check) is a White win in P but outcome N in D (CHECKED-2, three P solvers).
+    In the structured class of Definition 2.1, (V1a) can fail only by such a check or by the e.p. clause (E)
+    (Proposition 1.15, PROVED). For (E) a bounded search found no isolated counterexample, so "(E) is needed" stays a
+    CONJECTURE.
   - K24 (2026-10-27) added Lemma 2.7a (PROVED): a draw in both promotion models EPW and EPB is a chess draw. It
     settles the chess w-entries of P5 and P7 as draws without relying on kpsolve, and four P solvers agree on P5–P7.
   - K16 (2026-10-27): the real-king square rule of Remark 2.11 is FALSE as stated, because ω can be stalemated

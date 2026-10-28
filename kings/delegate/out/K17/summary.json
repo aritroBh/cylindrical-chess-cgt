@@ -1,0 +1,41 @@
+{
+ "task": "K17: isolated counterexample for (V1a) of Theorem 1.14",
+ "result": "counterexample found for the 'no checks' clause; none found for clause (E)",
+ "reproduce": {
+  "build": "cc -O2 -o bin/kp kings/kpsolve.c -lpthread; cc -O2 -o bin/kp_p kings/delegate/out/K7/scripts/draft/kp_p.c -lpthread",
+  "headline_real": "printf 'Ka2 kb4 Pa3 pa4 Pd2 pe3 b -\\nKa2 kb5 Pa3 pa4 Pd2 pe3 b -\\nKa2 kb5 Pa3 pa4 Pd2 pe3 w -\\n' | bin/kp_p --board cyl:6x6 --pmodel --moves",
+  "headline_frozen": "printf 'Ka1 kb4 Pa3 pa4 Pd2 pe3 b -\\nKa1 kb5 Pa3 pa4 Pd2 pe3 b -\\nKa1 kb5 Pa3 pa4 Pd2 pe3 w -\\n' | bin/kp --board cyl:6x6 --frozen --moves",
+  "check2": "PYTHONPATH=<repo> python scripts/check2.py logs/examples_A.json logs/check2_A.json",
+  "searchA": "HEAVY=0 python scripts/search_A.py cyl:6x6 3,4 3  (also flat:6x6 3,4,5 2; cyl:7x6 3,4,5 2; cyl:5x6 3 3)",
+  "searchA_real": "python scripts/search_A_real.py cyl:6x6 3,4 2; python scripts/search_A_real2.py cyl:6x6",
+  "searchB": "python scripts/search_B3.py flat:8x6 2,3,5,6 5 f86_5; python scripts/search_B3.py flat:8x6 2,3,5,6 4 f86_4b; python scripts/search_B2.py flat:6x6 2,3,4,5 3 f66_3"
+ },
+ "counts": {
+  "frozen_checkroot": {
+   "cyl:5x6 (1 ctx file, <=3+3)": "6/6 mismatch, 6 twin-clean",
+   "cyl:6x6 (files d,e, <=3+3)": "411/411 mismatch, 327 twin-clean",
+   "flat:6x6 (d,e,f, <=2+2)": "514/514, 366",
+   "cyl:7x6 (d,e,f, <=2+2)": "514/514, 366"
+  },
+  "real_kings_checkroot": {
+   "cyl:5x6": "0 hits",
+   "cyl:6x6 (<=2+2)": "781 hits, 257 real-P-clean twins",
+   "flat:6x6 (<=2+2)": "3780 hits, 1362 clean twins",
+   "cyl:7x6 (<=2+2)": "3657 hits, 1210 clean twins"
+  },
+  "E_clause": {
+   "flat:8x6 files c,d,f,g, <=5+5, fresh-right roots": "313476 contexts, 39696 roots, 39600 multi-comp, D_fix!=D_whole in 48 (all HSS false), D_S!=D_whole with HSS: 0",
+   "flat:8x6 <=4+4 rerun": "97676 contexts, 10400 roots, 2560 HSS multi-comp roots, 0 differences with HSS; 16 differences all HSS false",
+   "flat:6x6 c..f <=3+3 no-right roots": "20102 contexts, 1128 E-violating roots, 0 differences",
+   "flat:6x6 c..f <=3+3 fresh-right roots": "3036 roots, 192 multi-comp, 0 differences",
+   "kp --frozen on the 48 diffs (flat:8x6, Ka1 ka5)": "P==D_whole in 32, P==D_fix in 16 (HSS false in all 48, so uninformative about V1a)",
+   "incomplete": "B2 cyl:7x6 <=3+3 not run; B2 flat:6x6 <=4+4 stopped after ~60000 contexts (0 diffs, 5017 E-violating roots)"
+  }
+ },
+ "examples": [
+  "cyl:6x6 Ka2 kb4 Pa3 pa4 Pd2 pe3 b - (real kings, CHECKED-2: kp_p and refp)",
+  "cyl:6x6 Ka1 kb3 Pa2 pa3 Pd4 pe5 b - (real kings, CHECKED-2)",
+  "cyl:6x6 Ka1 kb4 Pa3 pa4 Pd2 pe3 b - (frozen, CHECKED-2)",
+  "cyl:6x6 Kb6 kb3 Pa2 pa3 Pd2 Pe3 pe5 b - (real kings, COMPUTED-1: kp_p only)"
+ ]
+}

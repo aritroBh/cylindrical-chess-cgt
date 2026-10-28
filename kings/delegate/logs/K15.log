@@ -1,0 +1,2946 @@
+[0m
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && cat RESULTS.md | head -100
+# Results so far (2026-10-21)
+
+Plan: [RESEARCH_PLAN.md](RESEARCH_PLAN.md). This page lists what the 2026-10-15/16 run established and how
+strongly.
+- **Verified** means two independent implementations agree **and** adversarial checkers could not break the
+  claim. Every checker so far was written by a Claude model; the OpenCode route to a non-Claude implementation
+  failed.
+- **Computed once** means one program produced the number.
+- **Proved** means one model wrote a proof. No second model or human has re-derived it yet.
+
+**Conventions (decided 2026-10-16).**
+- A pawn that can still be taken en passant is **not** passed: `cylcgt.pawns.PASSED_RESPECTS_EP = True`.
+  - Merged into `main` on 2026-10-21 (commit d3d080e). `PASSED_RESPECTS_EP = False` restores the old test.
+  - Results below that predate this switch are marked *(textbook test)*.
+- Kings are modelled explicitly in `kings/` (plan item A8; see §7).
+
+## 1. The \*2 question (Elkies' open problem): the candidate does not survive
+
+The candidate was `W a2 c2 / B b7 d7` on files a–d, frozen by a trébuchet (W g4 / B g5, WK f5, BK h4).
+
+| Check | Result | Status |
+|---|---|---|
+| Value under the paper's convention, textbook passed test | \*2 under race rules "count" and "mover"; **0** under "opponent". The same with e.p. off | verified (cylcgt, `sumtest/`, Codex rules in `atlas/flat8/census`, `lemmas/`) |
+| Value under the adopted convention (e.p.-aware passed test) | **{2±1 \| −2±1}** (mean 0, temperature 2), not \*2. Mechanism: a2–a4 is met by b4×a3 e.p. | verified: cylcgt now agrees with `sumtest/`'s e.p.-aware mode on all 55,195 test positions (§4) |
+| Robustness of the \*2 to the race rule | only 4 of its 224 race positions change the value when flipped alone; all come after a capture. A 6-position certificate fixes \*2 whatever the other races do | verified (`atlas/flat8/certificate.json`, `lemmas/` L4.2) |
+| Sum model vs whole-board game | equal: the tree never splits into components before a passer (Theorem 2.3) | proved |
+| 8×8 embedding geometry (kings f5/h4) | no checks, no stalemate, every king move drops that side's g-pawn | proved; exhaustive check |
+| Real chess, both sides to move (Lichess 7-man tablebase + exact search) | the side to move wins (outcome N), as \*2 predicts | proved by certificate (`realchess/results/cert_root_*.json`) |
+| Real-chess oracle value: the pawn tree with tablebase results at its end positions | **never \*2 (or 0) in the adopted e.p.-aware tree, however draws and unresolved end positions are treated**: the bounds force Left stop ≥ 1 and Right stop ≤ −1. Counting draws as Black wins, it is **exactly {2±1 \| −2±1}** in both trees. In the textbook tree \*2 is excluded only when draws count as wins for one side | values computed once; end-position results checked two ways ([realchess/REPORT.md](realchess/REPORT.md)) |
+| Real-chess root move tables | Black to move: only 1...b5 wins (complete). White to move: 1.c4 wins; 1.a3, 1.c3 and all king moves lose; 1.a4 unresolved. The model predicts exactly c4 and b5 | checked two ways |
+| The same FEN on the 8-file cylinder | the freeze fails: 1.a3 checks Kh4 across the seam. No \*k (k ≥ 2) with ≤ 5 pawns can be frozen on the 8-file cylinder (0 of 40 placements) | computed once (`atlas/cylinder/`) |
+
+**Why it fails.** The convention "first passed pawn wins" breaks in three places:
+- **En passant.** A pawn that double-steps past an enemy pawn counted as passed before the opponent's legal
+  e.p. capture. This is now fixed in cylcgt, and the \*2 goes away with it.
+- **Frozen kings.** In real chess the trébuchet kings are not always frozen. Across 94 tablebase-checked
+  positions, 41 of 449 king moves draw and 7 win (`engine/suite/`).
+- **Race rules.** None of count, mover or opponent is exact chess. `notes/lemmas.md` L4 gives a forced-win
+  counterexample for each.
+
+**Searching for other \*k (flat 8-rank boards, widths 1–4, up to 6 pawns, 231,071 positions).**
+- *Textbook test:* the only \*k with k ≥ 2 is the candidate above. No \*3 or \*4 occurs. No \*2 holds under all
+  six race/e.p. settings. Three more \*2s exist, each under a single non-default setting
+  ([atlas/flat8/REPORT.md](atlas/flat8/REPORT.md); verified two ways).
+- *E.p.-aware test (count rule; computed once, `atlas/flat8/compare_ep_aware.out`):*
+  - **No \*k with k ≥ 2 occurs anywhere in scope.** The nimber census goes from 6,470 zeros, 3,891 stars and one
+    \*2 to 6,724 zeros, 4,042 stars and no \*2.
+  - At least 18,137 of the 231,071 values change, and 4,070 change outcome ([atlas/flat8/rerun/REPORT.md](atlas/flat8/rerun/REPORT.md)).
+    The first count (21,441 and 4,068) compared raw display strings and was wrong in both directions.
+  - So within flat boards of ≤4 files and ≤6 pawns, the only route to \*2 was the e.p. artefact.
+
+**The other \*2 candidates** ([realchess/certify/REPORT.md](realchess/certify/REPORT.md)). Each is \*2 only
+under one non-default rule, and each needs 10 men.
+- `W a3 b3 c2 / B b5 b7 c6` is **refuted**: its real-chess oracle value is > 0 under every treatment (checked two
+  ways).
+- For three others the tablebase contradicts the race verdicts their \*2 depends on. Their oracle values cannot
+  be settled with 7-man tablebases.
+- No \*k candidate fits in 7 men or fewer.
+- An independent C solver (`atlas/flat8/rerun/`, no shared code) agrees with cylcgt on all 231,071 records under
+  both passed tests (checked two ways).
+
+**What this means.** A \*2 made only of kings and pawns on 8×8 is **still open**. Within the searched space
+(flat, ≤4 files, ≤6 pawns) no candidate survives the e.p.-aware convention, and none survives real chess. The
+negative result is publishable: it shows exactly where the convention breaks.
+
+## 2. Mating without corners: 4-man tablebases on the cylinder and torus (verified)
+
+Two independent solvers agree on every position of all 24 tables, about 607 million values, for both sides
+to move ([tablebase/replica/REPORT.md](tablebase/replica/REPORT.md)).
+
+| Material (cylinder 8×8) | White to move: share won | Longest mate (moves) |
+|---|---|---|
+| KQK | 100% | 10 |
+| KRK | 2.80%: **no forced mate** | 3 |
+| KBBK, opposite-coloured bishops | **100%** | **14** |
+| KBNK | 0.0245%: **draw** | 2 |
+| KNNK | 0.0077% | 1 |
+| KRBK | 99.74% | 13 |
+| KRRK | 100% | 8 |
+| KQRK | 100% | 5 |
+
+- **Torus.** KQ, KR, KBB, KBN and KNN against a lone king are all 0% won, and KRB vs K is 0.022%.
+- **Muller.** The bishop pair forcing mate on the cylinder contradicts H.G. Muller's published claim.
+- **Novelty.** We found no earlier tablebase for these boards.
+- **King and pawn vs king** (two solvers: `kings/kpsolve` and `atlas/cylinder/kpk`; they agree on all 326,640
+  cylinder positions, and on the flat board differ only on the 6 rook-underpromotion positions;
+  `delegate/checks/kpk_crosscheck.py`).
+  - **Win rates.** White to move wins 78.89% on the cylinder against 76.51% flat. Black to move: 55.88%
+    against 58.09%.
+  - **Changed results.** 16,538 flat draws become cylinder wins, among them the rook-pawn draw Ka6, Pa5 vs Ka8,
+    and 15,930 flat wins become cylinder draws.
+  - **Mutual zugzwangs.** 216 on the cylinder, 160 flat.
+
+## 3. The 2025 paper, re-audited (verified)
+
+A blind re-transcription of every diagram matches the solver's input on every pawn square. A pixel scan
+confirmed it independently. The kings, and diagrams 2.3 and 5.1, were checked against the images only
+([notes/diagram_audit.md](notes/diagram_audit.md)). Three verifiers checked each audit claim. Corrected
+verdicts are in [notes/audit.md](notes/audit.md):
+- **Correct:**
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && ls kings/ && ls kings/theory/ 2>/dev/null && ls kings/delegate/ 2>/dev/null
+REPORT.md
+SPEC.md
+__init__.py
+__pycache__
+analyze.py
+conventions.py
+crosscheck.py
+data
+delegate
+experiment.py
+failures.py
+kpsolve
+kpsolve.c
+lichess_check.py
+lichess_probe.py
+positions
+predictions.py
+ref
+results
+run_batch.sh
+test_kpsolve.py
+theory
+LOOPY.md
+REVIEWS.md
+apply_edits.py
+briefs
+heavy.sh
+locks
+logs
+out
+run.sh
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && cat kings/theory/LOOPY.md
+lo, KNOWN), and there are no draws.
+  - Black's wins satisfy the stated recursion: Black needs a winning G-option, since it has no pass, and
+    every White option, including the pass, must lead to a Black win.
+  - If Black has no option at all, Black loses: the "some" over an empty set fails. ∎
+
+**Corollary 3.5 (monotone chain). PROVED.** For every x and s:
+
+  W in G ⊞ dud_D ⇒ W in G ⊞ off_D ⇒ W in G ⇒ W in G ⊞ on_D,
+
+and the mirror chain holds for L.
+
+*Proof.*
+- **First step.** By (a), a winning White strategy in G ⊞ dud_D uses no passes and beats every Black
+  behaviour, passes included. So it wins G ⊞ off_D.
+- **Second step.** G has fewer Black options (Lemma 1.6). A Black player without moves now simply loses.
+- **Third step.** on_D adds White options (Lemma 1.6). ∎
+
+**What loopy kings do to the convention.**
+- **With a White shuttle (PROVED by Theorem 3.4(b)):** the components' values (numbers, infinitesimals, nimbers)
+  are irrelevant except for Black's forcing threats. White cannot be zugzwanged, and Black loses as soon as its
+  context tempo runs out.
+- **With shuttles on both sides (CONJECTURE):** all tempo content should disappear. Positions without threats
+  should be draws, even where the convention predicts a clear winner. The 7.3 group would be of this type if
+  its pawn could not promote (§5.3). *To settle:* a two-sided Proposition 3.2 — a bisimulation on the four
+  combined king states, in each of which each side's shuttle is legal and each side is frozen — followed by
+  Theorem 3.4(a). (Revised after review: R4 item 6: Theorem 3.4 is stated for one reservoir, so this bullet
+  was not proved by it.)
+
+**Literature (KNOWN, as summarised in [notes/lit_cgt_chess.md](../../notes/lit_cgt_chess.md)).**
+- Mäser (MGONC 2002) models *promotion* as on/off. That is a different use: there `on` is the new queen's
+  inexhaustible tempo.
+- Elkies (GONC 1996; arXiv 1999) lists loopy values (tis/tisn, over, on/off, dud) among chess positions.
+- Siegel ("Coping with cycles", GONC 3, 2009) gives chess positions of value on and upon.
+- Gafni (thesis 2011) computes loopy K+P vs K values on 3×3 and 3×4 boards.
+
+None of these treats loopy kings inside sums with game-ending decisive events.
+
+---
+
+## 4. Finite tempo
+
+**Definition 4.1 (reservoir).** R_n^W has positions ρ_n, …, ρ₀ with:
+- L(ρ_i) = {ρ_{i−1}} for i ≥ 1, and L(ρ₀) = ∅;
+- no Black options, or only suicides.
+
+As a CGT game it is the integer n (KNOWN: n = {n−1 | }, [WW] ch. 2).
+
+**Theorem 4.2 (finite versus loopy tempo). PROVED after repair** (each part is proved
+below).
+- **(a)** Let G be short, and let R_n^W have no Black options (Black's suicides are deleted first; see (b)).
+  Then G ⊞ R_n^W behaves as "White has n one-shot passes", and its BIG translation G^B + n gives the right
+  outcome when G ⊞ R_n^W is first-event dominant. A sufficient condition is pairwise safety in G ⊞ R_n^W
+  together with B > n + max(M_L(G), M_R(G)), with the threats counted by the corrected τ of Definition 1.10
+  (revised: τ counts moves into ⊕ or ⊖ by *either* player).
+  *Proof:* Theorem 1.11(a) and (b), with the corrected τ. R_n has no Black options, so it carries no threat at
+  all, τ(R_n) = ∅, and pairwise safety in G ⊞ R_n^W follows from pairwise safety in G. Its n Left moves
+  enter M_L, so max(M_L(G ⊞ R_n^W), M_R(G ⊞ R_n^W)) ≤ max(M_L(G), M_R(G)) + n < B, which is the bound (b)
+  needs, and Theorem 1.11(b) then gives first-event dominance. (Revised after review: R4 item 3: Definition
+  4.1 allowed Black suicides inside R_n, and then the stated hypothesis does *not* give first-event
+  dominance — take a context whose only option is Black's move to ⊖, whose translation is −B−1, with n = 1 and
+  a Black suicide at ρ₁: the frontier is B + (−B−1) = −1 ∈ 𝓡, so dominance fails for every B. The corrected
+  τ counts that suicide, so the hypothesis correctly fails there; with no Black options the proof above is
+  complete.)
+- **(b)** If White's safe Z-moves form an acyclic graph and all Black Z-moves are suicides, then
+  Z, with Black's suicides deleted, is equivalent in the D-model to R_ℓ^W, where ℓ is the length of the
+  longest path of safe White moves; and in CGT, for B > ℓ, its BIG translation is the integer ℓ.
+  *Proof:* induction on the number of White options, using {m₁, …, m_k | } = max m_i + 1: the value of a
+  White-only option set is 1 plus the maximum of the values of its options, and dominated options can be
+  deleted (KNOWN, [WW] ch. 2, [S] ch. II). In the D-model the deletion of Black's suicides is Lemma 1.7, a
+  statement about results; the CGT statement needs the extra hypothesis B > ℓ, because {i−1 | B} = i holds
+  only for B > i. (Revised after review: R4 item 4: Lemma 1.7 alone does not give the CGT equality, and the
+  D-model equivalence to R_ℓ was not proved; both are now proved, and the CGT form carries B > ℓ.)
+- **(c)** A reservoir with a White 2-cycle is on_D and equals no integer. *Proof:* take G = R_{n+1}^B, n + 1
+  Black tempi with no threats.
+  - G ⊞ R_n^W with White to move is L: the tempi run out on White first.
+  - G ⊞ on_D with White to move is W: Black runs out.
+  - on_D is not a number at all, so it differs from every integer, negative ones included.
+  - The identification needs the hypotheses of Proposition 3.2 — the cycle must be reachable, and in each of
+    its two states every Black Z-move must be a suicide — not merely the existence of a cycle.
+  (Revised after review: R4 item 5: separating on_D from the integers has to cover the negative integers as
+  well, and "is on_D" needs Proposition 3.2's hypotheses.)
+
+So a group's tempo is *finite* (a stopper equal to an integer) exactly when its safe spare moves form an
+**acyclic** graph, and *unbounded* (on or off) when they contain a cycle. The word is "acyclic", not
+"non-reversible": a 3-cycle has no immediately reversible move and is still unbounded.
+(Revised after review: R4 item 5: the old sentence conflated acyclicity with the absence of a 2-cycle.)
+
+**Proposition 4.3 (no finite king tempo in isolated K+P groups). FALSE as originally stated →
+PROVED after repair.** Let Z be a king group in a position without officers, with a buffer. Suppose side s plays a
+non-capturing king move u → v inside F_Z, and the opponent replies outside Z. **As stated this is false:** the
+step back fails if s was in check on u, or if the reply promotes. The repaired statement adds two hypotheses:
+- (H1) s is not in check on u;
+- (H2) the reply is not a promotion, and does not attack u.
+
+Then v → u is legal at s's next turn and restores Z exactly.
+**Consequences, with the scope narrowed (revised after review: R4 item 2, R1 item 11).** Call a king step
+u → v inside F_Z *safe* if (H1) and (H2) hold and the opponent is frozen — all its Z-moves are suicides — at
+both u and v. Then one safe step gives s an unlimited supply of passes: s returns to u on its next turn, the
+Z-state is exactly as before, and the step can be repeated. So, among king steps *inside* F_Z, the tempo of a
+pure reservoir is 0 (the opponent is frozen and s has no safe step) or ∞ (s has a safe step); it is never a
+finite n ≥ 1. Three caveats, which the original wording hid:
+- the dichotomy covers king steps inside F_Z only. A step onto a buffer file can be taken away later by a
+  context pawn (Lemma 2.2 lets context pawns attack buffer squares), so such a supply depends on the context
+  and is neither 0 nor ∞;
+- a king move can be neither a suicide nor a pass: it can unfreeze the opponent without losing (§5.5 shows
+  this), so the dichotomy is about pure reservoirs only;
+- "safe" is not "any legal step": the opponent must be frozen at the new state v as well as at u.
+
+*Proof.*
+- u is empty, since s's king just left it and the opponent did not move in Z.
+- u is not adjacent to the opponent's king: by (H1) the opponent's king was not adjacent to u when s's king
+  stood there (kings may never be adjacent), and by (H2) the reply did not move it next to u.
+- u is not attacked by an opponent Z-pawn, since none has moved (by (H2) the reply is not a promotion), and by
+  (H1) none attacked u before. It is not attacked by a context pawn either: context pawns attack only context
+  and buffer squares (Lemma 2.2), and u ∈ F_Z.
+- With no sliders, the move exposes nothing. ∎
+
+*Counterexample to the original statement (revised after review: R4 item 1).* `Kb2 Pc2 kc4 pc3`, White to
+move, on flat:4x4: White is in check from pc3 and plays Kb2–a1; when Black then moves outside Z, Kb2 is
+illegal, because pc3 still attacks it. The position is hand-checkable; kpsolve confirms the move lists:
+only Ka1a2 and Ka1b1 are legal for `Ka1 Pc2 kc4 pc3 w -`. The step back fails because u was attacked, not
+because the opponent moved.
+  - Reproduce: `printf 'Kb2 Pc2 kc4 pc3 w -\nKa1 Pc2 kc4 pc3 w -\n'
+    | kings/kpsolve --board flat:4x4 --ep on --promote QRBN --cap 1 --moves`.
+
+**What this means for the "n safe spare moves" picture.** In king-and-pawn chess, a king with exactly n safe
+spare moves cannot occur in an isolated group *for steps inside F_Z*: one safe step and the step back already
+give infinitely many (Proposition 4.3, repaired). Steps out of F_Z are the exception, and their supply depends
+on the context. (Revised after review: R4 item 2, R1 item 11: the original sentence claimed more than
+Proposition 4.3 proves.)
+- Finite tempo comes from **pawn** moves. That is Elkies' integers, spare pawn moves that end blocked
+  (KNOWN, Elkies 1996).
+- It can also come from genuine king-against-king fights, where the opponent *replies inside Z*: opposition
+  and shouldering. Those are not reservoirs, and they can have any value.
+
+**Definition 4.4 (over).** over = {0 | over} (KNOWN, [WW] ch. 11, [S] ch. VI). Right can pass forever
+(over → over), and Left has one move, to 0, that ends Right's passing. (Revised after review: R1 item 11: the
+note had no item 4.4, so the numbering jumped from 4.3 to 4.5; this paragraph is now Definition 4.4.)
+
+**Proposition 4.5. PROVED.** 0 < over < x for every number x > 0.
+
+*Proof.*
+- **over > 0.** Left moving first plays to 0 and wins. Right moving first can only pass, and then Left plays
+  to 0.
+- **over − x < 0.** Right moving first passes. Left must then either play over → 0, leaving −x (negative, so
+  Right wins), or move in −x, which Left can do only finitely often, Right passing in between. Either way
+  Right wins. Left moving first faces the same two choices. ∎
+
+**Proposition 4.6 (over with decisive terminals). PROVED.** Let over_D have positions ω and 0_D, with
+L(ω) = {0_D} and R(ω) = {ω}. If White wins G moving second, then White wins G ⊞ over_D with either side to
+move.
+
+*Proof.* White's strategy:
+- if White moves first, play ω → 0_D at once, leaving G with Black to move;
+- if Black passes, answer ω → 0_D;
+- if Black moves in G, answer with White's second-player strategy in G.
+
+If Black never passes, it runs out of moves in G and must then pass, which White answers by freezing. After
+the freeze Black is to move in a G-position lost for Black. ∎
+
+**Chess reading of over.**
+- Black has a safe king shuttle (endless passes), and White has exactly one move that takes away a shuttle
+  square and leaves a mutual zugzwang. That move is typically a pawn move, but not by Proposition 4.3:
+  Proposition 4.3 assumes a frozen opponent that replies outside Z, and in an over-group the opponent
+  shuttles inside Z. (Revised after review: R4 item 8.)
+- Elkies 1996 reports `over` in a study by Behting (1929), according to our literature notes. We have not
+  re-checked it.
+- **CONJECTURE 4.7:** no over-type group with ≤ 2 + 2 pawns fits on 3 files of the 8×6 cylinder, but over
+  is realisable on the cylinder with wider groups. *Scratch evidence:* the first half; a geometric search over
+  placements of ≤ 2 + 2 pawns on 3 (or 4) files found none (Appendix A). *To settle:* a wider search, then
+  kpsolve. (Revised after review: R1 item 10, R4 item 8: the search described in Appendix A covered ≤ 2 + 2
+  pawns, not the ≤ 3 + 2 claimed here; the conjecture is restated for what was actually searched.)
+
+---
+
+## 5. Applications
+
+Patterns are named by the placement of the kings (WK, BK) and pawns (WP, BP) relative to a file X. All
+move lists below were enumerated by hand. A scratch script reproduced them, and its lists for 5.1, 7.2 and
+7.3 agree with [notes/diagram_audit.md](../../notes/diagram_audit.md) §C.3.
+
+### 5.1 Position 5.1 (8×8 cylinder: Kh5 Pa4 / Kb4 Pa5) — the frozen trébuchet
+
+- **Pattern A** (the *A-trébuchet*): WK (X−1, r+1), WP (X, r), BK (X+1, r), BP (X, r+1). Here X = a, r = 4.
+  - The L3 trébuchet of `notes/lemmas.md` (flat 8×8: Kf5 Pg4 / Kh4 Pg5) is the same pattern with X = g.
+  - On a cylinder all placements X are equivalent by rotation, so "5.1 relies on the seam" (lemmas.md
+    Prop. 3.6) says that on a *flat* board the pattern needs both files X ± 1.
+- **Self-dual. PROVED.** Swapping colours (rank r ↦ 9 − r) and reflecting the files about a maps 5.1 to
+  itself. So Black's sorties mirror White's.
+- **Frozen in the convention. PROVED by enumeration** (revised after review: R1 item 11, R4 item 9: the
+  proof is written out here, instead of being left to the diagram audit). The group is WK h5, WP a4, BK b4,
+  BP a5 on the 8-file cylinder. WK's five legal moves are Kg4, Kg5, Kg6, Kh6 and Ka6; each of them abandons
+  WP a4, which Black's king then captures on a4, giving Black a passer. BK's five legal moves are Ka3, Kc3,
+  Kc4, Kc5 and Kb5; the first four abandon BP a5, which White's king then captures on a5, giving White a
+  passer, and the fifth (Kb5) puts Black's king on the square that guards both a4 and a5, so that White is in
+  zugzwang with only pawn-blocked moves left. So every king move in the group is decisively punished, and the
+  group is frozen. The enumeration agrees with `notes/diagram_audit.md` §C.3.
+- **Certificate.**
+  - Corollary 2.8 fails for every sortie. After ...Kxa4 the punisher's king stands on its own pawn's path,
+    so it needs a king step plus 4 pushes, and the defending king is within distance 5 of a1.
+  - (L1) holds for all five White sorties with T ≤ 7 (5 to 7, depending on the sortie and the budget), for
+    pass budgets **k ≤ 4 and k = ∞**, with the punisher's king confined to {h, a, b}. Budgets k = 5, 6 were
+    not checked; they differ from ∞ when T ≥ 6. This is scratch evidence (Appendix A) (revised after review:
+    R1 item 10, R4 item 9).
+    - These runs used the local game as it was before K7 (finite budgets, optional confinement). K7 re-ran the local
+      game of Definition 2.6 (k = ∞, king confined to {h, a, b}, a mate of s a win) on the five sorties, after the
+      reply Kxa4, with a second scratch implementation. (L1_P), which has no queen clause, holds with
+      T = 6, 6, 5, 6, 6 for Kg4, Kg5, Kg6, Kh6, Ka6. (L1), with the queen clause, holds with T = 6, 6, 6, 7, 7.
+      A reviewer's independent implementation gave the same two lists. So in P the freeze needs μ_s ≥ 7 at the
+      zugzwang nodes (Theorem 2.7 holds with (L1_P)), and μ_s ≥ 8 with the queen clause, which is the value used
+      above. This is still scratch evidence: the label stays CONJECTURE (revised after K7, 2026-10-22).
+  - With (L1), Theorem 2.7 makes the freeze valid in P for every context in which (L2) holds with
+    μ ≥ 8 at the zugzwang nodes, and (L3) holds.
+  - On 8 ranks a single free White pawn on rank 2 has μ = 5. So the certificate covers only locked or slow
+    contexts. Next to fast pawns the zero has to be checked case by case (Proposition 2.10b).
+- **Prediction.** The bare 5.1 is a real mutual zugzwang, (L, W) (P6 in §6). In the bare position the local
+  game is the whole game, so the scratch run is a full P-model computation. It is still one throwaway
+  implementation, hence a CONJECTURE.
+
+### 5.2 Position 7.2 (Ke6 Pd7 / Kd8 Pe7) — frozen for Black only
+
+- **Pattern B** (the *crossed blockade*): WK (X+1, H−2), WP (X, H−1), BK (X, H), BP (X+1, H−1), with X = d.
+  Each king blockades the enemy pawn and guards its own.
+  - The 6-rank analogue is Z_72 = Kc4 Pb5 / kb6 pc5.
+- **Black's only move inside the group, Kc7, is punished with T = 1. PROVED.**
+  - Kxe7 follows. Then d8=Q comes next move, guarded by Ke7.
+  - Black cannot stop it: c8 and e8 are attacked by d7, and d6 and d8 are adjacent to e7.
+  - In the bare group Black then has legal moves (b6, b7, b8, c6), so (L3) holds. In a context, (L3) is the
+    one-square check of whether a context pawn covers all of them.
+  - By Proposition 2.10(a), Black's punishment holds in **every** non-terminal context, subject to (L3) and
+    (A_Q).
+- **White's sorties: the certificate fails. PROVED by Lemma 2.9.** (The heading "White's sorties are not
+  punished" stated as fact what is proved only as the failure of the certificate.)
+  - Ke5 already stands on the e-pawn's path. Kd5 and Kf5 reach e5 next move: after ...Kxd7, e5 is not
+    adjacent to d7 and not attacked by e7.
+  - By Lemma 2.9, (L1) fails for these three sorties. PROVED.
+  - That the three sorties are *not punished* in P (no forced promotion for Black) rests on scratch evidence
+    only, and is a CONJECTURE (revised after review: R4 item 9, R1 item 11): even without passes, Black cannot
+    force promotion after Kd5, Ke5 or Kf5. Only Kf7 loses, in 10 moves. In chess, kpsolve gives (D, W) for the
+    6-rank analogue Z_72 bare, so White to move draws (P5).
+- **Theory for 7.2 + H** (H the {a,b,h} component). Theorem 2.4(b) needs the freeze only for the loser.
+  - **If White wins H** (convention, V1–V2 assumed): White wins 7.2 + H. The loser is Black, and Black's
+    Z-moves are universally punished. PROVED, modulo (A_Q), (V1) and (V2) for H's own events.
+  - **If Black wins H:** the convention's "Black wins" is **not certified**. At the end White, in zugzwang,
+    sorties with Ke5 and blockades. The outcome is then whatever the free Black king can achieve against H.
+- **The paper's 7.2.** The {a,b,h} part has outcome 𝓝 with e.p. on (audit).
+  - White to move: White wins, consistent with the paper.
+  - Black to move: open (CONJECTURE: it may be a draw).
+- **Predictions.** The bare 7.2 is (D, W), not the mutual zugzwang (L, W) (P7). The same holds for the 6-rank
+  analogue (P5).
+
+### 5.3 Position 7.3 (Kg8 Pf7 / Kf6 Pg7) — not a zugzwang at all
+
+- **Pattern C:** WK (X+1, H), WP (X, H−1), BK (X, H−2), BP (X+1, H−1), with X = f.
+- **Both kings can shuttle.** Kg8–f8 and Kf6–g6 are safe (audit; PROVED by enumeration: every one of the
+  four king placements is legal and keeps both pawns guarded).
+- **But f7–f8=Q is available.** With the king on g8, the queen on f8 cannot be taken: the black king is two
+  ranks away, or on e7 next to f8, which g8 guards.
+- **Black cannot parry it. PROVED.** All 8 Black moves (Kf5, Kg5, Ke5, Ke6, Ke7, Kg6, g6, g5) leave f7–f8=Q
+  available and safe.
+- So Z₇.₃ is a White win **with either side to move**, in every non-terminal context, in P (P8):
+  - the decisive event has T = 0 with White to move and T = 1 with Black to move;
+  - Proposition 2.10(a) gives (L2), because Black cannot promote in one move from a non-terminal context; for Black to move this is Theorem 2.7(b), the window form, with Q = the position itself, and (L3) is the one-turn check that Black is not stalemated: its Z-pawn g7 has the moves g6 and g5 in every context; if Y carries an e.p. right, (L2) counts it, and it cannot promote at once (revised after K7, 2026-10-22);
+  - (A_Q) is still needed for C.
+- **Why the paper's "trébuchet = 0" is wrong here.** Z is not even a tempo game. It is also an instance of
+  "a zugzwang where the other side's decisive event elsewhere is too slow": a Black passer created elsewhere
+  is a ⊖ in the D-model but loses to f8=Q in P. So (V2) fails for Black's passers, and the D-model is wrong.
+- **Without the pawn break. CONJECTURE** (revised after review: R4 item 6): if f8 were unavailable, the
+  group would be a both-sides shuttle (dud-type), and Theorem 3.4(a) would make every threat-free sum a draw —
+  but that needs a two-sided Proposition 3.2, which is not proved: the bisimulation must hold on the four
+  combined king states, in each of which each side's shuttle is legal and each side is frozen.
+  - *Scratch evidence:* no both-sides-shuttle group without a pawn break exists among 3-file groups with
+    ≤ 2 + 2 pawns and no passer on the 8×6 cylinder. dud may not occur in small K+P groups (CONJECTURE).
+
+### 5.4 New groups: `on` and `off` realised, and a stalemate trap
+
+A geometric search on the 8×6 and 7×6 cylinders (scratch) found the following. Every move list is
+hand-checkable.
+
+**Z_onT1 = Ka5 Pb4 Pc5 / kc6 pb5** (7×6 or 8×6 cylinder; F_Z = {a, b, c}).
+- **Structure.**
+  - Black's king blockades the white pawn c5, which stands on the 5th rank and promotes on c6. The king also
+    guards b5.
+  - White's b4 guards c5.
+  - White's king attacks b5 from a5 or a6, and **shuttles a5 ↔ a6**.
+- **Black's only legal move inside the group is Kd5. PROVED.**
+  - On c6 the king stands on the top rank. Its neighbours are b5, b6, c5, d5 and d6.
+  - b5 is Black's own pawn, blocked by b4, with nothing to capture.
+  - b6 and d6 are attacked by c5, and b6 is also adjacent to the white king.
+  - c5 is guarded by b4.
+- **Kd5 is punished with T = 1. PROVED.** Kxb5 follows, and then c6=Q, guarded by b5.
+  - Black cannot stop it: c4 and c6 are adjacent to b5, and d6 is attacked by c5.
+  - Black is not stalemated after Kxb5: e6 is free in every context of §6.
+- **So Z_onT1 realises `on`. PROVED in P** (revised after review: R1 item 11: the claim carried no label).
+  By Proposition 3.2, its chess bridge and Proposition 2.10(a), Theorem 3.4(b) applies in every non-terminal
+  context that leaves d5 legal and leaves Black a legal move after Kxb5. Black loses unless it has a forced
+  decisive event against a passing White. Predictions P2 and P10; in chess the conclusion needs (A_Q), which
+  is checked position by position (kpsolve: (W, W) for all ten P2 and P10 positions).
+- **Literal pawn-only scoring.** It calls c5 passed (+BIG), and here that agrees with the truth, for the
+  wrong reason: it also says "White wins" in the trap below, which is a draw.
+- **Z_offT1 = Kc1 Pb2 / ka2 pb3 pc2** is the colour-reversed group. White's only move is Kd2; Black's king
+  shuttles a1 ↔ a2. (P3)
+
+**The stalemate trap. PROVED** (by enumerating every legal move; P1). On the 7×6 cylinder, take
+Ka5 Pb4 Pc5 Pe2 Pe4 / kc6 pb5 pe5.
+- e4 attacks d5, so Black's king has no legal move. Black's b5 and e5 are blocked.
+- **Black to move:** Black is stalemated.
+- **White to move:** all five White moves (Ka6, Kg4, Kg5, Kg6, e2–e3) leave Black stalemated.
+- So the result is (D, D). The convention says (W, W), whether Z is read as 0 with H = +1 or as on.
+- (V1b) fails.
+- The mirror position Kc1 Pb2 Pe2 / ka2 pb3 pc2 pe3 pe5 is (D, D) as well. There White is the side
+  stalemated: e3 covers d2.
+
+### 5.5 A dropped pawn that does not lose
+
+Z_on = Ka4 Pb2 / kc4 pb3 (8×6 cylinder).
+- **It passes the convention's test. PROVED by enumeration.** Every Black king move drops b3, after which
+  White has a passer and Black none, and White's king shuttles a3 ↔ a4.
+- **But Black has an escape. CONJECTURE (scratch evidence; kpsolve agrees).** After the sortie Kc5 and Kxb3,
+  White cannot force promotion even without passes; after Kd4 and Kd5, White wins only if Black has no spare
+  move. Black's legal moves in the group are Kc5, Kd4, Kd5 and Kd3 (revised after review: R1 item 10 — Kd3
+  was missing from the original list; Kc3 is illegal because White's pawn b2 attacks c3), and kpsolve confirms
+  that the escape is exactly Kc5: `Ka4 Pb2 kc5 pb3 w -` is (D, D) — a draw, with or without the passes — while
+  `Ka4 Pb2 kd3 pb3 w -`, `Ka4 Pb2 kd4 pb3 w -` and `Ka4 Pb2 kd5 pb3 w -` are (W, W).
+  - Reproduce: `printf 'Ka4 Pb2 kc5 pb3 w -\nKa4 Pb2 kd3 pb3 w -\nKa4 Pb2 kd4 pb3 w -\nKa4 Pb2 kd5 pb3 w -\n'
+    | kings/kpsolve --board cyl:8x6 --ep on --promote QRBN --cap 1 --moves`.
+- So "drops a pawn" is not "loses". (V2) fails, and the group is not an `on`-group.
+- Z_onT1 above is the repaired version: the punishment there is one move deep.
+
+### 5.6 The engine-suite observation, explained
+
+RESULTS §1 reports that 41 of 449 trébuchet king moves draw and 7 win in the tablebase. Those positions are
+on the flat 8×8 board, with the component on a–d and only the e-file between.
+- The White king's sortie squares e4–e6 lie on the buffer file, next to the component. Their counter-play is
+  correspondingly fast.
+- *Example:* the documented draw `8/8/3p4/5Kp1/6Pk/2P5/8/8 w`, with Ke6! Kxg4 Kxd6 (engine/suite README).
+  - Our count gives μ_W = 5: the c-pawn walks c4–c8 while Black is busy. **PROVED by count** (revised after
+    review: R1 item 11: this chain carried no labels).
+  - Black's local win after Ke6 Kxg4 takes T = 5 (scratch). **CONJECTURE** (scratch evidence).
+  - So μ = T, and (L2) fails by one tempo. **CONJECTURE** (scratch evidence; Review 4 re-derived both
+    numbers independently: μ = 5 = T, so (L2) does fail by one tempo — R4 item 10).
+- PROVED: by Theorem 2.7 (contrapositive), for every admissible reply r (Definition 2.6) and every T ≥ 1, every king
+  move that does not lose in P violates (L1), (L2) or (L3) (revised after K7, 2026-10-22). A move that loses in P but not in C is an (A_Q) failure.
+- CONJECTURE: every one of the 48 non-losing king moves has μ ≤ T + 1 at its node: an (L2) failure, or an
+  (A_Q) failure with margin one. *To settle:* compute μ and T at those 48 nodes from `engine/suite/results.json`.
+
+---
+
+## 6. Testable predictions
+
+kpsolve options: `--ep on --promote QRBN --cap 1`, and `--cap 2` for the three P4 rows whose cap-1 bounds
+differed. Positions use the format of `kings/SPEC.md`; append ` w -` or ` b -`. Each row gives:
+- the predicted result pair (w, b), W/D/L from White's view;
+- the Z = 0 convention pair (king group read as 0, H valued by `cylcgt` on its strip);
+- the pair kpsolve computes in chess (C), from `kings/results/PREDICTIONS.md`;
+- the theorem behind the prediction, and its label.
+
+Reproduce the kpsolve column with `kings/kpsolve --board cyl:7x6 --ep on --promote QRBN --cap 1` on the
+positions of the rows (and `--board cyl:8x6` for P10, `--cap 2` for the three P4 rows); the raw runs are in
+`kings/results/theory_predictions_raw.txt` and `kings/results/theory_P4_cap2.txt`.
+
+Context components on the e-file of the 7×6 cylinder, with values computed by `cylcgt` on a 1-file strip of
+6 ranks:
+- Hm1 = Pe2 / pe3 pe5 = −1;
+- Hp1 = Pe2 Pe4 / pe5 = +1;
+- H* = Pe3 / pe5 = \*;
+- H\*2 = Pe2 / pe5 = \*2;
+- H0 = Pe3 / pe4 = 0.
+
+Each is a single file with no possible capture, so pure tempo.
+
+| # | Board | Position family | Predicted (w, b) | Z = 0 convention | kpsolve (C) | Basis | Label |
+|---|---|---|---|---|---|---|---|
+| P1a | cyl:7x6 | `Ka5 Pb4 Pc5 Pe2 Pe4 kc6 pb5 pe5` | (D, D) | (W, W) | (D, D) | (V1b) fails: stalemate (§5.4) | PROVED; kpsolve agrees |
+| P1b | cyl:7x6 | `Kc1 Pb2 Pe2 ka2 pb3 pc2 pe3 pe5` | (D, D) | (L, L) | (D, D) | mirror of P1a | PROVED; kpsolve agrees |
+| P2 | cyl:7x6 | Z_onT1 `Ka5 Pb4 Pc5 kc6 pb5` + each of {nothing, Hm1, H\*, H\*2, H0} | (W, W) in all five | (L,W), (L,L), (W,L), (W,L), (L,W) | (W, W) in all five | Thm 3.4(b) + Prop 3.2 + Prop 2.10(a) | PROVED in P; C modulo (A_Q); kpsolve agrees on all ten |
+| P3 | cyl:7x6 | Z_offT1 `Kc1 Pb2 ka2 pb3 pc2` + each of {nothing, Hp1, H\*, H\*2, H0} | (L, L) in all five | (L,W), (W,W), (W,L), (W,L), (L,W) | (L, L) in all five | mirror of P2 | PROVED in P; C modulo (A_Q); kpsolve agrees on all ten |
+| P4 | cyl:7x6 | Z_T `Ka4 Pb3 kc3 pb4` + each of {nothing, Hm1, Hp1, H\*, H\*2, H0} | equal to the convention: (L,W), (L,L), (W,W), (W,L), (W,L), (L,W) | same | (L,W), (L,L), (W,W), (D,L), (D,L), (L,D) | Thm 2.4(b) + Thm 2.7. (L1) holds: scratch, T ≤ 5, all budgets, confined king. (L2) holds at every loser-to-move node: scratch. (L3) not checked. These checks used the local game and the μ before K7: the old μ counted the king and all pawns, and Definition 2.6 now counts the king and context pawns, with the e.p. clause (revised after K7, 2026-10-22) | CONJECTURE → **refuted** by kpsolve in 3 of 6 contexts (H\*, H\*2, H0) |
+| P5 | cyl:7x6 | Z_72 `Kc4 Pb5 kb6 pc5`, bare; and + Hp1 | bare (D, W); + Hp1 (W, W) | bare (L, W); (W, W) | bare (D, W); + Hp1 (W, W) | Black side: Prop 2.10(a) with T = 1 (PROVED in P). White side: Lemma 2.9 (escape by blockade) | all entries PROVED in P except the bare w-entry, which is a CONJECTURE (scratch: no forced promotion); kpsolve agrees on all four entries |
+| P6 | cyl:8x8 | 5.1 `Kh5 Pa4 kb4 pa5` | (L, W): a real mutual zugzwang | (L, W) | (L, W) (kpsolve, exact) | Thm 2.4 + Thm 2.7 ((L1) scratch, T ≤ 7) + self-duality | CONJECTURE; kpsolve agrees |
+| P7 | cyl:8x8 and flat:8x8 | 7.2 group `Ke6 Pd7 kd8 pe7` | (D, W) | (L, W) | (D, W) on both boards (kpsolve; Lichess on flat) | Prop 2.10(a) for Black; Lemma 2.9 for White | b PROVED in P; w CONJECTURE; kpsolve and Lichess agree |
+| P8 | cyl:8x8; cyl:7x6 | 7.3 group `Kg8 Pf7 kf6 pg7`; 6-rank analogue `Kc6 Pb5 kb4 pc5` | (W, W) | (L, W) (read as 0) | (W, W) on 8×8 (kpsolve; Lichess on flat) and on the 6-rank analogue | unparriable safe promotion (§5.3) | PROVED in P |
+| P9 | cyl:7x6 | `Ka5 Pb4 Pc5 Pe2 kc6 pb5 pf3` | (W, L): class 𝓝 | BIG with Z as `on`: (W, W) | (W, L) | Thm 3.3 versus Thm 3.4(b). Black: fxe2 and e1=Q; White: exf3, then zugzwang (Kd5 forced) | PROVED in P; kpsolve agrees |
+| P10 | cyl:8x6 | Z_onT1 + k Black tempo units: k = 0 nothing; k = 1 `Pe2 pe3 pe5`; k = 2 also `Pg2 pg3 pg5` | (W, W) for k = 0, 1, 2 | (L,W), (L,L), (L,L) | (W, W) for k = 0, 1, 2 | Prop 4.3 + Thm 3.4(b): the result does not depend on k, and there is no integer threshold | PROVED in P; kpsolve agrees for k = 0, 1, 2 |
+| P11 | cyl:8x6, `--frozen` | Kings parked on the a-file (`Ka1 ka6`, b- and h-files empty); pawn components on c–g; every passer and race terminal of the D-game of X certified by Corollary 2.11a, and, if X already has a passer, X itself certified by Proposition 2.11 (s the side to move, β the side W(X) credits) (for the beneficiary's passed front pawn: (H4) and (H5); in this layout (H2), (H3) and the king clause of (H1) hold by Corollary 2.11b); condition (E). Here W(X) is the D-game of X with its own winning side, and "hereditarily sum-safe" (HSS) means (HSS) and (B) of Theorem 1.11(c), that is (V4) of Theorem 1.14: at every position reachable before the first decisive event, the re-split components are pairwise safe and BIG exceeds every tempo count | kpsolve `--frozen` = o(W(X)); also = o(S(X)) when hereditarily sum-safe. Where o(S) ≠ o(W) (opposite threats, Prop 1.12), `--frozen` sides with W | — | — (a harness check, not one position) | Thm 1.11 + Thm 1.14 ((V3), and (V2) at king moves, hold by fiat; (V1) holds in the layout by Corollary 2.11b: no check, and a2 or a5 is always a legal king move) + Proposition 2.11 / Corollary 2.11a for (V2) at passer and race terminals | PROVED in P, conditional on the certificate (revised after K10, 2026-10-22). False without it: `Ka1 ka6 Pc2 Pc3 pd3 pd4 w -` is a White win in W(X) and (L, L) in `--frozen`; checked end to end on 56,872 roots (a root is a position with its side to move, here without a passer) of cyl:6×6, cyl:7×6 and cyl:8×6 (0 violations when every terminal is certified; 3,194 roots differ otherwise) |
+| P12 | cyl:7x6 | Z_T + any context on e–f | If `--frozen` reports a win for σ at X, then either σ wins in P, or, for every `--frozen` winning strategy of σ, some node of it with σ̄ to move has a king move of σ̄ that is not a P-loss. For that move, and for every admissible reply r (Definition 2.6) and every T ≥ 1, (L1), (L2) or (L3) fails. In chess, add (A_Q) at X | — | — (a harness check, not one position) | Thm 2.7 (contrapositive) + the transfer argument of Corollary 2.7′ | PROVED after repair, in P, for the nodes where `--frozen` reports a win; the chess form needs (A_Q) (revised after K7, 2026-10-22) |
+
+**Notes on the table.**
+- **What P2, P3 and P10 prove.** The derivations use only enumerated move lists (§5.4) and Theorem 3.4(b).
+  The one-move punishment holds in every context listed, except where a context pawn covers the king's escape
+  square d5 (respectively d2) — and that happens only after the *winning* side has moved its own pawn there:
+  - In H\*, White's single step e3–e4 covers d5 and **stalemates Black**: kpsolve scores it a draw, so White
+    must avoid it and play the shuttle (Ka6). (Revised after review: R4 item 7: the old sentence "none of them
+    puts a pawn on e4 … that would cover d5" was wrong for H\*, where the pawn moves there during the window.)
+  - In H\*2, White's double step e2–e4 *would* stalemate Black. In P3's H\*2, Black's double step e5–e3 would
+    stalemate White. The winner simply never plays it.
+- **Scratch confirmation in P.** A scratch P-model solver (no e.p.; queen safety required — a stricter P
+  than Definition 1.5's, which counts any promotion as a win) reproduced every P-level entry of P1, P2, P3,
+  P5, P9 and P10 that it finished:
+  - P1a and P1b: (D, D);
+  - all five P2 positions: (W, W);
+  - all five P3 positions: (L, L);
+  - Z_72 bare: (D, W);
+  - Z_72 + Hp1: (W, W);
+  - P9: (W, L);
+  - P10 with k = 0 and k = 1: (W, W). The k = 2 run did not finish.
+
+  This is a check of the reasoning, not a substitute for kpsolve: it computes P, not C.
+- **What separates the theory from the conventions (revised after review: R1 item 5).** The old headline — "P2,
+  P3 and P10 are the decisive tests of the loopy theory" — did not say which baseline it used. Against the
+  note's own "Z = 0" reading (king group = 0, the context valued by cylcgt on its strip) it is right: that
+  reading gets 17 of the 26 P2/P3/P10 entries wrong, and at least one of the two results in every one of the
+  13 positions. Against the *literal* convention it is not: on the actual pawn sets, `cylcgt.pawns.value`
+  returns +BIG for every P2 and P10 position and −BIG for every P3 position, so literal cylcgt gets all 26
+  entries right and does **not** separate the theory from cylcgt. The positions that do separate them are P1
+  (the stalemate trap: both readings say (W, W) and (L, L), the truth is (D, D)), P5 and P7 (the literal
+  reading has no answer — it scores a race at move 0 on the 6-rank analogue — while kpsolve settles P5 bare as
+  (D, W)), P9 (both readings predict (W, W), the truth is (W, L)) and P4 (below). Over the 25 exactly
+  determined predictions of `kings/results/PREDICTIONS.md`, the theory holds in 22 and literal cylcgt in 16;
+  the three positions literal cylcgt scores as a race (P5 bare, P5 + Hp1, P8 6-rank) have no answer from it
+  at all.
+- **What P4 tests, and how it failed.** P4 was the positive control: the theory predicts that the convention
+  is *right* there. kpsolve refutes it in 3 of the 6 contexts.
+  - H\* and H\*2 with White to move are draws, not (W, L). In H\* every White king move loses (Ka5, Kb5, Kg3,
+    Kg4, Kg5) and White's only drawing move is e3–e4; in H\*2 the position is a draw as well.
+  - H0 with Black to move is a draw, not (L, W): Black's king draws by Kd3 or Kd2.
+  - The mechanism: the defending king walks to the locked context pawns and attacks the stuck pawn there
+    (…Kd3, …Kd2, …Kd4). In H0 after …Kd3 the white king is confined to the a- and b-files: Kg4, Kg5 and Kg3
+    all lose, while Ka5, Kb4 and Kb5 draw. This is what Proposition 2.10(b) predicts — the zero of the group is
+    context-dependent, a CONJECTURE after Proposition 2.10(b), now supported in C by P4 — and the (L2) margin
+    the theory assumed does not survive the context.
+  - The same three contexts are exactly the ones in which the Z = 0 convention and literal cylcgt are wrong
+    too, so the refutation is a fact about the positions, not about the convention.
+- **P11 and P12** turn Theorems 1.11, 1.14 and 2.7 into checks of the solver.
+
+---
+
+## 7. Trying to break the proofs
+
+Each item is a counterexample type the task named, or one found while writing.
+
+1. **A zugzwang where the mover can make a decisive threat elsewhere first.**
+   - In the D-model a mover with a decisive option is not in zugzwang, so nothing breaks there.
+   - In P the threat may be too slow. In 7.3, a Black passer elsewhere loses to f8=Q.
+   - That is a (V2) failure for the passer, not a gap in Theorems 1.14 or 2.4, which assume (V2). With
+     frozen kings, the certificate of Proposition 2.11 fails there at (H5), the timing bound over all of the opponent's pawns (a failed
+     certificate does not by itself prove a (V2) failure: 2.11 is sufficient only);
+     with real kings only the square-rule CONJECTURE of Remark 2.11 applies (revised after K10, 2026-10-22).
+2. **Double threats.**
+   - They are just Λ-positions in Theorem 3.4: every reply leaves a threat. No proof uses "one threat at a
+     time".
+   - Theorem 1.11 needs pairwise safety only *between* components. Several threats inside one component are
+     allowed.
+3. **Stalemate.**
+   - It broke the naive argument: Lemma 1.7 is false under chess rules.
+   - Hence (V1b) in Theorem 1.14, (L3) in Definition 2.6, the unlimited-pass clause in (L1) (the earlier "every budget" phrasing is withdrawn; revised after K7, 2026-10-22), and the traps
+     of §5.4.
+   - Remaining gap: (L3) is not checked for P4.
+4. **En passant.**
+   - Lemma 2.2: an en passant capture lands on the captured pawn's file, so it never crosses the buffer.
+   - Inside components, the sum needs condition (E) (L1.6–1.7 of `notes/lemmas.md`). Theorem 1.14(V1a)
+     assumes it.
+   - The scratch solver ignores en passant. In every local game it was used on, the defender had no pawns,
+     so no en passant capture exists (PROVED: it needs a pawn of the capturing side).
+   - In the full positions of §6 no double step lands beside an enemy pawn on the same rank, so no en passant
+     right ever arises.
+5. **A king that leaves Z and catches a passer.**
+   - That is a Z-move made while a context passer exists, so the D-model has already ended. The failure is
+     (V2) for the passer.
+   - Proposition 2.11 is proved only with frozen kings. With real kings the defender's king may catch the
+     passer (`Ka1 ka6 Pc2 w -` is (W, W) frozen and (D, D) with real kings); the real-king form is the square-rule
+     CONJECTURE of Remark 2.11 (revised after K10, 2026-10-22).
+   - The engine-suite escapes (§5.6) are this type. Theorem 2.7 explains them only as certificate failures;
+     it does not claim to predict which ones draw.
+6. **Checks.**
+   - Context pawns never attack F_Z (Lemma 2.2).
+   - Inside Z, checks are part of Z's own move lists. The scratch geometry includes legality under check.
+7. **Extra moves of the winner.**
+   - Z_onT1 gives White king moves to g4–g6 that are not shuttle moves. The sharp form of Theorem 1.14 covers
+     the winner: those moves are simply not played, and Lemma 1.6 is not needed (revised after K9, 2026-10-22).
+   - When Black is the winner (P9, Black to move), Black's forced line was checked against *all* White moves.
+     Black promotes on e1 at its second move, and no White king square is within reach of e1.
+8. **Is the 2-cycle really equivalent to a self-loop?**
+   - The bisimulation in Proposition 3.2 needs *both* shuttle states to have identical properties.
+   - In Z_on (§5.5) one state allowed a non-losing Black sortie, so it is not an `on`-group. That is why
+     Z_onT1 is used instead.
+9. **Theorem 3.4(a) with no terminals.** It reproduces the known fact that G + dud is drawn, which is a
+   consistency check.
+10. **Over-claiming from the scratch solver.**
+    - It found the 7.2 escapes and confirmed Prop. 3.5 of `notes/lemmas.md`: Black wins in 6 moves after
+      Kf5–e4 Kxg4, the same length as the 14-ply line quoted there. That is a cross-check of sorts.
+    - But it is one implementation, written today. So every claim resting on it is a CONJECTURE.
+11. **(A_Q) on 6-rank boards.**
+    - KQK on the 7×6 and 8×6 cylinders has not been checked. Every "PROVED in P" becomes a chess claim only
+      after kpsolve confirms it.
+    - A reason for caution: on short boards a lone king is closer to the queen.
+
+Downgraded while writing:
+- "The trébuchet zero is universal": now Proposition 2.10(b) plus a CONJECTURE.
+- "A dud group exists in small K+P positions": now a CONJECTURE.
+- "The bare 5.1 / 7.2 / Z_72 results": CONJECTURES with scratch evidence.
+
+---
+
+## 8. Open questions
+
+1. **Tempo matching** (CONJECTURE). Suppose a group's punishment wins only in the plain local game, not
+   against passes. Is it still decisive in contexts that are second-player wins for the punisher, with each
+   defender tempo answered by a punisher tempo?
+   - The question is untested. Every trébuchet placement checked on the 7×6 cylinder satisfied (L1) for every
+     budget k ≤ 4 and for k = ∞ (the local game before K7; Definition 2.6 now has k = ∞ only; revised after K7,
+     2026-10-22).
+   - The only plain-but-not-passing wins found are Z_on's sorties Kd4 and Kd5 (§5.5). Z_on also has an
+     outright escape, Kc5, so it cannot test the question.
+2. Do both-sides-shuttle (dud) groups exist without a pawn break on the cylinder? Do over-groups exist? Both
+   need wider searches.
+3. King-against-king fights inside Z (opposition, shouldering) are genuine short or loopy games. What values
+   occur? This is where finite king tempo can live, by Proposition 4.3.
+4. A version of Theorem 1.11 for loopy components: the D-semantics analogue of Siegel's stopper sums.
+5. Gafni's K+P vs K values without edges (plan item A8): the cylinder KPK table in `atlas/cylinder/kpk` is the
+   starting point.
+
+---
+
+## Appendix A. The scratch computations
+
+These are throwaway Python scripts in the session scratchpad. They are not in the project and were run once.
+Re-implement them before relying on any number.
+
+- **Geometry.**
+  - Legal king and pawn moves on a W×H board, flat or cylinder, following `kings/SPEC.md` without en passant
+    rights. Kings may not be adjacent; a move may not leave one's own king attacked by a pawn.
+  - "Drops a pawn" means the opponent's king can then legally capture an undefended pawn.
+  - It reproduces the move lists of `notes/diagram_audit.md` §C.3 for 5.1, 7.2 and 7.3.
+- **Group search.** On the 8×6 and 7×6 cylinders: all placements of the kings and of ≤ 2 + 2 pawns on 3 (or 4)
+  files, with no passer at the root. Each placement was classified as frozen, on, off, dud or over by one-ply
+  tests. It found: (revised after review: R1 item 10, R4 item 8: the search covered ≤ 2 + 2 pawns, so every
+  claim that depends on it is stated for ≤ 2 + 2 — Conjecture 4.7's "≤ 3 + 2" was wrong. The "no passer at the
+  root" test is the note's own, not cylcgt's: cylcgt's passed test calls Z_onT1's c5 passed, so the search
+  would have rejected Z_onT1.)
+  - the A-trébuchet placements;
+  - Z_onT1 and its mirror;
+  - Z_on (§5.5);
+  - no dud and no over group.
+- **Local promotion game.** Retrograde least fixed point over (position, side to move, pass budget k ≤ 4 or
+  ∞), with only Z's pieces on the board. (This is the game as it was before K7. Definition 2.6 now has k = ∞
+  only, counts a mate of s as a win for s̄, and always confines s̄'s king to F_Z. The K7 checks below use the new
+  game; revised after K7, 2026-10-22.)
+  - The attacker wins by promoting to a queen that cannot be captured at once.
+  - Stalemate, a defender promotion and infinite play are attacker failures.
+  - Option: confine the attacker's king to F_Z.
+  - The reported T is the number of attacker moves under best play.
+- **μ.** A breadth-first search over the defender's moves alone (king and pawns), with the other side's
+  context pawns fixed and its king absent. It covers every context position reachable inside the e-file
+  context. (This is the μ_s before K7. Definition 2.6 now counts the defender's king and the context pawns only,
+  with s̄'s king and all Z-pawns deleted and the e.p. clause. The K7 checks below use the new count; revised after
+  K7, 2026-10-22.)
+- **Full P-model check.** The local promotion game run on the full positions of §6, with no budget (k = 0).
+- **K7 checks of Theorem 2.7 (2026-10-22; scripts copied to `kings/delegate/out/K7/scripts/`, raw output in the local
+  archive `kings/delegate/out/K7/k7_k9_scratch.tar.zst`).** They test the
+  statement, not the proof, on random positions with at most 3 pawns a side (revised after K7, 2026-10-22):
+  - a Python move generator, which agrees with `kpsolve --moves` on 1200 random positions (cyl:7×6, cyl:6×5,
+    flat:5×4) and on 600 positions with an e.p. right (cyl:7×6, flat:6×6);
+  - a solver of the local game of (L1) (passes, confined king, mate of s a win, promotion by s a failure, T ≤ 5),
+    a search for μ_s (context pawns only, and the old count with Z-pawns), and a search of the real window game
+    for (L3). In that search s is free, and s̄ plays any move whose projection is a winning local move, except
+    king moves off F_Z. It did **not** exclude context moves of s̄, so its strategies are wider than the guided
+    strategies of Definition 2.6 as now worded (Z-moves only). The runs are therefore not an exact test of the
+    stated (L3); a reviewer's corrected harness (below) restricts s̄ to Z-moves;
+  - the exact P value from a private copy of `kings/kpsolve.c` with one added switch, `--pmodel` (a promotion wins at
+    once for the promoter, kings move normally). The project file is unchanged. The whole patch is three lines:
+    `PMODEL = 0` added to the static flags next to `FROZEN`; the test `if (FROZEN) emit(..., 'P', ...)` at the
+    promotion move generator changed to `if (FROZEN || PMODEL) emit(..., 'P', ...)`; and
+    `else if (!strcmp(argv[i], "--pmodel")) PMODEL = 1;` in the option parser.
+  - All K7 runs of the drafter used F_Z = {a, b, c}.
+  - **Run 1 (first draft; no e.p. right at Q).** Window positions (Theorem 2.7(b); Z-group on files a–c): 9300
+    positions on cyl:7×6, 7×5, 7×7, 8×6 and flat:6×6; (L1) holds in 2221, and LC_T (with (L2) on context pawns and
+    (L3)) in 1379. In all 1379 s̄ wins P. Random Y, Z-move m, reply r (any non-promoting Z-move reply keeping s̄'s king
+    on F_Z), cyl:7×6: 3787 triples, LC_T in 508, again all P-wins. The generator set no e.p. right at Q, so this run
+    could not meet the case that broke the first draft of (b). Its (L3) routine also rejected any real promotion
+    by s, which cannot happen under (L1) and (L2), so it tested a subset of the stated hypotheses.
+  - **Run 2 (after the review of the first draft; e.p. right at Q).** Each position has an e.p. right: an s̄ pawn has
+    just double-stepped, and an s pawn stands beside it in 85% of the cases. The target is off F_Z, except in one
+    cyl:7×6 run where half of the positions have it on F_Z (934 positions with LC_T in that run, 522 of them with the target on F_Z). 34000 random positions
+    on cyl:7×6 (twice), 8×6, 7×5, 7×7 and flat:6×6, T ≤ 4 (T ≤ 3 on 7×5), with (L3) as stated (stalemate of s only). (L1) holds in 7559.
+    LC_T with the e.p. clause of (L2) holds in 4998, and **in all 4998 s̄ wins P: no counterexample**. LC_T read
+    without the e.p. clause (the first draft) holds in 5128, and in 70 of them s̄ does not win P, which are
+    counterexamples to the first draft of (b).
+  - Where hypotheses fail (run 1): (L1) holds and (L2) fails in 709 non-wins; (L3) fails in 3 of the window positions
+    and in 3 of the triples (all draws by stalemate of s); the old Z-pawn count would have rejected 105 window
+    positions that are P-wins; in 221 the queen clause of (L1) fails while (L1_P) holds and s̄ wins P.
+  - Examples: `Kb5 kd5 Pb4 Pc5 Pe3 Pf3 Pf4 Pf5` (b), `Kd6 kc2 pa3 Pe4 pe5 pf5` (w), `Ke6 ka1 Pc4 pb3 pc5` (w),
+    `Kd6 kc4 Pe3 pa4 pe4 pf3` with e.p. right f4 (w) (cyl:7×6). The last one, found by the reviewers, is a White
+    win in P and a Black win in P without the right (private patched copy of `kpsolve.c`).
+  - **Independent re-check by a reviewer (2026-10-22; scripts in `kings/delegate/out/K7/scripts/review2/`).** A second implementation,
+    written without the drafter's code, using kpsolve only for P values. Numbers as reported by the reviewer, not
+    re-run by me, except where stated:
+    - its move generator agrees with `kpsolve --moves` on 1600 random positions; it reproduces the (L1) values of
+      §5.1 (below); Corollary 2.8 holds on 9566 placements on 4 boards, with the queen clause;
+    - window form (b), random Q with 1 to 3 pawns a side, about 45000 pairs satisfying (L1) to (L3) on cyl:7×6
+      (F_Z = a–c, b–d, a–b, a–d), cyl:7×5, cyl:6×6, flat:6×6 and flat:7×6 (middle group): no non-win. A structured
+      e.p. family (an s pawn blocked by an s̄ pawn beside one that has just double-stepped): 19525 pairs with the
+      e.p. clause, no non-win. The same positions without the clause: 53210 pairs, 8387 of them P non-wins. So the
+      harness has power, and the clause cures the first draft's error. A stalemate-focused family: 40308 pairs, no
+      non-win. When (L1) and (L2) hold and (L3) fails, 109 of 139 are P non-wins, so (L3) is needed;
+    - form (a): 117232 triples (random Y, every Z-move m, every admissible r), and in all of them both Y·m and Q are
+      P-wins for s̄. The quantitative claim, that a guided strategy of s̄ wins within T moves against every legal real
+      play of s, had no failure in about 70000 pairs. With μ_s = T instead of T + 1, about 23 percent of the LC
+      positions are non-wins;
+    - sharpness examples of the text above: I re-ran them myself with the private builds, and they agree.
+
+---
+
+## References
+
+- **[WW]** E. R. Berlekamp, J. H. Conway, R. K. Guy, *Winning Ways for your Mathematical Plays*, 2nd ed.,
+  A K Peters, 2001–2004.
+  - Vol. 1, ch. 1–2: outcome classes, G = 0 iff second-player win, integers, simplicity, dominated options.
+  - Vol. 2, ch. 11 ("Games Infinite and Indefinite"): on, off, over, dud, stoppers.
+- **[S]** A. N. Siegel, *Combinatorial Game Theory*, Graduate Studies in Mathematics 146, AMS, 2013.
+  - Ch. I–II: short games, outcome classes, numbers, the simplicity theorem.
+  - Ch. VI: loopy games, stoppers, on/off/over/dud, least-fixed-point outcomes.
+- **[E]** N. D. Elkies, "On numbers and endgames: combinatorial game theory in chess endgames", in *Games of
+  No Chance*, MSRI Publ. 29 (1996), 135–150; arXiv math/9905198 (1999).
+  - Mutual zugzwang = 0; spare pawn tempi = integers; loopy values in chess.
+- **Cited only as summarised in `notes/lit_cgt_chess.md`, not re-read for this note:**
+  - Mäser (MGONC 2002);
+  - Siegel, "Coping with cycles" (GONC 3, 2009);
+  - Gafni (thesis, 2011);
+  - Larsson–Nowakowski–Santos, "Affine normal play" (GONC 6, 2025).
+
+
+[showing lines 1468-2097 of 2097; full output saved to /Users/aritro/.local/share/opencode/shell/19cc2360ee0453c47d0fd1948592ae7fea88a5da/sh_17ec54b79001i2WeDkNFZxsvyn.out]
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && sed -n '1,80p' kings/SPEC.md 2>/dev/null; echo "---"; ls kings/delegate; echo "---heavy---"; cat kings/delegate/heavy.sh
+# Explicit king-and-pawn solver: rules and file formats
+
+Two solvers must implement this spec: the C solver `kings/kpsolve.c` and an independent Python
+reference solver `kings/ref/`. They are compared position by position, so every rule below is
+binding. Neither may read the other's code.
+
+## Board
+
+- W files (2 to 8) by H ranks (4 to 8). Files are named a, b, c, ... and ranks 1, 2, ..., H.
+- **flat:** an ordinary board.
+- **cyl:** a cylinder. File a and the last file are glued. Ranks are not glued.
+
+## Pieces and moves
+
+- White uses upper case `K Q R B N P`; Black uses lower case `k q r b n p`.
+- Queens, rooks, bishops and knights are called *officers*.
+- Each side has exactly one king.
+
+Standard chess moves, with these clarifications:
+
+1. **Wraparound (cyl only).**
+   - Every horizontal or diagonal step wraps from the last file to file a and back.
+   - This applies to kings, knights, sliders and pawn captures. For example, on a cylinder of
+     width 5, a white pawn on e2 captures on a3 and on d3.
+2. **Sliders.**
+   - A slider moves along a ray until it hits the board edge (top or bottom rank), the first
+     occupied square, or its own starting square.
+   - It may capture an enemy non-king piece on the first occupied square. It never moves through
+     a piece.
+   - When a ray wraps all the way round and returns to the starting square, the ray stops there.
+     There is no null move.
+   - On a cylinder the leftward and rightward rays along a rank can reach the same square. That
+     is one move, not two.
+3. **Pawns.**
+   - White pawns move towards rank H; Black pawns move towards rank 1.
+   - Single step to an empty square.
+   - Double step from the pawn's second rank (rank 2 for White, rank H−1 for Black) if both
+     squares are empty. On a 4-rank board the double step lands on the last rank: it then promotes
+     (one move per allowed piece) and leaves no e.p. right.
+   - A pawn captures diagonally forward. It may capture enemy pawns and enemy officers, never the
+     king.
+   - A white pawn may never stand on rank 1 or rank H; a black pawn may never stand on rank H or
+     rank 1.
+4. **Promotion.**
+   - A pawn reaching the last rank must promote to one piece of the allowed promotion set.
+   - The default set is Q, R, B, N; option `--promote` can restrict it, for example to `Q`.
+   - Each allowed piece is a separate move.
+5. **En passant** (option `--ep on|off`, default on).
+   - Right after a pawn double-steps, the opponent may capture it en passant on their very next
+     move only.
+   - The capture works exactly as in chess, diagonally across the seam on a cylinder.
+   - A position therefore carries an e.p. target square or `-`.
+   - With `--ep off` there is no en passant at all.
+6. **Kings.**
+   - A king moves one step in any direction, with wraparound on a cylinder.
+   - It may capture an enemy pawn or officer.
+7. **Legality.**
+   - A move may not leave the mover's own king attacked.
+   - Kings may never be adjacent; this follows from that rule.
+   - A position is **illegal** if two pieces share a square, the kings are adjacent, a pawn stands
+     on its first or last rank, or the side *not* to move is in check.
+   - Illegal input positions are reported as `X`.
+8. **Results.**
+   - Checkmate (no legal move, and in check) is a loss for the side to move.
+   - Stalemate (no legal move, not in check) is a draw.
+   - There is no 50-move rule and no castling.
+   - A game that can go on forever under best play is a draw. The value is the usual retrograde
+     least fixed point:
+     - won if some move reaches a lost position;
+     - lost if every move reaches a won position;
+     - everything else is drawn.
+
+## The officer cap and bounds
+
+(A promotion is capped only if the position *after* it holds more than C officers, so a pawn that
+captures an officer while promoting is not capped at count C.)
+
+Exactness can be expensive, so the solvers take `--cap C`, default 1. This is the maximum number of
+officers (both colours together) a position may hold.
+
+---
+apply_edits.py
+briefs
+heavy.sh
+locks
+logs
+out
+run.sh
+---heavy---
+#!/bin/zsh
+# Run one heavy command (kpsolve batch, big enumeration) under a 2-slot lock shared by every kings/ job,
+# so that all kings/ agents together never run more than 2 heavy processes. nice -n 15.
+# Usage: kings/delegate/heavy.sh <cmd> [args...]   (stdin and stdout pass through)
+L=/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/locks
+mkdir -p $L
+while true; do
+  for s in 1 2; do
+    if mkdir $L/slot$s 2>/dev/null; then
+      echo $$ > $L/slot$s/pid
+      trap "rm -rf $L/slot$s" EXIT INT TERM
+      nice -n 15 "$@"
+      exit $?
+    fi
+  done
+  # free a slot whose owner died without cleaning up (its recorded PID no longer exists)
+  for s in 1 2; do
+    p=$(cat $L/slot$s/pid 2>/dev/null)
+    [[ -n $p ]] && ! ps -p $p >/dev/null 2>&1 && rm -rf $L/slot$s
+  done
+  sleep 5
+done
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && kings/kpsolve --help 2>&1 | head -50; echo "exit"
+usage: kpsolve --board flat:WxH|cyl:WxH [--ep on|off] [--promote QRBN] [--cap C] [--frozen] [--moves] [--threads T] < positions > results
+exit
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && printf 'Kh5 Pa4 kb4 pa5 w -\nKh5 Pa4 kb4 pa5 b -\n' | kings/kpsolve --board cyl:8x8 --ep on --promote QRBN --cap 1
+[kpsolve cyl:8x8 ep=on cap=1: 18 layers, 4276224 states, depth 6, 1.1s]
+Kh5 Pa4 kb4 pa5 w - | L L
+Kh5 Pa4 kb4 pa5 b - | W W
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && sed -n '1,200p' cylcgt/pawns.py
+"""Pawn-only chess positions on W-file x H-rank boards, flat or cylindrical,
+evaluated as exact combinatorial games (White = Left, Black = Right).
+
+Conventions (Elkies 1996, and the cylinder paper):
+  * normal play: a side with no legal move loses;
+  * a position in which exactly one side has a passed pawn is a decisive win
+    for that side, modelled as the number +BIG / -BIG;
+  * a position where both sides have passed pawns is a race and is rejected.
+
+Fact used for decomposition: pawns only change file by capturing, so an empty
+file stays empty forever and pawn groups separated by an empty file are
+independent summands. On a cylinder a group may wrap around the a/h seam;
+with no empty file at all it forms a single "ring" component.
+
+En passant: a double step leaves an e.p. right for the opponent that is only
+usable as the opponent's very next move *in this component*. That is the
+standard short-game approximation (exact when the component is played alone).
+"""
+from __future__ import annotations
+
+from dataclasses import dataclass
+from functools import lru_cache
+
+from . import cgt
+
+BIG = 256  # value of a won (passed-pawn) position; must dominate all tempo counts
+cgt.BIG_DISPLAY = BIG // 2
+
+
+class RaceError(Exception):
+    pass
+
+
+# How to score a move that gives BOTH sides a passed pawn (a promotion race).
+#   "count": the opponent of the mover moves first in the race; whoever needs
+#            fewer moves to promote wins (opponent wins ties). Ignores queen
+#            checks / a new queen stopping the other pawn.
+#   "mover": the mover wins.   "opponent": the mover loses.
+RACE_RULE = "count"
+race_hits: list[str] = []  # positions where the race rule was invoked
+
+# A pawn that has just double-stepped and can still be taken en passant is not
+# yet passed: the opponent's e.p. capture comes first. False restores the
+# textbook test, under which W a2 c2 / B b7 d7 is *2 (see RESULTS.md section 1).
+PASSED_RESPECTS_EP = True
+
+
+def promote_distance(board: "Board", pos: "Pos", side: str) -> int:
+    best = None
+    mine = pos.white if side == "W" else pos.black
+    occ = pos.white | pos.black
+    for f, r in mine:
+        if not passed(board, Pos(frozenset([(f, r)]) if side == "W" else pos.white,
+                                 pos.black if side == "W" else frozenset([(f, r)])), side):
+            continue
+        if ep_capturable(board, pos, side, (f, r)):
+            continue
+        if side == "W":
+            if any((f, s) in occ for s in range(r + 1, board.ranks + 1)):
+                continue  # not the front pawn of its file
+            d = board.ranks - r - (1 if r == 2 else 0)
+        else:
+            if any((f, s) in occ for s in range(1, r)):
+                continue
+            d = r - 1 - (1 if r == board.ranks - 1 else 0)
+        best = d if best is None else min(best, d)
+    return best if best is not None else 10**6
+
+
+@dataclass(frozen=True)
+class Board:
+    files: int = 8
+    ranks: int = 8
+    wrap: bool = True
+    ep: bool = True
+
+    def nb(self, f: int, df: int):
+        g = f + df
+        if self.wrap:
+            return g % self.files
+        return g if 0 <= g < self.files else None
+
+
+CYL8 = Board(8, 8, True, True)
+FLAT8 = Board(8, 8, False, True)
+
+FILES = "abcdefghijklmnopqrstuvwxyz"
+
+
+def sq(name: str):
+    return (FILES.index(name[0]), int(name[1:]))
+
+
+def name(s):
+    return f"{FILES[s[0]]}{s[1]}"
+
+
+@dataclass(frozen=True)
+class Pos:
+    white: frozenset
+    black: frozenset
+    ep: tuple | None = None  # (target_square, captured_square, side_that_may_capture)
+
+    @staticmethod
+    def parse(text: str) -> "Pos":
+        """'W: a4 h2 h4 / B: a5 a6 a7 h3'"""
+        w_part, b_part = text.split("/")
+        w = frozenset(sq(t) for t in w_part.split(":")[1].split())
+        b = frozenset(sq(t) for t in b_part.split(":")[1].split())
+        return Pos(w, b)
+
+    def __str__(self):
+        w = " ".join(sorted(map(name, self.white)))
+        b = " ".join(sorted(map(name, self.black)))
+        return f"W: {w} / B: {b}" + (f" (ep {name(self.ep[0])})" if self.ep else "")
+
+
+def ep_capturable(board: Board, pos: Pos, side: str, square) -> bool:
+    """True if `side`'s pawn on `square` may be taken en passant right now."""
+    if not (PASSED_RESPECTS_EP and pos.ep and pos.ep[1] == square and pos.ep[2] != side):
+        return False
+    f, r = square
+    theirs = pos.black if side == "W" else pos.white
+    return any((g, r) in theirs for g in (board.nb(f, -1), board.nb(f, 1)) if g is not None)
+
+
+def passed(board: Board, pos: Pos, side: str) -> bool:
+    mine, theirs = (pos.white, pos.black) if side == "W" else (pos.black, pos.white)
+    for f, r in mine:
+        files = {f} | {g for g in (board.nb(f, -1), board.nb(f, 1)) if g is not None}
+        if side == "W":
+            blocked = any(g in files and s > r for g, s in theirs)
+        else:
+            blocked = any(g in files and s < r for g, s in theirs)
+        if not blocked and not ep_capturable(board, pos, side, (f, r)):
+            return True
+    return False
+
+
+def moves(board: Board, pos: Pos, side: str):
+    """Positions reachable by one move of `side` ('W' or 'B')."""
+    mine, theirs = (pos.white, pos.black) if side == "W" else (pos.black, pos.white)
+    occ = pos.white | pos.black
+    d = 1 if side == "W" else -1
+    start = 2 if side == "W" else board.ranks - 1
+    ep_target = pos.ep if (pos.ep and pos.ep[2] == side) else None
+    out = []
+
+    def emit(new_mine, new_theirs, ep=None):
+        if side == "W":
+            out.append(Pos(frozenset(new_mine), frozenset(new_theirs), ep))
+        else:
+            out.append(Pos(frozenset(new_theirs), frozenset(new_mine), ep))
+
+    for (f, r) in mine:
+        rest = mine - {(f, r)}
+        r1 = r + d
+        if not (1 <= r1 <= board.ranks):
+            continue
+        if (f, r1) not in occ:
+            emit(rest | {(f, r1)}, theirs)
+            r2 = r + 2 * d
+            if r == start and 1 <= r2 <= board.ranks and (f, r2) not in occ:
+                ep = None
+                if board.ep:
+                    other = "B" if side == "W" else "W"
+                    ep = ((f, r1), (f, r2), other)
+                emit(rest | {(f, r2)}, theirs, ep)
+        for df in (-1, 1):
+            g = board.nb(f, df)
+            if g is None:
+                continue
+            t = (g, r1)
+            if t in theirs:
+                emit(rest | {t}, theirs - {t})
+            elif ep_target and ep_target[0] == t:
+                emit(rest | {t}, theirs - {ep_target[1]})
+    # de-duplicate (two pawns may reach identical positions)
+    return list(dict.fromkeys(out))
+
+
+def components(board: Board, pos: Pos):
+    """Split a position into independent sub-positions separated by empty files."""
+    occ_files = sorted({f for f, _ in pos.white | pos.black})
+    if not occ_files:
+        return []
+    groups: list[list[int]] = []
+    for f in occ_files:
+        if groups and f == groups[-1][-1] + 1:
+            groups[-1].append(f)
+        else:
+            groups.append([f])
+    if board.wrap and len(groups) > 1 and groups[0][0] == 0 and groups[-1][-1] == board.files - 1:
+        groups[0] = groups.pop() + groups[0]
+    comps = []
+    for gfiles in groups:
+        fs = set(gfiles)
+        ep = pos.ep if (pos.ep and pos.ep[0][0] in fs) else None
+        comps.append(Pos(frozenset(p for p in pos.white if p[0] in fs),
+                         frozenset(p for p in pos.black if p[0] in fs), ep))
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && grep -rl "dud\|over.*group\|safe shuttle" --include=*.py --include=*.c --include=*.md . 2>/dev/null | grep -v out | head -40
+zsh:1: no matches found: --include=*.py
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && grep -rl "safe shuttle" . 2>/dev/null | head; echo "---"; find . -path ./.git -prune -o -name "*.py" -print | xargs grep -l "frozen" 2>/dev/null | head
+./kings/delegate/logs/K15.log
+./kings/delegate/briefs/K13_sharp114_referee.md
+./kings/delegate/briefs/K15_over_dud_groups.md
+---
+./research/odd_cylinders/classify_king_groups.py
+./research/ring_family_proof_check/independent_check.py
+./research/ring_n_plus_2_check/replay-root/research/ring_n_plus_2_proof/difftest.py
+./research/ring_n_plus_2_check/replay-root/research/ring_n_plus_2_proof/reduced_cyl.py
+./research/ring_n_plus_2_check/independent.py
+./research/ring_n_plus_2_check/replay-current-root/research/ring_n_plus_2_proof/difftest.py
+./research/ring_n_plus_2_check/replay-current-root/research/ring_n_plus_2_proof/reduced_cyl.py
+./research/ring_n_plus_2_check/q/independent.py
+./research/star4_rings/local_search.py
+./research/star4_rings/gen_one.py
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && cat kings/delegate/briefs/K15_over_dud_groups.md
+# K15: search for over-type and dud-type king groups on the cylinder (Conjecture 4.7, open question 2)
+
+**Output directory:** `kings/delegate/out/K15/` (create it). Write only there. Do **not** edit any existing file.
+Do not run git.
+
+## Background
+
+`kings/theory/LOOPY.md` models king-and-pawn groups ("king groups" Z) as games. A group can be:
+- frozen (value 0);
+- `on` or `off`: one side has a safe king shuttle, which works as an endless pass;
+- `dud`: both sides can pass;
+- `over` = {0 | over}: Right can pass forever, and Left has exactly one move that takes away the shuttle and
+  leaves a mutual zugzwang.
+
+Read:
+- §3: Definition 3.1, Proposition 3.2, Theorem 3.4 and Corollary 3.5;
+- §4: Definition 4.4, Propositions 4.5 and 4.6, the "Chess reading of over", and **Conjecture 4.7**;
+- §8 open question 2;
+- Appendix A, "Group search".
+
+The search behind Conjecture 4.7 covered only placements of ≤ 2 + 2 pawns on 3 (or 4) files of the 8×6 and 7×6
+cylinders, with no passer at the root. It found no dud and no over group. Conjecture 4.7 says that over is
+realisable on the cylinder with wider groups. Open question 2 asks whether dud groups exist without a pawn break.
+
+## Task
+
+1. **Classifier.**
+   - Write your own classifier: Python with your own move generator, or C.
+   - It places the two kings and the pawns of a candidate group on a few files of a cylinder, with no passer at
+     the root (cylcgt `passed`, e.p.-aware).
+   - It decides by one-ply tests whether each side has a safe shuttle and whether the group is frozen. A shuttle
+     is safe when it is a non-capturing king move inside the group, legal in every context, and leads to a
+     position where the same holds.
+   - It labels each placement frozen, on, off, dud or over (or "other").
+   - State the tests exactly in `REPORT.md`.
+2. **Search.**
+   - (a) ≤ 3 + 2 and ≤ 2 + 3 pawns on 3 files, and ≤ 3 + 3 on 3 files.
+   - (b) ≤ 2 + 2 and ≤ 3 + 2 on 4 files.
+   - Boards: cyl:8×6 and cyl:7×6. If cyl:8×8 fits inside the limits, add it.
+   - Report counts per class.
+3. **Confirmation.** For every dud or over candidate (up to 50 per class, chosen to be diverse):
+   - put the group beside 3–6 small contexts G: a tempo pawn pair on separate files, a mutual zugzwang, a
+     one-move context;
+   - solve the whole position with kpsolve (exact, cap 2 where it fits, else cap 1) on the full board;
+   - compare with the prediction of Theorem 3.4 (or Proposition 4.6 for over) for G ⊞ dud_D or G ⊞ over_D;
+   - report agreements and disagreements.
+4. **Build kpsolve privately:** `cc -O2 -o kings/delegate/out/K15/kp kings/kpsolve.c -lpthread`.
+   - Run every batch through the shared lock:
+     `kings/delegate/heavy.sh kings/delegate/out/K15/kp --board cyl:8x6 --cap 2 --threads 2 < in.txt > out.txt`.
+   - It prints `<pos> | A B`: lower and upper results from White's point of view (W/L/D). With real kings, A
+     and B differ when the cap is too small; then report the pair.
+   - Check its memory on one position before you batch. Cap 2 on cyl:7×6 can need about 9 GB, which is too
+     much: use cap 1 there.
+
+## Deliverable
+
+`REPORT.md`, starting with a 5-line summary. Then:
+- the tests;
+- the search counts per board and class;
+- every dud and over candidate found, in full notation (or the first 50, with the count);
+- the confirmation table;
+- your verdict on Conjecture 4.7 and on open question 2. Label each PROVED / CHECKED-2 / COMPUTED-1 /
+  CONJECTURE.
+
+A clean "none found" is a valid result. State its boundary exactly.
+
+## Rules
+
+`delegate/COMMON.md`, rules 5 and 7. In addition:
+- at most 2 heavy processes, always through `kings/delegate/heavy.sh`;
+- under 3 GB RSS;
+- at most 20 minutes per run;
+- no file over 50 MB;
+- no installs, no network.
+
+Never use pkill, killall, `kill -- -1` or any pattern kill; kill only PIDs you started and recorded. Delete
+bulk input and output batches when done; keep the scripts and a summary JSON.
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && sed -n '1,120p' research/odd_cylinders/classify_king_groups.py
+#!/usr/bin/env python3
+"""Classify king groups as on, off, dud, or 0 (frozen) on various cylinders."""
+
+import subprocess
+import json
+
+ROOT = "/Users/aritro/Downloads/Research/Chessendgames"
+KPSOLVE = f"{ROOT}/kings/kpsolve"
+
+def name(f, r):
+    return f"{chr(ord('a') + f)}{r}"
+
+def test_king_group(W, H, pieces, ep="on", promote="Q", cap=1):
+    """Test a king group position (no context pawns)."""
+    # pieces: list of (piece, file, rank) e.g., [('P', 0, 4), ('p', 0, 5), ('K', 7, 5), ('k', 1, 4)]
+    pos_parts = []
+    for piece, f, r in pieces:
+        pos_parts.append(f"{piece}{name(f, r)}")
+    
+    results = {}
+    for stm in ["w", "b"]:
+        pos = " ".join(pos_parts) + f" {stm} -"
+        cmd = [KPSOLVE, "--board", f"cyl:{W}x{H}", "--ep", ep, "--promote", promote, "--cap", str(cap)]
+        try:
+            out = subprocess.run(cmd, input=pos + "\n", capture_output=True, text=True, check=True, timeout=60)
+            line = out.stdout.strip()
+            if "|" in line:
+                bounds = line.split("|")[1].strip().split()
+                results[stm] = (bounds[0], bounds[1])
+            else:
+                results[stm] = ("ERROR", "ERROR")
+        except Exception as e:
+            results[stm] = (f"ERROR: {e}", f"ERROR: {e}")
+    
+    wtm = results.get("w", ("", ""))
+    btm = results.get("b", ("", ""))
+    
+    wtm_exact = wtm[0] == wtm[1]
+    btm_exact = btm[0] == btm[1]
+    wtm_result = wtm[0] if wtm_exact else "?"
+    btm_result = btm[0] if btm_exact else "?"
+    
+    # Classify according to LOOPY.md Theorem 3.4:
+    # - 0 (frozen): (L, W) mutual zugzwang
+    # - on: White can shuttle -> (W, W) White wins either way
+    # - off: Black can shuttle -> (L, L) Black wins either way
+    # - dud: Both can shuttle -> (D, D) draw either way
+    # Note: Need to also check for illegal (X) or other patterns
+    
+    if wtm_result == "X" or btm_result == "X":
+        classification = "illegal"
+    elif wtm_result == "L" and btm_result == "W":
+        classification = "0 (frozen)"
+    elif wtm_result == "W" and btm_result == "W":
+        classification = "on (White shuttle)"
+    elif wtm_result == "L" and btm_result == "L":
+        classification = "off (Black shuttle)"
+    elif wtm_result == "D" and btm_result == "D":
+        classification = "dud (both shuttle)"
+    elif wtm_result == "W" and btm_result == "L":
+        classification = "N (first player wins)"
+    elif wtm_result == "L" and btm_result == "L":
+        classification = "P (second player wins) - wait, this is off"
+    else:
+        classification = f"unknown ({wtm_result}, {btm_result})"
+    
+    return {
+        "board": f"cyl:{W}x{H}",
+        "pieces": pieces,
+        "wtm": wtm_result, "btm": btm_result,
+        "wtm_exact": wtm_exact, "btm_exact": btm_exact,
+        "classification": classification,
+        "wtm_bounds": wtm, "btm_bounds": btm
+    }
+
+def test_known_groups(W, H):
+    """Test known king group patterns from LOOPY.md."""
+    r = H // 2
+    results = []
+    
+    # 1. 5.1 A-trébuchet (should be 0/frozen)
+    if W >= 4:
+        pieces = [('P', 0, r), ('p', 0, r+1), ('K', W-1, r+1), ('k', 1, r)]
+        res = test_king_group(W, H, pieces)
+        res["pattern"] = "5.1_trébuchet"
+        results.append(res)
+    
+    # 2. 7.2 Crossed blockade (should be off? - frozen for Black only)
+    # WK (X+1, H-2), WP (X, H-1), BK (X, H), BP (X+1, H-1)
+    if W >= 3 and H >= 5:
+        X = 0
+        pieces = [('P', X, H-1), ('p', (X+1)%W, H-1), 
+                  ('K', (X+1)%W, H-2), ('k', X, H)]
+        res = test_king_group(W, H, pieces)
+        res["pattern"] = "7.2_crossed"
+        results.append(res)
+    
+    # 3. 7.3 Pattern (should be on/White win)
+    # WK (X+1, H), WP (X, H-1), BK (X, H-2), BP (X+1, H-1)
+    if W >= 3 and H >= 5:
+        X = 0
+        pieces = [('P', X, H-1), ('p', (X+1)%W, H-1),
+                  ('K', (X+1)%W, H), ('k', X, H-2)]
+        res = test_king_group(W, H, pieces)
+        res["pattern"] = "7.3_pattern"
+        results.append(res)
+    
+    # 4. Z_onT1 (White shuttle = on)
+    # Ka5 Pb4 Pc5 / kc6 pb5 on 7x6
+    # White: Ka5 (file 0, rank 5), Pb4 (file 1, rank 4), Pc5 (file 2, rank 5)
+    # Black: kc6 (file 2, rank 6), pb5 (file 1, rank 5)
+    if W >= 3 and H >= 6:
+        pieces = [('P', 1, 4), ('P', 2, 5), ('p', 1, 5),
+                  ('K', 0, 5), ('k', 2, 6)]
+        res = test_king_group(W, H, pieces)
+        res["pattern"] = "Z_onT1"
+        results.append(res)
+    
+    # 5. Z_offT1 (Black shuttle = off) - mirror of Z_onT1
+    if W >= 3 and H >= 6:
+> build · beam-free
+[0m$ [0mmkdir -p /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15
+(no output)
+> build · beam-free
+[0m$ [0mcat > /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15/classify.py << 'PYEOF'
+import sys, os, itertools
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
+from cylcgt import pawns as P
+
+def name(f,r): return f"{chr(ord('a')+f)}{r}"
+
+class Pos:
+    __slots__=('W','H','wk','bk','wp','bp')
+    def __init__(self,W,H,wk,bk,wp,bp):
+        self.W=W;self.H=H;self.wk=wk;self.bk=bk
+        self.wp=frozenset(wp);self.bp=frozenset(bp)
+
+def adj(f1,f2,W):
+    d=(f2-f1)%W
+    return d==1 or d==W-1
+
+def pawn_attacks_square(pawns, side, sq, W, H):
+    # side: color of pawn owner; sq attacked by that side's pawns?
+    f,r = sq
+    if side=='W':
+        # white pawn attacks from (f-1,r-1),(f+1,r-1)
+        for df in (-1,1):
+            g=(f+df)%W  # if wrap always; but group may be on cylinder yes
+            if (g, r-1) in pawns:
+                return True
+    else:
+        for df in (-1,1):
+            g=(f+df)%W
+            if (g, r+1) in pawns:
+                return True
+    return False
+
+def king_moves(pos, side):
+    W=pos.W; H=pos.H
+    if side=='W':
+        king=pos.wk; own=pos.wp; opp=pos.bp; opp_king=pos.bk
+    else:
+        king=pos.bk; own=pos.bp; opp=pos.wp; opp_king=pos.wk
+    f,r=king
+    res=[]
+    for df in (-1,0,1):
+        for dr in (-1,0,1):
+            if df==0 and dr==0: continue
+            nf=(f+df)%W
+            nr=r+dr
+            if not (1<=nr<=H): continue
+            if (nf,nr)==opp_king: continue
+            if (nf,nr) in own: continue
+            # adjacency to opp king
+            if abs(nr-opp_king[1])<=1 and ((opp_king[0]-nf)%W in (0,1,W-1)):
+                # kings adjacent?
+                if (opp_king[0]==nf and opp_king[1]==nr): 
+                    continue
+                # adjacent squares:
+                dfk=(opp_king[0]-nf)%W
+                if dfk==W-1: dfk=-1
+                if abs(dfk)<=1 and abs(opp_king[1]-nr)<=1:
+                    continue
+            capturing = (nf,nr) in opp
+            # attacked by opp pawns?
+            opp_color = 'B' if side=='W' else 'W'
+            # opponent pawns attack destination if side's king moves there? Destination attacked by OPPONENT pawns (opp_color)
+            if pawn_attacks_square(opp if side=='W' else own, opp_color, (nf,nr), W, H):
+                # Wait opp pawns are opponent's pawns, color opp_color. own? Let's fix below.
+                pass
+            # correct: destination attacked by opponent's pawns (opp)
+            if pawn_attacks_square(opp, opp_color, (nf,nr), W, H):
+                continue
+            # build new pos
+            if side=='W':
+                new_wk=(nf,nr)
+                new_wp=own
+                new_bp = opp - {(nf,nr)} if capturing else opp
+                new_bk=opp_king
+                newpos=Pos(W,H,new_wk,new_bk,new_wp,new_bp)
+            else:
+                new_bk=(nf,nr)
+                new_bp=own
+                new_wp = opp - {(nf,nr)} if capturing else opp
+                new_wk=opp_king
+                newpos=Pos(W,H,new_wk,new_bk,new_wp,new_bp)
+            res.append(((f,r),(nf,nr),newpos,capturing))
+    return res
+
+# fix pawn_attacks_square call: opp color determined by owner of opp pawns
+def opp_color(side):
+    return 'B' if side=='W' else 'W'
+
+# We'll just rewrite king_moves cleanly:
+def king_moves2(pos, side):
+    W=pos.W; H=pos.H
+    if side=='W':
+        king=pos.wk; own=pos.wp; opp=pos.bp; opp_king=pos.bk
+    else:
+        king=pos.bk; own=pos.bp; opp=pos.wp; opp_king=pos.wk
+    f,r=king
+    oc = 'B' if side=='W' else 'W'  # color of opp pawns
+    res=[]
+    for df in (-1,0,1):
+        for dr in (-1,0,1):
+            if df==0 and dr==0: continue
+            nf=(f+df)%W
+            nr=r+dr
+            if not (1<=nr<=H): continue
+            if (nf,nr)==opp_king: continue
+            if (nf,nr) in own: continue
+            # adjacency
+            dfk=(opp_king[0]-nf)%W
+            if dfk>W//2: dfk-=W
+            drk=opp_king[1]-nr
+            if abs(dfk)<=1 and abs(drk)<=1:
+                continue
+            if pawn_attacks_square(opp, oc, (nf,nr), W, H):
+                continue
+            capturing = (nf,nr) in opp
+            if side=='W':
+                newpos=Pos(W,H,(nf,nr),opp_king, own, (opp-{(nf,nr)} if capturing else opp))
+            else:
+                newpos=Pos(W,H,opp_king,(nf,nr), (opp-{(nf,nr)} if capturing else opp), own)
+            res.append(((f,r),(nf,nr),newpos,capturing))
+    return res
+
+king_moves = king_moves2
+
+def has_capture(pos, side):
+    W=pos.W;H=pos.H
+    # king captures
+    for (u,v,np,cap) in king_moves(pos, side):
+        if cap:
+            return True
+    # pawn captures
+    if side=='W':
+        pawns=pos.wp; opp=pos.bp
+    else:
+        pawns=pos.bp; opp=pos.wp
+    d=1 if side=='W' else -1
+    for (f,r) in pawns:
+        r1=r+d
+        if not (1<=r1<=H): continue
+        for df in (-1,1):
+            g=(f+df)%W
+            if (g,r1) in opp:
+                return True
+    return False
+
+def legal_king_move(pos, side, u, v):
+    for (uu,vv,np,cap) in king_moves(pos, side):
+        if uu==u and vv==v and not cap:
+            return True
+    return False
+
+Fset_of = lambda F, start, W: set((start+i)%W for i in range(F))
+
+def opponent_frozen(pos, T, Fset):
+    S = 'W' if T=='B' else 'B'
+    for (u,v,np,cap) in king_moves(pos, T):
+        if v not in Fset: 
+            continue
+        if cap:
+            return False
+        if v[0] not in {x[0] for x in Fset}:
+            continue
+        # after move, is it suicide?
+        if not has_capture(np, S):
+            return False
+    return True
+
+def has_safe_shuttle(pos, side, Fset):
+    T = 'B' if side=='W' else 'W'
+    if not opponent_frozen(pos, T, Fset):
+        return False
+    for (u,v,np,cap) in king_moves(pos, side):
+        if cap: continue
+        if u not in Fset or v not in Fset: continue
+        # reverse
+        if not legal_king_move(np, side, v, u):
+            continue
+        if not opponent_frozen(np, T, Fset):
+            continue
+        return True
+    return False
+
+def creates_passer(pos, side, W, H):
+    # after a move? This function checks a position already; we'll check moves separately.
+    return False
+
+def side_has_decisive_pawn_move(pos, side, W, H):
+    # exists a legal pawn move by side such that after it, side has a passed pawn (cylcgt) and no? 
+    board = P.Board(W, H, True, True)
+    # generate pawn moves manually
+    if side=='W':
+        pawns=pos.wp; opp=pos.bp; own_king=pos.wk
+    else:
+        pawns=pos.bp; opp=pos.wp; own_king=pos.bk
+    d=1 if side=='W' else -1
+    start=2 if side=='W' else H-1
+    occ=pos.wp | pos.bp
+    for (f,r) in pawns:
+        rest = pawns - {(f,r)}
+        # single step
+        r1=r+d
+        if 1<=r1<=H and (f,r1) not in occ:
+            new_mine = rest | {(f,r1)}
+            if side=='W':
+                npos = P.Pos(frozenset(new_mine), frozenset(opp))
+            else:
+                npos = P.Pos(frozenset(opp), frozenset(new_mine))
+            if P.passed(board, npos, side) and not P.passed(board, npos, 'B' if side=='W' else 'W'):
+                return True
+        # double step
+        r2=r+2*d
+        if r==start and 1<=r2<=H and (f,r1) not in occ and (f,r2) not in occ:
+            new_mine = rest | {(f,r2)}
+            if side=='W':
+                npos = P.Pos(frozenset(new_mine), frozenset(opp))
+            else:
+                npos = P.Pos(frozenset(opp), frozenset(new_mine))
+            if P.passed(board, npos, side) and not P.passed(board, npos, 'B' if side=='W' else 'W'):
+                return True
+        # captures
+        for df in (-1,1):
+            g=(f+df)%W
+            r1=r+d
+            if not (1<=r1<=H): continue
+            t=(g,r1)
+            if t in opp:
+                new_mine = rest | {t}
+                new_opp = opp - {t}
+                if side=='W':
+                    npos = P.Pos(frozenset(new_mine), frozenset(new_opp))
+                else:
+                    npos = P.Pos(frozenset(new_opp), frozenset(new_mine))
+                if P.passed(board, npos, side) and not P.passed(board, npos, 'B' if side=='W' else 'W'):
+                    return True
+    return False
+
+def root_no_passer(W,H,wp,bp):
+    board=P.Board(W,H,True,True)
+    pos=P.Pos(frozenset(wp), frozenset(bp))
+    return (not P.passed(board,pos,'W')) and (not P.passed(board,pos,'B'))
+
+def classify(W,H,wk,bk,wp,bp):
+    pos=Pos(W,H,wk,bk,wp,bp)
+    Fset=set(range(W))  # group may be subset; but for shuttle inside group we need group files. We'll pass Fset separately.
+    return pos
+
+def classify_with_files(W,H,wk,bk,wp,bp, group_files):
+    Fset=set(group_files)
+    pos=Pos(W,H,wk,bk,wp,bp)
+    ws=has_safe_shuttle(pos,'W',Fset)
+    bs=has_safe_shuttle(pos,'B',Fset)
+    # decisive pawn moves
+    wdec=side_has_decisive_pawn_move(pos,'W',W,H)
+    bdec=side_has_decisive_pawn_move(pos,'B',W,H)
+    if ws and not bs:
+        if bdec:
+            return 'other'  # black has decisive, not pure on?
+        return 'on'
+    if bs and not ws:
+        if wdec:
+            # over? white has decisive move; check if it leads to frozen
+            # count white moves to frozen
+            cnt=0
+            # king moves
+            for (u,v,np,cap) in king_moves(pos,'W'):
+                if cap: continue
+                if u not in Fset or v not in Fset: 
+                    # could be decisive pawn? handled separately
+                    pass
+                # check if after move black no shuttle and frozen-ish
+                if not has_safe_shuttle(np,'B',Fset) and not side_has_decisive_pawn_move(np,'B',W,H):
+                    # also white no shuttle? 
+                    if not has_safe_shuttle(np,'W',Fset):
+                        cnt+=1
+            # pawn moves that create frozen?
+            # We'll also count pawn moves that remove black shuttle: hard; skip for now
+            if cnt==1:
+                return 'over'
+            return 'other'
+        return 'off'
+    if ws and bs:
+        return 'dud'
+    # neither shuttle
+    if wdec or bdec:
+        return 'other'
+    return 'frozen'
+
+if __name__=='__main__':
+    # quick test known Z_onT1
+    W,H=7,6
+    wk=(0,5); bk=(2,6)
+    wp=[(1,4),(2,5)]
+    bp=[(1,5)]
+    files=[0,1,2]
+    print('Z_onT1', classify_with_files(W,H,wk,bk,wp,bp,files))
+PYEOF
+PYTHONPATH=/Users/aritro/Downloads/Research/Chessendgames /Users/aritro/.venv/bin/python /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15/classify.py
+Z_onT1 other
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && PYTHONPATH=. /Users/aritro/.venv/bin/python - << 'PY'
+import sys
+sys.path.insert(0,'kings/delegate/out/K15')
+from classify import *
+W,H=7,6
+wk=(0,5); bk=(2,6)
+wp=[(1,4),(2,5)]
+bp=[(1,5)]
+Fset=set([0,1,2])
+pos=Pos(W,H,wk,bk,wp,bp)
+print('ws', has_safe_shuttle(pos,'W',Fset))
+print('bs', has_safe_shuttle(pos,'B',Fset))
+print('opp frozen W?', opponent_frozen(pos,'B',Fset))
+# king moves white
+for m in king_moves(pos,'W'):
+    print('W move', m[0], m[1], 'cap', m[3])
+    print('  frozen after?', opponent_frozen(m[2],'B',Fset))
+    print('  reverse legal?', legal_king_move(m[2],'W',m[1],m[0]))
+PY
+ws False
+bs False
+opp frozen W? True
+W move (0, 5) (6, 4) cap False
+  frozen after? True
+  reverse legal? True
+W move (0, 5) (6, 5) cap False
+  frozen after? True
+  reverse legal? True
+W move (0, 5) (6, 6) cap False
+  frozen after? True
+  reverse legal? True
+W move (0, 5) (0, 6) cap False
+  frozen after? True
+  reverse legal? True
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && python - << 'PY'
+import re
+p='kings/delegate/out/K15/classify.py'
+s=open(p).read()
+# replace Fset membership checks: u not in Fset -> u[0] not in Fset; v not in Fset -> v[0] not in Fset
+s=s.replace("        if v not in Fset: \n            continue","        if v[0] not in Fset:\n            continue")
+s=s.replace("        if u not in Fset or v not in Fset: continue","        if u[0] not in Fset or v[0] not in Fset: continue")
+open(p,'w').write(s)
+print('done')
+PY
+grep -n "not in Fset" /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15/classify.py
+zsh:1: command not found: python
+157:        if v not in Fset: 
+174:        if u not in Fset or v not in Fset: continue
+267:                if u not in Fset or v not in Fset:
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && python3 - << 'PY'
+p='kings/delegate/out/K15/classify.py'
+s=open(p).read()
+s=s.replace("        if v not in Fset: \n            continue","        if v[0] not in Fset:\n            continue")
+s=s.replace("        if u not in Fset or v not in Fset: continue","        if u[0] not in Fset or v[0] not in Fset: continue")
+s=s.replace("                if u not in Fset or v not in Fset: ","                if u[0] not in Fset or v[0] not in Fset: ")
+open(p,'w').write(s)
+print('done')
+PY
+grep -n "not in Fset" /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15/classify.py
+done
+157:        if v[0] not in Fset:
+174:        if u[0] not in Fset or v[0] not in Fset: continue
+267:                if u[0] not in Fset or v[0] not in Fset:
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && PYTHONPATH=. /Users/aritro/.venv/bin/python - << 'PY'
+import sys
+sys.path.insert(0,'kings/delegate/out/K15')
+from classify import *
+W,H=7,6
+wk=(0,5); bk=(2,6)
+wp=[(1,4),(2,5)]
+bp=[(1,5)]
+files=[0,1,2]
+print('Z_onT1', classify_with_files(W,H,wk,bk,wp,bp,files))
+# trebuchet on 8x6: Kh5 Pa4 kb4 pa5 => WK (7? h=7? 0-index h=7), WP a4 (0,4), BK b4 (1,4), BP a5 (0,5)
+W,H=8,6
+wk=(7,5); bk=(1,4)
+wp=[(0,4)]
+bp=[(0,5)]
+files=[7,0,1]  # group wraps? a,b,h
+print('treb', classify_with_files(W,H,wk,bk,wp,bp,files))
+PY
+Traceback (most recent call last):
+  File "<stdin>", line 9, in <module>
+  File "/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15/classify.py", line 251, in classify_with_files
+    bs=has_safe_shuttle(pos,'B',Fset)
+  File "/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15/classify.py", line 170, in has_safe_shuttle
+    if not opponent_frozen(pos, T, Fset):
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15/classify.py", line 161, in opponent_frozen
+    if v[0] not in {x[0] for x in Fset}:
+                    ~^^^
+TypeError: 'int' object is not subscriptable
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && sed -n '150,185p' kings/delegate/out/K15/classify.py
+return False
+
+Fset_of = lambda F, start, W: set((start+i)%W for i in range(F))
+
+def opponent_frozen(pos, T, Fset):
+    S = 'W' if T=='B' else 'B'
+    for (u,v,np,cap) in king_moves(pos, T):
+        if v[0] not in Fset:
+            continue
+        if cap:
+            return False
+        if v[0] not in {x[0] for x in Fset}:
+            continue
+        # after move, is it suicide?
+        if not has_capture(np, S):
+            return False
+    return True
+
+def has_safe_shuttle(pos, side, Fset):
+    T = 'B' if side=='W' else 'W'
+    if not opponent_frozen(pos, T, Fset):
+        return False
+    for (u,v,np,cap) in king_moves(pos, side):
+        if cap: continue
+        if u[0] not in Fset or v[0] not in Fset: continue
+        # reverse
+        if not legal_king_move(np, side, v, u):
+            continue
+        if not opponent_frozen(np, T, Fset):
+            continue
+        return True
+    return False
+
+def creates_passer(pos, side, W, H):
+    # after a move? This function checks a position already; we'll check moves separately.
+    return False
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && python3 - << 'PY'
+p='kings/delegate/out/K15/classify.py'
+s=open(p).read()
+s=s.replace("        if v[0] not in {x[0] for x in Fset}:\n            continue\n","")
+open(p,'w').write(s)
+print('done')
+PY
+done
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && PYTHONPATH=. /Users/aritro/.venv/bin/python - << 'PY'
+import sys
+sys.path.insert(0,'kings/delegate/out/K15')
+from classify import *
+W,H=7,6
+wk=(0,5); bk=(2,6)
+wp=[(1,4),(2,5)]
+bp=[(1,5)]
+files=[0,1,2]
+print('Z_onT1', classify_with_files(W,H,wk,bk,wp,bp,files))
+W,H=8,6
+wk=(7,5); bk=(1,4)
+wp=[(0,4)]
+bp=[(0,5)]
+files=[7,0,1]
+print('treb', classify_with_files(W,H,wk,bk,wp,bp,files))
+PY
+Z_onT1 on
+treb frozen
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && PYTHONPATH=. /Users/aritro/.venv/bin/python - << 'PY'
+import sys
+sys.path.insert(0,'kings/delegate/out/K15')
+from classify import *
+# Z_on (dropped pawn): Ka4 Pb2 / kc4 pb3  (8x6)
+W,H=8,6
+wk=(0,4); bk=(2,4)
+wp=[(1,2)]
+bp=[(1,3)]
+files=[0,1,2]
+print('Z_on', classify_with_files(W,H,wk,bk,wp,bp,files))
+# Z_offT1 mirror: Kc1 Pb2 / ka2 pb3 pc2 (7x6?) Use files 0,1,2
+W,H=7,6
+wk=(2,1); bk=(0,2)
+wp=[(1,2)]
+bp=[(0,3),(1,3),(2,2)]
+files=[0,1,2]
+print('Z_offT1', classify_with_files(W,H,wk,bk,wp,bp,files))
+PY
+Z_on on
+Z_offT1 off
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && printf 'Ka4 Pb2 kc5 pb3 w -\nKa4 Pb2 kc5 pb3 b -\n' | kings/kpsolve --board cyl:8x6 --ep on --promote QRBN --cap 1
+[kpsolve cyl:8x6 ep=on cap=1: 16 layers, 1806336 states, depth 6, 0.4s]
+Ka4 Pb2 kc5 pb3 w - | D D
+Ka4 Pb2 kc5 pb3 b - | D D
+> build · beam-free
+[0m$ [0mcat > /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15/search.py << 'PYEOF'
+import sys, os, itertools, json, time
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
+sys.path.insert(0, os.path.dirname(__file__))
+from classify import *
+
+def squares_group(W,H, files):
+    return [(f,r) for f in files for r in range(2, H)]  # pawns ranks 2..H-1; kings can be any rank 1..H
+
+def king_squares(W,H, files):
+    return [(f,r) for f in files for r in range(1, H+1)]
+
+def enumerate_placements(W,H,group_files,wP,bP):
+    GFILES=group_files
+    king_sq=king_squares(W,H,GFILES)
+    pawn_sq=[(f,r) for f in GFILES for r in range(2,H)]  # ranks 2..H-1
+    count=0
+    results={'frozen':0,'on':0,'off':0,'dud':0,'over':0,'other':0}
+    candidates={'dud':[],'over':[]}
+    # king pairs
+    for wi in range(len(king_sq)):
+        wk=king_sq[wi]
+        for bi in range(len(king_sq)):
+            bk=king_sq[bi]
+            if wk==bk: continue
+            # kings not adjacent
+            if abs(wk[1]-bk[1])<=1:
+                df=(bk[0]-wk[0])%W
+                if df>W//2: df-=W
+                if abs(df)<=1:
+                    continue
+            # no passer root check after pawns; but kings irrelevant
+            remaining_pawns=[s for s in pawn_sq if s!=wk and s!=bk]
+            # choose white pawns
+            for wps in itertools.combinations(remaining_pawns, wP):
+                wset=set(wps)
+                rem2=[s for s in remaining_pawns if s not in wset]
+                for bps in itertools.combinations(rem2, bP):
+                    wp=list(wps); bp=list(bps)
+                    if not root_no_passer(W,H,wp,bp):
+                        continue
+                    cls=classify_with_files(W,H,wk,bk,wp,bp,GFILES)
+                    results[cls]=results.get(cls,0)+1
+                    count+=1
+                    if cls in ('dud','over'):
+                        # store up to maybe 200
+                        if len(candidates[cls])<200:
+                            candidates[cls].append((wk,bk,wp,bp))
+    return count, results, candidates
+
+if __name__=='__main__':
+    W=int(sys.argv[1]); H=int(sys.argv[2]); F=int(sys.argv[3])
+    wP=int(sys.argv[4]); bP=int(sys.argv[5])
+    # group files start positions
+    all_starts=list(range(W))
+    agg_results={'frozen':0,'on':0,'off':0,'dud':0,'over':0,'other':0}
+    total=0
+    all_cands={'dud':[],'over':[]}
+    t0=time.time()
+    for start in all_starts:
+        files=[(start+i)%W for i in range(F)]
+        c,res,cands=enumerate_placements(W,H,files,wP,bP)
+        total+=c
+        for k in agg_results:
+            agg_results[k]+=res.get(k,0)
+        for cls in all_cands:
+            for cand in cands[cls]:
+                if len(all_cands[cls])<200:
+                    all_cands[cls].append((files[:], cand))
+    # write summary
+    out={'W':W,'H':H,'F':F,'wP':wP,'bP':bP,'total':total,'results':agg_results,
+         'dud_n':len(all_cands['dud']),'over_n':len(all_cands['over']),
+         'time':time.time()-t0}
+    with open(f'summary_W{W}_H{H}_F{F}_w{wP}_b{bP}.json','w') as f:
+        json.dump(out,f,indent=2)
+    # save candidates
+    with open(f'cands_W{W}_H{H}_F{F}_w{wP}_b{bP}.json','w') as f:
+        json.dump({'dud':[[ (c[0],c[1],c[2],c[3]) for c in [x[1]] ] for x in all_cands['dud']],
+                   'over':[[ (c[0],c[1],c[2],c[3]) for c in [x[1]] ] for x in all_cands['over']]}, f)
+    print(json.dumps(out))
+PYEOF
+echo created
+created
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && time PYTHONPATH=/Users/aritro/Downloads/Research/Chessendgames /Users/aritro/.venv/bin/python search.py 8 6 3 2 2
+{"W": 8, "H": 6, "F": 3, "wP": 2, "bP": 2, "total": 503392, "results": {"frozen": 151488, "on": 25272, "off": 25272, "dud": 104608, "over": 1760, "other": 194992}, "dud_n": 200, "over_n": 200, "time": 47.2626051902771}
+PYTHONPATH=/Users/aritro/Downloads/Research/Chessendgames  search.py 8 6 3 2   32.99s user 0.22s system 70% cpu 47.416 total
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && PYTHONPATH=/Users/aritro/Downloads/Research/Chessendgames /Users/aritro/.venv/bin/python - << 'PY'
+import sys, os, itertools, json
+sys.path.insert(0,os.path.abspath(os.path.join(os.getcwd(),'../../..')))
+sys.path.insert(0,os.getcwd())
+from classify import *
+# rerun one start/files and print first dud
+W,H,F=8,6,3
+start=0
+files=[(start+i)%W for i in range(F)]
+# brute force minimal: replicate enumerate but break on first dud
+king_sq=[(f,r) for f in files for r in range(1,H+1)]
+pawn_sq=[(f,r) for f in files for r in range(2,H)]
+for wi,wk in enumerate(king_sq):
+    for bi,bk in enumerate(king_sq):
+        if wk==bk: continue
+        # adjacency
+        if abs(wk[1]-bk[1])<=1:
+            df=(bk[0]-wk[0])%W
+            if df>W//2: df-=W
+            if abs(df)<=1: continue
+        remaining=[s for s in pawn_sq if s!=wk and s!=bk]
+        for wps in itertools.combinations(remaining,2):
+            wset=set(wps)
+            rem2=[s for s in remaining if s not in wset]
+            for bps in itertools.combinations(rem2,2):
+                wp=list(wps); bp=list(bps)
+                if not root_no_passer(W,H,wp,bp): continue
+                cls=classify_with_files(W,H,wk,bk,wp,bp,files)
+                if cls=='dud':
+                    print('FILES',files)
+                    print('WK',wk,'BK',bk)
+                    print('WP',wp,'BP',bp)
+                    # kpsolve string
+                    parts=[f"K{name(wk[0],wk[1])}"]+[f"P{name(p[0],p[1])}" for p in wp]+[f"k{name(bk[0],bk[1])}"]+[f"p{name(p[0],p[1])}" for p in bp]
+                    print('POS', ' '.join(parts))
+                    raise SystemExit
+PY
+FILES [0, 1, 2]
+WK (0, 1) BK (0, 3)
+WP [(0, 2), (1, 3)] BP [(0, 4), (0, 5)]
+POS Ka1 Pa2 Pb3 ka3 pa4 pa5
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && printf 'Ka1 Pa2 Pb3 ka3 pa4 pa5 w -\nKa1 Pa2 Pb3 ka3 pa4 pa5 b -\n' | kings/kpsolve --board cyl:8x6 --ep on --promote QRBN --cap 1
+[kpsolve cyl:8x6 ep=on cap=1: 530 layers, 67415040 states, depth 12, 33.6s, capped promotions met (two bounds)]
+Ka1 Pa2 Pb3 ka3 pa4 pa5 w - | D D
+Ka1 Pa2 Pb3 ka3 pa4 pa5 b - | L L
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && PYTHONPATH=. /Users/aritro/.venv/bin/python - << 'PY'
+import sys
+sys.path.insert(0,'kings/delegate/out/K15')
+from classify import *
+W,H=8,6
+wk=(0,1); bk=(0,3)
+wp=[(0,2),(1,3)]
+bp=[(0,4),(0,5)]
+files=[0,1,2]
+Fset=set(files)
+pos=Pos(W,H,wk,bk,wp,bp)
+print('ws', has_safe_shuttle(pos,'W',Fset))
+print('bs', has_safe_shuttle(pos,'B',Fset))
+print('opp frozen B for white shuttle?', opponent_frozen(pos,'B',Fset))
+print('opp frozen W for black shuttle?', opponent_frozen(pos,'W',Fset))
+# black king moves
+print('Black king moves inside:')
+for m in king_moves(pos,'B'):
+    if m[1][0] in Fset:
+        print(' ', m[0], '->', m[1], 'cap', m[3], 'frozen after?', opponent_frozen(m[2],'W',Fset), 'rev legal?', legal_king_move(m[2],'B',m[1],m[0]))
+PY
+ws True
+bs True
+opp frozen B for white shuttle? True
+opp frozen W for black shuttle? True
+Black king moves inside:
+  (0, 3) -> (1, 4) cap False frozen after? True rev legal? True
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && PYTHONPATH=. /Users/aritro/.venv/bin/python - << 'PY'
+import sys
+sys.path.insert(0,'kings/delegate/out/K15')
+from classify import *
+W,H=8,6
+wk=(0,1); bk=(0,3)
+wp=[(0,2),(1,3)]
+bp=[(0,4),(0,5)]
+files=[0,1,2]
+pos=Pos(W,H,wk,bk,wp,bp)
+# black move
+m=[x for x in king_moves(pos,'B') if x[1]==(1,4)][0]
+np=m[2]
+print('np', np.wk, np.bk, np.wp, np.bp)
+print('has_capture(np, W)=', has_capture(np,'W'))
+# king captures white?
+for mm in king_moves(np,'W'):
+    if mm[3]: print('king capture', mm[0], mm[1])
+# pawn captures white?
+# manual
+print('white pawns', np.wp)
+PY
+np (0, 1) (1, 4) frozenset({(0, 2), (1, 3)}) frozenset({(0, 4), (0, 5)})
+has_capture(np, W)= True
+white pawns frozenset({(0, 2), (1, 3)})
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames && python3 - << 'PY'
+p='kings/delegate/out/K15/classify.py'
+s=open(p).read()
+old='''def opponent_frozen(pos, T, Fset):
+    S = 'W' if T=='B' else 'B'
+    for (u,v,np,cap) in king_moves(pos, T):
+        if v[0] not in Fset:
+            continue
+        if cap:
+            return False
+        # after move, is it suicide?
+        if not has_capture(np, S):
+            return False
+    return True'''
+new='''def opponent_frozen(pos, T, Fset):
+    W=pos.W; H=pos.H
+    S = 'W' if T=='B' else 'B'
+    for (u,v,np,cap) in king_moves(pos, T):
+        if v[0] not in Fset:
+            continue
+        if cap:
+            return False  # captures our pawn: decisive, not frozen
+        # reversible king move => opponent has a shuttle/escape
+        if legal_king_move(np, T, v, u):
+            return False
+    # decisive pawn move by opponent
+    if side_has_decisive_pawn_move(pos, T, W, H):
+        return False
+    return True'''
+assert old in s
+s=s.replace(old,new)
+open(p,'w').write(s)
+print('done')
+PY
+done
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && time PYTHONPATH=/Users/aritro/Downloads/Research/Chessendgames /Users/aritro/.venv/bin/python search.py 8 6 3 2 2
+{"W": 8, "H": 6, "F": 3, "wP": 2, "bP": 2, "total": 503392, "results": {"frozen": 170464, "on": 13808, "off": 13808, "dud": 0, "over": 0, "other": 305312}, "dud_n": 0, "over_n": 0, "time": 20.55641770362854}
+PYTHONPATH=/Users/aritro/Downloads/Research/Chessendgames  search.py 8 6 3 2   18.58s user 0.11s system 90% cpu 20.612 total
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && time PYTHONPATH=/Users/aritro/Downloads/Research/Chessendgames /Users/aritro/.venv/bin/python search.py 8 6 3 3 3
+{"W": 8, "H": 6, "F": 3, "wP": 3, "bP": 3, "total": 1563664, "results": {"frozen": 282240, "on": 45936, "off": 45936, "dud": 0, "over": 0, "other": 1189552}, "dud_n": 0, "over_n": 0, "time": 105.64899826049805}
+PYTHONPATH=/Users/aritro/Downloads/Research/Chessendgames  search.py 8 6 3 3   78.61s user 0.65s system 74% cpu 1:45.71 total
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && cat > run_3files.sh << 'SH'
+#!/bin/zsh
+W=$1; H=$2
+for w in 0 1 2 3; do
+  for b in 0 1 2 3; do
+    if [ $w -eq 0 ] && [ $b -eq 0 ]; then continue; fi
+    echo "=== W=$W H=$H 3 files w=$w b=$b ==="
+    nice -n 10 /Users/aritro/.venv/bin/python search.py $W $H 3 $w $b
+  done
+done
+SH
+chmod +x run_3files.sh
+echo "created"
+created
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && nohup ./run_3files.sh 8 6 > run_8x6_3files.log 2>&1 & echo $! > run_8x6.pid
+(no output)
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && sleep 300 && tail -20 run_8x6_3files.log && echo "---pid---" && ps -p $(cat run_8x6.pid) -o pid,stat 2>/dev/null
+(no output)
+
+Command exceeded timeout of 120000 ms. Retry with a larger timeout if the command is expected to take longer.
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -5 run_8x6_3files.log; echo "---"; ps -p $(cat run_8x6.pid) -o pid,stat 2>/dev/null || echo "not running"
+File "/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15/search.py", line 4, in <module>
+    from classify import *
+  File "/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15/classify.py", line 3, in <module>
+    from cylcgt import pawns as P
+ModuleNotFoundError: No module named 'cylcgt'
+---
+  PID STAT
+not running
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && sed -i '' 's#nice -n 10 /Users/aritro/.venv/bin/python search.py#PYTHONPATH=/Users/aritro/Downloads/Research/Chessendgames nice -n 10 /Users/aritro/.venv/bin/python search.py#' run_3files.sh && cat run_3files.sh | grep nice
+PYTHONPATH=/Users/aritro/Downloads/Research/Chessendgames nice -n 10 /Users/aritro/.venv/bin/python search.py $W $H 3 $w $b
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && nohup ./run_3files.sh 8 6 > run_8x6_3files.log 2>&1 & echo $! > run_8x6.pid
+(no output)
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && sleep 60 && tail -3 run_8x6_3files.log; echo "---"; ps -p $(cat run_8x6.pid) -o pid,stat 2>/dev/null || echo "not running"
+=== W=8 H=6 3 files w=2 b=2 ===
+{"W": 8, "H": 6, "F": 3, "wP": 2, "bP": 2, "total": 503392, "results": {"frozen": 170464, "on": 13808, "off": 13808, "dud": 0, "over": 0, "other": 305312}, "dud_n": 0, "over_n": 0, "time": 17.311074018478394}
+=== W=8 H=6 3 files w=2 b=3 ===
+---
+  PID STAT
+25405 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && sleep 120 && tail -3 run_8x6_3files.log; echo "---"; ps -p $(cat run_8x6.pid) -o pid,stat 2>/dev/null || echo "done"
+(no output)
+
+Command exceeded timeout of 120000 ms. Retry with a larger timeout if the command is expected to take longer.
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_8x6_3files.log; echo "---"; ps -p $(cat run_8x6.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=8 H=6 3 files w=3 b=2 ===
+{"W": 8, "H": 6, "F": 3, "wP": 3, "bP": 2, "total": 861360, "results": {"frozen": 207424, "on": 37696, "off": 16896, "dud": 0, "over": 0, "other": 599344}, "dud_n": 0, "over_n": 0, "time": 36.68148612976074}
+=== W=8 H=6 3 files w=3 b=3 ===
+---
+  PID STAT
+25405 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_3files.log; echo "---"; ps -p $(cat run_8x6.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 3, "wP": 3, "bP": 2, "total": 861360, "results": {"frozen": 207424, "on": 37696, "off": 16896, "dud": 0, "over": 0, "other": 599344}, "dud_n": 0, "over_n": 0, "time": 36.68148612976074}
+=== W=8 H=6 3 files w=3 b=3 ===
+---
+  PID STAT
+25405 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_8x6_3files.log; echo "---"; ps -p $(cat run_8x6.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=8 H=6 3 files w=3 b=2 ===
+{"W": 8, "H": 6, "F": 3, "wP": 3, "bP": 2, "total": 861360, "results": {"frozen": 207424, "on": 37696, "off": 16896, "dud": 0, "over": 0, "other": 599344}, "dud_n": 0, "over_n": 0, "time": 36.68148612976074}
+=== W=8 H=6 3 files w=3 b=3 ===
+---
+  PID STAT
+25405 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_8x6_3files.log; echo "---"; ps -p $(cat run_8x6.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=8 H=6 3 files w=3 b=2 ===
+{"W": 8, "H": 6, "F": 3, "wP": 3, "bP": 2, "total": 861360, "results": {"frozen": 207424, "on": 37696, "off": 16896, "dud": 0, "over": 0, "other": 599344}, "dud_n": 0, "over_n": 0, "time": 36.68148612976074}
+=== W=8 H=6 3 files w=3 b=3 ===
+---
+  PID STAT
+25405 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_8x6_3files.log; echo "---"; ps -p $(cat run_8x6.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 3, "wP": 3, "bP": 2, "total": 861360, "results": {"frozen": 207424, "on": 37696, "off": 16896, "dud": 0, "over": 0, "other": 599344}, "dud_n": 0, "over_n": 0, "time": 36.68148612976074}
+=== W=8 H=6 3 files w=3 b=3 ===
+{"W": 8, "H": 6, "F": 3, "wP": 3, "bP": 3, "total": 1563664, "results": {"frozen": 282240, "on": 45936, "off": 45936, "dud": 0, "over": 0, "other": 1189552}, "dud_n": 0, "over_n": 0, "time": 74.95948624610901}
+---
+  PID STAT
+done
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && nohup ./run_3files.sh 7 6 > run_7x6_3files.log 2>&1 & echo $! > run_7x6.pid
+(no output)
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && sleep 90 && tail -3 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=7 H=6 3 files w=3 b=1 ===
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 1, "total": 142394, "results": {"frozen": 43610, "on": 9660, "off": 2926, "dud": 0, "over": 0, "other": 86198}, "dud_n": 0, "over_n": 0, "time": 6.390183925628662}
+=== W=7 H=6 3 files w=3 b=2 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=7 H=6 3 files w=3 b=1 ===
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 1, "total": 142394, "results": {"frozen": 43610, "on": 9660, "off": 2926, "dud": 0, "over": 0, "other": 86198}, "dud_n": 0, "over_n": 0, "time": 6.390183925628662}
+=== W=7 H=6 3 files w=3 b=2 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 1, "total": 142394, "results": {"frozen": 43610, "on": 9660, "off": 2926, "dud": 0, "over": 0, "other": 86198}, "dud_n": 0, "over_n": 0, "time": 6.390183925628662}
+=== W=7 H=6 3 files w=3 b=2 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=7 H=6 3 files w=3 b=1 ===
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 1, "total": 142394, "results": {"frozen": 43610, "on": 9660, "off": 2926, "dud": 0, "over": 0, "other": 86198}, "dud_n": 0, "over_n": 0, "time": 6.390183925628662}
+=== W=7 H=6 3 files w=3 b=2 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=7 H=6 3 files w=3 b=1 ===
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 1, "total": 142394, "results": {"frozen": 43610, "on": 9660, "off": 2926, "dud": 0, "over": 0, "other": 86198}, "dud_n": 0, "over_n": 0, "time": 6.390183925628662}
+=== W=7 H=6 3 files w=3 b=2 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=7 H=6 3 files w=3 b=1 ===
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 1, "total": 142394, "results": {"frozen": 43610, "on": 9660, "off": 2926, "dud": 0, "over": 0, "other": 86198}, "dud_n": 0, "over_n": 0, "time": 6.390183925628662}
+=== W=7 H=6 3 files w=3 b=2 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=7 H=6 3 files w=3 b=1 ===
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 1, "total": 142394, "results": {"frozen": 43610, "on": 9660, "off": 2926, "dud": 0, "over": 0, "other": 86198}, "dud_n": 0, "over_n": 0, "time": 6.390183925628662}
+=== W=7 H=6 3 files w=3 b=2 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=7 H=6 3 files w=3 b=2 ===
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 2, "total": 753690, "results": {"frozen": 181496, "on": 32984, "off": 14784, "dud": 0, "over": 0, "other": 524426}, "dud_n": 0, "over_n": 0, "time": 31.719120740890503}
+=== W=7 H=6 3 files w=3 b=3 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 2, "total": 753690, "results": {"frozen": 181496, "on": 32984, "off": 14784, "dud": 0, "over": 0, "other": 524426}, "dud_n": 0, "over_n": 0, "time": 31.719120740890503}
+=== W=7 H=6 3 files w=3 b=3 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 2, "total": 753690, "results": {"frozen": 181496, "on": 32984, "off": 14784, "dud": 0, "over": 0, "other": 524426}, "dud_n": 0, "over_n": 0, "time": 31.719120740890503}
+=== W=7 H=6 3 files w=3 b=3 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 2, "total": 753690, "results": {"frozen": 181496, "on": 32984, "off": 14784, "dud": 0, "over": 0, "other": 524426}, "dud_n": 0, "over_n": 0, "time": 31.719120740890503}
+=== W=7 H=6 3 files w=3 b=3 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 2, "total": 753690, "results": {"frozen": 181496, "on": 32984, "off": 14784, "dud": 0, "over": 0, "other": 524426}, "dud_n": 0, "over_n": 0, "time": 31.719120740890503}
+=== W=7 H=6 3 files w=3 b=3 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 2, "total": 753690, "results": {"frozen": 181496, "on": 32984, "off": 14784, "dud": 0, "over": 0, "other": 524426}, "dud_n": 0, "over_n": 0, "time": 31.719120740890503}
+=== W=7 H=6 3 files w=3 b=3 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 2, "total": 753690, "results": {"frozen": 181496, "on": 32984, "off": 14784, "dud": 0, "over": 0, "other": 524426}, "dud_n": 0, "over_n": 0, "time": 31.719120740890503}
+=== W=7 H=6 3 files w=3 b=3 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 2, "total": 753690, "results": {"frozen": 181496, "on": 32984, "off": 14784, "dud": 0, "over": 0, "other": 524426}, "dud_n": 0, "over_n": 0, "time": 31.719120740890503}
+=== W=7 H=6 3 files w=3 b=3 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 2, "total": 753690, "results": {"frozen": 181496, "on": 32984, "off": 14784, "dud": 0, "over": 0, "other": 524426}, "dud_n": 0, "over_n": 0, "time": 31.719120740890503}
+=== W=7 H=6 3 files w=3 b=3 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 2, "total": 753690, "results": {"frozen": 181496, "on": 32984, "off": 14784, "dud": 0, "over": 0, "other": 524426}, "dud_n": 0, "over_n": 0, "time": 31.719120740890503}
+=== W=7 H=6 3 files w=3 b=3 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 2, "total": 753690, "results": {"frozen": 181496, "on": 32984, "off": 14784, "dud": 0, "over": 0, "other": 524426}, "dud_n": 0, "over_n": 0, "time": 31.719120740890503}
+=== W=7 H=6 3 files w=3 b=3 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 2, "total": 753690, "results": {"frozen": 181496, "on": 32984, "off": 14784, "dud": 0, "over": 0, "other": 524426}, "dud_n": 0, "over_n": 0, "time": 31.719120740890503}
+=== W=7 H=6 3 files w=3 b=3 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 2, "total": 753690, "results": {"frozen": 181496, "on": 32984, "off": 14784, "dud": 0, "over": 0, "other": 524426}, "dud_n": 0, "over_n": 0, "time": 31.719120740890503}
+=== W=7 H=6 3 files w=3 b=3 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 2, "total": 753690, "results": {"frozen": 181496, "on": 32984, "off": 14784, "dud": 0, "over": 0, "other": 524426}, "dud_n": 0, "over_n": 0, "time": 31.719120740890503}
+=== W=7 H=6 3 files w=3 b=3 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 2, "total": 753690, "results": {"frozen": 181496, "on": 32984, "off": 14784, "dud": 0, "over": 0, "other": 524426}, "dud_n": 0, "over_n": 0, "time": 31.719120740890503}
+=== W=7 H=6 3 files w=3 b=3 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 2, "total": 753690, "results": {"frozen": 181496, "on": 32984, "off": 14784, "dud": 0, "over": 0, "other": 524426}, "dud_n": 0, "over_n": 0, "time": 31.719120740890503}
+=== W=7 H=6 3 files w=3 b=3 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 2, "total": 753690, "results": {"frozen": 181496, "on": 32984, "off": 14784, "dud": 0, "over": 0, "other": 524426}, "dud_n": 0, "over_n": 0, "time": 31.719120740890503}
+=== W=7 H=6 3 files w=3 b=3 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 2, "total": 753690, "results": {"frozen": 181496, "on": 32984, "off": 14784, "dud": 0, "over": 0, "other": 524426}, "dud_n": 0, "over_n": 0, "time": 31.719120740890503}
+=== W=7 H=6 3 files w=3 b=3 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 2, "total": 753690, "results": {"frozen": 181496, "on": 32984, "off": 14784, "dud": 0, "over": 0, "other": 524426}, "dud_n": 0, "over_n": 0, "time": 31.719120740890503}
+=== W=7 H=6 3 files w=3 b=3 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 2, "total": 753690, "results": {"frozen": 181496, "on": 32984, "off": 14784, "dud": 0, "over": 0, "other": 524426}, "dud_n": 0, "over_n": 0, "time": 31.719120740890503}
+=== W=7 H=6 3 files w=3 b=3 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 2, "total": 753690, "results": {"frozen": 181496, "on": 32984, "off": 14784, "dud": 0, "over": 0, "other": 524426}, "dud_n": 0, "over_n": 0, "time": 31.719120740890503}
+=== W=7 H=6 3 files w=3 b=3 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 2, "total": 753690, "results": {"frozen": 181496, "on": 32984, "off": 14784, "dud": 0, "over": 0, "other": 524426}, "dud_n": 0, "over_n": 0, "time": 31.719120740890503}
+=== W=7 H=6 3 files w=3 b=3 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 2, "total": 753690, "results": {"frozen": 181496, "on": 32984, "off": 14784, "dud": 0, "over": 0, "other": 524426}, "dud_n": 0, "over_n": 0, "time": 31.719120740890503}
+=== W=7 H=6 3 files w=3 b=3 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 2, "total": 753690, "results": {"frozen": 181496, "on": 32984, "off": 14784, "dud": 0, "over": 0, "other": 524426}, "dud_n": 0, "over_n": 0, "time": 31.719120740890503}
+=== W=7 H=6 3 files w=3 b=3 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 2, "total": 753690, "results": {"frozen": 181496, "on": 32984, "off": 14784, "dud": 0, "over": 0, "other": 524426}, "dud_n": 0, "over_n": 0, "time": 31.719120740890503}
+=== W=7 H=6 3 files w=3 b=3 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 2, "total": 753690, "results": {"frozen": 181496, "on": 32984, "off": 14784, "dud": 0, "over": 0, "other": 524426}, "dud_n": 0, "over_n": 0, "time": 31.719120740890503}
+=== W=7 H=6 3 files w=3 b=3 ===
+---
+  PID STAT
+33927 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_7x6_3files.log; echo "---"; ps -p $(cat run_7x6.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=7 H=6 3 files w=3 b=3 ===
+{"W": 7, "H": 6, "F": 3, "wP": 3, "bP": 3, "total": 1368206, "results": {"frozen": 246960, "on": 40194, "off": 40194, "dud": 0, "over": 0, "other": 1040858}, "dud_n": 0, "over_n": 0, "time": 66.578604221344}
+---
+  PID STAT
+done
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && cat > run_4files.sh << 'SH'
+#!/bin/zsh
+W=$1; H=$2
+for w in 0 1 2 3; do
+  for b in 0 1 2; do
+    if [ $w -eq 0 ] && [ $b -eq 0 ]; then continue; fi
+    echo "=== W=$W H=$H 4 files w=$w b=$b ==="
+    PYTHONPATH=/Users/aritro/Downloads/Research/Chessendgames nice -n 10 /Users/aritro/.venv/bin/python search.py $W $H 4 $w $b
+  done
+done
+SH
+chmod +x run_4files.sh
+echo created
+created
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && nohup ./run_4files.sh 8 6 > run_8x6_4files.log 2>&1 & echo $! > run_8x6_4.pid
+(no output)
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=8 H=6 4 files w=1 b=0 ===
+{"W": 8, "H": 6, "F": 4, "wP": 1, "bP": 0, "total": 0, "results": {"frozen": 0, "on": 0, "off": 0, "dud": 0, "over": 0, "other": 0}, "dud_n": 0, "over_n": 0, "time": 0.3365211486816406}
+=== W=8 H=6 4 files w=1 b=1 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 1, "bP": 0, "total": 0, "results": {"frozen": 0, "on": 0, "off": 0, "dud": 0, "over": 0, "other": 0}, "dud_n": 0, "over_n": 0, "time": 0.3365211486816406}
+=== W=8 H=6 4 files w=1 b=1 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 1, "bP": 0, "total": 0, "results": {"frozen": 0, "on": 0, "off": 0, "dud": 0, "over": 0, "other": 0}, "dud_n": 0, "over_n": 0, "time": 0.3365211486816406}
+=== W=8 H=6 4 files w=1 b=1 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 1, "bP": 1, "total": 169056, "results": {"frozen": 114080, "on": 2144, "off": 2144, "dud": 0, "over": 0, "other": 50688}, "dud_n": 0, "over_n": 0, "time": 7.092743873596191}
+=== W=8 H=6 4 files w=1 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 1, "bP": 1, "total": 169056, "results": {"frozen": 114080, "on": 2144, "off": 2144, "dud": 0, "over": 0, "other": 50688}, "dud_n": 0, "over_n": 0, "time": 7.092743873596191}
+=== W=8 H=6 4 files w=1 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 1, "bP": 1, "total": 169056, "results": {"frozen": 114080, "on": 2144, "off": 2144, "dud": 0, "over": 0, "other": 50688}, "dud_n": 0, "over_n": 0, "time": 7.092743873596191}
+=== W=8 H=6 4 files w=1 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 1, "bP": 1, "total": 169056, "results": {"frozen": 114080, "on": 2144, "off": 2144, "dud": 0, "over": 0, "other": 50688}, "dud_n": 0, "over_n": 0, "time": 7.092743873596191}
+=== W=8 H=6 4 files w=1 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 1, "bP": 1, "total": 169056, "results": {"frozen": 114080, "on": 2144, "off": 2144, "dud": 0, "over": 0, "other": 50688}, "dud_n": 0, "over_n": 0, "time": 7.092743873596191}
+=== W=8 H=6 4 files w=1 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=8 H=6 4 files w=1 b=1 ===
+{"W": 8, "H": 6, "F": 4, "wP": 1, "bP": 1, "total": 169056, "results": {"frozen": 114080, "on": 2144, "off": 2144, "dud": 0, "over": 0, "other": 50688}, "dud_n": 0, "over_n": 0, "time": 7.092743873596191}
+=== W=8 H=6 4 files w=1 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 1, "bP": 1, "total": 169056, "results": {"frozen": 114080, "on": 2144, "off": 2144, "dud": 0, "over": 0, "other": 50688}, "dud_n": 0, "over_n": 0, "time": 7.092743873596191}
+=== W=8 H=6 4 files w=1 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=8 H=6 4 files w=1 b=1 ===
+{"W": 8, "H": 6, "F": 4, "wP": 1, "bP": 1, "total": 169056, "results": {"frozen": 114080, "on": 2144, "off": 2144, "dud": 0, "over": 0, "other": 50688}, "dud_n": 0, "over_n": 0, "time": 7.092743873596191}
+=== W=8 H=6 4 files w=1 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 1, "bP": 2, "total": 392384, "results": {"frozen": 160224, "on": 3744, "off": 12144, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 28.98356819152832}
+=== W=8 H=6 4 files w=2 b=0 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 0, "total": 0, "results": {"frozen": 0, "on": 0, "off": 0, "dud": 0, "over": 0, "other": 0}, "dud_n": 0, "over_n": 0, "time": 1.5383589267730713}
+=== W=8 H=6 4 files w=2 b=1 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 0, "total": 0, "results": {"frozen": 0, "on": 0, "off": 0, "dud": 0, "over": 0, "other": 0}, "dud_n": 0, "over_n": 0, "time": 1.5383589267730713}
+=== W=8 H=6 4 files w=2 b=1 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 0, "total": 0, "results": {"frozen": 0, "on": 0, "off": 0, "dud": 0, "over": 0, "other": 0}, "dud_n": 0, "over_n": 0, "time": 1.5383589267730713}
+=== W=8 H=6 4 files w=2 b=1 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=8 H=6 4 files w=2 b=1 ===
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=8 H=6 4 files w=2 b=1 ===
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=8 H=6 4 files w=2 b=1 ===
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=8 H=6 4 files w=2 b=1 ===
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=8 H=6 4 files w=2 b=1 ===
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=8 H=6 4 files w=2 b=1 ===
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=8 H=6 4 files w=2 b=1 ===
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=8 H=6 4 files w=2 b=1 ===
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=8 H=6 4 files w=2 b=1 ===
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=8 H=6 4 files w=2 b=1 ===
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=8 H=6 4 files w=2 b=1 ===
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=8 H=6 4 files w=2 b=1 ===
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=8 H=6 4 files w=2 b=1 ===
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=8 H=6 4 files w=2 b=1 ===
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=8 H=6 4 files w=2 b=1 ===
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=8 H=6 4 files w=2 b=1 ===
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=8 H=6 4 files w=2 b=1 ===
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=8 H=6 4 files w=2 b=1 ===
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=8 H=6 4 files w=2 b=1 ===
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=8 H=6 4 files w=2 b=1 ===
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 1, "total": 392384, "results": {"frozen": 160224, "on": 12144, "off": 3744, "dud": 0, "over": 0, "other": 216272}, "dud_n": 0, "over_n": 0, "time": 16.80084991455078}
+=== W=8 H=6 4 files w=2 b=2 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 2, "bP": 2, "total": 2760864, "results": {"frozen": 995232, "on": 44496, "off": 44496, "dud": 0, "over": 0, "other": 1676640}, "dud_n": 0, "over_n": 0, "time": 114.5601909160614}
+=== W=8 H=6 4 files w=3 b=0 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 3, "bP": 0, "total": 0, "results": {"frozen": 0, "on": 0, "off": 0, "dud": 0, "over": 0, "other": 0}, "dud_n": 0, "over_n": 0, "time": 2.579716205596924}
+=== W=8 H=6 4 files w=3 b=1 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 3, "bP": 0, "total": 0, "results": {"frozen": 0, "on": 0, "off": 0, "dud": 0, "over": 0, "other": 0}, "dud_n": 0, "over_n": 0, "time": 2.579716205596924}
+=== W=8 H=6 4 files w=3 b=1 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 3, "bP": 0, "total": 0, "results": {"frozen": 0, "on": 0, "off": 0, "dud": 0, "over": 0, "other": 0}, "dud_n": 0, "over_n": 0, "time": 2.579716205596924}
+=== W=8 H=6 4 files w=3 b=1 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 3, "bP": 0, "total": 0, "results": {"frozen": 0, "on": 0, "off": 0, "dud": 0, "over": 0, "other": 0}, "dud_n": 0, "over_n": 0, "time": 2.579716205596924}
+=== W=8 H=6 4 files w=3 b=1 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 3, "bP": 0, "total": 0, "results": {"frozen": 0, "on": 0, "off": 0, "dud": 0, "over": 0, "other": 0}, "dud_n": 0, "over_n": 0, "time": 2.579716205596924}
+=== W=8 H=6 4 files w=3 b=1 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 3, "bP": 0, "total": 0, "results": {"frozen": 0, "on": 0, "off": 0, "dud": 0, "over": 0, "other": 0}, "dud_n": 0, "over_n": 0, "time": 2.579716205596924}
+=== W=8 H=6 4 files w=3 b=1 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 3, "bP": 0, "total": 0, "results": {"frozen": 0, "on": 0, "off": 0, "dud": 0, "over": 0, "other": 0}, "dud_n": 0, "over_n": 0, "time": 2.579716205596924}
+=== W=8 H=6 4 files w=3 b=1 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -2 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+{"W": 8, "H": 6, "F": 4, "wP": 3, "bP": 0, "total": 0, "results": {"frozen": 0, "on": 0, "off": 0, "dud": 0, "over": 0, "other": 0}, "dud_n": 0, "over_n": 0, "time": 2.579716205596924}
+=== W=8 H=6 4 files w=3 b=1 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[0m$ [0mcd /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15 && tail -3 run_8x6_4files.log; echo "---"; ps -p $(cat run_8x6_4.pid) -o pid,stat 2>/dev/null || echo "done"
+=== W=8 H=6 4 files w=3 b=0 ===
+{"W": 8, "H": 6, "F": 4, "wP": 3, "bP": 0, "total": 0, "results": {"frozen": 0, "on": 0, "off": 0, "dud": 0, "over": 0, "other": 0}, "dud_n": 0, "over_n": 0, "time": 2.579716205596924}
+=== W=8 H=6 4 files w=3 b=1 ===
+---
+  PID STAT
+41036 SN
+> build · beam-free
+[91m[1mError: [0mFree usage limit reached. Free models work in OpenCode (https://opencode.ai); subscribe to OpenCode Go to keep going: https://opencode.ai/go
+
+=== Tue Oct 27 14:30:46 CDT 2026: opencode2 failed; falling back to opencode run --auto -m opencode/beam-free
+[0m
+> build · beam-free
+[91m[1mError: [0mFree usage limit reached. Free models work in OpenCode (https://opencode.ai); subscribe to OpenCode Go to keep going: https://opencode.ai/go

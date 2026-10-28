@@ -1,0 +1,14 @@
+== cyl:5x6 3 3
+[kpsolve cyl:5x6 ep=on cap=1: 420 layers, 756000 states, depth 10, 0.1s]
+real-P hits (P=W, D=Black wins): 0
+hits 0 X with V1b,V3,V4 holding and V1a failing: 0  with a real-P-clean twin: 0
+== flat:6x6 3,4,5 2
+[kpsolve flat:6x6 ep=on cap=1: 35004 layers, 90730368 states, depth 13, 52.7s]
+real-P hits (P=W, D=Black wins): 3780
+hits 3780 X with V1b,V3,V4 holding and V1a failing: 3780  with a real-P-clean twin: 1362
+CLEAN TWIN Ka1 kb3 Pa2 pa3 Pd4 pd5 pe5 b -
+== cyl:7x6 3,4,5 2
+[kpsolve cyl:7x6 ep=on cap=1: 35004 layers, 123494112 states, depth 12, 57.0s]
+real-P hits (P=W, D=Black wins): 3657
+hits 3657 X with V1b,V3,V4 holding and V1a failing: 3657  with a real-P-clean twin: 1210
+CLEAN TWIN Ka1 kb3 Pa2 pa3 Pd4 pe5 b -
