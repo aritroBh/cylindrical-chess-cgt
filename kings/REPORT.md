@@ -323,7 +323,11 @@ Every deliverable was given to independent referees (Claude models) told to brea
   - K7 (2026-10-22) later repaired Theorem 2.7 and P12, in P. A Sonnet agent drafted the repair, and two rounds of
     three Sonnet reviewers checked it. The first round refuted a window form, which was then fixed.
   - K9 repaired the sharp form of 1.14. A free model drafted it, and Sonnet reviewers and a fixer rewrote it as a
-    simulation lemma.
+    simulation lemma. K13 (2026-10-27, Codex, outside the Claude family) re-derived it in its own words, with under
+    1 percent 5-gram overlap with LOOPY, and found every step SOUND. It also found that the hypothesis (V1a) of the
+    one-sided chess bridge after Proposition 3.2 was worded too broadly: it excluded the Black Z-moves that the
+    punishment hypothesis is meant to cover. The bridge now uses the scoped form of Theorem 3.2‴, with a proof by the
+    sharp form.
   - K10 (2026-10-22) gave P11 its missing piece, a passer certificate with frozen kings (Proposition 2.11). A free
     model drafted it, and two Sonnet reviewers found it FALSE: an opponent pawn that captures a pawn on a
     neighbouring file can stop the passer, and the draft also mishandled checks, kings on the path, one move

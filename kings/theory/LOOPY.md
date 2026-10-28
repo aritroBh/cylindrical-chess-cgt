@@ -28,8 +28,11 @@ bookkeeping errors, which were corrected in the same pass (revised after K7, 202
 not been read again. K3 did not see the repair, and no human has re-derived it. **Caveat for the K9 repair (sharp
 form of Theorem 1.14):** a free model drafted it; two AI reviewers found real errors (the draft claimed that the
 D-winner never moves in Z, and never fixed what D(X) is on Z); a Sonnet agent rewrote it as a simulation lemma
-(an induction on the rank of the D-win), and the integrator read the rewrite. It has not been re-checked by
-another reviewer (revised after K9, 2026-10-22). **Caveat for K10 (Proposition 2.11, P11):** a free model drafted a
+(an induction on the rank of the D-win), and the integrator read the rewrite (revised after K9, 2026-10-22). K13
+(Codex, outside the Claude family) then re-derived it in its own words, by an induction on the stage at which a
+D-state enters σ's winning region, and marked every step of the proof SOUND. It found one wording gap, in the
+hypotheses of the one-sided chess bridge after Proposition 3.2, which is repaired there (`kings/delegate/out/K13/REPORT.md`;
+revised after K13, 2026-10-27). **Caveat for K10 (Proposition 2.11, P11):** a free model drafted a
 passer certificate; two Sonnet reviewers found it FALSE (a capture of a β pawn on a neighbouring file lets an ω pawn
 stop the passer, and checks, kings, one move order, races and en passant were mishandled). A Sonnet agent rebuilt the statement and
 proof, and the integrator read it step by step and re-ran its examples. K10v (opencode beam-free; Codex was out of quota) wrote an independent checker of (H1)–(H5) without reading K10's files and found 0 violations
@@ -61,20 +64,20 @@ originally stated → …" gives the corrected statement and its label. Each cha
 | T1.14(i) | PROVED | R2: sound |
 | T1.14(ii) | GAP → PROVED after repair: (V4) is stated hereditarily on the re-split components of the context, Z deleted, with the corrected τ | R2 items 2 and 5 |
 | T1.14(iii) | PROVED after repair, but a tautology: (A_Q) is now a per-position hypothesis | R2 item 8 |
-| T1.14, sharp form | GAP → PROVED after repair: simulation form on a σ-certified set N of P-positions, with (S1) the winner's step, (S2) the loser's step (a D-move or a P-loss) and (S3) no stalemate; proof by induction on the D-rank. The winner may move in Z. Not yet independently re-checked (revised after K9, 2026-10-22) | R2 item 6; K3, K9 |
+| T1.14, sharp form | GAP → PROVED after repair: simulation form on a σ-certified set N of P-positions, with (S1) the winner's step, (S2) the loser's step (a D-move or a P-loss) and (S3) no stalemate; proof by induction on the D-rank. The winner may move in Z (revised after K9, 2026-10-22). Re-derived independently by K13 (Codex, outside the Claude family): no false step. ρ is the stage of a least fixed point on the finite game D, so the induction does not need D to be short (revised after K13, 2026-10-27) | R2 item 6; K3, K9, K13 |
 | §1.5 "each hypothesis is needed" | (V1b), (V2), (V3), (V4): counterexamples given. (V1a): none given, so "needed" is a CONJECTURE | R1 item 4, R2 item 7 |
 | L2.2 | PROVED | unchanged |
 | T2.3 | PROVED (also KNOWN), for every integer B ≥ 1 | its direct proof, overwritten by a misanchored edit in the 2026-10-21 revision, was restored after the T30 audit |
 | T2.4 | FALSE as originally stated (the "P-game of the context" option) → G under normal play (no draws), plus a strategy-transfer form (c) for games with draws: PROVED after repair | R2 item 4 |
 | D2.6, (L3′) | withdrawn: it never applies to a 3-file group, and it does not give (L3) | R1 item 8, R3 item 2 |
 | T2.7 | GAP → PROVED after repair, in P (revised after K7, 2026-10-22). K7 made the local game of (L1) explicit (the first promotion ends it, a promotion by s is a failure for s̄, s̄'s king stays on F_Z, no pass in check, a mate of s is a win for s̄, a stalemate of s̄ is a failure; s cannot be stalemated in the local game because it may pass). K7 also fixed the choice that K3 and the T30 recheck left open: (L2) counts s's king and **context** pawns only, and s's Z-pawns are covered by (L1); (L3) is stated over the real play of a guided strategy, in which s̄ makes Z-moves only. K3's objection (a context passer within the window ends the game in s's favour) assumes that a passer is terminal. That holds in the D-model and not in P: in P only a promotion is terminal, and (L2) bounds it. Whether a passer is decisive in D is (V2), a hypothesis of Theorem 1.14, which Theorem 2.7 does not claim. The window form (b) of the first K7 draft was FALSE when Q carried an e.p. right with its target off F_Z (counterexample in the text); (L2) now counts that right. The theorem gives a P-win only. The bound μ_s ≥ T + 1 is sharp in P, and in chess no margin of μ_s replaces (A_Q) (examples in the text). A second review round found no false step | R1 item 3, R3 items 2 and 3; K3; K7 |
-| C2.7′ | PROVED in P (revised after K7, 2026-10-22): the contrapositive of Theorem 2.7(a), the content of P12. If `--frozen` reports a win for σ and every king move of σ̄ at the nodes of σ's winning strategy is a P-loss, then σ wins P. The chess form adds (A_Q) | K7 |
+| C2.7′ | PROVED in P (revised after K7, 2026-10-22): the contrapositive of Theorem 2.7(a), the content of P12. If `--frozen` reports a win for σ and every king move of σ̄ at the nodes of σ's winning strategy is a P-loss, then σ wins P. The chess form adds (A_Q). K13 (Codex) re-derived it independently as an instance of the sharp form of Theorem 1.14 (revised after K13, 2026-10-27) | K7, K13 |
 | C2.8 | PROVED (wording corrected). The finite-k clause was made a side remark after K7 (revised after K7, 2026-10-22). A reviewer found no counterexample in 9566 placements on 4 boards (scratch) | R3 item 7; K7 |
 | L2.9 | GAP → PROVED after repair, now under the weaker hypothesis (B1): at most one s̄ pawn is attacked by an s pawn (it holds if s has no pawn on f ± 1, if s̄ has a single Z-pawn, and automatically on boards with 4 ranks) (revised after K22, 2026-10-27). **The statement without any hypothesis is FALSE** (revised after K22, 2026-10-27): with two attacked s̄ pawns s can lose, for example cyl:7×6 `Ka5 kc6 Pc3 Pc4 pb4 pb5` with Black (s) to move, F_Z = {a, b, c}: White (s̄) forces a promotion within 3 moves against a defender who may pass (CHECKED-2: K22's C++ and Python solvers and the referee's own solver agree). The flat:4×5 version `Kd4 kb5 Pb2 Pb3 pc3 pc4` is also hand-verified, and a flat:3×5 version `Kc4 ka5 Pa2 Pa3 pb3 pb4` is CHECKED-2. The cylinder position is also a White win in P with real kings (COMPUTED-1: one run of `kp_p --pmodel`, K7's P-model build of kpsolve). Bounded search (K22: up to 3 + 3 pawns, and 4 + 4 on some small boards): no White win with at most one attacked s̄ pawn among 74,469,430 roots, within the boards and pawn counts searched (COMPUTED-1: one C++ solver, with a Python spot check on 92 roots; the proof of (B1) is separate and does not use this search) | R1 item 9, R3 item 4; K22 |
 | P2.10(a) | FALSE as originally stated (H = 4) → H ≥ 5: PROVED after repair, under both the textbook and the e.p.-aware passed test, for chess-legal contexts and s's context pawns. (L2) counts context pawns only, so there is no Z-pawn proviso: s's Z-pawns are covered by (L1), whatever their distance from promotion (revised after K7, 2026-10-22). T30 audit: the proof lacked a step for en passant (now added). The stronger claim that no pawn of *either* colour stands one move from promotion needs H ≥ 6 under the e.p.-aware test | R1 item 7, R3 item 1; T30 audit and recheck |
 | P2.10(b) | PROVED (the example; it needs width ≥ \|F_Z\| + 4). "The zero is context-dependent": CHECKED-2 for Z_T in P (revised after K23, 2026-10-27: Z_T acts as 0 beside {Pe3, pe4} and not beside {Pe2, pe3} on cyl:7×6, and the same for the group of §5.1 on cyl:8×8; three implementations agree; no hand proof, so not PROVED). For every frozen group with T ≥ 2 it is a CONJECTURE. P4 does not show it in P: its six rows equal the convention there | R3 item 5; K23 |
 | R2.11 | GAP → PROVED in P (frozen), as a sufficient condition (revised after K10, 2026-10-22): Proposition 2.11 and Corollary 2.11a give (V2) at a passer or race terminal under (H1)–(H5): a clear path for pawns and kings of both colours, no check, no stalemate, no interference of an ω pawn that captures a β pawn on a neighbouring file, and the timing bound for both move orders over all ω pawns. K10's first draft was FALSE (it ignored all of these); the statement and proof were rebuilt by a Sonnet agent and read step by step by the integrator. One AI proof, checked on 954,392 parked and 60,000 random-king positions with side to move against `kpsolve --frozen` (0 violations; scripts in `kings/delegate/out/K10/scripts/`). Computation CHECKED-2 by K10v (independent code, opencode beam-free): 0 violations in 146,328 certified instances (an instance is a position, side to move, β and p; 119,654 distinct positions with side to move) and 5,716 with an e.p. right; its proof verdict SOUND has no written derivation, so the proof is not re-derived by a second model (revised after K10v, 2026-10-22). Second round: two fresh Sonnet reviewers read the proof and found no error, and their own code found 0 violations in 5,730,596 certified positions with side to move (6,783,482 instances) on cylinders, plus 434,429 positions on flat boards, also 0 violations; a blind re-derivation outside the Sonnet family exists since K11b (Codex, 2026-10-27; §2, Proposition 2.11). Real kings (revised after K16, 2026-10-27): the square-rule CONJECTURE of Remark 2.11 is FALSE as stated (ω can be stalemated; counterexamples CHECKED-2: kp_p, the referee's own P solver and K16's `pyp.py` agree); a corrected rule, Theorem 2.11K (a king-restricted timing condition (H5K) and a no-stalemate condition, static (H3K) or along the pushing line (NS)), is PROVED in P (one AI proof, read step by step by the referee K16v, who found no gap; not re-derived by a second model), and its checks are CHECKED-2 on the small exhaustive sweeps and COMPUTED-1 on the large ones | R3 item 6; K10; K16 |
-| P3.2 | PROVED; chess bridge PROVED after repair (adds (V1a)) | R4 item 7 |
+| P3.2 | PROVED; chess bridge PROVED after repair (adds (V1a)). After K13 the bridge's (V1a) covers only White's strategy moves and Black's context moves, and its proof cites the sharp form of Theorem 1.14 (revised after K13, 2026-10-27) | R4 item 7; K13 |
 | T3.3(a) | PROVED (also KNOWN) | R4: sound |
 | T3.3(b) | FALSE as originally stated (with ∅ the dead position the pair is (W, L)) → { \| ⊖} ⊞ on_D is (L, L): PROVED after repair | R1 item 2 |
 | T3.4 | PROVED | R4: sound |
@@ -185,7 +188,7 @@ The other three are chess facts.
 | T1.11 | Sums: o(S) = decisive-event outcome under first-event dominance; sufficient: no opposite-sign threats in different components (a threat is a move into a terminal by either player), and B > every tempo count. (c) is the re-splitting version | PROVED (a); (b) and (c) PROVED after repair |
 | P1.12 | {⊕ \| ∅} ⊞ {∅ \| ⊖} is 𝓝 in chess semantics, but its BIG translation is 0 (𝓟) for every B | PROVED |
 | P1.13 | B must be at least the tempo count: with n tempi against the threat { \| ⊖}, the BIG outcome is right iff n ≤ B | PROVED after repair |
-| T1.14 | Validity: (V1)–(V3) give P = D (no draws), (V4) gives o(S) = P, and (A_Q)(X) gives C = P | (i) PROVED; (ii), (iii) PROVED after repair; the sharp form is PROVED after repair (simulation form on a certified set; revised after K9, 2026-10-22). The C part is the per-position hypothesis (A_Q)(X) |
+| T1.14 | Validity: (V1)–(V3) give P = D (no draws), (V4) gives o(S) = P, and (A_Q)(X) gives C = P | (i) PROVED; (ii), (iii) PROVED after repair; the sharp form is PROVED after repair (simulation form on a certified set; revised after K9, 2026-10-22; re-derived independently by K13, 2026-10-27). The C part is the per-position hypothesis (A_Q)(X) |
 | T2.3 | {−B \| B} = 0 for every integer B ≥ 1 | PROVED (and KNOWN: simplicity theorem) |
 | T2.4 | Freeze theorem: if Z-moves are punished at every position where the mover is losing, then G + Z has the result of G, for a G scored under normal play (no draws) | PROVED after repair |
 | T2.7 | Local certificate LC_T (local forced promotion against a passing defender, no faster counter-promotion by a context pawn, no stalemate of s) ⇒ decisive punishment in P; μ_s ≥ T + 1 is sharp | PROVED after repair (revised after K7, 2026-10-22) |
@@ -664,8 +667,9 @@ never moving in Z). The sharp form compares P with D and lets σ move in Z. Neit
 other. Both say that a winning strategy of a model transfers to the real game when every real move of the loser
 is a model move or loses on the spot.
 
-*Label.* PROVED after repair: the proof above is complete for the abstract statement. It has not yet been
-independently re-checked, because K3 saw only the earlier draft.
+*Label.* PROVED after repair: the proof above is complete for the abstract statement. K3 saw only the earlier
+draft. K13 (Codex, outside the Claude family) re-derived the statement independently and marked every step of the
+proof above SOUND (revised after K13, 2026-10-27; `kings/delegate/out/K13/REPORT.md`).
 
 **Why "exact" does not mean "iff".** (V1)–(V4) are sufficient, and none can be dropped, except that for
 (V1a) this is a CONJECTURE (table below). But no condition on local data can be *necessary*: the convention is
@@ -1619,16 +1623,28 @@ Z-moves. (Two shuttles, one for each king: Proposition 3.2′ below.)
 **Chess bridge** (PROVED after repair, by the sharp form of Theorem 1.14 with D = G ⊞ on_D; revised after K9,
 2026-10-22: the earlier citation, the proof of Theorem 1.14(i), assumes that σ never moves in Z, which White's
 shuttle violates).
-Suppose r(G ⊞ on_D) = W, White plays that strategy (shuttling for its passes), and along it:
-- (V1a) every legal chess move of the side to move is one of the D-options of the D-model, and leads to the
-  matching position;
+Suppose r(G ⊞ on_D) = W. Let Σ be a rank-lowering White strategy in G ⊞ on_D, with its passes played as the
+shuttle, and let N be the set of chess positions that arise when White plays Σ as chess moves and Black plays any
+legal D-move (π sends both shuttle states to ω). Assume, at the nodes of N:
+- (V1a) with White to move, the move Σ prescribes is legal and leads to the matching position (the shuttle is legal
+  by Lemma 2.2); with Black to move, every legal Black context move is an option of G and leads to the matching
+  position (e.p. obeying condition (E));
 - every Black Z-move is decisively punished in P;
 - every decisive event of G that is reached is a P-win for its beneficiary;
 - Black always has a legal move.
 
-Then White wins in P. *Proof:* the proof of Theorem 1.14(i), with (V1a) among the hypotheses — (V1a) makes
-the D-play a chess play, the shuttling strategy supplies White's passes, and the last two bullets make every
-deviation decisive for Black. The mirror statement holds for Black wins.
+Then White wins in P. *Proof:* N is White-certified for the sharp form of Theorem 1.14.
+- (S1): White's move is the one Σ prescribes, legal by (V1a). It lowers ρ, a pass included, because Σ chooses an
+  option of smaller rank. A ⊕ that Σ prescribes is closing by the third bullet.
+- (S2): a Black context move is a D-move to a node of N, or a decisive event for White, which is closing by the
+  third bullet. A Black promotion would be a ⊖ option of a Black node of W_White, and there is none. Black has no
+  move in on_D, so a Black Z-move is not a D-option; it is closing by the second bullet.
+- (S3) is the last bullet.
+
+The sharp form gives a P-win. The mirror statement holds for Black wins. (Revised after K13, 2026-10-27. Before,
+(V1a) read "every legal chess move of the side to move is one of the D-options". That excluded the Black Z-moves
+that the second bullet is about, and it asked for White moves that Σ never plays. The proof cited the proof of
+Theorem 1.14(i), which the header above had already replaced.)
 (Revised after review: R4 item 7: the bridge needs (V1a). It fails in P2 + H\* if White plays e3–e4, which
 stalemates Black, so the bridge may only be used along a strategy that avoids that move; kpsolve gives (W, W)
 for P2 + H\*.)
