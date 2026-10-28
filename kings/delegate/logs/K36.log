@@ -1,0 +1,1692 @@
+Reading additional input from stdin...
+2026-10-28T06:28:33.285813Z ERROR codex_core::session::session: failed to load skill /Users/aritro/.agents/skills/aura/aura-ai-website-builder/SKILL.md: missing field `description`
+2026-10-28T06:28:33.285846Z ERROR codex_core::session::session: failed to load skill /Users/aritro/.agents/skills/aura/btr-motion-pattern-registry/SKILL.md: missing field `description`
+2026-10-28T06:28:33.285852Z ERROR codex_core::session::session: failed to load skill /Users/aritro/.agents/skills/aura/gsap-react-installation/SKILL.md: missing field `description`
+2026-10-28T06:28:33.285856Z ERROR codex_core::session::session: failed to load skill /Users/aritro/.agents/skills/aura/progressive-blur-ui-overlay/SKILL.md: missing field `description`
+2026-10-28T06:28:33.285860Z ERROR codex_core::session::session: failed to load skill /Users/aritro/.agents/skills/aura/shadcn/SKILL.md: missing field `description`
+2026-10-28T06:28:33.285864Z ERROR codex_core::session::session: failed to load skill /Users/aritro/.agents/skills/aura/test-1-design/SKILL.md: missing YAML frontmatter delimited by ---
+2026-10-28T06:28:33.285867Z ERROR codex_core::session::session: failed to load skill /Users/aritro/.agents/skills/aura/ui-ux-pro-max-design-intelligence/SKILL.md: missing field `description`
+OpenAI Codex v0.164.0
+--------
+workdir: /Users/aritro/Downloads/Research/Chessendgames
+model: gpt-6-luna
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: high
+reasoning summaries: concise
+session id: 01a18132-2e61-7f20-b338-23508f433874
+--------
+user
+# Shared brief for every delegated task
+
+Project root: `/Users/aritro/Downloads/Research/Chessendgames`. This continues a 2025 high-school paper,
+"Analysis of Chess Endgames on a Cylindrical Chessboard" (`prior_work/main.tex`): combinatorial game theory
+(CGT) of king-and-pawn endgames on cylinder (files a and h glued) and flat boards.
+
+Read first:
+- `RESULTS.md`, the status page;
+- `RESEARCH_PLAN.md` §3;
+- the REPORT.md files your task names.
+
+## Conventions (Elkies 1996, as used in `cylcgt/`)
+
+- **Sides and normal play.** White = Left, Black = Right. A side with no move loses.
+- **Passed pawns.** One side having a passed pawn is worth ±BIG (BIG = 256). If both sides have one, it is a
+  race, resolved by `cylcgt.pawns.RACE_RULE` ("count", "mover" or "opponent").
+- **En passant (adopted 2026-10-16).** A pawn that can still be taken en passant is NOT passed
+  (`cylcgt.pawns.PASSED_RESPECTS_EP = True`). Setting it to False gives the older "textbook" test. Many earlier
+  results were computed with the textbook test; say which test you use.
+- **Components.** An empty file stays empty forever, so pawn groups separated by one are disjunctive summands.
+- **King freeze.** The trébuchet king group (W Pg4 / B Pg5, WK f5, BK h4 on the flat 8×8 board) is assumed to
+  be 0.
+- **API.**
+  - `cylcgt/pawns.py`: `Board(files, ranks, wrap, ep)`, `Pos.parse("W: a2 c2 / B: b7 d7")`,
+    `value(board, pos)`, `describe(board, pos)`.
+  - `cylcgt/cgt.py`: `show`, `outcome`, `add`, `neg`, `le`.
+  - Call `pawns._value.cache_clear()` after changing a global.
+
+## Rules
+
+1. **Where to write.** Only inside your task's output directory; create it. Never edit existing files elsewhere.
+   Never run git commands.
+2. **Software.**
+   - Use `.venv/bin/python` (stdlib + pytest) with `PYTHONPATH=.` from the project root.
+   - The ML tasks use `.venv-ml/bin/python` (PyTorch with MPS, MLX).
+   - Do not install anything.
+   - Compiling your own C with `cc -O2` is fine.
+3. **Network.** Use none, except the Lichess tablebase. Go through `realchess/probe.py`, whose disk cache
+   already holds about 2,000 positions. Keep to at most 200 new requests and 1 per second.
+4. **Long jobs.** Keep any single job under 45 minutes. Run long jobs in the background and poll them.
+5. **Honesty.**
+   - Label every claim **PROVED**, **CHECKED-2** (two independent implementations agree), **COMPUTED-1** or
+     **CONJECTURE**.
+   - Give an exact reproduce command for every number.
+   - Report negative results plainly, and never overstate novelty.
+6. **Deliverable.** Finish by writing `REPORT.md` in your output directory. Its first section is a 5-line
+   summary of what you established.
+7. **Shared machine (added 2026-10-22).**
+   - Other projects and other agents run on this machine.
+   - **Never kill, stop or signal a process you did not start yourself.** No `pkill`, `killall` or `kill` on
+     anything but your own PIDs.
+   - **Never use `pkill`, `killall`, `kill -- -1`, or `kill $(pgrep ...)` at all, even for your own jobs.** On
+     2026-10-22 an agent ran `pkill -f 0`, which matched every process with a 0 in its command line. It killed
+     another project's jobs. To stop your own process, record its PID when you start it (`cmd & echo $!`)
+     and run `kill <that PID>`.
+   - Memory is tight. Keep every process under 4 GB RSS, and run at most 2 heavy processes at once, under
+     `nice -n 10`.
+   - Never feed kpsolve a whole-board position list larger than 100 MB.
+   - Never commit, push or edit `paper/`.
+   - Do not create a file over 50 MB.
+
+---
+
+# K36: blind proof of Theorem 2.7 (sufficiency of the local certificate LC_T, in P), then comparison
+
+**Output directory:** `kings/delegate/out/K36/` (it exists and holds `blind_packet.md`). Write only there. Do **not**
+edit any existing file. Do not run git.
+
+Theorem 2.7 (a) and its window form (b) are labelled "PROVED after repair (in P)". The repair (K7) is one AI proof
+(Claude family). Its first draft of (b) was false (no e.p. clause in (L2)), and the corrected text has not been read
+again by anyone. You are an independent check from outside the Claude family; the order of work is fixed.
+
+## Phase 1: prove it blind
+
+Read **only** `kings/delegate/out/K36/blind_packet.md`: §1.2 (Definitions 1.1–1.5, the models C, P, D, F), Definition
+2.1, Lemma 2.2, Definitions 2.5 and 2.6 (the certificate LC_T with (L1), (L2), (L3), the projection π and Q_Z), and the
+statement of Theorem 2.7, without proofs. You may also read `kings/SPEC.md` and the header and move generator of
+`kings/kpsolve.c` for the move rules. Do not open `kings/theory/LOOPY.md` or anything under `kings/delegate/out/K7/`,
+`K3/` or `K24/` until Phase 1 is finished.
+
+Write `PROOF.md`, your own complete proof of (a) and of (b). Cover explicitly: how s̄'s strategy is built from the local
+win of (L1) and the property (L3); why every s move outside Z is accounted for by (L2) (context promotions, context
+passers, and an e.p. right with its target off F_Z); checks, stalemate and mate; captures that change Q_Z; why the win
+takes at most T moves after r; and where each hypothesis of (b) (chess-legal, empty buffer, no officer, s̄'s king on
+F_Z, no s̄ context pawn attacking s's king) is used. If you find that a hypothesis is missing, give a counterexample and
+check it with the P solver `kings/delegate/out/K7/scripts/draft/kp_p.c` (build privately with `cc -O2 -o
+kings/delegate/out/K36/kpp ... -lpthread`, run with `--pmodel` through `kings/delegate/heavy.sh` at nice 15).
+
+## Phase 2: compare
+
+Only after `PROOF.md` is written, read LOOPY's proof of Theorem 2.7 (from "**Theorem 2.7" to the end of "**Remark (K3's
+objection, answered)**") and the list "The conditions cannot be dropped". Write `FINDINGS.md`: a 5-line summary; where
+your route differs; each step of LOOPY's proof marked SOUND, GAP (give the missing step) or FALSE (give a
+counterexample); any test you ran (commands, counts); your recommended label.
+
+## Rules
+
+`delegate/COMMON.md`, rules 5 and 7. At most 2 heavy processes, always through `kings/delegate/heavy.sh`; under 3 GB
+RSS; at most 20 minutes per run; no file over 50 MB; no installs, no network. Never use pkill, killall, `kill -- -1` or
+any pattern kill; kill only PIDs you started and recorded. Delete binaries at the end.
+**Clarifying reading scope and skill use**
+**Evaluating blind packet approach**
+codex
+I’ll complete the blind proof first using only the packet (and the explicitly allowed move-rule sources if needed). I’ll write `PROOF.md` before opening LOOPY or any prior delegate output, then do the comparison and write `FINDINGS.md`.
+exec
+/bin/zsh -lc "rg -n -i 'Chessendgames|K36|local certificate|Theorem 2\\.7' /Users/aritro/.codex/memories/MEMORY.md" in /Users/aritro/Downloads/Research/Chessendgames
+ exited 1 in 0ms:
+**Verifying skill relevance**
+codex
+I’m following the supplied “Ponytail” constraints for this check: keep the proof direct, and add only the smallest necessary counterexample check if a hypothesis fails. I’ll also check the local skill catalog for a relevant proof or research workflow before proceeding.
+exec
+/bin/zsh -lc "rg -in 'proof|theorem|mathematical|research|verification' /Users/aritro/.claude/skillport/SKILL-INDEX.md | head -40" in /Users/aritro/Downloads/Research/Chessendgames
+ succeeded in 0ms:
+40:| `cipher-security-research-cryptography-specialist` | You are CIPHER — an elite Security Research & Cryptography Specialist operating as a dedicated technical consultant embedded within a licensed penetration te… |
+55:| `deep-research` | Conduct enterprise-grade research with multi-source synthesis, citation tracking, and verification. Use when user needs comprehensive analysis requiring 10+ … |
+56:| `design-consultation` | Design consultation: understands your product, researches the landscape, proposes a complete design system (aesthetic, typography, color, layout, spacing, mo… |
+72:| `efficient-fable` | Use when running Claude Fable on codebase-heavy or token-heavy work and the user wants Fable to orchestrate research, coding, and testing while cheaper subag… |
+224:| `vercel-verification` | Full-story verification — infers what the user is building, then verifies the complete flow end-to-end: browser → API → data → response. Triggers on dev serv… |
+226:| `verification-before-completion` | Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output… |
+
+**Preparing for theorem review**
+exec
+/bin/zsh -lc 'cat kings/delegate/out/K36/blind_packet.md' in /Users/aritro/Downloads/Research/Chessendgames
+ succeeded in 0ms:
+# K36 blind packet: definitions and statements only (extracted from kings/theory/LOOPY.md at commit 94079e64)
+
+Proofs and verification notes are omitted on purpose. Do not read LOOPY.md itself until Phase 2.
+
+## §1.2 (Definitions 1.1–1.5)
+
+### 1.2 Games with decisive terminals, and four models
+
+**Definition 1.1 (D-game).** A *D-game* is a finite set X of positions with, for each x ∈ X, finite option
+sets L(x) and R(x) contained in X ∪ {⊕, ⊖}.
+- ⊕ is the terminal "White has won". ⊖ is the terminal "Black has won".
+- The D-game is *short* if the directed graph of moves on X is acyclic, and *loopy* otherwise.
+- ∅ denotes a position with no options.
+
+**Definition 1.2 (play and results).**
+- Play alternates from (x, s), where s is the player to move.
+- A move to ⊕ or ⊖ ends the play with that result.
+- A player with no option loses (*normal play*).
+- Infinite play is a draw.
+- r(x, s) = W if White can force a White win in finitely many moves, L if Black can, and D otherwise.
+
+KNOWN: on a finite game graph these values are the least fixed point computed by retrograde analysis
+([S] ch. VI; this is also what kpsolve computes). A short D-game has no draws (Zermelo).
+
+**Definition 1.3 (sum with chess semantics).** For D-games A₁, …, A_k, the sum A₁ ⊞ … ⊞ A_k works as follows.
+- Its positions are tuples.
+- A move is a move in one coordinate.
+- A move to ⊕ or ⊖ in *any* coordinate ends the *whole* play. This is "the first decisive event ends the
+  game".
+- A player with no option in any coordinate loses.
+
+**Definition 1.4 (BIG translation).** For a short D-game A and an integer B ≥ 1, A^B is the short CGT game
+obtained by replacing ⊕ with the integer B and ⊖ with −B. For a sum, (A₁ ⊞ … ⊞ A_k)^B := A₁^B + … + A_k^B
+(the disjunctive CGT sum). In this sum a ±B summand does **not** end play: the other components continue.
+
+**Definition 1.5 (four models of a king-and-pawn position X).**
+- **C(X), chess.** The rules of `kings/SPEC.md`: checkmate wins, stalemate is a draw, infinite play is a draw.
+- **P(X), the promotion model.** Chess, except that the first promotion ends the game as a win for the
+  promoter. Stalemate and infinite play are still draws.
+  - `kpsolve --frozen` computes the frozen-king model F of Corollary 2.7′ (a king move loses at once for the mover), not P. P itself, with free kings, is computed by K7's build `kings/delegate/out/K7/scripts/draft/kp_p.c` (its flag is `--pmodel`; `kings/kpsolve.c` has no such flag) and by the independent solvers of K19 and K24 (revised after K24, 2026-10-27: this line used to say that `--frozen` computes P).
+- **D(X), the decisive-event model.** A D-game. Its positions are the positions before the first decisive
+  event. Its terminals are the decisive events:
+  - a passer appears (as in `cylcgt`), with races scored by a race rule;
+  - a punished move in the king group (§2). Under (V3) of Theorem 1.14 *every* move inside Z is a punished
+    move, so the king group then contributes only suicides and is deleted by Lemma 1.7; the setup of
+    Theorem 1.14 and this definition agree under (V3) (revised after review: R2 item 10).
+- **S(X), the BIG convention.** The BIG value of X: at every node of the game tree the position is split
+  into its components (files separated by an empty file, and an empty file stays empty), each component is
+  translated separately, and the translations are summed; a component with a passer is worth ±BIG, races being
+  scored by the race rule. This is the value `cylcgt.pawns.value` computes (COMPUTED-1, `cylcgt/pawns.py`).
+  - *What S(X) is not* (revised after review: R2 item 2): it is not the BIG translation D(X)^B of the D-game of
+    §1.2, in which the components are those of the root and the first decisive event ends the whole play.
+    `cylcgt` re-splits at every node, and a passer freezes only its own component, so the two differ as soon
+    as a component splits. Example: flat 7×6, e.p. on, count rule, `W: b2 d3 f2 / B: c4 c5 e5 g5` is one
+    component at the root, yet o(S) = 𝓝 while the decisive-event result is 𝓡 (COMPUTED-1, `lemmas/common.py`:
+    o(S) = N, o(W) = R).
+  - The re-splitting is why (V4) of Theorem 1.14 has to be checked hereditarily; see Theorem 1.11(c).
+
+The models are connected by bridges, each with its own hypotheses:
+
+*Notation.* o(G) is the outcome class of a CGT game G (𝓛, 𝓡, 𝓝, 𝓟); W(X) is the whole-board convention game
+of a pawn position X, in which the first passer ends the game (`notes/lemmas.md`); S(X) is the BIG value of
+§1.5; and HSS, hereditary sum-safety, is the hypothesis (HSS) of Theorem 1.11(c). (Revised after review:
+R1 item 11: §6 used o(W(X)) and "hereditarily sum-safe" without defining them.)
+
+```
+S  --Thm 1.11(c) (V4)-->  D  --Thm 1.14 (V1-V3)-->  P  --(A_Q)(X)-->  C
+```
+
+**Axiom (A_Q)(X) (per-position hypothesis, checked by kpsolve).** For a fixed position X: if X is a P-win
+for σ, then X is a C-win for σ.
+- **FALSE as a general statement (revised after review: R1 item 6, R2 item 8).** cyl:7×6 `Ke2 Pb5 ka5 w -` is
+  a P-win (b6=Q at once; `kpsolve --frozen` gives W W) and a chess draw (exact D D: every White move draws);
+  flat:4×4 `Kd1 Pb3 ka3 w -` is the same (b4=Q is met by Kxb4). So (A_Q) is not an axiom: it is a hypothesis
+  to be checked at each position, and every "PROVED in P" claim below is a chess claim only where it holds.
+- *Evidence for:* the cylinder KQK tables agree in two independent solvers ([RESULTS.md](../../RESULTS.md) §2:
+  KQK is 100% won on the 8×8 cylinder).
+- *Evidence against, in general:* L4.4 of `notes/lemmas.md` is a promotion race lost to a promotion with check.
+- *Settled by:* kpsolve with `--cap 1` computes C exactly whenever its bounds agree (A = B), and `--frozen`
+  computes P; the two runs decide (A_Q)(X) for that X.
+
+
+## Definition 2.1
+
+**Definition 2.1 (king group, buffer).** A *king group* Z consists of:
+- a set F_Z of files (an arc on a cylinder);
+- both kings and some pawns, the Z-pawns, all on F_Z.
+
+All other pawns, the *context*, stand on files at distance ≥ 2 from F_Z. The files at distance exactly 1
+are pawn-free; they are the *buffer*. A *Z-move* is a move of a king or of a Z-pawn.
+- On the 7×6 cylinder with F_Z = {a, b, c}, the buffer is {d, g} and the context lies on {e, f}.
+
+## Lemma 2.2 (statement only)
+
+**Lemma 2.2 (buffer invariance). PROVED.** Before the first promotion:
+- no pawn ever stands on a buffer file;
+- context pawns stay on context files, and Z-pawns stay on F_Z;
+- hence a king standing on F_Z is never attacked by a context pawn, and a context pawn never attacks a
+  square of F_Z.
+
+## Definition 2.5
+
+**Definition 2.5 (decisive punishment, in chess terms).** A Z-move m of side s, made at a chess position Y
+(context plus Z), is *decisively punished* if the opponent s̄ has a forced win in P (or in C) from the
+position after m. The win must hold against every defence of s:
+- s's moves in the context, including creating passers, starting races and capturing en passant;
+- s's king going anywhere, back into Z or into the context;
+- s promoting;
+- s steering for stalemate.
+
+"Whatever the other components contain" means: for every context in the class one claims the zero for.
+Theorem 2.4(b) needs this only at positions where s is losing the context.
+
+## Definition 2.6
+
+**Definition 2.6 (local certificate LC_T). (revised after K7, 2026-10-22)**
+
+*Data.*
+- Y is a position as in Definition 2.1 with s to move: both kings on F_Z, the Z-pawns on F_Z, the context on files
+  at distance ≥ 2 from F_Z, the buffer empty, no officer, no promotion yet. An e.p. right carried by Y is cleared by m. The proof of (a) does not
+  use that Y is chess-legal: it uses that m and r are legal moves (see (b)).
+- m is a legal Z-move of s that is not a promotion. It may take s's king off F_Z.
+- r is a legal reply of s̄ to m that is not a promotion, is a Z-move, and leaves s̄'s king on F_Z. The standard r
+  is a king capture of a Z-pawn of s. (If s̄ can promote at once there is nothing to certify: that is a P-win.)
+- Q is the position after m and r, with s to move. T ≥ 1 is an integer.
+- The *window* is the sequence s, s̄, s, s̄, … from Q. So s̄'s t-th move after r comes after s's t-th move, and
+  s̄ must have won by its T-th move.
+- The *projection* π(R) of a position R is R with every pawn deleted that stands off F_Z, of both colours. The
+  kings (wherever they stand), the Z-pawns, the side to move, and an e.p. right whose target square is on F_Z
+  are kept. Put Q_Z = π(Q). (Earlier text: "Q with every context pawn deleted". The e.p. right and the place of
+  s's king were not said.)
+- In (a), r is a Z-move, so an e.p. right carried by Q has its target on F_Z. In the window form (b) the
+  target may be anywhere, and (L2) accounts for it (revised after K7, 2026-10-22).
+
+LC_T(m) holds at Y if some such reply r satisfies (L1), (L2) and (L3).
+
+- **(L1) local forced promotion against a passing defender.** The *local game* L_T(Q_Z) is played on the same
+  board (same files and ranks, flat or cylinder) from Q_Z with s to move, by the rules of chess, with these
+  changes:
+  1. *Promotion (P semantics).* The first promotion by either side ends the game. A promotion by s is a win for
+     s, whatever happens to the new piece: it is a **failure** for s̄. A promotion by s̄ is a win for s̄ if the
+     new queen cannot be captured at once, that is, if no legal move of s captures it. An unsafe
+     promotion ends the game as a failure for s̄.
+  2. *Passes.* s may pass at any turn in which it is not in check, as often as it likes (k = ∞). s̄ may not
+     pass. A pass changes only the side to move and clears the e.p. right.
+  3. *Confinement.* s̄'s king may only step onto squares of F_Z. s̄'s pawn moves are not restricted; by Lemma 2.2
+     they stay on F_Z.
+  4. *Mate and stalemate.* If s is in check and has no legal move, s is mated and s̄ wins. With unlimited
+     passes s can never be stalemated in the local game. If s̄ has no permitted move at its turn (checkmate,
+     stalemate, or only king moves that leave F_Z), that is a failure for s̄.
+  5. *Time.* s̄ must win with one of its first T moves, by a promotion as in 1 or by a move that mates s.
+     Anything else is a failure.
+
+  (L1) holds if s̄ has a strategy that wins L_T(Q_Z) against every behaviour of s, passes included.
+  **(L1_P)** is the weaker condition in which every promotion by s̄ is a win (no queen clause). Theorem 2.7 holds
+  with (L1_P) in place of (L1); the queen clause is for the chess statement (A_Q).
+  - The unlimited budget models the fact that s's spare moves in the context are not known in advance; the real
+    defender's options are a subset of the k = ∞ game's, and its only gain from having fewer options is
+    stalemate, which (L3) excludes. The earlier phrasing "for every k" and the remark that "every k is needed"
+    are withdrawn (revised after review: R1 item 3, R3 items 2 and 3).
+  - The earlier clause "s with no legal move and no pass left is stalemated, which counts as a failure for s̄"
+    has no content for k = ∞. Stalemate enters in two places only: a stalemate of s̄ is a failure (rule 4),
+    and a stalemate of the *real* s is excluded by (L3).
+- **(L2) no faster counter-promotion by a context pawn.** Let Q° be Q with s̄'s king and all Z-pawns of both
+  colours deleted. s's king and the context pawns of both colours stay. Let μ_s be the least number of
+  consecutive s-moves (s̄ never moves) after which a context pawn of s promotes in Q°, and ∞ if none can. The
+  moves are chess moves: a king may not step onto a square attacked by a pawn of s̄, an s̄ context pawn stays
+  where it is unless s captures it, and no e.p. right exists except the one described next. If Q carries an
+  e.p. right whose target square is **off F_Z**, Q° keeps it: s may use it at its first move, and only then
+  (the capture lands on the target and removes the s̄ pawn that has just double-stepped). A right whose target
+  is on F_Z concerns Z-pawns only, which Q° has deleted, so it is dropped. In (a) Q carries no right of the first
+  kind. Then **μ_s ≥ T + 1**.
+  - μ_s is a breadth-first search over s's king and context pawns. A king move that captures an s̄ context
+    blocker is one of the moves, so the king's help is counted, and so is the e.p. capture just described.
+  - **Which s-pawns are counted.** Only the context pawns. s's Z-pawns are not counted by (L2): their
+    promotions belong to the local game, where s̄'s Z-pieces stay on the board and a promotion by s is a failure
+    for s̄. This replaces the earlier text, in which μ_s counted s's king and all pawns, Z-pawns included, with
+    s̄'s Z-pieces removed. Reasons:
+    - The proof needs (L2) only for the promotions that (L1) cannot see, and what (L1) deletes is the context.
+    - The earlier count was not a lower bound for a Z-pawn: deleting s̄'s Z-pieces can raise or lower it (R3
+      item 3b: 3 moves against the real 2).
+    - As a hypothesis it was stronger than needed. `Ke6 ka1 Pc4 pb3 pc5`, White to move (cyl:7×6), is a Black
+      win in P. Black's local win has T = 2 (b2, b1=Q), no White context pawn exists, but the old count gave
+      μ_s = 2 for White's Z-pawn c4 once Black's c5 was deleted, although c5 locks it. (L1), (L2), (L3) as now
+      stated all hold; the old (L2) failed.
+    - With context pawns only, Proposition 2.10(a) needs no Z-pawn proviso: s's Z-pawns are covered by (L1),
+      whatever their distance from promotion (a promotion by s is a failure for s̄ in the local game).
+    - Anyone who wants the stronger hypothesis may assume both; the theorem holds a fortiori.
+  - **μ_s ≥ T + 1 is the exact bound for P.** Step 4 shows that s promotes no earlier than its (T + 1)-th turn, and
+    s̄ queens on its T-th move, which follows s's T-th turn. With μ_s = T, s promotes first (example below).
+  - **(L2⁺)**, μ_s ≥ T + 2, is only a margin, and it does not give a chess win. With μ_s = T + 1, s promotes at once
+    after s̄ queens (queen against queen, not against a pawn on its seventh rank). With μ_s = T + 2, s̄ has one move
+    with its new queen, and a draw can still follow. No margin of μ_s replaces (A_Q) at the position (examples in
+    "What Theorem 2.7 does not give"). The earlier wording, "queen-against-seventh-rank-pawn endings can be
+    drawn", described the T + 1 case wrongly (revised after K7, 2026-10-22).
+- **(L3) no stalemate of s in the window.** A *guided strategy* of s̄ is a strategy in the real game that at each
+  of its turns plays a Z-move (a king step onto a square of F_Z, a move of a Z-pawn, or a promotion) whose
+  projection is a winning move of L_T(Q_Z) at the projected position, with the remaining time. s̄ never moves a
+  context pawn. (A winning strategy of the local game, read in the real game, is guided.) (L3) asks for a
+  guided strategy such that, in every real play from Q in which s̄ follows it and s plays legal moves as it
+  likes, s is never stalemated at one of its turns in the window. A mate of s ends the play in s̄'s favour and
+  is not excluded.
+  - (L1) cannot see (L3): it lets s pass, while the real s has only the context moves that exist. The danger is
+    a context pawn taking away king squares that are free in Q_Z, or the context running out of moves.
+  - **Sufficient local condition (L3_F).** In every line of L_T(Q_Z) in which s̄ plays only winning moves, s has
+    at each of its turns before s̄'s win a legal Z-pawn move or a legal king move onto a square of F_Z. By
+    Lemma 2.2 nothing off F_Z occupies or attacks a square of F_Z, so that move is legal in every real position
+    reached as well.
+  - The earlier sufficient condition (L3′) (every square within distance T + 1 of s's king lies on F_Z) can never
+    apply for T ≥ 2 on a 3-file group, because the ball of radius T + 1 spans at least 5 files while
+    |F_Z| = 3 (revised after review: R1 item 8).
+  - For T = 1, (L3) is a single check: s is not stalemated at Q.
+
+## Theorem 2.7 (statement only)
+
+**Theorem 2.7 (sufficiency of the certificate).**
+(The first K7 draft of (b) had no e.p. clause in (L2) and was FALSE; see the example in the list "The conditions
+cannot be dropped" below.)
+- **(a)** If LC_T(m) holds at Y, with reply r, then s̄ has a forced win in P after m: it plays r and then wins
+  with one of its next T moves. So m is decisively punished in P.
+- **(b) Window form.** The proof does not use how Q arose. Let Q be a position with s to move which is
+  chess-legal, or which arises from a position Y of Definition 2.1 by legal moves m and r as in (a), and in which
+  every pawn is a Z-pawn on F_Z or a context pawn on a context file, the buffer is empty, there is no officer,
+  s̄'s king stands on F_Z, and no s̄ context pawn attacks s's king (automatic if s's king is on F_Z). Q may
+  carry an e.p. right with its target anywhere: (L2) counts a right whose target is off F_Z, and π keeps a
+  right whose target is on F_Z. If (L1),
+  (L2) and (L3) hold at Q, s̄ has a forced win in P from Q. This is the form used in §5.3 and P8, with Q = Y.
+  The window form does not cover a legal position in which s is in check from an s̄ context pawn that has just
+  moved (s's king on a context or buffer file): there (I4) fails, and the theorem says nothing.
+
+
+
+**Analyzing pawn promotion constraints**
+**Examining effects of removing blockers**
+**Analyzing en passant scenarios**
+**Examining king captures and checks**
+**Analyzing legality of guided moves**
+**Evaluating effects of promotions and captures**
+**Analyzing en passant and check scenarios**
+**Evaluating king checks and en passant limits**
+**Analyzing stalemate and promotion rules**
+**Clarifying promotion and queen safety rules**
+exec
+/bin/zsh -lc "cat kings/SPEC.md && sed -n '1,240p' kings/kpsolve.c" in /Users/aritro/Downloads/Research/Chessendgames
+ succeeded in 0ms:
+# Explicit king-and-pawn solver: rules and file formats
+
+Two solvers must implement this spec: the C solver `kings/kpsolve.c` and an independent Python
+reference solver `kings/ref/`. They are compared position by position, so every rule below is
+binding. Neither may read the other's code.
+
+## Board
+
+- W files (2 to 8) by H ranks (4 to 8). Files are named a, b, c, ... and ranks 1, 2, ..., H.
+- **flat:** an ordinary board.
+- **cyl:** a cylinder. File a and the last file are glued. Ranks are not glued.
+
+## Pieces and moves
+
+- White uses upper case `K Q R B N P`; Black uses lower case `k q r b n p`.
+- Queens, rooks, bishops and knights are called *officers*.
+- Each side has exactly one king.
+
+Standard chess moves, with these clarifications:
+
+1. **Wraparound (cyl only).**
+   - Every horizontal or diagonal step wraps from the last file to file a and back.
+   - This applies to kings, knights, sliders and pawn captures. For example, on a cylinder of
+     width 5, a white pawn on e2 captures on a3 and on d3.
+2. **Sliders.**
+   - A slider moves along a ray until it hits the board edge (top or bottom rank), the first
+     occupied square, or its own starting square.
+   - It may capture an enemy non-king piece on the first occupied square. It never moves through
+     a piece.
+   - When a ray wraps all the way round and returns to the starting square, the ray stops there.
+     There is no null move.
+   - On a cylinder the leftward and rightward rays along a rank can reach the same square. That
+     is one move, not two.
+3. **Pawns.**
+   - White pawns move towards rank H; Black pawns move towards rank 1.
+   - Single step to an empty square.
+   - Double step from the pawn's second rank (rank 2 for White, rank H−1 for Black) if both
+     squares are empty. On a 4-rank board the double step lands on the last rank: it then promotes
+     (one move per allowed piece) and leaves no e.p. right.
+   - A pawn captures diagonally forward. It may capture enemy pawns and enemy officers, never the
+     king.
+   - A white pawn may never stand on rank 1 or rank H; a black pawn may never stand on rank H or
+     rank 1.
+4. **Promotion.**
+   - A pawn reaching the last rank must promote to one piece of the allowed promotion set.
+   - The default set is Q, R, B, N; option `--promote` can restrict it, for example to `Q`.
+   - Each allowed piece is a separate move.
+5. **En passant** (option `--ep on|off`, default on).
+   - Right after a pawn double-steps, the opponent may capture it en passant on their very next
+     move only.
+   - The capture works exactly as in chess, diagonally across the seam on a cylinder.
+   - A position therefore carries an e.p. target square or `-`.
+   - With `--ep off` there is no en passant at all.
+6. **Kings.**
+   - A king moves one step in any direction, with wraparound on a cylinder.
+   - It may capture an enemy pawn or officer.
+7. **Legality.**
+   - A move may not leave the mover's own king attacked.
+   - Kings may never be adjacent; this follows from that rule.
+   - A position is **illegal** if two pieces share a square, the kings are adjacent, a pawn stands
+     on its first or last rank, or the side *not* to move is in check.
+   - Illegal input positions are reported as `X`.
+8. **Results.**
+   - Checkmate (no legal move, and in check) is a loss for the side to move.
+   - Stalemate (no legal move, not in check) is a draw.
+   - There is no 50-move rule and no castling.
+   - A game that can go on forever under best play is a draw. The value is the usual retrograde
+     least fixed point:
+     - won if some move reaches a lost position;
+     - lost if every move reaches a won position;
+     - everything else is drawn.
+
+## The officer cap and bounds
+
+(A promotion is capped only if the position *after* it holds more than C officers, so a pawn that
+captures an officer while promoting is not capped at count C.)
+
+Exactness can be expensive, so the solvers take `--cap C`, default 1. This is the maximum number of
+officers (both colours together) a position may hold.
+
+- A promotion that would create officer number C+1 is a **capped promotion**.
+- The solver computes two bounds.
+  - **Bound A:** every capped promotion counts as an immediate win for **White**, whoever promoted.
+  - **Bound B:** every capped promotion counts as an immediate win for **Black**.
+- Results are monotone in terminal values, so A ≥ true value ≥ B from White's point of view.
+- When A and B agree, the value is **exact**.
+- Input positions may hold at most C officers.
+
+## Position format (one per line)
+
+```
+<piece tokens> <side to move> <e.p. target>
+```
+
+- Piece tokens are a piece letter and a square, separated by spaces, in any order, for example
+  `Ke1 ke3 Pa2 Pb3 pc4 Qd5`.
+- The side to move is `w` or `b`.
+- The e.p. target is the square that was skipped by the double step (as in FEN), or `-`.
+- A line starting with `#` is a comment.
+
+Example (5x5 cylinder): `Kc1 kc5 Pa2 pe4 w -`
+
+## Command line
+
+```
+<solver> --board cyl:7x6 --ep on --promote QRBN --cap 1 < positions.txt > results.txt
+```
+
+The same interface applies to `kings/kpsolve` and to `python3 -m kings.ref.solve`.
+
+## Output format (one line per input line, same order; comments are copied)
+
+```
+<the input position exactly as given> | <A> <B>
+```
+
+- `<A>` and `<B>` are each `W` (White wins), `D` (draw), `L` (Black wins) or `X` (illegal).
+- They are given from **White's** point of view, whoever is to move.
+- Exact when A == B.
+/* kpsolve.c -- exact solver for chess positions with kings, pawns and promoted
+ * officers (Q, R, B, N) on a small flat or cylindrical board.
+ * Rules and file formats: SPEC.md. Written independently of kings/ref/.
+ *
+ * Method. Positions are grouped into layers by (white pawns, black pawns,
+ * officer types). Pawn moves, captures and promotions leave the layer and never
+ * come back, so a layer is solved after every layer it can reach (on demand,
+ * recursively). Inside a layer only kings and officers move, reversibly, so
+ * every placement of them is solved together: counting retrograde analysis on
+ * the explicit in-layer move graph, or repeated passes for very large layers.
+ * Values are win / loss / draw for the side to move; whatever is never resolved
+ * is a draw (the least fixed point, i.e. infinite play is a draw).
+ *
+ * Extra options beyond SPEC.md, for experiments:
+ *   --frozen   kings may not move: a king move loses at once for the mover, and
+ *              a promotion wins at once for the promoter (the pawn-only
+ *              convention with real races instead of "passed pawn = win")
+ *   --moves    after the result, list every legal move with the value it leads to
+ *   --threads  worker threads for large layers (default 1)
+ */
+#include <ctype.h>
+#include <pthread.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+#define MAXOFF 3
+#define MAXMOVES 320
+#define BIT(s) (1ULL << (s))
+#define PASS_THRESHOLD 6000000u /* layers with more states use repeated passes */
+
+enum { VUNK = 0, VWIN, VLOSS, VDRAW, VILL };
+enum { WHITE = 0, BLACK = 1 };
+enum { TQ = 1, TR, TB, TN }; /* officer code = type + 8 * colour */
+static const char TYPECH[] = "?QRBN";
+
+static int W, H, N, WRAP, EPON = 1, CAP = 1, FROZEN = 0, BOUND = 0, cappedSeen = 0, WANTMOVES = 0;
+static int promoType[4], nPromo;
+
+/* ---------- geometry ---------- */
+
+static int kingN[64], kingL[64][8], knightN[64], knightL[64][8];
+static uint64_t kingBB[64], knightBB[64];
+static uint64_t pawnAtt[2][64]; /* squares from which a pawn of colour c attacks s */
+static int capN[2][64], capL[2][64][2];
+static const int DF[8] = {0, 0, 1, -1, 1, 1, -1, -1};
+static const int DR[8] = {1, -1, 0, 0, 1, -1, 1, -1};
+static int rayN[64][8], rayL[64][8][8];
+static int8_t rayIdx[64][8][64];
+static uint64_t rayBefore[64][8][8];
+
+static int step(int s, int df, int dr) {
+  int f = s % W + df, r = s / W + dr;
+  if (r < 0 || r >= H) return -1;
+  if (WRAP) f = ((f % W) + W) % W;
+  else if (f < 0 || f >= W) return -1;
+  return r * W + f;
+}
+
+static void add_unique(int *n, int *l, int s) {
+  for (int i = 0; i < *n; i++)
+    if (l[i] == s) return;
+  l[(*n)++] = s;
+}
+
+static void init_geometry(void) {
+  static const int NF[8] = {1, 2, -1, -2, 1, 2, -1, -2};
+  static const int NR[8] = {2, 1, 2, 1, -2, -1, -2, -1};
+  memset(rayIdx, -1, sizeof rayIdx);
+  memset(pawnAtt, 0, sizeof pawnAtt);
+  for (int s = 0; s < N; s++) {
+    kingN[s] = knightN[s] = 0;
+    kingBB[s] = knightBB[s] = 0;
+    for (int d = 0; d < 8; d++) {
+      int t = step(s, DF[d], DR[d]);
+      if (t >= 0 && t != s) add_unique(&kingN[s], kingL[s], t);
+      t = step(s, NF[d], NR[d]);
+      if (t >= 0 && t != s) add_unique(&knightN[s], knightL[s], t);
+    }
+    for (int i = 0; i < kingN[s]; i++) kingBB[s] |= BIT(kingL[s][i]);
+    for (int i = 0; i < knightN[s]; i++) knightBB[s] |= BIT(knightL[s][i]);
+    for (int d = 0; d < 8; d++) {
+      int cur = s;
+      uint64_t before = 0;
+      rayN[s][d] = 0;
+      for (;;) {
+        cur = step(cur, DF[d], DR[d]);
+        if (cur < 0 || cur == s) break; /* edge, or back home: no null move */
+        int k = rayN[s][d]++;
+        rayL[s][d][k] = cur;
+        rayIdx[s][d][cur] = (int8_t)k;
+        rayBefore[s][d][k] = before;
+        before |= BIT(cur);
+      }
+    }
+    for (int c = 0; c < 2; c++) {
+      capN[c][s] = 0;
+      for (int df = -1; df <= 1; df += 2) {
+        int t = step(s, df, c == WHITE ? 1 : -1);
+        if (t >= 0 && t != s) add_unique(&capN[c][s], capL[c][s], t);
+      }
+    }
+  }
+  for (int c = 0; c < 2; c++)
+    for (int s = 0; s < N; s++)
+      for (int i = 0; i < capN[c][s]; i++) pawnAtt[c][capL[c][s][i]] |= BIT(s);
+}
+
+/* ---------- positions ---------- */
+
+typedef struct {
+  uint64_t wp, bp;
+  int wk, bk, no, stm, ep;
+  int osq[MAXOFF], ot[MAXOFF];
+} Pos;
+
+typedef struct {
+  uint64_t wp, bp;
+  int no;
+  int ot[MAXOFF];
+} Key;
+
+static int colour_of(int code) { return code >> 3; }
+static int type_of(int code) { return code & 7; }
+
+static uint64_t occupancy(const Pos *p) {
+  uint64_t o = p->wp | p->bp | BIT(p->wk) | BIT(p->bk);
+  for (int j = 0; j < p->no; j++) o |= BIT(p->osq[j]);
+  return o;
+}
+
+static int man_attacks(int type, int from, int target, uint64_t occ) {
+  if (type == TN) return (int)((knightBB[from] >> target) & 1);
+  int lo = type == TB ? 4 : 0, hi = type == TR ? 4 : 8;
+  for (int d = lo; d < hi; d++) {
+    int k = rayIdx[from][d][target];
+    if (k >= 0 && !(rayBefore[from][d][k] & occ)) return 1;
+  }
+  return 0;
+}
+
+/* is square s attacked by colour `by`? */
+static int attacked(const Pos *p, int s, int by) {
+  int k = by == BLACK ? p->bk : p->wk;
+  if ((kingBB[k] >> s) & 1) return 1;
+  if ((by == BLACK ? p->bp : p->wp) & pawnAtt[by][s]) return 1;
+  uint64_t occ = occupancy(p);
+  for (int j = 0; j < p->no; j++)
+    if (colour_of(p->ot[j]) == by && p->osq[j] != s && man_attacks(type_of(p->ot[j]), p->osq[j], s, occ))
+      return 1;
+  return 0;
+}
+
+static int in_check(const Pos *p, int side) {
+  return attacked(p, side == BLACK ? p->bk : p->wk, !side);
+}
+
+static void canonicalize(Pos *p) {
+  for (int i = 1; i < p->no; i++)
+    for (int j = i; j > 0; j--) {
+      int a = p->ot[j - 1] * 64 + p->osq[j - 1], b = p->ot[j] * 64 + p->osq[j];
+      if (a <= b) break;
+      int t = p->ot[j]; p->ot[j] = p->ot[j - 1]; p->ot[j - 1] = t;
+      t = p->osq[j]; p->osq[j] = p->osq[j - 1]; p->osq[j - 1] = t;
+    }
+}
+
+static void key_of(const Pos *p, Key *k) {
+  memset(k, 0, sizeof *k);
+  k->wp = p->wp;
+  k->bp = p->bp;
+  k->no = p->no;
+  for (int j = 0; j < p->no; j++) k->ot[j] = p->ot[j];
+}
+
+static int key_eq(const Key *a, const Key *b) {
+  if (a->wp != b->wp || a->bp != b->bp || a->no != b->no) return 0;
+  for (int j = 0; j < a->no; j++)
+    if (a->ot[j] != b->ot[j]) return 0;
+  return 1;
+}
+
+static int pos_in_key(const Pos *p, const Key *k) {
+  if (p->wp != k->wp || p->bp != k->bp || p->no != k->no) return 0;
+  for (int j = 0; j < p->no; j++)
+    if (p->ot[j] != k->ot[j]) return 0;
+  return 1;
+}
+
+static size_t layer_size(int no) {
+  size_t n = 2;
+  for (int i = 0; i < 2 + no; i++) n *= (size_t)N;
+  return n;
+}
+
+static size_t pos_index(const Pos *p) {
+  size_t i = (size_t)p->stm;
+  i = i * N + p->wk;
+  i = i * N + p->bk;
+  for (int j = 0; j < p->no; j++) i = i * N + p->osq[j];
+  return i;
+}
+
+static void pos_decode(const Key *k, size_t idx, Pos *p) {
+  p->wp = k->wp;
+  p->bp = k->bp;
+  p->no = k->no;
+  p->ep = -1;
+  for (int j = k->no - 1; j >= 0; j--) {
+    p->osq[j] = (int)(idx % N);
+    idx /= N;
+    p->ot[j] = k->ot[j];
+  }
+  p->bk = (int)(idx % N);
+  idx /= N;
+  p->wk = (int)(idx % N);
+  idx /= N;
+  p->stm = (int)idx;
+}
+
+/* legal as a stored state: no overlaps, kings apart, canonical officer order,
+ * side not to move not in check (pawn ranks are guaranteed by the key) */
+static int legal_state(const Pos *p) {
+  if (p->wp & p->bp) return 0;
+  uint64_t seen = p->wp | p->bp;
+  if (((seen >> p->wk) & 1) || ((seen >> p->bk) & 1) || p->wk == p->bk) return 0;
+  seen |= BIT(p->wk) | BIT(p->bk);
+  for (int j = 0; j < p->no; j++) {
+    if ((seen >> p->osq[j]) & 1) return 0;
+    seen |= BIT(p->osq[j]);
+    if (j > 0 && p->ot[j] == p->ot[j - 1] && p->osq[j] < p->osq[j - 1]) return 0;
+  }
+  if ((kingBB[p->wk] >> p->bk) & 1) return 0;
+  if (in_check(p, !p->stm)) return 0;
+  return 1;
+}
+
+/* ---------- move generation ---------- */
+
+**Drafting PROOF.md guidelines**
+**Analyzing move legality constraints**
+**Analyzing pawn move contexts**
+**Evaluating effects of en passant and context moves**
+**Analyzing move sequences and context interactions**
+**Clarifying king movement and promotion constraints**
+codex
+The blind definitions give a clear simulation route: project each real move into the local game, treating omitted context-pawn moves as passes; use the strengthened \(\mu_s\) condition to rule out context promotions during the local time window; and use (L3) to exclude real stalemate. I’m writing out the timing and legality details before opening any comparison material.
+exec
+/bin/zsh -lc "cat > kings/delegate/out/K36/PROOF.md <<'EOF'
+# Independent blind proof of Theorem 2.7
+
+**PROVED (within Definitions 2.1, 2.5, 2.6 and Lemma 2.2 as stated in the blind packet).** The proof is for the promotion model P. Its window argument applies to the stated hypotheses of (b); (a) is the special case supplied by the local certificate.
+
+## Projection and the guided play
+
+Fix a position Q satisfying the window hypotheses, with s to move, and let s̄ follow the strategy in (L1). At any real position in the window, project by deleting context pawns as in π. Keep the kings (even if s's king has left F_Z), all Z-pawns, side to move, and any en-passant right whose target is on F_Z. The projected initial state is Q_Z.
+
+The invariant is that each real turn by s projects either to a legal s move in the local game or, if its only effects are on deleted context pawns / an off-F_Z en-passant right, to a pass. A move that changes the retained king, Z-pawns, side, or on-F_Z en-passant state is represented by that same move in the local game. The only unrepresented pawn advances/captures are by context pawns; these do not change the projected board and are accounted for separately by (L2). A context-king move is still represented, since the king is retained wherever it goes. Capturing a context pawn with the king projects to the same king move onto the now-empty square. An en-passant capture with an off-F_Z target projects to a pass; its possible benefit to a context passer is included in Q° and μ_s. An on-F_Z right is retained and the corresponding move is represented locally.
+
+Every such projected move is legal in the local position. Deleting context pawns only removes blockers and attacks, and deleting a context pawn at a king destination turns a real capture into an ordinary king move to an empty square. The king's actual safe move therefore remains safe after projection. An s move that resolves check from retained Z-pieces or a king is retained as an actual king/Z-pawn move; it cannot be treated as a pass while the projected s king is in check. Check caused by a context pawn of s̄ is excluded at Q by (b), and those context pawns do not move under the guided strategy. A legal king move cannot move s into their attack, so this source of check never appears later. Any other check is visible in the projection. Thus every actual s response is covered by the local game's ordinary moves or its permitted pass.
+
+For s̄, the local winning strategy chooses only winning moves, with s̄'s king confined to F_Z and Z-pawns on F_Z. Lemma 2.2 and the empty buffer keep all context pawns away from F_Z and prevent their attacks on a king standing there. Since s̄'s king is on F_Z at Q and the strategy never takes it off F_Z, no omitted context pawn can make a guided king move illegal or add an attack on that king. The retained kings and Z-pieces supply the same remaining king-safety checks locally and in the real game. Every prescribed local move is therefore a legal real Z-move. This argument also covers a move that captures a Z-pawn: the capture is in the retained state and is the same legal capture in both games. No pawn can capture across the empty buffer, and a king capture of a context pawn is already represented as above.
+
+## Context promotions and the time bound
+
+Assume for contradiction that an s context pawn promotes during the first T s turns of this guided play. Delete the intervening s̄ king and all Z-pawns, as in Q°. The actual sequence of s turns gives a legal sequence of consecutive s moves in Q° leading to that promotion: s̄'s guided king stays within F_Z and its pawns stay there, so neither can enter the context or change a context square; deleting them can only remove obstacles/attacks on s's king. The context pawns of s̄ stay fixed. The s king is retained, so its actual help and captures of s̄ context blockers are represented. If the initial en-passant target is off F_Z, the actual first s move may use it, exactly as Q° allows; thereafter no new off-F_Z right can arise from a guided Z-move. If the initial target is on F_Z, it concerns deleted Z-pawns and is dropped in Q°. Hence μ_s is at most the number of s turns used by the promotion. This contradicts μ_s ≥ T+1. Therefore no s context pawn promotes during the first T s turns.
+
+This is the only promotion event invisible to the local game. An s promotion by a Z-pawn is retained and is explicitly a failure for s̄ in L_T; since the local strategy wins against every s behavior, it cannot occur along a locally winning line. A promotion by s̄'s Z-pawn is retained and ends the local game as a local win; under (L1) it is either a promotion accepted by its rule or the winning strategy instead chooses a move that mates within the budget. The guided strategy never moves an s̄ context pawn. Thus, before the local win, there is no unrepresented promotion that can end the real P game in s's favour.
+
+A local winning strategy under (L1) wins on or before s̄'s T-th move: by promotion under its local promotion rule, or by checkmate of s. The projection invariant feeds each real s response into this strategy, including passes, so s̄ can keep following it with the remaining time. Each real s turn consumes at most one local s turn (a context-only response is one pass), and the local game allows arbitrarily many passes when s is not checked. No s̄ move is spent on context. Consequently the local win is reached by s̄'s T-th move after r, unless the real game has already ended in s̄'s favour by mate or promotion. The exact μ_s ≥ T+1 bound is what places a possible context promotion after s's T-th turn; s̄'s T-th move occurs after that turn, so it arrives first.
+
+In P, any first promotion ends the game as a win for its promoter. The local (L1) rule is at least as cautious for s̄: an unsafe s̄ queen promotion is declared a failure locally, while every local winning s̄ promotion is a win in P. (L1_P) can replace (L1) if only P is claimed, since every s̄ promotion then wins immediately. The additional queen-safety clause in (L1) is relevant only when translating a local result toward chess rather than P; this theorem's P conclusion needs no stronger claim.
+
+## Mate, stalemate, and checks
+
+A local mating move is a real mating move: s's legal moves and checks from retained kings/Z-pieces are preserved, and no context pawn attacks the king by the no-context-check hypothesis and invariance above. A real checkmate is a win for s̄ under normal chess/P rules and needs no further play. If the local strategy reaches a promotion, that promotion ends P immediately for s̄ as just shown.
+
+A real stalemate of s would be a draw in P. It is not inferred away from (L1): the local game allows s to pass when not checked and therefore may have options absent in the real position. Instead (L3) supplies a guided local-winning strategy whose every real play avoids stalemating s at every s-to-move position before the win. A checkmated s is allowed and is a win for s̄. If s̄ has no permitted local move at one of its turns, rule 4 makes this a failure for s̄ in L_T, so it cannot occur while the (L1) winning strategy is followed. In particular, local stalemate of s̄ is not mistaken for a win. A real s̄ move prescribed by the strategy is legal as established above; a real s̄ check does not change the outcome analysis, because s must answer it by a represented legal move, and if it has none it is checkmated.
+
+Together, the projection, the bound on context promotions, and (L3) leave only s̄'s promotion/mate as the terminal event by the T-th s̄ move. This proves the window assertion of (b).
+
+## Hypotheses and conclusion (a)
+
+The hypotheses of (b) enter as follows.
+
+- **Chess-legal (or arising by the stated legal m,r):** establishes a coherent board position with legal chess moves, king safety, and the stated en-passant right. In the derived-position alternative, the packet expressly says (a)'s local proof needs only that m and r are legal; it does not require Y itself to be chess-legal. For the window simulation, legality ensures the actual side-to-move moves cannot leave its king attacked.
+- **Empty buffer and the pawn/file conditions:** invoke Lemma 2.2; context cannot enter F_Z or attack a king on F_Z, Z-pawns cannot interact with context pawns by pawn captures, and Z-moves preserve the separation used in the projection and Q° arguments.
+- **No officer:** keeps every non-pawn capture/attack in the two models within the king/Z-pawn/context-pawn cases above; there is no omitted officer check, capture, or officer promotion consequence.
+- **s̄'s king on F_Z:** together with the guided strategy's confinement lets Lemma 2.2 guarantee the real guided king moves remain legal and are exactly the local moves.
+- **No s̄ context pawn attacks s's king:** rules out an omitted check on s at Q. Those pawns never move under the guided strategy, and legal s moves cannot create a check from a fixed pawn attack by moving into its attacked square. Thus an off-F_Z context response cannot be an unrepresented check evasion that the local game disallows.
+- **En-passant qualification:** π retains a target on F_Z, where the right is part of the local game. A target off F_Z is deliberately omitted from π and is explicitly retained for the first s move in Q°; μ_s therefore bounds any resulting context-pawn promotion. In (a), r is a Z-move and clears the previous right; any new right has target on F_Z. So (a) has no off-F_Z initial right to handle in (L2).
+- **(L1):** supplies the winning local strategy against every projected move and pass, with a deadline and local treatment of promotions and mate.
+- **(L2):** blocks the only otherwise unrepresented way for s to win P before the deadline: promotion by a context pawn.
+- **(L3):** blocks the only otherwise unrepresented nonterminal draw caused by loss of real moves: stalemate of s.
+
+For (a), take Q to be the position after the given legal m and reply r. The data in Definition 2.6 already give the empty buffer, no officers, and all pawns confined to Z or context files. Since r is a Z-move and is not a promotion, it clears m's en-passant right; any right newly created by r has target on F_Z. The local certificate provides (L1)–(L3), including μ_s ≥ T+1 for context pawns. Apply the window proof from Q: s̄ plays r first, then wins with one of its next T moves in P. Therefore m is decisively punished in P, including against context play, promotion attempts, king moves, and stalemate attempts by s. This is exactly Theorem 2.7(a). The argument also proves the stated window form (b) without using how Q arose, subject to its listed hypotheses.
+EOF" in /Users/aritro/Downloads/Research/Chessendgames
+ succeeded in 0ms:
+**Reviewing proof for subtle flaws**
+**Analyzing local game moves and piece interactions**
+**Analyzing move legality and theorem nuances**
+**Clarifying phase sequencing and document review**
+**Reviewing solver and proof segments**
+codex
+`PROOF.md` is now written, so the blind phase is complete. I’m moving to comparison; first I’ll read the shared status and research-plan context, then only the specified Theorem 2.7 portion and adjacent “conditions cannot be dropped” list.
+exec
+/bin/zsh -lc "cat RESULTS.md && sed -n '/"'^## 3'"\\./,/"'^## 4'"\\./p' RESEARCH_PLAN.md" in /Users/aritro/Downloads/Research/Chessendgames
+ succeeded in 0ms:
+# Results so far (2026-10-21)
+
+Plan: [RESEARCH_PLAN.md](RESEARCH_PLAN.md). This page lists what the 2026-10-15/16 run established and how
+strongly.
+- **Verified** means two independent implementations agree **and** adversarial checkers could not break the
+  claim. Every checker so far was written by a Claude model; the OpenCode route to a non-Claude implementation
+  failed.
+- **Computed once** means one program produced the number.
+- **Proved** means one model wrote a proof. No second model or human has re-derived it yet.
+
+**Conventions (decided 2026-10-16).**
+- A pawn that can still be taken en passant is **not** passed: `cylcgt.pawns.PASSED_RESPECTS_EP = True`.
+  - Merged into `main` on 2026-10-21 (commit d3d080e). `PASSED_RESPECTS_EP = False` restores the old test.
+  - Results below that predate this switch are marked *(textbook test)*.
+- Kings are modelled explicitly in `kings/` (plan item A8; see §7).
+
+## 1. The \*2 question (Elkies' open problem): the candidate does not survive
+
+The candidate was `W a2 c2 / B b7 d7` on files a–d, frozen by a trébuchet (W g4 / B g5, WK f5, BK h4).
+
+| Check | Result | Status |
+|---|---|---|
+| Value under the paper's convention, textbook passed test | \*2 under race rules "count" and "mover"; **0** under "opponent". The same with e.p. off | verified (cylcgt, `sumtest/`, Codex rules in `atlas/flat8/census`, `lemmas/`) |
+| Value under the adopted convention (e.p.-aware passed test) | **{2±1 \| −2±1}** (mean 0, temperature 2), not \*2. Mechanism: a2–a4 is met by b4×a3 e.p. | verified: cylcgt now agrees with `sumtest/`'s e.p.-aware mode on all 55,195 test positions (§4) |
+| Robustness of the \*2 to the race rule | only 4 of its 224 race positions change the value when flipped alone; all come after a capture. A 6-position certificate fixes \*2 whatever the other races do | verified (`atlas/flat8/certificate.json`, `lemmas/` L4.2) |
+| Sum model vs whole-board game | equal: the tree never splits into components before a passer (Theorem 2.3) | proved |
+| 8×8 embedding geometry (kings f5/h4) | no checks, no stalemate, every king move drops that side's g-pawn | proved; exhaustive check |
+| Real chess, both sides to move (Lichess 7-man tablebase + exact search) | the side to move wins (outcome N), as \*2 predicts | proved by certificate (`realchess/results/cert_root_*.json`) |
+| Real-chess oracle value: the pawn tree with tablebase results at its end positions | **never \*2 (or 0) in the adopted e.p.-aware tree, however draws and unresolved end positions are treated**: the bounds force Left stop ≥ 1 and Right stop ≤ −1. Counting draws as Black wins, it is **exactly {2±1 \| −2±1}** in both trees. In the textbook tree \*2 is excluded only when draws count as wins for one side | values computed once; end-position results checked two ways ([realchess/REPORT.md](realchess/REPORT.md)) |
+| Real-chess root move tables | Black to move: only 1...b5 wins (complete). White to move: 1.c4 wins; 1.a3, 1.c3 and all king moves lose; 1.a4 unresolved. The model predicts exactly c4 and b5 | checked two ways |
+| The same FEN on the 8-file cylinder | the freeze fails: 1.a3 checks Kh4 across the seam. No \*k (k ≥ 2) with ≤ 5 pawns can be frozen on the 8-file cylinder (0 of 40 placements) | computed once (`atlas/cylinder/`) |
+
+**Why it fails.** The convention "first passed pawn wins" breaks in three places:
+- **En passant.** A pawn that double-steps past an enemy pawn counted as passed before the opponent's legal
+  e.p. capture. This is now fixed in cylcgt, and the \*2 goes away with it.
+- **Frozen kings.** In real chess the trébuchet kings are not always frozen. Across 94 tablebase-checked
+  positions, 41 of 449 king moves draw and 7 win (`engine/suite/`).
+- **Race rules.** None of count, mover or opponent is exact chess. `notes/lemmas.md` L4 gives a forced-win
+  counterexample for each.
+
+**Searching for other \*k (flat 8-rank boards, widths 1–4, up to 6 pawns, 231,071 positions).**
+- *Textbook test:* the only \*k with k ≥ 2 is the candidate above. No \*3 or \*4 occurs. No \*2 holds under all
+  six race/e.p. settings. Three more \*2s exist, each under a single non-default setting
+  ([atlas/flat8/REPORT.md](atlas/flat8/REPORT.md); verified two ways).
+- *E.p.-aware test (count rule; computed once, `atlas/flat8/compare_ep_aware.out`):*
+  - **No \*k with k ≥ 2 occurs anywhere in scope.** The nimber census goes from 6,470 zeros, 3,891 stars and one
+    \*2 to 6,724 zeros, 4,042 stars and no \*2.
+  - At least 18,137 of the 231,071 values change, and 4,070 change outcome ([atlas/flat8/rerun/REPORT.md](atlas/flat8/rerun/REPORT.md)).
+    The first count (21,441 and 4,068) compared raw display strings and was wrong in both directions.
+  - So within flat boards of ≤4 files and ≤6 pawns, the only route to \*2 was the e.p. artefact.
+
+**The other \*2 candidates** ([realchess/certify/REPORT.md](realchess/certify/REPORT.md)). Each is \*2 only
+under one non-default rule, and each needs 10 men.
+- `W a3 b3 c2 / B b5 b7 c6` is **refuted**: its real-chess oracle value is > 0 under every treatment (checked two
+  ways).
+- For three others the tablebase contradicts the race verdicts their \*2 depends on. Their oracle values cannot
+  be settled with 7-man tablebases.
+- No \*k candidate fits in 7 men or fewer.
+- An independent C solver (`atlas/flat8/rerun/`, no shared code) agrees with cylcgt on all 231,071 records under
+  both passed tests (checked two ways).
+
+**What this means.** A \*2 made only of kings and pawns on 8×8 is **still open**. Within the searched space
+(flat, ≤4 files, ≤6 pawns) no candidate survives the e.p.-aware convention, and none survives real chess. The
+negative result is publishable: it shows exactly where the convention breaks.
+
+## 2. Mating without corners: 4-man tablebases on the cylinder and torus (verified)
+
+Two independent solvers agree on every position of all 24 tables, about 607 million values, for both sides
+to move ([tablebase/replica/REPORT.md](tablebase/replica/REPORT.md)).
+
+| Material (cylinder 8×8) | White to move: share won | Longest mate (moves) |
+|---|---|---|
+| KQK | 100% | 10 |
+| KRK | 2.80%: **no forced mate** | 3 |
+| KBBK, opposite-coloured bishops | **100%** | **14** |
+| KBNK | 0.0245%: **draw** | 2 |
+| KNNK | 0.0077% | 1 |
+| KRBK | 99.74% | 13 |
+| KRRK | 100% | 8 |
+| KQRK | 100% | 5 |
+
+- **Torus.** KQ, KR, KBB, KBN and KNN against a lone king are all 0% won, and KRB vs K is 0.022%.
+- **Muller.** The bishop pair forcing mate on the cylinder contradicts H.G. Muller's published claim.
+- **Novelty.** We found no earlier tablebase for these boards.
+- **King and pawn vs king** (two solvers: `kings/kpsolve` and `atlas/cylinder/kpk`; they agree on all 326,640
+  cylinder positions, and on the flat board differ only on the 6 rook-underpromotion positions;
+  `delegate/checks/kpk_crosscheck.py`).
+  - **Win rates.** White to move wins 78.89% on the cylinder against 76.51% flat. Black to move: 55.88%
+    against 58.09%.
+  - **Changed results.** 16,538 flat draws become cylinder wins, among them the rook-pawn draw Ka6, Pa5 vs Ka8,
+    and 15,930 flat wins become cylinder draws.
+  - **Mutual zugzwangs.** 216 on the cylinder, 160 flat.
+
+## 3. The 2025 paper, re-audited (verified)
+
+A blind re-transcription of every diagram matches the solver's input on every pawn square. A pixel scan
+confirmed it independently. The kings, and diagrams 2.3 and 5.1, were checked against the images only
+([notes/diagram_audit.md](notes/diagram_audit.md)). Three verifiers checked each audit claim. Corrected
+verdicts are in [notes/audit.md](notes/audit.md):
+- **Correct:**
+  - 2.1, 2.2, 2.3, 3.2, 4.1, 4.3;
+  - 5.1, the cylinder trébuchet: a mutual zugzwang **only because of the seam**, and a real one with explicit kings (two independent king-and-pawn solvers);
+  - the 7.1 c- and f-files;
+  - the 7.2 king zugzwang, but **only under the convention**. In real chess, White to move draws with Kd5, Ke5 or
+    Kf5, and only Black to move loses (`kings/kpsolve`, confirmed by the Lichess tablebase).
+- **Correct only with en passant:** 3.1.
+- **Wrong:**
+  - 4.2 is one rank off.
+  - 7.1 a/h is {+W \| \*}, not 1.
+  - 7.2's pawn part is not ±1.
+  - 7.3 is decided at move 0.
+  - 7.3's {c,d} part is tiny(1), not 1.
+  - §1's knight squares are wrong.
+- **§8, Dawson's chess, is wrong in three ways** (verified, `dawson/`):
+  - its move rule allows no first move;
+  - its Grundy recurrence matches the true values at only 31 of n = 0..300;
+  - its cylinder outcomes are wrong for 56 values of n ≤ 300.
+
+  Replacement text: `dawson/section8_corrected.tex`.
+
+Every value in the audit is **unchanged** under the e.p.-aware convention (re-run 2026-10-16).
+
+## 4. The solver itself
+
+- **Agreement with an independent solver** (verified). `cylcgt` agrees with a from-scratch brute-force solver
+  (`sumtest/`) on every outcome prediction. The test set:
+  - 55,195 positions (≤2 pawns a side, 3–5 files), × 3 race rules × 15 reference games;
+  - e.p. on: 2,483,775 predictions under the adopted e.p.-aware test (both sum modes) and the same number
+    under the textbook test;
+  - e.p. off: 2,483,775 predictions.
+- **Single components.** It agrees with Codex's whole-board minimax on 1,070/1,070 of them (`crosscheck/`).
+- **Three defects found, all fixed or documented:**
+  - **En passant in the passed-pawn test.** Fixed: `PASSED_RESPECTS_EP`.
+  - **`sum_safe()` is a heuristic, not a certificate** (checked two ways, `notes/lemmas.md` L2.2).
+    - Example: `W b2 d4 g3 h5 / B a7 c7 f7 g4` on the 8×8 cylinder (e.p. off) passes, yet the sum model gets
+      the winner wrong.
+    - The proved replacement is the "hereditarily sum-safe" test (`lemmas/common.py`, Theorem 2.1). All 1,297
+      such positions in a random sample of 1,500 agree.
+  - **An e.p. right can survive moves elsewhere** in a multi-component sum. The sum is exact only when no
+    position with two or more components carries a usable e.p. right (condition (E), L1.6–1.7).
+- **Not a solver defect, a misuse.** The partizan values that `cylcgt/dawson.py` prints are not additive. The
+  Grundy value of octal 0.137 is the correct invariant (L5.4).
+
+## 5. Engines
+
+- [engine/ENGINES.md](engine/ENGINES.md) makes 16 predictions about how Stockfish and Lc0 search fails on
+  zugzwang, tempo battles and nimbers, and designs 8 experiments.
+  - Stockfish's null-move pruning never fires in king-and-pawn endings, because it requires pieces.
+  - Reverse futility pruning is the predicted zugzwang-blind cut.
+- **Test suite.** Both files are tablebase-checked legal 8×8 positions:
+  - `engine/suite/cgt_verified.epd`: **181 positions** whose winning moves follow from CGT and are confirmed
+    by the Lichess tablebase;
+  - `engine/suite/cgt_disagree.epd`: the 52 positions where CGT and the tablebase disagree.
+- **Stockfish 19 on the suite.** Official release `sf_19`, built locally in `engine/vendor/` (git-ignored);
+  1 thread, 64 MB hash, no tablebases. Runs and analysis are in `engine/runs/`.
+  - **It solves all 233 positions at 100k nodes, and 232/233 already at 1k nodes.** At ≤7 men these
+    positions are easy for a modern engine. The CGT-versus-engine contrast has to come from larger sums,
+    beyond the tablebase, where only CGT gives ground truth. That is the ChessSums benchmark.
+  - **At shallow depth, accuracy depends on the CGT value class.** The table gives the share of Stockfish
+    evaluations that match the tablebase result:
+
+| CGT class | n | depth 1 | depth 2 | depth 4 | depth 6 | depth 8 | depth 12 |
+|---|---|---|---|---|---|---|---|
+| hot (±BIG switch) | 68 | 81% | 78% | 91% | 97% | 99% | 100% |
+| number | 57 | 79% | 81% | 84% | 93% | 95% | 98% |
+| switch | 37 | 73% | 78% | 89% | 100% | 100% | 100% |
+| **infinitesimal** | 27 | **30%** | **26%** | **59%** | 85% | 100% | 100% |
+| other tame | 20 | 60% | 50% | 75% | 95% | 100% | 100% |
+| **nimber** | 17 | **53%** | 65% | 88% | 100% | 100% | 100% |
+
+  Infinitesimals and nimbers, which are tempo and parity fights, are the ones the static evaluation
+  misreads at low depth. CGT predicts exactly that. Hot positions and numbers are read correctly early.
+  This is one engine on a small sample, so it is a pilot result.
+- **Cylinder engine.** The only public cylinder fork of Fairy-Stockfish (mtaktikos/CylindricalChess)
+  appears, from reading its code, to miss checks, pins and en passant across the seam.
+  [engine/FAIRY_CYLINDER.md](engine/FAIRY_CYLINDER.md) gives a corrected design.
+- **Lc0 v0.32.1 on the suite** (bundled network, Metal; [engine/runs/lc0/analysis.md](engine/runs/lc0/analysis.md)).
+  - **Perfect at every budget.** At 1k, 10k, 100k and 1M nodes all 233 best moves win and all 233 evals match the
+    tablebase, in every CGT class.
+  - **Lc0 never shows the shallow-depth class effect** that Stockfish shows. Caveat: 216 of the 233 positions are
+    wins, so the 17 draws are the real test. Lc0 calls all 17 draws at 1k nodes; Stockfish 19 at 1k rates one +183.
+  - **The suite is too easy for both engines.** That again points to ChessSums beyond 7 men for a real contrast.
+
+## 6. Other new results (model level unless stated)
+
+- **Elkies' other targets on flat 8-rank boards** ([atlas/flat8/REPORT.md](atlas/flat8/REPORT.md)). Counts are
+  under the textbook test (verified two ways) → the e.p.-aware test (count rule, computed once):
+
+  | Target | Textbook | E.p.-aware | Example that survives the switch |
+  |---|---|---|---|
+  | 1/8 | 13 | 9 | `W a2 b4 c4 / B a7 b7 d6` |
+  | 1/16 | 3 | 2 | `W a2 b2 c3 / B b5 b6 c7` |
+  | 1/32 | 1 | **0** | — |
+  | ↑² = {0 \| ↓\*} | 5 | 2 | `W a2 b2 d4 / B a7 c6 d7` |
+  | ↑²\* = {0,\* \| ↓} | 10 | 10 | `W a2 b2 b6 / B a6 b7 c5`: the same under every race rule and e.p. setting, under both tests |
+  | tiny(1) | 13 | 16 | `W a2 b2 b6 / B a6 b7 c6` |
+
+  - **Two textbook-test results did not survive the switch:**
+    - The "best reachable 1/8", `W a2 b2 d2 / B a5 c4 d7`, becomes −3/2±3/2.
+    - The best ↑², `W a3 c5 d4 / B a7 b7 d7`, becomes {3/4 \| ↓\*}.
+  - **The most robust target is 1/8.** `W a2 a3 b2 / B a6 b5 b6` is 1/8 under all 9 settings (3 race rules × e.p.
+    off / textbook / aware) and every race outcome (checked two ways, `atlas/flat8/rerun/`). Its mirror
+    `W a2 b2 b3 / B a5 a6 b6` has the same value and a reachable pawn structure. 8×8 FEN with the trébuchet:
+    `8/8/pp6/p4Kp1/6Pk/1P6/PP6/8 w` (10 men). This is model-level only, not real-chess certified.
+  - ↑²\* at `W a2 b2 b6 / B a6 b7 c5` is equally robust.
+  - The other surviving positions pass necessary 8×8 legality conditions only.
+  - tiny(x) for non-integer x and tiny(1↑) do not occur under either test. tiny(2) appears under the e.p.-aware test.
+- **Cylinder value atlas** ([atlas/cylinder/REPORT.md](atlas/cylinder/REPORT.md); computed once, outcomes
+  cross-checked by an independent minimax):
+  - **Scope:** 1,223,689 positions (≤5 pawns, widths 3–8) with 10,369 distinct values.
+  - **Cut lemma (proved):** cutting a cylinder at an empty file gives a flat board with the same value. So
+    cylinder-only values come only from rings, positions with a pawn on every file.
+  - **Cylinder-only values:** 53 values occur only on cylinders, among them 3/4 and 1/4±1/4. All come from 3- and
+    4-file rings.
+  - **Corrected by a verifier:** the atlas claimed that none of these values is robust to the race rule.
+    - The 3-file ring values do depend on the race rule.
+    - The 4-file ring values, such as {3/2±1/2 \| −3/2±1/2}, do not; they change only when e.p. is switched off.
+    - No value is cylinder-only under all six race/e.p. settings.
+  - All of this uses the textbook passed test. The re-run under the e.p.-aware test is pending.
+- **Dawson's chess** ([dawson/REPORT.md](dawson/REPORT.md)):
+  - **Cylinder ring rule (proved; checked for n ≤ 22).** The first player on a full 3×n cylinder wins iff
+    g(n−3) = 0.
+  - **Normal play (classical, reproduced).** Period 34, last exception n = 51.
+  - **Misère play,** Dawson's original 1935 question (verified):
+    - An independent implementation reproduces the Plambeck–Siegel partial quotient for strips ≤ 32: order 638,
+      with 109 P-positions.
+    - It agrees with exhaustive search on 7.4 million positions.
+    - The next quotient did not converge.
+    - Misère Dawson's chess remains unsolved.
+- **Structural lemmas** ([notes/lemmas.md](notes/lemmas.md)): component decomposition, the HSS theorem, the
+  trébuchet freeze lemma and the ring reduction are proved. The tests in `lemmas/` found no counterexample to
+  any of them.
+
+## 6b. New on 2026-10-21
+
+- **Toward a real-chess 1/8** (`realchess/targets18/`). Position: the robust 1/8, `W a2 b2 b3 / B a5 a6 b6`,
+  beside the trébuchet, FEN `8/8/pp6/p4Kp1/6Pk/1P6/PP6/8 w`.
+  - **Small end positions.** All 302 sides with at most 7 men (290 one-sided, 12 races) are resolved against
+    the tablebase. Of the 290 one-sided sides, 283 agree with the model, 5 disagree and 2 are draws.
+  - **Bounds.** With only these exact results fixed, the oracle value lies in [−1/2, 3/4].
+  - **The decisive set.** A greedy minimal-support search shows the value is **exactly 1/8** whenever 8
+    unresolved end positions (5 with 8 men, 3 with 9) go as the model predicts. The other 312 open ones may be
+    anything.
+  - **Update.** After resolving the 8-man sides (7 agree, 1 disagrees: with Black to move in
+    `W a3 a5 / B b4 b5`, Black wins) and 2 more sides, the bounds are [−1/2, 3/8±1/8] and only **4** decisive
+    end positions remain (three with 9 men, `W b2 b5 / B a5 b4` with 8). They are being solved exactly with
+    `kings/kpsolve` on the flat 8×8 board (queen promotions only, so not yet a full-chess certificate).
+  - **kpsolve so far** (`realchess/targets18/apply_kpsolve.py`):
+    - `W b2 b5 / B a5 b4`, White to move: White wins, exact, as the model says.
+    - The same position with Black to move is undecided at one promotion (bounds L..W). A two-promotion
+      run is going (`kp_eighth_cap2.*`).
+    - `W a2 b4 b5 / B a5`, which is no longer decisive: White wins with either side to move.
+    - **The three 9-man positions (2026-10-21, 20:35).** All 6 sides are exact (the two promotion bounds
+      agree) and match the model:
+      - `W a2 a5 b2 / B a4 b5`: White wins, with either side to move.
+      - `W a3 a5 b2 / B a4 b5`: White wins, with either side to move.
+      - `W a3 b4 / B a6 b3 b5`: Black wins, with either side to move.
+      - The run took 2 h 12 min: 29.8 G states, peak footprint 26 GB (`kp_eighth_9man.out`).
+    - **New bounds: 0 ≤ O ≤ 1/8.** Only one decisive side is open: `W b2 b5 / B a5 b4`, Black to move.
+      - If it is a White win (the model's verdict), O = 1/8 exactly.
+      - If it is a draw or a Black win, O stays in [0, 1/8].
+      - Reproduce: `PYTHONPATH=. .venv/bin/python realchess/targets18/apply_kpsolve.py
+        realchess/targets18/min_support_after2.json realchess/targets18/kp_eighth_{8man,9man}.out`.
+      - Caveat: queen promotions only. A full certificate also needs a `--promote QRBN` rerun.
+  - **Sensitivity.** Each of the 7 open sides must go as the model says. Changing any single one of them unpins
+    the value (the lower bound drops to 0, ↑\* or below).
+  - ↑²\* and tiny(1): every resolved end position agrees with the model, and the lower bound already equals the
+    target value. 10 and 12 end positions with 9–10 men still decide them. The one 8-man end position on both
+    lists, `W b4 b6 / B a4 b7`, was solved by kpsolve on Oct 22 (queen promotions, exact, Black wins, as the model
+    says; `realchess/targets18/r7_driver.log`).
+  - **Status.** Resolution continues. The same pipeline is queued for ↑²\*
+    and tiny(1).
+- **Paper.** A full draft is in `paper/` (Overleaf-ready; `paper/main.pdf`, 18 pages): "Pawn Endgames Without
+  Edges: Exact Combinatorial Game Values, Real-Chess Certification, and Tablebases on the Cylindrical
+  Chessboard".
+- **Wave 2 of delegated research** (`delegate/briefs/T8–T15`), launched with `delegate/run.sh wave2` and, after
+  the codex quota resets, `delegate/run.sh codex`:
+  - T8: the \*2 frontier search;
+  - T9: Möbius strip and Klein bottle boards;
+  - T10: king-and-pawn tablebases on the cylinder;
+  - T11: thermography and atomic weights;
+  - T12: odd-circumference cylinders;
+  - T13: engines on ChessSums;
+  - T14: Dawson variants;
+  - T15: novelty check.
+
+- **Independent non-Claude re-check** (`verify_ext/codex/`, Codex).
+  - A stdlib solver written from the rules alone reproduces all five headline values in all nine settings.
+  - It finds no \*k with 2 ≤ k ≤ 292 among 793,299 placements on widths 1–4.
+  - Its self-check, re-run here, gives 27 PASS.
+- **Review log of external reports:** [delegate/REVIEW.md](delegate/REVIEW.md).
+
+## 6c. New on 2026-10-22
+
+- **Rings: the first ring \*2 on Cn has n+3 pawns for n = 3, …, 6** (default setting; values CHECKED-2,
+  minimality C1).
+  - On C6, a scan of every nine-pawn ring finds exactly six \*2, three positions and their color-reversed twins,
+    among them `W a4 c4 d2 e2 / B b6 b7 d6 e5 f6`.
+  - No ring with eight pawns or fewer is \*2 on C6.
+  - Paper §VIII; open problem 3 asks about C7 with ten pawns.
+- **\*3 rings in non-default settings (CHECKED-2: the C scanner, and cylcgt with and without component
+  splitting).**
+  - C4, 8 pawns, opponent rule, e.p. off: `W a5 b3 c2 d2 / B a7 b5 c6 d4` and its twin `W a5 b3 c4 d2 / B a7 b7 c6 d4`.
+  - C3, 10 pawns:
+    - count rule, e.p. off: `W a2 a3 b2 b3 c3 / B a6 a7 b6 b7 c6` and `W a2 a4 b2 b3 c3 / B a5 a7 b6 b7 c6`;
+    - opponent rule, e.p. on: `W a2 a3 b2 b3 c3 / B a6 a7 b6 c6 c7` and `W a2 a4 b2 b3 c3 / B a5 a7 b6 c6 c7`.
+  - No \*3 occurs in the default setting in any scope searched. Paper §VIII has one sentence.
+  - Checks: `delegate/checks/c3p10/`, `delegate/checks/c4p8/`.
+- **C3, 10 pawns, default setting:** 741,110 rings, two of them \*2 (twins):
+  `W a2 a5 b2 b4 c2 / B a7 b5 b6 c4 c7`. CHECKED-2.
+- **Scanner bug fixed** (`research/star26_rings/BUGFIX_frontier_split1.md`).
+  - Cause: a stale memo-table pointer.
+  - It crashed large runs, but never changed a value.
+  - The crashed runs are re-run with `frontier_split1_fixed`; details in [delegate/REVIEW.md](delegate/REVIEW.md).
+
+- **Round 7 (Sonnet/Haiku workflow; see [delegate/REVIEW.md](delegate/REVIEW.md)).**
+  - **Positions A and B are one \*2:** B is A with the colours reversed and the files mirrored. All 12 decisive
+    8-man end positions of their real-chess trees agree with the model; the oracle bounds stay open until the
+    9–11-man sides are solved.
+  - **\*3 with e.p. off on six files** (scanner, cylcgt, Codex): 16 positions, 8 up to colour reversal. Twelve are
+    the 4-file candidate (\*2) plus a \* group, so \*3 = \*2 + \*. With the aware test they are not nimbers.
+  - **\*3 in the default setting, as a sum:** `W a4 b3 d2 d3 f4 / B a7 b7 c5 f6` (position A plus a \* group) on
+    flat 6×8 is \*3 by three programs. No single-component default \*3 is known.
+  - **Ring minimum on C3 and C4 is now CHECKED-2:** independent solvers and full cylcgt scans.
+  - **The C3 ring \*2 needs two e.p. captures,** B b4×a3 and W b5×c6. Without the first it is ↑, without the
+    second ↓.
+  - **Möbius 8×8:** KPK is won from 78.94% of positions with White to move (cylinder 78.89%). CHECKED-2.
+  - **Proof audit:** Thm 3 and Thm 8 got precise statements and sketches, and Conj 4 is now a Corollary [AI].
+    Repo defects in `kings/theory/LOOPY.md` were sent to the kings session.
+
+- **C7 (2026-10-22 afternoon).** The first ring \*2 on C7 has ten pawns: no nine-pawn ring is \*2 (scanner, and
+  T43's independent solver over 19,961,100 classes). The five-a-side ten-pawn rings include 63 \*2 and
+  **8 single-component \*3 in the default setting**: the first default-setting \*3 that is not a sum. The scanner,
+  T43's solver and cylcgt (whole board) agree on all 8; 6 stay \*3 as sums. Example:
+  `W a2 a5 c4 e2 f2 / B a7 b4 d7 e5 g7`. So n+3 holds for n = 3, …, 7.
+
+- **A real-chess 1/8 (2026-10-22, 15:48).** The cap-2 kpsolve run (6.1×10^10 states, 15.6 h, queen promotions)
+  shows White wins `W b2 b5 / B a5 b4` with Black to move (exact, W W). With every decisive end position now
+  exact, `apply_kpsolve.py` pins the oracle value: **O = 1/8** (queen promotions only, frozen kings; C1).
+  Still open: a rerun with underpromotions for a full-chess certificate.
+
+- **Round 10 (2026-10-22 evening).**
+  - **The wall rings are \*2 for every n ≥ 5, in the whole-board game** (proved [AI], finite checks CHECKED-2).
+    - Families: O_n = `W23B4, B5, W2B5, (W3,B5)^k` and E_n = `B5, W2B5, W35B6, W2, (B4,W2)^(m+1)`, with n+3 pawns.
+    - Proof: delete the losing wall moves, then show that two more wall files leave the reduced game unchanged.
+      This reduces everything to two graphs of 144 and 104 nodes plus n < 17.
+    - Refereed SOUND by OpenCode beam-free (T51), a non-Claude model. A Sonnet verifier with its own engine
+      accepted it, asking only for label and scope fixes.
+    - As sums of components it is still checked only to n = 12, because wall captures split the ring.
+    - `research/ring_family_proof/`.
+  - **No \*4 found (T49).**
+    - All 134,920,191 one-component ten-pawn positions on five files: 75 \*2, 3 \*3, nothing higher.
+    - All 48,649,934 eleven-pawn positions on four files: 9 \*2, 1 \*3.
+    - Root counts are reproduced exactly by an independent count. This is under the scanner's e.p. convention,
+      which keeps an e.p. right across components.
+    - The 13 minimal \*3 cores are each a \*2 plus a \*1 pair (CHECKED-2). Two of the four C7 \*3 ring classes are
+      primitive.
+    - `research/star4_hunt/`.
+  - **C8 breaks the n+3 pattern: the first ring \*2 on C8 has ten pawns (n+2).**
+    - No nine-pawn ring is \*2. The scanner and `c8check_gen` agree over all 7,039,362 classes (CHECKED-2).
+    - The ten-pawn 5+5 split has 18 \*2 and 2 \*3 classes (scanner, C1). Example:
+      `W a3 b3 c3 d2 f2 / B b6 d5 e5 g4 h5`, \*2 in cylcgt both as a sum and whole-board (CHECKED-2).
+    - All splits are done; every hit is in the 5+5 split. One ring from each of the 11 colour-reversal classes is
+      confirmed by cylcgt, sum and whole-board: 10 \*2 and 1 \*3, `W a4 c3 d3 e2 g2 / B b7 c6 e5 f5 h4` (CHECKED-2).
+    - T52 (OpenCode) is looking for an n+2 family on C9 and up.
+
+## 6d. New on 2026-10-23 to 10-27
+
+- **Rings with n+2 pawns for every n >= 10 (whole-board, [AI]).**
+
+  | Family | Value | n | Reduced graph | Proof note | Referee |
+  |---|---|---|---|---|---|
+  | P_n = W5 B7 W4 W4B7 B6 W3B6 (W2 B4)^k | \*2 | even n >= 8 | 813 nodes | PROOF.md | Codex T53, SOUND |
+  | Q_n = W4 B7 (B4 W2)^k W3B6 W3 W2B5 B5 W2 B4 | \*3 | even n >= 8 | 7,968 nodes | PROOF_Q.md | Codex T62, SOUND |
+  | R_n = W5 B7 (W2 B4)^k W2 W3B6 W3 W2B5 B5 W2 B4 | \*2 | odd n >= 11 | 429 nodes | PROOF_odd.md | Codex T63, SOUND |
+  | Qo_n = W4 B7 (W2 B4)^k W2 W3B6 W3 W2B5 B5 W2 B4 | \*3 | odd n >= 11 | 1,287 nodes | PROOF_odd.md | Codex T63, SOUND |
+
+  - PROOF_odd.md uses c = 6 and n0 = 19. A Sonnet workflow accepted it with fixes, with C1 on six programs and C2 on
+    five. The Codex referee T63 is queued.
+  - Both odd families fail at n = 9, so the C9 minimum (11 pawns?) is open: T54b on Codex and a C9 enumerator
+    workflow.
+  - As sums of components, P_10 is \*2, Q_10 is \*3 and R_11 is \*2 (cylcgt). Qo_11 as a sum is running
+    (`research/sum_model_rings/`).
+  - The Codex referee T63 found PROOF_odd.md SOUND (`research/ring_n_plus_2_check/odd/REPORT.md`).
+  - **C9 with 10 = n+1 pawns: 7 rings with signature \*2 in split 5+5 (COMPUTED-1, `research/c9_rings/`),** being
+    verified. Verified on 2026-10-27, see the next bullet.
+- **Least pawns in a ring \*2: n+3 (n = 3..7), ten (n = 7..10), n (n = 10..60), all CHECKED-2** (`research/c9_rings/REPORT.md`;
+  the independent engine E agrees for M_10..M_60, O_11..O_59 in `research/ring_n_proof/logs/base_N_60.log`).
+  - C9: no 9-pawn ring is \*2 or \*3 (948,860 rings; rg and OpenCode's engine; two enumerators). 7 of the 44,960,428
+    ten-pawn rings are \*2: rg, Codex's independent.py, OpenCode's engine and cylcgt (whole and sum) agree. CHECKED-2.
+  - C10: M_10 = B4 W2 B6 W2 W3 B6 B7 W3 B7 W5 is \*2 with one pawn per file (CHECKED-2). It is the only one among the
+    4.3M ten-pawn rings (COMPUTED-1).
+  - C11: O_11 = B4 B7 W5 B7 W3 B7 B6 W3 W2 B6 W2 is \*2 (CHECKED-2). It is the only one among the 15,461,385
+    eleven-pawn rings in splits 4+7 and 5+6, and none is \*3 (COMPUTED-1). The ring counts for C10 and C11 equal an
+    independent transfer-matrix and Burnside counter.
+  - Families: M_n = (B4 W2)^((n-8)/2) B6 W2 W3 B6 B7 W3 B7 W5 (even n) and O_n = B4 (B7 W5)^((n-9)/2) B7 W3 B7 B6 W3 W2
+    B6 W2 (odd n) are \*2 for every n = 10..60 (COMPUTED-1, rg; n = 10..14 CHECKED-2). Their reduced graphs are constant
+    (441 / 2132 nodes, no flag), and the insertion isomorphism holds from n = 18 / 19 on. Proof note: T65 (OpenCode,
+    `research/ring_n_proof/PROOF_N.md`). **PROVED [S] for every n**: referees T67 (Kilo, logic, fixes applied) and T66
+    (Codex, SOUND, own independent checker, `research/ring_n_check/`).
+  - The paper (§VIII, intro, conclusion) now says "ten for 7 <= n <= 10 [C2], n for 10 <= n <= 60 [C1]".
+- **Rings \*3 with n+1 pawns on every C_n, 11 <= n <= 59** (`research/c9_rings/star3/REPORT.md`).
+  - C11: no eleven-pawn ring is \*3 (COMPUTED-1, exhaustive), and two twelve-pawn rings are (CHECKED-2). So the least is
+    n+1 there.
+  - Families T_n = (B4 W2)^((n-10)/2) B5 W2 W6B7 W3 B7 B6 W3 W2 B6 W2 (even n = 12..58) and S_n = B4 B6 W3
+    (W2 B4)^((n-11)/2) W6B7 W3 B7 B6 W3 W2 B6 W2 (odd n = 13..59) are \*3 (rg; CHECKED-2 for n <= 15).
+  - Reduced graphs: T has 1305 nodes, S has 40445; no flag; the insertion isomorphism holds from 20 / 25 on. Proof note:
+    T69 (OpenCode, `research/star3_proof/`).
+  - M_10 and O_11 are \*2 as sums of components too (cylcgt, `research/sum_model_rings/npawn_values.txt`). Qo_11 is \*3
+    both as a sum and as a whole (`odd_values.txt`).
+- **C9 ring hits are \*2 as sums too** (cylcgt, the H1 reversal, H3 and H4; H1 whole \*2; H2 sum and whole queued).
+- **No \*4.** None among T56's 14,090 candidates (329 are \*3, 178 \*2), nor among 1,280 C10 wall rings.
+  - The ★4 hunt workflow (`research/star4_rings/{core_wall,grow,two_core}/REPORT.md`) found no ★4 and nothing above
+    ★3 in about 23.6M rings. Those are 23.2M core-in-wall rings, 128,791 grown from known ★3 rings (4,723 new ★3)
+    and 207,975 two-core rings, all C1, with hits re-checked by the unmodified rg.
+  - Two cores separated by walls: whenever the ring is a nimber (1,513 of 1,890 rings) it equals the nim-sum of the
+    two cores' values, with no exception. The other rings are decisive, from a coupling that disappears once a wall
+    has 7 to 11 files.
+  - So a ★4 ring would need a single core worth ★4 on its own. None was found up to width 6.
+- **Twisted tablebases.** A and B agree exactly under A's ray rule. KRK wins every position on the Möbius strip and
+  on RP² but only 0.66% on the Klein bottle (CHECKED-2). See `research/twisted_tablebases/COMPARE.md`.
+- **Paper fact-check round 11.** 15 findings confirmed and applied (`delegate/REVIEW.md`).
+
+## 7. Pending
+
+**Verification gaps.** 35 adversarial verifiers were cut off by the Claude usage limit. Not verified:
+- the real-chess oracle values;
+- the certification of the other candidates;
+- the flat-board claims C1, C2 and C4–C6;
+- three cylinder-atlas claims;
+- two lemma checks.
+
+The completeness critic did not run either. The rest of the verdicts are in each REPORT.md claim table.
+
+**Delegated to external AI CLIs** (briefs in `delegate/`; outputs go to the directories named there):
+- independent non-Claude re-verification of the §1 headline results;
+- re-deriving the `notes/lemmas.md` proofs;
+- the Elkies-target certification (`atlas/targets/`, left partial);
+- the cylinder atlas under the e.p.-aware test;
+- ML baselines on ChessSums and Dawson's chess (`.venv-ml`);
+- a completeness review.
+
+**ChessSums v2 is ready** ([bench/REPORT.md](bench/REPORT.md)).
+- **Library:** 418 components, each with the same value under both passed tests, all race rules and e.p. on/off.
+- **Data:** 26,000 rows. Their outcomes were confirmed by whole-board alpha-beta, and 4,887 also by Codex's minimax.
+- **Baseline cost:** alpha-beta that ignores the decomposition grows about 4–9× in nodes per added component.
+
+**A8, explicit kings** ([kings/REPORT.md](kings/REPORT.md)):
+- **The convention often fails on small boards.** 159 of 500 testable components mismatch: 107 because of the
+  kings, and 52 because of the pawn convention itself.
+- **When it is exact.** Conditions (V1)–(V4) are given (Theorem 1.14, proved by one model and reviewed).
+  - A king that can shuttle without loss is a loopy game (`on`, `off`, `dud`), not 0.
+  - The trébuchet's zero is context-dependent.
+- **Solver check.** `kings/kpsolve` agrees with an independent solver on 1,418,480 positions.
+- **Real chess.** Both trébuchets are real mutual zugzwangs. The 7.2 king group is not (confirmed by Lichess).
+- **K+P vs K without edges (K4, CHECKED-2; [kings/delegate/out/K4/REPORT.md](kings/delegate/out/K4/REPORT.md)).**
+  - Setup: normal play (stalemate loses), boards 3×4 to 5×5, flat and cylinder, 20,556 quiet placements, each
+    summed with 16 test games.
+  - Every placement is a decisive win, on, off, dud or unmatched; no number or infinitesimal occurs. off is
+    exactly the White-stalemated pattern.
+  - Removing the edges changes the class of 12.5–20.5% of placements. Paper §IV-D has one sentence.
+  - Gafni's on\*, {on|0} and 1\* do not occur (on + \* only tied with on). The Gafni thesis itself was not located.
+- **Canonical values by difference games (K5b, CHECKED-2; [kings/delegate/out/K5b/REPORT.md](kings/delegate/out/K5b/REPORT.md)).**
+  - `sumtest/sumsolver.py`, which computes no canonical forms, finds G − V to be a second-player win for 72
+    of 81 target × setting pairs: 1/8 (×3), 1/16, ↑², ↑²\*, tiny(1), a2 c2 / b7 d7 and the C3 ring \*2.
+  - The other 9 contain ±BIG and are not testable this way.
+  - Caveat: sumsolver is also Claude-written. K5, a free-model "independent" engine, was a copy of cylcgt and is
+    rejected.
+
+**Lc0** at 1M nodes finished: 233/233 best moves win and 233/233 evals match (commit 1cc5ebb).
+
+## 8. Decisions
+
+Answered 2026-10-16:
+- **E.p.:** respect it (done).
+- **Kings:** model them explicitly (A8 done; see §7 and [kings/REPORT.md](kings/REPORT.md)). The exact 7×6 per-move
+  tally is deferred: it needs about 9 GB at cap 2, over the shared-machine limit, and cap 1 proved unreliable.
+- **Mentor:** no contact with Prof. Morley yet.
+- **Installs:** Stockfish 19 is built; Lc0 v0.32.1 is installed through Homebrew with its bundled network. PyTorch and MLX are in the separate `.venv-ml`.
+- **Repository:** private GitHub repo `aritroBh/cylindrical-chess-cgt` (approved 2026-10-21); push only when asked.
+## 3. Research program
+
+**Ground rule:** every computational claim is double-implemented, and every proof is checked by two models and by a human (§4).
+
+### Track A: Exact CGT of cylinder pawn endgames
+
+| ID | Question | Method | Done when |
+|---|---|---|---|
+| A0 | **Fix the model** | Write the rules down precisely: passed pawn = ±BIG versus Mäser's on/off; race semantics; en passant inside sums; legal versus generalised positions; `sum_safe` positions only in published sums. Long term, adopt *affine normal play* (∞-terminal games) so that "first passer wins" is exact rather than approximate. | A "Conventions" section; solver flags; 100% agreement with the cross-check on single components ✅ |
+| A1 | **Structural lemmas** | (i) **Empty-file invariance:** an empty file stays empty, so components separated by one are exact summands. (ii) **Embedding:** a cylinder position with an empty file equals a flat position on ≤ 7 files, so every new phenomenon lives in **ring components** (all files occupied). (iii) Symmetries: cyclic shifts and reflection, and colour reversal giving −G. | Written proofs, checked by enumeration |
+| A2 | **Resolve the \*2 candidate** | Embed `W a2 c2 / B b7 d7` with real kings (a g-file trebuchet). Verify: (1) the CGT value on the 8-file board; (2) every option's chess outcome, by Stockfish search and, for 8 men, Lichess's Op1 partial 8-man tablebase if it covers the position; (3) a sum test on a wider cylinder or a 10-file board, where \*2 + \* must be a first-player win. Then compare with Elkies' and Drummond-Cole's conventions. | A legal 8×8 king-and-pawn position certified \*2, or a precise reason why the convention fails |
+| A3 | **Value atlas** | Enumerate all positions up to k pawns on n-file cylinders, flat strips and tori (n = 3…8, heights 6–10), modulo symmetry. Tabulate canonical values, outcome classes and temperatures, and diff cylinder against flat. Port the hot loop to Rust (or reuse the `cgt` crate). Publish move-tree certificates. | A public dataset; a table of values realisable only on C_n; minimal witnesses |
+| A4 | **Elkies' open targets** | Search the atlas (and targeted constructions) for \*4, 1/8, ↑², tiny-½ on 8×8 and on 8-file cylinders. Run Elkies' 2002 stopped-file pawns game on **cyclic words**: rotations make distinct options, which may give higher nimbers on smaller boards. | Any one solved open problem ⇒ paper |
+| A5 | **Closed forms** | Values of one- and two-file structures as functions of gaps; the effect of double steps; behaviour as width n grows, with odd n breaking opposition parity. | Proved formulas matching the data |
+| A6 | **Dawson's chess on a ring** (repairs §8) | Solve directly from the pawn rules (`dawson.py`). Prove the reduction from a ring to a path of length n−3. Then attack the **misère** ring version: Dawson's misère problem is unsolved for paths, and the ring may be tractable via misère quotients. | Theorem plus table; misère results as a bonus |
+| A7 | Temperature | Compute thermographs of all atlas components. Measure how often "play the hottest move" fails in sums. Find the maximum temperature as a function of circumference and height, and compare with Elkies' (N−5)/2. | Statistics plus counterexamples |
+| A8 | **Kings: loopy CGT** | Model trebuchets and opposition on cylinders as loopy games (on, off, over, stoppers) using CGSuite. State exactly when "pawns only + a frozen trebuchet = chess" is valid, checking against Track B. Re-examine Gafni's K+P vs K values without edges. | Rigorous validity conditions; 7.2 and 7.3 as worked counterexamples |
+| A9 (stretch) | Formalisation | Formalise A1 and the core canonical-form lemmas in Lean 4 (Mathlib `SetTheory.PGame`). | Proofs compile |
+
+### Track B: Cylinder and torus tablebases, and an engine
+
+| ID | Question | Method | Done when |
+|---|---|---|---|
+| B0 | **Rules decision** | Fix the rules: no rook "pass" around the rank, no castling in endgames, en passant across the seam, no 50-move rule for DTM tables. | Written spec |
+| B1 | Fast move generator | Bitboards: leaper shifts rotate within each rank byte; rank sliders use a [file][occupancy] table; diagonal helices use a kindergarten multiply. Legality = pseudo-legal moves plus an "is the king attacked" test, because there are two routes between squares. Check against Nicholson's `partizan` and the mtaktikos copy. | **Publish cylinder perft numbers**, matching an independent mailbox generator and Jocly/Ludii |
+| B2 | **Tablebases** | Independently re-implement the 4-man results of §1.3, then extend to all 5-man and pawnless 6-man endgames. On the cylinder there are 138 pawnless king-pair classes, and a 6-man table is about 2×10⁹ positions, which fits in 48 GB. Report maximal DTM, mutual-zugzwang counts against Haworth's flat-board numbers, the KPK and KPKP rules without rook pawns, and the torus. | A table of every "can X force mate?" answer, plus public files |
+| B3 | Cylinder engine | Fairy-Stockfish (or the mtaktikos copy) with B1's slider tables and two-route pins and checks; probe our own tablebases in search; train NNUE with variant-nnue tools. | Perft-clean; beats the baseline; plays over UCI |
+| B4 | Bridge CGT ↔ chess | Confirm every king-dependent claim from Track A with B2 or B3. | Every published position engine- or tablebase-certified |
+
+### Track C: ML, RL and LLMs against exact ground truth
+
+| ID | Hypothesis | Method | Metric |
+|---|---|---|---|
+| C1 | **ChessSums: engines and LLMs fail on sums, and the \*-part drives it** | Build legal standard-board positions from k certified components (integers, \*, ↑, switches, 0) plus a locked king zugzwang. Keep more than 7 men so Syzygy cannot shortcut. Run Stockfish 17/18 (node sweeps), Lc0 (Metal backend) and LLMs (GPT-6 via Codex, Claude, Qwen and others via opencode). | Accuracy vs k; the growth exponent of nodes-to-solve; the "parity gap" = accuracy on integer sums minus accuracy on nimber sums |
+| C2 | **Compositional generalisation** | Train on k ≤ 2, test on k = 3–8. Compare a CNN, a circular-padded CNN (exactly equivariant on the cylinder), a transformer, and Deep Sets with a structured latent (a Z₂^m part for nimbers and a real part for numbers). | Accuracy at k = 8 relative to k = 2; does the learned sum obey G + (−G) = 0? |
+| C3 | AlphaZero on Dawson's chess and cylinder pawn games | OpenSpiel or our own PyTorch on MPS; exact values from A3 and A6. Extends Zhou & Riis to partizan sums. | Elo vs "expert" accuracy by value class |
+| C4 | **RLVR for Conway arithmetic** | GRPO on Qwen 0.5–3B with `mlx-lm-lora`, using our engine as the reward. Tasks: nim-sums, canonical forms, comparisons, temperatures, chess position → value. | Exact match on held-out, larger instances; transfer to C1 |
+| C5 (stretch) | Neural or LLM proposers for rare values | A model proposes, the exact engine verifies; hunt for A4's targets faster than enumeration. | New witnesses |
+
+### Track D: Writing and release
+- **Paper 1** (about week 6): "Combinatorial game values of pawn endgames on cylindrical boards." Corrects the 2025 paper and covers A0–A7, plus A2 if it holds.
+- **Paper 2** (about week 8): "Endgame tablebases and perft for cylinder and torus chess" (B0–B2).
+- **Paper 3** (about week 10): "ChessSums: sums of games as an adversarial benchmark for chess engines and LLMs" (C1–C4).
+- **Release:**
+  - `cylcgt` on PyPI.
+  - The atlas and tablebases on Hugging Face.
+  - An interactive explorer: click a position, see its value, thermograph and best move.
+
+---
+
+## 4. Who does what, and the verification protocol
+
+**Locating LOOPY range**
+exec
+/bin/zsh -lc "rg -n '"'^'"\\*\\*Theorem 2\\.7|conditions cannot be dropped|K3.s objection' kings/theory/LOOPY.md" in /Users/aritro/Downloads/Research/Chessendgames
+ succeeded in 0ms:
+21:repair in P (revised after K7, 2026-10-22). K3's objection to Theorem 2.7 read it as a statement about the
+73:| T2.7 | GAP → PROVED after repair, in P (revised after K7, 2026-10-22). K7 made the local game of (L1) explicit (the first promotion ends it, a promotion by s is a failure for s̄, s̄'s king stays on F_Z, no pass in check, a mate of s is a win for s̄, a stalemate of s̄ is a failure; s cannot be stalemated in the local game because it may pass). K7 also fixed the choice that K3 and the T30 recheck left open: (L2) counts s's king and **context** pawns only, and s's Z-pawns are covered by (L1); (L3) is stated over the real play of a guided strategy, in which s̄ makes Z-moves only. K3's objection (a context passer within the window ends the game in s's favour) assumes that a passer is terminal. That holds in the D-model and not in P: in P only a promotion is terminal, and (L2) bounds it. Whether a passer is decisive in D is (V2), a hypothesis of Theorem 1.14, which Theorem 2.7 does not claim. The window form (b) of the first K7 draft was FALSE when Q carried an e.p. right with its target off F_Z (counterexample in the text); (L2) now counts that right. The theorem gives a P-win only. The bound μ_s ≥ T + 1 is sharp in P, and in chess no margin of μ_s replaces (A_Q) (examples in the text). A second review round found no false step | R1 item 3, R3 items 2 and 3; K3; K7 |
+885:**Theorem 2.7 (sufficiency of the certificate). PROVED after repair (in P). (revised after K7, 2026-10-22)**
+990:**Remark (K3's objection, answered).** K3 wrote that (L2) counts promotions only and that a context passer within
+1026:- *The conditions cannot be dropped.* All examples are in cyl:7×6. The P values are kpsolve results from the private
+1028:  the conditions cannot be dropped keeps the label CONJECTURE; the races can be checked by hand.
+
+**Preparing to extract text segment**
+exec
+/bin/zsh -lc "sed -n '885,1085p' kings/theory/LOOPY.md" in /Users/aritro/Downloads/Research/Chessendgames
+ succeeded in 0ms:
+**Theorem 2.7 (sufficiency of the certificate). PROVED after repair (in P). (revised after K7, 2026-10-22)**
+(The first K7 draft of (b) had no e.p. clause in (L2) and was FALSE; see the example in the list "The conditions
+cannot be dropped" below.)
+- **(a)** If LC_T(m) holds at Y, with reply r, then s̄ has a forced win in P after m: it plays r and then wins
+  with one of its next T moves. So m is decisively punished in P.
+- **(b) Window form.** The proof does not use how Q arose. Let Q be a position with s to move which is
+  chess-legal, or which arises from a position Y of Definition 2.1 by legal moves m and r as in (a), and in which
+  every pawn is a Z-pawn on F_Z or a context pawn on a context file, the buffer is empty, there is no officer,
+  s̄'s king stands on F_Z, and no s̄ context pawn attacks s's king (automatic if s's king is on F_Z). Q may
+  carry an e.p. right with its target anywhere: (L2) counts a right whose target is off F_Z, and π keeps a
+  right whose target is on F_Z. If (L1),
+  (L2) and (L3) hold at Q, s̄ has a forced win in P from Q. This is the form used in §5.3 and P8, with Q = Y.
+  The window form does not cover a legal position in which s is in check from an s̄ context pawn that has just
+  moved (s's king on a context or buffer file): there (I4) fails, and the theorem says nothing.
+
+*Proof.* Fix a guided strategy ρ of s̄ with the property (L3). s̄ plays r and then ρ. Only Z-moves are made
+by s̄, and its king stays on F_Z. Consider any real play from Q in which s plays legal moves, and write R for
+the real positions in it.
+
+- **Step 0: invariants.**
+  - (I1) Every pawn is a Z-pawn on F_Z or a context pawn on a context file; the buffer is empty. This is Lemma
+    2.2, applied from Q (from Y in (a)); it holds for every legal play before the first promotion.
+  - (I2) No context pawn of either colour attacks a square of F_Z. A pawn attacks only adjacent files, and a
+    context file is at distance ≥ 2 from F_Z. Also, a Z-pawn can capture only on F_Z or on the buffer, which is
+    empty, so its captures take Z-pawns (or e.p.).
+  - (I3) s̄'s king stands on F_Z.
+  - (I4) s̄'s context pawns never move and are only removed (by s). No s̄ context pawn ever attacks s's king:
+    none does at Q (m was legal, r changes no context pawn; in (b) this is a hypothesis), the set of squares
+    they attack only shrinks, and a king never steps onto an attacked square. So s is in check at R iff an s̄
+    Z-pawn attacks its king, iff s is in check in π(R).
+  - (I5) *E.p. rights.* A right created by s̄ comes from a Z-pawn double step, since s̄ plays Z-moves only, so its
+    target is on F_Z, and only Z-pawns of s can use it (a context pawn is not adjacent to F_Z). A right created by
+    s concerns an s pawn, so it is of no use to an s context pawn. If its target is on F_Z, s̄'s Z-pawns may use it,
+    and the local game accounts for this (π keeps such a right). If its target is off F_Z, no s̄ pawn that s̄
+    moves can use it, and π drops it. So the only e.p. capture that an s context pawn can ever make is the
+    one of the right carried by Q, if its target is off F_Z, and it can be made at s's first turn only.
+- **Step 1: s's moves are local moves.** Let R have s to move. π(R) is a position of L_T(Q_Z) reached with s̄
+  playing winning moves only (by induction on the play). A legal real move of s is one of three kinds.
+  - *A king move* to d. Legal in R: d is not occupied by an own pawn, not adjacent to s̄'s king, not attacked by
+    an s̄ pawn after the capture (if any), and if s is in check the move removes the check. Every condition
+    holds in π(R): the kings are the same, the pawns present are a subset, and the checkers are Z-pawns by (I4).
+    A capture of a context pawn becomes a plain king move in π(R). So the move is legal in π(R) and the
+    projection of the result is the local result.
+  - *A Z-pawn move* (step, double step, capture of an s̄ Z-pawn, e.p. capture of an s̄ Z-pawn, promotion). The
+    squares involved lie on F_Z or on the empty buffer, and F_Z holds the same pieces in R and π(R) by (I1). King
+    safety is as in the previous case. So it is legal in π(R) with the same result. In particular a promotion of
+    a Z-pawn of s is a promotion by s in the local game.
+  - *A context-pawn move.* It changes only context pawns, so π(R) is unchanged except for the side to move; an
+    e.p. right it creates has a target off F_Z and is dropped by π, as a pass does. The e.p. capture of the right
+    of Q (target off F_Z, I5) is such a move too: it moves an s context pawn and removes an s̄ context pawn. A
+    context move is legal only if s is not
+    in check: the checkers are s̄ Z-pawns (I4), and a context pawn can neither capture on F_Z (I2) nor block a
+    pawn check. So s is not in check in π(R) and the pass is allowed. (A context promotion is treated in Step 4.)
+  So the projection of the play is a play of L_T(Q_Z) in which context moves are passes. Real s-turns and local
+  s-turns correspond one to one, as do s̄'s moves.
+- **Step 2: s̄'s permitted local moves are legal real moves.** Let R′ have s̄ to move, and let μ̃ be a permitted
+  move of s̄ at π(R′): a king step onto a square of F_Z, a Z-pawn move, or a promotion. Then μ̃ is legal in R′.
+  - F_Z holds the same pieces in R′ and π(R′), and so does the e.p. right on F_Z (it comes from a Z-pawn double
+    step, and only Z-pawns can capture it, because the squares next to F_Z are F_Z and the empty buffer).
+  - s̄'s king ends on F_Z. The only pieces that could attack it are s's pawns and king. s's context pawns do not
+    attack F_Z (I2); the rest is the same in π(R′). The kings are not adjacent, as in π(R′).
+  - There are no sliders, so there are no pins.
+  So guided strategies exist, and a winning strategy of the local game, read in the real game, is one.
+- **Step 3: s̄ is never stuck.** A winning move of the local game exists whenever s̄ is to move before its win,
+  and by Step 2 it is a legal real move. So s̄ always has a legal real move, and is never mated or stalemated before
+  winning.
+- **Step 4: s does not win first.** By Step 1 the projection of the play so far is a play of L_T(Q_Z) in which
+  s̄ plays winning moves only, and such a play is over by s̄'s T-th move. So s has at most T turns, and the
+  turn j at which s might promote has j ≤ T.
+  - *A Z-pawn.* By Step 1 this is a promotion by s in a line of L_T(Q_Z) in which s̄ played winning moves only.
+    That contradicts rule 1 (a promotion by s is a failure).
+  - *A context pawn.* **Claim M:** μ_s ≤ j. Delete from the real play s̄'s moves and s's Z-pawn moves. What is
+    left is a sequence of at most j moves of s, each a king move or a context-pawn move, ending with the
+    promotion. It is a legal sequence in Q° (the position of (L2)). Indeed, s's king and the context pawns of
+    both colours stand on the same squares in the real play and in the sequence, because s̄'s context pawns
+    do not move and only s moves them (captures included). A king move is legal in Q°: its destination is not
+    occupied by an own context pawn, it is not attacked by an s̄ context pawn (the same attackers), and Q°
+    has fewer other pieces (no s̄ king, no Z-pawn), so no condition is added. A context-pawn move is legal
+    in Q°: its target squares are on context files, where the real occupants are context pawns and possibly
+    s's king (same in Q°); s̄'s king and all Z-pawns are on F_Z (I1, I3); the own king is not attacked
+    (I4); and the only e.p. right that can be used is the one of Q (I5), at s's first turn. If it is used, it is
+    the first move of the sequence, and Q° keeps exactly that right for its first move. So μ_s ≤ j ≤ T, which
+    contradicts (L2). This is where the king's help in removing blockers is counted: it uses moves of s.
+  - A context *passer* that exists but has not promoted in the window does nothing: in P only a promotion ends
+    the game.
+- **Step 5: no other ending.**
+  - s cannot mate s̄: s̄ is never mated before winning (Step 3). In particular s's Z-pawns and king, which do
+    attack F_Z, cannot take s̄'s last move away, because the prescribed local move is legal in the real
+    position (Step 2).
+  - s̄ is not stalemated (Step 3). s is not stalemated by (L3). There is no infinite play: the window has at
+    most T moves of s̄.
+- **Step 6: s̄ wins in time.** The projection is a play of the winning local game, so it ends within s̄'s first T
+  moves with a promotion by s̄ or a mate of s. A promotion by s̄ is a legal real move (Step 2) and ends the real
+  game in s̄'s favour in P. A mate of s in π(R) is a mate in R: s is in check in R (I4), and every legal real
+  move of s is a local move or a pass (Step 1), and no pass exists in check, so s has no legal move in R either.
+  Since s moves first after r, s̄'s t-th move comes after s's t-th, and the count is the one used in Step 4. ∎
+
+*Part (b)* is the same proof with Q as the starting point: only (I1)–(I5) at Q were used, that s̄'s king is not
+attacked at Q, and that an e.p. right is that of a pawn standing where the right says. These are the hypotheses of
+(b) (they hold for a chess-legal Q, and for the Q of (a) because m and r are legal), together with Lemma 2.2.
+*Part (a)* is part (b) applied to Q: m and r are Z-moves, so
+every pawn is still a Z-pawn on F_Z or a context pawn on a context file and the buffer is empty (Lemma 2.2);
+s̄'s king is on F_Z by the Data; no s̄ context pawn attacks s's king, because m was legal and r moves no context
+pawn; and the only e.p. right Q can carry is one created by r, with its target on F_Z.
+
+**Remark (K3's objection, answered).** K3 wrote that (L2) counts promotions only and that a context passer within
+T ends the game in s's favour. In the D-model a passer is a terminal. Whether it is decisive is (V2), a hypothesis
+of Theorem 1.14 (Proposition 2.11, P11; revised after K10, 2026-10-22), and Theorem 2.7 does not claim it. Theorem 2.7 is a statement about P. In P a
+context passer of s is not terminal. Only a promotion ends the game, and (L2) bounds the first promotion of every
+context pawn of s, passer or not, by T + 1 moves of s. A passer that stands at the end of the window has not
+promoted, and s̄ has. So the objection does not apply to Theorem 2.7: it reads a P-statement as a D-statement.
+
+**What Theorem 2.7 does not give.**
+- *No C-win, and no margin of μ_s gives one.* In P a promotion wins at once. In chess the new queen must survive
+  and the ending must be won. (L1) asks for a queen that s cannot capture at once, which is not enough: that s̄ wins
+  chess after the promotion is the per-position hypothesis (A_Q), checked by kpsolve (§1.2). (L2⁺) is only a margin.
+  The examples below are kpsolve results (`--promote QRBN --cap 2`, both bounds equal; the P values come from the
+  private `--pmodel` copy of Appendix A). By the Labels rule they are data and keep the label CONJECTURE. In each,
+  s̄ is Black, and (L1) with the queen clause, (L2) with the e.p. clause and (L3) hold (revised after K7, 2026-10-22).
+  - μ_s = T + 1, window form with Q = the position: cyl:7×6 `Ka4 ka6 Pf4 pb2`, White to move. T = 1 (b1=Q), and the
+    White pawn f4 has μ_s = 2. Black wins P. **White wins chess**, and 1.f5 is the only winning move.
+  - μ_s = T + 1, form (a): cyl:7×6, Y = `Kc5 ka3 Pe2 pc4`, White to move, m = Kc5–d5, r = c4–c3,
+    Q = `Kd5 ka3 Pe2 pc3`, T = 2 (c2, c1=Q), μ_s = 3. Corollary 2.8 applies (d(Kd5, c1) = 4 = D + 2). After m, Black
+    wins P and **White wins chess**.
+  - μ_s = T + 1, form (a): cyl:7×6, Y = `Kb4 ka1 Pe4 pa2`, White to move, m = Kb4–c5, r = Ka1–b1,
+    Q = `Kc5 kb1 Pe4 pa2`, T = 1, μ_s = 2. After m, Black wins P and chess is **drawn**.
+  - μ_s = T + 2: flat:6×6 `Ke6 kb1 Pf2 pc2`, White to move. T = 1, μ_s = 3 (f4, f5, f6=Q). Black wins P and chess
+    is **drawn**.
+  - In a sampled enumeration of one Black Z-pawn and one White context pawn, a reviewer found draws still present at
+    μ_s ≥ T + 3 on flat:6×6 (4 of 659), and none at μ_s ≥ T + 2 on cyl:7×6 (scratch).
+  - Hence a chess form of (V3) does not follow from any horizon condition. The paper's Conjecture `conj:cert`
+    (`paper/ieee/sections/04_kings.tex`, "a certificate of horizon h implies (V3)") and the matching sentence of
+    `kings/REPORT.md` are refuted as worded by the second and third example. Theorem 2.7 supports the P-version only.
+- *No D-model statement.* For Theorem 1.14 the theorem supplies (V2) for the terminal "a Z-move is punished",
+  at one Z-move and only in contexts where LC_T holds. It says nothing about (V2) for the passer terminals,
+  nothing about (V3) for the other Z-moves, and nothing about (V1) or (V4).
+- *No converse.* LC_T is sufficient only. A Z-move can be punished in P although (L1), (L2) or (L3) fails for
+  every reply, for example by a different reply that the certificate does not use.
+- *One Z-move at one position.* Theorem 2.4 needs every Z-move of the loser at every loser-to-move node, each with
+  its own certificate. (L2) is context-dependent: for T = 1 it holds in every chess-legal non-terminal context
+  when H ≥ 5, and for T ≥ 2 it fails in some context (Proposition 2.10).
+- *The conditions cannot be dropped.* All examples are in cyl:7×6. The P values are kpsolve results from the private
+  `--pmodel` copy of Appendix A (source: `kings/delegate/out/K7/scripts/draft/kp_p.c`). By the Labels rule they are data, and the claim that
+  the conditions cannot be dropped keeps the label CONJECTURE; the races can be checked by hand.
+  - (L3): `Kb5 kd5 Pb4 Pc5 Pe3 Pf3 Pf4 Pf5`, Black to move, is a draw in P. (L1) holds with T = 1 (c6=Q), Black
+    has no pawn, and the White pawns on e3, f3, f4, f5 cover d4, e4, e5, e6, so Black is stalemated. This is
+    the position after `Kd5 Kxb5` in `Ka5 kc6 Pb4 Pc5 pb5` with that context. In that start position Kd5 is
+    still punished in P, by a different reply, so this is also an example of the missing converse.
+  - (L2): `Kd6 kc2 pa3 Pe4 pe5 pf5`, White to move, is a White win in P. Black's local win has T = 2 (a2, a1=Q),
+    the context is non-terminal, but μ_s = 2: exf5 and f6=Q (Proposition 2.10(b)). For T = 1 the same happens
+    with a passer: `Kb5 kd5 Pb4 Pc5 pe2`, Black to move, is a Black win.
+  - (L2), the e.p. clause: `Kd6 kc4 Pe3 pa4 pe4 pf3`, White to move, e.p. right on f4 (Black has just played
+    f5–f3). Black (s̄) has a local win with T = 3 (a3, a2, a1=Q), (L3) holds, and without the clause μ_s = 6, so
+    (L1), (L2) and (L3) would all hold. Yet White wins in P: exf4 e.p., f5, f6=Q, and its third move promotes
+    before Black's third. With the clause μ_s = 3 < T + 1 = 4, as it should. The same position without the right
+    is a Black win in P. This is why the first K7 draft of (b) was false. Part (a) cannot meet this case.
+  - (L2), sharpness of μ_s ≥ T + 1: `Kf5 kc6 Pe4 pb3`, White to move, has T = 2 (b2, b1=Q) and μ_s = 2, and White wins
+    P (1.e5 b2 2.e6=Q). With the pawn on e3 instead, μ_s = 3 and Black wins P (1.e4 b2 2.e5 b1=Q). The example
+    `Kd6 kc2 pa3 Pe4 pe5 pf5` above also has μ_s = T = 2.
+  - (L1) is the substance: with no local win there is nothing to transfer.
+
+**Corollary 2.7′ (the contrapositive; the content of P12). PROVED in P (revised after K7, 2026-10-22).** Let X
+have the structure of Definition 2.1 (kings and Z-pawns on F_Z, context on context files), let F be the
+`--frozen` model (a king move loses at once for the mover, a promotion wins at once, stalemate and infinite play
+are draws), and suppose σ has a winning strategy S in F from X. If at every node of S with σ̄ to move every
+legal king move of σ̄ is a P-loss for σ̄, then σ wins P from X. Hence, if σ wins F but not P, then for every
+winning strategy S of σ in F some node of S with σ̄ to move has a legal king move m of σ̄ that is not a
+P-loss, and for that m, every admissible reply r (Definition 2.6, with s = σ̄ and s̄ = σ: a non-promoting Z-move
+of σ that leaves σ's king on F_Z) and every T ≥ 1, (L1), (L2) or (L3) fails. A promoting reply by σ would make m a
+P-loss for σ̄, so it does not occur for a move that is not a P-loss; replies that are not admissible are outside
+LC_T.
+- *Proof.* In P, σ plays S. S uses no king move of σ, since in F a king move is a loss for its maker, so the
+  kings stand where they did at X, and the nodes of S keep the structure (a pawn move preserves it by Lemma
+  2.2; a promotion ends the game). Every legal pawn move of σ̄ is the same move in F and in P, and S answers
+  it. Every king move of σ̄ is a P-loss by hypothesis. Stalemates are draws in both
+  models and do not occur in S. Terminals of S are promotions by σ, a P-win, and mates, equal in both. So the
+  play is finite and σ wins P. The second statement is the contrapositive. Its last clause is the contrapositive
+  of Theorem 2.7(a): a king move m with a reply r and T such that LC_T holds would be punished. ∎
+- In chess: if `--frozen` reports a win for σ at X and the chess result at X is not a σ-win, then either P(X) is
+  not a σ-win (the statement above) or (A_Q) fails at X. The comparison is one-directional: σ may win real chess
+  by king moves that F forbids.
+
+**Lemma 2.7a (transfer from a promotion model to chess). PROVED (new, revised after K24, 2026-10-27).** For a
+king-and-pawn position X let EPW(X) be chess in which the first promotion by either side ends the game as a White win,
+and EPB(X) the same with a Black win. Everything else is as in chess: a mate wins, stalemate and infinite play are
+draws. A promotion move is legal in EPW and EPB exactly when it is legal in chess.
+- (a) If White has no winning strategy in EPW(X), White has none in C(X).
+- (b) If Black has no winning strategy in EPB(X), Black has none in C(X).
+- (c) If both hold, C(X) is a draw.
+- *Proof.* (a) By contraposition. Let σ be a winning strategy of White in C(X). Every play consistent with σ is
+  finite and ends in a mate of Black. Play σ in EPW(X), against any behaviour of Black. Until the first promotion the
+  legal moves, the mate test and the stalemate test are the same in the two games, so the play so far is a prefix of
+  a chess play consistent with σ. If a promotion (by either side) occurs before σ's mate, the play ends in EPW as a
+  White win. If none occurs, the whole play is a chess play consistent with σ and ends in the mate of Black, which
+  is a White win in EPW as well. No play is infinite. So σ wins EPW(X). (b) is the same with the colours exchanged.
+  (c) EPW, EPB and C are finite-state reachability games, so "neither side can force a win" is exactly the value D.
+  ∎
+- The lemma is used only in the direction "cannot win". The converse is not claimed (White may win EPW by a
+  promotion that chess does not reward). EPW and EPB do not distinguish the piece promoted to, and the proof needs
+  no cap on officers.
+- *Application (CHECKED-2: two implementations of the models, K24's `mine.c`, where EPW is `bb` and EPB is `bw`, and the
+
+**Reviewing discrepancies in proof citation**
+**Analyzing move legality and capture constraints**
+**Analyzing chess lemma conditions**
+**Evaluating proof completeness**
+**Analyzing en passant possibilities**
+**Evaluating proof sequence accuracy**
+
+I’m comparing the sequence of moves in Q° after removing certain pawn moves, checking if context pawn positions stay consistent and moves remain legal, while planning to document each step's soundness or gaps in a concise summary.
+**Reviewing proof status and labeling**
+**Validating move legality and promotion rules**
+**Analyzing proof strategy and conditions**
+**Evaluating proof verification and conditions**
+codex
+The comparison proof’s simulation and timing argument align with the blind proof. I found one small presentation gap in Step 0: it cites buffer invariance from an initial setup that requires both kings in the group, while (b) permits s’s king elsewhere. The pawn/file invariant follows directly by induction from (b)’s stated starting geometry, so this is repairable without changing the theorem. I’m recording that distinction and the status of the listed counterexamples in `FINDINGS.md`.
+exec
+/bin/zsh -lc "cat > kings/delegate/out/K36/FINDINGS.md <<'EOF'
+# Findings: blind review of Theorem 2.7
+
+Theorem 2.7(a) and (b) are **PROVED** in P by the blind derivation and the comparison below.
+The proof transfers a local winning strategy through π, with context-pawn moves represented by passes.
+(L2) blocks an unrepresented context promotion before the local deadline; (L3) excludes real stalemate.
+LOOPY's move-legality and timing steps are sound; Step 0 has one repairable invocation gap for (b).
+No solver was run; the listed counterexamples remain reported data, not independently checked here.
+
+## Route compared with the blind proof
+
+My proof established the projection and timing directly, then listed where each hypothesis is needed. LOOPY expands that simulation into pawn/file, attack, and en-passant invariants (I1–I5), followed by move-type checks. Its Step 4 gives a more explicit deletion argument for μ_s than my direct mapping of an actual s-move sequence into Q°. Both routes use the same decisive separation: Z-pawn promotions are visible to (L1), context promotions are bounded by (L2), and stalemate is handled only by (L3). Neither route promotes a passer to a terminal in P.
+
+## Step-by-step audit of LOOPY's proof
+
+- **Step 0, I1 — GAP (repairable).** Lemma 2.2 is stated for Definition 2.1, whose initial setup puts both kings on F_Z. Part (b) allows s's king elsewhere, so the sentence “Lemma 2.2, applied from Q” invokes the lemma outside its stated setup. The pawn/file/buffer conclusion follows directly by induction from (b)'s explicit pawn placement and empty-buffer conditions: pawns stay on their file, cannot move sideways, and promotions are excluded until the first promotion. State that short argument or state the invariant in that broader form. No counterexample to the invariant follows.
+- **Step 0, I2 — SOUND.** Pawn attacks are to adjacent files; the one-file buffer and distance-at-least-two context keep context pawns from attacking F_Z. A Z-pawn's diagonal capture cannot reach a context file across the empty buffer.
+- **Step 0, I3 — SOUND.** The guided strategy confines s̄'s king to F_Z, and it starts there by hypothesis.
+- **Step 0, I4 — SOUND.** s̄ context pawns stay fixed or are removed. Their attack set only shrinks, and legal king moves cannot enter an attacked square. Thus the only check on s relevant to projection is from retained Z-pawns; this also justifies treating a context-pawn move as a pass only when s is not checked.
+- **Step 0, I5 — SOUND.** A right created by a guided s̄ Z-pawn double step has target on F_Z and is available to a Z-pawn. A right created by s cannot be used by s's own context pawn; an off-F_Z right already at Q is the only context en-passant capture available to s, and it expires after s's first turn. The on-F_Z case is retained by π.
+- **Step 1 — SOUND.** Each real king or Z-pawn move projects to the same legal local move; a king capture of a context pawn becomes a king step to an empty square. Context-pawn moves, including the one possible off-F_Z en-passant capture, leave the projection unchanged and are legal passes because they cannot answer a Z-pawn check. Context promotions are deferred to Step 4, where they are excluded by (L2).
+- **Step 2 — SOUND.** The local permitted s̄ moves see the same F_Z occupancy and on-F_Z en-passant right. Context pawns do not attack the destination king square, and all other king/pawn attacks are represented in π. With no officers there are no slider pins omitted by projection.
+- **Step 3 — SOUND.** Before the local win, the local winning strategy has a legal permitted move. Step 2 makes it a legal real move, so s̄ cannot be stuck or stalemated.
+- **Step 4 — SOUND.** A Z-pawn promotion by s is a forbidden failure along the (L1) winning line. For a context promotion on s's j-th turn, delete s̄'s moves and s's Z-pawn moves. The remaining s king/context-pawn sequence is legal in Q°: deleted pieces only remove blockers and attacks; s̄ context pawns remain fixed; the king and context pawns retain their real squares; and the sole possible off-F_Z en-passant capture is available only on the first turn and is retained by Q°. This yields μ_s ≤ j ≤ T, contradicting μ_s ≥ T+1. A context passer that has not promoted is not terminal in P.
+- **Step 5 — SOUND.** Step 3 excludes s̄ being mated or stalemated before its win. (L3), not (L1), excludes a real stalemate of s. The guided local win is bounded, so no infinite play remains.
+- **Step 6 — SOUND.** The projected local game ends by s̄'s T-th move through an allowed promotion or mate. A local promotion is a P win when made by s̄; for a local mate of s, Step 1 preserves all legal s moves and checks, and no pass is available in check. Thus the real result agrees and the move count is correct.
+- **Part (b) bridge — SOUND, with the I1 repair above.** Its hypotheses supply the starting placement, empty buffer, no officers, s̄ king location, no s̄-context-pawn check, and en-passant handling used in I1–I5. The proof is independent of how Q arose.
+- **Part (a) reduction — SOUND.** After legal non-promoting m and r, the window starts with s to move; r is a Z-move, so any new en-passant target is on F_Z. The certificate hypotheses apply and the window result gives the stated T-move bound after r.
+- **K3 objection remark — SOUND.** A passer is not terminal in P; only promotion is. The distinction from D is necessary, and (L2) bounds the relevant actual promotion.
+
+No step is FALSE. The I1 gap is a missing invocation condition in the written proof, not a counterexample: its claim follows from a one-line pawn-movement induction and does not require either king to be on F_Z.
+
+## “The conditions cannot be dropped” list
+
+The list is consistent with the theorem's scope. It supplies examples against omitting (L3), the main μ_s condition in (L2), the off-F_Z en-passant clause, and the exact μ_s ≥ T+1 threshold; it also identifies (L1) as the substantive local-win premise. The EP example explains why the first draft of (b) was false and why part (a), after r clears m's right, does not cover that case. The chess counterexamples in “What Theorem 2.7 does not give” also correctly keep (A_Q) separate from this P theorem.
+
+These examples are reported in LOOPY as "'`CONJECTURE`/computed data under the project'"'s label rules. I did not run the private P solver or recheck their values, so I make no independent claim about those computed outcomes. No example or omitted-hypothesis counterexample was run as part of this task.
+
+## Tests and recommendation
+
+- **Tests run:** none. This review was a proof audit; no solver or computation was run.
+- **Exact reproduce command for test counts:** not applicable; there are no computed counts in this report.
+- **Recommended label:** **PROVED (in P), after repairing Step 0's invocation of Lemma 2.2 as noted.** The theorem does not establish a chess win or a D-model result. The theorem's listed solver examples remain at their existing data/CONJECTURE status.
+EOF
+ls -l kings/delegate/out/K36/PROOF.md kings/delegate/out/K36/FINDINGS.md" in /Users/aritro/Downloads/Research/Chessendgames
+ succeeded in 0ms:
+-rw-r--r--@ 1 aritro  staff   7027 Oct 28 01:30 kings/delegate/out/K36/FINDINGS.md
+-rw-r--r--@ 1 aritro  staff  10657 Oct 28 01:29 kings/delegate/out/K36/PROOF.md
+
+**Preparing final report structure**
+**Composing REPORT.md contents**
+codex
+Both requested phase files are complete. I’m adding the required `REPORT.md` with the five-line summary and recording that no solver run or computed count was used.
+exec
+/bin/zsh -lc "cat > kings/delegate/out/K36/REPORT.md <<'EOF'
+# K36 report
+
+**PROVED:** Theorem 2.7(a) and its window form (b) hold in P under (L1)–(L3).
+**PROVED:** The projection argument covers king/Z-pawn moves and treats context-pawn moves as passes.
+**PROVED:** (L2)'s μ_s ≥ T+1 blocks context promotion through s's T-th turn; (L3) excludes real stalemate.
+**GAP:** LOOPY Step 0 applies Lemma 2.2 outside its stated both-kings-on-F_Z setup in (b); a direct pawn-movement induction repairs it.
+**CHECKED-2:** Not claimed; this review is an independent proof audit, not a second computation or solver run.
+
+## Files
+
+- [PROOF.md](PROOF.md): blind proof written before reading LOOPY.
+- [FINDINGS.md](FINDINGS.md): comparison, step-by-step audit, conditions-list review, and recommendation.
+
+## Verification
+
+No code, solver, or tests were run. There are no computed counts to reproduce. The listed K7 P-solver examples remain reported data and were not independently rechecked here. The recommended theorem label is **PROVED (in P), after the Step 0 wording repair**; no chess or D-model conclusion is claimed.
+EOF
+cat kings/delegate/out/K36/REPORT.md" in /Users/aritro/Downloads/Research/Chessendgames
+ succeeded in 0ms:
+# K36 report
+
+**PROVED:** Theorem 2.7(a) and its window form (b) hold in P under (L1)–(L3).
+**PROVED:** The projection argument covers king/Z-pawn moves and treats context-pawn moves as passes.
+**PROVED:** (L2)'s μ_s ≥ T+1 blocks context promotion through s's T-th turn; (L3) excludes real stalemate.
+**GAP:** LOOPY Step 0 applies Lemma 2.2 outside its stated both-kings-on-F_Z setup in (b); a direct pawn-movement induction repairs it.
+**CHECKED-2:** Not claimed; this review is an independent proof audit, not a second computation or solver run.
+
+## Files
+
+- [PROOF.md](PROOF.md): blind proof written before reading LOOPY.
+- [FINDINGS.md](FINDINGS.md): comparison, step-by-step audit, conditions-list review, and recommendation.
+
+## Verification
+
+No code, solver, or tests were run. There are no computed counts to reproduce. The listed K7 P-solver examples remain reported data and were not independently rechecked here. The recommended theorem label is **PROVED (in P), after the Step 0 wording repair**; no chess or D-model conclusion is claimed.
+
+**Reviewing theorem labeling and report constraints**
+**Analyzing move legality and proof coverage**
+codex
+Completed the blind proof, comparison, and required report:
+
+- [PROOF.md](/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K36/PROOF.md)
+- [FINDINGS.md](/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K36/FINDINGS.md)
+- [REPORT.md](/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K36/REPORT.md)
+
+**Recommendation:** Theorem 2.7 is PROVED in P after a small wording repair: LOOPY’s Step 0 applies Lemma 2.2 beyond its stated setup in part (b). The pawn/file invariant follows directly from the starting geometry. No solver or tests were run; the listed computed examples remain independently unchecked.
+tokens used
+89,721
+Completed the blind proof, comparison, and required report:
+
+- [PROOF.md](/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K36/PROOF.md)
+- [FINDINGS.md](/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K36/FINDINGS.md)
+- [REPORT.md](/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K36/REPORT.md)
+
+**Recommendation:** Theorem 2.7 is PROVED in P after a small wording repair: LOOPY’s Step 0 applies Lemma 2.2 beyond its stated setup in part (b). The pawn/file invariant follows directly from the starting geometry. No solver or tests were run; the listed computed examples remain independently unchecked.
