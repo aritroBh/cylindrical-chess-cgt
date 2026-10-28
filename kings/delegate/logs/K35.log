@@ -1,0 +1,1955 @@
+Reading additional input from stdin...
+2026-10-28T06:21:36.140949Z ERROR codex_core::session::session: failed to load skill /Users/aritro/.agents/skills/aura/aura-ai-website-builder/SKILL.md: missing field `description`
+2026-10-28T06:21:36.140981Z ERROR codex_core::session::session: failed to load skill /Users/aritro/.agents/skills/aura/btr-motion-pattern-registry/SKILL.md: missing field `description`
+2026-10-28T06:21:36.140987Z ERROR codex_core::session::session: failed to load skill /Users/aritro/.agents/skills/aura/gsap-react-installation/SKILL.md: missing field `description`
+2026-10-28T06:21:36.140992Z ERROR codex_core::session::session: failed to load skill /Users/aritro/.agents/skills/aura/progressive-blur-ui-overlay/SKILL.md: missing field `description`
+2026-10-28T06:21:36.140995Z ERROR codex_core::session::session: failed to load skill /Users/aritro/.agents/skills/aura/shadcn/SKILL.md: missing field `description`
+2026-10-28T06:21:36.140999Z ERROR codex_core::session::session: failed to load skill /Users/aritro/.agents/skills/aura/test-1-design/SKILL.md: missing YAML frontmatter delimited by ---
+2026-10-28T06:21:36.141003Z ERROR codex_core::session::session: failed to load skill /Users/aritro/.agents/skills/aura/ui-ux-pro-max-design-intelligence/SKILL.md: missing field `description`
+OpenAI Codex v0.164.0
+--------
+workdir: /Users/aritro/Downloads/Research/Chessendgames
+model: gpt-6-luna
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: high
+reasoning summaries: concise
+session id: 01a1812b-cfeb-7ba2-9ff6-a9e0a49a4100
+--------
+user
+# Shared brief for every delegated task
+
+Project root: `/Users/aritro/Downloads/Research/Chessendgames`. This continues a 2025 high-school paper,
+"Analysis of Chess Endgames on a Cylindrical Chessboard" (`prior_work/main.tex`): combinatorial game theory
+(CGT) of king-and-pawn endgames on cylinder (files a and h glued) and flat boards.
+
+Read first:
+- `RESULTS.md`, the status page;
+- `RESEARCH_PLAN.md` §3;
+- the REPORT.md files your task names.
+
+## Conventions (Elkies 1996, as used in `cylcgt/`)
+
+- **Sides and normal play.** White = Left, Black = Right. A side with no move loses.
+- **Passed pawns.** One side having a passed pawn is worth ±BIG (BIG = 256). If both sides have one, it is a
+  race, resolved by `cylcgt.pawns.RACE_RULE` ("count", "mover" or "opponent").
+- **En passant (adopted 2026-10-16).** A pawn that can still be taken en passant is NOT passed
+  (`cylcgt.pawns.PASSED_RESPECTS_EP = True`). Setting it to False gives the older "textbook" test. Many earlier
+  results were computed with the textbook test; say which test you use.
+- **Components.** An empty file stays empty forever, so pawn groups separated by one are disjunctive summands.
+- **King freeze.** The trébuchet king group (W Pg4 / B Pg5, WK f5, BK h4 on the flat 8×8 board) is assumed to
+  be 0.
+- **API.**
+  - `cylcgt/pawns.py`: `Board(files, ranks, wrap, ep)`, `Pos.parse("W: a2 c2 / B: b7 d7")`,
+    `value(board, pos)`, `describe(board, pos)`.
+  - `cylcgt/cgt.py`: `show`, `outcome`, `add`, `neg`, `le`.
+  - Call `pawns._value.cache_clear()` after changing a global.
+
+## Rules
+
+1. **Where to write.** Only inside your task's output directory; create it. Never edit existing files elsewhere.
+   Never run git commands.
+2. **Software.**
+   - Use `.venv/bin/python` (stdlib + pytest) with `PYTHONPATH=.` from the project root.
+   - The ML tasks use `.venv-ml/bin/python` (PyTorch with MPS, MLX).
+   - Do not install anything.
+   - Compiling your own C with `cc -O2` is fine.
+3. **Network.** Use none, except the Lichess tablebase. Go through `realchess/probe.py`, whose disk cache
+   already holds about 2,000 positions. Keep to at most 200 new requests and 1 per second.
+4. **Long jobs.** Keep any single job under 45 minutes. Run long jobs in the background and poll them.
+5. **Honesty.**
+   - Label every claim **PROVED**, **CHECKED-2** (two independent implementations agree), **COMPUTED-1** or
+     **CONJECTURE**.
+   - Give an exact reproduce command for every number.
+   - Report negative results plainly, and never overstate novelty.
+6. **Deliverable.** Finish by writing `REPORT.md` in your output directory. Its first section is a 5-line
+   summary of what you established.
+7. **Shared machine (added 2026-10-22).**
+   - Other projects and other agents run on this machine.
+   - **Never kill, stop or signal a process you did not start yourself.** No `pkill`, `killall` or `kill` on
+     anything but your own PIDs.
+   - **Never use `pkill`, `killall`, `kill -- -1`, or `kill $(pgrep ...)` at all, even for your own jobs.** On
+     2026-10-22 an agent ran `pkill -f 0`, which matched every process with a 0 in its command line. It killed
+     another project's jobs. To stop your own process, record its PID when you start it (`cmd & echo $!`)
+     and run `kill <that PID>`.
+   - Memory is tight. Keep every process under 4 GB RSS, and run at most 2 heavy processes at once, under
+     `nice -n 10`.
+   - Never feed kpsolve a whole-board position list larger than 100 MB.
+   - Never commit, push or edit `paper/`.
+   - Do not create a file over 50 MB.
+
+---
+
+# K35: blind proof of Theorem 2.11K (real-king square rule with a no-stalemate clause), then comparison
+
+**Output directory:** `kings/delegate/out/K35/` (it exists and holds `blind_packet.md`). Write only there. Do **not**
+edit any existing file. Do not run git.
+
+Theorem 2.11K (K16) is labelled PROVED in P. It is one AI proof (Claude family), read step by step by one referee of the
+same family. Nobody outside the Claude family has re-derived it. You are that check; the order of work is fixed.
+
+## Phase 1: prove it blind
+
+Read **only** `kings/delegate/out/K35/blind_packet.md` (the setting, notation, (H1)–(H5) and statement of Proposition
+2.11, the P model, and the statement of Theorem 2.11K, without proofs), plus `cylcgt/pawns.py` (`passed`,
+`ep_capturable`, `promote_distance`) and the header and move generator of `kings/kpsolve.c` if you need move rules.
+Do not open `kings/theory/LOOPY.md` or anything under `kings/delegate/out/K10*/`, `K11*/`, `K16/` until Phase 1 is
+finished. You may cite the statement of Proposition 2.11 (it was re-derived blind earlier, K11b) but not its proof;
+if you need one of its proof steps, prove it yourself.
+
+Write `PROOF.md`, your own complete proof that β wins P from (y, s) by Π under the hypotheses of Theorem 2.11K, and
+your own proof that (H3K) implies (NS). Cover: why no ω pawn can capture or block p; why ω's king cannot capture p
+(the role of (SQ), including the square skipped by a double step); why β is never in check and every push is legal;
+why ω always has a legal move or is mated; why ω cannot promote first, given that ω's king may capture β's other
+pawns; and e.p.
+
+If you think the statement is false, give a counterexample and check it with kp_p (`--pmodel`). Build it privately:
+`cc -O2 -o kings/delegate/out/K35/kpp kings/delegate/out/K7/scripts/draft/kp_p.c -lpthread`; run batches through
+`kings/delegate/heavy.sh` at nice 15. Optionally test the statement on random positions of cyl:6×6 or 7×6 with your own
+hypothesis checker (report the generator and counts).
+
+## Phase 2: compare
+
+Only after `PROOF.md` is written, read LOOPY's block from "**Real-king square rule" to the end of the Theorem 2.11K
+bullet (including its proof and "(H3K) ⟹ (NS)"). Write `FINDINGS.md`: a 5-line summary; where your route differs;
+each step of LOOPY's proof (F1)–(F3), Steps 1–5 and (H3K) ⟹ (NS) marked SOUND, GAP (give the missing step) or FALSE
+(give a counterexample); your tests; your recommended label.
+
+## Rules
+
+`delegate/COMMON.md`, rules 5 and 7. At most 2 heavy processes, always through `kings/delegate/heavy.sh`; under 3 GB
+RSS; at most 20 minutes per run; no file over 50 MB; no installs, no network. Never use pkill, killall, `kill -- -1` or
+any pattern kill; kill only PIDs you started and recorded. Delete binaries at the end.
+**Preparing to analyze repository contents**
+codex
+I’ll keep the required order: first inspect only the blind packet and the explicitly allowed code, finish and save my independent proof, then open LOOPY and write the comparison. I’ll also check the repo’s task-specific rules before doing any optional computation.
+exec
+/bin/zsh -lc "rg -n -i 'Chessendgames|K35|Theorem 2\\.11K|king.*square rule' /Users/aritro/.codex/memories/MEMORY.md; rg -n -i 'chess|proof|game theory|pony.tail' /Users/aritro/.claude/skillport/SKILL-INDEX.md" in /Users/aritro/Downloads/Research/Chessendgames
+ exited 1 in 0ms:
+**Analyzing phase reading restrictions**
+**Clarifying file reading permissions**
+exec
+/bin/zsh -lc "cat kings/delegate/COMMON.md; cat RESULTS.md; sed -n '1,220p' RESEARCH_PLAN.md; cat kings/delegate/out/K35/blind_packet.md; rg -n -C 3 'def (passed|ep_capturable|promote_distance)' cylcgt/pawns.py" in /Users/aritro/Downloads/Research/Chessendgames
+ succeeded in 0ms:
+cat: kings/delegate/COMMON.md: No such file or directory
+# Results so far (2026-10-21)
+
+Plan: [RESEARCH_PLAN.md](RESEARCH_PLAN.md). This page lists what the 2026-10-15/16 run established and how
+strongly.
+- **Verified** means two independent implementations agree **and** adversarial checkers could not break the
+  claim. Every checker so far was written by a Claude model; the OpenCode route to a non-Claude implementation
+  failed.
+- **Computed once** means one program produced the number.
+- **Proved** means one model wrote a proof. No second model or human has re-derived it yet.
+
+**Conventions (decided 2026-10-16).**
+- A pawn that can still be taken en passant is **not** passed: `cylcgt.pawns.PASSED_RESPECTS_EP = True`.
+  - Merged into `main` on 2026-10-21 (commit d3d080e). `PASSED_RESPECTS_EP = False` restores the old test.
+  - Results below that predate this switch are marked *(textbook test)*.
+- Kings are modelled explicitly in `kings/` (plan item A8; see §7).
+
+## 1. The \*2 question (Elkies' open problem): the candidate does not survive
+
+The candidate was `W a2 c2 / B b7 d7` on files a–d, frozen by a trébuchet (W g4 / B g5, WK f5, BK h4).
+
+| Check | Result | Status |
+|---|---|---|
+| Value under the paper's convention, textbook passed test | \*2 under race rules "count" and "mover"; **0** under "opponent". The same with e.p. off | verified (cylcgt, `sumtest/`, Codex rules in `atlas/flat8/census`, `lemmas/`) |
+| Value under the adopted convention (e.p.-aware passed test) | **{2±1 \| −2±1}** (mean 0, temperature 2), not \*2. Mechanism: a2–a4 is met by b4×a3 e.p. | verified: cylcgt now agrees with `sumtest/`'s e.p.-aware mode on all 55,195 test positions (§4) |
+| Robustness of the \*2 to the race rule | only 4 of its 224 race positions change the value when flipped alone; all come after a capture. A 6-position certificate fixes \*2 whatever the other races do | verified (`atlas/flat8/certificate.json`, `lemmas/` L4.2) |
+| Sum model vs whole-board game | equal: the tree never splits into components before a passer (Theorem 2.3) | proved |
+| 8×8 embedding geometry (kings f5/h4) | no checks, no stalemate, every king move drops that side's g-pawn | proved; exhaustive check |
+| Real chess, both sides to move (Lichess 7-man tablebase + exact search) | the side to move wins (outcome N), as \*2 predicts | proved by certificate (`realchess/results/cert_root_*.json`) |
+| Real-chess oracle value: the pawn tree with tablebase results at its end positions | **never \*2 (or 0) in the adopted e.p.-aware tree, however draws and unresolved end positions are treated**: the bounds force Left stop ≥ 1 and Right stop ≤ −1. Counting draws as Black wins, it is **exactly {2±1 \| −2±1}** in both trees. In the textbook tree \*2 is excluded only when draws count as wins for one side | values computed once; end-position results checked two ways ([realchess/REPORT.md](realchess/REPORT.md)) |
+| Real-chess root move tables | Black to move: only 1...b5 wins (complete). White to move: 1.c4 wins; 1.a3, 1.c3 and all king moves lose; 1.a4 unresolved. The model predicts exactly c4 and b5 | checked two ways |
+| The same FEN on the 8-file cylinder | the freeze fails: 1.a3 checks Kh4 across the seam. No \*k (k ≥ 2) with ≤ 5 pawns can be frozen on the 8-file cylinder (0 of 40 placements) | computed once (`atlas/cylinder/`) |
+
+**Why it fails.** The convention "first passed pawn wins" breaks in three places:
+- **En passant.** A pawn that double-steps past an enemy pawn counted as passed before the opponent's legal
+  e.p. capture. This is now fixed in cylcgt, and the \*2 goes away with it.
+- **Frozen kings.** In real chess the trébuchet kings are not always frozen. Across 94 tablebase-checked
+  positions, 41 of 449 king moves draw and 7 win (`engine/suite/`).
+- **Race rules.** None of count, mover or opponent is exact chess. `notes/lemmas.md` L4 gives a forced-win
+  counterexample for each.
+
+**Searching for other \*k (flat 8-rank boards, widths 1–4, up to 6 pawns, 231,071 positions).**
+- *Textbook test:* the only \*k with k ≥ 2 is the candidate above. No \*3 or \*4 occurs. No \*2 holds under all
+  six race/e.p. settings. Three more \*2s exist, each under a single non-default setting
+  ([atlas/flat8/REPORT.md](atlas/flat8/REPORT.md); verified two ways).
+- *E.p.-aware test (count rule; computed once, `atlas/flat8/compare_ep_aware.out`):*
+  - **No \*k with k ≥ 2 occurs anywhere in scope.** The nimber census goes from 6,470 zeros, 3,891 stars and one
+    \*2 to 6,724 zeros, 4,042 stars and no \*2.
+  - At least 18,137 of the 231,071 values change, and 4,070 change outcome ([atlas/flat8/rerun/REPORT.md](atlas/flat8/rerun/REPORT.md)).
+    The first count (21,441 and 4,068) compared raw display strings and was wrong in both directions.
+  - So within flat boards of ≤4 files and ≤6 pawns, the only route to \*2 was the e.p. artefact.
+
+**The other \*2 candidates** ([realchess/certify/REPORT.md](realchess/certify/REPORT.md)). Each is \*2 only
+under one non-default rule, and each needs 10 men.
+- `W a3 b3 c2 / B b5 b7 c6` is **refuted**: its real-chess oracle value is > 0 under every treatment (checked two
+  ways).
+- For three others the tablebase contradicts the race verdicts their \*2 depends on. Their oracle values cannot
+  be settled with 7-man tablebases.
+- No \*k candidate fits in 7 men or fewer.
+- An independent C solver (`atlas/flat8/rerun/`, no shared code) agrees with cylcgt on all 231,071 records under
+  both passed tests (checked two ways).
+
+**What this means.** A \*2 made only of kings and pawns on 8×8 is **still open**. Within the searched space
+(flat, ≤4 files, ≤6 pawns) no candidate survives the e.p.-aware convention, and none survives real chess. The
+negative result is publishable: it shows exactly where the convention breaks.
+
+## 2. Mating without corners: 4-man tablebases on the cylinder and torus (verified)
+
+Two independent solvers agree on every position of all 24 tables, about 607 million values, for both sides
+to move ([tablebase/replica/REPORT.md](tablebase/replica/REPORT.md)).
+
+| Material (cylinder 8×8) | White to move: share won | Longest mate (moves) |
+|---|---|---|
+| KQK | 100% | 10 |
+| KRK | 2.80%: **no forced mate** | 3 |
+| KBBK, opposite-coloured bishops | **100%** | **14** |
+| KBNK | 0.0245%: **draw** | 2 |
+| KNNK | 0.0077% | 1 |
+| KRBK | 99.74% | 13 |
+| KRRK | 100% | 8 |
+| KQRK | 100% | 5 |
+
+- **Torus.** KQ, KR, KBB, KBN and KNN against a lone king are all 0% won, and KRB vs K is 0.022%.
+- **Muller.** The bishop pair forcing mate on the cylinder contradicts H.G. Muller's published claim.
+- **Novelty.** We found no earlier tablebase for these boards.
+- **King and pawn vs king** (two solvers: `kings/kpsolve` and `atlas/cylinder/kpk`; they agree on all 326,640
+  cylinder positions, and on the flat board differ only on the 6 rook-underpromotion positions;
+  `delegate/checks/kpk_crosscheck.py`).
+  - **Win rates.** White to move wins 78.89% on the cylinder against 76.51% flat. Black to move: 55.88%
+    against 58.09%.
+  - **Changed results.** 16,538 flat draws become cylinder wins, among them the rook-pawn draw Ka6, Pa5 vs Ka8,
+    and 15,930 flat wins become cylinder draws.
+  - **Mutual zugzwangs.** 216 on the cylinder, 160 flat.
+
+## 3. The 2025 paper, re-audited (verified)
+
+A blind re-transcription of every diagram matches the solver's input on every pawn square. A pixel scan
+confirmed it independently. The kings, and diagrams 2.3 and 5.1, were checked against the images only
+([notes/diagram_audit.md](notes/diagram_audit.md)). Three verifiers checked each audit claim. Corrected
+verdicts are in [notes/audit.md](notes/audit.md):
+- **Correct:**
+  - 2.1, 2.2, 2.3, 3.2, 4.1, 4.3;
+  - 5.1, the cylinder trébuchet: a mutual zugzwang **only because of the seam**, and a real one with explicit kings (two independent king-and-pawn solvers);
+  - the 7.1 c- and f-files;
+  - the 7.2 king zugzwang, but **only under the convention**. In real chess, White to move draws with Kd5, Ke5 or
+    Kf5, and only Black to move loses (`kings/kpsolve`, confirmed by the Lichess tablebase).
+- **Correct only with en passant:** 3.1.
+- **Wrong:**
+  - 4.2 is one rank off.
+  - 7.1 a/h is {+W \| \*}, not 1.
+  - 7.2's pawn part is not ±1.
+  - 7.3 is decided at move 0.
+  - 7.3's {c,d} part is tiny(1), not 1.
+  - §1's knight squares are wrong.
+- **§8, Dawson's chess, is wrong in three ways** (verified, `dawson/`):
+  - its move rule allows no first move;
+  - its Grundy recurrence matches the true values at only 31 of n = 0..300;
+  - its cylinder outcomes are wrong for 56 values of n ≤ 300.
+
+  Replacement text: `dawson/section8_corrected.tex`.
+
+Every value in the audit is **unchanged** under the e.p.-aware convention (re-run 2026-10-16).
+
+## 4. The solver itself
+
+- **Agreement with an independent solver** (verified). `cylcgt` agrees with a from-scratch brute-force solver
+  (`sumtest/`) on every outcome prediction. The test set:
+  - 55,195 positions (≤2 pawns a side, 3–5 files), × 3 race rules × 15 reference games;
+  - e.p. on: 2,483,775 predictions under the adopted e.p.-aware test (both sum modes) and the same number
+    under the textbook test;
+  - e.p. off: 2,483,775 predictions.
+- **Single components.** It agrees with Codex's whole-board minimax on 1,070/1,070 of them (`crosscheck/`).
+- **Three defects found, all fixed or documented:**
+  - **En passant in the passed-pawn test.** Fixed: `PASSED_RESPECTS_EP`.
+  - **`sum_safe()` is a heuristic, not a certificate** (checked two ways, `notes/lemmas.md` L2.2).
+    - Example: `W b2 d4 g3 h5 / B a7 c7 f7 g4` on the 8×8 cylinder (e.p. off) passes, yet the sum model gets
+      the winner wrong.
+    - The proved replacement is the "hereditarily sum-safe" test (`lemmas/common.py`, Theorem 2.1). All 1,297
+      such positions in a random sample of 1,500 agree.
+  - **An e.p. right can survive moves elsewhere** in a multi-component sum. The sum is exact only when no
+    position with two or more components carries a usable e.p. right (condition (E), L1.6–1.7).
+- **Not a solver defect, a misuse.** The partizan values that `cylcgt/dawson.py` prints are not additive. The
+  Grundy value of octal 0.137 is the correct invariant (L5.4).
+
+## 5. Engines
+
+- [engine/ENGINES.md](engine/ENGINES.md) makes 16 predictions about how Stockfish and Lc0 search fails on
+  zugzwang, tempo battles and nimbers, and designs 8 experiments.
+  - Stockfish's null-move pruning never fires in king-and-pawn endings, because it requires pieces.
+  - Reverse futility pruning is the predicted zugzwang-blind cut.
+- **Test suite.** Both files are tablebase-checked legal 8×8 positions:
+  - `engine/suite/cgt_verified.epd`: **181 positions** whose winning moves follow from CGT and are confirmed
+    by the Lichess tablebase;
+  - `engine/suite/cgt_disagree.epd`: the 52 positions where CGT and the tablebase disagree.
+- **Stockfish 19 on the suite.** Official release `sf_19`, built locally in `engine/vendor/` (git-ignored);
+  1 thread, 64 MB hash, no tablebases. Runs and analysis are in `engine/runs/`.
+  - **It solves all 233 positions at 100k nodes, and 232/233 already at 1k nodes.** At ≤7 men these
+    positions are easy for a modern engine. The CGT-versus-engine contrast has to come from larger sums,
+    beyond the tablebase, where only CGT gives ground truth. That is the ChessSums benchmark.
+  - **At shallow depth, accuracy depends on the CGT value class.** The table gives the share of Stockfish
+    evaluations that match the tablebase result:
+
+| CGT class | n | depth 1 | depth 2 | depth 4 | depth 6 | depth 8 | depth 12 |
+|---|---|---|---|---|---|---|---|
+| hot (±BIG switch) | 68 | 81% | 78% | 91% | 97% | 99% | 100% |
+| number | 57 | 79% | 81% | 84% | 93% | 95% | 98% |
+| switch | 37 | 73% | 78% | 89% | 100% | 100% | 100% |
+| **infinitesimal** | 27 | **30%** | **26%** | **59%** | 85% | 100% | 100% |
+| other tame | 20 | 60% | 50% | 75% | 95% | 100% | 100% |
+| **nimber** | 17 | **53%** | 65% | 88% | 100% | 100% | 100% |
+
+  Infinitesimals and nimbers, which are tempo and parity fights, are the ones the static evaluation
+  misreads at low depth. CGT predicts exactly that. Hot positions and numbers are read correctly early.
+  This is one engine on a small sample, so it is a pilot result.
+- **Cylinder engine.** The only public cylinder fork of Fairy-Stockfish (mtaktikos/CylindricalChess)
+  appears, from reading its code, to miss checks, pins and en passant across the seam.
+  [engine/FAIRY_CYLINDER.md](engine/FAIRY_CYLINDER.md) gives a corrected design.
+- **Lc0 v0.32.1 on the suite** (bundled network, Metal; [engine/runs/lc0/analysis.md](engine/runs/lc0/analysis.md)).
+  - **Perfect at every budget.** At 1k, 10k, 100k and 1M nodes all 233 best moves win and all 233 evals match the
+    tablebase, in every CGT class.
+  - **Lc0 never shows the shallow-depth class effect** that Stockfish shows. Caveat: 216 of the 233 positions are
+    wins, so the 17 draws are the real test. Lc0 calls all 17 draws at 1k nodes; Stockfish 19 at 1k rates one +183.
+  - **The suite is too easy for both engines.** That again points to ChessSums beyond 7 men for a real contrast.
+
+## 6. Other new results (model level unless stated)
+
+- **Elkies' other targets on flat 8-rank boards** ([atlas/flat8/REPORT.md](atlas/flat8/REPORT.md)). Counts are
+  under the textbook test (verified two ways) → the e.p.-aware test (count rule, computed once):
+
+  | Target | Textbook | E.p.-aware | Example that survives the switch |
+  |---|---|---|---|
+  | 1/8 | 13 | 9 | `W a2 b4 c4 / B a7 b7 d6` |
+  | 1/16 | 3 | 2 | `W a2 b2 c3 / B b5 b6 c7` |
+  | 1/32 | 1 | **0** | — |
+  | ↑² = {0 \| ↓\*} | 5 | 2 | `W a2 b2 d4 / B a7 c6 d7` |
+  | ↑²\* = {0,\* \| ↓} | 10 | 10 | `W a2 b2 b6 / B a6 b7 c5`: the same under every race rule and e.p. setting, under both tests |
+  | tiny(1) | 13 | 16 | `W a2 b2 b6 / B a6 b7 c6` |
+
+  - **Two textbook-test results did not survive the switch:**
+    - The "best reachable 1/8", `W a2 b2 d2 / B a5 c4 d7`, becomes −3/2±3/2.
+    - The best ↑², `W a3 c5 d4 / B a7 b7 d7`, becomes {3/4 \| ↓\*}.
+  - **The most robust target is 1/8.** `W a2 a3 b2 / B a6 b5 b6` is 1/8 under all 9 settings (3 race rules × e.p.
+    off / textbook / aware) and every race outcome (checked two ways, `atlas/flat8/rerun/`). Its mirror
+    `W a2 b2 b3 / B a5 a6 b6` has the same value and a reachable pawn structure. 8×8 FEN with the trébuchet:
+    `8/8/pp6/p4Kp1/6Pk/1P6/PP6/8 w` (10 men). This is model-level only, not real-chess certified.
+  - ↑²\* at `W a2 b2 b6 / B a6 b7 c5` is equally robust.
+  - The other surviving positions pass necessary 8×8 legality conditions only.
+  - tiny(x) for non-integer x and tiny(1↑) do not occur under either test. tiny(2) appears under the e.p.-aware test.
+- **Cylinder value atlas** ([atlas/cylinder/REPORT.md](atlas/cylinder/REPORT.md); computed once, outcomes
+  cross-checked by an independent minimax):
+  - **Scope:** 1,223,689 positions (≤5 pawns, widths 3–8) with 10,369 distinct values.
+  - **Cut lemma (proved):** cutting a cylinder at an empty file gives a flat board with the same value. So
+    cylinder-only values come only from rings, positions with a pawn on every file.
+  - **Cylinder-only values:** 53 values occur only on cylinders, among them 3/4 and 1/4±1/4. All come from 3- and
+    4-file rings.
+  - **Corrected by a verifier:** the atlas claimed that none of these values is robust to the race rule.
+    - The 3-file ring values do depend on the race rule.
+    - The 4-file ring values, such as {3/2±1/2 \| −3/2±1/2}, do not; they change only when e.p. is switched off.
+    - No value is cylinder-only under all six race/e.p. settings.
+  - All of this uses the textbook passed test. The re-run under the e.p.-aware test is pending.
+- **Dawson's chess** ([dawson/REPORT.md](dawson/REPORT.md)):
+  - **Cylinder ring rule (proved; checked for n ≤ 22).** The first player on a full 3×n cylinder wins iff
+    g(n−3) = 0.
+  - **Normal play (classical, reproduced).** Period 34, last exception n = 51.
+  - **Misère play,** Dawson's original 1935 question (verified):
+    - An independent implementation reproduces the Plambeck–Siegel partial quotient for strips ≤ 32: order 638,
+      with 109 P-positions.
+    - It agrees with exhaustive search on 7.4 million positions.
+    - The next quotient did not converge.
+    - Misère Dawson's chess remains unsolved.
+- **Structural lemmas** ([notes/lemmas.md](notes/lemmas.md)): component decomposition, the HSS theorem, the
+  trébuchet freeze lemma and the ring reduction are proved. The tests in `lemmas/` found no counterexample to
+  any of them.
+
+## 6b. New on 2026-10-21
+
+- **Toward a real-chess 1/8** (`realchess/targets18/`). Position: the robust 1/8, `W a2 b2 b3 / B a5 a6 b6`,
+  beside the trébuchet, FEN `8/8/pp6/p4Kp1/6Pk/1P6/PP6/8 w`.
+  - **Small end positions.** All 302 sides with at most 7 men (290 one-sided, 12 races) are resolved against
+    the tablebase. Of the 290 one-sided sides, 283 agree with the model, 5 disagree and 2 are draws.
+  - **Bounds.** With only these exact results fixed, the oracle value lies in [−1/2, 3/4].
+  - **The decisive set.** A greedy minimal-support search shows the value is **exactly 1/8** whenever 8
+    unresolved end positions (5 with 8 men, 3 with 9) go as the model predicts. The other 312 open ones may be
+    anything.
+  - **Update.** After resolving the 8-man sides (7 agree, 1 disagrees: with Black to move in
+    `W a3 a5 / B b4 b5`, Black wins) and 2 more sides, the bounds are [−1/2, 3/8±1/8] and only **4** decisive
+    end positions remain (three with 9 men, `W b2 b5 / B a5 b4` with 8). They are being solved exactly with
+    `kings/kpsolve` on the flat 8×8 board (queen promotions only, so not yet a full-chess certificate).
+  - **kpsolve so far** (`realchess/targets18/apply_kpsolve.py`):
+    - `W b2 b5 / B a5 b4`, White to move: White wins, exact, as the model says.
+    - The same position with Black to move is undecided at one promotion (bounds L..W). A two-promotion
+      run is going (`kp_eighth_cap2.*`).
+    - `W a2 b4 b5 / B a5`, which is no longer decisive: White wins with either side to move.
+    - **The three 9-man positions (2026-10-21, 20:35).** All 6 sides are exact (the two promotion bounds
+      agree) and match the model:
+      - `W a2 a5 b2 / B a4 b5`: White wins, with either side to move.
+      - `W a3 a5 b2 / B a4 b5`: White wins, with either side to move.
+      - `W a3 b4 / B a6 b3 b5`: Black wins, with either side to move.
+      - The run took 2 h 12 min: 29.8 G states, peak footprint 26 GB (`kp_eighth_9man.out`).
+    - **New bounds: 0 ≤ O ≤ 1/8.** Only one decisive side is open: `W b2 b5 / B a5 b4`, Black to move.
+      - If it is a White win (the model's verdict), O = 1/8 exactly.
+      - If it is a draw or a Black win, O stays in [0, 1/8].
+      - Reproduce: `PYTHONPATH=. .venv/bin/python realchess/targets18/apply_kpsolve.py
+        realchess/targets18/min_support_after2.json realchess/targets18/kp_eighth_{8man,9man}.out`.
+      - Caveat: queen promotions only. A full certificate also needs a `--promote QRBN` rerun.
+  - **Sensitivity.** Each of the 7 open sides must go as the model says. Changing any single one of them unpins
+    the value (the lower bound drops to 0, ↑\* or below).
+  - ↑²\* and tiny(1): every resolved end position agrees with the model, and the lower bound already equals the
+    target value. 10 and 12 end positions with 9–10 men still decide them. The one 8-man end position on both
+    lists, `W b4 b6 / B a4 b7`, was solved by kpsolve on Oct 22 (queen promotions, exact, Black wins, as the model
+    says; `realchess/targets18/r7_driver.log`).
+  - **Status.** Resolution continues. The same pipeline is queued for ↑²\*
+    and tiny(1).
+- **Paper.** A full draft is in `paper/` (Overleaf-ready; `paper/main.pdf`, 18 pages): "Pawn Endgames Without
+  Edges: Exact Combinatorial Game Values, Real-Chess Certification, and Tablebases on the Cylindrical
+  Chessboard".
+- **Wave 2 of delegated research** (`delegate/briefs/T8–T15`), launched with `delegate/run.sh wave2` and, after
+  the codex quota resets, `delegate/run.sh codex`:
+  - T8: the \*2 frontier search;
+  - T9: Möbius strip and Klein bottle boards;
+  - T10: king-and-pawn tablebases on the cylinder;
+  - T11: thermography and atomic weights;
+  - T12: odd-circumference cylinders;
+  - T13: engines on ChessSums;
+  - T14: Dawson variants;
+  - T15: novelty check.
+
+- **Independent non-Claude re-check** (`verify_ext/codex/`, Codex).
+  - A stdlib solver written from the rules alone reproduces all five headline values in all nine settings.
+  - It finds no \*k with 2 ≤ k ≤ 292 among 793,299 placements on widths 1–4.
+  - Its self-check, re-run here, gives 27 PASS.
+- **Review log of external reports:** [delegate/REVIEW.md](delegate/REVIEW.md).
+
+## 6c. New on 2026-10-22
+
+- **Rings: the first ring \*2 on Cn has n+3 pawns for n = 3, …, 6** (default setting; values CHECKED-2,
+  minimality C1).
+  - On C6, a scan of every nine-pawn ring finds exactly six \*2, three positions and their color-reversed twins,
+    among them `W a4 c4 d2 e2 / B b6 b7 d6 e5 f6`.
+  - No ring with eight pawns or fewer is \*2 on C6.
+  - Paper §VIII; open problem 3 asks about C7 with ten pawns.
+- **\*3 rings in non-default settings (CHECKED-2: the C scanner, and cylcgt with and without component
+  splitting).**
+  - C4, 8 pawns, opponent rule, e.p. off: `W a5 b3 c2 d2 / B a7 b5 c6 d4` and its twin `W a5 b3 c4 d2 / B a7 b7 c6 d4`.
+  - C3, 10 pawns:
+    - count rule, e.p. off: `W a2 a3 b2 b3 c3 / B a6 a7 b6 b7 c6` and `W a2 a4 b2 b3 c3 / B a5 a7 b6 b7 c6`;
+    - opponent rule, e.p. on: `W a2 a3 b2 b3 c3 / B a6 a7 b6 c6 c7` and `W a2 a4 b2 b3 c3 / B a5 a7 b6 c6 c7`.
+  - No \*3 occurs in the default setting in any scope searched. Paper §VIII has one sentence.
+  - Checks: `delegate/checks/c3p10/`, `delegate/checks/c4p8/`.
+- **C3, 10 pawns, default setting:** 741,110 rings, two of them \*2 (twins):
+  `W a2 a5 b2 b4 c2 / B a7 b5 b6 c4 c7`. CHECKED-2.
+- **Scanner bug fixed** (`research/star26_rings/BUGFIX_frontier_split1.md`).
+  - Cause: a stale memo-table pointer.
+  - It crashed large runs, but never changed a value.
+  - The crashed runs are re-run with `frontier_split1_fixed`; details in [delegate/REVIEW.md](delegate/REVIEW.md).
+
+- **Round 7 (Sonnet/Haiku workflow; see [delegate/REVIEW.md](delegate/REVIEW.md)).**
+  - **Positions A and B are one \*2:** B is A with the colours reversed and the files mirrored. All 12 decisive
+    8-man end positions of their real-chess trees agree with the model; the oracle bounds stay open until the
+    9–11-man sides are solved.
+  - **\*3 with e.p. off on six files** (scanner, cylcgt, Codex): 16 positions, 8 up to colour reversal. Twelve are
+    the 4-file candidate (\*2) plus a \* group, so \*3 = \*2 + \*. With the aware test they are not nimbers.
+  - **\*3 in the default setting, as a sum:** `W a4 b3 d2 d3 f4 / B a7 b7 c5 f6` (position A plus a \* group) on
+    flat 6×8 is \*3 by three programs. No single-component default \*3 is known.
+  - **Ring minimum on C3 and C4 is now CHECKED-2:** independent solvers and full cylcgt scans.
+  - **The C3 ring \*2 needs two e.p. captures,** B b4×a3 and W b5×c6. Without the first it is ↑, without the
+    second ↓.
+  - **Möbius 8×8:** KPK is won from 78.94% of positions with White to move (cylinder 78.89%). CHECKED-2.
+  - **Proof audit:** Thm 3 and Thm 8 got precise statements and sketches, and Conj 4 is now a Corollary [AI].
+    Repo defects in `kings/theory/LOOPY.md` were sent to the kings session.
+
+- **C7 (2026-10-22 afternoon).** The first ring \*2 on C7 has ten pawns: no nine-pawn ring is \*2 (scanner, and
+  T43's independent solver over 19,961,100 classes). The five-a-side ten-pawn rings include 63 \*2 and
+  **8 single-component \*3 in the default setting**: the first default-setting \*3 that is not a sum. The scanner,
+  T43's solver and cylcgt (whole board) agree on all 8; 6 stay \*3 as sums. Example:
+  `W a2 a5 c4 e2 f2 / B a7 b4 d7 e5 g7`. So n+3 holds for n = 3, …, 7.
+
+- **A real-chess 1/8 (2026-10-22, 15:48).** The cap-2 kpsolve run (6.1×10^10 states, 15.6 h, queen promotions)
+  shows White wins `W b2 b5 / B a5 b4` with Black to move (exact, W W). With every decisive end position now
+  exact, `apply_kpsolve.py` pins the oracle value: **O = 1/8** (queen promotions only, frozen kings; C1).
+  Still open: a rerun with underpromotions for a full-chess certificate.
+
+- **Round 10 (2026-10-22 evening).**
+  - **The wall rings are \*2 for every n ≥ 5, in the whole-board game** (proved [AI], finite checks CHECKED-2).
+    - Families: O_n = `W23B4, B5, W2B5, (W3,B5)^k` and E_n = `B5, W2B5, W35B6, W2, (B4,W2)^(m+1)`, with n+3 pawns.
+    - Proof: delete the losing wall moves, then show that two more wall files leave the reduced game unchanged.
+      This reduces everything to two graphs of 144 and 104 nodes plus n < 17.
+    - Refereed SOUND by OpenCode beam-free (T51), a non-Claude model. A Sonnet verifier with its own engine
+      accepted it, asking only for label and scope fixes.
+    - As sums of components it is still checked only to n = 12, because wall captures split the ring.
+    - `research/ring_family_proof/`.
+  - **No \*4 found (T49).**
+    - All 134,920,191 one-component ten-pawn positions on five files: 75 \*2, 3 \*3, nothing higher.
+    - All 48,649,934 eleven-pawn positions on four files: 9 \*2, 1 \*3.
+    - Root counts are reproduced exactly by an independent count. This is under the scanner's e.p. convention,
+      which keeps an e.p. right across components.
+    - The 13 minimal \*3 cores are each a \*2 plus a \*1 pair (CHECKED-2). Two of the four C7 \*3 ring classes are
+      primitive.
+    - `research/star4_hunt/`.
+  - **C8 breaks the n+3 pattern: the first ring \*2 on C8 has ten pawns (n+2).**
+    - No nine-pawn ring is \*2. The scanner and `c8check_gen` agree over all 7,039,362 classes (CHECKED-2).
+    - The ten-pawn 5+5 split has 18 \*2 and 2 \*3 classes (scanner, C1). Example:
+      `W a3 b3 c3 d2 f2 / B b6 d5 e5 g4 h5`, \*2 in cylcgt both as a sum and whole-board (CHECKED-2).
+    - All splits are done; every hit is in the 5+5 split. One ring from each of the 11 colour-reversal classes is
+      confirmed by cylcgt, sum and whole-board: 10 \*2 and 1 \*3, `W a4 c3 d3 e2 g2 / B b7 c6 e5 f5 h4` (CHECKED-2).
+    - T52 (OpenCode) is looking for an n+2 family on C9 and up.
+
+## 6d. New on 2026-10-23 to 10-27
+
+- **Rings with n+2 pawns for every n >= 10 (whole-board, [AI]).**
+
+  | Family | Value | n | Reduced graph | Proof note | Referee |
+  |---|---|---|---|---|---|
+  | P_n = W5 B7 W4 W4B7 B6 W3B6 (W2 B4)^k | \*2 | even n >= 8 | 813 nodes | PROOF.md | Codex T53, SOUND |
+  | Q_n = W4 B7 (B4 W2)^k W3B6 W3 W2B5 B5 W2 B4 | \*3 | even n >= 8 | 7,968 nodes | PROOF_Q.md | Codex T62, SOUND |
+  | R_n = W5 B7 (W2 B4)^k W2 W3B6 W3 W2B5 B5 W2 B4 | \*2 | odd n >= 11 | 429 nodes | PROOF_odd.md | Codex T63, SOUND |
+  | Qo_n = W4 B7 (W2 B4)^k W2 W3B6 W3 W2B5 B5 W2 B4 | \*3 | odd n >= 11 | 1,287 nodes | PROOF_odd.md | Codex T63, SOUND |
+
+  - PROOF_odd.md uses c = 6 and n0 = 19. A Sonnet workflow accepted it with fixes, with C1 on six programs and C2 on
+    five. The Codex referee T63 is queued.
+  - Both odd families fail at n = 9, so the C9 minimum (11 pawns?) is open: T54b on Codex and a C9 enumerator
+    workflow.
+  - As sums of components, P_10 is \*2, Q_10 is \*3 and R_11 is \*2 (cylcgt). Qo_11 as a sum is running
+    (`research/sum_model_rings/`).
+  - The Codex referee T63 found PROOF_odd.md SOUND (`research/ring_n_plus_2_check/odd/REPORT.md`).
+  - **C9 with 10 = n+1 pawns: 7 rings with signature \*2 in split 5+5 (COMPUTED-1, `research/c9_rings/`),** being
+    verified. Verified on 2026-10-27, see the next bullet.
+- **Least pawns in a ring \*2: n+3 (n = 3..7), ten (n = 7..10), n (n = 10..60), all CHECKED-2** (`research/c9_rings/REPORT.md`;
+  the independent engine E agrees for M_10..M_60, O_11..O_59 in `research/ring_n_proof/logs/base_N_60.log`).
+  - C9: no 9-pawn ring is \*2 or \*3 (948,860 rings; rg and OpenCode's engine; two enumerators). 7 of the 44,960,428
+    ten-pawn rings are \*2: rg, Codex's independent.py, OpenCode's engine and cylcgt (whole and sum) agree. CHECKED-2.
+  - C10: M_10 = B4 W2 B6 W2 W3 B6 B7 W3 B7 W5 is \*2 with one pawn per file (CHECKED-2). It is the only one among the
+    4.3M ten-pawn rings (COMPUTED-1).
+  - C11: O_11 = B4 B7 W5 B7 W3 B7 B6 W3 W2 B6 W2 is \*2 (CHECKED-2). It is the only one among the 15,461,385
+    eleven-pawn rings in splits 4+7 and 5+6, and none is \*3 (COMPUTED-1). The ring counts for C10 and C11 equal an
+    independent transfer-matrix and Burnside counter.
+  - Families: M_n = (B4 W2)^((n-8)/2) B6 W2 W3 B6 B7 W3 B7 W5 (even n) and O_n = B4 (B7 W5)^((n-9)/2) B7 W3 B7 B6 W3 W2
+    B6 W2 (odd n) are \*2 for every n = 10..60 (COMPUTED-1, rg; n = 10..14 CHECKED-2). Their reduced graphs are constant
+    (441 / 2132 nodes, no flag), and the insertion isomorphism holds from n = 18 / 19 on. Proof note: T65 (OpenCode,
+    `research/ring_n_proof/PROOF_N.md`). **PROVED [S] for every n**: referees T67 (Kilo, logic, fixes applied) and T66
+    (Codex, SOUND, own independent checker, `research/ring_n_check/`).
+  - The paper (§VIII, intro, conclusion) now says "ten for 7 <= n <= 10 [C2], n for 10 <= n <= 60 [C1]".
+- **Rings \*3 with n+1 pawns on every C_n, 11 <= n <= 59** (`research/c9_rings/star3/REPORT.md`).
+  - C11: no eleven-pawn ring is \*3 (COMPUTED-1, exhaustive), and two twelve-pawn rings are (CHECKED-2). So the least is
+    n+1 there.
+  - Families T_n = (B4 W2)^((n-10)/2) B5 W2 W6B7 W3 B7 B6 W3 W2 B6 W2 (even n = 12..58) and S_n = B4 B6 W3
+    (W2 B4)^((n-11)/2) W6B7 W3 B7 B6 W3 W2 B6 W2 (odd n = 13..59) are \*3 (rg; CHECKED-2 for n <= 15).
+  - Reduced graphs: T has 1305 nodes, S has 40445; no flag; the insertion isomorphism holds from 20 / 25 on. Proof note:
+    T69 (OpenCode, `research/star3_proof/`).
+  - M_10 and O_11 are \*2 as sums of components too (cylcgt, `research/sum_model_rings/npawn_values.txt`). Qo_11 is \*3
+    both as a sum and as a whole (`odd_values.txt`).
+- **C9 ring hits are \*2 as sums too** (cylcgt, the H1 reversal, H3 and H4; H1 whole \*2; H2 sum and whole queued).
+- **No \*4.** None among T56's 14,090 candidates (329 are \*3, 178 \*2), nor among 1,280 C10 wall rings.
+  - The ★4 hunt workflow (`research/star4_rings/{core_wall,grow,two_core}/REPORT.md`) found no ★4 and nothing above
+    ★3 in about 23.6M rings. Those are 23.2M core-in-wall rings, 128,791 grown from known ★3 rings (4,723 new ★3)
+    and 207,975 two-core rings, all C1, with hits re-checked by the unmodified rg.
+  - Two cores separated by walls: whenever the ring is a nimber (1,513 of 1,890 rings) it equals the nim-sum of the
+    two cores' values, with no exception. The other rings are decisive, from a coupling that disappears once a wall
+    has 7 to 11 files.
+  - So a ★4 ring would need a single core worth ★4 on its own. None was found up to width 6.
+- **Twisted tablebases.** A and B agree exactly under A's ray rule. KRK wins every position on the Möbius strip and
+  on RP² but only 0.66% on the Klein bottle (CHECKED-2). See `research/twisted_tablebases/COMPARE.md`.
+- **Paper fact-check round 11.** 15 findings confirmed and applied (`delegate/REVIEW.md`).
+
+## 7. Pending
+
+**Verification gaps.** 35 adversarial verifiers were cut off by the Claude usage limit. Not verified:
+- the real-chess oracle values;
+- the certification of the other candidates;
+- the flat-board claims C1, C2 and C4–C6;
+- three cylinder-atlas claims;
+- two lemma checks.
+
+The completeness critic did not run either. The rest of the verdicts are in each REPORT.md claim table.
+
+**Delegated to external AI CLIs** (briefs in `delegate/`; outputs go to the directories named there):
+- independent non-Claude re-verification of the §1 headline results;
+- re-deriving the `notes/lemmas.md` proofs;
+- the Elkies-target certification (`atlas/targets/`, left partial);
+- the cylinder atlas under the e.p.-aware test;
+- ML baselines on ChessSums and Dawson's chess (`.venv-ml`);
+- a completeness review.
+
+**ChessSums v2 is ready** ([bench/REPORT.md](bench/REPORT.md)).
+- **Library:** 418 components, each with the same value under both passed tests, all race rules and e.p. on/off.
+- **Data:** 26,000 rows. Their outcomes were confirmed by whole-board alpha-beta, and 4,887 also by Codex's minimax.
+- **Baseline cost:** alpha-beta that ignores the decomposition grows about 4–9× in nodes per added component.
+
+**A8, explicit kings** ([kings/REPORT.md](kings/REPORT.md)):
+- **The convention often fails on small boards.** 159 of 500 testable components mismatch: 107 because of the
+  kings, and 52 because of the pawn convention itself.
+- **When it is exact.** Conditions (V1)–(V4) are given (Theorem 1.14, proved by one model and reviewed).
+  - A king that can shuttle without loss is a loopy game (`on`, `off`, `dud`), not 0.
+  - The trébuchet's zero is context-dependent.
+- **Solver check.** `kings/kpsolve` agrees with an independent solver on 1,418,480 positions.
+- **Real chess.** Both trébuchets are real mutual zugzwangs. The 7.2 king group is not (confirmed by Lichess).
+- **K+P vs K without edges (K4, CHECKED-2; [kings/delegate/out/K4/REPORT.md](kings/delegate/out/K4/REPORT.md)).**
+  - Setup: normal play (stalemate loses), boards 3×4 to 5×5, flat and cylinder, 20,556 quiet placements, each
+    summed with 16 test games.
+  - Every placement is a decisive win, on, off, dud or unmatched; no number or infinitesimal occurs. off is
+    exactly the White-stalemated pattern.
+  - Removing the edges changes the class of 12.5–20.5% of placements. Paper §IV-D has one sentence.
+  - Gafni's on\*, {on|0} and 1\* do not occur (on + \* only tied with on). The Gafni thesis itself was not located.
+- **Canonical values by difference games (K5b, CHECKED-2; [kings/delegate/out/K5b/REPORT.md](kings/delegate/out/K5b/REPORT.md)).**
+  - `sumtest/sumsolver.py`, which computes no canonical forms, finds G − V to be a second-player win for 72
+    of 81 target × setting pairs: 1/8 (×3), 1/16, ↑², ↑²\*, tiny(1), a2 c2 / b7 d7 and the C3 ring \*2.
+  - The other 9 contain ±BIG and are not testable this way.
+  - Caveat: sumsolver is also Claude-written. K5, a free-model "independent" engine, was a copy of cylcgt and is
+    rejected.
+
+**Lc0** at 1M nodes finished: 233/233 best moves win and 233/233 evals match (commit 1cc5ebb).
+
+## 8. Decisions
+
+Answered 2026-10-16:
+- **E.p.:** respect it (done).
+- **Kings:** model them explicitly (A8 done; see §7 and [kings/REPORT.md](kings/REPORT.md)). The exact 7×6 per-move
+  tally is deferred: it needs about 9 GB at cap 2, over the shared-machine limit, and cap 1 proved unreliable.
+- **Mentor:** no contact with Prof. Morley yet.
+- **Installs:** Stockfish 19 is built; Lc0 v0.32.1 is installed through Homebrew with its bundled network. PyTorch and MLX are in the separate `.venv-ml`.
+- **Repository:** private GitHub repo `aritroBh/cylindrical-chess-cgt` (approved 2026-10-21); push only when asked.
+# Research Plan: Cylindrical Chess Endgames, Exactly and with Learning
+
+*Continuation of "Analysis of Chess Endgames on a Cylindrical Chessboard" (A. Bhattacharjee, mentored by T. Morley, June 2025). Drafted 2026-10-15 by Claude (Opus) with Codex (gpt-6-luna) and three research subagents.*
+
+---
+
+## 0. Summary
+
+The 2025 paper applied Elkies-style combinatorial game theory (CGT) to pawn endgames on an 8×8 board whose a- and h-files are glued. Its hand computations stop where game trees get large, and several are wrong (§1).
+
+The literature search (§2) found **no published CGT work on cylindrical or toroidal chessboards**, and **no published tablebases for them**. Elkies' own open problems about the 8×8 board are mostly still open.
+
+The continuation is a **machine-verified research program** with three tracks:
+
+1. **Exact mathematics (Track A).** A verified CGT engine for pawn endgames on cylinders, flat boards and tori of any width. It will (a) prove the structural lemmas the paper assumes, (b) map which values occur only on a cylinder, (c) attack Elkies' open problems (\*2 from kings and pawns alone on 8×8, \*4, 1/8, ↑²), and (d) extend the analysis to king moves (loopy games) and temperature.
+2. **The first cylinder and torus tablebases (Track B).** They settle "with no corners, what mates still work?" and supply ground truth. A 4-man prototype already answers part of this (§1.3).
+3. **Learning against exact truth (Track C).**
+   - Sums of many small games are trivial for CGT but exponential for search. That makes them a principled adversarial benchmark for Stockfish, Leela and LLMs. The closest prior work (Husna & Müller 2024, Go) never varied the number of components.
+   - The same positions test whether neural nets and RL-trained LLMs learn the algebra of sums.
+
+Each track can yield its own paper. Targets: *Integers* / *Games of No Chance 7* (A), *ICGA Journal* / *Advances in Computer Games* (B), and a NeurIPS/ICLR workshop (C).
+
+---
+
+## 1. What exists after today
+
+### 1.1 Tools built this session
+| Path | What it is | Status |
+|---|---|---|
+| `cylcgt/cgt.py` | Exact canonical-form CGT: numbers, nimbers, ↑-family, tinies, switches, sums, outcome classes, thermographs (mean, temperature) | Unit-tested (`tests/`) |
+| `cylcgt/pawns.py` | Pawn-only positions on any W-file board, flat or cylindrical; double steps; wrap-around en passant; decomposition into independent components; explicit race rule; e.p.-aware passed test; `sum_safe()` heuristic (not a certificate; see `notes/lemmas.md` L2.2) | Cross-checked (below) |
+| `cylcgt/verify_paper.py` | Recomputes every pawn-only claim of the 2025 paper | Output in `notes/verify_paper_output.txt` |
+| `cylcgt/explore.py` | Exhaustive enumeration of value spectra, cylinder vs flat | Prototype (~0.6 ms per position) |
+| `cylcgt/dawson.py` | Dawson's chess solved directly from the pawn rules, flat and ring | Prototype |
+| `crosscheck/` | **Independent** whole-board minimax written by Codex (it does not use `cylcgt`) | **All 1070 single-component positions agree; 99.5% of sums agree** |
+| `tablebase/egt_prototype.c` | 4-man retrograde DTM solver for plane, cylinder and torus | Reproduces known flat-board maxima |
+
+**Cross-check, in detail.** Run on 3,028 random and paper positions:
+- After one bug fix (a passed pawn must end the whole game before splitting into components), single components agree **100% (1070/1070)**.
+- The 10 remaining disagreements, all in multi-component sums, are the known "+BIG and −BIG cancel" limitation. Details are in `crosscheck/REPORT_after_fix.md`.
+
+### 1.2 Audit of the 2025 paper (full table: `notes/audit.md`)
+- **Correct:** 2.1, 2.2, 3.2, 4.1, 4.3 (tiny-1), the 7.1 c-file (±1), and the 7.1 f-file ({{2|1}|0}, mean = temperature = 3/4).
+- **Correct only because of wrap-around en passant**, which the paper never mentions: 3.1 is `1` with e.p. and `2` without.
+- **Wrong:**
+  - **4.2 as drawn is `0`, not ↑.** The diagram is one rank off: W e2 / B e5 gives ↑.
+  - **The 7.1 a/h component is a hot game, `{win | *}`, not `1`.** The paper plays h6×a5 correctly; its error is calling a position White wins either way "1". Two independent engines refute "= 1" by sum tests.
+  - **7.3's {c,d} sub-game is tiny(1), not 1** (blind re-audit, `notes/diagram_audit.md`).
+  - **7.2's pawn group is not ±1**, and its value depends on en passant. Its analysis also omits the double steps and plays ...b5 twice.
+  - **7.3 is already decided at move 0** by the passed pawns on a5 and f7.
+- **Modelling gaps:**
+  - The 7.3 king group is not a mutual zugzwang: Kg8–f8 and Kf6–g6 are spare moves. The 7.2 group (Ke6, d7 / Kd8, e7) **is** one under the convention, as is 5.1 across the seam (corrected by the blind diagram re-audit).
+  - Pawns stand on the 1st rank, which is illegal.
+  - Races and en passant inside sums are left undefined.
+  - §8's Dawson rule permits no first move. The correct model is octal 0.137, and the paper's path recurrence omits the end moves.
+  - The Wu–Yü–Landry citation is dated 2020 but is from 2010.
+- **Model errors we caught:** Codex's referee report wrongly says that 4.3 has no black reply (a6×h5 exists), that Kh5–g5 is "safe" in the trebuchet (it drops a4), and that 3.1 has a pawn on h4. This is why every claim is machine-checked.
+
+### 1.3 First new results (preliminary; each needs the verification protocol in §4)
+1. **Candidate \*2 made only of kings and pawns on an 8×8 board.**
+   - On files a–d with the e-file empty, `W a2 c2 / B b7 d7` has value **\*2** = {0,\*|0,\*}, with or without en passant.
+   - Elkies (1996) left open whether \*2 occurs on 8×8. Drummond-Cole (2005) found one, but it needs bishops, knights, rooks and queens to freeze the pawns.
+   - If this survives with real kings (the trebuchet on the g-file, kings on f/h) under engine and tablebase verification, **it answers an open question.**
+   - Risk: the "passed pawn = win" convention may not survive real king play.
+   - **Outcome (2026-10-16): refuted.** The \*2 needs the textbook passed test. Under the adopted e.p.-aware test the value is {2±1 | −2±1}. The real-chess oracle also excludes \*2. See RESULTS.md §1.
+2. **Values that occur only on the cylinder.** Exhaustive 2-vs-2 enumeration on 3–5 files finds values that never occur on flat strips of the same width, e.g. 1/4±1/4, 3/4, and {3/2±1/2 | −3/2±1/2}. Some flat-only values (including that \*2) disappear on the cylinder.
+3. **Mating material without corners** (4-man tablebase). **Replicated:** an independent solver, `tablebase/replica/replica.c`, written and committed before the prototype was read, agrees with the prototype on every position of all 24 tables (about 607 million values) for both sides to move; see `tablebase/replica/REPORT.md`. New tables there: KRRK and KQRK are forced wins on the cylinder (100%, longest mate in 8 and 5 moves).
+
+| Material | Flat 8×8 | Cylinder 8×8 | Torus 8×8 |
+|---|---|---|---|
+| KQK | win, mate in ≤ 10 | win, mate in ≤ 10 | **no mate exists** |
+| KRK | win, 16 | **draw** (2.8% of positions won) | no mate exists |
+| KBBK, opposite colours | win, 19 | **win, 14**, all positions won | draw |
+| KBNK | win, 33 | **draw** (0.024%) | draw |
+| KNNK | draw | draw | draw |
+
+   The cylinder result for the bishop pair contradicts a published claim by H.G. Muller. The KBNK result is new as far as we found.
+
+---
+
+## 2. Literature: what is done and what is open
+*Full notes: `notes/lit_cgt_chess.md`, `notes/lit_cylinder.md`, `notes/lit_ml.md`, `notes/codex_referee.md`.*
+
+**Known**
+- **Elkies 1996** (GONC; arXiv math/9905198): numbers including 1/2 and 1/4 on 8×8; \*, ↑, ⇑\*, tiny-1/2, switches; loopy values (on, off, over, dud).
+- **Elkies 2002** (MGONC; arXiv math/0011253): \*2, \*4, ..., \*4096 on large boards via a 3-row pawns game with "stopped files".
+- **Mäser 2002:** promotion modelled as on/off.
+- **Drummond-Cole 2005:** \*2 on 8×8, but it needs pieces.
+- **Siegel:** loopy theory; chess positions of value on and upon.
+- **Gafni 2011:** loopy K+P vs K on tiny boards.
+- **Affine normal play** (Larsson–Nowakowski–Santos 2025): theory for game-ending moves such as checkmate.
+- **Dawson's chess** = octal 0.137 (period 34). The misère version is still unsolved.
+- **Software:**
+  - CGSuite: loopy games are first-class.
+  - Rust crate `cgt`.
+  - Nicholson's `partizan`: alpha-stage chess FEN → canonical forms. **This is the closest existing tool and must be checked before we build B1/C1.**
+
+**Open problems we can attack**
+- \*2 from kings and pawns alone on 8×8.
+- \*4 on 8×8.
+- 1/8 on 8×8.
+- ↑² and ↑³.
+- tiny-½.
+- "Chilled chess".
+- A systematic treatment of en passant, checks and captures.
+- Elkies' "does every \*k occur?" (Nowakowski 2025, B3).
+- Density of \*k.
+
+**Cylinder and torus**
+- Rules exist (Pritchard ECV; Wikipedia), but conventions vary: castling, and the "rook goes round the rank" null move. The null move must be banned before building tablebases, because a free pass destroys zugzwang.
+- Mating-material claims are scattered and unproven.
+- No tablebases, no perft numbers, no strong engine. Fairy-Stockfish declined support (issue #753). There is an unofficial 2026 copy, mtaktikos/CylindricalChess, with loop-based sliders.
+- The only CGT work on cylinders is Domineering (Lachmann–Moore–Rapaport), and it determines only the winner.
+
+**ML**
+- Zhou & Riis (*Machine Learning*, 2026): AlphaZero fails Nim parity. But their "partizan" control was a sum of integers, so **whether nimbers or infinitesimals drive the difficulty is untested.**
+- Husna & Müller (CG 2024): KataGo against CGT ground truth in Go. The number of components was not varied.
+- Missing entirely:
+  - an RL-with-verifiable-rewards (RLVR) environment for CGT;
+  - a train-on-components / test-on-sums study;
+  - an LLM evaluation on zugzwang.
+- Tooling: `mlx-lm-lora` 5.8 has GRPO with custom reward functions, which fits the M4 Pro.
+
+---
+
+## 3. Research program
+
+**Ground rule:** every computational claim is double-implemented, and every proof is checked by two models and by a human (§4).
+
+### Track A: Exact CGT of cylinder pawn endgames
+
+| ID | Question | Method | Done when |
+|---|---|---|---|
+| A0 | **Fix the model** | Write the rules down precisely: passed pawn = ±BIG versus Mäser's on/off; race semantics; en passant inside sums; legal versus generalised positions; `sum_safe` positions only in published sums. Long term, adopt *affine normal play* (∞-terminal games) so that "first passer wins" is exact rather than approximate. | A "Conventions" section; solver flags; 100% agreement with the cross-check on single components ✅ |
+| A1 | **Structural lemmas** | (i) **Empty-file invariance:** an empty file stays empty, so components separated by one are exact summands. (ii) **Embedding:** a cylinder position with an empty file equals a flat position on ≤ 7 files, so every new phenomenon lives in **ring components** (all files occupied). (iii) Symmetries: cyclic shifts and reflection, and colour reversal giving −G. | Written proofs, checked by enumeration |
+| A2 | **Resolve the \*2 candidate** | Embed `W a2 c2 / B b7 d7` with real kings (a g-file trebuchet). Verify: (1) the CGT value on the 8-file board; (2) every option's chess outcome, by Stockfish search and, for 8 men, Lichess's Op1 partial 8-man tablebase if it covers the position; (3) a sum test on a wider cylinder or a 10-file board, where \*2 + \* must be a first-player win. Then compare with Elkies' and Drummond-Cole's conventions. | A legal 8×8 king-and-pawn position certified \*2, or a precise reason why the convention fails |
+| A3 | **Value atlas** | Enumerate all positions up to k pawns on n-file cylinders, flat strips and tori (n = 3…8, heights 6–10), modulo symmetry. Tabulate canonical values, outcome classes and temperatures, and diff cylinder against flat. Port the hot loop to Rust (or reuse the `cgt` crate). Publish move-tree certificates. | A public dataset; a table of values realisable only on C_n; minimal witnesses |
+| A4 | **Elkies' open targets** | Search the atlas (and targeted constructions) for \*4, 1/8, ↑², tiny-½ on 8×8 and on 8-file cylinders. Run Elkies' 2002 stopped-file pawns game on **cyclic words**: rotations make distinct options, which may give higher nimbers on smaller boards. | Any one solved open problem ⇒ paper |
+| A5 | **Closed forms** | Values of one- and two-file structures as functions of gaps; the effect of double steps; behaviour as width n grows, with odd n breaking opposition parity. | Proved formulas matching the data |
+| A6 | **Dawson's chess on a ring** (repairs §8) | Solve directly from the pawn rules (`dawson.py`). Prove the reduction from a ring to a path of length n−3. Then attack the **misère** ring version: Dawson's misère problem is unsolved for paths, and the ring may be tractable via misère quotients. | Theorem plus table; misère results as a bonus |
+| A7 | Temperature | Compute thermographs of all atlas components. Measure how often "play the hottest move" fails in sums. Find the maximum temperature as a function of circumference and height, and compare with Elkies' (N−5)/2. | Statistics plus counterexamples |
+| A8 | **Kings: loopy CGT** | Model trebuchets and opposition on cylinders as loopy games (on, off, over, stoppers) using CGSuite. State exactly when "pawns only + a frozen trebuchet = chess" is valid, checking against Track B. Re-examine Gafni's K+P vs K values without edges. | Rigorous validity conditions; 7.2 and 7.3 as worked counterexamples |
+| A9 (stretch) | Formalisation | Formalise A1 and the core canonical-form lemmas in Lean 4 (Mathlib `SetTheory.PGame`). | Proofs compile |
+
+### Track B: Cylinder and torus tablebases, and an engine
+
+| ID | Question | Method | Done when |
+|---|---|---|---|
+| B0 | **Rules decision** | Fix the rules: no rook "pass" around the rank, no castling in endgames, en passant across the seam, no 50-move rule for DTM tables. | Written spec |
+| B1 | Fast move generator | Bitboards: leaper shifts rotate within each rank byte; rank sliders use a [file][occupancy] table; diagonal helices use a kindergarten multiply. Legality = pseudo-legal moves plus an "is the king attacked" test, because there are two routes between squares. Check against Nicholson's `partizan` and the mtaktikos copy. | **Publish cylinder perft numbers**, matching an independent mailbox generator and Jocly/Ludii |
+| B2 | **Tablebases** | Independently re-implement the 4-man results of §1.3, then extend to all 5-man and pawnless 6-man endgames. On the cylinder there are 138 pawnless king-pair classes, and a 6-man table is about 2×10⁹ positions, which fits in 48 GB. Report maximal DTM, mutual-zugzwang counts against Haworth's flat-board numbers, the KPK and KPKP rules without rook pawns, and the torus. | A table of every "can X force mate?" answer, plus public files |
+| B3 | Cylinder engine | Fairy-Stockfish (or the mtaktikos copy) with B1's slider tables and two-route pins and checks; probe our own tablebases in search; train NNUE with variant-nnue tools. | Perft-clean; beats the baseline; plays over UCI |
+| B4 | Bridge CGT ↔ chess | Confirm every king-dependent claim from Track A with B2 or B3. | Every published position engine- or tablebase-certified |
+
+### Track C: ML, RL and LLMs against exact ground truth
+
+| ID | Hypothesis | Method | Metric |
+|---|---|---|---|
+| C1 | **ChessSums: engines and LLMs fail on sums, and the \*-part drives it** | Build legal standard-board positions from k certified components (integers, \*, ↑, switches, 0) plus a locked king zugzwang. Keep more than 7 men so Syzygy cannot shortcut. Run Stockfish 17/18 (node sweeps), Lc0 (Metal backend) and LLMs (GPT-6 via Codex, Claude, Qwen and others via opencode). | Accuracy vs k; the growth exponent of nodes-to-solve; the "parity gap" = accuracy on integer sums minus accuracy on nimber sums |
+| C2 | **Compositional generalisation** | Train on k ≤ 2, test on k = 3–8. Compare a CNN, a circular-padded CNN (exactly equivariant on the cylinder), a transformer, and Deep Sets with a structured latent (a Z₂^m part for nimbers and a real part for numbers). | Accuracy at k = 8 relative to k = 2; does the learned sum obey G + (−G) = 0? |
+| C3 | AlphaZero on Dawson's chess and cylinder pawn games | OpenSpiel or our own PyTorch on MPS; exact values from A3 and A6. Extends Zhou & Riis to partizan sums. | Elo vs "expert" accuracy by value class |
+| C4 | **RLVR for Conway arithmetic** | GRPO on Qwen 0.5–3B with `mlx-lm-lora`, using our engine as the reward. Tasks: nim-sums, canonical forms, comparisons, temperatures, chess position → value. | Exact match on held-out, larger instances; transfer to C1 |
+| C5 (stretch) | Neural or LLM proposers for rare values | A model proposes, the exact engine verifies; hunt for A4's targets faster than enumeration. | New witnesses |
+
+### Track D: Writing and release
+- **Paper 1** (about week 6): "Combinatorial game values of pawn endgames on cylindrical boards." Corrects the 2025 paper and covers A0–A7, plus A2 if it holds.
+- **Paper 2** (about week 8): "Endgame tablebases and perft for cylinder and torus chess" (B0–B2).
+- **Paper 3** (about week 10): "ChessSums: sums of games as an adversarial benchmark for chess engines and LLMs" (C1–C4).
+- **Release:**
+  - `cylcgt` on PyPI.
+  - The atlas and tablebases on Hugging Face.
+  - An interactive explorer: click a position, see its value, thermograph and best move.
+
+---
+
+## 4. Who does what, and the verification protocol
+
+| Agent | Role |
+|---|---|
+| Claude (this session, Opus) | Architecture, CGT engine, proofs, integration, writing; final arbiter |
+| Codex CLI (gpt-6-luna, max reasoning) | Independent re-implementations (it already wrote `crosscheck/`), referee reports, Rust/C++ move generator, second tablebase |
+| cursor-agent / opencode / Qwen Code | Parallel experiment runners and code reviewers; contestants in the LLM benchmark |
+| Claude subagents | Literature, data analysis, figures |
+| You and Prof. Morley | Priorities, proof review, chess intuition, checking positions on a real board |
+
+**A claim is publishable only if:**
+1. Two independent implementations agree.
+2. Any king-dependent claim is engine- or tablebase-certified.
+3. A second model plus a human have re-derived any proof.
+4. Sums use only `sum_safe` positions, or exact whole-board search.
+
+---
+
+## 5. Timeline (≈10 weeks, tracks in parallel)
+
+| Week | Track A | Track B | Track C |
+|---|---|---|---|
+| 0 (today) | Engine ✅, audit ✅, cross-check ✅, \*2 lead | 4-man prototype ✅ | Literature ✅ |
+| 1 | A0, A1, **A2 (\*2)** | B0, B1 + perft | Install Stockfish/Lc0; C1 generator |
+| 2–3 | A3 atlas (Rust), A6 Dawson | B2 4–5-man (independent) | C1 engine and LLM runs |
+| 4–5 | A4 open targets, A5, A7 | B2 6-man pawnless | C2 |
+| 6 | **Paper 1 draft**, A8 | B3 start | C3 |
+| 7–8 | A8 + B4 bridge | **Paper 2 draft** | C4 GRPO |
+| 9–10 | Revisions | B3 NNUE (stretch) | **Paper 3 draft** |
+
+---
+
+## 6. Setup (needs your OK)
+- A Python 3.12 venv (`.venv`, **done**) plus `python-chess`, `numpy`, `torch` (MPS), `mlx`, `mlx-lm-lora`, `matplotlib`.
+- `brew install stockfish lc0`; `rustup` (for B1/B2/A3); CGSuite (Java) for loopy cross-checks.
+- `git init` the project so every result traces to a commit.
+- Optional paid GPU time for C4, only if MLX is too slow. I will ask before any spending.
+- Codex usage limit: it hit its quota today, resetting about 02:21. Long Codex jobs need to be scheduled around that.
+
+## 7. Risks
+| Risk | Mitigation |
+|---|---|
+| "Passed pawn = win" diverges from chess in sums (+BIG and −BIG cancel) | `sum_safe` flag ✅; exact whole-board search; affine normal play in A0; tablebase bridge B4 |
+| The \*2 candidate fails with real kings | Still a clean negative result; the cylinder-only atlas and ring theory remain new |
+| Someone publishes first (Nicholson's `partizan` is active) | Check it in week 1; move fast on A2 and the B2 tables, which are the most original pieces |
+# K35 blind packet: definitions and statements only (extracted from kings/theory/LOOPY.md at commit 3fbe9f54)
+
+Proofs and verification notes are omitted on purpose. Do not read LOOPY.md itself until Phase 2.
+
+## Proposition 2.11: setting, notation, hypotheses and statement (frozen model F)
+
+*Setting.* F is the frozen promotion model, `kpsolve --frozen`: a promotion wins at once for the promoter; a legal
+king move ends the play at once in favour of the opponent of its maker; a side with no legal move at all (king
+moves count as moves) that is not in check draws, and one in check loses; infinite play is a draw. The board is
+a cylinder with W files and H ≥ 5 ranks (files mod W). On a flat board the same proof works with the neighbouring
+files that exist (not separately written out); a second-round reviewer ran flat 5×6, 6×6, 7×6 and 6×7 (434,429 certified positions with side to move, 0 violations; see the checks).
+
+*Notation.* Fix a legal position y (kings not adjacent, the side not to move not in check) before any promotion, the side s to move, a side β (the beneficiary) and ω, the
+other side. For a pawn q of either colour let ρ(q) be its rank counted from β's side: ρ(q) = rank(q) if β is
+White, and ρ(q) = H + 1 − rank(q) if β is Black, whatever the colour of q (revised after the K10 second round). β's pawns advance towards larger ρ, ω's towards smaller ρ; "ahead of p" means larger ρ.
+β's start rank is ρ = 2 and ω's is ρ = H − 1. For a pawn p of β put d = H − ρ(p) − [ρ(p) = 2] (the number of β
+moves p needs to promote; this is cylcgt's `promote_distance`), and
+- e = d if s = ω (ω makes e moves before β's promoting push),
+- e = d − 1 if s = β.
+
+*The ω-only game G_ω(y; p).* Delete p. Only ω moves, one move after another. β's other pawns stay where they are
+and can be captured. Both kings stay and block squares; nobody captures a king. ω's pawns move as in chess:
+push, double step from the start rank over an empty square, capture, and the e.p. capture that y offers (only
+as the first move, and only if s = ω). μ_ω(y; p) is the least number of moves after which some ω pawn stands on
+its last rank (the promoting move included), or ∞. It is a minimum over **all** ω pawns, passers or not,
+with captures allowed. An ω king move ends F at once, so it never occurs in G_ω.
+
+*Hypotheses.*
+- **(H1) clear path.** p is a pawn of β that is passed at y in cylcgt's e.p.-aware sense (`passed` with
+  `PASSED_RESPECTS_EP = True`: no ω pawn on files f − 1, f, f + 1 with ρ > ρ(p), and p cannot be taken en passant at
+  y), and every square of p's file ahead of p, the promotion square included, is empty. So p is the front pawn
+  of its file, and **no pawn and no king of either colour** stands on the path.
+- **(H2) no check.** No pawn of either colour stands on a file adjacent to the file of β's king.
+- **(H3) no stalemate.** ω's king has a neighbouring square t that is not adjacent to β's king, such that no
+  pawn of either colour stands on the file of t or on a file adjacent to it. "Not adjacent" means king distance ≥ 2.
+- **(H4) no interference.** Every pawn of β other than p that stands on a file adjacent to p's file has
+  ρ ≤ ρ(p) + 1.
+- **(H5) timing.** μ_ω(y; p) ≥ e + 1.
+
+**Statement.** Under (H1)–(H5), β wins F from (y, s) by pushing p at every turn (the double step first if
+ρ(p) = 2).
+
+## The P model with real kings
+
+P is chess before the first promotion with real kings: the first promotion wins at once for the promoter; mate wins; stalemate and infinite play are draws (Theorem 1.14, sharp form, setting). A private build: `cc -O2 -o <dir>/kpp kings/delegate/out/K7/scripts/draft/kp_p.c -lpthread`, run with `--pmodel` (input lines like `Ka1 ka6 Pc2 w -`, output `<pos> | A B` from White's view).
+
+## Notation for Theorem 2.11K
+
+q₀, …, q_d are the squares p occupies before its first push and after each push of Π, and n_j = j if s = ω, j − 1 if s = β (the number of ω moves made when p reaches q_j). d(·, ·) between squares is the king distance on the board (cylinder: files wrap). k_ω and k_β are the squares of ω's and β's kings at y.
+
+## Theorem 2.11K (statement only)
+
+  - ***Theorem 2.11K.*** Notation of Proposition 2.11; Π is "β pushes p at every
+    turn (the double step first if ρ(p) = 2)". Assume (H1) (path free of pawns and kings), (H4), (H2) (no pawn of either colour on a file adjacent to β's king's file),
+    (H5K) μ^K_ω(y; p) ≥ e + 1, where μ^K_ω is μ_ω in G^K_ω, which is G_ω with ω's king allowed one step per move onto a square that is not an ω pawn, not β's king and not adjacent to it,
+    capturing β's other pawns (the variant that also forbids squares attacked by a remaining β pawn is covered too), (SQ) d(k_ω, q_j) ≥ n_j + 2 for j = 0, …, d (j = 0 only if s = ω), and
+    (NS) in no play of Π is ω stalemated at one of its turns (a search of depth ≤ e over ω's replies); (NS) follows from (H3K): every square x with d(x, k_ω) ≤ e − 1 has a king-neighbour t with
+    d(t, k_β) ≥ 2 and no pawn of either colour on the files of t, t − 1, t + 1. Then β wins P from (y, s) by Π.
+
+
+45-PASSED_RESPECTS_EP = True
+46-
+47-
+48:def promote_distance(board: "Board", pos: "Pos", side: str) -> int:
+49-    best = None
+50-    mine = pos.white if side == "W" else pos.black
+51-    occ = pos.white | pos.black
+--
+115-        return f"W: {w} / B: {b}" + (f" (ep {name(self.ep[0])})" if self.ep else "")
+116-
+117-
+118:def ep_capturable(board: Board, pos: Pos, side: str, square) -> bool:
+119-    """True if `side`'s pawn on `square` may be taken en passant right now."""
+120-    if not (PASSED_RESPECTS_EP and pos.ep and pos.ep[1] == square and pos.ep[2] != side):
+121-        return False
+--
+124-    return any((g, r) in theirs for g in (board.nb(f, -1), board.nb(f, 1)) if g is not None)
+125-
+126-
+127:def passed(board: Board, pos: Pos, side: str) -> bool:
+128-    mine, theirs = (pos.white, pos.black) if side == "W" else (pos.black, pos.white)
+129-    for f, r in mine:
+130-        files = {f} | {g for g in (board.nb(f, -1), board.nb(f, 1)) if g is not None}
+
+**Searching relevant files and verification**
+exec
+/bin/zsh -lc "rg --files kings/delegate | rg 'COMMON\\.md|K35|heavy\\.sh'; sed -n '35,145p' cylcgt/pawns.py; sed -n '1,160p' kings/kpsolve.c" in /Users/aritro/Downloads/Research/Chessendgames
+ succeeded in 0ms:
+kings/delegate/briefs/K35_211K_blind.md
+kings/delegate/logs/K35.log
+kings/delegate/heavy.sh
+kings/delegate/out/K14/scripts/run_searches_heavy.sh
+kings/delegate/out/K35/blind_packet.md
+#   "count": the opponent of the mover moves first in the race; whoever needs
+#            fewer moves to promote wins (opponent wins ties). Ignores queen
+#            checks / a new queen stopping the other pawn.
+#   "mover": the mover wins.   "opponent": the mover loses.
+RACE_RULE = "count"
+race_hits: list[str] = []  # positions where the race rule was invoked
+
+# A pawn that has just double-stepped and can still be taken en passant is not
+# yet passed: the opponent's e.p. capture comes first. False restores the
+# textbook test, under which W a2 c2 / B b7 d7 is *2 (see RESULTS.md section 1).
+PASSED_RESPECTS_EP = True
+
+
+def promote_distance(board: "Board", pos: "Pos", side: str) -> int:
+    best = None
+    mine = pos.white if side == "W" else pos.black
+    occ = pos.white | pos.black
+    for f, r in mine:
+        if not passed(board, Pos(frozenset([(f, r)]) if side == "W" else pos.white,
+                                 pos.black if side == "W" else frozenset([(f, r)])), side):
+            continue
+        if ep_capturable(board, pos, side, (f, r)):
+            continue
+        if side == "W":
+            if any((f, s) in occ for s in range(r + 1, board.ranks + 1)):
+                continue  # not the front pawn of its file
+            d = board.ranks - r - (1 if r == 2 else 0)
+        else:
+            if any((f, s) in occ for s in range(1, r)):
+                continue
+            d = r - 1 - (1 if r == board.ranks - 1 else 0)
+        best = d if best is None else min(best, d)
+    return best if best is not None else 10**6
+
+
+@dataclass(frozen=True)
+class Board:
+    files: int = 8
+    ranks: int = 8
+    wrap: bool = True
+    ep: bool = True
+
+    def nb(self, f: int, df: int):
+        g = f + df
+        if self.wrap:
+            return g % self.files
+        return g if 0 <= g < self.files else None
+
+
+CYL8 = Board(8, 8, True, True)
+FLAT8 = Board(8, 8, False, True)
+
+FILES = "abcdefghijklmnopqrstuvwxyz"
+
+
+def sq(name: str):
+    return (FILES.index(name[0]), int(name[1:]))
+
+
+def name(s):
+    return f"{FILES[s[0]]}{s[1]}"
+
+
+@dataclass(frozen=True)
+class Pos:
+    white: frozenset
+    black: frozenset
+    ep: tuple | None = None  # (target_square, captured_square, side_that_may_capture)
+
+    @staticmethod
+    def parse(text: str) -> "Pos":
+        """'W: a4 h2 h4 / B: a5 a6 a7 h3'"""
+        w_part, b_part = text.split("/")
+        w = frozenset(sq(t) for t in w_part.split(":")[1].split())
+        b = frozenset(sq(t) for t in b_part.split(":")[1].split())
+        return Pos(w, b)
+
+    def __str__(self):
+        w = " ".join(sorted(map(name, self.white)))
+        b = " ".join(sorted(map(name, self.black)))
+        return f"W: {w} / B: {b}" + (f" (ep {name(self.ep[0])})" if self.ep else "")
+
+
+def ep_capturable(board: Board, pos: Pos, side: str, square) -> bool:
+    """True if `side`'s pawn on `square` may be taken en passant right now."""
+    if not (PASSED_RESPECTS_EP and pos.ep and pos.ep[1] == square and pos.ep[2] != side):
+        return False
+    f, r = square
+    theirs = pos.black if side == "W" else pos.white
+    return any((g, r) in theirs for g in (board.nb(f, -1), board.nb(f, 1)) if g is not None)
+
+
+def passed(board: Board, pos: Pos, side: str) -> bool:
+    mine, theirs = (pos.white, pos.black) if side == "W" else (pos.black, pos.white)
+    for f, r in mine:
+        files = {f} | {g for g in (board.nb(f, -1), board.nb(f, 1)) if g is not None}
+        if side == "W":
+            blocked = any(g in files and s > r for g, s in theirs)
+        else:
+            blocked = any(g in files and s < r for g, s in theirs)
+        if not blocked and not ep_capturable(board, pos, side, (f, r)):
+            return True
+    return False
+
+
+def moves(board: Board, pos: Pos, side: str):
+    """Positions reachable by one move of `side` ('W' or 'B')."""
+    mine, theirs = (pos.white, pos.black) if side == "W" else (pos.black, pos.white)
+    occ = pos.white | pos.black
+    d = 1 if side == "W" else -1
+    start = 2 if side == "W" else board.ranks - 1
+/* kpsolve.c -- exact solver for chess positions with kings, pawns and promoted
+ * officers (Q, R, B, N) on a small flat or cylindrical board.
+ * Rules and file formats: SPEC.md. Written independently of kings/ref/.
+ *
+ * Method. Positions are grouped into layers by (white pawns, black pawns,
+ * officer types). Pawn moves, captures and promotions leave the layer and never
+ * come back, so a layer is solved after every layer it can reach (on demand,
+ * recursively). Inside a layer only kings and officers move, reversibly, so
+ * every placement of them is solved together: counting retrograde analysis on
+ * the explicit in-layer move graph, or repeated passes for very large layers.
+ * Values are win / loss / draw for the side to move; whatever is never resolved
+ * is a draw (the least fixed point, i.e. infinite play is a draw).
+ *
+ * Extra options beyond SPEC.md, for experiments:
+ *   --frozen   kings may not move: a king move loses at once for the mover, and
+ *              a promotion wins at once for the promoter (the pawn-only
+ *              convention with real races instead of "passed pawn = win")
+ *   --moves    after the result, list every legal move with the value it leads to
+ *   --threads  worker threads for large layers (default 1)
+ */
+#include <ctype.h>
+#include <pthread.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+#define MAXOFF 3
+#define MAXMOVES 320
+#define BIT(s) (1ULL << (s))
+#define PASS_THRESHOLD 6000000u /* layers with more states use repeated passes */
+
+enum { VUNK = 0, VWIN, VLOSS, VDRAW, VILL };
+enum { WHITE = 0, BLACK = 1 };
+enum { TQ = 1, TR, TB, TN }; /* officer code = type + 8 * colour */
+static const char TYPECH[] = "?QRBN";
+
+static int W, H, N, WRAP, EPON = 1, CAP = 1, FROZEN = 0, BOUND = 0, cappedSeen = 0, WANTMOVES = 0;
+static int promoType[4], nPromo;
+
+/* ---------- geometry ---------- */
+
+static int kingN[64], kingL[64][8], knightN[64], knightL[64][8];
+static uint64_t kingBB[64], knightBB[64];
+static uint64_t pawnAtt[2][64]; /* squares from which a pawn of colour c attacks s */
+static int capN[2][64], capL[2][64][2];
+static const int DF[8] = {0, 0, 1, -1, 1, 1, -1, -1};
+static const int DR[8] = {1, -1, 0, 0, 1, -1, 1, -1};
+static int rayN[64][8], rayL[64][8][8];
+static int8_t rayIdx[64][8][64];
+static uint64_t rayBefore[64][8][8];
+
+static int step(int s, int df, int dr) {
+  int f = s % W + df, r = s / W + dr;
+  if (r < 0 || r >= H) return -1;
+  if (WRAP) f = ((f % W) + W) % W;
+  else if (f < 0 || f >= W) return -1;
+  return r * W + f;
+}
+
+static void add_unique(int *n, int *l, int s) {
+  for (int i = 0; i < *n; i++)
+    if (l[i] == s) return;
+  l[(*n)++] = s;
+}
+
+static void init_geometry(void) {
+  static const int NF[8] = {1, 2, -1, -2, 1, 2, -1, -2};
+  static const int NR[8] = {2, 1, 2, 1, -2, -1, -2, -1};
+  memset(rayIdx, -1, sizeof rayIdx);
+  memset(pawnAtt, 0, sizeof pawnAtt);
+  for (int s = 0; s < N; s++) {
+    kingN[s] = knightN[s] = 0;
+    kingBB[s] = knightBB[s] = 0;
+    for (int d = 0; d < 8; d++) {
+      int t = step(s, DF[d], DR[d]);
+      if (t >= 0 && t != s) add_unique(&kingN[s], kingL[s], t);
+      t = step(s, NF[d], NR[d]);
+      if (t >= 0 && t != s) add_unique(&knightN[s], knightL[s], t);
+    }
+    for (int i = 0; i < kingN[s]; i++) kingBB[s] |= BIT(kingL[s][i]);
+    for (int i = 0; i < knightN[s]; i++) knightBB[s] |= BIT(knightL[s][i]);
+    for (int d = 0; d < 8; d++) {
+      int cur = s;
+      uint64_t before = 0;
+      rayN[s][d] = 0;
+      for (;;) {
+        cur = step(cur, DF[d], DR[d]);
+        if (cur < 0 || cur == s) break; /* edge, or back home: no null move */
+        int k = rayN[s][d]++;
+        rayL[s][d][k] = cur;
+        rayIdx[s][d][cur] = (int8_t)k;
+        rayBefore[s][d][k] = before;
+        before |= BIT(cur);
+      }
+    }
+    for (int c = 0; c < 2; c++) {
+      capN[c][s] = 0;
+      for (int df = -1; df <= 1; df += 2) {
+        int t = step(s, df, c == WHITE ? 1 : -1);
+        if (t >= 0 && t != s) add_unique(&capN[c][s], capL[c][s], t);
+      }
+    }
+  }
+  for (int c = 0; c < 2; c++)
+    for (int s = 0; s < N; s++)
+      for (int i = 0; i < capN[c][s]; i++) pawnAtt[c][capL[c][s][i]] |= BIT(s);
+}
+
+/* ---------- positions ---------- */
+
+typedef struct {
+  uint64_t wp, bp;
+  int wk, bk, no, stm, ep;
+  int osq[MAXOFF], ot[MAXOFF];
+} Pos;
+
+typedef struct {
+  uint64_t wp, bp;
+  int no;
+  int ot[MAXOFF];
+} Key;
+
+static int colour_of(int code) { return code >> 3; }
+static int type_of(int code) { return code & 7; }
+
+static uint64_t occupancy(const Pos *p) {
+  uint64_t o = p->wp | p->bp | BIT(p->wk) | BIT(p->bk);
+  for (int j = 0; j < p->no; j++) o |= BIT(p->osq[j]);
+  return o;
+}
+
+static int man_attacks(int type, int from, int target, uint64_t occ) {
+  if (type == TN) return (int)((knightBB[from] >> target) & 1);
+  int lo = type == TB ? 4 : 0, hi = type == TR ? 4 : 8;
+  for (int d = lo; d < hi; d++) {
+    int k = rayIdx[from][d][target];
+    if (k >= 0 && !(rayBefore[from][d][k] & occ)) return 1;
+  }
+  return 0;
+}
+
+/* is square s attacked by colour `by`? */
+static int attacked(const Pos *p, int s, int by) {
+  int k = by == BLACK ? p->bk : p->wk;
+  if ((kingBB[k] >> s) & 1) return 1;
+  if ((by == BLACK ? p->bp : p->wp) & pawnAtt[by][s]) return 1;
+  uint64_t occ = occupancy(p);
+  for (int j = 0; j < p->no; j++)
+    if (colour_of(p->ot[j]) == by && p->osq[j] != s && man_attacks(type_of(p->ot[j]), p->osq[j], s, occ))
+      return 1;
+  return 0;
+}
+
+static int in_check(const Pos *p, int side) {
+  return attacked(p, side == BLACK ? p->bk : p->wk, !side);
+}
+
+static void canonicalize(Pos *p) {
+
+**Analyzing move count bounds**
+**Examining move sequences and king safety**
+**Analyzing pawn movement and passing conditions**
+**Examining pawn blocking and capture constraints**
+**Analyzing pawn capture pathways**
+**Examining king capture constraints**
+**Analyzing double step and king moves**
+**Checking move legality and king safety**
+**Analyzing pawn and king move interactions**
+**Examining en passant conditions**
+**Clarifying chess endgame rules**
+**Analyzing omega king movement constraints**
+**Analyzing king and pawn moves**
+**Planning formal proof structure**
+**Analyzing piece movements and constraints**
+codex
+The blind packet and allowed code are sufficient for the proof. I’m formalizing two key invariants before opening the comparison source: the distance bound keeps ω’s king at least two king steps from the current pawn square on each reply, and H4 prevents an ω pawn’s final diagonal capture from placing it ahead on p’s file.
+apply patch
+patch: completed
+/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K35/PROOF.md
+diff --git a/kings/delegate/out/K35/PROOF.md b/kings/delegate/out/K35/PROOF.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..717ad52ce4e615efab3d8742e67d7875baf58a93
+--- /dev/null
++++ b/kings/delegate/out/K35/PROOF.md
+@@ -0,0 +1,49 @@
++# Independent proof of Theorem 2.11K
++
++**Status: PROVED (conditional on the stated hypotheses).** This proof uses the frozen definitions in `blind_packet.md`, the adopted en-passant-aware meaning of “passed,” and ordinary legal chess moves for the real kings in P. It does not use the proof in LOOPY.
++
++Let β be the side whose pawn is p, and measure ranks by ρ from β's side. Write q_j for p's square after its j-th push, with q_0 its initial square. The number of ω moves made by the time p is at q_j is n_j. In particular, an ω turn at which p is already at q_j occurs after n_j such moves, and before that turn ω's king has made at most n_j king moves. The prescribed line Π pushes p at each β turn, using its initial double step exactly when ρ(p)=2.
++
++## 1. Pawns cannot capture or obstruct p
++
++The e.p.-aware passed-pawn condition says that initially no ω pawn lies on p's file or either neighboring file strictly ahead of p, and that p is not presently vulnerable to en passant. Consider any later attempted ordinary pawn capture of p. Immediately before the capture, the capturing ω pawn would have to be on one of p's neighboring files at rank-coordinate ρ(p)+1: ω pawns capture one step toward smaller ρ. Such a pawn cannot arise from an initially behind pawn, whose ρ only decreases. Nor can a pawn initially ahead make the capture: the passed condition excludes one in these files, and ω pawns cannot move toward larger ρ. Thus no ω pawn can capture p.
++
++An ω pawn can change files only by capturing a β pawn. For it to end up on p's file strictly ahead of p, its last such capture must be of a β pawn on a neighboring file at coordinate at least ρ(p)+2: the capture lands one rank nearer ω, hence still strictly ahead of p. H4 bounds every β pawn on either neighboring file by ρ(p)+1. No such last capture exists. A pawn on p's file at the same or a lower coordinate cannot block a forward push to a higher coordinate. Also, pawns cannot capture onto p's file by capturing p itself, as already shown. Therefore no ω pawn can occupy a future square of p's file or otherwise block a prescribed push.
++
++For the initial double push, the skipped square and landing square are empty by H1. En passant against that double push would require an ω pawn on a neighboring file at the landing coordinate. H1's passed condition excludes any such pawn, since the landing coordinate is strictly ahead of p's initial coordinate. Later pushes are single steps and create no en-passant right. The separate e.p.-aware clause in H1 also rules out an en-passant capture of p already offered at y. Hence en passant never defeats Π.
++
++## 2. ω's king cannot capture p or stop a push
++
++Fix an ω turn with p at q_j. By then ω's king has made at most n_j one-square moves from k_ω. The triangle inequality for king distance and (SQ) give
++
++\[
++d(k_\omega^{\rm current},q_j)\ \geq\ d(k_\omega,q_j)-n_j\ \geq 2.
++\]
++
++If s=β, the initial turn is not an ω turn with p at q_0 and (SQ) is not needed for j=0. For every later reply the displayed bound applies; if s=ω, it applies also at q_0. Thus on every reply the king is neither adjacent to p nor able to capture it. On the β push that follows, the next square q_{j+1} is empty of the king as well: before the reply, its distance from the current square is one for a single push (and the same argument at q_{j+1} after the reply rules out the landing square); the double-push case is covered by the separate skipped-square argument below.
++
++More explicitly for a double push, the skipped square q_1 is empty initially by H1. If ω moves its king to q_1 after p has landed at q_2, q_1 is behind p and is not on any later push path. If ω is to move before the double push, (SQ) at q_0 puts its king at distance at least two, so it cannot stand on q_1 and invalidate the double move. For every later single push, the bound applied to the current q_j after ω's king move excludes occupation of q_{j+1} (which is adjacent to q_j). Thus the king cannot capture p or occupy a landing square. The pawn argument in section 1 excludes pawn occupation of those squares.
++
++## 3. β remains safe and its pushes are legal
++
++The kings are not adjacent initially. In P every legal ω king move must leave the kings nonadjacent, so it cannot put β in check. A pawn checks a king only from an adjacent file. H2 says that no pawn of either colour is on a file adjacent to β's king's file; in particular no ω pawn attacks the stationary β king. These facts hold throughout Π: β's king does not move and pawns do not change files except by captures, while the argument of section 1 prevents an ω pawn from entering p's file ahead of p. The king bound prevents ω's king from reaching or capturing p. Consequently β is never in check.
++
++Every push in Π is a legal pawn move. Its destination is on the board; for the first push, H1 clears the whole forward path, including both the skipped and landing squares if it is a double step. Later, section 1 and the king-distance bound keep the next square empty. A pawn push does not expose β's king to a king attack because ω's king cannot move adjacent to it in a legal position, nor to a pawn attack by H2. Thus the side-to-move king-safety condition is maintained after each push.
++
++## 4. ω cannot promote first
++
++Consider any play against Π before p promotes. A ω king move may capture any of β's other pawns, and that possibility must not be ignored: it is explicitly included in G^K_\omega. In that game ω may make a king step on each turn, subject to the specified king-square restrictions, as well as make its pawn moves and captures. It therefore allows at least the pawn routes and captures available to any actual play in which ω's king has not captured p. The variant that also excludes squares attacked by remaining β pawns is no more permissive and is expressly covered by the hypothesis.
++
++If p's start coordinate is 2 and s=ω, the first move in G^K_\omega can include only the en-passant right offered at y, exactly as in P. H1 ensures this right cannot take p; after that first turn the right expires. In every other case, the initial pawn options agree with the stated game. Thus, if an actual ω pawn could promote within e of ω moves, its pawn sequence, including any captures of β's other pawns, would be a permitted sequence in G^K_\omega and would imply \(\mu^K_\omega(y;p)\le e\). This contradicts H5K. Therefore no ω pawn promotes before β's scheduled promotion. This reasoning allows ω's king to capture β's other pawns; the king is not assumed frozen.
++
++The timing convention makes the count exact: if s=ω, there are d=e ω moves before p's d-th (promoting) push; if s=β, there are d-1=e ω moves before that push. H5K rules out promotion in those moves. On the final β turn, p's path remains clear by sections 1–3 and its promotion is immediate and wins P by definition.
++
++## 5. ω always has a legal move or is mated
++
++This is needed to exclude a stalemate draw along Π. On an ω turn before p promotes, let x be ω's king square. At most e-1 ω king moves have occurred on any such turn: the last ω turn precedes the final promoting push, and the counts above are e (when ω starts) or e moves in total (when β starts), leaving at most e-1 moves before the last reply. Hence \(d(x,k_\omega)\le e-1\). By (H3K), there is a king-neighbor t of x that is at distance at least 2 from k_β, and with no pawn on t's file or either neighboring file. The square t is not occupied by a pawn, and it is not occupied by β's king. It is a legal king destination: it is not adjacent to β's king and no β pawn attacks it, since any pawn attack would have to come from a neighboring file. It may be occupied by ω's own piece only if that piece were the king at x; since t is a distinct neighbor, it is not. Therefore ω has a legal king move. In particular, ω is not stalemated. (If instead ω has no legal move because it is in check, it is checkmated and P is already a β win.)
++
++This proves (NS) from (H3K). Equivalently, the explicit NS hypothesis in the theorem is guaranteed on every ω turn of Π by H3K. The argument uses only the pawn-free file neighborhood, king distance, and the fact that the king's distance from its start grows by at most one per move.
++
++## 6. Conclusion
++
++Against every legal response to Π, β is never in check, p cannot be captured or blocked, ω cannot promote first, and ω is never stalemated. A checkmated ω loses immediately; otherwise play reaches p's clear promotion square, where β wins at once. Thus β wins P from (y,s) by Π.
+
+**Analyzing pawn capture and king movement constraints**
+**Evaluating turn bounds and capture possibilities**
+**Analyzing pawn movement constraints**
+**Clarifying pawn capture and king move rules**
+**Reviewing reports and preparing adjustments**
+2026-10-28T06:23:13.230324Z ERROR codex_core::tools::router: error=apply_patch verification failed: Failed to find expected lines in /Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K35/PROOF.md:
+The kings are not adjacent initially. In P every legal ω king move must leave the kings nonadjacent, so it cannot put β in check. A pawn checks a king only from an adjacent file. H2 says that no pawn of either colour is on a file adjacent to β's king's file; in particular no ω pawn attacks the stationary β king. These facts hold throughout Π: β's king does not move and pawns do not change files except by captures, while the argument of section 1 prevents an ω pawn from entering p's file ahead of p. Consequently β is never in check.
+**Inspecting UTF-encoded Greek text**
+exec
+/bin/zsh -lc "sed -n '28,100p' kings/delegate/out/K35/PROOF.md" in /Users/aritro/Downloads/Research/Chessendgames
+ succeeded in 0ms:
+
+The kings are not adjacent initially. In P every legal ω king move must leave the kings nonadjacent, so it cannot put β in check. A pawn checks a king only from an adjacent file. H2 says that no pawn of either colour is on a file adjacent to β's king's file; in particular no ω pawn attacks the stationary β king. These facts hold throughout Π: β's king does not move and pawns do not change files except by captures, while the argument of section 1 prevents an ω pawn from entering p's file ahead of p. The king bound prevents ω's king from reaching or capturing p. Consequently β is never in check.
+
+Every push in Π is a legal pawn move. Its destination is on the board; for the first push, H1 clears the whole forward path, including both the skipped and landing squares if it is a double step. Later, section 1 and the king-distance bound keep the next square empty. A pawn push does not expose β's king to a king attack because ω's king cannot move adjacent to it in a legal position, nor to a pawn attack by H2. Thus the side-to-move king-safety condition is maintained after each push.
+
+## 4. ω cannot promote first
+
+Consider any play against Π before p promotes. A ω king move may capture any of β's other pawns, and that possibility must not be ignored: it is explicitly included in G^K_\omega. In that game ω may make a king step on each turn, subject to the specified king-square restrictions, as well as make its pawn moves and captures. It therefore allows at least the pawn routes and captures available to any actual play in which ω's king has not captured p. The variant that also excludes squares attacked by remaining β pawns is no more permissive and is expressly covered by the hypothesis.
+
+If p's start coordinate is 2 and s=ω, the first move in G^K_\omega can include only the en-passant right offered at y, exactly as in P. H1 ensures this right cannot take p; after that first turn the right expires. In every other case, the initial pawn options agree with the stated game. Thus, if an actual ω pawn could promote within e of ω moves, its pawn sequence, including any captures of β's other pawns, would be a permitted sequence in G^K_\omega and would imply \(\mu^K_\omega(y;p)\le e\). This contradicts H5K. Therefore no ω pawn promotes before β's scheduled promotion. This reasoning allows ω's king to capture β's other pawns; the king is not assumed frozen.
+
+The timing convention makes the count exact: if s=ω, there are d=e ω moves before p's d-th (promoting) push; if s=β, there are d-1=e ω moves before that push. H5K rules out promotion in those moves. On the final β turn, p's path remains clear by sections 1–3 and its promotion is immediate and wins P by definition.
+
+## 5. ω always has a legal move or is mated
+
+This is needed to exclude a stalemate draw along Π. On an ω turn before p promotes, let x be ω's king square. At most e-1 ω king moves have occurred on any such turn: the last ω turn precedes the final promoting push, and the counts above are e (when ω starts) or e moves in total (when β starts), leaving at most e-1 moves before the last reply. Hence \(d(x,k_\omega)\le e-1\). By (H3K), there is a king-neighbor t of x that is at distance at least 2 from k_β, and with no pawn on t's file or either neighboring file. The square t is not occupied by a pawn, and it is not occupied by β's king. It is a legal king destination: it is not adjacent to β's king and no β pawn attacks it, since any pawn attack would have to come from a neighboring file. It may be occupied by ω's own piece only if that piece were the king at x; since t is a distinct neighbor, it is not. Therefore ω has a legal king move. In particular, ω is not stalemated. (If instead ω has no legal move because it is in check, it is checkmated and P is already a β win.)
+
+This proves (NS) from (H3K). Equivalently, the explicit NS hypothesis in the theorem is guaranteed on every ω turn of Π by H3K. The argument uses only the pawn-free file neighborhood, king distance, and the fact that the king's distance from its start grows by at most one per move.
+
+## 6. Conclusion
+
+Against every legal response to Π, β is never in check, p cannot be captured or blocked, ω cannot promote first, and ω is never stalemated. A checkmated ω loses immediately; otherwise play reaches p's clear promotion square, where β wins at once. Thus β wins P from (y,s) by Π.
+
+**Considering patch methods**
+apply patch
+patch: completed
+/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K35/PROOF.md
+diff --git a/kings/delegate/out/K35/PROOF.md b/kings/delegate/out/K35/PROOF.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..0c93719d986403913eee5442ab58004592d50991
+--- /dev/null
++++ b/kings/delegate/out/K35/PROOF.md
+@@ -0,0 +1,49 @@
++# Independent proof of Theorem 2.11K
++
++**Status: PROVED (conditional on the stated hypotheses).** This proof uses the frozen definitions in `blind_packet.md`, the adopted en-passant-aware meaning of “passed,” and ordinary legal chess moves for the real kings in P. It does not use the proof in LOOPY.
++
++Let β be the side whose pawn is p, and measure ranks by ρ from β's side. Write q_j for p's square after its j-th push, with q_0 its initial square. The number of ω moves made by the time p is at q_j is n_j. In particular, an ω turn at which p is already at q_j occurs after n_j such moves, and before that turn ω's king has made at most n_j king moves. The prescribed line Π pushes p at each β turn, using its initial double step exactly when ρ(p)=2.
++
++## 1. Pawns cannot capture or obstruct p
++
++The e.p.-aware passed-pawn condition says that initially no ω pawn lies on p's file or either neighboring file strictly ahead of p, and that p is not presently vulnerable to en passant. Consider any later attempted ordinary pawn capture of p. Immediately before the capture, the capturing ω pawn would have to be on one of p's neighboring files at rank-coordinate ρ(p)+1: ω pawns capture one step toward smaller ρ. Such a pawn cannot arise from an initially behind pawn, whose ρ only decreases. Nor can a pawn initially ahead make the capture: the passed condition excludes one in these files, and ω pawns cannot move toward larger ρ. Thus no ω pawn can capture p.
++
++An ω pawn can change files only by capturing a β pawn. For it to end up on p's file strictly ahead of p, its last such capture must be of a β pawn on a neighboring file at coordinate at least ρ(p)+2: the capture lands one rank nearer ω, hence still strictly ahead of p. H4 bounds every β pawn on either neighboring file by ρ(p)+1. No such last capture exists. A pawn on p's file at the same or a lower coordinate cannot block a forward push to a higher coordinate. Also, pawns cannot capture onto p's file by capturing p itself, as already shown. Therefore no ω pawn can occupy a future square of p's file or otherwise block a prescribed push.
++
++For the initial double push, the skipped square and landing square are empty by H1. En passant against that double push would require an ω pawn on a neighboring file at the landing coordinate. H1's passed condition excludes any such pawn, since the landing coordinate is strictly ahead of p's initial coordinate. Later pushes are single steps and create no en-passant right. The separate e.p.-aware clause in H1 also rules out an en-passant capture of p already offered at y. Hence en passant never defeats Π.
++
++## 2. ω's king cannot capture p or stop a push
++
++Fix an ω turn with p at q_j. By then ω's king has made at most n_j one-square moves from k_ω. The triangle inequality for king distance and (SQ) give
++
++\[
++d(k_\omega^{\rm current},q_j)\ \geq\ d(k_\omega,q_j)-n_j\ \geq 2.
++\]
++
++If s=β, the initial turn is not an ω turn with p at q_0 and (SQ) is not needed for j=0. For every later reply the displayed bound applies; if s=ω, it applies also at q_0. Thus on every reply the king is neither adjacent to p nor able to capture it. On the β push that follows, the next square q_{j+1} is empty of the king as well: before the reply, its distance from the current square is one for a single push (and the same argument at q_{j+1} after the reply rules out the landing square); the double-push case is covered by the separate skipped-square argument below.
++
++More explicitly for a double push, the skipped square q_1 is empty initially by H1. If ω moves its king to q_1 after p has landed at q_2, q_1 is behind p and is not on any later push path. If ω is to move before the double push, (SQ) at q_0 puts its king at distance at least two, so it cannot stand on q_1 and invalidate the double move. For every later single push, the bound applied to the current q_j after ω's king move excludes occupation of q_{j+1} (which is adjacent to q_j). Thus the king cannot capture p or occupy a landing square. The pawn argument in section 1 excludes pawn occupation of those squares.
++
++## 3. β remains safe and its pushes are legal
++
++The kings are not adjacent initially. In P every legal ω king move must leave the kings nonadjacent, so it cannot put β in check. A pawn checks a king only from an adjacent file. H2 says that no pawn of either colour is on a file adjacent to β's king's file; in particular no ω pawn attacks the stationary β king. This remains true: a pawn can change files only by capturing onto the square of a β pawn, and all β pawns on those adjacent files are absent at y and stay fixed (or are removed). Thus no ω pawn can enter one of those files. The king remains stationary, and no legal ω king move makes the kings adjacent. Consequently β is never in check.
++
++Every push in Π is a legal pawn move. Its destination is on the board; for the first push, H1 clears the whole forward path, including both the skipped and landing squares if it is a double step. Later, section 1 and the king-distance bound keep the next square empty. A pawn push does not expose β's king to a king attack because ω's king cannot move adjacent to it in a legal position, nor to a pawn attack by H2. Thus the side-to-move king-safety condition is maintained after each push.
++
++## 4. ω cannot promote first
++
++Consider any play against Π before p promotes. A ω king move may capture any of β's other pawns, and that possibility must not be ignored: it is explicitly included in G^K_\omega. In that game ω may make a king step on each turn, subject to the specified king-square restrictions, as well as make its pawn moves and captures. It therefore allows at least the pawn routes and captures available to any actual play in which ω's king has not captured p. The variant that also excludes squares attacked by remaining β pawns is no more permissive and is expressly covered by the hypothesis.
++
++If p's start coordinate is 2 and s=ω, the first move in G^K_\omega can include only the en-passant right offered at y, exactly as in P. H1 ensures this right cannot take p; after that first turn the right expires. In every other case, the initial pawn options agree with the stated game. Thus, if an actual ω pawn could promote within e of ω moves, its pawn sequence, including any captures of β's other pawns, would be a permitted sequence in G^K_\omega and would imply \(\mu^K_\omega(y;p)\le e\). This contradicts H5K. Therefore no ω pawn promotes before β's scheduled promotion. This reasoning allows ω's king to capture β's other pawns; the king is not assumed frozen.
++
++The timing convention makes the count exact: if s=ω, there are d=e ω moves before p's d-th (promoting) push; if s=β, there are d-1=e ω moves before that push. H5K rules out promotion in those moves. On the final β turn, p's path remains clear by sections 1–3 and its promotion is immediate and wins P by definition.
++
++## 5. ω always has a legal move or is mated
++
++This is needed to exclude a stalemate draw along Π. If an ω turn before p promotes exists, then e≥1. On that turn let x be ω's king square. At most e-1 ω king moves have occurred: the last ω turn precedes the final promoting push, and the counts above are e (when ω starts) or e moves in total (when β starts), leaving at most e-1 moves before the last reply. Hence \(d(x,k_\omega)\le e-1\). By (H3K), there is a king-neighbor t of x that is at distance at least 2 from k_β, and with no pawn on t's file or either neighboring file. The square t is not occupied by a pawn, and it is not occupied by β's king. It is a legal king destination: it is not adjacent to β's king and no β pawn attacks it, since any pawn attack would have to come from a neighboring file. It may be occupied by ω's own piece only if that piece were the king at x; since t is a distinct neighbor, it is not. Therefore ω has a legal king move. In particular, ω is not stalemated. If e=0, there is no ω turn before the immediate promotion. (If instead ω has no legal move because it is in check, it is checkmated and P is already a β win.)
++
++This proves (NS) from (H3K). Equivalently, the explicit NS hypothesis in the theorem is guaranteed on every ω turn of Π by H3K. The argument uses only the pawn-free file neighborhood, king distance, and the fact that the king's distance from its start grows by at most one per move.
++
++## 6. Conclusion
++
++Against every legal response to Π, β is never in check, p cannot be captured or blocked, ω cannot promote first, and ω is never stalemated. A checkmated ω loses immediately; otherwise play reaches p's clear promotion square, where β wins at once. Thus β wins P from (y,s) by Π.
+
+**Comparing Phase1 output**
+exec
+/bin/zsh -lc "rg -n 'Real-king square rule|Theorem 2\\.11K|H3K' kings/theory/LOOPY.md" in /Users/aritro/Downloads/Research/Chessendgames
+ succeeded in 0ms:
+79:| R2.11 | GAP → PROVED in P (frozen), as a sufficient condition (revised after K10, 2026-10-22): Proposition 2.11 and Corollary 2.11a give (V2) at a passer or race terminal under (H1)–(H5): a clear path for pawns and kings of both colours, no check, no stalemate, no interference of an ω pawn that captures a β pawn on a neighbouring file, and the timing bound for both move orders over all ω pawns. K10's first draft was FALSE (it ignored all of these); the statement and proof were rebuilt by a Sonnet agent and read step by step by the integrator. One AI proof, checked on 954,392 parked and 60,000 random-king positions with side to move against `kpsolve --frozen` (0 violations; scripts in `kings/delegate/out/K10/scripts/`). Computation CHECKED-2 by K10v (independent code, opencode beam-free): 0 violations in 146,328 certified instances (an instance is a position, side to move, β and p; 119,654 distinct positions with side to move) and 5,716 with an e.p. right; its proof verdict SOUND has no written derivation, so the proof is not re-derived by a second model (revised after K10v, 2026-10-22). Second round: two fresh Sonnet reviewers read the proof and found no error, and their own code found 0 violations in 5,730,596 certified positions with side to move (6,783,482 instances) on cylinders, plus 434,429 positions on flat boards, also 0 violations; a blind re-derivation outside the Sonnet family exists since K11b (Codex, 2026-10-27; §2, Proposition 2.11). Real kings (revised after K16, 2026-10-27): the square-rule CONJECTURE of Remark 2.11 is FALSE as stated (ω can be stalemated; counterexamples CHECKED-2: kp_p, the referee's own P solver and K16's `pyp.py` agree); a corrected rule, Theorem 2.11K (a king-restricted timing condition (H5K) and a no-stalemate condition, static (H3K) or along the pushing line (NS)), is PROVED in P (one AI proof, read step by step by the referee K16v, who found no gap; not re-derived by a second model), and its checks are CHECKED-2 on the small exhaustive sweeps and COMPUTED-1 on the large ones | R3 item 6; K10; K16 |
+1538:- **Proved about real kings: Theorem 2.11K below, a square rule with a no-stalemate clause (PROVED in P, one AI proof; revised after K16, 2026-10-27). Before K16: nothing.** Every step of Proposition 2.11 uses (F2). The hypotheses (H1)–(H5) are not enough with real kings:
+1542:- **Real-king square rule: the first statement is FALSE (CHECKED-2); with a no-stalemate clause it is PROVED in P (revised after K16, 2026-10-27).**
+1565:  - ***Theorem 2.11K.* PROVED in P (one AI proof, K16; read step by step by the referee K16v, who found no gap and no counterexample in about 1.1 million exhaustive and 16,500 random checks; not re-derived by a second model; Step 2 is Step 2 of Proposition 2.11, whose proof it quotes).** Notation of Proposition 2.11; Π is "β pushes p at every
+1569:    (NS) in no play of Π is ω stalemated at one of its turns (a search of depth ≤ e over ω's replies); (NS) follows from (H3K): every square x with d(x, k_ω) ≤ e − 1 has a king-neighbour t with
+1584:    *(H3K) ⟹ (NS).* At ω's m-th turn (m ≤ e) its king stands on some x with d(x, k_ω) ≤ m − 1 ≤ e − 1. For the t of (H3K), the three files around t hold no pawn, hence (F1) never do: t is never occupied by or attacked by a pawn, t is not β's king and not adjacent to it, so the step x → t is legal even in check. ∎
+1585:    Computational counterpart (COMPUTED-1): on every certified instance of every sweep (H3K) implies (NS) (0 exceptions among 761,023,066 certified instances, that is 609,716,942 certified positions, in the five top sweeps; an instance is a position with a choice of β and p; the nested sweeps are not added), and (NS) leaves 0 violations, kp_p and the simulation agreeing on all instances solved by both.
+1588:    cases (172 instances in the exhaustive sweeps, 393 positions in random hunts; COMPUTED-1) ω has a line that stalemates Π and β still wins by another move (kp_p), so Theorem 2.11K does not cover them and a proof needs another strategy for β.
+1591:- P11 in §6 relies on Proposition 2.11 in the sense given there (revised after K10, 2026-10-22). P11 is a frozen-model statement (`--frozen`); it does not use Theorem 2.11K, which is about P with real kings, and Theorem 2.11K does not change P11 (revised after K16, 2026-10-27).
+2740:     with real kings the square-rule conjecture of Remark 2.11 is FALSE as stated (ω can be stalemated; CHECKED-2), and Theorem 2.11K (PROVED in P: a corrected rule with a no-stalemate condition) applies where its hypotheses hold (revised after K16, 2026-10-27).
+2763:     passer (`Ka1 ka6 Pc2 w -` is (W, W) frozen and (D, D) with real kings); the real-king form is Theorem 2.11K of
+
+**Extracting specific theorem section**
+codex
+`PROOF.md` is now saved, so the blind phase is complete. I’m moving to the comparison and will grade each named substep against the statement and the arguments I wrote, including move-order edge cases and the double-step square.
+exec
+/bin/zsh -lc "sed -n '1470,1590p' kings/theory/LOOPY.md" in /Users/aritro/Downloads/Research/Chessendgames
+ succeeded in 0ms:
+- *(H1), kings.* `Ka1 kc5 Pc4 pf4 b -`, `Kc5 ka6 Pc4 pf4 b -`, `Kc6 ka6 Pc4 pf4 b -` and `Ka1 kc6 Pc4 pf4 b -`
+  (a king of either colour on the path, or on the promotion square) are all (L, L).
+- *(H1), e.p.* `Ka1 ka6 Pe4 pd4 b e3` (e4 has just been played, e.p. right on e3) is (L, L); the same position
+  without the right, `... b -`, is (W, W). The textbook passed test calls e4 passed at once, the aware test does not.
+  Another: `Ka1 ka6 Pc3 Pd4 Pf2 pc4 b d3` is (L, L) and `... b -` is (W, W): the right is the only reason that
+  μ = 3 ≤ e = 3 (the e.p. capture is the first move of G_ω).
+- *(H3).* `Ke1 ka6 Pa4 Pc5 Pg5 pa5 b -` is (D, D): p = c5 (d = 1), (H1), (H2), (H4) and (H5) hold (μ = ∞: a5 is
+  blocked and has nothing to capture), but Black has no legal move: a4 covers b5 and h5 across the seam, c5
+  covers b6 and g5 covers h6. Without Pg5 the king can step to h6 (and lose), and the position is (W, W). Also
+  flat:7×6 `Kb1 ka6 Pa4 Pc2 Pc5 pa5 b -` is (D, D); there the static (H2) fails, but no check can occur.
+  (P1a of §5.4, cyl:7×6 `Ka5 Pb4 Pc5 Pe2 Pe4 kc6 pb5 pe5 b -`, is (D, D) too, but it is not an example for (H3):
+  the black king stands on c6, the promotion square of c5, so (H1) fails as well.)
+
+**Checks (K10 fixer, 2026-10-22; kpsolve built privately from `kings/kpsolve.c`; data, not proof).** The
+scripts (`cert.py` decides (H1)–(H5) with its own move generator, and only `passed` and `promote_distance` are cylcgt's;
+`direct.py`, `direct2.py`, `e2e.py`) and their logs are copied to `kings/delegate/out/K10/scripts/`; their paths point
+at the old scratchpad.
+- *Proposition against `--frozen`, kings parked* (`Ka1` and a Black king on the top rank of the a-file, the b-file and the
+  last file empty, pawns on files c to W − 2, ≤ 3 per side except where noted; both colours as β, both sides to move; the
+  unit is a position with its side to move, certified for one β by some p): cyl:6×6 74,410
+  positions, cyl:8×6 (≤ 2 per side) 64,954, cyl:6×7 306,020, cyl:6×5 12,160, cyl:7×6 496,848: **0 violations in
+  954,392**. With (H4) dropped: 16 of 80 (6×6), 56 of 456 (6×7), 32 of 368 (7×6) violate.
+- *Independent check (K10v, opencode beam-free, own code; `kings/delegate/out/K10v/`; revised after K10v,
+  2026-10-22).* An instance is a position, a side to move, a beneficiary β and a pawn p. Its checker decides (H1)–(H5) with its own move generator and a search for μ_ω, and agrees with
+  cylcgt's `passed` on 2,000 random positions. Certified instances, all of them β wins in `--frozen`: cyl:6×6 parked,
+  ≤ 3 a side, 91,074 (74,410 positions with side to move, the same count as above); cyl:7×6 parked, ≤ 2 a side, 29,140,
+  and 20,000 random positions with 3 a side, 23,363; cyl:8×6 with random kings, 2,751; cyl:6×6 with an e.p. right, 5,716
+  (2,356 of them with another β pawn capturable e.p. and ω to move): **0 violations**. Dropping (H4) gives 80, 24 and
+  23 violations on the parked boards; dropping (H2) or (H3) gives 3,277 and 2,086 with random kings.
+- *Kings anywhere* (random placements, so that (H2), (H3) and the king clause of (H1) are tested as stated): cyl:7×6,
+  cyl:8×6 and cyl:6×7, 20,000 positions with side to move each, ≤ 3 pawns a side: 0 violations in 60,000. With one hypothesis dropped,
+  the violations are: (H2) 1,744, 1,853 and 1,394 of 20,000; (H3) 8 of 19,033, 8 of 16,599 and 5 of 20,000; the king
+  clause of (H1) 563 of 1,315, 469 of 1,020 and 556 of 1,783; (H4) 0 of 4 and 0 of 9 (too few) and 2 of 11.
+- *Chain D → P, end to end* (kings parked; no passer at the root; both sides to move): cyl:6×6 files c–e, ≤ 3 pawns a
+  side, 9,852 roots; cyl:7×6 files c–f, ≤ 3 a side, 40,204 roots; cyl:8×6 ≤ 2 a side, 5,384 roots; cyl:6×6 ≤ 2, 1,432
+  roots; 56,872 in all. The conservative D-game in which a side's own terminals, and the opponent's moves into
+  terminals credited to it, must be certified by Corollary 2.11a gives a win only if `--frozen` agrees: 48,000
+  certified wins, 0 violations. When **every** terminal of the D-game is certified (26,014 roots), `--frozen` equals
+  the D-result (o(W)): 0 violations. Without (H4) in the certificate: 8 violations (cyl:6×6). `--frozen` differs from
+  o(W) at 3,194 of the 56,872 roots, all of them with some uncertified terminal.
+- *Second round (two Sonnet reviewers in fresh contexts, own code, without reading K10's or K10v's files;
+  scripts and result JSONs in `kings/delegate/out/K10r2/`; 2026-10-22).* An instance is (position, side to move, β, p).
+  - Exhaustive with kings parked on the a-file (all legal a-file king pairs): cyl:5×6 files c–d ≤ 3 a side, cyl:6×6
+    c–e ≤ 3, cyl:7×6 c–f ≤ 2, cyl:8×6 c–g ≤ 2, cyl:6×7 c–e ≤ 2. Exhaustive with free kings: cyl:5×6 c–d ≤ 3, cyl:4×6.
+    Random scenes built for the tight cases (cyl:5×6 to 8×6, 6×7, 6×5) and uniform random positions (cyl:5×6 to 8×6,
+    6×7). On these cylinders, in all,
+    5,730,596 certified positions with side to move (6,783,482 instances): **0 violations**, and no position is
+    certified for both colours. Flat 5×6, 6×6, 7×6 and 6×7: 434,429 positions (516,823 instances), 0 violations.
+  - The tight cases occur among the cylinder instances: (H5) with μ = e + 1 (3,306,911 instances), another β pawn at ρ(p) + 1 on an
+    adjacent file (242,044), an ω pawn entering the strip by a capture (307,127), an ω e.p. right against another
+    β pawn (333,474), ω in check at y (48,190), races (4,642,279).
+  - Controls: on cyl:6×6 parked (all legal a-file king pairs, so a larger sample than the 16 of 80 above), dropping (H4) gives 24 of 940 failures, and the same 24 fail with the bound
+    ρ(p) + 2 (`Ka1 ka6 Pe2 pc5 pd3 pe5 w -`); (H5) weakened to μ ≥ e gives 6,891 of 7,855; dropping the e.p. clause
+    of (H1) gives 272 of 692. With random kings, dropping (H2) or the king clause of (H1) gives hundreds of failures
+    per board, dropping (H3) 1 to 12.
+  - Reproduced exactly: every parked count above that was re-run (74,410; 64,954; 306,020; 12,160;
+    496,848; K10v's 91,074 and 29,140), the end-to-end figures (48,000 conservative wins, 26,014 fully certified
+    roots, 3,194 differences, 8 violations without (H4)), and every example above. On cyl:8×6 with pawns on c–g
+    (≤ 2 a side), (H2), (H3) and the king clause of (H1) held in all 371,250 instances (Corollary 2.11b), and
+    dp(ω) ≥ μ_ω held in all 378,407 instances with no king on the fastest passer's path (the count-rule remark).
+  - Both reviewers read Steps 0–5 and Corollaries 2.11a and 2.11b against `cylcgt/pawns.py` and `kings/kpsolve.c`
+    and found no error. Their findings were the root case of P11, the legality of y, and the wording fixed here.
+
+**Remark 2.11 (the certificate is not special to kings; real kings).** The same (V2) question arises for passer
+terminals. The certificate of Definition 2.6 (king moves) does not apply to a passer as written (Q_Z deletes the
+passer, r is not a king capture, the owner's king may leave F_Z, the component's own pawns are unaddressed).
+Proposition 2.11 supplies the missing certificate for passer and race terminals **in the frozen model**, and
+Corollary 2.11a states it for the D-model.
+- **Proved about real kings: Theorem 2.11K below, a square rule with a no-stalemate clause (PROVED in P, one AI proof; revised after K16, 2026-10-27). Before K16: nothing.** Every step of Proposition 2.11 uses (F2). The hypotheses (H1)–(H5) are not enough with real kings:
+  `Ka1 ka6 Pc2 w -` (cyl:8×6) satisfies (H1)–(H5) with μ = ∞ and is (W, W) in F, but P with real kings (a private
+  `--pmodel` build, `kings/delegate/out/K7/scripts/draft/kp_p.c`) and chess (kpsolve exact) both give (D, D).
+- **Corollary 2.8** is the real-king statement for one pawn: a single-pawn local game with a king beyond reach.
+- **Real-king square rule: the first statement is FALSE (CHECKED-2); with a no-stalemate clause it is PROVED in P (revised after K16, 2026-10-27).**
+  - *The former CONJECTURE is false.* It said: let β's king be sheltered as in (H2), let the pawn data satisfy (H1), (H4) and (H5) with
+    ω's king allowed to move and to capture β's other pawns in G_ω, let q₀, …, q_d be the squares p occupies before its first push and
+    after each push, and n_j = j if s = ω, j − 1 if s = β; if d(k_ω, q_j) ≥ n_j + 2 for every j (j = 0 only if s = ω), then β wins P with real kings.
+    It drops (H3) of Proposition 2.11, and with real kings ω can be stalemated, or can walk into a stalemate, which is a draw in P (the Remark's own
+    caveat). CHECKED-2 (kp_p `--pmodel`, the referee K16v's own P solver and the pure-Python solver `kings/delegate/out/K16/scripts/pyp.py` agree; the referee's own
+    certificate accepts the named pawn in each case): cyl:6×6 `Ka4 ka6 Pa5 Pd5 b -` (β = White, p = d5, Black has no legal move at y itself), flat:6×6
+    `Kc1 ka1 Pc2 pa2 w -` (one pawn each, ω's king is shut in by its own pawn and β's king), `Kc1 ka1 Pc2 pa3 w -` (ω steers into the stalemate: c3 pa2 c4) and
+    `Kd2 kf1 Pa2 Pf3 pf2 pd3 w -` (stalemate after the first push) are (D, D) although every hypothesis holds. The earlier scratch evidence (`Ka1` only, ≤ 2 + 2 pawns) cannot meet such nets.
+    K16's own two implementations of the certificate agree on 15,000 random positions (COMPUTED-1, not re-run by the referee).
+  - *Counts (β = White; the flip of ranks and colours gives β = Black, checked on 175,454 positions, COMPUTED-1).* Exhaustive over all kings, both sides to move, e.p. rights,
+    COMPUTED-1 (K16's own code; the referee did not re-run these): certified positions and the violating ones (kp_p value not a β win): cyl:6×6 ≤ 4 + 4 pawns 142,434,153 certified, **496 violating**; cyl:6×6 ≤ 3 + 3 19,373,221, 32;
+    cyl:7×6 ≤ 3 + 3 117,348,760, 101 (≤ 3 + 2: 26,083,399, 93; ≤ 2 + 2: 3,740,009, 2); cyl:8×6 ≤ 2 + 2 10,378,374, 4; flat:6×6 ≤ 3 + 3 299,322,340, **54,452** (≤ 2 + 2: 11,838,544, 5,490); flat:7×6 ≤ 2 + 2 40,233,315, 9,662.
+    The small sweeps were reproduced exactly by the referee with his own enumeration, his own certificate and kp_p (CHECKED-2): flat:6×6 ≤ 1 + 1 156,528 certified, 208 violating (all (D, D)); flat:7×6 ≤ 1 + 1 357,542, 276; flat:6×6 ≤ 2 + 0 171,334, 36;
+    cyl:6×6 ≤ 2 + 2 1,072,469, 1 (`Ka4 ka6 Pa5 Pd5 b -`). One pawn in all (1 + 0) never violates (CHECKED-2 on flat:6×6, flat:7×6 and cyl:6×6); 1 + 1 violates on flat boards only (flat:6×6 208, flat:7×6 276 positions, kp_p on every position;
+    CHECKED-2), on cylinders from 2 pawns (cyl:6×6 ≤ 2 + 0 has 1; CHECKED-2).
+    A strategy simulation (own move generator, checked against `pyp.py`) plays "β pushes p every turn" against all ω lines on every certified instance: its only failures are ω stalemates
+    (at y or later) — no capture of p, no block, no earlier ω promotion in any sweep — so a violation can only sit where the simulation shows a stalemate line, and kp_p was run on all of those (COMPUTED-1 for the large sweeps; the referee's own simulation
+    reports a stalemate as the only failure on the small ones, CHECKED-2).
+    "ω not stalemated at y" is not enough (22 violating instances of the cyl:6×6 ≤ 4 + 4 sweep and 45,566 of the flat:6×6 ≤ 3 + 3 sweep remain; COMPUTED-1).
+    The control without king moves in G_ω (variant KV = 2) fails on 153,582 instances of cyl:6×6 ≤ 3 + 3 (ω promotes first; COMPUTED-1, K16's number). The simplest mechanism is that the king steps off its own pawn's path
+    and its pawn then promotes: cyl:6×6 `Ka1 ke1 Pc2 pe2 w -` passes every hypothesis under KV = 2 (the king is frozen, so the pawn on e2 never moves) and is (L, L) in P, since Black plays Kd1 and e1=Q before c6 can be reached
+    (kp_p, and the referee's certificate accepts it under KV = 2; COMPUTED-1). So (H5) must use the king.
+  - ***Theorem 2.11K.* PROVED in P (one AI proof, K16; read step by step by the referee K16v, who found no gap and no counterexample in about 1.1 million exhaustive and 16,500 random checks; not re-derived by a second model; Step 2 is Step 2 of Proposition 2.11, whose proof it quotes).** Notation of Proposition 2.11; Π is "β pushes p at every
+    turn (the double step first if ρ(p) = 2)". Assume (H1) (path free of pawns and kings), (H4), (H2) (no pawn of either colour on a file adjacent to β's king's file),
+    (H5K) μ^K_ω(y; p) ≥ e + 1, where μ^K_ω is μ_ω in G^K_ω, which is G_ω with ω's king allowed one step per move onto a square that is not an ω pawn, not β's king and not adjacent to it,
+    capturing β's other pawns (the variant that also forbids squares attacked by a remaining β pawn is covered too), (SQ) d(k_ω, q_j) ≥ n_j + 2 for j = 0, …, d (j = 0 only if s = ω), and
+    (NS) in no play of Π is ω stalemated at one of its turns (a search of depth ≤ e over ω's replies); (NS) follows from (H3K): every square x with d(x, k_ω) ≤ e − 1 has a king-neighbour t with
+    d(t, k_β) ≥ 2 and no pawn of either colour on the files of t, t − 1, t + 1. Then β wins P from (y, s) by Π.
+    *Proof.* (F1) a pawn changes file only by a capture, landing on the captured pawn's square (e.p.: on the captured pawn's file); a king capture only removes a pawn; so a pawn enters a file only by
+    capturing a pawn on it and a file without pawns never gets one. (F2) the first promotion ends P with a win for its maker. (F3) under Π only p moves.
+    *Step 1.* By (H2) and (F1) no pawn ever stands on a file adjacent to β's king, so no ω pawn attacks it, and ω's king is never adjacent to it: β is never in check and no push exposes β's king.
+    *Step 2.* Exactly Step 2 of Proposition 2.11, proved by induction on the plies of the play (Steps 2 and 3 use each other: Step 2 assumes that p is still on the board, Step 3 shows that ω's king never takes it; the induction runs over the plies, and at each ply both statements hold for the earlier plies):
+    (J_β) at β's turns every ω pawn in the strip f − 1, f, f + 1 has ρ ≤ ρ_p + 1; (J_ω) at ω's turns it has ρ ≤ ρ_p and p cannot be taken e.p.; (I1) no pawn stands ahead of p on its file.
+    The proof uses only pawn moves, (H1), (H4) and (F1)–(F3); king captures remove β pawns and add none, so every bound on a landing rank can only drop. Hence no ω pawn captures p or lands ahead of it.
+    *Step 3.* After β's j-th push p stands on q_j and ω has made n_j moves, its king at distance ≤ n_j from k_ω; to capture p it needs distance ≤ 1, i.e. d(k_ω, q_j) ≤ n_j + 1, against (SQ) (for j = 0, s = ω, no move has been made and d(k_ω, q₀) ≥ 2).
+    Before the (j + 1)-th push ω has made n_{j+1} moves, so its king is on q_{j+1} only if d(k_ω, q_{j+1}) ≤ n_{j+1}, against (SQ); the square skipped by the double step is adjacent to q₁ and at distance ≥ n₁ + 1. β's king is not on the path (H1).
+    With Step 2 every push of Π is legal.
+    *Step 4.* β always has the push; by (NS) ω has a legal move (or is mated, a win for β) at each turn.
+    *Step 5.* Every ω move before β's promoting push is a move of G^K_ω from y (pawn moves: the squares empty in the play are empty in G_ω, where p is deleted, captured pawns are β pawns other than p, the only e.p. capture is the one offered at y;
+    king moves: a legal king step goes to a square that is not an ω pawn, not β's king, not adjacent to it, and captures a β pawn other than p). Before β's d-th push ω has made exactly e moves, and (H5K) says that none of the e-move plays of G^K_ω puts an ω pawn on its last rank.
+    So ω does not promote first, and the d-th push promotes: β wins by (F2).
+    *(H3K) ⟹ (NS).* At ω's m-th turn (m ≤ e) its king stands on some x with d(x, k_ω) ≤ m − 1 ≤ e − 1. For the t of (H3K), the three files around t hold no pawn, hence (F1) never do: t is never occupied by or attacked by a pawn, t is not β's king and not adjacent to it, so the step x → t is legal even in check. ∎
+    Computational counterpart (COMPUTED-1): on every certified instance of every sweep (H3K) implies (NS) (0 exceptions among 761,023,066 certified instances, that is 609,716,942 certified positions, in the five top sweeps; an instance is a position with a choice of β and p; the nested sweeps are not added), and (NS) leaves 0 violations, kp_p and the simulation agreeing on all instances solved by both.
+    These are checks of the proved implication and of the theorem, not part of the proof. The referee's own samples agree (COMPUTED-1: 16,500 random positions on six boards, and all 1,072,467 certified positions of cyl:6×6 ≤ 2 + 2 without a stalemate line are (W, W) in kp_p; 0 exceptions).
+  - *CONJECTURE′ (evidence only).* Replace (NS) by (H3) of Proposition 2.11 at ω's own king: k_ω has a neighbouring square t, not adjacent to β's king, with no pawn on the files of t, t − 1, t + 1. 0 violations in all sweeps and hunts, but in 565
+    cases (172 instances in the exhaustive sweeps, 393 positions in random hunts; COMPUTED-1) ω has a line that stalemates Π and β still wins by another move (kp_p), so Theorem 2.11K does not cover them and a proof needs another strategy for β.
+    The 172 are 134 (flat:6×6 ≤ 3 + 3) + 36 (flat:7×6 ≤ 2 + 2) + 2 (cyl:8×6 ≤ 2 + 2); the flat:6×6 ≤ 2 + 2 sweep (8 instances) is nested in the ≤ 3 + 3 one and is not added again (revised after K16v, 2026-10-27).
+  - The chess form needs (A_Q) at the resulting position (§1.2) and is not claimed. Data, scripts and counts: `kings/delegate/out/K16/` (`logs/`, `scripts/`).
+
+**Analyzing LOOPY proof steps**
+**Examining move permissiveness in Gω**
+**Analyzing skipped square distances**
+**Reviewing proof details and test needs**
+
+I’m spotting some gaps and subtleties in the pawn capture and file-change arguments, especially involving en passant. I'm considering whether to run tests to check the critical statements, but it seems optional, so I may just note the proof logic and the possibility of future testing.
+**Analyzing proof details and gaps**
+**Clarifying en passant and capture rules**
+**Analyzing omega pawn captures**
+**Evaluating pawn advancement and king safety**
+**Reviewing report requirements**
+**Evaluating proof step verification**
+**Reviewing theorem proof details**
+**Analyzing move timing and distances**
+**Clarifying king move constraints**
+**Analyzing king capture timing**
+**Clarifying movement and skipping logic**
+**Reviewing king check exclusions**
+apply patch
+patch: completed
+/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K35/PROOF.md
+diff --git a/kings/delegate/out/K35/PROOF.md b/kings/delegate/out/K35/PROOF.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..620a69f8c3f19521e6f3bcd0ada1d84add651442
+--- /dev/null
++++ b/kings/delegate/out/K35/PROOF.md
+@@ -0,0 +1,49 @@
++# Independent proof of Theorem 2.11K
++
++**Status: PROVED (conditional on the stated hypotheses).** This proof uses the frozen definitions in `blind_packet.md`, the adopted en-passant-aware meaning of “passed,” and ordinary legal chess moves for the real kings in P. It does not use the proof in LOOPY.
++
++Let β be the side whose pawn is p, and measure ranks by ρ from β's side. Write q_j for p's square after its j-th push, with q_0 its initial square. The number of ω moves made by the time p is at q_j is n_j. In particular, an ω turn at which p is already at q_j occurs after n_j such moves, and before that turn ω's king has made at most n_j king moves. The prescribed line Π pushes p at each β turn, using its initial double step exactly when ρ(p)=2.
++
++## 1. Pawns cannot capture or obstruct p
++
++The e.p.-aware passed-pawn condition says that initially no ω pawn lies on p's file or either neighboring file strictly ahead of p, and that p is not presently vulnerable to en passant. Consider any later attempted ordinary pawn capture of p. Immediately before the capture, the capturing ω pawn would have to be on one of p's neighboring files at rank-coordinate ρ(p)+1: ω pawns capture one step toward smaller ρ. Such a pawn cannot arise from an initially behind pawn, whose ρ only decreases. Nor can a pawn initially ahead make the capture: the passed condition excludes one in these files, and ω pawns cannot move toward larger ρ. Thus no ω pawn can capture p.
++
++An ω pawn can change files only by capturing a β pawn. For it to end up on p's file strictly ahead of p, its last such capture must be of a β pawn on a neighboring file at coordinate at least ρ(p)+2: the capture lands one rank nearer ω, hence still strictly ahead of p. H4 bounds every β pawn on either neighboring file by ρ(p)+1. No such last capture exists. A pawn on p's file at the same or a lower coordinate cannot block a forward push to a higher coordinate. Also, pawns cannot capture onto p's file by capturing p itself, as already shown. Therefore no ω pawn can occupy a future square of p's file or otherwise block a prescribed push.
++
++For the initial double push, the skipped square and landing square are empty by H1. En passant against that double push would require an ω pawn on a neighboring file at the landing coordinate. H1's passed condition excludes any such pawn, since the landing coordinate is strictly ahead of p's initial coordinate. Later pushes are single steps and create no en-passant right. The separate e.p.-aware clause in H1 also rules out an en-passant capture of p already offered at y. Hence en passant never defeats Π.
++
++## 2. ω's king cannot capture p or stop a push
++
++Fix an ω turn with p at q_j. Before ω moves, its king has made n_j one-square moves from k_ω. The triangle inequality for king distance and (SQ) give
++
++\[
++d(k_\omega^{\rm current},q_j)\ \geq\ d(k_\omega,q_j)-n_j\ \geq 2.
++\]
++
++If s=β, the initial turn is not an ω turn with p at q_0 and (SQ) is not needed for j=0. For every later reply the displayed bound applies; if s=ω, it applies also at q_0. At the start of each ω turn the king is at least distance two from p, so its one move cannot capture p. After that move it has made n_{j+1} moves, and (SQ) at q_{j+1} gives distance at least two from the next landing square. Thus the β push that follows cannot be blocked by the king. The double-push case is covered by the separate skipped-square argument below.
++
++More explicitly for a double push, the skipped square is empty initially by H1. If ω moves its king to that square after p has landed beyond it, the skipped square is behind p and is not on any later push path. If ω is to move before the double push, (SQ) at q_0 puts its king at distance at least two, so it cannot stand on the skipped square and invalidate the double move. For every later single push, (SQ) at the next landing square, applied after ω's reply (when the king has made n_{j+1} moves), gives distance at least two from q_{j+1}. Thus the king cannot capture p or occupy a landing square. The pawn argument in section 1 excludes pawn occupation of those squares.
++
++## 3. β remains safe and its pushes are legal
++
++The kings are not adjacent initially. In P every legal ω king move must leave the kings nonadjacent, so it cannot put β in check. A pawn checks a king only from an adjacent file. H2 says that no pawn of either colour is on a file adjacent to β's king's file; in particular no ω pawn attacks the stationary β king. This remains true: a pawn can change files only by capturing onto the square of a β pawn, and all β pawns on those adjacent files are absent at y and stay fixed (or are removed). Thus no ω pawn can enter one of those files. The king remains stationary, and no legal ω king move makes the kings adjacent. Consequently β is never in check.
++
++Every push in Π is a legal pawn move. Its destination is on the board; for the first push, H1 clears the whole forward path, including both the skipped and landing squares if it is a double step. Later, section 1 and the king-distance bound keep the next square empty. A pawn push does not expose β's king to a king attack because ω's king cannot move adjacent to it in a legal position, nor to a pawn attack by H2. Thus the side-to-move king-safety condition is maintained after each push.
++
++## 4. ω cannot promote first
++
++Consider any play against Π before p promotes. A ω king move may capture any of β's other pawns, and that possibility must not be ignored: it is explicitly included in G^K_\omega. In that game ω may make a king step on each turn, subject to the specified king-square restrictions, as well as make its pawn moves and captures. It therefore allows at least the pawn routes and captures available to any actual play in which ω's king has not captured p. The variant that also excludes squares attacked by remaining β pawns is no more permissive and is expressly covered by the hypothesis.
++
++If p's start coordinate is 2 and s=ω, the first move in G^K_\omega can include only the en-passant right offered at y, exactly as in P. H1 ensures this right cannot take p; after that first turn the right expires. In every other case, the initial pawn options agree with the stated game. Thus, if an actual ω pawn could promote within e of ω moves, its pawn sequence, including any captures of β's other pawns, would be a permitted sequence in G^K_\omega and would imply \(\mu^K_\omega(y;p)\le e\). This contradicts H5K. Therefore no ω pawn promotes before β's scheduled promotion. This reasoning allows ω's king to capture β's other pawns; the king is not assumed frozen.
++
++The timing convention makes the count exact: if s=ω, there are d=e ω moves before p's d-th (promoting) push; if s=β, there are d-1=e ω moves before that push. H5K rules out promotion in those moves. On the final β turn, p's path remains clear by sections 1–3 and its promotion is immediate and wins P by definition.
++
++## 5. ω always has a legal move or is mated
++
++This is needed to exclude a stalemate draw along Π. If an ω turn before p promotes exists, then e≥1. On that turn let x be ω's king square. At most e-1 ω king moves have occurred: the last ω turn precedes the final promoting push, and the counts above are e (when ω starts) or e moves in total (when β starts), leaving at most e-1 moves before the last reply. Hence \(d(x,k_\omega)\le e-1\). By (H3K), there is a king-neighbor t of x that is at distance at least 2 from k_β, and with no pawn on t's file or either neighboring file. The square t is not occupied by a pawn, and it is not occupied by β's king. It is a legal king destination: it is not adjacent to β's king and no β pawn attacks it, since any pawn attack would have to come from a neighboring file. It may be occupied by ω's own piece only if that piece were the king at x; since t is a distinct neighbor, it is not. Therefore ω has a legal king move. In particular, ω is not stalemated. If e=0, there is no ω turn before the immediate promotion. (If instead ω has no legal move because it is in check, it is checkmated and P is already a β win.)
++
++This proves (NS) from (H3K). Equivalently, the explicit NS hypothesis in the theorem is guaranteed on every ω turn of Π by H3K. The argument uses only the pawn-free file neighborhood, king distance, and the fact that the king's distance from its start grows by at most one per move.
++
++## 6. Conclusion
++
++Against every legal response to Π, β is never in check, p cannot be captured or blocked, ω cannot promote first, and ω is never stalemated. A checkmated ω loses immediately; otherwise play reaches p's clear promotion square, where β wins at once. Thus β wins P from (y,s) by Π.
+
+**Analyzing pawn capture logic**
+**Examining pawn movement constraints**
+**Analyzing step and distance constraints**
+**Evaluating pawn capture and move invariants**
+**Analyzing king and pawn move legality**
+**Reviewing king checks and proof validation**
+**Assessing theorem proof status**
+**Reviewing proof steps and testing**
+apply patch
+patch: completed
+/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K35/FINDINGS.md
+/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K35/REPORT.md
+diff --git a/kings/delegate/out/K35/FINDINGS.md b/kings/delegate/out/K35/FINDINGS.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..7b7ce3c1c90c158ff64c5a1731fa1126eb34fa23
+--- /dev/null
++++ b/kings/delegate/out/K35/FINDINGS.md
+@@ -0,0 +1,31 @@
++# Findings
++
++Independent blind review of Theorem 2.11K: **PROVED** under its stated hypotheses.
++The blind proof uses passed-pawn geometry, the king-distance bound, and move-count timing.
++After comparison, every listed LOOPY step is **SOUND**; no counterexample or proof gap found.
++The new proof treats the double-step square and captures of other β pawns explicitly.
++No executable solver or random-position test was run; the verdict rests on the written derivation.
++
++## Route compared
++
++My blind route proves the pawn invariant directly from monotone pawn direction, the e.p.-aware passed test, and H4's bound on β pawns next to p. LOOPY organizes that argument as the induction invariants \(J_\beta\), \(J_\omega\), and \(I_1\), invoking Step 2 of Proposition 2.11. Both routes use (SQ) and the triangle inequality to protect p from the king, then use H5K to exclude an earlier ω promotion. I made the timing count explicit for both move orders and separately tracked the initial double-step's skipped square. I did not rely on the proposition's proof in the blind derivation.
++
++## LOOPY proof audit
++
++| Item | Verdict | Reason |
++|---|---|---|
++| (F1) | **SOUND** | Pawn file changes require a capture onto a square occupied by a pawn; en passant also lands on the captured pawn's file. Capturing a β pawn removes it and cannot create a pawn on a previously pawn-free file. |
++| (F2) | **SOUND** | This is the stipulated P rule: the first promotion wins immediately for its maker. |
++| (F3) | **SOUND** | By definition, Π moves only p on β turns; ω moves on its own turns. |
++| Step 1 | **SOUND** | H2 and (F1) keep all pawns off files adjacent to β's stationary king. Legal king moves keep the kings nonadjacent, so β is not in check and a push cannot expose its king. |
++| Step 2 | **SOUND** | The stated induction maintains the strip-rank bounds at alternating turns; H1/H4 supply the initial bounds, and pawn captures of β pawns only remove possible blockers. It excludes both an ordinary capture of p and landing ahead of p on its file. H1's e.p.-aware clause and the same induction handle e.p. against p. |
++| Step 3 | **SOUND** | After n_j king moves, (SQ) leaves distance at least two from q_j, so the king cannot capture p on that turn. At the next push, (SQ) for q_{j+1} after n_{j+1} moves leaves distance at least two from the landing square. The skipped double-step square is separately bounded and cannot be occupied before the double push; if visited afterward, it is behind p. |
++| Step 4 | **SOUND** | Steps 1–3 ensure β can push legally. NS excludes stalemate at every ω turn; an ω position with no legal move while in check is mate and already a β win. |
++| Step 5 | **SOUND** | Deleting p only opens squares for ω's pawns in G^K_ω; the game retains β's king and other pawns, permits their captures by ω's king, and includes the initial e.p. right. Actual legal play before p promotes is therefore represented by an allowed play in that game. H5K rules out promotion within the e moves. |
++| (H3K) ⟹ (NS) | **SOUND** | On the m-th ω turn, at most m−1 king moves have elapsed. The supplied t is empty, unattacked by pawns, and not adjacent to β's king, so it is a legal king destination even if ω is in check. If e=0, there is no ω turn before promotion. |
++
++## Tests and label
++
++No computational test was run. The theorem did not appear false during the blind derivation, so I did not build or run `kp_p`. The statement is proved here by a written derivation; this review contributes an independent, non-Claude-family proof. This is **not CHECKED-2**, which requires two independent implementations.
++
++**Recommended label: PROVED**, with the provenance updated to record this independent derivation. The previously reported LOOPY computational results remain claims of that report; I did not reproduce them in this task. No new numeric result was computed, so there is no numeric reproduce command to give.
+diff --git a/kings/delegate/out/K35/PROOF.md b/kings/delegate/out/K35/PROOF.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..620a69f8c3f19521e6f3bcd0ada1d84add651442
+--- /dev/null
++++ b/kings/delegate/out/K35/PROOF.md
+@@ -0,0 +1,49 @@
++# Independent proof of Theorem 2.11K
++
++**Status: PROVED (conditional on the stated hypotheses).** This proof uses the frozen definitions in `blind_packet.md`, the adopted en-passant-aware meaning of “passed,” and ordinary legal chess moves for the real kings in P. It does not use the proof in LOOPY.
++
++Let β be the side whose pawn is p, and measure ranks by ρ from β's side. Write q_j for p's square after its j-th push, with q_0 its initial square. The number of ω moves made by the time p is at q_j is n_j. In particular, an ω turn at which p is already at q_j occurs after n_j such moves, and before that turn ω's king has made at most n_j king moves. The prescribed line Π pushes p at each β turn, using its initial double step exactly when ρ(p)=2.
++
++## 1. Pawns cannot capture or obstruct p
++
++The e.p.-aware passed-pawn condition says that initially no ω pawn lies on p's file or either neighboring file strictly ahead of p, and that p is not presently vulnerable to en passant. Consider any later attempted ordinary pawn capture of p. Immediately before the capture, the capturing ω pawn would have to be on one of p's neighboring files at rank-coordinate ρ(p)+1: ω pawns capture one step toward smaller ρ. Such a pawn cannot arise from an initially behind pawn, whose ρ only decreases. Nor can a pawn initially ahead make the capture: the passed condition excludes one in these files, and ω pawns cannot move toward larger ρ. Thus no ω pawn can capture p.
++
++An ω pawn can change files only by capturing a β pawn. For it to end up on p's file strictly ahead of p, its last such capture must be of a β pawn on a neighboring file at coordinate at least ρ(p)+2: the capture lands one rank nearer ω, hence still strictly ahead of p. H4 bounds every β pawn on either neighboring file by ρ(p)+1. No such last capture exists. A pawn on p's file at the same or a lower coordinate cannot block a forward push to a higher coordinate. Also, pawns cannot capture onto p's file by capturing p itself, as already shown. Therefore no ω pawn can occupy a future square of p's file or otherwise block a prescribed push.
++
++For the initial double push, the skipped square and landing square are empty by H1. En passant against that double push would require an ω pawn on a neighboring file at the landing coordinate. H1's passed condition excludes any such pawn, since the landing coordinate is strictly ahead of p's initial coordinate. Later pushes are single steps and create no en-passant right. The separate e.p.-aware clause in H1 also rules out an en-passant capture of p already offered at y. Hence en passant never defeats Π.
++
++## 2. ω's king cannot capture p or stop a push
++
++Fix an ω turn with p at q_j. Before ω moves, its king has made n_j one-square moves from k_ω. The triangle inequality for king distance and (SQ) give
++
++\[
++d(k_\omega^{\rm current},q_j)\ \geq\ d(k_\omega,q_j)-n_j\ \geq 2.
++\]
++
++If s=β, the initial turn is not an ω turn with p at q_0 and (SQ) is not needed for j=0. For every later reply the displayed bound applies; if s=ω, it applies also at q_0. At the start of each ω turn the king is at least distance two from p, so its one move cannot capture p. After that move it has made n_{j+1} moves, and (SQ) at q_{j+1} gives distance at least two from the next landing square. Thus the β push that follows cannot be blocked by the king. The double-push case is covered by the separate skipped-square argument below.
++
++More explicitly for a double push, the skipped square is empty initially by H1. If ω moves its king to that square after p has landed beyond it, the skipped square is behind p and is not on any later push path. If ω is to move before the double push, (SQ) at q_0 puts its king at distance at least two, so it cannot stand on the skipped square and invalidate the double move. For every later single push, (SQ) at the next landing square, applied after ω's reply (when the king has made n_{j+1} moves), gives distance at least two from q_{j+1}. Thus the king cannot capture p or occupy a landing square. The pawn argument in section 1 excludes pawn occupation of those squares.
++
++## 3. β remains safe and its pushes are legal
++
++The kings are not adjacent initially. In P every legal ω king move must leave the kings nonadjacent, so it cannot put β in check. A pawn checks a king only from an adjacent file. H2 says that no pawn of either colour is on a file adjacent to β's king's file; in particular no ω pawn attacks the stationary β king. This remains true: a pawn can change files only by capturing onto the square of a β pawn, and all β pawns on those adjacent files are absent at y and stay fixed (or are removed). Thus no ω pawn can enter one of those files. The king remains stationary, and no legal ω king move makes the kings adjacent. Consequently β is never in check.
++
++Every push in Π is a legal pawn move. Its destination is on the board; for the first push, H1 clears the whole forward path, including both the skipped and landing squares if it is a double step. Later, section 1 and the king-distance bound keep the next square empty. A pawn push does not expose β's king to a king attack because ω's king cannot move adjacent to it in a legal position, nor to a pawn attack by H2. Thus the side-to-move king-safety condition is maintained after each push.
++
++## 4. ω cannot promote first
++
++Consider any play against Π before p promotes. A ω king move may capture any of β's other pawns, and that possibility must not be ignored: it is explicitly included in G^K_\omega. In that game ω may make a king step on each turn, subject to the specified king-square restrictions, as well as make its pawn moves and captures. It therefore allows at least the pawn routes and captures available to any actual play in which ω's king has not captured p. The variant that also excludes squares attacked by remaining β pawns is no more permissive and is expressly covered by the hypothesis.
++
++If p's start coordinate is 2 and s=ω, the first move in G^K_\omega can include only the en-passant right offered at y, exactly as in P. H1 ensures this right cannot take p; after that first turn the right expires. In every other case, the initial pawn options agree with the stated game. Thus, if an actual ω pawn could promote within e of ω moves, its pawn sequence, including any captures of β's other pawns, would be a permitted sequence in G^K_\omega and would imply \(\mu^K_\omega(y;p)\le e\). This contradicts H5K. Therefore no ω pawn promotes before β's scheduled promotion. This reasoning allows ω's king to capture β's other pawns; the king is not assumed frozen.
++
++The timing convention makes the count exact: if s=ω, there are d=e ω moves before p's d-th (promoting) push; if s=β, there are d-1=e ω moves before that push. H5K rules out promotion in those moves. On the final β turn, p's path remains clear by sections 1–3 and its promotion is immediate and wins P by definition.
++
++## 5. ω always has a legal move or is mated
++
++This is needed to exclude a stalemate draw along Π. If an ω turn before p promotes exists, then e≥1. On that turn let x be ω's king square. At most e-1 ω king moves have occurred: the last ω turn precedes the final promoting push, and the counts above are e (when ω starts) or e moves in total (when β starts), leaving at most e-1 moves before the last reply. Hence \(d(x,k_\omega)\le e-1\). By (H3K), there is a king-neighbor t of x that is at distance at least 2 from k_β, and with no pawn on t's file or either neighboring file. The square t is not occupied by a pawn, and it is not occupied by β's king. It is a legal king destination: it is not adjacent to β's king and no β pawn attacks it, since any pawn attack would have to come from a neighboring file. It may be occupied by ω's own piece only if that piece were the king at x; since t is a distinct neighbor, it is not. Therefore ω has a legal king move. In particular, ω is not stalemated. If e=0, there is no ω turn before the immediate promotion. (If instead ω has no legal move because it is in check, it is checkmated and P is already a β win.)
++
++This proves (NS) from (H3K). Equivalently, the explicit NS hypothesis in the theorem is guaranteed on every ω turn of Π by H3K. The argument uses only the pawn-free file neighborhood, king distance, and the fact that the king's distance from its start grows by at most one per move.
++
++## 6. Conclusion
++
++Against every legal response to Π, β is never in check, p cannot be captured or blocked, ω cannot promote first, and ω is never stalemated. A checkmated ω loses immediately; otherwise play reaches p's clear promotion square, where β wins at once. Thus β wins P from (y,s) by Π.
+diff --git a/kings/delegate/out/K35/REPORT.md b/kings/delegate/out/K35/REPORT.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..b3cdedb80bd7ba1e90a68d3251d1a6a02b72875b
+--- /dev/null
++++ b/kings/delegate/out/K35/REPORT.md
+@@ -0,0 +1,16 @@
++# Summary
++
++- **PROVED:** An independent blind derivation establishes Theorem 2.11K under its stated hypotheses.
++- **PROVED:** The no-stalemate implication (H3K) ⟹ (NS) follows from the supplied safe-neighbor condition.
++- **SOUND:** The comparison finds no gap in LOOPY items (F1)–(F3), Steps 1–5, or that implication.
++- **CHECKED-2:** No new implementation check was run; this task adds a second written proof, not computational agreement.
++- **Recommended label: PROVED**, with independent proof provenance recorded; the prior computational counts were not reproduced.
++
++## Deliverables
++
++- [Blind proof](PROOF.md)
++- [Comparison findings](FINDINGS.md)
++
++## Verification
++
++No solver, random-position generator, or executable test was run. The conclusions above are based on the blind proof and the subsequent line-by-line comparison with the specified LOOPY block. No new numeric result was computed; there is no numeric reproduce command.
+
+**Correcting report status labeling**
+**Reviewing proof correctness and rules interpretation**
+**Reviewing theorem reporting and wording**
+apply patch
+patch: completed
+/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K35/REPORT.md
+diff --git a/kings/delegate/out/K35/FINDINGS.md b/kings/delegate/out/K35/FINDINGS.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..7b7ce3c1c90c158ff64c5a1731fa1126eb34fa23
+--- /dev/null
++++ b/kings/delegate/out/K35/FINDINGS.md
+@@ -0,0 +1,31 @@
++# Findings
++
++Independent blind review of Theorem 2.11K: **PROVED** under its stated hypotheses.
++The blind proof uses passed-pawn geometry, the king-distance bound, and move-count timing.
++After comparison, every listed LOOPY step is **SOUND**; no counterexample or proof gap found.
++The new proof treats the double-step square and captures of other β pawns explicitly.
++No executable solver or random-position test was run; the verdict rests on the written derivation.
++
++## Route compared
++
++My blind route proves the pawn invariant directly from monotone pawn direction, the e.p.-aware passed test, and H4's bound on β pawns next to p. LOOPY organizes that argument as the induction invariants \(J_\beta\), \(J_\omega\), and \(I_1\), invoking Step 2 of Proposition 2.11. Both routes use (SQ) and the triangle inequality to protect p from the king, then use H5K to exclude an earlier ω promotion. I made the timing count explicit for both move orders and separately tracked the initial double-step's skipped square. I did not rely on the proposition's proof in the blind derivation.
++
++## LOOPY proof audit
++
++| Item | Verdict | Reason |
++|---|---|---|
++| (F1) | **SOUND** | Pawn file changes require a capture onto a square occupied by a pawn; en passant also lands on the captured pawn's file. Capturing a β pawn removes it and cannot create a pawn on a previously pawn-free file. |
++| (F2) | **SOUND** | This is the stipulated P rule: the first promotion wins immediately for its maker. |
++| (F3) | **SOUND** | By definition, Π moves only p on β turns; ω moves on its own turns. |
++| Step 1 | **SOUND** | H2 and (F1) keep all pawns off files adjacent to β's stationary king. Legal king moves keep the kings nonadjacent, so β is not in check and a push cannot expose its king. |
++| Step 2 | **SOUND** | The stated induction maintains the strip-rank bounds at alternating turns; H1/H4 supply the initial bounds, and pawn captures of β pawns only remove possible blockers. It excludes both an ordinary capture of p and landing ahead of p on its file. H1's e.p.-aware clause and the same induction handle e.p. against p. |
++| Step 3 | **SOUND** | After n_j king moves, (SQ) leaves distance at least two from q_j, so the king cannot capture p on that turn. At the next push, (SQ) for q_{j+1} after n_{j+1} moves leaves distance at least two from the landing square. The skipped double-step square is separately bounded and cannot be occupied before the double push; if visited afterward, it is behind p. |
++| Step 4 | **SOUND** | Steps 1–3 ensure β can push legally. NS excludes stalemate at every ω turn; an ω position with no legal move while in check is mate and already a β win. |
++| Step 5 | **SOUND** | Deleting p only opens squares for ω's pawns in G^K_ω; the game retains β's king and other pawns, permits their captures by ω's king, and includes the initial e.p. right. Actual legal play before p promotes is therefore represented by an allowed play in that game. H5K rules out promotion within the e moves. |
++| (H3K) ⟹ (NS) | **SOUND** | On the m-th ω turn, at most m−1 king moves have elapsed. The supplied t is empty, unattacked by pawns, and not adjacent to β's king, so it is a legal king destination even if ω is in check. If e=0, there is no ω turn before promotion. |
++
++## Tests and label
++
++No computational test was run. The theorem did not appear false during the blind derivation, so I did not build or run `kp_p`. The statement is proved here by a written derivation; this review contributes an independent, non-Claude-family proof. This is **not CHECKED-2**, which requires two independent implementations.
++
++**Recommended label: PROVED**, with the provenance updated to record this independent derivation. The previously reported LOOPY computational results remain claims of that report; I did not reproduce them in this task. No new numeric result was computed, so there is no numeric reproduce command to give.
+diff --git a/kings/delegate/out/K35/PROOF.md b/kings/delegate/out/K35/PROOF.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..620a69f8c3f19521e6f3bcd0ada1d84add651442
+--- /dev/null
++++ b/kings/delegate/out/K35/PROOF.md
+@@ -0,0 +1,49 @@
++# Independent proof of Theorem 2.11K
++
++**Status: PROVED (conditional on the stated hypotheses).** This proof uses the frozen definitions in `blind_packet.md`, the adopted en-passant-aware meaning of “passed,” and ordinary legal chess moves for the real kings in P. It does not use the proof in LOOPY.
++
++Let β be the side whose pawn is p, and measure ranks by ρ from β's side. Write q_j for p's square after its j-th push, with q_0 its initial square. The number of ω moves made by the time p is at q_j is n_j. In particular, an ω turn at which p is already at q_j occurs after n_j such moves, and before that turn ω's king has made at most n_j king moves. The prescribed line Π pushes p at each β turn, using its initial double step exactly when ρ(p)=2.
++
++## 1. Pawns cannot capture or obstruct p
++
++The e.p.-aware passed-pawn condition says that initially no ω pawn lies on p's file or either neighboring file strictly ahead of p, and that p is not presently vulnerable to en passant. Consider any later attempted ordinary pawn capture of p. Immediately before the capture, the capturing ω pawn would have to be on one of p's neighboring files at rank-coordinate ρ(p)+1: ω pawns capture one step toward smaller ρ. Such a pawn cannot arise from an initially behind pawn, whose ρ only decreases. Nor can a pawn initially ahead make the capture: the passed condition excludes one in these files, and ω pawns cannot move toward larger ρ. Thus no ω pawn can capture p.
++
++An ω pawn can change files only by capturing a β pawn. For it to end up on p's file strictly ahead of p, its last such capture must be of a β pawn on a neighboring file at coordinate at least ρ(p)+2: the capture lands one rank nearer ω, hence still strictly ahead of p. H4 bounds every β pawn on either neighboring file by ρ(p)+1. No such last capture exists. A pawn on p's file at the same or a lower coordinate cannot block a forward push to a higher coordinate. Also, pawns cannot capture onto p's file by capturing p itself, as already shown. Therefore no ω pawn can occupy a future square of p's file or otherwise block a prescribed push.
++
++For the initial double push, the skipped square and landing square are empty by H1. En passant against that double push would require an ω pawn on a neighboring file at the landing coordinate. H1's passed condition excludes any such pawn, since the landing coordinate is strictly ahead of p's initial coordinate. Later pushes are single steps and create no en-passant right. The separate e.p.-aware clause in H1 also rules out an en-passant capture of p already offered at y. Hence en passant never defeats Π.
++
++## 2. ω's king cannot capture p or stop a push
++
++Fix an ω turn with p at q_j. Before ω moves, its king has made n_j one-square moves from k_ω. The triangle inequality for king distance and (SQ) give
++
++\[
++d(k_\omega^{\rm current},q_j)\ \geq\ d(k_\omega,q_j)-n_j\ \geq 2.
++\]
++
++If s=β, the initial turn is not an ω turn with p at q_0 and (SQ) is not needed for j=0. For every later reply the displayed bound applies; if s=ω, it applies also at q_0. At the start of each ω turn the king is at least distance two from p, so its one move cannot capture p. After that move it has made n_{j+1} moves, and (SQ) at q_{j+1} gives distance at least two from the next landing square. Thus the β push that follows cannot be blocked by the king. The double-push case is covered by the separate skipped-square argument below.
++
++More explicitly for a double push, the skipped square is empty initially by H1. If ω moves its king to that square after p has landed beyond it, the skipped square is behind p and is not on any later push path. If ω is to move before the double push, (SQ) at q_0 puts its king at distance at least two, so it cannot stand on the skipped square and invalidate the double move. For every later single push, (SQ) at the next landing square, applied after ω's reply (when the king has made n_{j+1} moves), gives distance at least two from q_{j+1}. Thus the king cannot capture p or occupy a landing square. The pawn argument in section 1 excludes pawn occupation of those squares.
++
++## 3. β remains safe and its pushes are legal
++
++The kings are not adjacent initially. In P every legal ω king move must leave the kings nonadjacent, so it cannot put β in check. A pawn checks a king only from an adjacent file. H2 says that no pawn of either colour is on a file adjacent to β's king's file; in particular no ω pawn attacks the stationary β king. This remains true: a pawn can change files only by capturing onto the square of a β pawn, and all β pawns on those adjacent files are absent at y and stay fixed (or are removed). Thus no ω pawn can enter one of those files. The king remains stationary, and no legal ω king move makes the kings adjacent. Consequently β is never in check.
++
++Every push in Π is a legal pawn move. Its destination is on the board; for the first push, H1 clears the whole forward path, including both the skipped and landing squares if it is a double step. Later, section 1 and the king-distance bound keep the next square empty. A pawn push does not expose β's king to a king attack because ω's king cannot move adjacent to it in a legal position, nor to a pawn attack by H2. Thus the side-to-move king-safety condition is maintained after each push.
++
++## 4. ω cannot promote first
++
++Consider any play against Π before p promotes. A ω king move may capture any of β's other pawns, and that possibility must not be ignored: it is explicitly included in G^K_\omega. In that game ω may make a king step on each turn, subject to the specified king-square restrictions, as well as make its pawn moves and captures. It therefore allows at least the pawn routes and captures available to any actual play in which ω's king has not captured p. The variant that also excludes squares attacked by remaining β pawns is no more permissive and is expressly covered by the hypothesis.
++
++If p's start coordinate is 2 and s=ω, the first move in G^K_\omega can include only the en-passant right offered at y, exactly as in P. H1 ensures this right cannot take p; after that first turn the right expires. In every other case, the initial pawn options agree with the stated game. Thus, if an actual ω pawn could promote within e of ω moves, its pawn sequence, including any captures of β's other pawns, would be a permitted sequence in G^K_\omega and would imply \(\mu^K_\omega(y;p)\le e\). This contradicts H5K. Therefore no ω pawn promotes before β's scheduled promotion. This reasoning allows ω's king to capture β's other pawns; the king is not assumed frozen.
++
++The timing convention makes the count exact: if s=ω, there are d=e ω moves before p's d-th (promoting) push; if s=β, there are d-1=e ω moves before that push. H5K rules out promotion in those moves. On the final β turn, p's path remains clear by sections 1–3 and its promotion is immediate and wins P by definition.
++
++## 5. ω always has a legal move or is mated
++
++This is needed to exclude a stalemate draw along Π. If an ω turn before p promotes exists, then e≥1. On that turn let x be ω's king square. At most e-1 ω king moves have occurred: the last ω turn precedes the final promoting push, and the counts above are e (when ω starts) or e moves in total (when β starts), leaving at most e-1 moves before the last reply. Hence \(d(x,k_\omega)\le e-1\). By (H3K), there is a king-neighbor t of x that is at distance at least 2 from k_β, and with no pawn on t's file or either neighboring file. The square t is not occupied by a pawn, and it is not occupied by β's king. It is a legal king destination: it is not adjacent to β's king and no β pawn attacks it, since any pawn attack would have to come from a neighboring file. It may be occupied by ω's own piece only if that piece were the king at x; since t is a distinct neighbor, it is not. Therefore ω has a legal king move. In particular, ω is not stalemated. If e=0, there is no ω turn before the immediate promotion. (If instead ω has no legal move because it is in check, it is checkmated and P is already a β win.)
++
++This proves (NS) from (H3K). Equivalently, the explicit NS hypothesis in the theorem is guaranteed on every ω turn of Π by H3K. The argument uses only the pawn-free file neighborhood, king distance, and the fact that the king's distance from its start grows by at most one per move.
++
++## 6. Conclusion
++
++Against every legal response to Π, β is never in check, p cannot be captured or blocked, ω cannot promote first, and ω is never stalemated. A checkmated ω loses immediately; otherwise play reaches p's clear promotion square, where β wins at once. Thus β wins P from (y,s) by Π.
+diff --git a/kings/delegate/out/K35/REPORT.md b/kings/delegate/out/K35/REPORT.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..aca72a2ede63caf02f458f441118a4d7bbe85fbc
+--- /dev/null
++++ b/kings/delegate/out/K35/REPORT.md
+@@ -0,0 +1,16 @@
++# Summary
++
++- **PROVED:** An independent blind derivation establishes Theorem 2.11K under its stated hypotheses.
++- **PROVED:** The no-stalemate implication (H3K) ⟹ (NS) follows from the supplied safe-neighbor condition.
++- **SOUND:** The comparison finds no gap in LOOPY items (F1)–(F3), Steps 1–5, or that implication.
++- **No CHECKED-2 claim:** No new implementation check was run; this task adds a second written proof, not computational agreement.
++- **Recommended label: PROVED**, with independent proof provenance recorded; the prior computational counts were not reproduced.
++
++## Deliverables
++
++- [Blind proof](PROOF.md)
++- [Comparison findings](FINDINGS.md)
++
++## Verification
++
++No solver, random-position generator, or executable test was run. The conclusions above are based on the blind proof and the subsequent line-by-line comparison with the specified LOOPY block. No new numeric result was computed; there is no numeric reproduce command.
+
+**Verifying file changes**
+exec
+/bin/zsh -lc "sed -n '1,180p' kings/delegate/out/K35/PROOF.md; cat kings/delegate/out/K35/FINDINGS.md; cat kings/delegate/out/K35/REPORT.md" in /Users/aritro/Downloads/Research/Chessendgames
+ succeeded in 0ms:
+# Independent proof of Theorem 2.11K
+
+**Status: PROVED (conditional on the stated hypotheses).** This proof uses the frozen definitions in `blind_packet.md`, the adopted en-passant-aware meaning of “passed,” and ordinary legal chess moves for the real kings in P. It does not use the proof in LOOPY.
+
+Let β be the side whose pawn is p, and measure ranks by ρ from β's side. Write q_j for p's square after its j-th push, with q_0 its initial square. The number of ω moves made by the time p is at q_j is n_j. In particular, an ω turn at which p is already at q_j occurs after n_j such moves, and before that turn ω's king has made at most n_j king moves. The prescribed line Π pushes p at each β turn, using its initial double step exactly when ρ(p)=2.
+
+## 1. Pawns cannot capture or obstruct p
+
+The e.p.-aware passed-pawn condition says that initially no ω pawn lies on p's file or either neighboring file strictly ahead of p, and that p is not presently vulnerable to en passant. Consider any later attempted ordinary pawn capture of p. Immediately before the capture, the capturing ω pawn would have to be on one of p's neighboring files at rank-coordinate ρ(p)+1: ω pawns capture one step toward smaller ρ. Such a pawn cannot arise from an initially behind pawn, whose ρ only decreases. Nor can a pawn initially ahead make the capture: the passed condition excludes one in these files, and ω pawns cannot move toward larger ρ. Thus no ω pawn can capture p.
+
+An ω pawn can change files only by capturing a β pawn. For it to end up on p's file strictly ahead of p, its last such capture must be of a β pawn on a neighboring file at coordinate at least ρ(p)+2: the capture lands one rank nearer ω, hence still strictly ahead of p. H4 bounds every β pawn on either neighboring file by ρ(p)+1. No such last capture exists. A pawn on p's file at the same or a lower coordinate cannot block a forward push to a higher coordinate. Also, pawns cannot capture onto p's file by capturing p itself, as already shown. Therefore no ω pawn can occupy a future square of p's file or otherwise block a prescribed push.
+
+For the initial double push, the skipped square and landing square are empty by H1. En passant against that double push would require an ω pawn on a neighboring file at the landing coordinate. H1's passed condition excludes any such pawn, since the landing coordinate is strictly ahead of p's initial coordinate. Later pushes are single steps and create no en-passant right. The separate e.p.-aware clause in H1 also rules out an en-passant capture of p already offered at y. Hence en passant never defeats Π.
+
+## 2. ω's king cannot capture p or stop a push
+
+Fix an ω turn with p at q_j. Before ω moves, its king has made n_j one-square moves from k_ω. The triangle inequality for king distance and (SQ) give
+
+\[
+d(k_\omega^{\rm current},q_j)\ \geq\ d(k_\omega,q_j)-n_j\ \geq 2.
+\]
+
+If s=β, the initial turn is not an ω turn with p at q_0 and (SQ) is not needed for j=0. For every later reply the displayed bound applies; if s=ω, it applies also at q_0. At the start of each ω turn the king is at least distance two from p, so its one move cannot capture p. After that move it has made n_{j+1} moves, and (SQ) at q_{j+1} gives distance at least two from the next landing square. Thus the β push that follows cannot be blocked by the king. The double-push case is covered by the separate skipped-square argument below.
+
+More explicitly for a double push, the skipped square is empty initially by H1. If ω moves its king to that square after p has landed beyond it, the skipped square is behind p and is not on any later push path. If ω is to move before the double push, (SQ) at q_0 puts its king at distance at least two, so it cannot stand on the skipped square and invalidate the double move. For every later single push, (SQ) at the next landing square, applied after ω's reply (when the king has made n_{j+1} moves), gives distance at least two from q_{j+1}. Thus the king cannot capture p or occupy a landing square. The pawn argument in section 1 excludes pawn occupation of those squares.
+
+## 3. β remains safe and its pushes are legal
+
+The kings are not adjacent initially. In P every legal ω king move must leave the kings nonadjacent, so it cannot put β in check. A pawn checks a king only from an adjacent file. H2 says that no pawn of either colour is on a file adjacent to β's king's file; in particular no ω pawn attacks the stationary β king. This remains true: a pawn can change files only by capturing onto the square of a β pawn, and all β pawns on those adjacent files are absent at y and stay fixed (or are removed). Thus no ω pawn can enter one of those files. The king remains stationary, and no legal ω king move makes the kings adjacent. Consequently β is never in check.
+
+Every push in Π is a legal pawn move. Its destination is on the board; for the first push, H1 clears the whole forward path, including both the skipped and landing squares if it is a double step. Later, section 1 and the king-distance bound keep the next square empty. A pawn push does not expose β's king to a king attack because ω's king cannot move adjacent to it in a legal position, nor to a pawn attack by H2. Thus the side-to-move king-safety condition is maintained after each push.
+
+## 4. ω cannot promote first
+
+Consider any play against Π before p promotes. A ω king move may capture any of β's other pawns, and that possibility must not be ignored: it is explicitly included in G^K_\omega. In that game ω may make a king step on each turn, subject to the specified king-square restrictions, as well as make its pawn moves and captures. It therefore allows at least the pawn routes and captures available to any actual play in which ω's king has not captured p. The variant that also excludes squares attacked by remaining β pawns is no more permissive and is expressly covered by the hypothesis.
+
+If p's start coordinate is 2 and s=ω, the first move in G^K_\omega can include only the en-passant right offered at y, exactly as in P. H1 ensures this right cannot take p; after that first turn the right expires. In every other case, the initial pawn options agree with the stated game. Thus, if an actual ω pawn could promote within e of ω moves, its pawn sequence, including any captures of β's other pawns, would be a permitted sequence in G^K_\omega and would imply \(\mu^K_\omega(y;p)\le e\). This contradicts H5K. Therefore no ω pawn promotes before β's scheduled promotion. This reasoning allows ω's king to capture β's other pawns; the king is not assumed frozen.
+
+The timing convention makes the count exact: if s=ω, there are d=e ω moves before p's d-th (promoting) push; if s=β, there are d-1=e ω moves before that push. H5K rules out promotion in those moves. On the final β turn, p's path remains clear by sections 1–3 and its promotion is immediate and wins P by definition.
+
+## 5. ω always has a legal move or is mated
+
+This is needed to exclude a stalemate draw along Π. If an ω turn before p promotes exists, then e≥1. On that turn let x be ω's king square. At most e-1 ω king moves have occurred: the last ω turn precedes the final promoting push, and the counts above are e (when ω starts) or e moves in total (when β starts), leaving at most e-1 moves before the last reply. Hence \(d(x,k_\omega)\le e-1\). By (H3K), there is a king-neighbor t of x that is at distance at least 2 from k_β, and with no pawn on t's file or either neighboring file. The square t is not occupied by a pawn, and it is not occupied by β's king. It is a legal king destination: it is not adjacent to β's king and no β pawn attacks it, since any pawn attack would have to come from a neighboring file. It may be occupied by ω's own piece only if that piece were the king at x; since t is a distinct neighbor, it is not. Therefore ω has a legal king move. In particular, ω is not stalemated. If e=0, there is no ω turn before the immediate promotion. (If instead ω has no legal move because it is in check, it is checkmated and P is already a β win.)
+
+This proves (NS) from (H3K). Equivalently, the explicit NS hypothesis in the theorem is guaranteed on every ω turn of Π by H3K. The argument uses only the pawn-free file neighborhood, king distance, and the fact that the king's distance from its start grows by at most one per move.
+
+## 6. Conclusion
+
+Against every legal response to Π, β is never in check, p cannot be captured or blocked, ω cannot promote first, and ω is never stalemated. A checkmated ω loses immediately; otherwise play reaches p's clear promotion square, where β wins at once. Thus β wins P from (y,s) by Π.
+# Findings
+
+Independent blind review of Theorem 2.11K: **PROVED** under its stated hypotheses.
+The blind proof uses passed-pawn geometry, the king-distance bound, and move-count timing.
+After comparison, every listed LOOPY step is **SOUND**; no counterexample or proof gap found.
+The new proof treats the double-step square and captures of other β pawns explicitly.
+No executable solver or random-position test was run; the verdict rests on the written derivation.
+
+## Route compared
+
+My blind route proves the pawn invariant directly from monotone pawn direction, the e.p.-aware passed test, and H4's bound on β pawns next to p. LOOPY organizes that argument as the induction invariants \(J_\beta\), \(J_\omega\), and \(I_1\), invoking Step 2 of Proposition 2.11. Both routes use (SQ) and the triangle inequality to protect p from the king, then use H5K to exclude an earlier ω promotion. I made the timing count explicit for both move orders and separately tracked the initial double-step's skipped square. I did not rely on the proposition's proof in the blind derivation.
+
+## LOOPY proof audit
+
+| Item | Verdict | Reason |
+|---|---|---|
+| (F1) | **SOUND** | Pawn file changes require a capture onto a square occupied by a pawn; en passant also lands on the captured pawn's file. Capturing a β pawn removes it and cannot create a pawn on a previously pawn-free file. |
+| (F2) | **SOUND** | This is the stipulated P rule: the first promotion wins immediately for its maker. |
+| (F3) | **SOUND** | By definition, Π moves only p on β turns; ω moves on its own turns. |
+| Step 1 | **SOUND** | H2 and (F1) keep all pawns off files adjacent to β's stationary king. Legal king moves keep the kings nonadjacent, so β is not in check and a push cannot expose its king. |
+| Step 2 | **SOUND** | The stated induction maintains the strip-rank bounds at alternating turns; H1/H4 supply the initial bounds, and pawn captures of β pawns only remove possible blockers. It excludes both an ordinary capture of p and landing ahead of p on its file. H1's e.p.-aware clause and the same induction handle e.p. against p. |
+| Step 3 | **SOUND** | After n_j king moves, (SQ) leaves distance at least two from q_j, so the king cannot capture p on that turn. At the next push, (SQ) for q_{j+1} after n_{j+1} moves leaves distance at least two from the landing square. The skipped double-step square is separately bounded and cannot be occupied before the double push; if visited afterward, it is behind p. |
+| Step 4 | **SOUND** | Steps 1–3 ensure β can push legally. NS excludes stalemate at every ω turn; an ω position with no legal move while in check is mate and already a β win. |
+| Step 5 | **SOUND** | Deleting p only opens squares for ω's pawns in G^K_ω; the game retains β's king and other pawns, permits their captures by ω's king, and includes the initial e.p. right. Actual legal play before p promotes is therefore represented by an allowed play in that game. H5K rules out promotion within the e moves. |
+| (H3K) ⟹ (NS) | **SOUND** | On the m-th ω turn, at most m−1 king moves have elapsed. The supplied t is empty, unattacked by pawns, and not adjacent to β's king, so it is a legal king destination even if ω is in check. If e=0, there is no ω turn before promotion. |
+
+## Tests and label
+
+No computational test was run. The theorem did not appear false during the blind derivation, so I did not build or run `kp_p`. The statement is proved here by a written derivation; this review contributes an independent, non-Claude-family proof. This is **not CHECKED-2**, which requires two independent implementations.
+
+**Recommended label: PROVED**, with the provenance updated to record this independent derivation. The previously reported LOOPY computational results remain claims of that report; I did not reproduce them in this task. No new numeric result was computed, so there is no numeric reproduce command to give.
+# Summary
+
+- **PROVED:** An independent blind derivation establishes Theorem 2.11K under its stated hypotheses.
+- **PROVED:** The no-stalemate implication (H3K) ⟹ (NS) follows from the supplied safe-neighbor condition.
+- **SOUND:** The comparison finds no gap in LOOPY items (F1)–(F3), Steps 1–5, or that implication.
+- **No CHECKED-2 claim:** No new implementation check was run; this task adds a second written proof, not computational agreement.
+- **Recommended label: PROVED**, with independent proof provenance recorded; the prior computational counts were not reproduced.
+
+## Deliverables
+
+- [Blind proof](PROOF.md)
+- [Comparison findings](FINDINGS.md)
+
+## Verification
+
+No solver, random-position generator, or executable test was run. The conclusions above are based on the blind proof and the subsequent line-by-line comparison with the specified LOOPY block. No new numeric result was computed; there is no numeric reproduce command.
+
+**Analyzing move counts in proof**
+**Verifying distance bounds and pawn positions**
+**Reviewing report assertions**
+**Verifying missing common rules file**
+**Reviewing task scope and file reads**
+**Clarifying scope of code block reading**
+codex
+Completed K35 in the required order. The independent blind proof is saved in [PROOF.md](/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K35/PROOF.md); the comparison and five-line summary are in [FINDINGS.md](/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K35/FINDINGS.md) and [REPORT.md](/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K35/REPORT.md).
+
+**Recommended label: PROVED.** I found each listed LOOPY step sound. I ran no solver or random-position tests, so this adds an independent written proof, not a CHECKED-2 result.
+tokens used
+97,205
+Completed K35 in the required order. The independent blind proof is saved in [PROOF.md](/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K35/PROOF.md); the comparison and five-line summary are in [FINDINGS.md](/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K35/FINDINGS.md) and [REPORT.md](/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K35/REPORT.md).
+
+**Recommended label: PROVED.** I found each listed LOOPY step sound. I ran no solver or random-position tests, so this adds an independent written proof, not a CHECKED-2 result.

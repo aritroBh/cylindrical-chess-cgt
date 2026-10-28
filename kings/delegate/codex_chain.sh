@@ -12,5 +12,5 @@ for spec in "$@"; do
   echo "start $k $(date +%H:%M)" >> kings/delegate/logs/codex_chain.out
   codex exec -s workspace-write -c approval_policy=never -C $ROOT "$P" </dev/null > kings/delegate/logs/$k.log 2>&1
   echo "end $k rc=$? $(date +%H:%M)" >> kings/delegate/logs/codex_chain.out
-  if grep -q "usage limit" kings/delegate/logs/$k.log; then echo "usage limit at $k; stopping" >> kings/delegate/logs/codex_chain.out; break; fi
+  if grep -q "ERROR: You.ve hit your usage limit" kings/delegate/logs/$k.log; then echo "usage limit at $k; stopping" >> kings/delegate/logs/codex_chain.out; break; fi
 done

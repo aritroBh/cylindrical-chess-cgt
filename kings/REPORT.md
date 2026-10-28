@@ -381,6 +381,8 @@ Every deliverable was given to independent referees (Claude models) told to brea
   - K16 (2026-10-27): the real-king square rule of Remark 2.11 is FALSE as stated, because ω can be stalemated
     (CHECKED-2 counterexamples). A corrected Theorem 2.11K, with a king-restricted timing condition and a no-stalemate
     condition, is PROVED in P, and 7.6 · 10⁸ certified instances give 0 violations.
+    K35 (2026-10-28, Codex) audited its proof step by step from outside the Claude family and found every step SOUND.
+    Its own blind proof missed one case, which the note's Step 2 covers.
   - K20 (2026-10-27): finite king tempo exists when the opponent is not frozen. On flat:6×6, `Kc3 ka4 Pa2 pa3 Pc4 pc5`
     is +1 in the D-model sum battery (CHECKED-2); Proposition 4.3 holds only against a frozen opponent.
   - K21 (2026-10-27): a sum theorem for loopy components. The reserve criterion T3.8 strictly extends Theorem 1.11(b)
