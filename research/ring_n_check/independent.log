@@ -1,0 +1,36 @@
+Independent checker: stdlib-only rules implementation; e.p.-aware passers; count race.
+
+M: base n=18, insertion c=4
+n=18: {'nodes': 441, 'K': 1128, 'T': 428, 'T_pairs': 212, 'zone': [10, 11, 12, 13, 14, 15, 17], 'signature': 'NNPNN'}
+  Lemma 2: 3528 pawn-node pairs, 5292 moves; classes={(1, 'L'): 441, (1, 'P'): 441, (2, 'P'): 441, (3, 'P'): 882, (4, 'P'): 441, (5, 'P'): 882, (6, 'P'): 441, (7, 'P'): 882, (8, 'P'): 441}; arc-end classes={1: {'P': 441, 'L': 441}, 8: {'P': 441}}
+n=20: {'nodes': 441, 'K': 1128, 'T': 428, 'T_pairs': 212, 'zone': [12, 13, 14, 15, 16, 17, 19], 'signature': 'NNPNN'}
+n=22: {'nodes': 441, 'K': 1128, 'T': 428, 'T_pairs': 212, 'zone': [14, 15, 16, 17, 18, 19, 21], 'signature': 'NNPNN'}
+  insertion n=18->20: root, node set, K edges, and T edges map bijectively
+  insertion n=20->22: root, node set, K edges, and T edges map bijectively
+
+O: base n=19, insertion c=5
+n=19: {'nodes': 2132, 'K': 6352, 'T': 2680, 'T_pairs': 1216, 'zone': [0, 12, 13, 14, 15, 16, 17, 18], 'signature': 'NNPNN'}
+  Lemma 2: 17056 pawn-node pairs, 25584 moves; classes={(2, 'P'): 2132, (3, 'P'): 4264, (4, 'P'): 2132, (5, 'P'): 4264, (6, 'P'): 2132, (7, 'P'): 4264, (8, 'P'): 2132, (9, 'P'): 4264}; arc-end classes={2: {'P': 2132}, 9: {'P': 4264}}
+n=21: {'nodes': 2132, 'K': 6352, 'T': 2680, 'T_pairs': 1216, 'zone': [0, 14, 15, 16, 17, 18, 19, 20], 'signature': 'NNPNN'}
+n=23: {'nodes': 2132, 'K': 6352, 'T': 2680, 'T_pairs': 1216, 'zone': [0, 16, 17, 18, 19, 20, 21, 22], 'signature': 'NNPNN'}
+  insertion n=19->21: root, node set, K edges, and T edges map bijectively
+  insertion n=21->23: root, node set, K edges, and T edges map bijectively
+
+Direct full-game searches below n0 (h=0..4):
+M n=10 expire=NNPNN states=55990
+M n=10 keep=NNPNN states=55990
+M n=12 expire=NNPNN states=147595
+M n=12 keep=NNPNN states=147595
+M n=14 expire=NNPNN states=265319
+M n=14 keep=NNPNN states=265319
+M n=16 expire=NNPNN states=405443
+M n=16 keep=NNPNN states=405443
+O n=11 expire=NNPNN states=318016
+O n=11 keep=NNPNN states=318016
+O n=13 expire=NNPNN states=741189
+O n=13 keep=NNPNN states=741189
+O n=15 expire=NNPNN states=1433359
+O n=15 keep=NNPNN states=1433359
+O n=17 expire=NNPNN states=2689761
+O n=17 keep=NNPNN states=2689761
+All independent assertions passed.

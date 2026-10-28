@@ -4,7 +4,7 @@
 1. Theorem: in the whole-board game on $C_n$ (race rule "count", e.p. on, an e.p.-capturable pawn is not passed, game ends at the first passed pawn), the $n$-pawn rings $M_n = (B4\,W2)^{(n-8)/2}\,B6\,W2\,W3\,B6\,B7\,W3\,B7\,W5$ (even $n\ge10$) and $O_n = B4\,(B7\,W5)^{(n-9)/2}\,B7\,W3\,B7\,B6\,W3\,W2\,B6\,W2$ (odd $n\ge11$) are $\star2$.
 2. The proof is T50's insertion proof (`research/ring_family_proof/proof.tex`, Lemmas 1-3, with the written-out Lemma 3 of `research/ring_n_plus_2_proof/PROOF.md` 2b), at one fixed cut per family: $M$: $c=4$, $n_0=18$; $O$: $c=5$, $n_0=19$. The $M$ wall is a W2/B4 wall (as in T50's table); the $O$ wall is B7/W5, handled by colour reversal (H1).
 3. C1: the reduced game at the base has 441 nodes ($M_{18}$) resp. 2132 nodes ($O_{19}$), no e.p. flag, no passed pawn, zone $\{n-8..n-3,n-1\}$ resp. $\{0\}\cup\{n-7..n-1\}$, signature NNPNN ($h=0..4$); files $c-4..c+5$ are exact pattern files in every node; $\mathrm{ins}_c$ maps the graph isomorphically for $n\ge n_0$. C2: $n=10,12,14,16$ ($M$) and $n=11,13,15,17$ ($O$) by direct search. E.p. convention: canonical (a flag only if an enemy pawn stands beside the landing square).
-4. Status: PROVED [AI] for $n\ge n_0$ given T50's Lemmas 1-3, 2b and C1; CHECKED-2 for the base cases (finite searches by 3 programs, section 7). The hand part is [AI] only; no non-Claude referee has read this note (the shared lemma text 2b was refereed by Codex in T53).
+4. Status: PROVED [S] for $n\ge n_0$ given T50's Lemmas 1-3, 2b and C1; CHECKED-2 for the base cases (finite searches by 3 programs, section 7, and a fourth by the referee). Refereed by two non-Claude models: T67 (Kilo, Nemotron; logic: SOUND WITH FIXES, fixes applied, `research/ring_n_check_logic/REPORT.md`) and T66 (Codex; SOUND, with its own independent checker, `research/ring_n_check/REPORT.md`). Human check pending.
 5. Scope: whole-board game, race rule "count" only; $M_{10}$ and $O_{11}$ are the smallest (no smaller $n$-pawn ring is $\star2$ in this family; $n<10$ not in scope).
 
 ## 0. Claims and labels
@@ -23,7 +23,7 @@ PROVED = by hand, given the lemmas (all hand proofs here are [AI]). CHECKED-2 = 
 
 ## 1. Setting
 
-Model, classes T/L/P/K, reduced game: as in `proof.tex` and PROOF.md section 1 (race rule "count"). E.p. convention (PROOF.md section 1): a flag is recorded only if an enemy pawn stands beside the landing square of the double step; a flag nobody could use is dropped. "No flag" in C1, H4, H6 means this canonical convention. E uses it directly; A applies it through its own convention; the raw-flag games are equivalent (PROOF_odd.md S6).
+Model, classes T/L/P/K, reduced game: as in `proof.tex` and PROOF.md section 1 (race rule "count"). A **pattern file** is a wall file holding exactly its starting pawn and nothing else (T66's suggested reading of T50's "a wall file that still holds its starting pawn"); every use below is of such exact one-pawn files. E.p. convention (PROOF.md section 1): a flag is recorded only if an enemy pawn stands beside the landing square of the double step; a flag nobody could use is dropped. "No flag" in C1, H4, H6 means this canonical convention. E uses it directly; A applies it through its own convention; the raw-flag games are equivalent (PROOF_odd.md S6).
 
 Files $0..n-1$, $n$ even $\ge10$ ($M$) or odd $\ge11$ ($O$):
 
@@ -86,4 +86,4 @@ Let $n\ge n_0$ be of the right parity. $I_{n_0}$ is C1; H6 gives $I_n$ for all $
 Revision (2026-10-27, 21:55): the four fixes of the logic referee T67 (`research/ring_n_check_logic/REPORT.md`, Kilo, Nemotron) were applied by the orchestrator: the M bound $n\ge18$ in section 2, the colour-reversal map in H1, the M right end in H3, and the C2 label. The text as T65 wrote it is in `logs/PROOF_N_as_written_by_T65.md`. A and E are independently written (C and Python). E also runs $M_n$, $O_n$ for $n\le60$ (`logs/base_N_60.log`).
 
 
-Programs and logs as in section 4. The check_N1 runs are E's independent rebuild of the reduced graph and the Lemma 2/3 hypotheses; the base_N runs are E's (and C's) direct search. All pass (logs above). No non-Claude referee has read this note.
+Programs and logs as in section 4. The check_N1 runs are E's independent rebuild of the reduced graph and the Lemma 2/3 hypotheses; the base_N runs are E's (and C's) direct search. All pass (logs above). Referees: T67 (logic) and T66 (Codex, SOUND; independent checker `research/ring_n_check/independent.py`).

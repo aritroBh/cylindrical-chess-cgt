@@ -396,7 +396,8 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   - Families: M_n = (B4 W2)^((n-8)/2) B6 W2 W3 B6 B7 W3 B7 W5 (even n) and O_n = B4 (B7 W5)^((n-9)/2) B7 W3 B7 B6 W3 W2
     B6 W2 (odd n) are \*2 for every n = 10..60 (COMPUTED-1, rg; n = 10..14 CHECKED-2). Their reduced graphs are constant
     (441 / 2132 nodes, no flag), and the insertion isomorphism holds from n = 18 / 19 on. Proof note: T65 (OpenCode,
-    `research/ring_n_proof/`); referee: T66 (Codex).
+    `research/ring_n_proof/PROOF_N.md`). **PROVED [S] for every n**: referees T67 (Kilo, logic, fixes applied) and T66
+    (Codex, SOUND, own independent checker, `research/ring_n_check/`).
   - The paper (§VIII, intro, conclusion) now says "ten for 7 <= n <= 10 [C2], n for 10 <= n <= 60 [C1]".
 - **Rings \*3 with n+1 pawns on every C_n, 11 <= n <= 59** (`research/c9_rings/star3/REPORT.md`).
   - C11: no eleven-pawn ring is \*3 (COMPUTED-1, exhaustive), and two twelve-pawn rings are (CHECKED-2). So the least is
