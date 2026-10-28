@@ -404,8 +404,9 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
     (W2 B4)^((n-11)/2) W6B7 W3 B7 B6 W3 W2 B6 W2 (odd n = 13..59) are \*3 (rg; CHECKED-2 for n <= 15).
   - Reduced graphs: T has 1305 nodes, S has 40445; no flag; the insertion isomorphism holds from 20 / 25 on. Proof note:
     T69 (OpenCode, `research/star3_proof/`).
-  - M_10 is \*2 as a sum of components too (cylcgt, `research/sum_model_rings/npawn_values.txt`).
-- **C9 ring hits are \*2 as sums too** (cylcgt, the H1 reversal, H3 and H4; H1/H2 whole and H2 sum queued).
+  - M_10 and O_11 are \*2 as sums of components too (cylcgt, `research/sum_model_rings/npawn_values.txt`). Qo_11 is \*3
+    both as a sum and as a whole (`odd_values.txt`).
+- **C9 ring hits are \*2 as sums too** (cylcgt, the H1 reversal, H3 and H4; H1 whole \*2; H2 sum and whole queued).
 - **No \*4.** None among T56's 14,090 candidates (329 are \*3, 178 \*2), nor among 1,280 C10 wall rings.
   - The ★4 hunt workflow (`research/star4_rings/{core_wall,grow,two_core}/REPORT.md`) found no ★4 and nothing above
     ★3 in about 23.6M rings. Those are 23.2M core-in-wall rings, 128,791 grown from known ★3 rings (4,723 new ★3)

@@ -63,8 +63,8 @@ not exchanged. Signature = outcome of G+*h for h = 0..3; NNPN = *2, NNNP = *3.
   - Codex's `independent.py` on all 14 rings and reversals, under both e.p.-across-heap readings, plus 3 near-miss
     controls (PNNN, NPNN, PNNN) (`verify_hits/logs/independent_*.log`).
   - OpenCode's engine on all 14 (`codex/hits.log`).
-  - cylcgt as a whole-board game: H3, H4 *2. As a sum of components: H1 (reversed), H3, H4 *2. H1 and H2 whole and
-    H2 sum are queued in `verify_hits/queueC_after_reboot.txt`.
+  - cylcgt as a whole-board game: H1, H3, H4 *2. As a sum of components: H1 (reversed), H3, H4 *2. H2 sum and whole
+    are queued in `verify_hits/queueC_after_reboot.txt`.
 - **Extensions.** They are in `extend/`; see the `check:extend` result:
   - single-file and pair insertions give *2 rings with n+1 pawns on C10..C13 (and *3 on C11..C13);
   - pumping gives *2 up to C33.
@@ -80,6 +80,7 @@ not exchanged. Signature = outcome of G+*h for h = 0..3; NNPN = *2, NNNP = *3.
 - **Files.** The merged histograms and hits are in `work/c10c11_npawn_totals.txt`. The raw chunk outputs, including the
   signature files, are in `work/c10p10_results.tar.zst`, `work/c11p11_results.tar.zst` and `work/c9p10_results.tar.zst`
   (local only; `*.zst` is not committed).
+- **Sum model.** M_10 and O_11 are *2 as sums of components too (cylcgt, `research/sum_model_rings/npawn_values.txt`).
 - **Second programs.** Codex's `independent.py` (both readings) and OpenCode's engine give NNPNN for M_10, M_12,
   M_14, O_11, O_13 and N1_11, N1_13, and RRRRR for O_9 (`npawn/cross_check*.out`).
 - **Families.** `extend/family_F_9_60.out` (N1 and its even variant), `extend/npawn_even.out` (M) and
