@@ -426,6 +426,12 @@ Every deliverable was given to independent referees (Claude models) told to brea
     dud_D beside every context. The two searches agree where their scopes overlap. Neither finds an over group, so the
     second half of Conjecture 4.7 has no support (COMPUTED-1). Both referees accepted with fixes; the merged edits were
     checked three ways (`kings/delegate/out/K15K26/MERGE_NOTES.md`).
+  - K29 (2026-10-29) answers open question 6 for a bounded context class. Of 1,236 bare groups (446 classes) on four
+    boards, 269 classes fail somewhere; on cyl:7×6 four classes, `Kb3 Pa2 Pc2 kb1 pa3 pc3` among them, act as 0 beside
+    all 885 contexts of at most two pawns a side, with an exact-P punishment of at least 2 moves on both sides
+    (CHECKED-2: two solver pairs, and the referee re-solved all 60 groups). Two of the four fail beside the larger
+    context `Pf2 pf3 pf4 pf5`, so the zero depends on the context class. The T of Definition 2.6 was not computed, so
+    the CONJECTURE of Proposition 2.10(b) is not refuted. Two referees; their replacement edits were applied.
   - So no result of the note is still GAP.
   - The T30 fixes of 2026-10-22 came later. They were reviewed by Sonnet reviewers in two rounds, not by K3 (see the Theory row
   above).

@@ -1,0 +1,500 @@
+config	rep	class_size	Tw	Tb	outcome	first_fail_ctx	Phi_Psi	mechanism	boundary
+cyl7x6_f3	Ka1 Pb2 Pa3 kb3 pa2 pa4	4	1	13	FAIL	pf3	P=DL F=LL	w:A_escape:STALE	
+cyl7x6_f3	Kc1 Pb2 Pa3 kb3 pc2 pa4	4	1	12	FAIL	pe3	P=DL F=LL	w:A_escape:STALE	
+cyl7x6_f3	Kb3 Pa2 Pa4 ka5 pa3 pb4	4	6	7	SURVIVES				all 885 contexts on e,f
+cyl7x6_f3	Kb3 Pc2 Pa4 ka5 pc3 pb4	4	6	7	SURVIVES				all 885 contexts on e,f
+cyl7x6_f3	Ka3 Pb2 Pa4 kc2 pb3 pa5	4	4	7	FAIL	pf3 pf4	P=DL F=LL	w:A_escape:STALE	
+cyl7x6_f3	Ka3 Pb2 Pa4 kc4 pb3 pa5	4	8	7	FAIL	pf3 pf4	P=DL F=LL	w:A_escape:STALE	
+cyl7x6_f3	Ka3 Pb2 Pb4 kb5 pb3 pa4	4	6	7	FAIL	pf3 pf5	P=DL F=LL	w:A_escape:STALE	
+cyl7x6_f3	Kc3 Pb2 Pa3 ka2 pb3 pb5	4	5	12	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B	
+cyl7x6_f3	Ka3 Pb2 kc2 pb3	4	4	6	FAIL	Pe2 pe3	P=LL F=LW	b:A_escape:K>B	
+cyl7x6_f3	Kb2 Pc3 Pa4 kc4 pb3 pa5	4	7	15	FAIL	Pe2 pe5	P=LL F=WL	w:B_refuted:opp:K>B,K>Z	
+cyl7x6_f3	Kb1 Pa2 Pb3 ka3 pb2 pb4	4	1	13	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B	
+cyl7x6_f3	Kb1 Pa2 Pb3 kc3 pb2 pb4	4	3	14	FAIL	Pe2 pe3	P=LL F=LW	b:A_escape:K>B	
+cyl7x6_f3	Ka4 Pb3 kc3 pb4	2	5	5	FAIL	Pe2 pe3	P=LL F=LW	b:A_escape:K>B	
+cyl7x6_f3	Kb1 Pa2 Pb3 ka3 pb2 pc5	4	2	8	SURVIVES				all 885 contexts on e,f
+cyl7x6_f3	Kb1 Pc2 Pa3 kc3 pb2 pa4	4	1	16	FAIL	Pe2 pe3	P=LD F=LW	b:A_escape:K>B,K>Z	
+cyl7x6_f3	Kb3 Pa2 Pc2 kb1 pa3 pc3	2	4	5	SURVIVES				all 885 contexts on e,f
+cyl7x6_f4	Ka1 Pa2 Pd2 ka3 pd3 pa4	4	11	13	FAIL	Pf2 pf3	P=LD F=LW	b:A_escape:K>Z	
+cyl7x6_f4	Ka1 Pb2 Pa3 kb3 pa2 pa4	4	1	13	FAIL	pf3	P=DL F=LL	w:A_escape:STALE	
+cyl7x6_f4	Kd1 Pc2 Pb3 kc3 pd2 pb4	4	1	12	FAIL	pf3	P=DL F=LL	w:A_escape:STALE	
+cyl7x6_f4	Kd1 Pc2 Pb3 kc3 pd2 pa5	4	2	9	SURVIVES				all 63 contexts on f
+cyl7x6_f4	Kd1 Pa2 Pc2 kc3 pd2 pa3	4	1	11	FAIL	pf3	P=DL F=LL	w:A_escape:STALE	
+cyl7x6_f4	Kd1 Pc2 Pa3 kc3 pd2 pa4	4	1	13	FAIL	pf3	P=DL F=LL	w:A_escape:STALE	
+cyl7x6_f4	Ka2 Pd2 Pa3 ka4 pd3 pa5	4	11	11	FAIL	Pf2 pf3	P=WW F=LW	w:A_escape:K>Z	
+cyl7x6_f4	Kd3 Pd2 Pa3 kd5 pa4 pd4	4	10	12	FAIL	Pf2 pf3	P=DW F=LW	w:A_escape:K>Z	
+cyl7x6_f4	Kb3 Pa2 Pa4 ka5 pa3 pb4	4	6	7	SURVIVES				all 63 contexts on f
+cyl7x6_f4	Kd2 Pa2 Pc2 kd4 pa4 pc4	4	14	15	FAIL	Pf2 pf3	P=DD F=LW	w:A_escape:K>Z,Pz;b:A_escape:Pz	
+cyl7x6_f4	Kb3 Pc2 Pa4 ka5 pc3 pb4	4	6	7	SURVIVES				all 63 contexts on f
+cyl7x6_f4	Ka2 Pd2 Pb3 kb4 pa3 pd3	4	7	10	SURVIVES				all 63 contexts on f
+cyl7x6_f4	Kd2 Pa3 Pc3 kc4 pd3 pa4	4	7	10	SURVIVES				all 63 contexts on f
+cyl7x6_f4	Kb3 Pd2 Pa4 ka5 pd3 pb4	4	12	7	SURVIVES				all 63 contexts on f
+cyl7x6_f4	Ka3 Pb2 Pa4 kc2 pb3 pa5	4	4	7	FAIL	pf3 pf4	P=DL F=LL	w:A_escape:STALE	
+cyl7x6_f4	Ka3 Pb2 Pa4 kc4 pb3 pa5	4	8	7	FAIL	pf3 pf4	P=DL F=LL	w:A_escape:STALE	
+cyl7x6_f4	Ka3 Pb2 Pb4 kb5 pb3 pa4	4	6	7	FAIL	pf3 pf5	P=DL F=LL	w:A_escape:STALE	
+cyl7x6_f4	Kd3 Pc2 Pb3 kb2 pc3 pc5	4	5	12	SURVIVES				all 63 contexts on f
+cyl7x6_f4	Kd3 Pc2 Pb3 kb2 pc3 pa5	4	5	7	SURVIVES				all 63 contexts on f
+cyl7x6_f4	Kd3 Pc2 Pa4 kb2 pc3 pa5	4	4	6	SURVIVES				all 63 contexts on f
+cyl7x6_f4	Ka3 Pb2 kc2 pb3	4	4	6	SURVIVES				all 63 contexts on f
+cyl7x6_f4	Kb2 Pa2 Pc2 kd4 pc4 pa5	4	13	12	FAIL	Pf2 pf3	P=DW F=LW	w:A_escape:Pz	
+cyl7x6_f4	Ka3 Pc2 Pb4 kb5 pc3 pa4	4	15	7	FAIL	Pf2 pf3	P=WW F=LW	w:A_escape:K>B,K>Z	
+cyl7x6_f4	Kc2 Pa3 Pd3 kd4 pc3 pb5	4	5	8	SURVIVES				all 63 contexts on f
+cyl7x6_f4	Ka3 Pc2 Pb4 kc4 pc3 pb5	4	7	8	FAIL	Pf2 pf5	P=LL F=WL	w:B_refuted:opp:K>Z	
+cyl7x6_f4	Kb2 Pa3 Pc3 ka4 pb3 pd5	4	8	10	SURVIVES				all 63 contexts on f
+cyl7x6_f4	Kc2 Pd3 Pa4 kd4 pc3 pa5	4	9	10	SURVIVES				all 63 contexts on f
+cyl7x6_f4	Kb3 Pc2 Pa4 kd4 pc3 pa5	4	8	11	FAIL	Pf2 pf3	P=DW F=LW	w:A_escape:K>Z	
+cyl7x6_f4	Kc2 Pa3 Pd3 kd4 pc3 pa4	4	11	8	SURVIVES				all 63 contexts on f
+cyl7x6_f4	Kb2 Pd2 Pa3 ka4 pb3 pd3	4	9	8	SURVIVES				all 63 contexts on f
+cyl7x6_f4	Kd3 Pa3 Pb4 kb5 pc3 pd4	4	6	8	SURVIVES				all 63 contexts on f
+cyl7x6_f4	Kd4 Pd2 Pa3 kb3 pa4 pc4	4	8	7	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>Z	
+cyl7x6_f4	Kd4 Pb2 Pc2 kb4 pa4 pc4	4	6	7	SURVIVES				all 63 contexts on f
+cyl7x6_f4	Kb1 Pa2 Pb3 ka3 pb2 pb4	4	1	13	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B	
+cyl7x6_f4	Kb1 Pc2 Pb3 ka3 pb2 pb4	4	3	14	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B	
+cyl7x6_f4	Ka4 Pb3 kc3 pb4	4	5	5	FAIL	Pf4 pf5	P=WW F=LW	w:A_escape:K>B	
+cyl7x6_f4	Kb1 Pa2 Pb3 ka3 pb2 pc5	4	2	8	SURVIVES				all 63 contexts on f
+cyl7x6_f4	Kc1 Pd2 Pa3 kd3 pc2 pb5	4	2	10	FAIL	Pf2 pf5	P=DL F=WL	w:B_refuted:opp:K>B	
+cyl7x6_f4	Kc1 Pd2 Pb3 kd3 pc2 pb4	4	1	16	FAIL	Pf2 pf3	P=LD F=LW	b:A_escape:K>B,K>Z	
+cyl7x6_f4	Kc1 Pa2 Pd2 kd3 pc2 pb4	4	3	8	FAIL	Pf2 pf5	P=DL F=WL	w:B_refuted:opp:K>B	
+cyl7x6_f4	Kc1 Pd2 Pb3 kd3 pc2 pa5	4	2	12	FAIL	Pf2 pf5	P=LL F=WL	w:B_refuted:opp:K>B	
+cyl7x6_f4	Kc1 Pd2 Pa4 kd3 pc2 pa5	4	1	12	FAIL	Pf2 pf5	P=DL F=WL	w:B_refuted:opp:K>B	
+cyl7x6_f4	Kb1 Pa2 Pc2 ka3 pb2 pd4	4	2	11	FAIL	Pf2 pf5	P=DL F=WL	w:B_refuted:opp:K>B	
+cyl7x6_f4	Kc1 Pd2 Pa3 kd3 pc2 pa4	4	1	11	SURVIVES				all 63 contexts on f
+cyl7x6_f4	Kb3 Pa2 Pc2 kd2 pa3 pd4	4	6	9	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B,K>Z	
+cyl7x6_f4	Kc3 Pb2 Pa3 ka2 pb3 pb5	4	5	12	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B	
+cyl7x6_f4	Kd5 Pa2 Pc2 kb4 pa4 pc5	4	8	11	FAIL	Pf2 pf3	P=WW F=LW	w:A_escape:K>B	
+cyl7x6_f4	Kb2 Pc2 Pa3 kd2 pc4 pb5	4	7	9	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B,K>Z,Pz	
+cyl7x6_f4	Ka5 Pd2 Pb3 kc5 pd3 pb5	4	8	7	FAIL	Pf2 pf3	P=WW F=LW	w:A_escape:K>B	
+cyl7x6_f4	Kb3 Pc2 Pb4 kd2 pc3 pb5	4	4	7	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B	
+cyl7x6_f4	Kb3 Pc2 Pa3 kd2 pc3 pb5	4	5	6	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B	
+cyl7x6_f4	Kb3 Pc2 Pa4 kd2 pc3 pa5	4	4	7	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B	
+cyl7x6_f4	Kb3 Pa2 Pc2 kd2 pa3 pc3	4	4	6	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B	
+cyl7x6_f4	Kc3 Pb2 ka2 pb3	4	4	6	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B	
+cyl7x6_f4	Kb1 Pa2 Pb3 kc3 pb2 pb4	4	3	14	SURVIVES				all 63 contexts on f
+cyl7x6_f4	Kb1 Pc2 Pa3 kc3 pb2 pa4	4	1	16	SURVIVES				all 63 contexts on f
+cyl7x6_f4	Kb1 Pd2 Pa3 kb3 pb2 pa4	4	13	13	SURVIVES				all 63 contexts on f
+cyl7x6_f4	Kb1 Pc2 Pb3 kc3 pb2 pa5	4	2	8	SURVIVES				all 63 contexts on f
+cyl7x6_f4	Kb1 Pc2 Pb3 kc3 pb2 pb4	4	1	13	SURVIVES				all 63 contexts on f
+cyl7x6_f4	Kc1 Pb2 Pa3 kb3 pc2 pa4	4	1	12	SURVIVES				all 63 contexts on f
+cyl7x6_f4	Kb2 Pc3 Pa4 kc4 pb3 pa5	4	7	15	FAIL	Pf2 pf3 pf4	P=DW F=LW	w:A_escape:K>Z	
+cyl7x6_f4	Kc3 Pb2 Pb4 kb5 pb3 pc4	4	6	7	SURVIVES				all 63 contexts on f
+cyl7x6_f4	Kc2 Pb3 Pa4 kb4 pc3 pa5	4	7	6	SURVIVES				all 63 contexts on f
+cyl7x6_f4	Kb3 Pa2 Pc2 kb1 pa3 pc3	4	4	5	SURVIVES				all 63 contexts on f
+cyl7x6_f4	Kb3 Pa2 Pc2 kb1 pa3 pd4	4	5	8	FAIL	Pf2 pf3	P=LD F=LW	b:A_escape:K>Z	
+cyl7x6_f4	Kb5 Pd2 Pa3 kb3 pa4 pc4	4	8	7	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>Z	
+cyl8x6_f3	Ka1 Pb2 Pa3 kb3 pa2 pa4	4	1	13	FAIL	pg3	P=DL F=LL	w:A_escape:STALE	
+cyl8x6_f3	Kc1 Pb2 Pa3 kb3 pc2 pa4	4	1	13	FAIL	pe3	P=DL F=LL	w:A_escape:STALE	
+cyl8x6_f3	Kb3 Pa2 Pa4 ka5 pa3 pb4	4	6	7	SURVIVES				first 300 of 4579 (e-g), then all 885 on e,g
+cyl8x6_f3	Kb3 Pc2 Pa4 ka5 pc3 pb4	4	6	7	SURVIVES				first 300 of 4579 (e-g), then all 885 on e,g
+cyl8x6_f3	Ka3 Pb2 Pa4 kc2 pb3 pa5	4	4	7	FAIL	pg3 pg4	P=DL F=LL	w:A_escape:STALE	
+cyl8x6_f3	Ka3 Pb2 Pa4 kc4 pb3 pa5	4	8	7	FAIL	pg3 pg4	P=DL F=LL	w:A_escape:STALE	
+cyl8x6_f3	Ka3 Pb2 Pb4 kb5 pb3 pa4	4	6	7	FAIL	pg3 pg5	P=DL F=LL	w:A_escape:STALE	
+cyl8x6_f3	Ka3 Pb2 Pb4 kc2 pb3 pb5	4	4	11	FAIL	Pe2 pe3	P=LL F=LW	b:A_escape:K>B,K>Z	
+cyl8x6_f3	Ka3 Pb2 Pb4 kc4 pb3 pb5	2	11	11	FAIL	Pe2 pe3	P=WW F=LW	w:A_escape:K>B	
+cyl8x6_f3	Kc3 Pb2 Pa3 ka2 pb3 pb5	4	5	12	FAIL	Pg2 pe3	P=WL F=LL	w:A_escape:K>B	
+cyl8x6_f3	Ka3 Pb2 kc2 pb3	4	4	6	FAIL	Pe2 pe3	P=LL F=LW	b:A_escape:K>B	
+cyl8x6_f3	Kb1 Pa2 Pb3 ka3 pb2 pb4	4	1	13	FAIL	Pg2 pg3	P=LL F=LW	b:A_escape:K>B	
+cyl8x6_f3	Kb1 Pa2 Pb3 kc3 pb2 pb4	4	3	15	FAIL	Pe2 pe3	P=LL F=LW	b:A_escape:K>B	
+cyl8x6_f3	Ka4 Pb3 kc3 pb4	2	5	5	FAIL	Pe2 pe3	P=LL F=LW	b:A_escape:K>B	
+cyl8x6_f3	Kb1 Pa2 Pb3 ka3 pb2 pc5	4	2	8	SURVIVES				first 300 of 4579 (e-g), then all 885 on e,g
+cyl8x6_f3	Kb1 Pc2 Pa3 kc3 pb2 pa4	4	1	18	FAIL	Pe2 pe3	P=LD F=LW	b:A_escape:K>B,K>Z	
+cyl8x6_f3	Kb3 Pa2 Pc2 kb1 pa3 pc3	2	4	5	SURVIVES				first 300 of 4579 (e-g), then all 885 on e,g
+cyl8x6_f3_d3	Ka1 Pb2 Pa3 kb3 pa2 pa4	4	1	13	SURVIVES				all 63 contexts on f
+cyl8x6_f3_d3	Kc1 Pb2 Pa3 kb3 pc2 pa4	4	1	13	SURVIVES				all 63 contexts on f
+cyl8x6_f3_d3	Kb3 Pa2 Pa4 ka5 pa3 pb4	4	6	7	SURVIVES				all 63 contexts on f
+cyl8x6_f3_d3	Kb3 Pc2 Pa4 ka5 pc3 pb4	4	6	7	SURVIVES				all 63 contexts on f
+cyl8x6_f3_d3	Ka3 Pb2 Pa4 kc2 pb3 pa5	4	4	7	SURVIVES				all 63 contexts on f
+cyl8x6_f3_d3	Ka3 Pb2 Pa4 kc4 pb3 pa5	4	8	7	SURVIVES				all 63 contexts on f
+cyl8x6_f3_d3	Ka3 Pb2 Pb4 kb5 pb3 pa4	4	6	7	SURVIVES				all 63 contexts on f
+cyl8x6_f3_d3	Ka3 Pb2 Pb4 kc2 pb3 pb5	4	4	11	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B,K>Z	
+cyl8x6_f3_d3	Ka3 Pb2 Pb4 kc4 pb3 pb5	2	11	11	FAIL	Pf2 pf3	P=WL F=LW	w:A_escape:K>B;b:A_escape:K>B	
+cyl8x6_f3_d3	Kc3 Pb2 Pa3 ka2 pb3 pb5	4	5	12	SURVIVES				all 63 contexts on f
+cyl8x6_f3_d3	Ka3 Pb2 kc2 pb3	4	4	6	SURVIVES				all 63 contexts on f
+cyl8x6_f3_d3	Kb1 Pa2 Pb3 ka3 pb2 pb4	4	1	13	SURVIVES				all 63 contexts on f
+cyl8x6_f3_d3	Kb1 Pa2 Pb3 kc3 pb2 pb4	4	3	15	SURVIVES				all 63 contexts on f
+cyl8x6_f3_d3	Ka4 Pb3 kc3 pb4	2	5	5	SURVIVES				all 63 contexts on f
+cyl8x6_f3_d3	Kb1 Pa2 Pb3 ka3 pb2 pc5	4	2	8	SURVIVES				all 63 contexts on f
+cyl8x6_f3_d3	Kb1 Pc2 Pa3 kc3 pb2 pa4	4	1	18	SURVIVES				all 63 contexts on f
+cyl8x6_f3_d3	Kb3 Pa2 Pc2 kb1 pa3 pc3	2	4	5	SURVIVES				all 63 contexts on f
+cyl8x6_f4	Ka1 Pa2 Pd2 ka3 pd3 pa4	4	10	15	FAIL	Pf2 pf4	P=DL F=WL	w:B_refuted:opp:K>B,K>Z	
+cyl8x6_f4	Ka1 Pb2 Pa3 kb3 pa2 pa4	4	1	13	FAIL	pg3	P=DL F=LL	w:A_escape:STALE	
+cyl8x6_f4	Kd1 Pc2 Pb3 kc3 pd2 pb4	4	1	13	FAIL	pf3	P=DL F=LL	w:A_escape:STALE	
+cyl8x6_f4	Kd1 Pc2 Pb3 kc3 pd2 pa5	4	2	9	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+cyl8x6_f4	Kd1 Pa2 Pc2 kc3 pd2 pa3	4	1	12	FAIL	pf3	P=DL F=LL	w:A_escape:STALE	
+cyl8x6_f4	Kd1 Pc2 Pa3 kc3 pd2 pa4	4	1	15	FAIL	pf3	P=DL F=LL	w:A_escape:STALE	
+cyl8x6_f4	Ka2 Pd2 Pa3 ka4 pd3 pa5	4	13	11	FAIL	Pf2 pg4	P=WW F=LW	w:A_escape:K>B	
+cyl8x6_f4	Kd3 Pd2 Pa3 kd5 pa4 pd4	4	10	12	FAIL	Pf2 pf3	P=DW F=LW	w:A_escape:K>Z	
+cyl8x6_f4	Kb3 Pa2 Pa4 ka5 pa3 pb4	4	6	7	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+cyl8x6_f4	Kb3 Pc2 Pa4 ka5 pc3 pb4	4	6	7	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+cyl8x6_f4	Ka2 Pd2 Pb3 kb4 pa3 pd3	4	7	10	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+cyl8x6_f4	Kd2 Pa3 Pc3 kc4 pd3 pa4	4	7	12	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+cyl8x6_f4	Ka3 Pb2 Pa4 kc2 pb3 pa5	4	4	7	FAIL	pg3 pg4	P=DL F=LL	w:A_escape:STALE	
+cyl8x6_f4	Ka3 Pb2 Pa4 kc4 pb3 pa5	4	8	7	FAIL	pg3 pg4	P=DL F=LL	w:A_escape:STALE	
+cyl8x6_f4	Ka3 Pb2 Pb4 kb5 pb3 pa4	4	6	7	FAIL	pg3 pg5	P=DL F=LL	w:A_escape:STALE	
+cyl8x6_f4	Ka3 Pb2 Pb4 kc2 pb3 pb5	4	4	11	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>Z	
+cyl8x6_f4	Ka3 Pb2 Pb4 kc4 pb3 pb5	4	11	11	FAIL	Pf2 pf3	P=WL F=LW	w:A_escape:K>B;b:A_escape:K>Z	
+cyl8x6_f4	Kd3 Pc2 Pb3 kb2 pc3 pc5	4	5	12	FAIL	Pg3 pf3	P=WL F=LL	w:A_escape:K>B	
+cyl8x6_f4	Kd3 Pc2 Pb3 kb2 pc3 pa5	4	5	7	FAIL	Pg3 pf3	P=WL F=LL	w:A_escape:K>B	
+cyl8x6_f4	Kd3 Pc2 Pa4 kb2 pc3 pa5	4	4	6	FAIL	Pg3 pf3	P=WL F=LL	w:A_escape:K>B	
+cyl8x6_f4	Ka3 Pb2 kc2 pb3	4	4	6	FAIL	Pf3 pg3	P=WL F=LL	w:A_escape:K>B	
+cyl8x6_f4	Kb2 Pa2 Pc2 kd4 pc4 pa5	4	15	12	FAIL	Pf2 pf3	P=DW F=LW	w:A_escape:Pz	
+cyl8x6_f4	Kc2 Pa3 Pd3 kd4 pc3 pb5	4	5	8	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+cyl8x6_f4	Ka3 Pc2 Pb4 kc4 pc3 pb5	4	7	8	FAIL	Pf2 pg4	P=WW F=LW	w:A_escape:K>B	
+cyl8x6_f4	Kb2 Pa3 Pc3 ka4 pb3 pd5	4	8	10	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+cyl8x6_f4	Kc2 Pd3 Pa4 kd4 pc3 pa5	4	9	10	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+cyl8x6_f4	Kb3 Pc2 Pa4 kd4 pc3 pa5	4	8	14	FAIL	Pf2 pf3	P=WW F=LW	w:A_escape:K>Z	
+cyl8x6_f4	Kc2 Pa3 Pd3 kd4 pc3 pa4	4	12	8	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+cyl8x6_f4	Kd3 Pa3 Pb4 kb5 pc3 pd4	4	6	8	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+cyl8x6_f4	Kd4 Pd2 Pa3 kb3 pa4 pc4	4	8	7	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>Z	
+cyl8x6_f4	Kd4 Pb2 Pc2 kb4 pa4 pc4	4	5	7	FAIL	Pg3 pf3	P=WL F=LL	w:A_escape:K>B,Pz	
+cyl8x6_f4	Kb1 Pa2 Pb3 ka3 pb2 pb4	4	1	13	FAIL	Pg2 pg3	P=LL F=LW	b:A_escape:K>B	
+cyl8x6_f4	Kb1 Pc2 Pb3 ka3 pb2 pb4	4	3	15	FAIL	Pg2 pg3	P=LL F=LW	b:A_escape:K>B	
+cyl8x6_f4	Kc4 Pb3 ka3 pb4	4	5	5	FAIL	Pg2 pg3	P=LL F=LW	b:A_escape:K>B	
+cyl8x6_f4	Kb1 Pa2 Pb3 ka3 pb2 pc5	4	2	8	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+cyl8x6_f4	Kc1 Pd2 Pa3 kd3 pc2 pb5	4	2	10	FAIL	Pf2 pf5	P=DL F=WL	w:B_refuted:opp:K>B	
+cyl8x6_f4	Kc1 Pd2 Pb3 kd3 pc2 pb4	4	1	18	FAIL	Pf2 pf3	P=LD F=LW	b:A_escape:K>B,K>Z	
+cyl8x6_f4	Kc1 Pa2 Pd2 kd3 pc2 pb4	4	3	8	FAIL	Pf2 pf5	P=DL F=WL	w:B_refuted:opp:K>B	
+cyl8x6_f4	Kc1 Pd2 Pb3 kd3 pc2 pa5	4	2	12	FAIL	Pf2 pf5	P=LL F=WL	w:B_refuted:opp:K>B	
+cyl8x6_f4	Kc1 Pd2 Pa4 kd3 pc2 pa5	4	1	12	FAIL	Pf2 pf5	P=DL F=WL	w:B_refuted:opp:K>B	
+cyl8x6_f4	Kb1 Pa2 Pc2 ka3 pb2 pd4	4	2	11	FAIL	Pg2 pg5	P=LL F=WL	w:B_refuted:opp:K>B	
+cyl8x6_f4	Kc1 Pd2 Pa3 kd3 pc2 pa4	4	1	11	FAIL	Pf2 pf5	P=LL F=WL	w:B_refuted:opp:K>B	
+cyl8x6_f4	Kb2 Pc2 Pa3 kd2 pa4 pd4	4	14	8	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B,K>Z	
+cyl8x6_f4	Kb3 Pa2 Pc2 kd2 pa3 pd4	4	6	9	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B,K>Z	
+cyl8x6_f4	Kc3 Pb2 Pa3 ka2 pb3 pb5	4	5	12	FAIL	Pg2 pg3	P=LL F=LW	b:A_escape:K>B	
+cyl8x6_f4	Kc3 Pb2 Pb4 ka2 pb3 pb5	4	4	11	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B,K>Z	
+cyl8x6_f4	Kd5 Pa2 Pc2 kb4 pa4 pc5	4	8	11	FAIL	Pf2 pf3	P=WW F=LW	w:A_escape:K>B	
+cyl8x6_f4	Kb2 Pc2 Pa3 kd2 pc4 pb5	4	7	9	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B,K>Z,Pz	
+cyl8x6_f4	Ka5 Pd2 Pb3 kc5 pd3 pb5	4	8	7	FAIL	Pf2 pg4	P=WW F=LW	w:A_escape:K>B,K>Z,Pz	
+cyl8x6_f4	Ka5 Pc2 Pb4 kc4 pc3 pb5	4	7	4	FAIL	Pf2 pg4	P=WW F=LW	w:A_escape:K>B	
+cyl8x6_f4	Kb3 Pc2 Pa3 kd2 pc3 pb5	4	5	6	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B	
+cyl8x6_f4	Kb3 Pc2 Pa4 kd2 pc3 pa5	4	4	7	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B	
+cyl8x6_f4	Kb3 Pa2 Pc2 kd2 pa3 pc3	4	4	5	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B	
+cyl8x6_f4	Kc3 Pb2 ka2 pb3	4	4	6	FAIL	Pg2 pg3	P=LL F=LW	b:A_escape:K>B	
+cyl8x6_f4	Kb1 Pa2 Pb3 kc3 pb2 pb4	4	3	15	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+cyl8x6_f4	Kb1 Pc2 Pa3 kc3 pb2 pa4	4	1	18	FAIL	Pg2 pg4 pf5	P=DL F=WL	w:B_refuted:opp:K>Z	
+cyl8x6_f4	Kb1 Pd2 Pa3 kb3 pb2 pa4	4	15	13	FAIL	Pf2 pf5	P=LL F=WL	w:B_refuted:opp:K>Z	
+cyl8x6_f4	Kb1 Pc2 Pb3 kc3 pb2 pa5	4	2	8	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+cyl8x6_f4	Kb1 Pc2 Pb3 kc3 pb2 pb4	4	1	13	FAIL	Pg2 pg4 pf5	P=LL F=WL	w:B_refuted:opp:K>Z	
+cyl8x6_f4	Kc1 Pb2 Pa3 kb3 pc2 pa4	4	1	13	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+cyl8x6_f4	Kc3 Pb2 Pb4 kb5 pb3 pc4	4	6	7	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+cyl8x6_f4	Kc2 Pb3 Pa4 kb4 pc3 pa5	4	7	6	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+cyl8x6_f4	Kb3 Pa2 Pc2 kb1 pa3 pc3	4	4	5	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+cyl8x6_f4	Kb3 Pa2 Pc2 kb1 pa3 pd4	4	5	8	FAIL	Pf2 pf3	P=LD F=LW	b:A_escape:K>Z	
+cyl8x6_f4	Kb5 Pd2 Pa3 kb3 pa4 pc4	4	8	7	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>Z	
+flat7x6_f3_z0	Ka2 Pa3 kc3 pc4 pc5	2	10	3	SURVIVES				first 300 of 4579 (e-g), then all 885 on e,f
+flat7x6_f3_z0	Kb3 Pc2 Pa4 ka5 pc3 pb4	2	8	7	FAIL	Pe2 pe3	P=DW F=LW	w:A_escape:K>Z	
+flat7x6_f3_z0	Ka3 Pb2 kc2 pb3	2	4	6	FAIL	Pe2 pe3	P=LL F=LW	b:A_escape:K>B	
+flat7x6_f3_z0	Ka3 Pc2 Pb3 kc5 pc3 pb5	2	10	9	FAIL	Pe2 pe3	P=DW F=LW	w:A_escape:K>Z,Pz	
+flat7x6_f3_z0	Ka4 Pb2 Pa3 kc4 pb3 pc5	2	4	8	FAIL	Pe2 pe3	P=DW F=LW	w:A_escape:K>Z	
+flat7x6_f3_z0	Ka4 Pb3 kc3 pb4	2	5	5	FAIL	Pe2 pe3	P=LL F=LW	b:A_escape:K>B	
+flat7x6_f3_z0	Kb1 Pa2 Pb3 ka3 pb2 pc5	2	2	10	SURVIVES				first 300 of 4579 (e-g), then all 885 on e,f
+flat7x6_f3_z0	Kc3 Pb2 Pa4 ka2 pb3 pa5	2	4	6	FAIL	Pg2 pe3	P=WL F=LL	w:A_escape:K>B	
+flat7x6_f3_z0	Kc1 Pc2 Pb3 ka2 pa3 pc5	2	7	4	SURVIVES				first 300 of 4579 (e-g), then all 885 on e,f
+flat7x6_f3_z0	Kc3 Pb2 Pa3 ka2 pb3 pb5	2	5	7	FAIL	Pg2 pe3	P=WL F=LL	w:A_escape:K>B	
+flat7x6_f3_z0	Ka5 Pb2 Pb4 kc4 pb3 pb5	2	9	4	FAIL	Pe2 pe3	P=WW F=LW	w:A_escape:K>Z	
+flat7x6_f3_z0	Ka5 Pc2 Pb4 kc4 pc3 pb5	2	6	4	FAIL	Pe2 pg4	P=LL F=WL	w:B_refuted:opp:K>B	
+flat7x6_f3_z0	Kc3 Pb2 ka2 pb3	2	4	5	FAIL	Pg2 pe3	P=WL F=LL	w:A_escape:K>B	
+flat7x6_f3_z0	Kb1 Pc2 Pa3 kc3 pb2 pa4	2	1	19	FAIL	Pe2 pe3	P=LD F=LW	b:A_escape:K>B,K>Z	
+flat7x6_f3_z0	Kb1 Pc2 Pb3 kc3 pb2 pa5	2	2	9	SURVIVES				first 300 of 4579 (e-g), then all 885 on e,f
+flat7x6_f3_z0	Kb3 Pa2 Pc2 kb1 pa3 pc3	2	4	5	SURVIVES				first 300 of 4579 (e-g), then all 885 on e,f
+flat7x6_f3_z0	Kb3 Pc2 Pc4 kc5 pc3 pb4	2	7	7	FAIL	Pe2 pe3	P=DW F=LW	w:A_escape:K>Z	
+flat7x6_f3_z0	Kc1 Pb2 Pc3 kb3 pc2 pc4	2	1	13	FAIL	pe3	P=DL F=LL	w:A_escape:STALE	
+flat7x6_f3_z0_d3	Ka2 Pa3 kc3 pc4 pc5	2	10	3	SURVIVES				first 300 of 885 (f,g)
+flat7x6_f3_z0_d3	Kb3 Pc2 Pa4 ka5 pc3 pb4	2	8	7	SURVIVES				first 300 of 885 (f,g)
+flat7x6_f3_z0_d3	Ka3 Pb2 kc2 pb3	2	4	6	FAIL	Pg2 pg4 pf5	P=LL F=WL	w:B_refuted:opp:K>B	
+flat7x6_f3_z0_d3	Ka3 Pc2 Pb3 kc5 pc3 pb5	2	10	9	FAIL	Pf2 pf3	P=DW F=LW	w:A_escape:K>Z	
+flat7x6_f3_z0_d3	Ka4 Pb2 Pa3 kc4 pb3 pc5	2	4	8	SURVIVES				first 300 of 885 (f,g)
+flat7x6_f3_z0_d3	Ka4 Pb3 kc3 pb4	2	5	5	FAIL	Pg2 pg4 pf5	P=LL F=WL	w:B_refuted:opp:K>B	
+flat7x6_f3_z0_d3	Kb1 Pa2 Pb3 ka3 pb2 pc5	2	2	10	SURVIVES				first 300 of 885 (f,g)
+flat7x6_f3_z0_d3	Kc3 Pb2 Pa4 ka2 pb3 pa5	2	4	6	SURVIVES				first 300 of 885 (f,g)
+flat7x6_f3_z0_d3	Kc1 Pc2 Pb3 ka2 pa3 pc5	2	7	4	SURVIVES				first 300 of 885 (f,g)
+flat7x6_f3_z0_d3	Kc3 Pb2 Pa3 ka2 pb3 pb5	2	5	7	SURVIVES				first 300 of 885 (f,g)
+flat7x6_f3_z0_d3	Ka5 Pb2 Pb4 kc4 pb3 pb5	2	9	4	FAIL	Pg2 Pf3 pf4	P=WW F=LW	w:A_escape:K>Z	
+flat7x6_f3_z0_d3	Ka5 Pc2 Pb4 kc4 pc3 pb5	2	6	4	SURVIVES				first 300 of 885 (f,g)
+flat7x6_f3_z0_d3	Kc3 Pb2 ka2 pb3	2	4	5	SURVIVES				first 300 of 885 (f,g)
+flat7x6_f3_z0_d3	Kb1 Pc2 Pa3 kc3 pb2 pa4	2	1	19	FAIL	Pg2 pg4 pf5	P=LL F=WL	w:B_refuted:opp:K>B,K>Z	
+flat7x6_f3_z0_d3	Kb1 Pc2 Pb3 kc3 pb2 pa5	2	2	9	SURVIVES				first 300 of 885 (f,g)
+flat7x6_f3_z0_d3	Kb3 Pa2 Pc2 kb1 pa3 pc3	2	4	5	SURVIVES				first 300 of 885 (f,g)
+flat7x6_f3_z0_d3	Kb3 Pc2 Pc4 kc5 pc3 pb4	2	7	7	SURVIVES				first 300 of 885 (f,g)
+flat7x6_f3_z0_d3	Kc1 Pb2 Pc3 kb3 pc2 pc4	2	1	13	FAIL	Pg2 pg4 pg5	P=DL F=WL	w:B_refuted:opp:K>Z	
+flat7x6_f4_z0	Ka1 Pb2 Pc3 kb3 pa2 pd5	2	5	9	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kc4 Pd2 Pc3 ka5 pd3 pa4	2	3	11	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Ka2 Pa3 kc3 pc4 pc5	2	10	3	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kb3 Pc2 Pa4 ka5 pc3 pb4	2	8	7	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Ka2 Pd2 Pb3 kb4 pa3 pd3	2	7	10	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Ka2 Pb3 Pd3 kb4 pa3 pd4	2	7	12	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Ka3 Pb2 Pc3 kc2 pb3 pd5	2	5	7	FAIL	Pg2 pg4 pf5	P=LL F=WL	w:B_refuted:opp:K>Z	
+flat7x6_f4_z0	Kc5 Pd2 Pb4 ka4 pd3 pb5	2	6	4	FAIL	Pf2 Pg3 pg4	P=WW F=LW	w:A_escape:K>Z	
+flat7x6_f4_z0	Ka3 Pb2 kc2 pb3	2	4	6	FAIL	Pg2 pg4 pf5	P=LL F=WL	w:B_refuted:opp:K>Z	
+flat7x6_f4_z0	Ka3 Pc2 Pb3 kc5 pc3 pb5	2	10	9	FAIL	Pf2 pf3	P=DW F=LW	w:A_escape:K>Z	
+flat7x6_f4_z0	Kb2 Pa3 Pd3 ka4 pb3 pc5	2	5	8	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kb2 Pa3 Pc3 ka4 pb3 pd5	2	8	10	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Ka3 Pd2 Pb4 kb5 pd3 pa4	2	10	9	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kb2 Pa3 Pd3 ka4 pb3 pd4	2	12	8	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kc2 Pa3 Pb4 ka4 pc3 pd4	2	9	6	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Ka4 Pa2 Pd3 kc3 pb4 pd4	2	8	7	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Ka4 Pb2 Pa3 kc4 pb3 pc5	2	4	8	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Ka4 Pb2 Pc2 kc4 pb4 pd4	2	5	7	FAIL	Pg2 pg4 pf5	P=LL F=WL	w:B_refuted:opp:K>Z,Pz	
+flat7x6_f4_z0	Ka4 Pb3 kc3 pb4	2	5	5	FAIL	Pg2 pg4 pf5	P=LL F=WL	w:B_refuted:opp:K>Z	
+flat7x6_f4_z0	Kb1 Pa2 Pb3 ka3 pb2 pc5	2	2	10	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kb1 Pa2 Pd3 ka3 pb2 pc5	2	2	10	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kb1 Pa2 Pd2 ka3 pb2 pc4	2	3	8	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kb1 Pa2 Pc3 ka3 pb2 pd5	2	2	9	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kb1 Pa2 Pd4 ka3 pb2 pd5	2	1	13	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kb1 Pa2 Pc2 ka3 pb2 pd4	2	2	12	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kb1 Pa2 Pd3 ka3 pb2 pd4	2	1	11	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kc3 Pb2 Pa4 ka2 pb3 pa5	2	4	6	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kc2 Pb2 Pd3 ka2 pa4 pd4	2	14	8	FAIL	Pf2 pf3	P=DW F=LW	w:A_escape:K>Z	
+flat7x6_f4_z0	Kc3 Pb2 Pd2 ka2 pd3 pa4	2	6	8	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kc1 Pc2 Pb3 ka2 pa3 pc5	2	7	4	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kc3 Pb2 Pa3 ka2 pb3 pb5	2	5	7	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Ka5 Pb2 Pb4 kc4 pb3 pb5	2	9	4	FAIL	Pg2 Pf3 pf4	P=WW F=LW	w:A_escape:K>Z	
+flat7x6_f4_z0	Ka5 Pb2 Pc2 kc4 pb4 pd5	2	8	12	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:Pz	
+flat7x6_f4_z0	Ka5 Pb2 Pd2 kc4 pd4 pb5	2	7	11	FAIL	Pg2 pf4	P=LL F=LW	b:A_escape:K>Z	
+flat7x6_f4_z0	Ka5 Pc2 Pb3 kc5 pd4 pb5	2	9	7	FAIL	Pg2 pg4 pf5	P=LL F=WL	w:B_refuted:opp:K>Z,Pz	
+flat7x6_f4_z0	Ka5 Pd2 Pb3 kc5 pd3 pb5	2	7	7	FAIL	Pg2 pg4 pf5	P=LL F=WL	w:B_refuted:opp:K>Z,Pz	
+flat7x6_f4_z0	Ka5 Pc2 Pb4 kc4 pc3 pb5	2	6	4	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kc3 Pb2 Pd3 ka2 pb3 pc5	2	5	6	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Ka5 Pd2 Pb4 kc4 pd3 pb5	2	5	4	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kc3 Pb2 Pd2 ka2 pb3 pd3	2	4	5	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kc3 Pb2 ka2 pb3	2	4	5	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kc1 Pb2 Pd3 ka1 pa4 pd4	2	15	9	FAIL	Pf2 pf3	P=DW F=LW	w:A_escape:K>Z	
+flat7x6_f4_z0	Kb1 Pc2 Pa3 kc3 pb2 pa4	2	1	19	FAIL	Pg2 pg4 pf5	P=LL F=WL	w:B_refuted:opp:K>Z	
+flat7x6_f4_z0	Kb1 Pb2 Pd3 kb3 pb4 pd4	2	7	16	FAIL	Pf2 pf3	P=LD F=LW	b:A_escape:K>Z	
+flat7x6_f4_z0	Kb1 Pc2 Pb3 kc3 pb2 pa5	2	2	9	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kb1 Pc2 Pd3 kc3 pb2 pd4	2	1	13	FAIL	Pf2 pf5	P=DL F=WL	w:B_refuted:opp:K>Z	
+flat7x6_f4_z0	Kb2 Pc2 Pa3 kd2 pc4 pb5	2	8	9	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B,K>Z,Pz	
+flat7x6_f4_z0	Kd5 Pa2 Pc3 kb5 pa3 pc5	2	8	7	FAIL	Pf2 pf3	P=WW F=LW	w:A_escape:K>B	
+flat7x6_f4_z0	Kb3 Pb2 Pd2 kb5 pd3 pb4	2	12	9	FAIL	Pf2 pf3	P=DW F=LW	w:A_escape:K>Z	
+flat7x6_f4_z0	Kc3 Pd2 Pb4 kb5 pd3 pc4	2	6	7	FAIL	Pf2 Pg3 pg4	P=WW F=LW	w:A_escape:K>Z	
+flat7x6_f4_z0	Kd3 Pa3 Pb4 kb5 pc3 pd4	2	6	8	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kb3 Pa2 Pc2 kb1 pa3 pc3	2	4	5	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kb3 Pa2 Pc2 kd2 pa3 pc3	2	4	5	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B	
+flat7x6_f4_z0	Kb3 Pc2 Pa3 kd2 pc3 pb5	2	5	6	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B	
+flat7x6_f4_z0	Kd4 Pb2 Pc2 kb4 pa4 pc4	2	5	8	FAIL	Pg3 pf3	P=WL F=LL	w:A_escape:K>B,Pz	
+flat7x6_f4_z0	Kb3 Pc2 Pa4 kd2 pc3 pa5	2	4	7	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B	
+flat7x6_f4_z0	Kb3 Pc2 Pb4 kd2 pc3 pb5	2	4	7	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B	
+flat7x6_f4_z0	Kb3 Pc2 Pb4 kd4 pc3 pb5	2	8	7	FAIL	Pf2 pf3	P=DW F=LW	w:A_escape:K>Z	
+flat7x6_f4_z0	Kb3 Pc2 Pc4 kc5 pc3 pb4	2	7	7	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kd5 Pc2 Pc4 kb4 pc3 pc5	2	11	4	FAIL	Pf2 pf3	P=WW F=LW	w:A_escape:K>B,K>Z	
+flat7x6_f4_z0	Kd3 Pc2 Pc4 kb4 pc3 pc5	2	15	11	FAIL	Pf2 pf3	P=WW F=LW	w:A_escape:K>B	
+flat7x6_f4_z0	Kb3 Pc2 Pd3 kd2 pc3 pc5	2	5	12	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B	
+flat7x6_f4_z0	Kb3 Pc2 kd2 pc3	2	4	6	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B	
+flat7x6_f4_z0	Kb3 Pd2 Pc4 kd4 pd3 pc5	2	7	8	FAIL	Pf2 pg4	P=LL F=LW	b:A_escape:K>B	
+flat7x6_f4_z0	Kb4 Pa2 Pc3 kd3 pa3 pc4	2	5	5	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B	
+flat7x6_f4_z0	Kc1 Pb2 Pc3 kb3 pc2 pc4	2	1	13	FAIL	Pg2 pg4 pg5	P=DL F=WL	w:B_refuted:opp:K>Z	
+flat7x6_f4_z0	Kc1 Pd2 Pc3 kb3 pc2 pc4	2	3	15	FAIL	Pg2 pg3 pg4	P=LD F=LW	b:A_escape:K>Z	
+flat7x6_f4_z0	Kd4 Pc3 kb3 pc4	2	5	5	FAIL	Pg2 pf4	P=WW F=LW	w:A_escape:K>B	
+flat7x6_f4_z0	Kc1 Pb2 Pc3 kb3 pc2 pd5	2	2	8	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kc1 Pb2 Pd3 kb3 pc2 pd4	2	1	18	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kb5 Pa2 Pc3 kd5 pa3 pc5	2	7	7	FAIL	Pf4 pg4	P=WL F=WW	b:A_escape:K>B	
+flat7x6_f4_z0	Kd3 Pc2 Pa4 kb2 pc3 pa5	2	4	6	FAIL	Pg3 pf3	P=WL F=LL	w:A_escape:K>B	
+flat7x6_f4_z0	Kd3 Pc2 Pb3 kb2 pc3 pa5	2	5	5	FAIL	Pg3 pf3	P=WL F=LL	w:A_escape:K>B	
+flat7x6_f4_z0	Kd3 Pc2 Pa3 kb2 pc3 pa4	2	4	5	FAIL	Pg3 pf3	P=WL F=LL	w:A_escape:K>B	
+flat7x6_f4_z0	Kd3 Pc2 Pb3 kb2 pc3 pc5	2	5	12	FAIL	Pg3 pf3	P=WL F=LL	w:A_escape:K>B	
+flat7x6_f4_z0	Kb5 Pc2 Pc4 kd4 pc3 pc5	2	11	4	FAIL	Pf2 pf3	P=DW F=LW	w:A_escape:K>Z	
+flat7x6_f4_z0	Kb5 Pd2 Pc4 kd4 pd3 pc5	2	7	4	FAIL	Pf4 pg4	P=WL F=WW	b:A_escape:K>B	
+flat7x6_f4_z0	Kd3 Pc2 kb2 pc3	2	4	6	FAIL	Pg3 pf3	P=WL F=LL	w:A_escape:K>B	
+flat7x6_f4_z0	Kc1 Pa2 Pd2 kd3 pc2 pb4	2	3	8	FAIL	Pf2 pf5	P=DL F=WL	w:B_refuted:opp:K>B	
+flat7x6_f4_z0	Kc1 Pa2 Pd3 kc3 pc2 pd4	2	15	13	FAIL	Pf2 pf3	P=DW F=LW	w:A_escape:Pz	
+flat7x6_f4_z0	Kc1 Pd2 Pa3 kd3 pc2 pa4	2	1	14	FAIL	Pf2 pf5	P=DL F=WL	w:B_refuted:opp:K>B	
+flat7x6_f4_z0	Kc1 Pd2 Pa3 kd3 pc2 pb5	2	2	10	FAIL	Pf2 pf5	P=LL F=WL	w:B_refuted:opp:K>B	
+flat7x6_f4_z0	Kc1 Pb2 Pd2 kd3 pc2 pa4	2	2	11	FAIL	Pf2 pf5	P=LL F=WL	w:B_refuted:opp:K>B	
+flat7x6_f4_z0	Kc1 Pd2 Pb3 kd3 pc2 pa5	2	2	12	FAIL	Pf2 pf5	P=LL F=WL	w:B_refuted:opp:K>B	
+flat7x6_f4_z0	Kc1 Pd2 Pb3 kd3 pc2 pb4	2	1	18	FAIL	Pf2 pf3	P=LD F=LW	b:A_escape:K>B,K>Z	
+flat7x6_f4_z0	Kc1 Pd2 Pc3 kd3 pc2 pb5	2	2	8	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kc2 Pa3 Pd3 kd4 pc3 pa4	2	13	11	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kc2 Pa3 Pd3 kd4 pc3 pb5	2	5	8	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kd3 Pc2 Pc4 kc5 pc3 pd4	2	6	7	FAIL	pf3 pf5	P=DL F=LL	w:A_escape:STALE	
+flat7x6_f4_z0	Kd2 Pa3 Pc3 kc4 pd3 pa4	2	8	13	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kc3 Pb2 Pd2 kc1 pd3 pa4	2	5	8	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kc3 Pb2 Pd2 kc1 pb3 pd3	2	4	5	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kd2 Pc3 Pb4 kc4 pd3 pb5	2	7	6	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kc3 Pd2 Pd4 kd5 pd3 pc4	2	6	7	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kd1 Pc2 Pb3 kc3 pd2 pa5	2	2	9	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kd1 Pc2 Pa3 kc3 pd2 pa4	2	1	16	FAIL	pf3	P=DL F=LL	w:A_escape:STALE	
+flat7x6_f4_z0	Kd1 Pa2 Pc2 kc3 pd2 pa3	2	1	12	FAIL	pf3	P=DL F=LL	w:A_escape:STALE	
+flat7x6_f4_z0	Kc5 Pa2 Pd3 kc3 pb4 pd4	2	8	7	SURVIVES				first 300 of 885 (f,g) and all 63 on f
+flat7x6_f4_z0	Kd1 Pc2 Pb3 kc3 pd2 pb4	2	1	16	FAIL	pf3	P=DL F=LL	w:A_escape:STALE	
+flat7x6_f4_z0	Kd1 Pc2 Pd3 kc3 pd2 pd4	2	1	13	FAIL	pf3	P=DL F=LL	w:A_escape:STALE	
+flat7x6_f3_z2	Ke1 Pd2 Pc3 kd3 pe2 pc4	4	1	13	FAIL	pg3	P=DL F=LL	w:A_escape:STALE	
+flat7x6_f3_z2	Kd3 Pc2 Pc4 kc5 pc3 pd4	4	6	7	SURVIVES				all 885 contexts on a,g
+flat7x6_f3_z2	Kd3 Pe2 Pc4 kc5 pe3 pd4	4	6	7	SURVIVES				all 885 contexts on a,g
+flat7x6_f3_z2	Kc3 Pd2 Pc4 ke2 pd3 pc5	4	4	7	FAIL	pa3 pa4	P=DL F=LL	w:A_escape:STALE	
+flat7x6_f3_z2	Kc3 Pd2 Pc4 ke4 pd3 pc5	4	8	7	FAIL	pa3 pa4	P=DL F=LL	w:A_escape:STALE	
+flat7x6_f3_z2	Kc3 Pd2 Pd4 kd5 pd3 pc4	4	6	7	FAIL	pa3 pa5	P=DL F=LL	w:A_escape:STALE	
+flat7x6_f3_z2	Kc3 Pd2 Pd4 ke2 pd3 pd5	4	4	11	FAIL	Pa2 pa5	P=DL F=WL	w:B_refuted:opp:K>B,K>Z	
+flat7x6_f3_z2	Kc3 Pd2 Pd4 ke4 pd3 pd5	2	11	11	FAIL	Pa2 pa3	P=WW F=LW	w:A_escape:K>B	
+flat7x6_f3_z2	Ke3 Pd2 Pc3 kc2 pd3 pd5	4	5	12	FAIL	Pa2 pg3	P=WL F=LL	w:A_escape:K>B	
+flat7x6_f3_z2	Kc3 Pd2 ke2 pd3	4	4	6	FAIL	Pg2 pa3	P=WL F=LL	w:A_escape:K>B	
+flat7x6_f3_z2	Kd1 Pc2 Pd3 kc3 pd2 pd4	4	1	13	FAIL	Pa2 pa3	P=LD F=LW	b:A_escape:K>B	
+flat7x6_f3_z2	Kd1 Pc2 Pd3 ke3 pd2 pd4	4	3	15	FAIL	Pa2 pa5	P=DL F=WL	w:B_refuted:opp:K>B	
+flat7x6_f3_z2	Ke4 Pd3 kc3 pd4	2	5	5	FAIL	Pa2 pa3	P=LL F=LW	b:A_escape:K>B	
+flat7x6_f3_z2	Kd1 Pc2 Pd3 kc3 pd2 pe5	4	2	8	SURVIVES				all 885 contexts on a,g
+flat7x6_f3_z2	Kd1 Pe2 Pc3 ke3 pd2 pc4	4	1	18	FAIL	Pg2 pg3	P=LD F=LW	b:A_escape:K>B,K>Z	
+flat7x6_f3_z2	Kd3 Pc2 Pe2 kd1 pc3 pe3	2	4	5	SURVIVES				all 885 contexts on a,g
+flat8x6_f3_z0	Ka2 Pa3 kc3 pc4 pc5	2	10	3	SURVIVES				first 300 of 14793 (e-h)
+flat8x6_f3_z0	Kb3 Pc2 Pa4 ka5 pc3 pb4	2	8	7	FAIL	Pe2 pe3	P=DW F=LW	w:A_escape:K>Z	
+flat8x6_f3_z0	Ka3 Pb2 kc2 pb3	2	4	6	FAIL	Pe2 pe3	P=LL F=LW	b:A_escape:K>B	
+flat8x6_f3_z0	Ka3 Pc2 Pb3 kc5 pc3 pb5	2	10	9	FAIL	Pe2 pe3	P=DW F=LW	w:A_escape:Pz	
+flat8x6_f3_z0	Ka4 Pb2 Pa3 kc4 pb3 pc5	2	4	8	FAIL	Pe2 pe3	P=DW F=LW	w:A_escape:K>Z	
+flat8x6_f3_z0	Ka4 Pb3 kc3 pb4	2	5	5	FAIL	Pe2 pe3	P=LL F=LW	b:A_escape:K>B	
+flat8x6_f3_z0	Kb1 Pa2 Pb3 ka3 pb2 pc5	2	2	10	SURVIVES				first 300 of 14793 (e-h)
+flat8x6_f3_z0	Kc3 Pb2 Pa4 ka2 pb3 pa5	2	4	6	FAIL	Pg2 pe3	P=WL F=LL	w:A_escape:K>B	
+flat8x6_f3_z0	Kc1 Pc2 Pb3 ka2 pa3 pc5	2	7	4	SURVIVES				first 300 of 14793 (e-h)
+flat8x6_f3_z0	Kc3 Pb2 Pa3 ka2 pb3 pb5	2	5	7	FAIL	Pg2 pe3	P=WL F=LL	w:A_escape:K>B	
+flat8x6_f3_z0	Ka5 Pb2 Pb4 kc4 pb3 pb5	2	9	4	FAIL	Pe2 pe3	P=WW F=LW	w:A_escape:K>Z	
+flat8x6_f3_z0	Ka5 Pc2 Pb4 kc4 pc3 pb5	2	6	4	FAIL	Pe2 pg4	P=LL F=WL	w:B_refuted:opp:K>B	
+flat8x6_f3_z0	Kc3 Pb2 ka2 pb3	2	4	5	FAIL	Pg2 pe3	P=WL F=LL	w:A_escape:K>B	
+flat8x6_f3_z0	Kb1 Pc2 Pa3 kc3 pb2 pa4	2	1	19	FAIL	Pe2 pe3	P=LD F=LW	b:A_escape:K>B,K>Z	
+flat8x6_f3_z0	Kb1 Pc2 Pb3 kc3 pb2 pa5	2	2	9	SURVIVES				first 300 of 14793 (e-h)
+flat8x6_f3_z0	Kb3 Pa2 Pc2 kb1 pa3 pc3	2	4	5	SURVIVES				first 300 of 14793 (e-h)
+flat8x6_f3_z0	Kb3 Pc2 Pc4 kc5 pc3 pb4	2	7	7	FAIL	Pe2 pe3	P=DW F=LW	w:A_escape:K>Z	
+flat8x6_f3_z0	Kc1 Pb2 Pc3 kb3 pc2 pc4	2	1	13	FAIL	pe3	P=DL F=LL	w:A_escape:STALE	
+flat8x6_f3_z0_d3	Ka2 Pa3 kc3 pc4 pc5	2	10	3	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f3_z0_d3	Kb3 Pc2 Pa4 ka5 pc3 pb4	2	8	7	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f3_z0_d3	Ka3 Pb2 kc2 pb3	2	4	6	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f3_z0_d3	Ka3 Pc2 Pb3 kc5 pc3 pb5	2	10	9	FAIL	Pf2 pf3	P=DW F=LW	w:A_escape:K>Z	
+flat8x6_f3_z0_d3	Ka4 Pb2 Pa3 kc4 pb3 pc5	2	4	8	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f3_z0_d3	Ka4 Pb3 kc3 pb4	2	5	5	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f3_z0_d3	Kb1 Pa2 Pb3 ka3 pb2 pc5	2	2	10	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f3_z0_d3	Kc3 Pb2 Pa4 ka2 pb3 pa5	2	4	6	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f3_z0_d3	Kc1 Pc2 Pb3 ka2 pa3 pc5	2	7	4	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f3_z0_d3	Kc3 Pb2 Pa3 ka2 pb3 pb5	2	5	7	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f3_z0_d3	Ka5 Pb2 Pb4 kc4 pb3 pb5	2	9	4	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f3_z0_d3	Ka5 Pc2 Pb4 kc4 pc3 pb5	2	6	4	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f3_z0_d3	Kc3 Pb2 ka2 pb3	2	4	5	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f3_z0_d3	Kb1 Pc2 Pa3 kc3 pb2 pa4	2	1	19	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f3_z0_d3	Kb1 Pc2 Pb3 kc3 pb2 pa5	2	2	9	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f3_z0_d3	Kb3 Pa2 Pc2 kb1 pa3 pc3	2	4	5	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f3_z0_d3	Kb3 Pc2 Pc4 kc5 pc3 pb4	2	7	7	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f3_z0_d3	Kc1 Pb2 Pc3 kb3 pc2 pc4	2	1	13	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Ka1 Pb2 Pc3 kb3 pa2 pd5	2	5	9	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kc4 Pd2 Pc3 ka5 pd3 pa4	2	3	11	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Ka2 Pa3 kc3 pc4 pc5	2	10	3	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kb3 Pc2 Pa4 ka5 pc3 pb4	2	8	7	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Ka2 Pd2 Pb3 kb4 pa3 pd3	2	7	10	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Ka2 Pb3 Pd3 kb4 pa3 pd4	2	7	12	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Ka3 Pb2 Pc3 kc2 pb3 pd5	2	5	7	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kc5 Pd2 Pb4 ka4 pd3 pb5	2	6	4	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Ka3 Pb2 kc2 pb3	2	4	6	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Ka3 Pc2 Pb3 kc5 pc3 pb5	2	10	9	FAIL	Pf2 pf3	P=DW F=LW	w:A_escape:K>Z	
+flat8x6_f4_z0	Kb2 Pa3 Pd3 ka4 pb3 pc5	2	5	8	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kb2 Pa3 Pc3 ka4 pb3 pd5	2	8	10	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Ka3 Pd2 Pb4 kb5 pd3 pa4	2	10	9	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kb2 Pa3 Pd3 ka4 pb3 pd4	2	12	8	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kc2 Pa3 Pb4 ka4 pc3 pd4	2	9	6	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Ka4 Pa2 Pd3 kc3 pb4 pd4	2	8	7	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Ka4 Pb2 Pa3 kc4 pb3 pc5	2	4	8	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Ka4 Pb2 Pc2 kc4 pb4 pd4	2	5	7	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Ka4 Pb3 kc3 pb4	2	5	5	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kb1 Pa2 Pb3 ka3 pb2 pc5	2	2	10	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kb1 Pa2 Pd3 ka3 pb2 pc5	2	2	10	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kb1 Pa2 Pd2 ka3 pb2 pc4	2	3	8	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kb1 Pa2 Pc3 ka3 pb2 pd5	2	2	9	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kb1 Pa2 Pd4 ka3 pb2 pd5	2	1	13	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kb1 Pa2 Pc2 ka3 pb2 pd4	2	2	12	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kb1 Pa2 Pd3 ka3 pb2 pd4	2	1	11	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kc3 Pb2 Pa4 ka2 pb3 pa5	2	4	6	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kc2 Pb2 Pd3 ka2 pa4 pd4	2	14	8	FAIL	Pf2 pf3	P=DW F=LW	w:A_escape:K>Z	
+flat8x6_f4_z0	Kc3 Pb2 Pd2 ka2 pd3 pa4	2	6	8	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kc1 Pc2 Pb3 ka2 pa3 pc5	2	7	4	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kc3 Pb2 Pa3 ka2 pb3 pb5	2	5	7	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Ka5 Pb2 Pb4 kc4 pb3 pb5	2	9	4	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Ka5 Pb2 Pc2 kc4 pb4 pd5	2	8	12	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:Pz	
+flat8x6_f4_z0	Ka5 Pb2 Pd2 kc4 pd4 pb5	2	7	11	FAIL	Pg2 pf4	P=LL F=LW	b:A_escape:K>Z	
+flat8x6_f4_z0	Ka5 Pc2 Pb3 kc5 pd4 pb5	2	9	7	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Ka5 Pd2 Pb3 kc5 pd3 pb5	2	7	7	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Ka5 Pc2 Pb4 kc4 pc3 pb5	2	6	4	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kc3 Pb2 Pd3 ka2 pb3 pc5	2	5	6	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Ka5 Pd2 Pb4 kc4 pd3 pb5	2	5	4	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kc3 Pb2 Pd2 ka2 pb3 pd3	2	4	5	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kc3 Pb2 ka2 pb3	2	4	5	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kc1 Pb2 Pd3 ka1 pa4 pd4	2	15	9	FAIL	Pf2 pf3	P=DW F=LW	w:A_escape:K>Z	
+flat8x6_f4_z0	Kb1 Pc2 Pa3 kc3 pb2 pa4	2	1	19	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kb1 Pb2 Pd3 kb3 pb4 pd4	2	7	16	FAIL	Pf2 pf3	P=LD F=LW	b:A_escape:K>Z	
+flat8x6_f4_z0	Kb1 Pc2 Pb3 kc3 pb2 pa5	2	2	9	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kb1 Pc2 Pd3 kc3 pb2 pd4	2	1	13	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kb2 Pc2 Pa3 kd2 pc4 pb5	2	8	9	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B,K>Z,Pz	
+flat8x6_f4_z0	Kd5 Pa2 Pc3 kb5 pa3 pc5	2	8	7	FAIL	Pf2 pf3	P=WW F=LW	w:A_escape:K>B	
+flat8x6_f4_z0	Kb3 Pb2 Pd2 kb5 pd3 pb4	2	12	9	FAIL	Pf2 pf3	P=DW F=LW	w:A_escape:K>Z	
+flat8x6_f4_z0	Kc3 Pd2 Pb4 kb5 pd3 pc4	2	6	7	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kd3 Pa3 Pb4 kb5 pc3 pd4	2	6	8	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kb3 Pa2 Pc2 kb1 pa3 pc3	2	4	5	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kb3 Pa2 Pc2 kd2 pa3 pc3	2	4	5	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B	
+flat8x6_f4_z0	Kb3 Pc2 Pa3 kd2 pc3 pb5	2	5	6	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B	
+flat8x6_f4_z0	Kd4 Pb2 Pc2 kb4 pa4 pc4	2	5	8	FAIL	Ph2 pf3	P=WL F=LL	w:A_escape:K>B,Pz	
+flat8x6_f4_z0	Kb3 Pc2 Pa4 kd2 pc3 pa5	2	4	7	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B	
+flat8x6_f4_z0	Kb3 Pc2 Pb4 kd2 pc3 pb5	2	4	7	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B	
+flat8x6_f4_z0	Kb3 Pc2 Pb4 kd4 pc3 pb5	2	8	7	FAIL	Pf2 pf3	P=DW F=LW	w:A_escape:K>Z	
+flat8x6_f4_z0	Kb3 Pc2 Pc4 kc5 pc3 pb4	2	7	7	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kd5 Pc2 Pc4 kb4 pc3 pc5	2	11	4	FAIL	Pf2 pf3	P=WW F=LW	w:A_escape:K>B,K>Z	
+flat8x6_f4_z0	Kd3 Pc2 Pc4 kb4 pc3 pc5	2	15	11	FAIL	Pf2 pf3	P=WW F=LW	w:A_escape:K>B	
+flat8x6_f4_z0	Kb3 Pc2 Pd3 kd2 pc3 pc5	2	5	12	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B	
+flat8x6_f4_z0	Kb3 Pc2 kd2 pc3	2	4	6	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B	
+flat8x6_f4_z0	Kb3 Pd2 Pc4 kd4 pd3 pc5	2	7	8	FAIL	Pf2 pg4	P=LL F=LW	b:A_escape:K>B	
+flat8x6_f4_z0	Kb4 Pa2 Pc3 kd3 pa3 pc4	2	5	5	FAIL	Pf2 pf3	P=LL F=LW	b:A_escape:K>B	
+flat8x6_f4_z0	Kc1 Pb2 Pc3 kb3 pc2 pc4	2	1	13	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kc1 Pd2 Pc3 kb3 pc2 pc4	2	3	15	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kd4 Pc3 kb3 pc4	2	5	5	FAIL	Pg2 pf4	P=WW F=LW	w:A_escape:K>B	
+flat8x6_f4_z0	Kc1 Pb2 Pc3 kb3 pc2 pd5	2	2	8	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kc1 Pb2 Pd3 kb3 pc2 pd4	2	1	18	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kb5 Pa2 Pc3 kd5 pa3 pc5	2	7	7	FAIL	Pf2 ph4	P=LL F=WL	w:B_refuted:opp:K>B	
+flat8x6_f4_z0	Kd3 Pc2 Pa4 kb2 pc3 pa5	2	4	6	FAIL	Ph2 pf3	P=WL F=LL	w:A_escape:K>B	
+flat8x6_f4_z0	Kd3 Pc2 Pb3 kb2 pc3 pa5	2	5	5	FAIL	Ph2 pf3	P=WL F=LL	w:A_escape:K>B	
+flat8x6_f4_z0	Kd3 Pc2 Pa3 kb2 pc3 pa4	2	4	5	FAIL	Ph2 pf3	P=WL F=LL	w:A_escape:K>B	
+flat8x6_f4_z0	Kd3 Pc2 Pb3 kb2 pc3 pc5	2	5	12	FAIL	Ph2 pf3	P=WL F=LL	w:A_escape:K>B	
+flat8x6_f4_z0	Kb5 Pc2 Pc4 kd4 pc3 pc5	2	11	4	FAIL	Pf2 pf3	P=DW F=LW	w:A_escape:K>Z	
+flat8x6_f4_z0	Kb5 Pd2 Pc4 kd4 pd3 pc5	2	7	4	FAIL	Pf2 ph4	P=LL F=WL	w:B_refuted:opp:K>B	
+flat8x6_f4_z0	Kd3 Pc2 kb2 pc3	2	4	6	FAIL	Ph2 pf3	P=WL F=LL	w:A_escape:K>B	
+flat8x6_f4_z0	Kc1 Pa2 Pd2 kd3 pc2 pb4	2	3	8	FAIL	Pf2 pf5	P=DL F=WL	w:B_refuted:opp:K>B	
+flat8x6_f4_z0	Kc1 Pa2 Pd3 kc3 pc2 pd4	2	15	13	FAIL	Pf2 pf3	P=DW F=LW	w:A_escape:Pz	
+flat8x6_f4_z0	Kc1 Pd2 Pa3 kd3 pc2 pa4	2	1	14	FAIL	Pf2 pf5	P=DL F=WL	w:B_refuted:opp:K>B	
+flat8x6_f4_z0	Kc1 Pd2 Pa3 kd3 pc2 pb5	2	2	10	FAIL	Pf2 pf5	P=LL F=WL	w:B_refuted:opp:K>B	
+flat8x6_f4_z0	Kc1 Pb2 Pd2 kd3 pc2 pa4	2	2	11	FAIL	Pf2 pf5	P=LL F=WL	w:B_refuted:opp:K>B	
+flat8x6_f4_z0	Kc1 Pd2 Pb3 kd3 pc2 pa5	2	2	12	FAIL	Pf2 pf5	P=LL F=WL	w:B_refuted:opp:K>B	
+flat8x6_f4_z0	Kc1 Pd2 Pb3 kd3 pc2 pb4	2	1	18	FAIL	Pf2 pf3	P=LD F=LW	b:A_escape:K>B,K>Z	
+flat8x6_f4_z0	Kc1 Pd2 Pc3 kd3 pc2 pb5	2	2	8	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kc2 Pa3 Pd3 kd4 pc3 pa4	2	13	11	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kc2 Pa3 Pd3 kd4 pc3 pb5	2	5	8	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kd3 Pc2 Pc4 kc5 pc3 pd4	2	6	7	FAIL	pf3 pf5	P=DL F=LL	w:A_escape:STALE	
+flat8x6_f4_z0	Kd2 Pa3 Pc3 kc4 pd3 pa4	2	8	13	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kc3 Pb2 Pd2 kc1 pd3 pa4	2	5	8	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kc3 Pb2 Pd2 kc1 pb3 pd3	2	4	5	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kd2 Pc3 Pb4 kc4 pd3 pb5	2	7	6	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kc3 Pd2 Pd4 kd5 pd3 pc4	2	6	7	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kd1 Pc2 Pb3 kc3 pd2 pa5	2	2	9	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kd1 Pc2 Pa3 kc3 pd2 pa4	2	1	16	FAIL	pf3	P=DL F=LL	w:A_escape:STALE	
+flat8x6_f4_z0	Kd1 Pa2 Pc2 kc3 pd2 pa3	2	1	12	FAIL	pf3	P=DL F=LL	w:A_escape:STALE	
+flat8x6_f4_z0	Kc5 Pa2 Pd3 kc3 pb4 pd4	2	8	7	SURVIVES				first 300 of 4579 (f-h)
+flat8x6_f4_z0	Kd1 Pc2 Pb3 kc3 pd2 pb4	2	1	16	FAIL	pf3	P=DL F=LL	w:A_escape:STALE	
+flat8x6_f4_z0	Kd1 Pc2 Pd3 kc3 pd2 pd4	2	1	13	FAIL	pf3	P=DL F=LL	w:A_escape:STALE	
+flat8x6_f3_z2	Kc1 Pd2 Pe3 kd3 pc2 pe4	2	1	13	FAIL	pa3	P=DL F=LL	w:A_escape:STALE	
+flat8x6_f3_z2	Kd3 Pc2 Pc4 kc5 pc3 pd4	2	6	7	SURVIVES				first 300 of 4579 (a,g,h)
+flat8x6_f3_z2	Kd3 Pe2 Pc4 kc5 pe3 pd4	2	6	7	SURVIVES				first 300 of 4579 (a,g,h)
+flat8x6_f3_z2	Kc3 Pd2 Pc4 ke2 pd3 pc5	2	4	7	FAIL	pa3 pa4	P=DL F=LL	w:A_escape:STALE	
+flat8x6_f3_z2	Kc3 Pd2 Pc4 ke4 pd3 pc5	2	8	7	FAIL	pa3 pa4	P=DL F=LL	w:A_escape:STALE	
+flat8x6_f3_z2	Kc3 Pd2 Pd4 kd5 pd3 pc4	2	6	7	FAIL	pa3 pa5	P=DL F=LL	w:A_escape:STALE	
+flat8x6_f3_z2	Kc3 Pd2 Pd4 ke2 pd3 pd5	2	4	11	FAIL	Pa2 pa5	P=DL F=WL	w:B_refuted:opp:K>B,K>Z	
+flat8x6_f3_z2	Kc3 Pd2 Pd4 ke4 pd3 pd5	2	11	11	FAIL	Pa2 pa3	P=WW F=LW	w:A_escape:K>B	
+flat8x6_f3_z2	Kc3 Pd2 Pe3 ke2 pd3 pd5	2	5	12	FAIL	Pg2 pa3	P=WL F=LL	w:A_escape:K>B	
+flat8x6_f3_z2	Kc3 Pd2 ke2 pd3	2	4	6	FAIL	Pg2 pa3	P=WL F=LL	w:A_escape:K>B	
+flat8x6_f3_z2	Kc3 Pe2 Pd4 ke4 pe3 pd5	2	7	8	FAIL	Pa2 pa5	P=LL F=WL	w:B_refuted:opp:K>B	
+flat8x6_f3_z2	Kd1 Pc2 Pd3 kc3 pd2 pd4	2	1	13	FAIL	Pa2 pa3	P=LD F=LW	b:A_escape:K>B	
+flat8x6_f3_z2	Kd1 Pe2 Pd3 kc3 pd2 pd4	2	3	15	FAIL	Pa2 pa3	P=LD F=LW	b:A_escape:K>B	
+flat8x6_f3_z2	Ke4 Pd3 kc3 pd4	2	5	5	FAIL	Pa2 pa3	P=LL F=LW	b:A_escape:K>B	
+flat8x6_f3_z2	Kd1 Pc2 Pd3 kc3 pd2 pe5	2	2	8	SURVIVES				first 300 of 4579 (a,g,h)
+flat8x6_f3_z2	Kd1 Pc2 Pe3 kc3 pd2 pe4	2	1	18	FAIL	Pa2 pa3	P=LD F=LW	b:A_escape:K>B,K>Z	
+flat8x6_f3_z2	Ke3 Pd2 Pc3 kc2 pd3 pd5	2	5	12	FAIL	Pa2 pg3	P=WL F=LL	w:A_escape:K>B	
+flat8x6_f3_z2	Ke3 Pd2 Pd4 kc2 pd3 pd5	2	4	11	FAIL	Pa2 pa3	P=LL F=LW	b:A_escape:K>B,K>Z	
+flat8x6_f3_z2	Kc5 Pe2 Pd4 ke4 pe3 pd5	2	7	4	FAIL	Pg2 pa5	P=LL F=WL	w:B_refuted:opp:K>B	
+flat8x6_f3_z2	Ke3 Pd2 kc2 pd3	2	4	6	FAIL	Pa2 pa3	P=LD F=LW	b:A_escape:K>B	
+flat8x6_f3_z2	Kd1 Pc2 Pd3 ke3 pd2 pd4	2	3	15	FAIL	Pa2 pa5	P=DL F=WL	w:B_refuted:opp:K>B	
+flat8x6_f3_z2	Kd1 Pe2 Pc3 ke3 pd2 pc4	2	1	18	FAIL	Pg2 pg3	P=LD F=LW	b:A_escape:K>B,K>Z	
+flat8x6_f3_z2	Kd1 Pe2 Pd3 ke3 pd2 pc5	2	2	8	SURVIVES				first 300 of 4579 (a,g,h)
+flat8x6_f3_z2	Kd1 Pe2 Pd3 ke3 pd2 pd4	2	1	13	FAIL	Pa2 pa5	P=DL F=WL	w:B_refuted:opp:K>B	
+flat8x6_f3_z2	Ke3 Pd2 Pd4 kd5 pd3 pe4	2	6	7	FAIL	pg3 pg5	P=DL F=LL	w:A_escape:STALE	
+flat8x6_f3_z2	Kd3 Pc2 Pe2 kd1 pc3 pe3	2	4	5	SURVIVES				first 300 of 4579 (a,g,h)
+flat8x6_f3_z2	Ke2 Pd3 Pc4 kd4 pe3 pc5	2	7	6	SURVIVES				first 300 of 4579 (a,g,h)
+flat8x6_f3_z2	Kd3 Pe2 Pe4 ke5 pe3 pd4	2	6	7	SURVIVES				first 300 of 4579 (a,g,h)
+flat8x6_f3_z2	Ke1 Pd2 Pc3 kd3 pe2 pc4	2	1	13	FAIL	pg3	P=DL F=LL	w:A_escape:STALE	
+flat8x6_f3_z2	Ke1 Pd2 Pe3 kd3 pe2 pe4	2	1	13	FAIL	pg3	P=DL F=LL	w:A_escape:STALE	

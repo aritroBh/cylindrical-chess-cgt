@@ -1,0 +1,34 @@
+27586 grp test cyl7x6_f3 first1 (started 22:46, nice 15, unlocked; under ~1-2 CPU-min)
+20113 grp cyl8x6 Z_T full test, started 01:21 unlocked, killed 01:2x by me (over 1 CPU-min risk)
+25605 run_screen.sh phase 1 (started 01:23)
+K29 session2 02:01: killing 25605 (run_screen.sh) and its child grp 27013 (cyl7x6_f4 screen, unsharded; will be redone in shards under 20 min)
+K29 session2 02:05: killed my own test grp2 PID 58786 (survivor timing test, reached 30 CPU-s outside heavy.sh)
+chain1 phaseA 66208 02:06
+chain2 phaseA 66210 02:06
+chain3 ver c7f3 78872 02:09
+chainB1 96328 23:09 (phaseB.py: cyl8x6_f3, flat7x6_f3_z2, cyl8x6_f4, cyl7x6_f4; python driver, each shard through heavy.sh)
+chainB2 96330 23:09 (phaseB.py: flat7x6_f3_z0, flat7x6_f4_z0)
+chainW 1577 23:13 (witness verification per config via heavy.sh)
+23:24 killed my own drivers 96328 96330 96333 96334 and flat7x6_f3_z0 shard [600,864) (21797/21800/21801): full-class B too costly, switching to 2-file subclass runs (grp3 --cfiles). 96335 (cyl8x6_f3 shard [300,600)) left to finish.
+chainB1' 23965 23:24 phaseB.py cyl8x6_f3 eg; flat7x6_f3_z2; cyl8x6_f4; cyl7x6_f4
+chainB2' 23967 23:24 phaseB.py flat7x6_f3_z0 ef; flat7x6_f4_z0
+chainV1 50084 23:39 chainV.py flat7x6_f3_z0 (ef subclass)
+chainV1 51023 23:40 restarted after fixing ref3 flat spelling (previous 50084/50094 killed by me)
+chainV2 51025 23:40 chainV.py cyl8x6_f3(eg) flat7x6_f3_z2 cyl8x6_f4 cyl7x6_f4 (each waits for its B file)
+chainV3 51287 23:40 chainV.py cyl8x6_f3_d3 (from A, 63 ctx); flat7x6_f4_z0 (waits for B)
+23:50 killed my own flat7x6_f4_z0 B driver 23967 and its shard (64971/64974/64975), and the stale full-class cyl8x6_f3 shard 96335 (never got a slot): too costly for the shared slots; flat7x6_f4_z0 boundary = first 330 of 885 contexts
+chainM 85327 00:00 mech2 classification per config via heavy.sh
+chainS 4236 00:11 symmetric-member witness sample per config via heavy.sh
+chainV1 17670 00:22 restarted with batch 3 (killed 51023/51033 chainV1, 51025/51027/85400 chainV2: queue waits)
+chainV2 17672 00:22 restarted (batches 2,2,5,14)
+chainC3 18470 00:22 phaseB.py cyl7x6_f3 (4 survivors) with <=3 pawns a side, files e,f (3237 contexts), grp3
+00:58 killed my cyl8x6_f4 B driver 92430 (+chain 23965, shard 50327 and children): V runs were starving behind it; cyl8x6_f4 boundary = contexts [0,539) of 885
+chainV4 51946 00:58 chainV.py cyl7x6_f4 (28 survivors, 63 contexts, batches of 14)
+01:47 killed my c3 driver 18470 and its shard 43718/43721/43722 (58 CPU-min, over the 20-minute rule; step sizing was too coarse for 3+3-pawn contexts); will resume from context 1557 with STEPMAX
+chainC3b 98111 01:47 c3 resume from context 1557, STEPMAX 100
+chainB3 16852 02:17 cyl8x6_f4 subclass f (63 ctx) then ref3/kp_p verification; killed waiting chainV drivers 16708 17672 51287
+chainB4 16854 02:17 flat7x6_f4_z0 subclass f (63 ctx) then verification
+chainC3c 9577 02:41 c3 second driver from context 2677 (the 560 contexts with 3 pawns a side), STEPMAX 40
+03:28 killed my c3 second driver 9577 and its 6-pawn shard 9589/9595/9597 (46 CPU-min, 1.8 GB RSS for 40 contexts with 3+3 pawns: over the rule); contexts [2677,3237) not run
+03:28 killed c3 driver 98111 (not its running shard 83533 [2582,2682), left to finish); next shards would be 6-pawn contexts
+03:28 killed the 6-pawn shard that the c3 driver had just started (83533/83538/83539); c3 boundary: contexts [0,2682) of 3237 (all contexts with at most 5 pawns in total, plus 5 of the 560 six-pawn contexts)

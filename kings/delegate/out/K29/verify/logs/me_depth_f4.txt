@@ -1,0 +1,8 @@
+cyl7x6_f4 groups 264 LW-ok 264 depth mismatches vs K29 enum 0 min over groups of max depth 10 max 32
+nice -n 15 $PY me/src/depthcmp.py ${=c}  6.10s user 0.03s system 99% cpu 6.133 total
+cyl8x6_f4 groups 260 LW-ok 260 depth mismatches vs K29 enum 0 min over groups of max depth 10 max 36
+nice -n 15 $PY me/src/depthcmp.py ${=c}  8.33s user 0.03s system 99% cpu 8.389 total
+flat7x6_f4_z0 groups 200 LW-ok 200 depth mismatches vs K29 enum 0 min over groups of max depth 10 max 38
+nice -n 15 $PY me/src/depthcmp.py ${=c}  4.61s user 0.02s system 99% cpu 4.645 total
+flat8x6_f4_z0 groups 200 LW-ok 200 depth mismatches vs K29 enum 0 min over groups of max depth 10 max 38
+nice -n 15 $PY me/src/depthcmp.py ${=c}  6.30s user 0.03s system 99% cpu 6.334 total

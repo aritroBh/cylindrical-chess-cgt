@@ -1,0 +1,6 @@
+Psi: 1770 positions, kp vs ref3 disagreements 0, X count 0
+Z = Kb3 Pa2 Pc2 kb1 pa3 pc3          contexts 885  P disagreements(kpp vs ref3) 0  Phi!=Psi: kp-family 0, ref3 0  X in P: 0
+Z = Kb1 Pa2 Pb3 ka3 pb2 pc5          contexts 885  P disagreements(kpp vs ref3) 0  Phi!=Psi: kp-family 0, ref3 0  X in P: 0
+Z = Kb3 Pa2 Pa4 ka5 pa3 pb4          contexts 885  P disagreements(kpp vs ref3) 0  Phi!=Psi: kp-family 0, ref3 0  X in P: 0
+Z = Kb3 Pc2 Pa4 ka5 pc3 pb4          contexts 885  P disagreements(kpp vs ref3) 0  Phi!=Psi: kp-family 0, ref3 0  X in P: 0
+nice -n 15 $PY scripts/surv.py cyl:7x6 cyl:7x6 ef a1 a6 "${Z4[@]}"  404.47s user 1.19s system 99% cpu 6:46.75 total
