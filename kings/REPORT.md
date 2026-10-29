@@ -372,7 +372,7 @@ Every deliverable was given to independent referees (Claude models) told to brea
     bridge, Theorem 3.2‴, conditional on (Pun). Its referee found **Z_B** on flat 7×6, which refutes K14's own "no
     exactly frozen group" (the search had a move-count cut-off): White king b2/c3, Black king a4/b5, pawns Pa3 Pb4 pb3
     pc4. In P every non-shuttle move loses by force, CHECKED-2 (kp_p and `ref3`; PROVED by hand since K27). Beside 660 contexts its P result
-    equals the dud prediction (COMPUTED-1). In chess it is undecided at cap 1.
+    equals the dud prediction (COMPUTED-1). In chess it is not exactly two-shuttle: Kc3–d2 from (c3, b5) draws (K28).
     K34 (2026-10-28, Codex) proved Proposition 3.2′, Lemma 3.2″ and Theorem 3.2‴ again from the statements alone and found
     every step SOUND, the e.p. and bridge steps under their stated hypotheses. Its one objection, about the G = 0 shuttle deletions, came from a script that did not test what it
     reported, and the integrator's own computation confirms the note.
@@ -412,7 +412,12 @@ Every deliverable was given to independent referees (Claude models) told to brea
     has a certificate (286 entries in all) and loses within 11 plies. The referee parsed every certificate with its own
     move generator, and four solvers agree on the numbers (CHECKED-2). The mirror group follows by a rank-flip and
     colour-swap symmetry. In chess, 21 of the 26 deviations lose (CHECKED-2: kpsolve and the referee's `ownchess`). Five
-    are not settled at cap 1, among them Kc3–d2 with bounds (D, L), so whether Z_B is two-shuttle in chess is open.
+    were not settled at cap 1; K28 settled them (next bullet).
+  - K28 (2026-10-28): the five deviations solved at cap 2 (exact, A = B) and with a capture refinement at cap 1. Four lose
+    and **Kc3–d2 from (c3, b5) draws**: its child `Kd2 Pa3 Pb4 kb5 pb3 pc4 b -` is exactly D (kq3 at cap 2; kpsolve with
+    White held to one queen gives the lower bound D; `ownref` with the refinement agrees). So Z_B is **not** exactly
+    two-shuttle in chess, CHECKED-2 (no hand proof of the draw). The referee re-ran every solver except kpsolve at cap 2 on
+    the four 3-pawn positions, which it read from the investigator's log. Open: chess contexts of Z_B.
   - So no result of the note is still GAP.
   - The T30 fixes of 2026-10-22 came later. They were reviewed by Sonnet reviewers in two rounds, not by K3 (see the Theory row
   above).

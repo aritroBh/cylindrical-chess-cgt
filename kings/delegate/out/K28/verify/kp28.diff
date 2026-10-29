@@ -1,0 +1,84 @@
+--- ../../../kpsolve.c	2026-10-16 02:35:30
++++ work/kp28.c	2026-10-27 20:25:47
+@@ -29,7 +29,7 @@
+ #define MAXOFF 3
+ #define MAXMOVES 320
+ #define BIT(s) (1ULL << (s))
+-#define PASS_THRESHOLD 6000000u /* layers with more states use repeated passes */
++static unsigned PASS_THRESHOLD = 6000000u; /* K28: settable with --passthr; layers with more states use repeated passes */
+ 
+ enum { VUNK = 0, VWIN, VLOSS, VDRAW, VILL };
+ enum { WHITE = 0, BLACK = 1 };
+@@ -38,6 +38,8 @@
+ 
+ static int W, H, N, WRAP, EPON = 1, CAP = 1, FROZEN = 0, BOUND = 0, cappedSeen = 0, WANTMOVES = 0;
+ static int promoType[4], nPromo;
++/* K28 patch: per-colour officer caps and promotion sets (defaults: no per-colour cap, same set for both colours) */
++static int CAPC[2] = {9, 9}, promoTypeC[2][4], nPromoC[2];
+ 
+ /* ---------- geometry ---------- */
+ 
+@@ -294,17 +296,19 @@
+     r.ot[r.no] = TQ + 8 * us; /* the promoted piece's type does not affect king safety */
+     r.no++;
+     if (in_check(&r, us)) return;
+-    for (int i = 0; i < nPromo; i++) {
++    for (int i = 0; i < nPromoC[us]; i++) {
+       Pos s = q;
+       s.osq[s.no] = to;
+-      s.ot[s.no] = promoType[i] + 8 * us;
++      s.ot[s.no] = promoTypeC[us][i] + 8 * us;
+       s.no++;
+       s.stm = them;
+-      if (FROZEN) emit(out, m, &s, 1, us, 'P', from, to, promoType[i]);
+-      else if (s.no > CAP) {
++      int mine = 0;
++      for (int jj = 0; jj < s.no; jj++) mine += colour_of(s.ot[jj]) == us;
++      if (FROZEN) emit(out, m, &s, 1, us, 'P', from, to, promoTypeC[us][i]);
++      else if (s.no > CAP || mine > CAPC[us]) {
+         __atomic_store_n(&cappedSeen, 1, __ATOMIC_RELAXED);
+-        emit(out, m, &s, 1, BOUND == 0 ? WHITE : BLACK, 'P', from, to, promoType[i]);
+-      } else emit(out, m, &s, 0, 0, 'P', from, to, promoType[i]);
++        emit(out, m, &s, 1, BOUND == 0 ? WHITE : BLACK, 'P', from, to, promoTypeC[us][i]);
++      } else emit(out, m, &s, 0, 0, 'P', from, to, promoTypeC[us][i]);
+     }
+     return;
+   }
+@@ -906,7 +910,7 @@
+   MainArgs *ma = arg;
+   int argc = ma->argc;
+   char **argv = ma->argv;
+-  const char *promo = "QRBN";
++  const char *promo = "QRBN", *promow = "QRBN", *promob = "QRBN";
+   int boardSet = 0;
+   for (int i = 1; i < argc; i++) {
+     if (!strcmp(argv[i], "--board") && i + 1 < argc) {
+@@ -917,7 +921,12 @@
+       else { ma->rc = usage(); return NULL; }
+       boardSet = 1;
+     } else if (!strcmp(argv[i], "--ep") && i + 1 < argc) EPON = !strcmp(argv[++i], "on");
+-    else if (!strcmp(argv[i], "--promote") && i + 1 < argc) promo = argv[++i];
++    else if (!strcmp(argv[i], "--promote") && i + 1 < argc) promo = promow = promob = argv[++i];
++    else if (!strcmp(argv[i], "--promw") && i + 1 < argc) promow = argv[++i];
++    else if (!strcmp(argv[i], "--promb") && i + 1 < argc) promob = argv[++i];
++    else if (!strcmp(argv[i], "--capw") && i + 1 < argc) CAPC[0] = atoi(argv[++i]);
++    else if (!strcmp(argv[i], "--capb") && i + 1 < argc) CAPC[1] = atoi(argv[++i]);
++    else if (!strcmp(argv[i], "--passthr") && i + 1 < argc) PASS_THRESHOLD = (unsigned)strtoul(argv[++i], NULL, 10);
+     else if (!strcmp(argv[i], "--cap") && i + 1 < argc) CAP = atoi(argv[++i]);
+     else if (!strcmp(argv[i], "--frozen")) FROZEN = 1;
+     else if (!strcmp(argv[i], "--moves")) WANTMOVES = 1;
+@@ -936,6 +945,14 @@
+     if (!q) { ma->rc = usage(); return NULL; }
+     promoType[nPromo++] = (int)(q - TYPECH);
+   }
++  for (int col = 0; col < 2; col++) { /* K28 patch */
++    nPromoC[col] = 0;
++    for (const char *c = col == 0 ? promow : promob; *c; c++) {
++      const char *q = strchr(TYPECH + 1, toupper((unsigned char)*c));
++      if (!q) { ma->rc = usage(); return NULL; }
++      promoTypeC[col][nPromoC[col]++] = (int)(q - TYPECH);
++    }
++  }
+   init_geometry();
+ 
+   int n = 0, cap = 1024;

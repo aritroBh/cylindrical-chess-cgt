@@ -1,0 +1,54 @@
+# stale PIDs of the killed first attempt are in pids_attempt1_stale.log; do not signal them
+4296 hrun cap1moves 22:38:16
+9452 hrun cap2_F1 22:40:54
+9479 hrun cap2_F2 22:40:55
+12328 hrun valmoves1 22:42:15
+26150 hrun k3_c1_norefine 01:23:13
+26205 hrun k3_c1_refine 01:23:14
+33483 hrun suite_val 01:25:47
+35119 hrun suite_val2 01:26:23
+56223 hrun suite_r5 01:32:34
+56225 hrun suite_rows 01:32:34
+# 01:32:54 killing my own queued waiters (no slot held) to relaunch with a larger outer wall limit: 33483 33489 35119 35122 56223 56235 56225 56240
+57591 hrun suite_val 01:32:57
+57653 hrun suite_val2 01:32:58
+57711 hrun suite_r5 01:32:59
+57788 hrun suite_rows 01:33:00
+# 01:45:43 killing my own queued waiters k3_c1_norefine/k3_c1_refine (no slot held; merged into suite_val): 26155 26210
+# 01:50:12 replacing my four queued waiters (no slot held) by two chains: killing 57594 57657 57714 57794
+15320 hrun chainA 01:50:14
+15525 hrun chainB 01:50:15
+54518 suite_r5 R5_B_w0 02:01:52
+54518 suite_r5 R5_A_w0_ref 02:03:23
+69952 suite_val2 kp_cap2 02:06:26
+71185 hrun suite_r5b 02:06:49
+16339 suite_val c5_kp_cap1 02:19:06
+16339 suite_val c5_kq3_cap1 02:22:11
+69952 suite_val2 kq3_cap2 02:22:30
+16339 suite_val c5_kq3_cap1_ref 02:23:25
+69952 suite_val2 kq3_cap2_ref 02:25:25
+16339 suite_val kp_cap1 02:25:32
+16339 suite_val kq3_cap1 02:26:49
+43576 hrun suite_D 02:27:03
+16339 suite_val kq3_cap1_ref 02:27:20
+16339 suite_val own_A0 02:28:01
+47641 suite_r5b R5_B_w1Q 02:28:17
+16339 suite_val own_B0 02:28:36
+16339 suite_val own_A1 02:29:09
+16339 suite_val own_B1 02:29:43
+54205 suite_rows L_A_restr 02:30:18
+54205 suite_rows W_B_restr 02:31:29
+47641 suite_r5b R5_A_b1Q_ref 02:32:46
+63672 hrun suite_E 02:33:17
+80503 suite_E F4_kp_cap2 02:38:35
+72944 suite_D F4_kq3_cap2 03:10:08
+72944 suite_D c5_own_b0_r0 03:16:50
+72944 suite_D c5_own_b1_r0 03:17:56
+72944 suite_D c5_own_b0_r1 03:19:04
+72944 suite_D c5_own_b1_r1 03:20:12
+72944 suite_D R5_kp28_B_w1Q 03:21:19
+72944 suite_D R5_kids_kq3_B_w1Q 03:45:07
+72944 suite_D V_kp28_w1Q 03:49:08
+72944 suite_D V_kq3_w1Q 03:55:38
+72944 suite_D R5_kq3_cap2 03:56:02
+# 23:10:10 final: all solver processes exited; binaries, cache and w2 deleted; nothing signalled
