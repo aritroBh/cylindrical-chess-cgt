@@ -494,3 +494,9 @@ Answered 2026-10-16:
   all 52 convention failures; mismatches 159 -> 128 of 500, no new errors; all 128 left are king effects. Soundness:
   no false certification in 158,544 enumerated positions (sketch proof, unrefereed).
 - **Draws** (`research/draw_model/`, T72 OpenCode): of 39 real draws, scoring draws as dud reproduces 21, as 0 or {on|off} none.
+- **Convention witnesses** (`research/convention_ladder/`, T73 OpenCode): one witness per convention (C1 passer wins at
+  once and C3 e.p. test on cyl:7x6; C4 frozen kings on flat:5x6, CHECKED-2; C2 race rule on 8x8, PROVED by L4; C5
+  stalemate on 8x8, CHECKED-2). Mostly from existing data, so minimality is NOT established.
+- **Square-rule passer test S** (T74 Kilo referee, `research/v2_mechanisms_check/`): SOUND WITH FIXES; the rule holds
+  (0 failures in 158,544 cases, COMPUTED-1) but the proof sketch leaves the e.p.-after-push and blocked-pawn lower-bound
+  steps unargued. Status: COMPUTED-1, proof incomplete.
