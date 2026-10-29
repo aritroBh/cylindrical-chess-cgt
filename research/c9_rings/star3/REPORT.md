@@ -9,7 +9,9 @@ game ends at the first passed pawn). *3 = signature NNNP for G+*h, h = 0..3 (NNN
    - No eleven-pawn ring is *3 (all 15,461,385; `../work/c10c11_npawn_totals.txt`; C1).
    - Two twelve-pawn rings are *3, `B4 B7 W4 W6B7 W3 B7 B6 W3 W2 B6 W2` and `B5 W2 W5 B7 W3 B7 B6 W3 W2 B6 W2B3`. rg,
      Codex's `independent.py` (both e.p. readings) and OpenCode's engine agree (`../npawn/cross_check_star3.out`; C2).
-2. **C10:** no ten-pawn ring is *3 (C1). The eleven-pawn scan is running (`../work/jobs_c10p11.txt`).
+2. **C10: the least is 12 = n+2.** No ten- or eleven-pawn ring is *3 (all 142,191,474 eleven-pawn rings in 4+7 and 5+6,
+   counts equal to `../validate/` and `../extend/count_c10p11.txt`, 0 unresolved; C1). Three eleven-pawn rings are *2
+   (`../work/c10p11_hits.txt`). Twelve-pawn rings *3 exist (the n+2 family, paper Section VIII).
 3. **Two families with n+1 pawns, one pawn per file except one file with two:**
    - T_n = (B4 W2)^((n-10)/2) B5 W2 W6B7 W3 B7 B6 W3 W2 B6 W2, every even n = 12..58 (`res_fam3_even.tsv`);
    - S_n = B4 B6 W3 (W2 B4)^((n-11)/2) W6B7 W3 B7 B6 W3 W2 B6 W2, every odd n = 13..59 (`res_fam3_odd.tsv`).
