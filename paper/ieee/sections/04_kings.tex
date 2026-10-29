@@ -157,10 +157,12 @@ the edges changes the class of $12.5$--$20.5\%$ of them \lab{C2}.
 
 We solved, with the kings played out, every component with at most two pawns a side beside a
 tr\'ebuchet on boards with six ranks: on one file of the six-file cylinder and of the five-file ordinary board,
-and on files d and e of the seven-file cylinder (queen promotions only, at most two; on the six-file cylinder
-the all-promotion results agree in $42$ of $42$ cases). Of these, $500$ start without a race and have a determined result. Under the textbook test, $159$ of the $500$ get the wrong outcome \lab{C1}: $107$ through
+and on files d and e of the seven-file cylinder (queen promotions only, at most two). Of these, $500$ start without a race and have a determined result. Under the textbook test, $159$ of the $500$ get the wrong outcome \lab{C1}: $107$ through
 the kings alone, $18$ through en passant and $34$ because a passed pawn does not win its race. $143$ of the
-$159$ are on the seven-file cylinder. The e.p.-aware test repairs the convention in the $18$ e.p.\ failures,
-but in $13$ of them the free kings change the result again, so the count there falls only from $143$ to
-$138$. On the ordinary $8\times8$ board, in $94$ positions beside a tr\'ebuchet checked against the tablebase, the
-convention says all $449$ king moves lose, yet $41$ draw and $7$ win \lab{C1}.
+$159$ are on the seven-file cylinder. The e.p.-aware test repairs the $18$ e.p.\ failures, but the kings undo $13$ of these repairs. On the ordinary $8\times8$ board, in $94$ positions beside a tr\'ebuchet checked against the tablebase, the
+convention says all $449$ king moves lose, yet $41$ draw and $7$ win \lab{C1}. The $34$ race failures have one cause: a blocked
+enemy pawn steps level with its blocker and promotes first. Ending the game only at a passer that wins the
+race by the square rule removes all $52$ convention failures and leaves $128$ mismatches, all from the
+kings \lab{C1}. Over the $2{,}049$ decisive $8\times8$ positions beside a tr\'ebuchet whose real results we know,
+the model agrees with chess in $92.5\%$; the count rule beats the mover and opponent rules ($83\%$)
+\lab{C1}.

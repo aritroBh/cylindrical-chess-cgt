@@ -1,9 +1,8 @@
 \section{Conclusion and Open Problems}\label{sec:conclusion}
 
-Elkies' sum model holds up on a board without edges once the passed-pawn test respects en passant and the
-frozen kings are checked. In the model, $\nim{2}$ appears with seven pawns and single-component $\nim{3}$ with nine
-on ordinary boards and ten on the seven-file cylinder; with queen promotions and frozen kings the $1/8$ position
-has oracle value exactly $1/8$. Six problems are open.
+Against real chess the model is right in $92.5\%$ of the decisive $8\times8$ positions we can check; its pawn
+errors vanish under a square-rule passer test, and the rest come from the kings \lab{C1}. In the model,
+$\nim{2}$ appears with seven pawns and $\nim{3}$ with nine. Six problems are open.
 
 \begin{enumerate}
 \item \emph{A certified $1/8$.} With queen promotions and frozen kings the oracle value is exactly $1/8$. Do
@@ -16,7 +15,7 @@ has oracle value exactly $1/8$. Six problems are open.
   most $n+1$ up to $\cyl{59}$ \lab{C1}: can it be $n$? Are the wall
   families $\nim{2}$ as sums for all $n$? Is there a $\nim{4}$ on eight ranks?
 \item \emph{When is a tr\'ebuchet zero?} Theorem~\ref{thm:cert} settles the promotion game, not chess: find a
-  local test for chess, or settle Conjecture~\ref{conj:horizon2}; real tr\'ebuchets seem to have $h\approx5$--$7$ \lab{Conj}.
+  local test for chess, or settle Conjecture~\ref{conj:horizon2} (real tr\'ebuchets seem to need $h\approx5$--$7$).
 \item \emph{Endgames without edges.} With at most one new piece, $11\%$ of KPKP positions on the cylinder
   stay undecided, and KPPK comes next. Pawn play across the twisted seam of the M\"obius strip
   (Section~\ref{sec:tb}), where a pawn reverses direction, remains open.

@@ -1,10 +1,9 @@
 \section{The \texorpdfstring{$\nim{2}$}{*2} Question}\label{sec:star2}
 
-The $\nim{2}$ question of Section~\ref{sec:intro} asks whether a king-and-pawn position on a board with eight
-ranks can have this value; on the cylinder we ask it of the pawn model, since a ring leaves no room for frozen
-kings. We show that the only $\nim{2}$ in the census under the textbook test
-comes from that test, that on ordinary boards of any width none exists with six pawns or fewer in the
-default setting and the whole-board game, and that $\nim{2}$ appears with seven.
+On the cylinder we ask the $\nim{2}$ question (Section~\ref{sec:intro}) of the pawn model. We show that the
+only $\nim{2}$ in the census under the textbook test comes from that test, that on ordinary boards of any
+width none has six pawns or fewer in the default setting and the whole-board game, and that $\nim{2}$ appears
+with seven.
 
 \subsection{The Textbook Candidate}
 
@@ -53,8 +52,7 @@ $k\ge2$; the census has $6{,}724$ zeros and $4{,}042$ stars.
 
 Our CGT engine and an independent C solver, which tests whether $G+\nim{k}$ is a second-player win, agree on
 every record, and the independent whole-board solver finds no $\nim{k}$ with $2\le k\le 292$ among
-$793{,}299$ labeled placements on widths 1--4 (every placement on each width, without reduction by symmetry or
-translation). Every position in scope has birthday (Section~\ref{sec:notation}) at most $292$, so no
+$793{,}299$ labeled placements on widths 1--4 (none reduced by symmetry or translation). Every position in scope has birthday (Section~\ref{sec:notation}) at most $292$, so no
 larger nimber can occur. Under the textbook test the census has $6{,}470$ zeros, $3{,}891$ stars and the
 candidate; the e.p.-aware test removes that $\nim{2}$. In non-default settings a few other census
 positions are $\nim{2}$; Section~\ref{sec:real-cand} tests one of them in real chess.
@@ -180,5 +178,4 @@ cores between walls, whenever it is a nimber, is the nim-sum of its cores \lab{C
 $\nim{4}$ core.
 
 In the model, then, the $\nim{2}$ question has a positive answer on the ordinary $8\times8$ board: four files
-and seven pawns beside T suffice, while Elkies' higher nimbers need larger boards~\cite{Elkies2002}. Whether real
-chess agrees is the subject of Section~\ref{sec:real}.
+and seven pawns beside T suffice, while Elkies' higher nimbers need larger boards~\cite{Elkies2002}.

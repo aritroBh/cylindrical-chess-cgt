@@ -36,9 +36,8 @@ gives their exact values. (a)~White wins whoever moves first. (b)~The pawn part 
 \end{figure}
 
 
-Fig.~\ref{fig:puzzles} shows three puzzles on the cylinder, and Table~\ref{tab:puzzles} compares the values
-first claimed for them~\cite{Study2025} with the exact ones; the earlier walk-throughs pick the right
-winners, but not always the right values.
+Table~\ref{tab:puzzles} compares the values first claimed~\cite{Study2025} with the exact ones: the earlier
+walk-throughs pick the right winners, but not always the right values.
 
 \begin{table}[!t]
 \centering
@@ -60,8 +59,8 @@ Part & Claimed~\cite{Study2025} & Exact \\
 \end{tabular}
 \end{table}
 
-\emph{Puzzle 1} (Fig.~\ref{fig:puzzle71}) has three components. The earlier values of the c-file, $\pm1$, and of
-the f-file, $\game{\game{2}{1}}{0}$ with mean $3/4$, are right. Files h and a are not. White's a5--a6 still wins
+\emph{Puzzle 1} (Fig.~\ref{fig:puzzle71}) has three components. The earlier values of the c- and f-files are right;
+those of files h and a are not. White's a5--a6 still wins
 outright, but black, moving first, plays h6$\times$a5 across the seam and leaves $\star$, not a loss, so this
 part is $\game{+\BIG}{\star}$, hot, not the number $1$. The total is still a white win whoever moves first, but
 play now starts in the h/a component, by far the hottest (Principle~2). White to move plays a5--a6 and wins.
@@ -133,8 +132,8 @@ with white to move, as inside larger sums; with black to move, as in the chess p
 both say black wins.
 \end{proposition}
 
-\emph{Two models.} Our CGT engine adds up components, as Elkies does~\cite{Elkies1996}; the independent
-whole-board solver ends the game at the first passed pawn. Wherever the two disagree, in every case we tested,
+\emph{Two models.} Our CGT engine computes $S$, as Elkies does~\cite{Elkies1996}, and the independent
+whole-board solver $W$. Wherever the two disagree, in every case we tested,
 our engine with splitting switched off matches the whole-board solver. The two models agree on every headline value: the $1/8$ and $\upsec\star$
 positions of Section~\ref{sec:targets} in all nine settings (Section~\ref{sec:ep}), and the seven-pawn $\nim{2}$
 of Section~\ref{sec:star2} in the default setting. Elsewhere they can differ, even in outcome: under the

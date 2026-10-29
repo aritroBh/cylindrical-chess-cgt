@@ -40,10 +40,10 @@ For the candidate \pos{W a2 c2 / B b7 d7} beside T (Fig.~\ref{fig:star2_textbook
 \end{theorem}
 
 Real chess thus agrees with $\nim{2}$ on the outcome and on every winning first move resolved so far
-(1.~a4 is still open), but not on the value: in the e.p.-aware tree, which matches chess, $O$ is always hot. In
-the textbook tree we rule out $\nim{2}$ only when draws count as wins for black, as in (c), or for white
-\lab{C1}; with draws worth $0$ we do not decide it. Since the e.p.-aware tree is hot under every draw treatment,
-the candidate's $\nim{2}$ is a feature of the textbook test, not of chess.
+(1.~a4 is still open), but not on the value: in the e.p.-aware tree, which matches chess, $O$ is hot under every draw treatment, so
+the candidate's $\nim{2}$ is a feature of the textbook test, not of chess. In the textbook tree we rule out
+$\nim{2}$ only when draws count as wins for black, as in (c), or for white \lab{C1}; with draws worth $0$ we do
+not decide it.
 
 A second candidate, \pos{W a3 b3 c2 / B b5 b7 c6} ($10$ men with T), is $\nim{2}$ under the opponent
 rule with en passant on (Section~\ref{sec:star2}); its oracle value is positive under every draw treatment
@@ -69,6 +69,6 @@ This $1/8$ assumes the frozen kings of the tree (Section~\ref{sec:kings}); wheth
 has value $1/8$ is open. The same method applies to $\upsec\star$ and $\tinyg{1}$: their lower bounds already equal the
 target values, with $10$ and $12$ end positions of $9$ or $10$ men still open \lab{C1}. Positions A and B have $11$ men beside
 T, and the five-file $\nim{2}$ \pos{W a3 b3 c2 e2 / B a6 c5 d5 e3}, which sits legally
-beside T, has $12$, with only file f free of pawns between them. Their oracle values are open. For A and B a
+beside T, has $12$, with only file f free of pawns between them. Their oracle values are open: for A and B a
 search finds the deciding end positions; the five and seven of them with $8$ men agree with the model
 \lab{C2}, but those with $9$ to $11$ men are unsolved, so their $\nim{2}$ is a model value.
