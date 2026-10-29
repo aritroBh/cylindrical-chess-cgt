@@ -1,0 +1,27 @@
+nice: setpriority: Operation not permitted
+Independent standard-library engine; no cylcgt, rg, or myeng imports.
+Adopted passed test; race=count. Heap moves checked with EP expire and keep.
+Traceback (most recent call last):
+  File "/Users/aritro/Downloads/Research/Chessendgames/research/star3_check/independent.py", line 606, in <module>
+    main()
+  File "/Users/aritro/Downloads/Research/Chessendgames/research/star3_check/independent.py", line 594, in main
+    run_base_checks("S", args.sizes)
+  File "/Users/aritro/Downloads/Research/Chessendgames/research/star3_check/independent.py", line 558, in run_base_checks
+    sig = engine["signature"](start(n, family), 6)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/aritro/Downloads/Research/Chessendgames/research/star3_check/independent.py", line 237, in signature
+    left_wins = wins(pos, W, heap)
+                ^^^^^^^^^^^^^^^^^^
+  File "/Users/aritro/Downloads/Research/Chessendgames/research/star3_check/independent.py", line 216, in wins
+    if not wins(child, other(side), heap):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/aritro/Downloads/Research/Chessendgames/research/star3_check/independent.py", line 216, in wins
+    if not wins(child, other(side), heap):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/aritro/Downloads/Research/Chessendgames/research/star3_check/independent.py", line 216, in wins
+    if not wins(child, other(side), heap):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  [Previous line repeated 14 more times]
+  File "/Users/aritro/Downloads/Research/Chessendgames/research/star3_check/independent.py", line 211, in wins
+    raise MemoryError("whole-board search reached the 3.4 GB safety ceiling")
+MemoryError: whole-board search reached the 3.4 GB safety ceiling
