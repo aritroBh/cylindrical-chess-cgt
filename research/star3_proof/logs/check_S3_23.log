@@ -1,0 +1,19 @@
+S3_23: nodes=40445 K=141252 T=86822 flagged=0 zone=[0, 1, 2, 13, 14, 16, 17, 18, 19, 20, 21, 22] sig(h=0..5)=NNNPNN; no passed pawn, no flag; files 3..12 are exact pattern files in every node
+  Lemma 2 at n=23: central files 4..11; windows {4: (3, 7), 5: (4, 8), 6: (5, 9), 7: (6, 10), 8: (7, 11), 9: (8, 12), 10: (7, 11), 11: (8, 12)}
+    q-positions=323560 moves=485340; (a) failures 0; (b) T/K moves 0; by (file, class) {(4, 'P'): 40445, (5, 'P'): 80890, (6, 'P'): 40445, (7, 'P'): 80890, (8, 'P'): 40445, (9, 'P'): 80890, (10, 'P'): 40445, (11, 'L'): 28219, (11, 'P'): 52671}
+    arc ends: j=4 window (3, 7) (left end); j=11 window (8, 12) (right end)
+    (info) moves of the wall-end pawn, file 14, by (file, class): {(14, 'K'): 15978, (14, 'P'): 6915, (14, 'T'): 10652}
+S3_25: nodes=40445 K=141252 T=86822 flagged=0 zone=[0, 1, 2, 15, 16, 18, 19, 20, 21, 22, 23, 24] sig(h=0..5)=NNNPNN; no passed pawn, no flag; files 3..14 are exact pattern files in every node
+  Lemma 2 at n=25: central files 4..13; windows {4: (3, 7), 5: (4, 8), 6: (5, 9), 7: (6, 10), 8: (7, 11), 9: (8, 12), 10: (9, 13), 11: (10, 14), 12: (9, 13), 13: (10, 14)}
+    q-positions=404450 moves=606675; (a) failures 0; (b) T/K moves 0; by (file, class) {(4, 'P'): 40445, (5, 'P'): 80890, (6, 'P'): 40445, (7, 'P'): 80890, (8, 'P'): 40445, (9, 'P'): 80890, (10, 'P'): 40445, (11, 'P'): 80890, (12, 'P'): 40445, (13, 'L'): 28219, (13, 'P'): 52671}
+    arc ends: j=4 window (3, 7) (left end); j=13 window (10, 14) (right end)
+    (info) moves of the wall-end pawn, file 16, by (file, class): {(16, 'K'): 15978, (16, 'P'): 6915, (16, 'T'): 10652}
+S3_27: nodes=40445 K=141252 T=86822 flagged=0 zone=[0, 1, 2, 17, 18, 20, 21, 22, 23, 24, 25, 26] sig(h=0..5)=NNNPNN; no passed pawn, no flag; files 3..16 are exact pattern files in every node
+  ins_7(start_23) = start_25; graph_25 = ins_7(graph_23): 40445 nodes onto 40445 nodes, K- and T-children equal for all 80890 (node, side) pairs; Lemma 3 recomputed on every ins_7(p): 0 mismatches
+  ins_7(start_25) = start_27; graph_27 = ins_7(graph_25): 40445 nodes onto 40445 nodes, K- and T-children equal for all 80890 (node, side) pairs; Lemma 3 recomputed on every ins_7(p): 0 mismatches
+  control, cut c=8 (arc 4..13): Lemma 3 conclusion fails at 0 of 80890 (node, side) pairs
+  control, cut c=9 (arc 5..14): Lemma 3 conclusion fails at 0 of 80890 (node, side) pairs
+  control, cut c=10 (arc 6..15): Lemma 3 conclusion fails at 0 of 80890 (node, side) pairs
+  control, cut c=11 (arc 7..16): Lemma 3 conclusion fails at 0 of 80890 (node, side) pairs
+  control, cut c=12 (arc 8..17): Lemma 3 conclusion fails at 59671 of 80890 (node, side) pairs
+S3: ALL CHECKS PASSED (3977s)
