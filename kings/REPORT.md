@@ -421,7 +421,7 @@ Every deliverable was given to independent referees (Claude models) told to brea
   - K15b and K26 (2026-10-29) answer open question 2 in P: dud groups with no pawn break exist on the cylinder.
     K26's search of three-file groups with no cut-off finds Z_B on cyl:7×6 and cyl:8×6 and a new passer-free group
     Z_C (`Pa2 Pc4 / pa3 pc5`, kings c2/c3 and a4/a5) on cyl:8×6, with mirrors; both are exactly two-shuttle in P
-    (CHECKED-2 for width ≤ 8). K15b finds G8a and G8b on cyl:8×6 (two blocked pairs on files a and e, no pawn move),
+    (CHECKED-2 for width ≤ 8). K15 finds G8a and G8b on cyl:8×6 (re-solved by its referee K15b) (two blocked pairs on files a and e, no pawn move),
     exactly two-shuttle in P (CHECKED-2) and with the same 72 move values in chess at cap 2 (COMPUTED-1). Z_C is not
     dud_D beside every context. The two searches agree where their scopes overlap. Neither finds an over group, so the
     second half of Conjecture 4.7 has no support (COMPUTED-1). Both referees accepted with fixes; the merged edits were
@@ -432,6 +432,16 @@ Every deliverable was given to independent referees (Claude models) told to brea
     (CHECKED-2: two solver pairs, and the referee re-solved all 60 groups). Two of the four fail beside the larger
     context `Pf2 pf3 pf4 pf5`, so the zero depends on the context class. The T of Definition 2.6 was not computed, so
     the CONJECTURE of Proposition 2.10(b) is not refuted. Two referees; their replacement edits were applied.
+  - K38 (2026-10-29) proves by hand that P5 (`Kc4 Pb5 kb6 pc5`, White to move) is a draw in P, EPW, EPB and chess on
+    cyl:7×6 and flat 7×6, without Lemma 2.7a: K30's argument for position 7.2, moved two files left and two ranks down.
+    Its blockade invariant (296 positions per board) and Lemma K′ were checked by two move generators, and the chess
+    values by kpsolve and the referee's own solver (CHECKED-2). The referee re-derived every case; its edits were applied.
+  - K40 (2026-10-29) answers open question 5 (Gafni's K+P v K without edges) on cyl:W×H, 3 ≤ W ≤ 8, H ∈ {6, 7, 8}: on 3 and
+    5–8 files every position has the signature of a win, of on, or of dud, and no number or infinitesimal occurs
+    (CHECKED-2: two sum solvers, 71,842,272 results). Black never wins, by hand. The atlas table differs from P only where
+    the atlas scores a capturable promotion as a draw. The 4-file cylinders differ. The referee's edits were applied.
+  - K41 (2026-10-29) checked the commits for K28, K15b+K26 and K29 against their sources: every edit was applied exactly,
+    and six wording and scope points were fixed (`kings/delegate/out/K41/CHECK.md`).
   - So no result of the note is still GAP.
   - The T30 fixes of 2026-10-22 came later. They were reviewed by Sonnet reviewers in two rounds, not by K3 (see the Theory row
   above).

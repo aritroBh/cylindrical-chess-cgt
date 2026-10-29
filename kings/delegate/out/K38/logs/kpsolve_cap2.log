@@ -1,0 +1,22 @@
+== kpsolve cap2 cyl:7x6
+[kpsolve cyl:7x6 ep=on cap=2: 60 layers, 103779648 states, depth 7, 62.9s]
+# P5 bare, Z_72 = Kc4 Pb5 kb6 pc5
+Kc4 Pb5 kb6 pc5 w - | D D | Kc4c3:D Kc4d5:L Kc4d3:D Kc4b3:D
+Kc4 Pb5 kb6 pc5 b - | W W | Kb6a5:W
+# the four White sorties, Black to move
+Kb3 Pb5 kb6 pc5 b - | D D | Kb6b5:D Kb6a5:D Pc5c4:W Pc5c3:D
+Kc3 Pb5 kb6 pc5 b - | D D | Kb6b5:D Kb6a5:D Pc5c4:W
+Kd3 Pb5 kb6 pc5 b - | D D | Kb6b5:D Kb6a5:D Pc5c4:W Pc5c3:D
+Kd5 Pb5 kb6 pc5 b - | L L | Kb6b5:L Kb6a5:W Pc5c4:W Pc5c3:L
+# after ...Kxb5 (White to move)
+Kb3 kb5 pc5 w - | D D | Kb3b2:L Kb3c3:D Kb3a3:L Kb3c2:L Kb3a2:L
+Kc3 kb5 pc5 w - | D D | Kc3c2:L Kc3d3:L Kc3b3:D Kc3d2:L Kc3b2:L
+Kd3 kb5 pc5 w - | D D | Kd3d2:L Kd3e3:L Kd3c3:D Kd3e4:L Kd3e2:L Kd3c2:L
+Kd5 kb5 pc5 w - | L L | Kd5d6:L Kd5e5:L Kd5e6:L Kd5e4:L
+# after ...Ka5 Kc4 (Black to move)
+Kc4 Pb5 ka5 pc5 b - | D D | Ka5a4:W Ka5g5:W Ka5b6:D Ka5g6:W Ka5g4:W
+# Kd5 line: ...c3 double step
+Kd5 Pb5 kb6 pc3 w c4 | L L | Kd5d6:L Kd5d4:L Kd5e5:L Kd5e6:L Kd5e4:L Kd5c4:L
+./bin/kpsolve --board $b --cap 2 --moves < logs/pos_main.txt  62.76s user 0.10s system 99% cpu 1:03.19 total
+== kpsolve cap2 flat:7x6
+./bin/kpsolve --board $b --cap 2 --moves < logs/pos_main.txt  68.79s user 0.10s system 99% cpu 1:08.97 total

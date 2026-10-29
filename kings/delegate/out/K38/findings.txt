@@ -1,0 +1,29 @@
+K38 findings: hand proof for P5 w (LOOPY section 8 item 7). Full proof: PROOF.md. Edits: EDITS.md.
+
+1. Computed values, P5 = Kc4 Pb5 kb6 pc5, cyl:7x6 (LOOPY's board) and flat:7x6 (extra); the two boards agree everywhere.
+   X w: D in P (kp_p --pmodel, ref3, own solver), D in chess (kpsolve cap 2 exact; ownref cap 1 exact on flat).
+   X b: W in P and in chess.
+   After Kb3/Kc3/Kd3: D. After Kd5: L (P and chess).
+   After the sortie ...Kxb5: D, and the only drawing replies are Kb3-c3, Kc3-b3, Kd3-c3 (= the rule rho).
+   After ...Ka5 Kc4: D (only ...Kb6 holds). In P, ...Ka5 after a sortie is a White win (b6 promotes); in chess D.
+   Logs: logs/kp_p_pmodel.log, logs/ref3.log, logs/kpsolve_cap2.log, logs/kpsolve_cap2_flat.log, logs/ownref_flat.log.
+   ref3 board spelling: "cyl7x6" and "pln7x6" (the brief's spelling) make ref3/ref3m return X for every position (the size
+   is read from the 5th character on). Working spellings: cyl:7x6 and pln:7x6. All runs used those.
+
+2. PROOF.md: X w is D in P, EPW, EPB and chess on cyl:7x6 and flat:7x6, PROVED by hand (no Lemma 2.7a).
+   (0) four White moves Kb3, Kc3, Kd3, Kd5. (A) ...Kxb5 after each; lone king cannot win (EPW: Black never moves the pawn).
+   (B) after Kb3/Kc3/Kd3: ...Kxb5 -> blockade rule rho, invariant S of 296 positions per board (113/113/68/2 for pawn ranks
+   5/4/3/2); ...Ka5 -> Kc4; ...c4, ...c3 -> capture; free mode by Lemma K'. (C) Kd5 loses in P: ...c3 c2 c1, T = 6.
+   Mechanical check (own generator scripts/p5gen.py from SPEC.md, checker scripts/p5check.py): all 296 positions of S,
+   1,991 (cyl) / 1,728 (flat) Black moves, 0 failures; tau, sigma, Kd5 line 0 failures; mutations rejected.
+   Own solver vs kp_p --pmodel vs ref3 in P on 27,688 (cyl) / 28,373 (flat) reachable positions: 0 differences.
+
+3. The K30 method carries over (translation by -2 files, -2 ranks). No counterexample. Changes: shorter pawn run (S over
+   ranks 5..2, |S| 296 vs 918), Kd5 loses in 6 plies (vs 10), the seam adds ...Kg4/g5/g6 after ...Ka5 Kc4 (all met by Kxc5),
+   and K30's Lemma K flat-corner clause is false on flat:7x6 (pawns b5, c5 touch a5/b6 next to corner a6) - replaced by
+   Lemma K' (corners also have a move). On cyl:7x6 K30's Lemma K applies unchanged.
+
+4. EDITS.md: 7 edits, all apply once (apply_edits.py). Labelled PROVED, new K38, not yet re-derived by a referee.
+
+5. Process: the first kpsolve cap 2 run (cyl, ~63 CPU-s, plus the start of flat) ran outside heavy.sh by mistake; I killed
+   my flat run (PID 60178, pids.log) after ~1 min and reran it under heavy.sh. Binaries deleted; no __pycache__; bulk xz'd.

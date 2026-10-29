@@ -1,0 +1,30 @@
+== cyl:7x6
+statement 0, White moves at X: ['Kc4b3', 'Kc4c3', 'Kc4d3', 'Kc4d5']
+Lemma D: |S| = 296 by rank {2: 2, 3: 68, 4: 113, 5: 113} Black moves 1991 fails 0 {'cap': 789, 'stale': 2, 'S': 1200, 'blackstuck': 0}
+  mutation cutZL |S| = 300 fails 5
+  mutation cutZR |S| = 300 fails 5
+  mutation nob3d3 |S| = 298 fails 2
+Part A (Kxb5 + tau): starts, nodes, fails = (4, 2724, 0)
+Part C (Kd5 c3 c2 c1): W-moves, fails = (43, 0)
+Part B (sigma) per sortie: (White nodes, Black nodes, fails) = {'b3': (2824, 452, 0), 'c3': (1824, 288, 0), 'd3': (2824, 452, 0)}
+  Kb3 kb5: rho -> Kc3 kb5 pc5 b - in S: True
+  Kc3 kb5: rho -> Kb3 kb5 pc5 b - in S: True
+  Kd3 kb5: rho -> Kc3 kb5 pc5 b - in S: True
+own solver P : reachable 27688 X w = D X b = W  after sorties: b3:D c3:D d3:D d5:L | S positions reached: {'D': 296}
+own solver EPW : reachable 27688 X w = D X b = W 
+own solver EPB : reachable 27688 X w = D X b = D 
+== flat:7x6
+statement 0, White moves at X: ['Kc4b3', 'Kc4c3', 'Kc4d3', 'Kc4d5']
+Lemma D: |S| = 296 by rank {2: 2, 3: 68, 4: 113, 5: 113} Black moves 1728 fails 0 {'cap': 693, 'stale': 2, 'S': 1033, 'blackstuck': 0}
+  mutation cutZL |S| = 300 fails 5
+  mutation cutZR |S| = 300 fails 5
+  mutation nob3d3 |S| = 298 fails 2
+Part A (Kxb5 + tau): starts, nodes, fails = (4, 2788, 0)
+Part C (Kd5 c3 c2 c1): W-moves, fails = (43, 0)
+Part B (sigma) per sortie: (White nodes, Black nodes, fails) = {'b3': (2945, 531, 0), 'c3': (2935, 529, 0), 'd3': (2945, 531, 0)}
+  Kb3 kb5: rho -> Kc3 kb5 pc5 b - in S: True
+  Kc3 kb5: rho -> Kb3 kb5 pc5 b - in S: True
+  Kd3 kb5: rho -> Kc3 kb5 pc5 b - in S: True
+own solver P : reachable 28373 X w = D X b = W  after sorties: b3:D c3:D d3:D d5:L | S positions reached: {'D': 296}
+own solver EPW : reachable 28373 X w = D X b = W 
+own solver EPB : reachable 28373 X w = D X b = D 

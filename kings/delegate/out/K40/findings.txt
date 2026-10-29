@@ -1,0 +1,141 @@
+K40 FINDINGS -- Gafni's K+P vs K values without edges (LOOPY section 8 item 5). Not refereed.
+Hand proofs: PROOF.md. Proposed LOOPY edit: EDITS.md (applies cleanly; OLD occurs once).
+
+0. SUMMARY
+- In LOOPY's D-model a lone K+P vs K has no value: the pawn is a passer, so the position is scored as a
+  decisive event (BIG) from the start. The meaningful object is the P-model component x:
+  - a promotion is a White win;
+  - Kxp leaves K v K, which is dead (PROVED, Lemma 1).
+  The "value" of x is its results in x (+) T over 17 terminal-free test games T, with each side to move:
+  - the integers -12..12 (n > 0 gives White n spare moves);
+  - on, off, dud, over, under, *, up, down and +-1.
+  A test-game move is illegal while in check.
+  Two conventions for a side with no move:
+  - (N) normal play: that side loses (LOOPY's D-semantics);
+  - (C) chess: checkmate loses, stalemate draws. (C) is P itself.
+- CHECKED-2, the bare P table: kpsum, kp_p --pmodel and ref3m agree at all 1,056,504 legal positions,
+  with 0 differences. Boards: cyl:3-8x6 and cyl:3-8x8.
+- Sums: kpsum.c and ksum2.py agree, 38,971,824 results with 0 differences, under (N) and (C).
+  - Both codes are K40's own, so this is two implementations by one author.
+  - The integer chain runs to +-12 on 3-6x6, 3x8 and 4x8; +-6 on 7x6 and 5x8; +-4 on 8x6 and 6x8; +-2 on 7x8 and 8x8.
+- Atlas vs P: the atlas code disagrees with P at 54 to 8,264 positions per board.
+  - Every disagreement is P=W and atlas=D.
+  - All of them come from the atlas scoring a promotion that allows Kxq as a draw. Stalemate-after-promotion
+    cases occur only on 4 files (8 per board).
+  - With P's promotion rule substituted, the atlas code reproduces P with 0 differences.
+  - Every disagreement is listed in data/atlas_disagreements.tsv.xz.
+- Under (N), on 3 and 5-8 files every (x, s) is one of three classes:
+  - DEC: W against every test;
+  - ON: the signature of on (and of on+*);
+  - DUD: D against every test.
+  No number, no infinitesimal, no {on|0} and no 1* occurs. on* cannot be told apart from on by these tests.
+  Gafni's reported values therefore do not appear. This is against a second-hand summary; the thesis was not located.
+- Under (C), on 5-8 files, ON splits into tempo classes. These include parity classes, whose results are not
+  monotone in the integer tempo n, so they have no CGT value.
+  - PROVED: Ka6 Pa7 ka8, Black to move (W >= 4), wins for White iff Black has an odd number of spare moves (n < 0, n odd).
+
+1. SETUP / CODES (scripts/; bin/ deleted at the end)
+kpsum.c       sum solver (W and L sets by sweeps); flags --normal, --kxploss (diagnostic: Kxp counts as a Black win)
+ksum2.py      second implementation (predecessor lists, counting retrograde, own move generator; --pv prints a line)
+compare_base.py  T=0 three-way comparison, plus the atlas code
+sums.py, analyze.py, classify.py   class tables -> data/sums_*.tsv.xz, data/classes*.json, data/classify.json
+atlas_diff.py the disagreement list -> data/atlas_disagreements.tsv.xz, data/atlas_diff_counts.json
+kpk_ranks.c   copy of atlas/cylinder/kpk.c with the number of ranks as a compile constant and legal pawn ranks 2..R-1.
+              The 8-rank build gives the same counts as the atlas binary. -DPMODEL scores every promotion as a win.
+cross2.py, run_cross*.sh   the kpsum/ksum2 cross-check -> data/cross2.jsonl
+Notes:
+- ref3m needs "--board cyl:7x6" with the colon. "cyl7x6" returns X for every position.
+- The atlas exists only for 8 ranks. The 6-rank "atlas" rows use the same code recompiled with RANKS=6.
+
+2. PER-BOARD TABLE (counts of (x,s); "tempo" = a P class that is neither DEC, ON nor DUD)
+board    s  n      normal DEC/ON/DUD/other    P DEC/ON/tempo/DUD          P-W     atlas-W  atlas!=P
+3x6      w  1710   1008/549/153/0             1008/0/0/702                1008    954      54
+3x6      b  1944   621/567/756/0              621/0/0/1323                621     621      0
+4x6      w  5160   3496/1300/288/76           3456/132/1276/296           3876    3716     160
+4x6      b  5664   2268/1440/1824/132         2216/44/1560/1844           2412    2256     156
+5x6      w  11490  8530/2385/575/0            8530/325/2060/575           9495    9185     310
+5x6      b  12360  5645/2865/3850/0           5645/145/2720/3850          6240    5820     420
+6x6      w  21564  16908/3498/1158/0          16908/426/3072/1158         18174   17670    504
+6x6      b  22896  11790/4572/6534/0          11790/276/4296/6534         12852   12042    810
+7x6      w  36246  29386/4893/1967/0          29386/525/4368/1967         30961   30051    910
+7x6      b  38136  20895/6895/10346/0         20895/469/6426/10346        22750   21098    1652
+8x6      w  56400  46544/6360/3496/0          46544/600/5760/3496         48344   46904    1440
+8x6      b  58944  34920/8408/15616/0         34920/552/7856/15616        37104   34592    2512
+3x8      w  5706   3114/1773/819/0            3114/0/0/2592               3114    3024     90
+3x8      b  6264   2187/1728/2349/0           2187/0/0/4077               2187    2187     0
+4x8      w  16008  9304/4708/1784/212         9172/20/5024/1792           10856   10536    320
+4x8      b  17136  6620/4504/5744/268         6556/0/4816/5764            7480    7228     252
+5x8      w  34350  21480/9335/3535/0          21480/525/8810/3535         26100   25390    710
+5x8      b  36240  15055/9230/11955/0         15055/95/9135/11955         18060   17340    720
+6x8      w  63036  41166/15810/6060/0         41166/864/14946/6060        49614   48252    1362
+6x8      b  65880  29598/16164/20118/0        29598/222/15942/20118       35358   33834    1524
+7x8      w  104370 69790/24801/9779/0         69790/1239/23562/9779       83286   80878    2408
+7x8      b  108360 50631/25732/31997/0        50631/343/25389/31997       60228   57316    2912
+8x8      w  160656 110672/35032/14952/0       110672/1856/33176/14952     130176  126736   3440
+8x8      b  165984 82296/36664/47024/0        82296/680/35984/47024       97584   92760    4824
+
+3. THE RULE
+(N), 3 and 5-8 files (COMPUTED, cross-checked by the two sum codes):
+- DEC = P_L = W(x (+) dud).
+  PROVED (Prop. 4): DEC is contained in W(x (+) T) for every terminal-free T. This is LOOPY Theorem 3.11, whose
+  proof survives the check rule.
+- ON = W(x (+) 0) \ P_L: W against every integer -12..12, over, under, *, up, down and +-1; D against off and dud.
+  White needs no spare tempo, and 12 Black spares do not help Black. COMPUTED only; no hand proof.
+- DUD: D against everything, on included.
+  - On 3, 6 and 8 files (H = 6, 7, 8) and on cyl:7x6, DUD is exactly "Black forces Kxp against a White who may pass at
+    will". With Kxp scored as a Black win in x (+) on, no draw is left.
+  - Exceptions: fortress draws on odd widths, with both kings at cyclic file distance (W-1)/2 from the pawn.
+    Counts: cyl:5x6 30, 5x7 100, 5x8 170, 7x7 182, 7x8 378 (example: cyl:5x6 Ka1 ka3 Pc3, White to move). COMPUTED.
+- The class is fixed by two bits: the normal-play KPK table (x (+) 0) and x (+) dud. The normal-play table has
+  W set = DEC u ON and D set = DUD.
+- Placement pairs (White to move / Black to move): only DEC/DEC, DEC/ON, DEC/DUD, ON/ON, ON/DUD and DUD/DUD occur.
+- PROVED (Lemma 2, Cor. 3): White is never stalemated when W != 4, so Black never wins x (+) T. Hence no {on|0},
+  no negative numbers and no off.
+- 4-file cylinders are exceptional, as in K6:
+  - finite thresholds theta in {-4..1}; "other" counts 76+132 (4x6) and 212+268 (4x8);
+  - 28 Black-win positions per board, where White is stalemated in front of the pawn (e.g. Ka8 Pa7 kc7).
+
+(C), which is P:
+- On 3 and 5-8 files, DEC and DUD are the same sets as under (N).
+- cyl:3xH: all of ON becomes DUD.
+- cyl:5-8xH: ON splits as follows.
+  - Few P-ON positions (8x8: 1856 w, 680 b).
+  - Monotone thresholds: W iff n >= theta, theta in {-1, 0, 1}; -1 only for H=8. Example: 8x8 Ka1 Pa2 ka3 w has
+    theta = 1: a P draw, won with one White spare.
+  - Parity classes (8x8 examples):
+    Ka2 Pf2 kb4 w: W iff n >= -1 or n odd;
+    Ka3 Pg4 kb5 w: W iff n >= -2 or n even;
+    Ka6 Pa7 ka8 b: W iff n < 0 and n odd.
+- The parity classes are not monotone in n, so they equal no loopy normal-play game (Lemma 1.6).
+- PROVED (Prop. 5): the family K(f,H-2) P(f,H-1) k(f,H), Black to move, W >= 4. It is exactly the set with the pattern
+  "W iff n < 0 and n odd" on every board run with W >= 4 (COMPUTED).
+  Mechanism: a stalemated Black must spend any spare he has. White's three pawn-guarding king squares form a path, so
+  White cannot lose a tempo. This is LOOPY Remark 1.8 from the tempo side: Gafni-type values need "stalemate loses".
+- The P table does not determine the class: on 8x8, the ON positions with White to move are 19,504 P wins and
+  15,528 P draws.
+
+4. ATLAS VS P (every disagreement in data/atlas_disagreements.tsv.xz; counts in data/atlas_diff_counts.json)
+Reasons:
+- Kxq: White promotes now, and Black's king takes the queen.
+- stalemate: the promotion stalemates; 4 files only, 8 positions per board.
+- later: P's win passes through such a promotion further on.
+Counts, White to move (Kxq + later) and Black to move (later):
+- 8x8: w 784 + 2656; b 4816 + 8
+- 6x6: w 252 + 252; b 810
+- 7x6: w 378 + 532; b 1652
+- 8x6: w 528 + 912; b 2512
+The disagreeing positions lie in DEC, except a few Black-to-move ON positions (8x8: 8; 7x6: 126). No atlas W is a
+P draw. These are (A_Q) failures (LOOPY section 1.2).
+
+5. LABELS
+- CHECKED-2: the bare P table (three solvers; the atlas code with P's promotion rule is a fourth).
+- COMPUTED, two implementations by one author: all sum results.
+- PROVED in PROOF.md (one agent, not refereed): Lemma 1, Lemma 2, Cor. 3, Prop. 4, Prop. 5.
+- COMPUTED only: the ON characterisation, DUD = forced Kxp, and the fortress exceptions.
+
+6. OPEN
+- A hand proof for ON under (N).
+- A rule for the parity classes beyond Prop. 5.
+- Flat boards, and Gafni's own conventions.
+- H=7 was run only for the Kxp test.
+- The integer range is +-12; the parity patterns are shown to persist only that far.

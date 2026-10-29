@@ -1,0 +1,14 @@
+White moves at X: ['b3', 'c3', 'd3', 'd5'] pawn moves: 0
+Black moves at X (b to move): ['Kc4 Pb5 ka5 pc5 w -']
+|S| = 296 per rank of the pawn: {2: 2, 3: 68, 4: 113, 5: 113}
+Lemma D: 1991 (S, Black move) pairs, 504 White-to-move positions; captures 789, White stalemated 2, back in S 1200
+Part A (tau): 2724 White-to-move, 2724 Black-to-move positions
+Part C: Black promotes with c3, c2, c1 in every line; 43 White-to-move states checked
+Part B (sigma): {'Kb3': '2462 White-to-move, 10278 free mode', 'Kc3': '2460 White-to-move, 10278 free mode', 'Kd3': '2462 White-to-move, 10278 free mode'}
+own solver: 27688 positions reachable from X (both sides to move)
+  P: X w = D, X b = W, sorties (b to move): {'b3': 'D', 'c3': 'D', 'd3': 'D', 'd5': 'L'}
+  EPW: X w = D, X b = W, sorties (b to move): {'b3': 'D', 'c3': 'D', 'd3': 'D', 'd5': 'D'}
+  EPB: X w = D, X b = D, sorties (b to move): {'b3': 'D', 'c3': 'D', 'd3': 'D', 'd5': 'L'}
+positions of S or their White-to-move successors that the own P solver calls L: 0
+positions of S not reachable from X: 0
+FAILURES: 0
