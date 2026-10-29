@@ -1,0 +1,201 @@
+K39 FINDINGS: the cylinder duds in chess, and Z_B beside chess contexts (2026-10-29)
+(findings.txt because writing FINDINGS.md was refused.)
+
+Brief: kings/delegate/briefs/K39_cylinder_chess_duds.md. Paths are relative to kings/delegate/out/K39/ unless they start
+with kings/. Labels: PROVED / CONJECTURE / KNOWN / COMPUTED-1 / CHECKED-2; no solver result is PROVED.
+
+PROVENANCE. A first K39 session (05:35-10:53) built the solvers, ran everything below and was cut off by a network error
+before it wrote findings. This second session read its scripts, logs and outputs, established what each run computed
+(section 5), re-ran the four part-2 runs its 1,180 s wall limit had killed (scripts/rerun.sh, wall 3,300 s; the cut-off logs
+are kept in logs/r/prev/), ran one extra validation of the packed binaries (scripts/valp.sh), and wrote this file and
+EDITS.md. Nothing else was re-run.
+
+======================================================================================================================
+0. SUMMARY
+======================================================================================================================
+1. Z_B on cyl:7x6 and cyl:8x6 is NOT exactly two-shuttle in chess. CHECKED-2.
+   With the capture refinement at cap 1 all 8 roots are exactly D on both boards (cap-1 bounds without the refinement:
+   (W, L), as K15 found on cyl:7x6; cyl:8x6 is new). 28 of the 30 deviations lose; TWO DRAW:
+     - Kc3-d2 from (c3, b5), White to move (as on the flat board, K28);
+     - the wrap move Ka4-g5 (cyl:7x6) / Ka4-h5 (cyl:8x6) from (b2, a4), Black to move.
+   Both children are exactly D. In P both moves lose at once (K15, K26).
+2. Z_C on cyl:8x6 is NOT exactly two-shuttle in chess. CHECKED-2.
+   Cap 1, with or without the refinement, leaves all 8 roots at (W, L). At cap 2 with one officer per side (two one-sided
+   restricted runs: A' an upper bound, B' a lower bound, equal everywhere) all 8 roots are exactly D, 24 of the 32
+   deviations lose and 8 DRAW: Kc2-d2 and Kc3-d2 (White, against both Black king squares), Ka4-h5 and Ka5-h5 (Black, the
+   wrap, against both White king squares). Every child is exactly D. In P all 32 lose at once (K26).
+3. Z_B on flat 7x6 (reproduces K28 at cap 1). CHECKED-2.
+   With the refinement at cap 1 the 8 roots are exactly D; 25 of the 26 deviations lose and Kc3-d2 from (c3, b5) draws,
+   the split K28 found with cap 2.
+4. Z_B beside chess contexts on flat 7x6: 8 contexts of one pawn a side on files e-g, 64 roots.
+   CHECKED-2 for each value (two solvers agree on every root and every move value); COMPUTED-1 as a statement about the
+   class (8 of 4,421 contexts).
+   - At 60 roots the chess value is exact, and at all 60 it equals the D-model prediction r(H + dud_D) and the P value:
+     0 disagreements.
+   - 4 roots (context Pe4 / pf4, Black to move, all four king states) stay at bounds (W, L) at cap 1 with the refinement;
+     prediction and P are W. Cap 2 there: NOT_RUN (over 3 GB).
+   - Kc3-d2 from (c3, b5) still draws (child exactly D) beside the four contexts whose prediction is (D, D); the root is D
+     there anyway, so K28's draw changes no root value in this sample.
+   - Parked comparison (H alone in chess, kings a1 and a6): equal to Z + H at 56 of the 60 exact roots; at the 4 roots of
+     context Pe2 / pe4 with White to move parked H is W while Z + H is D (= prediction). Parked kings are active in chess
+     and are not dud_D.
+   - The other 4,413 contexts of the class (1-2 pawns a side on e2-g5: 4,421 in all) are NOT_RUN (estimate in section 3).
+
+======================================================================================================================
+1. TOOLS AND VALIDATION
+======================================================================================================================
+- bin/kp = kings/kpsolve.c; bin/kpp = K7's kp_p.c (the P model); bin/ref3m = the K23 referee's ref3 (board names pln:7x6,
+  cyl:8x6).
+- src/kp39.c (binaries kp39 and, after a memory edit, kp39p) = a copy of kpsolve.c with K39 options:
+    --refine      capture refinement: a capped promotion by the side the bound favours is scored as the value after the
+                  opponent's best capture of the new piece (no capture: the capped terminal stands). Sound for that bound,
+                  since restricting the defender to captures can only help the promoter.
+    --bound A|B   one bound only;  --capw/--capb per-colour officer caps;  --promw/--promb per-colour promotion sets.
+    kp39p additionally keeps solved layers packed (2 bits per state).
+  ONE IMPLEMENTATION FAMILY with kpsolve.
+- src/own39.cpp (binaries own39 and own39p) = K28's ownref.cpp (from the K27 referee's ownchess.cpp, written from SPEC.md,
+  no code shared with kpsolve) extended to the cylinder, the double step and e.p., and move lists. Cap 1, bound A or B,
+  refinement on/off. SECOND FAMILY.
+- src/own2.cpp = a solver written by K39 (own39's geometry helpers, no kpsolve code): up to two officers, total and
+  per-colour caps, per-colour promotion sets, layers solved by un-move retrograde analysis.
+- Validation (scripts/cmp.py, scripts/cmp1.py; random positions from scripts/gen_rand.py; outputs logs/r/val*):
+  * cap 1, 150 random positions on each of cyl:7x6, cyl:8x6, flat 7x6 (45, 35, 27 illegal; both say X):
+    kpsolve vs own39 without refinement, and kp39 --refine vs own39 with refinement: 0 root and 0 move-list differences on
+    all three boards (CHECKED-2 for the tools);
+  * own2 at cap 1 vs kpsolve on the same 450 positions: 0 differences;
+  * cap 2 restricted (A': one officer each, Black promotes only to Q, bound A; B': colours exchanged, bound B), 50 random
+    positions with at most 2 pawns on cyl:8x6 (42 legal): kp39 vs own2, 0 root and 0 move-list differences in both;
+  * packed binaries (this session, scripts/valp.sh): kp39p --refine and own39p (bounds A, B, refinement) on the 150 flat
+    7x6 positions: output byte-identical to the unpacked kp39 and own39 runs, and 0 differences between the two families
+    (logs/r/valp_*);
+  * NOT_RUN: an unrestricted cap-2 cross-check. kpsolve at cap 2 on the 3-pawn sets passed 3 GB (val2_kpc2_cyl_8x6, killed
+    by the watchdog, 861 s); on the <= 2-pawn set it ran out of wall time (val3_kpc2_cyl_8x6, 1,100 s, 2.3 GB); own2
+    unrestricted cap 2 was stopped with it (val2_own2c2_*, val3_own2c2_*: no output). The flat 7x6 half of val3.sh never
+    started. No unrestricted cap-2 value is claimed below.
+
+======================================================================================================================
+2. PART 1: THE GROUPS ALONE IN CHESS
+======================================================================================================================
+Roots: in/{ZB,ZC}_roots_*.in. Per-root/per-move tables: logs/ZB_cyl_7x6_table.txt, logs/ZB_cyl_8x6_table.txt,
+logs/ZB_flat_7x6_table.txt, logs/ZC_cyl_8x6_table.txt (scripts/roots_table.py from logs/r/{ZB,ZC}_{kp,kp39,own}_*; command
+lines in scripts/roots.sh). Values from White's view; a deviation "loses" if the value after it is a loss for the mover;
+exact = the two bounds agree.
+
+2.1 Z_B on cyl:7x6 and cyl:8x6 (CHECKED-2: kp39 --refine and own39 with refinement agree on every root and move value)
+- kpsolve cap 1, no refinement: (W, L) at all 8 roots on both boards (cyl:7x6 KNOWN from K15; cyl:8x6 new, COMPUTED-1 by
+  kpsolve, own39 without refinement gives the same).
+- With refinement at cap 1: all 8 roots exactly D on both boards. 38 legal moves at the 8 roots: 8 shuttles (D),
+  30 deviations: 28 lose, 2 draw.
+  * Kc3-d2 from (c3, b5), White to move. Child "Kd2 kb5 Pa3 Pb4 pb3 pc4 b -": exactly D on both boards
+    (in/ZB_kids_*.in; logs/r/ZBk_kp39_*, logs/r/ZBk_own_*). Black's moves from it: Kb5-a4, a6, b6, c6 and b3-b2 draw,
+    c4-c3 loses. Same child and move values as K28's flat-board child.
+  * Ka4-g5 (cyl:7x6) / Ka4-h5 (cyl:8x6) from (b2, a4), Black to move (across the edge). Child "Kb2 kg5 Pa3 Pb4 pb3 pc4 w -"
+    resp. "Kb2 kh5 ...": exactly D. White's moves from it: Kb2-a1, b1, c1, c3 and b4-b5 draw, a3-a4 loses. The other wrap
+    move Ka4-g3 (h3) loses; from (c3, a4) both wrap moves lose.
+  So Z_B is not exactly two-shuttle in chess on cyl:7x6 or cyl:8x6: one deviation of each side draws.
+- Of the 28 losing deviations, 4 are decided only with the refinement (Kc3-c4 from (c3, a4), c4-c3 from (b2, a4),
+  Ka4xa3 from (c3, a4), a3-a4 from (c3, b5)); the other 24 are exact at plain cap 1.
+
+2.2 Z_C on cyl:8x6 (Pa2 Pc4 / pa3 pc5, kings c2/c3 and a4/a5). CHECKED-2 (kp39 and own2, restricted cap 2)
+- Cap 1, with or without refinement: (W, L) at all 8 roots (kpsolve, kp39, own39 agree). 24 deviations lose exactly at cap 1
+  with refinement; 8 stay open.
+- Cap 2, one officer per side (scripts/zc_cap2.sh, scripts/part1b.sh). A' = bound A, Black held to one queen (upper bound
+  of the true value); B' = bound B, White held to one queen (lower bound). kp39 with and without --refine
+  (logs/r/ZC_c2_{Ap,Bp}{,_nr}.out) and own2 (logs/r/ZC_own2_{Ap,Bp}.out): all six runs give identical root values and
+  identical move values, so A' = B' everywhere and every value is exact.
+- All 8 roots exactly D. 8 shuttles D, 24 deviations lose, 8 deviations draw:
+    Kc2-d2 from (c2, a4) and (c2, a5); Kc3-d2 from (c3, a4) and (c3, a5)        [White]
+    Ka4-h5 from (c2, a4) and (c3, a4); Ka5-h5 from (c2, a5) and (c3, a5)        [Black, wrap]
+  The four distinct children (in/ZC_kids_cyl_8x6.in: Kc2 kh5 ... w, Kc3 kh5 ... w, Kd2 ka4 ... b, Kd2 ka5 ... b) are exactly
+  D in all four restricted runs of both solvers (logs/r/ZCk_*).
+- So Z_C is not exactly two-shuttle in chess.
+- Costs: kp39 restricted cap 2: 67,359,744 states, 27 s, <= 0.14 GB; own2: 36,308,210 states, 44 s, 0.20 GB.
+
+2.3 Z_B on flat 7x6. CHECKED-2 (kp39 --refine and own39 with refinement)
+All 8 roots exactly D at cap 1 with refinement; 34 legal moves: 8 shuttles D, 25 deviations lose, Kc3-d2 from (c3, b5)
+draws. Reproduces K28's split (K28 needed cap 2 for five children). Not independent of K28 in tooling: own39 descends from
+K28's ownref.cpp.
+
+2.4 G8a, G8b: not re-run (not asked); LOOPY's COMPUTED-1 for them stands.
+
+======================================================================================================================
+3. PART 2: Z_B (FLAT 7x6) BESIDE SMALL CHESS CONTEXTS
+======================================================================================================================
+Setup (scripts/ctx.py, scripts/part2.sh, scripts/part2_table.py; full table logs/part2_table.txt). Class: 1 or 2 White
+and 1 or 2 Black pawns on the 12 squares e2-g5 (files e-g, ranks 2-5): 4,421 contexts (in/ctx_all.txt). For a context H:
+the 8 roots of Z_B + H (in/ctx/c<id>.zh.in) in chess at cap 1 with refinement, both bounds, own39p and kp39p with full move
+lists; the P value (kpp --pmodel and ref3m; they agree everywhere); the D-model prediction r(H + dud_D) by K26's dmodel.py
+(Theorem 3.4(a); in/ctx/c<id>.pred.tsv); and the parked comparison H + Ka1 ka6 in chess (kp39p and own39p, agree).
+
+Run: 8 contexts with one pawn a side (ids 0, 1, 3, 4, 67, 137, 335, 670 of in/ctx_all.txt; picked by the first session:
+blocked pairs on each file, a capture, a pawn pair on different files, a race). A sample, not exhaustive. 64 roots.
+
+  id   context W / B   prediction (w,b)  P (w,b)   chess Z+H (w,b)   parked H chess (w,b)
+  0    e2 / e3         (D, D)            (D, D)    (D, D)            (D, D)
+  1    e2 / e4         (D, D)            (D, D)    (D, D)            (W, D)   <- differs from Z+H
+  3    e2 / f2         (L, L)            (L, L)    (L, L)            (L, L)
+  4    e2 / f3         (W, L)            (W, L)    (W, L)            (W, L)
+  67   e3 / e4         (D, D)            (D, D)    (D, D)            (D, D)
+  137  e4 / f4         (W, W)            (W, W)    (W, [W..L])       (W, W)
+  335  f3 / f4         (D, D)            (D, D)    (D, D)            (D, D)
+  670  g4 / g5         (D, D)            (D, D)    (D, D)            (D, D)
+  (each row holds at all four king states of Z_B)
+
+- 60 of 64 roots exact in chess; at all 60 chess = prediction = P. 0 disagreements. Every one of the 64 roots was solved by
+  both own39p and kp39p, with the same bound values and the same value for every move (scripts/cmp1.py on each context
+  and bound: 0 differences). CHECKED-2 per value; COMPUTED-1 as a statement about the class.
+- 4 roots undecided: context 137 (Pe4 / pf4), Black to move: bounds (W, L) in both solvers. Cap 2 on these 8-pawn positions:
+  NOT_RUN. Estimate: the cap-1 run already has 1.7e9 states (own39p, 1.3 GB); a second officer multiplies the state count by
+  roughly the number of officer placements (tens), far over 3 GB even with one officer a side.
+- Non-losing Z deviations beside H (exact values; list in logs/part2_table.txt):
+  * Kc3-d2 from (c3, b5), White to move: exactly D in contexts 1, 67, 335, 670 (prediction (D, D)), so no root value changes;
+    it loses in contexts 0, 3, 4 and is undecided in 137.
+  * In the decisive contexts 4 (prediction (W, L)) and 137 ((W, W)) several Z-moves of the side that wins the root are
+    themselves winning or undecided (e.g. a3-a4 from (c3, b5) wins for White in context 4, b4-b5 and a3-a4 win for White
+    in 137, Black's c4-c3 / b3-b2 win for Black in 4): (Pun) fails there, but every exact root still equals the prediction.
+- Parked comparison: 4 differences among the 60 exact roots (context 1, White to move: parked H = W, Z + H = D).
+- Costs: per context with one pawn a side, 4 runs of 340-1,090 s (under load), 0.8-1.7 GB each. Remaining 4,413 contexts
+  (most with 3-4 context pawns, larger): at least 4,413 x 2 x 600 s at two slots, about 61 days. NOT_RUN.
+
+======================================================================================================================
+4. CLAIMS AND LABELS
+======================================================================================================================
+ 1  Z_B cyl:7x6/cyl:8x6, cap 1 no refinement: (W, L) at the 8 roots.        cyl:7x6 KNOWN (K15); cyl:8x6 COMPUTED-1.
+                                                                            logs/r/ZB_kp_cyl_*.out
+ 2  Z_B cyl:7x6/cyl:8x6, refinement cap 1: 8 roots exactly D.              CHECKED-2. logs/ZB_cyl_*_table.txt,
+                                                                            logs/r/ZB_kp39_cyl_*, logs/r/ZB_own_cyl_*
+ 3  Z_B cyl: 28 of 30 deviations lose; Kc3-d2 from (c3,b5) and Ka4-g5/h5    CHECKED-2. same + logs/r/ZBk_*
+    from (b2,a4) draw; both children exactly D.
+ 4  Z_B is not exactly two-shuttle in chess on cyl:7x6, cyl:8x6.            CHECKED-2 (from 3)
+ 5  Z_C cyl:8x6, cap 1 with/without refinement: (W, L) at the 8 roots.     CHECKED-2. logs/ZC_cyl_8x6_table.txt
+ 6  Z_C: 8 roots exactly D at cap 2, one officer a side (A' = B').          CHECKED-2. logs/r/ZC_c2_*, logs/r/ZC_own2_*
+ 7  Z_C: 24 of 32 deviations lose, 8 draw; children exactly D.             CHECKED-2. same + logs/r/ZCk_*
+ 8  Z_C is not exactly two-shuttle in chess.                                CHECKED-2 (from 7)
+ 9  Z_B flat 7x6, refinement cap 1: roots exactly D; 25/26 lose, Kc3-d2     CHECKED-2 (agrees with K28).
+    draws.                                                                  logs/ZB_flat_7x6_table.txt
+10  Z_B beside 8 contexts (one pawn a side, e-g): 60/64 roots exact, all    CHECKED-2 per value; COMPUTED-1 as sample.
+    equal r(H + dud_D) and P; 4 roots (Pe4/pf4, b) at (W, L).              logs/part2_table.txt, logs/r/c*_*
+11  Parked H differs from Z + H at 4 roots (Pe2/pe4, w: W vs D).            CHECKED-2. logs/r/c1_park_*
+12  Other 4,413 contexts; cap 2 for context 137; unrestricted cap-2         NOT_RUN (sections 1, 3)
+    cross-check.
+13  Solver validation (cap 1: 450 random positions; restricted cap 2: 42).  CHECKED-2. logs/r/val*
+
+======================================================================================================================
+5. WHAT EACH RUN OF THE FIRST SESSION COMPUTED, AND ITS STATE
+======================================================================================================================
+- scripts/roots.sh -> logs/r/{ZB,ZC}_{kp,kp39,own}_*: all finished (exit 0); tables logs/*_table.txt.
+- scripts/val.sh -> logs/r/val_*: all finished.
+- scripts/val2.sh: own2 cap-1 runs finished; kpsolve cap 2 killed by the watchdog at 3.0 GB; own2 cap 2 stopped by the first
+  session (no reference); the restricted part never started.
+- scripts/val3.sh: cyl:8x6 restricted A', B' (kp39, own2) finished; kpsolve cap 2 timed out (1,100 s); own2 cap 2 stopped;
+  flat 7x6 never started.
+- scripts/zc_cap2.sh, scripts/part1b.sh (Z_C cap 2 with both solvers, Z_C and Z_B children): all finished.
+- t1_*, t2_*: memory tests on context 0 (unpacked kp39 and own39 hit 3 GB, hence the packed kp39p, own39p); t1_own39p_b0
+  finished and equals c0_own_b0.
+- scripts/part2.sh on ids 0, 1, 67, 335, 137, 4, 3, 670: all finished except c3 own39p (b0, b1) and c4 kp39p (A, B), killed
+  at the 1,180 s wall under load. Re-run here with scripts/rerun.sh (wall 3,300 s): c3 own39p 487/489 s, c4 kp39p
+  740/805 s, all exit 0, peak RSS <= 1.13 GB, and they agree with the other solver at every root and move.
+- Housekeeping: the first session's note logs/todo.txt asked to remove kings/delegate/out/K26/scripts/__pycache__/
+  (created 08:04 by importing dmodel.py); this session deleted that one .pyc (dmodel.cpython-314.pyc) and the empty
+  directory. The binaries in bin/ were deleted by exact name at the end; the sources are in src/.
+- in/all.zh.in (1.5 MB, generated by ctx.py for all 4,421 contexts, unused) was xz-compressed to in/all.zh.in.xz.

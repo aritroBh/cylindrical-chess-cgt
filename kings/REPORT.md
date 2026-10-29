@@ -442,6 +442,11 @@ Every deliverable was given to independent referees (Claude models) told to brea
     the atlas scores a capturable promotion as a draw. The 4-file cylinders differ. The referee's edits were applied.
   - K41 (2026-10-29) checked the commits for K28, K15b+K26 and K29 against their sources: every edit was applied exactly,
     and six wording and scope points were fixed (`kings/delegate/out/K41/CHECK.md`).
+  - K39 (2026-10-29) takes the dud groups to chess on the cylinder. Neither Z_B (cyl:7×6, cyl:8×6) nor Z_C (cyl:8×6) is
+    exactly two-shuttle in chess: their roots are D, but some deviations also draw (for Z_B, Kc3–d2 and the wrap move
+    Ka4–g5/h5; for Z_C eight king moves), CHECKED-2 with three solvers. Beside 8 small chess contexts on flat 7×6, Z_B
+    matches dud_D at the 60 roots that cap 1 decides; 4 roots and the rest of the context class were not run. The
+    referee's corrected edits were applied.
   - So no result of the note is still GAP.
   - The T30 fixes of 2026-10-22 came later. They were reviewed by Sonnet reviewers in two rounds, not by K3 (see the Theory row
   above).
