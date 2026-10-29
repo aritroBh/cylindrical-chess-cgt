@@ -1,0 +1,19 @@
+game                         LS     RS   lam   rho  ceil(-RS) ceil(LS)   corrected relation
+0                             0      0     0     0  0         0          holds
+on                         +inf   +inf     0   inf  -         -          holds
+off                        -inf   -inf   inf     0  -         -          holds
+over {0|over}                 0      0     0     1  0         0          holds
+under {under|0}               0      0     1     0  0         0          holds
+* {0|0}                       0      0     1     1  0         0          holds
+1 {0|}                        1      1     0     1  -1        1          holds
+-1 {|0}                      -1     -1     1     0  1         -1         holds
+2 {1|}                        2      2     0     2  -2        2          holds
+-2 {|-1}                     -2     -2     2     0  2         -2         holds
+1/2 {0|1}                   1/2    1/2     0     1  0         1          holds
+up {0|*}                      0      0     0     1  0         0          holds
+down {*|0}                    0      0     1     0  0         0          holds
++-1 {1|-1}                    1     -1     2     2  1         1          holds
+{on|off}                   +inf   -inf   inf   inf  -         -          holds
+{0|off}                       0   -inf   inf     1  -         0          holds
+{on|0}                     +inf      0     1   inf  0         -          holds
+K21 S_abc                  +inf   -inf   inf   inf  -         -          holds

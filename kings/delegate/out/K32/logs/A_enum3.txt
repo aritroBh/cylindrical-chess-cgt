@@ -1,0 +1,30 @@
+enumerated rooted stopper classes on exactly 3 nodes: 4281
+graphs 4281 nodes 12843
+D1-D2 mismatches 0  token-self-check 0  monotone-violations 0  number-ambiguous 0  big-stops 0
+lam/RS: literal-violations 5  corrected-violations 0  infinity-violations 0
+rho/LS: literal-violations 5  corrected-violations 0  infinity-violations 0
+lam/RS boundary(-RS or LS integer>=0, base) 1435  boundary(+1) 736  nonint(base) 1  stop-on-wrong-side(0) 131  other 0
+rho/LS boundary(-RS or LS integer>=0, base) 1435  boundary(+1) 736  nonint(base) 1  stop-on-wrong-side(0) 131  other 0
+signatures 19
+lam=0 rho=0 LS=0/16 RS=0/16 count=1180
+lam=0 rho=1 LS=0/16 RS=0/16 count=142
+lam=0 rho=1 LS=8/16 RS=8/16 count=1
+lam=0 rho=1 LS=16/16 RS=16/16 count=108
+lam=0 rho=2 LS=16/16 RS=16/16 count=17
+lam=0 rho=2 LS=32/16 RS=32/16 count=5
+lam=0 rho=inf LS=+inf RS=+inf count=5129
+lam=1 rho=0 LS=-16/16 RS=-16/16 count=108
+lam=1 rho=0 LS=-8/16 RS=-8/16 count=1
+lam=1 rho=0 LS=0/16 RS=0/16 count=142
+lam=1 rho=1 LS=0/16 RS=0/16 count=340
+lam=1 rho=2 LS=16/16 RS=0/16 count=48
+lam=1 rho=inf LS=+inf RS=0/16 count=141
+lam=2 rho=0 LS=-32/16 RS=-32/16 count=5
+lam=2 rho=0 LS=-16/16 RS=-16/16 count=17
+lam=2 rho=1 LS=0/16 RS=-16/16 count=48
+lam=inf rho=0 LS=-inf RS=-inf count=5129
+lam=inf rho=1 LS=0/16 RS=-inf count=141
+lam=inf rho=inf LS=+inf RS=-inf count=141
+hash 4a971602feff3bb1
+smallest lam/RS literal violation (reach 3): root=0 0:{2|} 1:{|0} 2:{1|}
+smallest rho/LS literal violation (reach 3): root=0 0:{|1} 1:{|2} 2:{|}

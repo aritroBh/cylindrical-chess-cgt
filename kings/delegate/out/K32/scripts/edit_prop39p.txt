@@ -1,0 +1,23 @@
+**Proposition 3.9′ (reserves and Siegel's stops). PROVED from the two standard facts (R1) and (R2) below, which are KNOWN and were not re-derived here** (new, K32, 2026-10-27; answers §8 item 4(d) and corrects the form of the conjecture).
+Let y be a node of a finite terminal-free stopper. Its stops LS(y), RS(y) ∈ ℝ ∪ {±∞} are Siegel's [S, ch. VI] (KNOWN): if y equals a number x then LS(y) = RS(y) = x; otherwise LS(y) is the maximum of RS(y^L) over the Left options and RS(y) is the minimum of LS(y^R) over the Right options, with max ∅ = −∞ and min ∅ = +∞.
+Write y + C for y with C Left tokens, as in the conventions above (C an integer ≥ 0). Two standard facts compare the right stop with the number −C:
+- (R1) (KNOWN) If Left wins y + C moving second, then RS(y) ≥ −C.
+- (R2) (KNOWN) If RS(y) > −C, then Left wins y + C moving second.
+
+Let u = −RS(y). Then:
+- (a) λ(y) < ∞ iff RS(y) > −∞. If RS(y) = +∞, then λ(y) = 0.
+- (b) If u is finite, then max(0, ⌈u⌉) ≤ λ(y) ≤ max(0, ⌊u⌋ + 1). So λ(y) = max(0, ⌈u⌉) unless u is an integer ≥ 0, and then λ(y) ∈ {u, u + 1}.
+- (c) (mirror) Let v = LS(y). Then ρ(y) < ∞ iff LS(y) < +∞; if LS(y) = −∞ then ρ(y) = 0; and if v is finite, max(0, ⌈v⌉) ≤ ρ(y) ≤ max(0, ⌊v⌋ + 1).
+- (d) The conjecture of §8 item 4(d), "λ = ⌈−RS⌉ or one more", is true only after the clamp at 0 in (b). It fails exactly when RS(y) ≥ 2 is finite, because λ ≥ 0: the integer 2 = {1∣} has RS = 2 and λ = 0.
+- (e) At an integer boundary the stops do not decide. For RS = LS = 0 all four pairs (λ, ρ) ∈ {0, 1}² occur: 0 gives (0, 0), over and ↑ give (0, 1), under and ↓ give (1, 0), * gives (1, 1). For u = m an integer ≥ 0, λ(y) = m iff Left wins y + m second.
+- (f) For a stopper S: all reserves are finite on reach(S) iff RS > −∞ and LS < +∞ at every node of reach(S). Then Λ(S) ≤ max(0, ⌊−min RS⌋ + 1) and P(S) ≤ max(0, ⌊max LS⌋ + 1), with min and max over reach(S). So the B of Corollary 3.8b can be read off the stops.
+
+*Proof.* (a), (b). Let λ(y) = C < ∞. Left wins y + C second, so RS(y) ≥ −C by (R1), that is C ≥ u. Hence RS(y) > −∞, and since C is an integer ≥ 0, C ≥ max(0, ⌈u⌉).
+Conversely let RS(y) > −∞. If RS(y) = +∞, then RS(y) > 0 and (R2) with C = 0 gives λ(y) = 0. If u is finite, put C = max(0, ⌊u⌋ + 1). Then C > u, so RS(y) = −u > −C, and (R2) gives λ(y) ≤ C.
+If u is not an integer, then ⌈u⌉ = ⌊u⌋ + 1 and the two bounds agree. If u is an integer < 0, both bounds are 0. If u is an integer ≥ 0, the bounds are u and u + 1.
+(c) Swap the Left and Right options of y. The mirror game ȳ is a stopper, λ(ȳ) = ρ(y) because the rules are symmetric, and RS(ȳ) = −LS(y) because the recursion is symmetric and the number x goes to −x. Apply (a) and (b) to ȳ.
+(d) If RS(y) ≥ 2 is finite, then ⌈−RS⌉ + 1 ≤ −1 < 0 ≤ λ. If RS(y) < 2 then u > −2: for ⌈u⌉ = −1 the set {−1, 0} contains λ = 0 (u < 0), and for ⌈u⌉ ≥ 0, (b) gives ⌈u⌉ ≤ λ ≤ ⌊u⌋ + 1 ≤ ⌈u⌉ + 1.
+(e) The four games and their values are in the data below. For the last sentence, the set of C with "Left wins y + C second" is upward closed (Lemma 3.8a), so λ(y) ≤ m iff Left wins y + m second, and λ(y) ≥ m by (b).
+(f) (a) and (c) at every node, and both bounds are monotone in RS(y) and LS(y). ∎
+
+*Data (K32; `kings/delegate/out/K32/summary.json`, `logs/`, `scripts/`).* @@DATA@@

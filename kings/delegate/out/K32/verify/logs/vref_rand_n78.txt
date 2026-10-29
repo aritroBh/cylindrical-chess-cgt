@@ -1,0 +1,12 @@
+== vref rand 7 4 1500 301 15 (MAXN=8 build)
+random labelled stoppers, all nodes: nodes 10500  corrected-viol lam 0 rho 0  literal-viol lam 186 rho 191  infinity-pair-viol 0  D2-grid-viol 0  ambiguous-number 0  unsolved 0  literal-fails-outside-RS>=2 0  literal-holds-inside 0
+nice -n 15 ./vref8 rand ${=spec}  0.40s user 0.00s system 26% cpu 1.528 total
+== vref rand 7 4 1500 302 28 (MAXN=8 build)
+random labelled stoppers, all nodes: nodes 10500  corrected-viol lam 0 rho 0  literal-viol lam 59 rho 43  infinity-pair-viol 0  D2-grid-viol 0  ambiguous-number 0  unsolved 0  literal-fails-outside-RS>=2 0  literal-holds-inside 0
+nice -n 15 ./vref8 rand ${=spec}  0.73s user 0.01s system 28% cpu 2.554 total
+== vref rand 8 3 800 303 12 (MAXN=8 build)
+random labelled stoppers, all nodes: nodes 6400  corrected-viol lam 0 rho 0  literal-viol lam 127 rho 137  infinity-pair-viol 0  D2-grid-viol 0  ambiguous-number 0  unsolved 0  literal-fails-outside-RS>=2 0  literal-holds-inside 0
+nice -n 15 ./vref8 rand ${=spec}  0.13s user 0.00s system 38% cpu 0.352 total
+== vref rand 8 3 800 304 25 (MAXN=8 build)
+random labelled stoppers, all nodes: nodes 6400  corrected-viol lam 0 rho 0  literal-viol lam 39 rho 46  infinity-pair-viol 0  D2-grid-viol 0  ambiguous-number 0  unsolved 0  literal-fails-outside-RS>=2 0  literal-holds-inside 0
+nice -n 15 ./vref8 rand ${=spec}  0.50s user 0.00s system 29% cpu 1.725 total

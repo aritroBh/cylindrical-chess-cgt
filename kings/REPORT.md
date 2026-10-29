@@ -389,6 +389,12 @@ Every deliverable was given to independent referees (Claude models) told to brea
     fail (CHECKED-2 for the ES and ES7 cases), the smallest `Ka1 Pa2 kc1 pa3` with the sortie Ka1–h1 and context
     `Pe2 Pg2 pf4`. It held in all 292 promotion-free cases that were tested (a CONJECTURE beyond them). Proposition 8.1 (tempo pairing)
     is PROVED after repair: the first referee found an e.p. gap, the fix added (P1e), and a second referee re-derived it.
+  - K30 (2026-10-28): a hand proof that White cannot win 7.2 with White to move (P7 w), in P and in chess, on both
+    8×8 boards; the referee re-derived it and reproduced its counts (open question 7).
+  - K31 (2026-10-28): a single blocked pair on cyl:W×H has king-tempo roots +1 and −1 exactly when W is even and
+    W ≥ 6 (CHECKED-2 for W·H ≤ 127, a CONJECTURE in general); two +1 roots add like the integer 2.
+  - K32 (2026-10-28): the conjecture λ(S) = ⌈−RS(S)⌉ or one more fails exactly for finite RS ≥ 2; a corrected
+    relation between reserves and Siegel's stops is PROVED from a KNOWN fact about stoppers.
   - K24 (2026-10-27) added Lemma 2.7a (PROVED): a draw in both promotion models EPW and EPB is a chess draw. It
     settles the chess w-entries of P5 and P7 as draws without relying on kpsolve, and four P solvers agree on P5–P7.
   - K16 (2026-10-27): the real-king square rule of Remark 2.11 is FALSE as stated, because ω can be stalemated

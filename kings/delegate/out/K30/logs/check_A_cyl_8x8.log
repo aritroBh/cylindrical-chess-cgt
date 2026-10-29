@@ -1,0 +1,12 @@
+cyl:8x8 White legal moves at P7 w: ['e6d5', 'e6e5', 'e6f5', 'e6f7']
+  illegal: Kd6, Kf6 (attacked by the pawn e7), Kxe7 (protected by kd8): confirmed not generated
+  e6d5 : ...Kxd7 gives Kd5 kd7 pe7 w - (White has no pawn)
+  e6e5 : ...Kxd7 gives Ke5 kd7 pe7 w - (White has no pawn)
+  e6f5 : ...Kxd7 gives Kf5 kd7 pe7 w - (White has no pawn)
+  e6f7 : ...Kxd7 gives Kf7 kd7 pe7 w - (White has no pawn)
+  EPW/chess/P/EPB, rule tau: 3348 White-to-move and 3348 Black-to-move positions; White captures the pawn 317 times; Black always has a tau move, never promotes, is never in check: White cannot win
+  exact (own solver) model P: value of X = D; value after Kxd7: e6d5:D e6e5:D e6f5:D e6f7:L
+  exact (own solver) model EPW: value of X = D; value after Kxd7: e6d5:D e6e5:D e6f5:D e6f7:D
+  exact (own solver) model EPB: value of X = D; value after Kxd7: e6d5:D e6e5:D e6f5:D e6f7:L
+Kf7 e5!: pawn pushes on every turn, king on d8: promotion reached in {4: 208} (Black move count after e5), 52 White-to-move states, never stopped: check passed
+OK

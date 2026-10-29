@@ -1,0 +1,17 @@
+{
+ "task": "K32 referee",
+ "verdict": "ACCEPT_WITH_FIXES",
+ "reduction_proof": "re-derived and correct; PROVED modulo (R1),(R2) = D2 read at integers, i.e. Siegel's D1=D2 for stoppers (imported, not re-derived)",
+ "reproduced": {
+  "class_counts": [3, 43, 4281, 2169427],
+  "labelled_rooted_stoppers_4_nodes": 12958975,
+  "literal_violations": {"3_nodes": 3, "4_nodes": 1210},
+  "corrected_violations": 0,
+  "signatures_4_nodes": 48,
+  "signature_table_identical_to_K32": true,
+  "random_4_to_8_nodes_corrected_violations": 0,
+  "python_nodes_checked": 5200,
+  "named_games_match": true
+ },
+ "fixes": ["name the import D1=D2", "(e) hand proof", "(f) terminal-free and min RS=+inf", "row name P3.9' and placement", "referee tag", "referee-table row"]
+}

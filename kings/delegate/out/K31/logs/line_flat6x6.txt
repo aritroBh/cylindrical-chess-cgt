@@ -1,0 +1,22 @@
+root Kc3 ka4 Pa2 pa3 Pc4 pc5 board flat:6x6 pairs a2,c4
+integer contexts (reserve c: c>0 White spare moves, c<0 Black spare moves); outcome with White to move / Black to move; Wk = White forces the event in k plies, Lk = Black does:
+  c=-2  White to move L6   Black to move L7
+  c=-1  White to move L6   Black to move W14
+  c=+0  White to move W13   Black to move W4
+  c=+1  White to move W5   Black to move W4
+  c=+2  White to move W5   Black to move W4
+node reserve +0, Black to move: W4
+   options: ka5 -> W3
+   principal variation: B:ka5 W:Kb3 B:ka6 x(event +)
+node reserve +0, White to move: W13
+   options: Kc2 -> W12; Kd2 -> W14; Kd3 -> L3
+   principal variation: W:Kc2 B:kb4 W:Kd3 B:ka5 W:Ke4 B:ka4 W:Ke5 B:ka5 W:Kd6 B:kb4 W:Kd5 B:ka4 x(event +)
+node reserve -1, White to move: L6
+   options: Kc2 -> L5; Kd2 -> L5; Kd3 -> L3
+   principal variation: W:Kc2 B:kb4 W:Kd3 B:pass W:Kc2 x(event -)
+node reserve -1, Black to move: W14
+   options: ka5 -> W3; pass -> W13
+   principal variation: B:pass W:Kc2 B:kb4 W:Kd3 B:ka5 W:Ke4 B:ka4 W:Ke5 B:ka5 W:Kd6 B:kb4 W:Kd5 B:ka4 x(event +)
+node reserve +1, White to move: W5
+   options: Kc2 -> W10; Kd2 -> W10; Kd3 -> W12; pass -> W4
+   principal variation: W:pass B:ka5 W:Kb3 B:ka6 x(event +)

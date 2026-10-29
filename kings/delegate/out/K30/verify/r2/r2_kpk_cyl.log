@@ -1,0 +1,11 @@
+cyl KPk states 326640 Black-to-move Black wins 130176 White-to-move Black wins 97584
+sanity Ka1 kd7 pe7 Black to move: Black wins = True
+|S| = 918 by pawn rank {2: 2, 3: 112, 4: 201, 5: 201, 6: 201, 7: 201}
+positions of S that are Black wins (Black to move): 0
+closure: pairs 6777 captures 2467 white stalemates 2 reply in S 4308 distinct White-to-move positions 1488 FAILURES 0
+White-to-move positions of the closure that are Black wins: 0
+start Kx e5 kd7 pe7 w: rho -> d5  in S: True ; Black-win(White to move)=False
+start Kx d5 kd7 pe7 w: rho -> e5  in S: True ; Black-win(White to move)=False
+start Kx f5 kd7 pe7 w: rho -> e5  in S: True ; Black-win(White to move)=False
+e-file Black-to-move legal positions 20082 of which not Black wins 3810
+nice -n 15 $PY r2_kpk.py $b  0.92s user 0.02s system 95% cpu 0.991 total

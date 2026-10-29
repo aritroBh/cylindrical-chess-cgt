@@ -1,0 +1,45 @@
+== exhaustive, rooted classes with 1-4 nodes (root only) ==
+
+== lambda against RS  (u = -RS): counts of node instances; base = max(0, ceil(u)) ==
+stop = the bad infinity (reserve must be infinite)   res=inf:969480
+u = 1 (positive integer)                             res-base=0:15418  res-base=1:18707
+u = 2 (positive integer)                             res-base=0:1093  res-base=1:898
+u = 3 (positive integer)                             res-base=0:26
+u positive non-integer                               res-base=0:449
+u = 0                                                res-base=0:127109  res-base=1:167161
+u < 0 (reserve must be 0)                            res-base=0:21913
+stop = the good infinity (reserve must be 0)         res=0:851500
+
+== rho against LS  (u = LS): counts of node instances; base = max(0, ceil(u)) ==
+stop = the bad infinity (reserve must be infinite)   res=inf:969480
+u = 1 (positive integer)                             res-base=0:15418  res-base=1:18707
+u = 2 (positive integer)                             res-base=0:1093  res-base=1:898
+u = 3 (positive integer)                             res-base=0:26
+u positive non-integer                               res-base=0:449
+u = 0                                                res-base=0:127109  res-base=1:167161
+u < 0 (reserve must be 0)                            res-base=0:21913
+stop = the good infinity (reserve must be 0)         res=0:851500
+
+== random stoppers, 5-8 nodes (all nodes) ==
+
+== lambda against RS  (u = -RS): counts of node instances; base = max(0, ceil(u)) ==
+stop = the bad infinity (reserve must be infinite)   res=inf:138566
+u = 1 (positive integer)                             res-base=0:38705  res-base=1:12308
+u = 2 (positive integer)                             res-base=0:7078  res-base=1:1984
+u = 3 (positive integer)                             res-base=0:987  res-base=1:209
+u >= 4 (integer)                                     res-base=0:108  res-base=1:20
+u positive non-integer                               res-base=0:2112
+u = 0                                                res-base=0:185566  res-base=1:55183
+u < 0 (reserve must be 0)                            res-base=0:54613
+stop = the good infinity (reserve must be 0)         res=0:122561
+
+== rho against LS  (u = LS): counts of node instances; base = max(0, ceil(u)) ==
+stop = the bad infinity (reserve must be infinite)   res=inf:139604
+u = 1 (positive integer)                             res-base=0:38743  res-base=1:12507
+u = 2 (positive integer)                             res-base=0:7200  res-base=1:2019
+u = 3 (positive integer)                             res-base=0:978  res-base=1:211
+u >= 4 (integer)                                     res-base=0:97  res-base=1:11
+u positive non-integer                               res-base=0:2021
+u = 0                                                res-base=0:185782  res-base=1:54753
+u < 0 (reserve must be 0)                            res-base=0:54571
+stop = the good infinity (reserve must be 0)         res=0:121503

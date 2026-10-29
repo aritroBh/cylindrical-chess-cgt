@@ -1,0 +1,30 @@
+LITEX n=3 0:L02 R00 1:L04 R00 2:L00 R00 | root lam=0 rho=2 LS=16/8 RS=16/8
+LITEX n=3 0:L02 R00 1:L04 R00 2:L00 R01 | root lam=0 rho=2 LS=16/8 RS=16/8
+LITEX n=3 0:L06 R00 1:L00 R00 2:L02 R00 | root lam=0 rho=2 LS=16/8 RS=16/8
+LITEX n=3 0:L00 R02 1:L00 R04 2:L00 R00 | root lam=2 rho=0 LS=-16/8 RS=-16/8
+LITEX n=3 0:L00 R02 1:L00 R04 2:L01 R00 | root lam=2 rho=0 LS=-16/8 RS=-16/8
+LITEX n=3 0:L00 R06 1:L00 R00 2:L00 R02 | root lam=2 rho=0 LS=-16/8 RS=-16/8
+ENUM n=3 range [0,262144) K=3 M=6 labelled-rooted-stoppers 8463 classes 4281
+[enum] graphs 4281 nodes 12843  cyc-errors 0  D2-vs-D1 bad nodes 0  monotone-bad 0  number-ambiguous 0  bigstops 0
+[enum] node-level corrected violations lam 0 rho 0 ; infinity-pairing violations lam 0 rho 0 ; literal violations (finite stop) lam 5 rho 5
+[enum] root-level: corrected violations lam 0 rho 0 ; literal violations lam 3 rho 3 either 6
+signatures 19
+SIG lam=0 rho=2 LS=32/16 RS=32/16 count=3
+SIG lam=0 rho=99 LS=+inf RS=+inf count=1677
+SIG lam=0 rho=1 LS=16/16 RS=16/16 count=38
+SIG lam=0 rho=0 LS=0/16 RS=0/16 count=214
+SIG lam=0 rho=2 LS=16/16 RS=16/16 count=11
+SIG lam=0 rho=1 LS=0/16 RS=0/16 count=78
+SIG lam=99 rho=0 LS=-inf RS=-inf count=1677
+SIG lam=1 rho=0 LS=-16/16 RS=-16/16 count=38
+SIG lam=1 rho=0 LS=0/16 RS=0/16 count=78
+SIG lam=2 rho=0 LS=-32/16 RS=-32/16 count=3
+SIG lam=2 rho=0 LS=-16/16 RS=-16/16 count=11
+SIG lam=1 rho=1 LS=0/16 RS=0/16 count=162
+SIG lam=1 rho=2 LS=16/16 RS=0/16 count=26
+SIG lam=1 rho=99 LS=+inf RS=0/16 count=79
+SIG lam=1 rho=0 LS=-8/16 RS=-8/16 count=1
+SIG lam=0 rho=1 LS=8/16 RS=8/16 count=1
+SIG lam=99 rho=1 LS=0/16 RS=-inf count=79
+SIG lam=99 rho=99 LS=+inf RS=-inf count=79
+SIG lam=2 rho=1 LS=0/16 RS=-16/16 count=26

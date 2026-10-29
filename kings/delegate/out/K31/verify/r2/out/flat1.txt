@@ -1,0 +1,19 @@
+FLAT1 5x5 cases 10 with_pm1 0 roots 3348
+FLAT1 6x5 cases 12 with_pm1 0 roots 6400
+FLAT1 7x5 cases 14 with_pm1 0 roots 10936
+FLAT1 8x5 cases 16 with_pm1 0 roots 17256
+FLAT1 9x5 cases 18 with_pm1 0 roots 25660
+FLAT1 10x5 cases 20 with_pm1 0 roots 36448
+FLAT1 5x6 cases 15 with_pm1 0 roots 8022
+FLAT1 6x6 cases 18 with_pm1 0 roots 15072
+FLAT1 7x6 cases 21 with_pm1 0 roots 25434
+FLAT1 8x6 cases 24 with_pm1 0 roots 39756
+FLAT1 9x6 cases 27 with_pm1 0 roots 58686
+FLAT1 10x6 cases 30 with_pm1 0 roots 82872
+FLAT1 5x7 cases 20 with_pm1 0 roots 15696
+FLAT1 6x7 cases 24 with_pm1 0 roots 29120
+FLAT1 7x7 cases 28 with_pm1 0 roots 48696
+FLAT1 8x7 cases 32 with_pm1 0 roots 75600
+FLAT1 9x7 cases 36 with_pm1 0 roots 111008
+FLAT1 10x7 cases 40 with_pm1 0 roots 156096
+( for H in 5 6 7; do; for W in 5 6 7 8 9 10; do; nice -n 15 ./bin/lk3 flat1 $)  2.34s user 0.03s system 18% cpu 12.677 total

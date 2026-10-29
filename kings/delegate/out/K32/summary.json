@@ -1,0 +1,114 @@
+{
+ "task": "K32: reserves (lambda, rho) against Siegel's stops (LOOPY section 8 item 4(d))",
+ "status": "confirmed_claims (conjecture corrected: true only after clamp at 0)",
+ "answer": {
+  "corrected_relation": "for a node y of a finite terminal-free stopper: lambda(y) = inf iff RS(y) = -inf; if RS(y) = +inf then lambda = 0; otherwise max(0, ceil(-RS)) <= lambda <= max(0, floor(-RS)+1); 'one more' only if -RS is an integer >= 0. rho mirror with LS.",
+  "literal_conjecture": "lambda = ceil(-RS) or one more holds iff RS < 2 (finite RS >= 2 fails because lambda >= 0); smallest counterexample: the integer 2 = {1|} (3 nodes), RS = 2, lambda = 0",
+  "label": "PROVED from (R1) and (R2) (comparison of RS with the integers -C; KNOWN, Siegel, not re-derived); CHECKED-2 on the tested range",
+  "integer_boundary": "at RS = LS = 0 all four pairs (lambda, rho) in {0,1}^2 occur: 0; over, up; under, down; *"
+ },
+ "exhaustive": {
+  "nodes_1": 3,
+  "nodes_2": 43,
+  "nodes_3": 4281,
+  "nodes_4": 2169427,
+  "total_rooted_classes": 2173754,
+  "corrected_violations": 0,
+  "literal_violations": 1213,
+  "literal_violations_by_size": {
+   "3": 3,
+   "4": 1210
+  },
+  "distinct_signatures_4_nodes": 48,
+  "D1_vs_D2_mismatches": 0,
+  "labels": "CHECKED-2: A and B agree at every node (n=4: 2,169,427 graphs, per-node cmp, 0 differences); P (own enumerator, K21 solver) agrees with A at all 12,932 node instances for n<=3; tally recomputed in Python equals the C tally"
+ },
+ "random_5_to_8_nodes": {
+  "graphs": 105000,
+  "nodes": 620000,
+  "corrected_violations": 0,
+  "literal_violations_lambda": 8873,
+  "literal_violations_rho": 8779,
+  "label": "CHECKED-2 (A and B agree at every node); a sample, not exhaustive"
+ },
+ "verified_range": "exhaustive: every rooted stopper with at most 4 nodes; sampled 5-8 nodes; 5 nodes not enumerated (class counts grow 14x, 100x, 507x; extrapolation: billions)",
+ "named_games_lambda_rho": {
+  "on": [
+   0,
+   "inf"
+  ],
+  "off": [
+   "inf",
+   0
+  ],
+  "over": [
+   0,
+   1
+  ],
+  "under": [
+   1,
+   0
+  ],
+  "0": [
+   0,
+   0
+  ],
+  "*": [
+   1,
+   1
+  ],
+  "up": [
+   0,
+   1
+  ],
+  "down": [
+   1,
+   0
+  ],
+  "1": [
+   0,
+   1
+  ],
+  "2": [
+   0,
+   2
+  ],
+  "-1": [
+   1,
+   0
+  ],
+  "-2": [
+   2,
+   0
+  ],
+  "1/2": [
+   0,
+   1
+  ],
+  "+-1": [
+   2,
+   2
+  ],
+  "{on|off}": [
+   "inf",
+   "inf"
+  ],
+  "K21 tempo-regime stopper": [
+   "inf",
+   "inf"
+  ]
+ },
+ "implementations": {
+  "A": "scripts/stopsA.c",
+  "B": "scripts/stopsB.c",
+  "P": "scripts/pyref.py (+ K21 dsum.py)",
+  "tally": "scripts/tally.py",
+  "class_count_C3": "scripts/countlab.c: independent class count, run for n=1..3 (3, 43, 4281, equal to A and P); the n=4 run was queued behind other jobs for over 30 minutes and cancelled (scripts/job2_count4.sh, not run)"
+ },
+ "earlier_attempt_note": "data/ holds files from an earlier, interrupted attempt of this task (2026-10-27 22:41-22:57); not run by me; classes_4.txt/B_4.txt agree with my counts and multiset of (lam, rho, LS, RS) (scripts/cmp_earlier.py)",
+ "edits_file": "EDITS.md (4 blocks = the referee's corrected blocks, verify/EDITS.md; every OLD occurs once in the current LOOPY.md, checked 2026-10-28)",
+ "findings_file_note": "FINDINGS.md was not written: the subagent rules forbid report .md files; the findings are in the final structured output; verify/VERIFY.md is the referee report",
+ "class_count_n4_evidence": "2,169,427 classes: stopsA (BFS-canonical + orbit minimum) and the earlier attempt's enumerator (data/classes_4.txt) give the same count; no third run of this session for n=4 (C3 not run)",
+ "referee": "verify/VERIFY.md: ACCEPT WITH FIXES; third C implementation (vref.c) and a Python one re-enumerated all 2^32 labelled 4-node graphs: 12,958,975 rooted stoppers, 2,169,427 classes, equal to K32; the n=4 class count is now CHECKED-2",
+ "cleanup": "2026-10-28: bulk data (classes_4, B_4, A4 parts, c4 parts, rand5/6, Brand5/6; ~79 MB) deleted; scripts, logs, small data (n<=3), summary.json kept. pids.log holds stale pre-reboot PIDs, never signalled."
+}

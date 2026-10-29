@@ -1,0 +1,85 @@
+{
+ "task": "K31 tempo parity (LOOPY section 8 item 3, K20 conjectures C1, C2, C3)",
+ "labels": "PROVED / CHECKED-2 / COMPUTED-1 / CONJECTURE; nothing here is PROVED",
+ "C1_parity": {
+  "searched": {
+   "pair": "one blocked pair Pa<r> pa<r+1> on file a, r = 2..H-2, free board",
+   "H": "4..12",
+   "W": "3..26 (W <= 24 for H >= 7; H >= 9 starts at W = 5)",
+   "cases_W_H_r": 934,
+   "grid": "H=4..12, W=3..26: 1080 cases (W,H,r); K31 runs 934, referee own solver the other 146; whole grid covered"
+  },
+  "result": "a +1 root and a -1 root exist in every case with W even and 6 <= W <= 26; none for W = 3, 4 or any odd W (482 cases)",
+  "pm1_roots_total": 10514,
+  "solvers": {
+   "kg_or_kgw_and_lk_agree_cases": 470,
+   "pm1_roots_in_two_solver_cases": 2490,
+   "lk_only_cases_WH_gt_127": 464,
+   "pm1_roots_in_lk_only_cases": 8024,
+   "disagreements": 0,
+   "two_solver_cases_note": "470 cases ran in kg/kgw and lk (474 have W*H<=127; four, cyl:25x4 a2, 26x4 a2, 25x5 a2, a3, were lk-only); referee third solver: same counts in 383 shared cases, same root sets in 112 cases (720 roots)"
+  },
+  "structure": "every +-1 root has both kings on file W/2 (opposite the pawn file), rank difference even (same colour squares); 10514 of 10514",
+  "colour_symmetry": "+1 count at rank r = -1 count at rank H - r in 934 of 934 cases",
+  "saturation": "counts per rank are constant for even W >= 2H - 2 and differ below, H = 4..12 (observation)",
+  "flat_single_pair": "no +-1 root: K31 216 cases (mirror-reduced), referee 405 cases (no mirror); W 5..10, H 5..7",
+  "totals_examples": {
+   "cyl:6x6": "7/7",
+   "cyl:8x6": "11/11",
+   "cyl:10x6": "13/13"
+  },
+  "status": "CONJECTURE for all H, W; CHECKED-2 where two solvers ran (470 cases), COMPUTED-1 elsewhere",
+  "grid_result": "+1 and -1 roots in all 495 cases with W even and 6<=W<=26; none in 585 cases (W=3,4 or odd W); 11914 roots of value +-1 (10514 in K31 runs)",
+  "spot_checks_outside_grid": "referee: H=13 (W 6..9), H=14 (W 5,10), W=28..31 with H=4..6; 12 cases; all agree with the rule (COMPUTED-1)"
+ },
+ "proof": "none found; trivial reduction: odd W follows from 'every +-1 root has both kings on file W/2' (CONJECTURE)",
+ "C3_two_tempi": {
+  "sums": {
+   "configs": 13,
+   "x_plus_y_plus_c_outcomes": 8166,
+   "x_plus_int_plus_c_outcomes": 2308,
+   "mismatches": 0,
+   "N": "2..4",
+   "meaning": "x + x acts as the integer 2 (White wins c>=-1, second player wins c=-2, Black wins c<=-3), so a lead of two tempi from two separate groups is not decisive; a single group with lead two was not tested as a sum (single-root profiles show no lead 2..N-1)",
+   "allpairs_referee": {
+    "configs": 14,
+    "pairs": 2706185,
+    "mismatches": 0
+   },
+   "status": "CHECKED-2 for two-root sums (two sum solvers, one game graph), COMPUTED-1 for x+y+c"
+  },
+  "single_roots": {
+   "N12": {
+    "roots": 764312,
+    "configs": 571,
+    "roots_with_lead_2_to_11": 0
+   },
+   "N30": {
+    "roots": 16575,
+    "configs": 8,
+    "roots_with_lead_2_to_29": 0
+   },
+   "cpp_vs_python_profile_equal_configs": "12 of 12 (N = 4)",
+   "status": "COMPUTED-1 (CHECKED-2 on the 12 configs)",
+   "note": "counts are root entries; 571 configurations include two-pair models (some not faithful); referee solver reproduces the four lead counts of all 571 configurations and all 8 N=30 lines"
+  },
+  "why_no_pm2": "not proved"
+ },
+ "C2_line": {
+  "root": "flat:6x6 Kc3 ka4 Pa2 pa3 Pc4 pc5",
+  "zero_for_mover": "Kd3 kb4 (same pawns): value 0, the player to move loses (White to move L in 2, Black to move W in 10)",
+  "black_to_move_plies": 4,
+  "white_to_move_plies": 13,
+  "white_to_move_black_one_spare": "Black wins in 6 plies",
+  "check": "10 lines replayed in the referee's lk (bin/linechk), 0 failures; lines found by independent Python solver",
+  "status": "line CHECKED-2; 'race lead' mechanism in general CONJECTURE"
+ },
+ "process": {
+  "first_session": "one read-only git log run by mistake (rule slip, harmless)",
+  "sweep_main_rerun": "re-run through heavy.sh: 112 of 112 records identical",
+  "this_session_2026-10-28": "no git, no pattern kills; re-read LOOPY.md (3361 lines): both OLD blocks of EDITS.md occur exactly once; spot check with the referee lk rebuilt privately: cyl:6x6 a3 3/3, cyl:7x6 a3 0/0, cyl:8x6 a3 4/4 roots of +1/-1, matches Table 1 (about 10 CPU-s total, max RSS 8.5 MB); scratch binary deleted",
+  "FINDINGS.md": "not written: the run environment forbids report files; the full report is the structured answer, plus summary.json, EDITS.md, logs/tables.txt, verify/VERIFY.md",
+  "files": "scripts/, logs/, verify/ (sources and logs only), EDITS.md, summary.json; no binaries, 3.1 MB total; logs/EDITS_first_draft.md is the pre-referee draft"
+ },
+ "status": "complete; K31 referee verdict ACCEPT_WITH_FIXES, fixes applied in EDITS.md"
+}

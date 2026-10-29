@@ -1,0 +1,71 @@
+{
+ "task": "K30",
+ "status": "PROVED (hand proof, mechanically checked, referee ACCEPT_WITH_FIXES, fixes applied)",
+ "claim": "P7 w (Ke6 Pd7 kd8 pe7, White to move) is D in P, EPW, EPB and chess on cyl:8x8 and flat:8x8; White cannot win (...Kxd7 after any White move); Black cannot win after Ke5/Kd5/Kf5 (blockade rule, invariant S of 918 positions per board); Kf7 loses in P (...e5, rule of the square)",
+ "lemma_2_7a_needed": false,
+ "boards": [
+  "cyl:8x8",
+  "flat:8x8"
+ ],
+ "checks": {
+  "S_positions_per_board": 918,
+  "S_closure_pairs": {
+   "cyl:8x8": 6777,
+   "flat:8x8": 5985
+  },
+  "S_closure_white_positions": 1488,
+  "tau_states_EPW": {
+   "cyl:8x8": [
+    3348,
+    3348
+   ],
+   "flat:8x8": [
+    3164,
+    3164
+   ]
+  },
+  "kf7_line_states": {
+   "cyl:8x8": 52,
+   "flat:8x8": 47
+  },
+  "sigma_white_to_move_states_Ke5_Kd5_Kf5": {
+   "cyl:8x8": [
+    3694,
+    3696,
+    3696
+   ],
+   "flat:8x8": [
+    3738,
+    3740,
+    3740
+   ]
+  },
+  "compare_positions": {
+   "cyl:8x8": 15536,
+   "flat:8x8": 15695
+  },
+  "compare_differences": 0,
+  "implementations": [
+   "own kpm.py",
+   "K24 mine.c (p,bb=EPW,bw=EPB)",
+   "K7 kp_p.c --pmodel (P)"
+  ]
+ },
+ "labels": {
+  "statement_0": "PROVED",
+  "A_white_cannot_win": "PROVED",
+  "B_black_cannot_win_after_sorties": "PROVED",
+  "C_Kf7_loses_in_P": "PROVED",
+  "chess_value_D": "PROVED",
+  "implementation_agreement": "CHECKED-2",
+  "P5_and_other_sizes": "not covered"
+ },
+ "edits": 11,
+ "files": {
+  "proof": "PROOF.md",
+  "findings": "FINDINGS.md",
+  "edits": "EDITS.md"
+ },
+ "heavy_runs": 0,
+ "max_rss_mb": 300
+}

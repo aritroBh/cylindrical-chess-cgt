@@ -1,0 +1,2 @@
+k32A gen 5 20000 11 15 ; gen 5 20000 12 30 ; gen 6 20000 21 12 ; gen 6 20000 22 25 ; gen 7 10000 31 10 ; gen 7 10000 32 20 ; gen 8 5000 41 8   (n count seed edge-percent), concatenated
+k32A eval p < all.txt > A.txt ; k32B < all.txt > B.txt ; cmp (graph lines of A) B : identical ; tally.py < B.txt equals the report of A

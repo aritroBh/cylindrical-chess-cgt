@@ -1,0 +1,9 @@
+{"task":"K30 referee","verdict":"ACCEPT_WITH_FIXES",
+ "own_code":["myx.py","mykpk.py","mysigma.py","mycmp.py"],
+ "reproduced":{"S_size":918,"closure_pairs":{"cyl":6777,"flat":5985},"white_positions":1488,
+  "tau_states":{"cyl":[3348,3348],"flat":[3164,3164]},"kf7_states":{"cyl":52,"flat":47},
+  "sigma_white_states":{"cyl":[3694,3696,3696],"flat":[3738,3740,3740]},
+  "compare_positions":{"cyl":15536,"flat":15695},"compare_differences":0},
+ "X_value":"D in P, EPW, EPB (own exact solver, both boards); ref3 P = D; K24 kpsolve chess = D D (not re-run)",
+ "S_positions_that_are_black_wins":0,"max_rss_mb":1260,"heavy_runs":0,
+ "not_run":["kpsolve chess exact (heavy.sh slot not obtained in 13 min; killed own queued PIDs)","kp_p --pmodel","P5 and other boards"]}
