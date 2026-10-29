@@ -1,0 +1,64 @@
+{
+ "groups": 2,
+ "roots": 16,
+ "failures": [
+  {
+   "id": "ZA",
+   "board": "flat:7x6",
+   "root": "Ka5 kc6 Pb3 pb4 pb5 w -",
+   "why": "white: shuttle 1 leaks [('Ka5b4', 'D')]"
+  },
+  {
+   "id": "ZB_wrongdud",
+   "board": "flat:7x7",
+   "root": "Kb2 ka4 Pa3 Pb4 pb3 pc4 w -",
+   "why": "root value L"
+  },
+  {
+   "id": "ZB_wrongdud",
+   "board": "flat:7x7",
+   "root": "Kb2 ka4 Pa3 Pb4 pb3 pc4 b -",
+   "why": "black: shuttle 1 leaks [('Pc4c3', 'L')]"
+  },
+  {
+   "id": "ZB_wrongdud",
+   "board": "flat:7x7",
+   "root": "Kb2 kb5 Pa3 Pb4 pb3 pc4 w -",
+   "why": "root value L"
+  },
+  {
+   "id": "ZB_wrongdud",
+   "board": "flat:7x7",
+   "root": "Kb2 kb5 Pa3 Pb4 pb3 pc4 b -",
+   "why": "black: shuttle 1 leaks [('Kb5a6', 'D'), ('Kb5b6', 'D'), ('Kb5c6', 'D')]"
+  },
+  {
+   "id": "ZB_wrongdud",
+   "board": "flat:7x7",
+   "root": "Kc3 ka4 Pa3 Pb4 pb3 pc4 w -",
+   "why": "root value L"
+  },
+  {
+   "id": "ZB_wrongdud",
+   "board": "flat:7x7",
+   "root": "Kc3 ka4 Pa3 Pb4 pb3 pc4 b -",
+   "why": "black: shuttle 1 leaks [('Ka4a3', 'L')]"
+  },
+  {
+   "id": "ZB_wrongdud",
+   "board": "flat:7x7",
+   "root": "Kc3 kb5 Pa3 Pb4 pb3 pc4 w -",
+   "why": "root value L"
+  },
+  {
+   "id": "ZB_wrongdud",
+   "board": "flat:7x7",
+   "root": "Kc3 kb5 Pa3 Pb4 pb3 pc4 b -",
+   "why": "black: shuttle 1 leaks [('Kb5a6', 'D'), ('Kb5b6', 'D'), ('Kb5c6', 'D')]"
+  }
+ ],
+ "per_class_board": {
+  "dud flat:7x6": 1,
+  "dud flat:7x7": 1
+ }
+}

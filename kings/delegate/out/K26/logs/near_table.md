@@ -1,0 +1,89 @@
+### flat:7x6 (total 1: 12, total 2: 4)
+- total 1: W king a5/a6, B king c5/c6, pawns W a2 b3 / B b4 b5; root values DWWDWDDW; first leaks Ka5b4:W
+- total 1: W king a5/a6, B king c5/c6, pawns W a2 c2 / B b4 b5; root values DDDDDDDD; first leaks Ka5b4:D
+- total 1: W king c1/c2, B king a1/a2, pawns W b2 b3 / B a5 b4; root values LDDLDLLD; first leaks Ka2b3:L
+- total 1: W king c1/c2, B king a1/a2, pawns W b2 b3 / B a5 c5; root values DDDDDDDD; first leaks Ka2b3:D
+- total 1: W king c1/c2, B king a1/a2, pawns W b2 b3 / B b4; root values DDDDDDDD; first leaks Ka2b3:D
+- total 1: W king a5/a6, B king c5/c6, pawns W b2 b3 / B b4 b5; root values DDDDDDDD; first leaks Ka5b4:D
+- total 1: W king c1/c2, B king a1/a2, pawns W b2 b3 / B b4 b5; root values DDDDDDDD; first leaks Ka2b3:D
+- total 1: W king c1/c2, B king a1/a2, pawns W b2 b3 / B b4 c5; root values LDDLDLLD; first leaks Ka2b3:L
+- total 1: W king a5/a6, B king c5/c6, pawns W b2 c3 / B b5 c4; root values DDDDDDDD; first leaks Ka5b4:D
+- total 1: W king c1/c2, B king a1/a2, pawns W b2 c3 / B b5 c4; root values DDDDDDDD; first leaks Ka2b3:D
+- total 1: W king a5/a6, B king c5/c6, pawns W b3 / B b4 b5; root values DDDDDDDD; first leaks Ka5b4:D
+- total 1: W king a5/a6, B king c5/c6, pawns W b3 c2 / B b4 b5; root values DWWDWDDW; first leaks Ka5b4:W
+- total 2: W king a2/b1, B king a6/b6, pawns W a4 c2 / B b4 c3; root values LLLLLLLL; first leaks Ka6a5:L Kb6a5:L
+- total 2: W king c1/c2, B king a1/a2, pawns W b2 c3 / B c4; root values DWWDWDDW; first leaks Pb2b3:W Pb2b4:W
+- total 2: W king a1/b1, B king a5/b6, pawns W b3 c4 / B a3 c5; root values WWWWWWWW; first leaks Ka1a2:W Kb1a2:W
+- total 2: W king a5/a6, B king c5/c6, pawns W c3 / B b5 c4; root values LDDLDLLD; first leaks Pb5b4:L Pb5b3:L
+### cyl:7x6 (total 1: 0, total 2: 8)
+- total 2: W king b3/c3, B king a6/b6, pawns W a2 a4 / B a5 c5; root values LLLLLLLL; first leaks Kb6c6:L Kb6c6:L
+- total 2: W king a1/b1, B king b4/c4, pawns W a2 c2 / B a3 a5; root values WWWWWWWW; first leaks Kb1c1:W Kb1c1:W
+- total 2: W king b1/c1, B king a4/b4, pawns W a2 c2 / B c3 c5; root values WWWWWWWW; first leaks Kb1a1:W Kb1a1:W
+- total 2: W king c5/c6, B king a5/a6, pawns W a3 / B a4 b5; root values LDDLDLLD; first leaks Pb5b4:L Pb5b3:L
+- total 2: W king a1/a2, B king c1/c2, pawns W a3 b2 / B a4; root values DWWDWDDW; first leaks Pb2b3:W Pb2b4:W
+- total 2: W king c1/c2, B king a1/a2, pawns W b2 c3 / B c4; root values DWWDWDDW; first leaks Pb2b3:W Pb2b4:W
+- total 2: W king a3/b3, B king b6/c6, pawns W c2 c4 / B a5 c5; root values LLLLLLLL; first leaks Kb6a6:L Kb6a6:L
+- total 2: W king a5/a6, B king c5/c6, pawns W c3 / B b5 c4; root values LDDLDLLD; first leaks Pb5b4:L Pb5b3:L
+### cyl:8x6 (total 1: 0, total 2: 4)
+- total 2: W king c5/c6, B king a5/a6, pawns W a3 / B a4 b5; root values LDDLDLLD; first leaks Pb5b4:L Pb5b3:L
+- total 2: W king a1/a2, B king c1/c2, pawns W a3 b2 / B a4; root values DWWDWDDW; first leaks Pb2b3:W Pb2b4:W
+- total 2: W king c1/c2, B king a1/a2, pawns W b2 c3 / B c4; root values DWWDWDDW; first leaks Pb2b3:W Pb2b4:W
+- total 2: W king a5/a6, B king c5/c6, pawns W c3 / B b5 c4; root values LDDLDLLD; first leaks Pb5b4:L Pb5b3:L
+### flat:8x6 (total 1: 12, total 2: 4)
+- total 1: W king a5/a6, B king c5/c6, pawns W a2 b3 / B b4 b5; root values DWWDWDDW; first leaks Ka5b4:W
+- total 1: W king a5/a6, B king c5/c6, pawns W a2 c2 / B b4 b5; root values DDDDDDDD; first leaks Ka5b4:D
+- total 1: W king c1/c2, B king a1/a2, pawns W b2 b3 / B a5 b4; root values LDDLDLLD; first leaks Ka2b3:L
+- total 1: W king c1/c2, B king a1/a2, pawns W b2 b3 / B a5 c5; root values DDDDDDDD; first leaks Ka2b3:D
+- total 1: W king c1/c2, B king a1/a2, pawns W b2 b3 / B b4; root values DDDDDDDD; first leaks Ka2b3:D
+- total 1: W king a5/a6, B king c5/c6, pawns W b2 b3 / B b4 b5; root values DDDDDDDD; first leaks Ka5b4:D
+- total 1: W king c1/c2, B king a1/a2, pawns W b2 b3 / B b4 b5; root values DDDDDDDD; first leaks Ka2b3:D
+- total 1: W king c1/c2, B king a1/a2, pawns W b2 b3 / B b4 c5; root values LDDLDLLD; first leaks Ka2b3:L
+- total 1: W king a5/a6, B king c5/c6, pawns W b2 c3 / B b5 c4; root values DDDDDDDD; first leaks Ka5b4:D
+- total 1: W king c1/c2, B king a1/a2, pawns W b2 c3 / B b5 c4; root values DDDDDDDD; first leaks Ka2b3:D
+- total 1: W king a5/a6, B king c5/c6, pawns W b3 / B b4 b5; root values DDDDDDDD; first leaks Ka5b4:D
+- total 1: W king a5/a6, B king c5/c6, pawns W b3 c2 / B b4 b5; root values DWWDWDDW; first leaks Ka5b4:W
+- total 2: W king a2/b1, B king a6/b6, pawns W a4 c2 / B b4 c3; root values LLLLLLLL; first leaks Ka6a5:L Kb6a5:L
+- total 2: W king c1/c2, B king a1/a2, pawns W b2 c3 / B c4; root values DWWDWDDW; first leaks Pb2b3:W Pb2b4:W
+- total 2: W king a1/b1, B king a5/b6, pawns W b3 c4 / B a3 c5; root values WWWWWWWW; first leaks Ka1a2:W Kb1a2:W
+- total 2: W king a5/a6, B king c5/c6, pawns W c3 / B b5 c4; root values LDDLDLLD; first leaks Pb5b4:L Pb5b3:L
+### flat:7x7 (total 1: 12, total 2: 28)
+- total 1: W king a6/a7, B king c6/c7, pawns W a3 b4 / B b5 b6; root values DWWDWDDW; first leaks Ka6b5:W
+- total 1: W king a6/a7, B king c6/c7, pawns W a3 c3 / B b5 b6; root values DDDDDDDD; first leaks Ka6b5:D
+- total 1: W king c1/c2, B king a1/a2, pawns W b2 b3 / B a5 b4; root values LDDLDLLD; first leaks Ka2b3:L
+- total 1: W king c1/c2, B king a1/a2, pawns W b2 b3 / B a5 c5; root values DDDDDDDD; first leaks Ka2b3:D
+- total 1: W king c1/c2, B king a1/a2, pawns W b2 b3 / B b4; root values DDDDDDDD; first leaks Ka2b3:D
+- total 1: W king c1/c2, B king a1/a2, pawns W b2 b3 / B b4 b5; root values DDDDDDDD; first leaks Ka2b3:D
+- total 1: W king c1/c2, B king a1/a2, pawns W b2 b3 / B b4 c5; root values LDDLDLLD; first leaks Ka2b3:L
+- total 1: W king c1/c2, B king a1/a2, pawns W b2 c3 / B b5 c4; root values DDDDDDDD; first leaks Ka2b3:D
+- total 1: W king a6/a7, B king c6/c7, pawns W b3 b4 / B b5 b6; root values DDDDDDDD; first leaks Ka6b5:D
+- total 1: W king a6/a7, B king c6/c7, pawns W b3 c4 / B b6 c5; root values DDDDDDDD; first leaks Ka6b5:D
+- total 1: W king a6/a7, B king c6/c7, pawns W b4 / B b5 b6; root values DDDDDDDD; first leaks Ka6b5:D
+- total 1: W king a6/a7, B king c6/c7, pawns W b4 c3 / B b5 b6; root values DWWDWDDW; first leaks Ka6b5:W
+- total 2: W king a6/b6, B king a4/b4, pawns W a2 a5 / B a3 b5; root values WWWWWWWW; first leaks Pa5a6:W Pa5a6:W
+- total 2: W king a7/b7, B king a5/b5, pawns W a2 c2 / B a3 c3; root values DWWDWDDW; first leaks Kb7c7:W Kb7c6:W
+- total 2: W king a7/b7, B king a5/b5, pawns W a2 c3 / B a6 c4; root values DWWDWDDW; first leaks Pa6a4:D Kb7c6:W
+- total 2: W king a3/b3, B king a1/b1, pawns W a2 c4 / B a6 c5; root values LDDLDLLD; first leaks Kb1c2:L Pa2a4:D
+- total 2: W king a3/b3, B king a1/b1, pawns W a2 c4 / B b6 c5; root values DDDDDDDD; first leaks Pa2a3:D Pa2a4:D
+- total 2: W king a7/b7, B king a5/b5, pawns W a3 c2 / B a4 c3; root values DWWDWDDW; first leaks Kb7c7:W Kb7c6:W
+- total 2: W king a2/b3, B king b6/c5, pawns W a4 b5 / B a3 b4; root values LWWLWLLW; first leaks Kb3b4:W Kb6a5:L
+- total 2: W king a3/b3, B king a1/b1, pawns W a4 c5 / B a5 c6; root values LDDLDLLD; first leaks Kb1c1:L Kb1c2:L
+- total 2: W king a6/b6, B king a4/b4, pawns W a5 / B b5; root values WWWWWWWW; first leaks Pa5a6:W Pa5a6:W
+- total 2: W king a6/b6, B king a4/b4, pawns W a5 / B b5 c5; root values WWWWWWWW; first leaks Pa5a6:W Pa5a6:W
+- total 2: W king a6/b6, B king a4/b4, pawns W a5 / B b5 c6; root values WWWWWWWW; first leaks Pa5a6:W Pa5a6:W
+- total 2: W king a4/b4, B king a2/b2, pawns W a5 b3 / B a3 a6; root values LLLLLLLL; first leaks Pa3a2:L Pa3a2:L
+- total 2: W king b2/c3, B king a6/b5, pawns W a5 b4 / B a4 b3; root values LWWLWLLW; first leaks Kb2a3:W Kb5b4:L
+- total 2: W king b2/c3, B king a6/b5, pawns W a5 b4 / B b3 c4; root values LWWLWLLW; first leaks Kb2a3:W Kb5b4:L
+- total 2: W king a6/b6, B king a4/b4, pawns W a5 c2 / B b5 c3; root values WWWWWWWW; first leaks Pa5a6:W Pa5a6:W
+- total 2: W king a3/b2, B king a7/b7, pawns W a5 c3 / B b5 c4; root values LLLLLLLL; first leaks Ka7a6:L Kb7a6:L
+- total 2: W king a2/a3, B king a7/b7, pawns W a5 c3 / B b5 c4; root values LLLLLLLL; first leaks Ka7a6:L Kb7a6:L
+- total 2: W king a3/b3, B king a1/b1, pawns W a5 c5 / B a6 c6; root values LDDLDLLD; first leaks Kb1c1:L Kb1c2:L
+- total 2: W king a7/b7, B king a5/b5, pawns W b2 c3 / B a6 c4; root values DDDDDDDD; first leaks Pa6a5:D Pa6a4:D
+- total 2: W king c1/c2, B king a1/a2, pawns W b2 c3 / B c4; root values DWWDWDDW; first leaks Pb2b3:W Pb2b4:W
+- total 2: W king a4/b4, B king a2/b2, pawns W b3 / B a3; root values LLLLLLLL; first leaks Pa3a2:L Pa3a2:L
+- total 2: W king a4/b4, B king a2/b2, pawns W b3 c2 / B a3; root values LLLLLLLL; first leaks Pa3a2:L Pa3a2:L
+- total 2: W king a4/b4, B king a2/b2, pawns W b3 c3 / B a3; root values LLLLLLLL; first leaks Pa3a2:L Pa3a2:L
+- total 2: W king a1/b1, B king a5/a6, pawns W b3 c4 / B a3 c5; root values WWWWWWWW; first leaks Ka1a2:W Kb1a2:W
+- total 2: W king a1/b1, B king a5/b6, pawns W b3 c4 / B a3 c5; root values WWWWWWWW; first leaks Ka1a2:W Kb1a2:W
+- total 2: W king a4/b4, B king a2/b2, pawns W b3 c5 / B a3 c6; root values LLLLLLLL; first leaks Pa3a2:L Pa3a2:L
+- total 2: W king a2/b3, B king b6/c5, pawns W b5 c4 / B a3 b4; root values LWWLWLLW; first leaks Kb3b4:W Kb6a5:L
+- total 2: W king a6/a7, B king c6/c7, pawns W c4 / B b6 c5; root values LDDLDLLD; first leaks Pb6b5:L Pb6b4:L

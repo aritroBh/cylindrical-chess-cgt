@@ -418,6 +418,14 @@ Every deliverable was given to independent referees (Claude models) told to brea
     White held to one queen gives the lower bound D; `ownref` with the refinement agrees). So Z_B is **not** exactly
     two-shuttle in chess, CHECKED-2 (no hand proof of the draw). The referee re-ran every solver except kpsolve at cap 2 on
     the four 3-pawn positions, which it read from the investigator's log. Open: chess contexts of Z_B.
+  - K15b and K26 (2026-10-29) answer open question 2 in P: dud groups with no pawn break exist on the cylinder.
+    K26's search of three-file groups with no cut-off finds Z_B on cyl:7×6 and cyl:8×6 and a new passer-free group
+    Z_C (`Pa2 Pc4 / pa3 pc5`, kings c2/c3 and a4/a5) on cyl:8×6, with mirrors; both are exactly two-shuttle in P
+    (CHECKED-2 for width ≤ 8). K15b finds G8a and G8b on cyl:8×6 (two blocked pairs on files a and e, no pawn move),
+    exactly two-shuttle in P (CHECKED-2) and with the same 72 move values in chess at cap 2 (COMPUTED-1). Z_C is not
+    dud_D beside every context. The two searches agree where their scopes overlap. Neither finds an over group, so the
+    second half of Conjecture 4.7 has no support (COMPUTED-1). Both referees accepted with fixes; the merged edits were
+    checked three ways (`kings/delegate/out/K15K26/MERGE_NOTES.md`).
   - So no result of the note is still GAP.
   - The T30 fixes of 2026-10-22 came later. They were reviewed by Sonnet reviewers in two rounds, not by K3 (see the Theory row
   above).

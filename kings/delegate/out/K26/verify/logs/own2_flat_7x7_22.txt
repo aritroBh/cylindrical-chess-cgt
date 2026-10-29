@@ -1,0 +1,10 @@
+flat:7x7 2 2 placements 4040080 chunks 68
+stage1 hist (leaks at root state0, White to move): {0: 1141240, 1: 725053, 2: 407599, 3: 390482, 4: 370401, 5: 350378, 6: 275967, 7: 195307, 8: 114292, 9: 55394, 10: 12409, 11: 1529, 12: 29} stage-2 candidates (root0 leaks <= TMAX) 2273892
+totals 0/1/2 (complete when TMAX>=2): [0, 12, 36]
+EXACT DUDS: 0
+  total 1 e.g. W ['a6', 'a7'] B ['c6', 'c7'] wp ['b4'] bp ['b5', 'b6']
+  total 1 e.g. W ['a6', 'a7'] B ['c6', 'c7'] wp ['a3', 'b4'] bp ['b5', 'b6']
+  total 1 e.g. W ['a6', 'a7'] B ['c6', 'c7'] wp ['a3', 'c3'] bp ['b5', 'b6']
+  total 2 e.g. W ['a6', 'b6'] B ['a4', 'b4'] wp ['a5'] bp ['b5']
+  total 2 e.g. W ['a6', 'b6'] B ['a4', 'b4'] wp ['a5'] bp ['b5', 'c5']
+  total 2 e.g. W ['a6', 'b6'] B ['a4', 'b4'] wp ['a5'] bp ['b5', 'c6']

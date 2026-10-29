@@ -1,0 +1,117 @@
+[
+ {
+  "id": "over_cyl8x6_a3b4-a4b5_a1a2",
+  "board": "cyl:8x6",
+  "reservoir": "under",
+  "class": "over_exact",
+  "wk": [
+   "a1",
+   "a2"
+  ],
+  "bk": [
+   "c1"
+  ],
+  "wp": [
+   "a3",
+   "b4"
+  ],
+  "bp": [
+   "a4",
+   "b5"
+  ],
+  "context_files": "fg",
+  "contexts": 67,
+  "roots": 268,
+  "roots_agree_with_D_model": 262,
+  "roots_disagree": 6,
+  "contexts_with_a_disagreement": 2,
+  "contexts_where_P_result_depends_on_king_state": 0,
+  "roots_checked_by_checker": 48,
+  "kpp_vs_checker_value_mismatches": 0,
+  "checker": "ref3",
+  "prop46_premise_roots": 120,
+  "prop46_conclusion_holds": 120,
+  "D_values_seen": {
+   "L": 82,
+   "W": 52
+  },
+  "P_values_seen": {
+   "L": 166,
+   "W": 102
+  },
+  "disagreement_examples": [
+   [
+    "Ka1 kc1 Pa3 Pb4 pa4 pb5 Pf3 Pg2 pf5 b -",
+    "P=W",
+    "D-model=L"
+   ],
+   [
+    "Ka2 kc1 Pa3 Pb4 pa4 pb5 Pf3 Pg2 pf5 b -",
+    "P=W",
+    "D-model=L"
+   ],
+   [
+    "Ka1 kc1 Pa3 Pb4 pa4 pb5 Pf2 Pf3 pg5 w -",
+    "P=L",
+    "D-model=W"
+   ],
+   [
+    "Ka1 kc1 Pa3 Pb4 pa4 pb5 Pf2 Pf3 pg5 b -",
+    "P=L",
+    "D-model=W"
+   ],
+   [
+    "Ka2 kc1 Pa3 Pb4 pa4 pb5 Pf2 Pf3 pg5 w -",
+    "P=L",
+    "D-model=W"
+   ],
+   [
+    "Ka2 kc1 Pa3 Pb4 pa4 pb5 Pf2 Pf3 pg5 b -",
+    "P=L",
+    "D-model=W"
+   ]
+  ]
+ },
+ {
+  "id": "over_cyl8x6_a3b4-a4b5_a1a2~",
+  "board": "cyl:8x6",
+  "reservoir": "over",
+  "class": "over_exact~",
+  "wk": [
+   "c6"
+  ],
+  "bk": [
+   "a6",
+   "a5"
+  ],
+  "wp": [
+   "a3",
+   "b2"
+  ],
+  "bp": [
+   "a4",
+   "b3"
+  ],
+  "context_files": "fg",
+  "contexts": 7,
+  "roots": 28,
+  "roots_agree_with_D_model": 28,
+  "roots_disagree": 0,
+  "contexts_with_a_disagreement": 0,
+  "contexts_where_P_result_depends_on_king_state": 0,
+  "roots_checked_by_checker": 28,
+  "kpp_vs_checker_value_mismatches": 0,
+  "checker": "ref3",
+  "prop46_premise_roots": 8,
+  "prop46_conclusion_holds": 8,
+  "D_values_seen": {
+   "W": 9,
+   "L": 5
+  },
+  "P_values_seen": {
+   "W": 18,
+   "L": 10
+  },
+  "disagreement_examples": []
+ }
+]

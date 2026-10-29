@@ -1,0 +1,225 @@
+[
+ {
+  "id": "over_cyl7x6_a3c3-a4b5_b6c6",
+  "board": "cyl:7x6",
+  "reservoir": "under",
+  "class": "over_exact",
+  "wk": [
+   "b6",
+   "c6"
+  ],
+  "bk": [
+   "c4"
+  ],
+  "wp": [
+   "a3",
+   "c3"
+  ],
+  "bp": [
+   "a4",
+   "b5"
+  ],
+  "context_files": "ef",
+  "contexts": 61,
+  "roots": 244,
+  "roots_agree_with_D_model": 243,
+  "roots_disagree": 1,
+  "contexts_with_a_disagreement": 1,
+  "contexts_where_P_result_depends_on_king_state": 1,
+  "roots_checked_by_checker": 48,
+  "kpp_vs_checker_value_mismatches": 0,
+  "checker": "ref3",
+  "prop46_premise_roots": 80,
+  "prop46_conclusion_holds": 80,
+  "D_values_seen": {
+   "L": 64,
+   "W": 58
+  },
+  "P_values_seen": {
+   "L": 127,
+   "W": 117
+  },
+  "disagreement_examples": [
+   [
+    "Kc6 kc4 Pa3 Pc3 pa4 pb5 Pf2 pe5 w -",
+    "P=W",
+    "D-model=L"
+   ]
+  ]
+ },
+ {
+  "id": "over_cyl7x6_a3c3-a4b5_b6c6~",
+  "board": "cyl:7x6",
+  "reservoir": "over",
+  "class": "over_exact~",
+  "wk": [
+   "c3"
+  ],
+  "bk": [
+   "b1",
+   "c1"
+  ],
+  "wp": [
+   "a3",
+   "b2"
+  ],
+  "bp": [
+   "a4",
+   "c4"
+  ],
+  "context_files": "ef",
+  "contexts": 21,
+  "roots": 84,
+  "roots_agree_with_D_model": 83,
+  "roots_disagree": 1,
+  "contexts_with_a_disagreement": 1,
+  "contexts_where_P_result_depends_on_king_state": 1,
+  "roots_checked_by_checker": 48,
+  "kpp_vs_checker_value_mismatches": 0,
+  "checker": "ref3",
+  "prop46_premise_roots": 36,
+  "prop46_conclusion_holds": 35,
+  "D_values_seen": {
+   "W": 25,
+   "L": 17
+  },
+  "P_values_seen": {
+   "W": 49,
+   "L": 35
+  },
+  "disagreement_examples": [
+   [
+    "Kc3 kc1 Pa3 Pb2 pa4 pc4 Pe2 pe3 b -",
+    "P=L",
+    "D-model=W"
+   ]
+  ]
+ },
+ {
+  "id": "over_cyl7x6_a2c3-a5c4_c1c2",
+  "board": "cyl:7x6",
+  "reservoir": "under",
+  "class": "over_exact",
+  "wk": [
+   "c1",
+   "c2"
+  ],
+  "bk": [
+   "b5"
+  ],
+  "wp": [
+   "a2",
+   "c3"
+  ],
+  "bp": [
+   "a5",
+   "c4"
+  ],
+  "context_files": "ef",
+  "contexts": 61,
+  "roots": 244,
+  "roots_agree_with_D_model": 230,
+  "roots_disagree": 14,
+  "contexts_with_a_disagreement": 5,
+  "contexts_where_P_result_depends_on_king_state": 0,
+  "roots_checked_by_checker": 48,
+  "kpp_vs_checker_value_mismatches": 0,
+  "checker": "ref3",
+  "prop46_premise_roots": 104,
+  "prop46_conclusion_holds": 100,
+  "D_values_seen": {
+   "L": 75,
+   "W": 47
+  },
+  "P_values_seen": {
+   "L": 136,
+   "W": 100,
+   "D": 8
+  },
+  "disagreement_examples": [
+   [
+    "Kc1 kb5 Pa2 Pc3 pa5 pc4 Pf2 pe5 w -",
+    "P=W",
+    "D-model=L"
+   ],
+   [
+    "Kc2 kb5 Pa2 Pc3 pa5 pc4 Pf2 pe5 w -",
+    "P=W",
+    "D-model=L"
+   ],
+   [
+    "Kc1 kb5 Pa2 Pc3 pa5 pc4 Pf3 pf4 w -",
+    "P=D",
+    "D-model=L"
+   ],
+   [
+    "Kc1 kb5 Pa2 Pc3 pa5 pc4 Pf3 pf4 b -",
+    "P=D",
+    "D-model=L"
+   ],
+   [
+    "Kc2 kb5 Pa2 Pc3 pa5 pc4 Pf3 pf4 w -",
+    "P=D",
+    "D-model=L"
+   ],
+   [
+    "Kc2 kb5 Pa2 Pc3 pa5 pc4 Pf3 pf4 b -",
+    "P=D",
+    "D-model=L"
+   ]
+  ]
+ },
+ {
+  "id": "over_cyl7x6_a2c3-a5c4_c1c2~",
+  "board": "cyl:7x6",
+  "reservoir": "over",
+  "class": "over_exact~",
+  "wk": [
+   "b2"
+  ],
+  "bk": [
+   "c6",
+   "c5"
+  ],
+  "wp": [
+   "a2",
+   "c3"
+  ],
+  "bp": [
+   "a5",
+   "c4"
+  ],
+  "context_files": "ef",
+  "contexts": 21,
+  "roots": 84,
+  "roots_agree_with_D_model": 82,
+  "roots_disagree": 2,
+  "contexts_with_a_disagreement": 1,
+  "contexts_where_P_result_depends_on_king_state": 0,
+  "roots_checked_by_checker": 48,
+  "kpp_vs_checker_value_mismatches": 0,
+  "checker": "ref3",
+  "prop46_premise_roots": 32,
+  "prop46_conclusion_holds": 32,
+  "D_values_seen": {
+   "W": 21,
+   "L": 21
+  },
+  "P_values_seen": {
+   "W": 40,
+   "L": 44
+  },
+  "disagreement_examples": [
+   [
+    "Kb2 kc6 Pa2 Pc3 pa5 pc4 Pe3 pe5 b -",
+    "P=L",
+    "D-model=W"
+   ],
+   [
+    "Kb2 kc5 Pa2 Pc3 pa5 pc4 Pe3 pe5 b -",
+    "P=L",
+    "D-model=W"
+   ]
+  ]
+ }
+]

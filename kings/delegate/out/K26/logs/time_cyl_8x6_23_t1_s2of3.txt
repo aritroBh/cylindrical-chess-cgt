@@ -1,0 +1,16 @@
+[    0.0s] board cyl:8x6 limits 2 3 configs 14699 type t1
+[   21.2s] stage1 batch 0 cands so far 100000 survivors 14982 solver: [kpsolve cyl:8x6 ep=on cap=1: 6686 layers, 30809088 states, depth 9, 18.1s]
+[   38.8s] stage1 batch 1 cands so far 200000 survivors 33534 solver: [kpsolve cyl:8x6 ep=on cap=1: 5625 layers, 25920000 states, depth 10, 14.5s]
+[   53.1s] stage1 batch 2 cands so far 300000 survivors 57916 solver: [kpsolve cyl:8x6 ep=on cap=1: 4220 layers, 19445760 states, depth 8, 11.0s]
+[   66.4s] stage1 batch 3 cands so far 400000 survivors 86319 solver: [kpsolve cyl:8x6 ep=on cap=1: 3736 layers, 17215488 states, depth 8, 10.1s]
+[   75.7s] stage1 batch 4 cands so far 456478 survivors 104161 solver: [kpsolve cyl:8x6 ep=on cap=1: 2334 layers, 10755072 states, depth 10, 7.0s]
+[   92.9s] stage2 batch 0 size 20000 classes so far {'on_weak': 15626, 'over_pre': 11, 'on_strong': 2}
+[  105.8s] stage2 batch 1 size 20000 classes so far {'on_weak': 31391, 'over_pre': 43, 'on_strong': 3}
+[  115.6s] stage2 batch 2 size 20000 classes so far {'on_weak': 47045, 'over_pre': 54, 'on_strong': 3}
+[  128.3s] stage2 batch 3 size 20000 classes so far {'on_weak': 63712, 'over_pre': 57, 'on_strong': 3}
+[  136.4s] stage2 batch 4 size 20000 classes so far {'on_weak': 80347, 'over_pre': 69, 'on_strong': 3}
+[  138.5s] stage2 batch 5 size 4161 classes so far {'on_weak': 83856, 'over_pre': 69, 'on_strong': 3}
+[  141.8s] DONE {"candidates": 456478, "classes": {"on_weak": 83856, "over_pre": 69, "on_strong": 3, "over_exact": 63, "over_pre_failed_stage3": 6}, "min_on_strong_miss_over_survivors": 0, "over_pre": 69}
+real 141.91
+user 41.06
+sys 1.27

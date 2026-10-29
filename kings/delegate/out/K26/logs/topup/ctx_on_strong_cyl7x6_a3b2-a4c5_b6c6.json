@@ -1,0 +1,107 @@
+[
+ {
+  "id": "on_strong_cyl7x6_a3b2-a4c5_b6c6",
+  "board": "cyl:7x6",
+  "reservoir": "on",
+  "class": "on_strong",
+  "wk": [
+   "b6",
+   "c6"
+  ],
+  "bk": [
+   "c4"
+  ],
+  "wp": [
+   "a3",
+   "b2"
+  ],
+  "bp": [
+   "a4",
+   "c5"
+  ],
+  "context_files": "ef",
+  "contexts": 66,
+  "roots": 264,
+  "roots_agree_with_D_model": 260,
+  "roots_disagree": 4,
+  "contexts_with_a_disagreement": 2,
+  "contexts_where_P_result_depends_on_king_state": 0,
+  "roots_checked_by_checker": 48,
+  "kpp_vs_checker_value_mismatches": 0,
+  "checker": "ref3",
+  "prop46_premise_roots": 0,
+  "prop46_conclusion_holds": 0,
+  "D_values_seen": {
+   "W": 73,
+   "L": 59
+  },
+  "P_values_seen": {
+   "W": 142,
+   "L": 122
+  },
+  "disagreement_examples": [
+   [
+    "Kb6 kc4 Pa3 Pb2 pa4 pc5 Pf3 pe4 pf4 w -",
+    "P=L",
+    "D-model=W"
+   ],
+   [
+    "Kc6 kc4 Pa3 Pb2 pa4 pc5 Pf3 pe4 pf4 w -",
+    "P=L",
+    "D-model=W"
+   ],
+   [
+    "Kb6 kc4 Pa3 Pb2 pa4 pc5 Pe2 Pe4 pe3 pf4 b -",
+    "P=L",
+    "D-model=W"
+   ],
+   [
+    "Kc6 kc4 Pa3 Pb2 pa4 pc5 Pe2 Pe4 pe3 pf4 b -",
+    "P=L",
+    "D-model=W"
+   ]
+  ]
+ },
+ {
+  "id": "on_strong_cyl7x6_a3b2-a4c5_b6c6~",
+  "board": "cyl:7x6",
+  "reservoir": "off",
+  "class": "on_strong~",
+  "wk": [
+   "c3"
+  ],
+  "bk": [
+   "b1",
+   "c1"
+  ],
+  "wp": [
+   "a3",
+   "c2"
+  ],
+  "bp": [
+   "a4",
+   "b5"
+  ],
+  "context_files": "ef",
+  "contexts": 7,
+  "roots": 28,
+  "roots_agree_with_D_model": 28,
+  "roots_disagree": 0,
+  "contexts_with_a_disagreement": 0,
+  "contexts_where_P_result_depends_on_king_state": 0,
+  "roots_checked_by_checker": 28,
+  "kpp_vs_checker_value_mismatches": 0,
+  "checker": "ref3",
+  "prop46_premise_roots": 0,
+  "prop46_conclusion_holds": 0,
+  "D_values_seen": {
+   "L": 8,
+   "W": 6
+  },
+  "P_values_seen": {
+   "L": 16,
+   "W": 12
+  },
+  "disagreement_examples": []
+ }
+]

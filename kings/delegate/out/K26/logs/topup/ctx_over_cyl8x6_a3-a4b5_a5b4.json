@@ -1,0 +1,101 @@
+[
+ {
+  "id": "over_cyl8x6_a3-a4b5_a5b4",
+  "board": "cyl:8x6",
+  "reservoir": "under",
+  "class": "over_exact",
+  "wk": [
+   "a5",
+   "b4"
+  ],
+  "bk": [
+   "c6"
+  ],
+  "wp": [
+   "a3"
+  ],
+  "bp": [
+   "a4",
+   "b5"
+  ],
+  "context_files": "fg",
+  "contexts": 65,
+  "roots": 260,
+  "roots_agree_with_D_model": 258,
+  "roots_disagree": 2,
+  "contexts_with_a_disagreement": 1,
+  "contexts_where_P_result_depends_on_king_state": 0,
+  "roots_checked_by_checker": 48,
+  "kpp_vs_checker_value_mismatches": 0,
+  "checker": "ref3",
+  "prop46_premise_roots": 100,
+  "prop46_conclusion_holds": 100,
+  "D_values_seen": {
+   "L": 69,
+   "W": 61
+  },
+  "P_values_seen": {
+   "L": 140,
+   "W": 120
+  },
+  "disagreement_examples": [
+   [
+    "Ka5 kc6 Pa3 pa4 pb5 Pf3 Pg2 pg4 pg5 w -",
+    "P=L",
+    "D-model=W"
+   ],
+   [
+    "Kb4 kc6 Pa3 pa4 pb5 Pf3 Pg2 pg4 pg5 w -",
+    "P=L",
+    "D-model=W"
+   ]
+  ]
+ },
+ {
+  "id": "over_cyl8x6_a3-a4b5_a5b4~",
+  "board": "cyl:8x6",
+  "reservoir": "over",
+  "class": "over_exact~",
+  "wk": [
+   "c1"
+  ],
+  "bk": [
+   "a2",
+   "b3"
+  ],
+  "wp": [
+   "a3",
+   "b2"
+  ],
+  "bp": [
+   "a4"
+  ],
+  "context_files": "fg",
+  "contexts": 7,
+  "roots": 28,
+  "roots_agree_with_D_model": 27,
+  "roots_disagree": 1,
+  "contexts_with_a_disagreement": 1,
+  "contexts_where_P_result_depends_on_king_state": 1,
+  "roots_checked_by_checker": 28,
+  "kpp_vs_checker_value_mismatches": 0,
+  "checker": "ref3",
+  "prop46_premise_roots": 16,
+  "prop46_conclusion_holds": 15,
+  "D_values_seen": {
+   "W": 10,
+   "L": 4
+  },
+  "P_values_seen": {
+   "W": 19,
+   "L": 9
+  },
+  "disagreement_examples": [
+   [
+    "Kc1 ka2 Pa3 Pb2 pa4 Pg3 pf5 pg4 b -",
+    "P=L",
+    "D-model=W"
+   ]
+  ]
+ }
+]

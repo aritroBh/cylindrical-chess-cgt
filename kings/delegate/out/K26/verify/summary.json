@@ -1,0 +1,25 @@
+{
+  "task": "K26 referee",
+  "verdict": "ACCEPT_WITH_FIXES",
+  "sources_md5": {"kpsolve.c": "8ff499658aa67448c89ad0955dfcbcfe", "kp_p.c": "f668d4d4861e1d89792245632e01516c", "ref3.cpp": "a9cd9ed267e3016c789138d86974d658", "ref3m.cpp": "1b0c8cd670ab54a9e3b385e14717cd63"},
+  "own_code": ["scripts/ref_enum.py", "scripts/ref_enum2.py", "scripts/ref_under.py", "scripts/ref_on.py", "scripts/dud_ctx.py", "scripts/named.py"],
+  "placements_counted_by_own_enumerator": {"2+2 H=6": 817270, "3+2 and 2+3 H=6": 1886421, "2+2 H=7": 4040080, "one-shuttle 2+2": 631179, "one-shuttle 3+2": 1602414, "one-shuttle 2+3": 1517293},
+  "two_shuttle_totals_0_1_2_collapsed_promotions": {
+    "cyl:7x6 2+2": [2, 0, 8], "cyl:7x6 3+2": [2, 2, 10], "cyl:7x6 2+3": [2, 2, 10],
+    "cyl:8x6 2+2": [4, 0, 4], "cyl:8x6 3+2": [4, 2, 6], "cyl:8x6 2+3": [4, 2, 6],
+    "flat:7x6 2+2": [2, 12, 6], "flat:7x6 3+2": [2, 17, 18], "flat:7x6 2+3": [2, 17, 18],
+    "flat:8x6 2+2": [2, 12, 6], "flat:7x7 2+2": [0, 12, 36]},
+  "exact_duds_found": {"cyl:7x6": "Z_B + mirror", "cyl:8x6": "Z_B, Z_C + mirrors", "flat:7x6": "Z_B + mirror", "flat:8x6": "Z_B + mirror", "flat:7x7": "none"},
+  "contexts_le3_pawns": {
+    "ZB cyl:8x6 efg": {"contexts": 2049, "differ": 0}, "ZB cyl:7x6 ef": {"contexts": 577, "differ": 0},
+    "ZB flat:7x6 efg": {"contexts": 2049, "differ": 0}, "ZC cyl:8x6 efg": {"contexts": 2049, "differ": 131, "roots_differ": 754, "by_pawns": {"2": 35, "3": 96}}},
+  "under_over_own_search_no_king_filter": {
+    "cyl:8x6 2+2": {"placements": 631179, "U1": 160540, "U1_U2": 160469, "U1_U2_U3_promo_as_L": 144159, "exact": 0, "loose1": 120},
+    "cyl:7x6 2+2": {"placements": 631179, "U1": 160774, "U1_U2": 160697, "U1_U2_U3_promo_as_L": 144411, "exact": 0, "loose1": 118},
+    "flat:7x6 2+2": {"placements": 631179, "U1": 154899, "U1_U2": 154802, "U1_U2_U3_promo_as_L": 140389, "exact": 0, "loose1": 142},
+    "cyl:8x6 3+2": {"placements": 1602414, "U1": 271267, "U1_U2": 271164, "U1_U2_U3_promo_as_L": 254258, "exact": 0, "loose1": 198},
+    "cyl:8x6 2+3": {"placements": 1517293, "U1": 599723, "U1_U2": 599606, "U1_U2_U3_promo_as_L": 545277, "exact": 0, "loose1": 175}},
+  "on_groups_2+2": {"cyl:8x6": {"on_strong": 4, "on_weak": 152262}, "cyl:7x6": {"on_strong": 4, "on_weak": 152554}, "flat:7x6": {"on_strong": 17, "on_weak": 146766}},
+  "edits": {"K26_old_blocks": 10, "old_occurs_once": 10, "replacement_blocks": 5, "replacement_old_occurs_once": 5},
+  "not_checked": ["four-file under/over search (5,793,156 placements)", "flat 8x6 under/over", "exact-on counts beyond 2+2 (103 / 78)", "on-group context agreement and the (Pun)-near-the-wrap diagnosis", "Proposition 4.6 sampled tables", "named groups on widths 11, 12 and flat 12 (ref3m 64-bit masks)"]
+}

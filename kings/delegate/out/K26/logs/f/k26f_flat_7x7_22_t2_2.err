@@ -1,0 +1,23 @@
+[    0.0s] board flat:7x7 limits 2 2 configs 11371 type t2
+[    2.6s] stage1 batch 0 cands so far 100000 illegal 0 solver: [kpsolve flat:7x7 ep=on cap=1: 2121 layers, 10185042 states, depth 7, 1.6s]
+[    4.9s] stage1 batch 1 cands so far 200000 illegal 0 solver: [kpsolve flat:7x7 ep=on cap=1: 1569 layers, 7534338 states, depth 11, 1.4s]
+[    7.2s] stage1 batch 2 cands so far 300000 illegal 0 solver: [kpsolve flat:7x7 ep=on cap=1: 1612 layers, 7740824 states, depth 7, 1.4s]
+[    9.2s] stage1 batch 3 cands so far 400000 illegal 0 solver: [kpsolve flat:7x7 ep=on cap=1: 1306 layers, 6271412 states, depth 8, 1.2s]
+[   11.1s] stage1 batch 4 cands so far 500000 illegal 0 solver: [kpsolve flat:7x7 ep=on cap=1: 1006 layers, 4830812 states, depth 10, 1.0s]
+[   13.7s] stage1 batch 5 cands so far 600000 illegal 0 solver: [kpsolve flat:7x7 ep=on cap=1: 2234 layers, 10727668 states, depth 9, 1.7s]
+[   17.1s] stage1 batch 6 cands so far 700000 illegal 0 solver: [kpsolve flat:7x7 ep=on cap=1: 3327 layers, 15976254 states, depth 10, 2.5s]
+[   19.9s] stage1 batch 7 cands so far 800000 illegal 0 solver: [kpsolve flat:7x7 ep=on cap=1: 2191 layers, 10521182 states, depth 10, 1.8s]
+[   22.6s] stage1 batch 8 cands so far 881414 illegal 0 solver: [kpsolve flat:7x7 ep=on cap=1: 2877 layers, 13815354 states, depth 11, 2.1s]
+[   22.6s] stage1 histogram {0: 306, 1: 5791, 2: 35467, 3: 49069, 4: 68691, 5: 84794, 6: 96929, 7: 104233, 8: 161563, 9: 88355, 10: 72240, 11: 44600}
+[   24.5s] stage2 T 0 batch 0 size 306
+[   24.5s] after T = 0 candidates evaluated 306 min total leaks 1
+[   28.3s] stage2 T 1 batch 0 size 5791
+[   28.3s] after T = 1 candidates evaluated 6097 min total leaks 1
+[   30.3s] stage2 T 2 batch 0 size 15000
+[   34.1s] stage2 T 2 batch 1 size 15000
+[   36.2s] stage2 T 2 batch 2 size 5467
+[   36.2s] after T = 2 candidates evaluated 41564 min total leaks 1
+[   36.2s] DONE {"candidates": 881414, "min_total_leaks_8roots": 1, "exact_dud": 0, "exact_dud_no_passer_filter_applied_to_value": 0}
+real 36.56
+user 35.59
+sys 0.80

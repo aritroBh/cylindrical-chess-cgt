@@ -1,0 +1,22 @@
+[    0.2s] board cyl:8x6 limits 3 2 configs 14699 type t1
+[   26.6s] stage1 batch 0 cands so far 100000 survivors 47535 solver: [kpsolve cyl:8x6 ep=on cap=1: 5030 layers, 23178240 states, depth 10, 21.6s]
+[   48.5s] stage1 batch 1 cands so far 200000 survivors 106761 solver: [kpsolve cyl:8x6 ep=on cap=1: 4061 layers, 18713088 states, depth 8, 17.0s]
+[   73.3s] stage1 batch 2 cands so far 300000 survivors 157112 solver: [kpsolve cyl:8x6 ep=on cap=1: 5596 layers, 25786368 states, depth 9, 19.6s]
+[   92.4s] stage1 batch 3 cands so far 400000 survivors 206506 solver: [kpsolve cyl:8x6 ep=on cap=1: 3907 layers, 18003456 states, depth 9, 14.5s]
+[  101.3s] stage1 batch 4 cands so far 451371 survivors 233940 solver: [kpsolve cyl:8x6 ep=on cap=1: 2033 layers, 9368064 states, depth 10, 6.8s]
+[  114.7s] stage2 batch 0 size 20000 classes so far {'on_weak': 17461}
+[  126.9s] stage2 batch 1 size 20000 classes so far {'on_weak': 35134, 'over_pre': 2}
+[  139.5s] stage2 batch 2 size 20000 classes so far {'on_weak': 53764, 'over_pre': 2}
+[  150.5s] stage2 batch 3 size 20000 classes so far {'on_weak': 73347, 'over_pre': 4}
+[  158.2s] stage2 batch 4 size 20000 classes so far {'on_weak': 93038, 'over_pre': 4}
+[  168.5s] stage2 batch 5 size 20000 classes so far {'on_weak': 112202, 'over_pre': 10}
+[  182.2s] stage2 batch 6 size 20000 classes so far {'on_weak': 129893, 'over_pre': 14}
+[  196.4s] stage2 batch 7 size 20000 classes so far {'on_weak': 147926, 'over_pre': 15}
+[  208.2s] stage2 batch 8 size 20000 classes so far {'on_weak': 165366, 'over_pre': 21}
+[  219.3s] stage2 batch 9 size 20000 classes so far {'on_weak': 183127, 'over_pre': 21}
+[  227.7s] stage2 batch 10 size 20000 classes so far {'on_weak': 201362, 'over_pre': 21}
+[  233.9s] stage2 batch 11 size 13940 classes so far {'on_weak': 214080, 'over_pre': 26}
+[  236.1s] DONE {"candidates": 451371, "classes": {"on_weak": 214080, "over_pre": 26, "over_pre_failed_stage3": 4, "over_exact": 22}, "min_on_strong_miss_over_survivors": 1, "over_pre": 26}
+real 236.34
+user 52.34
+sys 1.41

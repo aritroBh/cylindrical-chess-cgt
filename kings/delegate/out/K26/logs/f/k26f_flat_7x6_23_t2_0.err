@@ -1,0 +1,25 @@
+[    0.0s] board flat:7x6 limits 2 3 configs 14699 type t2
+[    1.3s] stage1 batch 0 cands so far 100000 illegal 0 solver: [kpsolve flat:7x6 ep=on cap=1: 659 layers, 2324952 states, depth 6, 0.5s]
+[    3.1s] stage1 batch 1 cands so far 200000 illegal 0 solver: [kpsolve flat:7x6 ep=on cap=1: 1396 layers, 4925088 states, depth 9, 0.9s]
+[    5.0s] stage1 batch 2 cands so far 300000 illegal 0 solver: [kpsolve flat:7x6 ep=on cap=1: 1620 layers, 5715360 states, depth 9, 1.0s]
+[    6.8s] stage1 batch 3 cands so far 400000 illegal 0 solver: [kpsolve flat:7x6 ep=on cap=1: 1334 layers, 4706352 states, depth 9, 0.9s]
+[    8.6s] stage1 batch 4 cands so far 500000 illegal 0 solver: [kpsolve flat:7x6 ep=on cap=1: 1335 layers, 4709880 states, depth 9, 0.8s]
+[   11.1s] stage1 batch 5 cands so far 600000 illegal 0 solver: [kpsolve flat:7x6 ep=on cap=1: 3312 layers, 11684736 states, depth 9, 1.7s]
+[   16.4s] stage1 batch 6 cands so far 700000 illegal 0 solver: [kpsolve flat:7x6 ep=on cap=1: 6442 layers, 22727376 states, depth 10, 4.3s]
+[   20.4s] stage1 batch 7 cands so far 800000 illegal 0 solver: [kpsolve flat:7x6 ep=on cap=1: 5988 layers, 21125664 states, depth 12, 3.0s]
+[   24.6s] stage1 batch 8 cands so far 900000 illegal 0 solver: [kpsolve flat:7x6 ep=on cap=1: 4825 layers, 17022600 states, depth 9, 2.8s]
+[   28.2s] stage1 batch 9 cands so far 1000000 illegal 0 solver: [kpsolve flat:7x6 ep=on cap=1: 4716 layers, 16638048 states, depth 10, 2.4s]
+[   31.0s] stage1 batch 10 cands so far 1068765 illegal 0 solver: [kpsolve flat:7x6 ep=on cap=1: 3622 layers, 12778416 states, depth 8, 2.0s]
+[   31.0s] stage1 histogram {0: 460, 1: 7726, 2: 38292, 3: 63445, 4: 95618, 5: 120054, 6: 136554, 7: 134947, 8: 188601, 9: 104291, 10: 73643, 11: 45154}
+[   33.0s] stage2 T 0 batch 0 size 460
+[   33.0s] after T = 0 candidates evaluated 460 min total leaks 0
+[   36.6s] stage2 T 1 batch 0 size 7726
+[   36.6s] after T = 1 candidates evaluated 8186 min total leaks 0
+[   38.5s] stage2 T 2 batch 0 size 15000
+[   42.9s] stage2 T 2 batch 1 size 15000
+[   45.9s] stage2 T 2 batch 2 size 8292
+[   45.9s] after T = 2 candidates evaluated 46478 min total leaks 0
+[   45.9s] DONE {"candidates": 1068765, "min_total_leaks_8roots": 0, "exact_dud": 1, "exact_dud_no_passer_filter_applied_to_value": 0}
+real 46.42
+user 42.91
+sys 1.22

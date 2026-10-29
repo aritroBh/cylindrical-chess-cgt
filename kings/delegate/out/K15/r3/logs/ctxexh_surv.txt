@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15/r3/../fin2/scripts/ctx_exh.py", line 21, in <module>
+    out = subprocess.run(['/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15/fin2/bin/kpp', '--board', board, '--ep', 'on', '--cap', '0', '--pmodel'],
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/aritro/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/aritro/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/Users/aritro/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/aritro/Downloads/Research/Chessendgames/kings/delegate/out/K15/fin2/bin/kpp'

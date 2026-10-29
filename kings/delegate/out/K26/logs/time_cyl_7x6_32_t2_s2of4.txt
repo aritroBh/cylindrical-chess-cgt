@@ -1,0 +1,17 @@
+[    0.0s] board cyl:7x6 limits 3 2 configs 14699 type t2
+[   27.2s] stage1 batch 0 cands so far 100000 illegal 0 solver: [kpsolve cyl:7x6 ep=on cap=1: 6572 layers, 23186016 states, depth 10, 21.7s]
+[   51.9s] stage1 batch 1 cands so far 200000 illegal 0 solver: [kpsolve cyl:7x6 ep=on cap=1: 5597 layers, 19746216 states, depth 10, 18.8s]
+[   82.5s] stage1 batch 2 cands so far 300000 illegal 0 solver: [kpsolve cyl:7x6 ep=on cap=1: 5840 layers, 20603520 states, depth 9, 23.3s]
+[  103.4s] stage1 batch 3 cands so far 400000 illegal 0 solver: [kpsolve cyl:7x6 ep=on cap=1: 4232 layers, 14930496 states, depth 11, 15.1s]
+[  114.3s] stage1 batch 4 cands so far 419242 illegal 0 solver: [kpsolve cyl:7x6 ep=on cap=1: 3025 layers, 10672200 states, depth 8, 9.3s]
+[  114.3s] stage1 histogram {0: 26, 1: 227, 2: 6802, 3: 13497, 4: 23571, 5: 28738, 6: 39361, 7: 46822, 8: 101075, 9: 47272, 10: 40062, 11: 27246}
+[  119.0s] stage2 T 0 batch 0 size 26
+[  119.0s] after T = 0 candidates evaluated 26 min total leaks 1
+[  129.5s] stage2 T 1 batch 0 size 227
+[  129.5s] after T = 1 candidates evaluated 253 min total leaks 1
+[  149.8s] stage2 T 2 batch 0 size 6802
+[  149.8s] after T = 2 candidates evaluated 7055 min total leaks 1
+[  149.9s] DONE {"candidates": 419242, "min_total_leaks_8roots": 1, "exact_dud": 0, "exact_dud_no_passer_filter_applied_to_value": 0}
+real 150.22
+user 25.95
+sys 0.70

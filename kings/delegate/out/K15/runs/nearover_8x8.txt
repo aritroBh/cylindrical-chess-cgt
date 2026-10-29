@@ -1,0 +1,33 @@
+== Kc3 kb1 Pb3 Pd3 pa5 pd5 w -
+class=mixed csize=0 maxq=0  V*(W to move)=0 V*(B to move)=0 (0 draw,1 win,2 loss for mover)
+safe W=1 B=1  suicide W=3 B=4  winning W=0 B=0  leak=0 check=0  legal W=4 B=5
+  safe w-move -> Kc3 kb1 Pb3 Pd4 pa5 pd5 b -
+  safe b-move -> Kc3 kc1 Pb3 Pd3 pa5 pd5 w -
+== Kc3 kc1 Pb3 Pd3 pa5 pd5 w -
+class=mixed csize=0 maxq=0  V*(W to move)=0 V*(B to move)=0 (0 draw,1 win,2 loss for mover)
+safe W=2 B=2  suicide W=1 B=2  winning W=0 B=0  leak=0 check=0  legal W=3 B=4
+  safe w-move -> Kc3 kc1 Pb4 Pd3 pa5 pd5 b -
+  safe w-move -> Kc3 kc1 Pb3 Pd4 pa5 pd5 b -
+  safe b-move -> Kc3 kb1 Pb3 Pd3 pa5 pd5 w -
+  safe b-move -> Kc3 kd1 Pb3 Pd3 pa5 pd5 w -
+== Kc3 kb1 Pb3 Pd4 pa5 pd5 w -
+class=frozen csize=1 maxq=0  V*(W to move)=0 V*(B to move)=0 (0 draw,1 win,2 loss for mover)
+safe W=0 B=0  suicide W=3 B=4  winning W=0 B=0  leak=0 check=0  legal W=3 B=4
+== Kb3 kd2 Pc2 Pd4 pc3 pc7 w -
+class=leak csize=0 maxq=0  V*(W to move)=0 V*(B to move)=0 (0 draw,1 win,2 loss for mover)
+safe W=1 B=5  suicide W=5 B=2  winning W=0 B=0  leak=1 check=0  legal W=6 B=7
+  safe w-move -> Kb3 kd2 Pc2 Pd5 pc3 pc7 b -
+  safe b-move -> Kb3 kd1 Pc2 Pd4 pc3 pc7 w -
+  safe b-move -> Kb3 ke1 Pc2 Pd4 pc3 pc7 w -
+  safe b-move -> Kb3 ke2 Pc2 Pd4 pc3 pc7 w -
+  safe b-move -> Kb3 ke3 Pc2 Pd4 pc3 pc7 w -
+  safe b-move -> Kb3 kd2 Pc2 Pd4 pc3 pc6 w -
+== Kc3 ka2 Pa3 Pb2 pb3 pb6 w -
+class=leak csize=0 maxq=0  V*(W to move)=0 V*(B to move)=0 (0 draw,1 win,2 loss for mover)
+safe W=1 B=5  suicide W=5 B=1  winning W=0 B=0  leak=1 check=0  legal W=6 B=6
+  safe w-move -> Kc3 ka2 Pa4 Pb2 pb3 pb6 b -
+  safe b-move -> Kc3 kh2 Pa3 Pb2 pb3 pb6 w -
+  safe b-move -> Kc3 kh3 Pa3 Pb2 pb3 pb6 w -
+  safe b-move -> Kc3 ka1 Pa3 Pb2 pb3 pb6 w -
+  safe b-move -> Kc3 kb1 Pa3 Pb2 pb3 pb6 w -
+  safe b-move -> Kc3 ka2 Pa3 Pb2 pb3 pb5 w -

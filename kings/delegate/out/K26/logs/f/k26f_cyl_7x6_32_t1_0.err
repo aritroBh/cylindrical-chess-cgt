@@ -1,0 +1,22 @@
+[    0.0s] board cyl:7x6 limits 3 2 configs 14699 type t1
+[    1.3s] stage1 batch 0 cands so far 100000 survivors 9809 solver: [kpsolve cyl:7x6 ep=on cap=1: 641 layers, 2261448 states, depth 5, 0.6s]
+[    3.3s] stage1 batch 1 cands so far 200000 survivors 31317 solver: [kpsolve cyl:7x6 ep=on cap=1: 2028 layers, 7154784 states, depth 7, 1.2s]
+[    5.7s] stage1 batch 2 cands so far 300000 survivors 61377 solver: [kpsolve cyl:7x6 ep=on cap=1: 2645 layers, 9331560 states, depth 8, 1.5s]
+[    7.7s] stage1 batch 3 cands so far 400000 survivors 99327 solver: [kpsolve cyl:7x6 ep=on cap=1: 1974 layers, 6964272 states, depth 9, 1.2s]
+[   10.0s] stage1 batch 4 cands so far 500000 survivors 135236 solver: [kpsolve cyl:7x6 ep=on cap=1: 2326 layers, 8206128 states, depth 7, 1.4s]
+[   11.9s] stage1 batch 5 cands so far 600000 survivors 168649 solver: [kpsolve cyl:7x6 ep=on cap=1: 1693 layers, 5972904 states, depth 9, 1.1s]
+[   15.1s] stage1 batch 6 cands so far 664589 survivors 195755 solver: [kpsolve cyl:7x6 ep=on cap=1: 5339 layers, 18835992 states, depth 10, 2.7s]
+[   15.9s] stage2 batch 0 size 20000 classes so far {'on_weak': 15099, 'over_pre': 14}
+[   17.5s] stage2 batch 1 size 20000 classes so far {'on_weak': 31384, 'over_pre': 27, 'on_strong': 1}
+[   19.0s] stage2 batch 2 size 20000 classes so far {'on_weak': 47933, 'over_pre': 48, 'on_strong': 2}
+[   20.1s] stage2 batch 3 size 20000 classes so far {'on_weak': 64437, 'over_pre': 67, 'on_strong': 2}
+[   21.2s] stage2 batch 4 size 20000 classes so far {'on_weak': 81888, 'over_pre': 74, 'on_strong': 2}
+[   22.4s] stage2 batch 5 size 20000 classes so far {'on_weak': 100742, 'over_pre': 89, 'on_strong': 2}
+[   23.7s] stage2 batch 6 size 20000 classes so far {'on_weak': 116691, 'over_pre': 109, 'on_strong': 4}
+[   24.7s] stage2 batch 7 size 20000 classes so far {'on_weak': 133602, 'over_pre': 119, 'on_strong': 4}
+[   25.6s] stage2 batch 8 size 20000 classes so far {'on_weak': 150668, 'over_pre': 130, 'on_strong': 4}
+[   28.3s] stage2 batch 9 size 15755 classes so far {'on_weak': 164374, 'over_pre': 134, 'on_strong': 5}
+[   28.8s] DONE {"candidates": 664589, "classes": {"on_weak": 164374, "over_pre": 134, "on_strong": 5, "over_exact": 122, "over_pre_failed_stage3": 12}, "min_on_strong_miss_over_survivors": 0, "over_pre": 134}
+real 2745.28
+user 30.44
+sys 5.27

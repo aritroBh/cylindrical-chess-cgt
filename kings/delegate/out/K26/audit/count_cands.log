@@ -1,0 +1,5 @@
+H 6 limits 2 2 configs 4579 t2 817270 t1 631179
+H 6 limits 3 2 configs 14699 t2 1886421 t1 1602414
+H 6 limits 2 3 configs 14699 t2 1886421 t1 1517293
+H 7 limits 2 2 configs 11371 t2 4040080 t1 2790987
+( for a in "6 2 2" "6 3 2" "6 2 3" "7 2 2"; do; nice -n 15 python3  ${=a}; ; )  5.10s user 0.01s system 39% cpu 12.889 total

@@ -1,0 +1,17 @@
+## 4. Regression test: Z_B on flat 7×6
+
+Z_B = `Kb2 ka4 Pa3 Pb4 pb3 pc4` (shuttles b2–c3 for White and a4–b5 for Black), four combined king states, eight roots. LOOPY (§5.7) has it as exactly two-shuttle in P (PROVED by hand, K27; CHECKED-2 for the computations).
+
+**Result.** The exact classifier labels Z_B **dud** at all four king states (`logs/zb_regression_final.txt`).
+- Reading B (plain P): `class=dud csize=4`, each side has exactly one safe move (its shuttle) and every other Z-move is a suicide. This holds on flat 7×6, on cyl:7×6 and on cyl:8×6. It needs the root passers allowed: the strict variant (brief's filter) skips Z_B, because all four pawns are passed pawns for `cylcgt.passed`.
+- Reading A (free passes): `mixed`. Against a defender who may pass, two of the pawn pushes are not suicides but draw: Black's c4–c3 at (b2, a4) and White's a3–a4 at (c3, b5) (so each of these states has a second safe move, a pawn move). The other deviations are still suicides. So Z_B is dud in plain P and not against free passes.
+- The one-ply classifier of the brief labels Z_B **other** at all four king states. That is the regression failure of the brief's tests, and the reason is exact (below).
+
+**How the one-ply tests differ from the exact P test** (`scripts/zb_regression.py`, `scripts/depth.py`, output in `logs/zb_depth.txt`; own Python move generator `oneply.py`).
+1. *Horizon.* Of the 34 legal moves at the 8 roots, 8 are shuttles (they draw) and 26 are deviations. In plain P all 26 lose by force (CHECKED-2: `kp_p`, `ref3m`, and my own depth search agree on the 8 values and the 34 move values; K27's proof gives at most 11 plies). The number of plies after the move in which the opponent forces a promotion is 3 for 4 moves, 5 for 2, 7 for 6, 9 for 8 and 11 for 6. A one-ply suicide needs an immediate promotion or an immediate passed pawn: **none of the 26 is one.** So no deviation is ever recognised as decisively punished.
+2. *The shuttle test is too weak.* The brief's safe shuttle is "a non-capturing king move inside the group, legal, reversible, with the same property afterwards". It does not ask that the move holds. 12 of the 26 losing deviations (White Kb2–a1, b1, c1 at both Black states; Black Kb5–a6, b6, c6 at both White states) pass that test and are counted as shuttles, although they lose in 7 to 9 plies. The other 14 are pawn pushes and king moves that the one-ply test calls "other".
+3. *Closure.* A label dud needs every non-shuttle move at every state of the closure to be a suicide. With (1) and (2) the one-ply closure test fails at the first state (`closure ok = False`).
+
+**On the whole range.** Flat 7×6, 3 files, ≤ 2+2 pawns, root passers allowed, reading B: the exact classifier labels 41 roots dud (4 groups: Z_B, its mirror, D2 and `Ka1 ka5 Pa4 Pb3 pa3 pb4`). The one-ply classifier labels **none** of the 41 as dud (`scripts/oneply_confusion.py`, `logs/oneply_confusion.txt`); it says "other" for all 41. For the other classes it recovers 18 of 52 frozen roots and 32 of 230 on and 32 of 230 off roots.
+
+**The same on the cylinders.** `Kb2 ka4 Pa3 Pb4 pb3 pc4` on cyl:7×6 and cyl:8×6 has, at its 8 roots, the value (D, D) and exactly one drawing move for the side to move (its shuttle); every other legal move loses for the mover, the wrap-around king moves (Ka4–g5, g3 on 7×6, a4–h5, h3 on 8×6) included: 38 legal moves, 8 draw, 30 lose (CHECKED-2: `kp_p` and `ref3m`, `logs/zb_moves_*.txt`). It is not hand-proved on the cylinder (K27's proof is for the flat board).

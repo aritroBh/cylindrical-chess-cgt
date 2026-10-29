@@ -1,0 +1,24 @@
+board flat:7x6 F=3 wmax=2 bmax=2 layers=4579 table=16.2 MB nopass=1
+solve done 0.6s cpu
+SELFCHECK VIOLATION class=frozen li=210 wk=28 bk=23
+SELFCHECK VIOLATION class=frozen li=210 wk=30 bk=21
+SELFCHECK VIOLATION class=frozen li=226 wk=21 bk=16
+SELFCHECK VIOLATION class=frozen li=226 wk=23 bk=14
+SELFCHECK VIOLATION class=frozen li=237 wk=14 bk=9
+SELFCHECK VIOLATION class=frozen li=237 wk=16 bk=7
+SELFCHECK VIOLATION class=frozen li=3856 wk=15 bk=1
+SELFCHECK VIOLATION class=frozen li=3899 wk=36 bk=22
+SELFCHECK VIOLATION class=frozen li=3913 wk=28 bk=23
+SELFCHECK VIOLATION class=frozen li=3913 wk=16 bk=7
+SELFCHECK VIOLATION class=frozen li=3927 wk=16 bk=7
+SELFCHECK VIOLATION class=frozen li=3958 wk=28 bk=23
+SELFCHECK VIOLATION class=frozen li=4044 wk=16 bk=7
+SELFCHECK VIOLATION class=frozen li=4082 wk=28 bk=23
+SELFCHECK VIOLATION class=frozen li=4135 wk=28 bk=23
+SELFCHECK VIOLATION class=frozen li=4140 wk=16 bk=21
+SELFCHECK VIOLATION class=frozen li=4186 wk=16 bk=7
+SELFCHECK VIOLATION class=frozen li=4280 wk=14 bk=30
+SELFCHECK VIOLATION class=frozen li=4284 wk=14 bk=23
+SELFCHECK VIOLATION class=frozen li=4352 wk=9 bk=21
+census done 0.6s cpu
+nice -n 15 bin/grp --nopass --flat --W 7 --H 6 --F 3 --wmax 2 --bmax 2 --out   0.60s user 0.01s system 99% cpu 0.613 total

@@ -1,0 +1,30 @@
+[    0.0s] board flat:7x6 limits 3 2 configs 14699 type t1
+[   23.4s] stage1 batch 0 cands so far 100000 survivors 45782 solver: [kpsolve flat:7x6 ep=on cap=1: 6928 layers, 24441984 states, depth 10, 18.9s]
+[   45.8s] stage1 batch 1 cands so far 200000 survivors 91852 solver: [kpsolve flat:7x6 ep=on cap=1: 5779 layers, 20388312 states, depth 12, 17.2s]
+[   66.0s] stage1 batch 2 cands so far 300000 survivors 137423 solver: [kpsolve flat:7x6 ep=on cap=1: 5439 layers, 19188792 states, depth 9, 15.5s]
+[   85.2s] stage1 batch 3 cands so far 400000 survivors 191671 solver: [kpsolve flat:7x6 ep=on cap=1: 4940 layers, 17428320 states, depth 8, 14.7s]
+[  107.7s] stage1 batch 4 cands so far 500000 survivors 243279 solver: [kpsolve flat:7x6 ep=on cap=1: 5312 layers, 18740736 states, depth 9, 17.3s]
+[  126.1s] stage1 batch 5 cands so far 600000 survivors 294727 solver: [kpsolve flat:7x6 ep=on cap=1: 4806 layers, 16955568 states, depth 9, 13.4s]
+[  143.7s] stage1 batch 6 cands so far 696174 survivors 343180 solver: [kpsolve flat:7x6 ep=on cap=1: 2947 layers, 10397016 states, depth 9, 11.3s]
+[  157.4s] stage2 batch 0 size 20000 classes so far {'on_weak': 18245, 'over_pre': 6}
+[  177.5s] stage2 batch 1 size 20000 classes so far {'on_weak': 36556, 'over_pre': 10}
+[  194.2s] stage2 batch 2 size 20000 classes so far {'on_weak': 53935, 'over_pre': 11}
+[  208.6s] stage2 batch 3 size 20000 classes so far {'on_weak': 71707, 'over_pre': 13, 'on_strong': 4}
+[  219.4s] stage2 batch 4 size 20000 classes so far {'on_weak': 90514, 'over_pre': 26, 'on_strong': 4}
+[  236.2s] stage2 batch 5 size 20000 classes so far {'on_weak': 108431, 'over_pre': 28, 'on_strong': 4}
+[  250.5s] stage2 batch 6 size 20000 classes so far {'on_weak': 125669, 'over_pre': 32, 'on_strong': 4}
+[  262.3s] stage2 batch 7 size 20000 classes so far {'on_weak': 143221, 'over_pre': 43, 'on_strong': 4}
+[  276.6s] stage2 batch 8 size 20000 classes so far {'on_weak': 162766, 'over_pre': 44, 'on_strong': 4}
+[  287.0s] stage2 batch 9 size 20000 classes so far {'on_weak': 182091, 'over_pre': 45, 'on_strong': 4}
+[  296.0s] stage2 batch 10 size 20000 classes so far {'on_weak': 201580, 'over_pre': 45, 'on_strong': 4}
+[  311.6s] stage2 batch 11 size 20000 classes so far {'on_weak': 219652, 'over_pre': 50, 'on_strong': 5}
+[  326.5s] stage2 batch 12 size 20000 classes so far {'on_weak': 237471, 'over_pre': 55, 'on_strong': 8}
+[  340.8s] stage2 batch 13 size 20000 classes so far {'on_weak': 254868, 'over_pre': 58, 'on_strong': 10}
+[  354.5s] stage2 batch 14 size 20000 classes so far {'on_weak': 272529, 'over_pre': 60, 'on_strong': 11}
+[  367.4s] stage2 batch 15 size 20000 classes so far {'on_weak': 290250, 'over_pre': 65, 'on_strong': 14}
+[  376.8s] stage2 batch 16 size 20000 classes so far {'on_weak': 308476, 'over_pre': 72, 'on_strong': 14}
+[  379.9s] stage2 batch 17 size 3180 classes so far {'on_weak': 311371, 'over_pre': 72, 'on_strong': 14}
+[  388.5s] DONE {"candidates": 696174, "classes": {"on_weak": 311371, "over_pre": 72, "on_strong": 14, "over_exact": 63, "over_pre_failed_stage3": 9}, "min_on_strong_miss_over_survivors": 0, "over_pre": 72}
+real 388.52
+user 66.03
+sys 2.14

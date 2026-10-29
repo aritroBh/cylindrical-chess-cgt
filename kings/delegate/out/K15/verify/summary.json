@@ -1,0 +1,61 @@
+{
+ "referee": "K15b",
+ "verdict": "ACCEPT_WITH_FIXES",
+ "confirmed": [
+  "Z_B dud in plain P on flat 7x6, cyl:7x6, cyl:8x6 (own classifier); depths 3..11 plies (4,2,6,8,6)",
+  "Z_B cylinders 38 moves 8 draw 30 lose kpp=ref3m",
+  "G8a/G8b 16 roots 72 moves 16 draw 56 lose kpp=ref3m, no pawn move",
+  "G8 chess cap 2 re-run exact, same 72 values",
+  "1296/1296 file-g contexts equal dud_D (ref3 + own predictor)",
+  "0 over, 0 under in 16 of 20 ranges (reading A) own census; counts equal K15 table",
+  "Z* file g 130/130, file f 127/130 (3 differ) ref3",
+  "D2, D2m chess 52/52/4, cap-1 rerun byte-identical",
+  "all 108 listed dud groups are dud in plain P; A+B flags right"
+ ],
+ "refuted_or_fixed": {
+  "group_counts": {
+   "claimed": {
+    "cyl7x6": 43,
+    "cyl8x6": 40,
+    "cyl8x8": 25,
+    "flat7x6": 9
+   },
+   "recount_all_symmetries": {
+    "cyl7x6": 24,
+    "cyl8x6": 23,
+    "cyl8x8": 14,
+    "flat7x6": 7
+   },
+   "connected_groups_no_symmetry": {
+    "cyl7x6": 74,
+    "cyl8x6": 68,
+    "cyl8x8": 40,
+    "flat7x6": 10
+   }
+  },
+  "tempo_census": "K15 tempo solver counts stalemate as loss and allows tempo in check; ctx0 differs from plain P at 166/1500 roots; plain-P over-signature roots: cyl8x6 4, cyl7x6 6 (K15: 20)",
+  "edits": "Appendix A attribution unsupported; '80 runs' = 80 rows from 20 ranges; flat 9 groups not listed in dud_groups.md"
+ },
+ "not_checked": [
+  "oneply.py numbers (12 of 26, 18 of 52, 32 of 230)",
+  "cyl:7x7, cyl:8x7, cyl:7x6 F4 3+2 and F5 2+2 rows",
+  "640 random contexts",
+  "near-over/near-under groups beyond Z*",
+  "chess context runs other than G8 cap 2 and D2/D2m"
+ ],
+ "edits": {
+  "file": "verify/EDITS.md",
+  "replaced": [
+   "C4.7 restated",
+   "section 8 item 2",
+   "Appendix A group search"
+  ],
+  "accepted_unchanged": [
+   "status row C4.7",
+   "section 3 text",
+   "5.7 cylinder bullet",
+   "status row P3.2prime",
+   "section 7 dud bullet"
+  ]
+ }
+}

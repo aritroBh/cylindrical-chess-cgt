@@ -1,0 +1,20 @@
+[    0.1s] board flat:7x6 limits 2 3 configs 14699 type t1
+[   12.9s] stage1 batch 0 cands so far 100000 survivors 1153 solver: [kpsolve flat:7x6 ep=on cap=1: 1297 layers, 4575816 states, depth 6, 6.8s]
+[   27.1s] stage1 batch 1 cands so far 200000 survivors 15271 solver: [kpsolve flat:7x6 ep=on cap=1: 1826 layers, 6442128 states, depth 9, 8.3s]
+[   40.4s] stage1 batch 2 cands so far 300000 survivors 25037 solver: [kpsolve flat:7x6 ep=on cap=1: 1577 layers, 5563656 states, depth 6, 7.2s]
+[   55.6s] stage1 batch 3 cands so far 400000 survivors 39622 solver: [kpsolve flat:7x6 ep=on cap=1: 1439 layers, 5076792 states, depth 10, 7.6s]
+[   92.1s] stage1 batch 4 cands so far 500000 survivors 54363 solver: [kpsolve flat:7x6 ep=on cap=1: 5880 layers, 20744640 states, depth 10, 28.4s]
+[  124.6s] stage1 batch 5 cands so far 600000 survivors 76157 solver: [kpsolve flat:7x6 ep=on cap=1: 6489 layers, 22893192 states, depth 10, 25.8s]
+[  153.0s] stage1 batch 6 cands so far 700000 survivors 93275 solver: [kpsolve flat:7x6 ep=on cap=1: 5101 layers, 17996328 states, depth 9, 21.3s]
+[  181.3s] stage1 batch 7 cands so far 800000 survivors 112871 solver: [kpsolve flat:7x6 ep=on cap=1: 5606 layers, 19777968 states, depth 10, 21.4s]
+[  196.3s] stage1 batch 8 cands so far 830446 survivors 117745 solver: [kpsolve flat:7x6 ep=on cap=1: 3334 layers, 11762352 states, depth 9, 12.4s]
+[  207.7s] stage2 batch 0 size 20000 classes so far {'over_pre': 68, 'on_weak': 13963, 'on_strong': 1}
+[  216.3s] stage2 batch 1 size 20000 classes so far {'over_pre': 113, 'on_weak': 28019, 'on_strong': 1}
+[  242.3s] stage2 batch 2 size 20000 classes so far {'over_pre': 142, 'on_weak': 44233, 'on_strong': 6}
+[  263.2s] stage2 batch 3 size 20000 classes so far {'over_pre': 184, 'on_weak': 59884, 'on_strong': 6}
+[  288.3s] stage2 batch 4 size 20000 classes so far {'over_pre': 231, 'on_weak': 74172, 'on_strong': 7}
+[  304.5s] stage2 batch 5 size 17745 classes so far {'over_pre': 242, 'on_weak': 88395, 'on_strong': 9}
+[  317.7s] DONE {"candidates": 830446, "classes": {"over_pre": 242, "on_weak": 88395, "on_strong": 9, "over_pre_failed_stage3": 73, "over_exact": 169}, "min_on_strong_miss_over_survivors": 0, "over_pre": 242}
+real 318.20
+user 43.29
+sys 1.58

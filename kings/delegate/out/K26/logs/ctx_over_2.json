@@ -1,0 +1,170 @@
+[
+ {
+  "id": "over_flat7x6_c3-b5c4_c1c2",
+  "board": "flat:7x6",
+  "reservoir": "under",
+  "class": "over_exact",
+  "wk": [
+   "c1",
+   "c2"
+  ],
+  "bk": [
+   "a1"
+  ],
+  "wp": [
+   "c3"
+  ],
+  "bp": [
+   "b5",
+   "c4"
+  ],
+  "context_files": "fg",
+  "contexts": 60,
+  "roots": 240,
+  "roots_agree_with_D_model": 240,
+  "roots_disagree": 0,
+  "contexts_with_a_disagreement": 0,
+  "contexts_where_P_result_depends_on_king_state": 0,
+  "roots_checked_by_checker": 48,
+  "kpp_vs_checker_value_mismatches": 0,
+  "checker": "ref3",
+  "prop46_premise_roots": 92,
+  "prop46_conclusion_holds": 92,
+  "D_values_seen": {
+   "L": 75,
+   "W": 45
+  },
+  "P_values_seen": {
+   "L": 150,
+   "W": 90
+  },
+  "disagreement_examples": []
+ },
+ {
+  "id": "over_flat7x6_c3-b5c4_c1c2~",
+  "board": "flat:7x6",
+  "reservoir": "over",
+  "class": "over_exact~",
+  "wk": [
+   "a6"
+  ],
+  "bk": [
+   "c6",
+   "c5"
+  ],
+  "wp": [
+   "b2",
+   "c3"
+  ],
+  "bp": [
+   "c4"
+  ],
+  "context_files": "fg",
+  "contexts": 21,
+  "roots": 84,
+  "roots_agree_with_D_model": 84,
+  "roots_disagree": 0,
+  "contexts_with_a_disagreement": 0,
+  "contexts_where_P_result_depends_on_king_state": 0,
+  "roots_checked_by_checker": 48,
+  "kpp_vs_checker_value_mismatches": 0,
+  "checker": "ref3",
+  "prop46_premise_roots": 32,
+  "prop46_conclusion_holds": 32,
+  "D_values_seen": {
+   "W": 26,
+   "L": 16
+  },
+  "P_values_seen": {
+   "W": 52,
+   "L": 32
+  },
+  "disagreement_examples": []
+ },
+ {
+  "id": "over_flat7x6_b3-b4_c1c2",
+  "board": "flat:7x6",
+  "reservoir": "under",
+  "class": "over_exact",
+  "wk": [
+   "c1",
+   "c2"
+  ],
+  "bk": [
+   "a1"
+  ],
+  "wp": [
+   "b3"
+  ],
+  "bp": [
+   "b4"
+  ],
+  "context_files": "fg",
+  "contexts": 60,
+  "roots": 240,
+  "roots_agree_with_D_model": 239,
+  "roots_disagree": 1,
+  "contexts_with_a_disagreement": 1,
+  "contexts_where_P_result_depends_on_king_state": 1,
+  "roots_checked_by_checker": 48,
+  "kpp_vs_checker_value_mismatches": 0,
+  "checker": "ref3",
+  "prop46_premise_roots": 108,
+  "prop46_conclusion_holds": 108,
+  "D_values_seen": {
+   "L": 70,
+   "W": 50
+  },
+  "P_values_seen": {
+   "L": 139,
+   "W": 101
+  },
+  "disagreement_examples": [
+   [
+    "Kc2 ka1 Pb3 pb4 Pf2 pf4 pf5 w -",
+    "P=W",
+    "D-model=L"
+   ]
+  ]
+ },
+ {
+  "id": "over_flat7x6_b3-b4_c1c2~",
+  "board": "flat:7x6",
+  "reservoir": "over",
+  "class": "over_exact~",
+  "wk": [
+   "a6"
+  ],
+  "bk": [
+   "c6",
+   "c5"
+  ],
+  "wp": [
+   "b3"
+  ],
+  "bp": [
+   "b4"
+  ],
+  "context_files": "fg",
+  "contexts": 20,
+  "roots": 80,
+  "roots_agree_with_D_model": 80,
+  "roots_disagree": 0,
+  "contexts_with_a_disagreement": 0,
+  "contexts_where_P_result_depends_on_king_state": 0,
+  "roots_checked_by_checker": 48,
+  "kpp_vs_checker_value_mismatches": 0,
+  "checker": "ref3",
+  "prop46_premise_roots": 40,
+  "prop46_conclusion_holds": 40,
+  "D_values_seen": {
+   "W": 24,
+   "L": 16
+  },
+  "P_values_seen": {
+   "W": 48,
+   "L": 32
+  },
+  "disagreement_examples": []
+ }
+]

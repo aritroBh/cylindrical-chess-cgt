@@ -1,0 +1,22 @@
+[    0.0s] board cyl:7x6 limits 3 2 configs 14699 type t1
+[   21.0s] stage1 batch 0 cands so far 100000 survivors 47925 solver: [kpsolve cyl:7x6 ep=on cap=1: 5030 layers, 17745840 states, depth 11, 15.7s]
+[   41.9s] stage1 batch 1 cands so far 200000 survivors 107120 solver: [kpsolve cyl:7x6 ep=on cap=1: 4061 layers, 14327208 states, depth 8, 14.5s]
+[   65.6s] stage1 batch 2 cands so far 300000 survivors 157606 solver: [kpsolve cyl:7x6 ep=on cap=1: 5596 layers, 19742688 states, depth 10, 17.7s]
+[   84.0s] stage1 batch 3 cands so far 400000 survivors 207045 solver: [kpsolve cyl:7x6 ep=on cap=1: 3907 layers, 13783896 states, depth 10, 13.2s]
+[   93.4s] stage1 batch 4 cands so far 451371 survivors 234481 solver: [kpsolve cyl:7x6 ep=on cap=1: 2033 layers, 7172424 states, depth 12, 7.3s]
+[  106.5s] stage2 batch 0 size 20000 classes so far {'on_weak': 17460}
+[  118.8s] stage2 batch 1 size 20000 classes so far {'on_weak': 35143}
+[  132.5s] stage2 batch 2 size 20000 classes so far {'on_weak': 53747, 'over_pre': 1}
+[  145.1s] stage2 batch 3 size 20000 classes so far {'on_weak': 73330, 'over_pre': 3}
+[  155.4s] stage2 batch 4 size 20000 classes so far {'on_weak': 93025, 'over_pre': 3}
+[  168.2s] stage2 batch 5 size 20000 classes so far {'on_weak': 112198, 'over_pre': 18}
+[  185.8s] stage2 batch 6 size 20000 classes so far {'on_weak': 129926, 'over_pre': 22}
+[  201.2s] stage2 batch 7 size 20000 classes so far {'on_weak': 147864, 'over_pre': 23}
+[  214.8s] stage2 batch 8 size 20000 classes so far {'on_weak': 165460, 'over_pre': 29}
+[  228.0s] stage2 batch 9 size 20000 classes so far {'on_weak': 183060, 'over_pre': 29}
+[  236.9s] stage2 batch 10 size 20000 classes so far {'on_weak': 201314, 'over_pre': 29}
+[  243.9s] stage2 batch 11 size 14481 classes so far {'on_weak': 214483, 'over_pre': 34}
+[  246.2s] DONE {"candidates": 451371, "classes": {"on_weak": 214483, "over_pre": 34, "over_exact": 32, "over_pre_failed_stage3": 2}, "min_on_strong_miss_over_survivors": 1, "over_pre": 34}
+real 246.42
+user 41.37
+sys 1.36

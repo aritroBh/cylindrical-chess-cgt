@@ -1,0 +1,237 @@
+[
+ {
+  "id": "over_cyl8x6_a3-a4b5_a5b4",
+  "board": "cyl:8x6",
+  "reservoir": "under",
+  "class": "over_exact",
+  "wk": [
+   "a5",
+   "b4"
+  ],
+  "bk": [
+   "c6"
+  ],
+  "wp": [
+   "a3"
+  ],
+  "bp": [
+   "a4",
+   "b5"
+  ],
+  "context_files": "fg",
+  "contexts": 59,
+  "roots": 236,
+  "roots_agree_with_D_model": 233,
+  "roots_disagree": 3,
+  "contexts_with_a_disagreement": 2,
+  "contexts_where_P_result_depends_on_king_state": 1,
+  "roots_checked_by_checker": 48,
+  "kpp_vs_checker_value_mismatches": 0,
+  "checker": "ref3",
+  "prop46_premise_roots": 84,
+  "prop46_conclusion_holds": 83,
+  "D_values_seen": {
+   "L": 64,
+   "W": 54
+  },
+  "P_values_seen": {
+   "L": 129,
+   "W": 107
+  },
+  "disagreement_examples": [
+   [
+    "Ka5 kc6 Pa3 pa4 pb5 Pf2 pg4 w -",
+    "P=W",
+    "D-model=L"
+   ],
+   [
+    "Ka5 kc6 Pa3 pa4 pb5 Pf2 Pg2 pf5 pg3 w -",
+    "P=L",
+    "D-model=W"
+   ],
+   [
+    "Kb4 kc6 Pa3 pa4 pb5 Pf2 Pg2 pf5 pg3 w -",
+    "P=L",
+    "D-model=W"
+   ]
+  ]
+ },
+ {
+  "id": "over_cyl8x6_a3-a4b5_a5b4~",
+  "board": "cyl:8x6",
+  "reservoir": "over",
+  "class": "over_exact~",
+  "wk": [
+   "c1"
+  ],
+  "bk": [
+   "a2",
+   "b3"
+  ],
+  "wp": [
+   "a3",
+   "b2"
+  ],
+  "bp": [
+   "a4"
+  ],
+  "context_files": "fg",
+  "contexts": 21,
+  "roots": 84,
+  "roots_agree_with_D_model": 84,
+  "roots_disagree": 0,
+  "contexts_with_a_disagreement": 0,
+  "contexts_where_P_result_depends_on_king_state": 0,
+  "roots_checked_by_checker": 48,
+  "kpp_vs_checker_value_mismatches": 0,
+  "checker": "ref3",
+  "prop46_premise_roots": 28,
+  "prop46_conclusion_holds": 28,
+  "D_values_seen": {
+   "W": 21,
+   "L": 21
+  },
+  "P_values_seen": {
+   "W": 42,
+   "L": 42
+  },
+  "disagreement_examples": []
+ },
+ {
+  "id": "over_cyl8x6_a3b4-a4b5_a1a2",
+  "board": "cyl:8x6",
+  "reservoir": "under",
+  "class": "over_exact",
+  "wk": [
+   "a1",
+   "a2"
+  ],
+  "bk": [
+   "c1"
+  ],
+  "wp": [
+   "a3",
+   "b4"
+  ],
+  "bp": [
+   "a4",
+   "b5"
+  ],
+  "context_files": "fg",
+  "contexts": 59,
+  "roots": 236,
+  "roots_agree_with_D_model": 228,
+  "roots_disagree": 8,
+  "contexts_with_a_disagreement": 3,
+  "contexts_where_P_result_depends_on_king_state": 0,
+  "roots_checked_by_checker": 48,
+  "kpp_vs_checker_value_mismatches": 0,
+  "checker": "ref3",
+  "prop46_premise_roots": 112,
+  "prop46_conclusion_holds": 112,
+  "D_values_seen": {
+   "L": 76,
+   "W": 42
+  },
+  "P_values_seen": {
+   "L": 152,
+   "W": 82,
+   "D": 2
+  },
+  "disagreement_examples": [
+   [
+    "Ka1 kc1 Pa3 Pb4 pa4 pb5 Pg2 Pg3 pf5 w -",
+    "P=L",
+    "D-model=W"
+   ],
+   [
+    "Ka1 kc1 Pa3 Pb4 pa4 pb5 Pg2 Pg3 pf5 b -",
+    "P=L",
+    "D-model=W"
+   ],
+   [
+    "Ka2 kc1 Pa3 Pb4 pa4 pb5 Pg2 Pg3 pf5 w -",
+    "P=L",
+    "D-model=W"
+   ],
+   [
+    "Ka2 kc1 Pa3 Pb4 pa4 pb5 Pg2 Pg3 pf5 b -",
+    "P=L",
+    "D-model=W"
+   ],
+   [
+    "Ka1 kc1 Pa3 Pb4 pa4 pb5 Pf2 Pg3 pg5 b -",
+    "P=D",
+    "D-model=L"
+   ],
+   [
+    "Ka2 kc1 Pa3 Pb4 pa4 pb5 Pf2 Pg3 pg5 b -",
+    "P=D",
+    "D-model=L"
+   ]
+  ]
+ },
+ {
+  "id": "over_cyl8x6_a3b4-a4b5_a1a2~",
+  "board": "cyl:8x6",
+  "reservoir": "over",
+  "class": "over_exact~",
+  "wk": [
+   "c6"
+  ],
+  "bk": [
+   "a6",
+   "a5"
+  ],
+  "wp": [
+   "a3",
+   "b2"
+  ],
+  "bp": [
+   "a4",
+   "b3"
+  ],
+  "context_files": "fg",
+  "contexts": 21,
+  "roots": 84,
+  "roots_agree_with_D_model": 80,
+  "roots_disagree": 4,
+  "contexts_with_a_disagreement": 1,
+  "contexts_where_P_result_depends_on_king_state": 0,
+  "roots_checked_by_checker": 48,
+  "kpp_vs_checker_value_mismatches": 0,
+  "checker": "ref3",
+  "prop46_premise_roots": 48,
+  "prop46_conclusion_holds": 48,
+  "D_values_seen": {
+   "W": 30,
+   "L": 12
+  },
+  "P_values_seen": {
+   "W": 64,
+   "L": 20
+  },
+  "disagreement_examples": [
+   [
+    "Kc6 ka6 Pa3 Pb2 pa4 pb3 Pf2 pf3 pf5 w -",
+    "P=W",
+    "D-model=L"
+   ],
+   [
+    "Kc6 ka6 Pa3 Pb2 pa4 pb3 Pf2 pf3 pf5 b -",
+    "P=W",
+    "D-model=L"
+   ],
+   [
+    "Kc6 ka5 Pa3 Pb2 pa4 pb3 Pf2 pf3 pf5 w -",
+    "P=W",
+    "D-model=L"
+   ],
+   [
+    "Kc6 ka5 Pa3 Pb2 pa4 pb3 Pf2 pf3 pf5 b -",
+    "P=W",
+    "D-model=L"
+   ]
+  ]
+ }
+]

@@ -1,0 +1,24 @@
+[    0.0s] board flat:7x7 limits 2 2 configs 11371 type t2
+[    2.6s] stage1 batch 0 cands so far 100000 illegal 0 solver: [kpsolve flat:7x7 ep=on cap=1: 2042 layers, 9805684 states, depth 9, 1.7s]
+[    5.5s] stage1 batch 1 cands so far 200000 illegal 0 solver: [kpsolve flat:7x7 ep=on cap=1: 2503 layers, 12019406 states, depth 9, 2.0s]
+[    7.9s] stage1 batch 2 cands so far 300000 illegal 0 solver: [kpsolve flat:7x7 ep=on cap=1: 1731 layers, 8312262 states, depth 10, 1.4s]
+[   10.8s] stage1 batch 3 cands so far 400000 illegal 0 solver: [kpsolve flat:7x7 ep=on cap=1: 1934 layers, 9287068 states, depth 9, 1.9s]
+[   13.2s] stage1 batch 4 cands so far 500000 illegal 0 solver: [kpsolve flat:7x7 ep=on cap=1: 1619 layers, 7774438 states, depth 11, 1.4s]
+[   15.3s] stage1 batch 5 cands so far 600000 illegal 0 solver: [kpsolve flat:7x7 ep=on cap=1: 1069 layers, 5133338 states, depth 10, 1.1s]
+[   18.5s] stage1 batch 6 cands so far 700000 illegal 0 solver: [kpsolve flat:7x7 ep=on cap=1: 1878 layers, 9018156 states, depth 9, 2.1s]
+[   20.9s] stage1 batch 7 cands so far 800000 illegal 0 solver: [kpsolve flat:7x7 ep=on cap=1: 1530 layers, 7347060 states, depth 8, 1.5s]
+[   23.1s] stage1 batch 8 cands so far 900000 illegal 0 solver: [kpsolve flat:7x7 ep=on cap=1: 1085 layers, 5210170 states, depth 8, 1.1s]
+[   23.9s] stage1 batch 9 cands so far 936305 illegal 0 solver: [kpsolve flat:7x7 ep=on cap=1: 516 layers, 2477832 states, depth 7, 0.5s]
+[   23.9s] stage1 histogram {0: 386, 1: 5084, 2: 42391, 3: 58205, 4: 78139, 5: 95133, 6: 114282, 7: 114651, 8: 188586, 9: 94901, 10: 61897, 11: 38447}
+[   25.7s] stage2 T 0 batch 0 size 386
+[   25.7s] after T = 0 candidates evaluated 386 min total leaks 1
+[   28.3s] stage2 T 1 batch 0 size 5084
+[   28.3s] after T = 1 candidates evaluated 5470 min total leaks 1
+[   30.7s] stage2 T 2 batch 0 size 15000
+[   33.1s] stage2 T 2 batch 1 size 15000
+[   34.5s] stage2 T 2 batch 2 size 12391
+[   34.5s] after T = 2 candidates evaluated 47861 min total leaks 1
+[   34.5s] DONE {"candidates": 936305, "min_total_leaks_8roots": 1, "exact_dud": 0, "exact_dud_no_passer_filter_applied_to_value": 0}
+real 34.86
+user 32.64
+sys 0.99

@@ -1,0 +1,772 @@
+{
+ "task": "K26",
+ "attempt": 5,
+ "item": "LOOPY section 8 item 2 and Conjecture 4.7: dud groups without a pawn break on the cylinder; over groups (P model)",
+ "sources_md5": {
+  "kpsolve.c": "8ff499658aa67448c89ad0955dfcbcfe",
+  "kp_p.c": "f668d4d4861e1d89792245632e01516c",
+  "ref3.cpp": "a9cd9ed267e3016c789138d86974d658",
+  "ref3m.cpp": "1b0c8cd670ab54a9e3b385e14717cd63"
+ },
+ "two_shuttle_per_piece_convention": {
+  "cyl:7x6:2+2": {
+   "placements": 817270,
+   "shards_done": 2,
+   "shards_total": 2,
+   "complete": true,
+   "min_total_leaks": 0,
+   "count_total0": 2,
+   "count_total1": 0,
+   "count_total2": 8,
+   "exact_duds": [
+    {
+     "W": [
+      "b2",
+      "c3"
+     ],
+     "B": [
+      "a4",
+      "b5"
+     ],
+     "wp": [
+      "a3",
+      "b4"
+     ],
+     "bp": [
+      "b3",
+      "c4"
+     ],
+     "textbook_passer": true
+    },
+    {
+     "W": [
+      "a3",
+      "b2"
+     ],
+     "B": [
+      "b5",
+      "c4"
+     ],
+     "wp": [
+      "b4",
+      "c3"
+     ],
+     "bp": [
+      "a4",
+      "b3"
+     ],
+     "textbook_passer": true
+    }
+   ]
+  },
+  "cyl:7x6:2+3": {
+   "placements": 623475,
+   "shards_done": 1,
+   "shards_total": 4,
+   "complete": false,
+   "min_total_leaks": 2,
+   "count_total0": 0,
+   "count_total1": 0,
+   "count_total2": 3,
+   "exact_duds": []
+  },
+  "cyl:7x6:3+2": {
+   "placements": 1886421,
+   "shards_done": 4,
+   "shards_total": 4,
+   "complete": true,
+   "min_total_leaks": 0,
+   "count_total0": 2,
+   "count_total1": 2,
+   "count_total2": 10,
+   "exact_duds": [
+    {
+     "W": [
+      "b2",
+      "c3"
+     ],
+     "B": [
+      "a4",
+      "b5"
+     ],
+     "wp": [
+      "a3",
+      "b4"
+     ],
+     "bp": [
+      "b3",
+      "c4"
+     ],
+     "textbook_passer": true
+    },
+    {
+     "W": [
+      "a3",
+      "b2"
+     ],
+     "B": [
+      "b5",
+      "c4"
+     ],
+     "wp": [
+      "b4",
+      "c3"
+     ],
+     "bp": [
+      "a4",
+      "b3"
+     ],
+     "textbook_passer": true
+    }
+   ]
+  },
+  "cyl:8x6:2+2": {
+   "placements": 817270,
+   "shards_done": 2,
+   "shards_total": 2,
+   "complete": true,
+   "min_total_leaks": 0,
+   "count_total0": 4,
+   "count_total1": 0,
+   "count_total2": 4,
+   "exact_duds": [
+    {
+     "W": [
+      "c2",
+      "c3"
+     ],
+     "B": [
+      "a4",
+      "a5"
+     ],
+     "wp": [
+      "a2",
+      "c4"
+     ],
+     "bp": [
+      "a3",
+      "c5"
+     ],
+     "textbook_passer": false
+    },
+    {
+     "W": [
+      "b2",
+      "c3"
+     ],
+     "B": [
+      "a4",
+      "b5"
+     ],
+     "wp": [
+      "a3",
+      "b4"
+     ],
+     "bp": [
+      "b3",
+      "c4"
+     ],
+     "textbook_passer": true
+    },
+    {
+     "W": [
+      "a2",
+      "a3"
+     ],
+     "B": [
+      "c4",
+      "c5"
+     ],
+     "wp": [
+      "a4",
+      "c2"
+     ],
+     "bp": [
+      "a5",
+      "c3"
+     ],
+     "textbook_passer": false
+    },
+    {
+     "W": [
+      "a3",
+      "b2"
+     ],
+     "B": [
+      "b5",
+      "c4"
+     ],
+     "wp": [
+      "b4",
+      "c3"
+     ],
+     "bp": [
+      "a4",
+      "b3"
+     ],
+     "textbook_passer": true
+    }
+   ]
+  },
+  "cyl:8x6:2+3": {
+   "placements": 1886421,
+   "shards_done": 4,
+   "shards_total": 4,
+   "complete": true,
+   "min_total_leaks": 0,
+   "count_total0": 4,
+   "count_total1": 2,
+   "count_total2": 6,
+   "exact_duds": [
+    {
+     "W": [
+      "c2",
+      "c3"
+     ],
+     "B": [
+      "a4",
+      "a5"
+     ],
+     "wp": [
+      "a2",
+      "c4"
+     ],
+     "bp": [
+      "a3",
+      "c5"
+     ],
+     "textbook_passer": false
+    },
+    {
+     "W": [
+      "b2",
+      "c3"
+     ],
+     "B": [
+      "a4",
+      "b5"
+     ],
+     "wp": [
+      "a3",
+      "b4"
+     ],
+     "bp": [
+      "b3",
+      "c4"
+     ],
+     "textbook_passer": true
+    },
+    {
+     "W": [
+      "a2",
+      "a3"
+     ],
+     "B": [
+      "c4",
+      "c5"
+     ],
+     "wp": [
+      "a4",
+      "c2"
+     ],
+     "bp": [
+      "a5",
+      "c3"
+     ],
+     "textbook_passer": false
+    },
+    {
+     "W": [
+      "a3",
+      "b2"
+     ],
+     "B": [
+      "b5",
+      "c4"
+     ],
+     "wp": [
+      "b4",
+      "c3"
+     ],
+     "bp": [
+      "a4",
+      "b3"
+     ],
+     "textbook_passer": true
+    }
+   ]
+  },
+  "cyl:8x6:3+2": {
+   "placements": 1886421,
+   "shards_done": 4,
+   "shards_total": 4,
+   "complete": true,
+   "min_total_leaks": 0,
+   "count_total0": 4,
+   "count_total1": 2,
+   "count_total2": 6,
+   "exact_duds": [
+    {
+     "W": [
+      "c2",
+      "c3"
+     ],
+     "B": [
+      "a4",
+      "a5"
+     ],
+     "wp": [
+      "a2",
+      "c4"
+     ],
+     "bp": [
+      "a3",
+      "c5"
+     ],
+     "textbook_passer": false
+    },
+    {
+     "W": [
+      "b2",
+      "c3"
+     ],
+     "B": [
+      "a4",
+      "b5"
+     ],
+     "wp": [
+      "a3",
+      "b4"
+     ],
+     "bp": [
+      "b3",
+      "c4"
+     ],
+     "textbook_passer": true
+    },
+    {
+     "W": [
+      "a2",
+      "a3"
+     ],
+     "B": [
+      "c4",
+      "c5"
+     ],
+     "wp": [
+      "a4",
+      "c2"
+     ],
+     "bp": [
+      "a5",
+      "c3"
+     ],
+     "textbook_passer": false
+    },
+    {
+     "W": [
+      "a3",
+      "b2"
+     ],
+     "B": [
+      "b5",
+      "c4"
+     ],
+     "wp": [
+      "b4",
+      "c3"
+     ],
+     "bp": [
+      "a4",
+      "b3"
+     ],
+     "textbook_passer": true
+    }
+   ]
+  },
+  "flat:7x6:2+2": {
+   "placements": 817270,
+   "shards_done": 1,
+   "shards_total": 1,
+   "complete": true,
+   "min_total_leaks": 0,
+   "count_total0": 2,
+   "count_total1": 12,
+   "count_total2": 4,
+   "exact_duds": [
+    {
+     "W": [
+      "b2",
+      "c3"
+     ],
+     "B": [
+      "a4",
+      "b5"
+     ],
+     "wp": [
+      "a3",
+      "b4"
+     ],
+     "bp": [
+      "b3",
+      "c4"
+     ],
+     "textbook_passer": true
+    },
+    {
+     "W": [
+      "a3",
+      "b2"
+     ],
+     "B": [
+      "b5",
+      "c4"
+     ],
+     "wp": [
+      "b4",
+      "c3"
+     ],
+     "bp": [
+      "a4",
+      "b3"
+     ],
+     "textbook_passer": true
+    }
+   ]
+  },
+  "flat:7x6:2+3": {
+   "placements": 1886421,
+   "shards_done": 2,
+   "shards_total": 2,
+   "complete": true,
+   "min_total_leaks": 0,
+   "count_total0": 2,
+   "count_total1": 17,
+   "count_total2": 13,
+   "exact_duds": [
+    {
+     "W": [
+      "b2",
+      "c3"
+     ],
+     "B": [
+      "a4",
+      "b5"
+     ],
+     "wp": [
+      "a3",
+      "b4"
+     ],
+     "bp": [
+      "b3",
+      "c4"
+     ],
+     "textbook_passer": true
+    },
+    {
+     "W": [
+      "a3",
+      "b2"
+     ],
+     "B": [
+      "b5",
+      "c4"
+     ],
+     "wp": [
+      "b4",
+      "c3"
+     ],
+     "bp": [
+      "a4",
+      "b3"
+     ],
+     "textbook_passer": true
+    }
+   ]
+  },
+  "flat:7x7:2+2": {
+   "placements": 4040080,
+   "shards_done": 4,
+   "shards_total": 4,
+   "complete": true,
+   "min_total_leaks": 1,
+   "count_total0": 0,
+   "count_total1": 12,
+   "count_total2": 28,
+   "exact_duds": []
+  },
+  "flat:8x6:2+2": {
+   "placements": 817270,
+   "shards_done": 1,
+   "shards_total": 1,
+   "complete": true,
+   "min_total_leaks": 0,
+   "count_total0": 2,
+   "count_total1": 12,
+   "count_total2": 4,
+   "exact_duds": [
+    {
+     "W": [
+      "b2",
+      "c3"
+     ],
+     "B": [
+      "a4",
+      "b5"
+     ],
+     "wp": [
+      "a3",
+      "b4"
+     ],
+     "bp": [
+      "b3",
+      "c4"
+     ],
+     "textbook_passer": true
+    },
+    {
+     "W": [
+      "a3",
+      "b2"
+     ],
+     "B": [
+      "b5",
+      "c4"
+     ],
+     "wp": [
+      "b4",
+      "c3"
+     ],
+     "bp": [
+      "a4",
+      "b3"
+     ],
+     "textbook_passer": true
+    }
+   ]
+  }
+ },
+ "two_shuttle_promotions_counted_once": {},
+ "one_shuttle_on_off_and_loose_under_over": {
+  "cyl:7x6:2+2": {
+   "placements": 631179,
+   "shards_done": 2,
+   "shards_total": 2,
+   "complete": true,
+   "classes": {
+    "on_weak": 152554,
+    "over_pre": 130,
+    "on_strong": 4,
+    "over_exact": 118,
+    "over_pre_failed_stage3": 12
+   }
+  },
+  "cyl:7x6:2+3": {
+   "placements": 1517293,
+   "shards_done": 3,
+   "shards_total": 3,
+   "complete": true,
+   "classes": {
+    "on_weak": 244245,
+    "over_pre": 191,
+    "on_strong": 4,
+    "over_exact": 167,
+    "over_pre_failed_stage3": 24
+   }
+  },
+  "cyl:7x6:3+2": {
+   "placements": 1602414,
+   "shards_done": 3,
+   "shards_total": 3,
+   "complete": true,
+   "classes": {
+    "on_weak": 604876,
+    "over_pre": 234,
+    "on_strong": 6,
+    "over_exact": 216,
+    "over_pre_failed_stage3": 18
+   }
+  },
+  "cyl:8x6:2+2": {
+   "placements": 631179,
+   "shards_done": 2,
+   "shards_total": 2,
+   "complete": true,
+   "classes": {
+    "on_weak": 152262,
+    "over_pre": 136,
+    "on_strong": 4,
+    "over_exact": 120,
+    "over_pre_failed_stage3": 16
+   }
+  },
+  "flat:7x6:2+2": {
+   "placements": 631179,
+   "shards_done": 1,
+   "shards_total": 1,
+   "complete": true,
+   "classes": {
+    "over_pre": 190,
+    "on_weak": 146766,
+    "on_strong": 17,
+    "over_pre_failed_stage3": 48,
+    "over_exact": 142
+   }
+  },
+  "flat:7x7:2+2": {
+   "placements": 2790987,
+   "shards_done": 3,
+   "shards_total": 3,
+   "complete": true,
+   "classes": {
+    "over_pre": 684,
+    "on_weak": 681775,
+    "on_strong": 29,
+    "over_pre_failed_stage3": 98,
+    "over_exact": 586
+   }
+  },
+  "flat:8x6:2+2": {
+   "placements": 631179,
+   "shards_done": 1,
+   "shards_total": 1,
+   "complete": true,
+   "classes": {
+    "over_pre": 190,
+    "on_weak": 146766,
+    "on_strong": 17,
+    "over_pre_failed_stage3": 48,
+    "over_exact": 142
+   }
+  }
+ },
+ "exact_under_over_mutual_zugzwang_fresh_runs": {},
+ "exact_under_over_mutual_zugzwang_reused": "earlier attempt: logs/over3_cyl_8x6_32.json, over3_cyl_8x6_23.json, over3_cyl_8x6_22_nf4_*.json, over2_{cyl_7x6,cyl_8x6,flat_7x6,flat_8x6}_22.json: 0 exact groups in every file; see FINDINGS.md section 3",
+ "confirm_all_ref3m": {
+  "groups": 113,
+  "roots": 492,
+  "failures": 0,
+  "per_class_board": {
+   "on_strong cyl:7x6": 6,
+   "dud cyl:7x6": 2,
+   "on_strong cyl:8x6": 6,
+   "dud cyl:8x6": 4,
+   "on_strong flat:7x6": 45,
+   "dud flat:7x6": 2,
+   "on_strong flat:7x7": 29,
+   "on_strong flat:8x6": 17,
+   "dud flat:8x6": 2
+  }
+ },
+ "negative_control_failures": 9,
+ "confirm_final_20_groups_full_move_lists": {
+  "groups": 20,
+  "roots": 240,
+  "roots_kpp_and_ref3m_agree": 240
+ },
+ "contexts_fresh": {
+  "sampled_rows": 40,
+  "exhaustive": {}
+ },
+ "second_enumerator_second_solver_audit_fresh": {
+  "t1:cyl:7x6": {
+   "shards": 8,
+   "placements": 631179,
+   "roots_compared": 1942330,
+   "value_mismatches": 0,
+   "move_list_mismatches": 0,
+   "on_weak": 152554,
+   "over_pre": 392,
+   "over_pre_no_passer": 32,
+   "on_strong": 4,
+   "on_strong_no_passer": 4
+  },
+  "t1:cyl:8x6": {
+   "shards": 8,
+   "placements": 631179,
+   "roots_compared": 1940730,
+   "value_mismatches": 0,
+   "move_list_mismatches": 0,
+   "on_weak": 152262,
+   "over_pre": 398,
+   "over_pre_no_passer": 38,
+   "on_strong": 4,
+   "on_strong_no_passer": 4
+  },
+  "t1:flat:7x6": {
+   "shards": 8,
+   "placements": 631179,
+   "roots_compared": 1917022,
+   "value_mismatches": 0,
+   "move_list_mismatches": 0,
+   "over_pre": 508,
+   "over_pre_no_passer": 73,
+   "on_weak": 146766,
+   "on_strong": 17,
+   "on_strong_no_passer": 14
+  },
+  "t2:cyl:7x6": {
+   "shards": 8,
+   "placements": 817270,
+   "roots_compared": 2424988,
+   "value_mismatches": 0,
+   "move_list_mismatches": 0,
+   "kpp_total2": 8,
+   "ref3m_total2": 8,
+   "kpp_total0": 2,
+   "ref3m_total0": 2
+  },
+  "t2:cyl:8x6": {
+   "shards": 8,
+   "placements": 817270,
+   "roots_compared": 2420716,
+   "value_mismatches": 0,
+   "move_list_mismatches": 0,
+   "kpp_total2": 4,
+   "ref3m_total2": 4,
+   "kpp_total0": 4,
+   "ref3m_total0": 4
+  },
+  "t2:flat:7x6": {
+   "shards": 8,
+   "placements": 817270,
+   "roots_compared": 2754108,
+   "value_mismatches": 0,
+   "move_list_mismatches": 0,
+   "kpp_total1": 12,
+   "kpp_total2": 6,
+   "ref3m_total1": 12,
+   "ref3m_total2": 6,
+   "kpp_total0": 2,
+   "ref3m_total0": 2
+  },
+  "t2:flat:8x6": {
+   "shards": 8,
+   "placements": 817270,
+   "roots_compared": 2754108,
+   "value_mismatches": 0,
+   "move_list_mismatches": 0,
+   "kpp_total1": 12,
+   "kpp_total2": 6,
+   "ref3m_total1": 12,
+   "ref3m_total2": 6,
+   "kpp_total0": 2,
+   "ref3m_total0": 2
+  }
+ },
+ "named_groups_boards": "audit/named_groups.txt (kpp and ref3m, 8 roots, 32 boards)",
+ "not_rerun_fresh": [
+  "t2 cyl:7x6 2+3 and flat:7x6 3+2 (colour mirrors)",
+  "t1 3+2 and 2+3 on cyl:8x6 and flat 7x6",
+  "over3/over2 searches",
+  "collapsed-promotion searches",
+  "exhaustive <=3-pawn contexts (reused: ZB 2049+577+2049 contexts 0 differ; ZC 131 of 2049 differ)",
+  "third enumerator on flat 7x7"
+ ],
+ "verdicts": {
+  "open_question_2": "YES in P: exact duds without any pawn break exist on the cylinder: Z_B (and mirror) on cyl:7x6 and cyl:8x6, Z_C (Pa2 Pc4 / pa3 pc5, kings c2/c3 and a4/a5, all pawns blocked, no textbook passer) and its mirror on cyl:8x6 only. Exhaustive (F_Z = a-c, <= 2+2, 3+2, 2+3, no cut-off) finds exactly these; flat 7x7: none (min leak 1). Roots and move lists CHECKED-2; search CHECKED-2 for 2+2 on four boards, COMPUTED-1 otherwise; no hand proof on the cylinder.",
+  "conjecture_4_7": "first half supported in P (no exact under/over group in <= 2+2, 3+2, 2+3 on 3 files of cyl:8x6, nor <= 2+2 on cyl:7x6, flat 7x6, flat 8x6, nor <= 2+2 on 4 files of cyl:8x6; all reused from the earlier attempt, the fresh over3 runs did not get a lock slot; 3+2/2+3 on cyl:7x6/flat 7x6 and flat 7x7 not searched); second half (wider groups) neither supported nor refuted. COMPUTED-1.",
+  "exact_on_off": "exist on every board; match Theorem 3.4(b) beside contexts except where the frozen king can reach a context pawn through the wrap or the shuttler has a helpful other move: (Pun) fails beside that context.",
+  "z_b_contexts": "Z_B equals dud_D in every exhaustive context of <= 3 pawns tried (see contexts_fresh); Z_C does not."
+ }
+}
