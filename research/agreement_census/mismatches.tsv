@@ -1,0 +1,42 @@
+board	layout	mode	promo	cap	P	nw	nb	model_value	model_class	real_wtm	real_btm	exact	real_class	frozen_wtm	frozen_btm	verdict	cause	real_has_draw	side_w	side_b
+cyl:4x4	compact	le2	Q	2	W: c2 / B: c3	1	1	0	P	D/D	D/D	True	draw/other	L	W	MISMATCH	king_effect	True	D	D
+cyl:5x5	compact	le2	Q	2	W: c2 / B: c3	1	1	0	P	D/D	D/D	True	draw/other	L	W	MISMATCH	king_effect	True	D	D
+cyl:5x5	compact	le2	Q	2	W: c2 / B: c4	1	1	*	N	D/D	L/L	True	draw/other	W	L	MISMATCH	king_effect	True	D	L
+cyl:5x5	compact	le2	Q	2	W: c3 / B: c4	1	1	0	P	L/L	D/D	True	draw/other	L	W	MISMATCH	king_effect	True	L	D
+cyl:5x5	compact	le2	Q	2	W: d2 / B: c4	1	1	0	P	D/D	D/D	True	draw/other	L	W	MISMATCH	king_effect	True	D	D
+cyl:5x5	compact	le2	Q	2	W: d2 / B: d3	1	1	0	P	W/W	W/W	True	L	L	W	MISMATCH	king_effect	False	W	W
+cyl:5x5	compact	le2	Q	2	W: c2 c3 / B: d3	2	1	+W	L	W/W	L/L	True	N	W	L	MISMATCH	convention	False	W	L
+cyl:5x5	compact	le2	Q	2	W: c2 d2 / B: c3	2	1	±+W	N	W/W	W/W	True	L	W	L	MISMATCH	king_effect	False	W	W
+cyl:5x5	compact	le2	Q	2	W: c2 d2 / B: c4	2	1	{+W | ±+W}	L	W/W	D/D	True	draw/other	W	W	MISMATCH	king_effect	True	W	D
+cyl:5x5	compact	le2	Q	2	W: c2 d4 / B: d3	2	1	+W	L	W/W	D/D	True	draw/other	W	W	MISMATCH	king_effect	True	W	D
+cyl:5x5	compact	le2	Q	2	W: d2 d3 / B: c4	2	1	+W±+W	N	W/W	W/W	True	L	W	L	MISMATCH	king_effect	False	W	W
+cyl:5x5	compact	le2	Q	2	W: d3 d4 / B: c4	2	1	+W	L	W/W	D/D	True	draw/other	W	W	MISMATCH	king_effect	True	W	D
+cyl:5x5	compact	le2	Q	2	W: c2 / B: c3 c4	1	2	0	P	L/L	L/L	True	R	L	W	MISMATCH	king_effect	False	L	L
+cyl:5x5	compact	le2	Q	2	W: c2 / B: c3 d3	1	2	-W*	R	D/D	L/L	True	draw/other	L	L	MISMATCH	king_effect	True	D	L
+cyl:5x5	compact	le2	Q	2	W: d2 / B: c3 c4	1	2	-W±+W	N	D/D	L/L	True	draw/other	W	L	MISMATCH	king_effect	True	D	L
+cyl:5x5	compact	le2	Q	2	W: d3 / B: c3 c4	1	2	-W	R	W/W	L/L	True	N	W	L	MISMATCH	convention	False	W	L
+cyl:5x5	compact	le2	Q	2	W: d3 / B: c4 d2	1	2	-W	R	D/D	L/L	True	draw/other	L	L	MISMATCH	king_effect	True	D	L
+cyl:5x5	compact	le2	Q	2	W: c2 c4 / B: c3 d3	2	2	+W	L	W/W	L/L	True	N	W	W	MISMATCH	king_effect	False	W	L
+cyl:5x5	compact	le2	Q	2	W: c2 d3 / B: c3 c4	2	2	{+W | -W*}	N	W/W	D/D	True	draw/other	W	L	MISMATCH	king_effect	True	W	D
+cyl:5x5	compact	le2	Q	2	W: c2 d3 / B: c4 d2	2	2	-W	R	W/W	L/L	True	N	L	L	MISMATCH	king_effect	False	W	L
+cyl:5x5	compact	le2	Q	2	W: c2 d4 / B: c3 d3	2	2	+W	L	W/W	L/L	True	N	W	W	MISMATCH	king_effect	False	W	L
+cyl:5x5	compact	le2	Q	2	W: c2 d4 / B: c4 d3	2	2	+W	L	W/W	L/L	True	N	W	W	MISMATCH	king_effect	False	W	L
+cyl:5x5	compact	le2	Q	2	W: c3 d3 / B: c4 d2	2	2	-W	R	W/W	L/L	True	N	L	L	MISMATCH	king_effect	False	W	L
+cyl:5x5	compact	ext3	Q	1	W: c2 c3 d3 / B: c4 d2	3	2	-W	R	W/W	L/L	True	N	L	L	MISMATCH	king_effect	False	W	L
+cyl:6x6	orig	le2	Q	2	W: d2 / B: d3	1	1	0	P	D/D	D/D	True	draw/other	L	W	MISMATCH	king_effect	True	D	D
+cyl:6x6	orig	le2	Q	2	W: d2 / B: d4	1	1	*	N	D/D	D/D	True	draw/other	W	L	MISMATCH	king_effect	True	D	D
+cyl:6x6	orig	le2	Q	2	W: d2 / B: d5	1	1	*2	N	D/D	D/D	True	draw/other	W	L	MISMATCH	king_effect	True	D	D
+cyl:6x6	orig	le2	Q	2	W: d3 / B: d4	1	1	0	P	D/D	D/D	True	draw/other	L	W	MISMATCH	king_effect	True	D	D
+cyl:6x6	orig	le2	Q	2	W: d3 / B: d5	1	1	*	N	D/D	D/D	True	draw/other	W	L	MISMATCH	king_effect	True	D	D
+cyl:6x6	orig	le2	Q	2	W: d4 / B: d5	1	1	0	P	D/D	D/D	True	draw/other	L	W	MISMATCH	king_effect	True	D	D
+cyl:6x6	orig	le2	Q	2	W: d2 d3 / B: d4	2	1	0	P	D/D	W/W	True	draw/other	L	W	MISMATCH	king_effect	True	D	W
+cyl:6x6	orig	le2	Q	2	W: d2 d3 / B: d5	2	1	1/2±1/2	N	W/W	D/D	True	draw/other	W	L	MISMATCH	king_effect	True	W	D
+cyl:6x6	orig	le2	Q	2	W: d3 d4 / B: d5	2	1	0	P	W/W	W/W	True	L	L	W	MISMATCH	king_effect	False	W	W
+cyl:6x6	orig	le2	Q	2	W: d2 / B: d3 d4	1	2	0	P	L/L	L/L	True	R	L	W	MISMATCH	king_effect	False	L	L
+cyl:6x6	orig	le2	Q	2	W: d2 / B: d4 d5	1	2	-1/2±1/2	N	D/D	L/L	True	draw/other	W	L	MISMATCH	king_effect	True	D	L
+cyl:6x6	orig	le2	Q	2	W: d3 / B: d4 d5	1	2	0	P	L/L	D/D	True	draw/other	L	W	MISMATCH	king_effect	True	L	D
+cyl:6x6	orig	le2	Q	2	W: d2 d4 / B: d3 d5	2	2	0	P	W/W	L/L	True	N	L	W	MISMATCH	king_effect	False	W	L
+flat:5x6	orig	le2	Q	2	W: a4 / B: a5	1	1	0	P	D/D	W/W	True	draw/other	L	W	MISMATCH	king_effect	True	D	W
+flat:5x6	orig	le2	Q	2	W: a3 a4 / B: a5	2	1	0	P	W/W	W/W	True	L	L	W	MISMATCH	king_effect	False	W	W
+flat:5x6	orig	le2	Q	2	W: a2 a4 / B: a3 a5	2	2	0	P	W/W	W/W	True	L	L	W	MISMATCH	king_effect	False	W	W
+flat:5x6	orig	ext3	Q	2	W: a2 a3 a4 / B: a5	3	1	0	P	W/W	W/W	True	L	L	W	MISMATCH	king_effect	False	W	W

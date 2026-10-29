@@ -1,0 +1,22 @@
+{
+ "row_mechanism_histogram": {
+  "STEP_PAST_RACE": 34
+ },
+ "n_rows": 34,
+ "disputed_sides": 34,
+ "mechanism_by_path_kind": {
+  "STEP_PAST_RACE | passer already on board at the root (Y to move)": 28,
+  "STEP_PAST_RACE | X creates the passer by a push": 4,
+  "STEP_PAST_RACE | X creates the passer by a capture": 2
+ },
+ "race_arithmetic": {
+  "N* mover = root mover n_X=3 d_Y=2 mover_at_N*=Y": 4,
+  "N* mover = root mover n_X=2 d_Y=2 mover_at_N*=Y": 24,
+  "N* mover differs n_X=2 d_Y=2 mover_at_N*=Y": 4,
+  "N* mover differs n_X=3 d_Y=2 mover_at_N*=Y": 2
+ },
+ "checks": {
+  "nodes on the 34 lines (unique)": 90,
+  "kpsolve --frozen disagreements with the scratch FG": 0
+ }
+}

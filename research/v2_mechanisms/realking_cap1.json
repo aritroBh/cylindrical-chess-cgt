@@ -1,0 +1,527 @@
+{
+ "cap": "1",
+ "roots": [
+  {
+   "P": "W: d2 d4 / B: d3 e3",
+   "side": "w",
+   "real": [
+    "W",
+    "L"
+   ],
+   "frozen": [
+    "W",
+    "W"
+   ],
+   "moves": {
+    "Kg4g5": "L",
+    "Kg4f4": "?",
+    "Kg4a5": "L",
+    "Kg4f5": "?",
+    "Kg4f3": "L",
+    "Pd2e3": "L",
+    "Pd4d5": "?"
+   },
+   "best_real_moves": [],
+   "pawn_moves_frozen": {
+    "d2xe3": "L",
+    "d4-d5": "W"
+   },
+   "children": {
+    "Pd2e3": {
+     "line": "Pa3 pa4 Kg4 kb3 Pe3 Pd4 pd3 b -",
+     "value": [
+      "L",
+      "L"
+     ],
+     "replies": {
+      "Kb3b2": "?",
+      "Kb3c3": "?",
+      "Kb3c4": "?",
+      "Kb3c2": "?",
+      "Kb3a2": "W",
+      "Pd3d2": "L"
+     }
+    },
+    "Pd4d5": {
+     "line": "Pa3 pa4 Kg4 kb3 Pd2 Pd5 pd3 pe3 b -",
+     "value": [
+      "W",
+      "L"
+     ],
+     "replies": {
+      "Kb3b2": "W",
+      "Kb3c4": "W",
+      "Kb3c2": "W",
+      "Kb3a2": "W",
+      "Pe3e2": "?",
+      "Pe3d2": "?"
+     }
+    }
+   }
+  },
+  {
+   "P": "W: d4 e2 / B: d3 e3",
+   "side": "w",
+   "real": [
+    "W",
+    "L"
+   ],
+   "frozen": [
+    "W",
+    "W"
+   ],
+   "moves": {
+    "Kg4g5": "L",
+    "Kg4f4": "?",
+    "Kg4a5": "L",
+    "Kg4f5": "?",
+    "Kg4f3": "?",
+    "Pe2d3": "?",
+    "Pd4d5": "?"
+   },
+   "best_real_moves": [],
+   "pawn_moves_frozen": {
+    "d4-d5": "W",
+    "e2xd3": "L"
+   },
+   "children": {
+    "Pe2d3": {
+     "line": "Pa3 pa4 Kg4 kb3 Pd4 Pd3 pe3 b -",
+     "value": [
+      "W",
+      "L"
+     ],
+     "replies": {
+      "Kb3b2": "W",
+      "Kb3c3": "?",
+      "Kb3c2": "?",
+      "Kb3a2": "W",
+      "Pe3e2": "?"
+     }
+    },
+    "Pd4d5": {
+     "line": "Pa3 pa4 Kg4 kb3 Pd5 Pe2 pd3 pe3 b -",
+     "value": [
+      "W",
+      "L"
+     ],
+     "replies": {
+      "Kb3b2": "?",
+      "Kb3c3": "W",
+      "Kb3c4": "W",
+      "Kb3c2": "?",
+      "Kb3a2": "W",
+      "Pd3d2": "?",
+      "Pd3e2": "?"
+     }
+    }
+   }
+  },
+  {
+   "P": "W: d4 e4 / B: d3 d5",
+   "side": "w",
+   "real": [
+    "W",
+    "L"
+   ],
+   "frozen": [
+    "W",
+    "W"
+   ],
+   "moves": {
+    "Kg4g5": "?",
+    "Kg4f4": "?",
+    "Kg4a5": "?",
+    "Kg4f5": "?",
+    "Kg4f3": "L",
+    "Pe4e5": "?",
+    "Pe4d5": "?"
+   },
+   "best_real_moves": [],
+   "pawn_moves_frozen": {
+    "e4-e5": "W",
+    "e4xd5": "W"
+   },
+   "children": {
+    "Pe4e5": {
+     "line": "Pa3 pa4 Kg4 kb3 Pd4 Pe5 pd3 pd5 b -",
+     "value": [
+      "W",
+      "L"
+     ],
+     "replies": {
+      "Kb3b2": "W",
+      "Kb3c3": "W",
+      "Kb3c4": "W",
+      "Kb3c2": "W",
+      "Kb3a2": "W",
+      "Pd3d2": "?"
+     }
+    },
+    "Pe4d5": {
+     "line": "Pa3 pa4 Kg4 kb3 Pd4 Pd5 pd3 b -",
+     "value": [
+      "W",
+      "L"
+     ],
+     "replies": {
+      "Kb3b2": "W",
+      "Kb3c3": "W",
+      "Kb3c4": "W",
+      "Kb3c2": "W",
+      "Kb3a2": "W",
+      "Pd3d2": "?"
+     }
+    }
+   }
+  },
+  {
+   "P": "W: d4 e4 / B: d5 e3",
+   "side": "b",
+   "real": [
+    "W",
+    "L"
+   ],
+   "frozen": [
+    "L",
+    "L"
+   ],
+   "moves": {
+    "Kb3b2": "W",
+    "Kb3c3": "?",
+    "Kb3c4": "?",
+    "Kb3c2": "?",
+    "Kb3a2": "W",
+    "Pe3e2": "?",
+    "Pd5e4": "?"
+   },
+   "best_real_moves": [
+    "Kb3b2",
+    "Kb3a2"
+   ],
+   "pawn_moves_frozen": {
+    "d5xe4": "W",
+    "e3-e2": "L"
+   },
+   "children": {
+    "Pe3e2": {
+     "line": "Pa3 pa4 Kg4 kb3 Pd4 Pe4 pd5 pe2 w -",
+     "value": [
+      "W",
+      "L"
+     ],
+     "replies": {
+      "Kg4g5": "?",
+      "Kg4f4": "L",
+      "Kg4a5": "L",
+      "Kg4f5": "?",
+      "Kg4f3": "L",
+      "Pe4e5": "?",
+      "Pe4d5": "?"
+     }
+    },
+    "Pd5e4": {
+     "line": "Pa3 pa4 Kg4 kb3 Pd4 pe4 pe3 w -",
+     "value": [
+      "W",
+      "L"
+     ],
+     "replies": {
+      "Kg4g5": "L",
+      "Kg4f4": "?",
+      "Kg4a5": "L",
+      "Kg4f5": "?",
+      "Pd4d5": "?"
+     }
+    }
+   }
+  },
+  {
+   "P": "W: d4 e4 / B: e3 e5",
+   "side": "b",
+   "real": [
+    "W",
+    "L"
+   ],
+   "frozen": [
+    "L",
+    "L"
+   ],
+   "moves": {
+    "Kb3b2": "W",
+    "Kb3c3": "?",
+    "Kb3c4": "W",
+    "Kb3c2": "?",
+    "Kb3a2": "W",
+    "Pe3e2": "?",
+    "Pe5d4": "W"
+   },
+   "best_real_moves": [
+    "Kb3b2",
+    "Kb3c4",
+    "Kb3a2",
+    "Pe5d4"
+   ],
+   "pawn_moves_frozen": {
+    "e3-e2": "L",
+    "e5xd4": "W"
+   },
+   "children": {
+    "Pe3e2": {
+     "line": "Pa3 pa4 Kg4 kb3 Pd4 Pe4 pe2 pe5 w -",
+     "value": [
+      "W",
+      "L"
+     ],
+     "replies": {
+      "Kg4g5": "L",
+      "Kg4a5": "L",
+      "Kg4f5": "L",
+      "Kg4f3": "L",
+      "Pd4d5": "?",
+      "Pd4e5": "?"
+     }
+    },
+    "Pe5d4": {
+     "line": "Pa3 pa4 Kg4 kb3 Pe4 pe3 pd4 w -",
+     "value": [
+      "W",
+      "W"
+     ],
+     "replies": {
+      "Kg4g5": "?",
+      "Kg4f4": "?",
+      "Kg4a5": "L",
+      "Kg4f5": "?",
+      "Kg4f3": "?",
+      "Pe4e5": "W"
+     }
+    }
+   }
+  },
+  {
+   "P": "W: e2 e3 / B: d3 d4",
+   "side": "w",
+   "real": [
+    "W",
+    "D"
+   ],
+   "frozen": [
+    "L",
+    "L"
+   ],
+   "moves": {
+    "Kg4g5": "L",
+    "Kg4f4": "L",
+    "Kg4a5": "L",
+    "Kg4f5": "L",
+    "Kg4f3": "L",
+    "Pe2d3": "D",
+    "Pe3e4": "?",
+    "Pe3d4": "?"
+   },
+   "best_real_moves": [],
+   "pawn_moves_frozen": {
+    "e2xd3": "L",
+    "e3-e4": "L",
+    "e3xd4": "L"
+   },
+   "children": {
+    "Pe2d3": {
+     "line": "Pa3 pa4 Kg4 kb3 Pd3 Pe3 pd4 b -",
+     "value": [
+      "D",
+      "D"
+     ],
+     "replies": {
+      "Kb3b2": "W",
+      "Kb3c3": "W",
+      "Kb3c2": "W",
+      "Kb3a2": "W",
+      "Pd4e3": "D"
+     }
+    },
+    "Pe3e4": {
+     "line": "Pa3 pa4 Kg4 kb3 Pe2 Pe4 pd3 pd4 b -",
+     "value": [
+      "W",
+      "L"
+     ],
+     "replies": {
+      "Kb3b2": "W",
+      "Kb3c3": "W",
+      "Kb3c4": "W",
+      "Kb3c2": "W",
+      "Kb3a2": "W",
+      "Pd3d2": "?",
+      "Pd3e2": "?"
+     }
+    },
+    "Pe3d4": {
+     "line": "Pa3 pa4 Kg4 kb3 Pe2 Pd4 pd3 b -",
+     "value": [
+      "W",
+      "L"
+     ],
+     "replies": {
+      "Kb3b2": "W",
+      "Kb3c3": "W",
+      "Kb3c4": "W",
+      "Kb3c2": "W",
+      "Kb3a2": "W",
+      "Pd3d2": "?",
+      "Pd3e2": "?"
+     }
+    }
+   }
+  },
+  {
+   "P": "W: e2 e4 / B: d3 e3",
+   "side": "b",
+   "real": [
+    "W",
+    "L"
+   ],
+   "frozen": [
+    "L",
+    "L"
+   ],
+   "moves": {
+    "Kb3b2": "?",
+    "Kb3c3": "?",
+    "Kb3c4": "W",
+    "Kb3c2": "?",
+    "Kb3a2": "?",
+    "Pd3d2": "?",
+    "Pd3e2": "?"
+   },
+   "best_real_moves": [
+    "Kb3c4"
+   ],
+   "pawn_moves_frozen": {
+    "d3-d2": "L",
+    "d3xe2": "L"
+   },
+   "children": {
+    "Pd3d2": {
+     "line": "Pa3 pa4 Kg4 kb3 Pe2 Pe4 pd2 pe3 w -",
+     "value": [
+      "W",
+      "L"
+     ],
+     "replies": {
+      "Kg4g5": "L",
+      "Kg4f4": "L",
+      "Kg4a5": "L",
+      "Kg4f5": "L",
+      "Kg4f3": "L",
+      "Pe4e5": "?"
+     }
+    },
+    "Pd3e2": {
+     "line": "Pa3 pa4 Kg4 kb3 Pe4 pe2 pe3 w -",
+     "value": [
+      "W",
+      "L"
+     ],
+     "replies": {
+      "Kg4g5": "L",
+      "Kg4f4": "L",
+      "Kg4a5": "L",
+      "Kg4f5": "L",
+      "Kg4f3": "L",
+      "Pe4e5": "?"
+     }
+    }
+   }
+  },
+  {
+   "P": "W: e3 e4 / B: d4 d5",
+   "side": "b",
+   "real": [
+    "D",
+    "L"
+   ],
+   "frozen": [
+    "W",
+    "W"
+   ],
+   "moves": {
+    "Kb3b2": "W",
+    "Kb3c3": "W",
+    "Kb3c4": "W",
+    "Kb3c2": "W",
+    "Kb3a2": "W",
+    "Pd4d3": "?",
+    "Pd4e3": "?",
+    "Pd5e4": "D"
+   },
+   "best_real_moves": [
+    "Pd5e4"
+   ],
+   "pawn_moves_frozen": {
+    "d4-d3": "W",
+    "d4xe3": "W",
+    "d5xe4": "W"
+   },
+   "children": {
+    "Pd4d3": {
+     "line": "Pa3 pa4 Kg4 kb3 Pe3 Pe4 pd3 pd5 w -",
+     "value": [
+      "W",
+      "L"
+     ],
+     "replies": {
+      "Kg4g5": "L",
+      "Kg4f4": "L",
+      "Kg4a5": "L",
+      "Kg4f5": "L",
+      "Kg4f3": "L",
+      "Pe4e5": "?",
+      "Pe4d5": "?"
+     }
+    },
+    "Pd4e3": {
+     "line": "Pa3 pa4 Kg4 kb3 Pe4 pe3 pd5 w -",
+     "value": [
+      "W",
+      "L"
+     ],
+     "replies": {
+      "Kg4g5": "L",
+      "Kg4f4": "L",
+      "Kg4a5": "L",
+      "Kg4f5": "L",
+      "Kg4f3": "L",
+      "Pe4e5": "?",
+      "Pe4d5": "?"
+     }
+    },
+    "Pd5e4": {
+     "line": "Pa3 pa4 Kg4 kb3 Pe3 pd4 pe4 w -",
+     "value": [
+      "D",
+      "D"
+     ],
+     "replies": {
+      "Kg4g5": "L",
+      "Kg4f4": "L",
+      "Kg4a5": "L",
+      "Kg4f5": "L",
+      "Pe3d4": "D"
+     }
+    }
+   }
+  }
+ ],
+ "kpsolve_roots": {
+  "log": "[kpsolve cyl:7x6 ep=on cap=1: 25522 layers, 1362365424 states, depth 16, 456.4s, capped promotions met (two bounds)]",
+  "peak_rss_mb": 1563,
+  "seconds": 456.4
+ },
+ "kpsolve_children": {
+  "log": "[kpsolve cyl:7x6 ep=on cap=1: 22530 layers, 1245927312 states, depth 15, 413.7s, capped promotions met (two bounds)]",
+  "peak_rss_mb": 1442,
+  "seconds": 413.8
+ }
+}

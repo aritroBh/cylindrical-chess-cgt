@@ -1,0 +1,44 @@
+roots [kpsolve cyl:7x6 ep=on cap=1: 25522 layers, 1362365424 states, depth 16, 456.4s, capped promotions met (two bounds)] 1563 456.4
+children [kpsolve cyl:7x6 ep=on cap=1: 22530 layers, 1245927312 states, depth 15, 413.7s, capped promotions met (two bounds)] 1442 413.8
+
+== W: d2 d4 / B: d3 e3 mover w real ('W', 'L') frozen ['W', 'W']
+  root moves: {'Kg4g5': 'L', 'Kg4f4': '?', 'Kg4a5': 'L', 'Kg4f5': '?', 'Kg4f3': 'L', 'Pd2e3': 'L', 'Pd4d5': '?'}
+  after Pd2e3 value ('L', 'L') replies {'Kb3b2': '?', 'Kb3c3': '?', 'Kb3c4': '?', 'Kb3c2': '?', 'Kb3a2': 'W', 'Pd3d2': 'L'}
+  after Pd4d5 value ('W', 'L') replies {'Kb3b2': 'W', 'Kb3c4': 'W', 'Kb3c2': 'W', 'Kb3a2': 'W', 'Pe3e2': '?', 'Pe3d2': '?'}
+
+== W: d4 e2 / B: d3 e3 mover w real ('W', 'L') frozen ['W', 'W']
+  root moves: {'Kg4g5': 'L', 'Kg4f4': '?', 'Kg4a5': 'L', 'Kg4f5': '?', 'Kg4f3': '?', 'Pe2d3': '?', 'Pd4d5': '?'}
+  after Pe2d3 value ('W', 'L') replies {'Kb3b2': 'W', 'Kb3c3': '?', 'Kb3c2': '?', 'Kb3a2': 'W', 'Pe3e2': '?'}
+  after Pd4d5 value ('W', 'L') replies {'Kb3b2': '?', 'Kb3c3': 'W', 'Kb3c4': 'W', 'Kb3c2': '?', 'Kb3a2': 'W', 'Pd3d2': '?', 'Pd3e2': '?'}
+
+== W: d4 e4 / B: d3 d5 mover w real ('W', 'L') frozen ['W', 'W']
+  root moves: {'Kg4g5': '?', 'Kg4f4': '?', 'Kg4a5': '?', 'Kg4f5': '?', 'Kg4f3': 'L', 'Pe4e5': '?', 'Pe4d5': '?'}
+  after Pe4e5 value ('W', 'L') replies {'Kb3b2': 'W', 'Kb3c3': 'W', 'Kb3c4': 'W', 'Kb3c2': 'W', 'Kb3a2': 'W', 'Pd3d2': '?'}
+  after Pe4d5 value ('W', 'L') replies {'Kb3b2': 'W', 'Kb3c3': 'W', 'Kb3c4': 'W', 'Kb3c2': 'W', 'Kb3a2': 'W', 'Pd3d2': '?'}
+
+== W: d4 e4 / B: d5 e3 mover b real ('W', 'L') frozen ['L', 'L']
+  root moves: {'Kb3b2': 'W', 'Kb3c3': '?', 'Kb3c4': '?', 'Kb3c2': '?', 'Kb3a2': 'W', 'Pe3e2': '?', 'Pd5e4': '?'}
+  after Pe3e2 value ('W', 'L') replies {'Kg4g5': '?', 'Kg4f4': 'L', 'Kg4a5': 'L', 'Kg4f5': '?', 'Kg4f3': 'L', 'Pe4e5': '?', 'Pe4d5': '?'}
+  after Pd5e4 value ('W', 'L') replies {'Kg4g5': 'L', 'Kg4f4': '?', 'Kg4a5': 'L', 'Kg4f5': '?', 'Pd4d5': '?'}
+
+== W: d4 e4 / B: e3 e5 mover b real ('W', 'L') frozen ['L', 'L']
+  root moves: {'Kb3b2': 'W', 'Kb3c3': '?', 'Kb3c4': 'W', 'Kb3c2': '?', 'Kb3a2': 'W', 'Pe3e2': '?', 'Pe5d4': 'W'}
+  after Pe3e2 value ('W', 'L') replies {'Kg4g5': 'L', 'Kg4a5': 'L', 'Kg4f5': 'L', 'Kg4f3': 'L', 'Pd4d5': '?', 'Pd4e5': '?'}
+  after Pe5d4 value ('W', 'W') replies {'Kg4g5': '?', 'Kg4f4': '?', 'Kg4a5': 'L', 'Kg4f5': '?', 'Kg4f3': '?', 'Pe4e5': 'W'}
+
+== W: e2 e3 / B: d3 d4 mover w real ('W', 'D') frozen ['L', 'L']
+  root moves: {'Kg4g5': 'L', 'Kg4f4': 'L', 'Kg4a5': 'L', 'Kg4f5': 'L', 'Kg4f3': 'L', 'Pe2d3': 'D', 'Pe3e4': '?', 'Pe3d4': '?'}
+  after Pe2d3 value ('D', 'D') replies {'Kb3b2': 'W', 'Kb3c3': 'W', 'Kb3c2': 'W', 'Kb3a2': 'W', 'Pd4e3': 'D'}
+  after Pe3e4 value ('W', 'L') replies {'Kb3b2': 'W', 'Kb3c3': 'W', 'Kb3c4': 'W', 'Kb3c2': 'W', 'Kb3a2': 'W', 'Pd3d2': '?', 'Pd3e2': '?'}
+  after Pe3d4 value ('W', 'L') replies {'Kb3b2': 'W', 'Kb3c3': 'W', 'Kb3c4': 'W', 'Kb3c2': 'W', 'Kb3a2': 'W', 'Pd3d2': '?', 'Pd3e2': '?'}
+
+== W: e2 e4 / B: d3 e3 mover b real ('W', 'L') frozen ['L', 'L']
+  root moves: {'Kb3b2': '?', 'Kb3c3': '?', 'Kb3c4': 'W', 'Kb3c2': '?', 'Kb3a2': '?', 'Pd3d2': '?', 'Pd3e2': '?'}
+  after Pd3d2 value ('W', 'L') replies {'Kg4g5': 'L', 'Kg4f4': 'L', 'Kg4a5': 'L', 'Kg4f5': 'L', 'Kg4f3': 'L', 'Pe4e5': '?'}
+  after Pd3e2 value ('W', 'L') replies {'Kg4g5': 'L', 'Kg4f4': 'L', 'Kg4a5': 'L', 'Kg4f5': 'L', 'Kg4f3': 'L', 'Pe4e5': '?'}
+
+== W: e3 e4 / B: d4 d5 mover b real ('D', 'L') frozen ['W', 'W']
+  root moves: {'Kb3b2': 'W', 'Kb3c3': 'W', 'Kb3c4': 'W', 'Kb3c2': 'W', 'Kb3a2': 'W', 'Pd4d3': '?', 'Pd4e3': '?', 'Pd5e4': 'D'}
+  after Pd4d3 value ('W', 'L') replies {'Kg4g5': 'L', 'Kg4f4': 'L', 'Kg4a5': 'L', 'Kg4f5': 'L', 'Kg4f3': 'L', 'Pe4e5': '?', 'Pe4d5': '?'}
+  after Pd4e3 value ('W', 'L') replies {'Kg4g5': 'L', 'Kg4f4': 'L', 'Kg4a5': 'L', 'Kg4f5': 'L', 'Kg4f3': 'L', 'Pe4e5': '?', 'Pe4d5': '?'}
+  after Pd5e4 value ('D', 'D') replies {'Kg4g5': 'L', 'Kg4f4': 'L', 'Kg4a5': 'L', 'Kg4f5': 'L', 'Pe3d4': 'D'}

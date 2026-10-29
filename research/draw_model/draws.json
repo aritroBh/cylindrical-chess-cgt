@@ -1,0 +1,193 @@
+{
+  "real_nodes": [
+    {
+      "component": "W: a2 c5 / B: b4 d7",
+      "fen": "8/3p4/8/2P2Kp1/1p4Pk/8/P7/8 w - - 0 1",
+      "real_class": "draw(W-first:draw,B-first:win)"
+    },
+    {
+      "component": "W: a4 c3 / B: b5 d4",
+      "fen": "8/8/8/1p3Kp1/P2p2Pk/2P5/8/8 w - - 0 1",
+      "real_class": "draw(W-first:draw,B-first:loss)"
+    },
+    {
+      "component": "W: a4 c6 / B: b7 d7",
+      "fen": "8/1p1p4/2P5/5Kp1/P5Pk/8/8/8 w - - 0 1",
+      "real_class": "draw(W-first:win,B-first:draw)"
+    },
+    {
+      "component": "W: a5 c2 / B: b6 d3",
+      "fen": "8/8/1p6/P4Kp1/6Pk/3p4/2P5/8 w - - 0 1",
+      "real_class": "draw(W-first:draw,B-first:loss)"
+    },
+    {
+      "component": "W: a5 c3 / B: b6 d4",
+      "fen": "8/8/1p6/P4Kp1/3p2Pk/2P5/8/8 w - - 0 1",
+      "real_class": "draw(W-first:win,B-first:draw)"
+    },
+    {
+      "component": "W: a5 c3 / B: b7 d5",
+      "fen": "8/1p6/8/P2p1Kp1/6Pk/2P5/8/8 w - - 0 1",
+      "real_class": "draw(W-first:draw,B-first:win)"
+    },
+    {
+      "component": "W: a5 c4 / B: b7 d6",
+      "fen": "8/1p6/3p4/P4Kp1/2P3Pk/8/8/8 w - - 0 1",
+      "real_class": "draw(W-first:draw,B-first:win)"
+    },
+    {
+      "component": "W: a5 c5 / B: b7 d6",
+      "fen": "8/1p6/3p4/P1P2Kp1/6Pk/8/8/8 w - - 0 1",
+      "real_class": "draw(W-first:win,B-first:draw)"
+    },
+    {
+      "component": "W: a5 c5 / B: b7 d7",
+      "fen": "8/1p1p4/8/P1P2Kp1/6Pk/8/8/8 w - - 0 1",
+      "real_class": "draw(W-first:draw,B-first:win)"
+    },
+    {
+      "component": "W: a5 c6 / B: b7 d7",
+      "fen": "8/1p1p4/2P5/P4Kp1/6Pk/8/8/8 w - - 0 1",
+      "real_class": "draw(W-first:win,B-first:draw)"
+    },
+    {
+      "component": "W: a6 c2 / B: b7 d3",
+      "fen": "8/1p6/P7/5Kp1/6Pk/3p4/2P5/8 w - - 0 1",
+      "real_class": "draw(W-first:win,B-first:draw)"
+    },
+    {
+      "component": "W: a6 c4 / B: b7 d6",
+      "fen": "8/1p6/P2p4/5Kp1/2P3Pk/8/8/8 w - - 0 1",
+      "real_class": "draw(W-first:win,B-first:draw)"
+    },
+    {
+      "component": "W: a6 c5 / B: b7 d7",
+      "fen": "8/1p1p4/P7/2P2Kp1/6Pk/8/8/8 w - - 0 1",
+      "real_class": "draw(W-first:win,B-first:draw)"
+    }
+  ],
+  "draw_terminals": [
+    "W: a4 / B: b7 c6",
+    "W: a5 / B: b7 c5",
+    "W: c4 / B: a6 d6"
+  ],
+  "proven_king_moves": [
+    {
+      "fen": "8/3p4/8/2P2Kp1/1p4Pk/8/P7/8 w - - 0 1",
+      "component": "W: a2 c5 / B: b4 d7",
+      "king_move": "f5g6"
+    },
+    {
+      "fen": "8/3p4/8/1pP2Kp1/6Pk/P7/8/8 w - - 0 1",
+      "component": "W: a3 c5 / B: b5 d7",
+      "king_move": "f5g6"
+    },
+    {
+      "fen": "8/3p4/8/1pP2Kp1/6Pk/P7/8/8 w - b6 0 1",
+      "component": "W: a3 c5 / B: b5 d7 (ep b6)",
+      "king_move": "f5g6"
+    },
+    {
+      "fen": "8/1p6/8/P2p1Kp1/6Pk/2P5/8/8 w - - 0 1",
+      "component": "W: a5 c3 / B: b7 d5",
+      "king_move": "f5e6"
+    },
+    {
+      "fen": "8/1p6/8/P2p1Kp1/6Pk/2P5/8/8 w - - 0 1",
+      "component": "W: a5 c3 / B: b7 d5",
+      "king_move": "f5e5"
+    },
+    {
+      "fen": "8/1p6/3p4/P4Kp1/2P3Pk/8/8/8 w - - 0 1",
+      "component": "W: a5 c4 / B: b7 d6",
+      "king_move": "f5f6"
+    }
+  ],
+  "suite_draw_roots": [
+    {
+      "id": "cgt052",
+      "fen": "8/8/3p4/3p1Kp1/6Pk/8/2P5/8 w - - 0 1",
+      "component": "W: c2 / B: d5 d6"
+    },
+    {
+      "id": "cgt055",
+      "fen": "8/2p5/2p5/2P2Kp1/6Pk/8/8/8 w - - 0 1",
+      "component": "W: c5 / B: c6 c7"
+    },
+    {
+      "id": "cgt066",
+      "fen": "8/p7/8/5Kp1/6Pk/2p5/1P6/8 w - - 0 1",
+      "component": "W: b2 / B: a7 c3"
+    },
+    {
+      "id": "cgt067",
+      "fen": "8/8/8/3p1Kp1/6Pk/1p6/2P5/8 w - - 0 1",
+      "component": "W: c2 / B: b3 d5"
+    },
+    {
+      "id": "cgt102",
+      "fen": "8/8/2p5/3p1Kp1/6Pk/3P4/8/8 w - - 0 1",
+      "component": "W: d3 / B: c6 d5"
+    },
+    {
+      "id": "cgt109",
+      "fen": "8/8/p7/1p3Kp1/6Pk/8/1P6/8 w - - 0 1",
+      "component": "W: b2 / B: a6 b5"
+    },
+    {
+      "id": "cgt119",
+      "fen": "8/8/8/2p2Kp1/2P3Pk/3P4/8/8 w - - 0 1",
+      "component": "W: c4 d3 / B: c5"
+    },
+    {
+      "id": "cgt122",
+      "fen": "8/8/8/1p3Kp1/1P4Pk/P7/8/8 w - - 0 1",
+      "component": "W: a3 b4 / B: b5"
+    },
+    {
+      "id": "cgt123",
+      "fen": "8/8/8/2p2Kp1/2P3Pk/1P6/8/8 w - - 0 1",
+      "component": "W: b3 c4 / B: c5"
+    },
+    {
+      "id": "cgt124",
+      "fen": "8/8/8/2p2Kp1/6Pk/1P1P4/8/8 w - - 0 1",
+      "component": "W: b3 d3 / B: c5"
+    },
+    {
+      "id": "cgt125",
+      "fen": "8/8/8/1p3Kp1/6Pk/P1P5/8/8 w - - 0 1",
+      "component": "W: a3 c3 / B: b5"
+    },
+    {
+      "id": "cgt184",
+      "fen": "8/1p1p4/5Kp1/6Pk/8/8/2P5/8 w - - 0 1",
+      "component": "W: c2 / B: b7 d7"
+    },
+    {
+      "id": "cgt220",
+      "fen": "8/8/3p4/8/3P2pK/5kP1/8/8 w - - 0 1",
+      "component": "W: d4 / B: d6"
+    },
+    {
+      "id": "cgt231",
+      "fen": "8/2p5/8/3P4/6pK/3P1kP1/8/8 w - - 0 1",
+      "component": "W: d3 d5 / B: c7"
+    },
+    {
+      "id": "cgt262",
+      "fen": "8/8/8/2p3pK/2P2kP1/3P4/8/8 w - - 0 1",
+      "component": "W: c4 d3 / B: c5"
+    },
+    {
+      "id": "cgt270",
+      "fen": "8/8/8/3p2pK/3P1kP1/2P5/8/8 w - - 0 1",
+      "component": "W: c3 d4 / B: d5"
+    },
+    {
+      "id": "cgt273",
+      "fen": "8/8/p7/1p4pK/5kP1/8/1P6/8 w - - 0 1",
+      "component": "W: b2 / B: a6 b5"
+    }
+  ]
+}

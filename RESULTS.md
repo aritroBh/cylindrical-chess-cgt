@@ -478,3 +478,19 @@ Answered 2026-10-16:
 - **Mentor:** no contact with Prof. Morley yet.
 - **Installs:** Stockfish 19 is built; Lc0 v0.32.1 is installed through Homebrew with its bundled network. PyTorch and MLX are in the separate `.venv-ml`.
 - **Repository:** private GitHub repo `aritroBh/cylindrical-chess-cgt` (approved 2026-10-21); push only when asked.
+
+## 7. How well the model predicts real chess (2026-10-28/29, research avenues; all COMPUTED-1, skeptic-checked)
+
+- **Flat 8x8** (`research/flat_xtarget_census/`): 2,049 decisive trebuchet+pawn positions with known real results (11 targets):
+  the model (e.p.-aware, count) agrees on 1,896 = 92.5% (Wilson 91.3-93.6; positions are not independent). End-position
+  sides 90.2%, internal nodes 96.9%. Count beats mover (83.0%) and opponent (83.7%), McNemar p < 1e-24. e.p.-aware beats
+  textbook on internal nodes (22 vs 0, p = 5e-7). A2 reproduced (268/14/13). 230 decisive positions rest only on Lichess
+  8-man categories; without them 95.1%.
+- **Small boards** (`research/agreement_census/`): per board, testable placements beside a frozen trebuchet: cyl:6x6 13/26,
+  flat:5x6 23/26 (published layout), cyl:5x5 49/71 (compact layout, no buffer). 37 of 39 mismatches are king effects
+  (frozen = model), 23 with a real draw.
+- **Why the passer convention fails** (`research/v2_mechanisms/`): all 34 V2 failures on cyl:7x6 are one step-past race (a
+  blocked enemy pawn steps level, becomes passed and promotes first). A certified-passer test (square-rule distance) removes
+  all 52 convention failures; mismatches 159 -> 128 of 500, no new errors; all 128 left are king effects. Soundness:
+  no false certification in 158,544 enumerated positions (sketch proof, unrefereed).
+- **Draws** (`research/draw_model/`, T72 OpenCode): of 39 real draws, scoring draws as dud reproduces 21, as 0 or {on|off} none.

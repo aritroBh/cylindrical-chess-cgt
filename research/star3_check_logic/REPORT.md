@@ -1,0 +1,42 @@
+SOUND WITH FIXES
+The core insertion proof structure is valid, but there are gaps in the induction coverage, unexploratory language in the proof note, and reliance on an unrefereed written-out Lemma 3 (section 2b of ring_n_plus_2_proof/PROOF.md).
+
+1. The cut and n0 (section 2)
+What the note says: For T_n (even n≥12), wall = files 0..n-11 (B4/W2 pattern), cut c=4, arc = {c-4..c+5} = 0..9. Arc lies in wall iff n-11 ≥ 9 ⇔ n ≥ 20. Note states n₀=20. For S_n (odd n≥13), wall = files 3..n-9 (W2/B4 pattern), cut c=7, arc = 3..12. Arc lies in wall iff n-9 ≥ 12 ⇔ n ≥ 21. Note discusses n₀=23 (checked) vs n₀=25 (pump), settles on n₀=23.
+Whether it is right: The arc-containment bounds are correctly computed for the actual T_n/S_n families in PROOF_S3T3.md (n₀=20 for T, n₀≥21 for S). However, the task description refers to "M_n (arc 0..9, wall 0..n-9, n₀=18)" and "O_n (arc 1..10, wall 1..n-9, n₀=19)" — these are DIFFERENT families (the n+1-pawn *2 rings from ring_n_proof, not the *3 rings T_n/S_n here). For the actual families in PROOF_S3T3.md, the stated n₀ values (20 for T, 23 for S) are correct for arc containment, but the induction requires more than arc containment (Lemma 3's radius-5 pattern). The pump confirms insertion isomorphism from n=20→22 (T) and n=25→27 (S); the check_S3T3.py verification passed at n₀=23 for S (Lemma 3 held for 23→25 and 25→27). The note's exploratory discussion ("Hmm, let me just follow...") should be replaced with a clean statement.
+Exact fix (replacement text for section 2): "For T_n: wall files 0..n-11, cut c=4, arc 0..9. Arc ⊆ wall ⇔ n ≥ 20. Pump confirms insertion isomorphism ins₄ from n=20 onward. Set n₀=20. For S_n: wall files 3..n-9, cut c=7, arc 3..12. Arc ⊆ wall ⇔ n ≥ 21. Pump confirms insertion isomorphism ins₇ from n=25 onward; check_S3T3 verifies Lemma 3 at n=23,25,27. To be conservative, set n₀=23 (smallest n where check passes). Base cases below n₀ are covered by C2 (n=12,14,16 for T; n=13,15 for S) and pump signatures (COMPUTED-1) for intermediate n."
+Label: PROVED (arc containment bounds), CHECKED-2 (pump isomorphism at n₀), COMPUTED-1 (pump signatures for n < n₀).
+
+2. The ends of the arc (H3)
+What the note says: Lemma 3 needs files c-4..c+5 to be pattern files and central moves to be neither T nor K. For T (c=4): central files 1..8 (n₀=20), left end j=1 (W2), window 0..4; right end j=8 (B4), window 5..9. Checker verified 0 T/K moves at both ends. For S (c=7): central files 4..11 (n₀=23), left end j=4, window 3..7; right end j=11, window 8..12. Checker verified 0 T/K moves; log shows L moves at file 11 but "Lemma 2(b) allows L". Note has exploratory comment ("wait that's L moves! Hmm...").
+Whether it is right: The computer checks at n₀, n₀+2, n₀+4 are sufficient because Lemma 2 is local — it only depends on the pattern files in the 5-file window around each central pawn. Since the wall pattern is periodic and unchanged for all n ≥ n₀, and the arc files are pattern files in every reduced node (by invariant Iₙ), the classification of moves at the arc ends is identical for all n ≥ n₀. The L moves at the right end of S are correctly allowed by Lemma 2(b) (which requires L or P, not T/K). The unfinished sentence "the W2 on file j-1? ..." mentioned in the task does not appear in PROOF_S3T3.md; it may refer to ring_n_plus_2_proof/PROOF.md section 3 H2 (which discusses an end case for P_n). The exploratory comment in PROOF_S3T3.md should be removed.
+Exact fix (replacement for H3 S_n right-end discussion): "At the right end (j=arc_hi-1), the double step is P (no T/K moves). L moves occur but are allowed by Lemma 2(b). The local window lies entirely in the pattern arc, so the classification is n-invariant."
+Label: CHECKED-2 (check_S3T3.py verified 0 T/K moves at both ends for n₀, n₀+2, n₀+4), PROVED (locality argument extends to all n ≥ n₀).
+
+3. Colour reversal for O_n (H1)
+What the note says: "Colour reversal not needed for S (wall is W2/B4 already, same as T50 table)." For T, wall is B4/W2 (phase-shifted E-type). The task asks about "O_n (wall B7/W5)" and an unfinished "(B7 -> ? / W5 -> ?)" — but PROOF_S3T3.md does not use colour reversal at all. The families T_n and S_n both have E-type walls (W2/B4 or B4/W2), matching the Lemma 2 table in proof.tex directly. The O_n with B7/W5 wall appears in ring_family_proof (type O: W3/B5) or ring_n_proof (B7/W5), not in PROOF_S3T3.md.
+Whether it is right: Correct — no colour reversal is needed for T_n/S_n. The task's item 3 applies to a different proof (ring_family_proof or ring_n_proof). PROOF_S3T3.md correctly states colour reversal is not needed.
+Exact fix: No fix needed for PROOF_S3T3.md. The H1 text is accurate. (If the task meant to ask about the E-type phase shift: T's wall is B4/W2 vs proof.tex's E-type W2/B4; Lemma 2's table covers both phases because it only requires "pattern files j-1,j,j+1" with alternating colours two ranks apart — the proof in proof.tex and section 2b of ring_n_plus_2_proof/PROOF.md explicitly states phase doesn't matter.)
+Label: PROVED (by inspection of wall patterns and Lemma 2's phase-independence).
+
+4. The induction (H6) and the base cases (section 5)
+What the note says: Invariant Iₙ: no flag, nodes agree with startₙ outside Zₙ. I_{n₀} = C1. If Iₙ holds, Lemma 3 applies at every node, giving G_{n+2} ≅ ins_c(Gₙ). By induction, all n ≥ n₀ (same parity) have isomorphic reduced games. Base cases n < n₀ covered by C2 (direct search). Section 5: "For n=n₀-2,n₀-4,... use C2 and H7."
+Whether it is right: There are COVERAGE GAPS. For T_n: induction covers n ≥ 20 (even); C2 checks n=12,14,16. n=18 is NOT covered by C2 (only up to 16) nor by induction (starts at 20). For S_n: induction covers n ≥ 23 (odd); C2 checks n=13,15. n=17,19,21 are NOT covered by C2 nor induction. The pump signatures (COMPUTED-1, program A only) show NNNPNN for these missing n, but they are not CHECKED-2. The claim "T_n=*3 for even n≥12, S_n=*3 for odd n≥13" is therefore not fully CHECKED-2; the intermediate n are only COMPUTED-1. The note acknowledges this in section 6.4: "n<n₀ covered only by C2 and pump signatures, not by induction."
+Exact fix: Either (a) extend C2 to cover all n < n₀ (run base_S3T3.py for T_18 and S_17,19,21), or (b) weaken the theorem statement to "T_n=*3 for even n≥12 with n≠18 CHECKED-2, n=18 COMPUTED-1; S_n=*3 for odd n≥13 with n∉{17,19,21} CHECKED-2, n∈{17,19,21} COMPUTED-1", or (c) note that pump signatures from A are corroborated by the stable reduced graph (1305 nodes for all T n≥12; 40445 nodes for all S n≥19) and the insertion isomorphism control checks (which fail only for cuts that violate radius-5).
+Label: PROVED [AI] for n ≥ n₀ given lemmas; CHECKED-2 for C2 base cases (T:12,14,16; S:13,15); COMPUTED-1 for intermediate n (T:18; S:17,19,21) and pump signatures n>n₀.
+
+5. Anything else wrong, unclear, or unproved
+- Exploratory language in section 2 ("Let me just state... I'll trust", "Hmm, let me just follow...") — should be cleaned up in a final proof note.
+- Section 2b of ring_n_plus_2_proof/PROOF.md (written-out Lemma 3) is cited as "PROVED, new text; corroborated by D and E; not yet refereed by a second model" — this is a dependency not yet fully vetted.
+- The claim table labels C2 as "CHECKED-2: E base_S3T3.py and A (pump logs, n=12..58/13..59)" but base_S3T3.py only ran up to 16/15; the pump logs for n>16/15 are from A only (COMPUTED-1). The label overstates independence.
+- Scope limitations correctly noted in section 6: whole-board only, race rule "count" only, not component-sum model, not other race rules.
+- The "unfinished sentence" mentioned in task item 2 ("the W2 on file j-1? ...") is not in PROOF_S3T3.md; it appears in ring_n_plus_2_proof/PROOF.md section 3 H2 (end case for P_n). No action needed here.
+- The proof correctly uses the canonical e.p. convention (flag only if enemy pawn beside landing square); both "keep" and "expire" heap readings give identical results (verified by base_S3T3.py).
+Label: Various — see above.
+
+Reproduce commands:
+- check_S3T3.py: PYTHONPATH=. nice -n 15 .venv/bin/python research/star3_proof/check_S3T3.py T3 20 4
+- check_S3T3.py: PYTHONPATH=. nice -n 15 .venv/bin/python research/star3_proof/check_S3T3.py S3 23 7
+- base_S3T3.py: PYTHONPATH=. nice -n 15 .venv/bin/python research/star3_proof/base_S3T3.py T3 12 18
+- base_S3T3.py: PYTHONPATH=. nice -n 15 .venv/bin/python research/star3_proof/base_S3T3.py S3 13 21
+- Pump logs: research/star3_proof/logs/pump_T3_12_40.txt, pump_S3_13_41.txt

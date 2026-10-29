@@ -1,0 +1,71 @@
+{
+ "exhaustive_soundness": {
+  "2files_6ranks_le3v3": {
+   "positions": 9858,
+   "S_certified": 7768,
+   "RP_certified": 7836
+  },
+  "3files_6ranks_le2v2": {
+   "positions": 15350,
+   "S_certified": 11922,
+   "RP_certified": 12240
+  },
+  "2files_8ranks_le3v3": {
+   "positions": 131886,
+   "S_certified": 96286,
+   "RP_certified": 97922
+  },
+  "1files_8ranks_le3v3": {
+   "positions": 1450,
+   "S_certified": 996,
+   "RP_certified": 1034
+  }
+ },
+ "rescore": {
+  "cyl7x6": {
+   "CC==frozen (all rows)": 812,
+   "testable": 448,
+   "before: textbook mismatch": 143,
+   "before: ep-aware mismatch": 138,
+   "after: CC mismatch": 112,
+   "after: CC mismatch (frozen==real, i.e. 0 expected)": 0,
+   "after: CC mismatch where frozen==CC (king effect)": 112,
+   "race-at-start rows with exact real value": 298,
+   "  race rows: CC matches real": 222,
+   "nodes_S": 1710,
+   "expanded_passed_nodes_S": 68,
+   "nodes_RP": 1710,
+   "expanded_passed_nodes_RP": 40
+  },
+  "cyl6x6": {
+   "CC==frozen (all rows)": 42,
+   "testable": 26,
+   "before: textbook mismatch": 13,
+   "before: ep-aware mismatch": 13,
+   "after: CC mismatch": 13,
+   "after: CC mismatch (frozen==real, i.e. 0 expected)": 0,
+   "after: CC mismatch where frozen==CC (king effect)": 13,
+   "race-at-start rows with exact real value": 14,
+   "  race rows: CC matches real": 8,
+   "nodes_S": 86,
+   "expanded_passed_nodes_S": 2,
+   "nodes_RP": 86,
+   "expanded_passed_nodes_RP": 0
+  },
+  "flat5x6": {
+   "CC==frozen (all rows)": 42,
+   "testable": 26,
+   "before: textbook mismatch": 3,
+   "before: ep-aware mismatch": 3,
+   "after: CC mismatch": 3,
+   "after: CC mismatch (frozen==real, i.e. 0 expected)": 0,
+   "race-at-start rows with exact real value": 12,
+   "  race rows: CC matches real": 7,
+   "after: CC mismatch where frozen==CC (king effect)": 3,
+   "nodes_S": 86,
+   "expanded_passed_nodes_S": 2,
+   "nodes_RP": 86,
+   "expanded_passed_nodes_RP": 0
+  }
+ }
+}

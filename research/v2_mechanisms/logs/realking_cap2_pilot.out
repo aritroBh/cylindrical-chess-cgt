@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/Users/aritro/Downloads/Research/Chessendgames/research/v2_mechanisms/realking2.py", line 17, in <module>
+    res, log, peak, secs = rk.run_kp(lines, "realking_cap2_pilot")
+                           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/aritro/Downloads/Research/Chessendgames/research/v2_mechanisms/realking.py", line 37, in run_kp
+    raise MemoryError(f"{tag}: kpsolve over 3.8 GB")
+MemoryError: realking_cap2_pilot: kpsolve over 3.8 GB
