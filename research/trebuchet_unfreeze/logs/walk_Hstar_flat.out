@@ -1,0 +1,56 @@
+root Ka4 Pb3 kc3 pb4 Pe3 pe5 w -: P-winner=White; graph nodes 59670; promotion leaves 17386
+rule variant: root wins? ; graph nodes agreeing with chess fixpoint
+  P (every promotion wins): root_win=True; agree with chess on 51643/59670 nodes
+  chess (true leaf value): root_win=False; agree with chess on 59670/59670 nodes
+  safe only (queen not capturable at once): root_win=True; agree with chess on 53987/59670 nodes
+  no-counter only (opp cannot promote at once): root_win=False; agree with chess on 56069/59670 nodes
+  safe and no-counter: root_win=False; agree with chess on 58390/59670 nodes
+leaf table (chess_win, safe, counter): count
+   (False, False, False) 357
+   (False, True, False) 235
+   (False, True, True) 1045
+   (True, False, False) 331
+   (True, True, False) 15338
+   (True, True, True) 80
+shallowest promotions that win in P but not in chess (plies from root, parent, move, leaf, chess value White-POV, attrs):
+   (11, 'Ka3 ka1 Pe4 Pb5 pe5 w -', 'Pb5b6=Q', 'Ka3 ka1 Pe4 pe5 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': False})
+   (11, 'Ka3 kc5 Pb5 pe5 w -', 'Pb5b6=Q', 'Ka3 kc5 pe5 Qb6 b -', 'D', {'sq': 'b6', 'safe': False, 'counter': False})
+   (11, 'Ka4 kc5 Pb5 pe5 w -', 'Pb5b6=Q', 'Ka4 kc5 pe5 Qb6 b -', 'D', {'sq': 'b6', 'safe': False, 'counter': False})
+   (11, 'Ka4 kc5 pe3 Pb5 w -', 'Pb5b6=Q', 'Ka4 kc5 pe3 Qb6 b -', 'L', {'sq': 'b6', 'safe': False, 'counter': False})
+   (11, 'Ka4 kc5 pe4 Pb5 w -', 'Pb5b6=Q', 'Ka4 kc5 pe4 Qb6 b -', 'D', {'sq': 'b6', 'safe': False, 'counter': False})
+   (11, 'Ka4 kd3 pe2 Pb5 w -', 'Pb5b6=Q', 'Ka4 kd3 pe2 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': True})
+   (11, 'Ka4 kd5 pe2 Pb5 w -', 'Pb5b6=Q', 'Ka4 kd5 pe2 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': True})
+   (11, 'Ka4 kf3 pe2 Pb5 w -', 'Pb5b6=Q', 'Ka4 kf3 pe2 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': True})
+   (11, 'Ka4 kf4 pe2 Pb5 w -', 'Pb5b6=Q', 'Ka4 kf4 pe2 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': True})
+   (11, 'Ka4 kf5 pe2 Pb5 w -', 'Pb5b6=Q', 'Ka4 kf5 pe2 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': True})
+   (11, 'Ka4 kg2 pe3 Pb5 w -', 'Pb5b6=Q', 'Ka4 kg2 pe3 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': False})
+   (11, 'Ka5 kc2 pe3 Pb5 w -', 'Pb5b6=Q', 'Ka5 kc2 pe3 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': False})
+   (11, 'Ka5 kd2 pe3 Pb5 w -', 'Pb5b6=Q', 'Ka5 kd2 pe3 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': False})
+   (11, 'Ka5 kd3 pe2 Pb5 w -', 'Pb5b6=Q', 'Ka5 kd3 pe2 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': True})
+   (11, 'Ka5 kd5 pe2 Pb5 w -', 'Pb5b6=Q', 'Ka5 kd5 pe2 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': True})
+chess-non-win leaves that are safe and have no counter-promotion: 235
+   ('Ka1 kc1 pb3 Qe6 b -', 'D', {'sq': 'e6', 'safe': True, 'counter': False})
+   ('Ka1 kc2 pb3 Qe6 b -', 'D', {'sq': 'e6', 'safe': True, 'counter': False})
+   ('Ka1 ke1 pe2 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': False})
+   ('Ka1 kf1 pe3 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': False})
+   ('Ka1 kf2 pe2 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': False})
+   ('Ka1 kg1 pe2 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': False})
+   ('Ka1 kg2 pe3 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': False})
+   ('Ka2 ka4 Pe4 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': False})
+   ('Ka2 ka4 Pe5 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': False})
+   ('Ka2 ke1 pe2 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': False})
+   ('Ka2 kf1 pe3 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': False})
+   ('Ka2 kf2 pe2 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': False})
+   ('Ka2 kg1 pe2 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': False})
+   ('Ka2 kg2 pe3 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': False})
+   ('Ka3 ka1 Pe4 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': False})
+   ('Ka3 ka1 Pe4 pe5 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': False})
+   ('Ka3 ka1 Pe5 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': False})
+   ('Ka3 ka1 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': False})
+   ('Ka3 kb5 Pb4 Qe6 b -', 'D', {'sq': 'e6', 'safe': True, 'counter': False})
+   ('Ka3 ke1 pe2 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': False})
+   ('Ka3 kf1 pe3 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': False})
+   ('Ka3 kf2 pe2 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': False})
+   ('Ka3 kg1 pe2 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': False})
+   ('Ka3 kg2 pe3 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': False})
+   ('Ka4 ke1 pe2 Qb6 b -', 'D', {'sq': 'b6', 'safe': True, 'counter': False})

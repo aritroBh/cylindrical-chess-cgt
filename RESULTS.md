@@ -501,3 +501,12 @@ Answered 2026-10-16:
 - **Square-rule passer test S** (T74 Kilo referee, `research/v2_mechanisms_check/`): SOUND WITH FIXES; the rule holds
   (0 failures in 158,544 cases, COMPUTED-1) but the proof sketch leaves the e.p.-after-push and blocked-pawn lower-bound
   steps unargued. Status: COMPUTED-1, proof incomplete.
+- **When the trebuchet unfreezes** (`research/trebuchet_unfreeze/`, avenue 4; COMPUTED-1, skeptic-corrected):
+  - The 3 refuted P4 contexts (H*, H*2, H0 on cyl:7x6) fail through the rule "a promotion wins at once": requiring the
+    new queen to be safe AND no counter-promotion reproduces chess at all 12 roots (root level only; node level differs
+    on 302/49,087 and 673/57,757). QRBN vs Q and the stalemate rule change nothing. H0 is a seam effect (flat: convention holds).
+  - A tempo test in the frozen model (the mover wins now and after a pass) predicts whether a king move fails to lose:
+    96.5% CV on 7,755 king moves on cyl:6x6 (baseline 60.9%). Static features on the 8x8 suite: 83.1% vs 77.4% baseline.
+  - The frozen zero fails in 91 of 1,913 resolved random cyl:6x6 positions (4.8%; about 6.6% if the 87 unrun or killed
+    positions fail like the resolved cap-2 ones), 135 of 179 failures being chess draws. No good position-level rule found.
+  - Several cap-2 batches exceeded the 4 GB target (up to 5.3 GB peak); the limit is restated for later runs.

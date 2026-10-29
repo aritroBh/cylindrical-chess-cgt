@@ -1,0 +1,9 @@
+position_zero_fails 2220 179 0.919
+   one_feature npass<=0 fit 0.924 {'TP': 95, 'FN': 84, 'FP': 85, 'TN': 1956} cv 0.924 {'TP': 95, 'FN': 84, 'FP': 85, 'TN': 1956}
+   two_feature [dko_face<=2] x [n<=2] -> {(False, False):0, (False, True):0, (True, False):0, (True, True):1} fit 0.93 {'TP': 72, 'FN': 107, 'FP': 48, 'TN': 1993} cv 0.926 {'TP': 68, 'FN': 111, 'FP': 53, 'TN': 1988}
+king_move_not_loss 8994 3267 0.637
+   one_feature not(null_win<=0) fit 0.923 {'TP': 3074, 'FN': 193, 'FP': 504, 'TN': 5223} cv 0.923 {'TP': 3074, 'FN': 193, 'FP': 504, 'TN': 5223}
+   two_feature [null_win<=0] x [fzn_win<=0] -> {(False, False):1, (False, True):0, (True, False):0, (True, True):0} fit 0.954 {'TP': 2978, 'FN': 289, 'FP': 126, 'TN': 5601} cv 0.954 {'TP': 2978, 'FN': 289, 'FP': 126, 'TN': 5601}
+king_move_not_loss_given_frozen_win 4405 3148 0.715
+   one_feature not(null_win<=0) fit 0.933 {'TP': 2978, 'FN': 170, 'FP': 126, 'TN': 1131} cv 0.933 {'TP': 2978, 'FN': 170, 'FP': 126, 'TN': 1131}
+   two_feature [null_win<=0] x [dest_ctx<=0] -> {(False, False):1, (False, True):1, (True, False):0, (True, True):1} fit 0.937 {'TP': 3006, 'FN': 142, 'FP': 135, 'TN': 1122} cv 0.937 {'TP': 3006, 'FN': 142, 'FP': 135, 'TN': 1122}

@@ -1,0 +1,377 @@
+{
+ "positions_resolved": 2220,
+ "zero_fail": 179,
+ "position_zero_fails": {
+  "n": 2220,
+  "positive": 179,
+  "majority_baseline": 0.9193693693693694,
+  "one_feature": {
+   "rule": "npass<=0",
+   "acc_fit": 0.9238738738738739,
+   "confusion_fit": {
+    "TP": 95,
+    "FN": 84,
+    "FP": 85,
+    "TN": 1956
+   },
+   "cv5": {
+    "acc": 0.9238738738738739,
+    "confusion": {
+     "TP": 95,
+     "FN": 84,
+     "FP": 85,
+     "TN": 1956
+    }
+   },
+   "smallest_counterexample_per_h": {
+    "h=2": {
+     "pos": "Ka3 Pb2 Pd2 kc2 pb3 pd3 w -",
+     "move": null,
+     "truth": 0,
+     "predicted": 1,
+     "context_pawns": 2
+    },
+    "h=3": {
+     "pos": "Ka4 Pb3 Pd3 kc3 pb4 pd4 w -",
+     "move": null,
+     "truth": 0,
+     "predicted": 1,
+     "context_pawns": 2
+    },
+    "h=4": {
+     "pos": "Ka5 Pb4 Pd2 kc4 pb5 pd3 b -",
+     "move": null,
+     "truth": 0,
+     "predicted": 1,
+     "context_pawns": 2
+    }
+   }
+  },
+  "two_feature": {
+   "rule": "[dko_face<=2] x [n<=2] -> {(False, False):0, (False, True):0, (True, False):0, (True, True):1}",
+   "acc_fit": 0.9301801801801802,
+   "confusion_fit": {
+    "TP": 72,
+    "FN": 107,
+    "FP": 48,
+    "TN": 1993
+   },
+   "cv5": {
+    "acc": 0.9261261261261261,
+    "confusion": {
+     "TP": 68,
+     "FN": 111,
+     "FP": 53,
+     "TN": 1988
+    }
+   },
+   "smallest_counterexample_per_h": {
+    "h=2": {
+     "pos": "Ka3 Pb2 Pd2 kc2 pb3 pd3 b -",
+     "move": null,
+     "truth": 1,
+     "predicted": 0,
+     "context_pawns": 2
+    },
+    "h=3": {
+     "pos": "Ka4 Pb3 Pd3 kc3 pb4 pd4 w -",
+     "move": null,
+     "truth": 0,
+     "predicted": 1,
+     "context_pawns": 2
+    },
+    "h=4": {
+     "pos": "Ka5 Pb4 Pd2 kc4 pb5 pd3 w -",
+     "move": null,
+     "truth": 0,
+     "predicted": 1,
+     "context_pawns": 2
+    }
+   }
+  }
+ },
+ "king_move_not_loss": {
+  "n": 8994,
+  "positive": 3267,
+  "majority_baseline": 0.6367578385590393,
+  "one_feature": {
+   "rule": "not(null_win<=0)",
+   "acc_fit": 0.922503891483211,
+   "confusion_fit": {
+    "TP": 3074,
+    "FN": 193,
+    "FP": 504,
+    "TN": 5223
+   },
+   "cv5": {
+    "acc": 0.922503891483211,
+    "confusion": {
+     "TP": 3074,
+     "FN": 193,
+     "FP": 504,
+     "TN": 5223
+    }
+   },
+   "smallest_counterexample_per_h": {
+    "h=2": {
+     "pos": "Kc3 Pb2 Pf2 ka2 pb3 w -",
+     "move": "Kc3d2",
+     "truth": 0,
+     "predicted": 1,
+     "context_pawns": 1
+    },
+    "h=3": {
+     "pos": "Ka4 Pb3 Pd3 kc3 pb4 w -",
+     "move": "Ka4f3",
+     "truth": 0,
+     "predicted": 1,
+     "context_pawns": 1
+    },
+    "h=4": {
+     "pos": "Ka5 Pb4 kc4 pb5 pf5 b -",
+     "move": "Kc4d5",
+     "truth": 0,
+     "predicted": 1,
+     "context_pawns": 1
+    }
+   }
+  },
+  "two_feature": {
+   "rule": "[null_win<=0] x [fzn_win<=0] -> {(False, False):1, (False, True):0, (True, False):0, (True, True):0}",
+   "acc_fit": 0.9538581276406494,
+   "confusion_fit": {
+    "TP": 2978,
+    "FN": 289,
+    "FP": 126,
+    "TN": 5601
+   },
+   "cv5": {
+    "acc": 0.9538581276406494,
+    "confusion": {
+     "TP": 2978,
+     "FN": 289,
+     "FP": 126,
+     "TN": 5601
+    }
+   },
+   "smallest_counterexample_per_h": {
+    "h=2": {
+     "pos": "Kc3 Pb2 Pf2 ka2 pb3 w -",
+     "move": "Kc3d2",
+     "truth": 0,
+     "predicted": 1,
+     "context_pawns": 1
+    },
+    "h=3": {
+     "pos": "Ka4 Pb3 Pd3 kc3 pb4 w -",
+     "move": "Ka4f3",
+     "truth": 0,
+     "predicted": 1,
+     "context_pawns": 1
+    },
+    "h=4": {
+     "pos": "Ka5 Pb4 kc4 pb5 pf5 b -",
+     "move": "Kc4d5",
+     "truth": 0,
+     "predicted": 1,
+     "context_pawns": 1
+    }
+   }
+  }
+ },
+ "king_move_not_loss_given_frozen_win": {
+  "n": 4405,
+  "positive": 3148,
+  "majority_baseline": 0.7146424517593644,
+  "one_feature": {
+   "rule": "not(null_win<=0)",
+   "acc_fit": 0.9328036322360953,
+   "confusion_fit": {
+    "TP": 2978,
+    "FN": 170,
+    "FP": 126,
+    "TN": 1131
+   },
+   "cv5": {
+    "acc": 0.9328036322360953,
+    "confusion": {
+     "TP": 2978,
+     "FN": 170,
+     "FP": 126,
+     "TN": 1131
+    }
+   },
+   "smallest_counterexample_per_h": {
+    "h=2": {
+     "pos": "Kc3 Pb2 Pf2 ka2 pb3 w -",
+     "move": "Kc3d2",
+     "truth": 0,
+     "predicted": 1,
+     "context_pawns": 1
+    },
+    "h=3": {
+     "pos": "Ka4 Pb3 Pd3 kc3 pb4 w -",
+     "move": "Ka4f3",
+     "truth": 0,
+     "predicted": 1,
+     "context_pawns": 1
+    },
+    "h=4": {
+     "pos": "Ka5 Pb4 kc4 pb5 pf5 b -",
+     "move": "Kc4d5",
+     "truth": 0,
+     "predicted": 1,
+     "context_pawns": 1
+    }
+   }
+  },
+  "two_feature": {
+   "rule": "[null_win<=0] x [dest_ctx<=0] -> {(False, False):1, (False, True):1, (True, False):0, (True, True):1}",
+   "acc_fit": 0.937116912599319,
+   "confusion_fit": {
+    "TP": 3006,
+    "FN": 142,
+    "FP": 135,
+    "TN": 1122
+   },
+   "cv5": {
+    "acc": 0.937116912599319,
+    "confusion": {
+     "TP": 3006,
+     "FN": 142,
+     "FP": 135,
+     "TN": 1122
+    }
+   },
+   "smallest_counterexample_per_h": {
+    "h=2": {
+     "pos": "Kc3 Pb2 Pf2 ka2 pb3 w -",
+     "move": "Kc3d2",
+     "truth": 0,
+     "predicted": 1,
+     "context_pawns": 1
+    },
+    "h=3": {
+     "pos": "Ka4 Pb3 Pd3 kc3 pb4 w -",
+     "move": "Ka4f3",
+     "truth": 0,
+     "predicted": 1,
+     "context_pawns": 1
+    },
+    "h=4": {
+     "pos": "Ka5 Pb4 kc4 pb5 pf5 b -",
+     "move": "Kc4d5",
+     "truth": 0,
+     "predicted": 1,
+     "context_pawns": 1
+    }
+   }
+  }
+ },
+ "king_move_not_loss_given_frozen_loss": {
+  "n": 4589,
+  "not_loss": 119,
+  "examples": [
+   [
+    "Ka5 Pb4 Pf3 kc4 pb5 pf4 pf5 w -",
+    "Ka5f5",
+    "draw"
+   ],
+   [
+    "Ka5 Pb4 Pf3 kc4 pb5 pf4 pf5 w -",
+    "Ka5f4",
+    "draw"
+   ],
+   [
+    "Kc5 Pb4 Pe2 ka4 pb5 pd4 w -",
+    "Kc5d4",
+    "win"
+   ],
+   [
+    "Kc5 Pb4 Pd4 ka4 pb5 pd5 w -",
+    "Kc5d5",
+    "win"
+   ],
+   [
+    "Kc3 Pb2 Pf2 ka2 pb3 pf3 b -",
+    "Ka2f2",
+    "win"
+   ],
+   [
+    "Kc5 Pb4 Pf5 ka4 pb5 pd3 b -",
+    "Ka4f5",
+    "win"
+   ],
+   [
+    "Kc3 Pb2 Pf2 Pf4 ka2 pb3 pd2 w -",
+    "Kc3d2",
+    "win"
+   ],
+   [
+    "Kc4 Pb3 Pd2 ka3 pb4 pe4 w -",
+    "Kc4d4",
+    "draw"
+   ],
+   [
+    "Kc4 Pb3 Pd2 ka3 pb4 pe4 w -",
+    "Kc4d5",
+    "draw"
+   ],
+   [
+    "Kc5 Pb4 Pf5 ka4 pb5 pe5 pf4 b -",
+    "Ka4f5",
+    "win"
+   ],
+   [
+    "Ka4 Pb3 Pe3 kc3 pb4 pe4 w -",
+    "Ka4f4",
+    "draw"
+   ],
+   [
+    "Ka4 Pb3 Pe3 kc3 pb4 pe4 w -",
+    "Ka4f5",
+    "draw"
+   ],
+   [
+    "Kc5 Pb4 Pf5 ka4 pb5 pe3 b -",
+    "Ka4f5",
+    "win"
+   ],
+   [
+    "Kc5 Pb4 Pf5 ka4 pb5 pd5 pe3 b -",
+    "Ka4f5",
+    "win"
+   ],
+   [
+    "Ka3 Pb2 Pd2 kc2 pb3 pd3 b -",
+    "Kc2d2",
+    "win"
+   ],
+   [
+    "Ka3 Pb2 Pd3 kc2 pb3 pd4 pe5 b -",
+    "Kc2d3",
+    "win"
+   ],
+   [
+    "Ka4 Pb3 Pe2 kc3 pb4 pd4 b -",
+    "Kc3d2",
+    "draw"
+   ],
+   [
+    "Ka4 Pb3 Pf3 kc3 pb4 pf4 w -",
+    "Ka4a5",
+    "draw"
+   ],
+   [
+    "Ka4 Pb3 Pf3 kc3 pb4 pf4 w -",
+    "Ka4f4",
+    "draw"
+   ],
+   [
+    "Ka4 Pb3 Pf3 kc3 pb4 pf4 w -",
+    "Ka4f5",
+    "draw"
+   ]
+  ]
+ }
+}

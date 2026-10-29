@@ -1,0 +1,358 @@
+{
+ "root": "Ka4 Pb3 kc3 pb4 Pe2 pe5 w -",
+ "sw": "W",
+ "nodes": 57757,
+ "leaves": 17076,
+ "variants": {
+  "P (every promotion wins)": {
+   "root_win": true,
+   "agree": 51712
+  },
+  "chess (true leaf value)": {
+   "root_win": false,
+   "agree": 57757
+  },
+  "safe only (queen not capturable at once)": {
+   "root_win": true,
+   "agree": 54390
+  },
+  "no-counter only (opp cannot promote at once)": {
+   "root_win": true,
+   "agree": 54289
+  },
+  "safe and no-counter": {
+   "root_win": false,
+   "agree": 57084
+  }
+ },
+ "leaf_table": {
+  "(True, True, False)": 15309,
+  "(False, True, True)": 770,
+  "(True, False, False)": 365,
+  "(False, False, False)": 440,
+  "(True, True, True)": 148,
+  "(False, True, False)": 44
+ },
+ "shallowest": [
+  [
+   "11",
+   "Ka3 ka1 Pe4 Pb5 pe5 w -",
+   "Pb5b6=Q",
+   "Ka3 ka1 Pe4 pe5 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': True, 'counter': False}"
+  ],
+  [
+   "11",
+   "Ka3 kc5 Pb5 pe5 w -",
+   "Pb5b6=Q",
+   "Ka3 kc5 pe5 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': False, 'counter': False}"
+  ],
+  [
+   "11",
+   "Ka4 kc5 Pb5 pe5 w -",
+   "Pb5b6=Q",
+   "Ka4 kc5 pe5 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': False, 'counter': False}"
+  ],
+  [
+   "11",
+   "Ka4 kc5 pe3 Pb5 w -",
+   "Pb5b6=Q",
+   "Ka4 kc5 pe3 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': False, 'counter': False}"
+  ],
+  [
+   "11",
+   "Ka4 kc5 pe4 Pb5 w -",
+   "Pb5b6=Q",
+   "Ka4 kc5 pe4 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': False, 'counter': False}"
+  ],
+  [
+   "11",
+   "Ka4 kd3 pe2 Pb5 w -",
+   "Pb5b6=Q",
+   "Ka4 kd3 pe2 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': True, 'counter': True}"
+  ],
+  [
+   "11",
+   "Ka4 kd5 pe2 Pb5 w -",
+   "Pb5b6=Q",
+   "Ka4 kd5 pe2 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': True, 'counter': True}"
+  ],
+  [
+   "11",
+   "Ka4 kf4 pe2 Pb5 w -",
+   "Pb5b6=Q",
+   "Ka4 kf4 pe2 Qb6 b -",
+   "L",
+   "{'sq': 'b6', 'safe': True, 'counter': True}"
+  ],
+  [
+   "11",
+   "Ka4 kf5 pe2 Pb5 w -",
+   "Pb5b6=Q",
+   "Ka4 kf5 pe2 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': True, 'counter': True}"
+  ],
+  [
+   "11",
+   "Ka5 kd3 pe2 Pb5 w -",
+   "Pb5b6=Q",
+   "Ka5 kd3 pe2 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': True, 'counter': True}"
+  ],
+  [
+   "11",
+   "Ka5 kd5 pe2 Pb5 w -",
+   "Pb5b6=Q",
+   "Ka5 kd5 pe2 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': True, 'counter': True}"
+  ],
+  [
+   "11",
+   "Ka5 kf3 pe2 Pb5 w -",
+   "Pb5b6=Q",
+   "Ka5 kf3 pe2 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': True, 'counter': True}"
+  ],
+  [
+   "11",
+   "Ka5 kf4 pe2 Pb5 w -",
+   "Pb5b6=Q",
+   "Ka5 kf4 pe2 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': True, 'counter': True}"
+  ],
+  [
+   "11",
+   "Ka5 kf5 pe2 Pb5 w -",
+   "Pb5b6=Q",
+   "Ka5 kf5 pe2 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': True, 'counter': True}"
+  ],
+  [
+   "11",
+   "Kc3 kc1 Pe4 Pb5 pe5 w -",
+   "Pb5b6=Q",
+   "Kc3 kc1 Pe4 pe5 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': True, 'counter': False}"
+  ],
+  [
+   "11",
+   "Kc3 kc5 Pb5 pe5 w -",
+   "Pb5b6=Q",
+   "Kc3 kc5 pe5 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': False, 'counter': False}"
+  ],
+  [
+   "11",
+   "Kc4 ka5 Pb5 pe5 w -",
+   "Pb5b6=Q",
+   "Kc4 ka5 pe5 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': False, 'counter': False}"
+  ],
+  [
+   "11",
+   "Kc4 kf4 pe2 Pb5 w -",
+   "Pb5b6=Q",
+   "Kc4 kf4 pe2 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': True, 'counter': True}"
+  ],
+  [
+   "11",
+   "Kc4 kf5 pe2 Pb5 w -",
+   "Pb5b6=Q",
+   "Kc4 kf5 pe2 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': True, 'counter': True}"
+  ],
+  [
+   "11",
+   "Kc5 kd3 pe2 Pb5 w -",
+   "Pb5b6=Q",
+   "Kc5 kd3 pe2 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': True, 'counter': True}"
+  ],
+  [
+   "11",
+   "Kc5 kf4 pe2 Pb5 w -",
+   "Pb5b6=Q",
+   "Kc5 kf4 pe2 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': True, 'counter': True}"
+  ],
+  [
+   "11",
+   "Kc5 kf5 pe2 Pb5 w -",
+   "Pb5b6=Q",
+   "Kc5 kf5 pe2 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': True, 'counter': True}"
+  ],
+  [
+   "13",
+   "Ka2 ka5 Pb5 pe5 w -",
+   "Pb5b6=Q",
+   "Ka2 ka5 pe5 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': False, 'counter': False}"
+  ],
+  [
+   "13",
+   "Ka2 ka5 Pe4 Pb5 pe5 w -",
+   "Pb5b6=Q",
+   "Ka2 ka5 Pe4 pe5 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': False, 'counter': False}"
+  ],
+  [
+   "13",
+   "Ka2 kc5 Pb5 pe5 w -",
+   "Pb5b6=Q",
+   "Ka2 kc5 pe5 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': False, 'counter': False}"
+  ],
+  [
+   "13",
+   "Ka2 kc5 Pe4 Pb5 pe5 w -",
+   "Pb5b6=Q",
+   "Ka2 kc5 Pe4 pe5 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': False, 'counter': False}"
+  ],
+  [
+   "13",
+   "Ka2 kc5 pe3 Pb5 w -",
+   "Pb5b6=Q",
+   "Ka2 kc5 pe3 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': False, 'counter': False}"
+  ],
+  [
+   "13",
+   "Ka2 kc5 pe4 Pb5 w -",
+   "Pb5b6=Q",
+   "Ka2 kc5 pe4 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': False, 'counter': False}"
+  ],
+  [
+   "13",
+   "Ka2 kd3 pe2 Pb5 w -",
+   "Pb5b6=Q",
+   "Ka2 kd3 pe2 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': True, 'counter': True}"
+  ],
+  [
+   "13",
+   "Ka2 kd5 pe2 Pb5 w -",
+   "Pb5b6=Q",
+   "Ka2 kd5 pe2 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': True, 'counter': True}"
+  ],
+  [
+   "13",
+   "Ka2 kf4 pe2 Pb5 w -",
+   "Pb5b6=Q",
+   "Ka2 kf4 pe2 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': True, 'counter': True}"
+  ],
+  [
+   "13",
+   "Ka2 kf5 pe2 Pb5 w -",
+   "Pb5b6=Q",
+   "Ka2 kf5 pe2 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': True, 'counter': True}"
+  ],
+  [
+   "13",
+   "Ka3 ka5 Pb5 pe5 w -",
+   "Pb5b6=Q",
+   "Ka3 ka5 pe5 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': False, 'counter': False}"
+  ],
+  [
+   "13",
+   "Ka3 ka5 pe3 Pb5 w -",
+   "Pb5b6=Q",
+   "Ka3 ka5 pe3 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': False, 'counter': False}"
+  ],
+  [
+   "13",
+   "Ka3 ka5 pe4 Pb5 w -",
+   "Pb5b6=Q",
+   "Ka3 ka5 pe4 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': False, 'counter': False}"
+  ],
+  [
+   "13",
+   "Ka3 kc2 pe2 Pb5 w -",
+   "Pb5b6=Q",
+   "Ka3 kc2 pe2 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': True, 'counter': True}"
+  ],
+  [
+   "13",
+   "Ka3 kc5 pe3 Pb5 w -",
+   "Pb5b6=Q",
+   "Ka3 kc5 pe3 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': False, 'counter': False}"
+  ],
+  [
+   "13",
+   "Ka3 kc5 pe4 Pb5 w -",
+   "Pb5b6=Q",
+   "Ka3 kc5 pe4 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': False, 'counter': False}"
+  ],
+  [
+   "13",
+   "Ka3 kd3 pe2 Pb5 w -",
+   "Pb5b6=Q",
+   "Ka3 kd3 pe2 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': True, 'counter': True}"
+  ],
+  [
+   "13",
+   "Ka3 kd5 pe2 Pb5 w -",
+   "Pb5b6=Q",
+   "Ka3 kd5 pe2 Qb6 b -",
+   "D",
+   "{'sq': 'b6', 'safe': True, 'counter': True}"
+  ]
+ ]
+}

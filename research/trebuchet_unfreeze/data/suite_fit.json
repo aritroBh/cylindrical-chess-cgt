@@ -1,0 +1,328 @@
+{
+ "king_move_not_loss": {
+  "n": 1113,
+  "positive": 252,
+  "majority_baseline": 0.7735849056603774,
+  "stump": {
+   "rule": "not(npred<=2)",
+   "acc_fit": 0.7870619946091644,
+   "confusion_fit": {
+    "TP": 80,
+    "FN": 172,
+    "FP": 65,
+    "TN": 796
+   },
+   "cv5": {
+    "acc": 0.7735849056603774,
+    "confusion": {
+     "TP": 66,
+     "FN": 186,
+     "FP": 66,
+     "TN": 795
+    }
+   },
+   "smallest_counterexample_per_layout": {
+    "A2": {
+     "id": "cgt191",
+     "move": "f3e2",
+     "truth": "loss",
+     "predicted_not_loss": true,
+     "component_pawns": 3,
+     "dcomp": 2,
+     "maxlen": 6
+    },
+    "A3": {
+     "id": "cgt192",
+     "move": "f4e3",
+     "truth": "loss",
+     "predicted_not_loss": true,
+     "component_pawns": 3,
+     "dcomp": 2,
+     "maxlen": 6
+    },
+    "A4": {
+     "id": "cgt002",
+     "move": "f5e6",
+     "truth": "draw",
+     "predicted_not_loss": false,
+     "component_pawns": 2,
+     "dcomp": 1,
+     "maxlen": 3
+    },
+    "A5": {
+     "id": "cgt259",
+     "move": "f6e5",
+     "truth": "draw",
+     "predicted_not_loss": false,
+     "component_pawns": 2,
+     "dcomp": 2,
+     "maxlen": 3
+    },
+    "A6": {
+     "id": "cgt195",
+     "move": "f7e8",
+     "truth": "loss",
+     "predicted_not_loss": true,
+     "component_pawns": 3,
+     "dcomp": 3,
+     "maxlen": 6
+    },
+    "B2": {
+     "id": "cgt196",
+     "move": "h3g4",
+     "truth": "loss",
+     "predicted_not_loss": true,
+     "component_pawns": 3,
+     "dcomp": 4,
+     "maxlen": 6
+    },
+    "B3": {
+     "id": "cgt197",
+     "move": "h4g5",
+     "truth": "loss",
+     "predicted_not_loss": true,
+     "component_pawns": 3,
+     "dcomp": 4,
+     "maxlen": 6
+    },
+    "B4": {
+     "id": "cgt198",
+     "move": "h5g6",
+     "truth": "loss",
+     "predicted_not_loss": true,
+     "component_pawns": 3,
+     "dcomp": 4,
+     "maxlen": 6
+    },
+    "B5": {
+     "id": "cgt199",
+     "move": "h6g7",
+     "truth": "loss",
+     "predicted_not_loss": true,
+     "component_pawns": 3,
+     "dcomp": 5,
+     "maxlen": 6
+    },
+    "B6": {
+     "id": "cgt200",
+     "move": "h7g8",
+     "truth": "loss",
+     "predicted_not_loss": true,
+     "component_pawns": 3,
+     "dcomp": 5,
+     "maxlen": 6
+    }
+   }
+  },
+  "pair": {
+   "rule": "[maxlen<=2] x [nW<=1] -> {(False, False):0, (False, True):0, (True, False):1, (True, True):0}",
+   "acc_fit": 0.8310871518418689,
+   "confusion_fit": {
+    "TP": 149,
+    "FN": 103,
+    "FP": 85,
+    "TN": 776
+   },
+   "cv5": {
+    "acc": 0.8086253369272237,
+    "confusion": {
+     "TP": 130,
+     "FN": 122,
+     "FP": 91,
+     "TN": 770
+    }
+   },
+   "smallest_counterexample_per_layout": {
+    "A3": {
+     "id": "cgt242",
+     "move": "f4e3",
+     "truth": "loss",
+     "predicted_not_loss": true,
+     "component_pawns": 3,
+     "dcomp": 1,
+     "maxlen": 2
+    },
+    "A4": {
+     "id": "cgt002",
+     "move": "f5e6",
+     "truth": "draw",
+     "predicted_not_loss": false,
+     "component_pawns": 2,
+     "dcomp": 1,
+     "maxlen": 3
+    },
+    "A5": {
+     "id": "cgt259",
+     "move": "f6e5",
+     "truth": "draw",
+     "predicted_not_loss": false,
+     "component_pawns": 2,
+     "dcomp": 2,
+     "maxlen": 3
+    },
+    "A6": {
+     "id": "cgt195",
+     "move": "f7e6",
+     "truth": "draw",
+     "predicted_not_loss": false,
+     "component_pawns": 3,
+     "dcomp": 3,
+     "maxlen": 6
+    },
+    "B2": {
+     "id": "cgt227",
+     "move": "h3g4",
+     "truth": "loss",
+     "predicted_not_loss": true,
+     "component_pawns": 3,
+     "dcomp": 6,
+     "maxlen": 1
+    },
+    "B3": {
+     "id": "cgt230",
+     "move": "h4g5",
+     "truth": "loss",
+     "predicted_not_loss": true,
+     "component_pawns": 3,
+     "dcomp": 5,
+     "maxlen": 1
+    },
+    "B4": {
+     "id": "cgt202",
+     "move": "f4e3",
+     "truth": "draw",
+     "predicted_not_loss": false,
+     "component_pawns": 3,
+     "dcomp": 3,
+     "maxlen": 1
+    },
+    "B6": {
+     "id": "cgt228",
+     "move": "h7h8",
+     "truth": "loss",
+     "predicted_not_loss": true,
+     "component_pawns": 3,
+     "dcomp": 5,
+     "maxlen": 1
+    }
+   }
+  }
+ },
+ "king_move_wins": {
+  "n": 1113,
+  "positive": 96,
+  "majority_baseline": 0.9137466307277629,
+  "stump": {
+   "rule": "tempo<=-3.0",
+   "acc_fit": 0.9065588499550764,
+   "confusion_fit": {
+    "TP": 0,
+    "FN": 96,
+    "FP": 8,
+    "TN": 1009
+   },
+   "cv5": {
+    "acc": 0.9065588499550764,
+    "confusion": {
+     "TP": 0,
+     "FN": 96,
+     "FP": 8,
+     "TN": 1009
+    }
+   },
+   "smallest_counterexample_per_layout": {
+    "A4": {
+     "id": "cgt008",
+     "move": "f5f6",
+     "truth": "win",
+     "predicted_not_loss": false,
+     "component_pawns": 3,
+     "dcomp": 2,
+     "maxlen": 1
+    },
+    "A5": {
+     "id": "cgt236",
+     "move": "f6e5",
+     "truth": "win",
+     "predicted_not_loss": false,
+     "component_pawns": 3,
+     "dcomp": 1,
+     "maxlen": 1
+    }
+   }
+  },
+  "pair": {
+   "rule": "[maxlen<=3] x [npred<=2] -> {(False, False):0, (False, True):0, (True, False):1, (True, True):0}",
+   "acc_fit": 0.9209344115004492,
+   "confusion_fit": {
+    "TP": 32,
+    "FN": 64,
+    "FP": 24,
+    "TN": 993
+   },
+   "cv5": {
+    "acc": 0.9092542677448338,
+    "confusion": {
+     "TP": 13,
+     "FN": 83,
+     "FP": 18,
+     "TN": 999
+    }
+   },
+   "smallest_counterexample_per_layout": {
+    "A4": {
+     "id": "cgt008",
+     "move": "f5f6",
+     "truth": "win",
+     "predicted_not_loss": false,
+     "component_pawns": 3,
+     "dcomp": 2,
+     "maxlen": 1
+    },
+    "A5": {
+     "id": "cgt236",
+     "move": "f6e5",
+     "truth": "win",
+     "predicted_not_loss": false,
+     "component_pawns": 3,
+     "dcomp": 1,
+     "maxlen": 1
+    },
+    "B4": {
+     "id": "cgt261",
+     "move": "h5g6",
+     "truth": "loss",
+     "predicted_not_loss": true,
+     "component_pawns": 3,
+     "dcomp": 3,
+     "maxlen": 2
+    }
+   }
+  }
+ },
+ "king_move_not_loss_given_frozen_win": {
+  "n": 872,
+  "positive": 220,
+  "majority_baseline": 0.7477064220183486,
+  "stump": {
+   "rule": "not(npred<=2)",
+   "acc_fit": 0.7649082568807339,
+   "confusion_fit": {
+    "TP": 80,
+    "FN": 140,
+    "FP": 65,
+    "TN": 587
+   }
+  },
+  "pair": {
+   "rule": "[maxlen<=2] x [nW<=1] -> {(False, False):0, (False, True):0, (True, False):1, (True, True):0}",
+   "acc_fit": 0.801605504587156,
+   "confusion_fit": {
+    "TP": 118,
+    "FN": 102,
+    "FP": 71,
+    "TN": 581
+   }
+  }
+ }
+}

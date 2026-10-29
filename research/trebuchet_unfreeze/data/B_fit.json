@@ -1,0 +1,377 @@
+{
+ "positions_resolved": 384,
+ "zero_fail": 112,
+ "position_zero_fails": {
+  "n": 384,
+  "positive": 112,
+  "majority_baseline": 0.7083333333333334,
+  "one_feature": {
+   "rule": "dko_face<=2",
+   "acc_fit": 0.78125,
+   "confusion_fit": {
+    "TP": 76,
+    "FN": 36,
+    "FP": 48,
+    "TN": 224
+   },
+   "cv5": {
+    "acc": 0.7526041666666666,
+    "confusion": {
+     "TP": 72,
+     "FN": 40,
+     "FP": 55,
+     "TN": 217
+    }
+   },
+   "smallest_counterexample_per_h": {
+    "h=2": {
+     "pos": "Ka3 Pb2 Pd2 kc2 pb3 pd3 b -",
+     "move": null,
+     "truth": 1,
+     "predicted": 0,
+     "context_pawns": 2
+    },
+    "h=3": {
+     "pos": "Ka4 Pb3 Pd3 kc3 pb4 pd4 b -",
+     "move": null,
+     "truth": 1,
+     "predicted": 0,
+     "context_pawns": 2
+    },
+    "h=4": {
+     "pos": "Ka5 Pb4 Pd2 kc4 pb5 pd3 w -",
+     "move": null,
+     "truth": 0,
+     "predicted": 1,
+     "context_pawns": 2
+    }
+   }
+  },
+  "two_feature": {
+   "rule": "[dko_face<=2] x [mingap<=1] -> {(False, False):0, (False, True):1, (True, False):1, (True, True):0}",
+   "acc_fit": 0.8541666666666666,
+   "confusion_fit": {
+    "TP": 72,
+    "FN": 40,
+    "FP": 16,
+    "TN": 256
+   },
+   "cv5": {
+    "acc": 0.8541666666666666,
+    "confusion": {
+     "TP": 72,
+     "FN": 40,
+     "FP": 16,
+     "TN": 256
+    }
+   },
+   "smallest_counterexample_per_h": {
+    "h=2": {
+     "pos": "Ka3 Pb2 Pe2 kc2 pb3 pe3 b -",
+     "move": null,
+     "truth": 1,
+     "predicted": 0,
+     "context_pawns": 2
+    },
+    "h=3": {
+     "pos": "Ka4 Pb3 Pd4 kc3 pb4 pd5 w -",
+     "move": null,
+     "truth": 1,
+     "predicted": 0,
+     "context_pawns": 2
+    },
+    "h=4": {
+     "pos": "Ka5 Pb4 Pd2 kc4 pb5 pd3 b -",
+     "move": null,
+     "truth": 0,
+     "predicted": 1,
+     "context_pawns": 2
+    }
+   }
+  }
+ },
+ "king_move_not_loss": {
+  "n": 1484,
+  "positive": 292,
+  "majority_baseline": 0.8032345013477089,
+  "one_feature": {
+   "rule": "res_diff<=-1",
+   "acc_fit": 0.889487870619946,
+   "confusion_fit": {
+    "TP": 160,
+    "FN": 132,
+    "FP": 32,
+    "TN": 1160
+   },
+   "cv5": {
+    "acc": 0.889487870619946,
+    "confusion": {
+     "TP": 160,
+     "FN": 132,
+     "FP": 32,
+     "TN": 1160
+    }
+   },
+   "smallest_counterexample_per_h": {
+    "h=2": {
+     "pos": "Ka3 Pb2 Pd2 kc2 pb3 pd3 b -",
+     "move": "Kc2d2",
+     "truth": 1,
+     "predicted": 0,
+     "context_pawns": 2
+    },
+    "h=3": {
+     "pos": "Ka4 Pb3 Pd3 kc3 pb4 pd4 b -",
+     "move": "Kc3c2",
+     "truth": 1,
+     "predicted": 0,
+     "context_pawns": 2
+    },
+    "h=4": {
+     "pos": "Ka5 Pb4 Pd4 kc4 pb5 pd5 b -",
+     "move": "Kc4d4",
+     "truth": 1,
+     "predicted": 0,
+     "context_pawns": 2
+    }
+   }
+  },
+  "two_feature": {
+   "rule": "[res_diff<=-1] x [dest_ctx<=0] -> {(False, False):0, (False, True):1, (True, False):1, (True, True):1}",
+   "acc_fit": 0.9137466307277629,
+   "confusion_fit": {
+    "TP": 196,
+    "FN": 96,
+    "FP": 32,
+    "TN": 1160
+   },
+   "cv5": {
+    "acc": 0.9070080862533693,
+    "confusion": {
+     "TP": 204,
+     "FN": 88,
+     "FP": 50,
+     "TN": 1142
+    }
+   },
+   "smallest_counterexample_per_h": {
+    "h=2": {
+     "pos": "Ka3 Pb2 Pd3 kc2 pb3 pd4 b -",
+     "move": "Kc2d2",
+     "truth": 1,
+     "predicted": 0,
+     "context_pawns": 2
+    },
+    "h=3": {
+     "pos": "Ka4 Pb3 Pd3 kc3 pb4 pd4 b -",
+     "move": "Kc3c2",
+     "truth": 1,
+     "predicted": 0,
+     "context_pawns": 2
+    },
+    "h=4": {
+     "pos": "Ka5 Pb4 Pd5 kc4 pb5 pd3 w -",
+     "move": "Ka5a6",
+     "truth": 0,
+     "predicted": 1,
+     "context_pawns": 2
+    }
+   }
+  }
+ },
+ "king_move_not_loss_given_frozen_win": {
+  "n": 756,
+  "positive": 196,
+  "majority_baseline": 0.7407407407407407,
+  "one_feature": {
+   "rule": "not(null_win<=0)",
+   "acc_fit": 0.91005291005291,
+   "confusion_fit": {
+    "TP": 160,
+    "FN": 36,
+    "FP": 32,
+    "TN": 528
+   },
+   "cv5": {
+    "acc": 0.91005291005291,
+    "confusion": {
+     "TP": 160,
+     "FN": 36,
+     "FP": 32,
+     "TN": 528
+    }
+   },
+   "smallest_counterexample_per_h": {
+    "h=2": {
+     "pos": "Ka3 Pb2 Pe4 kc2 pb3 pe3 w -",
+     "move": "Ka3f3",
+     "truth": 1,
+     "predicted": 0,
+     "context_pawns": 2
+    },
+    "h=3": {
+     "pos": "Ka4 Pb3 Pd4 kc3 pb4 pd3 b -",
+     "move": "Kc3d4",
+     "truth": 1,
+     "predicted": 0,
+     "context_pawns": 2
+    },
+    "h=4": {
+     "pos": "Ka5 Pb4 Pd5 kc4 pb5 pd2 b -",
+     "move": "Kc4d5",
+     "truth": 1,
+     "predicted": 0,
+     "context_pawns": 2
+    }
+   }
+  },
+  "two_feature": {
+   "rule": "[null_win<=0] x [dkopp_ctx<=1] -> {(False, False):1, (False, True):0, (True, False):0, (True, True):0}",
+   "acc_fit": 0.9312169312169312,
+   "confusion_fit": {
+    "TP": 144,
+    "FN": 52,
+    "FP": 0,
+    "TN": 560
+   },
+   "cv5": {
+    "acc": 0.917989417989418,
+    "confusion": {
+     "TP": 152,
+     "FN": 44,
+     "FP": 18,
+     "TN": 542
+    }
+   },
+   "smallest_counterexample_per_h": {
+    "h=2": {
+     "pos": "Ka3 Pb2 Pe4 kc2 pb3 pe3 w -",
+     "move": "Ka3f3",
+     "truth": 1,
+     "predicted": 0,
+     "context_pawns": 2
+    },
+    "h=3": {
+     "pos": "Ka4 Pb3 Pd4 kc3 pb4 pd3 b -",
+     "move": "Kc3d4",
+     "truth": 1,
+     "predicted": 0,
+     "context_pawns": 2
+    },
+    "h=4": {
+     "pos": "Ka5 Pb4 Pd5 kc4 pb5 pd2 b -",
+     "move": "Kc4d5",
+     "truth": 1,
+     "predicted": 0,
+     "context_pawns": 2
+    }
+   }
+  }
+ },
+ "king_move_not_loss_given_frozen_loss": {
+  "n": 728,
+  "not_loss": 96,
+  "examples": [
+   [
+    "Ka3 Pb2 Pd2 kc2 pb3 pd3 b -",
+    "Kc2d2",
+    "win"
+   ],
+   [
+    "Ka3 Pb2 Pd3 kc2 pb3 pd4 b -",
+    "Kc2d2",
+    "draw"
+   ],
+   [
+    "Ka3 Pb2 Pd3 kc2 pb3 pd4 b -",
+    "Kc2d3",
+    "draw"
+   ],
+   [
+    "Ka3 Pb2 Pd4 kc2 pb3 pd5 b -",
+    "Kc2d3",
+    "draw"
+   ],
+   [
+    "Ka3 Pb2 Pe2 kc2 pb3 pe3 b -",
+    "Kc2c1",
+    "draw"
+   ],
+   [
+    "Ka3 Pb2 Pe2 kc2 pb3 pe3 b -",
+    "Kc2d2",
+    "draw"
+   ],
+   [
+    "Ka3 Pb2 Pe2 kc2 pb3 pe3 b -",
+    "Kc2d1",
+    "draw"
+   ],
+   [
+    "Ka3 Pb2 Pe3 kc2 pb3 pe4 b -",
+    "Kc2d2",
+    "draw"
+   ],
+   [
+    "Ka3 Pb2 Pe3 kc2 pb3 pe4 b -",
+    "Kc2d3",
+    "draw"
+   ],
+   [
+    "Ka3 Pb2 Pe4 kc2 pb3 pe5 b -",
+    "Kc2d3",
+    "draw"
+   ],
+   [
+    "Ka3 Pb2 Pf2 kc2 pb3 pf3 w -",
+    "Ka3f3",
+    "draw"
+   ],
+   [
+    "Ka3 Pb2 Pf3 kc2 pb3 pf2 w -",
+    "Ka3f2",
+    "draw"
+   ],
+   [
+    "Ka3 Pb2 Pf4 kc2 pb3 pf2 w -",
+    "Ka3f2",
+    "win"
+   ],
+   [
+    "Kc3 Pb2 Pd2 ka2 pb3 pd3 w -",
+    "Kc3d3",
+    "draw"
+   ],
+   [
+    "Kc3 Pb2 Pd3 ka2 pb3 pd2 w -",
+    "Kc3d2",
+    "draw"
+   ],
+   [
+    "Kc3 Pb2 Pd4 ka2 pb3 pd2 w -",
+    "Kc3d2",
+    "win"
+   ],
+   [
+    "Kc3 Pb2 Pe2 ka2 pb3 pe3 b -",
+    "Ka2a1",
+    "draw"
+   ],
+   [
+    "Kc3 Pb2 Pe2 ka2 pb3 pe3 b -",
+    "Ka2f2",
+    "draw"
+   ],
+   [
+    "Kc3 Pb2 Pe2 ka2 pb3 pe3 b -",
+    "Ka2f1",
+    "draw"
+   ],
+   [
+    "Kc3 Pb2 Pe3 ka2 pb3 pe4 b -",
+    "Ka2f2",
+    "draw"
+   ]
+  ]
+ }
+}
