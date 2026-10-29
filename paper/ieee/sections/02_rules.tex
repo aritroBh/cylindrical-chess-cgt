@@ -24,7 +24,7 @@ number appears; both stops of $0$ and of $\nim{2}$ are $0$. Infinitesimals such 
 $\tinyg{1}=\ggame{0}{0\mid -1}$ are introduced with their positions in Section~\ref{sec:basic}.
 
 \subsection{Normal Play and the Passed-Pawn Convention}
-Following Elkies~\cite{Elkies1996}, we change chess just enough to fit normal play~\cite{WinningWays}.
+Following Elkies~\cite{Elkies1996}, we change chess just enough for normal play~\cite{WinningWays}.
 \begin{itemize}
 \item In pawn-only positions, a player who has no move loses; there are no null moves.
 \item A position in which exactly one side has a passed pawn is decided, worth $+\BIG$ if that pawn is white and
@@ -34,13 +34,14 @@ Following Elkies~\cite{Elkies1996}, we change chess just enough to fit normal pl
   never moves them and counts the group as $0$, since whoever moves a king there first loses a pawn, and then
   the game. Section~\ref{sec:kings} asks when this is exact.
 \end{itemize}
-A move, usually a capture, can give both sides a passed pawn; such a race needs a rule:
+A move, usually a capture, can give both sides a passed pawn; such a \emph{race position} needs a rule:
 \begin{itemize}
-\item \emph{count}: fewer moves to promote wins; the side that did not move goes first and wins a tie;
+\item \emph{count}: the side whose passed pawn needs fewer moves to promote wins, counting as on an empty
+  board with a double step as one move; a tie goes to the side that did not move;
 \item \emph{mover}: the side that made the move wins;
 \item \emph{opponent}: the other side wins.
 \end{itemize}
-None is exact chess: a new queen may give check or stop the other pawn.
+None is exact: a new queen may check or stop the other pawn.
 
 \subsection{En Passant and the Passed-Pawn Test}\label{sec:ep}
 The textbook test calls a pawn passed if no enemy pawn stands ahead of it on its own file or a neighboring file
@@ -50,7 +51,7 @@ more systematic treatment of en passant~\cite{Elkies1996}; we use a stricter tes
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=0.36\columnwidth]{figures/ep_test.pdf}
+\includegraphics[width=0.30\columnwidth]{figures/ep_test.pdf}
 \caption{Position \pos{W a2 / B b4} (ordinary board), value $0$. After a2--a4 (arrow) the textbook test calls the
 a-pawn passed, but b4$\times$a3 en passant removes it; under Definition~\ref{def:epaware} it is not passed.}
 \label{fig:ep_test}
@@ -121,5 +122,7 @@ No pawn can move onto the empty file, so cutting the board there changes no lega
 no passed-pawn test: the files beside the cut lose only a neighbor that stays empty forever.
 \end{proof}
 
-Hence values only a cylinder can make must come from rings (Section~\ref{sec:atlas});
-Section~\ref{sec:sums-hss} says when a sum of components still names the right winner.
+Hence values only a cylinder can make must come from rings (Section~\ref{sec:atlas}). A ring leaves no
+pawn-free buffer for a king group (Section~\ref{sec:kings-valid}), so ring values belong to the pawn-only model.
+
+Section~\ref{sec:sums-hss} says when a sum names the right winner.

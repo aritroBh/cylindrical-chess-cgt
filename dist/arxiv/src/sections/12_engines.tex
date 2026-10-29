@@ -2,11 +2,11 @@
 
 CGT suggests which endgames may trouble an engine: an infinitesimal such as ${\uparrow}$ is a fight over one
 spare tempo and a nimber such as $\star$ a fight over parity; neither shows in the material, so a static
-evaluation can miss them until the search reaches the end of the fight.
+evaluation can miss them until the search sees the fight's end.
 
 \subsection{A CGT Test Suite}
 
-We built $233$ legal positions on the ordinary $8\times8$ board with at most seven men, each labeled by the class of its CGT value
+We built $233$ legal positions on the ordinary $8\times8$ board with at most seven men, each labeled by its CGT class
 (Table~\ref{tab:sf}). In $181$ of them the Lichess tablebase~\cite{LichessTB} confirms the winning moves that
 CGT predicts; in the other $52$ the model and the tablebase disagree, so we score the engines against the
 tablebase.
@@ -17,13 +17,14 @@ We ran Stockfish~19~\cite{Stockfish} on one thread with a $64$~MB hash and no ta
 positions at $10^5$ nodes, and $232$ already at $10^3$ \lab{C1}. The classes separate at a small fixed depth
 (Table~\ref{tab:sf}). At depth~1 the engine reads hot positions, numbers and switches correctly
 $73$--$81\%$ of the time, but infinitesimals only $30\%$ ($26\%$ at depth~2) and nimbers $53\%$
-\lab{C1}: exactly the tempo and parity fights that CGT singles out. Both classes reach $100\%$ by depth~8.
+\lab{C1}, consistent with tempo and parity fights, though nimbers and the class \emph{other} are not clearly
+separated at this sample size. Both classes reach $100\%$ by depth~8.
 With one engine and a small sample, this is a pilot result.
 
 \begin{table}[!t]
 \centering
-\caption{Stockfish~19 at Fixed Depth: Share of Evaluations (\%) That Match the Tablebase, by CGT Class. Seven
-Positions Already Decided (Value $+\BIG$ or $-\BIG$) Are Omitted}
+\caption{Stockfish~19 at Fixed Depth: Evaluations (\%) Matching the Tablebase, by CGT Class, Without the
+Seven Decided ($\pm\BIG$) Positions}
 \label{tab:sf}
 \footnotesize
 \begin{tabular}{@{}lrrrrrrr@{}}
@@ -46,10 +47,8 @@ infinitesimal & 27 & 30 & 26 & 59 & 85 & 100 & 100 \\
 $\BIG$ that fall in none of the other classes, such as tinies and games $\game{a\pm x}{b\pm y}$.}
 \end{table}
 
-Lc0~v0.32.1~\cite{Lc0}, with its bundled network, is perfect at all four budgets, $10^3$ to $10^6$ nodes:
-every best move keeps the tablebase result and every evaluation matches it, and it calls all $17$ draws
-correctly from $10^3$ nodes on \lab{C1}. At practical budgets the suite is therefore too easy for both
-engines; only Stockfish at small fixed depth separates the classes.
+Lc0~v0.32.1~\cite{Lc0}, with its bundled network, is perfect at all four budgets, $10^3$ to $10^6$ nodes,
+all $17$ draws included \lab{C1}, so at practical budgets the suite is too easy for both engines.
 
 \subsection{ChessSums}
 
@@ -65,18 +64,15 @@ almost nothing.
 
 We placed each sum on the ordinary $8\times8$ board beside T (Fig.~\ref{fig:trebuchet}) or a shifted copy that our
 king-and-pawn solver confirms is a mutual zugzwang, giving legal positions with $15$--$20$ men. On $200$ of
-them, Stockfish~19 picks a move in the winning set only $26.5$--$28.0\%$ of the time from $10^3$ to $10^6$
-nodes, and Lc0 $32.5$--$33.5\%$ at $10^3$ and $10^4$ nodes \lab{C1} ($45$ of the $200$ are second-player
-wins with no winning move; excluding them, $34$--$36\%$ and $42$--$43\%$). More nodes barely help, both engines get
-worse as components are added, and the errors do not single out nimbers or infinitesimals.
-
-The ground truth here is the model with frozen kings, which is not always exact
-(Section~\ref{sec:kings-sweep}), so these numbers measure agreement with the model, not real-chess errors.
+them, Stockfish~19 picks a winning move only $26.5$--$28.0\%$ of the time from $10^3$ to $10^6$ nodes, and Lc0
+$32.5$--$33.5\%$ at $10^3$ and $10^4$ nodes \lab{C1} ($34$--$36\%$ and $42$--$43\%$ without the $45$
+second-player wins, which have no winning move). More nodes barely help, both engines worsen as components are
+added, and the errors do not single out nimbers or infinitesimals. These numbers measure agreement with the
+frozen-king model, which is not always exact (Section~\ref{sec:kings-sweep}), not real-chess errors.
 
 \subsection{Learning Dawson's Chess}
 
-Can a network learn CGT? In normal-play Dawson's chess (Section~\ref{sec:dawson}) the first player wins exactly
-when the strips' Grundy values have a nonzero nim-sum~\cite{GuySmith1956,WinningWays}. An LSTM value network
-in PyTorch~\cite{PyTorch}, trained on total lengths up to $30$, reaches $0.82$ test accuracy on total lengths
-$31$--$80$, against about $0.79$ for the majority guess \lab{C1}. The rule itself scores $1.0$, so the network has not
-learned it, and linear probes on its strip embedding do no better than the majority guess.
+In normal-play Dawson's chess the first player wins exactly when the strips' Grundy values have a nonzero
+nim-sum~\cite{GuySmith1956,WinningWays}. An LSTM value network in PyTorch~\cite{PyTorch}, trained on total lengths up to
+$30$, scores $0.82$ on lengths $31$--$80$, against $0.79$ for the majority guess \lab{C1}; the rule scores $1.0$,
+and linear probes on the strip embedding do no better than the majority guess.

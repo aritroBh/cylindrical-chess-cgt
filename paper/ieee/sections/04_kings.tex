@@ -39,23 +39,24 @@ pawn position in this paper.
 \caption{\pos{W~Ke6~d7 / \mbox{B~Kd8~e7}}}
 \label{fig:kinggroup72}
 \end{subfigure}
-\caption{King groups that count as $0$: (a) a tr\'ebuchet on the cylinder (files a and h adjacent) and (b) the
-tr\'ebuchet T (ordinary board), both real mutual zugzwangs; (c) a king group from the 2025 study (cylinder;
-Section~\ref{sec:sums}), a draw with white to move.}
+\caption{King groups: (a) a tr\'ebuchet on the cylinder (files a and h adjacent) and (b) the tr\'ebuchet T
+(ordinary board), both real mutual zugzwangs that count as $0$; (c) a king group from the 2025 study (cylinder;
+Section~\ref{sec:sums}) that does not count as $0$: it draws with white to move, a zugzwang for black only.}
 \label{fig:kings}
 \end{figure}
 
 \subsection{When Is the Frozen Tr\'ebuchet Exact?}\label{sec:kings-valid}
 
 A \emph{king group} $Z$ is the two kings and some pawns on a block of files whose neighboring files, the
-\emph{buffer}, hold no pawns; a \emph{decisive event} is a move that creates a passed pawn, or a move in $Z$.
+\emph{buffer}, hold no pawns; a \emph{decisive event} is a move in $Z$ or one creating a passed pawn.
 
 \begin{theorem}[Validity of the convention; \lab{S}]\label{thm:validity}
 Let a position consist of pawn components and a king group $Z$ with its buffer, and suppose that before the
 first decisive event:
 \begin{enumerate}
-\item[(V1)] the legal chess moves are exactly the moves of the model, nobody is in check, and the side to move
-  has a legal move;
+\item[(V1)] outside $Z$ the legal chess moves are exactly the model's pawn moves, with the same results (en
+  passant included); none gives check, nobody is in check, and the side to move has a legal move (one in $Z$
+  counts);
 \item[(V2)] in chess, the side that gets a passed pawn wins, and a race is won as the race rule says;
 \item[(V3)] in chess, every move in $Z$ loses (it is \emph{decisively punished}).
 \end{enumerate}
@@ -65,7 +66,8 @@ passed pawn (Section~\ref{sec:sums-hss}), without draws, where $X$ is the positi
 
 \begin{proof}[Proof sketch]
 By (V3) neither side moves in $Z$ without losing, so until the first decisive event both play the pawn game;
-by (V1) the side to move always has a model move, so play ends at a decisive event, and by (V2) and (V3) that event
+by (V1) the side to move always has a legal move, a pawn move or a move in $Z$; the pawn game is finite, so some
+decisive event occurs, and by (V2) and (V3) that event
 decides the chess game as it decides $W(X)$.
 \end{proof}
 
@@ -84,19 +86,22 @@ Each condition can fail: a stalemate trap leaves the loser without a move (V1), 
 race (V2), a king walks over to the pawns or, in Fig.~\ref{fig:kinggroup72}, white's king moves go unpunished
 (V3), and a $+\BIG$ cancels a $-\BIG$ (V4).
 
-A local test for (V3) is the \emph{certificate of horizon $h$}: with all other pawns removed, the punisher
-promotes within $h$ moves of its reply even if the defender may pass at any time, the defender cannot promote
-anywhere within $h$ moves (the \emph{counter-promotion condition}), and the defender is never stalemated. It
-works in the \emph{promotion game}, chess in which the first promotion wins.
+A local test for (V3) is the \emph{certificate of horizon $h$} of a move in $Z$: (i) with the pawns outside $Z$
+removed, the punisher promotes within $h$ of its own moves after its reply, even if the defender may pass; (ii)
+after the reply, with the defender to move and the punisher's king and all pawns in $Z$ removed, no defender
+pawn in the context can promote within $h$ of its own moves (its pawns in $Z$ fall under (i)) (the \emph{counter-promotion condition}); (iii) the defender is never stalemated on the forcing
+line. It works in the \emph{promotion game}, where the first promotion
+wins.
 
 \begin{theorem}[\lab{S}]\label{thm:cert}
-In the promotion game, a move in $Z$ with a certificate of horizon $h$ is a loss for its mover, so (V3)
-holds where every move in $Z$ has one. The counter-promotion condition cannot be weakened to $h-1$ moves.
+In the promotion game, a move in $Z$ with a certificate of horizon $h$ is a loss for its mover, so the
+promotion-game analogue of (V3) holds wherever every move in $Z$ has one; for chess, (V3) needs the further
+check that a won promotion race is a won game. Clause (ii) cannot be weakened to $h-1$ moves.
 \end{theorem}
 
 In chess small margins fail. On the cylinder with seven files and six ranks, Kb4, Pe4 against Ka1, Pa2 with
 white to move, the king move Kb4--c5 has a certificate of horizon~1, yet the chess result after it is a draw, and
-on the $6\times6$ board a margin of one more move fails as well \lab{C1}.
+Kc5--d5 in Kc5, Pe2 against Ka3, Pc4 on the same board has horizon~2, yet White wins \lab{C1}.
 
 For (V2) a local test is known only if king moves also lose \lab{S}: a passed pawn then wins the promotion
 game if, besides conditions on checks, stalemates and its own nearby pawns, its path is empty and every enemy
@@ -131,15 +136,15 @@ decisive event must instead end the game.
 \begin{theorem}[Outcomes with spare moves; \lab{S}]\label{thm:loopy}
 Let the components form a short game in which every decisive event ends the game, let a side that can wait pass
 at any time, and let every other move in $Z$ lose. If only white can wait, black wins exactly when it can force a decisive
-event in its favor against a white who may pass at any time; otherwise white wins. If both can wait, either side
-wins exactly when it can do so against a passing opponent; otherwise the game is drawn.
+event in its favor against a passing white, and white wins otherwise. If both can wait, a side wins exactly when
+it can do so against a passing opponent, and otherwise the game is drawn.
 \end{theorem}
 
 \begin{proof}[Proof sketch]
 If only white can wait, every play is finite, since black's moves are, so the game is determined, and black
 wins exactly when some move of black's wins against every white reply, a pass included. If both can wait, a
 winning side never needs to pass, so it wins exactly when it can force a decisive event against passes;
-otherwise play can go on forever. The full proof is in the repository.
+otherwise play can go on forever.
 \end{proof}
 
 Beside a spare king move, then, component values matter only through their forcing threats. The kings
@@ -153,11 +158,9 @@ the edges changes the class of $12.5$--$20.5\%$ of them \lab{C2}.
 We solved, with the kings played out, every component with at most two pawns a side beside a
 tr\'ebuchet on boards with six ranks: on one file of the six-file cylinder and of the five-file ordinary board,
 and on files d and e of the seven-file cylinder (queen promotions only, at most two; on the six-file cylinder
-the all-promotion results agree in $42$ of $42$ cases). Of these, $500$ start without a race and have a
-determined result. Under the textbook test, $159$ of the $500$ get the wrong outcome \lab{C1}: $107$ through
+the all-promotion results agree in $42$ of $42$ cases). Of these, $500$ start without a race and have a determined result. Under the textbook test, $159$ of the $500$ get the wrong outcome \lab{C1}: $107$ through
 the kings alone, $18$ through en passant and $34$ because a passed pawn does not win its race. $143$ of the
 $159$ are on the seven-file cylinder. The e.p.-aware test repairs the convention in the $18$ e.p.\ failures,
 but in $13$ of them the free kings change the result again, so the count there falls only from $143$ to
-$138$. On the ordinary $8\times8$ board we checked $94$ positions beside a tr\'ebuchet against the
-tablebase. The convention says all $449$ of their king moves lose, yet $41$ draw and $7$ win
-\lab{C1}.
+$138$. On the ordinary $8\times8$ board, in $94$ positions beside a tr\'ebuchet checked against the tablebase, the
+convention says all $449$ king moves lose, yet $41$ draw and $7$ win \lab{C1}.

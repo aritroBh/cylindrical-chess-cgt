@@ -15,7 +15,7 @@ two conventions:
 
 The cylinder changes this picture in three ways. There are no rook pawns, and shifting a position sideways
 does not change its value. A position with a pawn on every file, a \emph{ring}, has no edge at which to cut
-it. And the corners that decide mates and fortresses are gone.
+it, and no room for frozen kings, so ring values are values of the pawn-only model. And the corners that decide mates and fortresses are gone.
 
 A nimber $\nim{k}$ is a game in which either player may move to any of $\nim{0}=0$, $\nim{1}=\star$,
 \dots, $\nim{(k-1)}$. The simplest after $\star=\game{0}{0}$ is $\nim{2}=\game{0,\star}{0,\star}$: either player
@@ -43,23 +43,21 @@ are:
 \item \emph{The $\nim{2}$ question} (Section~\ref{sec:star2}): in the default setting (count rule, e.p.-aware
   test; Section~\ref{sec:ep}) no $\nim{2}$ has six
   pawns or fewer on ordinary boards of any width, but $\nim{2}$ appears with seven
-  \lab{C2}; on the cylinder $\cyl{3}$ a six-pawn ring suffices \lab{C2}, a ring needs ten on $\cyl{7}$ to $\cyl{10}$
-  \lab{C2} and only $n$, one per file, on every $\cyl{n}$ with $n\ge10$ \lab{S}, and on $\cyl{7}$ some ten-pawn
+  \lab{C2}; in the pawn-only model, on the cylinder $\cyl{3}$ a six-pawn ring suffices \lab{C2}, a ring needs ten on $\cyl{7}$ to $\cyl{10}$
+  \lab{C2} and only $n$, one per file, on every $\cyl{n}$ with $n\ge10$ as a whole-board game \lab{S}, and on $\cyl{7}$ some ten-pawn
   rings are $\nim{3}$ \lab{C2}; from $\cyl{11}$ on, $n+1$ pawns give a $\nim{3}$ \lab{C1}.
 \item \emph{Real chess} (Section~\ref{sec:real}): with the new test the textbook $\nim{2}$ candidate is not
   $\nim{2}$, however draws are treated; with queen promotions only and frozen kings, the oracle value of the $1/8$ position
   is exactly $1/8$ \lab{C1}.
 \item \emph{Tablebases} (Section~\ref{sec:tb}): king and rook win only 2.80\% of cylinder positions, and on the
-  torus only two major pieces force mate \lab{C2}.
-\item \emph{Dawson's chess} (Section~\ref{sec:dawson}): the $3\times n$ cylinder is a first-player win if and
-  only if the $3\times(n-3)$ strip has Grundy value $0$ \lab{P}.
-\item \emph{Engines} (Section~\ref{sec:engines}): Stockfish is weakest on infinitesimals at low depth, and on sums
-  of components engines often miss the model's winning moves \lab{C1}.
+  torus, among the eight endings computed, only KRRK and KQRK force mate \lab{C2}.
+\item \emph{Dawson's chess} (Section~\ref{sec:dawson}): the $3\times n$ cylinder is a first-player win exactly
+  when the $3\times(n-3)$ strip has Grundy value $0$ \lab{P}.
+\item \emph{Engines} (Section~\ref{sec:engines}): in a $233$-position pilot, Stockfish at low depth is weakest on infinitesimals, and on sums
+  engines often miss the model's winning moves \lab{C1}.
 \end{itemize}
 
-Sections~\ref{sec:rules} and~\ref{sec:basic} set up the rules and the basic values,
-Sections~\ref{sec:kings} and~\ref{sec:sums} add kings and sums, Sections~\ref{sec:atlas}--\ref{sec:star2}
-search for small values and $\nim{2}$, and Section~\ref{sec:real} tests them against real chess.
-Sections~\ref{sec:tb}--\ref{sec:engines} turn to tablebases, Dawson's chess and engines,
-Section~\ref{sec:verify} gives the cross-checks and the code, Section~\ref{sec:conclusion} lists open
-problems, and the Appendix gives the FEN of each position with kings.
+Sections~\ref{sec:rules}--\ref{sec:sums} set up rules, values, kings and sums,
+Sections~\ref{sec:atlas}--\ref{sec:real} search for small values and $\nim{2}$ and test them in real chess,
+Sections~\ref{sec:tb}--\ref{sec:verify} cover tablebases, Dawson's chess, engines and cross-checks, and the
+Appendix gives the FEN of each position with kings.

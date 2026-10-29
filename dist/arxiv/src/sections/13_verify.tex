@@ -9,9 +9,8 @@
 $4{,}967{,}550$ outcomes of $G+X$ match under the textbook test, e.p.\ on and off, and all $2{,}483{,}775$
 under the e.p.-aware test. A whole-board minimax confirms its outcomes on $1{,}070$ single components. Our
 legal-move generator matches Lichess on all $160$ test positions, covering en passant, promotions, pins, checks,
-mates and stalemates. Each section states its other cross-checks.
+mates and stalemates.
 
 \emph{Code availability.} The code and data are \codeavail. Our CGT engine and most tools are in
-Python~3 (standard library only). The fast solvers (the king-and-pawn solver, the census scanner, the tablebase
-generators) are in C. Real-chess checks use the Lichess Syzygy tablebase API. The engine
-experiments use Stockfish~19 and Lc0. The learning baselines use PyTorch.
+Python~3 (standard library only); the fast solvers (the king-and-pawn solver, the census scanner, the tablebase
+generators) are in C.

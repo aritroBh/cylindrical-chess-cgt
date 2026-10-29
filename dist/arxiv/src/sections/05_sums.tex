@@ -89,8 +89,10 @@ one rank up, \pos{W c2 c4 d4 / B c3 d5 d6 d7}, has the same value.
 In chess the first passed pawn ends the game; in a sum, a component with a passed pawn becomes $\pm\BIG$ and
 play goes on elsewhere, so a $+\BIG$ can cancel a $-\BIG$. In $\game{\BIG}{0}+\game{0}{-\BIG}$ the first player
 makes a passed pawn and wins the chess game, but the sum is $0$ for every $\BIG$, since the second player
-answers in the other component \lab{P}. We write $S(X)$ for the sum model of a pawn position $X$ and $W(X)$ for
-the whole-board game, which ends at the first passed pawn.
+answers in the other component \lab{P}. We write $W(X)$ for the whole-board game of a pawn position $X$, which ends at
+the first passed pawn, and $S(X)$ for its sum model, which after every move re-splits the pawns into components
+along empty files (one ring if no file is empty), replaces a component in which a side has a passed pawn by
+$\pm\BIG$ (by the race rule if both have one) and adds the components up.
 
 \begin{definition}[Hereditary sum safety]\label{def:hss}
 A component carries a \emph{threat} for a side if a position reachable from it gives that side a passed pawn. A
@@ -117,10 +119,9 @@ without (E) the decomposition already fails in the pure pawn game (Proposition~\
 \begin{proposition}[\lab{C2}]\label{prop:sumcounter}
 A test of the top-level components alone is not enough: on $\cyl{8}$ with en passant off, $X=$\,\pos{W b2 d4 g3
 h5 / B a7 c7 f7 g4} is a single component, spanning files f to d across the seam, so such a test passes it; yet
-$S(X)$ is a black win whoever starts and $W(X)$ a first-player win.
+$S(X)$ is a black win whoever starts and $W(X)$ a first-player win. Moreover $X$ is not HSS: components with
+opposite threats appear later in its tree, so Theorem~\ref{thm:hss} does not apply.
 \end{proposition}
-
-Components with opposite threats appear only later in its tree, so $X$ is not HSS.
 
 \begin{proposition}[\lab{C1}]\label{prop:condE}
 In the pure pawn game, without the passed-pawn rule (play goes on until a side has no move), (E) cannot

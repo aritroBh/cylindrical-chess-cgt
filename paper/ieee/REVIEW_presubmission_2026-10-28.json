@@ -1,0 +1,482 @@
+{
+ "confirmed": [
+  {
+   "lens": "math",
+   "file": "/Users/aritro/Downloads/Research/Chessendgames/paper/ieee/sections/04_kings.tex",
+   "line": 57,
+   "quote": "the legal chess moves are exactly the moves of the model, nobody is in check, and the side to move has a legal move",
+   "problem": "(V1) as worded contradicts itself and the proof. The model never moves kings, but moves in Z are legal chess moves (they are the decisive events that (V3) punishes), so the legal chess moves cannot be exactly the model's moves. If they were, a side with no pawn move would have no legal move, contradicting the last clause. The proof sketch's step 'by (V1) the side to move always has a model move' then does not follow.",
+   "fix": "Replace (V1) by: 'the legal chess moves outside Z are exactly the pawn moves of the model, with the same resulting positions (en passant included), no such move gives check, nobody is in check, and the side to move has a legal move (a move in Z counts)'. In the proof replace 'by (V1) the side to move always has a model move, so play ends at a decisive event' with 'by (V1) the side to move always has a legal move, a pawn move or a move in Z; the pawn game is finite, so some decisive event occurs'.",
+   "severity": "major",
+   "verdict": {
+    "real": true,
+    "reason": "The wording of (V1) at 04_kings.tex:57 is inconsistent with the model's definition and with the proof. 02_rules.tex:33 says the model \"never moves\" the kings, and a move in Z is by definition a decisive event that (V3) punishes. Chess king moves in Z are therefore legal chess moves, so the legal chess moves cannot be exactly the model's moves. Read literally, (V1) rules out the very moves (V3) is about. The last clause, \"the side to move has a legal move\", is then also hard to read: with only model moves, a side with no pawn move has none. The proof's step \"by (V1) the side to move always has a model move\" does not follow from the stated text. The theorem is a [S] result, so the hypotheses should be stated exactly. The conclusion survives in substance, because the pawn game is finite and play must reach a decisive event. This is a statement-precision defect, not a false theorem, but a referee would raise it and the author should fix it.",
+    "better_fix": "Replace (V1) with: \"the legal chess moves outside Z are exactly the pawn moves of the model, with the same resulting positions (en passant included), no such move gives check, nobody is in check, and the side to move has a legal move (a move in Z counts)\". In the proof, replace \"by (V1) the side to move always has a model move, so play ends at a decisive event\" with \"by (V1) the side to move always has a legal move, a pawn move or a move in Z; the pawn game is finite, so some decisive event occurs\". Also adjust the remark \"a stalemate trap leaves the loser without a move (V1)\" so it fits the new wording; it still fits, since the trap leaves no legal move at all."
+   }
+  },
+  {
+   "lens": "math",
+   "file": "/Users/aritro/Downloads/Research/Chessendgames/paper/ieee/sections/04_kings.tex",
+   "line": 93,
+   "quote": "In the promotion game, a move in $Z$ with a certificate of horizon $h$ is a loss for its mover, so (V3) holds where every move in $Z$ has one.",
+   "problem": "The theorem proves a statement about the promotion game, where the first promotion wins. (V3) is a statement about chess ('in chess, every move in Z loses'). The inference 'so (V3) holds' is therefore invalid, and the next paragraph refutes it: Kb4-c5 has a certificate of horizon 1 yet the chess result is a draw. The repository (kings/REPORT.md, 'It does not give a chess win, and no margin on mu does') says the same. As written, Corollary 4.2 and the Introduction's 'conditions (V1)-(V3)' would take a certificate as sufficient for chess.",
+   "fix": "Replace the second half of the sentence by: 'so (V3) holds in the promotion game wherever every move in Z has one. For chess, (V3) additionally needs the per-position check that a won promotion race is a won game; no margin on h replaces it (next paragraph).' Alternatively state (V3) and (V2) of Theorem 4.1 for the promotion game plus an explicit hypothesis that the promotion game and chess have the same result.",
+   "severity": "major",
+   "verdict": {
+    "real": true,
+    "reason": "The sentence in Theorem 4.2 (04_kings.tex line 93) says that in the promotion game a certificate makes a Z-move a loss, \"so (V3) holds\". (V3) is defined at line 60 as a statement \"in chess\", and the paper itself shows two lines later that Kb4-c5 has a horizon-1 certificate yet draws in chess. So the inference is wrong as written. The conclusion (line 23) already says the theorem \"settles the promotion game but not chess\", so the author's intent is clear and the damage is limited to this sentence and the Introduction's wording. It is a genuine wording fix, but less than major. The Introduction (line 38) only says \"conditions (V1)--(V3)\" and does not itself claim that a certificate suffices. A referee would still flag line 93.",
+    "better_fix": "Replace the second half of the sentence in Theorem 4.2 with: \"so the promotion-game analogue of (V3) holds wherever every move in $Z$ has one; for chess, (V3) needs the further check that a won promotion race is a won game (next paragraph).\" Severity is moderate, not major."
+   }
+  },
+  {
+   "lens": "math",
+   "file": "/Users/aritro/Downloads/Research/Chessendgames/paper/ieee/sections/04_kings.tex",
+   "line": 88,
+   "quote": "with all other pawns removed, the punisher promotes within $h$ moves of its reply even if the defender may pass at any time, the defender cannot promote anywhere within $h$ moves",
+   "problem": "The certificate is not precisely defined. (a) If all other pawns are removed, the 'counter-promotion condition' cannot mention context pawns, yet Theorem 4.3 and Proposition 4.5 (and Conjecture 4.6) are about 'every chess-legal context', and the Conjecture says the condition fails in some context. Read literally, the theorem would hold with other pawns present only if the defender's context pawns are also counted; the text does not say so. (b) The tempo count is undefined: whether the reply is the first of the h moves, who moves first after it, and the tie rule decide whether 'cannot be weakened to h-1' is true. (c) Which of the defender's pawns count (Z-pawns versus context pawns) is not stated.",
+   "fix": "State the three parts separately: '(i) local forcing: with the other pawns removed, after the reply the punisher promotes by force within h of its own moves against a defender who may pass; (ii) counter-promotion: no pawn of the defender, in Z or in the context, can promote within h of its own moves after the reply, and the defender moves first after the reply; (iii) the defender is never stalemated on the forcing line.' Then say that Theorem 4.3 holds for contexts satisfying (ii).",
+   "severity": "major",
+   "verdict": {
+    "real": true,
+    "reason": "The certificate definition at 04_kings.tex lines 87-89 is ambiguous in a way that affects correctness. \"With all other pawns removed\" can only scope the forcing clause. If it also scoped the counter-promotion clause, that condition would not depend on context pawns. Yet Proposition 4.5 (line 107) states the counter-promotion condition \"holds in every chess-legal context\", and Conjecture 4.6 says some context leaves a move unpunished. So the condition must count context pawns. Theorem 4.3 is stated for the promotion game in the actual position. If a context pawn of the defender could promote within h moves, the theorem would fail, so the theorem needs the counter-promotion clause to cover context pawns as well. Nothing in the text says this. The other points also hold. The tempo count is undefined: whether the reply is the first of the h moves and who moves next. This matters for the claim that the condition \"cannot be weakened to h-1\", and for the example with horizon 1 that ends in a draw (lines 96-99). Which defender pawns count is not stated either. The severity is perhaps moderate rather than major, because a reader can infer the intent from Proposition 4.5.",
+    "better_fix": "Replace lines 87-89 with a three-part definition. A move in Z has a certificate of horizon h if (i) local forcing: with all pawns outside Z removed, after the reply the punisher promotes within h of its own moves against a defender who may pass at any time; (ii) counter-promotion: after the reply, with the defender to move, no pawn of the defender, in Z or in the context, can promote within h of its own moves; (iii) the defender is never stalemated on the forcing line. State explicitly that Theorem 4.3 and Proposition 4.5 refer to clause (ii) evaluated in the full position, and that \"cannot be weakened to h-1\" means the same clause with h-1 in place of h."
+   }
+  },
+  {
+   "lens": "math",
+   "file": "/Users/aritro/Downloads/Research/Chessendgames/paper/ieee/sections/05_sums.tex",
+   "line": 92,
+   "quote": "We write $S(X)$ for the sum model of a pawn position $X$ and $W(X)$ for the whole-board game, which ends at the first passed pawn.",
+   "problem": "S(X) is never defined. Proposition 5.4 and Theorem 5.3 only make sense if the position is re-split into components along empty files at every node (a single-component X has S(X) equal to W(X) with a static decomposition, yet Proposition 5.4 says S(X) differs). Theorem 5.3's proof also needs the value of a component that has just acquired a passed pawn (+B, -B, or by the race rule) and the fact that a move is a move in one component. None of this is stated.",
+   "fix": "Add: 'S(X) is the game in which, at every position, the pawns are split into components along empty files (a ring if no file is empty), a component containing a passed pawn is replaced by the number +B or -B (by the race rule if both sides have one), and a move is a move in one component; the outcome is that of the resulting sum of games and numbers.'",
+   "severity": "major",
+   "verdict": {
+    "real": true,
+    "reason": "The finding overstates the gap but the core is valid. S(X) is not \"never defined\": Section 2 (02_rules.tex, Components) defines components along empty files and rings. Section 5 line 90 says a component with a passed pawn \"becomes \u00b1BIG\". Section 5's \"Two models\" paragraph and Section 8 mention \"splitting\". What is missing is one place that says S(X) re-splits the position into components after every move, and that a component with a passed pawn is replaced by the number \u00b1BIG. Without this, Proposition 5.4 reads as a contradiction. X is \"a single component\", yet S(X) differs from W(X), and that only holds if S(X) re-splits after captures (or after pawns are lost), which is stated only indirectly in Section 8 (\"captures can split the ring\"). Theorem 5.3's hypotheses (\"two or more components\", HSS) also presuppose the dynamic decomposition. A one-sentence definition would remove the ambiguity, but this is a clarity fix, not a correctness error, so it is moderate rather than major.",
+    "better_fix": "In 05_sums.tex after line 92, replace \"We write $S(X)$ for the sum model of a pawn position $X$\" with: \"We write $S(X)$ for the sum model of a pawn position $X$: after every move the pawns are re-split into components along empty files (one ring if no file is empty); a component in which a side has a passed pawn is replaced by the number $+\\BIG$ or $-\\BIG$ (by the race rule if both sides have one); a move is a move in one component; and the outcome is that of the resulting sum of games and numbers.\" Optionally add \"(so a single component can split after a capture)\" to link to Proposition 5.4. The values $\\pm\\BIG$ already appear in the preceding sentence."
+   }
+  },
+  {
+   "lens": "math",
+   "file": "/Users/aritro/Downloads/Research/Chessendgames/paper/ieee/sections/10_tablebases.tex",
+   "line": 111,
+   "quote": "216 mutual zugzwangs (white to move draws, black to move loses)",
+   "problem": "'Mutual zugzwang' is used in two incompatible senses. In Sections IV and V it means a zero game in which the side to move loses whoever it is (the trebuchet); the 7.2 king group, with white to move drawing and black to move losing, is explicitly called 'not mutual' and 'a zugzwang for black only' (05_sums.tex lines 75-78 and Table 1, 'kings: not mutual'). Here the same pattern is counted as a mutual zugzwang. The following sentence then applies the term to the trebuchet of Fig. 4a, which is a mutual zugzwang in the first sense and is not a KPK position.",
+   "fix": "Define the KPK notion separately, e.g. 'reciprocal zugzwangs (white to move draws, black to move loses)', use that term in the text and in the column header of Table 11, and keep 'mutual zugzwang' for positions where the side to move loses whichever side it is. Edit the sentence on the trebuchet of Fig. 4a accordingly.",
+   "severity": "major",
+   "verdict": {
+    "real": true,
+    "reason": "The inconsistency is real. 10_tablebases.tex line 112 and the Table 11 header count \"mutual zugzwangs\" as KPK positions where white to move draws and black to move loses. 05_sums.tex (lines 56 and 75-78) calls exactly that pattern, the 7.2 king group, \"not mutual\" and \"a zugzwang for black only\". Lines 01_intro.tex:13 and 04_kings.tex use \"mutual zugzwang\" for the trebuchet, where the side to move loses whoever it is. Lines 137-139 of 10_tablebases.tex mix the two senses in one paragraph. The \"share of mutual zugzwangs\" falling from 1.30% to 0.13% is the KPK count. The next sentence then calls the trebuchet \"a mutual zugzwang\" for 4\u2264n\u22648, which is the first sense, and the trebuchet is a KPKP position, not a KPK position. The \"Ka3, Pa2 against Ka5\" claim is stated for n=3 to 10 without saying which sense. A referee reading the paper straight through would see the term used with two meanings. The author should fix it, though it is a terminology problem and does not change any result, so \"major\" overstates it.",
+    "better_fix": "Use \"reciprocal zugzwang\" for the KPK pattern (white to move draws, black to move loses). Change line 112, the Table 11 caption and column header, and the \"share of ... zugzwangs\" sentence on line 136 to match. State once which sense applies to \"Ka3, Pa2 against Ka5\" at line 139. Keep \"mutual zugzwang\" only for positions where the side to move loses whichever side it is, such as the trebuchet of Fig. 4a. Consider also adding \"(side to move loses either way)\" at the trebuchet sentence."
+   }
+  },
+  {
+   "lens": "math",
+   "file": "/Users/aritro/Downloads/Research/Chessendgames/paper/ieee/sections/09_real.tex",
+   "line": 18,
+   "quote": "Replace every end position not known to be $\\pm\\BIG$ by $-2\\BIG$, or by $+2\\BIG$",
+   "problem": "'Known to be +-B' is ambiguous. End positions known to be 0, {B|-B} or a draw switch are not '+-B' but are known exactly, and replacing them by -2B/+2B is looser than intended. The bounds O^- and O^+ are valid either way, but the certificate 'if O^- = O^+' would then almost never hold for trees with hot or zero leaves, contradicting how it is used for 1/8.",
+   "fix": "Write: 'Replace every end position whose real-chess value is not known by -2B (for O^-) or +2B (for O^+), and keep every known leaf (+B, -B, 0, {B|-B}, or a draw switch).' Keep the monotonicity argument: raising any option, Left or Right, never lowers a game.",
+   "severity": "minor",
+   "verdict": {
+    "real": true,
+    "reason": "At 09_real.tex:18 the Sandwich Lemma says to replace \"every end position not known to be $\\pm\\BIG$\". Definition def:oracle gives the end-position values as +B, -B, {B|-B}, 0 or {B r_W | B r_B}. Read literally, \"not known to be \u00b1B\" covers the known leaves {B|-B}, 0 and the draw switches as well as the unresolved ones. The bounds still hold, since every leaf lies in [-2B, 2B]. But the certificate \"if O^- = O^+\" would then rarely fire, because a hot or zero leaf replaced by -2B and by +2B pulls the two values apart. Prop. eighth-real and the later text on \"end positions still open\" show the intended meaning is that only unresolved leaves are replaced. The nearby words \"the unknown results\" point the same way, but the lemma's own quantifier is ambiguous on the one point the certificate depends on. This is a small clarity fix, not an error in the mathematics.",
+    "better_fix": "Write: \"Replace every end position whose real-chess value is not known by $-2\\BIG$ (for $O^-$) or by $+2\\BIG$ (for $O^+$), and keep every known end position ($+\\BIG$, $-\\BIG$, $\\game{+\\BIG}{-\\BIG}$, $0$, or a draw switch).\""
+   }
+  },
+  {
+   "lens": "numbers",
+   "file": "/Users/aritro/Downloads/Research/Chessendgames/paper/ieee/sections/09_real.tex",
+   "line": 34,
+   "quote": "only 1\\ldots~b5 wins for black, 1.~c4 for white, and all",
+   "problem": "Theorem 18(a) says only 1.c4 wins for white. The source does not show that. realchess/REPORT.md (section 0 item 2 and claim C6) says that with White to move 1.c4 wins and the four king moves lose, while 1.a3, 1.a4 and 1.c3 are unresolved. RESULTS.md (section 1) says 1.a3 and 1.c3 lose and only 1.a4 is open. The next paragraph of the paper itself says '1.~a4 is still open', which contradicts 'only 1.c4'. The two sources also disagree with each other on 1.a3 and 1.c3.",
+   "fix": "Replace with: 'In chess the side to move wins; with black to move only 1\\ldots~b5 wins (complete), with white to move 1.~c4 wins and all king moves lose, while 1.~a3, 1.~a4 and 1.~c3 are unresolved \\lab{C2}.' Follow realchess/REPORT.md, the weaker source, unless the author can show where RESULTS.md got '1.a3 and 1.c3 lose'. Then change the next paragraph to 'on every winning first move resolved so far (1.~a3, 1.~a4 and 1.~c3 are still open)'. Also update RESULTS.md, which currently disagrees.",
+   "severity": "major",
+   "verdict": {
+    "real": true,
+    "reason": "The wording at 09_real.tex line 34 is overclaimed. It says \"only 1.c4 wins for white\", but the paper's own next paragraph says \"1.~a4 is still open\". Both RESULTS.md (section 1, line 30) and realchess/REPORT.md (lines 22 and 149) list 1.a4 as unresolved. Nothing in the repository shows that 1.a4 loses, so \"only\" is unsupported. The two sources do disagree on 1.a3 and 1.c3: RESULTS.md says they lose, REPORT.md says they are unresolved. RESULTS.md was modified on Oct 27 and REPORT.md on Oct 21, so REPORT.md looks stale. I did not find a record that settles it.",
+    "better_fix": "Fix the wording, and reconcile the sources by checking the ledger for 1.a3 and 1.c3. Do not default to the older REPORT.md. Suggested text for line 34: \"In chess the side to move wins; with black to move only 1\\ldots~b5 wins (complete), with white to move 1.~c4 wins, all king moves lose, and 1.~a4 is unresolved \\lab{C2}.\" Use this version only if the ledger confirms that 1.a3 and 1.c3 lose, as RESULTS.md states. If the ledger does not confirm it, list 1.~a3 and 1.~c3 as unresolved as well. Then update realchess/REPORT.md so it matches. The following paragraph's \"(1.~a4 is still open)\" should list the same set of open moves."
+   }
+  },
+  {
+   "lens": "numbers",
+   "file": "/Users/aritro/Downloads/Research/Chessendgames/paper/ieee/sections/04_kings.tex",
+   "line": 99,
+   "quote": "on the $6\\times6$ board a margin of one more move fails as well \\lab{C1}.",
+   "problem": "The board is wrong. kings/REPORT.md (section 2, lines 54-57) gives both counterexamples to 'a margin of h makes a chess win' on the 7x6 cylinder. The second is `Kc5 ka3 Pe2 pc4`: the move Kc5-d5 meets the horizon-2 certificate, yet White wins in chess. No 6x6 example of a larger margin is documented. The sentence also does not say which position or which move fails.",
+   "fix": "Replace with: 'and on the same cylinder, in Kc5, Pe2 against Ka3, Pc4, the king move Kc5--d5 has a certificate of horizon~2, yet White wins in chess \\lab{C1}.' If the author has a real 6x6 example, cite it by position instead.",
+   "severity": "major",
+   "verdict": {
+    "real": true,
+    "reason": "The kings/REPORT.md lines 54-57 list both counterexamples on the 7x6 cylinder. The second one is Kc5 ka3 Pe2 pc4, where Kc5-d5 meets the horizon-2 certificate and White wins in chess. My grep of kings/*.md and the paper sections found no 6x6 example of a larger margin. The paper's sentence \"on the $6\\times6$ board a margin of one more move fails as well\" therefore cites no 6x6 source. It also names neither a position nor a move. The board is likely wrong (it should be 7x6), and the sentence is vague either way.",
+    "better_fix": "Replace the clause with: \"and on the same cylinder, in Kc5, Pe2 against Ka3, Pc4, the king move Kc5--d5 has a certificate of horizon~2, yet White wins in chess \\lab{C1}.\" If the author does have a 6x6 example, cite that position explicitly."
+   }
+  },
+  {
+   "lens": "numbers",
+   "file": "/Users/aritro/Downloads/Research/Chessendgames/paper/ieee/sections/10_tablebases.tex",
+   "line": 74,
+   "quote": "the cylinder has fewer legal positions, since the kings",
+   "problem": "The reason given is incomplete. Black-to-move legal counts fall by 168,024 - 165,984 = 2,040, which is the king-adjacency effect. White-to-move counts fall by 163,328 - 160,656 = 2,672, which is more. A white pawn on the a- or h-file now also attacks across the seam, so the black king may not stand there when white is to move. T44 (research/kpkp/t44/REPORT.md) names both causes for KPKP.",
+   "fix": "Replace 'since the kings may not touch across the seam' with 'since the kings may not touch across the seam and, with white to move, the black king may not stand on a square a white pawn attacks across the seam'.",
+   "severity": "minor",
+   "verdict": {
+    "real": true,
+    "reason": "The sentence at line 74 reads \"the cylinder has fewer legal positions, since the kings may not touch across the seam\", and that is incomplete. Table kpk gives White-to-move drops of 163,328 to 160,656 (2,672) and Black-to-move drops of 168,024 to 165,984 (2,040). KPK has only a white pawn, so Black-to-move positions lose only king-adjacency cases. With White to move, the cylinder adds a second exclusion: the black king cannot stand on a square the white pawn attacks across the seam, because that would leave the black king in check on White's turn. That explains why the White-to-move drop is larger. The paper never mentions this effect for KPK. The author's own T44 report (kpkp/t44) lists \"king adjacency or pawn attack across the seam\" as the cause of the flat-legal positions with no cylinder twin. The inconsistency is minor but real, and a referee could check it against the table.",
+    "better_fix": "Replace \"since the kings may not touch across the seam\" with \"since the kings may not touch across the seam and, with white to move, the black king may not stand on a square that the white pawn attacks across the seam\"."
+   }
+  },
+  {
+   "lens": "numbers",
+   "file": "/Users/aritro/Downloads/Research/Chessendgames/paper/ieee/sections/10_tablebases.tex",
+   "line": 143,
+   "quote": "decides 89\\% of the 14.6 million",
+   "problem": "The 14.6 million (14,629,600) counts only placements whose e.p. field is empty. research/kpkp/t44/REPORT.md says 'legal' is relative to that, and its verifier asked for the paper to say so. The percentages are exact-versus-all shares: 89.14% on the cylinder and 83.49% on the ordinary board. The 14.6 million is the cylinder count only, but the sentence reads as if it covers both boards. The ordinary-board total is 14,872,176.",
+   "fix": "Replace '14.6 million legal KPKP positions on the cylinder and 83\\% on the ordinary board' with '14.6 million KPKP placements on the cylinder (14.9 million on the ordinary board; positions with a pending en passant right are not enumerated) and 83\\% on the ordinary board'.",
+   "severity": "minor",
+   "verdict": {
+    "real": true,
+    "reason": "Confirmed. Line 143 says \"14.6 million legal KPKP positions on the cylinder and 83% on the ordinary board\". The ordinary board has 14,872,176 positions, not 14.6 million, so the sentence misstates the ordinary-board denominator. research/kpkp/t44/REPORT.md line 60 says \"legal\" is relative to positions with the e.p. field empty and that the paper should say so. The paper does not. The problem is minor but real.",
+    "better_fix": "Replace with: \"decides 89\\% of the 14.6 million KPKP placements on the cylinder (14.9 million on the ordinary board) and 83\\% on the ordinary board; positions with a pending en passant right are not enumerated, although the solver plays e.p.\""
+   }
+  },
+  {
+   "lens": "cgt-referee",
+   "file": "/Users/aritro/Downloads/Research/Chessendgames/paper/ieee/sections/00_abstract.tex",
+   "line": 10,
+   "quote": "with frozen kings and queen promotions only, the one-eighth survives in real chess",
+   "problem": "\"Frozen kings\" and \"real chess\" contradict each other. The 1/8 is the value of a pawn tree whose leaves come from tablebases and the authors' solver. The kings are assumed to be frozen at every internal node. Section 4 says this assumption fails: 41 of 449 king moves beside T draw and 7 win (04_kings l.161-163). It also says the zero is trusted only beside slow or locked components (l.122). Section 9 titles the result \"Towards a real-chess 1/8\" and 09_real l.68 says the 1/8 \"assumes the frozen kings\". The Proposition (09_real l.63) is nonetheless named \"A real-chess 1/8\". The Introduction (l.49-51) and Conclusion repeat the claim. The labelled result is a model-with-chess-leaves value; it is not a value of a chess position.",
+   "fix": "Abstract: \"with the kings frozen inside the tree and queen promotions only, a hybrid oracle value built from tablebase results at the leaves equals 1/8; whether the actual 10-man position has value 1/8 is open.\" Rename the Proposition \"A tablebase-backed oracle value of 1/8\" and drop \"survives in real chess\" from the abstract, Introduction and Conclusion.",
+   "severity": "major",
+   "verdict": {
+    "real": true,
+    "reason": "The wording problem is real, though less severe than \"major\" or \"contradiction\". The abstract does state the qualifiers \"frozen kings and queen promotions only\". But 09_real.tex l.68 says \"This $1/8$ assumes the frozen kings of the tree\". The title \"Towards a real-chess 1/8\" fits that. 04_kings.tex l.161-163 says the convention calls all 449 king moves beside a trebuchet losing, yet 41 draw and 7 win. l.122 says the zero is trusted only beside slow or locked components. So the value is a hybrid: tablebase and solver leaves under a frozen-kings tree. The abstract sentence \"the one-eighth survives in real chess\" and the Proposition title \"A real-chess 1/8\" (09_real.tex l.63) are unqualified in the headline places. They read as a claim about the actual chess position, which the paper itself says is open. The Introduction (01_intro.tex ~l.49-51) is more careful (\"oracle value ... is exactly 1/8\"), so the overclaim is mainly in the abstract, the Proposition title and the Conclusion (14_conclusion.tex l.7).",
+    "better_fix": "Abstract: replace \"with frozen kings and queen promotions only, the one-eighth survives in real chess\" with \"with the kings frozen inside the pawn tree and queen promotions only, the oracle value, which takes its leaves from tablebases and our solver, is exactly one-eighth; whether the full-chess position has this value is open.\" Rename the Proposition \"A tablebase-backed oracle value of 1/8\". Make the same change at 14_conclusion.tex l.7. Leave the Introduction as it is, since it already says \"oracle value\"."
+   }
+  },
+  {
+   "lens": "cgt-referee",
+   "file": "/Users/aritro/Downloads/Research/Chessendgames/paper/ieee/sections/00_abstract.tex",
+   "line": 6,
+   "quote": "but star two appears with seven, in one position and its color-reversed twin, confirmed by three programs",
+   "problem": "The headline result (an answer to the *2 question) omits three qualifiers. (i) Positions A and B are values of the sum/whole-board pawn model, not of chess. Their real-chess oracle values are open, and the 9- to 11-man end positions are unsolved (09_real l.70-74; 14_conclusion item 2). (ii) \"Seven pawns\" excludes the two pawns of T, so the position has 9 pawns and 11 men, which matters when comparing with Drummond-Cole's and Elkies' piece counts. (iii) The pawn-history legality of A and B rests on \"we checked these histories by hand\" (08_star2 l.69), with no proof game given. The closing sentence of 08_star2 l.183 says the question \"has a positive answer on the ordinary 8x8 board\". Yet the paper's own textbook *2 candidate failed this same transfer to real chess.",
+   "fix": "Abstract: \"In the pawn model with frozen kings (a trebuchet adds two pawns, 11 men in all), *2 appears with seven pawns, in one position and its color-reversed twin; its real-chess status is open.\" Add proof games for A and B, or an appendix move list, so the legality claim can be checked.",
+   "severity": "major",
+   "verdict": {
+    "real": true,
+    "reason": "The core point holds, but it is smaller than \"major\". The abstract sets up the frozen-kings, passed-pawn-wins model in its first sentences, so \"star two appears with seven\" is arguably in-model. Even so, the abstract never says the real-chess status of *2 is open. Its next sentence says \"the one-eighth survives in real chess\", which invites a reader to assume the *2 result transfers too. 09_real.tex l.70-74 says the oracle values of A and B are open: the 9- to 11-man end positions are unsolved, so their *2 is a model value. 08_star2.tex l.183 says the question \"has a positive answer\" \"in the model\", which is correctly hedged. The abstract should carry the same hedge. The legality claim (\"we checked these histories by hand\", 08_star2 l.69) names the captures c2xd3 and b7xa6 but gives no proof game. A move list would let a reader check it. The piece-count point is mostly handled: the body says \"Positions A and B have 11 men beside T\", but the abstract's \"seven\" counts only the pawns not belonging to T. The other referee's remark that the paper's own textbook *2 candidate failed the transfer to real chess is not something I checked.",
+    "better_fix": "Abstract: \"...*2 appears in the pawn model with seven pawns beside T (11 men in all), in one position and its color-reversed twin, confirmed by three programs; its real-chess value is open.\" Also add proof games for A and B in an appendix, or at least the capture sequences, in place of \"we checked these histories by hand\". Treat as moderate severity."
+   }
+  },
+  {
+   "lens": "cgt-referee",
+   "file": "/Users/aritro/Downloads/Research/Chessendgames/paper/ieee/sections/01_intro.tex",
+   "line": 16,
+   "quote": "A position with a pawn on every file, a \\emph{ring}, has no edge at which to cut",
+   "problem": "A ring uses every file. A king group needs a buffer of neighboring files holding no pawns (04_kings l.50-51), and Theorem 4 needs a king group Z. So no ring component can sit beside a frozen king group, and all cylinder-only and ring results are pure pawn-model statements: the abstract's \"three-file cylinder six pawns\", \"ten files ... one pawn per file\" and \"seven files ten-pawn rings reach star three\", and Proposition 6.1. They are not cylinder-chess endgame values. The paper never says this, although RESULTS.md notes it (0 of 40 placements can be frozen on the 8-file cylinder). The title and framing (\"chess endgames on a cylindrical chessboard\") suggest otherwise, and the significance of the ring results for chess is not explained.",
+   "fix": "Add to Section 6 and to the Introduction: \"A ring leaves no empty file for a trebuchet and its buffer, so ring values are values of the pawn model; with kings on the board the frozen-king convention cannot be applied to them and their chess meaning is unknown.\" Qualify the abstract sentence accordingly, e.g. \"in the pawn-only model\".",
+   "severity": "major",
+   "verdict": {
+    "real": true,
+    "reason": "The logic holds. 04_kings.tex l.50-51 defines a king group Z with a buffer of pawn-free neighboring files, and Theorem 4 (validity) needs such a Z. A ring has a pawn on every file (02_rules.tex l.112), so no buffer can exist beside it and the frozen-king convention cannot apply to any position containing a ring. RESULTS.md l.31 notes the related failure on the 8-file cylinder (0 of 40 placements can be frozen). The paper never says this. 01_intro l.17 and 02_rules l.124 call rings the source of cylinder-only values. 08_star2 l.3-4 asks about \"a king-and-pawn position\". The abstract and intro contributions state ring results (\"three-file cylinder six pawns\", \"ten files ... one pawn per file\", \"seven files ten-pawn rings reach star three\") with no pawn-only qualifier. A reader will take these as king-and-pawn endgame values. They are pawn-model values, and their chess meaning with live kings is unknown. The paper does use \"pawn position\" and \"pawn model\" in places (02_rules l.115, 07_targets l.57), but not to scope the ring claims, and the abstract and title framing is unqualified.",
+    "better_fix": "Add one sentence to Section 2.3 after the cut lemma (and a short pointer in Section 4.2 and the intro): \"A ring has a pawn on every file, so it leaves no pawn-free buffer for a king group (Section 4.2); ring values are values of the pawn-only model, and with kings on the board the frozen-trebuchet convention does not apply to them.\" Qualify the abstract and the intro contribution bullet: \"in the pawn-only model, on the three-file cylinder six-pawn rings suffice ...\". Change 08_star2 l.3 to say the cylinder part of the question is asked of the pawn model."
+   }
+  },
+  {
+   "lens": "cgt-referee",
+   "file": "/Users/aritro/Downloads/Research/Chessendgames/paper/ieee/sections/08_star2.tex",
+   "line": 150,
+   "quote": "For proofs, close a window of five or six files with a wall of single pawns of\nalternating colors on consecutive files; if a wall pawn moves, its neighbor captures it and gets a passed pawn.",
+   "problem": "This is the only justification for headline results stated for all n: n+3 pawns for *2 on every C_n with n>=5, n pawns for every n>=10, n+2 for *3 with even n>=8. They appear in the Introduction, the Abstract and the Conclusion with label [S]. The terms \"window\", \"wall\", \"losing wall moves\", \"two games of 144 and 104 positions\" and \"pairs of files B4, W2\" (also \"core\", l.180) are never defined. No statement, lemma or induction step is given, and the reader cannot reconstruct the argument. [S] is defined as \"proof sketched here\", but here there is only a one-sentence description of a proof idea. The families are also whole-board-game statements. As CGT sums (the paper's own notion of value) they are verified only to n=12 (l.155) or C10-C11 (l.157).",
+   "fix": "Add a short subsection or appendix with (1) the precise wall gadget, (2) the lemma that deleting the losing wall moves leaves a game independent of the number of inserted wall files, (3) the two finite games and their size. State the theorem as \"for every n>=5 the whole-board game ... has value *2\", and say explicitly that the sum-model statement is open beyond n=12. Define \"B4, W2\" (a black pawn on rank 4 and a white pawn on rank 2 on a new file?).",
+   "severity": "major",
+   "verdict": {
+    "real": true,
+    "reason": "Confirmed at 08_star2.tex lines 150-158. The [S] label means \"proof sketched here and given in full in the repository\" (01_intro.tex l.30). The only sketch in the paper is one sentence: close a window with a wall of alternating single pawns. The terms \"window\", \"wall\", \"losing wall moves\" and \"two games of 144 and 104 positions\" are never defined. \"B4, W2\" and \"B7, W5\" are used as insertion notation (l.145-146, 168-170) but are never explained. A grep finds no definition anywhere in sections or main.tex. The text also says nothing about the wall gadget, the lemma that inserting wall files changes nothing, or the two finite games. A reader cannot reconstruct the argument, so the headline all-n claims (n+3 for *2 with n>=5, n for n>=10, n+2 for *3 with even n>=8) rest on a label that overstates what the paper shows. The scope point is also valid. The text itself says the sum-model statement is checked only to n=12 (l.155) or C10-C11 (l.157), while the abstract, intro and conclusion carry the claims with [S]. The \"whole-board\" qualifier appears at l.152 but is not carried into the headline statements.",
+    "better_fix": "Add a short paragraph or appendix that defines the wall, the window and the insertion notation \"pair B4, W2\" (a black pawn on rank 4 and a white pawn on rank 2 on two new consecutive files). It should state the lemma that the game with the losing wall moves deleted does not depend on the number of inserted pairs, and give the two finite games (144 and 104 positions). Restate the headline claims explicitly as whole-board-game statements. Say that the sum-model version is verified only to n=12 (C10-C11 for the n-pawn families) and is open beyond that. Carry the same qualification into the abstract, intro and conclusion. Alternatively, if the author does not want to add the argument, downgrade the label from [S] to [C1] or [Conj] for the all-n claims."
+   }
+  },
+  {
+   "lens": "cgt-referee",
+   "file": "/Users/aritro/Downloads/Research/Chessendgames/paper/ieee/sections/08_star2.tex",
+   "line": 149,
+   "quote": "they stay $\\nim{2}$ for every $n\\le60$ \\lab{C2}",
+   "problem": "Label mismatch. [C2] means two independently written programs agree. Yet l.154-155 say that for the wall argument only \"the cylinders with fewer than 17 files\" are checked by two programs, and the sum-model engine confirms only to n=12 [C1]. A ring with 60 pawns cannot have been solved by two programs, so values for 17<=n<=60 rest on the [S] wall argument. The same inflation occurs in the Introduction (01_intro l.46-48: \"only n ... on every C_n with n>=10 [S]\", next to \"[C2]\" ranges) and the Conclusion item 3.",
+   "fix": "Replace [C2] by [S] for 17<=n<=60 and state the largest n at which two programs agree. For example: \"two programs agree for n<=16; for 17<=n<=60 the value follows from the wall argument [S]\".",
+   "severity": "major",
+   "verdict": {
+    "real": true,
+    "reason": "The label is inflated. 08_star2.tex l.149 says the two families \"stay $\\nim{2}$ for every $n\\le60$ \\lab{C2}\". RESULTS.md l.396-401 says the families are *2 for n=10..60 as COMPUTED-1 (one program), and only n=10..14 are CHECKED-2. The same note records that the paper was meant to say \"n for 10 <= n <= 60 [C1]\". The paper's own l.154-155 supports this: the two-program check covers only cylinders with fewer than 17 files, and the sum-model engine reaches n=12 [C1]. So [C2] for 15<=n<=60 is not backed by two programs. The all-n claim is [S] via the wall argument and the T65-T67 proof notes, not [C2]. The intro (01_intro l.46-48) and Conclusion item 3 should be checked for the same wording.",
+    "better_fix": "In 08_star2.tex l.149, replace \"they stay $\\nim{2}$ for every $n\\le60$ \\lab{C2}\" with \"they stay $\\nim{2}$ for $10\\le n\\le14$ \\lab{C2} and for every $n\\le60$ \\lab{C1}, and for every $n\\ge10$ by the wall argument below \\lab{S}\". Make the intro and Conclusion item 3 say the same. The intro already uses [S] for n>=10, so only the n<=60 range label needs checking there."
+   }
+  },
+  {
+   "lens": "cgt-referee",
+   "file": "/Users/aritro/Downloads/Research/Chessendgames/paper/ieee/sections/00_abstract.tex",
+   "line": 5,
+   "quote": "an exhaustive scan finds no nimber above star with at most six pawns on ordinary boards of any width",
+   "problem": "The scan behind this statement is a census of widths 1-4 in the sum model (Theorem 8.2). \"Any width\" comes from a whole-board-game scan on up to nine files plus a one-clause reduction (08_star2 l.114-117: \"a run of empty files acts like one and every part ... has pawns of both colors\"). Section 5 states that the sum model and the whole-board game can differ even in outcome (05_sums l.139-141), and that some seven-pawn positions are *3 only as sums. A single component of six pawns can span six files, beyond the census, so for widths 5-6 the abstract's claim is established only for the whole-board game. The reduction is also not argued: the width bound (at most 3 components of >=2 pawns, plus gaps, gives <=9 files) is never written.",
+   "fix": "State the model with the claim. For example: \"in the sum model on boards of width at most four, and in the whole-board game on boards of any width\", or extend the sum-model scan to nine files. Write the 3-component, 9-file counting argument in two lines in Section 8.",
+   "severity": "major",
+   "verdict": {
+    "real": true,
+    "reason": "The core point holds, but the finding overstates it. Theorem 8.2 (08_star2.tex ~l.48-50) is the census of widths 1-4, and that census is in the sum model. 08_star2 l.114-117 extends it to \"ordinary boards of any width\" with a scan of up to nine files. The same sentence says \"in the whole-board game\" for the seven-pawn A and B. The six-pawn claim and the nine-file scan do not name a model. Section 5 (l.139-141) says the two models can differ, even in outcome, and promises \"Where they differ, we name the model we mean.\" The abstract (l.5-6) and the section intro (08_star2 l.4-6) give no model for the width claim, so a referee will ask which one it is. The finding is wrong on one count: the reduction is argued, in one clause at l.115-116 (\"a run of empty files acts like one and every part ... has pawns of both colors\"). What is missing is the explicit counting step that gives nine files. That step is minor, and I did not verify it. I also did not check which model the nine-file scan used.",
+    "better_fix": "Name the model in the abstract and at 08_star2 l.114-117, for example: \"no nimber above star with at most six pawns, in the sum model on boards of width at most four and in the whole-board game on boards of any width\". If the nine-file scan was also run in the sum model, say so instead. Add one sentence with the width count: with at most seven pawns and no passed pawn, at most three components of two or more pawns, each spanning at most two or three files, plus collapsed single gaps, give at most nine files. Downgrade the severity from major to moderate."
+   }
+  },
+  {
+   "lens": "cgt-referee",
+   "file": "/Users/aritro/Downloads/Research/Chessendgames/paper/ieee/sections/06_atlas.tex",
+   "line": 56,
+   "quote": "On $\\cyl{4}$, white a2, c2 against black b7, d7,\nthe $\\nim{2}$ candidate of Section~\\ref{sec:star2}, is $\\game{3/2\\pm1/2}{-3/2\\pm1/2}$ under the textbook\ntest",
+   "problem": "The sentence contradicts Section 8 and the caption of Fig. 6(d). Section 8 (l.30-34 and Table 4) gives the pawn list W a2 c2 / B b7 d7 the value *2 under the textbook test. Here the same list on C4 has value {3/2\u00b11/2|-3/2\u00b11/2}, so it is not a *2, yet it is called \"the *2 candidate\". Fig. 6(d) is captioned \"the *2 candidate on C4\" in a list of values that occur only on cylinders. The difference is that on C4 the a- and d-pawns are adjacent across the seam. The text never says so, and a reader will conclude that one position has two values. The atlas sentence at l.11-12 (\"one *2, the textbook candidate\") is the ordinary-board F4 position.",
+   "fix": "Rewrite: \"On C4 the same pawn list as the *2 candidate of Section 8 is, because a2 and d7 are adjacent across the seam, a different game: {3/2\u00b11/2|-3/2\u00b11/2} under the textbook test and {2\u00b11|-2\u00b11} under the e.p.-aware test.\" Change the caption of Fig. 6(d) to \"the candidate's pawn list on C4 (not a *2)\".",
+   "severity": "major",
+   "verdict": {
+    "real": true,
+    "reason": "The wording is confusing, though the numbers are not contradicted. Section 8 (08_star2.tex l.30-35) defines the *2 candidate W a2 c2 / B b7 d7 on the ordinary board (files a-d), with value {0,*|0,*} = *2 under the textbook test. The atlas intro (06_atlas.tex l.11-12) cites that same position as the single *2. 06_atlas.tex l.56-57 and the Fig. 6(d) caption (l.36) then call the same pawn list on C4 \"the *2 candidate\", while giving it a different value, {3/2\u00b11/2|-3/2\u00b11/2}. The text never explains that the seam makes it a different game, so a reader sees one pawn list with two values. The sentence is cylinder-only context, so the value itself is plausible, but the label \"the *2 candidate\" is wrong for a position that is not *2 on C4.",
+    "better_fix": "Replace the sentence with: \"On C4, the pawn list of the *2 candidate of Section 8 (white a2, c2 against black b7, d7) is a different game, because the a- and d-files are adjacent across the seam: {3/2\u00b11/2|-3/2\u00b11/2} under the textbook test but {2\u00b11|-2\u00b11} under the e.p.-aware test...\". Change the Fig. 6(d) caption to \"the pawn list of the *2 candidate, on C4 (not a *2)\"."
+   }
+  },
+  {
+   "lens": "cgt-referee",
+   "file": "/Users/aritro/Downloads/Research/Chessendgames/paper/ieee/sections/01_intro.tex",
+   "line": 22,
+   "quote": "Drummond-Cole built positions of value $\\nim{2}$ in chess with the help of pieces other than kings and\npawns~\\cite{DrummondCole2005}. We ask whether $\\nim{2}$ occurs in a king-and-pawn endgame on an 8-rank board,\nthe \\emph{$\\nim{2}$ question}",
+   "problem": "Novelty against the closest prior work cannot be judged. The paper does not say which pieces Drummond-Cole's position uses, on what board, or how many men. It does not say where Elkies posed the question, or exactly what was open (kings and pawns only, on 8x8). Section 7 (\"Elkies' Small Values\", l.3) never says which of 1/8, 1/16, up-second, up-second star and tiny values Elkies already exhibited and at what size. The abstract and Introduction nonetheless say \"We find ... one-eighth, up-second star and Tiny 1\". Section 3 re-derives 0, 1, 2, *, up, tiny 1 and double-up star from Elkies and Wu-Yu-Landry with no marker of what is new. The contribution list mixes known values with new ones. Wu-Yu-Landry (an undergraduate course paper) is cited as the source of reversibility and dominance facts that are standard in Winning Ways and Siegel.",
+   "fix": "Add a related-work paragraph or table: for Elkies 1996, Elkies 2002, M\u00e4ser 2002, Drummond-Cole 2005 and Wu-Yu-Landry 2010, give the values and positions each exhibits, the board and the men count. State that A and B (with T) have 11 men and are the first pawn-only *2 candidates in the model. Mark Section 3 as expository, and cite Winning Ways or Siegel for the canonical-form rules instead of the course paper.",
+   "severity": "major",
+   "verdict": {
+    "real": true,
+    "reason": "Partly real, but overstated. In sections/07_targets.tex line 3 the only statement of prior art is \"Elkies found fractions, ups and tinies in chess endgames on the ordinary board\". It never says which values (1/8, 1/16, up-second, up-second star, Tiny 1) Elkies already exhibited, or at what size. The abstract and Introduction then say \"We find ... one-eighth, up-second star and Tiny 1\". A referee cannot tell from this whether those finds are new or a re-derivation. Section 7 does hint at the contribution: the positions are 10-man, with a legal pawn history, with all nine race settings checked. It never states that this is the new part. The other claims in the finding are weak. The Introduction (01_intro.tex lines 22-24) already says Drummond-Cole used pieces other than kings and pawns, and Elkies's Dawson-based nimbers are placed on large boards. The nimber question is therefore framed adequately: king and pawn only, on an 8-rank board. Citing Wu-Yu-Landry for reversibility and dominance is a minor point, because Winning Ways is already cited for the canonical form in 03_basic.tex. Section 3 does not claim novelty either. The finding's \"major\" severity and its request for a table covering five papers are overreach.",
+    "better_fix": "Add one sentence to sections/07_targets.tex after line 3. It should list the values Elkies exhibited and the size of the positions, and state that the contribution here is the smallest such positions, with a legal pawn history, together with the check across all nine race settings. For example: \"Elkies exhibited [list] in positions of [size]; we do not claim these values as new. What is new here is [ten-man positions with a legal pawn history, all nine settings].\" Make the abstract's \"We find\" say \"We find ... with a legal pawn history\" or the equivalent. Add Winning Ways or Siegel next to Wu-Yu-Landry for the reversibility and dominance facts in 03_basic.tex. The facts about what Elkies exhibited must come from the author, since this check cannot confirm them from the repository."
+   }
+  },
+  {
+   "lens": "cgt-referee",
+   "file": "/Users/aritro/Downloads/Research/Chessendgames/paper/ieee/sections/02_rules.tex",
+   "line": 39,
+   "quote": "\\emph{count}: fewer moves to promote wins; the side that did not move goes first and wins a tie;",
+   "problem": "The race rule is one of the three parameters that define the nine settings and it changes values (3/4 becomes 0 under the mover rule; 06_atlas l.61). It is not defined precisely. \"Moves to promote\" is not specified: does it count the double step, ignore blockers and captures, use the fastest passed pawn or all of them, and how are non-passed pawns treated? Theorem 7.1 then asserts the 1/8 for \"every assignment of outcomes to its race positions\", and the term \"race positions\" is never defined. The sum model (BIG=256) and the whole-board model are also never given a formal definition of end of game. A reader cannot reimplement the model from the text.",
+   "fix": "Add a definition: \"For each side, let d be the minimum over its passed pawns of the number of moves to reach the last rank on an empty file, counting a double step as one move from the starting rank; the side with smaller d wins, and if d is equal the side that did not just move wins.\" Define \"race position\" in Section 2.",
+   "severity": "major",
+   "verdict": {
+    "real": true,
+    "reason": "Confirmed in 02_rules.tex l.37-41. The count rule reads only \"fewer moves to promote wins; the side that did not move goes first and wins a tie\". The paper never says whether the double step counts, whether blockers or captures on the way are ignored, or which pawns count. The count rule is one of three parameters behind the nine settings, and 06_atlas.tex l.61 says it changes values (3/4 becomes 0 under the mover rule). Theorem 7.1 (07_targets.tex l.58) quantifies over \"every assignment of outcomes to its race positions\", and \"race position\" is not defined anywhere in the sections (grep finds only that one use). The tie wording is also loose: \"the side that did not move goes first\" could be read two ways. The finding is somewhat overstated. Theorem 7.1's statement is intuitive enough, since a race position is one where both sides have a passed pawn. The sum and whole-board models are defined by the normal-play rules in 02_rules.tex and the \u00b1BIG convention, so the \"never given a formal definition of end of game\" claim is weak. The core complaint stands: a reader cannot reimplement the count rule from the text.",
+    "better_fix": "Narrow the fix to the count rule and the term \"race position\". In 02_rules.tex after l.41, add: \"A race position is one in which both sides have a passed pawn after a move. For each side, d is the least number of moves any of its passed pawns needs to reach the last rank, ignoring all other pieces, with a double step from the starting rank counted as one move. The smaller d wins. On equal d, the side to move next (the side that did not make the last move) wins.\" The author should check this against the code (the solver's race-rule function) before using it, because the exact convention, including whether the counting is over passed pawns only and the tie handling, must match the programs. Then change Theorem 7.1 to \"...for every assignment of outcomes to its race positions (Section 2.1)\"."
+   }
+  },
+  {
+   "lens": "cgt-referee",
+   "file": "/Users/aritro/Downloads/Research/Chessendgames/paper/ieee/sections/01_intro.tex",
+   "line": 52,
+   "quote": "king and rook win only 2.80\\% of cylinder positions, and on the\ntorus only two major pieces force mate",
+   "problem": "\"Only two major pieces force mate\" is not supported by the table. Section 10 computed eight endings (KQK, KRK, KBBK, KBNK, KNNK, KRBK, KRRK, KQRK). KQQK, KQBK, KQNK, KRNK and others were not computed, so \"only\" cannot be asserted. The same gap affects 10_tablebases l.64 (\"On the torus only KRRK and KQRK force mate\") and the claim of novelty \"we found no earlier tablebase\" (l.7-8), made with no citation of the retrograde-analysis literature (Thompson; Nalimov; Syzygy) or of any search method.",
+   "fix": "Write \"among the eight endings computed, only KRRK and KQRK force mate on the torus\", or compute KQQK, KQBK, KQNK, KRNK and other three-man-attacker endings. Cite the standard retrograde-analysis and Syzygy sources, and state how the earlier-work search was done.",
+   "severity": "minor",
+   "verdict": {
+    "real": true,
+    "reason": "Only the \"only\" wording is a real problem. Section 10 computes just eight endings (l.3-5), so \"only KRRK and KQRK force mate\" (l.64) and the intro's \"only two major pieces force mate\" hold only among those eight. KQQK, KQBK, KQNK and KRNK were not solved. The intro line l.52 drops that scope, and \"two major pieces\" is also ambiguous. The novelty claim (l.7) is already hedged with \"we found no earlier tablebase\" and cites prose sources, so the demand for retrograde-analysis citations (Thompson, Nalimov, Syzygy) and a search method is a matter of taste and not a defect.",
+    "better_fix": "Intro l.52: \"among the eight endings computed, only KRRK and KQRK force mate on the torus\". Section 10 l.64: \"On the torus, of the eight endings, only KRRK and KQRK force mate\". Leave the novelty sentence as it is."
+   }
+  },
+  {
+   "lens": "cgt-referee",
+   "file": "/Users/aritro/Downloads/Research/Chessendgames/paper/ieee/sections/12_engines.tex",
+   "line": 18,
+   "quote": "but infinitesimals only $30\\%$ ($26\\%$ at depth~2) and nimbers $53\\%$\n\\lab{C1}: exactly the tempo and parity fights that CGT singles out.",
+   "problem": "The causal reading (CGT class explains engine error) is not supported. The sample is small: 17 nimbers and 27 infinitesimals. No control for confounds (men count, locked-pawn structure, distance to the decisive capture) is reported. The class \"number\" never reaches 100% (98% at depth 12), so the claim that classes separate is only partly visible in Table 5. The Introduction (01_intro l.56) states \"Stockfish is weakest on infinitesimals at low depth\" as a finding without the \"pilot\" caveat given in the body (l.20). Section 12.4 concedes that errors on sums \"do not single out nimbers or infinitesimals\". The engines section also has no stated relation to the CGT results of the other sections, so its significance is unexplained.",
+   "fix": "Report confidence intervals or a test (e.g. Fisher exact for infinitesimal vs rest at depth 1). Restate the Introduction bullet as \"in a pilot of 233 positions, Stockfish at depth 1 scored lowest on infinitesimals (8 of 27 vs 73-81% elsewhere); no effect was seen on sums\". Add a sentence on why this matters for CGT, or move the section to a short remark.",
+   "severity": "minor",
+   "verdict": {
+    "real": true,
+    "reason": "The finding is real but much narrower than stated. Most of it is a misreading or already handled in the paper. The remaining defect is a modest overclaim.\n\nNot valid:\n- The section already says \"With one engine and a small sample, this is a pilot result\" (12_engines.tex, l.20).\n- Section 12.4 openly states that errors on sums \"do not single out nimbers or infinitesimals\".\n- The remark that the \"number\" class never reaches 100% (98% at depth 12) is irrelevant, because the paper does not claim every class reaches 100%.\n- The sample sizes (n=17 and n=27) are printed in Table 5.\n- The tablebase disagreement on 52 positions is disclosed.\n\nValid:\n1. 12_engines.tex l.18 says \"exactly the tempo and parity fights that CGT singles out\". That is a causal explanation for a pattern the data only weakly support. With n=17 nimbers and n=27 infinitesimals there is no test or confidence interval. The \"other\" class (60% at depth 1, 50% at depth 2) is nearly as low as nimbers (53%), and \"other\" has no tempo or parity interpretation. The size of the infinitesimal gap (8 of 27, 30%, against 73-81% elsewhere) probably is significant, but the nimber gap is not clearly distinguishable from \"other\".\n2. 01_intro.tex l.56 states \"Stockfish is weakest on infinitesimals at low depth\" without the pilot qualifier given in the body.\n\nSuggested fix:\n- In 12_engines.tex, replace \"\\lab{C1}: exactly the tempo and parity fights that CGT singles out.\" with \"\\lab{C1}, consistent with, though not shown to be caused by, tempo and parity fights; the nimber and 'other' classes are not clearly separated at this sample size.\"\n- In the introduction, write \"in a $233$-position pilot, Stockfish at low depth is weakest on infinitesimals\".\n- Optionally add a Fisher exact p-value for infinitesimal against the rest at depth 1.\n\nSeverity is minor, as the original referee said.",
+    "better_fix": "Replace \"exactly the tempo and parity fights that CGT singles out\" with \"consistent with tempo and parity fights, though the nimber and 'other' classes are not clearly separated at this sample size\". Add \"in a 233-position pilot\" to the Introduction bullet (01_intro.tex l.56). Optionally add a Fisher exact test for infinitesimal vs rest at depth 1."
+   }
+  },
+  {
+   "lens": "presentation",
+   "file": "sections/14_conclusion.tex",
+   "line": 28,
+   "quote": "On the M\\\"obius strip, where files a and h are joined with the ranks reversed, KRK is won from every legal position, against $0.66\\%$ on the Klein bottle",
+   "problem": "The Moebius-strip and Klein-bottle tablebase results (labelled C2) appear nowhere else in the paper. Section X covers only the ordinary board, cylinder and torus. The conclusion therefore introduces new evidence-labelled results with no body support. The same open problem also says 'KPKP still has undecided positions once a second promotion is allowed', which Section X states only as 89%/83% decided with at most one new piece.",
+   "fix": "Either add a short subsection to Section X with the Moebius and Klein rows (KRK, and the other endings if computed) and a method/verification sentence, or delete the sentence from the conclusion. Replacement if deleted: 'Endgames without edges. KPKP still has undecided positions once a second promotion is allowed, and KPPK comes next. Pawn play across a twisted seam, where a pawn reverses direction, remains open.' Also reword the KPKP clause to match Section X ('with at most one new piece, 11% of cylinder positions stay undecided').",
+   "severity": "major",
+   "verdict": {
+    "real": true,
+    "reason": "Confirmed. M\u00f6bius and Klein appear only in sections/14_conclusion.tex lines 28-30 (grep over all sections and main.tex finds nothing else, no \"twist\" or \"bottle\" elsewhere). The 0.66% Klein figure and \"wins every position\" M\u00f6bius claim are labelled C2 with no body support, though RESULTS.md (line ~420, research/twisted_tablebases/COMPARE.md) has them. The KPKP clause is also loosely worded: Section X (10_tablebases.tex line 143-144) states 89%/83% decided \"with all promotions but at most one new piece\", so \"once a second promotion is allowed\" is an inference not stated there. The conclusion thus introduces new evidence-labelled results unsupported by the body.",
+    "better_fix": "Either add a short paragraph to Section X giving the M\u00f6bius strip, RP^2 and Klein bottle KRK rows (M\u00f6bius and RP^2 won everywhere, Klein 0.66%) with the C2 method sentence from COMPARE.md, or cut the M\u00f6bius/Klein sentence from the conclusion. Also reword the KPKP clause to match Section X: \"With at most one new piece, 11% of KPKP positions on the cylinder stay undecided.\""
+   }
+  },
+  {
+   "lens": "presentation",
+   "file": "sections/10_tablebases.tex",
+   "line": 6,
+   "quote": "That king and rook cannot force mate on the cylinder, nor king and queen on the torus, is known in prose",
+   "problem": "This contradicts the paper's own result. Table tab:tb shows KRK is won in 2.80% of cylinder positions with mates of up to 3 moves, so king and rook can force mate there, only rarely. Elsewhere the paper says 'rarely force mate'. The reader cannot tell whether the prose claim was confirmed or refuted.",
+   "fix": "'That king and rook rarely force mate on the cylinder, and that king and queen cannot on the torus, is stated in prose [..], but we found no earlier tablebase for these boards.' If the cited prose really says 'cannot', say 'is said to be impossible [..]; our tablebases show it is possible from 2.80% of positions'.",
+   "severity": "major",
+   "verdict": {
+    "real": true,
+    "reason": "The sentence at sections/10_tablebases.tex lines 5-7 says \"That king and rook cannot force mate on the cylinder ... is known in prose\". Table tab:tb in the same file, line 33, has KRK won in 2.80% of cylinder positions with a mate in at most 3 moves. The text at line 52 then says \"KRK and KBNK rarely force mate on the cylinder\", and the abstract and conclusion say the same. So the opening sentence states, as established, something the paper's own tablebase refutes. The paper does handle the same issue correctly a few lines later for the bishop pair (\"although the bishop pair is said not to mate there\"). The opening sentence needs the same hedge. The torus KQK claim is consistent with the table (0%), so only the KRK half is wrong. I did not check what the cited Wikipedia and HGM pages actually say about the rook, but the paper's own wording is inconsistent either way.",
+    "better_fix": "Replace lines 5-7 with: \"Prose sources state that king and rook cannot mate on the cylinder, and king and queen cannot on the torus~\\cite{WikiCylinder,HGMCylinder}. Our tablebases confirm the torus claim, but show that the rook does mate from 2.80% of cylinder positions. We found no earlier tablebase for these boards.\" Optionally verify the exact wording of the two cited pages first. The fix is the same: say what the prose claims, then say what the tablebase shows."
+   }
+  },
+  {
+   "lens": "presentation",
+   "file": "sections/04_kings.tex",
+   "line": 42,
+   "quote": "King groups that count as $0$: (a) a tr\\'ebuchet on the cylinder ... (c) a king group from the 2025 study (cylinder; Section~\\ref{sec:sums}), a draw with white to move.",
+   "problem": "The caption title says all three groups count as 0, but panel (c) is, by the text, not a tr\\'ebuchet (white's king moves go unpunished and the group is a zugzwang for black only). The caption contradicts Section V and the 'Each condition can fail ... in Fig. kinggroup72, white's king moves go unpunished (V3)' sentence.",
+   "fix": "Retitle: 'King groups: (a), (b) tr\\'ebuchets that count as 0, both real mutual zugzwangs; (c) a king group from the 2025 study that does not count as 0 (white to move draws, so it is not a mutual zugzwang).'",
+   "severity": "major",
+   "verdict": {
+    "real": true,
+    "reason": "The caption opener \"King groups that count as $0$\" covers all three panels. But sections/05_sums.tex (~line 75) and 04_kings.tex line 84 say panel (c) is not a tr\u00e9boucher: white to move draws, so (V3) fails and it is a zugzwang for black only. The caption's closing clause (\"a draw with white to move\") hints at this, but the lead-in contradicts it. The fix is a small wording change, so this is a minor presentation issue rather than a major one.",
+    "better_fix": "Retitle the caption: \"King groups: (a) a tr\u00e9buchet on the cylinder (files a and h adjacent) and (b) the tr\u00e9buchet T (ordinary board), both real mutual zugzwangs that count as 0; (c) a king group from the 2025 study (cylinder; Section~\\ref{sec:sums}) that does not count as 0: with white to move it draws (white's king moves go unpunished), so it is a zugzwang for black only.\""
+   }
+  },
+  {
+   "lens": "presentation",
+   "file": "sections/00_abstract.tex",
+   "line": 1,
+   "quote": "\\begin{abstract} ... confirmed by three programs; on the three-file cylinder six pawns suffice, from ten files on one pawn per file suffices",
+   "problem": "(1) The built main.pdf is stale: its abstract lacks the clause 'from ten files on one pawn per file suffices', so the PDF no longer matches the source. The PDF is dated 22:18 and the abstract source 22:50. (2) With that clause the abstract is about 198 rendered words, so at most 200 is only just met and any addition breaks it. (3) The abstract states the one-pawn-per-file result without its [S] status, although the body proves it only in sketch with an independent check pending, while 'ten-pawn rings reach star three' is [C2]. (4) The abstract says nothing about engines/ChessSums or the Dawson-learning pilot, which the introduction lists as contributions.",
+   "fix": "Rebuild the PDF before submission and recount the words. Change the clause to 'from ten files on, one pawn per file suffices (proof sketched)'. Either drop the Engines bullet from the contribution list or add a half-sentence to the abstract: 'Stockfish is weakest on infinitesimals at low depth.' Save words by cutting 'We repair this model with'.",
+   "severity": "minor",
+   "verdict": {
+    "real": true,
+    "reason": "Confirmed in part. main.pdf (22:18) lacks the abstract clause \"from ten files on one pawn per file suffices\" that the source (22:50) has, so the PDF is stale. The intro labels the same result [S] (08_star2.tex L146 and the intro bullet), but the abstract states it with no status, while the ten-pawn star-three claim is [C2]. The abstract is 198 words, so the 200 limit is barely met. Point 4 is weak: the Engines bullet is a minor contribution and omitting it from a 200-word abstract is a matter of taste. The first three points are real but minor.",
+    "better_fix": "Rebuild main.pdf and recount the abstract. Change the clause to \"from ten files on, one pawn per file suffices (proof sketched)\", and cut \"We repair this model with\" (\"We add a passed-pawn test that respects en passant\") to recover the words. Skip the engines addition; it is optional."
+   }
+  },
+  {
+   "lens": "presentation",
+   "file": "sections/09_real.tex",
+   "line": 44,
+   "quote": "we rule out $\\nim{2}$ only when draws count as wins for one side, as in (c), so the candidate's $\\nim{2}$ depends on the textbook test.",
+   "problem": "Theorem (c) proves the hot value only when draws count as wins for black, not 'for one side'. The conclusion 'depends on the textbook test' is also not what was shown. In the textbook tree, with the other draw treatments, the value is simply not ruled out. The statement is stronger than the theorem and the nearby text is hard to follow.",
+   "fix": "'In the textbook tree we rule out $\\nim{2}$ only when draws count as wins for black, as in (c); with the other draw treatments the oracle value of the textbook tree is not determined, so the candidate's $\\nim{2}$ is a feature of the textbook test, not of chess.' Or add the symmetric white-win case to (c) if it is true.",
+   "severity": "minor",
+   "verdict": {
+    "real": true,
+    "reason": "Theorem (c) at 09_real.tex lines 35-40 says \"If draws count as wins for black\". The sentence at line 44 says \"only when draws count as wins for one side, as in (c)\". That is wider than what (c) proves, because no white-win case is stated. The last clause, \"the candidate's nim2 depends on the textbook test\", is loose too. What the paper shows is that nim2 is excluded in the textbook tree only under black-win draws, and that in the e.p.-aware tree, which matches chess, O is hot under every draw treatment. The wording should say exactly that. This is a small wording error, but it is a real overstatement relative to the theorem, so I rate it minor.",
+    "better_fix": "Replace the sentence with: \"In the textbook tree we rule out $\\nim{2}$ only when draws count as wins for black, as in (c); for the other draw treatments we do not decide it. Since the e.p.-aware tree, which matches chess, is hot under every draw treatment, the candidate's $\\nim{2}$ is a feature of the textbook test, not of chess.\" Alternatively, add the white-win case to (c) if it holds."
+   }
+  },
+  {
+   "lens": "presentation",
+   "file": "sections/05_sums.tex",
+   "line": 123,
+   "quote": "Components with opposite threats appear only later in its tree, so $X$ is not HSS.",
+   "problem": "This sentence is stranded after the proposition and is not part of the proposition's proof or statement. It is a claim with no evidence label, and it reads as a dangling remark. The proposition also says X is 'a single component' and then speaks of 'S(X)', which is just the component's value. The reader must infer that S(X) splits after later captures.",
+   "fix": "Move it into the proposition: '... a first-player win. Components with opposite threats appear only later in its tree, so $X$ is not HSS.' Clarify before it: 'S(X) is evaluated with splitting after every move'.",
+   "severity": "minor",
+   "verdict": {
+    "real": true,
+    "reason": "Minor but valid. The sentence at 05_sums.tex:123 sits outside the proposition environment. The text above it (line 107) cites Proposition sumcounter as showing that HSS cannot be dropped. That needs \"X is not HSS\" as part of the proposition, and the proposition's own statement never says it. The fact is also not asserted anywhere in the proposition's evidence label [C2]. The referee's other claims are weaker. S(X) is the splitting model by the paper's own definition, so there is nothing to clarify about it. The \"single component then S(X)\" complaint is a misreading. The proposed fix to add \"S(X) is evaluated with splitting after every move\" is unnecessary.",
+    "better_fix": "Move the sentence into the proposition so it is covered by the [C2] label. Replace \"...a first-player win.\" with \"...a first-player win. Moreover X is not HSS: components with opposite threats appear later in its tree, so Theorem~\\ref{thm:hss} does not apply.\" Delete the stranded line after the proposition."
+   }
+  },
+  {
+   "lens": "presentation",
+   "file": "sections/08_star2.tex",
+   "line": 88,
+   "quote": "\\caption{Values of the Three $\\nim{2}$ Positions in the Model Settings}",
+   "problem": "The caption says 'the three nim-2 positions', but the first column (the candidate) is nim-2 only in some settings and is not nim-2 in the default setting, as the table itself shows. Fig. star2's caption has the same mixing (it calls (b) and (c) nim-2 in the default setting but (a) a hot game).",
+   "fix": "'Values of the Candidate and of Positions A and B in the Model Settings'.",
+   "severity": "minor",
+   "verdict": {
+    "real": true,
+    "reason": "Confirmed at sections/08_star2.tex line 88. The caption calls the table's three columns \"the Three nim-2 Positions\". In the table's first two rows the Candidate is not nim-2: it is {2\u00b11 | -2\u00b11}. It is nim-2 only under the textbook test or with e.p. off, and 0 under the opponent rule. A and B are the other two columns. The Fig. star2 caption (lines 24-26) does not repeat the problem. It says the candidate is nim-2 under the textbook test only, and calls A and B nim-2 in the default setting. The table caption is a minor wording error, but it is real and a one-line fix.",
+    "better_fix": "Change the caption to \"Values of the Candidate and of Positions A and B in the Model Settings\". Leave the Fig. star2 caption alone."
+   }
+  },
+  {
+   "lens": "presentation",
+   "file": "sections/06_atlas.tex",
+   "line": 62,
+   "quote": "With at most four pawns, no value is cylinder-only in all nine settings \\lab{C1}.",
+   "problem": "The atlas has positions with up to five pawns, and Proposition prop:cylonly counts rings of 3 and 4 files only. The reader cannot tell whether the 'at most four pawns' limit is the scope of the atlas search of this claim or a gap. It also does not say whether 5-file rings (5 pawns) were examined for cylinder-only values, although the atlas includes C5 to C8.",
+   "fix": "State the scope: 'No atlas position with at most four pawns has a value that is cylinder-only in all nine settings; the five-pawn rings on C5 were checked under the textbook test only [or: give the result].' Also say why Proposition prop:cylonly has no 5-file rings.",
+   "severity": "minor",
+   "verdict": {
+    "real": true,
+    "reason": "The scope gap is real but minor. The atlas holds positions with up to five pawns on C3 to C8 (lines 3-6). Proposition cylonly counts cylinder-only values only from 3-file and 4-file rings, and the text never says whether 5-file rings (5 pawns, on C5) were examined or gave none. The closing sentence (line 62) then says \"at most four pawns\" with no reason for stopping at four. A reader cannot tell if that is the real scope or an omission. The claim is not wrong, but the limit is unexplained. Strictly, a 5-file ring on C5 may have a cylinder-only value that the proposition silently omits, or the limit may just reflect that all cylinder-only values come from rings of 3 and 4 files.",
+    "better_fix": "State the scope and the 5-file result explicitly. In the proposition, add: \"The 5-pawn rings on C5 give no cylinder-only value under the textbook test [or: give N such values].\" Then replace line 62 with: \"Among the 3- and 4-file rings above, no value is cylinder-only in all nine settings [and the same holds for the C5 rings].\" If the 5-file case was not checked, say so."
+   }
+  }
+ ],
+ "rejected": [
+  {
+   "lens": "math",
+   "file": "/Users/aritro/Downloads/Research/Chessendgames/paper/ieee/sections/02_rules.tex",
+   "line": 39,
+   "problem": "The default race rule is not reproducible from the text. The implementation (cylcgt/pawns.py, promote_distance) counts a pawn on its starting rank as one move closer (double step), counts only the front pawn of each file, and ignores e.p.-capturable pawns. These choices change values. I re-solved Proposition 5.4 (X = W b2 d4 g3 h5 / B a7 c7 f7 g4 on C8, e.p. off) with a plain 'ranks to go' count and got a black win for both W(X) and S(X) (no first-player win in W(X)). With the double-step-aware count I get the paper's result (W(X) first-player win, S(X) black win). So the paper's stated rule gives a different answer from the one it reports on a headline example.",
+   "why_rejected": "The rule is \"fewer moves to promote\". Under the rules of chess, a pawn on its starting rank can promote in one move fewer, because the double step is a single move. promote_distance in cylcgt/pawns.py (line 48) implements exactly that, so the code matches the literal reading of the text. The referee's \"plain ranks to go\" count is a non-literal reading, and the discrepancy comes from that reading. The other two objections do not hold. First, \"front pawn only\" cannot change the minimum. A friendly pawn ahead on the same file is always nearer to promotion than the pawn behind it, so counting the blocked pawn adds nothing. Second, the e.p.-capturable exclusion is already stated in Section 2.3 and enforced by the PASSED_RESPECTS_EP flag, which the paper's e.p.-aware passed test (Section 2.3) covers. That leaves only a clarity issue: a short parenthetical such as \"(a double step counts as one move)\" would help, but it is not a correctness problem."
+  },
+  {
+   "lens": "math",
+   "file": "/Users/aritro/Downloads/Research/Chessendgames/paper/ieee/sections/02_rules.tex",
+   "line": 110,
+   "problem": "Stated unconditionally, this is false in the paper's own model. With en passant a right created in one component survives moves in another, so the whole board is not the sum (Proposition 5.5 gives a pure pawn position where the sum has the wrong outcome). With the passed-pawn convention the whole board ends at the first passed pawn while the sum does not (Section 5.3, Proposition 5.4).",
+   "why_rejected": "The sentence at 02_rules.tex line 110-111 states the file-independence decomposition. Section II also ends with \"Section~\\ref{sec:sums-hss} says when a sum of components still names the right winner\". Section 5.3 (05_sums.tex, \"When Is the Sum Model Right?\") opens by separating the sum model S(X) from the whole-board game W(X), and its theorem excludes pending en passant (condition E). So the paper does not claim that the sum equals the whole board. The only issue is that the rules sentence is looser than the later qualification, which is a matter of wording and not an error a referee would require fixed."
+  },
+  {
+   "lens": "math",
+   "file": "/Users/aritro/Downloads/Research/Chessendgames/paper/ieee/sections/01_intro.tex",
+   "line": 20,
+   "problem": "As a definition this is incomplete: it says the options include these, not that they are the only options. Any game with extra options (for example {0,*,2|0,*}) satisfies the wording. The later claim that 'no position is *k' depends on the exact form.",
+   "why_rejected": "The sentence is a definition: \"either player may move to any of 0, *, ..., *(k-1)\" in standard usage reads as exactly those options, and the next sentence gives the explicit worked case *2 = {0,*|0,*}. 02_rules.tex line 20 then fixes the birthday (*k has birthday k), which presupposes the canonical form. The paper defines no extra-option games as nimbers, and the \"no position is *k\" claims are about game values, which are equal up to canonical form. The suggested rewording is harmless but a matter of taste, not a correctness or clarity defect."
+  },
+  {
+   "lens": "math",
+   "file": "/Users/aritro/Downloads/Research/Chessendgames/paper/ieee/sections/05_sums.tex",
+   "line": 107,
+   "problem": "The sketch skips the cases that make HSS the right hypothesis. (i) The passed pawn can be created by black's move or by white's, and HSS must count threats created by either side's move (the Definition does, but the sketch does not use it). (ii) The component that has just received the passed pawn can itself split or carry a black threat; after it becomes +B, the sum model stops play there, so it needs the statement that no later position of that component gives black a passed pawn. (iii) A move giving both sides passed pawns in one component needs the race rule. As written the sketch does not show where each hypothesis, including B > number of moves, enters.",
+   "why_rejected": "This is a complaint that a proof sketch is short, and the paper already handles it. The theorem is labelled [S], so it is a sketch with the full induction in the repository. Definition `def:hss` already counts threats from \"moves of either side, in any order\", so point (i) is covered by the definition. The theorem statement carries the \"BIG exceeds the number of moves\" hypothesis, and the sketch's phrase \"black runs out of moves before white's +BIG does\" is where it is used. Point (ii) is a detail of the induction that the sketch defers to the repository, and the sketch says so. The proposed replacement also adds an unproved \"monotonicity\" step and mentions a \"race rule\" that the theorem does not define. It is a matter of exposition taste, not a correctness error."
+  },
+  {
+   "lens": "cgt-referee",
+   "file": "/Users/aritro/Downloads/Research/Chessendgames/paper/ieee/sections/00_abstract.tex",
+   "line": 4,
+   "problem": "Both halves overclaim relative to Section 4. The e.p.-aware test addresses only 18 of the 159 convention failures (04_kings l.157-160). In 13 of those 18 the free kings change the result again, so the count falls only \"from 143 to 138\". On the paper's own sample, the convention is still wrong in roughly 138 of 500 cases (the whole-sample figure under the new test is never stated; the ambiguous \"there\" refers to the seven-file cylinder). \"Say when the frozen kings are exact\" rests on Theorem 4 [S]. Its hypotheses (V2),(V3) are statements about chess that restate the conclusion. Conjecture 1 says no context-free local test exists for h>=2, and real trebuchets need h of about 5-7. So no general criterion is actually given.",
+   "why_rejected": "The body of the paper already reports what the finding says is missing. Section 4 (04_kings.tex l.157-160) gives the figures: 159 of 500 convention failures, 107 through the kings alone, 18 through en passant, and 13 of those 18 changing again with free kings, so the count falls only from 143 to 138. Section 4.2 is titled \"When Is the Frozen Tr\u00e9buchet Exact?\". It states the conditions (V1)-(V4) and the horizon-h certificate, and it says openly where each fails: Conjecture 1 is tagged Conj, the local test for (V2) is only [S], and l.84-85 describes kings walking to the pawns. So \"say when the frozen kings are exact\" is a fair one-line summary of sufficient conditions. The abstract is also length-limited. The one fair point is that the whole-sample residual under the new test is not stated; the paper gives it only for the seven-file cylinder. The sentence \"We repair this model\" is slightly generous but not misleading, since the paper itself says the repair is partial. This is wording at most, not a correctness problem."
+  },
+  {
+   "lens": "cgt-referee",
+   "file": "/Users/aritro/Downloads/Research/Chessendgames/paper/ieee/sections/04_kings.tex",
+   "line": 53,
+   "problem": "The theorem's content is thin and its label inconsistent. (V2) (\"the side that gets a passed pawn wins\") and (V3) (\"every move in Z loses\") are statements about chess outcomes that are the conclusion in disguise. The three-line \"proof sketch\" is the entire proof, so [S] (\"independent check pending\") understates it, and the result is closer to a definition. (V1) mixes \"legal chess moves are exactly the moves of the model\" with \"the side to move has a legal move\", while the proof uses \"has a model move\". These are different when the only legal move is a king move in Z. The substantive results are the local tests (Theorem 4.3, Proposition 4.4). They cover only the promotion game, not chess; Conjecture 1 says they cannot extend. So the Introduction's claim that (V1)-(V3) give \"the result of the whole-board pawn game\" is vacuous unless (V2),(V3) can be verified. The only verification offered is brute force on a 500-component sweep, which then fails in 27%.",
+   "why_rejected": "This is mostly taste or a misreading. (1) The [S] label is conservative, not an overclaim. Marking a short argument \"sketch, independent check pending\" understates rather than overstates it, so no referee would object on correctness grounds. (2) The V1 mismatch is not real. V1 says legal chess moves are exactly the model's moves, so \"has a legal move\" and \"has a model move\" are the same thing. The model includes moves in Z, and a lone legal Z move is itself a decisive event. By V3 that move loses, so the proof at lines 67-69 handles it. (3) The claim that V2 and V3 are the conclusion in disguise is overstated. They are explicit hypotheses, and the paper says so. Lines 83-85 list how each can fail, and lines 87-110 give local tests (the horizon-h certificate, the passed-pawn condition) and counterexamples. Calling the theorem a reduction lemma with stated hypotheses is accurate. (4) The point about \"beside T\" scope in Sections 7-8 is a fair request for clarity but not a defect in this theorem. The finding does not show the Introduction's wording is wrong, and the paper already states the conditions can fail. At most this is an optional clarity improvement, not a problem the author must fix."
+  },
+  {
+   "lens": "presentation",
+   "file": "sections/01_intro.tex",
+   "line": 53,
+   "problem": "Ambiguous and slightly wrong. The result (Table tab:tb) is that only two combinations of material, KRRK and KQRK, force mate on the torus. 'Two major pieces' reads as a property of a pair of pieces. The intro also says 'king and rook win only 2.80% of cylinder positions' without 'with white to move', as in the table. The abstract and the contribution list do not mention the cylinder bishop-pair result that the body highlights.",
+   "why_rejected": "The finding is mostly a matter of taste, and part of it is wrong. (1) \"only two major pieces force mate\" is correct and arguably more informative than the proposed fix. The torus rows of Table tab:tb show that only KRRK and KQRK are won everywhere, and both have two major pieces. KQK, KRK and KBBK are 0% on the torus, and KRBK wins only mate-in-one positions (0.0218%). Section 10 states it as \"On the torus only KRRK and KQRK force mate\". The intro's phrasing is a compressed, slightly loose but non-erroneous summary. (2) The abstract does mention the bishop pair: \"king and rook rarely force mate on the cylinder, where opposite-colored bishops still can\". So the claim that the abstract omits the bishop result is false. The contribution bullet does not repeat it, but that is a choice, not an error. (3) \"2.80% of cylinder positions\" without \"with white to move\" is not misleading. The table caption and body state the convention, and Section 10 itself says \"wins only 2.80% of the positions\". At most this is an optional wording tweak, not something the author needs to fix."
+  },
+  {
+   "lens": "presentation",
+   "file": "sections/04_kings.tex",
+   "line": 160,
+   "problem": "'The count there' is ambiguous. 143 was defined two sentences earlier as the number of failures on the seven-file cylinder, while 159 is the overall total. The reader cannot tell whether 18 e.p. failures minus 13 re-broken gives 5 repaired overall (159 to 154) or only on the seven-file cylinder (143 to 138). If all 18 e.p. cases were on the seven-file cylinder this needs saying.",
+   "why_rejected": "The sentence is readable as written. The preceding sentence says \"$143$ of the $159$ are on the seven-file cylinder\", so \"the count there\" refers to that cylinder and 143 to 138 is arithmetically consistent (18 e.p. failures minus 13 re-broken leaves 5 repaired). A single-file board has no sideways pawn capture, so e.p. failures can only occur on files d and e of the seven-file cylinder. The ambiguity is mild and a matter of wording, not correctness."
+  },
+  {
+   "lens": "presentation",
+   "file": "sections/11_dawson.tex",
+   "line": 71,
+   "problem": "The label [P] (proved here) is mixed with a machine check for n<=22. The proof given (five-ply sequence, rotation symmetry) is general, so the check is redundant, and the extra clause blurs the paper's evidence scheme (P/S/C2/C1). The intro and abstract state the result as [P] without qualification.",
+   "why_rejected": "This is a matter of taste, not an error. The proof at 11_dawson.tex line 75 is general: every push on a full ring starts the five-ply sequence, which leaves one strip of n-3 files. So the [P] label is correct. The paper already pairs a proof label with a check label elsewhere, for example `Cut lemma; \\lab{P}, \\lab{C2}` in 02_rules.tex line 114. The clause \"machine-checked for n<=22\" adds information and does not weaken the P label. The intro and abstract state the result as [P], which agrees with the theorem. The suggested relabelling would change presentation only. It would not fix a correctness or clarity problem."
+  },
+  {
+   "lens": "presentation",
+   "file": "sections/01_intro.tex",
+   "line": 65,
+   "problem": "The roadmap says Appendix, but the appendix table (Table tab:positions) is physically typeset before Section XII and Section XIII, and the Appendix body follows Section XIII. The roadmap never mentions that Section XII also contains the learning pilot (Dawson LSTM), which is neither in the contribution list nor in the abstract. Cross-reference to the table is by label only in the appendix.",
+   "why_rejected": "This is a matter of taste, not a correctness problem. The table placement is deliberate: `appendix_table.tex` carries a comment saying it is input before Section XII so the float lands on the page holding the Appendix text. `appendix_positions.tex` refers to it as `Table~\\ref{tab:positions}`, so the reference is not label-only. The roadmap's \"the Appendix gives the FEN\" is accurate. The LSTM pilot is a labelled C1 subsection of Section XII (`sec:engines`), and the roadmap covers that section (\"Sections VIII-XII turn to tablebases, Dawson's chess and engines\"). Leaving a minor C1 pilot out of the contribution bullets is an editorial choice. It does not misstate any result."
+  }
+ ]
+}

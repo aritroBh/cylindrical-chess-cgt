@@ -5,7 +5,7 @@ passed pawn. \emph{The atlas} holds every such position with at most five pawns 
 $\cyl{3},\dots,\cyl{8}$ and $\flatb{3},\dots,\flatb{8}$, up to symmetry: $1{,}223{,}689$ positions
 \lab{C1}. An independent minimax program confirms their textbook winners for all
 $12{,}568$ rings and $4{,}000$ random ordinary components. \emph{The census} holds every such position
-with at most six pawns on $\flatb{1},\dots,\flatb{4}$, counted up to translation and mirror image:
+with at most six pawns on $\flatb{1},\dots,\flatb{4}$, up to translation and mirror image:
 $231{,}071$ records standing for $459{,}443$ positions.
 
 Under the textbook test, the atlas values free of $\BIG$ include just two nimbers: $\star$, and one
@@ -16,24 +16,24 @@ denominator at most $4$, of which $3/4$ and $-3/4$ occur only on $\cyl{3}$.
 \begin{figure}[!t]
 \centering
 \begin{subfigure}[b]{0.36\columnwidth}\centering
-\includegraphics[height=1.2in]{figures/hot3.pdf}
+\includegraphics[height=1.05in]{figures/hot3.pdf}
 \caption{}
 \end{subfigure}\hfill
 \begin{subfigure}[b]{0.18\columnwidth}\centering
-\includegraphics[height=1.2in]{figures/ring3_threequarters.pdf}
+\includegraphics[height=1.05in]{figures/ring3_threequarters.pdf}
 \caption{}
 \end{subfigure}\hfill
 \begin{subfigure}[b]{0.18\columnwidth}\centering
-\includegraphics[height=1.2in]{figures/ring3_quarter.pdf}
+\includegraphics[height=1.05in]{figures/ring3_quarter.pdf}
 \caption{}
 \end{subfigure}\hfill
 \begin{subfigure}[b]{0.22\columnwidth}\centering
-\includegraphics[height=1.2in]{figures/ring4.pdf}
+\includegraphics[height=1.05in]{figures/ring4.pdf}
 \caption{}
 \end{subfigure}
 \caption{Atlas values. (a)~The hottest, $\pm3$ (ordinary board). (b)--(d)~Values that occur only on
 cylinders (file a next to the last file) under the textbook test: (b)~$3/4$ and (c)~$1/4\pm1/4$ on
-$\cyl{3}$, (d)~the $\nim{2}$ candidate on $\cyl{4}$.}
+$\cyl{3}$, (d)~the $\nim{2}$ candidate's pawns on $\cyl{4}$, not a $\nim{2}$.}
 \label{fig:hot3}
 \end{figure}
 
@@ -49,15 +49,16 @@ A value that occurs on a cylinder but on no ordinary board is \emph{cylinder-onl
 
 \begin{proposition}[\lab{C1}]\label{prop:cylonly}
 Under the textbook test, $53$ atlas values free of $\BIG$ are cylinder-only: $40$ from $3$-file rings and
-$13$ from $4$-file rings. No atlas value occurs only on ordinary boards.
+$13$ from $4$-file rings; the five-pawn rings on $\cyl{5}$ give none. No atlas value occurs only on ordinary boards.
 \end{proposition}
 
 On $\cyl{3}$, white a2, b4 against black b7, c6 is $3/4$ and white a2, b2 against black c5, c6 is
-$1/4\pm1/4$, under both tests (Fig.~\ref{fig:hot3}(b), (c)). On $\cyl{4}$, white a2, c2 against black b7, d7,
-the $\nim{2}$ candidate of Section~\ref{sec:star2}, is $\game{3/2\pm1/2}{-3/2\pm1/2}$ under the textbook
+$1/4\pm1/4$, under both tests (Fig.~\ref{fig:hot3}(b), (c)). On $\cyl{4}$, the pawn list of the $\nim{2}$
+candidate of Section~\ref{sec:star2}, white a2, c2 against black b7, d7, is a different game, since files a and
+d are adjacent across the seam: $\game{3/2\pm1/2}{-3/2\pm1/2}$ under the textbook
 test but $\game{2\pm1}{-2\pm1}$ under the e.p.-aware test, a value that also occurs on the ordinary
 board, so under that test it is no longer cylinder-only.
 
 Nor are these values robust: the $3$-file ones depend on the race rule ($3/4$ becomes $0$ under the mover
-rule), the $4$-file ones on the e.p.\ option. With at most four pawns, no value is cylinder-only in all nine
-settings \lab{C1}.
+rule), the $4$-file ones on the e.p.\ option. We compared all nine settings only for positions with at most
+four pawns; among them no value is cylinder-only in all nine \lab{C1}.

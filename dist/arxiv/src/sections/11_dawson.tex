@@ -1,8 +1,8 @@
 \section{Dawson's Chess on the Cylinder}\label{sec:dawson}
 
 On a cylinder every file is alike, and the first move opens the ring of files into an ordinary strip. The
-earlier study~\cite{Study2025} used this idea on Dawson's chess but stated the game incorrectly; here
-we restate it and redo the analysis.
+earlier study~\cite{Study2025} used this idea on Dawson's chess but stated the game incorrectly; we
+redo it.
 
 \begin{figure}[!t]
 \centering
@@ -37,7 +37,7 @@ $3\times(m+3)$ cylinder a first-player win (Theorem~\ref{thm:ring}).}
 and capture as in chess, captures are compulsory, and no pawn can double-step or promote. The last player to
 move wins; in the mis\`ere form that Dawson posed, the last player loses.
 
-Let us see what one move does. Call a file \emph{untouched} if both its pawns stand on their starting
+Call a file \emph{untouched} if both its pawns stand on their starting
 squares. Suppose white plays c1--c2 with the b- and d-files untouched. The pawn on c2 attacks b3 and d3, so
 black must capture, say b3$\times$c2. That pawn attacks b1 and d1, so white must recapture, say
 d1$\times$c2, and then come d3$\times$c2 and b1$\times$c2. This leaves black to move, with the b- and
@@ -53,7 +53,7 @@ for $n\ge2$,
 \begin{equation}\label{eq:dawson}
 g(n)=\operatorname{mex}\bigl(\{g(n-2)\}\cup\{g(a)\oplus g(b) : a+b=n-3\}\bigr),
 \end{equation}
-where $a,b\ge0$, $\oplus$ is the nim-sum and mex is the least non-negative integer not in the set. The first
+where $a,b\ge0$, $\oplus$ is the nim-sum and mex the least non-negative integer not in the set. The first
 player wins the ordinary $3\times n$ board exactly when $g(n)\ne0$. The values from~\eqref{eq:dawson}
 have period 34 with last exception $n=51$~\cite{GuySmith1956}, which two programs reproduce for $n\le300$
 \lab{C2}.
@@ -78,14 +78,14 @@ above. The other $n-3$ files, bounded by empty files that never change, form an 
 rotation all first moves are alike, and the cylinder has one option.
 \end{proof}
 
-The ring formula of~\cite{Study2025} and its remark that the ring's value is always 0 or 1 are
-right once the correct $g$ is used (Fig.~\ref{fig:dawson_grundy}).
+The ring formula of~\cite{Study2025}, and its remark that the ring's value is 0 or 1, hold with the
+correct $g$ (Fig.~\ref{fig:dawson_grundy}).
 
 \emph{Mis\`ere play.} A forced sequence has odd length and ends with the player who began it, so the
 ring rule carries over: the first player wins the mis\`ere cylinder exactly when the strip of $n-3$ files is
 a mis\`ere P-position. Our implementation of the Plambeck--Siegel algorithm~\cite{PlambeckSiegel2008}
 reproduces their partial quotient for strips of at most 32 files (order 638, 109 P-positions) and agrees
-with exhaustive search on 7.4 million positions \lab{C2}; our computation of the next quotient, for longer strips, did not finish.
+with exhaustive search on 7.4 million positions \lab{C2}; the next quotient did not finish.
 
 \emph{A warning about sums.} As a partizan game on its own, the ordinary $3\times5$ board is $\star$,
 although $g(5)=3$. The outcome agrees, but only $g$ adds up: a sum of such values would let a player reply
