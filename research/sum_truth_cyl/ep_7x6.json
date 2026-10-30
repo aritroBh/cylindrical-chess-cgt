@@ -1,0 +1,45 @@
+{
+ "board": "7x6",
+ "K": 3,
+ "ep_roots": 46896,
+ "classes": {
+  "race/cert12/cert10/agree": 32528,
+  "race/unc12/unc10/agree": 232,
+  "race/unc12/unc10/disagree": 204,
+  "single/cert12/cert10/agree": 10372,
+  "single/unc12/unc10/agree": 2208,
+  "single/unc12/unc10/disagree": 1352
+ },
+ "examples": {
+  "single/unc12/unc10/agree": [
+   "Ka1 ka6 Pc3 pd3 w d4 -> WW",
+   "Ka1 ka6 Pc4 pd4 b c3 -> LL",
+   "Ka1 ka6 Pd3 pc3 w c4 -> WW"
+  ],
+  "race/cert12/cert10/agree": [
+   "Ka1 ka6 Pc3 pc2 pd3 w d4 -> LL",
+   "Ka1 ka6 Pc3 pd2 pd3 w d4 -> LL",
+   "Ka1 ka6 Pc3 pd3 pe2 w d4 -> LL"
+  ],
+  "race/unc12/unc10/agree": [
+   "Ka1 ka6 Pc3 pd3 pe4 w d4 -> WW",
+   "Ka1 ka6 Pc3 pd3 pf4 w d4 -> WW",
+   "Ka1 ka6 Pc3 pd3 pf5 w d4 -> WW"
+  ],
+  "race/unc12/unc10/disagree": [
+   "Ka1 ka6 Pc3 pd3 pe5 w d4 -> LL",
+   "Ka1 ka6 Pd3 pe3 pf5 w e4 -> LL",
+   "Ka1 ka6 Pe3 pc5 pd3 w d4 -> LL"
+  ],
+  "single/cert12/cert10/agree": [
+   "Ka1 ka6 Pc4 pc5 pd4 b c3 -> LL",
+   "Ka1 ka6 Pc4 pd2 pd4 b c3 -> LL",
+   "Ka1 ka6 Pc4 pd3 pd4 b c3 -> LL"
+  ],
+  "single/unc12/unc10/disagree": [
+   "Ka1 ka6 Pc3 pc4 pd3 pe4 w d4 -> WW",
+   "Ka1 ka6 Pc3 pc4 pd3 pf4 w d4 -> WW",
+   "Ka1 ka6 Pc3 pc4 pd3 pf5 w d4 -> WW"
+  ]
+ }
+}

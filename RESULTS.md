@@ -510,3 +510,8 @@ Answered 2026-10-16:
   - The frozen zero fails in 91 of 1,913 resolved random cyl:6x6 positions (4.8%; about 6.6% if the 87 unrun or killed
     positions fail like the resolved cap-2 ones), 135 of 179 failures being chess draws. No good position-level rule found.
   - Several cap-2 batches exceeded the 4 GB target (up to 5.3 GB peak); the limit is restated for later runs.
+- **Explicit-king sum test** (`research/sum_truth_cyl/`, avenue 5; COMPUTED-1, skeptic-corrected): NOT answered. Real-king
+  pairs on cyl:8x6 need > 4 GB per kpsolve at cap 1 (at least 8 pawns plus the trebuchet); 0 of 50 pairs finished (2
+  attempts with raw evidence, killed at 3.7 GB). Frozen-king stand-in: the cylcgt sum matches `kpsolve --frozen` on 50 of
+  50 pairs, but every pair has a locked 0 component, so this does not test interaction. K12 e.p. roots: 56,402
+  regenerated, 51,050 certified with 0 disagreements. Needs larger-memory runs or a leaner solver.

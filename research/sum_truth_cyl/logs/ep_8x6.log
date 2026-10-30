@@ -1,0 +1,46 @@
+ep roots 3876 of 71912
+{
+ "board": "8x6",
+ "K": 2,
+ "ep_roots": 3876,
+ "classes": {
+  "race/cert12/cert10/agree": 2362,
+  "race/unc12/unc10/agree": 252,
+  "race/unc12/unc10/disagree": 12,
+  "single/cert12/cert10/agree": 500,
+  "single/unc12/unc10/agree": 678,
+  "single/unc12/unc10/disagree": 72
+ },
+ "examples": {
+  "single/unc12/unc10/agree": [
+   "Ka1 ka6 Pc3 pd3 w d4 -> WW",
+   "Ka1 ka6 Pc4 pd4 b c3 -> LL",
+   "Ka1 ka6 Pd3 pc3 w c4 -> WW"
+  ],
+  "race/cert12/cert10/agree": [
+   "Ka1 ka6 Pc3 pc2 pd3 w d4 -> LL",
+   "Ka1 ka6 Pc3 pd2 pd3 w d4 -> LL",
+   "Ka1 ka6 Pc3 pd3 pe2 w d4 -> LL"
+  ],
+  "race/unc12/unc10/agree": [
+   "Ka1 ka6 Pc3 pd3 pe4 w d4 -> WW",
+   "Ka1 ka6 Pc3 pd3 pf4 w d4 -> WW",
+   "Ka1 ka6 Pc3 pd3 pf5 w d4 -> WW"
+  ],
+  "race/unc12/unc10/disagree": [
+   "Ka1 ka6 Pc3 pd3 pe5 w d4 -> LL",
+   "Ka1 ka6 Pd3 pe3 pf5 w e4 -> LL",
+   "Ka1 ka6 Pe3 pc5 pd3 w d4 -> LL"
+  ],
+  "single/cert12/cert10/agree": [
+   "Ka1 ka6 Pc4 pc5 pd4 b c3 -> LL",
+   "Ka1 ka6 Pc4 pd2 pd4 b c3 -> LL",
+   "Ka1 ka6 Pc4 pd3 pd4 b c3 -> LL"
+  ],
+  "single/unc12/unc10/disagree": [
+   "Ka1 ka6 Pc2 Pe3 pd3 pf3 w f4 -> LL",
+   "Ka1 ka6 Pc2 Pf3 pd3 pe3 w e4 -> LL",
+   "Ka1 ka6 Pc2 Pf3 pd3 pg3 w g4 -> LL"
+  ]
+ }
+}
