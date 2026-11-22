@@ -47,6 +47,8 @@ IMPERSONAL = [  # first person and "the author" in the notes (anonymous suppleme
     ('by my own rebuild', 'by a separate rebuild'),
     ('and my spot runs', 'and spot runs'),
     ('My own re-check', 'A separate re-check'),
+    ('and my rerun', 'and a rerun'),
+    ('my rerun', 'a rerun'),
     ('my own re-check', 'a separate re-check'),
 ]
 
