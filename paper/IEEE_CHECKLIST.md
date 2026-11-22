@@ -26,7 +26,7 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 - [ ] Seven-pawn *2 in real chess: the 9-man end positions (waits for memory)
 
 ## Figures
-- [~] Signature figure: the one-pawn-per-file ring drawn on a cylinder
-- [~] Least pawns in a ring against n
-- [~] Model against real chess, with confidence intervals
+- [x] Signature figure: the one-pawn-per-file ring drawn on a cylinder (`research/figures_2026_11/f1_ring_cylinder_wide.pdf`)
+- [x] Least pawns in a ring against n (`f2_least_pawns.pdf`)
+- [x] Model against real chess, with confidence intervals (`f3_model_vs_chess.pdf`)
 - [ ] Choose which figures go in, and place them
