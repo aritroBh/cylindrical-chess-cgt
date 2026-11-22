@@ -1,0 +1,55 @@
+% Table of the Appendix. It is input before Section XII so that the table* float lands on the page that
+% holds the Appendix text, before the Acknowledgment and the reference list.
+\begin{table*}[!t]
+\centering
+\caption{Main Positions with Kings}
+\label{tab:positions}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.29\textwidth}p{0.05\textwidth}%
+  >{\raggedright\arraybackslash}p{0.255\textwidth}>{\raggedright\arraybackslash}p{0.335\textwidth}@{}}
+\toprule
+Role and value & Board & Men (white / black) & FEN \\
+\midrule
+\multicolumn{4}{@{}l}{\emph{Kings and puzzles}} \\
+Tr\'ebuchet across the seam & $\cyl{8}$ & \pos{W Kh5 a4 / B Kb4 a5} &
+\fen{8/8/8/p6K/Pk6/8/8/8} \\
+Tr\'ebuchet T & $\flatb{8}$ & \pos{W Kf5 g4 / B Kh4 g5} & \fen{8/8/8/5Kp1/6Pk/8/8/8} \\
+Puzzle~2 king group: white to move draws & $\cyl{8}$ & \pos{W Ke6 d7 / B Kd8 e7} &
+\fen{3k4/3Pp3/4K3/8/8/8/8/8} \\
+Puzzle~2: pawns infinitesimal, mean $0$ & $\cyl{8}$ & \pos{W Ke6 a2 b2 d7 h3 / B Kd8 a6 b7 e7 h7} &
+\fen{3k4/1p1Pp2p/p3K3/8/8/7P/PP6/8} \\
+\midrule
+\multicolumn{4}{@{}l}{\emph{Elkies' small values}} \\
+$1/8$, in all nine settings & $\flatb{8}$+T & \pos{W a2 b2 b3 / B a5 a6 b6} &
+\fen{8/8/pp6/p4Kp1/6Pk/1P6/PP6/8} \\
+$\upsec\star$, in all nine settings & $\flatb{8}$+T & \pos{W a2 b2 b6 / B a6 b7 c5} &
+\fen{8/1p6/pP6/2p2Kp1/6Pk/8/PP6/8} \\
+Tiny~1 & $\flatb{8}$+T & \pos{W a2 b2 b6 / B a6 b7 c6} & \fen{8/1p6/pPp5/5Kp1/6Pk/8/PP6/8} \\
+Textbook $1/8$, now $-3/2\pm3/2$ & $\flatb{8}$+T & \pos{W a2 b2 d2 / B a5 c4 d7} &
+\fen{8/3p4/8/p4Kp1/2p3Pk/8/PP1P4/8} \\
+Textbook $\upsec$, now $\game{3/4}{{\downarrow}\star}$ & $\flatb{8}$+T & \pos{W a3 c5 d4 / B a7 b7 d7} &
+\fen{8/pp1p4/8/2P2Kp1/3P2Pk/P7/8/8} \\
+\midrule
+\multicolumn{4}{@{}l}{\emph{The $\nim{2}$ question}} \\
+Candidate: $\game{2\pm1}{-2\pm1}$; textbook $\nim{2}$ & $\flatb{8}$+T &
+\pos{W a2 c2 / B b7 d7} & \fen{8/1p1p4/8/5Kp1/6Pk/8/P1P5/8} \\
+Second candidate: opponent-rule $\nim{2}$, oracle $>0$ & $\flatb{8}$+T &
+\pos{W a3 b3 c2 / B b5 b7 c6} & \fen{8/1p6/2p5/1p3Kp1/6Pk/PP6/2P5/8} \\
+Position A: $\nim{2}$ & $\flatb{8}$+T & \pos{W a4 b3 d2 d3 / B a7 b7 c5} &
+\fen{8/pp6/8/2p2Kp1/P5Pk/1P1P4/3P4/8} \\
+Position B: $\nim{2}$ & $\flatb{8}$+T & \pos{W b4 c2 d2 / B a6 a7 c6 d5} &
+\fen{8/p7/p1p5/3p1Kp1/1P4Pk/8/2PP4/8} \\
+Five-file $\nim{2}$ & $\flatb{8}$+T & \pos{W a3 b3 c2 e2 / B a6 c5 d5 e3} &
+\fen{8/8/p7/2pp1Kp1/6Pk/PP2p3/2P1P3/8} \\
+\midrule
+\multicolumn{4}{@{}l}{\emph{Real chess}} \\
+Last $1/8$ end position: white wins (queens only) & $\flatb{8}$+T &
+\pos{W b2 b5 / B a5 b4} & \fen{8/8/8/pP3Kp1/1p4Pk/8/1P6/8} \\
+$1/8$ end position against the model: black to move wins & $\flatb{8}$+T &
+\pos{W a3 a5 / B b4 b5} & \fen{8/8/8/Pp3Kp1/1p4Pk/P7/8/8} \\
+KPK rook pawn: cylinder win, ordinary draw & $\cyl{8}$ &
+\pos{W Ka6 a5 / B Ka8} & \fen{k7/8/K7/P7/8/8/8/8} \\
+\bottomrule
+\end{tabular}
+\end{table*}

@@ -13,7 +13,8 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 - [x] Plan to reach the 10-page limit, rest to a supplement (`delegate/out/ieee_audit/PLAN_10_PAGES.md`)
 - [x] Audit fixes applied: evidence labels no longer look like citations, abbreviations defined, AI statement names
       systems and sections, review build says "the authors", caption and unit style, build files refreshed
-- [ ] Audit fixes left: DOIs in the references, board-coordinate labels to 8 pt, anonymous code link for reviewers,
+- [x] DOIs added to five references, each checked against Crossref
+- [ ] Audit fixes left: board-coordinate labels to 8 pt, anonymous code link for reviewers,
       supplement PDF with the full proofs
 - [~] Build the 10-page version and the supplement PDF (`dist/tog/`)
 - [ ] Author block: affiliation and ORCID (needs the author)
