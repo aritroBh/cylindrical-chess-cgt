@@ -1,0 +1,78 @@
+\section{Full Proof: The Square-Rule Passer Test}\label{S-square}
+\noindent\emph{Source.} research/v2\_mechanisms\_proof/PROOF\_S.md. The note is typeset here without changes to its mathematics; it keeps its own numbering, labels (PROVED, CHECKED-2, COMPUTED-1, CONJECTURE) and file references, which are paths in the code repository. Its statements correspond to the main text as follows: it proves, for the frozen-king pawn game, the square-rule passer test behind the repair in Section~\ref{sec:kings-sweep}.
+
+
+\subsection*{Proof of the square rule S (certified passers), frozen-king pawn game}
+\textbf{Label: PROVED (by hand) for the frozen-king pawn game.} Real chess with active kings is excluded (a king can stop a certified passer); the 128 remaining mismatches after CC are king effects.
+
+\subsubsection*{0. Summary (5 lines)}
+\begin{enumerate}
+\item S says: a side X with a \emph{front, e.p.-aware passed} pawn whose unobstructed promotion distance \texttt{n} is no greater than (or, if X is not to move, strictly less than) the fastest unobstructed promotion distance \texttt{d} of any enemy pawn, wins the frozen game by running that pawn.
+\item The proof has three lemmas: the runner can never be captured or blocked, even after pushes (Lemma 1); no enemy pawn can promote in fewer than \texttt{d} moves, even with captures or when blocked (Lemma 2); the ply counts give the two inequalities (Lemma 3).
+\item Together they show X promotes first, and a promotion wins at once; if Y has no pawn move, Y loses by rule.
+\item The same argument works on cylinders (adjacency taken cyclically) and for any height \texttt{H \textrm{≥} 4}; it does not need an empty file.
+\item Exhaustive check: \texttt{cc.py} found 0 unsound certifications in 158,544 (position, side, e.p.) cases on 2–3 files, 6–8 ranks.
+\end{enumerate}
+\subsubsection*{1. Definitions}
+\textbf{Board/game.} \texttt{k} files (cyclic on a cylinder, linear otherwise), \texttt{H} ranks. White pawns move up (toward rank \texttt{H}), Black down (toward rank 1). Kings may not move; a king move loses at once. Reaching the last rank promotes and wins immediately. A side with no legal pawn move loses. Promotion is queen-equivalent in effect: the game ends on promotion, so underpromotion is irrelevant.
+
+\textbf{Passed (e.p.-aware).} A pawn of X on \texttt{(f,r)} is passed iff (i) no enemy pawn lies on files \texttt{f-{}1,f,f+1} (mod \texttt{k}) at a rank strictly beyond \texttt{r} in X's direction, and (ii) it is not capturable en passant. Condition (ii) excludes a pawn that has just double-stepped past an enemy pawn that can take it.
+
+\textbf{Front.} A passed pawn is \emph{front} iff no own pawn lies on the same file strictly beyond \texttt{r} in X's direction. A \emph{runner} is a front passed pawn.
+
+\textbf{Distances.} For a White pawn on rank \texttt{r}: \texttt{sdist\_W(r) = H -{} r -{} (1 if r = 2 else 0)}. For a Black pawn on rank \texttt{r}: \texttt{sdist\_B(r) = r -{} 1 -{} (1 if r = H-{}1 else 0)}. These are the fewest moves to promote if nothing obstructs, counting one double step from the start rank. Then \texttt{n = min\{sdist\_X(r) : (f,r) is a runner of X\}} (or undefined if none), \texttt{d = min\{sdist\_Y(r) : (f,r) is any pawn of Y\}} (or \texttt{\textrm{∞}} if Y has none).
+
+\textbf{S (corrected statement).} \texttt{S\_cert(pos, mover, X)} is true iff X has at least one runner and
+
+\begin{itemize}
+\item \texttt{n \textrm{≤} d} when \texttt{mover = X}, or
+\item \texttt{n \textless{} d} when \texttt{mover = Y}.
+\end{itemize}
+\subsubsection*{2. Lemmas}
+\textbf{Lemma 1 (Passer safety).} A runner of X, when X pushes it straight ahead every turn (double step from the start rank if possible, else single), is never captured (normally or en passant) and never blocked, on any board including a cylinder, against any legal Y pawn moves.
+
+\emph{Proof.} At the moment it is a runner: no enemy pawn is beyond it on its or adjacent files, so no normal captor exists at \texttt{(f\textrm{±}1, r\textrm{±}1)} in X's direction; no own pawn is ahead on its file; and the e.p.-aware test removes any e.p. captor.
+
+Pushes only increase the runner's rank in X's direction. Y's pawns move the opposite way, so their ranks in X's direction never increase; a pawn not beyond the runner before cannot become beyond it later, and a capture by Y moves downward in X's coordinate, never creating a captor at the needed square. Thus no normal capture appears after the start.
+
+For en passant: an e.p. capture of the runner requires it to have just double-stepped from the start rank with an enemy pawn on an adjacent file at the landing rank. But that landing rank is strictly beyond the start rank, and such an enemy pawn would have been beyond the runner before the push, contradicting passedness. If the push is single, no e.p. right arises at all. Hence no e.p. capture.
+
+Own pawns of X move in X's direction but cannot pass or capture onto the runner's square: the runner occupies it, and a capture needs an enemy pawn on the target square, which passedness forbids ahead on the same file. So the runner stays front. On a cylinder the same rank-monotonicity holds with files read mod \texttt{k}. \ensuremath{∎}
+
+\textbf{Lemma 2 (Y's promotion lower bound).} Every pawn of Y needs at least \texttt{sdist\_Y(r)} moves to promote in the frozen game, even allowing captures and even if it is blocked; therefore Y cannot promote in fewer than \texttt{d} moves.
+
+\emph{Proof.} A pawn's progress toward its promotion rank is at most 2 ranks on its first move (only the straight double step from the start rank) and at most 1 rank on every other move, including every capture (captures never double-step). \texttt{sdist\_Y(r)} is exactly the move count if maximal progress occurs each move. Captures change file but do not reduce the rank-step count below this; blockages and detours can only increase the number of moves needed, never create faster progress. Hence actual moves \ensuremath{≥} \texttt{sdist\_Y(r)} for each pawn. Taking the minimum over Y's pawns gives \texttt{d}. If Y has no pawn, \texttt{d = \textrm{∞}} and Y has no pawn move. \ensuremath{∎}
+
+\textbf{Lemma 3 (Ply accounting).} If X pushes one runner every X-turn, X promotes on ply \texttt{2n-{}1} (X to move first) or ply \texttt{2n} (Y to move first). By Lemma 2, Y's earliest promotion is no earlier than ply \texttt{2d} (X first) or ply \texttt{2d-{}1} (Y first).
+
+\emph{Proof.} X moves on plies 1,3,5,… (X first) or 2,4,6,… (Y first); the runner's distance \texttt{n} is a count of X-moves, so its \texttt{n}-th push is X's \texttt{n}-th move, at ply \texttt{2n-{}1} or \texttt{2n}. Y's \texttt{d}-th move occurs \texttt{d} Y-turns after the start, at ply \texttt{2d} or \texttt{2d-{}1}. \ensuremath{∎}
+
+\subsubsection*{3. Theorem (S soundness)}
+If \texttt{S\_cert(pos, mover, X)} is true, then in the frozen-king pawn game X wins from \texttt{pos} with \texttt{mover} to move.
+
+\emph{Proof.} Take a runner \texttt{s} achieving \texttt{n}. X's strategy: every X turn, push \texttt{s} straight ahead maximally (double step from the start rank if legal, else single). By Lemma 1 this is always legal and \texttt{s} remains a runner, so the strategy is well-defined. By Lemma 3, X promotes \texttt{s} on ply \texttt{2n-{}1} (X first) or \texttt{2n} (Y first), while Y cannot promote before ply \texttt{2d} (X first) or \texttt{2d-{}1} (Y first).
+
+\begin{itemize}
+\item If X moves first, S gives \texttt{n \textrm{≤} d}, so \texttt{2n-{}1 \textrm{≤} 2d-{}1 \textless{} 2d}: X promotes first.
+\item If Y moves first, S gives \texttt{n \textless{} d}, so \texttt{2n \textrm{≤} 2d-{}2 \textless{} 2d-{}1}: X promotes first.
+\end{itemize}
+A promotion wins immediately, so X wins. If at some point Y has no legal pawn move, then by the frozen-game rule Y loses (any king move loses at once), and X still wins; this is covered by \texttt{d = \textrm{∞}}. \ensuremath{∎}
+
+\textbf{Completeness note.} S is sufficient, not necessary: a runner may win without being certified (e.g. a nearer but permanently blocked enemy pawn). Multiple runners are handled because X needs only one whose \texttt{n} satisfies the inequality; \texttt{n} uses the minimum, and any runner may be run.
+
+\subsubsection*{4. Scope}
+\begin{itemize}
+\item \textbf{Cylinder:} the passed test uses cyclic file adjacency; rank monotonicity is unchanged, so Lemmas 1–3 and the theorem hold on cylinders and rings. No empty file is required for S itself.
+\item \textbf{Height:} \texttt{sdist} uses \texttt{H} and the start ranks 2 and \texttt{H-{}1}, so the proof holds for any \texttt{H \textrm{≥} 4} (for \texttt{H = 3} a double step from the start rank would leave the board, so \texttt{sdist} would undercount; referee T76).
+\item \textbf{Real chess:} false. An active king can step in front of a certified runner (or take it), so S certifies only the frozen game. The 128 mismatches remaining after CC are exactly these king effects.
+\item \textbf{Sums:} the inequality uses the global minimum over all Y pawns, so the strategy wins even when several components are present.
+\end{itemize}
+\subsubsection*{5. Reproduce}
+\begin{small}\begin{verbatim}
+cd research/v2_mechanisms
+python3 -I cc.py   # exhaustive soundness (S_UNSOUND = 0) and re-score
+\end{verbatim}\end{small}
+The \texttt{cc\_result.json} field \texttt{exhaustive\_soundness} reports \texttt{S\_UNSOUND: 0} and \texttt{RP\_UNSOUND: 0} for all four board configurations (2 files \ensuremath{×} 6 ranks, 3 \ensuremath{×} 6, 2 \ensuremath{×} 8, 1 \ensuremath{×} 8).
+
+Revision (2026-11-22): refereed by T76 (Kilo, Nemotron), \texttt{research/v2\_mechanisms\_proof\_check/REPORT.md}: SOUND WITH MINOR FIX. The fix (height \texttt{H \textrm{≥} 4}, not 3) is applied above. Status: PROVED [S] for the frozen-king pawn game; human check pending.
+

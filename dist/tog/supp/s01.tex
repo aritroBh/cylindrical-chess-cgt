@@ -1,0 +1,102 @@
+\section{Basic Positions and the E.p.-Aware Test}\label{S-basic}
+This section holds the walk-throughs of Section~\ref{sec:basic} and the census statistics of Section~\ref{sec:ep} of the main text. Fig.~\ref{fig:basicS} repeats the six basic boards of the long version; boards (a) and (f) are Fig.~\ref{fig:basic}(b) and (c) of the main text.
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.30\linewidth]{figures/ep_test.pdf}
+\caption{Position \pos{W a2 / B b4} (ordinary board), value $0$. After a2--a4 (arrow) the textbook test calls the
+a-pawn passed, but b4$\times$a3 en passant removes it; under Definition~\ref{def:epaware} it is not passed.}
+\label{fig:epS}
+\end{figure}
+
+% Fig. 2 belongs to Section III; it is defined here so that the full-width float lands next to it.
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}[t]{0.165\textwidth}\centering
+\includegraphics[width=\linewidth]{figures/zero_seam.pdf}
+\caption{\pos{W~a4~h3 / B~a5~h6}: $0$}
+\end{subfigure}\hfill
+\begin{subfigure}[t]{0.165\textwidth}\centering
+\includegraphics[width=\linewidth]{figures/one.pdf}
+\caption{\pos{W~a4~h2 / B~a5~h6}: $1$}
+\end{subfigure}\hfill
+\begin{subfigure}[t]{0.165\textwidth}\centering
+\includegraphics[width=\linewidth]{figures/two.pdf}
+\caption{\pos{W~a5~h2 / B~a6~h7}: $2$}
+\end{subfigure}\hfill
+\begin{subfigure}[t]{0.165\textwidth}\centering
+\includegraphics[width=\linewidth]{figures/star.pdf}
+\caption{\pos{W~e4 / B~e6}: $\star$}
+\end{subfigure}\hfill
+\begin{subfigure}[t]{0.165\textwidth}\centering
+\includegraphics[width=\linewidth]{figures/up.pdf}
+\caption{\pos{W~e2 / B~e5}: ${\uparrow}$}
+\end{subfigure}\hfill
+\begin{subfigure}[t]{0.165\textwidth}\centering
+\includegraphics[width=\linewidth]{figures/tiny1_2025.pdf}
+\caption{\pos{W~a4~h2~h4 / B~a5~a6~a7~h3}: $\tinyg{1}$}
+\end{subfigure}
+\caption{Pawn positions with the basic values (cylinder: files a and h adjacent). Each value holds in all nine
+settings (Section~\ref{sec:ep}) except in (c), which is $2$ only with e.p.\ on and ${\Uparrow}\star$ with
+e.p.\ off.}
+\label{fig:basicS}
+\end{figure}
+
+One more white pawn makes the difference decisive. In \pos{W~a2~b3 / B~b4} black has no move, and the textbook
+test lets white win at once with a2--a4. Under Definition~\ref{def:epaware}, every white move lets black capture
+on a3, directly or en passant, and win the race that follows under the count rule, so the value is $0$. Across
+the census of Section~\ref{sec:atlas} (all positions with at most six pawns on ordinary boards of width at
+most four), the stricter test changes at least $18{,}137$ of the $231{,}071$ values (a few more changes are hidden
+where both values exceed the display range), and $4{,}070$ of them in outcome \lab{C1}. The three race rules and three e.p.\ options (textbook test, e.p.-aware test, e.p.\ off) give nine
+\emph{settings}. Values use the \emph{default setting} (count rule, e.p.-aware test) unless
+stated.
+
+We now build the basic values of Fig.~\ref{fig:basicS} with pawns alone. Each board leaves a file empty, so by
+Theorem~\ref{thm:cut} its value is that of an ordinary-board position, cut open along that
+file~\cite{Elkies1996,WuYuLandry2010}; in four of them the play crosses the seam. A move that the
+opponent can answer with a passed pawn is a losing move, and it drops out, since having only losing moves is
+the same as having no moves at all~\cite{WinningWays,WuYuLandry2010}. A move that the opponent can answer by reaching a
+position at least as good for him as the one we started from is \emph{reversible}: in the canonical
+form~\cite{WinningWays} it is replaced by the player's moves from that reply, and so drops out when there are
+none.
+
+\subsection{The Zero Game}
+In the zero game neither player can move: $0=\game{}{}$, a second-player win. In
+\pos{W~e4 / B~e5} the two pawns are stuck, so the value is $0$.
+
+Fig.~\ref{fig:basicS}(a) is a zero game that uses the seam. If white goes first, it must play h3--h4, and black
+captures across the seam, a5$\times$h4, with a passed pawn. If black goes first, h6--h5 is met by a4$\times$h5.
+Whoever moves first loses: again $0$.
+
+\subsection{The Games \texorpdfstring{$1$}{1} and \texorpdfstring{$2$}{2}}
+In Fig.~\ref{fig:basicS}(b) the white h-pawn starts one square further back. White can play h2--h3, which leaves
+the zero game of (a); the double step h2--h4 only loses the pawn to a5$\times$h4. Black has one move, h6--h5,
+and a4$\times$h5 gives white a passed pawn. Thus $G=\game{0}{}=1$.
+
+In Fig.~\ref{fig:basicS}(c) the a-pawns stand one rank higher. White can play h2--h4 or h2--h3, which leave the
+games (a) and (b) moved up one rank, $0$ and $1$. Black has only losing moves: h7--h6 is met by
+a5$\times$h6, and h7--h5 by a5$\times$h6 en passant across the seam. Thus $G=\game{0,1}{}=2$. With e.p.\
+off, h7--h5 is safe and the value falls to an infinitesimal, ${\Uparrow}\star$. Swapping colors and turning the board $180^\circ$ gives $-1$ and
+$-2$~\cite{WuYuLandry2010}.
+
+\subsection{The Infinitesimals \texorpdfstring{$\star$, ${\uparrow}$}{Star, Up} and Tiny~1}\label{S-basic-inf}
+Star is the game in which both players can move to $0$: $\star=\game{0}{0}$. In Fig.~\ref{fig:basicS}(d),
+e4--e5 and e6--e5 each lock the file, so $G=\star$, a first-player win.
+
+Up is ${\uparrow}=\game{0}{\star}$. In Fig.~\ref{fig:basicS}(e), white can play e2--e3, which leaves star, or
+e2--e4, which locks the file: $0$. Black can only play e5--e4, which leaves star. Thus
+$G=\game{0,\star}{\star}$. Star is reversible for white: black answers e2--e3 with e5--e4, reaching
+$0\le G$, since white wins $G$ when black starts. So $G=\game{0}{\star}={\uparrow}$. Up is positive, yet
+smaller than every positive number: it is an \emph{infinitesimal}. Switching the colors gives
+${\downarrow}=-{\uparrow}$, and we write ${\Uparrow}={\uparrow}+{\uparrow}$.
+
+Tiny~1 is $\tinyg{1}=\ggame{0}{0\mid -1}$, that is, $\game{0}{\game{0}{-1}}$. In Fig.~\ref{fig:basicS}(f), white
+can take across the seam, h4$\times$a5, which leaves every pawn blocked: $0$. White's h4--h5 drops out, since
+a6$\times$h5 wins for black. Black can only play a5$\times$h4; from there white locks the a-file with a4--a5,
+leaving $0$, while black plays a6--a5 and keeps the spare move a7--a6, leaving $-1$. So black's capture leads
+to $\game{0}{-1}=-\tfrac12\pm\tfrac12$, and $G=\tinyg{1}$, a positive infinitesimal.
+
+A single file can do more. In \pos{W~a2 / B~a6}, white can play a2--a3, leaving $0$ (either move then leaves
+star), or a2--a4, leaving $\star$. Black can only play a6--a5, which leaves the up position of
+Fig.~\ref{fig:basicS}(e) on the a-file. So $G=\game{0,\star}{{\uparrow}}$. As in (e), star is reversible for
+white, so $G=\game{0}{{\uparrow}}={\Uparrow}\star$, ``double-up star'', one of Elkies'
+examples~\cite{Elkies1996}.

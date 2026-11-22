@@ -14,9 +14,13 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 - [x] Audit fixes applied: evidence labels no longer look like citations, abbreviations defined, AI statement names
       systems and sections, review build says "the authors", caption and unit style, build files refreshed
 - [x] DOIs added to five references, each checked against Crossref
-- [ ] Audit fixes left: board-coordinate labels to 8 pt, anonymous code link for reviewers,
-      supplement PDF with the full proofs
-- [~] Build the 10-page version and the supplement PDF (`dist/tog/`)
+- [x] Board labels at 8 pt or more in the 10-page version
+- [ ] Anonymous code link for reviewers (anonymous.4open.science; the author creates it)
+- [x] 10-page version built: 10 pages with references, 4.4 column-inches free (`dist/tog/`, PDFs in `paper/`)
+- [x] Supplement built: 87 pages, moved material and the full proofs
+- [~] Independent check that the 10-page text changed no claim, number or label
+- [ ] Supplement: fix 18 overfull lines in converted proofs
+- [ ] Title for the journal version: confirm the shortened title
 - [x] Author block: University of Illinois Urbana-Champaign (ORCID optional, add in the submission system)
 - [ ] Push to the public repository (on the author's word)
 
@@ -33,4 +37,4 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 - [x] Signature figure: the one-pawn-per-file ring drawn on a cylinder (`research/figures_2026_11/f1_ring_cylinder_wide.pdf`)
 - [x] Least pawns in a ring against n (`f2_least_pawns.pdf`)
 - [x] Model against real chess, with confidence intervals (`f3_model_vs_chess.pdf`)
-- [ ] Choose which figures go in, and place them
+- [x] Cylinder ring and least-pawns figures in the 10-page text; model-vs-chess figure in the supplement

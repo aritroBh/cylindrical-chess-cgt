@@ -1,0 +1,68 @@
+\section{Dawson\textquotesingle{}s Chess: Details and Learning}\label{S-dawson}
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{0.48\linewidth}
+\centering
+\includegraphics[scale=0.8]{figures/dawson_strip.pdf}
+\caption{}
+\label{fig:dawson_strip}
+\end{subfigure}\hfill
+\begin{subfigure}{0.48\linewidth}
+\centering
+\includegraphics[scale=0.8]{figures/dawson_ring.pdf}
+\caption{}
+\label{fig:dawson_ring}
+\end{subfigure}
+\caption{Starting position of Dawson's chess on six files. (a) $3\times6$ ordinary board. (b) $3\times6$
+cylinder: files a and f are adjacent; dashed edges are glued.}
+\label{fig:dawson_boards}
+\end{figure}
+
+\emph{Rules.} Dawson's chess~\cite{Dawson1935} is played on a $3\times n$ board
+(Fig.~\ref{fig:dawson_boards}) with white pawns on rank~1, black pawns on rank~3 and rank~2 empty. Pawns move
+and capture as in chess, captures are compulsory, and no pawn can double-step or promote. The last player to
+move wins; in the mis\`ere form that Dawson posed, the last player loses.
+
+Call a file \emph{untouched} if both its pawns stand on their starting
+squares. Suppose white plays c1--c2 with the b- and d-files untouched. The pawn on c2 attacks b3 and d3, so
+black must capture, say b3$\times$c2. That pawn attacks b1 and d1, so white must recapture, say
+d1$\times$c2, and then come d3$\times$c2 and b1$\times$c2. This leaves black to move, with the b- and
+d-files empty and the c-file blocked for good, since a pawn enters a file only by capturing. At the end of a
+row the push takes three plies and empties its one neighbor; a push with no untouched neighbor is
+blocked.
+
+Each such sequence is forced and touches only the pushed file and its neighbors. Counting a whole sequence as
+one move, strips separated by empty files never interact, and both players have the same sequences, so this
+game of sequences is impartial. A strip of $n$ untouched files is therefore the octal game $\mathbf{0.137}$~\cite{GuySmith1956,WinningWays},
+in which a move removes a file and its untouched neighbors. Its Grundy values are $g(0)=0$, $g(1)=1$ and,
+for $n\ge2$,
+\begin{equation}
+g(n)=\operatorname{mex}\bigl(\{g(n-2)\}\cup\{g(a)\oplus g(b) : a+b=n-3\}\bigr),
+\end{equation}
+where $a,b\ge0$, $\oplus$ is the nim-sum and mex the least non-negative integer not in the set. The first
+player wins the ordinary $3\times n$ board exactly when $g(n)\ne0$. The values from~\eqref{eq:dawson}
+have period 34 with last exception $n=51$~\cite{GuySmith1956}, which two programs reproduce for $n\le300$
+\lab{C2}.
+
+\emph{What was wrong.} In~\cite{Study2025} a pawn could be removed from a single row only when
+both its neighbors were empty, so a full row of two or more pawns has no move. Its recurrence lacks the
+end-file term $g(n-2)$ of~\eqref{eq:dawson} and the value $g(1)=1$, agrees with $g$ at only 31 of the 301 values
+$n\le300$, and gives the wrong cylinder outcome for 56 of them \lab{C2}. The first is $n=4$, a predicted
+first-player win: white's push and four captures leave one untouched file, black pushes that pawn, it is
+blocked, and white has no move.
+
+\emph{Mis\`ere play.} A forced sequence has odd length and ends with the player who began it, so the
+ring rule carries over: the first player wins the mis\`ere cylinder exactly when the strip of $n-3$ files is
+a mis\`ere P-position. Our implementation of the Plambeck--Siegel algorithm~\cite{PlambeckSiegel2008}
+reproduces their partial quotient for strips of at most 32 files (order 638, 109 P-positions) and agrees
+with exhaustive search on 7.4 million positions \lab{C2}; the next quotient did not finish.
+
+\emph{A warning about sums.} As a partizan game on its own, the ordinary $3\times5$ board is $\star$,
+although $g(5)=3$. The outcome agrees, but only $g$ adds up: a sum of such values would let a player reply
+elsewhere while a capture is pending.
+
+\subsection{Learning Dawson\textquotesingle{}s Chess}
+In normal-play Dawson's chess the first player wins exactly when the strips' Grundy values have a nonzero
+nim-sum~\cite{GuySmith1956,WinningWays}. A long short-term memory (LSTM) value network in PyTorch~\cite{PyTorch}, trained on total lengths up to
+$30$, scores $0.82$ on lengths $31$--$80$, against $0.79$ for the majority guess \lab{C1}; the rule scores $1.0$,
+and linear probes on the strip embedding do no better than the majority guess.

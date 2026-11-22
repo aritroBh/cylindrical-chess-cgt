@@ -1,0 +1,69 @@
+\section{Mating Without Corners: Tablebases}\label{sec:tb}
+
+Without corners, which material can still force mate? We computed the tablebases of eight pawnless endings,
+king and one or two pieces against the bare king, on the ordinary board, on the cylinder and on the torus, where
+ranks 1 and 8 are joined as well. Chess on these boards is an old variant~\cite{Pritchard}. Prose sources say
+that king and rook cannot force mate on the cylinder, nor king and queen on the torus~\cite{WikiCylinder,HGMCylinder};
+we confirm the torus claim, but the rook mates from 2.80\% of cylinder positions. We found no earlier tablebase
+for them.
+
+\emph{Rules and verification.} Pieces wrap round each glued edge; there is no castling and no fifty-move rule,
+and stalemate and bare kings are draws. A position is legal when the kings are not adjacent, across the seams
+included, and the side not to move is not in check. Two retrograde solvers, written independently, agree on
+every position of all 24 tables, about 607 million values with either side to move \lab{C2}; on the ordinary
+board both reproduce the known longest mates.
+
+\begin{table}[!t]
+\centering
+\caption{Pawnless Endings Against the Bare King on the Ordinary Board, Cylinder and Torus: Share Won With
+White to Move and Longest Mate \lab{C2}}
+\label{tab:tb}
+\footnotesize
+\setlength{\tabcolsep}{4.5pt}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+& \multicolumn{2}{c}{Ordinary} & \multicolumn{2}{c}{Cylinder} & \multicolumn{2}{c}{Torus} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(l){6-7}
+Material & Won (\%) & Mate & Won (\%) & Mate & Won (\%) & Mate \\
+\midrule
+KQK  & 100    & 10 & 100    & 10 & 0      & --- \\
+KRK  & 100    & 16 & 2.80   & 3  & 0      & --- \\
+KBBK & 99.98  & 19 & 100    & 14 & 0      & --- \\
+KBNK & 99.51  & 33 & 0.0245 & 2  & 0      & --- \\
+KNNK & 0.0107 & 1  & 0.0077 & 1  & 0      & --- \\
+KRBK & 100    & 16 & 99.74  & 13 & 0.0218 & 1   \\
+KRRK & 100    & 7  & 100    & 8  & 100    & 7   \\
+KQRK & 100    & 6  & 100    & 5  & 100    & 5   \\
+\bottomrule
+\end{tabular}
+
+\smallskip
+\parbox{\columnwidth}{\footnotesize Mate: longest forced mate in moves; ---: no position is won. KBBK has
+the bishops on opposite colors. KRK is king and rook against king, and so on.}
+\end{table}
+
+\emph{KRK and KBNK rarely force mate on the cylinder} (Table~\ref{tab:tb}), while KQK wins every position, as
+quickly as on the ordinary board. The rook wins only 2.80\% of the positions, all from mating nets already in place, such as Ka3, Rb2 against Ka1:
+1.~Rb3 Kh1 2.~Rg3 Ka1 3.~Rg1\#, where the rook covers h1 and the white king h2, the flight squares across the
+seam. The bishop-and-knight mate needs a corner of the bishop's color, and the cylinder has none.
+
+\emph{Bishops on opposite colors win every position on the cylinder}, and faster than on the ordinary board,
+although the bishop pair is said not to mate there~\cite{HGMCylinder}: every diagonal winds round from the first
+rank to the eighth. The longest line ends in Ke6, Be1, Bf1 against Ke8: the bishop on f1 checks along
+f1--h3--a4--e8, across the seam, and the bishop on e1 covers d8 and f8.
+
+\emph{On the torus, of the eight endings, only KRRK and KQRK force mate}, and they win from every position;
+KRBK wins only where a mate in one is already set up. KRK wins everywhere on the M\"obius strip (files a and h
+joined, ranks reversed), but only $0.66\%$ on the Klein bottle \lab{C2}.
+
+\subsection{King and Pawn Against King}\label{sec:kpk}
+
+We solved every legal KPK position on the $8\times8$ ordinary board and cylinder twice, with our king-and-pawn
+solver (all four promotions) and with a separately written KPK solver (queen promotion only). They agree on all
+326,640 cylinder positions and differ on exactly 6 ordinary-board positions, where only a rook promotion wins,
+such as Ka4, Pb7 against Ka6 \lab{C2}. The rook-pawn draw disappears: Ka6, Pa5 against Ka8 is a white win on the
+cylinder whoever moves, since shifting every man four files gives the textbook win Ke6, Pe5 against Ke8. Of the
+positions legal on both boards, 16,538 ordinary-board draws become cylinder wins, and 15,930 wins become draws,
+since a king on the h-file stands beside an a-pawn. Zugzwang, the engine of the tr\'ebuchet, is more common on the cylinder: 216 reciprocal zugzwangs (white
+to move draws, black to move loses) against 160 on the ordinary board \lab{C2}. Section~S8 of the supplementary
+material gives the counts, other widths $\cyl{3}$ to $\cyl{10}$ and KPKP.

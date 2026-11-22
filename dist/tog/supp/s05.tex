@@ -1,0 +1,30 @@
+\section{Elkies\textquotesingle{} Small Values: Details}\label{S-targets}
+To see why, look at Fig.~\ref{fig:eighth}(a). If white moves first, a2--a4 locks the a-file and leaves the
+zero game. The quieter a2--a3 reaches only $\star$, from which black can return to $0$, so it is reversible.
+The move b3--b4 is bad, since black's reply leaves $-3$. If black moves first, b6--b5 leaves $1/4$, and
+a5--a4 is bad. Thus $G=\game{0}{1/4}=1/8$.
+
+This pawn structure can arise in a game: from the starting position, c2$\times$b3, a7--a5, b7$\times$a6 and
+c7$\times$b6 produce it. Its mirror image, white a2, a3, b2 against black a6, b5, b6, cannot, since its
+a3-pawn could only have come from a2 or b2, and both are still on their starting squares. The independent
+checks were run on the mirror, which has the same value by symmetry: a C solver confirms both parts of the
+theorem, and a third, separately written solver confirms the value in all nine settings.
+
+\subsection{Up-Second Star and Tiny~1}
+White a2, b2, b6 against black a6, b7, c5 (Fig.~\ref{fig:eighth}(b)) is $\upsec\star$ in all nine settings
+\lab{C2}. If white moves first, a2--a4 leaves $0$ and a2--a3 leaves $\star$. If black moves first, a6--a5
+leaves ${\downarrow}$. Thus $G=\game{0,\star}{{\downarrow}}=\upsec\star$.
+
+Now move the black c-pawn back to c6 (Fig.~\ref{fig:eighth}(c)). If white moves first, a2--a3 leaves $0$.
+If black moves first, a6--a5 leaves $-1/2\pm1/2=\game{0}{-1}$, and c6--c5, which reaches the $\upsec\star$
+position, is dominated, since $\game{0}{-1}\le\upsec\star$. Thus $G=\ggame{0}{0\mid -1}=\tinyg{1}$ under
+every race rule with en passant on (textbook test \lab{C2}, e.p.-aware test \lab{C1}); with e.p.\ off it is
+${\uparrow}$. Unlike the Tiny~1 of Section~\ref{S-basic-inf}, it needs no seam. Both pawn structures
+arise from the starting position by c2$\times$b3, b3--b4--b5--b6, a7--a6 and c7--c5 (c7--c6 for Tiny~1).
+
+\subsection{Two Textbook Values That Fail}
+Under the textbook test the census also has a $1/8$ at white a2, b2, d2 against black a5, c4, d7 and an
+$\upsec$ at white a3, c5, d4 against black a7, b7, d7. The e.p.-aware test makes them $-3/2\pm3/2$ and
+$\game{3/4}{{\downarrow}\star}$. Both rested on counting as passed a pawn that
+could still be taken en passant. This is why we state Theorem~\ref{thm:eighth} and the $\upsec\star$ above for
+all nine settings.

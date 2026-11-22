@@ -1,0 +1,85 @@
+\section{Sums, Temperature and the Puzzles Revisited}\label{sec:sums}
+
+Most endgames are sums of components. Two principles guide play in them. By \emph{number avoidance}, in a sum of
+numbers and games that are not numbers, a player who can win can do so without moving in a
+number~\cite{WinningWays,Siegel2013}. By the heuristic of the \emph{hottest move}, one moves in the component of
+highest temperature: for a switch $\game{x}{y}$ between numbers $x>y$, the temperature $(x-y)/2$ is what each
+side gains by moving there first.
+
+\subsection{The Puzzles Revisited}
+
+Table~\ref{tab:puzzles} compares the values first claimed for three puzzles of~\cite{Study2025} with the exact
+ones: the earlier walk-throughs pick the right winners, but not always the right values. In Puzzle~1, black's
+h6$\times$a5 across the seam leaves $\star$, so the h/a component is hot, not the number $1$. The
+pawns of Puzzle~2 form an infinitesimal with mean $0$, and its king group (Fig.~\ref{fig:kinggroup72}) is a
+zugzwang for black only, on the ordinary board \lab{C2} (our solver and the Lichess tablebase) and on the
+cylinder \lab{C1}, so the real result of this ten-man position is open. Puzzle~3 is illegal as drawn; on files c and d its value is $\tinyg{1}$, and the legal copy
+one rank up, \pos{W c2 c4 d4 / B c3 d5 d6 d7}, has the same value. Section~S3 of the supplementary material shows
+the puzzles and the full walk-throughs.
+
+\begin{table}[!t]
+\centering
+\caption{Puzzles of the 2025 Study: Claimed and Exact Values \lab{C2}}
+\label{tab:puzzles}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Part & Claimed~\cite{Study2025} & Exact \\
+\midrule
+1: c-file & $\pm1$ & $\pm1$ \\
+1: f-file & $\game{\game{2}{1}}{0}$ & the same (mean $3/4$) \\
+1: files h, a & $1$ & $\game{+\BIG}{\star}$ (hot) \\
+1: total & $1\pm1+\game{\game{2}{1}}{0}$ & white wins either way \\
+2: pawns & $\pm1$ & infinitesimal, mean $0$ \\
+2: kings & $0$ & not mutual \\
+3: files c, d & $1$ & $\tinyg{1}$ \\
+3: total & $2$ & $+\BIG$ before any move \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{When Is the Sum Model Right?}\label{sec:sums-hss}
+
+In chess the first passed pawn ends the game; in a sum, a component with a passed pawn becomes $\pm\BIG$ and
+play goes on elsewhere, so a $+\BIG$ can cancel a $-\BIG$. In $\game{\BIG}{0}+\game{0}{-\BIG}$ the first player
+makes a passed pawn and wins the chess game, but the sum is $0$ for every $\BIG$, since the second player
+answers in the other component \lab{P}. We write $W(X)$ for the whole-board game of a pawn position $X$, which
+ends at the first passed pawn, and $S(X)$ for its sum model, which after every move re-splits the pawns into
+components along empty files (one ring if no file is empty), replaces a component in which a side has a passed
+pawn by $\pm\BIG$ (by the race rule if both have one) and adds the components up. We call $W(X)$ a $\nim{k}$ when
+$W(X)+\nim{h}$ has the outcome of $\nim{k}+\nim{h}$ for every heap $h$; our scans and the wall proofs test
+exactly this.
+
+\begin{definition}[Hereditary sum safety]\label{def:hss}
+A component carries a \emph{threat} for a side if a position reachable from it gives that side a passed pawn. A
+position $X$ is \emph{hereditarily sum-safe} (HSS) if no position reachable from $X$ by moves of either side,
+in any order, before the first passed pawn, $X$ included, has two components with threats for opposite sides.
+\end{definition}
+
+\begin{theorem}[Sum safety; \lab{S}]\label{thm:hss}
+Suppose that $X$ is HSS, that no position reachable from $X$ with two or more components has a usable en
+passant right (condition (E)), and that $\BIG$ exceeds the number of moves either side can make. Then $S(X)$ and
+$W(X)$ have the same outcome.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+The models differ only after a passed pawn appears, say for white. By HSS no other component can then give black
+one, so black runs out of moves before white's $+\BIG$ does. The full proof, by induction with (E), is in
+Section~S12 of the supplementary material.
+\end{proof}
+
+In a random sample of $1{,}500$ positions, all $1{,}297$ HSS ones agree \lab{C1}, and with $\BIG=256$ the move
+bound always holds on boards up to $8\times8$. HSS cannot be dropped (Proposition~\ref{prop:sumcounter}); without
+(E) the decomposition already fails in the pure pawn game (Section~S3).
+
+\begin{proposition}[\lab{C2}]\label{prop:sumcounter}
+A test of the top-level components alone is not enough: on $\cyl{8}$ with en passant off, $X=$\,\pos{W b2 d4 g3
+h5 / B a7 c7 f7 g4} is a single component, spanning files f to d across the seam, so such a test passes it; yet
+$S(X)$ is a black win whoever starts and $W(X)$ a first-player win. Moreover $X$ is not HSS: components with
+opposite threats appear later in its tree, so Theorem~\ref{thm:hss} does not apply.
+\end{proposition}
+
+\emph{Two models.} Our CGT engine computes $S$, as Elkies does~\cite{Elkies1996}, and the independent
+whole-board solver $W$. They agree on every headline value: the $1/8$ and $\upsec\star$ in all nine settings,
+and the seven-pawn $\nim{2}$ in the default setting. Elsewhere they can differ, even in outcome (Section~S3);
+there we name the model we mean.
+% SLOT: real-king sum test

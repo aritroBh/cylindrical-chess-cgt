@@ -1,0 +1,25 @@
+\section{Conclusion and Open Problems}\label{sec:conclusion}
+
+Against real chess the model is right in $92.5\%$ of the decisive $8\times8$ positions we can check; its pawn
+errors vanish under a square-rule passer test, and the rest come from the kings \lab{C1}. In the model,
+$\nim{2}$ appears with seven pawns and $\nim{3}$ with nine. Six problems are open.
+
+\begin{enumerate}
+\item \emph{A certified $1/8$.} With queen promotions and frozen kings the oracle value is exactly $1/8$. Do
+  the decisive end positions keep their results with all four promotions (Section~\ref{sec:real-eighth})?
+\item \emph{The seven-pawn $\nim{2}$ in real chess.} The 8-man end positions deciding A and B agree with the
+  model; those with 9 to 11 men are unsolved
+  (Section~\ref{sec:real-eighth}).
+\item \emph{Higher nimbers.} The least number of pawns in a ring $\nim{2}$ on $\cyl{n}$ is $n+3$ for $3\le n\le7$,
+  ten for $7\le n\le10$ \lab{C2} and $n$ for every $n\ge10$ as a whole-board game \lab{S}. For $\nim{3}$ it is $n+2$ on $\cyl{10}$, $n+1$ on $\cyl{11}$ and $\cyl{12}$ \lab{C1} and at
+  most $n+1$ for every $n\ge12$ \lab{S}: can it be $n$? Are the wall
+  families $\nim{2}$ as sums for all $n$? Is there a $\nim{4}$ on eight ranks?
+\item \emph{When is a tr\'ebuchet zero?} Theorem~\ref{thm:cert} settles the promotion game, not chess: find a
+  local test for chess, or settle Conjecture~\ref{conj:horizon2} (real tr\'ebuchets seem to need $h\approx5$--$7$).
+\item \emph{Endgames without edges.} With at most one new piece, $11\%$ of KPKP positions on the cylinder
+  stay undecided, and KPPK comes next. Pawn play across the twisted seam of the M\"obius strip
+  (Section~\ref{sec:tb}), where a pawn reverses direction, remains open.
+\item \emph{Mis\`ere Dawson's chess.} Dawson asked about mis\`ere play \cite{Dawson1935}: is the mis\`ere
+  quotient \cite{PlambeckSiegel2008} of Dawson's chess infinite? By the ring rule (Theorem~\ref{thm:ring}), an
+  answer for strips also answers the cylinder.
+\end{enumerate}
