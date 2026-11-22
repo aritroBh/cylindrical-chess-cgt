@@ -20,7 +20,7 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 - [x] Supplement built: 87 pages, moved material and the full proofs
 - [~] Independent check that the 10-page text changed no claim, number or label
 - [ ] Supplement: fix 18 overfull lines in converted proofs
-- [ ] Title for the journal version: confirm the shortened title
+- [x] Title: the original title on both versions (author decision)
 - [x] Author block: University of Illinois Urbana-Champaign (ORCID optional, add in the submission system)
 - [ ] Push to the public repository (on the author's word)
 
