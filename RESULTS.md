@@ -433,6 +433,17 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   board (C scan, sumtest whole mode, cylcgt with splitting off) and ⇑, ⇓ as sums (cylcgt, sumtest component mode).
   Neither program has a bug: the roots are not hereditarily sum-safe. Smallest witness `W a3 e2 / B b4 d3 e3`. Under
   the count rule both are ★2 in both models.
+- **Sum vs whole census 2026-11-22** (`research/sum_whole_census/REPORT.md`; C1, totals recounted from the raw rows
+  by a second script). Every passer-free flat position with 2 to 6 pawns on widths 3, 4, 5 (599,098 up to mirror and
+  colour swap), all three race rules, both passed-pawn tests.
+  - Hereditarily sum-safe: S and W never differ in outcome (0 of 540,503, e.p.-aware; 0 of 539,893, textbook).
+  - Not hereditarily sum-safe (count, e.p.-aware): 11,300 of 58,595 differ (19.3%); overall 1.89%. Mover 1.54%,
+    opponent 2.02%: the count rule is not special here.
+  - All differences are on width 5 with two root components. Widths 3 and 4 (40,262 and 154,813) and the cylinders
+    C4 (60,447, up to 6 pawns) and C5 (14,883, up to 5 pawns) have none.
+  - Smallest: `W a5 d3 / B b6 e4`, sum P, whole board N under every rule (two locked pairs; checked with cylcgt and
+    sumsolver). Three programs agree on 4,000 sampled positions per test.
+  - `sum_safe()` True with S != W: 0 except 8 one-component roots under textbook + mover.
 - **Paper fact-check round 11.** 15 findings confirmed and applied (`delegate/REVIEW.md`).
 
 ## 7. Pending
