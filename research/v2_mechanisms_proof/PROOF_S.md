@@ -1,5 +1,7 @@
 # Proof of the square rule S (certified passers), frozen-king pawn game
 
+**REFUTED 2026-11-22.** Lemma 1 is false: on a flat 3 x 8 board, `W a4 b6 / B c7` with Black to move is certified for White by S, but Black wins (1... cxb6 2. a5 bxa5). See RESULTS.md. The text below is kept as a record.
+
 **Label: PROVED (by hand) for the frozen-king pawn game.** Real chess with active kings is excluded (a king can stop a certified passer); the 128 remaining mismatches after CC are king effects.
 
 ## 0. Summary (5 lines)

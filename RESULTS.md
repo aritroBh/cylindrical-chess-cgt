@@ -527,6 +527,13 @@ Answered 2026-10-16:
   steps unargued. Status: COMPUTED-1, proof incomplete.
   **Update 2026-11-22:** complete hand proof by T75 (OpenCode, `research/v2_mechanisms_proof/PROOF_S.md`), refereed SOUND
   WITH MINOR FIX by T76 (Kilo; scope H >= 4, applied). Status: PROVED [S] in the frozen-king pawn game.
+  **Refuted 2026-11-22:** Lemma 1 of that proof is false and S is not sound in general. Counterexample (found by
+  the supplement editor, confirmed here with `research/v2_mechanisms/pawngame.py`): flat 3 files x 8 ranks,
+  `W a4 b6 / B c7`, Black to move. S certifies White (n = 4 < d = 5), but 1... cxb6 2. a5 bxa5 and White has no
+  move. An enemy pawn two files away captures onto the file next to the runner. Both AI referees missed it; the
+  exhaustive check had at most 2 files at 8 ranks. Status now: heuristic, COMPUTED-1 on the small boards checked.
+  The paper's claim (the rescoring: 52 failures removed, 128 left) is a computation on 6-rank boards and stands.
+  Supplement S16 now gives the definition, the checks and the counterexample instead of the proof.
 - **When the trebuchet unfreezes** (`research/trebuchet_unfreeze/`, avenue 4; COMPUTED-1, skeptic-corrected):
   - The 3 refuted P4 contexts (H*, H*2, H0 on cyl:7x6) fail through the rule "a promotion wins at once": requiring the
     new queen to be safe AND no counter-promotion reproduces chess at all 12 roots (root level only; node level differs

@@ -145,7 +145,8 @@ for env in ('theorem', 'lemma'):
 W('s13', r'\section{Full Proof: Wall Rings of Value \texorpdfstring{$\nim{2}$}{*2} with \texorpdfstring{$n+3$}{n+3} Pawns}\label{S-wall}',
   r'\noindent\emph{Source.} research/ring\_family\_proof/proof.tex, typeset unchanged. It proves the $n+3$-pawn ring '
   r'$\nim{2}$ on every $\cyl{n}$, $n\ge5$, of Section~\ref{sec:star2-rings}, and its Lemmas 1--3 are used in '
-  r'Sections~\ref{S-ringn}--\ref{S-star3}.' + '\n\n' + body)
+  r'Sections~\ref{S-ringn}--\ref{S-star3}.' + '\n\n' + body + '\n\n'
+  + pt[pt.index(r'\paragraph{The five poisoned wall moves'):pt.index(r'\paragraph{Remarks.}')])
 
 # S14 n-pawn *2 -----------------------------------------------------------------------------------------
 W('s14', r'\section{Full Proof: Rings of Value \texorpdfstring{$\nim{2}$}{*2} with One Pawn per File}\label{S-ringn}',
@@ -165,9 +166,7 @@ W('s15', r'\section{Full Proofs: The Lemma 3 Write-Up and the \texorpdfstring{$\
   r'\subsection{Note 4: research/star3\_proof/PROOF\_S3T3.md}', MD('research/star3_proof/PROOF_S3T3.md', cur='s15_note4.md'))
 
 # S16 square rule ---------------------------------------------------------------------------------------
-W('s16', r'\section{Full Proof: The Square-Rule Passer Test}\label{S-square}',
-  NOTE % ('research/v2\\_mechanisms\\_proof/PROOF\\_S.md', r'it proves, for the frozen-king pawn game, the square-rule passer '
-          r'test behind the repair in Section~\ref{sec:kings-sweep}.'),
+W('s16', r'\section{The Square-Rule Passer Test: Definition, Checks and a Counterexample}\label{S-square}',
   MD('research/v2_mechanisms_proof/PROOF_S.md', cur='s16_square.md'))
 aux = open('build/tog_review.aux').read()
 open('supp/mainlabels.tex', 'w').write('\n'.join(l for l in aux.split('\n') if l.startswith('\\newlabel{')) + '\n')

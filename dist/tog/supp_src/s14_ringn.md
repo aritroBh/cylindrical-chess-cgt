@@ -1,0 +1,83 @@
+# $M_n=\star2$ and $O_n=\star2$ for every even $n\ge 10$ resp. odd $n\ge 11$ (whole-board game on $C_n$)
+
+**Summary**
+1. Theorem: in the whole-board game on $C_n$ (race rule "count", e.p. on, an e.p.-capturable pawn is not passed, the game ends at the first passed pawn), the $n$-pawn rings $M_n = (B4\,W2)^{(n-8)/2}\,B6\,W2\,W3\,B6\,B7\,W3\,B7\,W5$ (even $n\ge10$) and $O_n = B4\,(B7\,W5)^{(n-9)/2}\,B7\,W3\,B7\,B6\,W3\,W2\,B6\,W2$ (odd $n\ge11$) are $\star2$.
+2. The proof is the insertion proof of Section S13 (Lemmas 1–3 there, with the written-out proof of Lemma 3 in Note 1 of Section S15, its section 2b), at one fixed cut per family: $M$: $c=4$, $n_0=18$; $O$: $c=5$, $n_0=19$. The $M$ wall is a W2/B4 wall (type E of Section S13); the $O$ wall is B7/W5, handled by colour reversal (H1).
+3. C1: the reduced game at the base has 441 nodes ($M_{18}$) resp. 2132 nodes ($O_{19}$), no e.p. flag, no passed pawn, zone $\{n-8..n-3,n-1\}$ resp. $\{0\}\cup\{n-7..n-1\}$, signature NNPNN ($h=0..4$); files $c-4..c+5$ are exact pattern files in every node; $\mathrm{ins}_c$ maps the graph isomorphically for $n\ge n_0$. C2: $n=10,12,14,16$ ($M$) and $n=11,13,15,17$ ($O$) by direct search. E.p. convention: canonical (a flag only if an enemy pawn stands beside the landing square).
+4. Status: PROVED for $n\ge n_0$ given Lemmas 1–3 of Section S13, 2b and C1; CHECKED-2 for the base cases.
+5. $M_{10}$ and $O_{11}$ are the smallest members (no smaller $n$-pawn ring of this family is $\star2$; $n<10$ is not in scope).
+
+**How this note was checked.** The finite parts were computed by four independently written programs. A is the C program of Section S13 (`rg.c`, driven by `pump_verify.py`), which builds the reduced games and runs the insertion pump; E is a Python engine written from the rules (`verify_compute/myeng.py`), which rebuilt the reduced graphs of C1, checked the hypotheses of Lemmas 2 and 3 on every node and ran the direct searches of C2; C is a second Python engine, written from the rules by a different AI model, which ran the base cases $n\le14$ of C2; R is an independent checker written by one of the referees, which reproduced the reduced graphs of C1 (441 and 2132 nodes, zones, signatures), two insertion steps per family, and the direct searches for all eight sizes below $n_0$. The hand proof was checked by two independent AI referees, both from model vendors other than that of the model that wrote the note: one examined the logic, the other the logic and the finite facts (with R); both found it sound, after corrections that are incorporated in the text below. No human referee has checked it yet.
+
+**Scope.** Proved: the whole-board game, race rule "count", canonical e.p. convention, and equivalence to $\star2$ against nim-heaps (H7). Not claimed: the component-sum model, another race rule, or equivalence against arbitrary addends rather than nim-heaps. Race-rule sensitivity and the component-sum model were not examined for $M_n$, $O_n$. The sizes $n<n_0$ are covered only by C2, not by the induction.
+
+## 0. Claims and labels
+
+PROVED = by hand, given the lemmas. CHECKED-2 = two or more independently written programs agree. COMPUTED-1 = one program. A is used for the pump; E drives `research/ring_n_proof/check_N1.py` and `base_N.py`. "2b" denotes the written-out proof of Lemma 3 in Note 1 of Section S15.
+
+| id | claim | label |
+|---|---|---|
+| L1-L3 | Lemmas 1–3 of Section S13 (reduction, wall pawns, insertion) and the written-out Lemma 3 (2b) | PROVED in Section S13 / Note 1 of Section S15; cited, not re-proved |
+| H1-H7 | hypotheses of the lemmas for $M_n$, $O_n$ | PROVED given C1 and L1-L3 |
+| C1M | $M_{18}$: 441 nodes, 1128 K-, 428 T-moves, no flag, no passer, zone $\{10..15,17\}$, NNPNN, files $0..9$ exact pattern in every node | CHECKED-2 (A pump, E `check_N1.py`) |
+| C1O | $O_{19}$: 2132 nodes, 6352 K-, 2680 T-moves, no flag, no passer, zone $\{0,12..18\}$, NNPNN, files $1..10$ exact pattern in every node | CHECKED-2 (A pump, E `check_N1.py`) |
+| C2 | $M_n+\star h$: NNPNN for $n=10,12,14,16$; $O_n+\star h$: NNPNN for $n=11,13,15,17$ (unreduced, no poison pruning, both e.p. readings) | CHECKED-2: E `base_N.py` and A (pump, $n=10..41$) for every $n$; C too for $n\le14$. E alone of the programs other than A for $n=16,17$ |
+| C3 | pump: M nodes/zone/signature stable for $n=10..40$; O for $n=11..41$; insertion isomorphism $M$ $18\to20$.., $O$ $19\to21$.. | COMPUTED-1 (A `pump_verify.py`); M/O insertion verified by E `check_N1.py` for $n_0..n_0+4$ |
+| T | $M_n=\star2$ (even $n\ge10$), $O_n=\star2$ (odd $n\ge11$) | PROVED given L1-L3, C1, C2 |
+
+## 1. Setting
+
+Model, classes T/L/P/K, reduced game: as in Section S13 and in section 1 of Note 1 of Section S15 (race rule "count"). A **pattern file** is a wall file holding exactly its starting pawn and nothing else (the exact-content reading of Section S13's "a wall file that still holds its starting pawn"); every use below is of such exact one-pawn files. E.p. convention (Note 1 of Section S15, section 1): a flag is recorded only if an enemy pawn stands beside the landing square of the double step; a flag nobody could use is dropped. "No flag" in C1, H4, H6 means this canonical convention. E uses it directly; A applies it through its own convention; the raw-flag games are equivalent (Note 3 of Section S15, row S6).
+
+Files $0..n-1$, $n$ even $\ge10$ ($M$) or odd $\ge11$ ($O$):
+
+- $M_n$: files $0..(n-8)/2\cdot 2-1$ are the wall $B4\,W2$ (file $0$ first, $B4$ on even files, $W2$ on odd files), then $B6$ ($n-8$), $W2$ ($n-7$), $W3$ ($n-6$), $B6$ ($n-5$), $B7$ ($n-4$), $W3$ ($n-3$), $B7$ ($n-2$), $W5$ ($n-1$). That is $(n-8)+8 = n$ pawns. **Wall** = files $0..n-9$ (length $n-8$, even), $B4$ on even files, $W2$ on odd files, $W2$ at the right end (file $n-9$ is odd since $n$ is even).
+- $O_n$: file $0$ is $B4$; files $1..n-9$ are the wall $B7\,W5$ ($B7$ on odd files, $W5$ on even files); then $B7$ ($n-8$), $W3$ ($n-7$), $B7$ ($n-6$), $B6$ ($n-5$), $W3$ ($n-4$), $W2$ ($n-3$), $B6$ ($n-2$), $W2$ ($n-1$). That is $1+(n-9)+8 = n$ pawns. **Wall** = files $1..n-9$ (length $n-9$, odd).
+
+Lemma 1: a side wins $G+\star h$ moving first iff it wins the reduced game moving first. Lemma 2: for a wall pawn $q$ of the player to move with pattern neighbour files, (a) that side has no passed pawn after any move of $q$, (b) if $c$ has no flag and the window $j-1..j+3$ (or $j-3..j+1$) consists of pattern files, every move of $q$ is L or P. Lemma 3: if $p$ has no passer, no flag, and files $c-4..c+5$ are pattern files, then the K-children and the existence of T-moves of $\mathrm{ins}_c(p)$ are the $\mathrm{ins}_c$-images of those of $p$.
+
+$Z_n = \{n-8..n-3,n-1\}$ ($M$), $\{0\}\cup\{n-7..n-1\}$ ($O$).
+
+## 2. The cut and the base
+
+By C1, in every node of the reduced game of $G_n$ ($n\ge n_0$) all files outside $Z_n$ keep their start content. So the wall files $0..n-9$ ($M$) resp. $1..n-9$ ($O$) are pattern files of every node.
+
+- $M$: arc $A=\{c-4..c+5\}=\{0..9\}$ lies in $[0,n-9]$ iff $n\ge18$; the least $n$ with a cut is $n_0=18$ (pump: no cut with 10 unchanged wall files for $n<18$; first cut $c=4$ at $18\to20$), and $c=4$ is admissible for every $n\ge18$. $\mathrm{ins}_4$ fixes files $0..4$ and shifts files $\ge5$ by 2, so $\mathrm{ins}_4(Z_n)=Z_{n+2}$.
+- $O$: arc $A=\{1..10\}$ lies in $[1,n-9]$ iff $n\ge19$; $n_0=19$, first cut $c=5$ at $19\to21$, admissible for every $n\ge19$. $\mathrm{ins}_5$ fixes files $0..5$ and shifts files $\ge6$ by 2, so $\mathrm{ins}_5(Z_n)=Z_{n+2}$.
+
+The ranges are sufficient, not necessary: the computation shows the insertion is an isomorphism for every admissible cut (O: every $c=2..n-9$ for $n=19..31$).
+
+## 3. Hypotheses of Lemmas 2 and 3
+
+**H1 (wall, phase, ends).** $M$: the wall alternates $B4$ (even) / $W2$ (odd), a W2/B4 wall exactly as in type E of Section S13; $\mathrm{ins}_4$ inserts copies of files 5 ($W2$) and 4 ($B4$) after file 4, so the new files 5, 6 continue the phase; $\mathrm{ins}_4(\mathrm{start}_n)=\mathrm{start}_{n+2}$ for $n\ge18$. $O$: the wall alternates $B7$ (odd) / $W5$ (even). By colour reversal (swap colours and rank $r\mapsto 9-r$), $O_n$ maps to a ring with a $W2/B4$ wall and value $-\star2$; since $\star2=-\star2$, the same lemmas apply and the value is $\star2$. Lemma 2(b) for $O$ uses the colour-reversed cases of the proof of Lemma 2(b) in Section S13 (B7$\to$W2 / W5$\to$B4); equivalently, the colour-reversed wall is $W2/B4$, so no new case analysis is needed.
+
+**H2 (no capture by $q$).** With pattern neighbours the capture squares of $q$ on rank 3 (resp. rank 6 for Black) are empty, and a $B4$ cannot take e.p. a $W2$ that has not moved (Note 1 of Section S15, H3).
+
+**H3 (windows at the two ends of the arc).**
+- $M$, $c=4$: central pawns files $1..8$ at $n_0=18$, files $1..10$ at $n=20$. Left end $j=1$ (pawn $W2$, file 1 odd), window $0..4$: after $W2\to3$ (resp. $\to4$), $B4$ on file 0 takes (e.p. after $\to4$); the $W2$ on file 3 stays blocked by $B4$ on file 4. Right end $j=8$ (resp. 10) (pawn $B4$, file 8 even), window $5..9$ (resp. $7..11$). The central pawns are on files $c-3..c+4=1..8$; for $j\le c+2$ the window $j-1..j+3$, and for $j\ge c-1$ the window $j-3..j+1$, lies in the arc $0..9$, which consists of pattern files in every node ($I_n$). So Lemma 2(b) makes every central move L or P for every $n\ge n_0$, with no computation. The checker E also found 0 T/K moves at both ends in all nodes.
+- $O$, $c=5$: central pawns files $2..9$ at $n_0=19$, files $2..11$ at $n=21$. Left end $j=2$, window $1..5$ (file 1 is the first wall file, $B7$ beside $B4$ on file 0); right end $j=9$ (resp. 11), window $6..10$ (resp. $8..12$). The checker E verified 0 T/K moves at both ends. In all nodes the double step of the right-end pawn is P (no L moves), consistent with the "$Y$ has a passer" branch not arising.
+
+**H4 (start).** $\mathrm{start}_n$ has no passed pawn and no flag: each pawn is blocked by an enemy pawn on an adjacent file or the same file; E ran the passed-pawn test on all nodes: none has a passer.
+
+**H5 (race rule).** Lemma 2 never uses the race; in Lemma 3 the passed pawns of $c_\mu$ and $\mathrm{ins}_c(c_\mu)$ coincide, so any rule that depends on the passed pawns and on who moved gives the same class (Note 1 of Section S15, H4). The value is rule-specific, the lemmas are not.
+
+**H6 (invariant).** $I_n$: no node of the reduced game has a flag, and every node agrees with $\mathrm{start}_n$ outside $Z_n$. $I_{n_0}$ is C1. If $I_n$ holds ($n\ge n_0$): every node is non-terminal with no flag, and $A$ consists of pattern files (section 2), so Lemma 3 applies to every node with the chosen $c$; with H4 and induction on the distance from the root, nodes, K-edges and T-flags of $G_{n+2}$ are the $\mathrm{ins}_c$-images of those of $G_n$. An image has no flag; it agrees with $\mathrm{start}_{n+2}$ outside $Z_{n+2}$ since the inserted files are copies of pattern files and $\mathrm{ins}_c(Z_n)=Z_{n+2}$. So $I_{n+2}$.
+
+**H7 (meaning of $=\star2$).** As in Section S13 and in H8 of Note 1 of Section S15: $G=\star2$ means that for every heap $\star h$, $h<256$ (a passed pawn is worth $\pm256$), $G+\star h$ and $\star2+\star h$ have the same outcome: P for $h=2$ and N otherwise. C1 gives signature NNPNN for $h=0..4$; for $h\ge5$, the heap move to the P-position $G+\star2$ gives N. The start has no flag and neither do the reduced nodes, so the e.p. convention across a heap move is immaterial (E ran both readings "keep" and "expire": identical results).
+
+## 4. Finite checks
+
+- **C1M** ($n_0=18$; E, `check_N1.py` for family M, $n=18$, $c=4$): 441 nodes, 1128 K-, 428 T-moves, zone $\{10,11,12,13,14,15,17\}$, NNPNN, files $0..9$ exact pattern in every node; Lemma 2: 3528 q-positions, 5292 moves, 0 (a)/(b) failures; Lemma 3: 441 nodes onto 441 at $18\to20$ and $20\to22$, 0 mismatches; control fails at $c=9$ (600 of 882). A pump ($n=10..40$): 441 nodes, zone $\{n-8..n-3,n-1\}$, ep=0, NNPNNNNN, insertion $18\to20$ first at $c=4$.
+- **C1O** ($n_0=19$; E, `check_N1.py` for family O, $n=19$, $c=5$): 2132 nodes, 6352 K-, 2680 T-moves, zone $\{0,12..18\}$, NNPNN, files $1..10$ exact pattern; Lemma 2: 17056 q-positions, 25584 moves, 0 failures; Lemma 3: 2132 nodes onto 2132 at $19\to21$ and $21\to23$, 0 mismatches; control fails at $c=10$ (not before). A pump ($n=11..41$): 2132 nodes, zone $\{0\}\cup\{n-7..n-1\}$, ep=0, NNPNNNNN, insertion $19\to21$ first at $c=5$.
+- **C2** (base cases; E, `base_N.py` up to $n=25$): M $n=10,12,14,16,18,20,22,24$ and O $n=11,13,...,25$ all NNPNN under both "keep" and "expire". Third program (C): M $n=10,12,14$ and O $n=11,13$ all NNPNN under both readings.
+
+## 5. Proof of the Theorem
+
+Let $n\ge n_0$ be of the right parity. $I_{n_0}$ is C1; H6 gives $I_n$ for all $n\ge n_0$ and $G_n\cong G_{n_0}$ (nodes, K-edges, T-flags). By C1 and Lemma 1, $G_n+\star2$ is a P-position and the signature is NNPNN as in C1; H7 gives all heaps: $G_n=\star2$. For $n=n_0-2,n_0-4,\dots$ (the base cases below $n_0$) use C2 and H7. $\blacksquare$
+
+## 6. Gaps and caveats
+
+1. **No gap found in the hypotheses.** What is new relative to the $P_n/Q_n/R_n/Qo_n$ proofs (Section S15) is the wall's phase and ends ($M$: W2 at the right end of an even-length W2/B4 wall; $O$: B7/W5 wall of odd length, handled by colour reversal) and the cuts $c=4$ ($M$) / $c=5$ ($O$) at the left end of the pattern run. H1-H3 treat each.
+2. **Lemmas 1-3 are cited, not re-proved**; their hand proofs are those of Section S13 and 2b, refereed as sound for $P_n$ and $Q_n$ (Notes 1 and 2 of Section S15).
+3. **C1, C2 are computer facts**: the theorem for $n\ge n_0$ is "proved modulo C1"; the base cases are finite computations. E and C agree on all checked positions; E was differentially tested against the project's pawn-game library in the odd-family work (Note 3 of Section S15, row S5). Here E is the only program running the full Lemma 2/3 checks; C was used only for the base-case signatures.
+4. **Programs.** A and E are independently written (C and Python). E also runs $M_n$, $O_n$ for $n\le60$. The `check_N1.py` runs are E's independent rebuild of the reduced graph and of the Lemma 2/3 hypotheses; the `base_N.py` runs are E's (and C's) direct search. All pass.

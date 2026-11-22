@@ -20,8 +20,9 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 - [x] Supplement built: 87 pages, moved material and the full proofs
 - [x] Independent check of the 10-page text: 4 blockers and 9 should-fix items found and applied (`delegate/out/tog_review/REPORT.md`)
 - [x] Supplement cleaned: 83 pages, no overfull lines, working-note residue stripped
-- [~] Supplement proofs (S12, S14-S16): hand-edited copies replace the automatic clean-up, which damaged some
-  sentences (two editors working; sources go in `dist/tog/supp_src/`)
+- [x] Supplement proofs (S12, S14, S15): hand-edited copies in `dist/tog/supp_src/` replace the automatic clean-up;
+  80 pages. S16: the square-rule proof was false (counterexample found); it now gives the test, the checks and
+  the counterexample
 - [ ] Balance the last page once the two result slots are filled
 - [x] Title: the original title on both versions (author decision)
 - [x] Author block: University of Illinois Urbana-Champaign (ORCID optional, add in the submission system)

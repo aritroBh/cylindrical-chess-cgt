@@ -79,3 +79,17 @@ induction on the distance from the start shows that the reduced game of $G_{n+2}
 its nodes again have no flag and agree with the start outside the shifted zone. So the reduced games of one parity are all isomorphic to
 the one at $n_0$; by Lemma~1 and C1 $G_n+\nim2$ is a P-position, i.e.\ $G_n=\nim2$. For $n<n_0$ use C2. \lab{P}
 \end{proof}
+
+\paragraph{The five poisoned wall moves (Lemma~2(b)).}
+\begin{center}\small
+\begin{tabular}{llll}
+type & move of $q$ on file $j$ & reply of $Y$ & why $X$ has no passed pawn afterwards\\\hline
+O & W3$\to$4 & B5 on $j{+}1$ takes on $(j,4)$ & W3 on $j{+}2$ blocked by B5 on $j{+}3$\\
+O & B5$\to$4 & W3 on $j{+}1$ takes on $(j,4)$ & B5 on $j{+}2$ blocked by W3 on $j{+}3$\\
+E & W2$\to$3 & B4 on $j{+}1$ takes on $(j,3)$ & W2 on $j{+}2$ blocked by B4 on $j{+}3$\\
+E & W2$\to$4 & B4 on $j{+}1$ takes e.p.\ on $(j,3)$ & same\\
+E & B4$\to$3 & W2 on $j{+}1$ takes on $(j,3)$ & B4 on $j{+}2$ blocked by W2 on $j{+}3$\\
+\end{tabular}
+\end{center}
+In each case the capturer is passed because files $j-1,j,j+1$ then hold no pawn of $X$.
+
