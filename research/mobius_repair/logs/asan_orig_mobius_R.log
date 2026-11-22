@@ -1,0 +1,12 @@
+orig_replica.c:102:9: runtime error: index 8 out of bounds for type 'int[8]'
+SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior orig_replica.c:102:9 
+orig_replica.c:104:9: runtime error: index 8 out of bounds for type 'uint64_t[8]' (aka 'unsigned long long[8]')
+SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior orig_replica.c:104:9 
+orig_replica.c:119:21: runtime error: index 14 out of bounds for type 'uint64_t[8]' (aka 'unsigned long long[8]')
+SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior orig_replica.c:119:21 
+orig_replica.c:260:21: runtime error: index 8 out of bounds for type 'int[8]'
+SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior orig_replica.c:260:21 
+[mobius R: solved in 26 passes, longest win 23 plies]
+mobius KRK all       wtm legal    148171 won    148171 (100.0000%) maxDTM  12 moves  e.g. Ka1 Rh3 ka4 w
+mobius KRK all       btm legal    221216 lost   197056 ( 89.0785%) maxDTM  12 moves  e.g. Ka1 Rh3 ka3 b
+mobius KRK all       btm mates 400 stalemates 64

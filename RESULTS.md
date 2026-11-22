@@ -23,7 +23,7 @@ The candidate was `W a2 c2 / B b7 d7` on files a–d, frozen by a trébuchet (W 
 | Value under the paper's convention, textbook passed test | \*2 under race rules "count" and "mover"; **0** under "opponent". The same with e.p. off | verified (cylcgt, `sumtest/`, Codex rules in `atlas/flat8/census`, `lemmas/`) |
 | Value under the adopted convention (e.p.-aware passed test) | **{2±1 \| −2±1}** (mean 0, temperature 2), not \*2. Mechanism: a2–a4 is met by b4×a3 e.p. | verified: cylcgt now agrees with `sumtest/`'s e.p.-aware mode on all 55,195 test positions (§4) |
 | Robustness of the \*2 to the race rule | only 4 of its 224 race positions change the value when flipped alone; all come after a capture. A 6-position certificate fixes \*2 whatever the other races do | verified (`atlas/flat8/certificate.json`, `lemmas/` L4.2) |
-| Sum model vs whole-board game | equal: the tree never splits into components before a passer (Theorem 2.3) | proved |
+| Sum model vs whole-board game | equal for this position: its tree never splits into components before a passer (Theorem 2.3). Not true in general without hereditary sum-safety (`research/star2_frontier_recheck/`) | proved |
 | 8×8 embedding geometry (kings f5/h4) | no checks, no stalemate, every king move drops that side's g-pawn | proved; exhaustive check |
 | Real chess, both sides to move (Lichess 7-man tablebase + exact search) | the side to move wins (outcome N), as \*2 predicts | proved by certificate (`realchess/results/cert_root_*.json`) |
 | Real-chess oracle value: the pawn tree with tablebase results at its end positions | **never \*2 (or 0) in the adopted e.p.-aware tree, however draws and unresolved end positions are treated**: the bounds force Left stop ≥ 1 and Right stop ≤ −1. Counting draws as Black wins, it is **exactly {2±1 \| −2±1}** in both trees. In the textbook tree \*2 is excluded only when draws count as wins for one side | values computed once; end-position results checked two ways ([realchess/REPORT.md](realchess/REPORT.md)) |
@@ -424,6 +424,15 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   - So a ★4 ring would need a single core worth ★4 on its own. None was found up to width 6.
 - **Twisted tablebases.** A and B agree exactly under A's ray rule. KRK wins every position on the Möbius strip and
   on RP² but only 0.66% on the Klein bottle (CHECKED-2). See `research/twisted_tablebases/COMPARE.md`.
+  - **Audit 2026-11-22** (`research/mobius_repair/REPORT.md`). The older T9 code (`research/mobius/mobius_replica.c`,
+    `kpsolve_mob.c`) overflows its ray arrays (`[64][8][8]`, rays reach 15 squares; UBSan confirms). A and B do not.
+    With the arrays fixed, T9 matches A on 22 of 22 rows and B on 26 of 26: Möbius KRK 147,776 of 147,776 won, Klein
+    KRK 960 of 145,344 = 0.66%. T9's old 0.79% and its legal counts are superseded. Möbius KPK (78.94%) is unchanged.
+- **Frontier discrepancy resolved 2026-11-22** (`research/star2_frontier_recheck/REPORT.md`). Under the opponent rule
+  with the e.p.-aware test, `W a3 b3 c2 e2 / B a6 c5 d5 e3` and `W a6 b4 c4 e3 / B a7 c7 d6 e6` are ★2 on the whole
+  board (C scan, sumtest whole mode, cylcgt with splitting off) and ⇑, ⇓ as sums (cylcgt, sumtest component mode).
+  Neither program has a bug: the roots are not hereditarily sum-safe. Smallest witness `W a3 e2 / B b4 d3 e3`. Under
+  the count rule both are ★2 in both models.
 - **Paper fact-check round 11.** 15 findings confirmed and applied (`delegate/REVIEW.md`).
 
 ## 7. Pending

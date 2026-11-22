@@ -1,5 +1,9 @@
 # T9: Chess on the Möbius Strip and the Klein Bottle
 
+> **Superseded for Part A (2026-11-22).** `mobius_replica.c` overflows its ray arrays, so the legal counts, some max
+> DTM values and the Klein KRK figure (0.79%) below are wrong. Correct numbers: `research/mobius_repair/REPORT.md`
+> and `research/twisted_tablebases/COMPARE.md` (Klein KRK 0.66%; Möbius KRK still 100%).
+
 **Output directory:** `research/mobius/`
 
 ---

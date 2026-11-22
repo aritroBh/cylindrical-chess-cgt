@@ -1,0 +1,16 @@
+ROOT W: a3 b3 c2 e2 / B: a6 c5 d5 e3 cylcgt: ⇑ sum_safe: True HSS: False
+  ep-free descendants: 2107 outcome mismatches (cylcgt vs whole): 106
+    (5, 'W: a3 e2 / B: b4 d3 e3', '{* | -W*}', 'R', 'N')
+    (5, 'W: a3 e2 / B: b4 d5 e3', '-W±+W', 'R', 'N')
+    (5, 'W: a4 e2 / B: b5 d3 e3', '{* | -W*}', 'R', 'N')
+    (5, 'W: a4 e2 / B: b5 d5 e3', '-W±+W', 'R', 'N')
+    (6, 'W: a3 b3 e2 / B: a4 d3 e3', '0', 'P', 'N')
+    (6, 'W: a3 b3 e2 / B: a4 d4 e3', '*', 'N', 'L')
+ROOT W: a6 b4 c4 e3 / B: a7 c7 d6 e6 cylcgt: ⇓ sum_safe: True HSS: False
+  ep-free descendants: 2107 outcome mismatches (cylcgt vs whole): 106
+    (5, 'W: a6 b4 d4 / B: a7 e5', '+W±+W', 'L', 'N')
+    (5, 'W: a6 b4 d5 / B: a7 e6', '+W±+W', 'L', 'N')
+    (5, 'W: a6 b6 d4 / B: a7 e5', '{+W* | *}', 'L', 'N')
+    (5, 'W: a6 b6 d5 / B: a7 e6', '{+W* | *}', 'L', 'N')
+    (6, 'W: a6 b4 e3 / B: a7 d4 e4', '1*', 'L', 'R')
+    (6, 'W: a6 b4 e3 / B: a7 d4 e5', '{1, +W±+W | 1, 1*}', 'L', 'R')
