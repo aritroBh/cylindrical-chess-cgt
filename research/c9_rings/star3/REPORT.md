@@ -11,7 +11,7 @@ game ends at the first passed pawn). *3 = signature NNNP for G+*h, h = 0..3 (NNN
      Codex's `independent.py` (both e.p. readings) and OpenCode's engine agree (`../npawn/cross_check_star3.out`; C2).
 2. **C10: the least is 12 = n+2.** No ten- or eleven-pawn ring is *3 (all 142,191,474 eleven-pawn rings in 4+7 and 5+6,
    counts equal to `../validate/` and `../extend/count_c10p11.txt`, 0 unresolved; C1). Three eleven-pawn rings are *2
-   (`../work/c10p11_hits.txt`). Twelve-pawn rings *3 exist (the n+2 family, paper Section VIII).
+   (`../work/c10p11_totals.txt`). Twelve-pawn rings *3 exist (the n+2 family, paper Section VIII).
 2b. **C12: the least is 13 = n+1.** No twelve-pawn ring is *3 (all 140,587,958 rings in 4+8, 5+7, 6+6; counts equal to
    `../validate/c12_p12_orbits.txt`; 0 unresolved, 7 rings solved by hand at TBITS=26; C1). Three twelve-pawn rings are *2:
    M_12, its colour reversal, and the self-reverse `B4 W2 B6 W2 W3 B6 B7 W3 B7 W5 B7 W2` (`../work/c12p12_totals.txt`).
