@@ -505,6 +505,8 @@ Answered 2026-10-16:
 - **Square-rule passer test S** (T74 Kilo referee, `research/v2_mechanisms_check/`): SOUND WITH FIXES; the rule holds
   (0 failures in 158,544 cases, COMPUTED-1) but the proof sketch leaves the e.p.-after-push and blocked-pawn lower-bound
   steps unargued. Status: COMPUTED-1, proof incomplete.
+  **Update 2026-11-22:** complete hand proof by T75 (OpenCode, `research/v2_mechanisms_proof/PROOF_S.md`), refereed SOUND
+  WITH MINOR FIX by T76 (Kilo; scope H >= 4, applied). Status: PROVED [S] in the frozen-king pawn game.
 - **When the trebuchet unfreezes** (`research/trebuchet_unfreeze/`, avenue 4; COMPUTED-1, skeptic-corrected):
   - The 3 refuted P4 contexts (H*, H*2, H0 on cyl:7x6) fail through the rule "a promotion wins at once": requiring the
     new queen to be safe AND no counter-promotion reproduces chess at all 12 roots (root level only; node level differs

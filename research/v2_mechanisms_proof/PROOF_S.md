@@ -7,7 +7,7 @@
 1. S says: a side X with a *front, e.p.-aware passed* pawn whose unobstructed promotion distance `n` is no greater than (or, if X is not to move, strictly less than) the fastest unobstructed promotion distance `d` of any enemy pawn, wins the frozen game by running that pawn.
 2. The proof has three lemmas: the runner can never be captured or blocked, even after pushes (Lemma 1); no enemy pawn can promote in fewer than `d` moves, even with captures or when blocked (Lemma 2); the ply counts give the two inequalities (Lemma 3).
 3. Together they show X promotes first, and a promotion wins at once; if Y has no pawn move, Y loses by rule.
-4. The same argument works on cylinders (adjacency taken cyclically) and for any height `H ≥ 3`; it does not need an empty file.
+4. The same argument works on cylinders (adjacency taken cyclically) and for any height `H ≥ 4`; it does not need an empty file.
 5. Exhaustive check: `cc.py` found 0 unsound certifications in 158,544 (position, side, e.p.) cases on 2–3 files, 6–8 ranks.
 
 ## 1. Definitions
@@ -66,7 +66,7 @@ A promotion wins immediately, so X wins. If at some point Y has no legal pawn mo
 ## 4. Scope
 
 - **Cylinder:** the passed test uses cyclic file adjacency; rank monotonicity is unchanged, so Lemmas 1–3 and the theorem hold on cylinders and rings. No empty file is required for S itself.
-- **Height:** `sdist` uses `H` and the start ranks 2 and `H-1`, so the proof holds for any `H ≥ 3`.
+- **Height:** `sdist` uses `H` and the start ranks 2 and `H-1`, so the proof holds for any `H ≥ 4` (for `H = 3` a double step from the start rank would leave the board, so `sdist` would undercount; referee T76).
 - **Real chess:** false. An active king can step in front of a certified runner (or take it), so S certifies only the frozen game. The 128 mismatches remaining after CC are exactly these king effects.
 - **Sums:** the inequality uses the global minimum over all Y pawns, so the strategy wins even when several components are present.
 
@@ -78,3 +78,5 @@ python3 -I cc.py   # exhaustive soundness (S_UNSOUND = 0) and re-score
 ```
 
 The `cc_result.json` field `exhaustive_soundness` reports `S_UNSOUND: 0` and `RP_UNSOUND: 0` for all four board configurations (2 files × 6 ranks, 3 × 6, 2 × 8, 1 × 8).
+
+Revision (2026-11-22): refereed by T76 (Kilo, Nemotron), `research/v2_mechanisms_proof_check/REPORT.md`: SOUND WITH MINOR FIX. The fix (height `H ≥ 4`, not 3) is applied above. Status: PROVED [S] for the frozen-king pawn game; human check pending.
