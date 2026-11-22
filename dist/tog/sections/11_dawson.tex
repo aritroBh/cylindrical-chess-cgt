@@ -5,14 +5,6 @@ earlier study~\cite{Study2025} used this idea on Dawson's chess but stated the g
 redo it.
 
 
-\begin{figure}[!t]
-\centering
-\includegraphics{figures/dawson_grundy.pdf}
-\caption{Grundy values $g(n)$ of Dawson's chess on the $3\times n$ ordinary board (octal game
-$\mathbf{0.137}$), $n\le80$. Dots mark $g(m)=0$: the $3\times m$ board is a second-player win and the
-$3\times(m+3)$ cylinder a first-player win (Theorem~\ref{thm:ring}).}
-\label{fig:dawson_grundy}
-\end{figure}
 
 \emph{Rules.} Dawson's chess~\cite{Dawson1935} is played on a $3\times n$ board
 (Section~S9 shows the boards) with white pawns on rank~1, black pawns on rank~3 and rank~2 empty. Pawns move
@@ -52,8 +44,17 @@ above. The other $n-3$ files, bounded by empty files that never change, form an 
 rotation all first moves are alike, and the cylinder has one option.
 \end{proof}
 
+\begin{figure}[!t]
+\centering
+\includegraphics{figures/dawson_grundy.pdf}
+\caption{Grundy values $g(n)$ of Dawson's chess on the $3\times n$ ordinary board (octal game
+$\mathbf{0.137}$), $n\le80$. Dots mark $g(m)=0$: the $3\times m$ board is a second-player win and the
+$3\times(m+3)$ cylinder a first-player win (Theorem~\ref{thm:ring}).}
+\label{fig:dawson_grundy}
+\end{figure}
+
 The ring formula of~\cite{Study2025}, and its remark that the ring's value is 0 or 1, hold with the correct $g$
 (Fig.~\ref{fig:dawson_grundy}). In mis\`ere play the ring rule carries over, since a forced sequence has odd
-length; our implementation of the Plambeck--Siegel algorithm~\cite{PlambeckSiegel2008} reproduces their partial
+length (the first player wins exactly when the $(n-3)$-file strip is a mis\`ere P-position); our implementation of the Plambeck--Siegel algorithm~\cite{PlambeckSiegel2008} reproduces their partial
 quotient for strips of at most 32 files (order 638, 109 P-positions) \lab{C2}, and the next quotient did not
 finish (Section~S9).

@@ -25,23 +25,25 @@ game~\cite{Siegel2013}; induct from the leaves.
 
 \subsection{The Textbook Candidate in Real Chess}\label{sec:real-cand}
 
+The tree is built under either passed-pawn test: the \emph{textbook tree} or the \emph{e.p.-aware tree}.
+
 \begin{theorem}[Candidate in real chess; \lab{C1}]\label{thm:oracle-cand}
 For the candidate \pos{W a2 c2 / B b7 d7} beside T (Fig.~\ref{fig:star2_textbook}):
 \begin{enumerate}
 \item[(a)] In chess the side to move wins; with black to move only 1\ldots~b5 wins; with white to
   move 1.~c4 wins, 1.~a3, 1.~c3 and all king moves lose, and 1.~a4 is unresolved \lab{C2}.
-\item[(b)] In the e.p.-aware tree (the tree built with the e.p.-aware test), for every draw treatment, $O$ has left stop $\ge1$ and right stop $\le-1$, so
+\item[(b)] In the e.p.-aware tree, for every draw treatment, $O$ has left stop $\ge1$ and right stop $\le-1$, so
   it is not $0$ or $\nim{2}$.
-\item[(c)] With draws as wins for black, $O=\game{2\pm1}{-2\pm1}$ in both the e.p.-aware and the textbook tree.
+\item[(c)] With draws as wins for black, $O=\game{2\pm1}{-2\pm1}$ in both trees.
 \end{enumerate}
 \end{theorem}
 
 Real chess thus agrees with $\nim{2}$ on the outcome and on every winning first move resolved so far, but not on
 the value: in the e.p.-aware tree, which matches chess, $O$ is hot under every draw treatment, so the candidate's
 $\nim{2}$ is a feature of the textbook test, not of chess. In the textbook tree we rule out $\nim{2}$ only when
-draws count as wins for black or for white \lab{C1}. A second candidate, \pos{W a3 b3 c2 / B b5 b7 c6},
+draws count as wins for black or for white \lab{C1}; with draws worth $0$ the textbook tree is not decided. A second candidate, \pos{W a3 b3 c2 / B b5 b7 c6},
 $\nim{2}$ under the opponent rule with en passant on, has a positive oracle value under every draw treatment
-\lab{C1}.
+\lab{C1}; the other non-default $\nim{2}$ positions are open (Section~S7).
 
 \subsection{Towards a Real-Chess \texorpdfstring{$1/8$}{1/8}}\label{sec:real-eighth}
 

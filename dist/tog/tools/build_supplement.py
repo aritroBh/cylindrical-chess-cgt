@@ -4,6 +4,7 @@ by tools/md2tex.py, or taken from proof.tex). Run from dist/tog: python3 tools/b
 import os, re, sys
 sys.path.insert(0, 'tools')
 import md2tex
+import clean_notes
 R = '../../'
 os.makedirs('supp', exist_ok=True)
 MAIN_LABELS = set(re.findall(r'\\label\{([^}]+)\}', ''.join(open('sections/' + f).read() for f in os.listdir('sections'))))
@@ -33,6 +34,7 @@ def MD(path, a=None, b=None):
     lines = open(R + path, encoding='utf-8').read().split('\n')
     if a:
         lines = lines[a - 1:b]
+    lines = clean_notes.clean(lines)
     return scrub('\n'.join(md2tex.convert(lines))) + '\n'
 
 NOTE = (r'\noindent\emph{Source.} ' '%s. ' r'The note is typeset here without changes to its mathematics; it keeps its own '
@@ -43,7 +45,7 @@ NOTE = (r'\noindent\emph{Source.} ' '%s. ' r'The note is typeset here without ch
 W('s01',
   r'\section{Basic Positions and the E.p.-Aware Test}\label{S-basic}',
   r'This section holds the walk-throughs of Section~\ref{sec:basic} and the census statistics of Section~\ref{sec:ep} '
-  r'of the main text. Fig.~\ref{fig:basicS} repeats the six basic boards of the long version; boards (a) and (f) are '
+  r'of the main text. Fig.~\ref{fig:basicS} shows the six basic boards; boards (a) and (f) are '
   r'Fig.~\ref{fig:basic}(b) and (c) of the main text.',
   L('02_rules', 52, 91),
   L('02_rules', 98, 105),
@@ -96,7 +98,7 @@ W('s06', r'\section{The \texorpdfstring{$\nim{2}$}{*2} Question: Details and Rin
   r'\subsection{The Textbook Candidate}', L('08_star2', 30, 44),
   r'\subsection{Census and Seven Pawns}', L('08_star2', 53, 58), L('08_star2', 67, 83),
   r'\subsection{Counts, Five Files and Rings}',
-  r'This is the full text of the long version (Section VIII-D there), with every listed ring, count and check.',
+  r'This subsection gives in full what Sections~\ref{sec:star2-five} and~\ref{sec:star2-rings} of the main text summarize, with every listed ring, count and check.',
   L('08_star2', 110, 181))
 
 # S7 real chess ---------------------------------------------------------------------------------------
@@ -113,7 +115,7 @@ W('s09', r'\section{Dawson\textquotesingle{}s Chess: Details and Learning}\label
 
 # S10 open problems -------------------------------------------------------------------------------------
 W('s10', r'\section{Further Open Problems}\label{S-open}',
-  r'The open problems of the long version, in full.', L('14_conclusion', 7, 25))
+  r'The main text lists four open problems; this is the full list of six.', L('14_conclusion', 7, 25))
 
 # S11 FEN ---------------------------------------------------------------------------------------------
 W('s11', r'\section{Positions with Kings in FEN}\label{S-fen}',

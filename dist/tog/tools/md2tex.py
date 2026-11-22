@@ -70,9 +70,18 @@ def table(rows):
     cells = [r for r in cells if not all(re.fullmatch(r':?-{2,}:?', c) or c == '' for c in r)]
     n = max(len(r) for r in cells)
     lens = [max(1, sum(len(r[j]) if j < len(r) else 0 for r in cells)) for j in range(n)]
-    tot = sum(min(l, 4 * sum(lens) / n) for l in lens)
-    widths = [max(0.08, min(l, 4 * sum(lens) / n) / tot) * (0.98 - 0.02 * n) for l in lens]
-    spec = ''.join(r'>{\raggedright\arraybackslash}p{%.3f\linewidth}' % w for w in widths)
+    # each column at least as wide as its longest word (about 0.0105 \linewidth per character at \small),
+    # the rest shared by content length; total = \linewidth minus the space between columns
+    words = [max([len(w) for r in cells if j < len(r) for w in re.sub(r'\$[^$]*\$|`[^`]*`', 'x' * 6, r[j]).split()] + [3])
+             for j in range(n)]
+    avail = 1.0 - (n - 1) * 6.0 / 470
+    minw = [min(0.35, 0.0105 * w + 0.01) for w in words]
+    cap = [min(l, 4 * sum(lens) / n) for l in lens]
+    rest = max(0.0, avail - sum(minw))
+    widths = [minw[j] + rest * cap[j] / sum(cap) for j in range(n)]
+    scale = avail / sum(widths)
+    widths = [w * scale for w in widths]
+    spec = ''.join(r'>{\raggedright\arraybackslash\hspace{0pt}}p{%.3f\linewidth}' % w for w in widths)
     # longtable is not in the offline TeX bundle: long tables are split into chunks of at most 18 rows,
     # each a tabular that repeats the header row
     head = ' & '.join(inline(c) for c in cells[0] + [''] * (n - len(cells[0]))) + r' \\'

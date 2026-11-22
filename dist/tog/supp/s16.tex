@@ -11,7 +11,7 @@
 \item The proof has three lemmas: the runner can never be captured or blocked, even after pushes (Lemma 1); no enemy pawn can promote in fewer than \texttt{d} moves, even with captures or when blocked (Lemma 2); the ply counts give the two inequalities (Lemma 3).
 \item Together they show X promotes first, and a promotion wins at once; if Y has no pawn move, Y loses by rule.
 \item The same argument works on cylinders (adjacency taken cyclically) and for any height \texttt{H \textrm{≥} 4}; it does not need an empty file.
-\item Exhaustive check: \texttt{cc.py} found 0 unsound certifications in 158,544 (position, side, e.p.) cases on 2–3 files, 6–8 ranks.
+\item Exhaustive check: found 0 unsound certifications in 158,544 (position, side, e.p.) cases on 2–3 files, 6–8 ranks.
 \end{enumerate}
 \subsubsection*{1. Definitions}
 \textbf{Board/game.} \texttt{k} files (cyclic on a cylinder, linear otherwise), \texttt{H} ranks. White pawns move up (toward rank \texttt{H}), Black down (toward rank 1). Kings may not move; a king move loses at once. Reaching the last rank promotes and wins immediately. A side with no legal pawn move loses. Promotion is queen-equivalent in effect: the game ends on promotion, so underpromotion is irrelevant.
@@ -20,7 +20,7 @@
 
 \textbf{Front.} A passed pawn is \emph{front} iff no own pawn lies on the same file strictly beyond \texttt{r} in X's direction. A \emph{runner} is a front passed pawn.
 
-\textbf{Distances.} For a White pawn on rank \texttt{r}: \texttt{sdist\_W(r) = H -{} r -{} (1 if r = 2 else 0)}. For a Black pawn on rank \texttt{r}: \texttt{sdist\_B(r) = r -{} 1 -{} (1 if r = H-{}1 else 0)}. These are the fewest moves to promote if nothing obstructs, counting one double step from the start rank. Then \texttt{n = min\{sdist\_X(r) : (f,r) is a runner of X\}} (or undefined if none), \texttt{d = min\{sdist\_Y(r) : (f,r) is any pawn of Y\}} (or \texttt{\textrm{∞}} if Y has none).
+\textbf{Distances.} For a White pawn on rank \texttt{r}: \texttt{sdist\_W(r) = H -{} r -{} (1 if r = 2 else 0)}. For a Black pawn on rank \texttt{r}: \texttt{sdist\_B(r) = r -{} 1 -{} (1 if r = H-{}1 else 0)}. These are the fewest moves to promote if nothing obstructs, counting one double step from the start rank. Then \texttt{n = min\{sdist\_X(r): (f,r) is a runner of X\}} (or undefined if none), \texttt{d = min\{sdist\_Y(r): (f,r) is any pawn of Y\}} (or \texttt{\textrm{∞}} if Y has none).
 
 \textbf{S (corrected statement).} \texttt{S\_cert(pos, mover, X)} is true iff X has at least one runner and
 
@@ -63,16 +63,12 @@ A promotion wins immediately, so X wins. If at some point Y has no legal pawn mo
 \subsubsection*{4. Scope}
 \begin{itemize}
 \item \textbf{Cylinder:} the passed test uses cyclic file adjacency; rank monotonicity is unchanged, so Lemmas 1–3 and the theorem hold on cylinders and rings. No empty file is required for S itself.
-\item \textbf{Height:} \texttt{sdist} uses \texttt{H} and the start ranks 2 and \texttt{H-{}1}, so the proof holds for any \texttt{H \textrm{≥} 4} (for \texttt{H = 3} a double step from the start rank would leave the board, so \texttt{sdist} would undercount; referee T76).
+\item \textbf{Height:} \texttt{sdist} uses \texttt{H} and the start ranks 2 and \texttt{H-{}1}, so the proof holds for any \texttt{H \textrm{≥} 4}.
 \item \textbf{Real chess:} false. An active king can step in front of a certified runner (or take it), so S certifies only the frozen game. The 128 mismatches remaining after CC are exactly these king effects.
 \item \textbf{Sums:} the inequality uses the global minimum over all Y pawns, so the strategy wins even when several components are present.
 \end{itemize}
 \subsubsection*{5. Reproduce}
-\begin{small}\begin{verbatim}
-cd research/v2_mechanisms
-python3 -I cc.py   # exhaustive soundness (S_UNSOUND = 0) and re-score
-\end{verbatim}\end{small}
 The \texttt{cc\_result.json} field \texttt{exhaustive\_soundness} reports \texttt{S\_UNSOUND: 0} and \texttt{RP\_UNSOUND: 0} for all four board configurations (2 files \ensuremath{×} 6 ranks, 3 \ensuremath{×} 6, 2 \ensuremath{×} 8, 1 \ensuremath{×} 8).
 
-Revision (2026-11-22): refereed by T76 (Kilo, Nemotron), \texttt{research/v2\_mechanisms\_proof\_check/REPORT.md}: SOUND WITH MINOR FIX. The fix (height \texttt{H \textrm{≥} 4}, not 3) is applied above. Status: PROVED [S] for the frozen-king pawn game; human check pending.
+Revision: refereed by a referee (Kilo, Nemotron): SOUND WITH MINOR FIX. The fix (height \texttt{H \textrm{≥} 4}, not 3) is applied above. Status: PROVED [S] for the frozen-king pawn game.
 

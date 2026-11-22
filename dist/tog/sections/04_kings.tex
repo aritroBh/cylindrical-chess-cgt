@@ -74,14 +74,15 @@ the outcome class of the components' $\pm\BIG$ value.
 
 \begin{proof}
 By Theorem~\ref{thm:validity} the chess result is the outcome of $W(X)$, and by Theorem~\ref{thm:hss} this is
-the outcome of $S(X)$.
+the outcome of $S(X)$ (Section~\ref{sec:sums-hss}).
 \end{proof}
 
 Each condition can fail: a stalemate trap leaves the loser without a move (V1), a passed pawn does not win its
 race (V2), a king walks over to the pawns or, in Fig.~\ref{fig:kinggroup72}, white's king moves go unpunished
-(V3), and a $+\BIG$ cancels a $-\BIG$ (V4). For (V3) there is a local test, a \emph{certificate of horizon $h$}
-for each move in $Z$: in the \emph{promotion game}, where the first promotion wins, a move with a certificate
-loses for its mover \lab{S}, but in chess small margins fail. The certificate theory, a local test for (V2),
+(V3), and a $+\BIG$ cancels a $-\BIG$ (V4). For (V3) there is a local test: a move in $Z$ has a
+\emph{certificate of horizon $h$} if the punisher promotes within $h$ of its own moves against any defence and no
+defender pawn promotes that fast. In the \emph{promotion game}, where the first promotion wins, a move with a
+certificate loses for its mover \lab{S}; in chess, margins this small can fail (Section~S2). The certificate theory, a local test for (V2),
 and the loopy games that arise when a king has spare moves are in Section~S2 of the supplementary material.
 
 \subsection{How Often Does the Convention Fail?}\label{sec:kings-sweep}
@@ -96,4 +97,4 @@ enemy pawn steps level with its blocker and promotes first. Ending the game only
 that wins the race by the square rule removes all $52$ convention failures and leaves $128$ mismatches, all
 from the kings \lab{C1}. Over the $2{,}049$ decisive $8\times8$ positions beside a tr\'ebuchet whose real
 results we know, the model agrees with chess in $92.5\%$; the count rule beats the mover and opponent rules
-($83\%$) \lab{C1}. Section~S2 gives the $8\times8$ king-move check and a plot of these rates.
+($83\%$) \lab{C1}; Section~S2 has more detail.

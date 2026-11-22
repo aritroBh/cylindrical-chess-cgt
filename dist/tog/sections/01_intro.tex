@@ -39,17 +39,18 @@ labels: \lab{P}, proved here; \lab{S}, proof sketched here and given in full in 
 program; \lab{Conj}, a conjecture. Our contributions are:
 \begin{itemize}
 \item \emph{Model and kings} (Sections~\ref{sec:rules}, \ref{sec:kings} and~\ref{sec:sums}): a passed-pawn
-  test that respects en passant, a cut lemma \lab{P}, conditions under which frozen kings give the chess
-  result \lab{S}, and a sum-safety theorem \lab{S}, which needs more than the top-level components \lab{C2}.
-\item \emph{Small values} (Sections~\ref{sec:basic}--\ref{sec:targets}): cylinder-only values come from rings
+  test that respects en passant, a cut lemma \lab{P}; conditions (V1)--(V3) under which a frozen tr\'ebuchet gives
+  the result of the whole-board pawn game \lab{S}, and (V4) for the $\pm\BIG$ value \lab{S}; a sum-safety
+  theorem \lab{S}; and a position showing that checking only the top-level components is not enough \lab{C2}.
+\item \emph{Small values} (Sections~\ref{sec:basic}, \ref{sec:atlas} and~\ref{sec:targets}): cylinder-only values come from rings
   \lab{P}; $1/8$ and $\upsec\star$ \lab{C2}, and Tiny~1 \lab{C1}, occur in 10-man positions with a legal pawn
   history.
-\item \emph{The $\nim{2}$ question} (Section~\ref{sec:star2}): in the default setting no $\nim{2}$ has six
+\item \emph{The $\nim{2}$ question} (Section~\ref{sec:star2}): in the default setting (count rule, e.p.-aware test; Section~\ref{sec:ep}) no $\nim{2}$ has six
   pawns or fewer on ordinary boards of any width, but $\nim{2}$ appears with seven \lab{C2}; in the pawn-only
   model a six-pawn ring suffices on $\cyl{3}$ \lab{C2}, a ring needs ten on $\cyl{7}$ to $\cyl{10}$ \lab{C2}
   and only $n$, one per file, on every $\cyl{n}$ with $n\ge10$ as a whole-board game \lab{S}; on $\cyl{7}$
-  some ten-pawn rings are $\nim{3}$ \lab{C2}, and from $\cyl{11}$ on $n+1$ pawns give a $\nim{3}$ \lab{S}.
-\item \emph{Real chess} (Section~\ref{sec:real}): the textbook $\nim{2}$ candidate is not $\nim{2}$, however
+  some ten-pawn rings are $\nim{3}$ \lab{C2}; $n+1$ pawns give a $\nim{3}$ on $\cyl{11}$ \lab{C2} and on every $\cyl{n}$ with $n\ge12$ \lab{S}.
+\item \emph{Real chess} (Section~\ref{sec:real}): with the e.p.-aware test the textbook $\nim{2}$ candidate is not $\nim{2}$, however
   draws are treated; with queen promotions only and frozen kings, the oracle value of the $1/8$ position is
   exactly $1/8$ \lab{C1}.
 \item \emph{Tablebases and Dawson's chess} (Sections~\ref{sec:tb} and~\ref{sec:dawson}): king and rook win only

@@ -18,8 +18,10 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 - [ ] Anonymous code link for reviewers (anonymous.4open.science; the author creates it)
 - [x] 10-page version built: 10 pages with references, 4.4 column-inches free (`dist/tog/`, PDFs in `paper/`)
 - [x] Supplement built: 87 pages, moved material and the full proofs
-- [~] Independent check that the 10-page text changed no claim, number or label
-- [ ] Supplement: fix 18 overfull lines in converted proofs
+- [x] Independent check of the 10-page text: 4 blockers and 9 should-fix items found and applied (`delegate/out/tog_review/REPORT.md`)
+- [x] Supplement cleaned: 83 pages, no overfull lines, working-note residue stripped
+- [ ] Supplement: reword a few awkward review-history sentences in the kings proofs
+- [ ] Balance the last page once the two result slots are filled
 - [x] Title: the original title on both versions (author decision)
 - [x] Author block: University of Illinois Urbana-Champaign (ORCID optional, add in the submission system)
 - [ ] Push to the public repository (on the author's word)

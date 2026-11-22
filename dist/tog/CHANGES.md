@@ -108,3 +108,65 @@ no missing glyph, no undefined reference; 18 overfull boxes, the largest 13 pt, 
 introduction, Section VIII and conclusion appear in `tog_review.pdf` or `supplement_review.pdf` (the abstract has
 none written in digits). An ad-hoc run of the same test over every long-version section also found no missing
 number.
+
+## Fidelity fixes (2026-11-22)
+
+Applied the independent check in `delegate/out/tog_review/REPORT.md` and the coordinator's notes.
+
+- **Title**: the original title is restored (by the coordinator, in `tog.tex` and `supplement.tex`); the
+  "Title shortened" entries above are superseded.
+- **Main text, BLOCKER**:
+  - B1: the Introduction says "with the e.p.-aware test"; Section IX-A ends with "with draws worth $0$ the
+    textbook tree is not decided".
+  - B2: the corrected long-version sentence ($n+1$ pawns: $\cyl{11}$ ⟨C2⟩, every $n\ge12$ ⟨S⟩).
+  - B3: "without the passed-pawn rule ⟨C1⟩" restored in V-B.
+  - B4: ⟨Conj⟩ and "so we trust a frozen trébuchet only beside slow or locked components" restored in the
+    conclusion.
+- **Main text, SHOULD FIX**:
+  - S1: the Model bullet as given.
+  - S2: the section list.
+  - S3: the default setting defined at first use.
+  - S4: the textbook/e.p.-aware tree sentence (the inline definitions in Thm 14 are reverted).
+  - S5: the certificate defined in IV-B.
+  - S8: Fig. 7 now follows the paragraph that cites it; it lands at the top of the page of its first citation (p. 9).
+  - S9: last-page balancing is left for after the two slots, as instructed.
+- **Main text, MINOR**:
+  - M1: census scope in II-D.
+  - M2: the ⋆3 note in the Fig. 6 caption.
+  - M3: "the two $n$-pawn families above".
+  - M4: "(Section S7)" for the other non-default ⋆2 positions.
+  - M5: misère P-position clause in XI.
+  - M6: ⟨C1⟩ on temperature 3.
+  - M8: "(Section V-B)" in the proof of Cor. 4.
+  - M7 was not in the requested set and was not applied.
+- **Section XIII**: the long version's sentence "The ⟨S⟩ proofs have been checked by computer on their finite parts and by
+  independent AI referees; no human referee has checked them yet."
+- **Space**: the restored hedges cost about 2 column-inches. To recover it:
+  - The five-file sentence of VIII-D is cut (its numbers, 14,680,983 / 21 / 15 and the five-file ⋆2, are in
+    S6); VIII-D is renamed "Counts".
+  - Small wording cuts in IV-D, V-A, VII and X.
+- **Supplement**:
+  - S6/S7: `tools/clean_notes.py` post-processes the proof notes before conversion. It removes task and agent IDs, shell
+    commands, code blocks with commands, log and script paths, dates of revisions, and the repeated "human check" lines.
+    It also replaces first person and "the author" with impersonal wording. One statement at the head of the proofs part
+    (before S12) replaces the human-check lines. Paths to the notes typeset here become "Section S13", "Note 1 of
+    Section S15" and so on.
+  - The math is checked: every `$...$` segment of every note survives the clean-up unchanged (counted per note).
+    Sentences with mathematics, statement keywords (Theorem, PROVED, CHECKED-2, …) or numbers are never dropped; only
+    their ID/path tokens are removed. The hypothesis names (K1), (K2), (T1)–(T4) are kept.
+  - M9: "the long version" no longer appears in S1, S6 or S10.
+  - Overfull boxes: converted tables now size each column to at least its longest word and fit the line width
+    exactly. The supplement has 0 overfull boxes (was 18), 0 missing glyphs and 0 undefined references.
+
+Measured after the fixes:
+
+| PDF | Pages | Free space |
+|---|---:|---|
+| `tog_review.pdf` (anonymous) | 10 | 3.36 column-inches in the last column |
+| `tog.pdf` (named) | 10 | 1.94 column-inches (longer restored title and the author footnote) |
+| `supplement_review.pdf` / `supplement.pdf` | 83 / 83 | – |
+
+- **Checks**:
+  - `check_numbers.py`: all numbers found.
+  - No overfull box and no undefined reference in either paper build.
+  - Both `% SLOT:` comments are kept (`sections/05_sums.tex`, `sections/08_star2.tex`).

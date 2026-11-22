@@ -80,17 +80,14 @@ In Table~\ref{tab:star2_settings} (e.p.\ on unless stated) every entry is \lab{C
 programs agree on each. The candidate needs the textbook test but survives e.p.\ off; A and B need en passant
 but not the textbook test.
 
-\subsection{Counts and Five Files}\label{sec:star2-five}
+\subsection{Counts}\label{sec:star2-five}
 
 On ordinary boards of width at most four, in the default setting, two $\nim{2}$ positions, A and B, have seven
 pawns and four have eight; one exhaustive scan of $5{,}503{,}282$ root positions gives these counts \lab{C1},
 and our engine re-checked every one \lab{C2}. With Theorem~\ref{thm:census}, seven is the least number of pawns
 in a $\nim{2}$ on these boards \lab{C2}. A whole-board scan of every position with at most seven
 pawns on up to nine files extends this to ordinary boards of any width (Section~S6): it finds no $\nim{k}$ with $k\ge2$ with six pawns or
-fewer, and the only seven-pawn $\nim{2}$ are A and B \lab{C2}. On five files a scan of all $14{,}680{,}983$
-eight-pawn positions finds $21$ of value $\nim{2}$ in the default setting \lab{C1}, all $\nim{2}$ as
-whole-board games by two programs \lab{C2}, $15$ as sums; among them is \emph{the five-file $\nim{2}$}
-\pos{W a3 b3 c2 e2 / B a6 c5 d5 e3}, $\nim{2}$ in both models.
+fewer, and the only seven-pawn $\nim{2}$ are A and B \lab{C2}; Section~S6 gives the counts on five files.
 
 \subsection{Rings and Higher Nimbers}\label{sec:star2-rings}
 
@@ -99,7 +96,8 @@ whole-board games by two programs \lab{C2}, $15$ as sums; among them is \emph{th
 \includegraphics{figures/f2_least_pawns.pdf}
 \caption{Least number of pawns in a ring of value $\nim{2}$ (steps) and $\nim{3}$ on $\cyl{n}$, in the default
 setting. Filled markers are computed (\lab{C2} for $\nim{2}$, \lab{C1} for $\nim{3}$), open ones proved for all
-$n$ as whole-board games \lab{S}; open triangles are upper bounds. The dashed line is one pawn per file.}
+$n$ as whole-board games \lab{S}; open triangles are upper bounds. The dashed line is one pawn per file. $\nim{3}$ is plotted from $n=10$;
+ten-pawn $\nim{3}$ rings also exist on $\cyl{7}$ and $\cyl{8}$.}
 \label{fig:least}
 \end{figure}
 
@@ -118,7 +116,7 @@ captures it and gets a passed pawn, so wall moves lose; with them deleted, inser
 the \emph{reduced game}, played in a window of five or six files, unchanged. As a whole-board game this gives a
 ring $\nim{2}$ with $n+3$ pawns on every $\cyl{n}$ with $n\ge5$ \lab{S}, checked by two programs for $n<17$
 \lab{C2}, and as sums of components our engine confirms it only to $n=12$ \lab{C1}. The same argument proves the
-two families with $n$ pawns above $\nim{2}$ as whole-board games for every $n\ge10$ \lab{S}; as sums of
+two $n$-pawn families above $\nim{2}$ as whole-board games for every $n\ge10$ \lab{S}; as sums of
 components they are $\nim{2}$ on $\cyl{10}$ and $\cyl{11}$ \lab{C1}.
 
 A $\nim{3}$ lies just beyond these scans, as a single component with nine pawns: B with a white a2 and a black a4
