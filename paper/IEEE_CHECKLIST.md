@@ -17,7 +17,7 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 - [ ] Audit fixes left: board-coordinate labels to 8 pt, anonymous code link for reviewers,
       supplement PDF with the full proofs
 - [~] Build the 10-page version and the supplement PDF (`dist/tog/`)
-- [ ] Author block: affiliation and ORCID (needs the author)
+- [x] Author block: University of Illinois Urbana-Champaign (ORCID optional, add in the submission system)
 - [ ] Push to the public repository (on the author's word)
 
 ## Results being added
