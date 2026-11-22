@@ -9,10 +9,13 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 - [x] AI-use statement in the Acknowledgment
 - [x] Anonymous review build (14 pages) and named build (15 pages)
 - [x] arXiv package passes its rule checks
-- [~] Full IEEE ToG compliance audit (`delegate/out/ieee_audit/AUDIT.md`)
-- [~] Plan to reach the 10-page limit, rest to a supplement (`delegate/out/ieee_audit/PLAN_10_PAGES.md`)
-- [ ] Apply the audit fixes
-- [ ] Build the 10-page version and the supplement PDF
+- [x] Full IEEE ToG compliance audit (`delegate/out/ieee_audit/AUDIT.md`)
+- [x] Plan to reach the 10-page limit, rest to a supplement (`delegate/out/ieee_audit/PLAN_10_PAGES.md`)
+- [x] Audit fixes applied: evidence labels no longer look like citations, abbreviations defined, AI statement names
+      systems and sections, review build says "the authors", caption and unit style, build files refreshed
+- [ ] Audit fixes left: DOIs in the references, board-coordinate labels to 8 pt, anonymous code link for reviewers,
+      supplement PDF with the full proofs
+- [~] Build the 10-page version and the supplement PDF (`dist/tog/`)
 - [ ] Author block: affiliation and ORCID (needs the author)
 - [ ] Push to the public repository (on the author's word)
 

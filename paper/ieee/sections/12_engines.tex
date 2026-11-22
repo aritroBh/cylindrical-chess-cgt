@@ -73,6 +73,6 @@ frozen-king model (not always exact; Section~\ref{sec:kings-sweep}), not real-ch
 \subsection{Learning Dawson's Chess}
 
 In normal-play Dawson's chess the first player wins exactly when the strips' Grundy values have a nonzero
-nim-sum~\cite{GuySmith1956,WinningWays}. An LSTM value network in PyTorch~\cite{PyTorch}, trained on total lengths up to
+nim-sum~\cite{GuySmith1956,WinningWays}. A long short-term memory (LSTM) value network in PyTorch~\cite{PyTorch}, trained on total lengths up to
 $30$, scores $0.82$ on lengths $31$--$80$, against $0.79$ for the majority guess \lab{C1}; the rule scores $1.0$,
 and linear probes on the strip embedding do no better than the majority guess.
