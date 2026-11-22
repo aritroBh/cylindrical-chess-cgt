@@ -433,6 +433,10 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   board (C scan, sumtest whole mode, cylcgt with splitting off) and ⇑, ⇓ as sums (cylcgt, sumtest component mode).
   Neither program has a bug: the roots are not hereditarily sum-safe. Smallest witness `W a3 e2 / B b4 d3 e3`. Under
   the count rule both are ★2 in both models.
+- **Sum vs whole, ring families 2026-11-22** (`research/sum_vs_whole_families/table.tsv`; C1, cylcgt only). In all 24
+  (family, n) pairs solved in both models the canonical values are equal: wall rings odd 5..11 and even 6..10, F 7..10,
+  P 8, 10, N1 9..11, M_10, O_11, R_11 (all \*2), Q 8, 10 and Qo_11 (\*3); Qo_9 and R_9 have the same complex value in
+  both. Nothing above n = 11 in both models; T_n and S_n not run. No change to the paper's statements.
 - **Sum vs whole census 2026-11-22** (`research/sum_whole_census/REPORT.md`; C1, totals recounted from the raw rows
   by a second script). Every passer-free flat position with 2 to 6 pawns on widths 3, 4, 5 (599,098 up to mirror and
   colour swap), all three race rules, both passed-pawn tests.

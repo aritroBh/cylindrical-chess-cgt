@@ -32,7 +32,8 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 - [x] Twisted tablebases audited: paper numbers stand (`research/mobius_repair/`)
 - [x] Old *2 discrepancy explained: sum model vs whole board (`research/star2_frontier_recheck/`)
 - [~] Real-king test of the sum theorem (`research/sum_truth_cyl/`)
-- [~] Sum vs whole-board value for every ring family (`research/sum_vs_whole_families/`)
+- [x] Sum vs whole-board value for the ring families (`research/sum_vs_whole_families/`): equal in all 24 pairs
+  solved in both models (n <= 11); confirms the text, no change needed
 - [x] How often sum and whole board differ, by race rule (`research/sum_whole_census/`): 599,098 positions; never
   when hereditarily sum-safe, 19.3% of the rest; in Section V of both versions
 - [~] New: pawn rings on the Möbius strip, least *2 (`research/mobius_rings/`)
