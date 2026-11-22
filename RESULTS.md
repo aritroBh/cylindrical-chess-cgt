@@ -409,6 +409,10 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
     equivalence; referees T71 (Kilo) and T70 (Codex, own checker), fixes applied.
   - M_10 and O_11 are \*2 as sums of components too (cylcgt, `research/sum_model_rings/npawn_values.txt`). Qo_11 is \*3
     both as a sum and as a whole (`odd_values.txt`).
+- **C12 with 12 pawns (exhaustive, 140,587,958 rings; COMPUTED-1; counts match the independent counter):** no ring is \*3,
+  so the least ring \*3 on C12 has 13 = n+1 pawns. Three rings are \*2 (M_12, its reversal, one self-reverse), so the
+  n-pawn \*2 ring is unique only on C10 and C11. C10 with 11 pawns: 3 rings \*2, none \*3
+  (`research/c9_rings/work/c12p12_totals.txt`, `c10p11_totals.txt`).
 - **C9 ring hits are \*2 as sums too** (cylcgt, the H1 reversal, H3 and H4; H1 whole \*2; H2 sum and whole queued).
 - **No \*4.** None among T56's 14,090 candidates (329 are \*3, 178 \*2), nor among 1,280 C10 wall rings.
   - The ★4 hunt workflow (`research/star4_rings/{core_wall,grow,two_core}/REPORT.md`) found no ★4 and nothing above

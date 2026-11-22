@@ -1,0 +1,42 @@
+# n-pawn ring scan on C10, 11 pawns (rg, G+*h h=0..3)
+# Merged from c10p11 (every job counted once, by its .hist.tsv / .summary.txt). unresolved: 0 in total.
+# Expected ring counts per split (validate/ring_counter.py): 4_7=26031368, 5_6=116160106
+c10p11 split 4_7  (500 jobs, rings_sent 26031368)
+  total 26031368  [expected 26031368: MATCH]
+  NNNN 14839860
+  RRRR 11143007
+  LLLL 45733
+  NRRR 1206
+  RNRR 945
+  NRNN 244
+  RNNN 187
+  PNNN 86
+  NPNN 62
+  LNLL 22
+  NLLL 14
+  RRNN 2
+c10p11 split 5_6  (2200 jobs, rings_sent 116160106)
+  total 116160106  [expected 116160106: MATCH]
+  NNNN 89480577
+  RRRR 22087957
+  LLLL 3155404
+  NRRR 418710
+  RNRR 346125
+  RNNN 238896
+  NRNN 196102
+  PNNN 49627
+  NPNN 40027
+  LNNN 37073
+  NLLL 36168
+  LNLL 30742
+  NLNN 27494
+  RRNN 8142
+  NNRR 5634
+  NNLL 1162
+  LLNN 256
+  RRNR 7
+  NNPN 3
+# Hits (P at h=2 or h=3; NNPN = *2, NNNP = *3), ring TAB signature TAB split TAB job:
+B4 W2 B6 W2 W3 B6 B7 W3 B7 W5B6	NNPN	s5_6	s5_6_c0891of2200
+B6 B7 W3 B7 W5 B47 W2 B6 W2 W3	NNPN	s5_6	s5_6_c0153of2200
+B6 B7 W3 B7 W5 B7 W2B3 B6 W2 W3	NNPN	s5_6	s5_6_c0153of2200

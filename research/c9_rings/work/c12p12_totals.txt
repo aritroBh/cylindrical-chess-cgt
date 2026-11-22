@@ -1,0 +1,55 @@
+# n-pawn ring scan on C12, 12 pawns, one per file (rg, G+*h h=0..3)
+# Merged from c12p12 (every job counted once, by its .hist.tsv / .summary.txt). unresolved: 0 in total.
+# Expected ring counts per split (validate/ring_counter.py): 4_8=1148070, 5_7=38885385, 6_6=100554503
+c12p12 split 4_8  (21 jobs, rings_sent 1148070)
+  total 1148070  [expected 1148070: MATCH]
+  RRRR 636516
+  NNNN 511554
+c12p12 split 5_7  (700 jobs, rings_sent 38885385)
+  total 38885385  [expected 38885385: MATCH]
+  NNNN 29625327
+  RRRR 9065781
+  LLLL 165863
+  NRRR 10515
+  RNRR 9580
+  RNNN 3164
+  NRNN 3140
+  PNNN 696
+  NPNN 619
+  LNLL 239
+  NLLL 191
+  LNNN 97
+  NLNN 78
+  RRNN 64
+  NNRR 31
+c12p12 split 6_6  (1800 jobs, rings_sent 100554503)
+  total 100554503  [expected 100554503: MATCH]
+  NNNN 87500522
+  LLLL 5833039
+  RRRR 5833039
+  NLLL 177142
+  NRRR 177142
+  LNLL 158334
+  RNRR 158334
+  LNNN 140343
+  RNNN 140343
+  NLNN 122304
+  NRNN 122304
+  PNNN 89003
+  NPNN 81119
+  NNLL 6572
+  NNRR 6572
+  LLNN 4192
+  RRNN 4192
+  NNPN 3
+  LLNL 2
+  RRNR 2
+# Hits (P at h=2 or h=3; NNPN = *2, NNNP = *3), ring TAB signature TAB split TAB job:
+B4 W2 B4 W2 B6 W2 W3 B6 B7 W3 B7 W5	NNPN	s6_6	s6_6_c0621of1800
+B4 W2 B6 W2 W3 B6 B7 W3 B7 W5 B7 W2	NNPN	s6_6	s6_6_c0706of1800
+B4 W2 B6 W2 W3 B6 B7 W3 B7 W5 B7 W5	NNPN	s6_6	s6_6_c0706of1800
+# Hit analysis (colour reversal = swap W<->B, rank r -> 9-r, file order reversed; rings up to rotation/reflection):
+#  hit 1 (s6_6_c0621of1800) is the family ring M_12; its colour reversal is hit 3.
+#  hit 2 (s6_6_c0706of1800) is its own colour reversal; not M_12.
+#  hit 3 (s6_6_c0706of1800) is the colour reversal of M_12 (hit 1); not M_12 itself.
+# Jobs s6_6_c0037, c0051, c0056, c1129 had 7 rings overflow the 2^24 table in drive.py; solved by hand with TBITS=26 (none a hit), summaries patched, noted in their .summary.txt.
