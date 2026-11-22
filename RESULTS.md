@@ -433,6 +433,17 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   board (C scan, sumtest whole mode, cylcgt with splitting off) and ⇑, ⇓ as sums (cylcgt, sumtest component mode).
   Neither program has a bug: the roots are not hereditarily sum-safe. Smallest witness `W a3 e2 / B b4 d3 e3`. Under
   the count rule both are ★2 in both models.
+- **Pawn rings on the Moebius strip 2026-11-22** (`research/mobius_rings/REPORT.md`; two solvers by one agent agree
+  on every ring, the older `research/mobius/mob_pawns.py` confirms 51 of the 66 hits; independent Codex check T77
+  running, so C1 until it reports). Whole-board game, 8 ranks, count rule, e.p.-aware; a capture across the seam
+  flips rank and direction.
+  - Least pawns in a root ring \*2: 6, 8, 6, 8, 8, 8 for n = 3..8 (cylinder: 6, 7, 8, 9, 10, 10). Lower than the
+    cylinder for n = 5..8, higher at n = 4. At n = 8 it is n, the fewest a ring can have (cylinder: only from n = 10).
+  - Examples: n = 3 `W3B6 W2B7 W4B5`; n = 5 `B6 W3 B5 W2 W3B7`; n = 7 `B6 W2 W3 B6 B7 W3 W6B7`;
+    n = 8 `B7 W3 W3 B6 W3 B6 B6 W2`.
+  - \*3 with 9 pawns on n = 5 (`B67 W4 W2B6 W2B5 W5B7`) and n = 6; the cylinder C5 has no \*3 with up to 9 pawns.
+  - Exhaustive: n = 3 with 3..10 pawns, n = 4 with 4..9, n = 5 with 5..9, n = 6 with 6..9, n = 7 with 7..8, n = 8
+    with 8. Root rings only (default directions); rotations are not symmetries of root rings.
 - **Sum vs whole, ring families 2026-11-22** (`research/sum_vs_whole_families/table.tsv`; C1, cylcgt only). In all 24
   (family, n) pairs solved in both models the canonical values are equal: wall rings odd 5..11 and even 6..10, F 7..10,
   P 8, 10, N1 9..11, M_10, O_11, R_11 (all \*2), Q 8, 10 and Qo_11 (\*3); Qo_9 and R_9 have the same complex value in

@@ -1,0 +1,5 @@
+(b) twist on: existing Part B code (research/mobius/mob_pawns.py + cylcgt.cgt values, outcome of G+*h, h=0..3)
+vs C1 (mob1 --kind 2) vs C2 (mob2 --kind 2), on every position with 1..4 pawns on 3 files (default directions,
+ranks 1..8, all colour assignments, no symmetry reduction): 187,360 positions.
+Result: the three signature files are byte identical, including the 55,924 positions that Part B reports as RACE
+(both sides passed at the root; the solvers print RACE too). 131,436 positions have a signature; 0 mismatches.
