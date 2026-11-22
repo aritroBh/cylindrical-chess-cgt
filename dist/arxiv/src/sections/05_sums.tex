@@ -29,7 +29,7 @@ heuristic, not a theorem, but it finds the winning move in every example below.
 \includegraphics[width=\linewidth]{figures/puzzle73.pdf}
 \caption{Puzzle 3}\label{fig:puzzle73}
 \end{subfigure}
-\caption{The three puzzles of~\cite{Study2025} (cylinder: files a and h adjacent); Table~\ref{tab:puzzles}
+\caption{Three puzzles of~\cite{Study2025} (cylinder: files a and h adjacent); Table~\ref{tab:puzzles}
 gives their exact values. (a)~White wins whoever moves first. (b)~The pawn part is an infinitesimal.
 (c)~Puzzle~3 as first drawn: $+\BIG$ (not legal).}
 \label{fig:puzzles}
@@ -112,7 +112,10 @@ one, so black runs out of moves before white's $+\BIG$ does. The proof, by induc
 is in the repository.
 \end{proof}
 
-In a random sample of $1{,}500$ positions, all $1{,}297$ HSS ones agree \lab{C1}, and with $\BIG=256$ the move
+Of all $599{,}098$ positions without a passed pawn that have at most six pawns on flat boards three to five
+files wide, counted up to symmetry, the $540{,}503$ HSS ones all agree and $19.3\%$ of the rest differ, the
+smallest being \pos{W a5 d3 / B b6 e4}, a second-player win as a sum and a first-player win on the board
+\lab{C1}. With $\BIG=256$ the move
 bound always holds on boards up to $8\times8$. HSS cannot be dropped (Proposition~\ref{prop:sumcounter});
 without (E) the decomposition already fails in the pure pawn game (Proposition~\ref{prop:condE}).
 

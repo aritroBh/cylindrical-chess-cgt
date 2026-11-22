@@ -20,7 +20,8 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 - [x] Supplement built: 87 pages, moved material and the full proofs
 - [x] Independent check of the 10-page text: 4 blockers and 9 should-fix items found and applied (`delegate/out/tog_review/REPORT.md`)
 - [x] Supplement cleaned: 83 pages, no overfull lines, working-note residue stripped
-- [ ] Supplement: reword a few awkward review-history sentences in the kings proofs
+- [~] Supplement proofs (S12, S14-S16): hand-edited copies replace the automatic clean-up, which damaged some
+  sentences (two editors working; sources go in `dist/tog/supp_src/`)
 - [ ] Balance the last page once the two result slots are filled
 - [x] Title: the original title on both versions (author decision)
 - [x] Author block: University of Illinois Urbana-Champaign (ORCID optional, add in the submission system)
@@ -31,7 +32,8 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 - [x] Old *2 discrepancy explained: sum model vs whole board (`research/star2_frontier_recheck/`)
 - [~] Real-king test of the sum theorem (`research/sum_truth_cyl/`)
 - [~] Sum vs whole-board value for every ring family (`research/sum_vs_whole_families/`)
-- [~] How often sum and whole board differ, by race rule (`research/sum_whole_census/`)
+- [x] How often sum and whole board differ, by race rule (`research/sum_whole_census/`): 599,098 positions; never
+  when hereditarily sum-safe, 19.3% of the rest; in Section V of both versions
 - [~] New: pawn rings on the Möbius strip, least *2 (`research/mobius_rings/`)
 - [ ] Seven-pawn *2 in real chess: the 9-man end positions (waits for memory)
 

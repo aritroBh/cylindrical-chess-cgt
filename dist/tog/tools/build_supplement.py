@@ -30,7 +30,11 @@ def W(name, *parts):
 def scrub(t):
     return t.replace('/Users/aritro/Downloads/Research/Chessendgames/', '').replace('/Users/aritro/', '~/')
 
-def MD(path, a=None, b=None):
+def MD(path, a=None, b=None, cur=None):
+    # a hand-edited copy in supp_src/ replaces the automatic clean-up of the working note
+    if cur and os.path.exists('supp_src/' + cur):
+        lines = open('supp_src/' + cur, encoding='utf-8').read().split('\n')
+        return scrub('\n'.join(md2tex.convert(lines))) + '\n'
     lines = open(R + path, encoding='utf-8').read().split('\n')
     if a:
         lines = lines[a - 1:b]
@@ -129,7 +133,7 @@ W('s12', r'\section{Full Proofs: Validity of the Convention, Sums, Certificates 
           r'Theorem~\ref{thm:hss} (sum safety) rests on Theorem~1.11 and Theorem~1.14(ii); the certificate theorem of '
           r'Section~\ref{S-kings} is Theorem~2.7; the horizon-1 proposition is Proposition~2.10(a); the theorem on '
           r'outcomes with spare moves is Theorem~3.4.'),
-  MD('kings/theory/LOOPY.md', 225, 2213))
+  MD('kings/theory/LOOPY.md', 225, 2213, cur='s12_kings.md'))
 
 # S13 wall rings n+3 ------------------------------------------------------------------------------------
 pt = open(R + 'research/ring_family_proof/proof.tex').read()
@@ -147,7 +151,7 @@ W('s13', r'\section{Full Proof: Wall Rings of Value \texorpdfstring{$\nim{2}$}{*
 W('s14', r'\section{Full Proof: Rings of Value \texorpdfstring{$\nim{2}$}{*2} with One Pawn per File}\label{S-ringn}',
   NOTE % ('research/ring\\_n\\_proof/PROOF\\_N.md', r'its theorem is the statement of Section~\ref{sec:star2-rings} that the '
           r'two families with $n$ pawns are $\nim{2}$ as whole-board games for every $n\ge10$; $M_{10}$ is the ring of Fig.~\ref{fig:ring}.'),
-  MD('research/ring_n_proof/PROOF_N.md'))
+  MD('research/ring_n_proof/PROOF_N.md', cur='s14_ringn.md'))
 
 # S15 *3 families ---------------------------------------------------------------------------------------
 W('s15', r'\section{Full Proofs: The Lemma 3 Write-Up and the \texorpdfstring{$\nim{3}$}{*3} Families}\label{S-star3}',
@@ -155,16 +159,16 @@ W('s15', r'\section{Full Proofs: The Lemma 3 Write-Up and the \texorpdfstring{$\
   r'other proofs cite, and proves a further $\nim{2}$ family with $n+2$ pawns. The second and third prove the whole-board '
   r'$\nim{3}$ with $n+2$ pawns for even $n\ge8$ and odd $n\ge11$; the fourth proves the $\nim{3}$ with $n+1$ pawns for '
   r'every $n\ge12$ (Section~\ref{sec:star2-rings}). Each is typeset without changes to its mathematics.',
-  r'\subsection{Note 1: research/ring\_n\_plus\_2\_proof/PROOF.md}', MD('research/ring_n_plus_2_proof/PROOF.md'),
-  r'\subsection{Note 2: research/ring\_n\_plus\_2\_proof/PROOF\_Q.md (even $n$)}', MD('research/ring_n_plus_2_proof/PROOF_Q.md'),
-  r'\subsection{Note 3: research/ring\_n\_plus\_2\_proof/PROOF\_odd.md (odd $n$)}', MD('research/ring_n_plus_2_proof/PROOF_odd.md'),
-  r'\subsection{Note 4: research/star3\_proof/PROOF\_S3T3.md}', MD('research/star3_proof/PROOF_S3T3.md'))
+  r'\subsection{Note 1: research/ring\_n\_plus\_2\_proof/PROOF.md}', MD('research/ring_n_plus_2_proof/PROOF.md', cur='s15_note1.md'),
+  r'\subsection{Note 2: research/ring\_n\_plus\_2\_proof/PROOF\_Q.md (even $n$)}', MD('research/ring_n_plus_2_proof/PROOF_Q.md', cur='s15_note2.md'),
+  r'\subsection{Note 3: research/ring\_n\_plus\_2\_proof/PROOF\_odd.md (odd $n$)}', MD('research/ring_n_plus_2_proof/PROOF_odd.md', cur='s15_note3.md'),
+  r'\subsection{Note 4: research/star3\_proof/PROOF\_S3T3.md}', MD('research/star3_proof/PROOF_S3T3.md', cur='s15_note4.md'))
 
 # S16 square rule ---------------------------------------------------------------------------------------
 W('s16', r'\section{Full Proof: The Square-Rule Passer Test}\label{S-square}',
   NOTE % ('research/v2\\_mechanisms\\_proof/PROOF\\_S.md', r'it proves, for the frozen-king pawn game, the square-rule passer '
           r'test behind the repair in Section~\ref{sec:kings-sweep}.'),
-  MD('research/v2_mechanisms_proof/PROOF_S.md'))
+  MD('research/v2_mechanisms_proof/PROOF_S.md', cur='s16_square.md'))
 aux = open('build/tog_review.aux').read()
 open('supp/mainlabels.tex', 'w').write('\n'.join(l for l in aux.split('\n') if l.startswith('\\newlabel{')) + '\n')
 print('ok')

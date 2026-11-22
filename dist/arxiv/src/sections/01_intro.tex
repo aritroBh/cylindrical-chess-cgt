@@ -28,7 +28,7 @@ This paper extends an unpublished 2025 study of the basic values\bytheauthor~\ci
 every position by computer, correct its errors and carry the analysis on, in the position-by-position format
 of Wu, Y\"u and Landry~\cite{WuYuLandry2010}. Theorems and headline numbers
 carry labels: \lab{P}, proved here; \lab{S}, proof sketched here and given in full in the
-repository, independent check pending; \lab{C2}, two independently written programs agree,
+repository; \lab{C2}, two independently written programs agree,
 the second written from the rules alone; \lab{C1}, one program; \lab{Conj}, a conjecture. Our contributions
 are:
 \begin{itemize}
@@ -45,7 +45,7 @@ are:
   pawns or fewer on ordinary boards of any width, but $\nim{2}$ appears with seven
   \lab{C2}; in the pawn-only model, on the cylinder $\cyl{3}$ a six-pawn ring suffices \lab{C2}, a ring needs ten on $\cyl{7}$ to $\cyl{10}$
   \lab{C2} and only $n$, one per file, on every $\cyl{n}$ with $n\ge10$ as a whole-board game \lab{S}, and on $\cyl{7}$ some ten-pawn
-  rings are $\nim{3}$ \lab{C2}; from $\cyl{11}$ on, $n+1$ pawns give a $\nim{3}$ \lab{S}.
+  rings are $\nim{3}$ \lab{C2}; $n+1$ pawns give a $\nim{3}$ on $\cyl{11}$ \lab{C2} and on every $\cyl{n}$ with $n\ge12$ \lab{S}.
 \item \emph{Real chess} (Section~\ref{sec:real}): with the new test the textbook $\nim{2}$ candidate is not
   $\nim{2}$, however draws are treated; with queen promotions only and frozen kings, the oracle value of the $1/8$ position
   is exactly $1/8$ \lab{C1}.
@@ -57,4 +57,4 @@ are:
   engines often miss the model's winning moves \lab{C1}.
 \end{itemize}
 
-The Appendix gives the FEN of each position with kings.
+The Appendix gives each position with kings in Forsyth--Edwards Notation (FEN).
