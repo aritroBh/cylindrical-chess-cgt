@@ -91,10 +91,16 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 
 ## Round of 2026-11-23 (Fable plans and reviews; Opus, Sonnet and Haiku agents do the work)
 
-- [ ] R1 (Opus): re-referee appendix S12.1 items A.1 to A.9 after the last-rank convention was adopted
-  (`delegate/out/R1_appendix_reread/REPORT.md`)
-- [ ] R2 (Sonnet): audit every pointer from the 10-page paper into the supplement (hard-coded S numbers), every
-  label, and the submission files against the current PDFs (`delegate/out/R2_xref_audit/REPORT.md`)
+- [x] R1 (Opus): re-referee appendix S12.1 items A.1 to A.9 after the last-rank convention was adopted
+  (`delegate/out/R1_appendix_reread/REPORT.md`): sound, four minor wording fixes applied; its own brute force
+  (flat boards up to 5 files by 6 ranks, all nine settings, at most 2+2 pawns, and 3+3 in the default setting) finds
+  no difference between S and W under the hypotheses, and its split-first control does differ
+- [x] R2 (Sonnet): audit every pointer from the 10-page paper into the supplement (hard-coded S numbers), every
+  label, and the submission files against the current PDFs (`delegate/out/R2_xref_audit/REPORT.md`): 26 pointer groups checked, no
+  broken reference or `??`; findings were stale text in supplement S3, S4 and S10 (frozen long-version lines), in the
+  README and in two submission files, one intro claim missing from the body (n+1 pawns on C11), and two vague pointers
+- [x] R5 (Sonnet): applied the R1 and R2 fixes (13 edits decided by the main session) and rebuilt; diff reviewed and
+  checks rerun by the main session (10 pages with 0.32 in spare, supplement 95, numbers and anonymity pass)
 - [ ] R3 (Opus): is there a family of *3 rings on the Möbius strip, as on the cylinder? (`research/mobius_star3_family/`)
 - [x] R4 (Haiku): recount the facts in `dist/tog/submission/` (pages, hashes, words in the abstract, references,
   figures, tables) from the built PDFs (`delegate/out/R4_submission_facts/REPORT.md`): all match except one stale page count

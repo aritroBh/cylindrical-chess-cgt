@@ -2,7 +2,7 @@
 
 **Summary**
 
-1. **Theorem.** In the whole-board pawn game on the Möbius strip $M_n$ (8 ranks, count rule, e.p. on, a pawn that can be taken e.p. is not passed, the game ends at the first passed pawn; the rules of Section S6):
+1. **Theorem.** In the whole-board pawn game on the Möbius strip $M_n$ (8 ranks, count rule, e.p. on, a pawn that can be taken e.p. is not passed, the game ends at the first passed pawn; the rules of Section S6.4):
    - $F1(m)=(B4\,W2)^m\,B6\,W2\,W3\,B6\,B7\,W3\,B7\,W5$ ($n=2m+8$) is $\star2$ for every $m\ge1$;
    - $F2(m)=(B4\,W2)^m\,B6\,W2\,W3\,B6\,B7\,W3\,B7\,W5\,B7$ ($n=2m+9$) is $\star2$ for every $m\ge1$;
    - $F3(m)=B6\,W2\,W3\,B6\,B7\,W3\,(B7\,W5)^m\,W6B7$ ($n=2m+7$, $n+1$ pawns) is $\star2$ for every $m\ge0$.
@@ -14,7 +14,7 @@
 
 ## 0. Claims and labels
 
-PROVED = hand proof complete and its finite parts checked by the program named. COMPUTED-1 = one program. CHECKED-k = $k$ independently written programs agree. Programs: **R** = the program written for this note (rules and reduced graph); **U** = a full-game solver without pruning, by the same author; **M1**, **M2**, **K** = the three solvers of the scans of Section S6 (earlier work, called for values only); the referee's program is a fourth implementation of the rules.
+PROVED = hand proof complete and its finite parts checked by the program named. COMPUTED-1 = one program. CHECKED-k = $k$ independently written programs agree. Programs: **R** = the program written for this note (rules and reduced graph); **U** = a full-game solver without pruning, by the same author; **M1**, **M2**, **K** = the three solvers of the scans of Section S6.4 (earlier work, called for values only); the referee's program is a fourth implementation of the rules.
 
 | id | claim | label |
 |---|---|---|

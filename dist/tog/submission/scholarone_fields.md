@@ -44,7 +44,7 @@ Note: AUDIT.md section 3.6 says IEEE's AI policy asks for the system, the sectio
 
 ## Data and code availability statement (plain text)
 
-Review version (Section XIII of the review PDF, and the supplement): "The code and data are available at <anonymous link>." Our CGT engine is in Python 3 (standard library only) and the fast solvers are in C. The supplementary material gives the full proofs of the [S] results (Sections S12-S15) and the FEN of every position with kings (Section S11).
+Review version (Section XIII of the review PDF, and the supplement): "The code and data are available at <anonymous link>." The supplementary material gives the full proofs of the [S] results (Sections S12-S15) and the FEN of every position with kings (Section S11).
 
 Suggested ScholarOne text: The code and data for review are at https://anonymous.4open.science/r/<id> [Author must insert]. The engine is Python 3 (standard library only); the fast solvers are in C. The supplementary PDF holds the full proofs and the FEN of every position with kings.
 

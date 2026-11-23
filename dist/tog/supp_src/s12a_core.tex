@@ -12,10 +12,11 @@ without draws has a winner~\cite{Siegel2013}.
 
 \subsubsection*{A.I Board, pawns and passed pawns}
 
-\textbf{Board.} The board has $n$ files and $H\ge 3$ ranks. It is \emph{flat} (files $1,\dots,n$ in a row) or a
+\textbf{Board.} The board has $n$ files and $H\ge 3$ ranks. (On three ranks every pawn is passed, so the results below are about the empty position only; on four ranks a double step
+promotes and no e.p.\ capture is possible.) It is \emph{flat} (files $1,\dots,n$ in a row) or a
 \emph{cylinder} (file $n$ is also next to file $1$). The \emph{distance} of two files is their distance in the row, or
 on the cycle for the cylinder. White pawns move up, black pawns down. A square is \emph{ahead} of a white pawn if its rank is higher than the pawn's, and ahead of a black pawn if
-its rank is lower. No pawn stands on its own first rank. In this subsection a position holds pawns and at most two
+its rank is lower. No pawn stands on its own first rank; since pawns only move forward, this holds in all play. In this subsection a position holds pawns and at most two
 kings, and no other piece until a promotion.
 
 \textbf{Pawn moves.} A pawn steps one square forward to an empty square; from its own second rank it may instead
@@ -28,11 +29,13 @@ below it stays there as a pawn, as in our engine. Kings are
 never captured.
 
 \textbf{A.1 Lemma (files).} \emph{A pawn changes file only by a capture, and it then lands on a file that held an enemy
-pawn just before the move. Hence, before the first promotion, no pawn ever enters a file that holds no pawn.}
+pawn just before the move. Hence, in play in which kings are the only pieces other than pawns (all play in $W$, $S$, the
+move bound and the threats below, where a promoted pawn stays a pawn, and chess before the first promotion), no pawn ever
+enters a file that holds no pawn.}
 
 \begin{proof}
 A step or double step keeps the file. A capture lands on the square of the captured pawn; an e.p.\ capture lands on $b$,
-on the file of the captured pawn $q$. Before the first promotion the only capturable pieces are pawns.
+on the file of the captured pawn $q$. Kings are never captured, so in such play the only capturable pieces are pawns.
 \end{proof}
 
 \textbf{Components.} A \emph{component} of a pawn position is a maximal set of consecutive files that all hold pawns (an
@@ -60,8 +63,8 @@ promoting move.}
 stepped with an enemy pawn beside it; that pawn would stand on its own first rank, where no pawn stands. (b) Each pawn move
 advances the pawn by one or two ranks; a capture removes a pawn of the other side. (c) Since $H\ge5$, a double step
 does not reach the last rank, so a promoting pawn stands on the rank before its last. Only the last rank lies ahead of
-it, and it holds no enemy pawn, so the pawn passes the textbook test. The last move was the opponent's, so the e.p.\ clause
-does not apply, and the pawn is passed.
+it, and it holds no enemy pawn, so the pawn passes the textbook test. The e.p.\ clause concerns only the pawn whose double
+step created the right, and by hypothesis that pawn belongs to the side not to move, so the pawn is passed.
 \end{proof}
 
 \noindent Both restrictions in (c) are needed. On four ranks, in \pos{W a2 / B b3} no pawn is passed and a2--a4
@@ -268,8 +271,10 @@ ends $W$, the winner is $\sigma$, and (V2) applies. Otherwise the new position i
 $W$. (If $\bar\sigma$ has no move in $W$, its legal moves are all Z-moves.)
 
 Every move before the first decisive event is a pawn move of $W$, so by Lemma~A.2(b) there are at most
-$\Phi_W(X)+\Phi_B(X)$ of them; (V1) then still supplies a legal move, so a decisive event occurs by move $\Phi_W(X)+\Phi_B(X)+1$, and at the event (V2) or (V3) gives $\sigma$ a strategy that wins in finitely many further moves. The play is never stalemate (V1), and no promotion occurs
-before the event (Lemma~A.2(c)).
+$\Phi_W(X)+\Phi_B(X)$ of them; (V1) then still supplies a legal move, so a decisive event occurs by move $\Phi_W(X)+\Phi_B(X)+1$, and at the event (V2) or (V3) gives $\sigma$ a strategy that wins in finitely many further moves. The play is never stalemate (V1). No promotion occurs before the event: a Z-pawn promotion is a Z-move, and a context
+promotion makes a passed pawn (Lemma~A.2(a)) and so is itself an event. Moreover at each $Y\in\mathrm{R}(Q)$ the context
+$X_Y$ has no passed pawn and its right, if any, was made by the side not to move, so by Lemma~A.2(c) no context move at $Y$
+promotes; the moves compared in (V1) and (V2) are pawn moves that leave pawns.
 \end{proof}
 
 \textbf{A.12 Remark.} (a) The proof uses from (V1) only the equality of move sets and the existence of a legal move, not the
@@ -277,7 +282,7 @@ clauses on checks. A context move never gives check before a decisive event, by 
 and a side in check from a Z-pawn has no legal context move, so the equality of move sets then fails unless $W$ has no move
 either. (b) The theorem and the proof hold word for word
 with chess replaced by $\mathrm{P}$ or by $\mathrm{F}$; in $\mathrm{F}$, (V3) holds for every king move by definition.
-(c) $X$ must have no passed pawn; otherwise $W(X)$ is not defined.
+(c) $X$ must have no passed pawn; otherwise $W(X)$ is not defined. The main text leaves implicit that the board has at least five ranks; all its boards with kings have at least six.
 (d) Unlike (V1a) of Theorem~1.14 in the longer treatment, (V1) contains no condition (E): it compares chess with the whole-board game $W(X)$, whose e.p.\ rights lapse after one move as in chess. Condition (E) is needed only to pass from $W(X)$ to $S(X)$ (Theorem~A.7), hence in (V4).
 
 \textbf{A.13 Corollary (Corollary~\ref{cor:v4}).} \emph{Main text: ``If also (V4) \dots\ the chess result is the outcome

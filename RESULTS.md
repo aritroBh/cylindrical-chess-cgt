@@ -485,7 +485,7 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   - Three families stay \*2: `(B4 W2)^m B6 W2 W3 B6 B7 W3 B7 W5` (n = 2m+8, one pawn per file, m = 1..12),
     the same with a last file `B7` (n = 2m+9, m = 1..11), and `B6 W2 W3 B6 B7 W3 (B7 W5)^m W6B7` (n = 2m+7,
     n+1 pawns, m = 0..12). Three programs agree for n <= 21 (CHECKED-2), two for n <= 32 (COMPUTED-1). Node counts
-    grow by a constant per step (1251, 1239, 719), so a pumping proof looks feasible (CONJECTURE for all n).
+    grow by a constant per step (1251, 1239, 719), so a pumping proof looks feasible (CONJECTURE for all n). Superseded on 2026-11-23: the three families are proved for every n (see the entry "Möbius ring families proved for every width" below).
     One pawn per file therefore gives \*2 on the strip for every n from 10 to 32, on eight files by an isolated
     ring, and never on nine.
   - Not done: n = 12 with 12 pawns (scan running), n = 10 with 11 pawns, any \*3 family.

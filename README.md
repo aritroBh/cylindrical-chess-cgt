@@ -14,7 +14,7 @@ the paper.
 
 The labels are the paper's:
 - **P:** proved in the paper.
-- **S:** proof sketched in the paper and given in full here, independent check pending.
+- **S:** proof sketched in the paper; the full proof, written and refereed by AI models, is in the supplement and in this repository. No human referee has read it yet.
 - **C2:** two independently written programs agree.
 - **C1:** one program.
 
@@ -24,16 +24,17 @@ The labels are the paper's:
   seven pawns (C2). A \*3 appears as a single component with nine pawns (C2).
 - **Rings on the n-file cylinder** (a pawn on every file):
   - The least number of pawns in a ring \*2 is n+3 for 3 ≤ n ≤ 7 and ten for 7 ≤ n ≤ 10 (C2).
-  - It is n, one pawn per file, for 10 ≤ n ≤ 60 (C1). On C10 and C11 that ring is unique up to symmetry and colour
+  - It is n, one pawn per file, for every n ≥ 10 as a whole-board game (S); computed for n ≤ 60 (C1). On C10 and C11 that ring is unique up to symmetry and colour
     reversal (C1).
-  - Rings \*3 with n+1 pawns exist on every C_n with 11 ≤ n ≤ 59 (C1), and on C11 n+1 is the least.
+  - Rings \*3 with n+1 pawns exist on C11 (C2) and on every C_n with n ≥ 12 (S); on C11 n+1 is the least.
   - No \*4 has turned up among about 24 million rings.
+  - On the Möbius strip one pawn per file gives a ring \*2 on every strip of ten or more files (S).
 - **Real chess.** With queen promotions only and frozen kings, the 1/8 position is exactly 1/8 (C1).
 - **Tablebases.** King and rook win only 2.80% of cylinder positions. On the torus only two major pieces force mate.
   On the Möbius strip KRK is always won (C2).
 - **Dawson's chess on the 3×n cylinder** is a first-player win exactly when the 3×(n−3) strip has Grundy value 0 (P).
-- **Engines.** Stockfish is weakest on infinitesimals at low depth. On sums of components, engines often miss the
-  model's winning moves (C1).
+- **Engines.** Stockfish is weakest on infinitesimals at low depth (C1). A test of engines on sums was withdrawn and is
+  future work.
 
 ## Repository map
 

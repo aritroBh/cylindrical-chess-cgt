@@ -42,8 +42,8 @@ In chess the first passed pawn ends the game; in a sum, a component with a passe
 play goes on elsewhere, so a $+\BIG$ can cancel a $-\BIG$. In $\game{\BIG}{0}+\game{0}{-\BIG}$ the first player
 makes a passed pawn and wins the chess game, but the sum is $0$ for every $\BIG$, since the second player
 answers in the other component \lab{P}. We write $W(X)$ for the whole-board game of a pawn position $X$, which
-ends at the first passed pawn, and $S(X)$ for its sum model: after a move, a component in which a side has a
-passed pawn becomes $\pm\BIG$ (by the race rule if both have one); otherwise it is re-split along empty files
+ends at the first passed pawn, and $S(X)$ for its sum model: after a move, the moved component becomes $\pm\BIG$ if a side has a
+passed pawn in it (by the race rule if both have one); otherwise it is re-split along empty files
 (one ring if no file is empty); and the components add up. We call $W(X)$ a $\nim{k}$ when
 $W(X)+\nim{h}$ has the outcome of $\nim{k}+\nim{h}$ for every heap $h$; our scans and the wall proofs test
 exactly this.

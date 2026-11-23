@@ -2,7 +2,7 @@
 
 Run on 2026-11-22 on the PDFs built at 17:58. Tools present: `pdfinfo`, `pdffonts`, `pdfimages`, `pdftotext` (poppler, `/opt/homebrew/bin`). The URI scan used `python3` (re, zlib) on the raw file and on all decompressed streams. Page counts in the table below were refreshed on 2026-11-23 (supplement 95 pages); the other rows are from the 2026-11-22 run.
 
-Files: A = `tog.pdf` (named), B = `tog_review.pdf` (anonymous), C = `supplement.pdf` (named), D = `supplement_review.pdf` (anonymous). All in `/Users/aritro/Downloads/Research/Chessendgames/dist/tog/`.
+Files: A = `tog.pdf` (named), B = `tog_review.pdf` (anonymous), C = `supplement.pdf` (named), D = `supplement_review.pdf` (anonymous). All in `dist/tog/`.
 
 ## Summary
 
@@ -28,7 +28,7 @@ Files: A = `tog.pdf` (named), B = `tog_review.pdf` (anonymous), C = `supplement.
 | Keywords | (empty) | (empty) | (empty) | (empty) |
 | Creator / Producer | LaTeX with hyperref / xdvipdfmx (0.1) | same | same | same |
 | Metadata stream (XMP) | no | no | no | no |
-| File size (bytes) | 260053 | 259629 | 652138 | 651948 |
+| File size (bytes) | 260911 | 260336 | 760935 | 760679 |
 
 Evidence: `Page size: 612 x 792 pts (letter)` on all four; B `pdfinfo` has no `Author:` line; D has no `Author:` line. Result: PASS. The paper is 10 pages including references, at the ToG limit. Subject and Keywords are empty in all four; ToG does not ask for them in the PDF (not verified), so this is not a failure. The supplements carry no Title field; optional.
 
@@ -84,4 +84,4 @@ Result: PASS. None carries the author's name, institution or repository. The Sta
 
 ## 6. Anonymous code link (extra check)
 
-Evidence: B line "at anonymized repository link. Our CGT engine is in Python 3" (Section XIII), D page 1 "The code and data are available at anonymized repository link." Neither has a `/URI` to anonymous.4open.science. Result: FAIL until the author creates the link and rebuilds (steps 1 to 4 in `SUBMIT_STEPS.md`). After the rebuild, rerun checks 1, 2, 4 and 5 and recompute the hashes.
+Evidence: B line "at anonymized repository link. The supplementary material gives the full proofs" (Section XIII), D page 1 "The code and data are available at anonymized repository link." Neither has a `/URI` to anonymous.4open.science. Result: FAIL until the author creates the link and rebuilds (steps 1 to 4 in `SUBMIT_STEPS.md`). After the rebuild, rerun checks 1, 2, 4 and 5 and recompute the hashes.
