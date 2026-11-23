@@ -1,5 +1,7 @@
 # T13: Stockfish 19 and Lc0 on ChessSums positions beyond the tablebase
 
+**Note added 2026-11-23: do not use the engine accuracies below.** The embedding puts the king group on any free squares. In 163 of the 200 evaluation positions it shares a file with component pawns, in 61 no model-winning move is legal on the board, and 27 positions have more than eight pawns of one colour (Stockfish exits on them and they were scored as errors). A random pawn move scores 49% on the 200. On the 13 positions with the group clear of the pawn files and a winning move, both engines are right at every budget. See `research/engine_baselines/REPORT.md`, section "Embedding flaw". The paper no longer reports these figures.
+
 ## 5-line summary
 
 - Embedded all 19,956 rows of the four ChessSums 8-file subsets (k=1..4) into legal 8×8 positions by

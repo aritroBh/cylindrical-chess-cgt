@@ -1,0 +1,2130 @@
+{
+ "summary": {
+  "n": 200,
+  "illegal_winning_moves_positions": 72,
+  "no_winning_move_positions": 45,
+  "no_winning_by_outcome": {
+   "P": 45
+  },
+  "outcome_counts": {
+   "L": 54,
+   "P": 45,
+   "R": 51,
+   "N": 50
+  },
+  "rand_legal_all200": 0.23691305916305916,
+  "rand_pawn_all200": 0.49013076733283983,
+  "pawn_positions_with_no_pawn_move": 7,
+  "rand_legal_with_winning": 0.3056942698878182,
+  "rand_pawn_with_winning": 0.6102918586789554,
+  "n_with_winning": 155,
+  "nlegal_min_med_max": [
+   2,
+   6.0,
+   12
+  ],
+  "nwin_min_med_max_all": [
+   0,
+   1.0,
+   7
+  ],
+  "nwin_min_med_max_with_winning": [
+   1,
+   2,
+   7
+  ],
+  "npawn_min_med_max": [
+   0,
+   3.0,
+   7
+  ],
+  "winning_moves_nonpawn": 0,
+  "engines": {
+   "SF 1k": {
+    "solved": 55,
+    "recomputed": 55,
+    "pct": 27.5,
+    "solved_among_with_winning": 55,
+    "pct_among_with_winning": 35.483870967741936,
+    "solved_among_no_winning": 0,
+    "ratio_vs_random_legal": 1.1607633659853547,
+    "ratio_vs_random_pawn": 0.5814246161590738,
+    "solved_among_legal_winning": 55,
+    "pct_among_legal_winning": 39.568345323741006
+   },
+   "SF 10k": {
+    "solved": 53,
+    "recomputed": 53,
+    "pct": 26.5,
+    "solved_among_with_winning": 53,
+    "pct_among_with_winning": 34.193548387096776,
+    "solved_among_no_winning": 0,
+    "ratio_vs_random_legal": 1.1185537890404327,
+    "ratio_vs_random_pawn": 0.5602819028441984,
+    "solved_among_legal_winning": 53,
+    "pct_among_legal_winning": 38.1294964028777
+   },
+   "SF 100k": {
+    "solved": 55,
+    "recomputed": 55,
+    "pct": 27.5,
+    "solved_among_with_winning": 55,
+    "pct_among_with_winning": 35.483870967741936,
+    "solved_among_no_winning": 0,
+    "ratio_vs_random_legal": 1.1607633659853547,
+    "ratio_vs_random_pawn": 0.5814246161590738,
+    "solved_among_legal_winning": 55,
+    "pct_among_legal_winning": 39.568345323741006
+   },
+   "SF 1M": {
+    "solved": 56,
+    "recomputed": 56,
+    "pct": 28.0,
+    "solved_among_with_winning": 56,
+    "pct_among_with_winning": 36.12903225806452,
+    "solved_among_no_winning": 0,
+    "ratio_vs_random_legal": 1.1818681544578156,
+    "ratio_vs_random_pawn": 0.5919959728165115,
+    "solved_among_legal_winning": 56,
+    "pct_among_legal_winning": 40.28776978417266
+   },
+   "Lc0 1k": {
+    "solved": 65,
+    "recomputed": 65,
+    "pct": 32.5,
+    "solved_among_with_winning": 65,
+    "pct_among_with_winning": 41.935483870967744,
+    "solved_among_no_winning": 0,
+    "ratio_vs_random_legal": 1.3718112507099647,
+    "ratio_vs_random_pawn": 0.6871381827334508,
+    "solved_among_legal_winning": 65,
+    "pct_among_legal_winning": 46.76258992805755
+   },
+   "Lc0 10k": {
+    "solved": 67,
+    "recomputed": 67,
+    "pct": 33.5,
+    "solved_among_with_winning": 67,
+    "pct_among_with_winning": 43.225806451612904,
+    "solved_among_no_winning": 0,
+    "ratio_vs_random_legal": 1.4140208276548865,
+    "ratio_vs_random_pawn": 0.7082808960483262,
+    "solved_among_legal_winning": 67,
+    "pct_among_legal_winning": 48.201438848920866
+   }
+  },
+  "expected_correct_random_legal": 47.38261183261183,
+  "expected_correct_random_pawn": 94.59523809523809,
+  "n_with_legal_winning": 139,
+  "positions_all_winning_illegal": 16,
+  "nwin_legal_min_med_max_all": [
+   0,
+   1.0,
+   6
+  ],
+  "rand_legal_with_legal_winning": 0.340882099515193,
+  "rand_pawn_with_legal_winning": 0.6805412812607057
+ },
+ "rows": [
+  {
+   "id": "train-14899",
+   "nlegal": 5,
+   "npawn": 1,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "L",
+   "k": 1
+  },
+  {
+   "id": "train-00714",
+   "nlegal": 4,
+   "npawn": 0,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 1
+  },
+  {
+   "id": "test_heldout-00568",
+   "nlegal": 6,
+   "npawn": 2,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 1
+  },
+  {
+   "id": "train-17371",
+   "nlegal": 4,
+   "npawn": 1,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 1
+  },
+  {
+   "id": "train-05427",
+   "nlegal": 6,
+   "npawn": 1,
+   "nwin": 2,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "L",
+   "k": 1
+  },
+  {
+   "id": "train-04551",
+   "nlegal": 7,
+   "npawn": 2,
+   "nwin": 2,
+   "win_legal": 2,
+   "win_pawn": 2,
+   "outcome": "L",
+   "k": 1
+  },
+  {
+   "id": "train-03847",
+   "nlegal": 4,
+   "npawn": 2,
+   "nwin": 2,
+   "win_legal": 2,
+   "win_pawn": 2,
+   "outcome": "R",
+   "k": 1
+  },
+  {
+   "id": "train-01583",
+   "nlegal": 5,
+   "npawn": 2,
+   "nwin": 2,
+   "win_legal": 2,
+   "win_pawn": 2,
+   "outcome": "R",
+   "k": 1
+  },
+  {
+   "id": "train-17214",
+   "nlegal": 6,
+   "npawn": 1,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "L",
+   "k": 1
+  },
+  {
+   "id": "train-00487",
+   "nlegal": 2,
+   "npawn": 1,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "R",
+   "k": 1
+  },
+  {
+   "id": "train-15792",
+   "nlegal": 5,
+   "npawn": 0,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 1
+  },
+  {
+   "id": "train-17364",
+   "nlegal": 7,
+   "npawn": 2,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 1
+  },
+  {
+   "id": "val-01165",
+   "nlegal": 4,
+   "npawn": 1,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 1
+  },
+  {
+   "id": "train-12313",
+   "nlegal": 7,
+   "npawn": 2,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 1
+  },
+  {
+   "id": "train-00246",
+   "nlegal": 5,
+   "npawn": 0,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 1
+  },
+  {
+   "id": "train-13602",
+   "nlegal": 7,
+   "npawn": 2,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 1
+  },
+  {
+   "id": "train-09361",
+   "nlegal": 6,
+   "npawn": 1,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 1
+  },
+  {
+   "id": "test_heldout-00728",
+   "nlegal": 3,
+   "npawn": 1,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "R",
+   "k": 1
+  },
+  {
+   "id": "test_heldout-00658",
+   "nlegal": 5,
+   "npawn": 0,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 1
+  },
+  {
+   "id": "train-00348",
+   "nlegal": 4,
+   "npawn": 0,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 1
+  },
+  {
+   "id": "train-03712",
+   "nlegal": 6,
+   "npawn": 2,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 1
+  },
+  {
+   "id": "train-04065",
+   "nlegal": 3,
+   "npawn": 1,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "L",
+   "k": 1
+  },
+  {
+   "id": "train-11271",
+   "nlegal": 4,
+   "npawn": 1,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 1
+  },
+  {
+   "id": "train-13869",
+   "nlegal": 3,
+   "npawn": 1,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "R",
+   "k": 1
+  },
+  {
+   "id": "test_heldout-00609",
+   "nlegal": 4,
+   "npawn": 1,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 1
+  },
+  {
+   "id": "train-12875",
+   "nlegal": 3,
+   "npawn": 1,
+   "nwin": 2,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "L",
+   "k": 1
+  },
+  {
+   "id": "train-01910",
+   "nlegal": 6,
+   "npawn": 2,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "L",
+   "k": 1
+  },
+  {
+   "id": "val-00168",
+   "nlegal": 4,
+   "npawn": 2,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "R",
+   "k": 1
+  },
+  {
+   "id": "train-13617",
+   "nlegal": 5,
+   "npawn": 2,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "R",
+   "k": 1
+  },
+  {
+   "id": "train-03038",
+   "nlegal": 5,
+   "npawn": 2,
+   "nwin": 1,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "L",
+   "k": 1
+  },
+  {
+   "id": "train-14824",
+   "nlegal": 4,
+   "npawn": 2,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "R",
+   "k": 1
+  },
+  {
+   "id": "val-01549",
+   "nlegal": 5,
+   "npawn": 2,
+   "nwin": 1,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "R",
+   "k": 1
+  },
+  {
+   "id": "train-05884",
+   "nlegal": 3,
+   "npawn": 1,
+   "nwin": 1,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "L",
+   "k": 1
+  },
+  {
+   "id": "test_heldout-00054",
+   "nlegal": 6,
+   "npawn": 2,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "L",
+   "k": 1
+  },
+  {
+   "id": "train-04730",
+   "nlegal": 5,
+   "npawn": 1,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 1
+  },
+  {
+   "id": "train-15211",
+   "nlegal": 6,
+   "npawn": 1,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 1
+  },
+  {
+   "id": "train-12421",
+   "nlegal": 5,
+   "npawn": 3,
+   "nwin": 2,
+   "win_legal": 2,
+   "win_pawn": 2,
+   "outcome": "R",
+   "k": 1
+  },
+  {
+   "id": "train-10115",
+   "nlegal": 6,
+   "npawn": 1,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 1
+  },
+  {
+   "id": "train-04649",
+   "nlegal": 6,
+   "npawn": 1,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 1
+  },
+  {
+   "id": "train-07420",
+   "nlegal": 4,
+   "npawn": 1,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 1
+  },
+  {
+   "id": "train-12306",
+   "nlegal": 3,
+   "npawn": 1,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "R",
+   "k": 1
+  },
+  {
+   "id": "train-02296",
+   "nlegal": 3,
+   "npawn": 1,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 1
+  },
+  {
+   "id": "train-02593",
+   "nlegal": 8,
+   "npawn": 3,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 1
+  },
+  {
+   "id": "train-13845",
+   "nlegal": 6,
+   "npawn": 1,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 1
+  },
+  {
+   "id": "train-02780",
+   "nlegal": 5,
+   "npawn": 1,
+   "nwin": 1,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "N",
+   "k": 1
+  },
+  {
+   "id": "train-13074",
+   "nlegal": 6,
+   "npawn": 1,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 1
+  },
+  {
+   "id": "train-12736",
+   "nlegal": 8,
+   "npawn": 3,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 1
+  },
+  {
+   "id": "train-09351",
+   "nlegal": 7,
+   "npawn": 2,
+   "nwin": 1,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "N",
+   "k": 1
+  },
+  {
+   "id": "train-00707",
+   "nlegal": 6,
+   "npawn": 1,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 1
+  },
+  {
+   "id": "train-17254",
+   "nlegal": 6,
+   "npawn": 2,
+   "nwin": 1,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "N",
+   "k": 1
+  },
+  {
+   "id": "train-13737",
+   "nlegal": 8,
+   "npawn": 3,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 2
+  },
+  {
+   "id": "train-02153",
+   "nlegal": 5,
+   "npawn": 3,
+   "nwin": 3,
+   "win_legal": 2,
+   "win_pawn": 2,
+   "outcome": "R",
+   "k": 2
+  },
+  {
+   "id": "train-09418",
+   "nlegal": 5,
+   "npawn": 3,
+   "nwin": 3,
+   "win_legal": 2,
+   "win_pawn": 2,
+   "outcome": "L",
+   "k": 2
+  },
+  {
+   "id": "train-00924",
+   "nlegal": 5,
+   "npawn": 2,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 2
+  },
+  {
+   "id": "train-14176",
+   "nlegal": 3,
+   "npawn": 1,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "L",
+   "k": 2
+  },
+  {
+   "id": "train-06998",
+   "nlegal": 4,
+   "npawn": 2,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "R",
+   "k": 2
+  },
+  {
+   "id": "val-01971",
+   "nlegal": 3,
+   "npawn": 1,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "R",
+   "k": 2
+  },
+  {
+   "id": "train-16205",
+   "nlegal": 6,
+   "npawn": 2,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 2
+  },
+  {
+   "id": "train-16007",
+   "nlegal": 5,
+   "npawn": 3,
+   "nwin": 3,
+   "win_legal": 2,
+   "win_pawn": 2,
+   "outcome": "R",
+   "k": 2
+  },
+  {
+   "id": "train-08958",
+   "nlegal": 3,
+   "npawn": 1,
+   "nwin": 1,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "N",
+   "k": 2
+  },
+  {
+   "id": "train-14845",
+   "nlegal": 4,
+   "npawn": 2,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "R",
+   "k": 2
+  },
+  {
+   "id": "train-04053",
+   "nlegal": 3,
+   "npawn": 1,
+   "nwin": 2,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "R",
+   "k": 2
+  },
+  {
+   "id": "train-18525",
+   "nlegal": 5,
+   "npawn": 2,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "L",
+   "k": 2
+  },
+  {
+   "id": "train-00677",
+   "nlegal": 4,
+   "npawn": 2,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "R",
+   "k": 2
+  },
+  {
+   "id": "train-00093",
+   "nlegal": 5,
+   "npawn": 2,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 2
+  },
+  {
+   "id": "train-17162",
+   "nlegal": 7,
+   "npawn": 2,
+   "nwin": 1,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "N",
+   "k": 2
+  },
+  {
+   "id": "train-04980",
+   "nlegal": 6,
+   "npawn": 3,
+   "nwin": 1,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "R",
+   "k": 2
+  },
+  {
+   "id": "val-00436",
+   "nlegal": 8,
+   "npawn": 4,
+   "nwin": 2,
+   "win_legal": 2,
+   "win_pawn": 2,
+   "outcome": "L",
+   "k": 2
+  },
+  {
+   "id": "train-06898",
+   "nlegal": 7,
+   "npawn": 2,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 2
+  },
+  {
+   "id": "train-00944",
+   "nlegal": 5,
+   "npawn": 3,
+   "nwin": 3,
+   "win_legal": 3,
+   "win_pawn": 3,
+   "outcome": "L",
+   "k": 2
+  },
+  {
+   "id": "train-03260",
+   "nlegal": 4,
+   "npawn": 4,
+   "nwin": 2,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "R",
+   "k": 2
+  },
+  {
+   "id": "test_heldout-01356",
+   "nlegal": 7,
+   "npawn": 4,
+   "nwin": 5,
+   "win_legal": 4,
+   "win_pawn": 4,
+   "outcome": "R",
+   "k": 2
+  },
+  {
+   "id": "train-08381",
+   "nlegal": 4,
+   "npawn": 3,
+   "nwin": 3,
+   "win_legal": 2,
+   "win_pawn": 2,
+   "outcome": "R",
+   "k": 2
+  },
+  {
+   "id": "train-04984",
+   "nlegal": 10,
+   "npawn": 5,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "L",
+   "k": 2
+  },
+  {
+   "id": "train-10966",
+   "nlegal": 6,
+   "npawn": 3,
+   "nwin": 3,
+   "win_legal": 3,
+   "win_pawn": 3,
+   "outcome": "R",
+   "k": 2
+  },
+  {
+   "id": "train-17369",
+   "nlegal": 5,
+   "npawn": 3,
+   "nwin": 3,
+   "win_legal": 2,
+   "win_pawn": 2,
+   "outcome": "R",
+   "k": 2
+  },
+  {
+   "id": "train-07996",
+   "nlegal": 9,
+   "npawn": 4,
+   "nwin": 2,
+   "win_legal": 2,
+   "win_pawn": 2,
+   "outcome": "L",
+   "k": 2
+  },
+  {
+   "id": "train-00323",
+   "nlegal": 6,
+   "npawn": 4,
+   "nwin": 3,
+   "win_legal": 3,
+   "win_pawn": 3,
+   "outcome": "L",
+   "k": 2
+  },
+  {
+   "id": "train-08141",
+   "nlegal": 6,
+   "npawn": 3,
+   "nwin": 2,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 2
+  },
+  {
+   "id": "train-07363",
+   "nlegal": 5,
+   "npawn": 1,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 2
+  },
+  {
+   "id": "train-02869",
+   "nlegal": 9,
+   "npawn": 4,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 2
+  },
+  {
+   "id": "train-17422",
+   "nlegal": 7,
+   "npawn": 3,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 2
+  },
+  {
+   "id": "train-06805",
+   "nlegal": 8,
+   "npawn": 3,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 2
+  },
+  {
+   "id": "val-00917",
+   "nlegal": 8,
+   "npawn": 4,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 2
+  },
+  {
+   "id": "val-00401",
+   "nlegal": 5,
+   "npawn": 3,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 2
+  },
+  {
+   "id": "train-19298",
+   "nlegal": 4,
+   "npawn": 2,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 2
+  },
+  {
+   "id": "train-00576",
+   "nlegal": 4,
+   "npawn": 0,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 2
+  },
+  {
+   "id": "train-18038",
+   "nlegal": 7,
+   "npawn": 3,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 2
+  },
+  {
+   "id": "train-18791",
+   "nlegal": 8,
+   "npawn": 3,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 2
+  },
+  {
+   "id": "train-03670",
+   "nlegal": 6,
+   "npawn": 3,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 2
+  },
+  {
+   "id": "train-15637",
+   "nlegal": 4,
+   "npawn": 0,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 2
+  },
+  {
+   "id": "val-01833",
+   "nlegal": 4,
+   "npawn": 2,
+   "nwin": 2,
+   "win_legal": 2,
+   "win_pawn": 2,
+   "outcome": "L",
+   "k": 2
+  },
+  {
+   "id": "train-06001",
+   "nlegal": 3,
+   "npawn": 2,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "R",
+   "k": 2
+  },
+  {
+   "id": "train-03405",
+   "nlegal": 4,
+   "npawn": 2,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 2
+  },
+  {
+   "id": "train-13122",
+   "nlegal": 5,
+   "npawn": 3,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 2
+  },
+  {
+   "id": "train-10439",
+   "nlegal": 6,
+   "npawn": 2,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 2
+  },
+  {
+   "id": "train-06854",
+   "nlegal": 5,
+   "npawn": 4,
+   "nwin": 2,
+   "win_legal": 2,
+   "win_pawn": 2,
+   "outcome": "R",
+   "k": 2
+  },
+  {
+   "id": "train-19009",
+   "nlegal": 7,
+   "npawn": 3,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 2
+  },
+  {
+   "id": "val-00539",
+   "nlegal": 8,
+   "npawn": 3,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 2
+  },
+  {
+   "id": "train-16362",
+   "nlegal": 5,
+   "npawn": 1,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 2
+  },
+  {
+   "id": "train-04429",
+   "nlegal": 7,
+   "npawn": 2,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "L",
+   "k": 3
+  },
+  {
+   "id": "train-15169",
+   "nlegal": 8,
+   "npawn": 4,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 3
+  },
+  {
+   "id": "train-06727",
+   "nlegal": 7,
+   "npawn": 2,
+   "nwin": 2,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "L",
+   "k": 3
+  },
+  {
+   "id": "train-18673",
+   "nlegal": 6,
+   "npawn": 3,
+   "nwin": 1,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "N",
+   "k": 3
+  },
+  {
+   "id": "train-16991",
+   "nlegal": 6,
+   "npawn": 2,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 3
+  },
+  {
+   "id": "train-17244",
+   "nlegal": 5,
+   "npawn": 3,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 3
+  },
+  {
+   "id": "train-00629",
+   "nlegal": 5,
+   "npawn": 3,
+   "nwin": 3,
+   "win_legal": 2,
+   "win_pawn": 2,
+   "outcome": "R",
+   "k": 3
+  },
+  {
+   "id": "train-04689",
+   "nlegal": 5,
+   "npawn": 2,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 3
+  },
+  {
+   "id": "train-18249",
+   "nlegal": 6,
+   "npawn": 3,
+   "nwin": 5,
+   "win_legal": 3,
+   "win_pawn": 3,
+   "outcome": "L",
+   "k": 3
+  },
+  {
+   "id": "test_heldout-01837",
+   "nlegal": 8,
+   "npawn": 3,
+   "nwin": 1,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "N",
+   "k": 3
+  },
+  {
+   "id": "train-17867",
+   "nlegal": 8,
+   "npawn": 6,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 3
+  },
+  {
+   "id": "train-06568",
+   "nlegal": 5,
+   "npawn": 3,
+   "nwin": 4,
+   "win_legal": 3,
+   "win_pawn": 3,
+   "outcome": "L",
+   "k": 3
+  },
+  {
+   "id": "train-08441",
+   "nlegal": 8,
+   "npawn": 5,
+   "nwin": 5,
+   "win_legal": 5,
+   "win_pawn": 5,
+   "outcome": "L",
+   "k": 3
+  },
+  {
+   "id": "train-05497",
+   "nlegal": 6,
+   "npawn": 5,
+   "nwin": 5,
+   "win_legal": 4,
+   "win_pawn": 4,
+   "outcome": "L",
+   "k": 3
+  },
+  {
+   "id": "train-00913",
+   "nlegal": 12,
+   "npawn": 7,
+   "nwin": 6,
+   "win_legal": 4,
+   "win_pawn": 4,
+   "outcome": "L",
+   "k": 3
+  },
+  {
+   "id": "train-04216",
+   "nlegal": 6,
+   "npawn": 4,
+   "nwin": 5,
+   "win_legal": 4,
+   "win_pawn": 4,
+   "outcome": "L",
+   "k": 3
+  },
+  {
+   "id": "val-00269",
+   "nlegal": 6,
+   "npawn": 4,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "L",
+   "k": 3
+  },
+  {
+   "id": "val-00938",
+   "nlegal": 7,
+   "npawn": 3,
+   "nwin": 3,
+   "win_legal": 2,
+   "win_pawn": 2,
+   "outcome": "L",
+   "k": 3
+  },
+  {
+   "id": "train-12431",
+   "nlegal": 6,
+   "npawn": 4,
+   "nwin": 2,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 3
+  },
+  {
+   "id": "train-19434",
+   "nlegal": 7,
+   "npawn": 3,
+   "nwin": 1,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "R",
+   "k": 3
+  },
+  {
+   "id": "train-15931",
+   "nlegal": 6,
+   "npawn": 4,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 3
+  },
+  {
+   "id": "train-06544",
+   "nlegal": 5,
+   "npawn": 3,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "L",
+   "k": 3
+  },
+  {
+   "id": "train-04245",
+   "nlegal": 10,
+   "npawn": 5,
+   "nwin": 5,
+   "win_legal": 5,
+   "win_pawn": 5,
+   "outcome": "L",
+   "k": 3
+  },
+  {
+   "id": "train-14531",
+   "nlegal": 10,
+   "npawn": 5,
+   "nwin": 4,
+   "win_legal": 3,
+   "win_pawn": 3,
+   "outcome": "L",
+   "k": 3
+  },
+  {
+   "id": "train-10780",
+   "nlegal": 5,
+   "npawn": 4,
+   "nwin": 3,
+   "win_legal": 3,
+   "win_pawn": 3,
+   "outcome": "R",
+   "k": 3
+  },
+  {
+   "id": "train-08327",
+   "nlegal": 7,
+   "npawn": 4,
+   "nwin": 2,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 3
+  },
+  {
+   "id": "train-14632",
+   "nlegal": 5,
+   "npawn": 3,
+   "nwin": 3,
+   "win_legal": 3,
+   "win_pawn": 3,
+   "outcome": "R",
+   "k": 3
+  },
+  {
+   "id": "train-02239",
+   "nlegal": 4,
+   "npawn": 2,
+   "nwin": 3,
+   "win_legal": 2,
+   "win_pawn": 2,
+   "outcome": "R",
+   "k": 3
+  },
+  {
+   "id": "train-06909",
+   "nlegal": 9,
+   "npawn": 5,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 3
+  },
+  {
+   "id": "train-02112",
+   "nlegal": 3,
+   "npawn": 1,
+   "nwin": 3,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "L",
+   "k": 3
+  },
+  {
+   "id": "train-06230",
+   "nlegal": 6,
+   "npawn": 5,
+   "nwin": 3,
+   "win_legal": 2,
+   "win_pawn": 2,
+   "outcome": "R",
+   "k": 3
+  },
+  {
+   "id": "train-18638",
+   "nlegal": 5,
+   "npawn": 3,
+   "nwin": 2,
+   "win_legal": 2,
+   "win_pawn": 2,
+   "outcome": "N",
+   "k": 3
+  },
+  {
+   "id": "train-17598",
+   "nlegal": 3,
+   "npawn": 3,
+   "nwin": 2,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "R",
+   "k": 3
+  },
+  {
+   "id": "train-06793",
+   "nlegal": 7,
+   "npawn": 5,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 3
+  },
+  {
+   "id": "train-19731",
+   "nlegal": 8,
+   "npawn": 5,
+   "nwin": 6,
+   "win_legal": 5,
+   "win_pawn": 5,
+   "outcome": "L",
+   "k": 3
+  },
+  {
+   "id": "train-18632",
+   "nlegal": 5,
+   "npawn": 4,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 3
+  },
+  {
+   "id": "train-17337",
+   "nlegal": 4,
+   "npawn": 1,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 3
+  },
+  {
+   "id": "train-15499",
+   "nlegal": 10,
+   "npawn": 5,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 3
+  },
+  {
+   "id": "train-08668",
+   "nlegal": 3,
+   "npawn": 2,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 3
+  },
+  {
+   "id": "train-04850",
+   "nlegal": 5,
+   "npawn": 2,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 3
+  },
+  {
+   "id": "val-01568",
+   "nlegal": 9,
+   "npawn": 4,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 3
+  },
+  {
+   "id": "train-02577",
+   "nlegal": 7,
+   "npawn": 2,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 3
+  },
+  {
+   "id": "train-00586",
+   "nlegal": 7,
+   "npawn": 4,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 3
+  },
+  {
+   "id": "train-03517",
+   "nlegal": 6,
+   "npawn": 3,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 3
+  },
+  {
+   "id": "train-05707",
+   "nlegal": 5,
+   "npawn": 2,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 3
+  },
+  {
+   "id": "train-06008",
+   "nlegal": 5,
+   "npawn": 2,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 3
+  },
+  {
+   "id": "train-18277",
+   "nlegal": 7,
+   "npawn": 2,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 3
+  },
+  {
+   "id": "train-01192",
+   "nlegal": 6,
+   "npawn": 4,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 3
+  },
+  {
+   "id": "train-16691",
+   "nlegal": 9,
+   "npawn": 4,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 3
+  },
+  {
+   "id": "train-07716",
+   "nlegal": 8,
+   "npawn": 3,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 3
+  },
+  {
+   "id": "test-01152",
+   "nlegal": 4,
+   "npawn": 3,
+   "nwin": 3,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "R",
+   "k": 4
+  },
+  {
+   "id": "test-00941",
+   "nlegal": 9,
+   "npawn": 4,
+   "nwin": 4,
+   "win_legal": 4,
+   "win_pawn": 4,
+   "outcome": "L",
+   "k": 4
+  },
+  {
+   "id": "test-01023",
+   "nlegal": 6,
+   "npawn": 4,
+   "nwin": 4,
+   "win_legal": 3,
+   "win_pawn": 3,
+   "outcome": "R",
+   "k": 4
+  },
+  {
+   "id": "test-00484",
+   "nlegal": 7,
+   "npawn": 5,
+   "nwin": 6,
+   "win_legal": 4,
+   "win_pawn": 4,
+   "outcome": "R",
+   "k": 4
+  },
+  {
+   "id": "test-01945",
+   "nlegal": 6,
+   "npawn": 3,
+   "nwin": 1,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "N",
+   "k": 4
+  },
+  {
+   "id": "test-01071",
+   "nlegal": 7,
+   "npawn": 5,
+   "nwin": 6,
+   "win_legal": 4,
+   "win_pawn": 4,
+   "outcome": "R",
+   "k": 4
+  },
+  {
+   "id": "test-01757",
+   "nlegal": 5,
+   "npawn": 4,
+   "nwin": 2,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "R",
+   "k": 4
+  },
+  {
+   "id": "test-01882",
+   "nlegal": 7,
+   "npawn": 5,
+   "nwin": 5,
+   "win_legal": 3,
+   "win_pawn": 3,
+   "outcome": "L",
+   "k": 4
+  },
+  {
+   "id": "test-00018",
+   "nlegal": 6,
+   "npawn": 5,
+   "nwin": 3,
+   "win_legal": 2,
+   "win_pawn": 2,
+   "outcome": "R",
+   "k": 4
+  },
+  {
+   "id": "test-01318",
+   "nlegal": 8,
+   "npawn": 4,
+   "nwin": 5,
+   "win_legal": 3,
+   "win_pawn": 3,
+   "outcome": "L",
+   "k": 4
+  },
+  {
+   "id": "test-01386",
+   "nlegal": 9,
+   "npawn": 5,
+   "nwin": 4,
+   "win_legal": 3,
+   "win_pawn": 3,
+   "outcome": "L",
+   "k": 4
+  },
+  {
+   "id": "test-00245",
+   "nlegal": 5,
+   "npawn": 4,
+   "nwin": 1,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "N",
+   "k": 4
+  },
+  {
+   "id": "test-01932",
+   "nlegal": 5,
+   "npawn": 3,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "R",
+   "k": 4
+  },
+  {
+   "id": "test-01788",
+   "nlegal": 3,
+   "npawn": 2,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "R",
+   "k": 4
+  },
+  {
+   "id": "test-01044",
+   "nlegal": 6,
+   "npawn": 4,
+   "nwin": 3,
+   "win_legal": 3,
+   "win_pawn": 3,
+   "outcome": "N",
+   "k": 4
+  },
+  {
+   "id": "test-01478",
+   "nlegal": 11,
+   "npawn": 7,
+   "nwin": 2,
+   "win_legal": 2,
+   "win_pawn": 2,
+   "outcome": "N",
+   "k": 4
+  },
+  {
+   "id": "test-00508",
+   "nlegal": 8,
+   "npawn": 5,
+   "nwin": 3,
+   "win_legal": 2,
+   "win_pawn": 2,
+   "outcome": "N",
+   "k": 4
+  },
+  {
+   "id": "test-01519",
+   "nlegal": 8,
+   "npawn": 5,
+   "nwin": 4,
+   "win_legal": 3,
+   "win_pawn": 3,
+   "outcome": "L",
+   "k": 4
+  },
+  {
+   "id": "test-01239",
+   "nlegal": 9,
+   "npawn": 6,
+   "nwin": 6,
+   "win_legal": 5,
+   "win_pawn": 5,
+   "outcome": "L",
+   "k": 4
+  },
+  {
+   "id": "test-00702",
+   "nlegal": 9,
+   "npawn": 6,
+   "nwin": 5,
+   "win_legal": 5,
+   "win_pawn": 5,
+   "outcome": "L",
+   "k": 4
+  },
+  {
+   "id": "test-00237",
+   "nlegal": 5,
+   "npawn": 5,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "R",
+   "k": 4
+  },
+  {
+   "id": "test-00562",
+   "nlegal": 7,
+   "npawn": 6,
+   "nwin": 6,
+   "win_legal": 6,
+   "win_pawn": 6,
+   "outcome": "R",
+   "k": 4
+  },
+  {
+   "id": "test-00897",
+   "nlegal": 5,
+   "npawn": 2,
+   "nwin": 3,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "R",
+   "k": 4
+  },
+  {
+   "id": "test-00324",
+   "nlegal": 6,
+   "npawn": 4,
+   "nwin": 4,
+   "win_legal": 3,
+   "win_pawn": 3,
+   "outcome": "R",
+   "k": 4
+  },
+  {
+   "id": "test-00919",
+   "nlegal": 8,
+   "npawn": 6,
+   "nwin": 6,
+   "win_legal": 5,
+   "win_pawn": 5,
+   "outcome": "L",
+   "k": 4
+  },
+  {
+   "id": "test-00004",
+   "nlegal": 8,
+   "npawn": 6,
+   "nwin": 3,
+   "win_legal": 2,
+   "win_pawn": 2,
+   "outcome": "N",
+   "k": 4
+  },
+  {
+   "id": "test-01911",
+   "nlegal": 6,
+   "npawn": 4,
+   "nwin": 3,
+   "win_legal": 2,
+   "win_pawn": 2,
+   "outcome": "L",
+   "k": 4
+  },
+  {
+   "id": "test-01783",
+   "nlegal": 5,
+   "npawn": 3,
+   "nwin": 1,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "N",
+   "k": 4
+  },
+  {
+   "id": "test-01793",
+   "nlegal": 6,
+   "npawn": 4,
+   "nwin": 1,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "N",
+   "k": 4
+  },
+  {
+   "id": "test-00501",
+   "nlegal": 3,
+   "npawn": 3,
+   "nwin": 4,
+   "win_legal": 3,
+   "win_pawn": 3,
+   "outcome": "L",
+   "k": 4
+  },
+  {
+   "id": "test-00987",
+   "nlegal": 6,
+   "npawn": 3,
+   "nwin": 4,
+   "win_legal": 2,
+   "win_pawn": 2,
+   "outcome": "R",
+   "k": 4
+  },
+  {
+   "id": "test-01504",
+   "nlegal": 8,
+   "npawn": 5,
+   "nwin": 4,
+   "win_legal": 3,
+   "win_pawn": 3,
+   "outcome": "L",
+   "k": 4
+  },
+  {
+   "id": "test-00371",
+   "nlegal": 9,
+   "npawn": 5,
+   "nwin": 7,
+   "win_legal": 5,
+   "win_pawn": 5,
+   "outcome": "L",
+   "k": 4
+  },
+  {
+   "id": "test-00993",
+   "nlegal": 5,
+   "npawn": 3,
+   "nwin": 3,
+   "win_legal": 3,
+   "win_pawn": 3,
+   "outcome": "R",
+   "k": 4
+  },
+  {
+   "id": "test-00253",
+   "nlegal": 6,
+   "npawn": 1,
+   "nwin": 1,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "L",
+   "k": 4
+  },
+  {
+   "id": "test-01245",
+   "nlegal": 10,
+   "npawn": 7,
+   "nwin": 6,
+   "win_legal": 5,
+   "win_pawn": 5,
+   "outcome": "L",
+   "k": 4
+  },
+  {
+   "id": "test-01999",
+   "nlegal": 7,
+   "npawn": 4,
+   "nwin": 0,
+   "win_legal": 0,
+   "win_pawn": 0,
+   "outcome": "P",
+   "k": 4
+  },
+  {
+   "id": "test-00875",
+   "nlegal": 6,
+   "npawn": 3,
+   "nwin": 3,
+   "win_legal": 3,
+   "win_pawn": 3,
+   "outcome": "L",
+   "k": 4
+  },
+  {
+   "id": "test-00483",
+   "nlegal": 5,
+   "npawn": 3,
+   "nwin": 3,
+   "win_legal": 3,
+   "win_pawn": 3,
+   "outcome": "L",
+   "k": 4
+  },
+  {
+   "id": "test-01095",
+   "nlegal": 8,
+   "npawn": 6,
+   "nwin": 5,
+   "win_legal": 4,
+   "win_pawn": 4,
+   "outcome": "R",
+   "k": 4
+  },
+  {
+   "id": "test-00491",
+   "nlegal": 9,
+   "npawn": 7,
+   "nwin": 7,
+   "win_legal": 6,
+   "win_pawn": 6,
+   "outcome": "L",
+   "k": 4
+  },
+  {
+   "id": "test-01816",
+   "nlegal": 9,
+   "npawn": 4,
+   "nwin": 3,
+   "win_legal": 3,
+   "win_pawn": 3,
+   "outcome": "R",
+   "k": 4
+  },
+  {
+   "id": "test-01735",
+   "nlegal": 8,
+   "npawn": 6,
+   "nwin": 6,
+   "win_legal": 4,
+   "win_pawn": 4,
+   "outcome": "L",
+   "k": 4
+  },
+  {
+   "id": "test-00011",
+   "nlegal": 8,
+   "npawn": 4,
+   "nwin": 3,
+   "win_legal": 3,
+   "win_pawn": 3,
+   "outcome": "N",
+   "k": 4
+  },
+  {
+   "id": "test-00884",
+   "nlegal": 7,
+   "npawn": 5,
+   "nwin": 5,
+   "win_legal": 4,
+   "win_pawn": 4,
+   "outcome": "L",
+   "k": 4
+  },
+  {
+   "id": "test-01592",
+   "nlegal": 8,
+   "npawn": 5,
+   "nwin": 3,
+   "win_legal": 3,
+   "win_pawn": 3,
+   "outcome": "N",
+   "k": 4
+  },
+  {
+   "id": "test-00097",
+   "nlegal": 7,
+   "npawn": 3,
+   "nwin": 4,
+   "win_legal": 3,
+   "win_pawn": 3,
+   "outcome": "L",
+   "k": 4
+  },
+  {
+   "id": "test-00293",
+   "nlegal": 10,
+   "npawn": 6,
+   "nwin": 4,
+   "win_legal": 3,
+   "win_pawn": 3,
+   "outcome": "R",
+   "k": 4
+  },
+  {
+   "id": "test-01003",
+   "nlegal": 5,
+   "npawn": 3,
+   "nwin": 3,
+   "win_legal": 3,
+   "win_pawn": 3,
+   "outcome": "R",
+   "k": 4
+  },
+  {
+   "id": "test-00969",
+   "nlegal": 6,
+   "npawn": 5,
+   "nwin": 3,
+   "win_legal": 1,
+   "win_pawn": 1,
+   "outcome": "N",
+   "k": 4
+  }
+ ]
+}

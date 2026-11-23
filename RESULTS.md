@@ -513,6 +513,25 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
     1,786,371 and 340; the extra 280 are in two impossible 20-pawn splits (1+19, 2+18). No table entry changes; the
     grand total of positions is therefore quoted as "about 1.8 billion".
 
+- **Engines on ChessSums: result withdrawn (2026-11-23; `research/engine_baselines/REPORT.md`).** A referee asked for a
+  random baseline for "Stockfish finds a winning move in 26.5-28.0% of 200 sums". Computing it showed the test is
+  flawed. `engine/runs/chesssums/embed.py` drops the king group into any free squares: in 163 of the 200 positions it
+  shares a file with component pawns; 72 positions list a model-winning move that is illegal on the board and 61
+  have no legal winning move; 27 have more than eight pawns of one colour and Stockfish exits on them. A uniformly
+  random legal move scores 23.7% and a random pawn move 49.0%. On the 37 positions without a shared file the engines
+  get 23 of the 25 that have a winning move; on the 13 with the group clear of the pawn files and their neighbours,
+  13 of 13 at every budget. COMPUTED-1. The paper's Section XII and the introduction no longer claim that engines
+  miss winning moves on sums. The suite result (233 positions, Table of accuracy by value class) reproduces in every
+  cell and stands; restricted to the 180 positions where model and tablebase agree, infinitesimals are still
+  the hardest class at depth 1 and 2 (30% and 26%, n = 27; intervals overlap nimbers and "other").
+  A clean rerun would need embeddings built with room for the kings.
+
+- **Sum cross-check rerun under the e.p.-aware test (2026-11-23; `research/sumtest_epaware_rerun/REPORT.md`).** The
+  only recorded run predated the engine's switch to the e.p.-aware test and showed 13,176 cases (109,157 pairs)
+  differing. Rerun with both sides e.p.-aware: 0 of 2,483,775 pairs differ, in each of the solver's three modes; the
+  textbook and e.p.-off controls are also 0; mixing the two tests across the sides reproduces the old 13,176 and
+  109,157 exactly. So the paper's sentence in Section XIII is true as written and now has a log. CHECKED-2.
+
 ## 7. Pending
 
 **Verification gaps.** 35 adversarial verifiers were cut off by the Claude usage limit. Not verified:

@@ -65,3 +65,42 @@ python3 research/engine_baselines/baseline_a.py            # writes baseline_a_t
 ## Candidate sentences (at most 25 words)
 1. B: "Random legal play scores 23.7% on these 200 positions and random pawn play 49.0%, so neither engine is far above chance." (21 words)
 2. A: "On the 180 positions where model and tablebase agree, infinitesimals are still hardest at depth 1 and 2 (30% and 26%, n=27)." (22 words)
+
+## Embedding flaw (COMPUTED-1)
+
+Classes by `freeze` (king group = wk, bk, wp, bp squares; component pawns = all other pawns in the FEN). SHARED: a component pawn on a file of the group. ADJACENT: none shared, a component pawn on a neighbouring file of the group. APART: neither. Counts on the 200 confirm 163 / 14 / 23. Script: `embedding_flaw.py`; full tables (every engine and budget, all classes): `embedding_flaw_tables.md`.
+
+| class | n | outcome P | listed win | legal win | positions with illegal listed | illegal listed | random legal % | random pawn % |
+|---|---|---|---|---|---|---|---|---|
+| SHARED | 163 | 33 | 130 | 114 | 72 | 85 | 25.0 | 45.5 |
+| ADJACENT | 14 | 2 | 12 | 12 | 0 | 0 | 24.6 | 67.9 |
+| APART | 23 | 10 | 13 | 13 | 0 | 0 | 13.8 | 47.8 |
+| ADJ+APART | 37 | 12 | 25 | 25 | 0 | 0 | 17.9 | 55.4 |
+
+Engines right (all 6 engine runs give identical counts in ADJACENT and APART, so one row each; Wilson 95% in brackets):
+
+| class | Stockfish 1e3..1e6 | Lc0 1e3 / 1e4 |
+|---|---|---|
+| SHARED, over 163 | 32, 30, 32, 33 (18-20% [13-26]) | 42, 44 (26-27% [20-34]) |
+| SHARED, over 130 with a win | 24-25% [17-33] | 32-34% [25-42] |
+| ADJACENT, over 14 | 10 (71% [45-88]) | 10 |
+| ADJACENT, over 12 with a win | 83% [55-95] | 83% |
+| APART, over 23 | 13 (57% [37-74]) | 13 |
+| APART, over 13 with a win | 100% [77-100] | 100% |
+| ADJ+APART, over 37 | 23 (62% [46-76]) | 23 |
+| ADJ+APART, over 25 with a win | 92% [75-98] | 92% |
+
+King moves among wrong answers (result files record the move played; Stockfish crashes have no move and are excluded from the count): SHARED Stockfish 54-61 of about 130 recorded wrong moves (about 45%), Lc0 62-67 of about 120; ADJ+APART 9 of 14 for every run; all 200, Stockfish 63-70 of about 145, Lc0 71-76 of about 134.
+
+Clean positions available for a rerun, all embedded rows in `meta.json` (19,956):
+
+| class | k=1 | k=2 | k=3 | k=4 | total |
+|---|---|---|---|---|---|
+| SHARED | 1640 | 7461 | 7486 | 364 | 16951 |
+| ADJACENT | 638 | 718 | 44 | 0 | 1400 |
+| APART | 1422 | 183 | 0 | 0 | 1605 |
+| all | 3700 | 8362 | 7530 | 364 | 19956 |
+
+A second flaw, found while splitting: Stockfish exits ("engine exited") on 27 of the 200 positions, at every budget, because they have more than 8 pawns for one side. All 27 are SHARED, all have a listed winning move, and they are scored as errors. On the other 173, Stockfish is right 53-56 times (30.6-32.4%; 41-44% of the 128 with a listed win), Lc0 57 and 60 (32.9, 34.7%).
+
+What (B) shows and does not show. The 26.5 to 33.5% figures mix three things: engine error, positions where the model's winning move is not a legal move (16 positions have no legal winning move, 45 have none by outcome), and, for Stockfish, 27 crashes. In the 37 positions where the king group does not touch the component's files, nothing is illegal, the random legal baseline is 17.9% and the engines are right 62% (92% where a win exists), so engines do reasonably there. In the 163 SHARED positions the kings block or attack component pawns, the frozen-king model does not describe the position, and engine accuracy of 18 to 27% against a random 25% says little about CGT. Experiment (B) therefore does not show that engines misjudge sums, nor that errors single out any value class; the clean sample (37 positions, 23 truly APART) is too small to say more, and 1,605 APART rows (183 with k=2, none with k=3 or 4) exist for a rerun.

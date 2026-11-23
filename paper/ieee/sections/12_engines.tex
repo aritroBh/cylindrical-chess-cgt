@@ -62,13 +62,15 @@ almost nothing.
 
 \subsection{Engines on Sums}
 
-We placed each sum on the ordinary $8\times8$ board beside T (Fig.~\ref{fig:trebuchet}) or a shifted copy that our
-king-and-pawn solver confirms is a mutual zugzwang, giving legal positions with $15$--$20$ men. On $200$ of
-them, Stockfish~19 picks a winning move only $26.5$--$28.0\%$ of the time from $10^3$ to $10^6$ nodes, and Lc0
-$32.5$--$33.5\%$ at $10^3$ and $10^4$ nodes \lab{C1} ($34$--$36\%$ and $42$--$43\%$ without the $45$
-second-player wins, which have no winning move). More nodes barely help, both engines worsen as components are
-added, and the errors do not single out nimbers or infinitesimals. These numbers measure agreement with the
-frozen-king model (not always exact; Section~\ref{sec:kings-sweep}), not real-chess errors.
+We placed $200$ sums on the ordinary $8\times8$ board with T (Fig.~\ref{fig:trebuchet}) or a shifted copy on free
+squares and ran Stockfish~19 and Lc0 on them. The test does not measure what we wanted. In $163$ of the $200$
+positions the king group shares a file with the pawns, where the kings block or attack them and the frozen-king
+model need not hold; in $61$ no winning move of the model is even legal; and $27$ positions have more than eight
+pawns of one color, which Stockfish rejects. A uniformly random pawn move scores $49\%$ on the $200$, above both engines
+($26.5$--$28.0\%$ and $32.5$--$33.5\%$), which shows how little the raw figures mean. So we draw no conclusion
+from them. On the $13$ positions where the group stands clear of every pawn file and its neighbors and a winning
+move exists, both engines found one at every budget we ran \lab{C1}. A proper test of engines on
+sums needs positions built with room for the kings, and is future work.
 
 \subsection{Learning Dawson's Chess}
 

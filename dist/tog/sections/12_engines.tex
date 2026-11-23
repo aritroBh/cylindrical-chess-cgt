@@ -56,11 +56,8 @@ Beyond seven men no tablebase applies, but CGT still values sums exactly. ChessS
 pawn-endgame sums whose components come from a library of $418$ with $37$ distinct values, each the same in all
 nine settings; whole-board alpha--beta confirms every outcome except five that hit its time limit \lab{C1}, an
 independent minimax confirms $4{,}887$ \lab{C2}, and alpha--beta needs about $4$--$9$ times as many nodes per
-added component \lab{C1}. We placed each sum on the ordinary
-$8\times8$ board beside T or a shifted copy that our king-and-pawn solver confirms is a mutual zugzwang, giving
-legal positions with $15$--$20$ men. On $200$ of them, Stockfish~19 picks a winning move only $26.5$--$28.0\%$ of
-the time from $10^3$ to $10^6$ nodes, and Lc0 $32.5$--$33.5\%$ at $10^3$ and $10^4$ nodes \lab{C1} ($34$--$36\%$
-and $42$--$43\%$ without the $45$ second-player wins, which have no winning move). More nodes barely help, both
-engines worsen as components are added, and the errors do not single out nimbers or infinitesimals. These numbers
-measure agreement with the frozen-king model (not always exact; Section~\ref{sec:kings-sweep}), not real-chess
-errors. A learning experiment on Dawson's chess is in Section~S9.
+added component \lab{C1}. We placed $200$ sums on the ordinary $8\times8$ board with a tr\'ebuchet on free
+squares and ran both engines, but in $163$ of them the king group shares a file with the pawns, where the
+frozen-king model need not hold, so we draw no conclusion from that test. On the $13$ positions where the group
+stands clear of the pawns and a winning move exists, Stockfish~19 and Lc0 found one at every budget \lab{C1}. A
+proper test of engines on sums is future work. A learning experiment on Dawson's chess is in Section~S9.

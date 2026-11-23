@@ -39,8 +39,8 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 - [x] Third referee report (kings session, `paper-referee-2026-11-22.md` in the shared notes): applied the square-rule
   scope (52 repairs hold with frozen kings, 31 with real kings; the rule is not sound on every board), six settings
   not nine in Section VI, the abstract's wording on frozen kings (199 words), a caption label and three stale report
-  headers. Running: a recorded rerun of the sum cross-check under the e.p.-aware test, and random-move baselines for
-  the engine section. Open, need space or an author decision: missing prior-work references (Thompson 1986, Syzygy,
+  headers. The sum cross-check was rerun with both sides e.p.-aware: 0 of 2,483,775 pairs differ, so the sentence in
+  Section XIII stands and now has a log. Open, need space or an author decision: missing prior-work references (Thompson 1986, Syzygy,
   fairy-chess generators, CGSuite, Tomašev et al.), a self-contained rewrite of supplement S12
 - [x] Supplement S3.4 added: the census table by rule and test, and the 19-row table of the real-king sum test; 81 pages
 - [x] Submission package (`dist/tog/submission/`): cover letter, ScholarOne fields, upload table, steps for the author.
@@ -73,6 +73,9 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 - [x] New: the pawn game on boards of 5 to 12 ranks (`research/tall_boards/`): no *4 in 1.8 billion positions; *2 with
   four pawns and *3 with six on seven ranks; none on five ranks; in Section VIII of both versions, supplement S6.5
   and the conclusion. To fit, the two-core remark moved to the supplement only and five supplement pointers were shortened
+- [x] Engines on sums: the 200-position test was flawed (king group among the pawns in 163; illegal winning moves;
+  27 positions Stockfish rejects). Claim withdrawn from Section XII and the introduction of both versions; the
+  suite table stands. A clean rerun is open
 - [x] Independent Codex check of the height results (T80): the complete scans for 5 and 6 ranks and 3 files on 7
   ranks agree in every nimber count and minimum; the named positions agree; labels raised to C2 for those
 - [ ] Seven-pawn *2 in real chess: the 9-man end positions (needs about 26 GB; waits for the author's word)
