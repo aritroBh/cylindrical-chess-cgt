@@ -467,6 +467,10 @@ Every deliverable was given to independent referees (Claude models) told to brea
     step used an unproved inheritance of threats by re-split components. (E) is now a hypothesis (every use already had
     it through Theorem 1.14), and the inheritance is proved. Found while the paper's proofs appendix was written and
     refereed (`kings/delegate/out/S12A/REVIEW.md`).
+  - Foundations stated after a Codex report on the same appendix (2026-11-23, `kings/delegate/out/T81L/REVIEW.md`): the
+    promotion convention (a pawn on its last rank stays and is passed), the order of operations in the sum model (test
+    for passed pawns before splitting), threats by moves in any order, a passer-free root for Theorem 1.11(c), and
+    Theorem 1.14 restated per side to move, since its hypotheses can hold for one starter only. 16 edits, refereed.
   - K49 (2026-11-23) reduces K40's classes for K+P v K on the cylinder to one lemma (Lemma P: if White wins the bare
     normal-play game with Black to move, she wins it with White to move). Given it, the classes are proved by hand
     against every integer and every terminal-free test game, not only up to 12 spare moves. Lemma P is PROVED for the

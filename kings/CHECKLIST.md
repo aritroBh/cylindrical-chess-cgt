@@ -36,8 +36,8 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
 ## Foundations (found while the paper's proofs appendix was refereed)
 
 - [x] Theorem 1.11(c): (E) added as a hypothesis, frontier step proved (435ccdc7)
-- [~] Promotion convention, order of operations in S, threats in any order, Theorem 1.14 per side to move (nine edits
-      from the check against Codex T81, with a referee)
+- [x] Promotion convention, order of operations in S, threats in any order, passer-free root for 1.11(c),
+      Theorem 1.14 per side to move (16 refereed edits after Codex T81)
 
 ## Paper support (the main session owns `paper/` and `dist/`)
 

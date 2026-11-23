@@ -1,0 +1,70 @@
+T81L: kings/theory/LOOPY.md against Codex T81 (delegate/out/T81/REPORT.md), 2026-11-23
+Read-only on LOOPY; edits in EDITS.md (9 edits; applied to a copy: 9 applied, 0 rejected; table rows 121, cell counts unchanged).
+Scripts: scripts/q.py (named positions, output q.out), scripts/sweep.py (4/5-rank sweep, output sweep.out).
+Run from repo root: PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. .venv/bin/python kings/delegate/out/T81L/scripts/q.py
+
+Q1 ORDER OF OPERATIONS IN S: AMBIGUOUS (definition reads split-first; proof and engine are check-before-split).
+- LOOPY §1.5 (line 283-286) defines S: "at every node of the game tree the position is split into its components ...,
+  each component is translated separately, and the translations are summed; a component with a passer is worth ±BIG".
+  Read literally: split, then score components = split-first. It then says "This is the value cylcgt.pawns.value computes",
+  which is check-before-split (pawns.py value(): "check before splitting").
+- Proof of T1.11(c) (line ~451): "if that move creates a passer (or a race) in Z, then Z leaves Y and ±B joins N;
+  otherwise Z is replaced by its new components" = check-before-split, and "Race scores agree" relies on it.
+- cylcgt, flat 8x8 W b2 d6 / B c7 (COMPUTED-1): one component, no passer. Engine S = 𝓛, W (whole board) = 𝓛,
+  alt_outcome = L. Black's moves: c7-c6, c7-c5 give White a passer (+BIG); c7xd6 -> W b2 / B d6, 2 components,
+  both passed, count rule: distance 5 each, tie to the non-mover White -> +BIG. Split-first model: c7xd6 -> +BIG-BIG = 0;
+  whole game {+W,... | 0} = 𝓝 (Black moving first wins). Codex's example confirmed.
+- Also: at a root with passers of both colours in separate components the engine gives 0 (W a2 / B h7 on FLAT8 -> 0);
+  T1.11(c) did not say the root is passer-free. EDIT 3 (order stated in §1.5), EDIT 4 (passer-free root in T1.11(c)).
+
+Q2 HEIGHTS: LOOPY RIGHT IN SUBSTANCE, convention not stated (AMBIGUOUS) -> stated, no height hypothesis added.
+- Engine behaviour (COMPUTED-1, q.out):
+  * flat 2x4 and 8x4, W a2 / B b3: root passer-free. a2-a4 -> W a4 / B b3 (ep a3): both passed (b3 freed), race,
+    count distances W 0, B 1 -> +BIG; the pawn stays on a4 and has no moves. (a2-a3 is also a race, scored -BIG.)
+    No raise. Value ±+W, o(S) = N = o(W) = alt.
+  * flat 5 ranks (2, 3, 8 files), W a2 b2 / B b4, e.p.-aware: after a2-a4 nobody passed (a4 e.p.-capturable,
+    b2 blocked by b4, b4 blocked by b2). White option a4-a5 -> pawn on a5 (last rank), passed -> +BIG. No raise.
+    a4-child value {+W | +W, ±+W}; root value {+W | ±+W}, o(S) = L = o(W). Textbook test: a4 already passed (+W).
+- So Codex's facts are right (promotion by an unpassed pawn on H=4; on H=5 e.p.-aware), but they break only a model
+  that leaves promotion undefined (the appendix's old "ranks 2..H-1"). Under the engine convention (last-rank pawn
+  stays, is passed under every test) S, W, D are defined for all H, and every promotion is a decisive event.
+  The earlier referee (B) is right for LOOPY. Nothing in the proofs of T1.9, T1.11(a)-(c), T1.14 uses H;
+  Def 1.10's bound sum(H - rank) is fine with a last-rank pawn (0).
+- LOOPY as written: S and D defined only "as in cylcgt" (lines 279, 286); the convention is never stated. EDIT 1 states
+  it in §1.1 with the one statement that needs H >= 5 (mover has no promoting move at a passer-free position with the
+  right made by the opponent; PROVED by hand, false at H=4); EDIT 2 points D(X) to it.
+- Does LOOPY rely on H <= 5 for S-results? No S/T1.11/T1.14(ii) claim found on <= 5 ranks; the 4-/5-rank boards in
+  LOOPY (flat:4x4 (A_Q), flat:4x5, 3x5 for L2.9, cyl:6x5/7x5 P-model sweeps, P2.10(a) with its own H >= 5) are P-model or
+  frozen-king results, not the sum theorem.
+- Sweep (COMPUTED-1, sweep.out, 4.8 s): every passer-free root with <= 2+2 pawns on interior ranks, HSS (any order) and
+  (E) (no usable right at a multi-component any-order-reachable position): flat 3x4 26, flat 4x4 52, cyl 4x4 72,
+  flat 3x5 190, flat 4x5 402, cyl 4x5 564 = 1,306 roots (488 with a last-rank pawn reachable): o(S) = o(W) everywhere.
+  Same engine and lemmas/common.py as referee B, so not independent of his 985-root sample.
+- Side note (not edited): a promoting move that also frees an enemy passer is a race; count and mover rules give it
+  to the promoter (distance 0), the "opponent" rule to the other side. S and D agree on it (T1.11(c) unaffected);
+  T1.14 then fails (V2), so it is excluded, not mis-scored.
+
+Q3 SIDE TO MOVE: T1.14 AMBIGUOUS/WRONG as quantified; sharp form and bridges RIGHT.
+- Hand check, flat 8x8 Kb6 Pc7 / Ka8 Pa5, group a-c, empty context. Black to move: Ka8 not in check; a7, b7 covered
+  by Kb6, b8 by Pc7; only move a5-a4, then c8=Q mates (b8, b7 covered by Q, a7 by K). (V1)-(V3) hold, P = D = White.
+  White to move: c8=Q mate is a legal Z-move that is not a suicide, (V3) fails; D (Z-moves suicides, empty sum) =
+  White loses; P = White wins. Codex's example is right.
+- LOOPY line 548 "Fix a K+P chess position X", hypotheses at "every chess position Y reachable from X", line 569
+  "Then, with either side to move:". Whether X carries a side to move is not said; if it does, the conclusion
+  overreaches; the proof of (i) is already per starter ("for the given side to move"). EDIT 6-7 make it per starter.
+- (ii): its proof cites T1.11(c), whose induction is over outcome classes at every Y reachable by moves of either
+  side in any order, while (V1a) gives (E) only on chess play from a starter. EDIT 8-9 put (V4) and (E) on the
+  any-order reach (as lemmas/common.py hereditarily_safe checks) and give the s-entry of o(S).
+- Sharp form (line 598 "A P-position is a chess position before the first promotion, with the side to move";
+  "If a σ-certified set N contains X, then X is a P-win for σ"): per position with side. RIGHT, no edit.
+  One-sided bridge after P3.2 (line ~1700, "r(G ⊞ on_D) = W at π(X)", π keeps the side to move): RIGHT.
+  Theorem 3.2‴ (a) per side s ("r_D(x, ω, s) = W"), (b) hypotheses and conclusion both at all regular positions: RIGHT.
+
+Q4 (coordinator addition) THREAT DEFINITION: IMPLIED, not stated -> EDIT 5.
+- Def 1.10 (line 384): τ uses "some position reachable from y without passing a terminal has an option ⊕ by either
+  player". The order of moves is not stated for τ; it is stated for M ("moves by both sides, in any order, not
+  necessarily alternating"), and for a D-game reachability is through options of either player, and
+  lemmas/common.py threats() is any-order. Nothing says alternating. The new parenthesis in the T1.11(c) frontier
+  step (prefix the splitting move to a daughter's threat sequence) needs the any-order reading; EDIT 5 states it.
+
+Labels: hand arguments PROVED (Q2 H>=5 statement, Q3 example); all cylcgt outputs COMPUTED-1 (one engine, one run).

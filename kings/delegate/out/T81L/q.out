@@ -1,0 +1,87 @@
+== Q1 flat 8x8, W b2 d6 / B c7
+passed W,B: False False components: ['W: b2 d6 / B: c7']
+engine S: W: b2 d6 / B: c7 value {+W, {+W, {+W, {+W, +W* | +W} | +W} | +W} | +W} outcome L
+whole-board W outcome: L  alt_outcome: L
+split-first: {+W, {+W, {+W, {+W, +W±+W | 0} | 0} | 0} | 0} N
+  Black child W: b2 d6 / B: c6 | passed W,B True False | comps 1 | engine +W | split-first - | alt winner W-to-move terminal
+  Black child W: b2 d6 / B: c5 (ep c6) | passed W,B True False | comps 1 | engine +W | split-first - | alt winner W-to-move terminal
+  Black child W: b2 / B: d6 | passed W,B True True | comps 2 | engine +W | split-first 0 | alt winner W-to-move terminal
+  White child W: b3 d6 / B: c7 | passed W,B False False
+  White child W: b4 d6 / B: c7 (ep b3) | passed W,B False False
+  White child W: b2 d7 / B: c7 | passed W,B True False
+  White child W: b2 c7 / B:  | passed W,B True False
+  c7xd6 child: promote_distance W 5 B 5 race winner (mover B, count): W
+== Q2a flat 2x4 (also 8x4), W a2 / B b3
+ files 2 passed W,B: False False
+   W move -> W: a3 / B: b3 passed W,B True True child -W | promote_distance W,B 1 1
+     moves of the pawn on a4: ['W: a4 / B: b3']
+   W move -> W: a4 / B: b3 (ep a3) passed W,B True True child +W | promote_distance W,B 0 1
+     moves of the pawn on a4: []
+   W move -> W: b3 / B:  passed W,B True False child +W | promote_distance W,B 1 1000000
+     moves of the pawn on a4: ['W: b4 / B: ']
+   engine S: W: a2 / B: b3 value ±+W outcome N
+   W outcome: N alt: N
+ files 8 passed W,B: False False
+   W move -> W: a3 / B: b3 passed W,B True True child -W | promote_distance W,B 1 1
+     moves of the pawn on a4: ['W: a4 / B: b3']
+   W move -> W: a4 / B: b3 (ep a3) passed W,B True True child +W | promote_distance W,B 0 1
+     moves of the pawn on a4: []
+   W move -> W: b3 / B:  passed W,B True False child +W | promote_distance W,B 1 1000000
+     moves of the pawn on a4: ['W: b4 / B: ']
+   engine S: W: a2 / B: b3 value ±+W outcome N
+   W outcome: N alt: N
+== Q2b flat 5 ranks, W a2 b2 / B b4
+ files 2 e.p.-aware True root passed W,B: False False
+   after a2-a4: W: a4 b2 / B: b4 (ep a3) passed W,B: False False
+   engine value of a4 child: {+W | +W, ±+W} L
+     White option W: a4 b3 / B: b4 passed W,B True False child value +W
+     White option W: a5 b2 / B: b4 passed W,B True False child value +W
+     Black option W: a4 b2 / B: b3 passed W,B True False
+     Black option W: b2 / B: a3 passed W,B False False
+   engine S root: W: a2 b2 / B: b4 value {+W | ±+W} outcome L
+   W outcome: L alt: L
+ files 2 e.p.-aware False root passed W,B: False False
+   after a2-a4: W: a4 b2 / B: b4 (ep a3) passed W,B: True False
+   engine value of a4 child: +W L
+     White option W: a4 b3 / B: b4 passed W,B True False child value +W
+     White option W: a5 b2 / B: b4 passed W,B True False child value +W
+     Black option W: a4 b2 / B: b3 passed W,B True False
+     Black option W: b2 / B: a3 passed W,B False False
+   engine S root: W: a2 b2 / B: b4 value {+W | ±+W} outcome L
+   W outcome: L alt: L
+ files 3 e.p.-aware True root passed W,B: False False
+   after a2-a4: W: a4 b2 / B: b4 (ep a3) passed W,B: False False
+   engine value of a4 child: {+W | +W, ±+W} L
+     White option W: a4 b3 / B: b4 passed W,B True False child value +W
+     White option W: a5 b2 / B: b4 passed W,B True False child value +W
+     Black option W: a4 b2 / B: b3 passed W,B True False
+     Black option W: b2 / B: a3 passed W,B False False
+   engine S root: W: a2 b2 / B: b4 value {+W | ±+W} outcome L
+   W outcome: L alt: L
+ files 3 e.p.-aware False root passed W,B: False False
+   after a2-a4: W: a4 b2 / B: b4 (ep a3) passed W,B: True False
+   engine value of a4 child: +W L
+     White option W: a4 b3 / B: b4 passed W,B True False child value +W
+     White option W: a5 b2 / B: b4 passed W,B True False child value +W
+     Black option W: a4 b2 / B: b3 passed W,B True False
+     Black option W: b2 / B: a3 passed W,B False False
+   engine S root: W: a2 b2 / B: b4 value {+W | ±+W} outcome L
+   W outcome: L alt: L
+ files 8 e.p.-aware True root passed W,B: False False
+   after a2-a4: W: a4 b2 / B: b4 (ep a3) passed W,B: False False
+   engine value of a4 child: {+W | +W, ±+W} L
+     White option W: a4 b3 / B: b4 passed W,B True False child value +W
+     White option W: a5 b2 / B: b4 passed W,B True False child value +W
+     Black option W: a4 b2 / B: b3 passed W,B True False
+     Black option W: b2 / B: a3 passed W,B False False
+   engine S root: W: a2 b2 / B: b4 value {+W | ±+W} outcome L
+   W outcome: L alt: L
+ files 8 e.p.-aware False root passed W,B: False False
+   after a2-a4: W: a4 b2 / B: b4 (ep a3) passed W,B: True False
+   engine value of a4 child: +W L
+     White option W: a4 b3 / B: b4 passed W,B True False child value +W
+     White option W: a5 b2 / B: b4 passed W,B True False child value +W
+     Black option W: a4 b2 / B: b3 passed W,B True False
+     Black option W: b2 / B: a3 passed W,B False False
+   engine S root: W: a2 b2 / B: b4 value {+W | ±+W} outcome L
+   W outcome: L alt: L
