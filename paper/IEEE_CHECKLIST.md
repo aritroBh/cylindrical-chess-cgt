@@ -105,9 +105,13 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
   and every n >= 12. Families TT (even n >= 12) and SS (odd n >= 11) are the cylinder's T_n and S_n with the seam at
   one particular file; two programs agree to n = 32 and 31. n = 10 with 11 pawns open (12 pawns found).
   (`research/mobius_star3_family/REPORT.md`)
-- [ ] T87 (Codex): independent base graphs for TT (m = 5) and SS (m = 6), insertion step, small widths
-- [ ] R13 (Opus): proof note `research/mobius_star3_family/PROOF.md`, with the seam analysis (TT's arc ends at the
-  seam file and the file across the seam is in the zone)
+- [x] T87 (Codex): independent checker written; its sandbox refused the priority change, so I ran it (60 s,
+  134 MB): both base graphs agree exactly (1305/4018/1212 and 22755/72730/49694, zones, NNNPN), both insertion
+  steps are isomorphisms, TT m = 0..4 and SS m = 0..5 as claimed (`delegate/out/T87/run_all.log`). C1 is CHECKED-2
+- [x] R13 (Opus): proof note `research/mobius_star3_family/PROOF.md` (96 lines). The plan holds without repair: V and
+  Lemmas 2, 3 of Note 5 never use the contents of a file outside the arc, so the zone file across the seam does
+  no harm; fallback base m0 = 6 for TT if a referee doubts it
+- [ ] T88 (Codex): hostile referee of the note, the seam point first
 - [ ] Then: Codex referee of the note; supplement note and one clause in Section VIII if it fits the page
 - [x] R4 (Haiku): recount the facts in `dist/tog/submission/` (pages, hashes, words in the abstract, references,
   figures, tables) from the built PDFs (`delegate/out/R4_submission_facts/REPORT.md`): all match except one stale page count
