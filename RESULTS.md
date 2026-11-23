@@ -548,8 +548,8 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   certificate theorem in the promotion game (A.16) and sum safety (A.7). Written by an Opus agent; I read it; two
   referees so far. Kings-session Opus referee A (A.11 to A.17): sound, minor fixes applied ((C3) reworded to match
   (L3); A.13 lists A.7's hypotheses; mapping to the long note corrected). Codex T81 (`delegate/out/T81/REPORT.md`):
-  all four hold with fixes, applied: boards need H >= 5 (on four ranks a double step promotes) and sum safety needs
-  H >= 6 under the e.p.-aware test (on five ranks `W a2 b2 / B b4`, a2-a4 then a4-a5 promotes inside a sum); the
+  all four hold with fixes, applied: promotion inside the pawn games had to be pinned down (on four ranks a double
+  step promotes; on five ranks `W a2 b2 / B b4`, a2-a4 then a4-a5 promotes inside a sum); the
   induction of A.7 runs over positions with their actual side to move; A.13 holds per side to move (example where the
   hypotheses hold for Black to move only: `W Kb6 c7 / B Ka8 a5`); the bound N(X) <= n(H-1)(H-2)/2 = 168 on 8x8. Its
   census on four files and six ranks: 9,070 flat and 13,724 cylinder qualifying roots, 45,588 comparisons of S and W,
@@ -559,8 +559,14 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   if no pawn is passed. Split-first is a different model: `W b2 d6 / B c7`, c7xd6 gives +BIG-BIG = 0 there but a race
   White wins in W and in the engine. Fixed in Section V of both versions; the threat definition now says "either side
   in any order"; the sum-safety and validity theorems state that X has no passed pawn; the 10-page text's certificate
-  sentence now says "with only Z on the board ... promotes or mates within h moves of its reply". Kings referee B
-  (A.1 to A.7) still to report.
+  sentence now says "with only Z on the board ... promotes or mates within h moves of its reply".
+  Kings referee B (A.1 to A.7): A.1, A.4, A.5, A.6 sound; its fix for promotion is the one adopted: as in the engine,
+  a pawn on its last rank stays a pawn and is passed under every test, so a promoting move ends W and freezes its
+  component in S, and sum safety needs no height condition (its sample: 985 HSS roots, 386 of them on four- and
+  five-rank boards, S and W agree on all; one run). The validity theorem keeps H >= 5 (no promoting move from a
+  position without a passed pawn). Both gaps the appendix author reported in the long kings note were confirmed and
+  repaired there (kings commit 435ccdc7: Theorem 1.11(c) now assumes (E); re-split components inherit "no threat");
+  the supplement's copy of the note carries the repair. Whether Theorem 1.11(c) holds without (E) is open.
 
 ## 7. Pending
 

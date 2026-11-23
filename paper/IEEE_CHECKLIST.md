@@ -73,7 +73,8 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
   of both versions, supplement S6.4 (82 pages) and the conclusion. The 12-file scan is still running
 - [x] Self-contained proofs of the four S results (supplement S12.1, `dist/tog/supp_src/s12a_core.tex`): refereed by
   Codex T81 and the kings session's referee A, fixes applied; the paper's description of the sum model corrected
-  (test for a passed pawn before splitting); supplement 94 pages. Kings referee B (sum safety) still to report
+  (test for a passed pawn before splitting); supplement 94 pages. Kings referee B (sum safety) applied too: a pawn on
+  its last rank counts as passed, as in the engine, so no height condition; the long kings note was repaired to match
 - [x] Möbius families proved *2 for every width (`research/mobius_rings_proof/`, Codex referee T82 holds with two
   wording fixes, base case recomputed independently): one pawn per file suffices on every strip of 10 or more files,
   label S; in Section VIII of both versions, supplement S6.4 and S15 Note 5; the open question left the conclusion

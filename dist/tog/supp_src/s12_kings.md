@@ -76,7 +76,7 @@ of a pawn position X, in which the first passer ends the game (`notes/lemmas.md`
 §1.5; and HSS, hereditary sum-safety, is the hypothesis (HSS) of Theorem 1.11(c).
 
 ```
-S  --Thm 1.11(c) (V4)-->  D  --Thm 1.14 (V1-V3)-->  P  --(A_Q)(X)-->  C
+S  --Thm 1.11(c) (V4), (E)-->  D  --Thm 1.14 (V1-V3)-->  P  --(A_Q)(X)-->  C
 ```
 
 **Axiom (A_Q)(X) (per-position hypothesis, checked by kpsolve).** For a fixed position X: if X is a P-win
@@ -205,7 +205,10 @@ position is split into its components at every node, a move is a move in one com
 event ends the play. Suppose:
 - **(HSS)** at every position Y reachable from X before the first decisive event, the components of Y are
   pairwise safe (Definition 1.10: an option to ⊕ or ⊖ counts whoever makes it); and
-- **(B)** BIG exceeds every tempo count of every such Y.
+- **(B)** BIG exceeds every tempo count of every such Y; and
+- **(E)** condition (E) of L1.6 in `notes/lemmas.md`: no such Y with two or more components carries a usable e.p.
+  right. (The step "both models give the child" of the proof uses it. Whether (c) holds without (E) is OPEN: no
+  counterexample in a small search, COMPUTED-1.)
 
 Then the outcome class of S(X) is the outcome class of the D-result pair of D(X).
 
@@ -218,7 +221,14 @@ N; otherwise Z is replaced by its new components. This is `cylcgt.pawns.value` u
   wins F(Y, {σB}) whoever moves first. Take σ = +; the case σ = − is symmetric. σ's strategy is to move in the
   positive integer summand on every turn, which is possible while it has a move left; the opponent cannot move
   in a positive integer (its canonical form is {B−1 | }), and every integer frozen later is +B, because a −B
-  would need a − threat and a race needs both threats. So every opponent move is a pawn move in a live
+  would need a − threat and a race needs both threats. (Re-split components inherit "no − threat": if a live
+  component W₀ has no − threat and a move in W₀ does not freeze it, none of its new components has a − threat.
+  A double step does not change which files are occupied, so W₀ does not split; a move that splits W₀ is a
+  capture, which leaves no e.p. right, so while a − threat of one new component is played out the others stay
+  as they are, with no passer and no right; the move followed by that sequence would be a − threat of W₀. This is
+  not the monotonicity of Definition 1.10, which is about one fixed D-game; under the e.p.-aware test a sibling
+  with a usable right could otherwise turn passed early.) So every
+  opponent move is a pawn move in a live
   component, and the opponent has at most M_{−σ}(Y) moves in all. σ needs at most M_{−σ}(Y) + 1 moves (one
   reply to each opponent move, plus one if σ moves first), and the first stack has B ≥ M_{−σ}(Y) + 1, so σ
   has a move at every turn of its own and the opponent runs out of moves first. The stack can reach
@@ -226,7 +236,13 @@ N; otherwise Z is replaced by its new components. This is `cylcgt.pawns.value` u
   all M_{−σ}(Y) of its moves.
 - **Induction.** o(F(Y, ∅)) = o(D(Y)) for every non-terminal Y reachable from X, by induction on the total
   number of pawn moves Φ(Y). Take a move of Y, made in component Z.
-  - If the child is non-terminal, both models give the child and the induction hypothesis applies.
+  - If the child is non-terminal, both models give the child and the induction hypothesis applies. This uses
+    (E): F keeps an e.p. right with its component while play goes on elsewhere, and D drops it after one move.
+    If Y has two or more components, (E) makes Y's right unusable, so in F it allows no move; and a pawn that
+    failed the passed test only by the e.p. clause would make it usable. So the components other than Z have
+    the same options in both models and no passer in the child. For the same reason, after the frontier the
+    opponent never captures e.p. with a right left from before it, so its moves are moves of D and the tempo
+    count bounds them.
   - If the move creates a σ-passer, or a race scored σ, then D gives the terminal σ, which σ wins whoever
     starts. F gives (Y″, {σB}), where Y″ consists of the other components of Y. Here σ ∈ τ(Z): Z reaches the
     passer in one move, and for a race both signs are in τ(Z). Y is pairwise safe by (HSS), so no other live
@@ -236,7 +252,8 @@ N; otherwise Z is replaced by its new components. This is `cylcgt.pawns.value` u
     local, so all passers of the child lie in Z and the promotion distances are the same in both models.
 Outcomes are determined by the outcomes of the options, so o(F(Y, ∅)) = o(D(Y)). ∎
 
-Re-splitting does not change the D-result: it only re-groups the same positions and options, and the D-result
+Re-splitting does not change the D-result: it only re-groups the same positions and options (in D an e.p. right
+lapses after one move whatever the grouping; it is F that keeps rights per component, and (E) bridges the two), and the D-result
 of Definition 1.2 depends on the game graph and the terminals, not on the grouping. So the D-result pair of
 the re-splitting D(X) is the one used in Theorem 1.14(i).
 
@@ -326,7 +343,7 @@ Then, with either side to move:
   - The play does end. The components are short, and (V1b) excludes "no move".
   - By (V2) the terminal position is a P-win for σ, so σ wins P.
 - **(ii)** By (i), the D-result pair of X is the D-result pair of D(X), and re-splitting does not change
-  that pair (it re-groups the same positions and options). By Theorem 1.11(c), with (V4) supplying (HSS) and
+  that pair (it re-groups the same positions and options). By Theorem 1.11(c), with (V1a) supplying (E), (V4) supplying (HSS) and
   the bound, the outcome class of S(X) is the outcome class of that D-result pair.
 - **(iii)** Definition of (A_Q)(X). ∎
 
