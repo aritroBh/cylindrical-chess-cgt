@@ -197,9 +197,11 @@ c6 d5 e7} is $\nim{3}$ \lab{C2}, while $\cyl{5}$ has no $\nim{3}$ ring with nine
 For $n=9,10,11$ the least is $10, 10, 11$, as on the cylinder \lab{C2}: no nine-pawn ring on nine files is
 $\nim{2}$, so one pawn per file is enough on eight files, not on nine, and again from ten on. There the ring
 \pos{W b2 d2 e3 h3 j5 / B a4 c6 f6 g7 i7}, widened by repeating its first two files any number of times, and
-the same rings with one more file that holds a black pawn on rank 7, are $\nim{2}$ for every $n$ from $10$ to $32$
-(three programs up to $21$ files \lab{C2}, two up to $32$ \lab{C1}). The solver's work grows by a constant per
-step, as for the wall families, so we expect them to be $\nim{2}$ for all $n$ \lab{Conj}.
+the same rings with one more file that holds a black pawn on rank 7, are $\nim{2}$ for every $n\ge10$ \lab{S}.
+The proof is the wall argument above: two wall files inserted inside a wall of ten files that does not
+cross the seam leave the reduced game unchanged, and its base case, a reduced game of $435$ or $417$ positions,
+is computed by two independently written programs \lab{C2}. The seam only changes that base: the pawns on
+either side of it never move.
 
 In the model, then, the $\nim{2}$ question has a positive answer on the ordinary $8\times8$ board: four files
 and seven pawns beside T suffice, while Elkies' higher nimbers need larger boards~\cite{Elkies2002}.

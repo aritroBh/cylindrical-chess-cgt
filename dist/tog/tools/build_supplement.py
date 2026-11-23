@@ -260,11 +260,14 @@ $n=9,10,11$ the strip and the cylinder need the same number of pawns.
 \item B6 W2 W3 B6 B7 W3 $(\text{B7 W5})^m$ W6B7 has $n=2m+7$ files and $n+1$ pawns. It is $\nim{2}$ for
   $m=0,\dots,12$, that is $n=7,\dots,31$.
 \end{itemize}
-All three programs agree up to $21$ files \lab{C2}, and the first two up to $32$ \lab{C1}. So one pawn per file
-gives a $\nim{2}$ ring on the strip for every $n$ from $10$ to $32$. The members with $m=0$ of the first two
+All three families are $\nim{2}$ for every $m$ in these ranges without an upper bound: the first two for every
+$m\ge1$ and the third for every $m\ge0$ \lab{S} (Section~\ref{S-star3}, Note~5: a full proof written by one AI model and checked line by line by an AI referee from another vendor). The proof is the insertion
+argument of the cylinder (Section~\ref{S-ringn}): two wall files are inserted inside a wall of ten files that does not cross the seam,
+and the reduced game does not change. Its base case, the reduced game at $m=5$ ($435$, $417$ and $435$ positions),
+was computed by two independently written programs \lab{C2}, which also agree on the members with $m\le13$ solved directly. So one pawn per file
+gives a $\nim{2}$ ring on the strip for every $n\ge10$. The members with $m=0$ of the first two
 families are not $\nim{2}$, and the eight-file ring of Table~\ref{tab:mobring} is not extended by any block
-insertion we tried. In each family the number of positions the solver visits grows by a constant with each step, as
-in the wall families of the cylinder, so we expect the same kind of proof to work \lab{Conj}. Twelve files with
+insertion we tried. Twelve files with
 twelve pawns are not yet scanned in full.
 
 \subsection{Boards of Other Heights}\label{S-heights}
@@ -335,6 +338,10 @@ W('s11', r'\section{Positions with Kings in FEN}\label{S-fen}',
 
 # S12 kings and sums theory -----------------------------------------------------------------------------
 W('s12', r'\section{Full Proofs: Validity of the Convention, Sums, Certificates and Loopy Games}\label{S-kingsproof}',
+  scrub(open('supp_src/s12a_core.tex', encoding='utf-8').read().replace(
+      r'\subsection*{The Four Main Results, Self-Contained}',
+      r'\subsection{The Four Main Results, Self-Contained}\label{S-core}')),
+  r'\subsection{The Longer Treatment}\label{S-kingslong}',
   NOTE % (r'kings/theory/LOOPY.md, Sections 1--3 (the theory note on frozen king groups)',
           r'Theorem~\ref{thm:validity} (validity) and Corollary~\ref{cor:v4} are Theorem~1.14 there, (V4) being part (ii); '
           r'Theorem~\ref{thm:hss} (sum safety) rests on Theorem~1.11 and Theorem~1.14(ii); the certificate theorem of '
@@ -362,15 +369,16 @@ W('s14', r'\section{Full Proof: Rings of Value \texorpdfstring{$\nim{2}$}{*2} wi
   MD('research/ring_n_proof/PROOF_N.md', cur='s14_ringn.md'))
 
 # S15 *3 families ---------------------------------------------------------------------------------------
-W('s15', r'\section{Full Proofs: The Lemma 3 Write-Up and the \texorpdfstring{$\nim{3}$}{*3} Families}\label{S-star3}',
-  r'This section holds four notes. The first writes out Lemma~3 of Section~\ref{S-wall} (its Section 2b), which the '
+W('s15', r'\section{Full Proofs: The Lemma 3 Write-Up, the \texorpdfstring{$\nim{3}$}{*3} Families and the M\"obius Strip}\label{S-star3}',
+  r'This section holds five notes. The first writes out Lemma~3 of Section~\ref{S-wall} (its Section 2b), which the '
   r'other proofs cite, and proves a further $\nim{2}$ family with $n+2$ pawns. The second and third prove the whole-board '
   r'$\nim{3}$ with $n+2$ pawns for even $n\ge8$ and odd $n\ge11$; the fourth proves the $\nim{3}$ with $n+1$ pawns for '
-  r'every $n\ge12$ (Section~\ref{sec:star2-rings}). Each is typeset without changes to its mathematics.',
+  r'every $n\ge12$ (Section~\ref{sec:star2-rings}); the fifth carries the insertion argument over to the M\"obius strip (Section~\ref{S-star2}). Each is typeset without changes to its mathematics.',
   r'\subsection{Note 1: research/ring\_n\_plus\_2\_proof/PROOF.md}', MD('research/ring_n_plus_2_proof/PROOF.md', cur='s15_note1.md'),
   r'\subsection{Note 2: research/ring\_n\_plus\_2\_proof/PROOF\_Q.md (even $n$)}', MD('research/ring_n_plus_2_proof/PROOF_Q.md', cur='s15_note2.md'),
   r'\subsection{Note 3: research/ring\_n\_plus\_2\_proof/PROOF\_odd.md (odd $n$)}', MD('research/ring_n_plus_2_proof/PROOF_odd.md', cur='s15_note3.md'),
-  r'\subsection{Note 4: research/star3\_proof/PROOF\_S3T3.md}', MD('research/star3_proof/PROOF_S3T3.md', cur='s15_note4.md'))
+  r'\subsection{Note 4: research/star3\_proof/PROOF\_S3T3.md}', MD('research/star3_proof/PROOF_S3T3.md', cur='s15_note4.md'),
+  r'\subsection{Note 5: research/mobius\_rings\_proof/PROOF.md (M\"obius strip)}', MD('research/mobius_rings_proof/PROOF.md', cur='s15_note5.md'))
 
 # S16 square rule ---------------------------------------------------------------------------------------
 W('s16', r'\section{The Square-Rule Passer Test: Definition, Checks and a Counterexample}\label{S-square}',

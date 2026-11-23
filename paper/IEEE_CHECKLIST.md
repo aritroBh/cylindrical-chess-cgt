@@ -72,6 +72,9 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 - [x] Möbius rings on 9 to 11 files and their families (`research/mobius_rings_n/`): least *2 is 10, 10, 11, the same
   as the cylinder; one pawn per file works on 8 files, not on 9, and from 10 to 32 in two families; in Section VIII
   of both versions, supplement S6.4 (82 pages) and the conclusion. The 12-file scan is still running
+- [x] Möbius families proved *2 for every width (`research/mobius_rings_proof/`, Codex referee T82 holds with two
+  wording fixes, base case recomputed independently): one pawn per file suffices on every strip of 10 or more files,
+  label S; in Section VIII of both versions, supplement S6.4 and S15 Note 5; the open question left the conclusion
 - [x] New: the pawn game on boards of 5 to 12 ranks (`research/tall_boards/`): no *4 in 1.8 billion positions; *2 with
   four pawns and *3 with six on seven ranks; none on five ranks; in Section VIII of both versions, supplement S6.5
   and the conclusion. To fit, the two-core remark moved to the supplement only and five supplement pointers were shortened

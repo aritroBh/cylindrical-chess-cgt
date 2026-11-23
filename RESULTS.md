@@ -531,6 +531,18 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   differing. Rerun with both sides e.p.-aware: 0 of 2,483,775 pairs differ, in each of the solver's three modes; the
   textbook and e.p.-off controls are also 0; mixing the two tests across the sides reproduces the old 13,176 and
   109,157 exactly. So the paper's sentence in Section XIII is true as written and now has a log. CHECKED-2.
+- **Möbius ring families proved for every width (2026-11-23; `research/mobius_rings_proof/PROOF.md`).** F1
+  `(B4 W2)^m B6 W2 W3 B6 B7 W3 B7 W5` (n = 2m+8) and F2 = F1 + `B7` (n = 2m+9) are *2 for every m >= 1, and F3
+  `B6 W2 W3 B6 B7 W3 (B7 W5)^m W6B7` (n = 2m+7, n+1 pawns) for every m >= 0, as whole-board games against nim-heaps.
+  So one pawn per file gives a ring *2 on the strip for every n >= 10. Proof: the cylinder's insertion argument, with
+  the ten-file arc around the cut kept clear of the seam; base case m = 5 (reduced games of 435, 417, 435 positions,
+  no e.p. flag, zone clear of the arc). The seam only changes the base graph (the pawns on both sides of it never
+  move; 435 nodes against the cylinder's 441). Written by an Opus agent; I reran all its finite checks (same
+  numbers). Codex referee T82 (`delegate/out/T82/REPORT.md`): HOLDS WITH FIXES, two wording fixes applied (pattern
+  files belong to one wall with one phase; Lemma 1 for non-terminal roots); its own program reproduces every number
+  of the base case and of m = 0..7, and its unreduced minimax gives NNPN for m = 1..13 (RNRR, NNRR at m = 0 for F1,
+  F2). Label in the paper: S (AI-written, AI-refereed); base case CHECKED-2. Side finding: `mob2` in batch mode can
+  reuse a memo entry across widths; the scans ran one width per process and are not affected.
 
 ## 7. Pending
 

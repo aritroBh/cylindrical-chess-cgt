@@ -1,0 +1,393 @@
+% Section S12, first subsection: the four results marked S in Sections 4 and 5 of the main text,
+% with every definition they need and complete hand proofs. Results are numbered A.1, A.2, ... by hand.
+\subsection*{The Four Main Results, Self-Contained}
+
+This subsection states and proves the four results of the main text that carry the label S: Theorem~\ref{thm:validity},
+Corollary~\ref{cor:v4}, the certificate statement of Section~\ref{sec:kings-valid} and Theorem~\ref{thm:hss}. It can be
+read without the rest of this section. All definitions are given here, and every proof is a hand proof that uses only
+these definitions and earlier steps of this subsection. No step rests on a computation. The one computed statement we
+quote (part (c) of Proposition~A.14) is marked as such and is used nowhere. Numbered items are A.1, A.2, and so on.
+We assume the basic theory of short games: disjunctive sums, outcome classes, and Zermelo's theorem that a finite game
+without draws has a winner~\cite{Siegel2013}.
+
+\subsubsection*{A.I Board, pawns and passed pawns}
+
+\textbf{Board.} The board has $n$ files and $H\ge 3$ ranks. It is \emph{flat} (files $1,\dots,n$ in a row) or a
+\emph{cylinder} (file $n$ is also next to file $1$). The \emph{distance} of two files is their distance in the row, or
+on the cycle for the cylinder. White pawns move up, black pawns down. A pawn of side $t$ is \emph{ahead} of a square if it
+stands on a higher rank (for white) or a lower rank (for black). In this subsection a position holds pawns and at most two
+kings, and no other piece until a promotion.
+
+\textbf{Pawn moves.} A pawn steps one square forward to an empty square; from its own second rank it may instead
+\emph{double step} two squares forward over an empty square to an empty square; it captures an enemy pawn diagonally
+forward on a file at distance $1$ (across the seam on the cylinder). If the last move was a double step of a pawn $q$ from
+$a$ over $b$ to $c$, an enemy pawn on the square beside $c$ (same rank, file at distance $1$) may capture \emph{en passant}
+(e.p.): it moves to $b$ and $q$ is removed. This is allowed on the next move only. The position then carries a
+\emph{right}; the right is \emph{usable} if such an enemy pawn exists. A pawn that reaches its last rank promotes. Kings are
+never captured.
+
+\textbf{A.1 Lemma (files).} \emph{A pawn changes file only by a capture, and it then lands on a file that held an enemy
+pawn just before the move. Hence, before the first promotion, no pawn ever enters a file that holds no pawn.}
+
+\begin{proof}
+A step or double step keeps the file. A capture lands on the square of the captured pawn; an e.p.\ capture lands on $b$,
+on the file of the captured pawn $q$. Before the first promotion the only capturable pieces are pawns.
+\end{proof}
+
+\textbf{Components.} A \emph{component} of a pawn position is a maximal set of consecutive files that all hold pawns (an
+arc on the cylinder), with the pawns on them; on a cylinder with no empty file the whole board is one component, a
+\emph{ring}. The files next to a component are empty. A move of a pawn in a component $D$ uses only squares on the files
+of $D$ (Lemma~A.1), so it changes no other component, and whether it is legal depends only on $D$ and on the right.
+
+\textbf{Passed pawns.} A pawn passes the \emph{textbook test} if no enemy pawn stands ahead of it on its own file or on a
+file at distance~$1$. It passes the \emph{e.p.-aware test} if it passes the textbook test and it is not the case that it
+has just double stepped with an enemy pawn beside it (Definition~\ref{def:epaware}). A \emph{setting} fixes the test
+(textbook, e.p.-aware, or e.p.\ off: no e.p.\ captures and the textbook test) and a \emph{race rule}, which names a winner
+when both sides have a passed pawn. We only use that the race rule is \emph{local}: its verdict depends only on the passed
+pawns, the pawns on their files and on the files at distance~$1$, and on which side made the last move. The count, mover and
+opponent rules of Section~\ref{sec:rules} are local. Under every test, whether a pawn of a component is passed depends only
+on that component and on the right, since the files at distance $1$ from its file belong to the component or are empty.
+
+\textbf{A.2 Lemma.} \emph{(a) If a position has no passed pawn, the side to move has no promoting move.
+(b) Let $\Phi_t$ be the sum, over the pawns of side $t$, of the number of ranks between the pawn and its last rank. Every
+pawn move of $t$ lowers $\Phi_t$ by at least $1$, and no move raises $\Phi_t$. (c) If $H\ge6$, or the test is not
+e.p.-aware, a position with no passed pawn has no pawn on the rank before its last, so neither side has a promoting move.}
+
+\begin{proof}
+(a) A promoting pawn of the side $t$ to move stands on the rank before its last. Only the last rank lies ahead of it, and it
+holds no pawn, so the pawn passes the textbook test. The last move was the opponent's, so the e.p.\ clause does not apply.
+So the pawn is passed. (b) Each pawn move advances the pawn by one or two ranks, or removes it at promotion; a capture
+removes a pawn of the other side. (c) A pawn on the rank before its last passes the textbook test, as in (a). A double step
+ends on the fourth rank counted from the mover's side, which is the rank before the last only if $H=5$; so for $H\ge6$ the
+pawn did not just double step, and it is passed under every test.
+\end{proof}
+
+\subsubsection*{A.II The whole-board game, the sum model and the hypotheses of Theorem~\ref{thm:hss}}
+
+We write White $=$ Left and Black $=$ Right, and $\bar\sigma$ for the opponent of a side $\sigma$. A positive integer is
+the game $k=\game{k-1}{}$, with $0=\game{}{}$: Black has no move in it, and White has exactly $k$ moves in it before it is
+$0$. We write $\sigma\BIG$ for $+\BIG$ if $\sigma$ is White and $-\BIG$ if $\sigma$ is Black.
+
+\textbf{Whole-board game $W(X)$.} Fix a setting. Let $X$ be a pawn position, possibly with a right, that has no passed
+pawn. A position of $W(X)$ is a pawn position with its right and the side to move. A move is a legal pawn move. If after a
+move some side has a passed pawn, the game ends: if only $\sigma$ has one, $\sigma$ wins; if both have one, the race rule
+names the winner. Otherwise play goes on, and a player with no move loses. By Lemma~A.2(b), $\Phi_W+\Phi_B$ falls at every
+move, so $W(X)$ is finite and has no draws; by Lemma~A.2(a) no promotion occurs in it. We write $\mathrm{Reach}(X)$ for the
+positions of $W(X)$ reached from $X$ by play, with either side to move first, before the game ends ($X$ included). The
+game $W(X)+\nim{h}$ is played in the same way, with one more move available: a move in the heap. A passed pawn ends the whole
+game with the same winner, and a player with no move in $W(X)$ and an empty heap loses. (Replacing the end by an integer
+$\pm\BIG$ with $\BIG>0$ and continuing in the heap gives the same outcomes, since $\BIG+\nim{h}$ is won by White whoever
+starts: White empties the heap or moves in $\BIG$, and Black has no move in a nonnegative integer.)
+
+\textbf{Sum model $S(X)$.} For a component $D$ (with its right, if the right concerns its pawns) let
+\[
+S(D)=\game{S(D^L_1),\,S(D^L_2),\dots}{S(D^R_1),\dots},
+\]
+where $D^L_i$ runs over the positions on the files of $D$ after a legal white move in $D$ (with the right that move
+creates), $D^R_j$ likewise for black, and for such a position $D'$ we set $S(D')=\sigma\BIG$ if some side has a passed pawn
+in $D'$ and $\sigma$ is the winner as in $W$, and otherwise $S(D')=\sum_E S(E)$ over the components $E$ of $D'$. Then
+$S(X)=\sum_D S(D)$ over the components of $X$. The recursion ends by Lemma~A.2(b). We assume, here and in
+Theorem~A.7, that $H\ge6$ or that the test is not e.p.-aware: then by Lemma~A.2(c) no move in a component without passed
+pawns promotes, so $S$ is defined. (In a sum a player may move twice in a row in one component, so Lemma~A.2(a) alone
+would not suffice.) This is the main text's $S(X)$: it
+re-splits after every move and freezes a component with a passed pawn at $\pm\BIG$. In a sum the right of a component
+stays with that component while the players move elsewhere; in $W(X)$ a right lapses after one move. This difference is
+what condition (E) controls.
+
+\textbf{Move bound.} $N(X)$ is the largest number of moves of one side in a finite sequence of legal pawn moves from $X$,
+made by either side in any order, where e.p.\ is allowed only directly after the double step it answers and play goes on
+past passed pawns. By Lemma~A.2(b), $N(X)\le\max(\Phi_W(X),\Phi_B(X))$, and a sequence from a position of
+$\mathrm{Reach}(X)$, prefixed by the play that reached it, is a sequence from $X$.
+
+\textbf{Threats, HSS and (E).} A component $D$ with no passed pawn \emph{carries a threat for $t$} if there is a finite
+sequence of legal pawn moves on the files of $D$, starting from $D$ with its right, made by either side in any order, such
+that no position before the last has a passed pawn and the last position gives $t$ a passed pawn (a race gives both sides
+one). The right of each position in the sequence is the one created by the move before it.
+$X$ is \emph{hereditarily sum-safe} (HSS) if no $Y\in\mathrm{Reach}(X)$ has two components that carry threats for opposite
+sides. $X$ satisfies \emph{(E)} if no $Y\in\mathrm{Reach}(X)$ with at least two components carries a usable right.
+
+\textbf{A.3 Remark (the precise form is implied by the main text's).} Definition~\ref{def:hss} and Theorem~\ref{thm:hss}
+quantify over positions reachable by moves of either side \emph{in any order}; we use only $\mathrm{Reach}(X)$, which is
+smaller, so our HSS and (E) are implied by the main text's. The main text's threat does not say ``before the first passed
+pawn''. Reading it without that clause gives more threats and a stronger hypothesis. Our reading has fewer threats, so the
+theorem below covers both readings. ``$\BIG$ exceeds the number of moves either side can make'' is $\BIG>N(X)$. The main
+text leaves implicit that $X$ has no passed pawn, that the race rule is local, and, for the e.p.-aware test, that $H\ge6$;
+all boards of the main text have at least six ranks.
+
+\textbf{A.4 Lemma (what (E) gives).} \emph{Let $X$ satisfy (E), let $Y\in\mathrm{Reach}(X)$ have at least two components,
+and let $\mu$ be a move in a component $C$ of $Y$, giving $Y'$. For every other component $D$ of $Y$: (a) the games
+$S(D)$ with the right of $Y$ (if it concerns $D$) and without it have the same options; (b) no pawn of $D$ is passed in
+$Y'$.}
+
+\begin{proof}
+(a) By (E) the right of $Y$ is not usable, so it allows no move, and every other move of $D$ leads to the same position
+with the same new right. (b) Pawns of $D$ are not passed in $Y$, since the game did not end there. A pawn of $D$ that
+passes the textbook test in $Y$ would have failed only the e.p.\ clause, so $Y$ would carry a usable right, against (E). So
+no pawn of $D$ passes the textbook test in $Y$, and $D$ is unchanged in $Y'$.
+\end{proof}
+
+\textbf{A.5 Lemma (threats are inherited).} \emph{Let $E$ be a component with no passed pawn that carries no threat for
+$\bar\sigma$. Let $\bar\sigma$ make a move $\mu$ in $E$, giving $E'$ on the files of $E$. Then $S(E')=\sigma\BIG$, or $E'$ has no passed pawn and each of its components carries no threat for
+$\bar\sigma$.}
+
+\begin{proof}
+If $\bar\sigma$ has a passed pawn in $E'$ (alone or in a race), the one-move sequence $\mu$ shows that $E$ carries a
+threat for $\bar\sigma$. So either only $\sigma$ has one, and $S(E')=\sigma\BIG$, or $E'$ has none. In the second case
+suppose a component $E_i$ of $E'$ carries a threat for $\bar\sigma$, by a sequence $s$. We show that $\mu$ followed by $s$
+witnesses a threat of $E$ for $\bar\sigma$. The moves of $s$ use only the files of $E_i$, so they are legal after $\mu$. If
+$\mu$ is a double step, it changes no file's occupancy, so $E'$ has the files of $E$ and $E_i=E'$, with the right of $\mu$,
+which is the right the sequence $s$ starts from. If $\mu$ is not a double step, $E'$ carries no right, and every other
+component of $E'$ stays as it is in $E'$, with no passed pawn and no right, during $s$. In both cases every position before
+the last has no passed pawn ($E$, $E'$, and those of $s$), and the last one gives $\bar\sigma$ a passed pawn. This
+contradicts the hypothesis on $E$.
+\end{proof}
+
+\textbf{A.6 Lemma (frontier).} \emph{Let $X$ satisfy (E) and $\BIG>N(X)$. Let $Y\in\mathrm{Reach}(X)$, and let a move
+$\mu$ in a component $C$ of $Y$ end $W$ with winner $\sigma$. Suppose no component $D\ne C$ of $Y$ carries a threat for
+$\bar\sigma$. Then $\sigma$ wins $G=\sigma\BIG+\sum_{D\ne C}S(D)$ whoever moves first.}
+
+\begin{proof}
+Take $\sigma$ White; the other case is the mirror image. White's strategy is to move, at each turn, in a positive integer
+summand. Black has no move in a nonnegative integer, so every Black move is a pawn move in a summand $S(E)$, where $E$ is
+a component of $Y$ other than $C$ or arises from one. By Lemma~A.5 and induction on the number of Black moves, each such $E$
+has no passed pawn and carries no threat for Black, and every integer that appears is $+\BIG$. Black never captures
+e.p.: White makes no pawn move after $\mu$, and the only right White may have created earlier is the right of $Y$, which
+is not usable by (E), since $Y$ has the two components $C$ and $D$ (if $Y$ has no component $D\ne C$, Black has no pawn move
+at all). So Black's moves, in order, follow the play from $X$ to $Y$ and $\mu$ as a sequence of legal pawn moves, and Black
+makes at most $N(X)<\BIG$ of them. White needs at most one move per Black move, plus one if White starts, so at most
+$N(X)+1\le\BIG$ moves, and the summand $\BIG$ alone supplies $\BIG$ of them. So White always has a move. The play is finite
+(the integers shrink and $\Phi_B$ falls), so it ends with a player who cannot move, and this is Black.
+\end{proof}
+
+\textbf{A.7 Theorem (sum safety; Theorem~\ref{thm:hss}).} \emph{Main text: ``Suppose that $X$ is HSS, that no position
+reachable from $X$ with two or more components has a usable en passant right (condition (E)), and that $\BIG$ exceeds the
+number of moves either side can make. Then $S(X)$ and $W(X)$ have the same outcome.'' Precise form: let $X$ be a pawn
+position with no passed pawn, fix a setting with a local race rule, let $H\ge6$ or the test not be e.p.-aware, and suppose that $X$ is HSS, satisfies (E), and
+$\BIG>N(X)$. Then for each side to move first, $S(X)$ and $W(X)$ have the same winner.}
+
+\begin{proof}
+For $Y\in\mathrm{Reach}(X)$ let $S_Y=\sum_D S(D)$ over the components of $Y$, the right of $Y$ going with the component
+of the pawn that made the double step. Then $S_X=S(X)$. We show, by induction on $\Phi_W+\Phi_B$, that $W$ at $Y$ and
+$S_Y$ have the same winner for each side to move.
+
+The moves of $S_Y$ are the moves in the components of $Y$. These are exactly the legal moves of $W$ at $Y$: pushes and
+captures use the files of one component (Lemma~A.1), and an e.p.\ capture uses the right of $Y$, which lies in the
+component of the pawn that double stepped, next to the capturer. Fix a move $\mu$ in $C$, giving $Y'$ in $W$ and $C'$ on
+the files of $C$. The option of $S_Y$ is $\sum_{D\ne C}S(D)+S(C')$.
+
+\emph{$Y'$ has no passed pawn.} Then $C'$ has none, and $S(C')$ is the sum over the components of $C'$. The components of
+$Y'$ are those of $C'$ and the $D\ne C$. If $Y$ has two or more components, Lemma~A.4(a) lets us drop the right of $Y$
+from the summands $S(D)$ without changing them. So the option is $S_{Y'}$, and the induction hypothesis applies.
+
+\emph{$Y'$ ends $W$ with winner $\sigma$.} In $W$, $\sigma$ wins at once. By Lemma~A.4(b) (or because $C$ is the only
+component) every passed pawn of $Y'$ lies in $C'$, so $C'$ has a passed pawn, and $S(C')=\sigma\BIG$ because the race rule
+is local and the mover is the same. The move $\mu$ alone shows that $C$ carries a threat for $\sigma$ (and for both sides
+in a race). By HSS no other component of $Y$ carries a threat for $\bar\sigma$, and Lemma~A.6 shows that $\sigma$ wins the
+option whoever moves first.
+
+So every option has the same status in both games: won by the same player when the opponent moves next. A player with no
+option loses in both. Hence the winners agree at $Y$, and at $Y=X$ the claim is the theorem.
+\end{proof}
+
+\textbf{A.8 Proposition (opposite threats cancel).} \emph{For every integer $\BIG\ge1$,
+$\game{\BIG}{0}+\game{0}{-\BIG}=0$, although in the game where a $\pm\BIG$ ends play the first player wins.}
+
+\begin{proof}
+If White starts and moves to $\BIG+\game{0}{-\BIG}$, Black answers $-\BIG$, and White faces $0$; if White moves to
+$\game{\BIG}{0}+0$, Black answers $0$. Either way White loses. Black starting loses in the same way. A second-player win
+equals $0$. If instead reaching $\pm\BIG$ ends play, the first player moves to its own $\pm\BIG$ and wins.
+\end{proof}
+
+\textbf{A.9 Remark (the move bound).} $\Phi_t$ is largest when the board is full of $t$'s pawns, so
+$N(X)\le n(H-1)(H-2)/2$, which is $168<256$ on boards with $n\le8$ files and $H\le8$ ranks. So $\BIG=256$ meets
+$\BIG>N(X)$ there, as the main text says.
+
+\subsubsection*{A.III King groups, the promotion game and the validity theorem}
+
+\textbf{King group.} A \emph{king group} $Z$ is a set $F_Z$ of consecutive files (an arc on the cylinder) holding both
+kings and some pawns, the \emph{Z-pawns}. The files at distance $1$ from $F_Z$ form the \emph{buffer} and hold no pawn.
+The other pawns, the \emph{context}, stand on files at distance at least $2$ from $F_Z$. A \emph{Z-move} is a move of a
+king or of a Z-pawn. $X$ is the pawn position of the context alone; we assume it has no passed pawn.
+
+\textbf{Three games.} \emph{Chess} $\mathrm{C}$ is played with the usual rules, any promotion, no fifty-move rule;
+checkmate wins and stalemate and infinite play are draws. A side \emph{wins} a position if it has a strategy that ends every
+play in a win for it in finitely many moves. The \emph{promotion game} $\mathrm{P}$ is chess in which the first promotion
+ends the game and wins for the promoter. The \emph{frozen-king game} $\mathrm{F}$ is $\mathrm{P}$ in which, in addition,
+a king move loses at once for its mover; our solver uses it to play the convention, and in it every king move is a loss by
+definition.
+
+\textbf{A.10 Lemma (buffer).} \emph{Before the first promotion, in any play from a position with a king group, no pawn
+stands on a buffer file, Z-pawns stay on $F_Z$, context pawns stay on files at distance at least $2$ from $F_Z$, no context
+pawn attacks a square of $F_Z$, and a Z-pawn captures only on $F_Z$.}
+
+\begin{proof}
+By Lemma~A.1 a pawn enters a file only if an enemy pawn stands on it. The buffer starts empty, so by induction on the moves
+it stays empty. To leave $F_Z$, or to reach $F_Z$ from the context, a pawn would have to enter a buffer file. A pawn
+attacks only the files at distance $1$ from its own, and a Z-pawn's capture lands on a pawn, which is not on the buffer.
+\end{proof}
+
+\textbf{Decisive events.} Let $Q$ be a position made of a king group $Z$ and its context, with a side to move. A move is a
+\emph{decisive event} if it is a Z-move, or a context move after which $W(X)$ would end, that is, some side has a passed
+pawn among the context pawns. Since the Z-pawns are at least two files away, this is also the passed-pawn test on the whole
+board for the context pawns. $\mathrm{R}(Q)$ is the set of chess positions reached from $Q$ by legal moves none of which is
+a decisive event ($Q$ included). Kings and Z-pawns do not move along such play, so a position $Y\in\mathrm{R}(Q)$ is fixed
+by its context part $X_Y$, its right and its side to move.
+
+\textbf{Conditions.} At every $Y\in\mathrm{R}(Q)$, with side $s$ to move:
+\begin{itemize}
+\item[(V1)] the legal chess moves of $s$ that are not Z-moves are exactly the moves of $s$ in $W$ at $X_Y$, with the same
+resulting context and right; no move gives check and nobody is in check; and $s$ has a legal chess move (a Z-move counts);
+\item[(V2)] every context move at $Y$ after which $W$ ends with winner $\sigma$ leads to a chess position that $\sigma$ wins;
+\item[(V3)] every legal Z-move at $Y$ leads to a chess position that the opponent of its mover wins.
+\end{itemize}
+(V4) is: $X$ is HSS, satisfies (E), and $\BIG>N(X)$.
+
+\textbf{A.11 Theorem (validity of the convention; Theorem~\ref{thm:validity}).} \emph{Main text: under (V1)--(V3)
+``the chess result, with either side to move, is the outcome of $W(X)$ \dots\ without draws''. Precise form: let $Q$ be a
+king group with its context, with no passed pawn in $X$, and let (V1)--(V3) hold at every position of $\mathrm{R}(Q)$. If
+$\sigma$ wins $W(X)$ with the side to move of $Q$, then $\sigma$ wins $Q$ in chess. In particular $Q$ is not a draw.}
+
+\begin{proof}
+$W(X)$ is finite without draws, so some $\sigma$ wins it; fix a winning strategy. We give $\sigma$ a chess strategy and
+show that every play under it is a $\sigma$-win. Along the play, as long as no decisive event has occurred, the position
+$Y$ lies in $\mathrm{R}(Q)$ and $X_Y$ is a position of $W(X)$ won by $\sigma$ with the same side to move. This holds at $Q$.
+
+\emph{$\sigma$ to move.} $\sigma$ plays the move of its strategy at $X_Y$. By (V1) it is a legal chess move with the same
+result. If it ends $W$, the winner is $\sigma$, and by (V2) the chess position reached is won by $\sigma$; $\sigma$ follows
+a winning strategy from there. Otherwise the move is not decisive, the new position is in $\mathrm{R}(Q)$, and $W$ is won by
+$\sigma$ there.
+
+\emph{$\bar\sigma$ to move.} By (V1), $\bar\sigma$ has a legal move. A Z-move leads to a position won by $\sigma$, by (V3).
+Any other legal move is, by (V1), a move of $W$ at $X_Y$, and all of these lead to positions won by $\sigma$ in $W$. If it
+ends $W$, the winner is $\sigma$, and (V2) applies. Otherwise the new position is in $\mathrm{R}(Q)$ and won by $\sigma$ in
+$W$. (If $\bar\sigma$ has no move in $W$, its legal moves are all Z-moves.)
+
+Every move before the first decisive event is a pawn move of $W$, so by Lemma~A.2(b) a decisive event occurs within
+$\Phi_W(X)+\Phi_B(X)$ moves, and from then on $\sigma$ wins. The play is never stalemate (V1), and no promotion occurs
+before the event (Lemma~A.2(a)).
+\end{proof}
+
+\textbf{A.12 Remark.} (a) The proof uses from (V1) only the equality of move sets and the existence of a legal move, not the
+clauses on checks. A context move never gives check before a decisive event, by Lemma~A.10, since the kings stay on $F_Z$;
+and a side in check from a Z-pawn has no legal context move, so the equality of move sets then fails unless $W$ has no move
+either. (b) The theorem and the proof hold word for word
+with chess replaced by $\mathrm{P}$ or by $\mathrm{F}$; in $\mathrm{F}$, (V3) holds for every king move by definition.
+(c) The main text leaves implicit that $X$ has no passed pawn; otherwise $W(X)$ is not defined.
+
+\textbf{A.13 Corollary (Corollary~\ref{cor:v4}).} \emph{Main text: ``If also (V4) \dots\ the chess result is the outcome
+class of the components' $\pm\BIG$ value.'' Precise form: under the hypotheses of Theorem~A.11 and (V4), for each side to
+move, the chess winner of $Q$ is the winner of $S(X)$ with that side moving first.}
+
+\begin{proof}
+By Theorem~A.11 the chess winner is the winner of $W(X)$, and by Theorem~A.7 this is the winner of $S(X)$.
+\end{proof}
+
+\textbf{A.14 Proposition (Proposition~\ref{prop:sumcounter}).} \emph{On $\cyl{8}$ with e.p.\ off, let
+$X=$\,\pos{W b2 d4 g3 h5 / B a7 c7 f7 g4}. (a) $X$ is one component. (b) $X$ is not HSS. (c) (Checked by computer only, not
+proved here and not used here.) $S(X)$ is a black win whoever starts and $W(X)$ a first-player win.}
+
+\begin{proof}
+(a) Only file e is empty. (b) White h5--h6 and Black a7$\times$h6 (across the seam) give
+$Y=$\,\pos{W b2 d4 g3 / B c7 f7 g4 h6}. No pawn in $X$, after h5--h6, or in $Y$ is passed: g3 and g4 block each other, f7
+has g3 ahead on a neighbouring file, c7 has b2 ahead, b2 and d4 have c7 ahead, a7 has b2 ahead, the white h-pawn has a7
+ahead, and the black pawn on h6 has g3 ahead.
+Files a and e of $Y$ are empty, so $Y$ has the components $\{f,g,h\}$ and $\{b,c,d\}$. The first carries a threat for
+Black: f7--f6, f6--f5, f5--f4 keep g3 ahead of the f-pawn, and f4$\times$g3 leaves no white pawn in the component, so the new g3 pawn is passed. The second carries
+one for White: d4--d5, d5--d6 keep c7 ahead of the d-pawn, and c7$\times$d6 empties file c, so b2 is passed.
+\end{proof}
+
+\subsubsection*{A.IV The certificate}
+
+\textbf{Data.} Let $Y$ be a position with a king group $Z$ and its context, no promotion yet, and side $s$ to move; write
+$\bar s$ for the other side. Let $m$ be a legal Z-move of $s$ that does not promote (it may take $s$'s king off $F_Z$), and
+$r$ a legal reply of $\bar s$ that is a Z-move, does not promote, and leaves $\bar s$'s king on $F_Z$. Let $Q$ be the
+position after $m$ and $r$, with $s$ to move, and let $h\ge1$. The \emph{projection} $\pi(R)$ of a position $R$ deletes
+every pawn off $F_Z$ and keeps the kings, the Z-pawns, the side to move, and a right whose captured pawn is on $F_Z$.
+
+\textbf{Certificate of horizon $h$.} The move $m$ has one, with reply $r$, if (C1)--(C3) hold.
+\begin{itemize}
+\item[(C1)] \emph{Local promotion.} In the \emph{local game} from $\pi(Q)$, with $s$ to move, played by the rules of chess
+except as follows, $\bar s$ has a strategy that wins against every play of $s$: $s$ may pass whenever it is not in check
+(a pass changes only the side to move and clears the right); $\bar s$ may not pass and its king may only step onto $F_Z$;
+the first promotion ends the game, a win for $\bar s$ if $\bar s$ promotes and a failure for $\bar s$ if $s$ does; a
+checkmate of $s$ is a win for $\bar s$; $\bar s$ having no permitted move is a failure; and $\bar s$ must win with one of
+its first $h$ moves, or it fails.
+\item[(C2)] \emph{Counter-promotion.} Let $Q^\circ$ be $Q$ with $\bar s$'s king and all Z-pawns deleted. In $Q^\circ$
+only $s$ moves: its king steps to squares that hold no pawn of $s$ and are not attacked by a pawn of $\bar s$ (it may
+capture such pawns), and its pawns move by the pawn rules without e.p. Every sequence of such moves that ends with a
+promotion has at least $h+1$ moves.
+\item[(C3)] \emph{No stalemate.} $\bar s$ has a \emph{guided} strategy from $Q$, one that at each turn makes a Z-move
+whose projection is a move of a fixed winning strategy of (C1) at the projected position, such that in no play from $Q$
+following it is $s$ stalemated before $\bar s$'s $h$-th move.
+\end{itemize}
+
+\textbf{A.15 Remark (the main text's form).} The main text says that $m$ has a certificate of horizon $h$ ``if the
+punisher promotes within $h$ of its own moves against any defence, no defender pawn promotes that fast and the defender is
+not stalemated''. This is a summary of (C1)--(C3). Its loose points are: the count starts after a reply $r$ in $Z$; ``any
+defence'' is the passing defender of the local game, with the context deleted and the punisher's king on $F_Z$; ``no
+defender pawn'' means the defender's context pawns, moving alone in $Q^\circ$ (its Z-pawns are covered by (C1)); and the
+stalemate clause is (C3). A clause that an unsafe queen is a failure, used in the long version for chess, only strengthens
+(C1).
+
+\textbf{A.16 Theorem (certificate).} \emph{Main text: ``In the promotion game (the first promotion wins) such a move loses
+for its mover.'' Precise form: if $m$ has a certificate of horizon $h$ with reply $r$, then after $m$ the side $\bar s$ wins
+$\mathrm{P}$: it plays $r$ and the guided strategy of (C3), and promotes or mates with one of its next $h$ moves.}
+
+\begin{proof}
+Consider any play from $Q$ in which $\bar s$ follows the guided strategy $\rho$ and $s$ makes legal moves, up to $\bar s$'s
+$h$-th move or the first promotion. Let $R$ denote its positions.
+
+\emph{Invariants.} (I1) By Lemma~A.10 (from $Y$; the kings' squares play no role in it), the buffer has no pawn, Z-pawns
+stay on $F_Z$, context pawns stay off $F_Z$ and the buffer, no context pawn attacks a square of $F_Z$, and Z-pawns capture
+only on $F_Z$. (I2) $\bar s$ makes only Z-moves and its king stays on $F_Z$. (I3) $\bar s$'s context pawns never move and
+are only removed. No $\bar s$ pawn of the context attacks $s$'s king: none does after $m$, since $m$ is legal; $r$ moves no
+context pawn; later the set of squares these pawns attack only shrinks, and $s$'s king never steps onto an attacked square.
+So $s$ is in check in $R$ exactly when a Z-pawn of $\bar s$ attacks its king, which is the same in $\pi(R)$; the kings
+never attack each other. (I4) Rights: a right created by $\bar s$ comes from a Z-pawn and its captured pawn is on $F_Z$; a
+right created by a context double step of $s$ could be used only by a $\bar s$ context pawn, which never moves. So the only
+e.p.\ captures in the play are by Z-pawns of pawns on $F_Z$, and $\pi$ keeps those rights.
+
+\emph{Step 1: moves of $s$ project to local moves or passes.} Let $s$ be to move in $R$. A king move of $s$ is legal in
+$\pi(R)$: the target square holds the same piece or less, the kings are the same, and the pawns of $\bar s$ that attack it
+in $\pi(R)$ also do in $R$; a capture of a context pawn becomes a plain move. A Z-pawn move of $s$ uses squares of $F_Z$,
+which carry the same pieces in $R$ and $\pi(R)$, and the checks are the same by (I3); a Z-pawn promotion is a promotion in
+the local game. A context-pawn move leaves $\pi(R)$ unchanged except for the side to move and the right, as a pass does; it
+is legal only if $s$ is not in check, since a context pawn can neither capture on $F_Z$ (I1) nor block a pawn check; so the
+pass is allowed in $\pi(R)$. Hence the projection of the play is a play of the local game in which $\bar s$ follows a
+winning strategy, with the same count of moves of each side.
+
+\emph{Step 2: moves of $\bar s$ prescribed by the local strategy are legal.} Let $\bar s$ be to move in $R$ and let $\nu$
+be a permitted local move at $\pi(R)$. Its squares lie on $F_Z$, which holds the same pieces in $R$ and $\pi(R)$, and its
+right is the same (I4). After $\nu$, $\bar s$'s king stands on $F_Z$, where no context pawn of $s$ attacks (I1); the other
+attackers are the same as in $\pi(R)$. There are no sliding pieces, so there are no pins. So $\nu$ is legal in $R$, and the
+guided strategy is defined at every turn of $\bar s$ before it wins; in particular $\bar s$ is never mated or stalemated.
+
+\emph{Step 3: $s$ does not promote first.} By Step 1 and since the local strategy wins by $\bar s$'s $h$-th move, which
+follows $s$'s $h$-th turn, $s$ has at most $h$ turns. A promotion of a Z-pawn of $s$ would be a promotion by $s$ in the
+local game, a failure for $\bar s$, which a winning strategy does not allow. Suppose a context pawn of $s$ promotes at
+$s$'s $j$-th turn, $j\le h$. Delete from the play all moves of $\bar s$ and all Z-pawn moves of $s$. What remains is at most
+$j$ moves of $s$, king moves and context-pawn moves, ending with the promotion. It is a legal sequence in $Q^\circ$: $s$'s
+king and the context pawns stand on the same squares in both, since only $s$ moves them; a king move in the play goes to a
+square not attacked by a context pawn of $\bar s$ and not holding a pawn of $s$; a context-pawn move uses context squares,
+whose occupants are the same, since $\bar s$'s king and the Z-pawns are on $F_Z$; and no e.p.\ capture is involved (I4).
+This contradicts (C2).
+
+\emph{Step 4: $\bar s$ wins.} $s$ cannot mate $\bar s$ (Step 2), $\bar s$ is not stalemated (Step 2), $s$ is not
+stalemated before $\bar s$ wins (C3), and $s$ does not promote first (Step 3). The projected play is a play of the local
+game under a winning strategy, so it ends by $\bar s$'s $h$-th move with a promotion by $\bar s$ or a mate of $s$. A
+promotion is a legal real move (Step 2) and wins $\mathrm{P}$. If $s$ is mated in $\pi(R)$, it is in check in $R$ (I3),
+and a legal move of $s$ in $R$ would project to a legal local move, a pass being impossible in check (Step 1); so $s$ is
+mated in $R$. Every play is finite, since it lasts at most $h$ moves of $\bar s$.
+\end{proof}
+
+\textbf{A.17 Remark.} Theorem~A.16 is a statement about $\mathrm{P}$ only. A won promotion in $\mathrm{P}$ need not be a
+won chess game, so it does not give (V3) for chess, as the main text says. With Remark~A.12(b), certificates for every
+Z-move at every position of $\mathrm{R}(Q)$ give (V3) in $\mathrm{P}$.
+
+\textbf{Where to find the longer treatment.} In the numbering of the rest of this section: Lemma~A.1 and A.10 are
+Lemma~2.2; Lemma~A.2(b) and the move bound are the tempo counts of Definition~1.10; Lemma~A.6 and Theorem~A.7 are the frontier step
+and the induction of Theorem~1.11(c); Lemma~A.5 replaces the monotonicity of threats in Definition~1.10, and Lemma~A.4
+makes explicit the role of (E), which Proposition~1.15(a) describes;
+Proposition~A.8 is Proposition~1.12; Theorem~A.11 is Theorem~1.14(i) and its sharp form, Remark~A.12(a) is
+Proposition~1.15(a), and Corollary~A.13 is Theorem~1.14(ii); the certificate (C1)--(C3) is Definition~2.6, conditions (L1),
+(L2), (L3), and Theorem~A.16 is Theorem~2.7(a); Remark~A.17 is ``What Theorem 2.7 does not give''.

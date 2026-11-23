@@ -174,11 +174,14 @@ $n=9,10,11$ the strip and the cylinder need the same number of pawns.
 \item B6 W2 W3 B6 B7 W3 $(\text{B7 W5})^m$ W6B7 has $n=2m+7$ files and $n+1$ pawns. It is $\nim{2}$ for
   $m=0,\dots,12$, that is $n=7,\dots,31$.
 \end{itemize}
-All three programs agree up to $21$ files \lab{C2}, and the first two up to $32$ \lab{C1}. So one pawn per file
-gives a $\nim{2}$ ring on the strip for every $n$ from $10$ to $32$. The members with $m=0$ of the first two
+All three families are $\nim{2}$ for every $m$ in these ranges without an upper bound: the first two for every
+$m\ge1$ and the third for every $m\ge0$ \lab{S} (Section~\ref{S-star3}, Note~5: a full proof written by one AI model and checked line by line by an AI referee from another vendor). The proof is the insertion
+argument of the cylinder (Section~\ref{S-ringn}): two wall files are inserted inside a wall of ten files that does not cross the seam,
+and the reduced game does not change. Its base case, the reduced game at $m=5$ ($435$, $417$ and $435$ positions),
+was computed by two independently written programs \lab{C2}, which also agree on the members with $m\le13$ solved directly. So one pawn per file
+gives a $\nim{2}$ ring on the strip for every $n\ge10$. The members with $m=0$ of the first two
 families are not $\nim{2}$, and the eight-file ring of Table~\ref{tab:mobring} is not extended by any block
-insertion we tried. In each family the number of positions the solver visits grows by a constant with each step, as
-in the wall families of the cylinder, so we expect the same kind of proof to work \lab{Conj}. Twelve files with
+insertion we tried. Twelve files with
 twelve pawns are not yet scanned in full.
 
 \subsection{Boards of Other Heights}\label{S-heights}
