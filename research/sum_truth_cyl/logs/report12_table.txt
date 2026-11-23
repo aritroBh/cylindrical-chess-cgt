@@ -1,0 +1,24 @@
+| pair | components (model value) | pawns+anchors | model sum (ep-aware) value = outcome (W-to-move, B-to-move) | real cap-1 (W-to-move / B-to-move; first token = upper bound, second = lower) | status | peak GB | secs | verdict | cap 2 |
+|---|---|---|---|---|---|---|---|---|---|
+| P1 | W: d3 / B: d4 d5 (0) + W: f2 f4 / B: f5 (1) | 8 | 1 = L ('W', 'W') | W D / W D | bounds | 3.1 | 892 | no contradiction cap2 killed at 12 GB after 3985s, no answer |
+| P9 | W: d2 d3 / B: d4 d5 (0) + W: f2 f3 / B: f4 f5 (0) | 10 | 0 = P ('L', 'W') | D L / W D | bounds | 6.8 | 4036 | no contradiction |
+| P21 | W: d2 d4 / B: d5 (1) + W: f3 / B: f4 f5 (0) | 8 | 1 = L ('W', 'W') | W W / W W | exact | 4.7 | 1022 | agree (exact) |
+| P22 | W: d3 / B: d4 d5 (0) + W: f2 / B: f4 f5 (-1/2±1/2) | 8 | -1/2±1/2 = N ('W', 'L') | W D / L L | exact on one side, bounds on other | 4.2 | 982 | no contradiction |
+| P26 | W: d2 d3 / B: d4 d5 (0) + W: f2 f3 / B: f5 (1/2±1/2) | 9 | 1/2±1/2 = N ('W', 'L') | W W / D L | exact on one side, bounds on other | 7.6 | 2300 | no contradiction |
+| P29 | W: d2 d3 / B: d4 (0) + W: f3 / B: f4 f5 (0) | 8 | 0 = P ('L', 'W') | D L / W D | bounds | 4.2 | 918 | no contradiction |
+| P35 | W: d2 / B: d4 d5 (-1/2±1/2) + W: f2 f3 / B: f4 f5 (0) | 9 | -1/2±1/2 = N ('W', 'L') | W D / L L | exact on one side, bounds on other | 6.0 | 2216 | no contradiction |
+| P40 | W: d2 d3 / B: d5 (1/2±1/2) + W: f3 / B: f4 f5 (0) | 8 | 1/2±1/2 = N ('W', 'L') | W W / D L | exact on one side, bounds on other | 2.6 | 982 | no contradiction cap2 killed at 12 GB after 3291s, no answer |
+| P48 | W: d2 / B: d3 d5 (-1) + W: f2 f3 / B: f4 (0) | 8 | -1 = R ('L', 'L') | D L / D L | bounds | 3.2 | 915 | no contradiction |
+| N0 | W: d2 d4 / B: d5 (1) + W: f2 / B: f3 f5 (-1) | 8 | 0 = P ('L', 'W') | D L / W D | bounds | 4.3 | 1129 | no contradiction |
+| N1 | W: d2 d4 / B: d5 (1) + W: f2 f3 / B: f5 (1/2±1/2) | 8 | 3/2±1/2 = L ('W', 'W') | W W / W W | exact | 5.1 | 1040 | agree (exact) |
+| N2 | W: d2 d4 / B: d5 (1) + W: f2 / B: f4 f5 (-1/2±1/2) | 8 | 1/2±1/2 = N ('W', 'L') | W W / D L | exact on one side, bounds on other | 5.5 | 1085 | no contradiction |
+| N3 | W: d2 / B: d3 d5 (-1) + W: f2 f3 / B: f5 (1/2±1/2) | 8 | -1/2±1/2 = N ('W', 'L') | W L / D L | bounds | 4.5 | 1187 | no contradiction |
+| N4 | W: d2 / B: d3 d5 (-1) + W: f2 / B: f4 f5 (-1/2±1/2) | 8 | -3/2±1/2 = R ('L', 'L') | L L / L L | exact | 5.0 | 1000 | agree (exact) |
+| N5 | W: d2 d3 / B: d5 (1/2±1/2) + W: f2 / B: f4 f5 (-1/2±1/2) | 8 | 0 = P ('L', 'W') | D L / W D | bounds | 5.9 | 1135 | no contradiction |
+| N6 | W: d2 d3 / B: d5 (1/2±1/2) + W: f2 f3 / B: f5 (1/2±1/2) | 8 | 1 = L ('W', 'W') | W W / W W | exact | 5.5 | 1057 | agree (exact) |
+| N7 | W: d2 / B: d4 d5 (-1/2±1/2) + W: f2 / B: f4 f5 (-1/2±1/2) | 8 | -1 = R ('L', 'L') | L L / L L | exact | 5.3 | 1041 | agree (exact) |
+| N8 | W: d2 d4 / B: d5 (1) + W: f2 f4 / B: f5 (1) | 8 | 2 = L ('W', 'W') | W W / W W | exact | 5.0 | 944 | agree (exact) |
+| N9 | W: d2 / B: d3 d5 (-1) + W: f2 / B: f3 f5 (-1) | 8 | -2 = R ('L', 'L') | L L / L L | exact | 5.0 | 962 | agree (exact) |
+
+[(('N', 'bounds-consistent'), 7), (('N', 'exact-match'), 13), (('P', 'bounds-consistent'), 12), (('P', 'exact-match'), 6)]
+disagree []

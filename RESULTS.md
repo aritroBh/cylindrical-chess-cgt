@@ -559,8 +559,13 @@ Answered 2026-10-16:
   - The frozen zero fails in 91 of 1,913 resolved random cyl:6x6 positions (4.8%; about 6.6% if the 87 unrun or killed
     positions fail like the resolved cap-2 ones), 135 of 179 failures being chess draws. No good position-level rule found.
   - Several cap-2 batches exceeded the 4 GB target (up to 5.3 GB peak); the limit is restated for later runs.
-- **Explicit-king sum test** (`research/sum_truth_cyl/`, avenue 5; COMPUTED-1, skeptic-corrected): NOT answered. Real-king
-  pairs on cyl:8x6 need > 4 GB per kpsolve at cap 1 (at least 8 pawns plus the trebuchet); 0 of 50 pairs finished (2
-  attempts with raw evidence, killed at 3.7 GB). Frozen-king stand-in: the cylcgt sum matches `kpsolve --frozen` on 50 of
-  50 pairs, but every pair has a locked 0 component, so this does not test interaction. K12 e.p. roots: 56,402
-  regenerated, 51,050 certified with 0 disagreements. Needs larger-memory runs or a leaner solver.
+- **Explicit-king sum test** (`research/sum_truth_cyl/REPORT.md`, section "12 GB runs (2026-11-22)", avenue 5;
+  COMPUTED-1, one solver; pair data and model outcomes rechecked by the planner). 19 two-component sums on cyl:8x6
+  with real kings (anchors Pa3 pa4 Kh4 kb3, components on files d and f), `kpsolve --ep on --promote Q --cap 1`,
+  2.6 to 7.6 GB each. 38 positions (either side to move): 19 exact, all 19 equal the model sum's outcome; 19 are
+  bounds that contain it; 0 contradictions. 7 pairs are exact for both movers (P21, N1, N4, N6, N7, N8, N9), 5 for
+  one. Every P-class (zero) sum is bounds only. Cap 2 gave no answer (two runs stopped at 12 GB, two at the time
+  limit). Components alone: 13 of 14 run, 19 of 26 sides exact, 0 mismatches (the agent's first table reported 4
+  mismatches; that was a file-name collision on the case-insensitive file system, corrected in the report).
+  Earlier pilot (4 GB limit): 0 of 50 pairs finished; frozen-king stand-in 50 of 50; K12 e.p. roots 56,402
+  regenerated, 51,050 certified with 0 disagreements.

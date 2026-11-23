@@ -143,3 +143,12 @@ positions of Section~\ref{sec:targets} in all nine settings (Section~\ref{sec:ep
 of Section~\ref{sec:star2} in the default setting. Elsewhere they can differ, even in outcome: under the
 opponent rule with the e.p.-aware test, \pos{W a3 b3 c2 e2 / B a6 c5 d5 e3} (the first five-file $\nim{2}$ of
 Section~\ref{sec:star2-five}) is ${\Uparrow}$ as a sum but $\nim{2}$ on the whole board. Where they differ, we name the model we mean.
+
+\emph{Sums with real kings.} The sum model can also be tested against chess itself. On a six-rank $\cyl{8}$ we
+put a tr\'ebuchet (\pos{W a3 / B a4}, kings on h4 and b3) beside two pawn components of three or four pawns on
+files d and f, and solved the position with real kings and queen promotions, bounding the play after the first
+promotion. We ran $19$ such sums, each with either side to move. Of the $38$ positions, $19$ are solved exactly
+and all agree with the outcome of the model sum; they include sums of two live components such as
+$\{1\mid0\}+\{1\mid0\}$ and $-1+\{0\mid-1\}$. The other $19$ positions, among them every sum that is a
+second-player win, are only bounded, and no bound contradicts the model \lab{C1}. So this test supports the sum
+model where one side wins outright and leaves the zero sums open.
