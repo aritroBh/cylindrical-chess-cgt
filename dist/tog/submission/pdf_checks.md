@@ -43,7 +43,7 @@ Evidence: `Page size: 612 x 792 pts (letter)` on all four; B `pdfinfo` has no `A
 
 Evidence: `pdffonts` column `emb` is `yes` on every line, and no line says `Type 3`, so there is no page to flag. Result: PASS.
 
-Caution: the 13 (A, B) and 20 (C, D) CID TrueType fonts are subsets of `AppleSymbols`, a macOS system font, used for the chess glyphs. They have `uni = no` (no ToUnicode map), so the chess pieces will not copy out as text. IEEE PDF eXpress normally accepts embedded subsets, but the audit marked this UNKNOWN until the file has been run through PDF eXpress (AUDIT.md, section 4.1). I did not run it. Also, whether the font license allows embedding: not verified.
+Caution: the 13 (A, B) and 20 (C, D) CID TrueType fonts are subsets of `AppleSymbols`, a macOS system font, used for the chess glyphs. They have `uni = no` (no ToUnicode map), so the chess pieces will not copy out as text. IEEE PDF eXpress normally accepts embedded subsets, but the audit marked this UNKNOWN until the file has been run through PDF eXpress (AUDIT.md, section 4.1). I did not run it. Embedding permission, checked 2026-11-23: the OS/2 table of `/System/Library/Fonts/Apple Symbols.ttf` has `fsType = 0` (installable embedding, no restriction bits), so the font itself permits embedded subsets. The figures can only be regenerated on a Mac (`paper/figures/make_figures.py` asks for this font); the submission needs only the PDFs.
 
 ## 3. pdfimages -list
 
