@@ -101,8 +101,7 @@ ten-pawn $\nim{3}$ rings also exist on $\cyl{7}$ and $\cyl{8}$.}
 \label{fig:least}
 \end{figure}
 
-Fig.~\ref{fig:least} gives the least ring $\nim{2}$ and $\nim{3}$ on each cylinder; Section~S6 of the
-supplementary material lists example rings, counts and checks for every $n$. The first ring $\nim{2}$ on
+Fig.~\ref{fig:least} gives the least ring $\nim{2}$ and $\nim{3}$ on each cylinder; Section~S6 lists example rings, counts and checks for every $n$. The first ring $\nim{2}$ on
 $\cyl{n}$ has $n+3$ pawns for $n=3,\dots,7$ \lab{C2}, among them the six-pawn \pos{W a2 a3 b2 / B b7 c6 c7} on
 $\cyl{3}$, one pawn fewer than any ordinary board of width at most four allows; it needs two en passant
 captures, and with e.p.\ off it is $0$ \lab{C2}. On $\cyl{8}$ and $\cyl{9}$ ten is again the least \lab{C2}.
@@ -124,17 +123,17 @@ added, \pos{W a2 b4 c2 d2 / B a4 a6 a7 c6 d5}, is $\nim{3}$ on four files \lab{C
 position with eight pawns or fewer on up to eight files, ordinary or cylinder, is $\nim{3}$ \lab{C1}. On
 $\cyl{7}$ eight ten-pawn rings are $\nim{3}$ \lab{C2}. Wall insertion gives a whole-board $\nim{3}$ with $n+2$
 pawns on every $\cyl{n}$ with even $n\ge8$ and odd $n\ge11$, and with $n+1$ pawns on every $\cyl{n}$ with
-$n\ge12$ \lab{S}. So $\nim{3}$, like $\nim{2}$, needs no more than eight ranks, but no $\nim{4}$ has turned up:
-none of the $134{,}920{,}191$ ten-pawn positions on five files that form one component has a nimber above
-$\nim{3}$ in the default setting, nor has any of about $24$ million rings, most with at most $11$ files
-\lab{C1}. A ring with two cores between walls, whenever it is a nimber, is the nim-sum of its cores \lab{C1}, so
-a $\nim{4}$ needs a $\nim{4}$ core.
+$n\ge12$ \lab{S}. Height matters: on boards of three to five files, seven ranks give a $\nim{2}$ with four
+pawns, \pos{W a2 c2 / B c3 b6}, and a $\nim{3}$ with six \lab{C2}; six ranks give a $\nim{2}$ and five give none
+\lab{C1}. But no $\nim{4}$ has turned up:
+none of the $134{,}920{,}191$ one-component ten-pawn positions on five files has a nimber above $\nim{3}$, nor has any of about $24$ million rings or of $1.8$ billion positions on these narrow boards with $5$ to $12$
+ranks \lab{C1} (Section~S6).
 
 \emph{M\"obius strip.} With the first and last files joined and the ranks reversed, a pawn that captures across
 the seam lands on the mirrored rank and turns round. The least ring $\nim{2}$ then has $6, 8, 6, 8, 8, 8$ pawns
 for $n=3,\dots,8$ files, against $6, 7, 8, 9, 10, 10$ on the cylinder, and $10, 10, 11$ for $n=9,10,11$ on both
 \lab{C2}. One pawn per file is enough on eight files, not on nine, and from ten on in two families that stay
-$\nim{2}$ up to $32$ files \lab{C1}. Nine pawns give a $\nim{3}$ on five and on six files \lab{C2} (Section~S6).
+$\nim{2}$ up to $32$ files \lab{C1}. Nine pawns give a $\nim{3}$ on five and on six files \lab{C2}.
 
 In the model, then, the $\nim{2}$ question has a positive answer on the ordinary $8\times8$ board: four files
 and seven pawns beside T suffice, while Elkies' higher nimbers need larger boards~\cite{Elkies2002}.

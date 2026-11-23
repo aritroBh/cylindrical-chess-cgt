@@ -266,6 +266,46 @@ families are not $\nim{2}$, and the eight-file ring of Table~\ref{tab:mobring} i
 insertion we tried. In each family the number of positions the solver visits grows by a constant with each step, as
 in the wall families of the cylinder, so we expect the same kind of proof to work \lab{Conj}. Twelve files with
 twelve pawns are not yet scanned in full.
+
+\subsection{Boards of Other Heights}\label{S-heights}
+Everything above is on eight ranks. Here the board has $R$ ranks, $5\le R\le12$: white pawns start on rank $2$,
+black pawns on rank $R-1$, and the double step is allowed only from there. We solved single-component positions
+without a passed pawn in which every file is occupied (rings, on a cylinder), on ordinary boards of three and four
+files and cylinders of three to five files, in increasing number of pawns: $1{,}833{,}497{,}669$ positions in all.
+Table~\ref{tab:heights} gives the least number of pawns in a $\nim{2}$ and in a $\nim{3}$.
+
+\begin{table}[!htbp]
+\centering
+\caption{Least number of pawns in a position of value $\nim{2}$ / $\nim{3}$ on a board of $R$ ranks. A dash: every
+position of the board was solved and none has the value. ${>}p$: none with up to $p$ pawns; more pawns were not
+scanned in full.}
+\label{tab:heights}
+\small
+\begin{tabular}{@{}lcccccccc@{}}
+\toprule
+board & $R=5$ & $6$ & $7$ & $8$ & $9$ & $10$ & $11$ & $12$\\
+\midrule
+ordinary, 3 files & -- / -- & 8 / -- & 4 / -- & 10 / -- & 7 / 9 & 7 / 9 & 7 / 9 & 6 / 9\\
+ordinary, 4 files & -- / -- & 6 / -- & 4 / 6 & 7 / 9 & 6 / 9 & 8 / 9 & 6 / 8 & 6 / 8\\
+$\cyl{3}$ & -- / -- & -- / -- & 4 / -- & 6 / -- & 6 / ${>}12$ & 6 / 10 & 6 / 9 & 6 / 9\\
+$\cyl{4}$ & -- / -- & 6 / -- & 6 / ${>}16$ & 7 / ${>}11$ & 6 / ${>}9$ & 7 / ${>}8$ & 6 / ${>}8$ & 6 / ${>}7$\\
+$\cyl{5}$ & -- / -- & 8 / -- & 6 / 8 & 8 / ${>}9$ & 6 / 9 & 8 / ${>}8$ & 8 / ${>}7$ & ${>}7$ / ${>}7$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+No position has a nimber above $\nim{3}$ \lab{C1}. The only nimbers are $0$, $\star$, $\nim{2}$ and $\nim{3}$, with
+$831$ positions of value $\nim{2}$ and $77$ of value $\nim{3}$. The least counts are not monotone in the height.
+On five ranks no position is $\nim{2}$. On six ranks six pawns are enough, as in \pos{W a2 b2 d2 / B a5 c5 d5} on
+four files. On seven ranks four pawns are enough, \pos{W a2 c2 / B c3 b6} on three files, and six pawns make a
+$\nim{3}$, \pos{W a2 c2 d3 / B c3 b6 c6} on four files. On the cylinder of three files and nine ranks the position
+with all six pawns at home, \pos{W a2 b2 c2 / B a8 b8 c8}, is $\nim{2}$. The column $R=8$ agrees with the counts of
+Sections~S6.2 and~S6.3.
+
+The solver was written for this scan. It agrees with our CGT engine on $16{,}000$ random positions, $2{,}000$ for
+each height, and on each of the $48$ positions behind a least count in the table \lab{C2}. That no smaller
+position exists, and that no $\nim{4}$ occurs, rests on the one solver \lab{C1}. Positions with an empty file, wider
+boards and more pawns than the table states were not scanned.
 ''')
 
 # S7 real chess ---------------------------------------------------------------------------------------

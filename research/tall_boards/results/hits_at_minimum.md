@@ -1,0 +1,50 @@
+# Hit positions at the least pawn count (all hits at that count found by the scan; levels flagged partial may have more)
+
+- flat 3, R=6, *2, p=8: 1 found (up to mirror/colour reversal); e.g. `W: a2 b2 c2 c3 / B: b4 c4 a5 c5`
+- flat 3, R=7, *2, p=4: 1 found (up to mirror/colour reversal); e.g. `W: a2 c2 / B: c3 b6`
+- flat 3, R=8, *2, p=10: 3 found (up to mirror/colour reversal); e.g. `W: a2 b2 a3 c3 a4 / B: c4 a5 c5 b6 c6`; also `W: a2 b2 c3 c4 b6 / B: b5 c5 a6 c6 b7`
+- flat 3, R=9, *2, p=7: 1 found (up to mirror/colour reversal); e.g. `W: a2 b2 b5 / B: a5 b6 c7 c8`
+- flat 3, R=9, *3, p=9: 2 found (up to mirror/colour reversal); e.g. `W: a2 b2 b5 a6 / B: a5 b6 c7 a8 c8`; also `W: b2 c2 b5 a6 / B: c5 b6 c7 a8 c8`
+- flat 3, R=10, *2, p=7: 1 found (up to mirror/colour reversal); e.g. `W: a2 b2 b5 / B: a5 b6 c7 c8`
+- flat 3, R=10, *3, p=9: 4 found (up to mirror/colour reversal); e.g. `W: a2 b2 b5 a6 / B: a5 b6 c7 a8 c8`; also `W: a2 b2 b5 c7 / B: a5 b6 a7 a8 c9`
+- flat 3, R=11, *2, p=7: 1 found (up to mirror/colour reversal); e.g. `W: a2 b2 b5 / B: a5 b6 c7 c8`
+- flat 3, R=11, *3, p=9: 10 found (up to mirror/colour reversal); e.g. `W: a2 b2 a5 c8 / B: b5 a6 b7 b8 c10`; also `W: a2 b2 b5 a6 / B: a5 b6 c7 a8 c8`
+- flat 3, R=12, *2, p=6: 7 found (up to mirror/colour reversal); e.g. `W: a3 b3 c7 / B: a6 b10 c10`; also `W: b2 a3 b3 / B: b10 c10 b11`
+- flat 3, R=12, *3, p=9: 11 found (up to mirror/colour reversal); e.g. `W: a2 b2 b5 b8 / B: a5 b6 c7 c8 b10`; also `W: a2 b2 b5 b8 / B: a5 b6 c7 c8 c11`
+- cyl 3, R=7, *2, p=4: 1 found (up to mirror/colour reversal); e.g. `W: c2 a3 / B: b5 c5`
+- cyl 3, R=8, *2, p=6: 1 found (up to mirror/colour reversal); e.g. `W: a2 b2 a3 / B: c6 b7 c7`
+- cyl 3, R=9, *2, p=6: 4 found (up to mirror/colour reversal); e.g. `W: a2 b2 c2 / B: a8 b8 c8`; also `W: a2 b2 c2 / B: b4 b7 c8`
+- cyl 3, R=10, *2, p=6: 4 found (up to mirror/colour reversal); e.g. `W: c2 a3 c3 / B: b8 c8 c9`; also `W: c2 a3 c4 / B: b7 c8 c9`
+- cyl 3, R=10, *3, p=10: 2 found (up to mirror/colour reversal); e.g. `W: b2 a3 c3 a4 c7 / B: a5 c5 b6 b7 c9`; also `W: b2 a3 c3 c4 c7 / B: a5 c5 b6 b7 c9`
+- cyl 3, R=11, *2, p=6: 1 found (up to mirror/colour reversal); e.g. `W: b2 a3 a6 / B: c5 b10 c10`
+- cyl 3, R=11, *3, p=9: 3 found (up to mirror/colour reversal); e.g. `W: a2 b2 a5 c8 / B: b5 a6 b7 b8 c10`; also `W: a2 c2 a5 c8 / B: c5 a6 b7 b8 c10`
+- cyl 3, R=12, *2, p=6: 1 found (up to mirror/colour reversal); e.g. `W: a3 b3 c7 / B: a6 b10 c10`
+- cyl 3, R=12, *3, p=9: 5 found (up to mirror/colour reversal); e.g. `W: a2 b2 b5 b8 / B: a5 b6 c7 c8 c11`; also `W: a2 b2 b5 c9 / B: a5 b6 c7 c8 c11`
+- flat 4, R=6, *2, p=6: 2 found (up to mirror/colour reversal); e.g. `W: a2 b2 d2 / B: a5 c5 d5`; also `W: a2 d2 b3 / B: c4 a5 d5`
+- flat 4, R=7, *2, p=4: 2 found (up to mirror/colour reversal); e.g. `W: a2 c2 / B: d4 b6`; also `W: a2 d4 / B: b6 c6`
+- flat 4, R=7, *3, p=6: 3 found (up to mirror/colour reversal); e.g. `W: a2 c2 d3 / B: c3 b6 c6`; also `W: a2 c2 d3 / B: c3 d5 b6`
+- flat 4, R=8, *2, p=7: 1 found (up to mirror/colour reversal); e.g. `W: a2 b2 c4 / B: a5 b6 d6 d7`
+- flat 4, R=8, *3, p=9: 1 found (up to mirror/colour reversal); e.g. `W: a2 b2 d2 c4 / B: d4 a5 b6 d6 d7`
+- flat 4, R=9, *2, p=6: 4 found (up to mirror/colour reversal); e.g. `W: a3 c4 d4 / B: a6 b6 d7`; also `W: b2 a3 c3 / B: b7 d7 c8`
+- flat 4, R=9, *3, p=9: 8 found (up to mirror/colour reversal); e.g. `W: a2 b2 d2 c4 / B: d4 a5 b6 d6 d7`; also `W: a2 b2 d3 b5 / B: a5 d5 b6 c7 c8`
+- flat 4, R=10, *2, p=8: 26 found (up to mirror/colour reversal); e.g. `W: a2 b2 c2 d2 / B: d4 b5 c6 b7`; also `W: a2 b2 c2 d4 / B: b5 a7 b7 d7`
+- flat 4, R=10, *3, p=9: 2 found (up to mirror/colour reversal); e.g. `W: b2 c2 b5 c6 / B: c5 b6 a7 a8 d9`; also `W: b2 c2 b5 d7 / B: c5 b6 a7 a8 d9`
+- flat 4, R=11, *2, p=6: 11 found (up to mirror/colour reversal); e.g. `W: a3 b3 c4 / B: b8 c9 d9`; also `W: a3 b4 c4 / B: b8 c8 d9`
+- flat 4, R=11, *3, p=8: 6 found (up to mirror/colour reversal); e.g. `W: a2 d3 a5 b5 / B: a4 c7 d7 b9`; also `W: c3 a5 b5 d8 / B: c7 d7 b9 d10`
+- flat 4, R=12, *2, p=6: 5 found (up to mirror/colour reversal); e.g. `W: a3 c4 d5 / B: a7 b8 d9`; also `W: a3 c5 d5 / B: a7 b7 d9`
+- flat 4, R=12, *3, p=8: 4 found (up to mirror/colour reversal); e.g. `W: b2 c3 d3 b7 / B: a5 d6 b10 c10`; also `W: b2 c3 d3 c7 / B: a5 d6 c10 d10`
+- cyl 4, R=6, *2, p=6: 1 found (up to mirror/colour reversal); e.g. `W: c2 d2 a3 / B: b4 c5 d5`
+- cyl 4, R=7, *2, p=6: 2 found (up to mirror/colour reversal); e.g. `W: a2 c2 d5 / B: c3 b6 d6`; also `W: d2 a3 c3 / B: b5 d5 c6`
+- cyl 4, R=8, *2, p=7: 1 found (up to mirror/colour reversal); e.g. `W: b2 c2 a4 / B: c5 b6 d6 d7`
+- cyl 4, R=9, *2, p=6: 3 found (up to mirror/colour reversal); e.g. `W: d2 a3 b3 / B: b7 c7 d8`; also `W: d2 a3 b4 / B: c6 b7 d8`
+- cyl 4, R=10, *2, p=7: 1 found (up to mirror/colour reversal); e.g. `W: b2 c2 a4 / B: c5 b6 d6 d7`
+- cyl 4, R=11, *2, p=6: 1 found (up to mirror/colour reversal); e.g. `W: a2 c2 b3 / B: c5 b6 d9`
+- cyl 4, R=12, *2, p=6: 18 found (up to mirror/colour reversal); e.g. `W: a2 b2 d3 / B: b10 c11 d11`; also `W: a2 b2 d4 / B: b9 c11 d11`
+- cyl 5, R=6, *2, p=8: 1 found (up to mirror/colour reversal); e.g. `W: a2 c2 d2 c3 / B: e4 b5 d5 e5`
+- cyl 5, R=7, *2, p=6: 2 found (up to mirror/colour reversal); e.g. `W: a2 d2 c5 / B: b4 c6 e6`; also `W: e2 a3 c3 / B: b5 d5 e5`
+- cyl 5, R=7, *3, p=8: 2 found (up to mirror/colour reversal); e.g. `W: a2 c2 d2 c4 / B: e4 b6 d6 e6`; also `W: a2 c2 d3 e5 / B: c3 d5 b6 e6`
+- cyl 5, R=8, *2, p=8: 7 found (up to mirror/colour reversal); e.g. `W: a2 c2 d2 e2 / B: b4 c5 e6 e7`; also `W: a2 c2 d2 e2 / B: b4 e5 c6 e7`
+- cyl 5, R=9, *2, p=6: 3 found (up to mirror/colour reversal); e.g. `W: a2 c3 d3 / B: b7 c7 e8`; also `W: a2 c4 d4 / B: b6 c6 e8`
+- cyl 5, R=9, *3, p=9: 1 found (up to mirror/colour reversal); e.g. `W: c2 d2 a4 d5 / B: c5 d6 b7 e7 e8`
+- cyl 5, R=10, *2, p=8: 22 found (up to mirror/colour reversal); e.g. `W: a2 a3 c4 e4 / B: b7 e7 d8 d9`; also `W: a2 d2 b3 e3 / B: b8 d8 c9 e9`
+- cyl 5, R=11, *2, p=8: 18 found (up to mirror/colour reversal); e.g. `W: a2 b2 d4 e4 / B: b4 e8 c9 d9`; also `W: a2 c3 c4 d6 / B: b6 c8 c9 e10`

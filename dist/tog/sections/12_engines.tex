@@ -56,7 +56,7 @@ Beyond seven men no tablebase applies, but CGT still values sums exactly. ChessS
 pawn-endgame sums whose components come from a library of $418$ with $37$ distinct values, each the same in all
 nine settings; whole-board alpha--beta confirms every outcome except five that hit its time limit \lab{C1}, an
 independent minimax confirms $4{,}887$ \lab{C2}, and alpha--beta needs about $4$--$9$ times as many nodes per
-added component \lab{C1}, while adding the CGT values costs almost nothing. We placed each sum on the ordinary
+added component \lab{C1}. We placed each sum on the ordinary
 $8\times8$ board beside T or a shifted copy that our king-and-pawn solver confirms is a mutual zugzwang, giving
 legal positions with $15$--$20$ men. On $200$ of them, Stockfish~19 picks a winning move only $26.5$--$28.0\%$ of
 the time from $10^3$ to $10^6$ nodes, and Lc0 $32.5$--$33.5\%$ at $10^3$ and $10^4$ nodes \lab{C1} ($34$--$36\%$

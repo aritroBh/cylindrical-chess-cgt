@@ -491,6 +491,22 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   - Not done: n = 12 with 12 pawns (scan running), n = 10 with 11 pawns, any \*3 family.
   - In Section VIII of both versions, supplement S6.4, conclusion.
 
+- **Boards of other heights (2026-11-22; `research/tall_boards/REPORT.md`).** Single-component positions with every
+  file occupied (rings on cylinders), no passed pawn, R = 5..12 ranks, ordinary boards of 3 and 4 files and cylinders
+  of 3, 4, 5 files, by increasing pawn count: 1,833,497,669 positions solved by a new C solver (`tw.c`).
+  - **No \*4:** the only nimbers are \*0, \*1, \*2 (831 positions) and \*3 (77). COMPUTED-1.
+  - **Height matters and the minima are not monotone.** R = 5: no \*2 on any of the five boards (all positions
+    solved). R = 6: \*2 with 6 pawns (`W a2 b2 d2 / B a5 c5 d5`, 4 files). R = 7: \*2 with 4 pawns
+    (`W a2 c2 / B c3 b6`, 3 files) and \*3 with 6 (`W a2 c2 d3 / B c3 b6 c6`, 4 files). On the cylinder of 3
+    files and 9 ranks the home position `W a2 b2 c2 / B a8 b8 c8` is \*2. Full table in the report and in supplement
+    S6.5. The 48 minimum positions agree with cylcgt (CHECKED-2; the main session re-ran seven); minimality and
+    "none" are COMPUTED-1.
+  - Validation: 16,000 random positions (2,000 per R) agree with cylcgt on the full 8-letter signature; the R = 8
+    column reproduces the stored counts (48,649,934 roots on 4 files with 11 pawns; 134,920,191 on 5 files with 10).
+  - Not covered: positions with an empty file, flat boards of 5+ files, cylinders of 6+ files, R > 12, and the
+    pawn counts above each "none up to p" cell.
+  - In Section VIII of both versions (one sentence in the 10-page text) and the conclusion's question on \*4.
+
 ## 7. Pending
 
 **Verification gaps.** 35 adversarial verifiers were cut off by the Claude usage limit. Not verified:
