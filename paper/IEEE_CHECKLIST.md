@@ -101,7 +101,14 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
   README and in two submission files, one intro claim missing from the body (n+1 pawns on C11), and two vague pointers
 - [x] R5 (Sonnet): applied the R1 and R2 fixes (13 edits decided by the main session) and rebuilt; diff reviewed and
   checks rerun by the main session (10 pages with 0.32 in spare, supplement 95, numbers and anonymity pass)
-- [ ] R3 (Opus): is there a family of *3 rings on the Möbius strip, as on the cylinder? (`research/mobius_star3_family/`)
+- [x] R3 (Opus): is there a family of *3 rings on the Möbius strip, as on the cylinder? YES: n+1 pawns for n = 9, 11
+  and every n >= 12. Families TT (even n >= 12) and SS (odd n >= 11) are the cylinder's T_n and S_n with the seam at
+  one particular file; two programs agree to n = 32 and 31. n = 10 with 11 pawns open (12 pawns found).
+  (`research/mobius_star3_family/REPORT.md`)
+- [ ] T87 (Codex): independent base graphs for TT (m = 5) and SS (m = 6), insertion step, small widths
+- [ ] R13 (Opus): proof note `research/mobius_star3_family/PROOF.md`, with the seam analysis (TT's arc ends at the
+  seam file and the file across the seam is in the zone)
+- [ ] Then: Codex referee of the note; supplement note and one clause in Section VIII if it fits the page
 - [x] R4 (Haiku): recount the facts in `dist/tog/submission/` (pages, hashes, words in the abstract, references,
   figures, tables) from the built PDFs (`delegate/out/R4_submission_facts/REPORT.md`): all match except one stale page count
   (82, now 95) in `pdf_checks.md`, fixed

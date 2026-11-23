@@ -1,0 +1,203 @@
+BASE B67 W4 W2B6 W2B5 W5B7 n=5: 1320 candidates (m=1,2), sig histogram {'LLLL': 410, 'NNNN': 211, 'RRRR': 458, 'NNNP': 8, 'NNPN': 2, 'NNNR': 6, 'RACE': 157, 'RRNR': 6, 'LNLL': 5, 'RRNN': 1, 'NNRN': 3, 'NRRR': 8, 'NLNN': 4, 'PNNN': 3, 'RNNN': 2, 'RNRR': 12, 'NPNN': 2, 'NLLL': 8, 'NNRR': 3, 'LLNL': 4, 'LLLN': 2, 'RRRN': 2, 'NRNN': 1, 'LNNN': 2}
+  wall k=0 block=W2 B4 m=1 NNNP  W2 B4 B67 W4 W2B6 W2B5 W5B7
+  wall k=0 block=W5 B7 m=1 LNLL  W5 B7 B67 W4 W2B6 W2B5 W5B7
+  wall k=0 block=B4 W2 m=1 RRRR  B4 W2 B67 W4 W2B6 W2B5 W5B7
+  wall k=0 block=B7 W5 m=1 RRRR  B7 W5 B67 W4 W2B6 W2B5 W5B7
+  wall k=1 block=W2 B4 m=1 RRRR  B67 W2 B4 W4 W2B6 W2B5 W5B7
+  wall k=1 block=W5 B7 m=1 NNNN  B67 W5 B7 W4 W2B6 W2B5 W5B7
+  wall k=1 block=B4 W2 m=1 RRRR  B67 B4 W2 W4 W2B6 W2B5 W5B7
+  wall k=1 block=B7 W5 m=1 RRRR  B67 B7 W5 W4 W2B6 W2B5 W5B7
+  wall k=2 block=W2 B4 m=1 NNNN  B67 W4 W2 B4 W2B6 W2B5 W5B7
+  wall k=2 block=W5 B7 m=1 RNRR  B67 W4 W5 B7 W2B6 W2B5 W5B7
+  wall k=2 block=B4 W2 m=1 RNRR  B67 W4 B4 W2 W2B6 W2B5 W5B7
+  wall k=2 block=B7 W5 m=1 NNNN  B67 W4 B7 W5 W2B6 W2B5 W5B7
+  wall k=3 block=W2 B4 m=1 RNNN  B67 W4 W2B6 W2 B4 W2B5 W5B7
+  wall k=3 block=W5 B7 m=1 NNNN  B67 W4 W2B6 W5 B7 W2B5 W5B7
+  wall k=3 block=B4 W2 m=1 NNNN  B67 W4 W2B6 B4 W2 W2B5 W5B7
+  wall k=3 block=B7 W5 m=1 LLLL  B67 W4 W2B6 B7 W5 W2B5 W5B7
+  wall k=4 block=W2 B4 m=1 NNRR  B67 W4 W2B6 W2B5 W2 B4 W5B7
+  wall k=4 block=W5 B7 m=1 LLNL  B67 W4 W2B6 W2B5 W5 B7 W5B7
+  wall k=4 block=B4 W2 m=1 RRRR  B67 W4 W2B6 W2B5 B4 W2 W5B7
+  wall k=4 block=B7 W5 m=1 LLLL  B67 W4 W2B6 W2B5 B7 W5 W5B7
+  wall k=5 block=W2 B4 m=1 RNRR  B67 W4 W2B6 W2B5 W5B7 W2 B4
+  wall k=5 block=W5 B7 m=1 LLLL  B67 W4 W2B6 W2B5 W5B7 W5 B7
+  wall k=5 block=B4 W2 m=1 NNNP  B67 W4 W2B6 W2B5 W5B7 B4 W2
+  wall k=5 block=B7 W5 m=1 LLNL  B67 W4 W2B6 W2B5 W5B7 B7 W5
+  wall k=0 block=W2 B4 m=2 LLLL  W2 B4 W2 B4 B67 W4 W2B6 W2B5 W5B7
+  wall k=0 block=W5 B7 m=2 RRRR  W5 B7 W5 B7 B67 W4 W2B6 W2B5 W5B7
+  wall k=0 block=B4 W2 m=2 RRRR  B4 W2 B4 W2 B67 W4 W2B6 W2B5 W5B7
+  wall k=0 block=B7 W5 m=2 NNNN  B7 W5 B7 W5 B67 W4 W2B6 W2B5 W5B7
+  wall k=1 block=W2 B4 m=2 RRRR  B67 W2 B4 W2 B4 W4 W2B6 W2B5 W5B7
+  wall k=1 block=W5 B7 m=2 NNNN  B67 W5 B7 W5 B7 W4 W2B6 W2B5 W5B7
+  wall k=1 block=B4 W2 m=2 RRRR  B67 B4 W2 B4 W2 W4 W2B6 W2B5 W5B7
+  wall k=1 block=B7 W5 m=2 RRRR  B67 B7 W5 B7 W5 W4 W2B6 W2B5 W5B7
+  wall k=2 block=W2 B4 m=2 RRRR  B67 W4 W2 B4 W2 B4 W2B6 W2B5 W5B7
+  wall k=2 block=W5 B7 m=2 RNRR  B67 W4 W5 B7 W5 B7 W2B6 W2B5 W5B7
+  wall k=2 block=B4 W2 m=2 RNRR  B67 W4 B4 W2 B4 W2 W2B6 W2B5 W5B7
+  wall k=2 block=B7 W5 m=2 NNNN  B67 W4 B7 W5 B7 W5 W2B6 W2B5 W5B7
+  wall k=3 block=W2 B4 m=2 RRRR  B67 W4 W2B6 W2 B4 W2 B4 W2B5 W5B7
+  wall k=3 block=W5 B7 m=2 NNNN  B67 W4 W2B6 W5 B7 W5 B7 W2B5 W5B7
+  wall k=3 block=B4 W2 m=2 RRRR  B67 W4 W2B6 B4 W2 B4 W2 W2B5 W5B7
+  wall k=3 block=B7 W5 m=2 NNNN  B67 W4 W2B6 B7 W5 B7 W5 W2B5 W5B7
+  wall k=4 block=W2 B4 m=2 NNRR  B67 W4 W2B6 W2B5 W2 B4 W2 B4 W5B7
+  wall k=4 block=W5 B7 m=2 LLNL  B67 W4 W2B6 W2B5 W5 B7 W5 B7 W5B7
+  wall k=4 block=B4 W2 m=2 RRRR  B67 W4 W2B6 W2B5 B4 W2 B4 W2 W5B7
+  wall k=4 block=B7 W5 m=2 LLLL  B67 W4 W2B6 W2B5 B7 W5 B7 W5 W5B7
+  wall k=5 block=W2 B4 m=2 RNRR  B67 W4 W2B6 W2B5 W5B7 W2 B4 W2 B4
+  wall k=5 block=W5 B7 m=2 LLLL  B67 W4 W2B6 W2B5 W5B7 W5 B7 W5 B7
+  wall k=5 block=B4 W2 m=2 LLLL  B67 W4 W2B6 W2B5 W5B7 B4 W2 B4 W2
+  wall k=5 block=B7 W5 m=2 LLNL  B67 W4 W2B6 W2B5 W5B7 B7 W5 B7 W5
+  survivors m=1,2: 2
+  NNNP at m=1: 5: [(0, 'B6 W4'), (0, 'W2 B4'), (4, 'B6 W4'), (5, 'B4 W2'), (5, 'W4 B6')]
+  SURV k=4 block=B6 W4: NNNP NNNP NNNP NNNP NNNP NNNP NNNP NNNP
+  SURV k=5 block=W4 B6: NNNP NNNP NNNP NNNP NNNP NNNP NNNP NNNP
+BASE B7 W4 W23 B5 W3B7 W4B7 n=6: 1540 candidates (m=1,2), sig histogram {'LLLL': 565, 'RRRR': 449, 'NNNN': 202, 'NNNP': 7, 'RACE': 228, 'NNRR': 3, 'NRRR': 10, 'RNRR': 15, 'NLNN': 4, 'LNNN': 10, 'RRNR': 2, 'LNLL': 13, 'NLLL': 7, 'LLLN': 3, 'NNPN': 2, 'LLNL': 3, 'RNNR': 2, 'PNNN': 2, 'NNLL': 3, 'NPNN': 5, 'LNNL': 1, 'NRNN': 1, 'RNNN': 2, 'NNNL': 1}
+  wall k=0 block=W2 B4 m=1 NNNP  W2 B4 B7 W4 W23 B5 W3B7 W4B7
+  wall k=0 block=W5 B7 m=1 NNRR  W5 B7 B7 W4 W23 B5 W3B7 W4B7
+  wall k=0 block=B4 W2 m=1 LLLL  B4 W2 B7 W4 W23 B5 W3B7 W4B7
+  wall k=0 block=B7 W5 m=1 LLLL  B7 W5 B7 W4 W23 B5 W3B7 W4B7
+  wall k=1 block=W2 B4 m=1 LLLL  B7 W2 B4 W4 W23 B5 W3B7 W4B7
+  wall k=1 block=W5 B7 m=1 LLLL  B7 W5 B7 W4 W23 B5 W3B7 W4B7
+  wall k=1 block=B4 W2 m=1 LLLL  B7 B4 W2 W4 W23 B5 W3B7 W4B7
+  wall k=1 block=B7 W5 m=1 LLLL  B7 B7 W5 W4 W23 B5 W3B7 W4B7
+  wall k=2 block=W2 B4 m=1 LLLL  B7 W4 W2 B4 W23 B5 W3B7 W4B7
+  wall k=2 block=W5 B7 m=1 LLNL  B7 W4 W5 B7 W23 B5 W3B7 W4B7
+  wall k=2 block=B4 W2 m=1 RNRR  B7 W4 B4 W2 W23 B5 W3B7 W4B7
+  wall k=2 block=B7 W5 m=1 RNNR  B7 W4 B7 W5 W23 B5 W3B7 W4B7
+  wall k=3 block=W2 B4 m=1 LLLL  B7 W4 W23 W2 B4 B5 W3B7 W4B7
+  wall k=3 block=W5 B7 m=1 LLLL  B7 W4 W23 W5 B7 B5 W3B7 W4B7
+  wall k=3 block=B4 W2 m=1 NNNN  B7 W4 W23 B4 W2 B5 W3B7 W4B7
+  wall k=3 block=B7 W5 m=1 LLLL  B7 W4 W23 B7 W5 B5 W3B7 W4B7
+  wall k=4 block=W2 B4 m=1 NNNN  B7 W4 W23 B5 W2 B4 W3B7 W4B7
+  wall k=4 block=W5 B7 m=1 LNLL  B7 W4 W23 B5 W5 B7 W3B7 W4B7
+  wall k=4 block=B4 W2 m=1 LNLL  B7 W4 W23 B5 B4 W2 W3B7 W4B7
+  wall k=4 block=B7 W5 m=1 NNNN  B7 W4 W23 B5 B7 W5 W3B7 W4B7
+  wall k=5 block=W2 B4 m=1 NNNN  B7 W4 W23 B5 W3B7 W2 B4 W4B7
+  wall k=5 block=W5 B7 m=1 NNNN  B7 W4 W23 B5 W3B7 W5 B7 W4B7
+  wall k=5 block=B4 W2 m=1 NNNN  B7 W4 W23 B5 W3B7 B4 W2 W4B7
+  wall k=5 block=B7 W5 m=1 LNNN  B7 W4 W23 B5 W3B7 B7 W5 W4B7
+  wall k=6 block=W2 B4 m=1 NNNP  B7 W4 W23 B5 W3B7 W4B7 W2 B4
+  wall k=6 block=W5 B7 m=1 NNNN  B7 W4 W23 B5 W3B7 W4B7 W5 B7
+  wall k=6 block=B4 W2 m=1 NNNP  B7 W4 W23 B5 W3B7 W4B7 B4 W2
+  wall k=6 block=B7 W5 m=1 NNLL  B7 W4 W23 B5 W3B7 W4B7 B7 W5
+  wall k=0 block=W2 B4 m=2 LLLL  W2 B4 W2 B4 B7 W4 W23 B5 W3B7 W4B7
+  wall k=0 block=W5 B7 m=2 NNRR  W5 B7 W5 B7 B7 W4 W23 B5 W3B7 W4B7
+  wall k=0 block=B4 W2 m=2 LLLL  B4 W2 B4 W2 B7 W4 W23 B5 W3B7 W4B7
+  wall k=0 block=B7 W5 m=2 LLLL  B7 W5 B7 W5 B7 W4 W23 B5 W3B7 W4B7
+  wall k=1 block=W2 B4 m=2 LLLL  B7 W2 B4 W2 B4 W4 W23 B5 W3B7 W4B7
+  wall k=1 block=W5 B7 m=2 LLLL  B7 W5 B7 W5 B7 W4 W23 B5 W3B7 W4B7
+  wall k=1 block=B4 W2 m=2 LLLL  B7 B4 W2 B4 W2 W4 W23 B5 W3B7 W4B7
+  wall k=1 block=B7 W5 m=2 LLLL  B7 B7 W5 B7 W5 W4 W23 B5 W3B7 W4B7
+  wall k=2 block=W2 B4 m=2 NNNN  B7 W4 W2 B4 W2 B4 W23 B5 W3B7 W4B7
+  wall k=2 block=W5 B7 m=2 LLNL  B7 W4 W5 B7 W5 B7 W23 B5 W3B7 W4B7
+  wall k=2 block=B4 W2 m=2 LLLL  B7 W4 B4 W2 B4 W2 W23 B5 W3B7 W4B7
+  wall k=2 block=B7 W5 m=2 RNNR  B7 W4 B7 W5 B7 W5 W23 B5 W3B7 W4B7
+  wall k=3 block=W2 B4 m=2 LLLL  B7 W4 W23 W2 B4 W2 B4 B5 W3B7 W4B7
+  wall k=3 block=W5 B7 m=2 LLLL  B7 W4 W23 W5 B7 W5 B7 B5 W3B7 W4B7
+  wall k=3 block=B4 W2 m=2 NNNN  B7 W4 W23 B4 W2 B4 W2 B5 W3B7 W4B7
+  wall k=3 block=B7 W5 m=2 LLLL  B7 W4 W23 B7 W5 B7 W5 B5 W3B7 W4B7
+  wall k=4 block=W2 B4 m=2 NNNN  B7 W4 W23 B5 W2 B4 W2 B4 W3B7 W4B7
+  wall k=4 block=W5 B7 m=2 LNLL  B7 W4 W23 B5 W5 B7 W5 B7 W3B7 W4B7
+  wall k=4 block=B4 W2 m=2 LNLL  B7 W4 W23 B5 B4 W2 B4 W2 W3B7 W4B7
+  wall k=4 block=B7 W5 m=2 LLLL  B7 W4 W23 B5 B7 W5 B7 W5 W3B7 W4B7
+  wall k=5 block=W2 B4 m=2 LLLL  B7 W4 W23 B5 W3B7 W2 B4 W2 B4 W4B7
+  wall k=5 block=W5 B7 m=2 LLLL  B7 W4 W23 B5 W3B7 W5 B7 W5 B7 W4B7
+  wall k=5 block=B4 W2 m=2 NNNN  B7 W4 W23 B5 W3B7 B4 W2 B4 W2 W4B7
+  wall k=5 block=B7 W5 m=2 LLLL  B7 W4 W23 B5 W3B7 B7 W5 B7 W5 W4B7
+  wall k=6 block=W2 B4 m=2 NNNP  B7 W4 W23 B5 W3B7 W4B7 W2 B4 W2 B4
+  wall k=6 block=W5 B7 m=2 LLLL  B7 W4 W23 B5 W3B7 W4B7 W5 B7 W5 B7
+  wall k=6 block=B4 W2 m=2 LNLL  B7 W4 W23 B5 W3B7 W4B7 B4 W2 B4 W2
+  wall k=6 block=B7 W5 m=2 NNLL  B7 W4 W23 B5 W3B7 W4B7 B7 W5 B7 W5
+  survivors m=1,2: 2
+  NNNP at m=1: 5: [(0, 'W2 B4'), (2, 'W3 B5'), (6, 'B4 W2'), (6, 'W2 B4'), (6, 'W3 B5')]
+  SURV k=6 block=W2 B4: NNNP NNNP NNNP NNNP NNNP NNNP NNNP NNNP
+  SURV k=6 block=W3 B5: NNNP NNNP NNNP NNNP NNNP NNNP NNNP NNNP
+BASE B5 W3 W4 B7 B7 W3 W2 W2B7 B7 n=9: 2200 candidates (m=1,2), sig histogram {'LLLL': 719, 'RRRR': 658, 'NNNN': 238, 'NRNN': 5, 'LNLL': 28, 'RACE': 453, 'NNLL': 2, 'NNNP': 11, 'NRRR': 6, 'LLLN': 4, 'RRNR': 1, 'NNRR': 11, 'LLNN': 11, 'NNNR': 2, 'RRRN': 1, 'NNNL': 2, 'NNPN': 1, 'LLNL': 4, 'RNRR': 4, 'NPNN': 2, 'NLLL': 14, 'NLNN': 12, 'PNNN': 1, 'RNNN': 4, 'LNNN': 3, 'RRNN': 2, 'NNRN': 1}
+  wall k=0 block=W2 B4 m=1 LNLL  W2 B4 B5 W3 W4 B7 B7 W3 W2 W2B7 B7
+  wall k=0 block=W5 B7 m=1 NNNN  W5 B7 B5 W3 W4 B7 B7 W3 W2 W2B7 B7
+  wall k=0 block=B4 W2 m=1 LNLL  B4 W2 B5 W3 W4 B7 B7 W3 W2 W2B7 B7
+  wall k=0 block=B7 W5 m=1 LNLL  B7 W5 B5 W3 W4 B7 B7 W3 W2 W2B7 B7
+  wall k=1 block=W2 B4 m=1 NNNN  B5 W2 B4 W3 W4 B7 B7 W3 W2 W2B7 B7
+  wall k=1 block=W5 B7 m=1 RRRR  B5 W5 B7 W3 W4 B7 B7 W3 W2 W2B7 B7
+  wall k=1 block=B4 W2 m=1 RACE  B5 B4 W2 W3 W4 B7 B7 W3 W2 W2B7 B7
+  wall k=1 block=B7 W5 m=1 RACE  B5 B7 W5 W3 W4 B7 B7 W3 W2 W2B7 B7
+  wall k=2 block=W2 B4 m=1 NNNP  B5 W3 W2 B4 W4 B7 B7 W3 W2 W2B7 B7
+  wall k=2 block=W5 B7 m=1 NNNR  B5 W3 W5 B7 W4 B7 B7 W3 W2 W2B7 B7
+  wall k=2 block=B4 W2 m=1 RRRR  B5 W3 B4 W2 W4 B7 B7 W3 W2 W2B7 B7
+  wall k=2 block=B7 W5 m=1 LLNL  B5 W3 B7 W5 W4 B7 B7 W3 W2 W2B7 B7
+  wall k=3 block=W2 B4 m=1 RACE  B5 W3 W4 W2 B4 B7 B7 W3 W2 W2B7 B7
+  wall k=3 block=W5 B7 m=1 RACE  B5 W3 W4 W5 B7 B7 B7 W3 W2 W2B7 B7
+  wall k=3 block=B4 W2 m=1 LLLL  B5 W3 W4 B4 W2 B7 B7 W3 W2 W2B7 B7
+  wall k=3 block=B7 W5 m=1 LLLL  B5 W3 W4 B7 W5 B7 B7 W3 W2 W2B7 B7
+  wall k=4 block=W2 B4 m=1 NNNP  B5 W3 W4 B7 W2 B4 B7 W3 W2 W2B7 B7
+  wall k=4 block=W5 B7 m=1 LLLL  B5 W3 W4 B7 W5 B7 B7 W3 W2 W2B7 B7
+  wall k=4 block=B4 W2 m=1 LNLL  B5 W3 W4 B7 B4 W2 B7 W3 W2 W2B7 B7
+  wall k=4 block=B7 W5 m=1 LLLL  B5 W3 W4 B7 B7 W5 B7 W3 W2 W2B7 B7
+  wall k=5 block=W2 B4 m=1 LLLL  B5 W3 W4 B7 B7 W2 B4 W3 W2 W2B7 B7
+  wall k=5 block=W5 B7 m=1 LLLL  B5 W3 W4 B7 B7 W5 B7 W3 W2 W2B7 B7
+  wall k=5 block=B4 W2 m=1 RACE  B5 W3 W4 B7 B7 B4 W2 W3 W2 W2B7 B7
+  wall k=5 block=B7 W5 m=1 RACE  B5 W3 W4 B7 B7 B7 W5 W3 W2 W2B7 B7
+  wall k=6 block=W2 B4 m=1 LLLL  B5 W3 W4 B7 B7 W3 W2 B4 W2 W2B7 B7
+  wall k=6 block=W5 B7 m=1 NRNN  B5 W3 W4 B7 B7 W3 W5 B7 W2 W2B7 B7
+  wall k=6 block=B4 W2 m=1 NNNN  B5 W3 W4 B7 B7 W3 B4 W2 W2 W2B7 B7
+  wall k=6 block=B7 W5 m=1 NRRR  B5 W3 W4 B7 B7 W3 B7 W5 W2 W2B7 B7
+  wall k=7 block=W2 B4 m=1 LLLL  B5 W3 W4 B7 B7 W3 W2 W2 B4 W2B7 B7
+  wall k=7 block=W5 B7 m=1 LLLL  B5 W3 W4 B7 B7 W3 W2 W5 B7 W2B7 B7
+  wall k=7 block=B4 W2 m=1 LLLL  B5 W3 W4 B7 B7 W3 W2 B4 W2 W2B7 B7
+  wall k=7 block=B7 W5 m=1 LLLL  B5 W3 W4 B7 B7 W3 W2 B7 W5 W2B7 B7
+  wall k=8 block=W2 B4 m=1 RRRR  B5 W3 W4 B7 B7 W3 W2 W2B7 W2 B4 B7
+  wall k=8 block=W5 B7 m=1 RRRR  B5 W3 W4 B7 B7 W3 W2 W2B7 W5 B7 B7
+  wall k=8 block=B4 W2 m=1 RRRR  B5 W3 W4 B7 B7 W3 W2 W2B7 B4 W2 B7
+  wall k=8 block=B7 W5 m=1 RRRR  B5 W3 W4 B7 B7 W3 W2 W2B7 B7 W5 B7
+  wall k=9 block=W2 B4 m=1 LNLL  B5 W3 W4 B7 B7 W3 W2 W2B7 B7 W2 B4
+  wall k=9 block=W5 B7 m=1 RRRR  B5 W3 W4 B7 B7 W3 W2 W2B7 B7 W5 B7
+  wall k=9 block=B4 W2 m=1 LNNN  B5 W3 W4 B7 B7 W3 W2 W2B7 B7 B4 W2
+  wall k=9 block=B7 W5 m=1 RRRR  B5 W3 W4 B7 B7 W3 W2 W2B7 B7 B7 W5
+  wall k=0 block=W2 B4 m=2 LNLL  W2 B4 W2 B4 B5 W3 W4 B7 B7 W3 W2 W2B7 B7
+  wall k=0 block=W5 B7 m=2 NNNN  W5 B7 W5 B7 B5 W3 W4 B7 B7 W3 W2 W2B7 B7
+  wall k=0 block=B4 W2 m=2 LNLL  B4 W2 B4 W2 B5 W3 W4 B7 B7 W3 W2 W2B7 B7
+  wall k=0 block=B7 W5 m=2 LNNN  B7 W5 B7 W5 B5 W3 W4 B7 B7 W3 W2 W2B7 B7
+  wall k=1 block=W2 B4 m=2 NNNN  B5 W2 B4 W2 B4 W3 W4 B7 B7 W3 W2 W2B7 B7
+  wall k=1 block=W5 B7 m=2 RRRR  B5 W5 B7 W5 B7 W3 W4 B7 B7 W3 W2 W2B7 B7
+  wall k=1 block=B4 W2 m=2 RACE  B5 B4 W2 B4 W2 W3 W4 B7 B7 W3 W2 W2B7 B7
+  wall k=1 block=B7 W5 m=2 RACE  B5 B7 W5 B7 W5 W3 W4 B7 B7 W3 W2 W2B7 B7
+  wall k=2 block=W2 B4 m=2 NNNP  B5 W3 W2 B4 W2 B4 W4 B7 B7 W3 W2 W2B7 B7
+  wall k=2 block=W5 B7 m=2 NNNR  B5 W3 W5 B7 W5 B7 W4 B7 B7 W3 W2 W2B7 B7
+  wall k=2 block=B4 W2 m=2 RRRR  B5 W3 B4 W2 B4 W2 W4 B7 B7 W3 W2 W2B7 B7
+  wall k=2 block=B7 W5 m=2 LLNL  B5 W3 B7 W5 B7 W5 W4 B7 B7 W3 W2 W2B7 B7
+  wall k=3 block=W2 B4 m=2 RACE  B5 W3 W4 W2 B4 W2 B4 B7 B7 W3 W2 W2B7 B7
+  wall k=3 block=W5 B7 m=2 RACE  B5 W3 W4 W5 B7 W5 B7 B7 B7 W3 W2 W2B7 B7
+  wall k=3 block=B4 W2 m=2 LLLL  B5 W3 W4 B4 W2 B4 W2 B7 B7 W3 W2 W2B7 B7
+  wall k=3 block=B7 W5 m=2 LLLL  B5 W3 W4 B7 W5 B7 W5 B7 B7 W3 W2 W2B7 B7
+  wall k=4 block=W2 B4 m=2 NNNP  B5 W3 W4 B7 W2 B4 W2 B4 B7 W3 W2 W2B7 B7
+  wall k=4 block=W5 B7 m=2 LLLL  B5 W3 W4 B7 W5 B7 W5 B7 B7 W3 W2 W2B7 B7
+  wall k=4 block=B4 W2 m=2 LNLL  B5 W3 W4 B7 B4 W2 B4 W2 B7 W3 W2 W2B7 B7
+  wall k=4 block=B7 W5 m=2 LLLL  B5 W3 W4 B7 B7 W5 B7 W5 B7 W3 W2 W2B7 B7
+  wall k=5 block=W2 B4 m=2 LLLL  B5 W3 W4 B7 B7 W2 B4 W2 B4 W3 W2 W2B7 B7
+  wall k=5 block=W5 B7 m=2 LLLL  B5 W3 W4 B7 B7 W5 B7 W5 B7 W3 W2 W2B7 B7
+  wall k=5 block=B4 W2 m=2 RACE  B5 W3 W4 B7 B7 B4 W2 B4 W2 W3 W2 W2B7 B7
+  wall k=5 block=B7 W5 m=2 RACE  B5 W3 W4 B7 B7 B7 W5 B7 W5 W3 W2 W2B7 B7
+  wall k=6 block=W2 B4 m=2 RRRR  B5 W3 W4 B7 B7 W3 W2 B4 W2 B4 W2 W2B7 B7
+  wall k=6 block=W5 B7 m=2 NRNN  B5 W3 W4 B7 B7 W3 W5 B7 W5 B7 W2 W2B7 B7
+  wall k=6 block=B4 W2 m=2 NNNN  B5 W3 W4 B7 B7 W3 B4 W2 B4 W2 W2 W2B7 B7
+  wall k=6 block=B7 W5 m=2 NRRR  B5 W3 W4 B7 B7 W3 B7 W5 B7 W5 W2 W2B7 B7
+  wall k=7 block=W2 B4 m=2 LLLL  B5 W3 W4 B7 B7 W3 W2 W2 B4 W2 B4 W2B7 B7
+  wall k=7 block=W5 B7 m=2 LLLL  B5 W3 W4 B7 B7 W3 W2 W5 B7 W5 B7 W2B7 B7
+  wall k=7 block=B4 W2 m=2 RRRR  B5 W3 W4 B7 B7 W3 W2 B4 W2 B4 W2 W2B7 B7
+  wall k=7 block=B7 W5 m=2 LLLL  B5 W3 W4 B7 B7 W3 W2 B7 W5 B7 W5 W2B7 B7
+  wall k=8 block=W2 B4 m=2 RRRR  B5 W3 W4 B7 B7 W3 W2 W2B7 W2 B4 W2 B4 B7
+  wall k=8 block=W5 B7 m=2 RRRR  B5 W3 W4 B7 B7 W3 W2 W2B7 W5 B7 W5 B7 B7
+  wall k=8 block=B4 W2 m=2 RRRR  B5 W3 W4 B7 B7 W3 W2 W2B7 B4 W2 B4 W2 B7
+  wall k=8 block=B7 W5 m=2 LLLL  B5 W3 W4 B7 B7 W3 W2 W2B7 B7 W5 B7 W5 B7
+  wall k=9 block=W2 B4 m=2 LNLL  B5 W3 W4 B7 B7 W3 W2 W2B7 B7 W2 B4 W2 B4
+  wall k=9 block=W5 B7 m=2 LLLL  B5 W3 W4 B7 B7 W3 W2 W2B7 B7 W5 B7 W5 B7
+  wall k=9 block=B4 W2 m=2 LNNN  B5 W3 W4 B7 B7 W3 W2 W2B7 B7 B4 W2 B4 W2
+  wall k=9 block=B7 W5 m=2 RRRR  B5 W3 W4 B7 B7 W3 W2 W2B7 B7 B7 W5 B7 W5
+  survivors m=1,2: 5
+  NNNP at m=1: 6: [(0, 'B5 W3'), (1, 'W3 B5'), (2, 'B5 W3'), (2, 'B7 W2'), (2, 'W2 B4'), (4, 'W2 B4')]
+  SURV k=0 block=B5 W3: NNNP NNNP NNNP NNNP NNNP NNNP NNNP NNNP
+  SURV k=1 block=W3 B5: NNNP NNNP NNNP NNNP NNNP NNNP NNNP NNNP
+  SURV k=2 block=B5 W3: NNNP NNNP NNNP NNNP NNNP NNNP NNNP NNNP
+  SURV k=2 block=W2 B4: NNNP NNNP NNNP NNNP NNNP NNNP NNNP NNNP
+  SURV k=4 block=W2 B4: NNNP NNNP NNNP NNNP NNNP NNNP NNNP NNNP
+time 738.0

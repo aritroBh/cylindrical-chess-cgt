@@ -1,0 +1,12 @@
+m=1 n=12 ring=[B5 W3 W2 B4 W2 W4 B7 B7 W3 W2 W2B7 B7] nodes=26328 Kedges=90602 Tmoves=48993 flagged=617 passer_nodes=0 zone=[0, 1, 5, 6, 7, 8, 9, 10, 11] sig=NNNPN (25.0s)
+m=2 n=14 ring=[B5 W3 W2 B4 W2 B4 W2 W4 B7 B7 W3 W2 W2B7 B7] nodes=26328 Kedges=90602 Tmoves=50015 flagged=617 passer_nodes=0 zone=[0, 1, 7, 8, 9, 10, 11, 12, 13] sig=NNNPN (54.3s)
+  step 1->2: iso for c in [2, 3]; fails []; Lemma-3-admissible cuts (at m=1) []
+m=3 n=16 ring=[B5 W3 W2 B4 W2 B4 W2 B4 W2 W4 B7 B7 W3 W2 W2B7 B7] nodes=26328 Kedges=90602 Tmoves=51037 flagged=617 passer_nodes=0 zone=[0, 1, 9, 10, 11, 12, 13, 14, 15] sig=NNNPN (88.7s)
+  step 2->3: iso for c in [2, 3, 4, 5]; fails []; Lemma-3-admissible cuts (at m=2) []
+m=4 n=18 ring=[B5 W3 W2 B4 W2 B4 W2 B4 W2 B4 W2 W4 B7 B7 W3 W2 W2B7 B7] nodes=26328 Kedges=90602 Tmoves=52059 flagged=617 passer_nodes=0 zone=[0, 1, 11, 12, 13, 14, 15, 16, 17] sig=NNNPN (147.8s)
+  step 3->4: iso for c in [2, 3, 4, 5, 6, 7]; fails []; Lemma-3-admissible cuts (at m=3) []
+m=5 n=20 ring=[B5 W3 W2 B4 W2 B4 W2 B4 W2 B4 W2 B4 W2 W4 B7 B7 W3 W2 W2B7 B7] nodes=26328 Kedges=90602 Tmoves=53081 flagged=617 passer_nodes=0 zone=[0, 1, 13, 14, 15, 16, 17, 18, 19] sig=NNNPN (198.5s)
+  step 4->5: iso for c in [2, 3, 4, 5, 6, 7, 8, 9]; fails []; Lemma-3-admissible cuts (at m=4) []
+m=6 n=22 ring=[B5 W3 W2 B4 W2 B4 W2 B4 W2 B4 W2 B4 W2 B4 W2 W4 B7 B7 W3 W2 W2B7 B7] nodes=26328 Kedges=90602 Tmoves=54103 flagged=617 passer_nodes=0 zone=[0, 1, 15, 16, 17, 18, 19, 20, 21] sig=NNNPN (247.9s)
+  step 5->6: iso for c in [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]; fails []; Lemma-3-admissible cuts (at m=5) [6, 7]
+stopped pid 8593 after step 5->6 (m=7 would exceed 20 min)
