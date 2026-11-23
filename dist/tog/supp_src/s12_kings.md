@@ -16,6 +16,23 @@
   - 𝓟 = (L, W): the second player wins.
 
   Short games have no draws.
+- **Promotion in the pawn models S, W and D.** A pawn that reaches its last rank, by a
+  step, a capture or (on four ranks) a double step, stays there as a pawn with no moves. Such a pawn is passed under
+  every test, the textbook test and the e.p.-aware one: no square lies ahead of it, and an enemy pawn beside it on
+  that rank would stand on its own first rank, which no pawn does. So every promoting move is a decisive event: a
+  passer, or a race scored by the race rule. This is what `cylcgt.pawns` does (COMPUTED-1 on
+  flat 4 ranks `W a2 / B b3`, where a2–a4 is a race scored for White with the pawn left on a4, and on flat 5 ranks
+  `W a2 b2 / B b4`, where after a2–a4 nobody is passed under the e.p.-aware test and White's option a4–a5 is scored
+  +BIG). With this convention S, W and D are defined on every board height, and no result of §1
+  needs a bound on H. A bound is needed only for the statement that the side to move at a passer-free position,
+  whose e.p. right (if any) was made by the opponent, has no promoting move: it holds for H ≥ 5 (PROVED: a double
+  step from rank 2 lands on rank 4 < H, and a capture onto the last rank would need an enemy pawn on its own first
+  rank, so a promoting move is a step from the rank before the last; a pawn of the mover there has nothing ahead of
+  it but the last rank, so it passes the textbook test, and it cannot fail the e.p. clause, since the double-stepped
+  pawn is the opponent's; so the position was not passer-free) and fails for H = 4 (`W a2 / B b3`, White to move:
+  a2–a4). Comparison on 4- and 5-rank boards, every passer-free root with at most 2 + 2 pawns of flat 3×4, 4×4,
+  3×5, 4×5 and cyl 4×4, 4×5 that satisfies (HSS) and (E) (1,306 roots, 488 of them with a pawn on its last rank
+  reachable): o(S) = o(W) at all of them (COMPUTED-1, one run, reproduced by a referee).
 
 ### 1.2 Games with decisive terminals, and four models
 
@@ -53,7 +70,8 @@ obtained by replacing ⊕ with the integer B and ⊖ with −B. For a sum, (A₁
   - `kpsolve --frozen` computes the frozen-king model F of Corollary 2.7′ (a king move loses at once for the mover), not P. P itself, with free kings, is computed by a separate build of the solver, `kp_p` (its flag is `--pmodel`; `kings/kpsolve.c` has no such flag), and by two further, independently written solvers.
 - **D(X), the decisive-event model.** A D-game. Its positions are the positions before the first decisive
   event. Its terminals are the decisive events:
-  - a passer appears (as in `cylcgt`), with races scored by a race rule;
+  - a passer appears (as in `cylcgt`), with races scored by a race rule; a promotion is a passer, by the convention of
+    §1.1;
   - a punished move in the king group (§2). Under (V3) of Theorem 1.14 *every* move inside Z is a punished
     move, so the king group then contributes only suicides and is deleted by Lemma 1.7; the setup of
     Theorem 1.14 and this definition agree under (V3).
@@ -61,6 +79,14 @@ obtained by replacing ⊕ with the integer B and ⊖ with −B. For a sum, (A₁
   into its components (files separated by an empty file, and an empty file stays empty), each component is
   translated separately, and the translations are summed; a component with a passer is worth ±BIG, races being
   scored by the race rule. This is the value `cylcgt.pawns.value` computes (COMPUTED-1, `cylcgt/pawns.py`).
+  - *Order of operations.* After a move in a component, the passed test is applied
+    to the whole moved component (all pawns on its files) **before** it is re-split. If exactly one side has a passer
+    there, the whole component becomes that side's ±BIG; if both have one, the race rule scores the whole component
+    as one ±BIG; only if nobody is passed is it re-split. The other summands are untouched and keep their rights.
+    Splitting first is a different model: flat 8×8 `W b2 d6 / B c7` is one component; after c7×d6 the passers b2
+    and d6 stand on separated files, and split-first gives +BIG − BIG = 0, while the race rule (count: 5 moves each,
+    the tie goes to White, the non-mover) gives +BIG. Engine S and W: 𝓛; split-first: 𝓝, so Black moving first wins
+    there and loses in W (COMPUTED-1). The proof of Theorem 1.11(c) uses the order stated here.
   - *What S(X) is not:* it is not the BIG translation D(X)^B of the D-game of
     §1.2, in which the components are those of the root and the first decisive event ends the whole play.
     `cylcgt` re-splits at every node, and a passer freezes only its own component, so the two differ as soon
@@ -154,7 +180,10 @@ D-games.
     M_W ≤ Σ_white pawns (H − rank) ≤ (H − 2)p for p legal White pawns. That is ≤ 6p, so ≤ 48 on 8 ranks when
     p ≤ 8, and ≤ 6p in general; BIG = 256 exceeds 6p whenever p ≤ 42. The count ignores a final Z-move, so
     add 1 where a move inside the king group is possible.
-- **Threats.** τ(y) ⊆ {+, −} contains + iff some position reachable from y without passing a terminal has an
+- **Threats.** In this definition and in Theorem 1.11, "reachable" means by a sequence of options of either player
+  in any order, not necessarily alternating, as for M (the frontier step in the proof
+  of Theorem 1.11(c) prefixes a split move to a threat sequence of a daughter component, which needs this reading).
+  τ(y) ⊆ {+, −} contains + iff some position reachable from y without passing a terminal has an
   option ⊕ **by either player**; it contains − iff some such position has an option ⊖ by either player. So a
   move into the opponent's terminal is a threat for the opponent, and a suicide counts for the side that
   gains from it. Like M, τ is monotone: τ(y′) ⊆ τ(y) whenever y′ is reachable from y.
@@ -199,7 +228,9 @@ D-games.
     The stack can reach 0 = { | } only with Left's last move: reaching 0 takes B ≥ M_R(Y) + 1 Left turns, so
     by then Right has made M_R(Y) moves, the most it can make, and Right, to move, has no move. Right runs out of moves first and loses, whoever started. ∎
 
-**(c) The re-splitting version.** Let X be a pawn position, let S(X) be its
+**(c) The re-splitting version.** Let X be a pawn position with no passed pawn (at a root with passers of both
+colours in different components the engine sums +BIG and −BIG to 0, which is not the D-result; S tests the moved
+component before re-splitting it, §1.5), let S(X) be its
 BIG value computed with re-splitting (§1.5), and let D(X) be the decisive-event game of X, in which the
 position is split into its components at every node, a move is a move in one component, and the first decisive
 event ends the play. Suppose:
@@ -308,7 +339,9 @@ Fix a K+P chess position X, cut into pawn components G₁, …, G_k and a king g
 2.1). Fix the D-model of §1.2: its decisive events are passers in the components (races by a race rule) and
 the moves inside Z.
 
-**Theorem 1.14 (validity of the convention). PROVED.** Assume:
+**Theorem 1.14 (validity of the convention). PROVED.** The hypotheses (in (V1)–(V3), "reachable from
+X" means by chess play from X with a fixed side s to move first, as in the conclusion below; (V4) is used only in
+(ii), which states its reach):
 - **(V1) non-interaction and no stalemate.** At every chess position Y reachable from X before the first
   decisive event:
   - (a) the legal chess moves of the side to move are exactly its D-options, with the same resulting
@@ -324,10 +357,21 @@ the moves inside Z.
     − ∈ τ, where τ counts options to ⊕ or ⊖ by **either** player (Definition 1.10);
   - BIG exceeds every tempo count of Y.
 
-Then, with either side to move:
-- **(i)** P(X) = D(X). There are no draws, and the result is the normal-play result of G₁ ⊞ … ⊞ G_k (Z
+Then, for each side s to move at X such that (V1)–(V3) hold at every chess position reachable from X with s moving
+first (the hypotheses hold per starter, and so do the conclusions. Flat 8×8,
+`Kb6 Pc7 / Ka8 Pa5`, king group on files a–c, empty context: with Black to move the only legal move is a5–a4 (a7 and
+b7 are covered by Kb6, b8 by c7), a suicide answered by c8=Q mate, so (V1)–(V3) hold and P = D = White wins; with
+White to move c8=Q mates at once, a legal Z-move that is not a suicide, so (V3) fails, and the normal-play result of
+the empty sum (Z deleted) is a loss for White while P is a White win. PROVED by hand):
+- **(i)** P(X) = D(X) with s to move. There are no draws, and the result is the normal-play result of G₁ ⊞ … ⊞ G_k (Z
   deleted).
-- **(ii)** If (V4) holds, the outcome class of S(X) — the BIG value of the pawn components, with the king
+- **(ii)** Suppose that the pawn part of X (Z deleted) has no passed pawn, and that (V4) and condition (E) hold at
+  every position reachable from it by pawn moves of either side in any order before the first decisive event (the
+  reach of Theorem 1.11(c): (V1a) gives
+  (E) only on chess play from the starter, and Theorem 1.11(c) needs a passer-free root). Then o(S(X)), with S(X)
+  the BIG value of the pawn components and Z deleted, is the outcome class of the D-result pair of G₁ ⊞ … ⊞ G_k
+  (Z deleted), and its entry for s to move is the result of P(X) with s to move. Where (V1)–(V3) hold for both
+  starters, the outcome class of S(X) — the BIG value of the pawn components, with the king
   group Z deleted — equals the outcome class of the D-result pair of P(X).
 - **(iii)** Under (A_Q)(X) (the per-position hypothesis of §1.2, checked by kpsolve), C(X) = P(X). This is a tautology: (A_Q)(X) says exactly this.
 
@@ -342,9 +386,11 @@ Then, with either side to move:
     suicide (a Z-move, or a pawn move that gives σ a passer).
   - The play does end. The components are short, and (V1b) excludes "no move".
   - By (V2) the terminal position is a P-win for σ, so σ wins P.
-- **(ii)** By (i), the D-result pair of X is the D-result pair of D(X), and re-splitting does not change
-  that pair (it re-groups the same positions and options). By Theorem 1.11(c), with (V1a) supplying (E), (V4) supplying (HSS) and
-  the bound, the outcome class of S(X) is the outcome class of that D-result pair.
+- **(ii)** Re-splitting does not change the D-result pair of G₁ ⊞ … ⊞ G_k (it re-groups the same positions and
+  options). By Theorem 1.11(c), with the hypotheses of (ii) supplying the passer-free root and (E), and (V4)
+  supplying (HSS) and the bound, the outcome class of S(X) is the outcome class of that D-result pair. By (i), its
+  entry for a starter s at which (V1)–(V3) hold is the result of P(X) with s to move; if they hold for both
+  starters, the pair is the result pair of P(X).
 - **(iii)** Definition of (A_Q)(X). ∎
 
 **Sharp form (PROVED).**

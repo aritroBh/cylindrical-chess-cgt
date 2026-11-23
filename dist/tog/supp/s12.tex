@@ -418,6 +418,7 @@ Proposition~1.15(a), and Corollary~A.13 is the chess form of Theorem~1.14(ii); t
 \item 𝓟 = (L, W): the second player wins.
 Short games have no draws.
 \end{itemize}
+\item \textbf{Promotion in the pawn models S, W and D.} A pawn that reaches its last rank, by a step, a capture or (on four ranks) a double step, stays there as a pawn with no moves. Such a pawn is passed under every test, the textbook test and the e.p.-aware one: no square lies ahead of it, and an enemy pawn beside it on that rank would stand on its own first rank, which no pawn does. So every promoting move is a decisive event: a passer, or a race scored by the race rule. This is what \texttt{cylcgt.pawns} does (COMPUTED-1 on flat 4 ranks \texttt{W a2 / B b3}, where a2–a4 is a race scored for White with the pawn left on a4, and on flat 5 ranks \texttt{W a2 b2 / B b4}, where after a2–a4 nobody is passed under the e.p.-aware test and White's option a4–a5 is scored +BIG). With this convention S, W and D are defined on every board height, and no result of §1 needs a bound on H. A bound is needed only for the statement that the side to move at a passer-free position, whose e.p. right (if any) was made by the opponent, has no promoting move: it holds for H \ensuremath{≥} 5 (PROVED: a double step from rank 2 lands on rank 4 \textless{} H, and a capture onto the last rank would need an enemy pawn on its own first rank, so a promoting move is a step from the rank before the last; a pawn of the mover there has nothing ahead of it but the last rank, so it passes the textbook test, and it cannot fail the e.p. clause, since the double-stepped pawn is the opponent's; so the position was not passer-free) and fails for H = 4 (\texttt{W a2 / B b3}, White to move: a2–a4). Comparison on 4- and 5-rank boards, every passer-free root with at most 2 + 2 pawns of flat 3\ensuremath{×}4, 4\ensuremath{×}4, 3\ensuremath{×}5, 4\ensuremath{×}5 and cyl 4\ensuremath{×}4, 4\ensuremath{×}5 that satisfies (HSS) and (E) (1,306 roots, 488 of them with a pawn on its last rank reachable): o(S) = o(W) at all of them (COMPUTED-1, one run, reproduced by a referee).
 \end{itemize}
 \paragraph*{1.2 Games with decisive terminals, and four models}
 \textbf{Definition 1.1 (D-game).} A \emph{D-game} is a finite set X of positions with, for each x \ensuremath{∈} X, finite option sets L(x) and R(x) contained in X \ensuremath{∪} \{\ensuremath{⊕}, \ensuremath{⊖}\}.
@@ -458,11 +459,12 @@ KNOWN: on a finite game graph these values are the least fixed point computed by
 \end{itemize}
 \item \textbf{D(X), the decisive-event model.} A D-game. Its positions are the positions before the first decisive event. Its terminals are the decisive events:
 \begin{itemize}
-\item a passer appears (as in \texttt{cylcgt}), with races scored by a race rule;
+\item a passer appears (as in \texttt{cylcgt}), with races scored by a race rule; a promotion is a passer, by the convention of §1.1;
 \item a punished move in the king group (§2). Under (V3) of Theorem 1.14 \emph{every} move inside Z is a punished move, so the king group then contributes only suicides and is deleted by Lemma 1.7; the setup of Theorem 1.14 and this definition agree under (V3).
 \end{itemize}
 \item \textbf{S(X), the BIG convention.} The BIG value of X: at every node of the game tree the position is split into its components (files separated by an empty file, and an empty file stays empty), each component is translated separately, and the translations are summed; a component with a passer is worth \ensuremath{±}BIG, races being scored by the race rule. This is the value \texttt{cylcgt.pawns.value} computes (COMPUTED-1, \texttt{cylcgt/pawns.py}).
 \begin{itemize}
+\item \emph{Order of operations.} After a move in a component, the passed test is applied to the whole moved component (all pawns on its files) \textbf{before} it is re-split. If exactly one side has a passer there, the whole component becomes that side's \ensuremath{±}BIG; if both have one, the race rule scores the whole component as one \ensuremath{±}BIG; only if nobody is passed is it re-split. The other summands are untouched and keep their rights. Splitting first is a different model: flat 8\ensuremath{×}8 \texttt{W b2 d6 / B c7} is one component; after c7\ensuremath{×}d6 the passers b2 and d6 stand on separated files, and split-first gives +BIG \ensuremath{−} BIG = 0, while the race rule (count: 5 moves each, the tie goes to White, the non-mover) gives +BIG. Engine S and W: 𝓛; split-first: 𝓝, so Black moving first wins there and loses in W (COMPUTED-1). The proof of Theorem 1.11(c) uses the order stated here.
 \item \emph{What S(X) is not:} it is not the BIG translation D(X)\textasciicircum{}B of the D-game of §1.2, in which the components are those of the root and the first decisive event ends the whole play. \texttt{cylcgt} re-splits at every node, and a passer freezes only its own component, so the two differ as soon as a component splits. Example: flat 7\ensuremath{×}6, e.p. on, count rule, \texttt{W: b2 d3 f2 / B: c4 c5 e5 g5} is one component at the root, yet o(S) = 𝓝 while the decisive-event result is 𝓡 (COMPUTED-1, \texttt{lemmas/common.py}: o(S) = N, o(W) = R).
 \item The re-splitting is why (V4) of Theorem 1.14 has to be checked hereditarily; see Theorem 1.11(c).
 \end{itemize}
@@ -530,7 +532,7 @@ In one component of the D-model the convention cannot go wrong: after the first 
 \item For a sum, M\_L(Y) is the sum of the M\_L of the coordinates: the coordinates are played independently, so a longest sequence of Left moves in the sum is the concatenation of longest sequences in the coordinates. (The other reading — stop counting at the first terminal of the whole sum — gives a smaller number, so a hypothesis stated with it would be weaker; the proofs below use this component reading, and the count of the opponent's moves in the proof of Theorem 1.11(b) is exactly this one.)
 \item In the pawn game every White move advances a White pawn by at least one rank, so M\_W \ensuremath{≤} Σ\_white pawns (H \ensuremath{−} rank) \ensuremath{≤} (H \ensuremath{−} 2)p for p legal White pawns. That is \ensuremath{≤} 6p, so \ensuremath{≤} 48 on 8 ranks when p \ensuremath{≤} 8, and \ensuremath{≤} 6p in general; BIG = 256 exceeds 6p whenever p \ensuremath{≤} 42. The count ignores a final Z-move, so add 1 where a move inside the king group is possible.
 \end{itemize}
-\item \textbf{Threats.} τ(y) \ensuremath{⊆} \{+, \ensuremath{−}\} contains + iff some position reachable from y without passing a terminal has an option \ensuremath{⊕} \textbf{by either player}; it contains \ensuremath{−} iff some such position has an option \ensuremath{⊖} by either player. So a move into the opponent's terminal is a threat for the opponent, and a suicide counts for the side that gains from it. Like M, τ is monotone: τ(y\ensuremath{{}^{\prime}}) \ensuremath{⊆} τ(y) whenever y\ensuremath{{}^{\prime}} is reachable from y.
+\item \textbf{Threats.} In this definition and in Theorem 1.11, "reachable" means by a sequence of options of either player in any order, not necessarily alternating, as for M (the frontier step in the proof of Theorem 1.11(c) prefixes a split move to a threat sequence of a daughter component, which needs this reading). τ(y) \ensuremath{⊆} \{+, \ensuremath{−}\} contains + iff some position reachable from y without passing a terminal has an option \ensuremath{⊕} \textbf{by either player}; it contains \ensuremath{−} iff some such position has an option \ensuremath{⊖} by either player. So a move into the opponent's terminal is a threat for the opponent, and a suicide counts for the side that gains from it. Like M, τ is monotone: τ(y\ensuremath{{}^{\prime}}) \ensuremath{⊆} τ(y) whenever y\ensuremath{{}^{\prime}} is reachable from y.
 \begin{itemize}
 \item This is the τ of \texttt{notes/lemmas.md} (Definition 2.0) and of \texttt{lemmas/common.py: threats}, which count a passer created by either side's move. A τ that counted only Left options to \ensuremath{⊕} and Right options to \ensuremath{⊖} would be blind to suicides.
 \end{itemize}
@@ -573,7 +575,7 @@ In one component of the D-model the convention cannot go wrong: after the first 
 \item Left needs at most M\_R(Y) + 1 moves: one reply to each Right move, plus one more if Left moves first at the frontier. The first stack has B \ensuremath{≥} M\_R(Y) + 1 moves, so Left has a move at every turn of its own. The stack can reach 0 = \{ | \} only with Left's last move: reaching 0 takes B \ensuremath{≥} M\_R(Y) + 1 Left turns, so by then Right has made M\_R(Y) moves, the most it can make, and Right, to move, has no move. Right runs out of moves first and loses, whoever started. \ensuremath{∎}
 \end{itemize}
 \end{itemize}
-\textbf{(c) The re-splitting version.} Let X be a pawn position, let S(X) be its BIG value computed with re-splitting (§1.5), and let D(X) be the decisive-event game of X, in which the position is split into its components at every node, a move is a move in one component, and the first decisive event ends the play. Suppose:
+\textbf{(c) The re-splitting version.} Let X be a pawn position with no passed pawn (at a root with passers of both colours in different components the engine sums +BIG and \ensuremath{−}BIG to 0, which is not the D-result; S tests the moved component before re-splitting it, §1.5), let S(X) be its BIG value computed with re-splitting (§1.5), and let D(X) be the decisive-event game of X, in which the position is split into its components at every node, a move is a move in one component, and the first decisive event ends the play. Suppose:
 
 \begin{itemize}
 \item \textbf{(HSS)} at every position Y reachable from X before the first decisive event, the components of Y are pairwise safe (Definition 1.10: an option to \ensuremath{⊕} or \ensuremath{⊖} counts whoever makes it); and
@@ -638,7 +640,7 @@ So BIG must be large compared with the tempo counts. In Proposition 1.13 the BIG
 \paragraph*{1.5 The exact validity statement}
 Fix a K+P chess position X, cut into pawn components G\textsubscript{1}, …, G\_k and a king group Z with a buffer (Definition 2.1). Fix the D-model of §1.2: its decisive events are passers in the components (races by a race rule) and the moves inside Z.
 
-\textbf{Theorem 1.14 (validity of the convention). PROVED.} Assume:
+\textbf{Theorem 1.14 (validity of the convention). PROVED.} The hypotheses (in (V1)–(V3), "reachable from X" means by chess play from X with a fixed side s to move first, as in the conclusion below; (V4) is used only in (ii), which states its reach):
 
 \begin{itemize}
 \item \textbf{(V1) non-interaction and no stalemate.} At every chess position Y reachable from X before the first decisive event:
@@ -654,11 +656,11 @@ Fix a K+P chess position X, cut into pawn components G\textsubscript{1}, …, G\
 \item BIG exceeds every tempo count of Y.
 \end{itemize}
 \end{itemize}
-Then, with either side to move:
+Then, for each side s to move at X such that (V1)–(V3) hold at every chess position reachable from X with s moving first (the hypotheses hold per starter, and so do the conclusions. Flat 8\ensuremath{×}8, \texttt{Kb6 Pc7 / Ka8 Pa5}, king group on files a–c, empty context: with Black to move the only legal move is a5–a4 (a7 and b7 are covered by Kb6, b8 by c7), a suicide answered by c8=Q mate, so (V1)–(V3) hold and P = D = White wins; with White to move c8=Q mates at once, a legal Z-move that is not a suicide, so (V3) fails, and the normal-play result of the empty sum (Z deleted) is a loss for White while P is a White win. PROVED by hand):
 
 \begin{itemize}
-\item \textbf{(i)} P(X) = D(X). There are no draws, and the result is the normal-play result of G\textsubscript{1} \ensuremath{⊞} … \ensuremath{⊞} G\_k (Z deleted).
-\item \textbf{(ii)} If (V4) holds, the outcome class of S(X) — the BIG value of the pawn components, with the king group Z deleted — equals the outcome class of the D-result pair of P(X).
+\item \textbf{(i)} P(X) = D(X) with s to move. There are no draws, and the result is the normal-play result of G\textsubscript{1} \ensuremath{⊞} … \ensuremath{⊞} G\_k (Z deleted).
+\item \textbf{(ii)} Suppose that the pawn part of X (Z deleted) has no passed pawn, and that (V4) and condition (E) hold at every position reachable from it by pawn moves of either side in any order before the first decisive event (the reach of Theorem 1.11(c): (V1a) gives (E) only on chess play from the starter, and Theorem 1.11(c) needs a passer-free root). Then o(S(X)), with S(X) the BIG value of the pawn components and Z deleted, is the outcome class of the D-result pair of G\textsubscript{1} \ensuremath{⊞} … \ensuremath{⊞} G\_k (Z deleted), and its entry for s to move is the result of P(X) with s to move. Where (V1)–(V3) hold for both starters, the outcome class of S(X) — the BIG value of the pawn components, with the king group Z deleted — equals the outcome class of the D-result pair of P(X).
 \item \textbf{(iii)} Under (A\_Q)(X) (the per-position hypothesis of §1.2, checked by kpsolve), C(X) = P(X). This is a tautology: (A\_Q)(X) says exactly this.
 \end{itemize}
 \emph{Proof.}
@@ -672,7 +674,7 @@ Then, with either side to move:
 \item The play does end. The components are short, and (V1b) excludes "no move".
 \item By (V2) the terminal position is a P-win for σ, so σ wins P.
 \end{itemize}
-\item \textbf{(ii)} By (i), the D-result pair of X is the D-result pair of D(X), and re-splitting does not change that pair (it re-groups the same positions and options). By Theorem 1.11(c), with (V1a) supplying (E), (V4) supplying (HSS) and the bound, the outcome class of S(X) is the outcome class of that D-result pair.
+\item \textbf{(ii)} Re-splitting does not change the D-result pair of G\textsubscript{1} \ensuremath{⊞} … \ensuremath{⊞} G\_k (it re-groups the same positions and options). By Theorem 1.11(c), with the hypotheses of (ii) supplying the passer-free root and (E), and (V4) supplying (HSS) and the bound, the outcome class of S(X) is the outcome class of that D-result pair. By (i), its entry for a starter s at which (V1)–(V3) hold is the result of P(X) with s to move; if they hold for both starters, the pair is the result pair of P(X).
 \item \textbf{(iii)} Definition of (A\_Q)(X). \ensuremath{∎}
 \end{itemize}
 \textbf{Sharp form (PROVED).}

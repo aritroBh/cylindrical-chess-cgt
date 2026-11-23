@@ -567,6 +567,12 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   position without a passed pawn). Both gaps the appendix author reported in the long kings note were confirmed and
   repaired there (kings commit 435ccdc7: Theorem 1.11(c) now assumes (E); re-split components inherit "no threat");
   the supplement's copy of the note carries the repair. Whether Theorem 1.11(c) holds without (E) is open.
+  The kings session then revised the note for Codex's three points (kings commit ef1314c3: order of operations in S,
+  the last-rank convention, Theorem 1.14 per side to move, threats by moves in any order); the supplement copy
+  carries those edits too (supplement 95 pages). K50 (`kings/embed_check.py`, referee pending): strict mode certifies
+  none of the 23 separated ChessSums positions, because the stalemate clause of the certificate fails for every
+  trébuchet; a certified engine test set would have to use other king groups. The engine-on-sums test stays future
+  work.
 
 ## 7. Pending
 
