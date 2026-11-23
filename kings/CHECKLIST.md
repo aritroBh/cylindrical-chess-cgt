@@ -24,12 +24,20 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
    - [x] Theorems 3.7, 3.8, 3.11 proved and re-derived outside the Claude family (K21, K33)
 5. Gafni's K+P v K without edges
    - [x] Answered on cyl:3–8 × 6–8 (K40)
-   - [ ] Hand proof for the ON class; the parity classes under the chess stalemate rule
+   - [x] ON class reduced by hand to Lemma P; proved outright for the pawn on rank H−1 (K49)
+   - [ ] Lemma P below rank H−1 by hand; the two types of ON (Conjecture 7); the odd-width fortresses
+   - [ ] The parity classes under the chess stalemate rule
 6. Universal zeros
    - [x] Four classes act as 0 beside all contexts of at most 2 pawns a side on cyl:7×6 (K29)
    - [ ] Beyond 2 pawns a side; the T of Definition 2.6 for these groups
 7. Hand proofs
    - [x] Position 7.2 (K30) and P5 (K38)
+
+## Foundations (found while the paper's proofs appendix was refereed)
+
+- [x] Theorem 1.11(c): (E) added as a hypothesis, frontier step proved (435ccdc7)
+- [~] Promotion convention, order of operations in S, threats in any order, Theorem 1.14 per side to move (nine edits
+      from the check against Codex T81, with a referee)
 
 ## Paper support (the main session owns `paper/` and `dist/`)
 

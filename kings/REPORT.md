@@ -467,6 +467,11 @@ Every deliverable was given to independent referees (Claude models) told to brea
     step used an unproved inheritance of threats by re-split components. (E) is now a hypothesis (every use already had
     it through Theorem 1.14), and the inheritance is proved. Found while the paper's proofs appendix was written and
     refereed (`kings/delegate/out/S12A/REVIEW.md`).
+  - K49 (2026-11-23) reduces K40's classes for K+P v K on the cylinder to one lemma (Lemma P: if White wins the bare
+    normal-play game with Black to move, she wins it with White to move). Given it, the classes are proved by hand
+    against every integer and every terminal-free test game, not only up to 12 spare moves. Lemma P is PROVED for the
+    pawn one step from promotion and computed below that (CHECKED-2 on 16 boards); it fails on 4-file cylinders. The ON
+    class is not one game: two positions on cyl:8×8 separate two types. The referee's corrected edits were applied.
   - So no result of the note is still GAP.
   - The T30 fixes of 2026-10-22 came later. They were reviewed by Sonnet reviewers in two rounds, not by K3 (see the Theory row
   above).

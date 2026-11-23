@@ -1,0 +1,78 @@
+K49 FINDINGS -- the ON class of K+P v K on the cylinder (LOOPY section 8 item 5). Not refereed.
+Hand proofs: PROOF.md. Proposed LOOPY edits: EDITS.md (3 edits; apply_edits.py on a scratch copy: 3 applied, 0 rejected).
+
+0. SUMMARY
+- Everything K40 computed about the three classes under (N) (W != 4) follows by hand from ONE table fact:
+  Lemma P (no reciprocal zugzwang): if White wins the bare normal-play game with Black to move, she also wins with White to
+  move (Black not in check).
+  - Lemma P is the -1 column of K40's tables, so it is CHECKED-2 on K40's 12 boards (cyl:3,5-8 x 6,8).
+  - K49's own solver kn.c checks it on every cyl:WxH, W in {3,5..10}, 4 <= H <= 10: 0 violations (COMPUTED-1).
+  - It fails on every 4-file cylinder (8..28 violations per board): this is where K40's 4-file anomalies come from.
+  - PROVED by hand for the pawn on rank H-1. No hand proof lower down (the gap).
+- Given Lemma P, PROVED by hand (PROOF.md):
+  - Theorem 1: r(x (+) n) = r(x (+) 0) for EVERY integer n (K40 had |n| <= 12). Black's spares never help, White needs none.
+  - Theorem 2: for every terminal-free T, a W_N position with Black to move wins x (+) T whenever Left wins on (+) T with Right
+    to move; with White to move likewise, or via a first T-move if the Black-to-move twin is also in W_N.
+    Covers every Right-finite T (all integers, *, up, down, +-1, under, on, on+*); over needs no Lemma P.
+  - Proposition 3 (no Lemma P): if t lies in a Right reserve (off, dud, ...), every position outside P_L draws.
+  - Theorem 4 (trichotomy): DEC = P_L, ON = W_N \ P_L, DUD = complement of W_N (D against every T).
+    So the RULE for ON: White wins the bare normal-play game, but not against a Black who may pass.
+- Pawn on rank H-1: an explicit king-distance rule, PROVED, 0 exceptions on 463,616 positions (W 3,5..9; H 6,7,8).
+- ON is not the single game on: there are two types, (on, Left to move) and (on, Right to move). PROVED counterexamples to
+  "the signature of on against every T" on cyl:8x8 with T0 = {0 | off}.
+- DUD: forced Kxp against a passing White => D against every T, PROVED. The converse (no fortress) is COMPUTED only.
+  Fortress geometry sharpened; new board cyl:9x8 has 522 fortress positions; none on 7x6, 9x6, 9x7.
+
+1. CODE (scripts/; binary ../tmp/kn built by `cc -O2 -o ../tmp/kn kn.c`, deleted at the end)
+kn.c          own solver for x (+) T, T any finite test game from a text file; (N) default, -c chess stalemate,
+              -k Kxp scored as a Black win. Written from SPEC.md and LOOPY Defs 1.2, 1.3, 1.5; K40's code not read.
+tgames.py     test-game files std.t (K40's 34 tests), zoff.t ({0|off} and {|{0|off}}); on.t, zero.t written by hand.
+cmp40.py      kn.c vs K40's tables, both conventions, all 12 boards -> logs/cmp40.log: 0 differing rows (24 comparisons).
+passclose.py  Lemma P on 56 boards -> logs/passclose.log.
+rule_d1.py    the rank H-1 rule vs kn.c classes -> logs/rule_d1.log.
+randT.py      random terminal-free T: checks Theorem 2, Proposition 3, the rank H-1 type formulas, and the two-type pattern
+              -> logs/randT.log.
+zoff.py       x (+) {0|off} by class -> logs/zoff.log; the 8x8 examples -> logs/zoff_examples_8x8.log.
+fortress.py   fortresses (x (+) on with Kxp a Black win, result D) -> logs/fortress.log.
+load.py, top.py, mine.py, zz.py   exploration (K40 tables by class; relative geometry; feature-vector test; Black zugzwangs).
+All runs light: the largest single run is a few CPU-seconds; the random-T runs were tens of seconds each.
+
+2. STATEMENTS AND LABELS
+- kn.c reproduces K40's (N) and (C) sum tables on cyl:3-8 x 6,8 (34 results per position): 0 differences. COMPUTED (third code).
+- Lemma P: CHECKED-2 (K40's 12 boards); COMPUTED-1 (W in {3,5..10}, H 4..10); FALSE on W = 4; PROVED for the pawn on H-1.
+- Lemma P' (Lemma P <=> one Black spare never helps): PROVED.
+- Theorem 1 (all integers): PROVED given Lemma P -> CHECKED-2 on K40's boards.
+- Theorem 2 (lower bound for every T): PROVED given Lemma P. Random T: 0 violations (COMPUTED-1).
+- Cor. 2a (Right-finite T): as Theorem 2. Cor. 2b (over): PROVED (no Lemma P).
+- Proposition 3 (Right reserves draw outside P_L): PROVED. Random T: 0 violations.
+- Theorem 4 (trichotomy DEC/ON/DUD, class fixed by r(x(+)0) and r(x(+)dud)): PROVED given Lemma P.
+- Proposition 5 (on != x: Kc6 Pa7 ka8 w draws vs {0|off}, Kb6 Pa7 kb8 b wins vs {0|off}, cyl:8x8): PROVED (via Prop. 6);
+  kn.c agrees.
+- Proposition 6 (pawn on rank H-1, W = 3 or W >= 5, H >= 4): PROVED; rule tested with 0 exceptions on 463,616 positions;
+  type formulas tested on random T with 0 exceptions.
+  White to move: q empty or wk on q -> DEC; bk on q: wk within one king step of Pi (the 3 squares below p) -> ON, else DUD.
+    Type (on,L) if wk in Pi, (on,R) if wk one step from Pi.
+  Black to move: Kxp legal -> DUD; bk on q -> ON (the bind, type (on,R)); bk can step to q -> the class of
+    (wk, q, White to move); else DEC.
+- Conjecture 7 (two types: every ON (x,s) is exactly like (on,L) or exactly like (on,R) against every T): CONJECTURE;
+  PROVED on rank H-1; COMPUTED-1 on random T on 9 boards (none of the "neither" kind).
+  Observed: ON/ON with White to move -> (on,L); ON with Black to move and ON twin -> (on,R); Black in check -> (on,L);
+  twins DEC/ON (Black to move) and ON/DUD (White to move) split.
+- Proposition 8 (forced Kxp against a passing White => DUD): PROVED.
+- DUD = forced Kxp on 3, 6, 8 files; the odd-width fortresses: COMPUTED (counts 30/100/170/182/378 reproduced; 9x8: 522).
+  Geometry: kings on the two back files (cyclic distance (W-1)/2 from the pawn); White to move: same back file; Black to move:
+  different back files (except 10 on 5x7 and 20 on 5x8, same file, rank distance 5); rank distance >= 2 always.
+  Mechanism: heuristic only (odd W has two adjacent back files, so Black's king can mirror White's).
+
+3. NO SHORT RULE BELOW RANK H-1
+- Two ranks from promotion the ON set has 103 / 135 relative configurations (White / Black to move) for W >= 7 (73/115 on 5,
+  88/125 on 6), identical for H = 6 and 8. A table, not a rule.
+- The feature vector (side, pawn rank, king offsets, side of pawn, king file distance) separates the classes with 0 conflicts on
+  every board, but it is the whole position up to symmetry (25,563 vectors on 8x8).
+- So the checkable rule offered is Theorem 4's: two table look-ups (bare normal-play game; game against a passing Black).
+
+4. GAPS
+- Lemma P below rank H-1: no hand proof. All of Theorems 1, 2, 4 depend on it there.
+- Conjecture 7 beyond rank H-1; general upper bounds for T that are neither in ON_T nor Right reserves.
+- No proof that the odd-width fortresses hold or that even widths have none.
+- Random-T results: one solver (kn.c).
