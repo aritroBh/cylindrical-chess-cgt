@@ -109,7 +109,9 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
   reviews (`delegate/out/R6_mock_review3/REPORT.md`)
 - [ ] R7 (Sonnet): audit the 15-page long version against the 10-page version, statement by statement
   (`delegate/out/R7_long_version_audit/REPORT.md`)
-- [ ] R8 (Haiku): bibliography consistency check of both .bib files and the rendered reference list
+- [x] R8 (Haiku): bibliography consistency check of both .bib files and the rendered reference list: 20 references,
+  numbered in order of first citation, no missing key, no broken entry, both .bib files identical. No change made: the
+  DOIs it called duplicated are printed from the note field (the style does not print the doi field)
 - [ ] 12-file Möbius scan: summarise when all 128 chunks are done (47 done on 2026-11-23, one *2 so far, the
   family member with one pawn per file)
 
