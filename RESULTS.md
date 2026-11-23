@@ -559,6 +559,12 @@ Answered 2026-10-16:
   - The frozen zero fails in 91 of 1,913 resolved random cyl:6x6 positions (4.8%; about 6.6% if the 87 unrun or killed
     positions fail like the resolved cap-2 ones), 135 of 179 failures being chess draws. No good position-level rule found.
   - Several cap-2 batches exceeded the 4 GB target (up to 5.3 GB peak); the limit is restated for later runs.
+- **Referee T78, one-sided extension of Corollary 3.8b** (Codex, `delegate/out/T78/REPORT.md`, 2026-11-22; its
+  `referee.py` rerun by the planner, same counts). Verdict: correct as stated when "K has no minus event" is read
+  over all followers of every K_i and both players; false if read at the root only (S = on, K = {|{|minus}}).
+  B >= 1 + M_R(K) suffices for `on`, B >= 1 + M_L(K) for `off`. Exhaustive: 94,456 reservoir/multiset pairs (at most
+  3 short components, 5 option edges), 25,296 meet the hypotheses, 0 failures (COMPUTED-1). Supplement S12 updated;
+  `kings/theory/LOOPY.md` (kings session's file) not edited.
 - **Explicit-king sum test** (`research/sum_truth_cyl/REPORT.md`, section "12 GB runs (2026-11-22)", avenue 5;
   COMPUTED-1, one solver; pair data and model outcomes rechecked by the planner). 19 two-component sums on cyl:8x6
   with real kings (anchors Pa3 pa4 Kh4 kb3, components on files d and f), `kpsolve --ep on --promote Q --cap 1`,
