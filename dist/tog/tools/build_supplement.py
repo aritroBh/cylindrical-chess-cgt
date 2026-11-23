@@ -224,7 +224,7 @@ B7 W4 W23 B5 W3B7 W4B7 on six \lab{C2}.
 
 \begin{table}[!htbp]
 \centering
-\caption{Least number of pawns in a root ring $\nim{2}$ on the M\"obius strip and on the cylinder.}
+\caption{Least number of pawns in a root ring $\nim{2}$ on the M\"obius strip and on the cylinder, with a least ring on the strip.}
 \label{tab:mobring}
 \begin{tabular}{@{}cccl@{}}
 \toprule
@@ -236,9 +236,36 @@ $n$ & strip & cylinder & a least ring on the strip\\
 6 & 8 & 9 & B4 W2 W2 W2B6 B5 W3B7\\
 7 & 8 & 10 & B6 W2 W3 B6 B7 W3 W6B7\\
 8 & 8 & 10 & B7 W3 W3 B6 W3 B6 B6 W2\\
+9 & 10 & 10 & B6 W2 W3 B6 B7 W3 B7 W5 W6B7\\
+10 & 10 & 10 & B4 W2 B6 W2 W3 B6 B7 W3 B7 W5\\
+11 & 11 & 11 & B4 W2 B6 W2 W3 B6 B7 W3 B7 W5 B7\\
 \bottomrule
 \end{tabular}
 \end{table}
+
+\emph{Nine to eleven files.} For $n=9$, $10$ and $11$ we scanned every root ring with $n$ pawns ($2{,}729{,}517$,
+$17{,}146{,}529$ and $109{,}358{,}578$ rings) and, for $n=9$, every root ring with ten pawns ($133{,}597{,}405$ rings).
+The two programs agree on every ring \lab{C1}. The independently written program agrees on every $\nim{2}$ and
+$\nim{3}$ ring found, and its own scan of the nine-pawn rings on nine files also finds no $\nim{2}$ \lab{C2}. So the
+least on nine files is ten pawns. Up to symmetry, ten files have two $\nim{2}$ rings with one pawn per file and
+eleven files have one. On nine files one ten-pawn ring is $\nim{3}$: B5 W3 W4 B7 B7 W3 W2 W2B7 B7 \lab{C2}. For
+$n=9,10,11$ the strip and the cylinder need the same number of pawns.
+
+\emph{Families.} Three families continue these rings; $(X)^m$ stands for $m$ copies of the block $X$.
+\begin{itemize}
+\item $(\text{B4 W2})^m$ B6 W2 W3 B6 B7 W3 B7 W5 has $n=2m+8$ files and one pawn per file. It is $\nim{2}$ for
+  $m=1,\dots,12$, that is $n=10,\dots,32$.
+\item $(\text{B4 W2})^m$ B6 W2 W3 B6 B7 W3 B7 W5 B7 has $n=2m+9$ files and one pawn per file. It is $\nim{2}$ for
+  $m=1,\dots,11$, that is $n=11,\dots,31$.
+\item B6 W2 W3 B6 B7 W3 $(\text{B7 W5})^m$ W6B7 has $n=2m+7$ files and $n+1$ pawns. It is $\nim{2}$ for
+  $m=0,\dots,12$, that is $n=7,\dots,31$.
+\end{itemize}
+All three programs agree up to $21$ files \lab{C2}, and the first two up to $32$ \lab{C1}. So one pawn per file
+gives a $\nim{2}$ ring on the strip for every $n$ from $10$ to $32$. The members with $m=0$ of the first two
+families are not $\nim{2}$, and the eight-file ring of Table~\ref{tab:mobring} is not extended by any block
+insertion we tried. In each family the number of positions the solver visits grows by a constant with each step, as
+in the wall families of the cylinder, so we expect the same kind of proof to work \lab{Conj}. Twelve files with
+twelve pawns are not yet scanned in full.
 ''')
 
 # S7 real chess ---------------------------------------------------------------------------------------

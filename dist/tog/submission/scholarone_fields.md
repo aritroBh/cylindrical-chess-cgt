@@ -54,7 +54,7 @@ After acceptance (named version): github.com/aritroBh/cylindrical-chess-cgt. Aut
 
 | File | One-line description |
 |---|---|
-| `supplement_review.pdf` | Anonymous supplement, 81 pages: material moved out of the 10-page paper (S1-S11), full proofs of the [S] results (S12-S15), and the square-rule passer test with a counterexample (S16). |
+| `supplement_review.pdf` | Anonymous supplement, 82 pages: material moved out of the 10-page paper (S1-S11), full proofs of the [S] results (S12-S15), and the square-rule passer test with a counterexample (S16). |
 
 (Code and data are not uploaded as a file; they are reached through the anonymous link. A zip of sources for the "sources" slot: Author must confirm whether ScholarOne asks for it. Not verified.)
 

@@ -473,6 +473,24 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   paths must be left out. 18 raw CLI transcripts with session identifiers or unrelated personal context are no longer
   tracked. The two review PDFs carry no identifier.
 
+- **Möbius pawn rings on 9 to 11 files, and families (2026-11-22; `research/mobius_rings_n/REPORT.md`).**
+  - Exhaustive scans, two programs byte-identical on every ring: n = 9 with 9 pawns, 2,729,517 rings, no \*2;
+    n = 10 with 10 pawns, 17,146,529 rings, 2 \*2 orbits; n = 11 with 11 pawns, 109,358,578 rings, 1 \*2 orbit;
+    n = 9 with 10 pawns, 133,597,405 rings, 9 \*2 orbits and 1 \*3 orbit (`B5 W3 W4 B7 B7 W3 W2 W2B7 B7`).
+    The old counts for n = 7 and 8 reproduce exactly.
+  - So the least ring \*2 on the strip is 6, 8, 6, 8, 8, 8, 10, 10, 11 for n = 3..11 (cylinder: 6, 7, 8, 9, 10,
+    10, 10, 10, 11). CHECKED-2: the independently written checker agrees on every hit, and its own scan of the
+    nine-pawn rings on nine files finds no \*2 (5,459,034 orbits under its group of order 2, exactly twice ours;
+    `results/check_n9_p9_enum.out`, run by the main session).
+  - Three families stay \*2: `(B4 W2)^m B6 W2 W3 B6 B7 W3 B7 W5` (n = 2m+8, one pawn per file, m = 1..12),
+    the same with a last file `B7` (n = 2m+9, m = 1..11), and `B6 W2 W3 B6 B7 W3 (B7 W5)^m W6B7` (n = 2m+7,
+    n+1 pawns, m = 0..12). Three programs agree for n <= 21 (CHECKED-2), two for n <= 32 (COMPUTED-1). Node counts
+    grow by a constant per step (1251, 1239, 719), so a pumping proof looks feasible (CONJECTURE for all n).
+    One pawn per file therefore gives \*2 on the strip for every n from 10 to 32, on eight files by an isolated
+    ring, and never on nine.
+  - Not done: n = 12 with 12 pawns (scan running), n = 10 with 11 pawns, any \*3 family.
+  - In Section VIII of both versions, supplement S6.4, conclusion.
+
 ## 7. Pending
 
 **Verification gaps.** 35 adversarial verifiers were cut off by the Claude usage limit. Not verified:

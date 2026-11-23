@@ -23,7 +23,7 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 - [x] Supplement proofs (S12, S14, S15): hand-edited copies in `dist/tog/supp_src/` replace the automatic clean-up;
   80 pages. S16: the square-rule proof was false (counterexample found); it now gives the test, the checks and
   the counterexample
-- [ ] Balance the last page (named build is now nearly level: 747 and 719 pt; anonymous 748 and 624 pt); redo after the Möbius text is final
+- [x] Last page balanced: named build 748 and 719 pt, anonymous 712 and 686 pt (about two lines apart)
 - [x] Title: the original title on both versions (author decision)
 - [x] Author block: University of Illinois Urbana-Champaign (ORCID optional, add in the submission system)
 - [ ] Push to the public repository (on the author's word)
@@ -58,7 +58,9 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
   when hereditarily sum-safe, 19.3% of the rest; in Section V of both versions
 - [x] New: pawn rings on the Möbius strip (`research/mobius_rings/`, checked by Codex in `research/mobius_rings_check/`):
   least *2 is 6, 8, 6, 8, 8, 8 for n = 3..8; in Section VIII of both versions and Section S6 of the supplement
-- [~] Möbius rings on 9 to 12 files and their families (`research/mobius_rings_n/`)
+- [x] Möbius rings on 9 to 11 files and their families (`research/mobius_rings_n/`): least *2 is 10, 10, 11, the same
+  as the cylinder; one pawn per file works on 8 files, not on 9, and from 10 to 32 in two families; in Section VIII
+  of both versions, supplement S6.4 (82 pages) and the conclusion. The 12-file scan is still running
 - [~] New: the pawn game on boards of 5 to 12 ranks; least pawns for *2 and *3 by height, search for a *4 (`research/tall_boards/`)
 - [ ] Seven-pawn *2 in real chess: the 9-man end positions (needs about 26 GB; waits for the author's word)
 - [ ] Zero sums with real kings at depth 2 (needs more than 12 GB per run; waits for the author's word)
