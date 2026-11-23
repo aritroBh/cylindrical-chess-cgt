@@ -82,3 +82,21 @@ General:
 4. `tog.tex:139-141` (anonymous build): "under the authors' direction ... The authors chose the research questions, directed the work and are responsible for all content", next to "no human referee has yet". The repository records one human author (the non-anonymous build says "The author"). R6 raises the tension between responsibility and no human check (`delegate/out/R6_mock_review3/REPORT.md:75-82`).
 5. `08_star2.tex:116`: "checked by two programs for n<17 \lab{C2}". The record shows at least three (rg.c, `cylcgt`, the verifier's engine) plus T51's partial check, so the sentence understates, which is harmless.
 6. No sentence in the 10-page paper states how many vendors or which tiers checked each result; R6 (M3) asked for a per-result table (`R6 REPORT:78,82`); this file is its basis.
+
+## D. Kings theory: record supplied by the kings session on 2026-11-23
+
+Sources named by that session: `kings/theory/LOOPY.md` lines 5 to 45 (who wrote the revision of 2026-10-21 and its
+caveats) and its status table at lines 55 to 120; `kings/REPORT.md` section 7. Not re-verified line by line by the
+main session.
+
+| Result in the long note | Writer | Checkers and verdicts | Other-vendor re-derivation of the proof |
+|---|---|---|---|
+| Theorem 1.11(c) (sum model, re-splitting) | revision of 2026-10-21, task K1a (kilo minimax-m3.1-flash); repairs of 2026-11-23 by Claude Opus agents | K3 (opencode beam-free): SOUND, before the repairs; Claude Opus referees after them; Codex T81 confirmed the same arguments in the appendix (A.4, A.5), not the long note's text | none of the repaired text; Codex read queued (K52) |
+| Theorem 1.14 (i) | K1a (kilo minimax) | R2 (Claude): sound; K3: SOUND | sharp form re-derived by Codex (K13: "no false step"; K13b, K13c) |
+| Theorem 1.14 (ii) | repaired in the revision; restated per side to move on 2026-11-23 (Claude Opus) | K3: SOUND before the restatement; Claude Opus referee after | Codex read queued (K52) |
+| Theorem 2.7 (certificate) | K1b (opencode nemotron-3-ultra); K3 downgraded it to GAP; repaired by K7 (Claude) | K36 (Codex): proved (a) and (b) blind, every step sound except one citation, since fixed | yes (K36) |
+| Proposition 2.10(a) (horizon 1) | K1b (opencode nemotron); false at four ranks, repaired to at least five; revised by K7 (Claude); an e.p. step added after an audit | K3: SOUND; Sonnet reviewers | none on record; Codex re-derivation requested |
+| Proposition 2.11 and Corollary 2.11a (local test for (V2)) | first draft K10 (opencode) was false; rebuilt by a Claude Sonnet agent | integrator; K10v (opencode beam-free): an independent program checking (H1) to (H5), 0 violations in 5.7 million cases; two Claude Sonnet reviewers | computational check by another vendor only; Codex re-derivation requested |
+| Theorem 3.4 (outcomes with spare moves) | K1c (opencode best-free) | R4 (Claude): sound | none; Codex blind proof queued (K51) |
+
+Open on 2026-11-23: K51, K52 and the two requested re-derivations; this section is to be updated with their verdicts.
