@@ -326,7 +326,7 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
     second ↓.
   - **Möbius 8×8:** KPK is won from 78.94% of positions with White to move (cylinder 78.89%). CHECKED-2.
   - **Proof audit:** Thm 3 and Thm 8 got precise statements and sketches, and Conj 4 is now a Corollary [AI].
-    Repo defects in `kings/theory/LOOPY.md` were sent to the kings session.
+    Repo defects in `kings/theory/LOOPY.md` were passed on to the maintainers of that note.
 
 - **C7 (2026-10-22 afternoon).** The first ring \*2 on C7 has ten pawns: no nine-pawn ring is \*2 (scanner, and
   T43's independent solver over 19,961,100 classes). The five-a-side ten-pawn rings include 63 \*2 and
@@ -593,7 +593,7 @@ Answered 2026-10-16:
   over all followers of every K_i and both players; false if read at the root only (S = on, K = {|{|minus}}).
   B >= 1 + M_R(K) suffices for `on`, B >= 1 + M_L(K) for `off`. Exhaustive: 94,456 reservoir/multiset pairs (at most
   3 short components, 5 option edges), 25,296 meet the hypotheses, 0 failures (COMPUTED-1). Supplement S12 updated;
-  `kings/theory/LOOPY.md` (kings session's file) not edited.
+  `kings/theory/LOOPY.md` not edited.
 - **Explicit-king sum test** (`research/sum_truth_cyl/REPORT.md`, section "12 GB runs (2026-11-22)", avenue 5;
   COMPUTED-1, one solver; pair data and model outcomes rechecked by the planner). 19 two-component sums on cyl:8x6
   with real kings (anchors Pa3 pa4 Kh4 kb3, components on files d and f), `kpsolve --ep on --promote Q --cap 1`,

@@ -45,8 +45,11 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
   under both passed-pawn tests and all 1,070 single components agree under each; 18 raw CLI transcripts untracked
 - [ ] Privacy: two files already on the public repository hold personal material (`kings/delegate/logs/K8.log`,
   `K13b.log`); purge from history and force-push, or make the repository private (author's word)
-- [ ] Anonymous code copy: build a small curated export (the full 2.3 GB cannot be anonymised by term replacement;
-  Codex's term list and 64 exclusions are in `delegate/out/T79/`)
+- [x] Anonymous code copy built by `dist/anon/build.py`: 5,568 files, 77 MB (25 MB zipped), in `dist/anon/out/`
+  (not tracked). All 24 checks in `dist/anon/VERIFY.md` pass: no identifier in any file, PDF or archive member; tests,
+  `verify_paper`, the cross-check, the tablebase build and the king-and-pawn solver all run from a fresh copy. Files
+  over 5 MB and all logs are left out. Still the author's: put the copy in a new repository and create the
+  anonymous link
 
 ## Results being added
 - [x] Twisted tablebases audited: paper numbers stand (`research/mobius_repair/`)
