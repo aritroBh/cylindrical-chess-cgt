@@ -1,0 +1,23 @@
+context | class | family | legal | L | D | W | fails at K18 NOESC plain-only (P,Q)
+c1:Z Pe2 pe3 | Z | one-or-none | 87582 | 86027 | 899 | 656 | 0,0
+c2:Z Pe2 pe3 pe4 | Z | one-or-none | 84645 | 83752 | 769 | 124 | 0,0
+c3:N Pe2 pe3 pe5 | N | one-or-none | 86347 | 85978 | 345 | 24 | 0,0
+c4:Z Pe3 pe4 | Z | one-or-none | 88703 | 88058 | 8 | 637 | 0,0
+c5:Z Pe3 pe4 pe5 | Z | one-or-none | 87468 | 87344 | 3 | 121 | 0,0
+c6:Z Pe4 pe5 | Z | one-or-none | 90405 | 89189 | 5 | 1211 | 0,0
+c7:Z Pf2 pf3 | Z | one-or-none | 91640 | 91365 | 8 | 267 | 0,0
+c8:Z Pf2 pf3 pf4 | Z | one-or-none | 91640 | 91617 | 0 | 23 | 0,0
+c9:N Pf2 pf3 pf5 | N | one-or-none | 91640 | 91637 | 0 | 3 | 0,0
+c10:Z Pf3 pf4 | Z | one-or-none | 91640 | 91389 | 0 | 251 | 0,0
+c11:Z Pf3 pf4 pf5 | Z | one-or-none | 91640 | 91618 | 0 | 22 | 0,0
+c12:Z Pf4 pf5 | Z | one-or-none | 91640 | 90597 | 40 | 1003 | 0,0
+c25:Z Pe2 Pe3 pe4 | Z | one-or-none | 88703 | 87939 | 10 | 754 | 0,0
+c31:Z Pe2 Pg2 pe4 pg4 | Z | both-move | 88703 | 87802 | 28 | 873 | 0,0
+c37:Z Pe2 Ph2 pe4 ph4 | Z | both-move | 85766 | 84422 | 52 | 1292 | 0,0
+c42:Z Pe3 Pe4 pe5 | Z | one-or-none | 90405 | 89151 | 3 | 1251 | 0,0
+c46:Z Pe3 Pg2 pe5 pg4 | Z | both-move | 90405 | 89400 | 7 | 998 | 0,0
+c63:Z Pf2 Pf3 pf4 | Z | one-or-none | 91640 | 91377 | 0 | 263 | 0,0
+c74:Z Pf3 Pf4 pf5 | Z | one-or-none | 91640 | 90568 | 8 | 1064 | 0,0
+TOTAL all {'legal': 1702252, 'L': 1689230, 'D': 2185, 'W': 10837, 'kP': 0, 'kQ': 0, 'nctx': 19, 'ctx_with_fail': 19}
+TOTAL both-move {'legal': 264874, 'L': 261624, 'D': 87, 'W': 3163, 'kP': 0, 'kQ': 0, 'nctx': 3, 'ctx_with_fail': 3}
+TOTAL one-or-none {'legal': 1437378, 'L': 1427606, 'D': 2098, 'W': 7674, 'kP': 0, 'kQ': 0, 'nctx': 16, 'ctx_with_fail': 16}

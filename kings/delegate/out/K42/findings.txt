@@ -1,0 +1,225 @@
+K42 FINDINGS: tempo matching, the promotion-free form (LOOPY section 8, open question 1)
+Date: 2026-11-22. Model P throughout (first promotion wins for the promoter; real kings; stalemate and infinite
+play are draws). s = White makes the sortie, s-bar = Black punishes (Black sorties are colour flips).
+AI work (K42 investigator); no referee yet, no human re-derivation.
+
+=====================================================================================================
+0. VERDICT
+=====================================================================================================
+(a) The promotion-free form of tempo matching, as K18 defined it, is FALSE (CHECKED-2: two independent full-board
+    P solvers agree on every sampled counterexample; the plain-only flags agree with K18's lg.cpp).
+    It fails on all three boards (cyl:7x6, cyl:8x6, cyl:9x6), in every promotion-free context class that was
+    tested, and also in K18's own context family (both sides have a context pawn move; e.g. Pe2 Pg2 pe4 pg4,
+    the context K18 tested and found punished for its 31 sorties).
+(b) Every failure found needs the sortie king: it disappears when s's king is kept off the context files and a
+    stalemate of s is scored as a loss for s (COMPUTED-1, exhaustive over all failures of cyl:7x6 and cyl:8x6).
+    No "pure tempo" failure (pairing broken while the king stays out of the context) was found.
+(c) PROVED (hand proof, PROOF.md): Proposition 8.1' -- for a promotion-free context in which s to move loses the
+    pawn game, hypothesis (P2) of Proposition 8.1 is automatic, and (P3) can be weakened from "X and its
+    king-neighbourhood" to "X, the squares passed over by double steps (E), and the squares attacked by s-bar's
+    context pawns (A)". With (P1), (P1e) and this (P3'), s-bar wins P. On 6,033,423 legal sortie-context pairs
+    the certificate of 8.1' holds at 1,213,383 (8.1's at 967,308) and no certified pair is a failure
+    (COMPUTED-1 consistency check of the proposition).
+
+=====================================================================================================
+1. THE STATEMENT TESTED (brief item 1)
+=====================================================================================================
+Root Y: king group Z on F_Z = {a, b, c} (Definition 2.1), both kings on F_Z, Z-pawns on ranks 2..5, White to move,
+no e.p. right, legal. Sortie m: a legal non-promoting White Z-move (king move anywhere, or Z-pawn move) after which
+Black has no immediate promotion. Admissible reply r: a legal non-promoting Black move that leaves Black's king on
+F_Z. m is PLAIN-ONLY if some admissible r gives a Black win of the plain local game L^0(Q_Z) and no admissible r
+gives a Black win of the pass game L^inf(Q_Z) (Definition 2.6; (L1_P) form; the queen-clause form is recorded
+too). Context G: pawns on the context files (cyl:7x6: e, f; cyl:8x6: e, f, g; cyl:9x6: e, f, g, h), at most
+2 + 2 pawns, ranks 2..5. G is PROMOTION-FREE if no sequence of legal pawn moves of G alone (both colours, any
+order, captures and e.p. captures included) promotes (K18's definition). G is a SECOND-PLAYER WIN FOR THE
+PUNISHER if White to move loses the pawn game of G (normal play, e.p. included) -- for a promotion-free G this
+is exactly the zero or negative class of `kpsolve --frozen`.
+
+  Promotion-free form (PF-TM): for every such Y, m, G with Y.m + G legal, the position Y.m + G with Black to
+  move is a Black win in P.
+
+Reading of "each defender tempo answered by a punisher tempo" (the one proved in 8.1'): Black answers every
+White context move by a context move that keeps White to move lost in the pawn game, and every White local move
+(king or Z-pawn) by its plain-game strategy sigma; Black never moves a context pawn otherwise.
+
+K18's family required in addition that both sides have a legal pawn move in G; results are given for both the
+full set and that family.
+
+=====================================================================================================
+2. TOOLS (all in kings/delegate/out/K42/src/)
+=====================================================================================================
+k42.cpp    own solver, written from kings/SPEC.md and Definition 2.6 (no other solver's code read). Model P by
+           pawn-configuration layers with retrograde counting inside a layer. Options turn it into the local game
+           (--confine abc: Black's king on F_Z; --pass: White may pass when not in check; --qclause), and the
+           diagnostics (--wstalemate-loss, --wconfine FILES, --wbad SQUARES, --p1e).
+           Modes: solve, sorties (roots, sorties, plain-only flags), test (sortie x context, P value),
+           cert (the certificate of Proposition 8.1 / 8.1').
+ctx.py     promotion-free contexts and their pawn-game class (own code).
+badsets.py X, E, A and the king-neighbourhood of X for each context (closure of the pawn game under all White
+           moves and all winning Black replies).
+diag.sh, diagsum.py  re-run every failure under the three diagnostic variants and classify.
+cmp_k18.py, k18tag.py, summarize.py, tagfails.py, randpos.py: comparisons and tables.
+Second implementations used only as checks: K23's ref3 (full-board P, written from SPEC.md by the K23 referee)
+and K18's lg.cpp (local game). Binaries were built in this directory and deleted at the end.
+
+Validation of k42.cpp:
+- Full-board P against ref3: 300 random cyl:7x6 positions (0 to 4 pawns a side, 30% with an e.p. right): 0
+  differences. 100 sortie-context positions of cyl:8x6 (50 sampled failures, 50 random pairs): 0 differences
+  (logs/xcheck8_*.txt). The 6 positions of K18's cx_small.txt: same values as K18's kpp output.
+- Local game against lg.cpp: on every root line of lg.cpp's --search output, the set of plain-only sorties is
+  identical, in both the P and the Q variant: cyl:8x6 17,117 (P) and 15,422 (Q) root lines (K18's own search
+  output); cyl:7x6 17,055 and 15,370; cyl:9x6 17,123 and 15,428 (lg.cpp run by K42). lg's search lists only
+  roots of its own root filter; roots outside it were not compared.
+- All 25 plain-only king sorties of K18's ES set occur in k42's sortie list, and against K18's 5 promotion-free
+  zero contexts they are punished in k42 too (K18's EP result reproduced).
+- Mirror symmetry (reflection of a..c about b, e<->g on cyl:8x6): the mirror contexts c1..c6 / c13..c18 of
+  cyl:8x6 give identical L/D/W/X counts.
+
+=====================================================================================================
+3. SEARCH (brief item 3) -- groups with at most 2 + 2 pawns
+=====================================================================================================
+Plain-only sorties (either form), all roots: cyl:7x6 91,548; cyl:8x6 91,622; cyl:9x6 91,640.
+(Much more than K18's 941 classes: no root filter, no mirror merge, pawn sorties and roots with escapes included.)
+
+Promotion-free contexts with White to move losing (<= 2 + 2 pawns):
+  cyl:7x6 (e,f)      26 (24 zero, 2 negative), 13 mirror classes, none in K18's family.
+  cyl:8x6 (e,f,g)    56 (53 zero, 3 negative), 36 mirror classes; K18's family: 5 contexts = 4 classes
+                     (Pe2 Pg2 pe4 pg4, Pe2 Pg2 pe5 pg5, Pe2 Pg3 pe4 pg5 ~ Pe3 Pg2 pe5 pg4, Pe3 Pg3 pe5 pg5).
+                     (ctx.py also finds K18's 45 promotion-free fuzzy contexts: same counts as K18.)
+  cyl:9x6 (e,f,g,h) 100 (96 zero, 4 negative), 53 mirror classes; tested: the 16 classes with <= 3 pawns and 3
+                     of the 9 four-pawn classes of K18's family (Pe2 Pg2 pe4 pg4, Pe2 Ph2 pe4 ph4, Pe3 Pg2 pe5 pg4).
+
+Results (every plain-only sortie of the board against every tested context; one mirror class per context):
+  board    contexts  legal pairs   Black wins   draws   White wins   failures
+  cyl:7x6     13      1,135,472    1,119,772    3,175     12,525      15,700
+  cyl:8x6     36      3,195,699    3,156,026    6,071     33,602      39,673
+  cyl:9x6     19      1,702,252    1,689,230    2,185     10,837      13,022
+  total       68      6,033,423                                       68,395
+Every one of the 68 tested context classes has failures. Per-context tables: logs/summary{7,8,9}_22.txt.
+K18's family: cyl:8x6, 4 classes, 351,502 legal pairs, 117 draws and 5,407 White wins; cyl:9x6, 3 classes,
+264,874 pairs, 87 draws and 3,163 White wins.
+At sorties that K18's own search lists as plain-only at a NOESC root (cyl:8x6; K18's notion of a group with a
+plain-only sortie and no outright escape): 1,182 failures (P variant), 185 of them in K18's family (all White
+wins).
+
+Groups with 5 or 6 pawns (3 + 2, 2 + 3, 3 + 3; a 1% sample of the roots, seed 11): see section 6.
+
+=====================================================================================================
+4. COUNTEREXAMPLES (CHECKED-2: k42 and ref3 agree; plain/pass flags from k42 and lg.cpp agree)
+=====================================================================================================
+All on cyl:8x6, context G = Pe2 Pg2 pe4 pg4 (K18's family: White e3 or Black e3, White g3 or Black g3 are the
+shared one-move gaps; value * + * = 0, promotion-free) unless stated. "bare" = Y.m without G.
+
+(E1) stalemate by a pairing reply. Y = Kb1 Pb2 ka4 pa2 (w), m = Kb1-a1. After m, Black to move.
+     Bare: Black wins (only 1...Kb3; then White's only move is Ka1-h2 and ...a1 promotes; plain T = 1, the
+     queen-clause T = 2; the pass game is not won: plain-only). With G: DRAW. After 1...Kb3 2.e3! Black's only
+     context reply is 2...g3, which attacks h2: White (Ka1; b1 and h1 attacked by pa2, a2 defended) is
+     stalemated. Every other Black move at move 1 or 2 loses or draws. Here h2 is in A (attacked by an s-bar
+     context pawn in the pairing play) and in R: (P3') fails, as Proposition 8.1' requires.
+     ref3: Ka1 Pb2 ka4 pa2 Pe2 Pg2 pe4 pg4 b - | D ; bare | L.
+(E2) king raid creating a race. Y = Ka3 Pb3 ka1 pb4 (w), m = Ka3-h4 (plain T = 6 after 1...Kb2, pass game not
+     won). With G: WHITE WINS: after 1...Kb2, 2.Kxg4 is White's only winning move (k42 --moves). The context is
+     promotion-free only for pawn moves; with the king's capture White's g-pawn can promote in 5 moves (Kxg4, Kh5,
+     g2-g4, g5, g6=Q), so mu_s <= 5 < T = 6 and (L2) of Definition 2.6 fails.
+     ref3: Kh4 Pb3 ka1 pb4 Pe2 Pg2 pe4 pg4 b - | W ; bare | L.
+(E3) the same at a group of K18's NOESC list (plain-only in both the P and the Q variant):
+     Y = Kc3 Pa2 kc1 pa4 pa5 (w), m = Kc3-d4 (plain T = 7 or 8 depending on r). With G: WHITE WINS (for example Kxe4 and the
+     e-pawn runs; k42 --moves: after 1...Kc1-c2, 2.Kxe4 wins, and so do 2.Ke3, 2.a3, 2.e3, 2.g3). ref3: Kd4 Pa2 Pe2 Pg2 kc1 pa4 pe4 pg4 pa5 b - | W ; bare | L.
+(E4) king entry without a race. G = Pe2 Pg2 pe5 pg5 (K18's family). Y = Ka4 Pb3 kb6 pb4 pa5 (w), m = Ka4-h5.
+     Bare: Black wins only by 1...Kb5. With G: DRAW. 1...Kb5 now loses (k42: 2.g4 wins for White; 2.Kxg5 does
+     not), 1...g5-g3 (the double step) is the only drawing move, and every other move loses. Scoring a stalemate
+     of White as a Black win does not change the value; keeping White's king off the context files does
+     (variant m2 of section 5), so the king on h5 beside g5 is what breaks the pairing.
+     ref3: Kh5 Pb3 Pe2 Pg2 kb6 pb4 pa5 pe5 pg5 b - | D ; bare | L.
+(E0) the smallest kind, outside K18's family: G = Pe2 pe3 (blocked, no pawn move for either side, zero class),
+     Y = Kb1 kb4 pc2, m = Kb1-c1: DRAW. Bare, Black wins by 1...Kb3, after which White's only move Kc1-d2 loses;
+     with G, d2 is attacked by pe3 and 1...Kb3 stalemates White. 6 men (k42; the pattern is that of E1).
+Inputs and outputs: data/examples_in.txt, data/examples2_in.txt, logs/examples_*.txt.
+
+=====================================================================================================
+5. MECHANISMS (exhaustive over the failures of cyl:7x6 and cyl:8x6; COMPUTED-1, k42 only)
+=====================================================================================================
+Every failure was re-solved under three variants: m1 = a stalemate of White counts as a Black win; m2 = White's
+king may only stand on F_Z and the two buffer files (never on a context file); m3 = both.
+  cyl:8x6 (39,673 failures):
+    White wins, fixed by m2 alone (king raid; the m1 value stays W)          33,459
+    White wins, fixed only by m3 (W under m1, D under m2)                       143
+    draws fixed by m1 alone (stalemate by a context pawn's attack)            3,973
+    draws fixed by m2 alone (king entry: capture threat, blocking)              437
+    draws fixed by either                                                     1,661
+    failures that survive m3                                                      0
+  cyl:7x6 (15,700): 12,525 W fixed by m2; draws: 2,342 by m1 only, 268 by m2 only, 565 by either; 0 survive m3.
+  cyl:9x6: see section 6.
+So every failure uses the sortie king: it enters a context file (capture, capture threat, blocking a pawn, or
+turning the context into a race), or a context pawn's attack takes away a buffer square and stalemates s. This
+matches Proposition 8.1': a failure must violate (P3'). The certificate test confirms it directly: 0 of the
+68,395 failures carry an 8.1' certificate (section 7).
+
+=====================================================================================================
+6. BEYOND THE 2 + 2 GROUPS, AND THE cyl:9x6 MECHANISMS
+=====================================================================================================
+cyl:9x6 mechanisms (exhaustive over its 13,022 failures, COMPUTED-1): 10,831 White wins removed by m2 alone, 6 only
+by m3; draws: 1,078 by m1 only, 106 by m2 only, 1,001 by either; 0 survive m3.
+
+Groups with 5 or 6 Z-pawns, cyl:8x6 (brief item 3): a 1% sample of the roots with 3 + 2, 2 + 3 or 3 + 3 Z-pawns
+(k42 sorties --maxw 3 --maxb 3 --minpawns 5 --sample 0.01 --seed 11: 28,959 roots, 91,585 sorties, 3,162
+plain-only), against the 12 cyl:8x6 classes with at most 3 context pawns (c1..c12):
+  37,362 legal pairs, 37,146 Black wins, 94 draws, 122 White wins: 216 failures, at least one in each of the
+  12 classes. Per context: logs/test8_33a.out.xz.
+  ref3 agrees on 8 of these failures (4 draws, 4 White wins; logs/xcheck33_*.txt).
+  Certificate: 8.1' certifies 9,416 pairs, 8.1 8,237, no certified failure.
+  NOT DONE: the 5-6-pawn sample against the four-pawn contexts (a run of 317 sorties against Pe2 Pg2 pe4 pg4 was
+  stopped unfinished after 45 CPU minutes); groups with 5 or 6 pawns on cyl:7x6 and cyl:9x6; flags of the 5-6-pawn
+  sorties were not compared with lg.cpp (the same k42 code that agrees with lg.cpp on the 2 + 2 roots).
+Not tested at all: contexts with more than 2 + 2 pawns; |F_Z| other than 3; flat boards; chess.
+
+=====================================================================================================
+7. PROPOSITION 8.1' (brief item 2) -- PROOF.md
+=====================================================================================================
+PROVED (one derivation): under (PF) (promotion-free, White to move loses the pawn game), (P1), (P1e) and (P3')
+[R avoids X, E and A], s-bar wins P. (P2) is dropped (Lemma A: it follows from (PF)); (P3) is weakened. The
+proof is the proof of Proposition 8.1 with each use of the king-neighbourhood replaced by X, E or A.
+Not done: dropping (P1e) (the lapse-game remedy) and any statement that lets the sortie king into the context.
+
+Certificate check (mode cert, --p1e; a reply r creating an e.p. right at Q is not used):
+  board    legal pairs   certified by 8.1'   certified by 8.1   certified failures
+  cyl:7x6   1,135,472        192,992            140,831               0
+  cyl:8x6   3,195,699        599,649            474,283               0
+  cyl:9x6   1,702,252        420,742            352,194               0
+  total     6,033,423      1,213,383            967,308               0
+(8.1' certifies 246,075 pairs that 8.1 does not.) K18 found (P3) false in all its 1,827 + 248 pairs because its
+sorties had T >= 3 and the king could reach the context; with all plain-only sorties many have small T.
+
+=====================================================================================================
+8. LABELS AND BOUNDARY
+=====================================================================================================
+- PF-TM is FALSE: CHECKED-2 for the counterexamples of section 4 and the 50 sampled failures (two full-board
+  solvers; plain-only flags in two local solvers). The counts of section 3 are COMPUTED-1 (k42), with the sample
+  agreement above.
+- Mechanism classification: COMPUTED-1.
+- Proposition 8.1': PROVED (one AI derivation, not refereed). Its certificate counts: COMPUTED-1.
+- Boundary: model P only (chess not run); F_Z = {a, b, c}; s = White; contexts of at most 2 + 2 pawns on the
+  context files; groups of at most 2 + 2 pawns (all), 5 or 6 pawns (cyl:8x6 sample, contexts of <= 3 pawns, section 6).
+- A corrected conjecture that keeps the sortie king in play is not offered: the failures show that "promotion-
+  free" must at least be strengthened to cover the king's captures (an (L2)-type count with the king) and its
+  blocking moves, and that a stalemate hypothesis of (L3)-type is needed. Proposition 8.1' is the proved form.
+
+=====================================================================================================
+9. FILES
+=====================================================================================================
+src/        k42.cpp (solver), ctx.py, badsets.py, diag.sh, diagsum.py, cmp_k18.py, k18tag.py, summarize.py,
+            tagfails.py, randpos.py. Build: c++ -O2 -std=c++17 -o bin_k42 src/k42.cpp (binaries deleted).
+data/       sortie lists sort{7,8,9}_22.txt.xz and sort8_33s.txt.xz (line: root | m | position after m | flags
+            P0 Pinf P0q Pinfq), contexts ctx*_*.txt, bad-square sets bad*_p3.txt / bad*_p3w.txt, examples.
+logs/       test{7_22,8_22a,8_22b,9_22,8_33a}.out.xz (SUM per context; FAIL lines: context | root | m | flags |
+            position | value), summary{7,8,9}_22.txt, cert*.txt, diag{7,8c,9}.tar.xz (m1/m2/m3 runs per
+            context; 8c = the 36 mirror classes of cyl:8x6), xcheck*.txt and examples*.txt (k42 vs ref3),
+            lg_search{7,9}.out.xz (lg.cpp search output used for the comparison), rand7_*.txt.
+Reproduce (cyl:8x6): k42 sorties --board cyl:8x6 --fz 0,1,2 --maxw 2 --maxb 2 > sort8_22.txt;
+  python3 src/ctx.py 8 6 4,5,6 2 2 ctx8_efg_22.txt; k42 test --board cyl:8x6 --sorties sort8_22.txt
+  --contexts ctx8_efg_22.txt; python3 src/badsets.py 8 6 ctx8_efg_22.txt bad8_p3.txt bad8_p3w.txt;
+  k42 cert --board cyl:8x6 --sorties sort8_22.txt --contexts ctx8_efg_22.txt --bad bad8_p3w.txt --fails TESTOUT --p1e;
+  src/diag.sh cyl:8x6 TESTOUT ctx8_efg_22.txt OUTDIR abcdh.
+Heavy runs went through kings/delegate/heavy.sh (nice 15). Run directly: single-position checks, the 2 + 2 sortie
+enumerations (10-16 s each), the cert runs (about a minute each), the random ref3 check and three diagnostic
+sample runs (a few minutes each, under 1 GB). PIDs in pids.log.

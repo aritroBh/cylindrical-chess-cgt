@@ -1,0 +1,243 @@
+K44: king-against-king fights, extended (LOOPY section 8, open question 3).  Task date 2026-11-22.
+AI work, no human re-derivation.  Nothing here is PROVED: every statement is a solver result (COMPUTED-1 or CHECKED-2).
+
+Labels. COMPUTED-1: one implementation.  CHECKED-2: two independently written implementations agree.
+Machine load was far above normal during the whole task (load average 200 to 600); heavy jobs queued behind other sessions.
+
+======================================================================================================================
+0. SHORT ANSWER
+======================================================================================================================
+
+(a) Two values that K20 did not see occur: **over** = {0 | over} and **under** = {under | 0}, the first infinitesimals other
+    than * in the search.  Smallest case: cyl:10x6, three blocked pairs a2 c4 f2, roots `Kc3 ka4 Pa2 pa3 Pc4 pc5 Pf2 pf3`
+    and `Kc3 ka5 ...` are over; the colour-mirror configuration a2 c4 h4 gives under (`Kc2 ka4 Pa2 pa3 Pc4 pc5 Ph4 ph5`).
+    Same roots on cyl:11x6, cyl:12x6, cyl:13x6, cyl:14x6, cyl:16x6 (lk only for 13 to 16) and on cyl:10x7; not on cyl:9x6 and
+    in no box region of cyl:6 to 10 (CHECKED-2 for cyl:10x6, 11x6, 12x6; COMPUTED-1 for the rest).
+(b) Finite tempi +1 and -1 exist on ODD-width cylinders, with three pairs: cyl:7x6 `Kf3 ka4 Pa2 pa3 Pc3 pc4 Pf4 pf5`
+    (+1, faithful), cyl:9x6 `Kh3 ka4 Pa2 pa3 Pc3 pc4 Ph4 ph5`, cyl:11x6 (CHECKED-2).  The parity rule of K31 (no +-1 for odd W)
+    is therefore a statement about ONE blocked pair; the K31 observation "both kings on file W/2" also fails here.
+(c) The switches {1|0} and {0|-1}, found by K20 on flat boards only, occur on cylinders of width 7 to 12 with three pairs.
+(d) Still absent in every case searched (B34 names, scope below): +-2, +-3, +-1/2, up, down, up*, down*, *2.
+    So the only numbers are 0, +1, -1; the only infinitesimals are *, over, under.
+(e) 1,909 B34 signatures occur that K20's own search (re-run here, 1,137 signatures) does not contain; 2 of them are named
+    (over, under), the others are unclassified loopy values.  Smallest one by pieces: 2 pairs on cyl:8x6 (distance 4 between
+    the pair files): `Ka1 kb6 Pa3 pa4 Pe3 pe4`, a loopy value with a 353-node bisimulation-minimal graph (section 4).
+(f) In the full-board promotion model P (real kings, first promotion wins) the faithful configurations agree with the local
+    game "alone" in 92.6 percent (cyl:7x6) and 91.5 percent (cyl:8x6) of the legal positions, against 57.9 percent for the
+    non-faithful two-pair configurations of K20.  All the over and under positions agree (CHECKED-2: ref3m and kp_p).
+
+======================================================================================================================
+1. WHAT WAS RUN
+======================================================================================================================
+
+Game.  K20's local game LK (kings/delegate/out/K20/summary.json; LOOPY section 8 item 3, "Model"): both kings move, blocked
+pairs (white pawn on rank r, black pawn on r+1, r = 2..H-2) never move, a king may capture a pawn, a capture that leaves
+exactly one side with a passed pawn is a terminal for that side, a player with no move loses.  Value = outcome pair in the
+D-sum with the battery B34 of K20 (34 named games).
+
+Boards.  cyl:WxH with H = 6 and W = 6, 7, 8, 9, 10 (the 64-square limit of kg44 stops at 10x6); extra runs below for
+W = 11, 12 (and 13, 14, 16 for the over configuration) and H = 7 (over configuration only).
+
+Configurations.  1, 2 or 3 pairs, on DISTINCT files, all inside an arc of at most 6 consecutive files ("window 6"; "window 5"
+= arc length at most 5).  Ranks 2..4.  Up to rotation and reflection of the cylinder.  The file sets inside windows 5 and 6
+that K20 (window 4, two pairs) did not cover are all included; every configuration is run, faithful or not.  "Faithful" is
+kg.cpp's own test (every reachable non-terminal set of pawns has no pawn push and no pawn capture), exactly K20's flag.
+
+Regions (both conventions of K20).  free: the whole board.  box(m), m = 0, 1, 2: kings confined to the minimal arc of files
+that contains all pawn files, widened by m files each side.  When several arcs have minimal length (ties) each arc is its own
+region.  Boxes that reach the whole width are the free run and are not repeated.
+
+Totals.  2,131 (configuration, region) cases (60 with one pair, 396 with two, 1,675 with three; 793 faithful: 60, 282, 451);
+1,756,517 root entries, 710,182 of them in faithful cases (root = king placement with all pawns alive, listed once per case).
+
+Baseline.  K20's own enumeration (at most two pairs, files within 4) re-run with kg44 on cyl:6..10 and flat:6..8, free and
+boxes m = 0, 1, 2: 967 distinct B34 signatures on cylinders, 676 on flat boards, 1,137 together.  The free runs reproduce the
+referee's distinct-root counts of K20 (cyl:6x6 14,804, cyl:7x6 22,313, cyl:8x6 31,397).
+
+Implementations (three, written by three different authors).
+  kg44   = K20's kg.cpp with three flags added (--cfgfile, --fsig, --faithonly); scripts/kg44.cpp.
+  lk     = the K20 referee's lk.cpp, unchanged (scripts/lk_ref.cpp); regions given as F<lo>-<hi>.
+  lk3.py = new Python solver written for K44 from the definition (scripts/lk3.py): own game builder, own bisimulation
+           quotient, own retrograde D-sum solver; used on W = 6, 7, 8 and for single roots.
+Agreement.
+  kg44 against lk: all 2,131 cases, for every named class count, the count of unclassified roots and the number of
+  distinct unclassified signatures: 0 differences (scripts/cmp_lk.py); and the SET of distinct unclassified B34 signatures of every
+  case is identical: 66,518 signatures compared (lk's context order and outcome coding translated), 0 differences (scripts/cmp_lk_sigs.py).
+  kg44 against lk3: W = 6 (196 cases) 0 differences; W = 7 (288 cases) 0 differences; W = 8 (429 cases) 0 differences.  (Box regions repeat per width: a box that does not wrap is the same game on every W > its width, so the 2,131
+  cases are not 2,131 different games; the free runs are different for every W.)
+  Signature level, third implementation: all 206 new signatures that occur in a faithful case were recomputed by lk3 from a root of
+  a faithful case: 206 of 206 agree (scripts/verify_new.py faithful).  Of all 1,909 new signatures lk3 recomputed 1,625 (the job was
+  stopped when the machine was needed for the final steps; 0 disagreements); the other 284 rest on the kg44-lk set comparison above
+  (two implementations, CHECKED-2).
+  Extended batteries for over (the claim "this root equals over" is a statement about these batteries only):
+    B4553 of K20 inside kg44: over agrees 2 of 2 roots (and all other named classes of the configuration agree);
+    the referee's 23,716-game battery inside lk: over agrees 2 of 2, disagree 0, all other classes agree;
+    lk3: over and under roots against over/under plus every D-sum of at most two B34 games (629 contexts, White and Black to
+    move): 0 mismatches for all four roots (scripts/over_sums.py).
+
+======================================================================================================================
+2. VALUE CLASSES THAT OCCUR (item 1)
+======================================================================================================================
+
+Root entries over all 2,131 cases by number of pairs (B34 names; "decisive" = a named decisive class {+|}, {|-}, {+|-},
+{+|0}, {0|-}, {+|on}, {off|-}; "quiet"/"decisive unclassified" = loopy with no B34 name, split by whether dud's outcome is (D,D)):
+  1 pair : 0 120, +1 31, -1 31, on/off 1,523 each, dud 1,150, tis/tisn 25 each, decisive 7,940, unclassified 22,822
+  2 pairs: 0 676, * 22, +1 1, -1 1, on/off 12,028 each, dud 13,538, tis/tisn 56 each, {on|off} 1,255, decisive 107,841,
+           unclassified 172,496
+  3 pairs: 0 2,200, * 54, +1 66, -1 66, on/off 50,527 each, dud 73,866, tis/tisn 255 each, {on|off} 2,683,
+           {1|0} 21, {0|-1} 21, over 4, under 4, decisive 530,383, unclassified 690,397
+  all    : 0 2,996, * 76, +1/-1 98 each, over/under 4 each, {1|0}/{0|-1} 21 each, tis/tisn 336 each, {on|off} 3,938,
+           dud 88,554, on/off 64,078 each, decisive 646,164, unclassified 885,715.
+Unclassified share: free runs 56.6 percent of the root entries (faithful cases only 52.0), box(0) 40.2, box(1) 39.4, box(2) 51.8.
+dud: 1.1 percent of the free entries, 12.0 percent of box(0).  (K20 reported 40 to 54 percent unclassified for free and box(2),
+26 to 31 percent for box(0), box(1); the three-pair runs are in the same range.)
+Full table by pairs, window and region, faithful cases only: tables.md.
+
+By class (CHECKED-2 unless said):
+  numbers: 0, +1, -1 only.  No +2, -2, +3, -3.  +1 and -1 occur with 1, 2 and 3 pairs, on every width 6 to 12 (see 3.2).
+  infinitesimals: * (two or three pairs; faithful examples cyl:7x6 `Ke2 kf4 Pa2 pa3 Pc3 pc4`, cyl:9x6 `Kg2 kh4 Pa2 pa3 Pc2 pc3
+           Pe3 pe4`), and the new over and under.  None of up, down, up*, down*, *2, +-1/2.
+  switches: {1|0}, {0|-1} (three pairs on cylinders; faithful examples cyl:8x6 `Kf3 ka4 Pa2 pa3 Pc3 pc4 Pg4 pg5` = {1|0} and
+           `Kc3 kh4 Pa2 pa3 Pc4 pc5 Pe3 pe4` = {0|-1}).
+  loopy named: on, off, dud, tis, tisn, {on|off}, and the decisive classes.
+  loopy unnamed: 2,955 distinct B34 signatures in the new runs (950 in the baseline).  Only 65 of them equal the B34 signature of
+           a D-sum of at most four B34 games (scripts/sumnames.py), so most are not sums of battery games.
+  short (acyclic) roots: none in the free runs and none in box(1), box(2); 80 roots in box(0): 20 in one-file boxes (one pair; values 0,
+           {+|}, {|-}, as K20 found) and, new, 60 in three-file boxes of two or three pairs (2 pairs a2 c2 and a4 c4, faithful: {|-} `Ka1 kc1
+           Pa2 pa3 Pc2 pc3` and {+|} `Kb5 ka1 Pa4 pa5 Pc4 pc5`; three pairs on adjacent files, not faithful).  Every other root is loopy.  kg44 and lk give the same count of short roots in all 687 box(0) cases; the zeros of the free runs, box(1), box(2) are kg44 only.
+Windows.  Window 5 (arc <= 5), two pairs: 0, *, tis, tisn, {on|off} (no +-1).  Window 5, three pairs: +1, -1, {1|0}, {0|-1}.
+Window 6: over, under (three pairs, free region, W >= 10).  Box regions: over and under never occur; {1|0}, {0|-1} occur only in
+box(0) and box(1) of W = 9, 10 and in box(2) of W = 10.
+
+======================================================================================================================
+3. THE NEW VALUES
+======================================================================================================================
+
+3.1 over and under.
+  cyl:10x6, free, pairs a2 c4 f2 (faithful: every non-terminal sub-position is frozen).  Roots with value over, both kings on
+  the first four files: `Kc3 ka4 Pa2 pa3 Pc4 pc5 Pf2 pf3`, `Kc3 ka5 ...` (2 roots of 1,994).  Options of the first: White
+  Kc2, Kd2, Kd3 (unnamed positions); Black Kc3 kj4, kj5 (unnamed) and ka5, which is the second over root.  Each of the two over roots
+  has the other as a Black option, so the pattern {. | over} of over = {0 | over} is visible; the White options are not
+  the B34 value 0, so the equality with {0 | over} holds only in the sense of the batteries above.
+  Same configuration and roots on cyl:11x6, 12x6 (lk and lk3), 13x6, 14x6, 16x6 (lk), and cyl:10x7 (also `Kc4 ka5 Pa3 pa4 Pc5
+  pc6 Pf3 pf4`, ranks shifted; lk).  Not on cyl:9x6; in none of the box regions on W <= 10.  Non-faithful cases also have over/under on
+  cyl:10x6 (a2 b4 i2: over; a2 b4 d4: under).  Under is the colour mirror (same count 2 on 10, 11, 12).
+  Why it needs width 10: the third pair f2 stands 5 files from a on a ring of 10, 11, 12, ...; with the ring of 9 it is 4
+  files away.  Mechanism not understood (CONJECTURE only: the far pair is a spare resource that only White can use once).
+  Labels: existence CHECKED-2 (kg44, lk, lk3 agree on the roots; three batteries agree on the equality with over/under).
+
+3.2 +1 and -1 on odd widths and the width pattern.
+  Three pairs on the files -2, 0, +2 (here f, a, c on a ring of 7 or a, c and the file two to the left of a), ranks 4, 2, 3
+  (white pawn ranks of the pairs on files -2, 0, 2).  This configuration is faithful and has a +1 root for every width
+  tested, W = 7, 8, 9, 10 (kg44 and lk) and 11, 12 (lk and lk3), for example cyl:7x6 `Kf3 ka4 Pa2 pa3 Pc3 pc4 Pf4 pf5`,
+  cyl:9x6 `Kh3 ka4 Pa2 pa3 Pc3 pc4 Ph4 ph5`, cyl:11x6 `Kj3 ka4 Pa2 pa3 Pc3 pc4 Pj4 pj5`, cyl:12x6 `Kk3 ka4 ... Pk4 pk5`: one root
+  each, the white king on file -2 and the black king on file 0.  The colour mirror (pairs at ranks 2, 4, 3 on files -2, 0, 2)
+  gives -1 (cyl:7x6, rotated by two files: `Kc3 ka4 Pa2 pa3 Pc4 pc5 Pe3 pe4`).  On cyl:6x6 the same configuration has none.  So +1 and -1 exist
+  on every width 7 to 12 and the parity rule of K31 (exists iff W is even, W >= 6) is a statement about one pair.  The totals
+  of +1 roots (same number of -1) over all configurations of the free runs: W = 6: 17, 7: 6, 8: 26, 9: 4, 10: 30 (faithful and
+  non-faithful cases; kg44), W = 11: 9, W = 12: 29 (lk).
+  K31's observation that all +-1 roots have both kings on file W/2 fails with three pairs (the cyl:7x6 root has the kings on
+  files f and a, W/2 = 3.5).  Single pair: unchanged (K31's grid was not rerun).  Two pairs: +1 appears in 1 root of cyl:6x6
+  (`Kd3 kd1 Pa2 pa3 Pd4 pd5`, inside K20's own window) and in none of the new two-pair configurations.  The claim "no two-pair
+  run of cyl:7x6 has one" stays true.
+
+3.3 Switches on cylinders: three pairs, widths 7 to 12, free region.  Smallest faithful cases cyl:8x6 as in section 2.
+
+3.4 Not found: any number other than 0, +1, -1; any infinitesimal other than *, over, under.
+
+======================================================================================================================
+4. SMALLEST POSITION WITH A VALUE K20 DID NOT SEE (item 2)
+======================================================================================================================
+
+Definition used.  A value is new if its B34 signature is absent from the baseline (K20's enumeration re-run on cyl:6..10 and
+flat:6..8, all regions: 1,137 signatures).  By this test 1,909 of the 2,976 signatures of the new runs are new (206 of them occur
+in faithful cases).  The new B34 signature is a genuinely different value: a different signature means a different outcome in
+some sum with a battery game.  "Smallest" = fewest pieces, then smallest board, then smallest reachable game graph.
+
+4.1 Smallest by pieces: six pieces, two pairs, cyl:8x6, free region: configurations a2 e2, a2 e4, a3 e3, a4 e4 (pair files at
+cyclic distance 4; K20's window was 4 files).  Four new signatures.  Smallest game graph among them:
+   cyl:8x6   `Ka1 kb6 Pa3 pa4 Pe3 pe4`   (faithful; `Kb1 ka5 Pa3 pa4 Pe3 pe4` is a second new signature of the same configuration, also a 353-node graph)
+   reachable game graph 1,332 nodes; bisimulation-minimal graph ("canonical form" in the only sense available for loopy
+   graphs here) 353 nodes, 3,526 option edges; file canonical/cyl8x6_a3e3_Ka1_kb6.txt (node 0 = root, L/R option lists,
+   P/M terminals).  B34 outcomes (White to move, Black to move; W = White wins, L = Black wins, D = draw), contexts in kg order:
+   0:WD *:WL +1:WW -1:LL +2:WW -2:LL +3:WW -3:LL 1/2:WW -1/2:DL up:WW down:DL up*:WL down*:WL *2:WL on:WW off:LL dud:DD over:WW
+   under:DL tis:WD tisn:DD {+|}:WW {|-}:LL {+|-}:WL {+|0}:WW {0|-}:DL {1|0}:WL {0|-1}:WL {2|0}:WL {0|-2}:WL {+|on}:WW {off|-}:LL {on|off}:WL
+   Not equal to any of the 34 names and not the B34 signature of any D-sum of at most four of them.  Alone (context 0): White
+   wins with White to move, draws with Black to move.  Labels: signature CHECKED-2 (kg44 and lk agree on the case; lk3 recomputed it).
+
+4.2 Smallest NEW NAMED value: over, section 3.1: eight pieces, cyl:10x6.  Its minimal graph has 1,994 nodes (no reduction by
+bisimulation): file canonical/cyl10x6_a2c4f2_Kc3_ka4_over.txt.  Its value is that of over = {0 | over} on every battery tested
+(over is a stopper whose canonical form is {0 | over}); the root graph itself is not a stopper (it has infinite alternating
+play: king shuffles).  Equality to {0 | over} in all sums is not shown (open).
+
+4.3 Smallest by game-graph size among all new signatures from faithful cases: a 337-node graph (three pairs a2 c2 e4 or a2 c4 e4,
+box(0) on five files, `Kd3 ka4 Pa2 pa3 Pc2 pc3 Pe4 pe5`; the same on every width because the box has only five files).
+
+======================================================================================================================
+5. FAITHFUL CONFIGURATIONS IN THE PROMOTION MODEL P (item 3)
+======================================================================================================================
+
+P = SPEC.md with first promotion wins, real kings, stalemate and infinite play drawn (kpsolve --pmodel).  Positions: every
+root (both sides to move) of the faithful configurations of the free runs, D "alone" outcome (the first entry of the B34
+signature) against the P outcome.  Two solvers: ref3m (K23 referee's) and kp_p --pmodel (K7's, with the file limit raised from 8
+to 10 for cyl:10x6; no other change).  They agree on every position line: cyl:7x6 59,338, cyl:8x6 61,140, cyl:10x6 7,976, non-faithful
+cyl:7x6 12,050 (0 differences, no gap between kp_p's two bounds; CHECKED-2 for the P results).  2,308 and 3,196 of the lines of
+the first two files are a placeholder for the pawnless configuration (a pawn on rank 1), which both solvers mark illegal (X) and the
+tables skip; the legal positions are 57,030 + 57,944 + 7,976 + 12,050 = 135,000.
+  cyl:7x6, all 33 faithful configurations with pawns of the free runs (15 of K20 + 18 with three pairs): legal 57,030, D = P in 52,814
+     (92.6 percent); one pair 73.2, two pairs 96.5, three pairs 94.3.
+     named classes: * 4 of 4, +1 2 of 2, -1 2 of 2, 0 122 of 138, dud 2,960 of 2,960, on/off 1,099 of 1,364, tis/tisn 10 of 10,
+     {on|off} 56 of 56.
+  cyl:8x6, 21 faithful configurations with at most two pairs (15 of K20 + a2 e2, a2 e3, a2 e4, a3 e3, a3 e4, a4 e4): legal 57,944,
+     D = P in 52,992 (91.5 percent); one pair 74.9, two pairs 94.8.  +1 19 of 22, -1 19 of 22, * 6 of 8, 0 148 of 164, tis 22 of 24.
+  cyl:7x6, the 6 non-faithful two-pair configurations of K20 (pairs on adjacent files): 12,050 legal,
+     D = P in 6,980 (57.9 percent).  The flag matters.
+  cyl:10x6, a2 c4 f2 and a2 c4 h4: 7,976 legal, 7,488 agree (93.9 percent); all 4 over positions and all 4 under positions agree
+     (alone: White wins in over with either side to move; the mirror for under).
+  The disagreements are the known kind (K20: 13.6 percent on cyl:8x6): a decisive event of the D model (a passed pawn after a
+  capture) that the other king catches in P, or a draw by stalemate or by the other king.  Not traced one by one.
+  NOT tested: the sums with contexts in P (K20 did that on flat:8x6 for +-1 only); over and under were not run beside a context in P.
+
+======================================================================================================================
+6. EXTRA RUNS (one implementation unless said)
+======================================================================================================================
+lk only (no 64-square limit), free region, window 6, 1 to 3 pairs, H = 6, all 177 configurations each:
+  cyl:11x6: roots 0 439, * 8, +1 9, -1 9, {1|0} 3, {0|-1} 3, over 2, under 2, tis/tisn 26, {on|off} 1,165, dud 1,212;
+            over in a2 c4 f2, under in a2 c4 i4; no number other than 0, +1, -1; no other infinitesimal.
+  cyl:12x6: roots 0 455, * 8, +1 29, -1 29, {1|0} 3, {0|-1} 3, over 2, under 2, tis/tisn 33, {on|off} 1,283, dud 1,418;
+            over in a2 c4 f2, under in a2 c4 j4.
+  Single configurations (lk classify): a2 c4 f2 has exactly 2 over roots on cyl:13x6, 14x6, 16x6 and on cyl:10x7 (also a3 c5 f3 there).
+  lk3 reproduces the over/under roots on cyl:11x6 and cyl:12x6 and the +1 and -1 roots of a2 c3 j4 (cyl:11x6), a2 c3 k4 (cyl:12x6).
+  Runs over all configurations for H = 7, 8 were queued but never got a free heavy slot and were cancelled (run_extra.sh); only the lines above.
+  Widths 11, 12 are one implementation (lk) for the class totals: COMPUTED-1; the roots named above are CHECKED-2 (lk and lk3).
+
+======================================================================================================================
+7. LIMITS, OPEN
+======================================================================================================================
+- B34 names are battery names (as in K20).  over, under: equal to the reference on B34, B4553, the 23,716-game battery and 629
+  two-component contexts; not proved equal in all sums.
+- Heights: H = 6 for the whole search; H = 7 only for single configurations by lk (the over configuration), see section 6; H = 8 not run.
+- Pairs on the same file, more than three pairs, window larger than 6, boxes m >= 3: not run.
+- Why over needs width >= 10 and the third pair at distance 5: unexplained.  Whether the odd-width +-1 family (pairs on files
+  -2, 0, 2 at ranks 4, 2, 3) exists for every width W >= 7 is observed for 7 to 12 only (CONJECTURE).
+- The sum of two odd-width +-1 roots, and pair sums of the new roots, were not run (n > 4200 for kg44's pair test).
+
+======================================================================================================================
+8. FILES (all under kings/delegate/out/K44/)
+======================================================================================================================
+findings.txt, EDITS.md, tables.md, canonical/ (minimal game graphs), scripts/ (kg44.cpp, lk_ref.cpp, lk3.py, gen_cfgs.py, agg.py,
+cmp_lk.py, cmp_lk_sigs.py, cmp_lk3.py, verify_new.py, over_sums.py, sumnames.py, new_sizes.py, mkpos.py, cmp_p.py, p_summary.py,
+canon_dump.py, run_*.sh), cfg/ (configuration lists), logs/ (fsig_* aggregates, comparison outputs, P results; xz where large).
+Reproduce (large files are xz-compressed: xz -d the logs/fsig_*.xz before running agg.py).
+  python3 scripts/gen_cfgs.py W 6 6 cfg/cylWx6_w6                       (the cfg/ files are the output)
+  c++ -O2 -std=c++17 -o bin/kg44 scripts/kg44.cpp
+  bin/kg44 --board cyl:Wx6 --cfgfile cfg/cylWx6_w6_free.txt --fsig logs/fsig_new_W_free.txt   (all regions: scripts/run_all.sh)
+  c++ -O2 -std=c++17 -o bin/lk scripts/lk_ref.cpp; python3 scripts/cmp_lk.py 6,7,8,9,10 free,m0,m1,m2; python3 scripts/cmp_lk_sigs.py ...
+  python3 scripts/cmp_lk3.py W free,m0,m1,m2; python3 scripts/verify_new.py [faithful]; python3 scripts/agg.py
+  P model: cc -O2 -pthread -o bin/kp_p10 scripts/kp_p10.c (K7's kp_p.c, only the width limit 8 -> 10 changed); ref3m = K23's
+  kings/delegate/out/K23/verify/ref3m.cpp; positions from kg44 --roots via scripts/mkpos.py; tables by scripts/cmp_p.py and p_summary.py.
+All binaries built for this task were deleted at the end (bin/ is gone); pids.log lists the processes started.
+Note on the logs.  While compressing, 23 small aggregate files logs/fsig_*.txt (the box regions and baseline runs under 256 KB: fsig_new
+6_m0, 6_m1, 6_m2, 7_m2; fsig_base 6_free, 6/7/8/9/10_m0,m1,m2; fsig_baseflat 6/7/8_m0) were deleted by mistake.  They are plain re-runs of
+bin/kg44 and scripts/regen.sh regenerates exactly them (it was queued for a heavy slot and cancelled, so it was not run).  All numbers in
+this report were computed before the deletion; the other fsig files are kept as .xz.

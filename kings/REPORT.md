@@ -447,6 +447,16 @@ Every deliverable was given to independent referees (Claude models) told to brea
     Ka4–g5/h5; for Z_C eight king moves), CHECKED-2 with three solvers. Beside 8 small chess contexts on flat 7×6, Z_B
     matches dud_D at the 60 roots that cap 1 decides; 4 roots and the rest of the context class were not run. The
     referee's corrected edits were applied.
+  - K42 (2026-11-22) settles open question 1 in its promotion-free form: it is FALSE in P (CHECKED-2: 68,395 failures in
+    6,033,423 sortie and context pairs on cyl:7×6, 8×6 and 9×6, every one using the king that made the sortie).
+    Proposition 8.1′ (PROVED, re-derived by the referee) keeps what survives. The referee's own solver reproduced the lists.
+  - K43 (2026-11-22) extends the search for over groups: no exact over or under group with at most 3 + 3 pawns on four
+    files, every king placement, cyl:6×6 to 9×6, flat 7×6 and 8×6 (CHECKED-2, 6.4 billion placements per orientation).
+    Conjecture 4.7's over half still has no support; two new lemmas, 4.10 (with the referee's added condition) and 4.11.
+  - K44 (2026-11-22) extends the king fights of open question 3: the local king game LK reaches over and under on cyl:10×6
+    and wider with three blocked pairs, and finite tempi +1 and -1 on odd widths 7 to 12 (CHECKED-2, four implementations).
+    These are values of a king fight, not groups of Definition 4.8 in P. The referee's edits were applied, one merged by
+    hand with K43's.
   - So no result of the note is still GAP.
   - The T30 fixes of 2026-10-22 came later. They were reviewed by Sonnet reviewers in two rounds, not by K3 (see the Theory row
   above).

@@ -1,0 +1,123 @@
+K43 FINDINGS: over groups (LOOPY section 4, second half of Conjecture 4.7; section 8 item 2), model P
+=====================================================================================================
+
+Output directory: kings/delegate/out/K43/. Model P throughout: chess rules of kings/SPEC.md with real kings, e.p. on, promotion pieces Q R B N,
+the first promotion wins at once for the promoter, stalemate and infinite play are draws (Definition 1.5). Values are for the side to move unless
+"White's view" is written. AI work, no human re-derivation.
+
+1. RESULT
+---------
+
+NO EXACT OVER (OR UNDER) GROUP EXISTS in the searched range. The search covers every pawn configuration with at most 3 White and 3 Black pawns on four
+adjacent files (ranks 2 to 5 of a six-rank board), every placement of both kings anywhere on the board (so kings off the group files too), on cyl:6x6, cyl:7x6,
+cyl:8x6, cyl:9x6, flat 7x6 (window offsets 0 and 1; offsets 2 and 3 are file mirrors) and flat 8x6 (offsets 0, 1, 2; 3 and 4 are mirrors). That is 6,363,129,120 placements
+per colour orientation; every window of at most four files lies inside one of these windows. Result: 0 exact under groups and 0 exact over groups (COMPUTED-1; the solver agrees
+with a second solver, ref3m, on 17,200 random positions, and the whole test agrees with a second implementation on three smaller ranges, section 3).
+Conjecture 4.7, second half, therefore gets a search bound, not a proof. No hit exists, so nothing needed confirming by kp_p or ref3m.
+Two new lemmas are PROVED (PROOF.md): Lemma 4.10 (a freeze cannot serve both roots: where a freeze gives a mutual zugzwang at one shuttle square, the other square is a
+first-player win) and Lemma 4.11 (every White move at a root of an exact group loses at once, the shuttle included, so a larger closure reduces to the pair test).
+The nearest misses are half-exact: placements where one of the two roots is exactly right (all freezes give zeros) and the other is not; 10 of them have exactly one freeze at each root
+(section 5).
+
+2. WHAT AN OVER GROUP IS IN P, AND THE TEST
+-------------------------------------------
+
+2.1 The D-game. over = {0 | over}: White (Left) has one move, to the zero 0; Black (Right) can pass for ever (a loopy option to over itself).
+    Its mirror is under = {under | 0}: White passes for ever, Black has one move to 0. In P a "pass for ever" is a king shuttle and the move to 0 is a
+    *freeze*: a move after which the opponent, to move, is in zugzwang and loses. LOOPY Definition 4.8 (K26) defines the exact UNDER group (White shuttles,
+    Black freezes); the exact OVER group is its colour mirror (ranks flipped, colours swapped, side to move swapped). Restated for over, so that nothing has to be
+    mirrored in the reader's head:
+
+    EXACT OVER GROUP (P). Black's king shuttles on an adjacent pair z0, z1 (K1: both squares are empty and not attacked by a White pawn). White's king stands on one
+    square w0 (K1: empty and not attacked by a Black pawn; K2: at king distance 2 or more from z0 and from z1). There are four roots (z_a, w0, side to move). Then
+      (O1) with Black to move at either root, every legal move except the shuttle z_a -> z_(1-a) loses at once (the position after it is a White win), and the shuttle is legal;
+      (O2) with White to move at either root, White has at least one legal move that does not lose at once (a FREEZE), and no freeze is a promotion;
+      (O3) after every freeze m, in the position q_m (with the e.p. flag if m is a double step), Black to move has a legal move and every legal move loses at once;
+      (O4) q_m with White to move (no flag) is a legal position, White has a legal move and every legal White move loses at once.
+    So q_m is a mutual zugzwang (a zero), and with the shuttle as the pass the group is {0 | over}. By Lemma 4.11 (PROOF.md) every Black move at a Black-to-move root loses at once,
+    the shuttle included, so the test does not depend on which move is called "the shuttle". Dropping (O4) gives a *loose* over group. In P the root values of an exact over group are:
+    White to move wins (a freeze), Black to move loses; this is why plain P, not a draw-valued local game, is the right reading for the exact test (K26; LOOPY Conjecture 4.7, "two readings").
+
+2.2 The computable test (`plocal.cpp`, function testUnder with shuttler = Black; the under test is the same function with shuttler = White). For every pawn
+    configuration (layer), every adjacent pair z of safe squares for the shuttler, every safe square w0 of the freezer's king at distance >= 2 from both: look up the P values
+    of the children of the four roots in the table of the layer and its sublayers (the table holds EVERY placement of both kings, so every king move and every pawn move of a
+    root is a table look-up, the e.p. children are evaluated on the fly). It is the two-shuttle test of K15/K26 with one king's shuttle replaced by a single freeze move:
+    the dud test (both kings shuttle, every non-shuttle move loses at once at all 8 roots) is the same loop with the freezer's side also shuttling (`--mode dud`).
+    The funnel counters of the output are: placements with K1 and K2; F1 = (O1) at both Black-to-move roots; F2 = F1 + (O2); F3 = F2 + (O3), the loose groups; F3one = F3 with exactly
+    one freeze at each root; F4 = F3 + (O4), the exact groups.
+
+3. SOLVER AND CHECKS
+--------------------
+
+Own solver `plocal.cpp` (written for this task from the P rules; no K15/K26 code). A layer is a pawn configuration (both colours, at most 3 + 3 pawns on four files, ranks 2 to H-1);
+pawn moves and captures lead to layers with fewer pawns or more advanced pawns, which are solved first; inside a layer only the kings move, solved by counting retrograde analysis over all
+(white king, black king, side to move). The table holds EVERY king placement anywhere on the board; 277,993 layers for 3 + 3 on four files, 2 bits a state (the first runs used one byte).
+E.p. children are evaluated on the fly (the e.p. state is never revisited). Promotion wins at once for the promoter, stalemate is a draw, a side in check with no move is mated.
+Checks (all in this directory):
+ - Table values against ref3m (K23's solver, its own move generator and memoised recursion) on random legal states of the table, side to move both: 4,000 (cyl:7x6, 3 files, 2+2);
+   6,000 (flat 7x6, window 1, 4 files, 3+3); 1,500 each on cyl:6x6, cyl:9x6, flat 8x6 (window 2) and cyl:8x6 (4 files, 3+2); 600 each on cyl:8x7 and cyl:8x8 (3 files, 2+2).
+   17,200 positions, 0 differences.
+ - Regression against K26 (3 files, 2+2, kings on the group files only, `--kwin`): 631,179 placements for the under test and 817,270 for the dud test, as K26 counted; exact duds 4 (cyl:8x6),
+   2 (cyl:7x6), 2 (flat 7x6), 2 (flat 8x6), as K26; loose groups with exactly one freeze at each root 120 (cyl:8x6), 118 (cyl:7x6), 142 (flat 7x6), 142 (flat 8x6), as K26. The K26 dud groups
+   Z_B, Z_C and mirrors are printed by `--mode dud`.
+ - Whole test against a second implementation (K26's referee script ref_under.py: own Python enumerator, ref3m for every move list, no code shared with plocal.cpp), counting by the
+   same definitions (promotions counted as value L, `refstyle` fields): cyl:7x6, 2 files, 3+3: 63,378 placements, U1 17,438, U1+U2 17,434, U3 15,626, U3 and not U4 15,550, promotion freeze with U4 76, loose with one freeze 10, exact 0;
+   flat 7x6, 3 files, 3+1: 455,385 placements, U1 34,062, U1+U2 34,038, U3 33,296, U3 and not U4 32,918, promotion freeze with U4 378, loose one-freeze 23, exact 0, every counter equal to plocal's; cyl:8x6, 1 file, 3+3 likewise. All counters equal in the three ranges (CHECKED-2 for these ranges).
+ - Mirror check: the under and the over test (the same table, shuttler White or Black) give identical counts F1 to F4 in every run.
+ - Lemma 4.10 mechanical check on the placements with a zero root: 38 root cases, 0 violations (section 5).
+
+4. SEARCHES AND RESULTS
+-----------------------
+
+Counters (per colour orientation; under and over are identical in every row): placements = pairs z of safe squares of the shuttling king with a safe freezer-king square (K1, K2);
+F1 = (O1)/(U1) at both shuttler roots; F2 = F1 with at least one freeze at both freezer roots and no promotion; F3 = F2 with (O3)/(U3) for every freeze (loose groups); one-freeze = F3 with exactly one freeze
+at each root; F4 = F3 with (O4)/(U4) (exact groups).
+
+board / window / pawns                           placements        F1            F2           F3        one-freeze  F4
+cyl:6x6  files a-d  <=3+3                    324,804,528    86,802,406   15,725,468   13,405,724    14,746     0
+cyl:7x6  files a-d  <=3+3                    555,083,926   150,558,022   27,171,815   23,713,838    25,310     0
+cyl:8x6  files a-d  <=3+3                    854,355,778   233,735,408   42,047,072   37,320,764    39,622     0
+cyl:9x6  files a-d  <=3+3                  1,223,372,878   336,857,625   60,645,813   54,668,909    62,740     0
+flat:7x6 files a-d  <=3+3                    540,252,838   148,213,198   27,176,949   24,184,446    37,846     0
+flat:7x6 files b-e  <=3+3                    494,167,071   133,433,083   23,982,314   21,251,107    28,172     0
+flat:8x6 files a-d  <=3+3                    832,030,888   230,613,197   42,651,951   38,635,165    61,263     0
+flat:8x6 files b-e  <=3+3                    772,499,055   211,436,086   38,317,797   34,610,215    47,441     0
+flat:8x6 files c-f  <=3+3                    766,562,158   207,367,994   36,552,662   32,730,598    37,328     0
+total                                      6,363,129,120
+
+(Window offsets not run are file mirrors of those run: flat 7x6 c-f is the mirror of b-e and d-g of a-d; flat 8x6 d-g is the mirror of b-e and e-h of a-d.) Cylinders need one window.
+Smaller windows (1 to 3 files) are sub-cases of these windows. Run times: 3 to 15 minutes each, table 0.7 to 1.6 GB, one process, nice 15 through heavy.sh.
+Smaller ranges with the extra counters (3 files, 3+3, cyl:7x6, `small_cyl7_f3_33.out`): 92,289,276 placements, F1 25,442,949, F3 4,419,901, one-freeze 5,784, exact 0.
+Raw output: logs/*.out (RESULT lines, up to 30 loose placements each), logs/*.err (progress), `small_cyl7_f3_33.out`.
+
+5. WHY NOTHING IS FOUND: WHAT THE DATA SHOW
+-------------------------------------------
+
+What fails is always (O4)/(U4), never (O3)/(U3): of the loose groups (F3), every one fails U4 (failChk: the freezing pawn gives check, so q with the freezer to move is illegal; failLeak: the freezer has a move
+that does not lose at q). Typical: after the freeze the freezer has a WINNING move at q (a king step or a pawn push; diagnostic `--diag`, 3 files, 3+3, cyl:7x6: of 64,155,605 freeze records 63,631,549 have a legal q and
+only 122 of them no winning freezer move; 114 placements have at least one freeze that leads to a true zero, "someZero"). So "all White moves lose at q" almost always comes with "Black wins at q whoever moves", the opposite of a mutual zugzwang.
+Half-exact placements (cyl:7x6, 3 files, 3+3, both orientations): in 40 of 4,419,901 loose placements one root is exact (every freeze gives a zero) and the other is not. In all 40 the freeze of the good root is a single pawn push, which
+is legal at the other root and loses there at once, as Lemma 4.10 says it must (checked on 38 roots with the shuttle legal in q: 0 violations; 2 roots have the shuttle illegal in q). With exactly one freeze at each root there are
+10 placements with one zero root and one bad root (and 5,774 with two bad roots; none with two zero roots):
+   Kb5 kg4 Pa4 Pc2 pa5 pc3 pc5 (shuttle b5-a6 or b5-b6), Kg5 kb4 Pa4 Pc2 pa5 pc3 pc5 (g5-a6, g5-g6), Kb5 kd4 Pa2 Pc4 pa3 pa5 pc5 (b5-b6, b5-c6), Kd5 kb4 Pa2 Pc4 pa3 pa5 pc5 (d5-c6, d5-d6),
+   Kg5 kb5 Pa3 Pc2 pa5 pc3 pc5 (g5-g6), Kd5 kb5 Pa2 Pc3 pa3 pa5 pc5 (d5-d6)   [cyl:7x6; list in `near1_cyl7_f3_33.txt`]
+All ten were re-checked with ref3m (`verify_roots.py`: the zero root has one freeze with U3 and U4, the other root one freeze with U3 and not U4; CHECKED-2). In each the shuttle partner is on the top rank.
+The structure these show: Black has one freeze that is good against the king on one shuttle square and loses against the king on the other (Lemma 4.10); an exact group needs a second freeze with the opposite property,
+and the search finds none. This is a description of the data, not a proof of non-existence. Funnel facts: on cyl:7x6 (4 files, 3+3) 123,380,174 of the 150,558,022 placements that pass U1 are lost because the freezer has a promotion at one of its roots.
+No parity or opposition argument is known that excludes the second root; Lemma 4.10 is the structural fact that was proved.
+
+6. WHAT IS NOT COVERED
+----------------------
+
+- More than 3 + 3 pawns on four files, five or more files (a 2-bit table for 5 files, 3 + 3, cyl:8x6 needs 1.3 GB and was queued but not run), more ranks (the program takes any H; checked against ref3m on cyl:8x7 and cyl:8x8, 600 positions each, but no
+  exhaustive run was made), widths above 9 and flat windows on files not covered above. The runs of `run_ext.sh` that did not start before the end of this task are not claimed.
+- Officers and chess (kpsolve was not run: no candidate exists). The free-pass reading of K15 (structural over against free passes, draw-valued local game) was not re-run; K15's ranges stand (cyl:7x6 and 8x6, four files, <= 3+3, 0 over).
+- Groups whose closure contains White pawn moves, a freezer king with its own safe moves, or a pass-like tempo made of a pawn: not covered by the exact test and not by Lemma 4.11.
+- Non-existence is not proved. The remaining gap is exactly a second freeze (section 5).
+
+7. FILES
+--------
+
+plocal.cpp / plocalp.cpp / plocalp3.cpp: the solver and test (plocalp3.cpp is the final source: 2-bit table, counters, diagnostics; build: clang++ -O2 -std=c++17). run_main.sh, run_ext.sh: job queues (heavy.sh, nice 15).
+verify_roots.py: ref3m check of root and q conditions. collect.py, make_table.py: tables from logs/. PROOF.md: Lemmas 4.10 and 4.11. EDITS.md: proposed edits to LOOPY.md. pids.log: PIDs started.
+The binaries (bin/) are deleted after the runs.

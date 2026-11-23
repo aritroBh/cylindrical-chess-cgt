@@ -98,7 +98,7 @@ originally stated → …" gives the corrected statement and its label. Each cha
 | P4.3 | FALSE as originally stated (a king in check) → s not in check on u, reply not a promotion: PROVED after repair. The dichotomy "0 or ∞" is narrowed to steps inside F_Z with the opponent frozen at both ends | R4 items 1 and 2, R1 item 11 |
 | D4.4 (over) | the numbering gap is filled | R1 item 11 |
 | P4.5, P4.6 | PROVED | R4: sound |
-| C4.7 | Over is realisable with wider groups: CONJECTURE, no support. The old first half is now a computation in two readings (revised after K15, K26 and their referees, 2026-10-27): no exact over or under group (Definition 4.8, plain P) on 3 files of cyl:8×6 with ≤ 2 + 2, 3 + 2 or 2 + 3 pawns, nor with ≤ 2 + 2 on cyl:7×6, flat 7×6 and 8×6 (K26; CHECKED-2 except flat 8×6), nor on 4 files of cyl:8×6 with ≤ 2 + 2 (COMPUTED-1); no structural over or under root against free passes in K15's 20 ranges (largest ones: cyl:8×6 and 7×6: 3 files ≤ 4 + 4, 4 files ≤ 3 + 3 and ≤ 4 + 2, 5 files ≤ 3 + 2; cyl:8×8, 7×7, 8×7 in smaller ranges; flat 7×6: 3 files ≤ 3 + 3), COMPUTED-1, reproduced in 16 of the 20 ranges by K15b (CHECKED-2); the tempo-signature candidates and the near-over groups are refuted beside contexts but one placement without a context file; Lemma 4.9 PROVED (no king freeze) | R1 item 10, R4 item 8; K15, K15b; K26 and its referee |
+| C4.7 | Over is realisable with wider groups: CONJECTURE, no support. The old first half is now a computation in two readings (revised after K15, K26 and their referees, 2026-10-27): no exact over or under group (Definition 4.8, plain P) on 3 files of cyl:8×6 with ≤ 2 + 2, 3 + 2 or 2 + 3 pawns, nor with ≤ 2 + 2 on cyl:7×6, flat 7×6 and 8×6 (K26; CHECKED-2 except flat 8×6), nor on 4 files of cyl:8×6 with ≤ 2 + 2 (COMPUTED-1); no structural over or under root against free passes in K15's 20 ranges (largest ones: cyl:8×6 and 7×6: 3 files ≤ 4 + 4, 4 files ≤ 3 + 3 and ≤ 4 + 2, 5 files ≤ 3 + 2; cyl:8×8, 7×7, 8×7 in smaller ranges; flat 7×6: 3 files ≤ 3 + 3), COMPUTED-1, reproduced in 16 of the 20 ranges by K15b (CHECKED-2); the tempo-signature candidates and the near-over groups are refuted beside contexts but one placement without a context file; Lemma 4.9 PROVED (no king freeze). K43 (2026-11-22): exhaustive search of the exact under/over test of Definition 4.8 (plain P) with every king placement anywhere, at most 3 + 3 pawns on four files, on cyl:6×6, 7×6, 8×6, 9×6 and flat 7×6 (windows a–d, b–e) and 8×6 (a–d, b–e, c–f; the other windows are file mirrors): 6,363,129,120 placements per orientation, **0 exact over and 0 exact under groups** (CHECKED-2: the K43 referee's own solver and test reproduce every counter of every board); Lemma 4.10 (a freeze cannot serve both roots) and Lemma 4.11 (every move at a root loses at once, closures reduce to pairs) PROVED | R1 item 10, R4 item 8; K15, K15b; K26 and its referee; K43 and its referee |
 | §5.1, frozen | PROVED by enumeration, now written out | R1 item 11, R4 item 9 |
 | §5.1, (L1) | CHECKED-2 (revised after K19, 2026-10-27). K19 wrote the local game again from Definition 2.6 and agrees with the K7 numbers: after the reply Kxa4, with k = ∞ and the king confined to {h, a, b}, T = 6, 6, 6, 7, 7 with the queen clause and T = 6, 6, 5, 6, 6 for (L1_P) (Kg4, Kg5, Kg6, Kh6, Ka6). With the pre-K7 rules the least T is 5 to 7 for each budget k = 0, …, 8 and k = ∞: the scratch run covered k ≤ 4 and k = ∞, and K19 and the referee also cover k = 5, 6, 8, which equal k = ∞. Every k ≥ 7 equals k = ∞, because the window holds at most T ≤ 7 moves of s. The five Black sorties give the mirrored numbers. (L3): CHECKED-2 (K19 and the referee's own code, each written from the definition): in the bare group it holds for all ten sorties (five White, five Black) at T, T + 1 and T + 2, with and without the queen clause. K24 adds two further implementations of the local game, written from Definition 2.6 (the K24 agent's `kings/delegate/out/K24/scripts/lg.py` and the K24 referee's `kings/delegate/out/K24/verify/lg2.py`): the lists are the same, T = 6, 6, 6, 7, 7 with the queen clause and 6, 6, 5, 6, 6 for (L1_P) (Kg4, Kg5, Kg6, Kh6, Ka6), with the same numbers of s-nodes (1025, 1326, 1939, 4273, 3985 with the queen clause). K24 ran the five Black sorties directly: Ka3, Kb3, Kc3, Kc4, Kc5 give T = 7, 7, 6, 6, 6 with the queen clause and 6, 6, 5, 6, 6 without, the mirror of the White lists (the referee did not run the Black sorties separately). The strict sufficient form (L3_F) fails in every case, because s may walk its king off F_Z (for example Kg4–Kf4), after which no king step reaches F_Z; this does not touch the (L3) above, which holds in the bare group with 0 stalemates of s on any line on which s̄ plays only winning moves, in K24's code and in the referee's (revised after K24, 2026-10-27) | R1 items 3 and 10, R4 item 9; K7; K19; K24 |
 | §5.2, White's sorties | the certificate fails: PROVED (L2.9). "Not punished": PROVED by hand (revised after K30, 2026-10-27; re-derived by the K30 referee, `kings/delegate/out/K30/VERIFY.md`; the computations of K19 and K24 agree): after Kd5, Ke5 or Kf5 Black has no forced promotion. In the local game after ...Kxd7 (with or without passes, confined or not) there is no win up to T = 13 (K19 and the referee; K19's least fixed point finds none at any T, COMPUTED-1), and in the exact P-model after the sortie the result is D against every Black reply (two solvers). Only Kf7 loses, with T = 10 (11 with the queen clause and unlimited passes). In C, kpsolve agrees on both boards and on the 6-rank analogue (P5). Revised after K24, 2026-10-27: two more implementations of the local game (`kings/delegate/out/K24/scripts/lg.py`, the referee's `verify/lg2.py`) reproduce this on both boards: no T for Ke5, Kd5, Kf5 (with or without the queen clause), T = 11 with the queen clause and 10 without for Kf7, and T = 1 for Black's Kc7. That White cannot win chess either, so that the bare group is D in C, is PROVED by hand (revised after K30, 2026-10-27; `kings/delegate/out/K30/PROOF.md`; re-derived by the K30 referee, `kings/delegate/out/K30/VERIFY.md`), on cyl:8×8 and flat:8×8, in chess directly, so Lemma 2.7a is not needed. Part A, White cannot win: after any of its four moves Black plays ...Kxd7, and a lone king can neither promote nor mate. Part B, White does not lose: after Ke5, Kd5 or Kf5 White follows a blockade rule that makes a move every turn, with an invariant of 918 positions per board (Lemma D of the proof), and the other Black replies (...Kc7, ...e6, ...e5) are met by Ke6 or by taking the pawn. An own move generator checked all 918 positions, every Black move and the rule's reply, and three implementations agree on about 15.5k positions. The earlier evidence agrees: Lemma 2.7a with EPW and EPB (two implementations) and kpsolve exact | R4 item 9; K19; K24; K30 |
@@ -115,6 +115,7 @@ originally stated → …" gives the corrected statement and its label. Each cha
 | P11 | PROVED in P, in conditional form (revised after K10, 2026-10-22): `--frozen` = o(W(X)) for every X of the layout whose passer and race terminals are all certified: by Corollary 2.11a at every node reached by a move and, if X already has a passer (then W(X) ends at the root), by Proposition 2.11 at X itself, with s the side to move and β the side that W(X) credits. Without the root clause the claim is false: `Ka1 ka6 Pc2 Pd4 pd3 b -` is a White win in W(X) and (L, L) in `--frozen` (revised after the K10 second round). The chain is Theorem 1.14(i) with (V1) from the layout (no check is possible, and a king move is always legal) and condition (E) of L1.6 in `notes/lemmas.md`, (V3) by fiat, and (V2) by fiat at king moves, by Corollary 2.11a at every passer and race terminal reached by a move, and by Proposition 2.11 at a root that already has a passer; the o(S) clause adds HSS with Theorem 1.11(c) and Theorem 1.14(ii). Without the certificate the equality is FALSE (`Ka1 ka6 Pc2 Pc3 pd3 pd4 w -`: o(W) is a White win, `--frozen` is (L, L)). The root clause is swept (revised after K12, 2026-10-27): on the layout (Ka1, Black's king at the top of the a-file, pawns on files c to W − 2, both sides to move, legal e.p. rights included) of cyl:6×6 and cyl:7×6 with ≤ 3 pawns a side and cyl:8×6 with ≤ 2, there are 716,962 roots with a passer; no certified root disagrees with `--frozen`, and the 20,376 roots where W(X) is wrong are all uncertified, so the clause is what excludes them (COMPUTED-1, `kings/delegate/out/K12/`). On cyl:6×6 and cyl:7×6 (≤ 3 a side) and cyl:8×6 (≤ 2 a side) without e.p. rights the integrator re-ran the sweep with separate code (its own root generator, credit from `cylcgt`, `kpsolve --frozen`, and the K10r2 hypothesis checker): the same 76,744, 515,780 and 68,036 roots, 0 certified disagreements (CHECKED-2 there; the 7×6 run revised 2026-10-28; `kings/delegate/out/K12/REVIEW.md`). The 56,402 roots with an e.p. right remain COMPUTED-1. Controls: dropping (H4) gives 48 certified violations, weakening (H5) 15,868. Not yet done: P11's own harness does not test (H4) and (H5) (the K10 end-to-end script `kings/delegate/out/K10/scripts/e2e.py` does, on the roots listed under Proposition 2.11), and Proposition 2.11 has been re-derived blind once outside the Sonnet family (K11b, Codex, 2026-10-27; in the K10 second round two fresh Sonnet reviewers found no error). Scope (K11b): at a root where both sides have a passer, `cylcgt.pawns.value()` raises RaceError, so W(X) is not defined there; the root clause then needs a convention. K12 and the integrator's recheck credit such a root by the count rule of Corollary 2.11a with N the side to move, and with that convention the sweep found 0 certified violations among its race roots | R1 item 11; K10 |
 | P12 | GAP → PROVED after repair in P (Corollary 2.7′, from the repaired Theorem 2.7), restricted to nodes where `--frozen` reports a win. The chess form adds (A_Q) at the root; the earlier alternative "(V2) failure" is not needed (revised after K7, 2026-10-22) | knock-on of R2 item 4; K3; K7 |
 | L2.7a | New in K24 (2026-10-27): the transfer lemma from the two promotion models EPW and EPB to chess. PROVED; the proof is in the lemma, and the K24 referee re-derived it. The values it is applied to (P5 w, P7 w) are CHECKED-2 (revised after K30, 2026-10-27: the P7 w value is also PROVED by hand directly in chess, so for P7 w the lemma is not needed; revised after K38, 2026-10-29: the same holds for P5 w, `kings/delegate/out/K38/PROOF.md`, re-derived by the K38 referee, `kings/delegate/out/K38/VERIFY.md`) | K24; `kings/delegate/out/K24/VERIFY.md` |
+| §8 Q1, P8.1′ | Tempo matching (open question 1): FALSE as worded in P (CHECKED-2, K18); the promotion-free form, a CONJECTURE after K18, is FALSE (CHECKED-2, K42, 2026-11-22: 68,395 failures in 6,033,423 sortie–context pairs on cyl:7×6, 8×6, 9×6, K18's context family included; every failure uses the sortie king). Proposition 8.1 PROVED after repair (K18, re-derived by a second referee). Proposition 8.1′ (promotion-free contexts: (P2) automatic, (P3) weakened to X ∪ E ∪ A) PROVED (K42; re-derived by the K42 referee, same model family; no human re-derivation) | K18; K42 (`kings/delegate/out/K42/findings.txt`, `PROOF.md`, `VERIFY.md`) |
 
 Not answered by a change in the mathematics: R1 item 12 (missing A8 content: CGSuite, opposition, Gafni),
 which is recorded as open in §8.6.
@@ -2395,9 +2396,15 @@ the freeze Black is to move in a G-position lost for Black. ∎
     over_D at all 130 positions of the exhaustive single-file contexts with at most 3 pawns on file g of cyl:8×6, and fails at 3 of 130 on file f (cyl:8×6 and
     cyl:7×6). K15b re-solved all 260 positions of cyl:8×6 (files f and g) with `ref3` against its own predictor of r(G ⊞ over_D): 130 of 130 agree on g, the same
     3 of 130 differ on f (CHECKED-2). It has no Black king shuttle in P (all six Black moves lose). A context test on the farthest file alone would have supported it.
-  - *Second half, CONJECTURE, no support:* nothing was found in either search, and the four-file search of K26 neither supports nor refutes it. "None exists"
-    is not claimed: the boundary is at most 8 pawns, 5 files and the empty-context local game (K15), and F_Z = {a, b, c} with at most 3 + 2 or 2 + 3 pawns, or a–d with at most 2 + 2
-    (under/over search only) (K26).
+  - *Second half, CONJECTURE, no support:* nothing was found in any search. "None exists" is not claimed: the boundary is at most 8 pawns, 5 files and the empty-context local game (K15), F_Z = {a, b, c} with at most 3 + 2 or 2 + 3 pawns, or a–d with at most 2 + 2
+    (under/over search only) (K26), and at most 3 + 3 pawns on four files with six ranks (K43, next bullet).
+  - *K43 (2026-11-22; `kings/delegate/out/K43/findings.txt`, `PROOF.md`, `VERIFY.md`; AI work, no human re-derivation; CHECKED-2).* A table solver of P (all placements of both kings, every pawn configuration of at most 3 + 3 pawns on four files, ranks 2 to H−1) tests the four roots of Definition 4.8
+    (and of its colour mirror, the exact over group) for every placement with the kings anywhere. **0 exact under groups and 0 exact over groups** on cyl:6×6, 7×6, 8×6, 9×6, flat 7×6 (windows a–d, b–e; the others are mirrors) and flat 8×6 (a–d, b–e, c–f), 6,363,129,120 placements per orientation
+    (with at most 3 + 3 pawns on four files this covers every smaller window). Loose groups ((U1) to (U3)) number 13.4 to 54.7 million per board and all fail (U4). Checks: the table equals ref3m on 17,200 random states (including cyl:8×7 and 8×8); the test reproduces K26's counts
+    (631,179 placements, 120, 118, 142, 142 loose groups with one freeze); with the kings on the group files it equals K26's referee script with ref3m on three further ranges (63,378, 455,385 and 132 placements). The K43 referee's own solver and test (`kings/delegate/out/K43/verify/rv43.cpp`, written from SPEC.md and Definition 4.8) reproduce
+    every counter of all nine boards ((U1), (U2), loose, loose with one freeze, exact) and K26's counts, and its table equals ref3m on the same 17,200 states and on 6,700 more. The under and over runs give identical counts. Not run: more than 3 + 3 pawns on four files, five files, other ranks.
+    *Near misses.* On cyl:7×6 (3 files, 3 + 3) 40 loose placements per orientation are half-exact (one root has only zero freezes, the other not), 10 of them with exactly one freeze at each root: 6 king-and-pawn placements, 3 up to the file reflection, e.g. `Kb5 kg4 Pa4 Pc2 pa5 pc3 pc5` with shuttle b5–a6 or b5–b6 (ref3m re-check, CHECKED-2); none has two zero roots.
+    In each the zero root's freeze is a Black pawn push and the other root's only freeze is a Black king move (a capture of a White pawn in 8 of the 10) whose q is not a zugzwang for Black; the push loses at once at the other root. Lemma 4.10's argument shows the push could not be a freeze satisfying (U4) there.
   - *To settle:* more files and pawns, kings off the group files, officers; chess (kpsolve was not run for any over candidate).
   - The scratch search of Appendix A is no evidence for the old first half and is replaced by these two searches. Its script was not kept, so it cannot be
     re-run. Tests of its kind (one-ply: immediate promotion or passed pawn) label Z_B "other" and none of the 41 dud roots of flat 7×6 as dud (K15's `oneply.py`,
@@ -2418,6 +2425,14 @@ The colour mirror (ranks flipped, colours swapped) is an *exact over group*. Dro
 next to the White king, which has not moved (K2). No e.p. right exists (no pawn moved). The result is the root with White to move. By (U2) and (U3) the other Black-to-move root has a freeze to a position of
 value L (a White loss; if that freeze is a promotion, the root is a Black win at once), so that root has value L. By (U1) every non-shuttle White move at the first root loses at once, and the shuttle leads to the second root, value L.
 So the first root has value L, the move b1 → b0 does not lose at once, and (U4) fails. ∎ So a freeze of an exact group is a pawn move or a king capture of a group pawn.
+
+**Lemma 4.10 (a freeze cannot serve both roots). PROVED** (new, K43, 2026-11-22; `kings/delegate/out/K43/PROOF.md`; re-derived by the K43 referee). Let G be an exact under group, m a freeze at the root (z_a, b_0, Black to move), q the position after m (White king on z_a, White to move), and suppose the shuttle z_a → z_(1−a) is legal in q.
+Let q̂ be q after that shuttle (Black to move). Then (1) q̂ is a Black win; (2) m is not a freeze at the other root, and if it is legal there it loses at once, so the position after m from the other root (White king on z_(1−a), White to move) is a White win; (3) q is a zero, q̂ is a win for Black to move, and if m is legal at the other root the same position with White to move is a White win, so it is won by the player to move.
+*Proof.* (1) By (U3) the shuttle loses at once. (2) If m were a freeze at the other root, (U4) there would make q̂ a White win, against (1); a legal non-freeze loses at once. (3) (U3), (U4), (1), (2). ∎ (m can be illegal at the other root only if it is a double step across z_(1−a).) The mechanics were checked on all 38 half-exact roots of cyl:7×6 (3 files, 3 + 3) that have only zero freezes and a legal shuttle in q: 0 violations (COMPUTED-1).
+
+**Lemma 4.11 (the shuttle loses at once; closures reduce to pairs). PROVED** (new, K43, 2026-11-22; the argument is the one used in the proof of Lemma 4.9). In an exact under group every White move at a White-to-move root loses at once, the shuttle included: after the shuttle Black has a freeze whose q is lost for White ((U2), (U3)). So a set of White king squares with all the White-to-move and Black-to-move conditions of Definition 4.8 on every square (a larger closure) contains an exact adjacent pair, and a negative result of the pair search covers it. (Closures with White pawn moves inside the group are not covered.)
+
+*Computable test (K43).* `kings/delegate/out/K43/plocalp3.cpp` (table solver of P for all king placements, 2 bits a state; `--mode under|over|both|dud`): for every pawn configuration, every adjacent pair of safe squares of the shuttling king and every safe square of the other king at distance at least 2 it applies (U1) to (U4) to the four roots; the exact over group is the same test with Black shuttling and White freezing. An independent implementation is `kings/delegate/out/K43/verify/rv43.cpp`.
 
 ---
 
@@ -3022,8 +3037,9 @@ Downgraded while writing:
 
 ## 8. Open questions
 
-1. **Tempo matching** (false as worded in P; a promotion-free form is a CONJECTURE; revised after K18, 2026-10-27, see the verdict
-   below). Suppose a group's punishment wins only in the plain local game, not
+1. **Tempo matching** (false as worded in P; the promotion-free form is false too (K42, 2026-11-22), and every failure found uses
+   the sortie king; a proved form for promotion-free contexts is Proposition 8.1′; revised after K18, 2026-10-27, and after K42,
+   2026-11-22, see the verdict and the K42 item below). Suppose a group's punishment wins only in the plain local game, not
    against passes. Is it still decisive in contexts that are second-player wins for the punisher, with each
    defender tempo answered by a punisher tempo?
    - **K18 tested the question (2026-10-27; scripts, logs and `summary.json` in `kings/delegate/out/K18/`; referee report
@@ -3125,7 +3141,9 @@ Downgraded while writing:
          It is data, not a mechanism: it was not measured for the 6 failures of E3 or the 7 of ES7, and it does not say why the sortie is
          not punished. No mechanism is established for the rest; one guess (a CONJECTURE) is that the king captures the pawn that makes G a second-player win
          (CONJECTURE; not traced move by move).
-       - **Promotion-free matched contexts: no counterexample (CONJECTURE; 123 of 292 cases CHECKED-2, the rest COMPUTED-1).** Of the
+       - **Promotion-free matched contexts: no counterexample in K18's 292 cases (123 of them CHECKED-2, the rest COMPUTED-1); the
+         promotion-free form is nevertheless false (K42, 2026-11-22, below): K18's sorties were 31 plain-only king sorties of
+         small groups, and none of them fails against these contexts.** Of the
          4160 contexts only 5 zero and 45 fuzzy ones are promotion-free (shared one-move gaps such as `Pe2 Pg2 pe4 pg4`, whose value
          is * + * = 0); no negative or positive one is. All 153 legal cases with these shared-gap contexts are punished (25 sorties
          of the one-pawn groups against the 5 zero contexts, 123 legal; the 5 contexts against the 6 E3 sorties, 30 legal), and so are
@@ -3143,8 +3161,9 @@ Downgraded while writing:
        A context can be a second-player win for the punisher in the frozen convention and a plain-only sortie still wins: 42
        failures in 2,305 legal cases, the smallest above; in chess too for 20 of the 29 cases of ES, where Black cannot win
        (COMPUTED-1). The counterexamples refute the conjecture as worded; they do not refute Theorem 2.7, which needs (L2) and (L3)
-       and which the wording of the question does not assume (in the 29 ES failures (L2) fails: measured fact above). (b) **It held in every promotion-free test that was run** (contexts with no pawn race or capture sequence that
-       promotes, as defined above): 0 failures in the 292 cases in which s has no
+       and which the wording of the question does not assume (in the 29 ES failures (L2) fails: measured fact above). (b) **It held in every promotion-free test that K18 ran, and it is false in general (K42, 2026-11-22: counterexamples
+       in every promotion-free context class tested, K18's family included; CHECKED-2, three P solvers; see the K42 item below)** (contexts with no
+       pawn race or capture sequence that promotes, as defined above). K18's tests: 0 failures in the 292 cases in which s has no
        more spare moves than s̄ (CONJECTURE; 123 of the 292 cases CHECKED-2). The exact boundary: the 292 cases are the 5 promotion-free zero
        contexts of the 4160 against the 25 + 6 sorties (153 legal cases) and the reservoir contexts (139 cases with Δ ≤ 0). In all 292 s has no more spare moves than s̄: the shared-gap contexts have
        value 0, and the reservoir ones have Δ ≤ 0; the Δ > 0 cases are not among the 292. The family
@@ -3249,6 +3268,62 @@ Downgraded while writing:
        - A finite-budget form (s has at most k more spare moves than s̄, and s̄ wins the local game with k passes) is the natural
          generalisation; it is a CONJECTURE here, supported by the 60 reservoir cases with Δ > 0 that it predicts punished (all
          punished; COMPUTED-1, not re-run by the referee).
+   - **K42: the promotion-free form settled (2026-11-22; `kings/delegate/out/K42/`: `findings.txt`, `PROOF.md`, code in `src/`,
+     logs in `logs/`; referee report `kings/delegate/out/K42/VERIFY.md`, with the referee's own code in `verify/`; AI work, no human
+     re-derivation).**
+     - *Statement tested (PF-TM).* Root Y as in K18 (group on F_Z = {a, b, c}, s = White to move, no e.p. right); m a legal
+       non-promoting Z-move after which s̄ has no immediate promotion, plain-only in the sense of K18 ((L1_P) form; the queen-clause
+       form recorded too); G a promotion-free context (K18's definition: pawn moves of G alone, any order) of at most 2 + 2 pawns on
+       the context files in which s to move loses the pawn game (normal play, e.p. included; for a promotion-free G this is the zero
+       or negative class of `--frozen`). Claim: Y·m + G, s̄ to move, is an s̄ win in P. The reading of "each defender tempo answered by
+       a punisher tempo": s̄ answers a context move of s by a context move inside the lost-for-s positions, and a local move by σ.
+     - *Result: PF-TM is FALSE (CHECKED-2).* K42's own solver (`src/k42.cpp`, written from `kings/SPEC.md` and Definition 2.6) tested
+       every plain-only sortie of every root with at most 2 + 2 Z-pawns (cyl:7×6 91,548; cyl:8×6 91,622; cyl:9×6 91,640; no root filter,
+       pawn sorties included) against every mirror class of promotion-free contexts with s to move losing: cyl:7×6 all 13 classes (26
+       contexts), cyl:8×6 all 36 (56 contexts), cyl:9×6 19 of the 53 (all 16 with at most 3 pawns and 3 of K18's family). Of 6,033,423
+       legal pairs 68,395 are not punished (cyl:7×6 15,700 of 1,135,472; cyl:8×6 39,673 of 3,195,699; cyl:9×6 13,022 of 1,702,252;
+       draws 11,431, White wins 56,964), and every one of the 68 context classes has failures. K18's family (both sides have a context
+       move): cyl:8×6, 4 classes (K18's 5 contexts), 117 draws and 5,407 White wins in 351,502 pairs; cyl:9×6, 3 classes, 87 and 3,163 in
+       264,874. At sorties that K18's search lists as plain-only at a group with no outright escape (cyl:8×6): 1,182 failures, 185 in
+       K18's family. Groups with 5 or 6 Z-pawns (a 1% sample of the roots of cyl:8×6, 3,162 plain-only sorties, against the 12 classes
+       with at most 3 context pawns): 216 failures in 37,362 legal pairs. Checks: K23's independent P-solver `ref3` gives the same value
+       on 50 sampled failures and 50 random pairs of cyl:8×6, on 8 failures of the 5–6-pawn sample and on the examples below; K18's
+       `lg.cpp` gives the same plain-only sorties on every root it lists (cyl:7×6, 8×6, 9×6, both variants, about 51,000 root lines in the P variant and 46,000 in the Q
+       variant). The referee's own solver (written from `kings/SPEC.md` and Definition 2.6) gives the same plain-only sortie lists with
+       the same four flags on all three boards (91,548, 91,622, 91,640; 0 differing lines), the same promotion-free contexts and classes
+       (26, 56, 100; 13, 36, 53 mirror classes), and the same legal / Black-win / draw / White-win counts and the same failure set, pair by
+       pair, for four contexts run in full: `Pe2 pe3` on cyl:8×6 (87,564; 664 W, 833 D) and cyl:7×6 (87,490; 741 W, 605 D),
+       `Pe2 Pg2 pe4 pg4` on cyl:8×6 (85,748; 1,268 W, 52 D) and `Pe2 pe3 pe5` on cyl:9×6 (86,347; 24 W, 345 D). These lists and the four
+       context rows are CHECKED-2; the other totals are COMPUTED-1 (K42's solver).
+     - *Examples (cyl:8×6, CHECKED-2: K42's solver, `ref3` and the referee's solver agree on every value below, bare and with G).* G = `Pe2 Pg2 pe4 pg4` (K18's family, * + * = 0):
+       (i) Y = `Kb1 Pb2 ka4 pa2`, m = Kb1–a1 (bare: only 1...Kb3 wins, plain T = 1). With G it is a draw: 1...Kb3 2.e3, and Black's only
+       context reply 2...g3 attacks h2 and stalemates White. (ii) Y = `Ka3 Pb3 ka1 pb4`, m = Ka3–h4 (plain T = 6): White wins with G,
+       1...Kb2 2.Kxg4 (the only winning move); with the capture the g-pawn promotes within 5 moves, so (L2) fails. (iii) The same kind
+       at a group of K18's no-escape list: Y = `Kc3 Pa2 kc1 pa4 pa5`, m = Kc3–d4 (plain-only in both variants): White wins with G.
+       (iv) G = `Pe2 Pg2 pe5 pg5`, Y = `Ka4 Pb3 kb6 pb4 pa5`, m = Ka4–h5: a draw without a race or a stalemate (bare, only 1...Kb5 wins;
+       with G it loses to 2.g4, and 1...g5–g3 is Black's only drawing move).
+     - *Mechanism (COMPUTED-1, exhaustive over the failures of the three boards).* Each failure was re-solved with a stalemate of s
+       scored as a loss for s (m1), with s's king kept off the context files (m2), and with both (m3). No failure survives m3. cyl:8×6:
+       33,459 White wins are removed by m2 alone (king raids), 143 only by m3; of the 6,071 draws 3,973 are removed by m1 alone
+       (a context pawn's attack takes a buffer square and stalemates s), 437 by m2 alone (the king blocks, captures or threatens a context
+       pawn), 1,661 by either. cyl:7×6 and cyl:9×6 are alike (0 survivors; `findings.txt` §5–6). So every failure uses the sortie king. The referee re-ran the
+       three variants with its own solver on the 1,497 failures of `Pe2 pe3` on cyl:8×6 and on examples (i), (ii), (iv): the same
+       classification, failure by failure (0 survivors of m3).
+     - **Proposition 8.1′ (tempo pairing for promotion-free contexts). PROVED (K42, 2026-11-22; `kings/delegate/out/K42/PROOF.md`;
+       re-derived step by step by the K42 referee, same model family, `kings/delegate/out/K42/VERIFY.md`; no human re-derivation).** Let Q (s to move, no e.p. right) and σ be as in Proposition 8.1, with (P1) and (P1e). Assume (PF): the context G
+       of Q is promotion-free and s to move loses its pawn game. Fix a set 𝒢 of positions of that game with s to move that contains G,
+       consists of losses for s and is closed under pairing (for example all such positions reachable from G); let X be the squares
+       holding a context pawn in a position of 𝒢 or one move of s after one, E the squares passed over by a double step in that play,
+       and A the squares attacked by an s̄ context pawn in those positions. Assume (P3′): the set R of (P3) contains no square of
+       X ∪ E ∪ A. Then s̄ wins P from Q. Under (PF), (P2) holds automatically (Lemma A of `PROOF.md`), and X ∪ E ∪ A lies inside X and
+       its king-neighbourhood, so Proposition 8.1′ contains Proposition 8.1 for promotion-free contexts and weakens (P3): the sortie
+       king may stand next to or behind a context pawn, but not where a context pawn stands or moves, nor where an s̄ context pawn
+       attacks. The proof is that of Proposition 8.1 with each use of the king-neighbourhood replaced by X, E or A. Example (i) shows
+       that A cannot be dropped: there R = {a1, h2} avoids X ∪ E, and h2 lies in A. A certificate check (s̄ wins the plain local game in which a step of s's king onto
+       X ∪ E ∪ A and an e.p.-only node of s are failures; COMPUTED-1, not re-run by the referee) certifies 1,213,383 of the 6,033,423 pairs (Proposition 8.1's
+       form 967,308), and none of the 68,395 failures.
+     - *Open.* A form that lets the sortie king into the context (it would need at least an (L2)-type count with the king's captures
+       and an (L3)-type no-stalemate hypothesis), the lapse-game form without (P1e), chess, and larger contexts and groups.
 2. Do both-sides-shuttle (dud) groups exist without a pawn break on the cylinder? Do over-groups exist? **Answered in part by K15 and K26
    (P model; 2026-10-27; `kings/delegate/out/K15/FINDINGS.md`, `kings/delegate/out/K26/FINDINGS.md`, referee reports `kings/delegate/out/K15/VERIFY_K15b.md`
    and `kings/delegate/out/K26/VERIFY.md`, reconciliation `kings/delegate/out/K15K26/MERGE_NOTES.md`; AI work, no human re-derivation).** Dud groups: yes.
@@ -3293,8 +3368,10 @@ Downgraded while writing:
      CHECKED-2). Z_B on the cylinder: bounds (W, L) at cap 1 on cyl:7×6 (K15) and cyl:8×6 (K39); with the capture refinement (D, D) at its 8 roots on both, and
      two of its 30 deviations draw (Kc3–d2 from (c3, b5) and the wrap move Ka4–g5, resp. Ka4–h5, from (b2, a4)), so Z_B is not two-shuttle in chess there either
      (K39, 2026-10-29, CHECKED-2; §5.7).
-   - *Over, none found.* See Conjecture 4.7: no exact over or under group (Definition 4.8) in K26's ranges, no structural over or under root against free passes in
+   - *Over, none found; K43 (2026-11-22) extended the exact search.* 0 exact over and 0 exact under groups with at most 3 + 3 pawns on four files, every king placement, cyl:6×6 to 9×6, flat 7×6 and 8×6 (Conjecture 4.7, K43 bullet; CHECKED-2). See Conjecture 4.7: no exact over or under group (Definition 4.8) in K26's ranges, no structural over or under root against free passes in
      K15's ranges, and every over candidate of K15 (a tempo-signature search, the near-over groups) is refuted beside contexts but one placement without a context file.
+     (K44, 2026-11-22: the local king game LK of §8 question 3 does have roots equal to over and under on the batteries, with three blocked pairs on cyl:10x6 and wider;
+     that is a D-model value of a king fight, not a group of Definition 4.8 in P. In P the over roots agree with LK "alone" (CHECKED-2), but no context was run beside them in P.)
    - *Open:* more files and pawns (beyond 5 files and K15's pawn limits for dud and over; beyond F_Z = {a, b, c} and 3 + 2 or 2 + 3 pawns for K26's dud
      search, beyond a–d and 2 + 2 pawns for its under/over search),
      F_Z elsewhere on a flat board, kings off the group files, officers, chess (contexts of Z_B beyond K39's 8 flat-board contexts, contexts of Z_C, the cylinder groups beyond G8a, G8b, Z_B and Z_C), hand proofs on the
@@ -3337,18 +3414,21 @@ Downgraded while writing:
      (both kings can shuffle; the largest named class among the entries, 26 to 30 percent of the free entries, but
      only 3 to 10 percent of the distinct free roots), on and off (one king frozen), 0 (a mutual zugzwang in which
      both kings have moves, cyl:6x6 `Kb3 kf2 Pa2 pa3`), \*, tis and tisn, {on|off}, the switches {1|0} and
-     {0|-1}, and the **finite tempi +1 and -1**. The `*` roots with pawns occur only for two pairs on cylinders
+     {0|-1}, and the **finite tempi +1 and -1**. The `*` roots with pawns occur only for two or three pairs on cylinders (K44, 2026-11-22: three pairs added)
      (faithful cases cyl:7x6 `Ke2 kf4 Pa2 pa3 Pc3 pc4` and cyl:8x6 `Kc2 kb4 Pa2 pa3 Pd3 pd4`; none with one pair,
      none on a flat board). The `*` roots of one-file boxes are pawnless corridor roots, for example `Ka1 ka4`
      (two kings walking on the pawn file, no pawn on the board), and no pawn-bearing root of a one-file box is
      `*` (checked by the referee on flat:6x6, CHECKED-2 there; on the other boards K20's count only, COMPUTED-1). No root equals +-2, +-3, +-1/2, up, down, up\*, down\*, \*2, over or under in B34, on any of the six free
-     boards. Everything else is decisive (a forced decisive event in some context: {+|}, {|-}, {+|-}, {+|0},
+     boards (with at most two pairs inside four files; revised after K44, 2026-11-22: over and under do occur with three pairs on cyl:10x6 and wider,
+     see the K44 paragraph below; the others still do not occur in any of K44's 2,131 cases). Everything else is decisive (a forced decisive event in some context: {+|}, {|-}, {+|-}, {+|0},
      {0|-}, {+|on}, {off|-}) or "loopy, not classified" (298 distinct B34 signatures on cyl:6x6 and 486 on
      flat:6x6 over all configurations; COMPUTED-1). The unclassified share is 40.4 to 54.1 percent of the entries
      of the free runs and of box(2), 26 to 31 percent in box(0) and box(1), and 45 to 62 percent of the distinct
      free roots (COMPUTED-1). Short roots (acyclic game graphs) occur only in one-file boxes, with the kings on
      the pawn file (for example `Ka4 ka6 Pa2 pa3` is {+|} and `Ka6 ka4 Pa2 pa3` is 0); the free runs and,
-     on flat:6x6, box(1) have none (CHECKED-2 on the 6x6 boards). Every other root is loopy.
+     on flat:6x6, box(1) have none (CHECKED-2 on the 6x6 boards). (Revised after K44, 2026-11-22: on cylinders cyl:6 to 10 the box(0) of two pairs
+     on three files also has short roots, {|-} `Ka1 kc1 Pa2 pa3 Pc2 pc3` and {+|} `Kb5 ka1 Pa4 pa5 Pc4 pc5` (faithful), and so do three pairs on adjacent files
+     (not faithful); 80 short roots in all; `kg44` and `lk` give the same count in all 687 box(0) cases (CHECKED-2 there); none in the free runs, box(1) or box(2) by `kg44` alone, COMPUTED-1.) Every other root is loopy.
    - *A finite tempo exists* (CHECKED-2: `kg.cpp`, the Python implementation and the referee's `lk.cpp`).
      flat:6x6 `Kc3 ka4 Pa2 pa3 Pc4 pc5` (faithful, F_Z = {a, b, c}, both kings on F_Z) has value +1 and `Ka3 kc4
      Pa4 pa5 Pc2 pc3` has -1; `Kd3 ka4 Pa2 pa3 Pc4 pc5` is {1|0} and `Ka3 kd4 Pa4 pa5 Pc2 pc3` is {0|-1} (the same
@@ -3359,7 +3439,8 @@ Downgraded while writing:
      the configurations of three boards, 0 mismatches (COMPUTED-1; the referee did not rerun that count). On the
      cylinders of width 6, 8, 10 with six ranks each single blocked pair has king placements of value +1 and -1
      (cyl:6x6 `Kd3 kd1 Pa2 pa3`; 7, 11, 13 roots of each sign over the pawn ranks 2, 3, 4), on no cylinder of width
-     5, 7, 9 with six ranks, and no two-pair run of cyl:7x6 has one (B34 names; CHECKED-2). Parity of the width (new, K31, 2026-10-27; revised after the two K31 referees, 2026-10-28). K31 ran one
+     5, 7, 9 with six ranks, and no two-pair run of cyl:7x6 has one (B34 names; CHECKED-2). (Revised after K44, 2026-11-22: with three pairs there are +-1 roots on the odd
+     widths 7, 9, 11; the statement is for one or two blocked pairs.) Parity of the width (new, K31, 2026-10-27; revised after the two K31 referees, 2026-10-28). K31 ran one
      blocked pair `Pa<r> pa<r+1>` at every rank r = 2..H-2 on cyl:W×H with the free board. The grid H = 4..12, W = 3..26
      has 1,080 cases (W, H, r). K31's own runs cover 934 of them; the first referee ran the other 146 (H = 4 with W = 17..24;
      W = 3, 4 for H ≥ 9; W = 25, 26 for H ≥ 7). A +1 root and a -1 root exist in every case with W even and 6 ≤ W ≤ 26
@@ -3413,6 +3494,55 @@ Downgraded while writing:
      configurations. It occurs in none of the 92 faithful odd-width cylinder configurations and in none of the 63 single-pair
      flat configurations (second referee's count, COMPUTED-1). Why ±2 and ±3 cannot occur as a single root is not proved
      (CONJECTURE).
+   - **K44 extended the search (new, K44, 2026-11-22; `kings/delegate/out/K44/findings.txt`, with scripts, logs and tables; AI work, no human
+     re-derivation).** Same LK and battery B34. Boards cyl:W×6, W = 6 to 10 (extra: W = 11, 12 over all configurations, W up to 16 and H = 7 for the over configuration); one, two or three blocked
+     pairs on distinct files inside an arc of at most 6 files (K20: two pairs inside 4 files), pair ranks 2 to 4; the free board and the boxes
+     m = 0, 1, 2 (kings confined to the minimal arc of files that holds the pawn files, widened by m; every minimal arc is its own region).
+     2,131 (configuration, region) cases (793 faithful), 1,756,517 root entries. Baseline: K20's own enumeration re-run on cyl:6 to 10 and
+     flat:6 to 8 (1,137 distinct B34 signatures; the free runs give the referee's distinct-root counts 14,804, 22,313 and 31,397). Three
+     implementations: `kg44` (K20's `kg.cpp` with a configuration-file flag), the K20 referee's `lk.cpp` unchanged, and a new Python solver
+     `lk3.py` written from the definition. `kg44` and `lk` agree on all 2,131 cases: every class count, the number of unclassified
+     roots, and the set of distinct unclassified B34 signatures of every case (66,518 signatures in all; `lk` prints them in its own context order, translated). `kg44` and `lk3` agree on W = 6 (196 cases), W = 7 (288) and W = 8 (429), 0 differences in each (CHECKED-2).
+     The K44 referee's solver `rk` (written from the definition text, a fourth implementation) gives the same multiset of B34 signatures as `kg44` in every
+     one of the 2,131 cases (1,756,517 root entries), the same baseline (1,137 signatures: 967 on cylinders, 676 on flat boards) and the same 1,909 new signatures (CHECKED-2).
+     - **over and under occur (CHECKED-2).** On cyl:10x6 with the three faithful pairs a2 c4 f2, the roots `Kc3 ka4 Pa2 pa3 Pc4 pc5 Pf2 pf3`
+       and `Kc3 ka5 ...` have the B34 signature of over = {0 | over} (2 of 1,994 roots; each is a Black option of the other), and in
+       the colour mirror a2 c4 h4 the roots `Kc2 ka4 ... Ph4 ph5` and `Kc3 ka4 ...` have that of under. They agree with over (under) on the
+       4,553-game battery B4553 (`kg44`), on the referee's 23,716-game battery (`lk`) and on every D-sum of at most two B34 games (629
+       contexts, both movers; `lk3`). The same configuration gives over on cyl:11x6 and cyl:12x6 (`lk`, `lk3` and the referee's `rk`), 13x6, 14x6, 16x6 and
+       cyl:10x7 (`lk` and `rk`, CHECKED-2); not on cyl:9x6, and in none of the box regions. Before K44 over and under were absent from every
+       search (the sentence above). The root graph is not a stopper (kings can shuffle), so "equals over" is a statement about the batteries,
+       not about all sums. This is a value of the local king game LK, not an exact over group of Definition 4.8 in P (see the bullet "Over, none found").
+     - **+1 and -1 on odd widths (CHECKED-2).** Three pairs on the files -2, 0, 2 with ranks 4, 2, 3 (faithful) have one +1 root for every width
+       7 to 12: cyl:7x6 `Kf3 ka4 Pa2 pa3 Pc3 pc4 Pf4 pf5`, cyl:9x6 `Kh3 ka4 Pa2 pa3 Pc3 pc4 Ph4 ph5`, cyl:11x6 `Kj3 ka4 ...` (the first two by
+       `kg44`, `lk`, `lk3`; the 11 and 12 by `lk` and `lk3`); the colour mirror has -1. So the parity rule of K31 below (+-1 only for even W) is a
+       statement about one blocked pair, and so is "both kings on file W/2" (the cyl:7x6 root has the kings on files f and a). Two pairs: none
+       on cyl:7x6, as before.
+     - **Switches on cylinders (CHECKED-2).** {1|0} and {0|-1}, which K20 found on flat boards, occur on cylinders of width 7 to 12 with three
+       pairs (faithful: cyl:8x6 `Kf3 ka4 Pa2 pa3 Pc3 pc4 Pg4 pg5` is {1|0}, `Kc3 kh4 Pa2 pa3 Pc4 pc5 Pe3 pe4` is {0|-1}); `*` occurs with two
+       and three pairs. No root equals +-2, +-3, +-1/2, up, down, up\*, down\* or \*2 in any of the 2,131 cases (B34 names, CHECKED-2).
+       So the numbers that occur are 0, +1, -1, and the infinitesimals are \*, over, under.
+     - **Value classes (root entries of the 2,131 cases; CHECKED-2: class counts per case by `kg44` and `lk`, and the totals by the referee's `rk`).** 0 2,996; \* 76; +1 and -1
+       98 each; over and under 4 each; {1|0} and {0|-1} 21 each; tis and tisn 336 each; {on|off} 3,938; dud 88,554; on and off 64,078 each; the
+       decisive named classes 646,164; unclassified loopy 885,715 (56.6 percent of the free entries, 40.2 of box(0), 39.4 of box(1), 51.8 of
+       box(2); dud 1.1 percent of the free entries and 12.0 of box(0)). The unclassified roots have 2,955 distinct B34 signatures (950 in the
+       baseline); only 65 of them equal the signature of a D-sum of at most four B34 games, so most are not sums of battery games.
+     - **New values and the smallest.** 1,909 of the 2,976 B34 signatures of the new runs are absent from the baseline (206 of them in faithful
+       cases); two are named (over, under). Smallest by pieces: two pairs at file distance 4 on cyl:8x6 (K20's window was 4 files), for example
+       `Ka1 kb6 Pa3 pa4 Pe3 pe4`, faithful, a loopy value with 1,332 reachable nodes and a bisimulation-minimal graph of 353 nodes (given
+       in full in `kings/delegate/out/K44/canonical/`; outcomes against the 34 contexts in `findings.txt`); it is not one of the 34 names and not the
+       signature of a D-sum of at most four of them. Smallest named new value: the over root above (eight pieces, 1,994-node graph, no reduction by
+       bisimulation). Every new signature is reproduced by `lk` (set comparison above); `lk3` also recomputed all 206 new signatures that occur in faithful
+       cases (206 of 206 agree) and 1,625 of the 1,909 in all (0 disagreements); the referee's `rk` reproduces all 1,909.
+     - **Faithful configurations in P (CHECKED-2).** The local game "alone" against the full-board P result (first promotion wins, real kings),
+       every root with both sides to move; `ref3m` and `kp_p --pmodel` (file limit raised to 10 for cyl:10x6) agree on all 135,000 legal positions (140,504 lines; the rest is a placeholder for the pawnless configuration, illegal in both). The LK "alone" column was recomputed by the referee's `rk` (0 differences).
+       cyl:7x6, the 33 faithful configurations with pawns of the free runs (K20's 15 and 18 with three pairs): 52,814 of 57,030 legal positions agree (92.6
+       percent; one pair 73.2, two pairs 96.5, three pairs 94.3); cyl:8x6, 21 faithful configurations with at most two pairs: 52,992 of 57,944
+       (91.5 percent); cyl:7x6, the six non-faithful two-pair configurations of K20: 6,980 of 12,050 (57.9 percent); cyl:10x6 a2 c4 f2 and a2 c4 h4:
+       7,488 of 7,976, and all 4 over and 4 under positions agree. The misses are the known kind (a decisive event that the other king catches in P,
+       K20's 13.6 percent on cyl:8x6; not traced one by one). Sums with contexts in P were not run for over, under or the odd-width +-1 roots.
+     - **Not done.** Pairs on one file, more than three pairs, windows beyond 6 files, boxes beyond m = 2, heights other than 6 (except the over configuration on cyl:10x7), W above 12;
+       why over needs W >= 10 and a third pair 5 files from the first is unexplained (CONJECTURE only: a single spare resource of one side).
    - *The value depends on the room outside F_Z* (CHECKED-2). The same root `Kc3 ka4 Pa2 pa3 Pc4 pc5` is 0 when
      the kings are confined to {a, b, c}, tis when they have {a..d}, +1 when they have {a..e} or the whole board;
      `Kd3 ka4 ...` is unclassified with {a..d} and {1|0} with {a..e} or the whole board. So the tempo is a value
