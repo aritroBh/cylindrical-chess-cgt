@@ -105,15 +105,24 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 - [x] R4 (Haiku): recount the facts in `dist/tog/submission/` (pages, hashes, words in the abstract, references,
   figures, tables) from the built PDFs (`delegate/out/R4_submission_facts/REPORT.md`): all match except one stale page count
   (82, now 95) in `pdf_checks.md`, fixed
-- [ ] R6 (Opus): a fresh hostile mock review of the anonymous paper and supplement, formed without reading earlier
-  reviews (`delegate/out/R6_mock_review3/REPORT.md`)
-- [ ] R7 (Sonnet): audit the 15-page long version against the 10-page version, statement by statement
-  (`delegate/out/R7_long_version_audit/REPORT.md`)
+- [x] R6 (Opus): a fresh hostile mock review of the anonymous paper and supplement, formed without reading earlier
+  reviews (`delegate/out/R6_mock_review3/REPORT.md`): recommends major revision. Its spot checks of the sum-safety
+  proof and the ring proofs found them sound. Wording fixes go to R9. For the author to decide: the proofs labelled S
+  have been checked only by AI models (M3); Table I corrects an unpublished study reviewers cannot see (M4); the
+  supplement names the code package, which can be searched while the repository is public (anonymity)
+- [x] R7 (Sonnet): audit the 15-page long version against the 10-page version, statement by statement
+  (`delegate/out/R7_long_version_audit/REPORT.md`): the long version's certificate clauses differ from the precise
+  ones, one Möbius *3 result is missing, and the conclusion (and supplement S10) wrongly called the least Möbius ring
+  for n >= 12 open (it is n, since one pawn per file suffices). Fixes go to R9
+- [ ] R9 (Sonnet): apply the accepted R6 and R7 fixes to both versions, rebuild both, run all checks; main session
+  reviews the diff and commits
+- [ ] R10 (Sonnet): per-result record of who wrote and who checked each S proof, and which programs computed its
+  finite parts (`delegate/out/R10_provenance/TABLE.md`); basis for a table in the supplement
 - [x] R8 (Haiku): bibliography consistency check of both .bib files and the rendered reference list: 20 references,
   numbered in order of first citation, no missing key, no broken entry, both .bib files identical. No change made: the
   DOIs it called duplicated are printed from the note field (the style does not print the doi field)
-- [ ] 12-file Möbius scan: summarise when all 128 chunks are done (47 done on 2026-11-23, one *2 so far, the
-  family member with one pawn per file)
+- [x] 12-file Möbius scan: stopped on purpose at 50 of 128 chunks (one *2, the family member). It no longer decides
+  anything: one pawn per file is proved to suffice for n >= 10, so the least is n. Resumable (`logs/restart_notes.log`)
 
 ## Figures
 - [x] Signature figure: the one-pawn-per-file ring drawn on a cylinder (`research/figures_2026_11/f1_ring_cylinder_wide.pdf`)

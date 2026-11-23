@@ -1,0 +1,2 @@
+2026-11-23 12:17:04 restarted both workers after a reboot (main session); done chunks are skipped
+2026-11-23 12:21:45 stopped both workers on purpose (main session): the least number of pawns for n >= 10 is proved to be n, so this scan no longer decides anything; 50 of 128 chunks are done by both programs (1 ring *2 so far). Resumable: sh run_jobs.sh bin/mob1_12 jobs_C.txt c1 and the same with mob2_12 c2; finished chunks are skipped.
