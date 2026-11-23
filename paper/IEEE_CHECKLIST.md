@@ -89,6 +89,18 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 - [ ] Seven-pawn *2 in real chess: the 9-man end positions (needs about 26 GB; waits for the author's word)
 - [ ] Zero sums with real kings at depth 2 (needs more than 12 GB per run; waits for the author's word)
 
+## Round of 2026-11-23 (Fable plans and reviews; Opus, Sonnet and Haiku agents do the work)
+
+- [ ] R1 (Opus): re-referee appendix S12.1 items A.1 to A.9 after the last-rank convention was adopted
+  (`delegate/out/R1_appendix_reread/REPORT.md`)
+- [ ] R2 (Sonnet): audit every pointer from the 10-page paper into the supplement (hard-coded S numbers), every
+  label, and the submission files against the current PDFs (`delegate/out/R2_xref_audit/REPORT.md`)
+- [ ] R3 (Opus): is there a family of *3 rings on the Möbius strip, as on the cylinder? (`research/mobius_star3_family/`)
+- [ ] R4 (Haiku): recount the facts in `dist/tog/submission/` (pages, hashes, words in the abstract, references,
+  figures, tables) from the built PDFs (`delegate/out/R4_submission_facts/REPORT.md`)
+- [ ] 12-file Möbius scan: summarise when all 128 chunks are done (47 done on 2026-11-23, one *2 so far, the
+  family member with one pawn per file)
+
 ## Figures
 - [x] Signature figure: the one-pawn-per-file ring drawn on a cylinder (`research/figures_2026_11/f1_ring_cylinder_wide.pdf`)
 - [x] Least pawns in a ring against n (`f2_least_pawns.pdf`)
