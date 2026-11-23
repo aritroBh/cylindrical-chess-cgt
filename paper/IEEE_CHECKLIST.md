@@ -105,6 +105,11 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 - [x] R4 (Haiku): recount the facts in `dist/tog/submission/` (pages, hashes, words in the abstract, references,
   figures, tables) from the built PDFs (`delegate/out/R4_submission_facts/REPORT.md`): all match except one stale page count
   (82, now 95) in `pdf_checks.md`, fixed
+- [ ] R6 (Opus): a fresh hostile mock review of the anonymous paper and supplement, formed without reading earlier
+  reviews (`delegate/out/R6_mock_review3/REPORT.md`)
+- [ ] R7 (Sonnet): audit the 15-page long version against the 10-page version, statement by statement
+  (`delegate/out/R7_long_version_audit/REPORT.md`)
+- [ ] R8 (Haiku): bibliography consistency check of both .bib files and the rendered reference list
 - [ ] 12-file Möbius scan: summarise when all 128 chunks are done (47 done on 2026-11-23, one *2 so far, the
   family member with one pawn per file)
 
