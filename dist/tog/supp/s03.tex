@@ -76,3 +76,81 @@ positions of Section~\ref{sec:targets} in all nine settings (Section~\ref{sec:ep
 of Section~\ref{sec:star2} in the default setting. Elsewhere they can differ, even in outcome: under the
 opponent rule with the e.p.-aware test, \pos{W a3 b3 c2 e2 / B a6 c5 d5 e3} (the first five-file $\nim{2}$ of
 Section~\ref{sec:star2-five}) is ${\Uparrow}$ as a sum but $\nim{2}$ on the whole board. Where they differ, we name the model we mean.
+
+\subsection{Two Checks of the Sum Model}\label{S-sumchecks}
+Both results of this subsection are computed by one program each \lab{C1}; neither is a proof.
+
+\emph{Sum model against the whole board.} We solved every position without a passed pawn that has at most six
+pawns on flat boards three to five files wide, counted up to mirror image and colour swap, in the sum model and on the
+whole board ($599{,}098$ positions). We compare only the outcome classes. Table~\ref{tab:censusSW} gives, for each
+race rule and passed-pawn test, how often they differ, for all positions, for the hereditarily sum-safe (HSS) ones
+and for the others. The default setting is the count rule with the e.p.-aware test.
+
+\begin{table}[!htbp]
+\centering
+\caption{Positions where the outcome class of the sum model differs from that of the whole board, by passed-pawn
+test and race rule: number of differing positions / number of positions.}
+\label{tab:censusSW}
+\footnotesize
+\begin{tabular}{@{}llrrr@{}}
+\toprule
+test & race rule & all & HSS & not HSS\\
+\midrule
+textbook & count & $11{,}595$ / $599{,}098$ & $0$ / $539{,}893$ & $11{,}595$ / $59{,}205$\\
+textbook & mover & $10{,}496$ / $599{,}098$ & $0$ / $539{,}893$ & $10{,}496$ / $59{,}205$\\
+textbook & opponent & $12{,}104$ / $599{,}098$ & $0$ / $539{,}893$ & $12{,}104$ / $59{,}205$\\
+e.p.-aware & count & $11{,}300$ / $599{,}098$ & $0$ / $540{,}503$ & $11{,}300$ / $58{,}595$\\
+e.p.-aware & mover & $9{,}243$ / $599{,}098$ & $0$ / $540{,}503$ & $9{,}243$ / $58{,}595$\\
+e.p.-aware & opponent & $12{,}100$ / $599{,}098$ & $0$ / $540{,}503$ & $12{,}100$ / $58{,}595$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\emph{Sum model against real kings.} On the cylinder with eight files and six ranks we fixed the anchors
+\pos{Pa3 pa4 Kh4 kb3}, put one component on file d and one on file f with file e empty, and solved the sum with real
+kings, queen promotions only, en passant on, and play bounded after the first promotion (the solver's cap~1).
+For each side to move the solver returns an upper and a lower bound over W $>$ D $>$ L, from White's point of view; a side is
+\emph{exact} if the two agree, and \emph{bounded} otherwise, shown as $[$lower,upper$]$. In
+Table~\ref{tab:realkingsum} W, D and L are a win, a draw and a loss for White, and the classes
+$\mathcal L$, $\mathcal R$, $\mathcal N$, $\mathcal P$ are the model's, read as white to move, black to move: $\mathcal L$ is
+W, W; $\mathcal R$ is L, L; $\mathcal N$ is W, L; $\mathcal P$ is L, W. The anchors alone give exactly this
+pattern for $\mathcal P$. The nine P pairs have no passed-pawn component and each contains a locked component of
+value $0$, so they test the sum only weakly; the ten N pairs have two live non-passer components of nonzero value.
+Of the $38$ sides, $19$ are exact and all agree with the model, and the other $19$ are bounds that contain the model's
+result. Every sum of class $\mathcal P$ is bounded on both sides. Bounds confirm nothing beyond that
+the model is not contradicted, and all $19$ sums share the same anchors, so the king and anchor placement may matter
+at the bound level. One run per position, no independent re-run.
+
+\begin{table}[!htbp]
+\centering
+\caption{Real-king test of $19$ sums on the cylinder with eight files and six ranks. Components with their values,
+the model's outcome class of the sum, and the solver's result with white to move and with black to move.}
+\label{tab:realkingsum}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lllcll@{}}
+\toprule
+pair & component on d & component on f & model & white to move & black to move\\
+\midrule
+P1 & \pos{W d3 / B d4 d5} $(0)$ & \pos{W f2 f4 / B f5} $(1)$ & $\mathcal{L}$ & [D,W] & [D,W]\\
+P9 & \pos{W d2 d3 / B d4 d5} $(0)$ & \pos{W f2 f3 / B f4 f5} $(0)$ & $\mathcal{P}$ & [L,D] & [D,W]\\
+P21 & \pos{W d2 d4 / B d5} $(1)$ & \pos{W f3 / B f4 f5} $(0)$ & $\mathcal{L}$ & W & W\\
+P22 & \pos{W d3 / B d4 d5} $(0)$ & \pos{W f2 / B f4 f5} $(-1/2{\pm}1/2)$ & $\mathcal{N}$ & [D,W] & L\\
+P26 & \pos{W d2 d3 / B d4 d5} $(0)$ & \pos{W f2 f3 / B f5} $(1/2{\pm}1/2)$ & $\mathcal{N}$ & W & [L,D]\\
+P29 & \pos{W d2 d3 / B d4} $(0)$ & \pos{W f3 / B f4 f5} $(0)$ & $\mathcal{P}$ & [L,D] & [D,W]\\
+P35 & \pos{W d2 / B d4 d5} $(-1/2{\pm}1/2)$ & \pos{W f2 f3 / B f4 f5} $(0)$ & $\mathcal{N}$ & [D,W] & L\\
+P40 & \pos{W d2 d3 / B d5} $(1/2{\pm}1/2)$ & \pos{W f3 / B f4 f5} $(0)$ & $\mathcal{N}$ & W & [L,D]\\
+P48 & \pos{W d2 / B d3 d5} $(-1)$ & \pos{W f2 f3 / B f4} $(0)$ & $\mathcal{R}$ & [L,D] & [L,D]\\
+N0 & \pos{W d2 d4 / B d5} $(1)$ & \pos{W f2 / B f3 f5} $(-1)$ & $\mathcal{P}$ & [L,D] & [D,W]\\
+N1 & \pos{W d2 d4 / B d5} $(1)$ & \pos{W f2 f3 / B f5} $(1/2{\pm}1/2)$ & $\mathcal{L}$ & W & W\\
+N2 & \pos{W d2 d4 / B d5} $(1)$ & \pos{W f2 / B f4 f5} $(-1/2{\pm}1/2)$ & $\mathcal{N}$ & W & [L,D]\\
+N3 & \pos{W d2 / B d3 d5} $(-1)$ & \pos{W f2 f3 / B f5} $(1/2{\pm}1/2)$ & $\mathcal{N}$ & [L,W] & [L,D]\\
+N4 & \pos{W d2 / B d3 d5} $(-1)$ & \pos{W f2 / B f4 f5} $(-1/2{\pm}1/2)$ & $\mathcal{R}$ & L & L\\
+N5 & \pos{W d2 d3 / B d5} $(1/2{\pm}1/2)$ & \pos{W f2 / B f4 f5} $(-1/2{\pm}1/2)$ & $\mathcal{P}$ & [L,D] & [D,W]\\
+N6 & \pos{W d2 d3 / B d5} $(1/2{\pm}1/2)$ & \pos{W f2 f3 / B f5} $(1/2{\pm}1/2)$ & $\mathcal{L}$ & W & W\\
+N7 & \pos{W d2 / B d4 d5} $(-1/2{\pm}1/2)$ & \pos{W f2 / B f4 f5} $(-1/2{\pm}1/2)$ & $\mathcal{R}$ & L & L\\
+N8 & \pos{W d2 d4 / B d5} $(1)$ & \pos{W f2 f4 / B f5} $(1)$ & $\mathcal{L}$ & W & W\\
+N9 & \pos{W d2 / B d3 d5} $(-1)$ & \pos{W f2 / B f3 f5} $(-1)$ & $\mathcal{R}$ & L & L\\
+\bottomrule
+\end{tabular}
+\end{table}

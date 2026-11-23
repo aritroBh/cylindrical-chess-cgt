@@ -19,7 +19,7 @@ Files: A = `tog.pdf` (named), B = `tog_review.pdf` (anonymous), C = `supplement.
 
 | | A tog.pdf | B tog_review.pdf | C supplement.pdf | D supplement_review.pdf |
 |---|---|---|---|---|
-| Pages | 10 | 10 | 80 | 80 |
+| Pages | 10 | 10 | 81 | 81 |
 | Page size | 612 x 792 pts (letter) | same | same | same |
 | PDF version | 1.5 | 1.5 | 1.5 | 1.5 |
 | Title | Chess Endgames on a Cylindrical Chessboard: Exact Combinatorial Game Values, Real-Chess Checks, and Tablebases | same | (empty) | (empty) |

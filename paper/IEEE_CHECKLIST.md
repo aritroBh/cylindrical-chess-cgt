@@ -36,6 +36,7 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 - [x] King-claim audit by the kings session, 14 fixes applied: the certificate now needs the defender not to be
   stalemated; trébuchet zero stated as 'when alone'; Puzzle 2 on the cylinder is C2; supplement S12 brought up to date
 - [x] Long version: broken cross-reference in the conclusion fixed (it printed ??)
+- [x] Supplement S3.4 added: the census table by rule and test, and the 19-row table of the real-king sum test; 81 pages
 - [x] Submission package (`dist/tog/submission/`): cover letter, ScholarOne fields, upload table, steps for the author.
   PDF checks pass on all four files: US Letter, every font embedded, no Type 3 fonts, no raster images, no author
   name in the anonymous text, metadata or links; abstract 197 words. One fail, the author's: the anonymous code link

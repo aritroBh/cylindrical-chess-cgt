@@ -77,6 +77,104 @@ results on small boards.}
 \end{figure}
 ''')
 
+
+# S3.4 two checks of the sum model: tables copied from research/sum_whole_census/analysis_wall.md (Table 1 of REPORT.md
+# and the heredity table) and from research/sum_truth_cyl/REPORT.md, section "12 GB runs"
+CENSUS = [  # test, rule, D and N over all positions, D and N over HSS positions, D and N over non-HSS positions
+  ('textbook', 'count', 11595, 599098, 0, 539893, 11595, 59205),
+  ('textbook', 'mover', 10496, 599098, 0, 539893, 10496, 59205),
+  ('textbook', 'opponent', 12104, 599098, 0, 539893, 12104, 59205),
+  ('e.p.-aware', 'count', 11300, 599098, 0, 540503, 11300, 58595),
+  ('e.p.-aware', 'mover', 9243, 599098, 0, 540503, 9243, 58595),
+  ('e.p.-aware', 'opponent', 12100, 599098, 0, 540503, 12100, 58595)]
+def n_(x): return '$' + '{:,}'.format(x).replace(',', '{,}') + '$'
+def frac(d, n): return n_(d) + ' / ' + n_(n)
+census_rows = '\n'.join('%s & %s & %s & %s & %s\\\\' % (t, r, frac(a, b), frac(c, d), frac(e, f))
+                        for (t, r, a, b, c, d, e, f) in CENSUS)
+H = r'1/2{\pm}1/2'
+V = {'0': '0', '1': '1', '-1': '-1', '2': '2', '-2': '-2', 'h': H, 'mh': '-' + H, '3h': r'3/2{\pm}1/2',
+     'm3h': r'-3/2{\pm}1/2', 'mhh': '-' + H}
+def comp(txt, v): return r'\pos{%s} $(%s)$' % (txt, V[v])
+PAIRS = [  # id, comp 1, value, comp 2, value, class, white to move (upper, lower), black to move (upper, lower)
+  ('P1', 'W d3 / B d4 d5', '0', 'W f2 f4 / B f5', '1', 'L', 'WD', 'WD'),
+  ('P9', 'W d2 d3 / B d4 d5', '0', 'W f2 f3 / B f4 f5', '0', 'P', 'DL', 'WD'),
+  ('P21', 'W d2 d4 / B d5', '1', 'W f3 / B f4 f5', '0', 'L', 'WW', 'WW'),
+  ('P22', 'W d3 / B d4 d5', '0', 'W f2 / B f4 f5', 'mh', 'N', 'WD', 'LL'),
+  ('P26', 'W d2 d3 / B d4 d5', '0', 'W f2 f3 / B f5', 'h', 'N', 'WW', 'DL'),
+  ('P29', 'W d2 d3 / B d4', '0', 'W f3 / B f4 f5', '0', 'P', 'DL', 'WD'),
+  ('P35', 'W d2 / B d4 d5', 'mh', 'W f2 f3 / B f4 f5', '0', 'N', 'WD', 'LL'),
+  ('P40', 'W d2 d3 / B d5', 'h', 'W f3 / B f4 f5', '0', 'N', 'WW', 'DL'),
+  ('P48', 'W d2 / B d3 d5', '-1', 'W f2 f3 / B f4', '0', 'R', 'DL', 'DL'),
+  ('N0', 'W d2 d4 / B d5', '1', 'W f2 / B f3 f5', '-1', 'P', 'DL', 'WD'),
+  ('N1', 'W d2 d4 / B d5', '1', 'W f2 f3 / B f5', 'h', 'L', 'WW', 'WW'),
+  ('N2', 'W d2 d4 / B d5', '1', 'W f2 / B f4 f5', 'mh', 'N', 'WW', 'DL'),
+  ('N3', 'W d2 / B d3 d5', '-1', 'W f2 f3 / B f5', 'h', 'N', 'WL', 'DL'),
+  ('N4', 'W d2 / B d3 d5', '-1', 'W f2 / B f4 f5', 'mh', 'R', 'LL', 'LL'),
+  ('N5', 'W d2 d3 / B d5', 'h', 'W f2 / B f4 f5', 'mh', 'P', 'DL', 'WD'),
+  ('N6', 'W d2 d3 / B d5', 'h', 'W f2 f3 / B f5', 'h', 'L', 'WW', 'WW'),
+  ('N7', 'W d2 / B d4 d5', 'mh', 'W f2 / B f4 f5', 'mh', 'R', 'LL', 'LL'),
+  ('N8', 'W d2 d4 / B d5', '1', 'W f2 f4 / B f5', '1', 'L', 'WW', 'WW'),
+  ('N9', 'W d2 / B d3 d5', '-1', 'W f2 / B f3 f5', '-1', 'R', 'LL', 'LL')]
+def side(t):  # first token is the upper bound, second the lower bound, over W > D > L for the mover
+    return t[0] if t[0] == t[1] else '[%s,%s]' % (t[1], t[0])
+sum_rows = '\n'.join('%s & %s & %s & $\\mathcal{%s}$ & %s & %s\\\\' % (i, comp(a, va), comp(b, vb), c, side(w), side(k))
+                     for (i, a, va, b, vb, c, w, k) in PAIRS)
+S34 = r"""\subsection{Two Checks of the Sum Model}\label{S-sumchecks}
+Both results of this subsection are computed by one program each \lab{C1}; neither is a proof.
+
+\emph{Sum model against the whole board.} We solved every position without a passed pawn that has at most six
+pawns on flat boards three to five files wide, counted up to mirror image and colour swap, in the sum model and on the
+whole board ($599{,}098$ positions). We compare only the outcome classes. Table~\ref{tab:censusSW} gives, for each
+race rule and passed-pawn test, how often they differ, for all positions, for the hereditarily sum-safe (HSS) ones
+and for the others. The default setting is the count rule with the e.p.-aware test.
+
+\begin{table}[!htbp]
+\centering
+\caption{Positions where the outcome class of the sum model differs from that of the whole board, by passed-pawn
+test and race rule: number of differing positions / number of positions.}
+\label{tab:censusSW}
+\footnotesize
+\begin{tabular}{@{}llrrr@{}}
+\toprule
+test & race rule & all & HSS & not HSS\\
+\midrule
+""" + census_rows + r"""
+\bottomrule
+\end{tabular}
+\end{table}
+
+\emph{Sum model against real kings.} On the cylinder with eight files and six ranks we fixed the anchors
+\pos{Pa3 pa4 Kh4 kb3}, put one component on file d and one on file f with file e empty, and solved the sum with real
+kings, queen promotions only, en passant on, and play bounded after the first promotion (the solver's cap~1).
+For each side to move the solver returns an upper and a lower bound over W $>$ D $>$ L, from White's point of view; a side is
+\emph{exact} if the two agree, and \emph{bounded} otherwise, shown as $[$lower,upper$]$. In
+Table~\ref{tab:realkingsum} W, D and L are a win, a draw and a loss for White, and the classes
+$\mathcal L$, $\mathcal R$, $\mathcal N$, $\mathcal P$ are the model's, read as white to move, black to move: $\mathcal L$ is
+W, W; $\mathcal R$ is L, L; $\mathcal N$ is W, L; $\mathcal P$ is L, W. The anchors alone give exactly this
+pattern for $\mathcal P$. The nine P pairs have no passed-pawn component and each contains a locked component of
+value $0$, so they test the sum only weakly; the ten N pairs have two live non-passer components of nonzero value.
+Of the $38$ sides, $19$ are exact and all agree with the model, and the other $19$ are bounds that contain the model's
+result. Every sum of class $\mathcal P$ is bounded on both sides. Bounds confirm nothing beyond that
+the model is not contradicted, and all $19$ sums share the same anchors, so the king and anchor placement may matter
+at the bound level. One run per position, no independent re-run.
+
+\begin{table}[!htbp]
+\centering
+\caption{Real-king test of $19$ sums on the cylinder with eight files and six ranks. Components with their values,
+the model's outcome class of the sum, and the solver's result with white to move and with black to move.}
+\label{tab:realkingsum}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lllcll@{}}
+\toprule
+pair & component on d & component on f & model & white to move & black to move\\
+\midrule
+""" + sum_rows + r"""
+\bottomrule
+\end{tabular}
+\end{table}
+"""
+
 # S3 sums -------------------------------------------------------------------------------------------
 W('s03',
   r'\section{Sums: The Puzzles and Condition (E)}\label{S-sums}',
@@ -87,7 +185,8 @@ W('s03',
   r'\subsection{Condition (E)}',
   L('05_sums', 126, 134),
   r'\subsection{Two Models}',
-  L('05_sums', 136, 142))
+  L('05_sums', 136, 142),
+  S34)
 
 # S4 atlas ------------------------------------------------------------------------------------------
 W('s04', r'\section{The Atlas: Details}\label{S-atlas}',
