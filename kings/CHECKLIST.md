@@ -42,7 +42,8 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
 - [x] Theorem 2.7 timing clause corrected after Codex T83 (39e19a98)
 - [x] Codex blind proofs: Theorem 3.4 (K51), Proposition 2.10(a) (K53); Codex read of 1.11(c) and 1.14 (K52)
 - [x] 1.11(c) proof replaced (quiet-move argument), (E) shown necessary, τ_P, 1.14(i) pre-event root (29 refereed edits)
-- [~] Codex read of the new 1.11(c) proof text and the repaired 2.7 (K54)
+- [x] Codex read of the new 1.11(c) proof text and the repaired 2.7: every step sound; wording fixes applied (K54)
+- [ ] Can (E) be dropped at a root with no e.p. right? No counterexample in 12,600 later-failure roots (K54)
 - [ ] Lemma 2.6a (the checker's `--ctx` argument): parked; refereed once, not in the note. 0 of the 23 separated
       engine-test positions are certified even with it, so it is written only if a purpose-built test set is wanted
 

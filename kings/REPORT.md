@@ -481,6 +481,8 @@ Every deliverable was given to independent referees (Claude models) told to brea
     argument, (E) is shown necessary by a counterexample on flat 5×7 (`W a4 b3 e2 / B a5 b4 e4` after a2–a4), threats
     for pawn positions are defined as the code checks them, and Theorem 1.14(i) requires a root before the first
     decisive event (`kings/delegate/out/K52/REVIEW.md`).
+    K54 (Codex) then read the new proof of 1.11(c) and the corrected Theorem 2.7 as printed: every step sound, a few
+    wording fixes applied (`kings/delegate/out/K54/REVIEW.md`).
   - K49 (2026-11-23) reduces K40's classes for K+P v K on the cylinder to one lemma (Lemma P: if White wins the bare
     normal-play game with Black to move, she wins it with White to move). Given it, the classes are proved by hand
     against every integer and every terminal-free test game, not only up to 12 spare moves. Lemma P is PROVED for the

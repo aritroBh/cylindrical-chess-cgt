@@ -31,7 +31,11 @@ setup (in part (b) s's king may be off F_Z). A sentence now repairs it, checked 
 which does not use the kings. Every other step is SOUND (revised after K36, 2026-10-28). T83 (Codex, 2026-11-23) then found the timing clause of
 (a) false: the reply r can already be a real mate, helped by a context pawn, although the projection is not a local
 mate. The P-win stands; the statement and Steps 5 and 6 are corrected, with the example after the proof (revised
-after T83, 2026-11-23). **Caveat for the K9 repair (sharp
+after T83, 2026-11-23). K54 (Codex, OpenAI, model gpt-6.2-astra, outside the Claude family, 2026-11-23) then
+read the printed quiet-move proof of Theorem 1.11(c) and the corrected Steps 5 and 6 of Theorem 2.7 and found
+every step SOUND. Its wording corrections (the height qualifier in Definition 1.10, a witness for the strictness
+of B > N(X), the expiry of a projected e.p. right in Step 1 of Theorem 2.7) are made in the text (revised after
+K54, 2026-11-23). **Caveat for the K9 repair (sharp
 form of Theorem 1.14):** a free model drafted it; two AI reviewers found real errors (the draft claimed that the
 D-winner never moves in Z, and never fixed what D(X) is on Z); a Sonnet agent rewrote it as a simulation lemma
 (an induction on the rank of the D-win), and the integrator read the rewrite (revised after K9, 2026-10-22). K13
@@ -64,7 +68,7 @@ originally stated → …" gives the corrected statement and its label. Each cha
 | T1.9 | PROVED; the remark after it is corrected | R2 item 2: the remark was false for cylcgt, which re-splits components |
 | T1.11(a) | PROVED | R2: sound |
 | T1.11(b) | FALSE as originally stated → τ counts moves into ⊕/⊖ by **either** player, M is summed over coordinates: PROVED after repair | R1 item 1, R2 items 1 and 9; T30 audit: a move count one short and the canonical form of 0 corrected in (b) and (c), conclusions unchanged |
-| T1.11(c) | PROVED after repair (new in the revision): the hereditary version for cylcgt's re-splitting value. GAP → PROVED after repair (revised after the s12a referee, 2026-11-23): the proof used condition (E) without assuming it, and is now stated with (E); every use goes through T1.14(ii), which assumes (E) on the any-order reach (revised after T81, 2026-11-23: (V1a) gives (E) only on chess play from the starter; (c) also needs a passer-free root, and S tests the moved component for passers before re-splitting it, §1.5). Without (E): FALSE (revised after K52, 2026-11-23; was OPEN): flat 5×7 after a2–a4, `W a4 b3 e2 / B a5 b4 e4` with Black's right on a3 is passer-free, (HSS) and (B) hold, o(S) = 𝓡 and the D-result pair is 𝓝 (PROVED by hand; CHECKED-2 under both passed tests and all three race rules: `cylcgt` with `common.alt_outcome`, and the integration referee's separately written S and D, `kings/delegate/out/K52/integrate/verify/ref.py`); whether (E) can be dropped at roots without a right is OPEN. GAP → PROVED after repair (revised after K52, 2026-11-23): the frontier step charged every later opponent move to the stopped count M as one continuing D-play, which fails after a later freeze in one daughter; it is replaced by the quiet-move argument (sketched by K52; written out and re-derived step by step by the integrator, and re-derived again by the integration referee, `kings/delegate/out/K52/integrate/verify/VERIFY.md`); the false sub-assertions "M(Y) ≤ M(X)" for re-split Y and "a race needs both threats" for the scored τ are withdrawn; (HSS) is stated with the passer-colour τ_P that `hereditarily_safe` checks. Codex (OpenAI, outside the Claude family) in K52, 2026-11-23, read the statement and the earlier proof: the theorem true with its hypotheses, the earlier frontier step a GAP, census 32,880 S/W comparisons, 0 disagreements (COMPUTED-1). Codex has not read the frontier text now printed | R2 item 2; T30 audit: a move count corrected; s12a referee; K52 (Codex) |
+| T1.11(c) | PROVED after repair (new in the revision): the hereditary version for cylcgt's re-splitting value. GAP → PROVED after repair (revised after the s12a referee, 2026-11-23): the proof used condition (E) without assuming it, and is now stated with (E); every use goes through T1.14(ii), which assumes (E) on the any-order reach (revised after T81, 2026-11-23: (V1a) gives (E) only on chess play from the starter; (c) also needs a passer-free root, and S tests the moved component for passers before re-splitting it, §1.5). Without (E): FALSE (revised after K52, 2026-11-23; was OPEN): flat 5×7 after a2–a4, `W a4 b3 e2 / B a5 b4 e4` with Black's right on a3 is passer-free, (HSS) and (B) hold, o(S) = 𝓡 and the D-result pair is 𝓝 (PROVED by hand; CHECKED-2 under both passed tests and all three race rules: `cylcgt` with `common.alt_outcome`, and the integration referee's separately written S and D, `kings/delegate/out/K52/integrate/verify/ref.py`); whether (E) can be omitted for arbitrary right-free roots remains OPEN; for right-free, passer-free 3+3 roots on five files and six or seven ranks, the adopted passed test and all three race rules, the outcome equality holds in the later-failure stratum (COMPUTED-1, K54, 2026-11-23: 48,576 comparisons agree, 12,600 with a later failure of (E); finite coverage by a first-split reduction, PROVED). GAP → PROVED after repair (revised after K52, 2026-11-23): the frontier step charged every later opponent move to the stopped count M as one continuing D-play, which fails after a later freeze in one daughter; it is replaced by the quiet-move argument (sketched by K52; written out and re-derived step by step by the integrator, and re-derived again by the integration referee, `kings/delegate/out/K52/integrate/verify/VERIFY.md`); the false sub-assertions "M(Y) ≤ M(X)" for re-split Y and "a race needs both threats" for the scored τ are withdrawn; (HSS) is stated with the passer-colour τ_P that `hereditarily_safe` checks. Codex (OpenAI, outside the Claude family) in K52, 2026-11-23, read the statement and the earlier proof: the theorem true with its hypotheses, the earlier frontier step a GAP, census 32,880 S/W comparisons, 0 disagreements (COMPUTED-1). K54 (Codex, OpenAI, model gpt-6.2-astra, outside the Claude family, 2026-11-23) read the printed quiet-move proof and found every step SOUND; its wording corrections (the height qualifier in Definition 1.10, a witness for the strictness of B > N(X), the right inherited from X) are made in the text (revised after K54, 2026-11-23; this replaces "Codex has not read the frontier text now printed") | R2 item 2; T30 audit: a move count corrected; s12a referee; K52 (Codex); K54 (Codex) |
 | P1.12 | PROVED | R2: sound |
 | P1.13 | FALSE as originally stated → A′ = { \| ⊖}, translation −B−1 (and a {∅ \| ⊖} variant): PROVED after repair | R1 item 2, R2 item 3 |
 | T1.14(i) | PROVED at a root before the first decisive event, or at a credited root with its own certificate (revised after K52, 2026-11-23: FALSE for an unrestricted already-credited root, cyl:8×6 `Ka1 ka6 Pc2 Pd4 pd3 b -`: D credits White, Black wins P). Read by Codex (OpenAI, outside the Claude family) in K52, 2026-11-23 | R2: sound; K52 (Codex) |
@@ -77,7 +81,7 @@ originally stated → …" gives the corrected statement and its label. Each cha
 | T2.3 | PROVED (also KNOWN), for every integer B ≥ 1 | its direct proof, overwritten by a misanchored edit in the 2026-10-21 revision, was restored after the T30 audit |
 | T2.4 | FALSE as originally stated (the "P-game of the context" option) → G under normal play (no draws), plus a strategy-transfer form (c) for games with draws: PROVED after repair | R2 item 4 |
 | D2.6, (L3′) | withdrawn: it never applies to a 3-file group, and it does not give (L3) | R1 item 8, R3 item 2 |
-| T2.7 | GAP → PROVED after repair, in P (revised after K7, 2026-10-22). K36 (Codex, outside the Claude family, 2026-10-28) proved (a) and (b) blind from the statements and found every step of the proof SOUND except one citation, Lemma 2.2 for a Q whose s king is off F_Z, now justified in Step 0 (revised after K36, 2026-10-28). K7 made the local game of (L1) explicit (the first promotion ends it, a promotion by s is a failure for s̄, s̄'s king stays on F_Z, no pass in check, a mate of s is a win for s̄, a stalemate of s̄ is a failure; s cannot be stalemated in the local game because it may pass). K7 also fixed the choice that K3 and the T30 recheck left open: (L2) counts s's king and **context** pawns only, and s's Z-pawns are covered by (L1); (L3) is stated over the real play of a guided strategy, in which s̄ makes Z-moves only. K3's objection (a context passer within the window ends the game in s's favour) assumes that a passer is terminal. That holds in the D-model and not in P: in P only a promotion is terminal, and (L2) bounds it. Whether a passer is decisive in D is (V2), a hypothesis of Theorem 1.14, which Theorem 2.7 does not claim. The window form (b) of the first K7 draft was FALSE when Q carried an e.p. right with its target off F_Z (counterexample in the text); (L2) now counts that right. The theorem gives a P-win only. The bound μ_s ≥ T + 1 is sharp in P, and in chess no margin of μ_s replaces (A_Q) (examples in the text). A second review round found no false step. T83 (Codex, 2026-11-23) found the timing clause of (a), "then wins with one of its next T moves", false: r itself can be a real mate while π(Q) is not a local mate, because an s̄ context pawn covers a square next to s's king (example after the proof). The P-win stands; the statement of (a) and Steps 5 and 6 of the proof are corrected (revised after T83, 2026-11-23) | R1 item 3, R3 items 2 and 3; K3; K7; T83 |
+| T2.7 | GAP → PROVED after repair, in P (revised after K7, 2026-10-22). K36 (Codex, outside the Claude family, 2026-10-28) proved (a) and (b) blind from the statements and found every step of the proof SOUND except one citation, Lemma 2.2 for a Q whose s king is off F_Z, now justified in Step 0 (revised after K36, 2026-10-28). K7 made the local game of (L1) explicit (the first promotion ends it, a promotion by s is a failure for s̄, s̄'s king stays on F_Z, no pass in check, a mate of s is a win for s̄, a stalemate of s̄ is a failure; s cannot be stalemated in the local game because it may pass). K7 also fixed the choice that K3 and the T30 recheck left open: (L2) counts s's king and **context** pawns only, and s's Z-pawns are covered by (L1); (L3) is stated over the real play of a guided strategy, in which s̄ makes Z-moves only. K3's objection (a context passer within the window ends the game in s's favour) assumes that a passer is terminal. That holds in the D-model and not in P: in P only a promotion is terminal, and (L2) bounds it. Whether a passer is decisive in D is (V2), a hypothesis of Theorem 1.14, which Theorem 2.7 does not claim. The window form (b) of the first K7 draft was FALSE when Q carried an e.p. right with its target off F_Z (counterexample in the text); (L2) now counts that right. The theorem gives a P-win only. The bound μ_s ≥ T + 1 is sharp in P, and in chess no margin of μ_s replaces (A_Q) (examples in the text). A second review round found no false step. T83 (Codex, 2026-11-23) found the timing clause of (a), "then wins with one of its next T moves", false: r itself can be a real mate while π(Q) is not a local mate, because an s̄ context pawn covers a square next to s's king (example after the proof). The P-win stands; the statement of (a) and Steps 5 and 6 of the proof are corrected (revised after T83, 2026-11-23). K54 (Codex, OpenAI, model gpt-6.2-astra, outside the Claude family, 2026-11-23) read the printed proof with the corrected Steps 5 and 6 and found every step SOUND, and the two reply-mate examples correct; one wording correction, in Step 1: a context move projects to a pass, which also clears a previous projected e.p. right (revised after K54, 2026-11-23) | R1 item 3, R3 items 2 and 3; K3; K7; T83; K54 |
 | C2.7′ | PROVED in P (revised after K7, 2026-10-22): the contrapositive of Theorem 2.7(a), the content of P12. If `--frozen` reports a win for σ and every king move of σ̄ at the nodes of σ's winning strategy is a P-loss, then σ wins P. The chess form adds (A_Q). K13 (Codex) re-derived it independently as an instance of the sharp form of Theorem 1.14 (revised after K13, 2026-10-27) | K7, K13 |
 | C2.8 | PROVED (wording corrected). The finite-k clause was made a side remark after K7 (revised after K7, 2026-10-22). A reviewer found no counterexample in 9566 placements on 4 boards (scratch) | R3 item 7; K7 |
 | L2.9 | GAP → PROVED after repair, now under the weaker hypothesis (B1) (K37, Codex, outside the Claude family, audited the proof step by step on 2026-10-28 and found it SOUND; its own blind attempt had a gap and its final proof was written after reading this one, so it is an audit, not a second proof): at most one s̄ pawn is attacked by an s pawn (it holds if s has no pawn on f ± 1, if s̄ has a single Z-pawn, and automatically on boards with 4 ranks) (revised after K22, 2026-10-27). **The statement without any hypothesis is FALSE** (revised after K22, 2026-10-27): with two attacked s̄ pawns s can lose, for example cyl:7×6 `Ka5 kc6 Pc3 Pc4 pb4 pb5` with Black (s) to move, F_Z = {a, b, c}: White (s̄) forces a promotion within 3 moves against a defender who may pass (CHECKED-2: K22's C++ and Python solvers and the referee's own solver agree). The flat:4×5 version `Kd4 kb5 Pb2 Pb3 pc3 pc4` is also hand-verified, and a flat:3×5 version `Kc4 ka5 Pa2 Pa3 pb3 pb4` is CHECKED-2. The cylinder position is also a White win in P with real kings (COMPUTED-1: one run of `kp_p --pmodel`, K7's P-model build of kpsolve). Bounded search (K22: up to 3 + 3 pawns, and 4 + 4 on some small boards): no White win with at most one attacked s̄ pawn among 74,469,430 roots, within the boards and pawn counts searched (COMPUTED-1: one C++ solver, with a Python spot check on 92 roots; the proof of (B1) is separate and does not use this search) | R1 item 9, R3 item 4; K22 |
@@ -415,8 +419,10 @@ D-games.
     hypothesis stated with it would be weaker; the proofs below use this component reading, and the count of
     the opponent's moves in the proof of Theorem 1.11(b) is exactly this one. Revised after review: R2 item 9.)
   - In the pawn game every White move advances a White pawn by at least one rank, so
-    M_W ≤ Σ_white pawns (H − rank) ≤ (H − 2)p for p legal White pawns. That is ≤ 6p, so ≤ 48 on 8 ranks when
-    p ≤ 8, and ≤ 6p in general; BIG = 256 exceeds 6p whenever p ≤ 42. The count ignores a final Z-move, so
+    M_W ≤ Σ_white pawns (H − rank) ≤ (H − 2)p for p legal White pawns. On H ranks the bound is (H − 2)p. For
+    H ≤ 8 this is at most 6p, hence at most 48 for p ≤ 8, and there BIG = 256 exceeds 6p whenever p ≤ 42
+    (revised after K54, 2026-11-23: the earlier "≤ 6p in general" is FALSE on boards taller than 8 ranks; on flat
+    1×11, `W a2 / B a10`, White alone pushes seven times, a3 to a9, still without a passer. PROVED). The count ignores a final Z-move, so
     add 1 where a move inside the king group is possible (revised after review: R2 item 9).
 - **Threats.** In this definition and in Theorem 1.11, "reachable" means by a sequence of options of either player
   in any order, not necessarily alternating, as for M (revised after T81, 2026-11-23: the frontier step in the proof
@@ -518,9 +524,13 @@ event ends the play. Suppose:
   conclusion fails as well: `W a4 b2 b3 e2 e4 / B a5 b4 b6 e6`, same right, Black to move: S is 𝓝 (a/b is −1,
   the e-file is {2 | 1}) and the D-result pair is 𝓛, so Black to move wins in S and loses in D (CHECKED-2, the
   same two implementations, both passed tests, all three race rules; (HSS), (B) and a passer-free root hold, (E)
-  fails at the root). Both witnesses have a right at the root. Whether (E) can be dropped for a root without a
-  right, with (E) failing only later, is OPEN: the flag-free predecessors of both witnesses agree (COMPUTED-1,
-  `flagfree_probe.py`). The K52 census, whose failing-(E) stratum is empty, does not bear on this: with ≤ 2 + 2
+  fails at the root). Both displayed counterexamples carry an initial right. For right-free, passer-free 3+3
+  roots on five files and six or seven ranks, the adopted passed test and all three race rules, the outcome
+  equality holds in the later-failure stratum (COMPUTED-1, K54: 48,576 rule/root outcome-pair comparisons at
+  3+3 agree, 12,600 of them with a later failure of (E); finite coverage of these board sizes by a first-split
+  reduction, PROVED; `kings/delegate/out/K54/FINDINGS.md`, `pawns_check.py`, `height6.txt`, `height7.txt`). Whether
+  (E) can be omitted for arbitrary right-free roots remains OPEN (revised after K54, 2026-11-23); the flag-free
+  predecessors of both witnesses agree (COMPUTED-1, `flagfree_probe.py`). The K52 census, whose failing-(E) stratum is empty, does not bear on this: with ≤ 2 + 2
   pawns (E) cannot fail at all, since a usable right needs three pawns in a passer-free component (the capturer
   needs an enemy pawn ahead of it) and a second passer-free component needs two more (PROVED).
 
@@ -541,13 +551,19 @@ replaced by its new components. This is `cylcgt.pawns.value` unfolded.
   them were moves of one continuing D-play. After a later freeze in one daughter the opponent can go on in a
   sister, past the point where the stopped count of their common parent stops, so that step was a GAP, K52. The
   argument below was sketched by K52 (Codex), written out and re-derived step by step by the integrator, and
-  re-derived again by the integration referee; Codex has not read this text. PROVED.)
+  re-derived again by the integration referee. K54 (Codex, OpenAI, model gpt-6.2-astra, outside the Claude
+  family, 2026-11-23) read this printed quiet-move proof and found every step SOUND, under all three race rules
+  and through arbitrarily many splits (`kings/delegate/out/K54/FINDINGS.md`; revised after K54, 2026-11-23:
+  this replaces "Codex has not read this text"). PROVED.)
   - *What is used.* + ∈ τ_P(Z), since White has a passer after the move, so by (HSS) at Y no component C of
     Y″ has − ∈ τ_P(C) (the scored τ would do as well: the move is an option into a terminal credited to White).
     By (B) at Y, B > M_R(Y) ≥ Σ_{C ∈ Y″} M_R(C). If Y″ is non-empty, no right that F keeps in Y″ is usable: the
     right of the move that led to Y by (E) at Y, which has two or more components; an older right by (E) at the
     position its double step led to, which had two or more components too, since otherwise the next move would
-    have been in the same component and replaced the right, and its component has not been played since. A right
+    have been in the same component and replaced the right, and its component has not been played since
+    (revised after K54, 2026-11-23, wording: if a surplus right was already supplied at X, apply (E) at X;
+    otherwise apply it at the first pre-event position carrying that right; a right surviving a move elsewhere
+    already lay in a separate, untouched component there). A right
     that is not usable allows no capture and protects no pawn from the passed test (both need an enemy pawn
     beside the double-stepped pawn), and it stays so while its component is not played.
   - *Strategies.* White plays only in positive integer stacks, never a pawn move. So after the frontier every
@@ -588,8 +604,11 @@ replaced by its new components. This is `cylcgt.pawns.value` unfolded.
   - *An alternative under a stronger bound.* Let N(X) be the largest number of moves of one side in any finite
     sequence of legal pawn moves from X, by either side in any order, play continuing past passed pawns. Under
     (E), B > N(X) implies (B): at a reachable Y the longest stopped sequences of the components of Y can be
-    played one after another after the moves from X to Y, so Σ M ≤ N(X) (PROVED). The converse fails, since a
-    stopped count ends at the first passer and N(X) does not. On boards up to 8×8 with no pawn on its own first
+    played one after another after the moves from X to Y, so Σ M ≤ N(X) (PROVED). The converse fails. The
+    different stopping rules alone give only this weak inequality, so a witness is needed (revised after K54,
+    2026-11-23: the earlier justification "since a stopped count ends at the first passer and N(X) does not" had
+    this gap). On flat 2×7, e.p. off, `W a2 / B b3`, B = 2: every first move is terminal, so both stopped maxima
+    are 1 and (B) holds; after a2×b3, b3–b4 is legal in continuing play, so N(X) ≥ 2 = B (PROVED). On boards up to 8×8 with no pawn on its own first
     rank, N(X) ≤ 8(1 + 2 + … + 6) = 168 < 256, so both bounds hold there for BIG = 256.
     Under B > N(X) the count above is immediate: Black's moves after the frontier, freezing ones included,
     played on the whole board after the moves from X to Y, form such a sequence (file locality; White makes
@@ -690,8 +709,8 @@ m ≥ 1, 𝓟 if m = 0 and 𝓡 if m ≤ −1.
 
 So BIG must be large compared with the tempo counts. In Proposition 1.13 the BIG outcome is right exactly when
 n ≤ B, and Theorem 1.11(b) asks for B > M, so that the owner of the stack wins even when it must move first.
-With BIG = 256 and pawns only, B > M holds as long as p ≤ 42, since M ≤ 6p (and M ≤ 48 on 8 ranks when
-p ≤ 8). With a shuttling king the tempo count is infinite, and no BIG works (§3) (revised after review: R2
+With BIG = 256 and pawns only, on boards of at most 8 ranks B > M holds as long as p ≤ 42, since M ≤ 6p there
+(and M ≤ 48 on 8 ranks when p ≤ 8); on H ranks M ≤ (H − 2)p (revised after K54, 2026-11-23: Definition 1.10). With a shuttling king the tempo count is infinite, and no BIG works (§3) (revised after review: R2
 item 9; wording corrected after the T30 recheck, which found "exactly … exceeds" off by one).
 
 ### 1.5 The exact validity statement
@@ -1179,7 +1198,12 @@ the real positions in it.
     squares involved lie on F_Z or on the empty buffer, and F_Z holds the same pieces in R and π(R) by (I1). King
     safety is as in the previous case. So it is legal in π(R) with the same result. In particular a promotion of
     a Z-pawn of s is a promotion by s in the local game.
-  - *A context-pawn move.* It changes only context pawns, so π(R) is unchanged except for the side to move; an
+  - *A context-pawn move.* It changes only context pawns, so in π(R) the projected pieces stay fixed, the turn
+    changes, and any previous projected right expires, exactly as in a pass of rule 2 (revised after K54,
+    2026-11-23: the earlier "π(R) is unchanged except for the side to move" was literally false when π(R) carried
+    an e.p. right. Example: F_Z = {a, b, c}, `W Ka6 Pb7 Pa2 / B Kc4 Pb4 Pe7`, Black to move; after Kc5 and the
+    admissible reply a2–a4, Black's e7–e6 clears the usable right on a3, in projection too, and White promotes
+    b8=Q safely on its next move against every local reply. PROVED; the move facts COMPUTED-1, python-chess); an
     e.p. right it creates has a target off F_Z and is dropped by π, as a pass does. The e.p. capture of the right
     of Q (target off F_Z, I5) is such a move too: it moves an s context pawn and removes an s̄ context pawn. A
     context move is legal only if s is not

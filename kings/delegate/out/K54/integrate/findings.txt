@@ -1,0 +1,39 @@
+K54 integration findings, 2026-11-23
+Source: kings/delegate/out/K54/FINDINGS.md and REPORT.md (Codex, OpenAI, model gpt-6.2-astra, outside the Claude family).
+Codex read the printed quiet-move proof of Theorem 1.11(c) and the corrected Theorem 2.7 (Steps 5 and 6 included): every step SOUND.
+
+Corrections, each checked in the integration:
+
+1. Definition 1.10, "<= 6p in general": CONFIRMED false on boards taller than 8 ranks.
+   Hand: on flat 1x11, W a2 / B a10, White pushes a3..a9 (seven moves); a10 stays ahead on the same file, so no passer arises.
+   Script (cylcgt read-only): stopped M_W = 7 > 6p = 6; (H-2)p = 9. Edit 1. The same unqualified "M <= 6p" appears in
+   section 1.4 (BIG vs M paragraph); Edit 2 adds the same qualifier there (not listed by Codex; consistency edit).
+
+2. Alternative bound, strictness of B > N(X) over (B): CONFIRMED (the printed reason only gives Sum M <= N(X)).
+   Hand and script: flat 2x7, e.p. off, W a2 / B b3 is passer-free; all five first moves (a2-a3, a2-a4, a2xb3, b3-b2,
+   b3xa2) give a passer, so are terminal; stopped M_W = M_R = 1 < B = 2; continuing play a2xb3, b3-b4 gives N_W >= 2
+   (script: N_W = 5, N_B = 2). The printed text already says that the sign needs its own argument. Edit 6.
+
+3. Theorem 2.7 Step 1, "pi(R) is unchanged except for the side to move": CONFIRMED literally false when a projected
+   e.p. right exists; rule 2 already says a pass clears the right, so the proof is unaffected.
+   python-chess: W Ka6 Pb7 Pa2 / B Kc4 Pb4 Pe7, Black to move, legal; after Kc5 a4 the right on a3 exists and b4xa3 is
+   legal; after e7-e6 it is gone; b8=Q is then not capturable. In the projection (e7 deleted) White promotes safely
+   next move after each of the 7 local Black moves and after a pass. Edit 7.
+
+4. Open question about (E): census taken as COMPUTED-1 (one implementation, not re-run). Arithmetic checked against
+   height6.txt / height7.txt and the FINDINGS table: 11,992 + 4,200 = 16,192 roots per rule, x 3 rules = 48,576;
+   4,200 x 3 = 12,600; HSS-excluded 4,704 + 24,000 = 28,704; per-rule counts identical; 0 mismatches. The first-split
+   reduction reads as a correct hand argument (PROVED). Unrestricted question stays OPEN. Edits 5 and 8.
+
+5. Other items in FINDINGS.md:
+   - Suggested clarification at the frontier (rights inherited from X, initial-flag case): wording only, adopted. Edit 3.
+   - Theorem 2.7 table: all rows SOUND; only the Step 1 wording (item 3) needs an edit. The reply-mate examples are
+     confirmed; no edit.
+   - "Height qualifier in Definition 1.10" = item 1; "expiry of a projected e.p. right" = item 3.
+   - No other correction found.
+
+Status records: Edit 4 (frontier text, replaces "Codex has not read this text"), Edit 9 (row T1.11(c), replaces
+"Codex has not read the frontier text now printed"), Edit 10 (row T2.7), Edit 11 ("Status after review" paragraph).
+
+Apply check: LOOPY.md copied to the scratchpad; kings/delegate/apply_edits.py: 11 applied, 0 rejected;
+awk -F'|' '/^\|/{print NF}' identical before and after (118 table rows). Repo LOOPY.md not modified. No git.
