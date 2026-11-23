@@ -1,0 +1,119 @@
+T83L: the timing clause of Theorem 2.7(a) in kings/theory/LOOPY.md (2026-11-23)
+=================================================================================
+
+Input: delegate/out/T83/REPORT.md section A.16 (Codex), delegate/out/T83/check.py.
+Output: this file and EDITS.md (7 edits). LOOPY.md was not edited.
+
+1. The counterexample in LOOPY's setup. PROVED (by hand); move lists COMPUTED-1 (python-chess).
+---------------------------------------------------------------------------------------------
+Flat 8x8, F_Z = {a, b}, buffer c, context files d..h, s = Black, s-bar = White.
+Y = White Ka6 Pb6 Pb7 Pd6; Black Ka8 Pa7 Pe7; Black to move (FEN k7/pP2p3/KP1P4/8/8/8/8/8 b - -).
+- Definition 2.1: kings and Z-pawns (b6, b7, a7) on F_Z; context pawns d6 (distance 2 from b) and e7 (distance 3);
+  buffer c empty; no officer. Fits.
+- Definition 2.6 Data: Y as in Definition 2.1 with s to move. Y has Black in check (from b7). Definition 2.6 does
+  not forbid this, and says that the proof of (a) does not use that Y is chess-legal. Fits. (See the variant
+  below for a Y that is not in check.)
+- m = Kb8 is the only legal move (a7 own pawn, b7 guarded by Ka6, in check the e-pawn may not move). Legal,
+  non-promoting Z-move. After m White has no promotion (b8 occupied, a8/c8 empty): python-chess gives
+  White's moves Ka5, Kb5, bxa7#, d7, dxe7.
+- r = b6xa7: non-promoting Z-move (captures a Z-pawn of s), White's king stays on a6. Admissible.
+- Q = White Ka6 Pa7 Pb7 Pd6; Black Kb8 Pe7, Black to move. Check from a7; a8, c8 attacked by b7; a7, b7
+  guarded by Ka6; c7 attacked by the context pawn d6. Checkmate.
+- (L1): Q_Z = pi(Q) = White Ka6 Pa7 Pb7; Black Kb8. Black is in check, cannot pass, and has only Kc7; then
+  a8=Q (not capturable from c7). L_1 is won, with the queen clause. T = 1.
+- (L2): Q-degree = Black Kb8 Pe7, White Pd6. e7 needs e5, e4, e3, e2, e1 = 5 moves (exd6 route 6). mu_s = 5 >= 2.
+- (L3), T = 1: s is not stalemated at Q (it is mated). Holds.
+- Window-form hypothesis "no s-bar context pawn attacks s's king": holds (d6 attacks c7 and e7, not b8).
+  The d6 pawn attacks a square next to s's king, which the hypothesis does not cover; that is the mechanism.
+So LC_1(m) holds and the real game ends on r. The counterexample is valid in LOOPY's setup.
+
+Variant with Y not in check (found for this task): Y = White Ka6 Pb6 Pb7 Pd6; Black Kb8 Pa7 Pa3, Black to
+move (FEN 1k6/pP6/KP1P4/8/8/p7/8/8 b - -; python-chess is_valid() = True). Black's moves: a2, axb6 (king has
+none). m = a3-a2, r = bxa7#. Q_Z = White Ka6 Pa7 Pb7; Black Kb8 Pa2: only Kc7, then a8=Q; T = 1; mu_s = inf
+(no Black context pawn); (L3) holds. PROVED by hand; the move lists and the T = 1 local win COMPUTED-1
+(python-chess, own minimal local-game solver of Definition 2.6 written for this task; it reproduced the Codex
+example too; script kept in the session scratchpad only, not in the repo).
+
+Sentences refuted (exactly):
+- LOOPY l.1007-1008, Theorem 2.7(a): "it plays r and then wins with one of its next T moves." False (the win
+  is r itself). "s-bar has a forced win in P after m" and "So m is decisively punished in P" stand.
+- LOOPY l.1097-1098, Step 6: "The projection is a play of the winning local game, so it ends within s-bar's
+  first T moves with a promotion by s-bar or a mate of s." As used (every maximal real play projects to a
+  completed local win) it is false: the real play ends at Q while the projection is a non-terminal local
+  position. The step never treats a real mate that is not a local mate. Step 1 proves only "real legal move of
+  s => local legal move (or pass)", not the converse; the converse fails exactly when an s-bar context pawn
+  covers a square next to s's king.
+The rest of the proof is unaffected; the repair is to treat "s is mated in the real game at Q or later on the
+real line" first (s-bar has won) and project only otherwise.
+
+2. Other places that use the timing.
+------------------------------------
+- l.169-170 (Summary): "the punisher promotes within T moves against a defender who may pass" describes the
+  local game (L1), not the real play. Not affected. (It omits the mate alternative of (L1), pre-existing.)
+- l.916-917 (window), l.941 (rule 5): local-game definitions. Not affected.
+- l.979-980 (sharpness of mu_s >= T + 1): "s-bar queens on its T-th move" is imprecise in the same way
+  (s-bar may win earlier, or by mate). The bound is unaffected; reworded (EDIT 5).
+- l.1072-1074 (Step 4): "such a play is over by s-bar's T-th move. So s has at most T turns": an upper bound;
+  a real mate only shortens the play. Not affected.
+- l.1095-1096 (Step 5): lists the other endings and omits the (favourable) early real mate; one line added
+  (EDIT 2).
+- Theorem 2.7(b): claims a P-win only, no timing. Not affected (the proof is shared, so it is repaired too).
+- Corollary 2.7' (l.1167-1183): contrapositive of the P-win only. Not affected.
+- Corollary 2.8 (l.1222): "s-bar wins the local game of (L1) within T <= D moves": local game. Not affected.
+- l.1356 (Prop 2.10(a)), §5 uses (l.2551, 2619, 2721), P6/P12/P13 rows: use the P-win only. Not affected.
+- l.3782 (K29 addendum): "A sortie with T_P >= 3 excludes a one-move certificate (PROVED from Theorem 2.7(a))":
+  uses the timing as an upper bound (a T = 1 certificate gives a P-win by s-bar's 2nd move counting r, so
+  T_P <= 2). The corrected statement ("no later than its T-th move after r") still gives this. Not affected.
+- l.3325, Proposition 8.1, "End of the play": "The deleted play ends within T moves of s-bar by a promotion by
+  s-bar or a mate of s." Not affected: (P3) keeps s's king off X and its king-neighbourhood, so by (ii) every
+  local move of s at a real s-turn after a sigma-reply is a real legal move, and after a pairing reply s is
+  not in check; hence a real mate of s is a local mate there, and the real line cannot end earlier than the
+  deleted line. The proof's paragraph "s is never stalemated, and a mate in the projection is a mate in the
+  real game" already covers both directions.
+- Proposition 8.1' (l.3384-3395): the same with X ∪ E ∪ A; R avoids A, the squares attacked by s-bar context
+  pawns in positions of the pairing set, which are the only s-bar context configurations at real s-turns.
+  Not affected.
+- l.3890 (K7 reviewer's run): "a guided strategy of s-bar wins within T moves against every legal real play
+  of s" is an empirical report, and it is consistent with the corrected statement (a win on r is within T).
+  Left unchanged.
+- Status table row T2.7 (l.77) and the K36 paragraph of "Status after review" (l.28-31) say every step is
+  SOUND; a T83 note is added to both (EDITS 6, 7).
+
+3. The stalemate side. No gap. PROVED (by reading the proof against Definition 2.6).
+------------------------------------------------------------------------------------
+Yes, a context pawn's attack on a square beside s's king can make a real stalemate of s where pi(R) has a king
+move (or the context can run out of moves). But (L3) is stated over REAL plays ("in every real play from Q in
+which s-bar follows [the guided strategy] ... s is never stalemated at one of its turns in the window"), not over
+the local game, and the proof fixes rho with that property (Step 5: "s is not stalemated by (L3)"). So a real
+stalemate that the projection does not see is excluded by hypothesis; the existing example
+`Kb5 kd5 Pb4 Pc5 Pe3 Pf3 Pf4 Pf5` (l.1150) is exactly such a stalemate and shows (L3) is needed.
+(L3_F) is sound: its moves (a Z-pawn move or a king step onto F_Z) are legal in every real position reached,
+since nothing off F_Z occupies or attacks F_Z (Lemma 2.2) and checks are the same (I4).
+s-bar's side: Step 2 shows s-bar's local winning move is real-legal, so s-bar is never really stuck (Step 3).
+The only asymmetry is the mate one: a real mate the projection does not see is a win for s-bar, so it costs
+nothing except the timing wording. No solver run was needed (no gap to exhibit).
+
+4. What the edits change (EDITS.md; applied to a copy outside the repo: 7 applied, 0 rejected; table cell
+counts per row unchanged; 3964 -> 4010 lines).
+- EDIT 1: Theorem 2.7(a): "plays r and wins, by a promotion or by a mate of s, no later than its T-th move after
+  r. The reply r itself may already mate s"; dated note on the old wording.
+- EDIT 2: Step 5: a mate of s ends the play in s-bar's favour and may come before the local game is over.
+- EDIT 3: Step 6 rewritten: first the real mate (at Q or later; only one direction of Step 1 holds, and why),
+  then, otherwise, the projection argument as before; conclusion "no later than s-bar's T-th move after r".
+- EDIT 4: new "Example (the reply itself can mate)" after the proof, before the K3 Remark: the Codex position
+  with every condition checked, the variant with Y not in check, and a paragraph on the stalemate analogue
+  being excluded by (L3).
+- EDIT 5: sharpness remark of (L2): "s-bar queens on its T-th move" -> "wins, by a promotion or a mate, no
+  later than its T-th move".
+- EDIT 6: status table row T2.7: T83 note; reviewer column adds T83.
+- EDIT 7: "Status after review", K36 paragraph: T83 note.
+All new text is tagged "(revised after T83, 2026-11-23)".
+
+5. Not settled / not done.
+- T83's other, MINOR, suggestions for this proof (Step 1's "the projection of the play is a play" up to a
+  first context promotion; the e.p. right wording in Step 1; the window count in Step 4) were not taken up:
+  outside this task's scope. LOOPY's Step 4 already handles a context promotion directly (Claim M), so I see no
+  error there, but I did not re-derive those points line by line.
+- The paper source (dist/tog/supp_src/s12a_core.tex, paper/ieee/...) was not edited; T83 gives its own
+  replacement text for s12a_core.tex l.343-344 and 385-390.
+- No kp_p/kpsolve run: the examples are a forced one-move mate and need none; no binary was built.
