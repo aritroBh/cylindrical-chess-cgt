@@ -138,7 +138,8 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
   Kilo (nemotron-3-ultra, flint, openrouter/free, ling), OpenCode (beam-free). Not working today: agy (quota,
   about 76 h), Cursor (out of usage), muse (billing), qwen (no login), OmniRoute free routes (upstream
   unavailable or limit reached).
-  - [ ] T84k (Kilo nemotron-3-ultra): S14 and S15 Note 4 (`delegate/out/T84_kilo/`)
+  - [x] T84k (Kilo nemotron-3-ultra): no report. It spent 30 minutes debugging its own solver and then hit Kilo's
+    free limit. Not counted. Rerun as T84o on OpenCode beam-free; the Codex read T84 follows T87
   - [x] T85 (OpenCode beam-free): S12.1 A.1 to A.9, sum safety. Verdict SOUND WITH FIXES. Its own solver:
     11,577 positions under the hypotheses (3 to 5 files, 5 or 6 ranks, at most 4 pawns, e.p.-aware), 0 mismatches
     between W and S; 4,641 more with the opponent race rule, 0. Its one major point (older e.p. rights kept in a
@@ -164,8 +165,9 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 - [x] Kings Theorem 2.7 repair (commit 39e19a98) ported into `s12_kings.md` (5 of 7 edits; the copy has no status rows)
 - [x] Appendix remark "(E) cannot be dropped": `W a4 b3 e2 / B a5 b4 e4` after a2-a4 on the flat 5x7 board, W = N,
   S = R, HSS holds; hand proof, engine and a separate minimax agree in all six settings (found by Codex K52)
-- [ ] Port the kings K51/K52 repairs (Theorem 3.4 sentence, Lemma B title, 1.11(c) proof, 1.14(i) hypothesis) into
-  `s12_kings.md` once committed there; then update the S17 row and the first line of `s12_kings.md`
+- [x] Kings K51/K52 repairs (commit 62ae99cc) ported into `s12_kings.md` by a Sonnet agent: 22 passages applied, 7
+  status rows not in the copy; S17 row and the copy's first line updated. Supplement 101 pages
+- [ ] Kings K54 (Codex read of the printed new proof of 1.11(c) and of the repaired 2.7): verdict for S17
 - [x] R8 (Haiku): bibliography consistency check of both .bib files and the rendered reference list: 20 references,
   numbered in order of first citation, no missing key, no broken entry, both .bib files identical. No change made: the
   DOIs it called duplicated are printed from the note field (the style does not print the doi field)
