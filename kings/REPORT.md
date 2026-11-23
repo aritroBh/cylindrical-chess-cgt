@@ -475,6 +475,12 @@ Every deliverable was given to independent referees (Claude models) told to brea
     promotion or a mate no later than its T-th move after the reply, and the reply itself may already mate (a context
     pawn can cover a square beside the king, so a real mate need not be a local mate). The win in P was not affected.
     Found by a Codex re-read of the paper's appendix.
+  - Codex checks from outside the Claude family (2026-11-23, model gpt-6.2-astra): K51 proved Theorem 3.4 blind (it holds;
+    one proof sentence was false and is corrected); K53 proved Proposition 2.10(a) blind (every step sound); K52 read
+    Theorems 1.11(c) and 1.14 (both hold). After K52 the tempo step of 1.11(c)'s proof is replaced by a refereed
+    argument, (E) is shown necessary by a counterexample on flat 5×7 (`W a4 b3 e2 / B a5 b4 e4` after a2–a4), threats
+    for pawn positions are defined as the code checks them, and Theorem 1.14(i) requires a root before the first
+    decisive event (`kings/delegate/out/K52/REVIEW.md`).
   - K49 (2026-11-23) reduces K40's classes for K+P v K on the cylinder to one lemma (Lemma P: if White wins the bare
     normal-play game with Black to move, she wins it with White to move). Given it, the classes are proved by hand
     against every integer and every terminal-free test game, not only up to 12 spare moves. Lemma P is PROVED for the

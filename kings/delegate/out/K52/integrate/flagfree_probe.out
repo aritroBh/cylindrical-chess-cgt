@@ -1,0 +1,59 @@
+== 1. no-(E) witnesses (flat 5x7, after a2-a4, flag for Black on a3)
+witness: Board(files=5, ranks=7, wrap=False, ep=True) W: a4 b3 e2 / B: a5 b4 e4 (ep a3)
+   o(S)=R o(W) alt=N own=N passer-free=True HSS code=True passer-tau=True scored-tau=True (E)=False max tempo=2 (<256: True)
+   component W: a4 b3 / B: a5 b4 (ep a3) -W tau_P ['B'] tau_scored ['B']
+   component W: e2 / B: e4 * tau_P [] tau_scored []
+   Black options in W: [('W: a4 b3 e2 / B: a5 b4 e3', 'B'), ('W: b3 e2 / B: a3 a5 e4', 'B')]
+   White options in W: [('W: a4 b3 e3 / B: a5 b4 e4', 'W')]
+witness: Board(files=5, ranks=7, wrap=False, ep=True) W: a4 b2 b3 e2 e4 / B: a5 b4 b6 e6 (ep a3)
+   o(S)=N o(W) alt=L own=L passer-free=True HSS code=True passer-tau=True scored-tau=True (E)=False max tempo=8 (<256: True)
+   component W: a4 b2 b3 / B: a5 b4 b6 (ep a3) -1 tau_P ['B', 'W'] tau_scored ['B', 'W']
+   component W: e2 e4 / B: e6 3/2±1/2 tau_P [] tau_scored []
+   Black options in W: [('W: a4 b2 b3 e2 e4 / B: a5 b4 b5 e6', 'W'), ('W: b2 b3 e2 e4 / B: a3 a5 b6 e6', 'W'), ('W: a4 b2 b3 e2 e4 / B: a5 b4 b6 e5', 'W')]
+   White options in W: [('W: a4 b2 b3 e2 e5 / B: a5 b4 b6 e6', 'W'), ('W: a4 b2 b3 e3 e4 / B: a5 b4 b6 e6', 'B')]
+== 2. M-monotonicity (flat 5x6, e.p. off)
+   M_B(X)=1 (components 1); after c2xb3 components M_B=[1, 1], sum 2; HSS code=True
+   daughter W: a2 a3 b3 / B: a4 Black moves -> [('W: a2 a3 / B: b3', ['W'])]
+   daughter W: d2 d3 e3 / B: d4 Black moves -> [('W: d2 d3 / B: e3', ['W'])]
+== 3. (HSS) necessity (flat 5x6, e.p. off)
+no-HSS: Board(files=5, ranks=6, wrap=False, ep=False) W: a4 d4 / B: b5 e5
+   o(S)=P o(W) alt=N own=N passer-free=True HSS code=False passer-tau=False scored-tau=False (E)=True max tempo=2 (<256: True)
+   component W: a4 / B: b5 ±+W tau_P ['B', 'W'] tau_scored ['B', 'W']
+   component W: d4 / B: e5 ±+W tau_P ['B', 'W'] tau_scored ['B', 'W']
+== 4. (B) necessity, B = 1 by hand-built CGT sum; and B = 256 on flat 4x263
+   B=1, n=0: o({1|-1} - 0) = N
+   B=1, n=1: o({1|-1} - 1) = N
+   B=1, n=2: o({1|-1} - 2) = R
+   B=1, n=3: o({1|-1} - 3) = R
+   flat 4x263 W: a4 d2 / B: b5 d261 d3: components ['±+W', '-W'], o(S)=R, o(W)=N, HSS code=True, M_B(d-comp)=257
+== 5. root with both passers (flat 8x8)
+   W a2 / B h7: passers ['B', 'W'] value 0
+   one-component race root W b2 / B d6: RaceError W: b2 / B: d6
+== 6. tau: passer-colour vs scored (flat 8x8, W b2 d6 / B c7)
+   tau_P = ['B', 'W']  tau_scored(count) = ['W']  common.threats = [-1, 1]
+== 7. short boards
+   H=4 W: a2 / B: b3 a2-a4 -> W: a4 / B: b3 (ep a3): passers ['B', 'W'], credit W
+   H=5 W: a2 b2 / B: b4 a2-a4 -> W: a4 b2 / B: b4 (ep a3): passers [], credit None
+      then a4-a5 -> W: a5 b2 / B: b4: passers ['W']
+done
+== probe: flag-free predecessors
+flag-free: Board(files=5, ranks=7, wrap=False, ep=True) W: a2 b3 e2 / B: a5 b4 e4
+   o(S)=N o(W) alt=N own=N passer-free=True HSS code=True passer-tau=True scored-tau=True (E)=False max tempo=4 (<256: True)
+   component W: a2 b3 / B: a5 b4 0 tau_P ['B', 'W'] tau_scored ['B', 'W']
+   component W: e2 / B: e4 * tau_P [] tau_scored []
+flag-free: Board(files=5, ranks=7, wrap=False, ep=True) W: a2 b2 b3 e2 e4 / B: a5 b4 b6 e6
+   o(S)=L o(W) alt=L own=L passer-free=True HSS code=True passer-tau=True scored-tau=True (E)=False max tempo=11 (<256: True)
+   component W: a2 b2 b3 / B: a5 b4 b6 0 tau_P ['B', 'W'] tau_scored ['B', 'W']
+   component W: e2 e4 / B: e6 3/2±1/2 tau_P [] tau_scored []
+flag-free: Board(files=5, ranks=7, wrap=False, ep=True) W: a2 b3 e2 / B: a5 b4 e5
+   o(S)=L o(W) alt=L own=L passer-free=True HSS code=True passer-tau=True scored-tau=True (E)=False max tempo=5 (<256: True)
+   component W: a2 b3 / B: a5 b4 0 tau_P ['B', 'W'] tau_scored ['B', 'W']
+   component W: e2 / B: e5 ↑ tau_P [] tau_scored []
+flag-free: Board(files=5, ranks=7, wrap=False, ep=True) W: a2 b3 d2 / B: a5 b4 d4
+   o(S)=N o(W) alt=N own=N passer-free=True HSS code=True passer-tau=True scored-tau=True (E)=False max tempo=4 (<256: True)
+   component W: a2 b3 / B: a5 b4 0 tau_P ['B', 'W'] tau_scored ['B', 'W']
+   component W: d2 / B: d4 * tau_P [] tau_scored []
+flag-free: Board(files=5, ranks=7, wrap=False, ep=True) W: a2 b3 e3 / B: a5 b4 e5
+   o(S)=N o(W) alt=N own=N passer-free=True HSS code=True passer-tau=True scored-tau=True (E)=False max tempo=4 (<256: True)
+   component W: a2 b3 / B: a5 b4 0 tau_P ['B', 'W'] tau_scored ['B', 'W']
+   component W: e3 / B: e5 * tau_P [] tau_scored []

@@ -39,6 +39,12 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
 - [x] Promotion convention, order of operations in S, threats in any order, passer-free root for 1.11(c),
       Theorem 1.14 per side to move (16 refereed edits after Codex T81)
 
+- [x] Theorem 2.7 timing clause corrected after Codex T83 (39e19a98)
+- [x] Codex blind proofs: Theorem 3.4 (K51), Proposition 2.10(a) (K53); Codex read of 1.11(c) and 1.14 (K52)
+- [x] 1.11(c) proof replaced (quiet-move argument), (E) shown necessary, τ_P, 1.14(i) pre-event root (29 refereed edits)
+- [ ] Codex read of the new 1.11(c) proof text, the repaired 2.7 and Lemma 2.6a (K54)
+- [ ] Lemma 2.6a: the checker's `--ctx` argument written into LOOPY
+
 ## Paper support (the main session owns `paper/` and `dist/`)
 
 - [x] King claims of Sections IV, V, the conclusion and S12 audited: 14 fixes sent and applied

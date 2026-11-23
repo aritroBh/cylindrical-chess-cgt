@@ -1,0 +1,147 @@
+K52 integration (K51 + K52 Codex reports on kings/theory/LOOPY.md), 2026-11-23
+==============================================================================
+Scripts (run from the repo root, PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. .venv/bin/python ...; each runs in seconds):
+  verify.py -> verify.out                   named positions; own reach, (E), stopped tempo counts, tau_P / scored tau,
+                                            and a second whole-board minimax `wb` (built on pawns.moves/passed only)
+  witness_settings.py -> witness_settings.out  both no-(E) witnesses x {e.p.-aware, textbook} x {count, mover, opponent}
+  flagfree_probe.py -> flagfree_probe.out   flag-free predecessors of the witnesses
+cylcgt and lemmas are imported read-only. LOOPY.md was not edited. Edits: EDITS.md (26 edits).
+apply_edits.py on a copy (md5 c5a83e4f..., 4010 lines): 26 applied, 0 rejected; every table row keeps its cell count.
+
+1. CLAIM-BY-CLAIM
+----------------
+K51 (Theorem 3.4)
+ - "So Left's winning moves are always G-moves" FALSE: CONFIRMED by hand. X={x}, L(x)={⊕}, R(x)=∅, dud_D.
+   (x,L): White passes to (x,R); Black's only option is the pass (no G-option), back to (x,L); White takes ⊕.
+   The pass is a winning move. The stage argument shows only that the first stage at which (x,L) is won is never
+   established by the pass, i.e. some winning G-move exists. Same overstatement in the Lemma B title ("never
+   passes") and its pointer sentence (LOOPY ~2192, ~2196); Lemma B's statement itself is correct.
+ - Theorem 3.4 holds: not re-derived beyond that step; the rest of the step table matches LOOPY's proof. The
+   22,522,464-comparison count is K51's (CHECKED-2 as K51 labels it, two solvers written for the check); not re-run.
+
+K52 (Theorems 1.11(c), 1.14)
+ - 1.11(c) true with its hypotheses: CONFIRMED (quiet-move proof re-derived, section 2).
+ - Tempo GAP ("charging every subsequent opponent move to the stopped M"; "its moves are moves of D" as one
+   continuing D-play): CONFIRMED. After a freeze in one daughter, the stopped count of the parent stops; the
+   opponent continues in a sister. Nothing in the printed proof bounds that.
+ - "a race needs both threats" FALSE under scored tau: CONFIRMED (true for tau_P, which is what the code computes).
+ - scored tau = common.threats FALSE: CONFIRMED. flat 8x8 W b2 d6 / B c7: tau_P = {W,B}, scored tau = {W},
+   common.threats = {+1,-1} (verify.out §6).
+ - "M(Y) <= M(X)" for re-split Y FALSE: CONFIRMED. flat 5x6 e.p. off W a2 a3 c2 d2 d3 e3 / B a4 b3 d4: one component,
+   stopped M_Black = 1; after c2xb3 two daughters with M_Black = 1 each (each daughter's only Black move is a capture
+   giving White a passer). Own tempo code. COMPUTED-1.
+ - No-(E) counterexample 1: CONFIRMED, by hand and engine (see section 4 for the exact setting).
+   o(S)=R, o(W)=N (alt_outcome and own minimax), passer-free root and predecessor, HSS (code, tau_P, scored), max
+   stopped tempo 2 < 256, (E) FALSE at the root (two components, usable right).
+ - No-(E) counterexample 2 (Black to move): CONFIRMED, COMPUTED-1 (not hand-checked in full). W a4 b2 b3 e2 e4 /
+   B a5 b4 b6 e6, right on a3: o(S)=N (a/b = -1, e = 3/2±1/2 = {2|1}), o(W)=L, HSS true, (E) false, max tempo 8.
+   Holds under both passed tests and all three race rules.
+ - (HSS) necessity, flat 5x6 e.p. off W a4 d4 / B b5 e5: CONFIRMED by hand and engine: o(S)=P, o(W)=N, HSS false,
+   (E) true, passer-free. Minor wording slip in K52 ("every move is terminal": true, but pushes give races; the
+   value {B|-B} is independent of how they score).
+ - (B) necessity: CONFIRMED. B=1 by hand ({1|-1} - 2 is R; cgt check verify.out §4). B=256 version on flat 4x263,
+   W a4 d2 / B b5 d3 d261: o(S)=R, o(W)=N, HSS true, M_Black(d-file)=257 (COMPUTED-1). On <= 8x8, (B) is automatic
+   (packing bound 168 < 256): CONFIRMED by hand.
+ - GAP in "general states of S" (spending a token gives B-1, not ±B): CONFIRMED (trivially).
+ - "defined on every board height" too wide: CONFIRMED. W a2 / B h7 flat 8x8: both passed, value 0. A one-component
+   race root raises RaceError in pawns._value (verify.out §5: W b2 / B d6 passed to _value directly; via value()
+   a two-component root returns 0, a one-component root raises: flat 8x8 W a5 / B b4,
+   value() -> RaceError, checked by a one-line call).
+ - 1.14(i) already-credited root: CONFIRMED by hand. cyl 8x6 Ka1 ka6 Pc2 Pd4 pd3, Black to move: d4 passed, d3 blocked
+   by c2 => D credits White. d3-d2, then d2-d1 promotes; in between White cannot promote (d4-d5 only reaches rank 5),
+   cannot capture d2 (c2 attacks b3/d3), and its king (a1) cannot reach d1 or d2. Black wins P. Consistent with
+   LOOPY P11 row ("White win in W(X), (L,L) in --frozen").
+ - 1.14(ii), (iii) and later uses sound per starter: not re-audited beyond (iii). (iii) "tautology" FALSE: CONFIRMED
+   ((A_Q) is one-way; (i) supplies the winner). Line ~347 "--frozen computes P" contradicts Definition 1.5 (~294):
+   CONFIRMED (in-file contradiction).
+ - Census 10,960 roots, 32,880 comparisons, 0 disagreements, failing-(E) stratum empty: NOT RE-RUN (K52's
+   COMPUTED-1). Its hand explanation of the empty failing-(E) stratum (usable right needs >= 3 pawns in a passer-free
+   component, a second passer-free component needs 2 more) is correct.
+
+2. THE QUIET-MOVE PROOF (re-derived; full text in EDITS.md EDIT 12)
+-------------------------------------------------------------------
+Verdict: COMPLETE AND CORRECT, with one addition I made explicit. Codex's sketch proves the quiet-move count; it says
+"every other Black move freezes a component and supplies a fresh +B" without arguing the sign. The sign needs the same
+projection argument (my step 3): if a freeze were credited to Black, the projected D-position P' of C would have a
+Black passer (other daughters can only add Black passers through dropped White-owned rights), hence be credited to
+Black under every race rule (extra Black passers only shorten Black's distance; mover rules: mover is Black in both),
+giving - in tau(C) for tau_P and scored tau alike, against (HSS). With that, steps:
+ (0) at Y: + in tau(Z); (HSS) => no C in Y'' has -; (B) at Y => sum_{C in Y''} M_R(C) < B; (E) at Y (Y has >= 2
+     components when Y'' is non-empty) => all rights inert, and an inert right also never protects a pawn from the
+     passed test (both need the same adjacent enemy pawn) and stays inert while its component is unplayed.
+ (1) projected quiet moves are legal in the single global-right D-game of C (file locality; captures only land on
+     occupied files; no move uses a right).
+ (2) no projected position is terminal: first terminal would have Black passers only (only Black double-step rights
+     are dropped by D but kept by F), reached by a Black move => - in tau(C). Contradiction.
+ (3) freezes are +B (above).
+ (4) count: q <= sum M_R(C) <= B-1; tokens >= (B-q) + f(B-1) >= 1 at each White turn; finite play; Black runs out.
+Needs: any-order tau and M (the projected play is Black-only) - YES, needed; stopping at the first terminal - fine,
+since the projection passes no terminal before its last step; (B) exactly as LOOPY states it (at every Y, used at the
+pre-freeze Y). It does not need the daughter-inheritance argument or M(Y) <= M(X). No hole found.
+
+N(X) alternative (coordinator question (a)). N(X) = most moves of one side in any finite legal sequence from X,
+any order, continuing past passers.
+ - Under (E): B > N(X) implies (B). At reachable Y, prefix X->Y then concatenate the longest stopped sequences of the
+   components of Y (legal by file locality; rights inert by (E), play past passers allowed in N): sum M <= N(X).
+ - Converse fails: stopped counts end at the first passer; N continues to the last rank (and N is a root quantity,
+   while (B) is per Y). So (B) is the weaker hypothesis; the quiet-move proof needs only (B).
+ - The N(X) argument (paper appendix s12a_core.tex A.6) is CORRECT for the count: Black's post-frontier moves,
+   freezing ones included, appended to the X->Y prefix, are a legal whole-board sequence, so fewer than B; tokens
+   >= B(1+f) - (q+f) >= 1. It still needs a separate argument that later stacks are +B (step 3 above, or the
+   daughter-inheritance argument printed in LOOPY after the s12a referee, which K52 calls sound). If A.6 does not
+   argue the sign of later freezes, that is a gap there too - I did not read the appendix text.
+ - On boards up to 8x8, N(X) <= 8(1+...+6) = 168 < 256, so both bounds are automatic there.
+ Mentioned in LOOPY as an alternative (EDIT 12, last bullet).
+
+3. TAU DECISION
+---------------
+Keep tau of Definition 1.10 (abstract, scored: options into ⊕/⊖ by either player) for 1.11(b) and abstract D-games.
+Add tau_P for pawn positions: + iff some any-order-reachable position (not past a passer, root included) has a White
+passer; - likewise; a race gives both. tau ⊆ tau_P (credited side has a passer); strict at W b2 d6 / B c7.
+(HSS) of 1.11(c) and (V4) of 1.14 are stated with tau_P, so they are exactly lemmas/common.py hereditarily_safe
+(threats = tau_P). The proof uses only the credited sign, so the theorem also holds with scored tau (a weaker
+hypothesis) - stated in EDIT 9. Changes: Def 1.10 bullet (EDIT 7; the false "this is what threats computes" goes),
+(HSS) (EDIT 9), (V4) (EDIT 16), the race sentence in the induction (EDIT 14).
+
+4. EXACT SETTING OF THE NO-(E) WITNESS (coordinator question (b))
+-----------------------------------------------------------------
+Board(5, 7, False, True) = flat 5 files x 7 ranks, e.p. on. Root X = Pos(white={a4,b3,e2}, black={a5,b4,e4},
+ep=((0,3),(0,4),"B")) i.e. Black may capture a4 e.p. on a3, after White's a2-a4 from W a2 b3 e2 / B a5 b4 e4
+(passer-free). BIG = 256 (cylcgt), but the hand proof holds for every B >= 1: S = -B-1 + *.
+Calls: pawns.RACE_RULE = rule; pawns.PASSED_RESPECTS_EP = ep_aware; pawns._value.cache_clear();
+  cgt.outcome(pawns.value(board, X)) -> 'R';  common.alt_outcome(board, X, rule) -> 'N'; also own minimax 'N'.
+Holds under ep_aware True and False, and under count, mover, opponent (no race occurs anywhere in S: race_hits 0).
+Disagreeing entry: White to move (S: Black wins; whole board: White wins by e2-e3, after which Black has no move).
+Black-to-move entries agree (Black wins by b4xa3 e.p.). White to move right after its own double step is not a chess
+turn. Witness 2 (W a4 b2 b3 e2 e4 / B a5 b4 b6 e6, same right) disagrees on Black to move (chess turn): S Black
+wins, whole board White wins; under both tests and all three rules (with the textbook test S meets 2 races; still
+N vs L). COMPUTED-1 for witness 2.
+
+5. EDITS (EDITS.md)
+-------------------
+ 1 status T1.11(c): OPEN -> FALSE without (E); tempo GAP -> PROVED after repair; K52 Codex read recorded
+ 2 status T1.14(i): pre-event root; K52 recorded      3 status T1.14(iii): not a tautology; K52 recorded
+ 4 status T3.4: K51 blind proof, sentence replaced    5 "defined on every board height" restricted
+ 6 (A_Q) settled-by: --frozen computes F, not P       7 Def 1.10: tau_P defined, false equality removed
+ 8 1.11(c) label                                      9 (HSS) with tau_P
+10 (E): "OPEN" replaced by the counterexample (hand proof, settings), flag-free-root question left OPEN
+11 unfolding of S: stacks B-1 etc.                   12 frontier step replaced by the quiet-move proof (+ N(X) note)
+13 induction: withdraw "its moves are moves of D ..." 14 terminal child: drop M(Y)<=M(X) and race sentence
+15 necessity paragraph for (E), (HSS), (B)           16 (V4) with tau_P
+17 1.14(i) pre-event root + counterexample           18-19 1.14(iii) statement and proof
+20 summary row T1.14                                 21 Prop 1.15(b) conjecture bounded by the counterexample
+22 (V1a) table row (E) clause                         23 §7 en passant item
+24 Theorem 3.4(a) proof sentence                      25-26 Lemma B title and pointer
+
+6. UNSETTLED
+------------
+ - Whether (E) can be dropped at roots without a right (failing only later): OPEN. Flag-free predecessors of both
+   witnesses agree (flagfree_probe.out); K52 census had no failing-(E) root. Recorded as OPEN in EDIT 10.
+ - Witness 2 is COMPUTED-1 only (no full hand check).
+ - Census (32,880) and K51's 22.5M comparisons not re-run here.
+ - K52's P11 row advice (state "entry for s; both entries if separately certified" when printing o(S) equality at
+   P11) not turned into an edit; the P11 rows (~115, ~2965) are long and partly already say this.
+ - The paper appendix (s12a_core.tex A.6) was not read; if its N(X) argument omits the sign of later freezes, it has
+   the same gap fixed by step 3.
+ - LOOPY.md was being edited concurrently (3964 -> 4010 lines during this task); EDITS.md was checked against the
+   4010-line version (md5 c5a83e4f7c43b521fc36568f862f8b22). Re-run apply_edits after the Theorem 2.7 edits land.

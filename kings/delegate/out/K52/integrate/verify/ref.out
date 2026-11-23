@@ -1,0 +1,23 @@
+witness1 ep_aware=True rule=count oF(B=9)=R oF(B=256)=R oD=N cylcgt_oS=R {'passer_free': True, 'HSS_tauP': True, 'HSS_scored': True, 'E': False, 'tempo_max': 2}
+witness1 ep_aware=True rule=mover oF(B=9)=R oF(B=256)=R oD=N cylcgt_oS=R {'passer_free': True, 'HSS_tauP': True, 'HSS_scored': True, 'E': False, 'tempo_max': 2}
+witness1 ep_aware=True rule=opponent oF(B=9)=R oF(B=256)=R oD=N cylcgt_oS=R {'passer_free': True, 'HSS_tauP': True, 'HSS_scored': True, 'E': False, 'tempo_max': 2}
+witness1 ep_aware=False rule=count oF(B=9)=R oF(B=256)=R oD=N cylcgt_oS=R {'passer_free': True, 'HSS_tauP': True, 'HSS_scored': True, 'E': False, 'tempo_max': 2}
+witness1 ep_aware=False rule=mover oF(B=9)=R oF(B=256)=R oD=N cylcgt_oS=R {'passer_free': True, 'HSS_tauP': True, 'HSS_scored': True, 'E': False, 'tempo_max': 2}
+witness1 ep_aware=False rule=opponent oF(B=9)=R oF(B=256)=R oD=N cylcgt_oS=R {'passer_free': True, 'HSS_tauP': True, 'HSS_scored': True, 'E': False, 'tempo_max': 2}
+witness2 ep_aware=True rule=count oF(B=9)=N oF(B=256)=N oD=L cylcgt_oS=N {'passer_free': True, 'HSS_tauP': True, 'HSS_scored': True, 'E': False, 'tempo_max': 8}
+witness2 ep_aware=True rule=mover oF(B=9)=N oF(B=256)=N oD=L cylcgt_oS=N {'passer_free': True, 'HSS_tauP': True, 'HSS_scored': True, 'E': False, 'tempo_max': 8}
+witness2 ep_aware=True rule=opponent oF(B=9)=N oF(B=256)=N oD=L cylcgt_oS=N {'passer_free': True, 'HSS_tauP': True, 'HSS_scored': True, 'E': False, 'tempo_max': 8}
+witness2 ep_aware=False rule=count oF(B=9)=N oF(B=256)=N oD=L cylcgt_oS=N {'passer_free': True, 'HSS_tauP': True, 'HSS_scored': True, 'E': False, 'tempo_max': 8}
+witness2 ep_aware=False rule=mover oF(B=9)=N oF(B=256)=N oD=L cylcgt_oS=N {'passer_free': True, 'HSS_tauP': True, 'HSS_scored': True, 'E': False, 'tempo_max': 8}
+witness2 ep_aware=False rule=opponent oF(B=9)=N oF(B=256)=N oD=L cylcgt_oS=N {'passer_free': True, 'HSS_tauP': True, 'HSS_scored': True, 'E': False, 'tempo_max': 8}
+pred w1 W a2 b3 e2 / B a5 b4 e4 passer-free True
+HSS-nec count P N {'passer_free': True, 'HSS_tauP': False, 'HSS_scored': False, 'E': True, 'tempo_max': 2}
+HSS-nec mover P N {'passer_free': True, 'HSS_tauP': False, 'HSS_scored': False, 'E': True, 'tempo_max': 2}
+HSS-nec opponent P N {'passer_free': True, 'HSS_tauP': False, 'HSS_scored': False, 'E': True, 'tempo_max': 2}
+B-nec B=1 R N {'passer_free': True, 'HSS_tauP': True, 'HSS_scored': True, 'E': True, 'tempo_max': 3}
+B-nec 4x263 B=256 oD N
+M ex: comps 1 M_B 1
+   after c2xb3 comps ['W a2 a3 b3 / B a4 M_B=1', 'W d2 d3 e3 / B d4 M_B=1'] passer-free True
+tau ex ['+', '-'] ['+']
+W: a5 / B: b4 1 comp RaceError W: a5 / B: b4
+W: a2 / B: h7 2 comp P 0
