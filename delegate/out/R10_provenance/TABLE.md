@@ -104,5 +104,25 @@ OpenCode and a local router); K1c a router's automatic pick among free models, v
 K12, K15 opencode beam-free, vendor not recorded; K2, K4, K8v, K9 NVIDIA Nemotron (via Kilo); K8, K11, K11b, K13,
 K13b, K13c, K33 to K37, K51 to K53 Codex (OpenAI); the four reviews R1 to R4 Claude.
 
-Open on 2026-11-23: K51 (Theorem 3.4, blind Codex proof), K52 (Codex read of Theorems 1.11(c) and 1.14 as they stand)
-and K53 (blind Codex proof of Proposition 2.10(a)); this section is to be updated with their verdicts.
+Verdicts of 2026-11-23 (kings session; Codex, OpenAI, model gpt-6.2-astra per the header of each CLI log):
+- K51, Theorem 3.4: statement HOLDS; blind proof written first; every step of the printed proof sound except one
+  sentence ("Left's winning moves are always G-moves"), false, replaced by "whenever Left wins on its turn, some
+  winning G-move exists". Exhaustive test: 763,440 small games, 22,522,464 comparisons, 0 disagreements.
+- K52, Theorems 1.11(c) and 1.14: statements HOLD. Gap in the printed proof of 1.11(c) (tempo step); replacement
+  argument supplied; (E) shown necessary by a counterexample; census 10,960 passer-free roots, three race rules,
+  32,880 comparisons of S with W, 0 disagreements. Theorem 1.14(i) needs "before the first decisive event" in its
+  hypothesis. Integration into LOOPY in progress on 2026-11-23.
+- K53, Proposition 2.10(a): proved blind, then every step of the printed proof SOUND; 145,444,720 context states
+  on 5 to 8 ranks, 0 failures under either passed test.
+- K11b, Proposition 2.11 with Corollary 2.11a: Codex gpt-6-luna, Steps 0 to 5 sound (2026-10-27).
+
+## E. Re-reads of the final supplement texts, 2026-11-23 (main session)
+| Text | Reader | Verdict |
+|---|---|---|
+| S12.1, A.10 to A.17 | Codex T83 | A.16 timing clause false (the reply itself can mate), corrected; win in the promotion game stands; A.14 needed the race rule; wording fixes applied |
+| S15 Note 5 (Möbius strip) | Codex T83 | sound with wording fixes, applied |
+| S12.1, A.1 to A.9 | OpenCode beam-free T85 | sound; own solver, 11,577 + 4,641 positions, 0 mismatches of W and S; one objection answered by Lemma A.4(a), one sentence added |
+| LOOPY Theorem 2.7 | kings session after T83 | same timing clause corrected (commit 39e19a98) |
+| S14, S15 Note 4 | Kilo nemotron T84k | pending |
+| S15 Notes 1 and 3 | OpenCode beam-free T86o | sound with fixes (a reading of the proofs; it recomputed only structural facts, not the graphs); one contradiction between two status sentences of Note 3 fixed |
+| S15 Note 2 | Claude Opus R11 | sound with fixes, all minor (two wrong reasons that do not affect the proof, wording); own engine written from the rules: reduced graph at n = 22 (7,968 nodes, 21,063 K-edges, zone and signature as in the note), insertion steps n = 18 to 24, whole-board signatures n = 8 to 16; a third independent program for C1 and for C2 up to n = 16 |

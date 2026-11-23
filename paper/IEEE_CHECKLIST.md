@@ -132,11 +132,22 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
   about 76 h), Cursor (out of usage), muse (billing), qwen (no login), OmniRoute free routes (upstream
   unavailable or limit reached).
   - [ ] T84k (Kilo nemotron-3-ultra): S14 and S15 Note 4 (`delegate/out/T84_kilo/`)
-  - [ ] T85 (OpenCode beam-free): S12.1 A.1 to A.9, sum safety, with its own small search (`delegate/out/T85_opencode/`)
-  - [ ] T85k (Kilo flint): the same text, second free model (`delegate/out/T85_kilo/`)
-  - [ ] T86 (Kilo openrouter/free): S15 Notes 1 and 3 (`delegate/out/T86_kilo/`)
+  - [x] T85 (OpenCode beam-free): S12.1 A.1 to A.9, sum safety. Verdict SOUND WITH FIXES. Its own solver:
+    11,577 positions under the hypotheses (3 to 5 files, 5 or 6 ranks, at most 4 pawns, e.p.-aware), 0 mismatches
+    between W and S; 4,641 more with the opponent race rule, 0. Its one major point (older e.p. rights kept in a
+    sum) is already handled by the proof (Lemma A.4(a) drops the unusable right at each step); one sentence added
+    to say so. A claim that Reach(X) is alternating play is wrong (line 111: any order). (`delegate/out/T85_opencode/`)
+  - [x] T85k (Kilo flint): exited without a report (the model stopped after reading); not counted
+  - [x] T86 (Kilo openrouter/free): exited without a report; rerun as T86o on OpenCode beam-free: Notes 1 and 3
+    sound with fixes. It read the proofs and recomputed only structural facts (pawn counts, insertion of the
+    roots, cuts, zones), not the graphs. Accepted: Note 3's scope sentence contradicted the status line I had
+    updated (fix: both now record the Codex referee T63); an undefined family letter in Note 1; a missing pointer
+    for Q_n. Not accepted: its weaker wording for T63 (Codex did check the hand proof) and a point about program
+    D that the note already discloses (`delegate/out/T86_opencode/`)
 - [ ] T84 (Codex, after T83): re-read the FINAL text of S14 and S15 Note 4
-- [ ] R11 (Opus): independent referee of the FINAL text of S15 Note 2 (the *3 with n+2 pawns, even n)
+- [x] R11 (Opus): independent referee of the FINAL text of S15 Note 2 (the *3 with n+2 pawns, even n): sound with
+  fixes, all minor; its own engine reproduced the base graph (7,968 nodes) and the small widths
+  (`delegate/out/R11_note2_referee/`). Fixes applied (Sonnet), reviewed, rebuilt
 - [ ] Kings session asked for the checker record of its theorems and an other-vendor check of Theorem 3.4
 - [x] R12a: wording the record does not support: Section XIII now "programs ran the ring base cases" (a longer
   wording costs a page in the named build), acknowledgment "wrote and checked the proofs", Note 3's status line

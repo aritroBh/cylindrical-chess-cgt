@@ -28,7 +28,7 @@ Files: A = `tog.pdf` (named), B = `tog_review.pdf` (anonymous), C = `supplement.
 | Keywords | (empty) | (empty) | (empty) | (empty) |
 | Creator / Producer | LaTeX with hyperref / xdvipdfmx (0.1) | same | same | same |
 | Metadata stream (XMP) | no | no | no | no |
-| File size (bytes) | 261098 | 260516 | 764417 | 764200 |
+| File size (bytes) | 261099 | 260516 | 765569 | 765345 |
 
 Evidence: `Page size: 612 x 792 pts (letter)` on all four; B `pdfinfo` has no `Author:` line; D has no `Author:` line. Result: PASS. The paper is 10 pages including references, at the ToG limit. Subject and Keywords are empty in all four; ToG does not ask for them in the PDF (not verified), so this is not a failure. The supplements carry no Title field; optional.
 
