@@ -3,7 +3,7 @@
 Aritro Bhattacharjee
 
 **Paper:** [paper/Bhattacharjee_Cylinder_Chess_IEEE.pdf](paper/Bhattacharjee_Cylinder_Chess_IEEE.pdf) (IEEE
-format, 15 pages). Source: [paper/ieee/](paper/ieee/). An arXiv-ready package is built by `bash dist/arxiv/build.sh`.
+format, 16 pages). Source: [paper/ieee/](paper/ieee/). An arXiv-ready package is built by `bash dist/arxiv/build.sh`.
 
 Cylinder chess joins the a-file to the h-file, so the board has no side edges or corners. This repository studies
 its king-and-pawn endgames with combinatorial game theory (CGT), following Elkies: a passed pawn wins, and the kings
