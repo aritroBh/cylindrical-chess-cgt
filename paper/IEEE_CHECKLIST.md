@@ -160,7 +160,12 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
     updated (fix: both now record the Codex referee T63); an undefined family letter in Note 1; a missing pointer
     for Q_n. Not accepted: its weaker wording for T63 (Codex did check the hand proof) and a point about program
     D that the note already discloses (`delegate/out/T86_opencode/`)
-- [ ] T84 (Codex, after T83): re-read the FINAL text of S14 and S15 Note 4
+- [x] T84 (Codex): re-read the FINAL text of S14 and S15 Note 4: both SOUND WITH FIXES, no blocker; theorems stand.
+  Corrected: M_10's reduced graph is an exception to the stable counts (465 nodes, not 441); a claim about failing
+  control cuts for O; a colour-reversal argument that assumed its conclusion; "=" should be the restricted outcome
+  test (and Codex shows it does give equality with the nimber); who computed what. Its own program recomputed all
+  four base graphs (441, 2,132, 1,305, 40,445 nodes), the fixed-cut steps and every small width
+  (`delegate/out/T84/`). Fixes applied (Sonnet), reviewed, two leftover sentences reconciled; rebuilt
 - [x] R11 (Opus): independent referee of the FINAL text of S15 Note 2 (the *3 with n+2 pawns, even n): sound with
   fixes, all minor; its own engine reproduced the base graph (7,968 nodes) and the small widths
   (`delegate/out/R11_note2_referee/`). Fixes applied (Sonnet), reviewed, rebuilt

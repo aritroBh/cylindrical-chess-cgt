@@ -6,8 +6,8 @@ Root: `dist/tog/`
 
 | ScholarOne slot | File (full path) | Bytes | Pages | SHA-256 | Status |
 |---|---|---|---|---|---|
-| Main document for review | `dist/tog/tog_review.pdf` | 260599 | 10 | `f491c371d531106131a8de777241b2f8baffeeea335fb059ed7ea00f1c814475` | Placeholder link; rebuild first |
-| Supplementary material | `dist/tog/supplement_review.pdf` | 823417 | 106 | `efab418488280dfa077ea4ed119f316d1f36d7e7d167dd49fb0b8f38e121b9f6` | Placeholder link; rebuild first |
+| Main document for review | `dist/tog/tog_review.pdf` | 260599 | 10 | `bba368f2ae75c32b4f22c9cc8648c2e81e4ca4341ad3568bf1525b7d7f731570` | Placeholder link; rebuild first |
+| Supplementary material | `dist/tog/supplement_review.pdf` | 829585 | 106 | `c6ba0346000645ac8f96bf567e90269cd07b0e81a0cf0c16c06ee32bc11ff98f` | Placeholder link; rebuild first |
 | Sources (only if asked) | LaTeX sources of the anonymous build: `tog_review.tex`, `tog.tex`, `macros.tex`, `refs.bib`, `sections/`, `figures/` | not computed | n/a | not computed | Author must confirm that ScholarOne asks for sources at review stage (not verified). If sent, they must be anonymous: `tog.tex` contains the author name and the GitHub URL inside the `\else` branches, so do not send sources for review without stripping them. |
 | Cover letter | `dist/tog/submission/cover_letter.md` (paste text, or export to PDF) | n/a | 1 | n/a | Needs the anonymous link and author checks |
 
@@ -15,7 +15,7 @@ Do not upload (named versions, kept for after acceptance):
 
 | File | Bytes | Pages | SHA-256 |
 |---|---|---|---|
-| `dist/tog/tog.pdf` | 261176 | 10 | `9e2ffdf60803dd8517061449c8a9dc6c9e2668e36bbd87f04858e864453a1881` |
-| `dist/tog/supplement.pdf` | 823758 | 106 | `45e7b0376d4ed8d1437d3a8948eb2407565fd275a18fb8a3cb66f3222543e0bc` |
+| `dist/tog/tog.pdf` | 261176 | 10 | `f1b734d12594a6e5e67e2d9b936c1482fb16f6cb7d329e399de5d4b911c2067d` |
+| `dist/tog/supplement.pdf` | 829908 | 106 | `796141aa6767e3133b3aaafe72cbaa9252e673cc66166aa3b19c752ba3809587` |
 
 Maximum upload size per file in ScholarOne for ToG: not verified.

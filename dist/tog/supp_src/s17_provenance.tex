@@ -77,8 +77,8 @@ whole-board solvers up to $n=10$ and by the verifier's engine up to $n=61$.\\
 One pawn per file, $n\ge10$; S14 &
 Open model run through OpenCode; vendor not recorded &
 Nemotron via Kilo (cannot be compared, writer's vendor not recorded): sound with fixes. Codex (same): sound, conditional on
-Lemmas 1--3 and the finite base checks. The fixes were applied by Claude. Final text read by an open model run through OpenCode (vendor not recorded): sound; its own program rebuilt the even family's base graph and the smallest member of each family. &
-Four independently written programs: two Claude-written, two Codex-written.\\
+Lemmas 1--3 and the finite base checks. The fixes were applied by Claude. Final text read by an open model run through OpenCode (vendor not recorded): sound; its own program rebuilt the even family's base graph and the smallest member of each family. Final text then re-read by Codex: sound with fixes; sentences that misreported finite data or gave a wrong reason were corrected, the theorem unchanged; its own program recomputed the base graphs of both families and the small widths. &
+Four programs: two Claude-written and two Codex-written. The two Codex programs share part of their move generation and count as one implementation.\\
 \addlinespace
 Note 1: $n+2$ pawns, even $n\ge8$, value $\nim{2}$; S15 &
 Claude (Anthropic) &
@@ -101,7 +101,7 @@ Six Claude-written programs and one Codex program.\\
 Note 4: $n+1$ pawns, $n\ge12$, value $\nim{3}$; S15 &
 Open model run through OpenCode; vendor not recorded &
 Nemotron via Kilo (writer's vendor not recorded): sound with fixes. Codex (same): sound with fixes for the nim-heap
-claim. The fixes were applied by Claude. Final text read by an open model run through OpenCode (vendor not recorded): sound; its own program rebuilt the base graph of one family and the smallest member of each. &
+claim. The fixes were applied by Claude. Final text read by an open model run through OpenCode (vendor not recorded): sound; its own program rebuilt the base graph of one family and the smallest member of each. Final text then re-read by Codex: sound with fixes; sentences that misreported finite data or gave a wrong reason were corrected, the theorem unchanged; its own program recomputed the base graphs of both families and the small widths. &
 Two Claude-written programs and one Codex program for the base cases; the smaller $n$ by the Codex program.\\
 \addlinespace
 Note 5: M\"obius strip, $\nim{2}$ with one pawn per file, $\ge10$ files; S15 &
