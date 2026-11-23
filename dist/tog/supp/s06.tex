@@ -116,3 +116,40 @@ $\nim{4}$ core.
 
 In the model, then, the $\nim{2}$ question has a positive answer on the ordinary $8\times8$ board: four files
 and seven pawns beside T suffice, while Elkies' higher nimbers need larger boards~\cite{Elkies2002}.
+
+\subsection{Rings on the M\"obius Strip}
+The strip joins the first and last files with the ranks reversed: square $(n,r)$ is beside $(1,9-r)$. Every pawn
+has a direction; white pawns start moving up and black pawns down, and a capture across the seam lands on the
+mirrored rank and reverses the direction of the capturing pawn. Double step and promotion follow the direction.
+A pawn is passed if no enemy pawn is strictly ahead of it, in its own direction, on its file or a neighboring
+file, the seam neighbor being read in mirrored ranks; a pawn that can be taken en passant is not passed. The
+whole-board game with the count rule is otherwise that of Section~\ref{sec:star2-rings}. A root ring has a pawn
+on every file, no passed pawn and all pawns in their starting directions; rotating the strip does not preserve
+this, so rings that differ by a rotation are counted separately.
+
+Table~\ref{tab:mobring} gives the least number of pawns in a root ring $\nim{2}$ and one such ring for each $n$,
+in ring notation: one entry per file from the first to the last, the seam lying between the last and the first.
+All root rings were scanned for $n=3$ with $3$ to $10$ pawns, $n=4$ with $4$ to $9$, $n=5$ and $6$ with $n$ to
+$9$, $n=7$ with $7$ and $8$, and $n=8$ with $8$ (two programs by one author agree on every ring). A third
+program, written independently from the rules alone, agrees on the eight rings named here, on the number of
+root rings, and on the number of $\nim{2}$ rings in every scan up to the least for $n=3,4,5,6,8$ and with seven
+pawns for $n=7$ \lab{C2}. Two nine-pawn rings are $\nim{3}$: B67 W4 W2B6 W2B5 W5B7 on five files and
+B7 W4 W23 B5 W3B7 W4B7 on six \lab{C2}.
+
+\begin{table}[!htbp]
+\centering
+\caption{Least number of pawns in a root ring $\nim{2}$ on the M\"obius strip and on the cylinder.}
+\label{tab:mobring}
+\begin{tabular}{@{}cccl@{}}
+\toprule
+$n$ & strip & cylinder & a least ring on the strip\\
+\midrule
+3 & 6 & 6 & W3B6 W2B7 W4B5\\
+4 & 8 & 7 & B5 W23 W2B67 W4B7\\
+5 & 6 & 8 & B6 W3 B5 W2 W3B7\\
+6 & 8 & 9 & B4 W2 W2 W2B6 B5 W3B7\\
+7 & 8 & 10 & B6 W2 W3 B6 B7 W3 W6B7\\
+8 & 8 & 10 & B7 W3 W3 B6 W3 B6 B6 W2\\
+\bottomrule
+\end{tabular}
+\end{table}

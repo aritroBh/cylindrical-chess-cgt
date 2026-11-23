@@ -434,8 +434,9 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   Neither program has a bug: the roots are not hereditarily sum-safe. Smallest witness `W a3 e2 / B b4 d3 e3`. Under
   the count rule both are ★2 in both models.
 - **Pawn rings on the Moebius strip 2026-11-22** (`research/mobius_rings/REPORT.md`; two solvers by one agent agree
-  on every ring, the older `research/mobius/mob_pawns.py` confirms 51 of the 66 hits; independent Codex check T77
-  running, so C1 until it reports). Whole-board game, 8 ranks, count rule, e.p.-aware; a capture across the seam
+  on every ring, the older `research/mobius/mob_pawns.py` confirms 51 of the 66 hits; **CHECKED-2**: Codex's
+  independent solver T77, `research/mobius_rings_check/`, agrees on the eight example rings, the ring counts and
+  every scan below the least). Whole-board game, 8 ranks, count rule, e.p.-aware; a capture across the seam
   flips rank and direction.
   - Least pawns in a root ring \*2: 6, 8, 6, 8, 8, 8 for n = 3..8 (cylinder: 6, 7, 8, 9, 10, 10). Lower than the
     cylinder for n = 5..8, higher at n = 4. At n = 8 it is n, the fewest a ring can have (cylinder: only from n = 10).

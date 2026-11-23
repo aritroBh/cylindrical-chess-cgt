@@ -177,5 +177,15 @@ in the default setting, nor has any of about $24$ million rings, most with at mo
 cores between walls, whenever it is a nimber, is the nim-sum of its cores \lab{C1}, so a $\nim{4}$ needs a
 $\nim{4}$ core.
 
+\emph{Rings on the M\"obius strip.} Join the first and last files with the ranks reversed
+(Section~\ref{sec:tb}), so that a pawn capturing across the seam lands on the mirrored rank and then moves the
+other way. Take rings in which every pawn still moves in its own color's direction. The least number of pawns in
+a ring $\nim{2}$ becomes $6, 8, 6, 8, 8, 8$ for $n=3,\dots,8$ files, against $6, 7, 8, 9, 10, 10$ on the
+cylinder: two programs written independently agree on every example and on every exhaustive scan below the
+least \lab{C2}. With six pawns, \pos{W a3 b2 c4 / B a6 b7 c5} on three files and \pos{W b3 d2 e3 / B a6 c5 e7}
+on five are $\nim{2}$; on eight files \pos{W b3 c3 e3 h2 / B a7 d6 f6 g6} is $\nim{2}$ with one pawn per file,
+which the cylinder allows only from ten files on. On five files the nine-pawn ring \pos{W b4 c2 d2 e5 / B a6 a7
+c6 d5 e7} is $\nim{3}$ \lab{C2}, while $\cyl{5}$ has no $\nim{3}$ ring with nine pawns or fewer \lab{C1}.
+
 In the model, then, the $\nim{2}$ question has a positive answer on the ordinary $8\times8$ board: four files
 and seven pawns beside T suffice, while Elkies' higher nimbers need larger boards~\cite{Elkies2002}.

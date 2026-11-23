@@ -36,7 +36,8 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
   solved in both models (n <= 11); confirms the text, no change needed
 - [x] How often sum and whole board differ, by race rule (`research/sum_whole_census/`): 599,098 positions; never
   when hereditarily sum-safe, 19.3% of the rest; in Section V of both versions
-- [~] New: pawn rings on the Möbius strip, least *2 (`research/mobius_rings/`)
+- [x] New: pawn rings on the Möbius strip (`research/mobius_rings/`, checked by Codex in `research/mobius_rings_check/`):
+  least *2 is 6, 8, 6, 8, 8, 8 for n = 3..8; in Section VIII of both versions and Section S6 of the supplement
 - [ ] Seven-pawn *2 in real chess: the 9-man end positions (waits for memory)
 
 ## Figures
