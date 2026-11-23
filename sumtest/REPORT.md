@@ -99,6 +99,8 @@ Board: 4 files, flat, 8 ranks. Reference order: 0 * *2 *3 up down up* dup* 1/2 -
 | e.p. on, textbook test (whole or comp, local or global scope) | 165,585 | 2,483,775 | 0 | 0 |
 | e.p. on, e.p.-aware test | 165,585 | 2,483,775 | 13,176 | 109,157 |
 
+(Note added 2026-11-23: this row compares the solver's e.p.-aware variant with the engine as it was then, which used the textbook test. The engine's default is now e.p.-aware; the rerun with both sides e.p.-aware is in `research/sumtest_epaware_rerun/`.)
+
 **Cause of all 13,176 disagreements: the e.p. passer convention.**
 - Switching only the passer test to textbook removes every one of them.
 - All of them are `sum_safe` = True.

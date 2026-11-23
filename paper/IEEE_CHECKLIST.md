@@ -36,6 +36,12 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 - [x] King-claim audit by the kings session, 14 fixes applied: the certificate now needs the defender not to be
   stalemated; trébuchet zero stated as 'when alone'; Puzzle 2 on the cylinder is C2; supplement S12 brought up to date
 - [x] Long version: broken cross-reference in the conclusion fixed (it printed ??)
+- [x] Third referee report (kings session, `paper-referee-2026-11-22.md` in the shared notes): applied the square-rule
+  scope (52 repairs hold with frozen kings, 31 with real kings; the rule is not sound on every board), six settings
+  not nine in Section VI, the abstract's wording on frozen kings (199 words), a caption label and three stale report
+  headers. Running: a recorded rerun of the sum cross-check under the e.p.-aware test, and random-move baselines for
+  the engine section. Open, need space or an author decision: missing prior-work references (Thompson 1986, Syzygy,
+  fairy-chess generators, CGSuite, Tomašev et al.), a self-contained rewrite of supplement S12
 - [x] Supplement S3.4 added: the census table by rule and test, and the 19-row table of the real-king sum test; 81 pages
 - [x] Submission package (`dist/tog/submission/`): cover letter, ScholarOne fields, upload table, steps for the author.
   PDF checks pass on all four files: US Letter, every font embedded, no Type 3 fonts, no raster images, no author

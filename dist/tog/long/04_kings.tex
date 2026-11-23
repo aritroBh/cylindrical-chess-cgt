@@ -162,7 +162,7 @@ the kings alone, $18$ through en passant and $34$ because a passed pawn does not
 $159$ are on the seven-file cylinder. The e.p.-aware test repairs the $18$ e.p.\ failures, but the kings undo $13$ of these repairs. On the ordinary $8\times8$ board, in $94$ positions beside a tr\'ebuchet checked against the tablebase, the
 convention says all $449$ king moves lose, yet $41$ draw and $7$ win \lab{C1}. The $34$ race failures have one cause: a blocked
 enemy pawn steps level with its blocker and promotes first. Ending the game only at a passer that wins the
-race by the square rule removes all $52$ convention failures and leaves $128$ mismatches, all from the
-kings \lab{C1}. Of the $2{,}154$ $8\times8$ positions beside a tr\'ebuchet whose real results we know, $105$ are
+race by the square rule removes all $52$ convention failures with frozen kings; with real kings $31$ stay repaired, which leaves $128$ mismatches, all from the
+kings \lab{C1}. The rule is not sound on every board: on three files, \pos{W a4 b6 / B c7} with black to move passes it, yet black wins. Of the $2{,}154$ $8\times8$ positions beside a tr\'ebuchet whose real results we know, $105$ are
 draws; in the other $2{,}049$ the model names the winner in $92.5\%$, against $83\%$ and $84\%$ under the mover
 and opponent rules \lab{C1}. These positions are the ones our other runs solved, not a sample of a defined class.

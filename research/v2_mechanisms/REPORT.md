@@ -17,7 +17,7 @@ Output folder: `research/v2_mechanisms/`. All numbers are on the 7x6 cylinder sw
    No component that matched before mismatches after (341 matches stay matches).
 3. **The other 21 of the 52 are not repaired in real chess, because free kings change the result as well (8 of the 34 rows, 13 of the 18 e.p. rows).**
    After CC every remaining mismatch is a king effect (frozen = CC, real differs): 128 of 128. The real-chess mechanism of the 8 step-past rows with a king overlay is **not diagnosed** (cap 1 bounds are uninformative; cap 2 does not fit, section 6).
-4. **The test is sound, checked exhaustively.** The square rule S certified a false passer in 0 of 158,544 (position, side-to-move, e.p.) cases on 2-3 files and 6-8 ranks,
+4. **(Superseded 2026-11: the test is NOT sound in general. Counterexample on a flat 3x8 board, `W: a4 b6 / B: c7`, Black to move; see supplement S16. The check below covered only one-sided runners of the stated kind.)** **The test is sound, checked exhaustively.** The square rule S certified a false passer in 0 of 158,544 (position, side-to-move, e.p.) cases on 2-3 files and 6-8 ranks,
    and in 0 of the 28 false passers of the actual sweep; it certifies 492/536 = 91.8% of the true one-sided passers (the run-the-passer search RP: 524/536 = 97.8%). The e.p.-aware passed test is required: with the textbook test S is wrong at 8 e.p. nodes.
 5. **Checks of the tools:** my Python frozen-king game agrees with `kings/kpsolve --frozen` on all 1,792 root values and all 2,932 pawn-move values (3 boards); my re-implementation of the cylcgt convention agrees with the stored cylcgt outcome on 1,792/1,792 rows (2 passed tests x 896). The 90 distinct positions on the 34 refuting lines were re-solved by kpsolve with zero disagreements.
 

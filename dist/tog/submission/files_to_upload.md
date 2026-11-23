@@ -6,8 +6,8 @@ Root: `/Users/aritro/Downloads/Research/Chessendgames/dist/tog/`
 
 | ScholarOne slot | File (full path) | Bytes | Pages | SHA-256 | Status |
 |---|---|---|---|---|---|
-| Main document for review | `/Users/aritro/Downloads/Research/Chessendgames/dist/tog/tog_review.pdf` | 259922 | 10 | `c5404899923cf1e38cc88658f32c5a37d1ce09459baedae73ce14f4b23fcb30d` | Placeholder link; rebuild first |
-| Supplementary material | `/Users/aritro/Downloads/Research/Chessendgames/dist/tog/supplement_review.pdf` | 663622 | 82 | `1462a865c1588db4aa7d257a864d7935f0523b96fa4c05fa8336965ae6b5c53a` | Placeholder link; rebuild first |
+| Main document for review | `/Users/aritro/Downloads/Research/Chessendgames/dist/tog/tog_review.pdf` | 260017 | 10 | `5762bcebb0583caabc7caeb65e730ae91fb0b5b318ff3713472d581ed9cba2e0` | Placeholder link; rebuild first |
+| Supplementary material | `/Users/aritro/Downloads/Research/Chessendgames/dist/tog/supplement_review.pdf` | 663851 | 82 | `d4fb79645ed87e41d6d8945e47639e75aa1d6e8aeed66a57c7de0b3d0f5550e0` | Placeholder link; rebuild first |
 | Sources (only if asked) | LaTeX sources of the anonymous build: `tog_review.tex`, `tog.tex`, `macros.tex`, `refs.bib`, `sections/`, `figures/` | not computed | n/a | not computed | Author must confirm that ScholarOne asks for sources at review stage (not verified). If sent, they must be anonymous: `tog.tex` contains the author name and the GitHub URL inside the `\else` branches, so do not send sources for review without stripping them. |
 | Cover letter | `/Users/aritro/Downloads/Research/Chessendgames/dist/tog/submission/cover_letter.md` (paste text, or export to PDF) | n/a | 1 | n/a | Needs the anonymous link and author checks |
 
@@ -15,7 +15,7 @@ Do not upload (named versions, kept for after acceptance):
 
 | File | Bytes | Pages | SHA-256 |
 |---|---|---|---|
-| `/Users/aritro/Downloads/Research/Chessendgames/dist/tog/tog.pdf` | 260374 | 10 | `b03ffc9ebb293baa089ccc296320333bc1920afec3a8e2192352e111e7bdd0de` |
-| `/Users/aritro/Downloads/Research/Chessendgames/dist/tog/supplement.pdf` | 663893 | 82 | `ce6075c1c82978aedb9d22e38554b059dfa3d8eaec490fd9b2ac5d6789abb51c` |
+| `/Users/aritro/Downloads/Research/Chessendgames/dist/tog/tog.pdf` | 260479 | 10 | `ec2a3d2f27fa2fe07e9c634d030658000533b68385b032284baf2cbc8cd46d7a` |
+| `/Users/aritro/Downloads/Research/Chessendgames/dist/tog/supplement.pdf` | 664117 | 82 | `c6590f3b6827a7316c75b07c8400fd82c771184616f62545b75c754708450cdb` |
 
 Maximum upload size per file in ScholarOne for ToG: not verified.

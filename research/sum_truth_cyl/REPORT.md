@@ -1,6 +1,7 @@
 # Avenue 5: explicit-king sum test on cyl:8x6, and the 56,402 K12 e.p. roots
 
 ## 5-line summary
+(Note added 2026-11-23: the first bullet describes the first attempt under a 3.6 GB limit and is superseded. The completed test, 19 pairs at up to 12 GB, is in the section "12 GB runs (2026-11-22)" below.)
 - **Real-king pair test: NOT COMPLETED.** Of 50 sampled pairs, 4 were attempted with `kpsolve --board cyl:8x6 --cap 1` (pair00, pair01, pair13, pair29); all 4 hit the 3.6 GB watchdog after 7 to 11 min with no answer (peaks 3.5 to 3.7 GB). So 0 of 50 pairs have a real-king outcome and there is no real-chess evidence for additivity yet. A 5th, all-active 10-pawn pilot was killed at 3.8 GB.
 - **Frozen-king stand-in (not real chess): the cylcgt sum matches `kpsolve --frozen` on 50/50 pairs**, under both the textbook and the e.p.-aware passed test, with `sum_safe` True on 50/50 and 0 sum (interaction) errors. This is weak: 41/50 pairs contain a passer component (decided by the passer) and the other 9 contain a locked component of value 0 (so the sum is just G + 0).
 - **Components alone, real kings, cap 1:** of the 100 component slots, 46 are exact and all 46 match the model; 54 are "undetermined" (cap-1 bounds differ). Frozen: 100/100 match.
