@@ -152,7 +152,13 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 - [x] R12a: wording the record does not support: Section XIII now "programs ran the ring base cases" (a longer
   wording costs a page in the named build), acknowledgment "wrote and checked the proofs", Note 3's status line
   (Codex T63 on record), label on the theorem of S13 ("given the computed facts C1 and C2")
-- [ ] R12b: provenance table in the supplement, after T84, R11, the free-tool reports and kings K51 to K53
+- [x] R12b: supplement Section S17 "Who Wrote and Who Checked the Proofs" (two tables, what the checks found,
+  limits), drafted by a Sonnet agent from the provenance record, reviewed and corrected. Supplement 99 pages
+- [x] Kings Theorem 2.7 repair (commit 39e19a98) ported into `s12_kings.md` (5 of 7 edits; the copy has no status rows)
+- [x] Appendix remark "(E) cannot be dropped": `W a4 b3 e2 / B a5 b4 e4` after a2-a4 on the flat 5x7 board, W = N,
+  S = R, HSS holds; hand proof, engine and a separate minimax agree in all six settings (found by Codex K52)
+- [ ] Port the kings K51/K52 repairs (Theorem 3.4 sentence, Lemma B title, 1.11(c) proof, 1.14(i) hypothesis) into
+  `s12_kings.md` once committed there; then update the S17 row and the first line of `s12_kings.md`
 - [x] R8 (Haiku): bibliography consistency check of both .bib files and the rendered reference list: 20 references,
   numbered in order of first citation, no missing key, no broken entry, both .bib files identical. No change made: the
   DOIs it called duplicated are printed from the note field (the style does not print the doi field)

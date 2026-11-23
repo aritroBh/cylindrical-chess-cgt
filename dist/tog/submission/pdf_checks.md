@@ -19,7 +19,7 @@ Files: A = `tog.pdf` (named), B = `tog_review.pdf` (anonymous), C = `supplement.
 
 | | A tog.pdf | B tog_review.pdf | C supplement.pdf | D supplement_review.pdf |
 |---|---|---|---|---|
-| Pages | 10 | 10 | 95 | 95 |
+| Pages | 10 | 10 | 99 | 99 |
 | Page size | 612 x 792 pts (letter) | same | same | same |
 | PDF version | 1.5 | 1.5 | 1.5 | 1.5 |
 | Title | Chess Endgames on a Cylindrical Chessboard: Exact Combinatorial Game Values, Real-Chess Checks, and Tablebases | same | (empty) | (empty) |
@@ -28,7 +28,7 @@ Files: A = `tog.pdf` (named), B = `tog_review.pdf` (anonymous), C = `supplement.
 | Keywords | (empty) | (empty) | (empty) | (empty) |
 | Creator / Producer | LaTeX with hyperref / xdvipdfmx (0.1) | same | same | same |
 | Metadata stream (XMP) | no | no | no | no |
-| File size (bytes) | 261099 | 260516 | 765569 | 765345 |
+| File size (bytes) | 261099 | 260517 | 781040 | 780780 |
 
 Evidence: `Page size: 612 x 792 pts (letter)` on all four; B `pdfinfo` has no `Author:` line; D has no `Author:` line. Result: PASS. The paper is 10 pages including references, at the ToG limit. Subject and Keywords are empty in all four; ToG does not ask for them in the PDF (not verified), so this is not a failure. The supplements carry no Title field; optional.
 

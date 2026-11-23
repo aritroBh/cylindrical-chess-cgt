@@ -383,7 +383,9 @@ W('s15', r'\section{Full Proofs: The Lemma 3 Write-Up, the \texorpdfstring{$\nim
 
 # S16 square rule ---------------------------------------------------------------------------------------
 W('s16', r'\section{The Square-Rule Passer Test: Definition, Checks and a Counterexample}\label{S-square}',
-  MD('research/v2_mechanisms_proof/PROOF_S.md', cur='s16_square.md'))
+  MD('research/v2_mechanisms_proof/PROOF_S.md', cur='s16_square.md'),
+  # S17 who wrote and who checked: kept in the S16 file because supplement.tex inputs only supp/s01 .. supp/s16
+  scrub(open('supp_src/s17_provenance.tex', encoding='utf-8').read()))
 aux = open('build/tog_review.aux').read()
 open('supp/mainlabels.tex', 'w').write('\n'.join(l for l in aux.split('\n') if l.startswith('\\newlabel{')) + '\n')
 print('ok')

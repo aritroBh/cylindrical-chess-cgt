@@ -197,6 +197,16 @@ So every option has the same status in both games: won by the same player when t
 option loses in both. Hence the winners agree at $Y$, and at $Y=X$ the claim is the theorem.
 \end{proof}
 
+\textbf{Remark ((E) cannot be dropped).} On the flat board with $5$ files and $7$ ranks and e.p.\ on, let $X$ be
+\pos{W a4 b3 e2 / B a5 b4 e4} with the right created by a2--a4. No pawn is passed, and the components are the files a, b
+and the file e. The two pawns on e face each other and never pass, so that component carries no threat in any reachable
+position and $X$ is HSS. The right is usable (b4 takes a4 e.p.\ on a3), so (E) fails. In $W(X)$ White, moving first, plays
+e2--e3; the right lapses and Black has no move. Black, moving first, captures e.p.\ and has the only passed pawn. So the
+first player wins $W(X)$. In $S(X)$ the right stays with the component on a, b, where White has no move and Black's
+capture gives $-\BIG$; that component is $\{\ \mid-\BIG\}=-\BIG-1$, and the file e is $\nim{1}$. So Black wins $S(X)$
+whoever starts. No race occurs and the argument uses neither passed test, so this holds in every setting with e.p.\ on
+\lab{P}; the engine and a separately written minimax give the same two outcomes.
+
 \textbf{A.8 Proposition (opposite threats cancel).} \emph{For every integer $\BIG\ge1$,
 $\game{\BIG}{0}+\game{0}{-\BIG}=0$, although in the game where a $\pm\BIG$ ends play the first player wins.}
 
