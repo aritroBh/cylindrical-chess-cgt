@@ -1,0 +1,12 @@
+51934 heavy.sh rz t0 C Mon Nov 23 13:18:25 PST 2026
+54353 heavy.sh run_ctx_ref.sh Mon Nov 23 13:22:29 PST 2026
+54830 heavy.sh run_main.sh Mon Nov 23 13:23:02 PST 2026
+55640 heavy.sh run_gap.sh Mon Nov 23 13:24:16 PST 2026
+56324 heavy.sh run_stats.sh Mon Nov 23 13:25:18 PST 2026
+killed own PIDs 54353 54604 54606 54607 (ctx run, to let the main run go first) Mon Nov 23 13:28:47 PST 2026
+63964 heavy.sh run_ctx_ref.sh (restart) Mon Nov 23 13:34:11 PST 2026
+killed own PIDs 63964 70272 77224 77225 (ctx run: ref3m peaked at 4.75 GB > 3 GB limit; stopped before the --moves and kp_p steps) Mon Nov 23 13:59:38 PST 2026
+78201 heavy.sh run_kpp_capped.sh Mon Nov 23 13:59:45 PST 2026
+97607 kpp_k47ref (child of run_kpp_capped.sh) Mon Nov 23 14:28:36 PST 2026
+99422 heavy.sh run_kpp_capped84.sh Mon Nov 23 14:31:27 PST 2026
+99433 kpp_k47ref (child of run_kpp_capped.sh) Mon Nov 23 14:31:27 PST 2026

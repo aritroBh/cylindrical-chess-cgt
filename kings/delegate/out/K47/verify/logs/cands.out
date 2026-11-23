@@ -1,0 +1,42 @@
+root A 0:WW *:WL up:WW down:LL pm1:WL over:WW under:LL on:WW off:LL dud:DD -3:LL -2:LL -1:LL 1:WW 2:WW 3:WW *+down:WL *+up:WL *+under:LL up+under:LL down+under:LL under+under:LL down+down:LL 1+pm1:WL *+*:WW over+*:WW over+under:DD
+   0              mismatches  2 0 *+*
+   *              mismatches  8 0 * up down *+down *+up 1+pm1 *+*
+   up             mismatches  3 down *+up 1+pm1
+   down           mismatches  4 0 up *+down *+*
+   over           mismatches 11 * down under *+down *+up *+under up+under down+under under+under down+down
+   over+*         mismatches 11 * down under *+down *+up *+under up+under down+under under+under down+down
+   over+down      mismatches 11 * down under *+down *+up *+under up+under down+under under+under down+down
+   over+up        mismatches 11 * down under *+down *+up *+under up+under down+under under+under down+down
+   {over|0}       mismatches 13 0 * down under *+down *+up *+under up+under down+under under+under
+   {0|0,over}     mismatches  7 0 * up *+down *+up 1+pm1 *+*
+   tiny1          mismatches  1 1+pm1
+   miny1          mismatches  2 0 *+*
+   up*            mismatches  8 0 * down *+down *+up down+down 1+pm1 *+*
+   up2            mismatches  5 * down *+up down+down 1+pm1
+   up2*           mismatches  6 * down *+down *+up down+down 1+pm1
+   up+up          mismatches  5 * down *+up down+down 1+pm1
+   tiny2          mismatches  0 
+   {0|over*}      mismatches 11 * down under *+down *+up *+under up+under down+under under+under down+down
+   over+down+*    mismatches 11 * down under *+down *+up *+under up+under down+under under+under down+down
+   over+tiny1     mismatches 11 * down under *+down *+up *+under up+under down+under under+under down+down
+root B 0:WW *:WW up:WW down:WL pm1:WL over:WW under:LL on:WW off:LL dud:DD -3:LL -2:LL -1:LL 1:WW 2:WW 3:WW *+down:WW *+up:WW *+under:LL up+under:LL down+under:LL under+under:LL down+down:WL 1+pm1:WW *+*:WW over+*:WW over+under:DD
+   0              mismatches  8 0 * down *+down *+up down+down 1+pm1 *+*
+   *              mismatches  6 0 * up *+down down+down *+*
+   up             mismatches  4 * down *+down down+down
+   down           mismatches  9 0 * up down *+down *+up down+down 1+pm1 *+*
+   over           mismatches  7 down under *+under up+under down+under under+under down+down
+   over+*         mismatches  7 down under *+under up+under down+under under+under down+down
+   over+down      mismatches  7 down under *+under up+under down+under under+under down+down
+   over+up        mismatches  7 down under *+under up+under down+under under+under down+down
+   {over|0}       mismatches  7 0 under *+under up+under down+under under+under *+*
+   {0|0,over}     mismatches  8 0 * up down *+down *+up down+down *+*
+   tiny1          mismatches  5 * down *+down *+up down+down
+   miny1          mismatches  8 0 * down *+down *+up down+down 1+pm1 *+*
+   up*            mismatches  3 0 *+down *+*
+   up2            mismatches  3 down *+down down+down
+   up2*           mismatches  0 
+   up+up          mismatches  3 down *+down down+down
+   tiny2          mismatches  6 * down *+down *+up down+down 1+pm1
+   {0|over*}      mismatches  7 down under *+under up+under down+under under+under down+down
+   over+down+*    mismatches  7 down under *+under up+under down+under under+under down+down
+   over+tiny1     mismatches  7 down under *+under up+under down+under under+under down+down

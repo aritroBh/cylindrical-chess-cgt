@@ -1,0 +1,181 @@
+# roots
+== Kf5 kd4 Pb2 Pe2 Pb4 pa4 pb5 pe5, Black to move: mover loses in 26 plies
+   kd4-c4     -> opponent mover wins (11)
+   kd4-d5     -> opponent mover wins (15)
+   kd4-e3     -> opponent mover wins (15)
+   pa4-a3     -> opponent mover wins (11)
+   pe5-e4     -> opponent mover wins (25)
+   pe5-e3     -> opponent mover wins (23)
+  kd4-c4:
+    Kf5xe5  [White wins, 11]
+      ...
+  kd4-d5:
+    Pe2-e3  [White wins, 15]
+      ...
+  kd4-e3:
+    Kf5xe5  [White wins, 15]
+      ...
+  pa4-a3:
+    Pb2xa3  [White wins, 11]
+      ...
+  pe5-e4:
+    Kf5-f4  [White wins, 25]
+      ...
+  pe5-e3:
+    Kf5-f4  [White wins, 23]
+      ...
+== Kf5 kd4 Pb2 Pe2 Pb4 pa4 pb5 pe5, White to move: mover wins in 11 plies
+   Kf5-e6     -> opponent mover wins (19)
+   Kf5-f6     -> opponent mover wins (13)
+   Kf5-g4     -> opponent mover wins (11)
+   Kf5-g5     -> opponent mover wins (11)
+   Kf5-g6     -> opponent mover wins (11)
+   Pb2-b3     -> opponent mover wins (7)
+   Pe2-e3     -> opponent mover wins (13)
+   Pe2-e4     -> opponent mover loses (10)
+  Pe2-e4  [White wins, 11]
+    kd4-c4:
+      ...
+    kd4-d3:
+      ...
+    kd4-e3:
+      ...
+    pa4-a3:
+      ...
+== Kf5 kd5 Pb2 Pe2 Pb4 pa4 pb5 pe5, Black to move: mover loses in 26 plies
+   kd5-c4     -> opponent mover wins (11)
+   kd5-c6     -> opponent mover wins (11)
+   kd5-d4     -> opponent mover wins (11)
+   kd5-d6     -> opponent mover wins (11)
+   pa4-a3     -> opponent mover wins (11)
+   pe5-e4     -> opponent mover wins (13)
+   pe5-e3     -> opponent mover wins (25)
+  kd5-c4:
+    Kf5xe5  [White wins, 11]
+      ...
+  kd5-c6:
+    Kf5xe5  [White wins, 11]
+      ...
+  kd5-d4:
+    Pe2-e4  [White wins, 11]
+      ...
+  kd5-d6:
+    Pe2-e4  [White wins, 11]
+      ...
+  pa4-a3:
+    Pb2xa3  [White wins, 11]
+      ...
+  pe5-e4:
+    Pe2-e3  [White wins, 13]
+      ...
+  pe5-e3:
+    Kf5-f4  [White wins, 25]
+      ...
+== Kf5 kd5 Pb2 Pe2 Pb4 pa4 pb5 pe5, White to move: mover wins in 15 plies
+   Kf5-f6     -> opponent mover wins (13)
+   Kf5-g4     -> opponent mover wins (11)
+   Kf5-g5     -> opponent mover wins (11)
+   Kf5-g6     -> opponent mover wins (11)
+   Pb2-b3     -> opponent mover wins (7)
+   Pe2-e3     -> opponent mover loses (14)
+   Pe2-e4     -> opponent mover wins (13)
+  Pe2-e3  [White wins, 15]
+    kd5-c4:
+      ...
+    kd5-c6:
+      ...
+    kd5-d6:
+      ...
+    pa4-a3:
+      ...
+    pe5-e4:
+      ...
+# freezes q_A (e2-e4 at d4) and q_B (e2-e3 at d5)
+== Kf5 kd4 Pb2 Pb4 Pe4 pa4 pb5 pe5, Black to move: mover loses in 10 plies
+   kd4-c4     -> opponent mover wins (9)
+   kd4-d3     -> opponent mover wins (9)
+   kd4-e3     -> opponent mover wins (9)
+   pa4-a3     -> opponent mover wins (9)
+  kd4-c4:
+    Kf5xe5  [White wins, 9]
+      ...
+  kd4-d3:
+    Kf5xe5  [White wins, 9]
+      ...
+  kd4-e3:
+    Kf5xe5  [White wins, 9]
+      ...
+  pa4-a3:
+    Pb2xa3  [White wins, 9]
+      ...
+== Kf5 kd4 Pb2 Pb4 Pe4 pa4 pb5 pe5, White to move: mover loses in 12 plies
+   Kf5-e6     -> opponent mover wins (9)
+   Kf5-f6     -> opponent mover wins (9)
+   Kf5-g4     -> opponent mover wins (11)
+   Kf5-g5     -> opponent mover wins (9)
+   Kf5-g6     -> opponent mover wins (9)
+   Pb2-b3     -> opponent mover wins (5)
+  Kf5-e6:
+    kd4xe4  [Black wins, 9]
+      ...
+  Kf5-f6:
+    kd4xe4  [Black wins, 9]
+      ...
+  Kf5-g4:
+    kd4xe4  [Black wins, 11]
+      ...
+  Kf5-g5:
+    kd4xe4  [Black wins, 9]
+      ...
+  Kf5-g6:
+    kd4xe4  [Black wins, 9]
+      ...
+  Pb2-b3:
+    pa4-a3  [Black wins, 5]
+      ...
+== Kf5 kd5 Pb2 Pe3 Pb4 pa4 pb5 pe5, Black to move: mover loses in 14 plies
+   kd5-c4     -> opponent mover wins (11)
+   kd5-c6     -> opponent mover wins (11)
+   kd5-d6     -> opponent mover wins (11)
+   pa4-a3     -> opponent mover wins (11)
+   pe5-e4     -> opponent mover wins (13)
+  kd5-c4:
+    Kf5xe5  [White wins, 11]
+      ...
+  kd5-c6:
+    Kf5xe5  [White wins, 11]
+      ...
+  kd5-d6:
+    Pe3-e4  [White wins, 11]
+      ...
+  pa4-a3:
+    Pb2xa3  [White wins, 11]
+      ...
+  pe5-e4:
+    Kf5-f4  [White wins, 13]
+      ...
+== Kf5 kd5 Pb2 Pe3 Pb4 pa4 pb5 pe5, White to move: mover loses in 16 plies
+   Kf5-f6     -> opponent mover wins (15)
+   Kf5-g4     -> opponent mover wins (11)
+   Kf5-g5     -> opponent mover wins (11)
+   Kf5-g6     -> opponent mover wins (11)
+   Pb2-b3     -> opponent mover wins (7)
+   Pe3-e4     -> opponent mover wins (13)
+  Kf5-f6:
+    kd5-e4  [Black wins, 15]
+      ...
+  Kf5-g4:
+    kd5-c4  [Black wins, 11]
+      ...
+  Kf5-g5:
+    kd5-c4  [Black wins, 11]
+      ...
+  Kf5-g6:
+    kd5-c4  [Black wins, 11]
+      ...
+  Pb2-b3:
+    pa4-a3  [Black wins, 7]
+      ...
+  Pe3-e4:
+    kd5-d4  [Black wins, 13]
+      ...

@@ -462,7 +462,13 @@ Every deliverable was given to independent referees (Claude models) told to brea
     mirrors, exact under groups, exist in plain P on cyl:8×6 and every wider cylinder searched, with 3 + 3 pawns on files a, b
     and e (`Kf5 kd4 Pb2 Pb4 Pe2 pa4 pb5 pe5`, Black's king shuttling d4–d5); on cyl:10×6 also a 2 + 3 group. None exists with
     at most 2 + 2 pawns, nor on cyl:6×6 or 7×6 (CHECKED-2, two implementations plus the referee's own solver). K44's king-fight
-    roots are not such groups: their freezes are king moves that White can undo. Equality with over in sums is not tested.
+    roots are not such groups: their freezes are king moves that White can undo.
+  - K47 (2026-11-23) tests the cyl:8×6 group in sums: as the P game of its own pieces it is **not equal to over**. Against
+    275 test games it differs from over at 38 of 1,100 results, always in Black's favour, beside \*, ↓, under and sums
+    containing them (CHECKED-2, three solvers). A move that loses in P alone, through a zugzwang up to 25 plies later, can win
+    when the mover has a tempo elsewhere, so Definition 4.8 does not force the value over. Its freeze at the d4 root is a
+    mutual zugzwang on every cyl:W×6, W ≥ 8 (PROVED by hand, after a referee repair). The group's value is not identified;
+    a group with the value over is still not known (`kings/delegate/out/K47/REVIEW.md`).
   - Theorem 1.11(c) repaired (2026-11-23): its proof used the e.p. condition (E) without assuming it, and its frontier
     step used an unproved inheritance of threats by re-split components. (E) is now a hypothesis (every use already had
     it through Theorem 1.14), and the inheritance is proved. Found while the paper's proofs appendix was written and

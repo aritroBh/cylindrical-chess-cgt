@@ -1,0 +1,101 @@
+K47 FINDINGS: the K45 over group Z_O = Kf5 kd4/kd5 Pb2 Pb4 Pe2 pa4 pb5 pe5 (cyl:8x6): hand proof, and its value in sums
+================================================================================================================================
+Task date 2026-11-23.  AI work, no human re-derivation.  Model P (SPEC.md rules, e.p. on, the first promotion wins for the promoter,
+stalemate and endless play draw; LOOPY Definition 1.5).  Labels: PROVED (hand proof, PROOF.md), COMPUTED-1 (one implementation),
+CHECKED-2 (two independently written implementations agree).  Root A = Black king d4, root B = Black king d5.
+
+0. SHORT ANSWER
+---------------
+(1) Hand proof (PROOF.md), PARTIAL.  PROVED: the move lists of the four roots and the two freezes; q_A (the freeze e2-e4 at root A) is a
+    mutual zugzwang of P: Black to move, all 4 moves lose ((O3) at A); White to move, all 6 moves lose ((O4) at A); so root A has a
+    freeze.  The proof uses three race lemmas (White's e-pawn behind a king on d5/d6; Black's e-pawn after e5-e3 behind a king on d3 or
+    d2; the a/b-pawn race after b2-b3) and holds on every cyl:Wx6 with W >= 8.  NOT proved by hand: (O1) at both roots, (O3)/(O4) at q_B,
+    and that the other White moves at the roots lose (so that e2-e4, e2-e3 are the only freezes).  The solver's lines for those are
+    11 to 25 plies deep; the exactness of Z_O as a whole stays CHECKED-2 (K45), now with a fifth solver (za, below) agreeing.
+(2) Z_O is NOT equal to over in D-sums.  Against the 275 test games T of the brief (integers -6..6, on, off, dud, *, up, down, +-1, over,
+    under, and all 253 sums of two of them), both roots, both sides to move, normal play (Definition 1.2): r(Z_O + T) = r(over + T) at
+    1,062 of 1,100 results and differs at 38 (CHECKED-2: implementations A and B agree on all 1,100 results and on all 1,100 over results).
+    In every difference Black does better with Z_O than with over (Z_O gives a Black win where over gives a White win or a draw); never
+    the other way.  The differences come from T = *, down, under and sums containing them (list in section 2).  Example: root A with
+    Black to move beside *: over + * is a White win, Z_O + * a Black win, by 1...e5-e4!, a move that loses in P alone (after 25 plies,
+    through zugzwang) but wins when Black keeps * in hand.  The two roots are not even equal to each other: they differ against 8 of the
+    550 (test, side) pairs (*, down and five sums).  So Z_O is an exact group of Definition 4.8 whose sum value is not over; on these
+    tests it lies below over (r(Z_O + T) <= r(over + T) for White in all 1,100).  Its value was not identified.
+(3) P contexts.  On cyl:8x6 there is no file at distance >= 2 from the group (files a, b, e; kings on d and f; free files c, g, h, and g
+    touches f, h touches a, c lies inside), so the context test was run on the smallest wider boards where K45 found the group exact:
+    cyl:9x6 with the context on file h (buffers g, i), all 63 contexts of at most 2 + 2 pawns: the four P results agree with r(over + C)
+    in all 63 (ref3m and kp_p --pmodel agree on all 252 positions; CHECKED-2); cyl:10x6 with files h, i (buffers g, j), 200 of the 885
+    contexts of at most 2 + 2 pawns (seeded sample): 199 agree, 1 differs (ref3m and kp_p agree on all 800 positions; CHECKED-2):
+    `Ph2 pi3 pi5` beside root A, White to move, is a Black win, though r(over + C) is a White win (root B: White win, as over).
+    The D-sum r(Z_O + C) of the same contexts (A, COMPUTED-1) differs from over in 4 of 63 and 5 of 200 contexts (all at root A); P
+    follows the D-sum in only 1 of these 9 and over in the other 8.  So in P the context test hardly separates Z_O from over, while the
+    D-sums do (section 3a).
+
+1. IMPLEMENTATIONS (item 2)
+---------------------------
+Component.  Z_O as a component of a D-sum is the P game of the group's own pieces (K40's convention for a P position x in x + T): every
+placement reachable from the two roots by moves of EITHER side (in a sum either side may move twice in a row in the group), a promotion is
+a terminal win for the promoter and ends the whole play, a side in check may not move in T (checkmate loses), a move in T clears the
+group's e.p. right, a side with no move at all loses (N, Definition 1.2) or draws (C).  3,914,687 placements, 21,661,215 White and
+22,029,008 Black moves (both implementations count the same nodes).  Its bisimulation quotient still has 3,397,278 classes (src/zq.cpp),
+so there is no small game graph to read a value from.
+  A  src/za.cpp: bitboards, hashed placements, explicit forward lists, one retrograde pass with counters over (placement, T-position,
+     side), predecessors from reversed lists; over + T by its own small fixed point.
+  B  src/zb.cpp (written separately): mailbox board, base-5 packed keys, a generic component interface (the chess group and over are
+     both components), the product states reachable from the start found first, then the two attractors (White wins, Black wins)
+     computed separately.
+Checks.  A's P values (T = 0, convention C, which is P itself) equal ref3m (K23) on 66,997 sampled states of the component (every 97th
+node, both sides; 10,980 with an e.p. square; W 28,319, L 36,544, D 2,134; 0 differences; logs/sampleP_A_vs_ref3m.tsv.xz).
+A's move counts and values at the 8 positions of Definition 4.8 equal K45's.  A and B: the 15 small tests in both conventions
+(logs/small_*), 0 differences; all 275 tests in convention N (logs/full_A_N.out, logs/full_B_N.out), 0 differences (the output files
+are identical).  Run times under heavy.sh at nice 15: A 8 min, 1.7 GB; B 47 min, 2.4 GB (B was restarted once after the 12:13 reboot).
+Convention C is not a test of over: 0_D has no move, so over + 0 is a draw under C, while Z_O's freeze q is a real position whose moves all
+lose.  The comparison with over is made under N only.
+
+2. THE 38 DIFFERENCES (convention N; "Z" = r(Z_O + T), White's view; every one is Z = L)
+---------------------------------------------------------------------------------------
+    T              root, side to move: over
+    *              A b: W          0+*          A b: W          1+pm1     A b: W          *+up       A b: W          *+down   A b: W
+    down           A w: W, A b: W, B b: W       0+down  same three          down+down same three
+    under          A w, A b, B w, B b: D        0+under, *+under, up+under, down+under, under+under: the same four, D
+Every other test agrees at both roots and both sides (1,062 results).  Tally of over's results: W 544, L 432, D 124.  Root A against
+root B differs at (*, b), (*+down, b), (*+up, b), (0+*, b), (1+pm1, b), (0+down, w), (down, w), (down+down, w).
+Diagnostics (A, logs/diag_A_N.out): beside *, after each Black move at root A the White-to-move results are W except after 1...e5-e4
+(L), so ...e4 is Black's winning move; beside under every root is a Black win with either side to move, while over + under is a draw.
+
+3. P CONTEXTS (item 3; ctx_c9h_table.txt, ctx_c10s_table.txt)
+-------------------------------------------------------------
+Contexts: every set of at most 2 White and 2 Black pawns on the context files, ranks 2..5 (src/gen_ctx.py).  Prediction r(over + C) with
+C = the context pawns as a D-game (pawn moves only, e.p. on, a promotion is a terminal), computed by gen_ctx.py's own fixed point.
+P results: ref3m (K23) and kp_p --pmodel (K44's kp_p10.c), both freshly compiled and deleted after the runs.
+  cyl:9x6, file h: 63 contexts, 252 positions: ref3m = kp_p on 252; P = r(over + C) in all 63.  Patterns at (A,b) (A,w) (B,b) (B,w):
+  W W W W 34, L L L L 20, L W L W 9 (a White win only with White to move, as for over beside a context where Black wins moving first).
+  cyl:10x6: W W W W 80, L L L L 59, L W L W 60, and L L L W once (the difference below).
+  cyl:10x6, files h and i: 200 random contexts (seed 47) of 885, 800 positions: ref3m = kp_p on 800; 199 contexts agree; ctx
+  `Ph2 pi3 pi5` differs at root A with White to move (P: L; over + C: W).
+3a. The D-sum r(Z_O + C) (implementation A, C as a D-game with terminals; za's own over + C equals gen_ctx.py's prediction in all 252
+results).  cyl:9x6: r(Z_O + C) = r(over + C) in 59 of 63 contexts; the 4 others are `Ph2 ph4`, `Ph2 ph5`, `Ph3 ph5`, `Ph2 Ph3 ph5`, all at
+root A with Black to move: D-sum Black win (as for T = * in section 2), over and P White wins.  So in these four contexts P itself does
+NOT follow the D-sum: the P result agrees with over and differs from r(Z_O + C) (in P the kings and the context are on one board; the
+non-interaction hypotheses of Theorem 1.14 are not checked here).  The P context test therefore cannot detect the difference of
+section 2 on cyl:9x6.  (COMPUTED-1 for the D-sum column; the P column is CHECKED-2.)  cyl:10x6 (the 200 sampled contexts): r(Z_O + C) =
+r(over + C) in 195; the 5 others are `Ph2 pi3 pi5` (root A, White to move) and `Ph2 Ph3 ph5`, `Ph2 Pi2 ph4 pi5`, `Ph2 Pi2 ph5 pi4`,
+`Ph3 Pi2 ph5 pi3` (root A, Black to move), all D-sum Black wins where over gives White wins.  P follows the D-sum in the first (the one P
+difference of section 3) and follows over in the other four.  So P agrees with r(Z_O + C) in 195 + 1 of 200 contexts and with
+r(over + C) in 199; where the D-sum separates Z_O from over, P separated them once in five.
+
+4. NOT DONE
+-----------
+A hand proof of (O1) at both roots and of q_B (only q_A is proved); convention C for all 275 tests (only the 15 small ones, A = B);
+the other 685 contexts of cyl:10x6; contexts with more pawns or on more files; the value of Z_O (it is not over, and not identified);
+chess (kpsolve) for the group; the 2 + 3 group of cyl:10x6.
+
+5. FILES (kings/delegate/out/K47/)
+----------------------------------
+PROOF.md, EDITS.md, findings.txt; src/za.cpp (A), src/zb.cpp (B), src/ztree.cpp (proof aid: depths and trees), src/zq.cpp (quotient size),
+src/gen_tests.py (the 275 test games), src/gen_ctx.py, src/cmp_ctx.py; tests.txt, tests_small.txt, tests_diag.txt, roots*.txt,
+ctx_*.pos/.tg/.pred (ctx_c10hi.tg xz-compressed), ctx_*_table.txt; run_*.sh (the commands run, all through kings/delegate/heavy.sh at nice 15); logs/ (outputs; the
+full proof trees of the freezes logs/tree_q_full.txt.xz); pids.log.  Binaries were deleted after the runs.
+Process note: three short probe runs early in the task (za with T = 0, about 6 s and 1.3 GB, twice; ztree on the roots, about 10 s) ran
+directly at nice 15 outside heavy.sh; every other run went through heavy.sh.  Only PIDs started here were recorded (pids.log); nothing was
+killed.  After the reboot at 12:13 the two cut-off runs (B on all tests, A on the cyl:10x6 context sums) were restarted and completed.

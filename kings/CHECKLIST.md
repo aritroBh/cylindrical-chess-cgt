@@ -14,9 +14,10 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
    - [x] In chess Z_B and Z_C are not exactly two-shuttle (K28, K39)
    - [x] No over group on four adjacent files, up to 3 + 3 pawns (K43)
    - [x] Exact over and under groups exist in P on cyl:8×6 and wider, files a, b, e (K45)
-   - [~] Hand proof that the K45 group is exact, and whether it equals over in sums (K47)
-   - [ ] The K45 group in chess (promotion cap 1 and 2)
-   - [ ] Over groups on flat boards and on taller boards
+   - [x] The K45 group is not equal to over in sums (38 of 1,100 results differ); its d4 freeze is a mutual zugzwang,
+         proved by hand (K47)
+   - [ ] The value of the K45 group; is there an exact group with the value over? Hand proof of (O1) and the d5 root
+   - [~] The K45 group in chess (promotion cap 1 and 2); over groups on flat and taller boards (K48)
 3. King-against-king fights
    - [x] Values up to width 10, three blocked pairs: over, under, ±1 occur (K20, K44)
    - [ ] The parity classes and the 885,715 unclassified roots
@@ -52,7 +53,8 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
 - [x] King claims of Sections IV, V, the conclusion and S12 audited: 14 fixes sent and applied
 - [x] General referee report sent; applied where it checked out
 - [x] Engine-on-sums test: only separated placements count (answered)
-- [ ] Tell the paper side when K47 lands (over group: is it worth a sentence?)
+- [x] K47 result sent to the paper side (the K45 group is not over in sums)
+- [ ] Final over-group sentence for the long version, after K48
 - [ ] Self-contained S12 (referee point M4), if the paper side asks
 
 ## Housekeeping

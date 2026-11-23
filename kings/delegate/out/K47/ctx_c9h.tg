@@ -1,0 +1,63 @@
+ctx0[empty] | 1 | 0: L= R= C=0
+ctx1[ph2] | 1 | 0: L= R=B C=0
+ctx2[ph3] | 2 | 0: L= R=1 C=0 ; 1: L= R=B C=1
+ctx3[ph4] | 3 | 0: L= R=1 C=0 ; 1: L= R=2 C=1 ; 2: L= R=B C=2
+ctx4[ph5] | 5 | 0: L= R=1,2 C=0 ; 1: L= R=3 C=1 ; 2: L= R=4 C=3 ; 3: L= R=4 C=3 ; 4: L= R=B C=4
+ctx5[ph2 ph3] | 1 | 0: L= R=B C=0
+ctx6[ph2 ph4] | 2 | 0: L= R=B,1 C=0 ; 1: L= R=B C=1
+ctx7[ph2 ph5] | 4 | 0: L= R=1,2,B C=0 ; 1: L= R=B,3 C=1 ; 2: L= R=B C=3 ; 3: L= R=B C=3
+ctx8[ph3 ph4] | 3 | 0: L= R=1 C=0 ; 1: L= R=B,2 C=1 ; 2: L= R=B C=2
+ctx9[ph3 ph5] | 6 | 0: L= R=1,2 C=0 ; 1: L= R=3 C=1 ; 2: L= R=3,4,B C=2 ; 3: L= R=B,5 C=3 ; 4: L= R=B C=5 ; 5: L= R=B C=5
+ctx10[ph4 ph5] | 7 | 0: L= R=1 C=0 ; 1: L= R=2,3 C=1 ; 2: L= R=4 C=2 ; 3: L= R=4,5,B C=3 ; 4: L= R=B,6 C=4 ; 5: L= R=B C=6 ; 6: L= R=B C=6
+ctx11[Ph2] | 5 | 0: L=1,2 R= C=0 ; 1: L=3 R= C=1 ; 2: L=4 R= C=3 ; 3: L=4 R= C=3 ; 4: L=W R= C=4
+ctx12[Ph2 ph3] | 1 | 0: L= R= C=0
+ctx13[Ph2 ph4] | 3 | 0: L=1 R=2 C=0 ; 1: L= R= C=1 ; 2: L= R= C=2
+ctx14[Ph2 ph5] | 8 | 0: L=1,2 R=3,4 C=0 ; 1: L=5 R=6 C=1 ; 2: L= R= C=5 ; 3: L=6 R=7 C=3 ; 4: L= R= C=7 ; 5: L= R= C=5 ; 6: L= R= C=6 ; 7: L= R= C=7
+ctx15[Ph2 ph3 ph4] | 1 | 0: L= R= C=0
+ctx16[Ph2 ph3 ph5] | 2 | 0: L= R=1 C=0 ; 1: L= R= C=1
+ctx17[Ph2 ph4 ph5] | 4 | 0: L=1 R=2 C=0 ; 1: L= R= C=1 ; 2: L= R=3 C=2 ; 3: L= R= C=3
+ctx18[Ph3] | 3 | 0: L=1 R= C=0 ; 1: L=2 R= C=1 ; 2: L=W R= C=2
+ctx19[Ph3 ph2] | 3 | 0: L=1 R=B C=0 ; 1: L=2 R=B C=1 ; 2: L=W R=B C=2
+ctx20[Ph3 ph4] | 1 | 0: L= R= C=0
+ctx21[Ph3 ph5] | 3 | 0: L=1 R=2 C=0 ; 1: L= R= C=1 ; 2: L= R= C=2
+ctx22[Ph3 ph2 ph4] | 1 | 0: L= R=B C=0
+ctx23[Ph3 ph2 ph5] | 3 | 0: L=1 R=2,B C=0 ; 1: L= R=B C=1 ; 2: L= R=B C=2
+ctx24[Ph3 ph4 ph5] | 1 | 0: L= R= C=0
+ctx25[Ph4] | 2 | 0: L=1 R= C=0 ; 1: L=W R= C=1
+ctx26[Ph4 ph2] | 2 | 0: L=1 R=B C=0 ; 1: L=W R=B C=1
+ctx27[Ph4 ph3] | 4 | 0: L=1 R=2 C=0 ; 1: L=W R=3 C=1 ; 2: L=3 R=B C=2 ; 3: L=W R=B C=3
+ctx28[Ph4 ph5] | 1 | 0: L= R= C=0
+ctx29[Ph4 ph2 ph3] | 2 | 0: L=1 R=B C=0 ; 1: L=W R=B C=1
+ctx30[Ph4 ph2 ph5] | 1 | 0: L= R=B C=0
+ctx31[Ph4 ph3 ph5] | 2 | 0: L= R=1 C=0 ; 1: L= R=B C=1
+ctx32[Ph5] | 1 | 0: L=W R= C=0
+ctx33[Ph5 ph2] | 1 | 0: L=W R=B C=0
+ctx34[Ph5 ph3] | 2 | 0: L=W R=1 C=0 ; 1: L=W R=B C=1
+ctx35[Ph5 ph4] | 3 | 0: L=W R=1 C=0 ; 1: L=W R=2 C=1 ; 2: L=W R=B C=2
+ctx36[Ph5 ph2 ph3] | 1 | 0: L=W R=B C=0
+ctx37[Ph5 ph2 ph4] | 2 | 0: L=W R=B,1 C=0 ; 1: L=W R=B C=1
+ctx38[Ph5 ph3 ph4] | 3 | 0: L=W R=1 C=0 ; 1: L=W R=B,2 C=1 ; 2: L=W R=B C=2
+ctx39[Ph2 Ph3] | 7 | 0: L=1 R= C=0 ; 1: L=2,3 R= C=1 ; 2: L=4 R= C=2 ; 3: L=W,4,5 R= C=3 ; 4: L=W,6 R= C=4 ; 5: L=W R= C=6 ; 6: L=W R= C=6
+ctx40[Ph2 Ph3 ph4] | 1 | 0: L= R= C=0
+ctx41[Ph2 Ph3 ph5] | 4 | 0: L=1 R=2 C=0 ; 1: L=3 R= C=1 ; 2: L= R= C=2 ; 3: L= R= C=3
+ctx42[Ph2 Ph3 ph4 ph5] | 1 | 0: L= R= C=0
+ctx43[Ph2 Ph4] | 6 | 0: L=1,2 R= C=0 ; 1: L=3 R= C=1 ; 2: L=W,3,4 R= C=2 ; 3: L=W,5 R= C=3 ; 4: L=W R= C=5 ; 5: L=W R= C=5
+ctx44[Ph2 Ph4 ph3] | 2 | 0: L=1 R= C=0 ; 1: L=W R= C=1
+ctx45[Ph2 Ph4 ph5] | 2 | 0: L=1 R= C=0 ; 1: L= R= C=1
+ctx46[Ph2 Ph4 ph3 ph5] | 1 | 0: L= R= C=0
+ctx47[Ph2 Ph5] | 4 | 0: L=W,1,2 R= C=0 ; 1: L=W,3 R= C=1 ; 2: L=W R= C=3 ; 3: L=W R= C=3
+ctx48[Ph2 Ph5 ph3] | 1 | 0: L=W R= C=0
+ctx49[Ph2 Ph5 ph4] | 3 | 0: L=W,1 R=2 C=0 ; 1: L=W R= C=1 ; 2: L=W R= C=2
+ctx50[Ph2 Ph5 ph3 ph4] | 1 | 0: L=W R= C=0
+ctx51[Ph3 Ph4] | 3 | 0: L=1 R= C=0 ; 1: L=W,2 R= C=1 ; 2: L=W R= C=2
+ctx52[Ph3 Ph4 ph2] | 3 | 0: L=1 R=B C=0 ; 1: L=W,2 R=B C=1 ; 2: L=W R=B C=2
+ctx53[Ph3 Ph4 ph5] | 1 | 0: L= R= C=0
+ctx54[Ph3 Ph4 ph2 ph5] | 1 | 0: L= R=B C=0
+ctx55[Ph3 Ph5] | 2 | 0: L=W,1 R= C=0 ; 1: L=W R= C=1
+ctx56[Ph3 Ph5 ph2] | 2 | 0: L=W,1 R=B C=0 ; 1: L=W R=B C=1
+ctx57[Ph3 Ph5 ph4] | 1 | 0: L=W R= C=0
+ctx58[Ph3 Ph5 ph2 ph4] | 1 | 0: L=W R=B C=0
+ctx59[Ph4 Ph5] | 1 | 0: L=W R= C=0
+ctx60[Ph4 Ph5 ph2] | 1 | 0: L=W R=B C=0
+ctx61[Ph4 Ph5 ph3] | 2 | 0: L=W R=1 C=0 ; 1: L=W R=B C=1
+ctx62[Ph4 Ph5 ph2 ph3] | 1 | 0: L=W R=B C=0
