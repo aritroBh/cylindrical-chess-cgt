@@ -185,7 +185,7 @@ twelve pawns are not yet scanned in full.
 Everything above is on eight ranks. Here the board has $R$ ranks, $5\le R\le12$: white pawns start on rank $2$,
 black pawns on rank $R-1$, and the double step is allowed only from there. We solved single-component positions
 without a passed pawn in which every file is occupied (rings, on a cylinder), on ordinary boards of three and four
-files and cylinders of three to five files, in increasing number of pawns: $1{,}833{,}497{,}669$ positions in all.
+files and cylinders of three to five files, in increasing number of pawns: about $1.8$ billion positions in all.
 Table~\ref{tab:heights} gives the least number of pawns in a $\nim{2}$ and in a $\nim{3}$.
 
 \begin{table}[!htbp]
@@ -217,6 +217,10 @@ with all six pawns at home, \pos{W a2 b2 c2 / B a8 b8 c8}, is $\nim{2}$. The col
 Sections~S6.2 and~S6.3.
 
 The solver was written for this scan. It agrees with our CGT engine on $16{,}000$ random positions, $2{,}000$ for
-each height, and on each of the $48$ positions behind a least count in the table \lab{C2}. That no smaller
-position exists, and that no $\nim{4}$ occurs, rests on the one solver \lab{C1}. Positions with an empty file, wider
-boards and more pawns than the table states were not scanned.
+each height, and on each of the $48$ positions behind a least count in the table \lab{C2}. A third program,
+written independently from the rules alone, repeated the complete scans for five ranks, for six ranks and for three
+files on seven ranks: $2{,}381{,}595$ positions, with the same number of positions of each nimber and the same least
+counts, and no nimber above $\nim{3}$ \lab{C2}. It also showed that the first solver counts $280$ impossible
+positions on $\cyl{5}$ with six ranks (twenty pawns, one or two of them white); this changes no entry of the table.
+For the other heights, that no smaller position exists and that no $\nim{4}$ occurs rests on the one solver
+\lab{C1}. Positions with an empty file, wider boards and more pawns than the table states were not scanned.

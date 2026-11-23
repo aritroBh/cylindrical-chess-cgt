@@ -506,6 +506,12 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   - Not covered: positions with an empty file, flat boards of 5+ files, cylinders of 6+ files, R > 12, and the
     pawn counts above each "none up to p" cell.
   - In Section VIII of both versions (one sentence in the 10-page text) and the conclusion's question on \*4.
+  - **Independent check T80 (Codex, own solver from the rules; `delegate/out/T80/REPORT.md`).** All eight named
+    positions agree. The complete scans for R = 5 (five boards), R = 6 (five boards) and R = 7 (3 files, flat and
+    cylinder), 2,381,595 positions, give the same count of every nimber and the same minima; no nimber above \*3.
+    CHECKED-2 for those rows. One difference: on cyl 5, R = 6, `tw.c` counts 1,786,651 roots and 345 zeros, Codex
+    1,786,371 and 340; the extra 280 are in two impossible 20-pawn splits (1+19, 2+18). No table entry changes; the
+    grand total of positions is therefore quoted as "about 1.8 billion".
 
 ## 7. Pending
 

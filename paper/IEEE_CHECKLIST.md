@@ -73,6 +73,8 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 - [x] New: the pawn game on boards of 5 to 12 ranks (`research/tall_boards/`): no *4 in 1.8 billion positions; *2 with
   four pawns and *3 with six on seven ranks; none on five ranks; in Section VIII of both versions, supplement S6.5
   and the conclusion. To fit, the two-core remark moved to the supplement only and five supplement pointers were shortened
+- [x] Independent Codex check of the height results (T80): the complete scans for 5 and 6 ranks and 3 files on 7
+  ranks agree in every nimber count and minimum; the named positions agree; labels raised to C2 for those
 - [ ] Seven-pawn *2 in real chess: the 9-man end positions (needs about 26 GB; waits for the author's word)
 - [ ] Zero sums with real kings at depth 2 (needs more than 12 GB per run; waits for the author's word)
 
