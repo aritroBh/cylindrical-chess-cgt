@@ -56,7 +56,7 @@ sum-safe} (HSS) if no position reachable from $X$ before the first passed pawn, 
 
 \begin{theorem}[Sum safety; \lab{S}]\label{thm:hss}
 Suppose that $X$ has no passed pawn and is HSS, that no position reachable from $X$ with two or more components has a usable en
-passant right (condition (E)), and that $\BIG$ exceeds the number of moves either side can make. Then $S(X)$ and
+passant right (condition (E)), and that $\BIG$ exceeds the number of moves one side can make in any sequence of pawn moves from $X$. Then $S(X)$ and
 $W(X)$ have the same outcome.
 \end{theorem}
 
@@ -70,8 +70,8 @@ Of all $599{,}098$ positions without a passed pawn that have at most six pawns o
 files wide, the $540{,}503$ HSS ones all agree in outcome and, in the default setting, $19.3\%$ of the rest differ, the
 smallest being \pos{W a5 d3 / B b6 e4}, a second-player win as a sum and a first-player win on the board
 \lab{C1}. With $\BIG=256$ the move
-bound always holds on boards up to $8\times8$. HSS cannot be dropped (Proposition~\ref{prop:sumcounter}); without
-(E) the decomposition already fails in the pure pawn game, without the passed-pawn rule \lab{C1} (Section~S3).
+bound always holds on boards up to $8\times8$. HSS is needed (Proposition~\ref{prop:sumcounter}), and so is
+(E): without it, sums fail even in the pawn game with no passed-pawn rule \lab{C1} (Section~S3).
 
 \begin{proposition}[\lab{C2}]\label{prop:sumcounter}
 A test of the top-level components alone is not enough: on $\cyl{8}$ with en passant off, $X=$\,\pos{W b2 d4 g3
@@ -80,10 +80,10 @@ $S(X)$ is a black win whoever starts and $W(X)$ a first-player win. Moreover $X$
 opposite threats appear later in its tree, so Theorem~\ref{thm:hss} does not apply.
 \end{proposition}
 
-\emph{Two models.} Our CGT engine computes $S$, as Elkies does~\cite{Elkies1996}, and the independent
+\emph{Two models.} Our CGT engine computes $S$, the model of~\cite{Elkies1996}, and the independent
 whole-board solver $W$. They agree on every headline value: the $1/8$ and $\upsec\star$ in all nine settings,
 and the seven-pawn $\nim{2}$ in the default setting. Elsewhere they can differ, even in outcome (Section~S3);
 there we name the model we mean.
 \emph{Real kings.} On a six-rank $\cyl{8}$ we solved $19$ sums of two components beside a tr\'ebuchet with real
-kings and queen promotions only. Of the $38$ positions, $19$ are exact and all agree with the sum; for the other
-$19$, every second-player win among them, we have only bounds, and each contains it \lab{C1}.
+kings and queen promotions only. Of the $38$ positions, $19$ are solved and agree with the sum; the other
+$19$, all the second-player wins, have only bounds, each consistent with the sum \lab{C1}.

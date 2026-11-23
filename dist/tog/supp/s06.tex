@@ -181,8 +181,9 @@ and the reduced game does not change. Its base case, the reduced game at $m=5$ (
 was computed by two independently written programs \lab{C2}, which also agree on the members with $m\le13$ solved directly. So one pawn per file
 gives a $\nim{2}$ ring on the strip for every $n\ge10$. The members with $m=0$ of the first two
 families are not $\nim{2}$, and the eight-file ring of Table~\ref{tab:mobring} is not extended by any block
-insertion we tried. Twelve files with
-twelve pawns are not yet scanned in full.
+insertion we tried. Since a ring has at least one pawn per file, the least number of pawns in a ring $\nim{2}$ on the
+strip is $n$ for every $n\ge10$. A scan of all root rings with twelve pawns on twelve files was stopped after $50$ of
+$128$ parts; the only $\nim{2}$ ring in those parts is the member of the first family.
 
 \subsection{Boards of Other Heights}\label{S-heights}
 Everything above is on eight ranks. Here the board has $R$ ranks, $5\le R\le12$: white pawns start on rank $2$,

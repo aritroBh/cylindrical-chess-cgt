@@ -89,8 +89,8 @@ In chess the first passed pawn ends the game; in a sum, a component with a passe
 play goes on elsewhere, so a $+\BIG$ can cancel a $-\BIG$. In $\game{\BIG}{0}+\game{0}{-\BIG}$ the first player
 makes a passed pawn and wins the chess game, but the sum is $0$ for every $\BIG$, since the second player
 answers in the other component \lab{P}. We write $W(X)$ for the whole-board game of a pawn position $X$, which ends at
-the first passed pawn, and $S(X)$ for its sum model: after a move, a component in which a side has a passed
-pawn becomes $\pm\BIG$ (by the race rule if both have one); otherwise it is re-split along empty files (one ring
+the first passed pawn, and $S(X)$ for its sum model: after a move, the moved component becomes $\pm\BIG$ if a
+side has a passed pawn in it (by the race rule if both have one); only otherwise is it re-split along empty files (one ring
 if no file is empty); and the components add up. The test comes before the split. We call $W(X)$ a $\nim{k}$ when $W(X)+\nim{h}$ has
 the outcome of $\nim{k}+\nim{h}$ for every heap $h$; our scans and the wall proofs test exactly this.
 
@@ -102,7 +102,7 @@ Call a position \emph{reachable} if moves of either side, in any order, lead to 
 
 \begin{theorem}[Sum safety; \lab{S}]\label{thm:hss}
 Suppose that $X$ has no passed pawn and is HSS, that no position reachable from $X$ with two or more components has a usable en
-passant right (condition (E)), and that $\BIG$ exceeds the number of moves either side can make. Then $S(X)$ and $W(X)$ have the same
+passant right (condition (E)), and that $\BIG$ exceeds the number of moves one side can make in any sequence of pawn moves from $X$. Then $S(X)$ and $W(X)$ have the same
 outcome.
 \end{theorem}
 

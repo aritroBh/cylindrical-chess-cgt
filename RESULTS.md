@@ -573,6 +573,20 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   none of the 23 separated ChessSums positions, because the stalemate clause of the certificate fails for every
   trébuchet; a certified engine test set would have to use other king groups. The engine-on-sums test stays future
   work.
+- **Round of 2026-11-23 (delegated audits and a third mock review; reports under `delegate/out/R1_...` to `R7_...`).**
+  R1 (Opus) re-read appendix A.1 to A.9 after the last-rank convention: sound, four wording fixes; its own brute
+  force (flat boards up to 5 files by 6 ranks, all nine settings, up to 2+2 pawns, and 3+3 in the default setting)
+  finds S = W on every position satisfying HSS and (E), and its split-first control differs in 98 to 320 cases per
+  board. R2 and R7 (Sonnet) audited pointers, labels and the long version: stale lines fixed in supplement S3, S4,
+  S10, the README and the submission files. **Correction:** the least number of pawns in a Möbius ring *2 is n for
+  every n >= 10 (a ring has at least n pawns and one per file suffices, proved); an earlier line called n >= 12 open.
+  The 12-file scan was therefore stopped at 50 of 128 parts (one *2, the family member). R6 (Opus), a mock review
+  formed without reading earlier ones: major revision; its spot checks of sum safety (S12.1) and of the wall and
+  n-pawn ring proofs (S13, S14) found them sound. Applied from it: the validity theorem is per side to move and on
+  boards of at least five ranks; the bound on BIG is stated as moves of one side in any sequence of pawn moves; a
+  pawn on its last rank counts as passed (Section II); the abstract says "state when frozen kings give the chess
+  result"; several sentences reworded. Left for the author: human verification of the S proofs, Table I (corrections
+  to an unpublished study), and the code package name in the supplement while the repository is public.
 
 ## 7. Pending
 

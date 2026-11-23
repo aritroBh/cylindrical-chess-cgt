@@ -114,8 +114,10 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
   (`delegate/out/R7_long_version_audit/REPORT.md`): the long version's certificate clauses differ from the precise
   ones, one Möbius *3 result is missing, and the conclusion (and supplement S10) wrongly called the least Möbius ring
   for n >= 12 open (it is n, since one pawn per file suffices). Fixes go to R9
-- [ ] R9 (Sonnet): apply the accepted R6 and R7 fixes to both versions, rebuild both, run all checks; main session
-  reviews the diff and commits
+- [x] R9 (Sonnet): applied the accepted R6 and R7 fixes to both versions and rebuilt; diff reviewed and builds rerun
+  by the main session. 10-page paper: 10 pages (0.32 in spare), supplement 95. The long version's named build is now
+  16 pages (anonymous 15); it has no page limit. Not applied: one rewrite in Section IX that pushed the paper to 11
+  pages. The agent also corrected the audit: the 10-page paper has 14 sections, so "Sections II--XIII" was right
 - [ ] R10 (Sonnet): per-result record of who wrote and who checked each S proof, and which programs computed its
   finite parts (`delegate/out/R10_provenance/TABLE.md`); basis for a table in the supplement
 - [x] R8 (Haiku): bibliography consistency check of both .bib files and the rendered reference list: 20 references,

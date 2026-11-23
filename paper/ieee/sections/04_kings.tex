@@ -51,7 +51,7 @@ A \emph{king group} $Z$ is the two kings and some pawns on a block of files whos
 \emph{buffer}, hold no pawns; a \emph{decisive event} is a move in $Z$ or one creating a passed pawn.
 
 \begin{theorem}[Validity of the convention; \lab{S}]\label{thm:validity}
-Let a position consist of pawn components and a king group $Z$ with its buffer, let $X$, the position without $Z$, have no passed pawn, and suppose that before the
+On a board of at least five ranks, let a position consist of pawn components and a king group $Z$ with its buffer, let $X$, the position without $Z$, have no passed pawn, and suppose that before the
 first decisive event:
 \begin{enumerate}
 \item[(V1)] outside $Z$ the legal chess moves are exactly the model's pawn moves, with the same results (en
@@ -60,7 +60,7 @@ first decisive event:
 \item[(V2)] in chess, the side that gets a passed pawn wins, and a race is won as the race rule says;
 \item[(V3)] in chess, every move in $Z$ loses (it is \emph{decisively punished}).
 \end{enumerate}
-Then the chess result, with either side to move, is the outcome of $W(X)$, the pawn game that ends at the first
+Then, for each side to move for which this holds, the chess result is the outcome of $W(X)$, the pawn game that ends at the first
 passed pawn (Section~\ref{sec:sums-hss}), without draws.
 \end{theorem}
 
@@ -86,16 +86,16 @@ Each condition can fail: a stalemate trap leaves the loser without a move (V1), 
 race (V2), a king walks over to the pawns or, in Fig.~\ref{fig:kinggroup72}, white's king moves go unpunished
 (V3), and a $+\BIG$ cancels a $-\BIG$ (V4).
 
-A local test for (V3) is the \emph{certificate of horizon $h$} of a move in $Z$: (i) with the pawns outside $Z$
-removed, the punisher promotes within $h$ of its own moves after its reply, even if the defender may pass; (ii)
-after the reply, with the defender to move and the punisher's king and all pawns in $Z$ removed, no defender
-pawn in the context can promote within $h$ of its own moves (its pawns in $Z$ fall under (i)) (the \emph{counter-promotion condition}); (iii) the defender is never stalemated on the forcing
-line. It works in the \emph{promotion game}, where the first promotion
-wins.
+A local test for (V3) is the \emph{certificate of horizon $h$} of a move in $Z$. Let the punisher answer with a move in $Z$ that does not promote and leaves its king among
+the files of $Z$, and call the position then reached $Q$, with the defender to move. (i) With all pawns outside $Z$ removed, the punisher wins the local game: whatever the defender does, and
+even if it may pass whenever it is not in check, the punisher (who never passes) promotes or mates with one of its first $h$ moves counted from $Q$, and the defender promotes first
+in no play. (ii) With the punisher's king and all pawns in $Z$ removed, and the defender alone to move, no sequence of defender king and pawn moves ends in a promotion within $h$
+moves (a king may capture, never steps onto a square attacked by a punisher pawn, and the punisher's other pawns stand still); the defender's pawns in $Z$ fall under (i) (the \emph{counter-promotion condition}). (iii)
+The punisher can follow its winning strategy of (i) so that in no play is the defender stalemated before the punisher's $h$-th move. It works in the \emph{promotion game}, where the first promotion wins.
 
 \begin{theorem}[\lab{S}]\label{thm:cert}
 In the promotion game, a move in $Z$ with a certificate of horizon $h$ is a loss for its mover, so the
-promotion-game analogue of (V3) holds wherever every move in $Z$ has one; for chess, (V3) needs the further
+promotion-game analogue of (V3) holds if every move in $Z$, at every position before the first decisive event, has one; for chess, (V3) needs the further
 check that a won promotion race is a won game. Clause (ii) cannot be weakened to $h-1$ moves.
 \end{theorem}
 

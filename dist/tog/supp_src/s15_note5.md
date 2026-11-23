@@ -14,7 +14,7 @@
 
 ## 0. Claims and labels
 
-PROVED = hand proof complete and its finite parts checked by the program named. COMPUTED-1 = one program. CHECKED-k = $k$ independently written programs agree. Programs: **R** = the program written for this note (rules and reduced graph); **U** = a full-game solver without pruning, by the same author; **M1**, **M2**, **K** = the three solvers of the scans of Section S6.4 (earlier work, called for values only); the referee's program is a fourth implementation of the rules.
+PROVED = hand proof complete and its finite parts checked by the program named. COMPUTED-1 = one program. CHECKED-k = $k$ independently written programs agree. Programs: **R** = the program written for this note (rules and reduced graph); **U** = a full-game solver without pruning, by the same model; **M1**, **M2**, **K** = the three solvers of the scans of Section S6.4 (earlier work, called for values only); the referee's program is a fourth implementation of the rules.
 
 | id | claim | label |
 |---|---|---|
