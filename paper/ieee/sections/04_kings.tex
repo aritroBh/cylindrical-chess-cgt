@@ -40,7 +40,7 @@ pawn position in this paper.
 \label{fig:kinggroup72}
 \end{subfigure}
 \caption{King groups: (a) a tr\'ebuchet on the cylinder (files a and h adjacent) and (b) the tr\'ebuchet T
-(ordinary board), both real mutual zugzwangs that count as $0$; (c) a king group from the 2025 study (cylinder;
+(ordinary board), both real mutual zugzwangs, $0$ when alone; (c) a king group from the 2025 study (cylinder;
 Section~\ref{sec:sums}) that does not count as $0$: it draws with white to move, a zugzwang for black only.}
 \label{fig:kings}
 \end{figure}
@@ -124,7 +124,7 @@ On a board with room for two files beyond the buffer, for every king group whose
 moves, some context without a passed pawn leaves a move in the group unpunished.
 \end{conjecture}
 
-Real tr\'ebuchets seem to need $h\approx5$--$7$ \lab{Conj}, so we trust their zero only beside slow or locked components.
+Real tr\'ebuchets seem to need $h\approx5$--$7$ \lab{Conj}, and a locked pawn pair can still break their zero \lab{C2}.
 
 \subsection{Spare King Moves Are Loopy}
 
@@ -163,6 +163,6 @@ $159$ are on the seven-file cylinder. The e.p.-aware test repairs the $18$ e.p.\
 convention says all $449$ king moves lose, yet $41$ draw and $7$ win \lab{C1}. The $34$ race failures have one cause: a blocked
 enemy pawn steps level with its blocker and promotes first. Ending the game only at a passer that wins the
 race by the square rule removes all $52$ convention failures and leaves $128$ mismatches, all from the
-kings \lab{C1}. Over the $2{,}049$ decisive $8\times8$ positions beside a tr\'ebuchet whose real results we know,
-the model agrees with chess in $92.5\%$; the count rule beats the mover and opponent rules ($83\%$)
-\lab{C1}.
+kings \lab{C1}. Of the $2{,}154$ $8\times8$ positions beside a tr\'ebuchet whose real results we know, $105$ are
+draws; in the other $2{,}049$ the model names the winner in $92.5\%$, against $83\%$ and $84\%$ under the mover
+and opponent rules \lab{C1}. These positions are the ones our other runs solved, not a sample of a defined class.

@@ -1,8 +1,8 @@
 \section{Conclusion and Open Problems}\label{sec:conclusion}
 
-Against real chess the model is right in $92.5\%$ of the decisive $8\times8$ positions we can check; its pawn
-errors vanish under a square-rule passer test, and the rest come from the kings \lab{C1}. In the model,
-$\nim{2}$ appears with seven pawns and $\nim{3}$ with nine. Six problems are open.
+In the model, seven pawns on four files of the ordinary board make a $\nim{2}$ and no six do; nine make a
+$\nim{3}$. The model names the real winner in $92.5\%$ of $2{,}049$ decisive $8\times8$ positions; on six ranks a
+square-rule passer test removes its pawn errors, leaving only king errors \lab{C1}. Six problems are open.
 
 \begin{enumerate}
 \item \emph{A certified $1/8$.} With queen promotions and frozen kings the oracle value is exactly $1/8$. Do
@@ -18,7 +18,7 @@ $\nim{2}$ appears with seven pawns and $\nim{3}$ with nine. Six problems are ope
   local test for chess, or settle Conjecture~\ref{conj:horizon2} (real tr\'ebuchets seem to need $h\approx5$--$7$).
 \item \emph{Endgames without edges.} With at most one new piece, $11\%$ of KPKP positions on the cylinder
   stay undecided, and KPPK comes next. On the M\"obius strip, where a pawn that
-  crosses the seam reverses direction, small rings are settled (Section~\ref{sec:star2-rings}); families for all
+  crosses the seam reverses direction, small rings are settled (Section~\ref{sec:star2}); families for all
   $n$ and the kings remain open.
 \item \emph{Mis\`ere Dawson's chess.} Dawson asked about mis\`ere play \cite{Dawson1935}: is the mis\`ere
   quotient \cite{PlambeckSiegel2008} of Dawson's chess infinite? By the ring rule (Theorem~\ref{thm:ring}), an

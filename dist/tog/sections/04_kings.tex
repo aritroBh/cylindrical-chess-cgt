@@ -28,7 +28,7 @@ tablebase~\cite{LichessTB} confirms them.
 \label{fig:kinggroup72}
 \end{subfigure}
 \caption{King groups: (a) a tr\'ebuchet on the cylinder (files a and h adjacent) and (b) the tr\'ebuchet T
-(ordinary board), both real mutual zugzwangs that count as $0$; (c) a king group from the 2025 study (cylinder;
+(ordinary board), both real mutual zugzwangs, $0$ when alone; (c) a king group from the 2025 study (cylinder;
 Section~\ref{sec:sums}) that does not count as $0$: it draws with white to move, a zugzwang for black only.}
 \label{fig:kings}
 \end{figure}
@@ -80,9 +80,9 @@ the outcome of $S(X)$ (Section~\ref{sec:sums-hss}).
 Each condition can fail: a stalemate trap leaves the loser without a move (V1), a passed pawn does not win its
 race (V2), a king walks over to the pawns or, in Fig.~\ref{fig:kinggroup72}, white's king moves go unpunished
 (V3), and a $+\BIG$ cancels a $-\BIG$ (V4). For (V3) there is a local test: a move in $Z$ has a
-\emph{certificate of horizon $h$} if the punisher promotes within $h$ of its own moves against any defence and no
-defender pawn promotes that fast. In the \emph{promotion game}, where the first promotion wins, a move with a
-certificate loses for its mover \lab{S}; in chess, margins this small can fail (Section~S2). The certificate theory, a local test for (V2),
+\emph{certificate of horizon $h$} if the punisher promotes within $h$ of its own moves against any defence, no
+defender pawn promotes that fast and the defender is not stalemated. In the \emph{promotion game} (the first
+promotion wins) such a move loses for its mover \lab{S}; in chess even wider margins can fail. The certificate theory, a local test for (V2),
 and the loopy games that arise when a king has spare moves are in Section~S2 of the supplementary material.
 
 \subsection{How Often Does the Convention Fail?}\label{sec:kings-sweep}
@@ -95,6 +95,6 @@ the kings alone, $18$ through en passant and $34$ because a passed pawn does not
 test repairs the $18$ e.p.\ failures, but the kings undo $13$ of these repairs. In each race failure a blocked
 enemy pawn steps level with its blocker and promotes first. Ending the game only at a passer
 that wins the race by the square rule removes all $52$ convention failures and leaves $128$ mismatches, all
-from the kings \lab{C1}. Over the $2{,}049$ decisive $8\times8$ positions beside a tr\'ebuchet whose real
-results we know, the model agrees with chess in $92.5\%$; the count rule beats the mover and opponent rules
-($83\%$) \lab{C1}; Section~S2 has more detail.
+from the kings \lab{C1}. Of the $2{,}154$ $8\times8$ positions beside a tr\'ebuchet whose real results we know, $105$ are
+draws; in the other $2{,}049$ the model names the winner in $92.5\%$, against $83\%$ and $84\%$ under the mover
+and opponent rules \lab{C1} (Section~S2).

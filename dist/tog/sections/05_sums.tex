@@ -13,7 +13,7 @@ ones: the earlier walk-throughs pick the right winners, but not always the right
 h6$\times$a5 across the seam leaves $\star$, so the h/a component is hot, not the number $1$. The
 pawns of Puzzle~2 form an infinitesimal with mean $0$, and its king group (Fig.~\ref{fig:kinggroup72}) is a
 zugzwang for black only, on the ordinary board \lab{C2} (our solver and the Lichess tablebase) and on the
-cylinder \lab{C1}, so the real result of this ten-man position is open. Puzzle~3 is illegal as drawn; on files c and d its value is $\tinyg{1}$, and the legal copy
+cylinder \lab{C2}, so the real result of this ten-man position is open. Puzzle~3 is illegal as drawn; on files c and d its value is $\tinyg{1}$, and the legal copy
 one rank up, \pos{W c2 c4 d4 / B c3 d5 d6 d7}, has the same value (Section~S3 shows the puzzles).
 
 \begin{table}[!t]
@@ -67,7 +67,7 @@ Section~S12 of the supplementary material.
 \end{proof}
 
 Of all $599{,}098$ positions without a passed pawn that have at most six pawns on flat boards three to five
-files wide, counted up to symmetry, the $540{,}503$ HSS ones all agree and $19.3\%$ of the rest differ, the
+files wide, counted up to symmetry, the $540{,}503$ HSS ones all agree in outcome and, in the default setting, $19.3\%$ of the rest differ, the
 smallest being \pos{W a5 d3 / B b6 e4}, a second-player win as a sum and a first-player win on the board
 \lab{C1}. With $\BIG=256$ the move
 bound always holds on boards up to $8\times8$. HSS cannot be dropped (Proposition~\ref{prop:sumcounter}); without
@@ -85,5 +85,5 @@ whole-board solver $W$. They agree on every headline value: the $1/8$ and $\upse
 and the seven-pawn $\nim{2}$ in the default setting. Elsewhere they can differ, even in outcome (Section~S3);
 there we name the model we mean.
 \emph{Real kings.} On a six-rank $\cyl{8}$ we solved $19$ sums of two components beside a tr\'ebuchet with real
-kings. Of the $38$ positions, $19$ are exact and all agree with the sum; the rest, among them every
-second-player win, are bounded, none against it \lab{C1}.
+kings and queen promotions only. Of the $38$ positions, $19$ are exact and all agree with the sum; for the other
+$19$, every second-player win among them, we have only bounds, and each contains it \lab{C1}.

@@ -1,4 +1,4 @@
-**How the statements were checked.** The labels are used as follows. PROVED: a hand proof is given in this section. CHECKED-2: a finite computation on which two or more independently written programs agree. COMPUTED-1: a computation by one program. CONJECTURE: a statement supported by evidence only. KNOWN marks a result from the literature, cited and not proved again. The hand proofs were checked by AI referees; no human referee has checked them yet. A referee from a different model vendor than the writer checked the sharp form of Theorem 1.14, Theorem 2.7, Corollary 2.7′, Lemma 2.9 (an audit of the written proof), Proposition 2.11, Theorem 2.11K, Proposition 3.2′, Lemma 3.8a, Theorems 3.7, 3.8 and 3.11 and the one-sided extension that follows Corollary 3.8b; the other proofs were checked by referees of the writer's model family. Below, a check is mentioned only where a specific computation supports a specific claim. References to §4–§8 and to Appendix A are to later parts of the source note, which are not reproduced here.
+**How the statements were checked.** The labels are used as follows. PROVED: a hand proof is given in this section. CHECKED-2: a finite computation on which two or more independently written programs agree. COMPUTED-1: a computation by one program. CONJECTURE: a statement supported by evidence only. KNOWN marks a result from the literature, cited and not proved again. The hand proofs were checked by AI referees; no human referee has checked them yet. A referee from a different model vendor than the writer checked the sharp form of Theorem 1.14, Theorem 2.7, Corollary 2.7′, Lemma 2.9 (an audit), Proposition 2.11, Theorem 2.11K, Proposition 3.2′, Lemmas B, 3.2″ and 3.8a, Theorems 3.2‴, 3.7, 3.8 and 3.11, Corollary 3.8b and its one-sided extension; the other proofs were checked by referees of the writer's model family. Below, a check is mentioned only where a specific computation supports a specific claim. References to §4–§8 and to Appendix A are to later parts of the source note, which are not reproduced here.
 
 ## 1. Chess semantics versus CGT semantics
 
@@ -88,7 +88,7 @@ for σ, then X is a C-win for σ.
 - *Evidence for:* the cylinder KQK tables agree in two independent solvers (`RESULTS.md` §2:
   KQK is 100% won on the 8×8 cylinder).
 - *Evidence against, in general:* L4.4 of `notes/lemmas.md` is a promotion race lost to a promotion with check.
-- *Settled by:* kpsolve with `--cap 1` computes C exactly whenever its bounds agree (A = B), and `--frozen`
+- *Settled by:* kpsolve with `--cap 1` computes C exactly whenever its bounds agree (A = B), and `kp_p`
   computes P; the two runs decide (A_Q)(X) for that X.
 
 ### 1.3 Two lemmas about options
@@ -1524,7 +1524,7 @@ still be right although dominance fails (Theorem 3.8(c)).
 at every reachable position. *Proof.* All events are in K. For an event of sign + in K_j the rest is S together with the other K_i, and Λ(S) + Σ_{i≠j} Λ_B(K_i) ≤ Λ(S) + M_R(K) ≤ B − 1 by Theorem 3.8(a); σ = − is symmetric. ∎
 It is the finite-reserve half of the "one stopper plus short components" case: S = over and S = under qualify (Proposition 3.9) and so does every stopper whose reserves are finite; `on` and `off` are not covered by the corollary as stated (ρ(on) = λ(off) = ∞) but satisfy Theorem 3.8 directly: S = on when K has no ⊖ event
 (only the σ = + condition is needed, and Λ(on) = 0), S = off when it has no ⊕ event (the sign condition of Theorem 3.8 is what pairs the reservoir with the threats of the side it favours), with K pairwise safe and
-B ≥ 1 + max(M_L(K), M_R(K)) (argued from the proof of Corollary 3.8b with the one-sided condition. Here "K has no ⊖ event" means that no follower of any K_i has a ⊖ option for either player; with the condition read at the root only, the claim is false, for example S = on beside K = {|{|⊖}}. A cross-vendor referee checked the argument under this reading and found that B ≥ 1 + M_R(K) already suffices for `on` and B ≥ 1 + M_L(K) for `off`. Tested on 1,810 random instances by the writer's program and on all 25,296 qualifying instances with at most three short components and five option edges by the referee's own program, 0 failures, COMPUTED-1 each). The other pairings are Theorem 3.4 and Proposition 3.12. Most random stoppers do not qualify: 9,488 of the 12,610 random stopper-plus-safe-short instances had an infinite reserve.
+B ≥ 1 + max(M_L(K), M_R(K)) (argued from the proof of Corollary 3.8b with the one-sided condition. Here "K has no ⊖ event" means that no follower of any K_i has a ⊖ option for either player; with the condition read at the root only, the claim is false, for example S = on beside K = {|{|⊖}}. A cross-vendor referee checked the argument under this reading and found that B ≥ 1 + M_R(K) already suffices for `on` and B ≥ 1 + M_L(K) for `off`. Tested on 1,810 random instances by an earlier referee and on all 25,296 qualifying instances with at most three short components and five option edges by the referee's own program, 0 failures, COMPUTED-1 each). The other pairings are Theorem 3.4 and Proposition 3.12. Most random stoppers do not qualify: 9,488 of the 12,610 random stopper-plus-safe-short instances had an infinite reserve.
 
 **Proposition 3.9 (reserves of the named games). PROVED.** (λ, ρ): on (0, ∞), off (∞, 0), over (0, 1), under (1, 0), dud (∞, ∞).
 
@@ -1663,7 +1663,7 @@ and 6 colour-reversed contexts with Z_offT1 = `Kc1 Pb2 ka2 pb3 pc2` (prediction 
   exists in P on the flat 7×6 board: Z_B of §5.7 has every non-shuttle move losing by force at all 8 roots (PROVED in §5.7; CHECKED-2 for the computations),
   and beside every context tested its P-result equals r(G ⊞ dud_D) (COMPUTED-1; 225 of 885 contexts untested; every context of at most 3 pawns on files e–g CHECKED-2, §5.7);
   CONJECTURE that this holds in every context. Z_B is **not** exactly two-shuttle in chess (CHECKED-2: 25 of
-  the 26 deviations lose, Kc3–d2 from (c3, b5) draws: §5.7); open: chess contexts of Z_B, chess on the cylinder (Z_B, Z_C), a hand proof on the cylinder, other boards (§8,
+  the 26 deviations lose, Kc3–d2 from (c3, b5) draws: §5.7); nor on cyl:7×6, 8×6, nor Z_C (CHECKED-2); open: other chess contexts, a cylinder hand proof, other boards (§8,
   item 2). On the cylinder dud groups exist in P (§5.7, §8 item 2): Z_B and the passer-free
   group Z_C are exactly two-shuttle at their 8 roots on cyl:8×6 (Z_B also on cyl:7×6; CHECKED-2), Z_C is not exact beside every context,
   and G8a, G8b (no pawn move at all) are exactly two-shuttle in P (CHECKED-2) and in chess at cap 2 (COMPUTED-1). Z_A (§5.7) has one White break.
@@ -1838,6 +1838,6 @@ So the P-win sets of both sides are π^{-1}(W^σ). ∎
   inexhaustible tempo.
 - Elkies (GONC 1996; arXiv 1999) lists loopy values (tis/tisn, over, on/off, dud) among chess positions.
 - Siegel ("Coping with cycles", GONC 3, 2009) gives chess positions of value on and upon.
-- Gafni (thesis 2011) computes loopy K+P vs K values on 3×3 and 3×4 boards.
+- Gafni (thesis 2011; known second-hand) gives K+P vs K values on 3×3, 3×4.
 
 None of these treats loopy kings inside sums with game-ending decisive events.
