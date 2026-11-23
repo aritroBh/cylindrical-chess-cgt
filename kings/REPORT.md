@@ -463,6 +463,10 @@ Every deliverable was given to independent referees (Claude models) told to brea
     and e (`Kf5 kd4 Pb2 Pb4 Pe2 pa4 pb5 pe5`, Black's king shuttling d4–d5); on cyl:10×6 also a 2 + 3 group. None exists with
     at most 2 + 2 pawns, nor on cyl:6×6 or 7×6 (CHECKED-2, two implementations plus the referee's own solver). K44's king-fight
     roots are not such groups: their freezes are king moves that White can undo. Equality with over in sums is not tested.
+  - Theorem 1.11(c) repaired (2026-11-23): its proof used the e.p. condition (E) without assuming it, and its frontier
+    step used an unproved inheritance of threats by re-split components. (E) is now a hypothesis (every use already had
+    it through Theorem 1.14), and the inheritance is proved. Found while the paper's proofs appendix was written and
+    refereed (`kings/delegate/out/S12A/REVIEW.md`).
   - So no result of the note is still GAP.
   - The T30 fixes of 2026-10-22 came later. They were reviewed by Sonnet reviewers in two rounds, not by K3 (see the Theory row
   above).
