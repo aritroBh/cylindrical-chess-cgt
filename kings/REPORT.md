@@ -421,7 +421,7 @@ Every deliverable was given to independent referees (Claude models) told to brea
   - K15b and K26 (2026-10-29) answer open question 2 in P: dud groups with no pawn break exist on the cylinder.
     K26's search of three-file groups with no cut-off finds Z_B on cyl:7×6 and cyl:8×6 and a new passer-free group
     Z_C (`Pa2 Pc4 / pa3 pc5`, kings c2/c3 and a4/a5) on cyl:8×6, with mirrors; both are exactly two-shuttle in P
-    (CHECKED-2 for width ≤ 8). K15 finds G8a and G8b on cyl:8×6 (re-solved by its referee K15b) (two blocked pairs on files a and e, no pawn move),
+    (CHECKED-2 for width ≤ 8). K15 finds G8a and G8b on cyl:8×6 (re-solved by its referee K15b; two blocked pairs on files a and e, no pawn move),
     exactly two-shuttle in P (CHECKED-2) and with the same 72 move values in chess at cap 2 (COMPUTED-1). Z_C is not
     dud_D beside every context. The two searches agree where their scopes overlap. Neither finds an over group, so the
     second half of Conjecture 4.7 has no support (COMPUTED-1). Both referees accepted with fixes; the merged edits were
@@ -436,9 +436,9 @@ Every deliverable was given to independent referees (Claude models) told to brea
     cyl:7×6 and flat 7×6, without Lemma 2.7a: K30's argument for position 7.2, moved two files left and two ranks down.
     Its blockade invariant (296 positions per board) and Lemma K′ were checked by two move generators, and the chess
     values by kpsolve and the referee's own solver (CHECKED-2). The referee re-derived every case; its edits were applied.
-  - K40 (2026-10-29) answers open question 5 (Gafni's K+P v K without edges) on cyl:W×H, 3 ≤ W ≤ 8, H ∈ {6, 7, 8}: on 3 and
+  - K40 (2026-10-29) answers open question 5 (Gafni's K+P v K without edges) on cyl:W×H, 3 ≤ W ≤ 8, H ∈ {6, 7, 8}: under normal play, on 3 and
     5–8 files every position has the signature of a win, of on, or of dud, and no number or infinitesimal occurs
-    (CHECKED-2: two sum solvers, 71,842,272 results). Black never wins, by hand. The atlas table differs from P only where
+    (CHECKED-2 for H = 6, 8, two sum solvers, 71,842,272 results; COMPUTED-1 for H = 7). Black never wins, by hand. The atlas table differs from P only where
     the atlas scores a capturable promotion as a draw. The 4-file cylinders differ. The referee's edits were applied.
   - K41 (2026-10-29) checked the commits for K28, K15b+K26 and K29 against their sources: every edit was applied exactly,
     and six wording and scope points were fixed (`kings/delegate/out/K41/CHECK.md`).
@@ -447,16 +447,22 @@ Every deliverable was given to independent referees (Claude models) told to brea
     Ka4–g5/h5; for Z_C eight king moves), CHECKED-2 with three solvers. Beside 8 small chess contexts on flat 7×6, Z_B
     matches dud_D at the 60 roots that cap 1 decides; 4 roots and the rest of the context class were not run. The
     referee's corrected edits were applied.
-  - K42 (2026-11-22) settles open question 1 in its promotion-free form: it is FALSE in P (CHECKED-2: 68,395 failures in
-    6,033,423 sortie and context pairs on cyl:7×6, 8×6 and 9×6, every one using the king that made the sortie).
+  - K42 (2026-11-22) settles open question 1 in its promotion-free form: it is FALSE in P (CHECKED-2 for the counterexamples;
+    the totals, 68,395 failures in 6,033,423 sortie and context pairs on cyl:7×6, 8×6 and 9×6, every one using the king that
+    made the sortie, are COMPUTED-1).
     Proposition 8.1′ (PROVED, re-derived by the referee) keeps what survives. The referee's own solver reproduced the lists.
   - K43 (2026-11-22) extends the search for over groups: no exact over or under group with at most 3 + 3 pawns on four
     files, every king placement, cyl:6×6 to 9×6, flat 7×6 and 8×6 (CHECKED-2, 6.4 billion placements per orientation).
-    Conjecture 4.7's over half still has no support; two new lemmas, 4.10 (with the referee's added condition) and 4.11.
+    These are four adjacent files; K45 then found exact groups on a five-file span. Two new lemmas, 4.10 (with the referee's added condition) and 4.11.
   - K44 (2026-11-22) extends the king fights of open question 3: the local king game LK reaches over and under on cyl:10×6
-    and wider with three blocked pairs, and finite tempi +1 and -1 on odd widths 7 to 12 (CHECKED-2, four implementations).
+    and wider with three blocked pairs, and a three-pair +1 and -1 root on every width 7 to 12, new on 7, 9 and 11 (CHECKED-2, four implementations).
     These are values of a king fight, not groups of Definition 4.8 in P. The referee's edits were applied, one merged by
     hand with K43's.
+  - K45 (2026-11-23) realises the over half of Conjecture 4.7 in the sense of Definition 4.8: exact over groups, and their
+    mirrors, exact under groups, exist in plain P on cyl:8×6 and every wider cylinder searched, with 3 + 3 pawns on files a, b
+    and e (`Kf5 kd4 Pb2 Pb4 Pe2 pa4 pb5 pe5`, Black's king shuttling d4–d5); on cyl:10×6 also a 2 + 3 group. None exists with
+    at most 2 + 2 pawns, nor on cyl:6×6 or 7×6 (CHECKED-2, two implementations plus the referee's own solver). K44's king-fight
+    roots are not such groups: their freezes are king moves that White can undo. Equality with over in sums is not tested.
   - So no result of the note is still GAP.
   - The T30 fixes of 2026-10-22 came later. They were reviewed by Sonnet reviewers in two rounds, not by K3 (see the Theory row
   above).
@@ -474,8 +480,8 @@ Every deliverable was given to independent referees (Claude models) told to brea
   The ordinary-board data suggests the same.
 - **The paper's full positions.** 7.2 with its {a,b,h} pawns has 10 men on 8×8, out of reach for an exhaustive
   solve here. Theory §5.2 says it is still a White win when White wins the pawn part.
-- **`dud`.** No small king-and-pawn group with both kings able to shuttle and no pawn break was found
-  (CONJECTURE, theory §5.3).
+- **`dud`.** Answered in P by K15b and K26 (above): Z_B, Z_C, G8a and G8b are dud groups with no pawn break; in chess
+  Z_B and Z_C are not exactly two-shuttle (K28, K39).
 - **Opposition on cylinders** (plan A8) is covered by the main project's tasks T12 and T25, not by this
   report. [research/odd_cylinders_verify/REPORT.md](../research/odd_cylinders_verify/REPORT.md) checks it
   with kpsolve and `kings/ref` together (CHECKED-2: 1,058,628 cylinder positions, 0 disagreements).
@@ -483,7 +489,7 @@ Every deliverable was given to independent referees (Claude models) told to brea
     draws and 200 are mutual zugzwangs.
   - `Ka3 Pa2 ka5` is a draw on the flat board and a mutual zugzwang on every cylinder.
   - The paper gives the table in §X-A (Table VI).
-- **Gafni's K+P vs K values without edges** (plan A8), task K4 ([delegate/out/K4/REPORT.md](delegate/out/K4/REPORT.md)).
+- **Gafni's K+P vs K values without edges** (plan A8). Answered on cyl:3–8 × 6–8 by K40 (above). Earlier, task K4 ([delegate/out/K4/REPORT.md](delegate/out/K4/REPORT.md)).
   The thesis itself was not located (`notes/novelty_check/REPORT.md`). So K4 computed the same kind of object
   under a stated convention: normal play, so a stalemate loses; infinite play draws; a test-game move is illegal
   while in check.

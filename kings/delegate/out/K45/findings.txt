@@ -1,0 +1,137 @@
+K45 FINDINGS: is K44's over root an exact over group in P?  (LOOPY Conjecture 4.7, section 8 items 2 and 3)   Task date 2026-11-23
+=====================================================================================================================================
+AI work, no human re-derivation.  Model P throughout (SPEC.md rules, real kings, e.p. on, promotion pieces QRBN, first promotion wins for
+the promoter, stalemate and endless play are draws; Definition 1.5).  Labels: COMPUTED-1 one implementation, CHECKED-2 two independently
+written implementations agree.  Nothing here is PROVED except where a known lemma is quoted.  Machine load was high; heavy runs went
+through kings/delegate/heavy.sh (at most 2 at once, nice 15).
+
+0. SHORT ANSWER
+---------------
+(a) K44's over roots are NOT exact over groups of Definition 4.8.  Clause (O4) fails at every freeze of every root (clauses O1, O2, O3
+    hold).  Reason: both freezes are non-capturing king moves of White (Kc3-c2 and Kc3-d2); after the freeze White, to move, can play the
+    king back (Kc2-c3), reaching the root with Black to move, which Black loses; so q is a White win with either side to move, not a mutual
+    zugzwang.  This is the colour mirror of Lemma 4.9 (PROVED), which forbids exactly this.  Same on cyl:11x6 and 12x6, and for the mirror
+    (under) group.  The LK value "over" of K44 is an outcome statement against batteries of D-sum contexts; Definition 4.8 is a strictly
+    stronger structural condition (q = 0 in P alone).  Neither implies the other.   (CHECKED-2: own solvers A and B, and ref3m and kp_p.)
+(b) K44's blocked-pair batteries (one, two or three blocked pairs on distinct files inside an arc of 6 files, pair ranks 2..4, with every
+    sub-layer reached by captures and pushes) contain NO exact over or under group on cyl:10x6, 11x6, 12x6, every king placement
+    (756 blocked-pair layer lines per width, F4 = 0; CHECKED-2).
+(c) BUT exact over and under groups of Definition 4.8 DO exist in plain P, with pawns that are not all blocked pairs.  Conjecture 4.7's
+    over half is realised (CHECKED-2; ref3m and kp_p on cyl:8x6, 9x6, 10x6; own solvers A and B on cyl:6x6 to 12x6, 14x6, 16x6).
+    The smallest board is cyl:8x6 (none on cyl:6x6, 7x6 in the six file classes searched).  Smallest by pawns: 2 + 3 pawns, on cyl:10x6 only.
+    The 3 + 3 group exists on every cyl:Wx6 searched with W = 8, 9, 10, 11, 12, 14, 16.
+    No exact group with at most 2 + 2 pawns on any three files within six files (all searched widths).
+(d) K43's "0 exact over and 0 exact under groups" stands for its scope (pawns on four ADJACENT files).  The new groups have pawns on files a, b, e
+    (non-adjacent, a five-file span); K43 and K26 never searched such a set.  K15's five-file range (at most 3 + 2 pawns, cyl:7x6 and 8x6, a different reading of over)
+    contains no such group: the 2 + 3 group needs cyl:10x6 and the 3 + 3 group has one pawn more.
+
+1. THE EXACT OVER GROUPS FOUND
+------------------------------
+Smallest board, cyl:8x6 (squares a1..h6; pawns on files a, b, e; 3 + 3 pawns):
+    root position   Kf5 kd4 Pb2 Pb4 Pe2 pa4 pb5 pe5 b -        (Black shuttles d4-d5; the White king stays on f5)
+    the four roots  (kd4, Black to move), (kd4, White to move), (kd5, Black to move), (kd5, White to move)
+    values in P     every root with Black to move is a Black loss, every root with White to move a White win (ref3m, kp_p: W at all four).
+    (O1)  Black has 6 moves at the d4 root and 7 at the d5 root; every one of them (the shuttle included) loses at once.
+    (O2)  White has exactly one non-losing move at each root, and it is a pawn move, no promotion:
+              root d4: e2-e4 (double step; no e.p. right)      root d5: e2-e3
+    (O3)  after the freeze Black to move has 4 (resp. 5) legal moves, all lose at once.
+    (O4)  after the freeze White to move has 6 legal moves, all lose at once: a mutual zugzwang 0_D.
+    So the freezes are pawn moves, as Lemma 4.9 requires, and different at the two roots, as Lemma 4.10 allows.
+    Pawn roles: b4/b5 is a blocked pair; e2 and e5 face each other two squares apart (the e-pawn pushes are the freezes); a4 (Black) and b2 (White) are
+    free pawns whose pushes lose at once.
+    Colour mirror (exact UNDER group): Kd2 kf2 Pa3 Pb2 Pe2 pb3 pb5 pe5 w -, White shuttles d2-d3, Black freezes with pe5-e4 (root d2) / pe5-e3 (root d3).
+Reflection: on cyl:8x6 the file set {a,b,f} is the mirror image of {a,b,e}: `Ke5 kg4 Pa2 Pa4 Pf2 pb4 pa5 pf5 b -` (shuttle g4-g5) is the same group.
+Full clause-by-clause listing from solver B: diag_hit_over_cyl8x6.txt.
+
+Smallest by pawns, cyl:10x6 (5 pawns, 2 + 3, files a, b, e):
+    Kg4 kf6 Pb3 Pe2 pa5 pb4 pe5 b -      Black shuttles f6-g6; freezes e2-e3 (root f6) and e2-e4 (root g6); U3 has 5 resp. 4 moves, U4 6 resp. 4, all lose.
+    mirror (under, 3 + 2): Kf1 kg3 Pa2 Pb3 Pe2 pb4 pe5 w -, shuttle f1-g1.
+    Not on cyl:9x6, 11x6, 12x6, 14x6, 16x6 (the group needs the a-file pawn a5 within wrap reach of the kings).  (diag_hit_over_2p3_cyl10x6.txt)
+
+Where the 3 + 3 group occurs (exact count of exact groups per colour orientation, each a root pair; over equals under by the colour mirror):
+    cyl:6x6 0, cyl:7x6 0, cyl:8x6 1, 9x6 1, 10x6 2 (3 + 3 and 2 + 3), 11x6 1, 12x6 1, 14x6 1, 16x6 1.   (results_ball.tsv)
+    On cyl:8x6 the six file classes are all different games except {a,b,e} and {a,b,f}, which are mirror images, so one group.
+
+2. SEARCH AND IMPLEMENTATIONS
+-----------------------------
+Test: Definition 4.8 for the under group (White shuttles) and its colour mirror, the over group (Black shuttles), restated in K43's findings
+2.1 as (O1)..(O4): adjacent pair z of safe squares for the shuttler (K1), the other king on a safe square at distance >= 2 from both (K2), the four roots,
+(O1) every non-shuttle move of the shuttler loses at once and the shuttle is legal, (O2) the freezer has a non-losing move at both roots and no
+promotion is available, (O3) after every freeze q the shuttler to move has a legal move and all lose at once, (O4) the same q with the freezer to
+move (no e.p. flag) is legal and every freezer move loses at once.  "Loses at once" = the position after the move is lost for the mover in P.
+
+Domain (both implementations): for each file set {0,x,y} (the six classes of triples inside an arc of six files, up to rotation and reflection:
+{a,b,c} {a,b,d} {a,b,e} {a,b,f} {a,c,e} {a,c,f}), EVERY pawn configuration with at most 3 White and 3 Black pawns on those three files, ranks 2 to 5 (43,299
+layers per file set), EVERY placement of both kings anywhere on the board, both colour orientations.  Boards cyl:Wx6 for W = 6..12 (all six file sets),
+and W = 14, 16 for {a,b,e}; on cyl:10x6 also the two arcs of seven, {a,c,g} and {a,d,g} (0 hits).  Every pawn file set of K44's three-pair batteries is
+inside this domain, and so is every one-pair and two-pair battery configuration.  Totals for W = 10, 11, 12 (A, one orientation): 6,123,475,980 placements,
+1,785,025,756 with (O1), 409,533,071 with (O1),(O2), 385,499,965 loose groups (O1..O3), exact 4 (per orientation; the funnel is below).
+
+Implementation A (K43's table solver plocalp3.cpp, adapted in K45: pawn files given as a list instead of a window, square masks widened to 128
+bits for boards of up to 72 squares; src/p45a.cpp; run with run_a.sh).  Its table was checked in K45 against ref3m on 1,500 random states
+of cyl:10x6 (files a, c, f, 2 + 2 pawns): 0 differences (logs/dump_*).
+Implementation B (new, src/b45.cpp, written from SPEC.md and Definition 4.8, not from K43's code): explicit pawn lists, layers created on demand
+children first, retrograde analysis with explicit forward successor lists and reverse CSR, its own move generator, own test.  Run in two modes:
+`--all f1,f2,f3` (the same domain as A) and a configuration mode (blocked-pair batteries only).
+Agreement, A against B, counter by counter for every layer with (O1) or a blocked layer: W = 10, 11, 12 over all six file sets, 1,199,596 layer lines,
+0 differences, and the sets of exact groups equal (compare_all.py).  The battery run of B (config mode, 24,622 resp. 24,824 and 25,184 printed layers)
+equals A on every layer of every width (0 mismatches; compare.py).  B alone for W = 6..9, 14, 16 and the two seven-file arcs.
+Third and fourth implementations of the SOLVER (no shared code): ref3m (K23 referee, kings/delegate/out/K23/verify/ref3m.cpp) and kp_p --pmodel (K44's
+kp_p10.c, file limit 10), used through `--moves` by verify_hit.py, a checker that has no move generator: it applies the solver's own move list
+to each position and tests (O1)..(O4) from the solvers' values only.  All ten exact groups of cyl:8x6 (4: over and under, in the two reflected file sets), cyl:9x6 (2) and cyl:10x6 (4) PASS with both solvers (verify_hits_ref3m_kpp.txt, verify_hits_W8_W9.txt).  The negative control, K44's
+cyl:10x6 root, FAILS (O4) with both.  cyl:11x6 and larger exceed the 64-square solvers: those widths rest on A and B (CHECKED-2).
+(The lines of verify_hits_W8_W9.txt for the file set {a,b,f} at cyl:9x6 FAIL: that is not a group on a 9-wide board.)
+Funnel (A = B wherever both ran).  The (O1)+(O2) column of B counts placements with (O1), no promotion and a freeze at both roots, as A's F2.
+    A (all six file sets, one orientation; W = 10, 11, 12):
+    W   placements       (O1)          noFreeze   promoFreeze     (O1)+(O2)     loose(O1..O3)   exact(O4)
+    10  1,545,980,715    449,004,552   298,108    345,866,459     103,118,779   96,305,855      2
+    11  2,019,335,964    588,516,234   311,382    453,454,404     135,042,808   127,053,265     1
+    12  2,558,159,301    747,504,970   324,711    576,114,708     171,371,484   162,140,845     1
+    B (all six file sets, one orientation; W = 6..12, counts over the layers it prints): (O1)  (O1)+(O2)  loose  exact
+    6   87,002,673    19,573,208    16,799,148    0
+    7   148,021,900   34,243,670    30,533,042    0
+    8   228,139,789   52,469,706    47,743,026    2
+    9   328,874,090   75,607,326    69,862,515    1
+    10  449,004,552   103,118,779   96,305,855    2
+    11  588,516,234   135,042,808   127,053,265   1
+    12  747,504,970   171,371,484   162,140,845   1
+    14* 185,821,282   41,786,829    39,800,103    1
+    16* 261,456,852   59,007,568    56,695,152    1
+(* W = 14 and 16: file set {a,b,e} only.  W = 8 shows 2 exact groups because {a,b,e} and {a,b,f} are mirror images there.  Per width and file set: results.tsv for A, results_ball.tsv for B.)
+
+3. K44'S ROOTS, CLAUSE BY CLAUSE (item 3)
+-----------------------------------------
+Position: cyl:10x6, pairs a2/a3, c4/c5, f2/f3 (layer Pa2 Pc4 Pf2 pa3 pc5 pf3), Black shuttles a4-a5, White king c3.  Solver B, diag_K44_over_root_cyl10x6.txt
+(and cyl:12x6), counts of moves in P:
+    Black to move, ka4: 3 legal moves, all lose at once (shuttle included).     Black to move, ka5: 6 legal moves, all lose at once.        (O1) holds.
+    White to move, ka4: 1 legal move that loses at once, two that do not: Kc3-c2, Kc3-d2 (both win).     ka5: Kc3-c2, Kc3-d2 (win).         (O2) holds, no promotion.
+    After Kc3-c2 (and Kc3-d2), Black to move: 4 legal moves (ka4) / 7 (ka5), all lose at once.                                          (O3) holds.
+    After Kc3-c2, White to move: 6 legal moves at ka4, 7 at ka5; the non-losing ones are Kc2-c3 and Kc2-d2 (both WIN); after Kd2: Kd2-c2, Kd2-c3, Kd2-e3 (WIN).  (O4) FAILS.
+    ref3m and kp_p agree: root and every q have result W for either side to move (roots.ref3m, roots.kpp).
+So the freeze q has value "White wins whoever moves", not 0.  The colour mirror (a2 c4 h4, under) fails the same way (diag_K44_under_root_cyl10x6.txt).
+Why LK's value does not transfer: LK identifies the root with over by outcomes in D-sums with batteries of games (K44, CHECKED-2).  Definition 4.8 asks for
+more: that every White option loses at once in P itself, i.e. q is the position 0_D of Definition 4.4.  At K44's roots White's freezing king move keeps a
+return move, so q is a positive position (over itself has the White option back to a root).  In the D-model the root's White option need only
+have the right outcomes against the battery; in P alone it is not a zugzwang.  Whether K44's roots equal over against contexts IN P was
+not tested (the P solvers cannot form a D-sum; see 4).  This is an explanation consistent with the data, not a proof.
+
+4. VALUES BESIDE CONTEXTS (item 2; kp_p --pmodel and ref3m on cyl:10x6; ctx_table.txt)
+---------------------------------------------------------------------------------------
+P is not additive, so "beside a context" means: add far pawns on files h and i to the root and ask the P solvers.  For the two groups of cyl:10x6
+(3 + 3: Kf5 kd4 ...; 2 + 3: Kg4 kf6 ...), 11 contexts x 4 roots x 2 groups = 88 positions, ref3m and kp_p agree on all 88.  Pattern (W/L = White/Black wins):
+   context none, White passed pawn Ph5/Ph4/Ph3, blocked pairs (h3/h4, h2/h3, h3/h4 + i2/i3): all four roots W  (the group stays a White win with a White tempo or a zero beside it)
+   context Black passed pawn ph2/ph3/ph4: all four roots L  (a Black free tempo beats the group, so over < 1 in these tests)
+   exceptions in the 2 + 3 group: Ph5 attacks g6, so the root with the shuttler on g6 and White to move is illegal (X); the race Ph4 + pi4 gives L W L L, the far pawn
+   and the White king interact (not additive).  Both solvers agree.  These contexts only sample the order-structure (0 < over < 1); they do not decide
+   equality with over.
+
+5. WHAT IS NOT DONE
+-------------------
+More than three pawn files, files outside a six-file arc (only two seven-file arcs on cyl:10x6), ranks other than six, officers on the board (chess; kpsolve
+was not run for the groups), flat boards, W = 13, 15, W > 16 (the 3 + 3 group is expected to persist, by the pattern of W = 9..16), contexts that are D-sums.
+That no group exists with fewer than 2 + 3 pawns is a statement about the domain only.  The groups use 6-rank boards; their pawn files a, b, e span five files.
+
+6. FILES (all in kings/delegate/out/K45/; raw logs xz-compressed in logs/)
+-----------------------------------------------------------------------------
+src/p45a.cpp, src/b45.cpp; run_*.sh, queue_*.sh (the commands run); configs_all.txt; results.tsv, results_ball.tsv; diag_*.txt; verify_hit.py,
+verify_hits_*.txt; roots.ref3m, roots.kpp; ctx_*; compare.py, compare_all.py, summarize.py; pids.log.  Binaries were deleted after the runs.

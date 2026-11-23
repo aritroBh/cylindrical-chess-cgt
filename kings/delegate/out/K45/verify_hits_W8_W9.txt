@@ -1,0 +1,32 @@
+PASS ref3m W=8 sh=1 Kf5 kd4 Pb2 Pb4 Pe2 pa4 pb5 pe5 b - shuttle d4d5 freezes: ['Pe2e4', 'Pe2e3']
+PASS ref3m W=8 sh=0 Kd2 kf2 Pa3 Pb2 Pe2 pb3 pb5 pe5 w - shuttle d2d3 freezes: ['Pe5e4', 'Pe5e3']
+PASS ref3m W=8 sh=1 Ke5 kg4 Pa2 Pa4 Pf2 pb4 pa5 pf5 b - shuttle g4g5 freezes: ['Pf2f4', 'Pf2f3']
+PASS ref3m W=8 sh=0 Kg2 ke2 Pa2 Pb3 Pf2 pa3 pa5 pf5 w - shuttle g2g3 freezes: ['Pf5f4', 'Pf5f3']
+PASS kpp W=8 sh=1 Kf5 kd4 Pb2 Pb4 Pe2 pa4 pb5 pe5 b - shuttle d4d5 freezes: ['Pe2e4', 'Pe2e3']
+PASS kpp W=8 sh=0 Kd2 kf2 Pa3 Pb2 Pe2 pb3 pb5 pe5 w - shuttle d2d3 freezes: ['Pe5e4', 'Pe5e3']
+PASS kpp W=8 sh=1 Ke5 kg4 Pa2 Pa4 Pf2 pb4 pa5 pf5 b - shuttle g4g5 freezes: ['Pf2f4', 'Pf2f3']
+PASS kpp W=8 sh=0 Kg2 ke2 Pa2 Pb3 Pf2 pa3 pa5 pf5 w - shuttle g2g3 freezes: ['Pf5f4', 'Pf5f3']
+PASS ref3m W=9 sh=1 Kf5 kd4 Pb2 Pb4 Pe2 pa4 pb5 pe5 b - shuttle d4d5 freezes: ['Pe2e4', 'Pe2e3']
+PASS ref3m W=9 sh=0 Kd2 kf2 Pa3 Pb2 Pe2 pb3 pb5 pe5 w - shuttle d2d3 freezes: ['Pe5e4', 'Pe5e3']
+FAIL ref3m W=9 sh=1 Ke5 kg4 Pa2 Pa4 Pf2 pb4 pa5 pf5 b - shuttle g4g5 freezes: ['Pf2f4', 'Ke5d4', 'Ke5d5', 'Ke5d6', 'Ke5e6', 'Pf2f3']
+    U4 fails: freeze Ke5d4 from Ke5 kg5 Pa2 Pa4 Pf2 pa5 pb4 pf5 w - gives Kd4 kg5 Pa2 Pa4 Pf2 pa5 pb4 pf5 w - (freezer to move: W, 9 moves)
+    U4 fails: freeze Ke5d5 from Ke5 kg5 Pa2 Pa4 Pf2 pa5 pb4 pf5 w - gives Kd5 kg5 Pa2 Pa4 Pf2 pa5 pb4 pf5 w - (freezer to move: W, 10 moves)
+    U4 fails: freeze Ke5d6 from Ke5 kg5 Pa2 Pa4 Pf2 pa5 pb4 pf5 w - gives Kd6 kg5 Pa2 Pa4 Pf2 pa5 pb4 pf5 w - (freezer to move: W, 8 moves)
+    U4 fails: freeze Ke5e6 from Ke5 kg5 Pa2 Pa4 Pf2 pa5 pb4 pf5 w - gives Ke6 kg5 Pa2 Pa4 Pf2 pa5 pb4 pf5 w - (freezer to move: W, 6 moves)
+FAIL ref3m W=9 sh=0 Kg2 ke2 Pa2 Pb3 Pf2 pa3 pa5 pf5 w - shuttle g2g3 freezes: ['Ke2d1', 'Ke2d2', 'Ke2d3', 'Ke2e1', 'Pf5f4', 'Pf5f3']
+    U4 fails: freeze Ke2d1 from Kg2 ke2 Pa2 Pb3 Pf2 pa3 pa5 pf5 b - gives Kg2 kd1 Pa2 Pb3 Pf2 pa3 pa5 pf5 b - (freezer to move: L, 8 moves)
+    U4 fails: freeze Ke2d2 from Kg2 ke2 Pa2 Pb3 Pf2 pa3 pa5 pf5 b - gives Kg2 kd2 Pa2 Pb3 Pf2 pa3 pa5 pf5 b - (freezer to move: L, 10 moves)
+    U4 fails: freeze Ke2d3 from Kg2 ke2 Pa2 Pb3 Pf2 pa3 pa5 pf5 b - gives Kg2 kd3 Pa2 Pb3 Pf2 pa3 pa5 pf5 b - (freezer to move: L, 9 moves)
+    U4 fails: freeze Ke2e1 from Kg2 ke2 Pa2 Pb3 Pf2 pa3 pa5 pf5 b - gives Kg2 ke1 Pa2 Pb3 Pf2 pa3 pa5 pf5 b - (freezer to move: L, 6 moves)
+PASS kpp W=9 sh=1 Kf5 kd4 Pb2 Pb4 Pe2 pa4 pb5 pe5 b - shuttle d4d5 freezes: ['Pe2e4', 'Pe2e3']
+PASS kpp W=9 sh=0 Kd2 kf2 Pa3 Pb2 Pe2 pb3 pb5 pe5 w - shuttle d2d3 freezes: ['Pe5e4', 'Pe5e3']
+FAIL kpp W=9 sh=1 Ke5 kg4 Pa2 Pa4 Pf2 pb4 pa5 pf5 b - shuttle g4g5 freezes: ['Pf2f4', 'Ke5e6', 'Ke5d5', 'Ke5d6', 'Ke5d4', 'Pf2f3']
+    U4 fails: freeze Ke5e6 from Ke5 kg5 Pa2 Pa4 Pf2 pa5 pb4 pf5 w - gives Ke6 kg5 Pa2 Pa4 Pf2 pa5 pb4 pf5 w - (freezer to move: WW, 6 moves)
+    U4 fails: freeze Ke5d5 from Ke5 kg5 Pa2 Pa4 Pf2 pa5 pb4 pf5 w - gives Kd5 kg5 Pa2 Pa4 Pf2 pa5 pb4 pf5 w - (freezer to move: WW, 10 moves)
+    U4 fails: freeze Ke5d6 from Ke5 kg5 Pa2 Pa4 Pf2 pa5 pb4 pf5 w - gives Kd6 kg5 Pa2 Pa4 Pf2 pa5 pb4 pf5 w - (freezer to move: WW, 8 moves)
+    U4 fails: freeze Ke5d4 from Ke5 kg5 Pa2 Pa4 Pf2 pa5 pb4 pf5 w - gives Kd4 kg5 Pa2 Pa4 Pf2 pa5 pb4 pf5 w - (freezer to move: WW, 9 moves)
+FAIL kpp W=9 sh=0 Kg2 ke2 Pa2 Pb3 Pf2 pa3 pa5 pf5 w - shuttle g2g3 freezes: ['Ke2e1', 'Ke2d2', 'Ke2d3', 'Ke2d1', 'Pf5f4', 'Pf5f3']
+    U4 fails: freeze Ke2e1 from Kg2 ke2 Pa2 Pb3 Pf2 pa3 pa5 pf5 b - gives Kg2 ke1 Pa2 Pb3 Pf2 pa3 pa5 pf5 b - (freezer to move: LL, 6 moves)
+    U4 fails: freeze Ke2d2 from Kg2 ke2 Pa2 Pb3 Pf2 pa3 pa5 pf5 b - gives Kg2 kd2 Pa2 Pb3 Pf2 pa3 pa5 pf5 b - (freezer to move: LL, 10 moves)
+    U4 fails: freeze Ke2d3 from Kg2 ke2 Pa2 Pb3 Pf2 pa3 pa5 pf5 b - gives Kg2 kd3 Pa2 Pb3 Pf2 pa3 pa5 pf5 b - (freezer to move: LL, 9 moves)
+    U4 fails: freeze Ke2d1 from Kg2 ke2 Pa2 Pb3 Pf2 pa3 pa5 pf5 b - gives Kg2 kd1 Pa2 Pb3 Pf2 pa3 pa5 pf5 b - (freezer to move: LL, 8 moves)

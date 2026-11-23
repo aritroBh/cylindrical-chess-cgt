@@ -1,0 +1,27 @@
+PASS ref3m W=10 sh=1 Kg4 kf6 Pb3 Pe2 pa5 pb4 pe5 b - shuttle f6g6 freezes: ['Pe2e3', 'Pe2e4']
+PASS ref3m W=10 sh=1 Kf5 kd4 Pb2 Pb4 Pe2 pa4 pb5 pe5 b - shuttle d4d5 freezes: ['Pe2e4', 'Pe2e3']
+FAIL ref3m W=10 sh=0 Kf1 kg3 Pa2 Pb3 Pe2 pb4 pe5 w - shuttle f1f2 freezes: ['Pe5e4']
+    K1/K2 fails at f2
+    U1: shuttle not legal exactly once at Kf1 kg3 Pa2 Pb3 Pe2 pb4 pe5 w -
+    root illegal Kf2 kg3 Pa2 Pb3 Pe2 pb4 pe5 w -
+    root illegal Kf2 kg3 Pa2 Pb3 Pe2 pb4 pe5 b -
+PASS ref3m W=10 sh=0 Kd2 kf2 Pa3 Pb2 Pe2 pb3 pb5 pe5 w - shuttle d2d3 freezes: ['Pe5e4', 'Pe5e3']
+negative control (K44 root, expected FAIL at U4):
+FAIL ref3m W=10 sh=1 Kc3 ka4 Pa2 pa3 Pc4 pc5 Pf2 pf3 b - shuttle a4a5 freezes: ['Kc3c2', 'Kc3d2', 'Kc3c2', 'Kc3d2']
+    U4 fails: freeze Kc3c2 from Kc3 ka4 Pa2 Pc4 Pf2 pa3 pc5 pf3 w - gives Kc2 ka4 Pa2 Pc4 Pf2 pa3 pc5 pf3 w - (freezer to move: W, 6 moves)
+    U4 fails: freeze Kc3d2 from Kc3 ka4 Pa2 Pc4 Pf2 pa3 pc5 pf3 w - gives Kd2 ka4 Pa2 Pc4 Pf2 pa3 pc5 pf3 w - (freezer to move: W, 7 moves)
+    U4 fails: freeze Kc3c2 from Kc3 ka5 Pa2 Pc4 Pf2 pa3 pc5 pf3 w - gives Kc2 ka5 Pa2 Pc4 Pf2 pa3 pc5 pf3 w - (freezer to move: W, 7 moves)
+    U4 fails: freeze Kc3d2 from Kc3 ka5 Pa2 Pc4 Pf2 pa3 pc5 pf3 w - gives Kd2 ka5 Pa2 Pc4 Pf2 pa3 pc5 pf3 w - (freezer to move: W, 7 moves)
+PASS kpp W=10 sh=1 Kg4 kf6 Pb3 Pe2 pa5 pb4 pe5 b - shuttle f6g6 freezes: ['Pe2e3', 'Pe2e4']
+PASS kpp W=10 sh=1 Kf5 kd4 Pb2 Pb4 Pe2 pa4 pb5 pe5 b - shuttle d4d5 freezes: ['Pe2e4', 'Pe2e3']
+(traceback removed: the third hit line of this file was run with a wrong second shuttle square; rerun correctly at the end of the file)
+PASS kpp W=10 sh=0 Kd2 kf2 Pa3 Pb2 Pe2 pb3 pb5 pe5 w - shuttle d2d3 freezes: ['Pe5e4', 'Pe5e3']
+negative control (K44 root, expected FAIL at U4):
+FAIL kpp W=10 sh=1 Kc3 ka4 Pa2 pa3 Pc4 pc5 Pf2 pf3 b - shuttle a4a5 freezes: ['Kc3c2', 'Kc3d2', 'Kc3c2', 'Kc3d2']
+    U4 fails: freeze Kc3c2 from Kc3 ka4 Pa2 Pc4 Pf2 pa3 pc5 pf3 w - gives Kc2 ka4 Pa2 Pc4 Pf2 pa3 pc5 pf3 w - (freezer to move: WW, 6 moves)
+    U4 fails: freeze Kc3d2 from Kc3 ka4 Pa2 Pc4 Pf2 pa3 pc5 pf3 w - gives Kd2 ka4 Pa2 Pc4 Pf2 pa3 pc5 pf3 w - (freezer to move: WW, 7 moves)
+    U4 fails: freeze Kc3c2 from Kc3 ka5 Pa2 Pc4 Pf2 pa3 pc5 pf3 w - gives Kc2 ka5 Pa2 Pc4 Pf2 pa3 pc5 pf3 w - (freezer to move: WW, 7 moves)
+    U4 fails: freeze Kc3d2 from Kc3 ka5 Pa2 Pc4 Pf2 pa3 pc5 pf3 w - gives Kd2 ka5 Pa2 Pc4 Pf2 pa3 pc5 pf3 w - (freezer to move: WW, 7 moves)
+PASS ref3m W=10 sh=0 Kf1 kg3 Pa2 Pb3 Pe2 pb4 pe5 w - shuttle f1g1 freezes: ['Pe5e4', 'Pe5e3']
+PASS kpp W=10 sh=0 Kf1 kg3 Pa2 Pb3 Pe2 pb4 pe5 w - shuttle f1g1 freezes: ['Pe5e4', 'Pe5e3']
+note: the two FAIL/crash lines for "Kf1 kg3 Pa2 Pb3 Pe2 pb4 pe5 w -" with shuttle square f2 were a wrong command line (the shuttle is f1-g1); the correct runs are the last two PASS lines above.

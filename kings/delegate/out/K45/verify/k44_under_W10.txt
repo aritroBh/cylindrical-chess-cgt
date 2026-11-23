@@ -1,0 +1,70 @@
+  U1 root z=c2 W to move: c2-b1 -> loses
+  U1 root z=c2 W to move: c2-c1 -> loses
+  U1 root z=c2 W to move: c2-c3 -> loses (shuttle)
+  U1 root z=c2 W to move: c2-d1 -> loses
+  U1 root z=c2 W to move: c2-d2 -> loses
+  U1 root z=c2 W to move: c2-d3 -> loses
+  U1 root z=c3 W to move: c3-c2 -> loses (shuttle)
+  U1 root z=c3 W to move: c3-d2 -> loses
+  U1 root z=c3 W to move: c3-d3 -> loses
+  U2 root z=c2 B to move: a4-j4 -> loses
+  U2 root z=c2 B to move: a4-j5 -> wins
+    U3 after a4-j5, W to move: c2-b1 -> loses
+    U3 after a4-j5, W to move: c2-b3 -> loses
+    U3 after a4-j5, W to move: c2-c1 -> loses
+    U3 after a4-j5, W to move: c2-c3 -> loses
+    U3 after a4-j5, W to move: c2-d1 -> loses
+    U3 after a4-j5, W to move: c2-d2 -> loses
+    U3 after a4-j5, W to move: c2-d3 -> loses
+    U4 after a4-j5, B to move: j5-i4 -> wins
+    U4 after a4-j5, B to move: j5-i6 -> loses
+    U4 after a4-j5, B to move: j5-j4 -> loses
+    U4 after a4-j5, B to move: j5-j6 -> loses
+    U4 after a4-j5, B to move: j5-a4 -> wins
+    U4 after a4-j5, B to move: j5-a5 -> wins
+    U4 after a4-j5, B to move: j5-a6 -> loses
+  freeze a4-j5 at z=c2: U3 holds, U4 FAILS
+  U2 root z=c2 B to move: a4-a5 -> wins
+    U3 after a4-a5, W to move: c2-b1 -> loses
+    U3 after a4-a5, W to move: c2-b3 -> loses
+    U3 after a4-a5, W to move: c2-c1 -> loses
+    U3 after a4-a5, W to move: c2-c3 -> loses
+    U3 after a4-a5, W to move: c2-d1 -> loses
+    U3 after a4-a5, W to move: c2-d2 -> loses
+    U3 after a4-a5, W to move: c2-d3 -> loses
+    U4 after a4-a5, B to move: a5-j4 -> loses
+    U4 after a4-a5, B to move: a5-j5 -> wins
+    U4 after a4-a5, B to move: a5-j6 -> loses
+    U4 after a4-a5, B to move: a5-a4 -> wins
+    U4 after a4-a5, B to move: a5-a6 -> loses
+    U4 after a4-a5, B to move: a5-b4 -> loses
+    U4 after a4-a5, B to move: a5-b6 -> loses
+  freeze a4-a5 at z=c2: U3 holds, U4 FAILS
+  U2 root z=c2 B to move: a4-b4 -> loses
+  U2 root z=c3 B to move: a4-j4 -> loses
+  U2 root z=c3 B to move: a4-j5 -> wins
+    U3 after a4-j5, W to move: c3-b3 -> loses
+    U3 after a4-j5, W to move: c3-c2 -> loses
+    U3 after a4-j5, W to move: c3-d2 -> loses
+    U3 after a4-j5, W to move: c3-d3 -> loses
+    U4 after a4-j5, B to move: j5-i4 -> wins
+    U4 after a4-j5, B to move: j5-i6 -> loses
+    U4 after a4-j5, B to move: j5-j4 -> loses
+    U4 after a4-j5, B to move: j5-j6 -> loses
+    U4 after a4-j5, B to move: j5-a4 -> wins
+    U4 after a4-j5, B to move: j5-a5 -> wins
+    U4 after a4-j5, B to move: j5-a6 -> loses
+  freeze a4-j5 at z=c3: U3 holds, U4 FAILS
+  U2 root z=c3 B to move: a4-a5 -> wins
+    U3 after a4-a5, W to move: c3-b3 -> loses
+    U3 after a4-a5, W to move: c3-c2 -> loses
+    U3 after a4-a5, W to move: c3-d2 -> loses
+    U3 after a4-a5, W to move: c3-d3 -> loses
+    U4 after a4-a5, B to move: a5-j4 -> loses
+    U4 after a4-a5, B to move: a5-j5 -> wins
+    U4 after a4-a5, B to move: a5-j6 -> loses
+    U4 after a4-a5, B to move: a5-a4 -> wins
+    U4 after a4-a5, B to move: a5-a6 -> loses
+    U4 after a4-a5, B to move: a5-b6 -> loses
+  freeze a4-a5 at z=c3: U3 holds, U4 FAILS
+K1K2 1  U1/O1 1  U2/O2 1 (freezes 2,2; promo freeze 0)  U3/O3 1  U4/O4 0
