@@ -118,8 +118,16 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
   by the main session. 10-page paper: 10 pages (0.32 in spare), supplement 95. The long version's named build is now
   16 pages (anonymous 15); it has no page limit. Not applied: one rewrite in Section IX that pushed the paper to 11
   pages. The agent also corrected the audit: the 10-page paper has 14 sections, so "Sections II--XIII" was right
-- [ ] R10 (Sonnet): per-result record of who wrote and who checked each S proof, and which programs computed its
-  finite parts (`delegate/out/R10_provenance/TABLE.md`); basis for a table in the supplement
+- [x] R10 (Sonnet): per-result record of who wrote and who checked each S proof, and which programs computed its
+  finite parts (`delegate/out/R10_provenance/TABLE.md`). It shows uneven checking: several final texts were never
+  re-read after their fixes, and Note 2 of S15 was rewritten by its only other-vendor referee
+- [ ] T83 (Codex): re-read the FINAL text of appendix A.10 to A.17 and of the Möbius note (S15 Note 5)
+- [ ] T84 (Codex, after T83): re-read the FINAL text of S14 and S15 Note 4
+- [ ] R11 (Opus): independent referee of the FINAL text of S15 Note 2 (the *3 with n+2 pawns, even n)
+- [ ] Kings session asked for the checker record of its theorems and an other-vendor check of Theorem 3.4
+- [ ] R12: wording the record does not support (the "finite parts" sentence in Section XIII, the acknowledgment's
+  "wrote the full proofs", Note 3's status line, the label on the theorem of S13), then a provenance table in the
+  supplement; after T83, T84 and R11
 - [x] R8 (Haiku): bibliography consistency check of both .bib files and the rendered reference list: 20 references,
   numbered in order of first citation, no missing key, no broken entry, both .bib files identical. No change made: the
   DOIs it called duplicated are printed from the note field (the style does not print the doi field)
