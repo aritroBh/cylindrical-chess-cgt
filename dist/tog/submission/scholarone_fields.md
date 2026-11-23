@@ -30,7 +30,7 @@ Full paper (regular paper). The exact name of the option in ScholarOne: not veri
 | Figures | 7 (Fig. 1 to Fig. 7, several with sub-panels) | caption lines in `pdftotext` of the review PDF; `\begin{figure}` blocks in `sections/*.tex` |
 | Tables | 5 (Table I to Table V) | same |
 | References | 20 | `build/tog_review.bbl` has 20 `\bibitem`; the PDF list ends at [20] |
-| Supplement pages | 101 (not counted toward the limit, per AUDIT.md) | `pdfinfo supplement_review.pdf` |
+| Supplement pages | 106 (not counted toward the limit, per AUDIT.md) | `pdfinfo supplement_review.pdf` |
 
 ## AI-use statement (plain text)
 
@@ -54,7 +54,7 @@ After acceptance (named version): github.com/aritroBh/cylindrical-chess-cgt. Aut
 
 | File | One-line description |
 |---|---|
-| `supplement_review.pdf` | Anonymous supplement, 101 pages: material moved out of the 10-page paper (S1-S11), full proofs of the [S] results (S12-S15), the square-rule passer test with a counterexample (S16), and who wrote and who checked each proof (S17). |
+| `supplement_review.pdf` | Anonymous supplement, 106 pages: material moved out of the 10-page paper (S1-S11), full proofs of the [S] results (S12-S15), the square-rule passer test with a counterexample (S16), and who wrote and who checked each proof (S17). |
 
 (Code and data are not uploaded as a file; they are reached through the anonymous link. A zip of sources for the "sources" slot: Author must confirm whether ScholarOne asks for it. Not verified.)
 

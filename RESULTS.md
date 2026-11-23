@@ -602,6 +602,24 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   (beam-free). Not available that day: agy (quota), Cursor (usage), muse (billing), qwen (no login), OmniRoute
   free routes (upstream unavailable). Jobs T84k, T85, T85k, T86 on final texts: see `paper/IEEE_CHECKLIST.md`.
 
+- **2026-11-23, Möbius strip: rings of value \*3 with n+1 pawns for every n >= 11 (label S).** An Opus search
+  found that the cylinder's two \*3 families survive on the strip when the seam is placed at one particular file:
+  TT(m) = `B5 W2 W6B7 W3 B7 B6 W3 W2 B6 W2 (B4 W2)^m` (n = 2m+10, m >= 1) and
+  SS(m) = `B6 W3 (W2 B4)^m W6B7 W3 B7 B6 W3 W2 B6 W2 B4` (n = 2m+11, m >= 0). Two solvers agree to n = 32 and 31.
+  Proof note `research/mobius_star3_family/PROOF.md` (supplement S15, Note 6): the insertion proof of Note 5; the
+  new point is that TT's ten-file arc ends at the seam and the file across the seam changes during play. Base
+  graphs (1,305 and 22,755 nodes, no flag, no passed pawn), both insertion steps and all small widths were
+  recomputed by an independently written Codex program: all agree (`delegate/out/T87/`). Codex referee
+  (`delegate/out/T88/`): holds with fixes; one false sentence (a far reply can change a file near the cut; only the
+  two copied files must stay) corrected; the seam argument confirmed; the fallback base at width 22 also checked.
+  Open: n = 10 with 11 pawns (\*3 found with 12); n = 8 not scanned. Two more n+1 families (H2, E2) agree in two
+  programs but have e.p. flags in their reduced graphs and no proof.
+- **2026-11-23, other-vendor reads of the final texts, round two.** OpenCode beam-free on S14 and Note 4: sound,
+  its solver rebuilds the base graphs of M_18 and T_20. Kings: Codex K51 to K54 (Theorem 3.4, one false proof
+  sentence; Theorem 1.11(c), new proof of the move-count step, (E) shown necessary; Theorem 1.14(i); Proposition
+  2.10(a); Theorem 2.7) all ported into the supplement's Section S12.2. New supplement Section S17 says who wrote
+  and who checked each proof. Supplement 106 pages.
+
 ## 7. Pending
 
 **Verification gaps.** 35 adversarial verifiers were cut off by the Claude usage limit. Not verified:

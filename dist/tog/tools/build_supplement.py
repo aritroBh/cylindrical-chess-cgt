@@ -271,6 +271,8 @@ insertion we tried. Since a ring has at least one pawn per file, the least numbe
 strip is $n$ for every $n\ge10$. A scan of all root rings with twelve pawns on twelve files was stopped after $50$ of
 $128$ parts; the only $\nim{2}$ ring in those parts is the member of the first family.
 
+Rings of value $\nim{3}$ with $n+1$ pawns exist on the strip for every $n\ge11$ \lab{S} (Section~\ref{S-star3}, Note~6). They are the cylinder's two families $T_n$ and $S_n$ of Note~4 with the seam at one particular file; other positions of the seam on the same rings do not give $\nim{3}$. The proof is the same insertion argument, and its base cases were computed by two independently written programs \lab{C2}. On ten files we found a $\nim{3}$ ring only with twelve pawns, and eleven pawns are open.
+
 \subsection{Boards of Other Heights}\label{S-heights}
 Everything above is on eight ranks. Here the board has $R$ ranks, $5\le R\le12$: white pawns start on rank $2$,
 black pawns on rank $R-1$, and the double step is allowed only from there. We solved single-component positions
@@ -371,15 +373,16 @@ W('s14', r'\section{Full Proof: Rings of Value \texorpdfstring{$\nim{2}$}{*2} wi
 
 # S15 *3 families ---------------------------------------------------------------------------------------
 W('s15', r'\section{Full Proofs: The Lemma 3 Write-Up, the \texorpdfstring{$\nim{3}$}{*3} Families and the M\"obius Strip}\label{S-star3}',
-  r'This section holds five notes. The first writes out Lemma~3 of Section~\ref{S-wall} (its Section 2b), which the '
+  r'This section holds six notes. The first writes out Lemma~3 of Section~\ref{S-wall} (its Section 2b), which the '
   r'other proofs cite, and proves a further $\nim{2}$ family with $n+2$ pawns. The second and third prove the whole-board '
   r'$\nim{3}$ with $n+2$ pawns for even $n\ge8$ and odd $n\ge11$; the fourth proves the $\nim{3}$ with $n+1$ pawns for '
-  r'every $n\ge12$ (Section~\ref{sec:star2-rings}); the fifth carries the insertion argument over to the M\"obius strip (Section~\ref{S-star2}). Each is typeset without changes to its mathematics.',
+  r'every $n\ge12$ (Section~\ref{sec:star2-rings}); the fifth carries the insertion argument over to the M\"obius strip (Section~\ref{S-star2}); the sixth proves the $\nim{3}$ with $n+1$ pawns on the M\"obius strip for every $n\ge11$. Each is typeset without changes to its mathematics.',
   r'\subsection{Note 1: research/ring\_n\_plus\_2\_proof/PROOF.md}', MD('research/ring_n_plus_2_proof/PROOF.md', cur='s15_note1.md'),
   r'\subsection{Note 2: research/ring\_n\_plus\_2\_proof/PROOF\_Q.md (even $n$)}', MD('research/ring_n_plus_2_proof/PROOF_Q.md', cur='s15_note2.md'),
   r'\subsection{Note 3: research/ring\_n\_plus\_2\_proof/PROOF\_odd.md (odd $n$)}', MD('research/ring_n_plus_2_proof/PROOF_odd.md', cur='s15_note3.md'),
   r'\subsection{Note 4: research/star3\_proof/PROOF\_S3T3.md}', MD('research/star3_proof/PROOF_S3T3.md', cur='s15_note4.md'),
-  r'\subsection{Note 5: research/mobius\_rings\_proof/PROOF.md (M\"obius strip)}', MD('research/mobius_rings_proof/PROOF.md', cur='s15_note5.md'))
+  r'\subsection{Note 5: research/mobius\_rings\_proof/PROOF.md (M\"obius strip)}', MD('research/mobius_rings_proof/PROOF.md', cur='s15_note5.md'),
+  r'\subsection{Note 6: research/mobius\_star3\_family/PROOF.md (M\"obius strip, $\nim{3}$ with $n+1$ pawns)}', MD('research/mobius_star3_family/PROOF.md', cur='s15_note6.md'))
 
 # S16 square rule ---------------------------------------------------------------------------------------
 W('s16', r'\section{The Square-Rule Passer Test: Definition, Checks and a Counterexample}\label{S-square}',

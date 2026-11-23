@@ -29,6 +29,7 @@ The labels are the paper's:
   - Rings \*3 with n+1 pawns exist on C11 (C2) and on every C_n with n ≥ 12 (S); on C11 n+1 is the least.
   - No \*4 has turned up among about 24 million rings.
   - On the Möbius strip one pawn per file gives a ring \*2 on every strip of ten or more files (S).
+  - On the Möbius strip a ring \*3 with n+1 pawns exists on every strip of eleven or more files (S).
 - **Real chess.** With queen promotions only and frozen kings, the 1/8 position is exactly 1/8 (C1).
 - **Tablebases.** King and rook win only 2.80% of cylinder positions. On the torus only two major pieces force mate.
   On the Möbius strip KRK is always won (C2).

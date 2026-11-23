@@ -111,8 +111,9 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 - [x] R13 (Opus): proof note `research/mobius_star3_family/PROOF.md` (96 lines). The plan holds without repair: V and
   Lemmas 2, 3 of Note 5 never use the contents of a file outside the arc, so the zone file across the seam does
   no harm; fallback base m0 = 6 for TT if a referee doubts it
-- [ ] T88 (Codex): hostile referee of the note, the seam point first
-- [ ] Then: Codex referee of the note; supplement note and one clause in Section VIII if it fits the page
+- [x] T88 (Codex): holds with fixes, no blocker; seam argument confirmed; one false sentence corrected; 7 fixes applied
+- [x] Supplement S15 Note 6, S6.4 paragraph, S17 row; one clause in Section VIII of the 10-page paper (fits; 0.32 in
+  spare) and a sentence in the long version. Supplement 106 pages
 - [x] R4 (Haiku): recount the facts in `dist/tog/submission/` (pages, hashes, words in the abstract, references,
   figures, tables) from the built PDFs (`delegate/out/R4_submission_facts/REPORT.md`): all match except one stale page count
   (82, now 95) in `pdf_checks.md`, fixed
@@ -143,7 +144,10 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
   about 76 h), Cursor (out of usage), muse (billing), qwen (no login), OmniRoute free routes (upstream
   unavailable or limit reached).
   - [x] T84k (Kilo nemotron-3-ultra): no report. It spent 30 minutes debugging its own solver and then hit Kilo's
-    free limit. Not counted. Rerun as T84o on OpenCode beam-free; the Codex read T84 follows T87
+    free limit. Not counted.
+  - [x] T84o (OpenCode beam-free): S14 and Note 4 final texts sound, two minor wordings (one applied). Its own
+    solver, which I reran, rebuilds the base graphs of M_18 and T_20 exactly and the smallest members' signatures
+    (`delegate/out/T84_opencode/`). The Codex read T84 follows T88
   - [x] T85 (OpenCode beam-free): S12.1 A.1 to A.9, sum safety. Verdict SOUND WITH FIXES. Its own solver:
     11,577 positions under the hypotheses (3 to 5 files, 5 or 6 ranks, at most 4 pawns, e.p.-aware), 0 mismatches
     between W and S; 4,641 more with the opponent race rule, 0. Its one major point (older e.p. rights kept in a
@@ -171,7 +175,9 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
   S = R, HSS holds; hand proof, engine and a separate minimax agree in all six settings (found by Codex K52)
 - [x] Kings K51/K52 repairs (commit 62ae99cc) ported into `s12_kings.md` by a Sonnet agent: 22 passages applied, 7
   status rows not in the copy; S17 row and the copy's first line updated. Supplement 101 pages
-- [ ] Kings K54 (Codex read of the printed new proof of 1.11(c) and of the repaired 2.7): verdict for S17
+- [x] Kings K54 (Codex read of the printed new proof of 1.11(c) and of the repaired 2.7): every step sound, wording
+  fixes only; S17 updated
+- [x] K54 wording edits (kings commit 5a7e0978) ported: 7 of 11, the rest are status rows the copy does not have
 - [x] R8 (Haiku): bibliography consistency check of both .bib files and the rendered reference list: 20 references,
   numbered in order of first citation, no missing key, no broken entry, both .bib files identical. No change made: the
   DOIs it called duplicated are printed from the note field (the style does not print the doi field)

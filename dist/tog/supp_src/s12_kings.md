@@ -1,4 +1,4 @@
-**How the statements were checked.** The labels are used as follows. PROVED: a hand proof is given in this section. CHECKED-2: a finite computation on which two or more independently written programs agree. COMPUTED-1: a computation by one program. CONJECTURE: a statement supported by evidence only. KNOWN marks a result from the literature, cited and not proved again. These correspond to the labels of the paper: PROVED here is the paper's S (a full proof written and refereed by AI models), CHECKED-2 is C2, COMPUTED-1 is C1 and CONJECTURE is Conj. The hand proofs were checked by AI referees; no human referee has checked them yet. A referee from a different model vendor than the writer checked the statement and the earlier proof of Theorem 1.11(c) (the new proof of its move-count step, revised 2026-11-23, was re-derived by Claude agents only and has not yet been read by such a referee), Theorem 1.14 (the statement, the sharp form and the revisions of 2026-11-23), Theorem 2.7, Corollary 2.7′, Proposition 2.10(a), Lemma 2.9 (an audit), Proposition 2.11, Theorem 2.11K, Proposition 3.2′, Lemmas B, 3.2″ and 3.8a, Theorems 3.2‴, 3.4, 3.7, 3.8 and 3.11, Corollary 3.8b and its one-sided extension; the other proofs were checked by referees of the writer's model family. Below, a check is mentioned only where a specific computation supports a specific claim. References to §4–§8 and to Appendix A are to later parts of the source note, which are not reproduced here.
+**How the statements were checked.** The labels are used as follows. PROVED: a hand proof is given in this section. CHECKED-2: a finite computation on which two or more independently written programs agree. COMPUTED-1: a computation by one program. CONJECTURE: a statement supported by evidence only. KNOWN marks a result from the literature, cited and not proved again. These correspond to the labels of the paper: PROVED here is the paper's S (a full proof written and refereed by AI models), CHECKED-2 is C2, COMPUTED-1 is C1 and CONJECTURE is Conj. The hand proofs were checked by AI referees; no human referee has checked them yet. A referee from a different model vendor than the writer checked the statement and the earlier proof of Theorem 1.11(c) (the new proof of its move-count step, revised 2026-11-23, was re-derived by Claude agents and then read by a model of another vendor, which found every step sound), Theorem 1.14 (the statement, the sharp form and the revisions of 2026-11-23), Theorem 2.7, Corollary 2.7′, Proposition 2.10(a), Lemma 2.9 (an audit), Proposition 2.11, Theorem 2.11K, Proposition 3.2′, Lemmas B, 3.2″ and 3.8a, Theorems 3.2‴, 3.4, 3.7, 3.8 and 3.11, Corollary 3.8b and its one-sided extension; the other proofs were checked by referees of the writer's model family. Below, a check is mentioned only where a specific computation supports a specific claim. References to §4–§8 and to Appendix A are to later parts of the source note, which are not reproduced here.
 
 ## 1. Chess semantics versus CGT semantics
 
@@ -180,8 +180,10 @@ D-games.
     (The other reading — stop counting at the first terminal of the whole sum — gives a smaller number, so a
     hypothesis stated with it would be weaker; the proofs below use this component reading, and the count of the opponent's moves in the proof of Theorem 1.11(b) is exactly this one.)
   - In the pawn game every White move advances a White pawn by at least one rank, so
-    M_W ≤ Σ_white pawns (H − rank) ≤ (H − 2)p for p legal White pawns. That is ≤ 6p, so ≤ 48 on 8 ranks when
-    p ≤ 8, and ≤ 6p in general; BIG = 256 exceeds 6p whenever p ≤ 42. The count ignores a final Z-move, so
+    M_W ≤ Σ_white pawns (H − rank) ≤ (H − 2)p for p legal White pawns. On H ranks the bound is (H − 2)p. For
+    H ≤ 8 this is at most 6p, hence at most 48 for p ≤ 8, and there BIG = 256 exceeds 6p whenever p ≤ 42
+    (revised 2026-11-23: the earlier "≤ 6p in general" is false on boards taller than 8 ranks; on flat 1×11,
+    `W a2 / B a10`, White alone pushes seven times, a3 to a9, still without a passer. PROVED). The count ignores a final Z-move, so
     add 1 where a move inside the king group is possible.
 - **Threats.** In this definition and in Theorem 1.11, "reachable" means by a sequence of options of either player
   in any order, not necessarily alternating, as for M (the frontier step in the proof
@@ -274,9 +276,12 @@ event ends the play. Suppose:
   the chess turn the conclusion fails as well: `W a4 b2 b3 e2 e4 / B a5 b4 b6 e6`, same right, Black to move: S is
   𝓝 (a/b is −1, the e-file is {2 | 1}) and the D-result pair is 𝓛, so Black to move wins in S and loses in D
   (CHECKED-2, the same two implementations, both passed tests, all three race rules; (HSS), (B) and a passer-free
-  root hold, (E) fails at the root). Both witnesses have a right at the root. Whether (E) can be dropped for a
-  root without a right, with (E) failing only later, is OPEN: the flag-free predecessors of both witnesses agree
-  (COMPUTED-1). A census of roots run for this check, whose failing-(E) stratum is empty, does not bear on this:
+  root hold, (E) fails at the root). Both witnesses have a right at the root. For right-free, passer-free 3+3 roots
+  on five files and six or seven ranks, the adopted passed test and all three race rules, the outcome equality
+  holds in the later-failure stratum (COMPUTED-1: 48,576 rule/root outcome-pair comparisons at 3+3 agree, 12,600
+  of them with a later failure of (E), one implementation; finite coverage of these board sizes by a first-split
+  reduction, PROVED). Whether (E) can be omitted for arbitrary right-free roots remains OPEN (revised
+  2026-11-23); the flag-free predecessors of both witnesses agree (COMPUTED-1). A census of roots run for this check, whose failing-(E) stratum is empty, does not bear on this:
   with ≤ 2 + 2 pawns (E) cannot fail at all, since a usable right needs three pawns in a passer-free component
   (the capturer needs an enemy pawn ahead of it) and a second passer-free component needs two more (PROVED).
 
@@ -297,13 +302,18 @@ replaced by its new components. This is `cylcgt.pawns.value` unfolded.
   them were moves of one continuing D-play. After a later freeze in one daughter the opponent can go on in a
   sister, past the point where the stopped count of their common parent stops, so that step was a gap. The
   argument below was sketched by a model of another vendor, then written out and re-derived step by step by
-  Claude agents; it has not yet been read by a model of another vendor. PROVED.)
+  Claude agents. A model of another vendor (2026-11-23) then read this printed quiet-move proof and found every
+  step sound, under all three race rules and through arbitrarily many splits; its wording corrections are made
+  in the text (revised 2026-11-23). PROVED.)
   - *What is used.* + ∈ τ_P(Z), since White has a passer after the move, so by (HSS) at Y no component C of
     Y″ has − ∈ τ_P(C) (the scored τ would do as well: the move is an option into a terminal credited to White).
     By (B) at Y, B > M_R(Y) ≥ Σ_{C ∈ Y″} M_R(C). If Y″ is non-empty, no right that F keeps in Y″ is usable: the
     right of the move that led to Y by (E) at Y, which has two or more components; an older right by (E) at the
     position its double step led to, which had two or more components too, since otherwise the next move would
-    have been in the same component and replaced the right, and its component has not been played since. A right
+    have been in the same component and replaced the right, and its component has not been played since
+    (revised 2026-11-23, wording: if a surplus right was already supplied at X, apply (E) at X; otherwise apply it
+    at the first pre-event position carrying that right; a right surviving a move elsewhere already lay in a
+    separate, untouched component there). A right
     that is not usable allows no capture and protects no pawn from the passed test (both need an enemy pawn
     beside the double-stepped pawn), and it stays so while its component is not played.
   - *Strategies.* White plays only in positive integer stacks, never a pawn move. So after the frontier every
@@ -344,8 +354,11 @@ replaced by its new components. This is `cylcgt.pawns.value` unfolded.
   - *An alternative under a stronger bound.* Let N(X) be the largest number of moves of one side in any finite
     sequence of legal pawn moves from X, by either side in any order, play continuing past passed pawns. Under
     (E), B > N(X) implies (B): at a reachable Y the longest stopped sequences of the components of Y can be
-    played one after another after the moves from X to Y, so Σ M ≤ N(X) (PROVED). The converse fails, since a
-    stopped count ends at the first passer and N(X) does not. On boards up to 8×8 with no pawn on its own first
+    played one after another after the moves from X to Y, so Σ M ≤ N(X) (PROVED). The converse fails. The
+    different stopping rules alone give only this weak inequality, so a witness is needed (revised 2026-11-23: the
+    earlier justification "since a stopped count ends at the first passer and N(X) does not" had this gap). On
+    flat 2×7, e.p. off, `W a2 / B b3`, B = 2: every first move is terminal, so both stopped maxima are 1 and (B)
+    holds; after a2×b3, b3–b4 is legal in continuing play, so N(X) ≥ 2 = B (PROVED). On boards up to 8×8 with no pawn on its own first
     rank, N(X) ≤ 8(1 + 2 + … + 6) = 168 < 256, so both bounds hold there for BIG = 256.
     Under B > N(X) the count above is immediate: Black's moves after the frontier, freezing ones included,
     played on the whole board after the moves from X to Y, form such a sequence (file locality; White makes
@@ -437,8 +450,8 @@ m ≥ 1, 𝓟 if m = 0 and 𝓡 if m ≤ −1.
 
 So BIG must be large compared with the tempo counts. In Proposition 1.13 the BIG outcome is right exactly when
 n ≤ B, and Theorem 1.11(b) asks for B > M, so that the owner of the stack wins even when it must move first.
-With BIG = 256 and pawns only, B > M holds as long as p ≤ 42, since M ≤ 6p (and M ≤ 48 on 8 ranks when
-p ≤ 8). With a shuttling king the tempo count is infinite, and no BIG works (§3).
+With BIG = 256 and pawns only, on boards of at most 8 ranks B > M holds as long as p ≤ 42, since M ≤ 6p there
+(and M ≤ 48 on 8 ranks when p ≤ 8); on H ranks M ≤ (H − 2)p (revised 2026-11-23). With a shuttling king the tempo count is infinite, and no BIG works (§3).
 
 ### 1.5 The exact validity statement
 
@@ -895,7 +908,12 @@ the real positions in it.
     squares involved lie on F_Z or on the empty buffer, and F_Z holds the same pieces in R and π(R) by (I1). King
     safety is as in the previous case. So it is legal in π(R) with the same result. In particular a promotion of
     a Z-pawn of s is a promotion by s in the local game.
-  - *A context-pawn move.* It changes only context pawns, so π(R) is unchanged except for the side to move; an
+  - *A context-pawn move.* It changes only context pawns, so in π(R) the projected pieces stay fixed, the turn
+    changes, and any previous projected right expires, exactly as in a pass of rule 2 (revised 2026-11-23: the
+    earlier "π(R) is unchanged except for the side to move" was literally false when π(R) carried an e.p. right.
+    Example: F_Z = {a, b, c}, `W Ka6 Pb7 Pa2 / B Kc4 Pb4 Pe7`, Black to move; after Kc5 and the admissible reply
+    a2–a4, Black's e7–e6 clears the usable right on a3, in projection too, and White promotes b8=Q safely on its
+    next move against every local reply. PROVED; the move facts COMPUTED-1); an
     e.p. right it creates has a target off F_Z and is dropped by π, as a pass does. The e.p. capture of the right
     of Q (target off F_Z, I5) is such a move too: it moves an s context pawn and removes an s̄ context pawn. A
     context move is legal only if s is not

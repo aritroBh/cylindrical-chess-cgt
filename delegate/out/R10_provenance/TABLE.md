@@ -114,6 +114,11 @@ Verdicts of 2026-11-23 (kings session; Codex, OpenAI, model gpt-6.2-astra per th
   hypothesis. Integration into LOOPY in progress on 2026-11-23.
 - K53, Proposition 2.10(a): proved blind, then every step of the printed proof SOUND; 145,444,720 context states
   on 5 to 8 ranks, 0 failures under either passed test.
+- K54 (Codex gpt-6.2-astra), the texts as printed after the repairs (kings commit 62ae99cc): the new quiet-move proof of
+  Theorem 1.11(c), every step SOUND (repeated splits, the stopped tempo bound, all three race rules); Theorem 2.7(a)
+  with the corrected Steps 5 and 6 and the reply-mate example, SOUND. Wording corrections only (the tempo bound
+  "<= 6p" holds for H <= 8, in general (H-2)p; a witness for a strictness remark; a projected pass can change an old
+  e.p. right). Both no-(E) witnesses and both reply-mate examples confirmed.
 - K11b, Proposition 2.11 with Corollary 2.11a: Codex gpt-6-luna, Steps 0 to 5 sound (2026-10-27).
 
 ## E. Re-reads of the final supplement texts, 2026-11-23 (main session)
@@ -123,6 +128,8 @@ Verdicts of 2026-11-23 (kings session; Codex, OpenAI, model gpt-6.2-astra per th
 | S15 Note 5 (Möbius strip) | Codex T83 | sound with wording fixes, applied |
 | S12.1, A.1 to A.9 | OpenCode beam-free T85 | sound; own solver, 11,577 + 4,641 positions, 0 mismatches of W and S; one objection answered by Lemma A.4(a), one sentence added |
 | LOOPY Theorem 2.7 | kings session after T83 | same timing clause corrected (commit 39e19a98) |
-| S14, S15 Note 4 | Kilo nemotron T84k | pending |
+| S14, S15 Note 4 | Kilo nemotron T84k | no report (free limit reached while debugging its own solver) |
+| S14, S15 Note 4 | OpenCode beam-free T84o | both final texts sound, two minor wordings; its own program (rerun by the main session) rebuilt the reduced graphs of M_18 (441 nodes, 1128, 428) and T_20 (1305, 4018, 1212) and the whole-board signatures of M_10, O_11, T_12, S_13; O_19 and S_23 not recomputed |
+| Möbius *3 families (new) | Codex T87 checker | both base graphs, both insertion steps and all small widths agree with the writer's program |
 | S15 Notes 1 and 3 | OpenCode beam-free T86o | sound with fixes (a reading of the proofs; it recomputed only structural facts, not the graphs); one contradiction between two status sentences of Note 3 fixed |
 | S15 Note 2 | Claude Opus R11 | sound with fixes, all minor (two wrong reasons that do not affect the proof, wording); own engine written from the rules: reduced graph at n = 22 (7,968 nodes, 21,063 K-edges, zone and signature as in the note), insertion steps n = 18 to 24, whole-board signatures n = 8 to 16; a third independent program for C1 and for C2 up to n = 16 |

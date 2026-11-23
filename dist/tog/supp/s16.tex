@@ -75,7 +75,7 @@ Claude reviewers throughout (no). Codex (yes) re-derived blindly, then read the 
 form), Theorem 2.7, Proposition 2.11 (sound, two passages tightened). In November: Theorem 3.4 holds, one sentence of
 its proof was false and was replaced; Theorem 1.11(c) and 1.14 hold, the move-count step of 1.11(c) had a gap that a
 replacement argument fills, and 1.14(i) needs ``before the first decisive event'' in its hypothesis, which has been
-added to the note. The new text of the move-count step of 1.11(c) was re-derived by a second Claude agent and has not yet been read by a model of another vendor; Proposition 2.10(a), every step sound. OpenCode models (vendor not recorded) also read some of these. &
+added to the note. Codex (yes) then read the new printed proof of the move-count step of 1.11(c) and the repaired Theorem 2.7: every step sound, wording fixes only; Proposition 2.10(a), every step sound. OpenCode models (vendor not recorded) also read some of these. &
 Many programs, each recomputing examples and bounds, not facts the proofs use. Codex: 22{,}522{,}464 comparisons on
 763{,}440 small games (Theorem 3.4); 32{,}880 comparisons of $S$ with $W$ on 10{,}960 roots (Theorem 1.11(c));
 145{,}444{,}720 context states (Proposition 2.10(a)). Several independent programs for Proposition 2.11.\\
@@ -85,7 +85,7 @@ Many programs, each recomputing examples and bounds, not facts the proofs use. C
 
 \begin{table}[!htbp]
 \centering
-\caption{The proofs of Sections~\ref{S-wall}--\ref{S-star3} (rings on $\cyl{n}$).}
+\caption{The proofs of Sections~\ref{S-wall}--\ref{S-star3} (rings on $\cyl{n}$ and on the M\"obius strip).}
 \label{tab:provring}
 \footnotesize
 \setlength{\tabcolsep}{3pt}
@@ -104,7 +104,7 @@ whole-board solvers up to $n=10$ and by the verifier's engine up to $n=61$.\\
 One pawn per file, $n\ge10$; S14 &
 Open model run through OpenCode; vendor not recorded &
 Nemotron via Kilo (cannot be compared, writer's vendor not recorded): sound with fixes. Codex (same): sound, conditional on
-Lemmas 1--3 and the finite base checks. The fixes were applied by Claude. The final wording after those edits has not been re-read. &
+Lemmas 1--3 and the finite base checks. The fixes were applied by Claude. Final text read by an open model run through OpenCode (vendor not recorded): sound; its own program rebuilt the even family's base graph and the smallest member of each family. &
 Four independently written programs: two Claude-written, two Codex-written.\\
 \addlinespace
 Note 1: $n+2$ pawns, even $n\ge8$, value $\nim{2}$; S15 &
@@ -128,13 +128,18 @@ Six Claude-written programs and one Codex program.\\
 Note 4: $n+1$ pawns, $n\ge12$, value $\nim{3}$; S15 &
 Open model run through OpenCode; vendor not recorded &
 Nemotron via Kilo (writer's vendor not recorded): sound with fixes. Codex (same): sound with fixes for the nim-heap
-claim. The fixes were applied by Claude. The final wording after those edits has not been re-read. &
+claim. The fixes were applied by Claude. Final text read by an open model run through OpenCode (vendor not recorded): sound; its own program rebuilt the base graph of one family and the smallest member of each. &
 Two Claude-written programs and one Codex program for the base cases; the smaller $n$ by the Codex program.\\
 \addlinespace
 Note 5: M\"obius strip, $\nim{2}$ with one pawn per file, $\ge10$ files; S15 &
 Claude (Anthropic), an Opus agent &
 Codex (yes): holds, two wording fixes applied. Final text re-read by Codex (yes): sound, wording fixes applied. &
 Two programs for the base case (the writer's and Codex's); the first run was by one. Codex also ran an unreduced search on small strips.\\
+\addlinespace
+Note 6: M\"obius strip, $\nim{3}$ with $n+1$ pawns, $n\ge11$; S15 &
+Claude (Anthropic), an Opus agent; the families were found by another Opus agent's search &
+Codex (yes): holds with fixes; one false sentence in the insertion step (a far reply can change a file near the cut) corrected, the seam argument confirmed; fixes applied. &
+Both base graphs, both insertion steps and the small widths by the writer's program and by an independent Codex program; the small widths also by two earlier solvers.\\
 \bottomrule
 \end{tabular}
 \end{table}

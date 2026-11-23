@@ -201,7 +201,10 @@ the same rings with one more file that holds a black pawn on rank 7, are $\nim{2
 The proof is the wall argument above: two wall files inserted inside a wall of ten files that does not
 cross the seam leave the reduced game unchanged, and its base case, a reduced game of $435$ or $417$ positions,
 is computed by two independently written programs \lab{C2}. The seam only changes that base: the pawns on
-either side of it never move.
+either side of it never move. The cylinder's two $\nim{3}$ families with $n+1$ pawns also survive on the strip, if
+the seam is placed at one particular file: a $\nim{3}$ ring with $n+1$ pawns exists on every strip of $n\ge11$
+files \lab{S}. There a pawn across the seam does move, and the proof uses that the insertion argument reads
+only the ten wall files. On ten files we found a $\nim{3}$ ring only with twelve pawns \lab{C2}.
 
 In the model, then, the $\nim{2}$ question has a positive answer on the ordinary $8\times8$ board: four files
 and seven pawns beside T suffice, while Elkies' higher nimbers need larger boards~\cite{Elkies2002}.
