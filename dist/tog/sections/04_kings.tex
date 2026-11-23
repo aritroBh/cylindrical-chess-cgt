@@ -46,7 +46,7 @@ A \emph{king group} $Z$ is the two kings and some pawns on a block of files whos
 \emph{buffer}, hold no pawns; a \emph{decisive event} is a move in $Z$ or one creating a passed pawn.
 
 \begin{theorem}[Validity of the convention; \lab{S}]\label{thm:validity}
-Let a position consist of pawn components and a king group $Z$ with its buffer, and suppose that before the
+Let a position consist of pawn components and a king group $Z$ with its buffer, let $X$, the position without $Z$, have no passed pawn, and suppose that before the
 first decisive event:
 \begin{enumerate}
 \item[(V1)] outside $Z$ the legal chess moves are exactly the model's pawn moves, with the same results (en
@@ -56,7 +56,7 @@ first decisive event:
 \item[(V3)] in chess, every move in $Z$ loses (it is \emph{decisively punished}).
 \end{enumerate}
 Then the chess result, with either side to move, is the outcome of $W(X)$, the pawn game that ends at the first
-passed pawn (Section~\ref{sec:sums-hss}), without draws, where $X$, the position without $Z$, has no passed pawn.
+passed pawn (Section~\ref{sec:sums-hss}), without draws.
 \end{theorem}
 
 \begin{proof}[Proof sketch]
@@ -80,10 +80,10 @@ the outcome of $S(X)$ (Section~\ref{sec:sums-hss}).
 Each condition can fail: a stalemate trap leaves the loser without a move (V1), a passed pawn does not win its
 race (V2), a king walks over to the pawns or, in Fig.~\ref{fig:kinggroup72}, white's king moves go unpunished
 (V3), and a $+\BIG$ cancels a $-\BIG$ (V4). For (V3) there is a local test: a move in $Z$ has a
-\emph{certificate of horizon $h$} if the punisher promotes within $h$ of its own moves against any defence, no
-defender pawn promotes that fast and the defender is not stalemated. In the \emph{promotion game} (the first
-promotion wins) such a move loses for its mover \lab{S}; in chess even wider margins can fail. The certificate theory, a local test for (V2),
-and the loopy games that arise when a king has spare moves are in Section~S2.
+\emph{certificate of horizon $h$} if, with only $Z$ on the board, the punisher promotes or mates within $h$
+moves of its reply, no defender pawn outside $Z$ is that fast, and no stalemate comes first. In the \emph{promotion game} (the first
+promotion wins) such a move loses for its mover \lab{S}; in chess even wider margins can fail. The exact clauses are in Section~S12; a local test for (V2)
+and the loopy games of kings with spare moves are in Section~S2.
 
 \subsection{How Often Does the Convention Fail?}\label{sec:kings-sweep}
 

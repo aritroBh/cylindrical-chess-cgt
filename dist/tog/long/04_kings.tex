@@ -51,7 +51,7 @@ A \emph{king group} $Z$ is the two kings and some pawns on a block of files whos
 \emph{buffer}, hold no pawns; a \emph{decisive event} is a move in $Z$ or one creating a passed pawn.
 
 \begin{theorem}[Validity of the convention; \lab{S}]\label{thm:validity}
-Let a position consist of pawn components and a king group $Z$ with its buffer, and suppose that before the
+Let a position consist of pawn components and a king group $Z$ with its buffer, let $X$, the position without $Z$, have no passed pawn, and suppose that before the
 first decisive event:
 \begin{enumerate}
 \item[(V1)] outside $Z$ the legal chess moves are exactly the model's pawn moves, with the same results (en
@@ -61,7 +61,7 @@ first decisive event:
 \item[(V3)] in chess, every move in $Z$ loses (it is \emph{decisively punished}).
 \end{enumerate}
 Then the chess result, with either side to move, is the outcome of $W(X)$, the pawn game that ends at the first
-passed pawn (Section~\ref{sec:sums-hss}), without draws, where $X$, the position without $Z$, has no passed pawn.
+passed pawn (Section~\ref{sec:sums-hss}), without draws.
 \end{theorem}
 
 \begin{proof}[Proof sketch]

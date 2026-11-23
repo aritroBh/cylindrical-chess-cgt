@@ -543,6 +543,24 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   of the base case and of m = 0..7, and its unreduced minimax gives NNPN for m = 1..13 (RNRR, NNRR at m = 0 for F1,
   F2). Label in the paper: S (AI-written, AI-refereed); base case CHECKED-2. Side finding: `mob2` in batch mode can
   reuse a memo entry across widths; the scans ran one width per process and are not affected.
+- **Self-contained proofs of the four S results (2026-11-23; `dist/tog/supp_src/s12a_core.tex`, supplement S12.1).**
+  Items A.1 to A.17 prove by hand, from their own definitions, the validity theorem (A.11), its corollary (A.13), the
+  certificate theorem in the promotion game (A.16) and sum safety (A.7). Written by an Opus agent; I read it; two
+  referees so far. Kings-session Opus referee A (A.11 to A.17): sound, minor fixes applied ((C3) reworded to match
+  (L3); A.13 lists A.7's hypotheses; mapping to the long note corrected). Codex T81 (`delegate/out/T81/REPORT.md`):
+  all four hold with fixes, applied: boards need H >= 5 (on four ranks a double step promotes) and sum safety needs
+  H >= 6 under the e.p.-aware test (on five ranks `W a2 b2 / B b4`, a2-a4 then a4-a5 promotes inside a sum); the
+  induction of A.7 runs over positions with their actual side to move; A.13 holds per side to move (example where the
+  hypotheses hold for Black to move only: `W Kb6 c7 / B Ka8 a5`); the bound N(X) <= n(H-1)(H-2)/2 = 168 on 8x8. Its
+  census on four files and six ranks: 9,070 flat and 13,724 cylinder qualifying roots, 45,588 comparisons of S and W,
+  0 differences (one program, its own).
+  **Wording error found in the paper and fixed:** the paper said S(X) re-splits and then replaces components with a
+  passed pawn; the engine (`cylcgt/pawns.py`, `value`) and the theorem test the moved component first and split only
+  if no pawn is passed. Split-first is a different model: `W b2 d6 / B c7`, c7xd6 gives +BIG-BIG = 0 there but a race
+  White wins in W and in the engine. Fixed in Section V of both versions; the threat definition now says "either side
+  in any order"; the sum-safety and validity theorems state that X has no passed pawn; the 10-page text's certificate
+  sentence now says "with only Z on the board ... promotes or mates within h moves of its reply". Kings referee B
+  (A.1 to A.7) still to report.
 
 ## 7. Pending
 

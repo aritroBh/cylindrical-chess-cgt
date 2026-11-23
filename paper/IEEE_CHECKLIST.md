@@ -42,8 +42,7 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
   scope (52 repairs hold with frozen kings, 31 with real kings; the rule is not sound on every board), six settings
   not nine in Section VI, the abstract's wording on frozen kings (199 words), a caption label and three stale report
   headers. The sum cross-check was rerun with both sides e.p.-aware: 0 of 2,483,775 pairs differ, so the sentence in
-  Section XIII stands and now has a log. Open: further prior-work references (Syzygy, fairy-chess generators, CGSuite) if space allows, and a
-  self-contained rewrite of supplement S12
+  Section XIII stands and now has a log. Open: further prior-work references (Syzygy, fairy-chess generators, CGSuite) if space allows
 - [x] Supplement S3.4 added: the census table by rule and test, and the 19-row table of the real-king sum test; 81 pages
 - [x] Submission package (`dist/tog/submission/`): cover letter, ScholarOne fields, upload table, steps for the author.
   PDF checks pass on all four files: US Letter, every font embedded, no Type 3 fonts, no raster images, no author
@@ -72,6 +71,9 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 - [x] Möbius rings on 9 to 11 files and their families (`research/mobius_rings_n/`): least *2 is 10, 10, 11, the same
   as the cylinder; one pawn per file works on 8 files, not on 9, and from 10 to 32 in two families; in Section VIII
   of both versions, supplement S6.4 (82 pages) and the conclusion. The 12-file scan is still running
+- [x] Self-contained proofs of the four S results (supplement S12.1, `dist/tog/supp_src/s12a_core.tex`): refereed by
+  Codex T81 and the kings session's referee A, fixes applied; the paper's description of the sum model corrected
+  (test for a passed pawn before splitting); supplement 94 pages. Kings referee B (sum safety) still to report
 - [x] Möbius families proved *2 for every width (`research/mobius_rings_proof/`, Codex referee T82 holds with two
   wording fixes, base case recomputed independently): one pawn per file suffices on every strip of 10 or more files,
   label S; in Section VIII of both versions, supplement S6.4 and S15 Note 5; the open question left the conclusion
