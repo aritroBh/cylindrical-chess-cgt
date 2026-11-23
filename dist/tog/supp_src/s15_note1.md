@@ -43,7 +43,7 @@ Model, T/L/P/K classes and reduced game: exactly as in Section S13 (paragraph "M
 $P_n$ ($n$ even $\ge8$), files $0..n-1$: $W5,\ B7,\ W4,\ W4B7,\ B6,\ W3B6$, then $(W2,B4)^{(n-6)/2}$. File $j\ge6$ holds $W2$ if $j$ is even, $B4$ if $j$ is odd. $R_n$ = reduced game of $G_n=P_n$ (nodes = positions with flag reachable by K-moves), $\mathrm{start}_n$ its root. $\mathrm{ins}_c$ as in Lemma 3.
 
 ## 2. The lemmas of Section S13 (statements quoted from Lemmas 1-3 there)
-The statements of Lemmas 1-3 below are quoted verbatim. The definition they rely on is not: Section S13 says "a pattern file is a wall file that still holds its starting pawn", which does not exclude extra pawns on the file, and Lemma 2's proof ("neighbours of $q$ are pawns of the other colour two ranks further on") needs the exact content. Throughout this note:
+The statements of Lemmas 1-3 below are quoted verbatim. The definition they rely on was sharpened: Section S13 first said "a pattern file is a wall file that still holds its starting pawn", which does not exclude extra pawns on the file (it now says that a pattern file contains precisely its one starting wall pawn), and Lemma 2's proof ("neighbours of $q$ are pawns of the other colour two ranks further on") needs the exact content. Throughout this note:
 
 **Pattern file.** A wall file whose content is *exactly* its starting pawn and nothing else. The wall is files $3..n-1$ of $O_n$, $E_n$, resp. files $6..n-1$ of $P_n$: single pawns alternating $W3/B5$ (O) or $W2/B4$ (E), black two ranks above white. A *wall pawn* is the pawn of a pattern file.
 
