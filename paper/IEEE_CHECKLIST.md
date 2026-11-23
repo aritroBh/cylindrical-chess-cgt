@@ -138,7 +138,8 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
   live; counterexample checked with python-chess; the promotion-game win stands), Möbius note sound with
   fixes. 1 blocker, 1 major (A.14 needs the race rule), about 25 minor wordings (`delegate/out/T83/`)
 - [x] Apply the T83 fixes to `s12a_core.tex` and `s15_note5.md` (Sonnet), review, rebuild (supplement 95 pages)
-- [ ] Kings session: same timing clause in LOOPY Theorem 2.7 (line 1008); sync `s12_kings.md` after its commit
+- [x] Kings session: same timing clause in LOOPY Theorem 2.7 (line 1008); `s12_kings.md` synced after its commit
+- [x] K47 verdict (kings commit 54f989ef): the exact over group on cyl:8x6 is not equal to over in sums (38 of 1,100 results differ, CHECKED-2). Decision: no sentence in either paper; grep confirms neither paper nor the supplement claims an over group. K48 (same group in chess) still running there.
 - [ ] Free coding tools as extra referees of final texts (asked by the author on 2026-11-23). Working: Codex,
   Kilo (nemotron-3-ultra, flint, openrouter/free, ling), OpenCode (beam-free). Not working today: agy (quota,
   about 76 h), Cursor (out of usage), muse (billing), qwen (no login), OmniRoute free routes (upstream
