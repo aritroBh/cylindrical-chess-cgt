@@ -194,3 +194,6 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 - [x] Least pawns in a ring against n (`f2_least_pawns.pdf`)
 - [x] Model against real chess, with confidence intervals (`f3_model_vs_chess.pdf`)
 - [x] Cylinder ring and least-pawns figures in the 10-page text; model-vs-chess figure in the supplement
+- [x] Anonymous code copy rebuilt from commit 2be946c1 at the end of the round: all checks PASS, 0 FAIL
+  (`dist/anon/VERIFY.md`)
+- [ ] Free tools that need the author before they can run: agy (quota), Cursor (usage), muse (billing), qwen (login)
