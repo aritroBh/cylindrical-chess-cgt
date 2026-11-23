@@ -19,6 +19,9 @@ class Board:
     ranks: int = 8
     wrap: bool = True
     ep: bool = True
+    # Passed-pawn test: True = e.p.-aware (a pawn that an enemy pawn can capture
+    # en passant right now is not passed); False = textbook (pawns ahead only).
+    ep_passed: bool = True
 
     def __post_init__(self):
         if self.files < 1 or self.ranks < 1:
@@ -119,9 +122,21 @@ def legal_moves(board: Board, pos: Position, side: str) -> tuple[Position, ...]:
     return tuple(dict.fromkeys(out))
 
 
+def _can_be_taken_ep(board: Board, pos: Position, side: str, pawn: Square) -> bool:
+    """True if ``side``'s pawn has just double-stepped and an enemy pawn standing
+    beside it (same rank, adjacent file) may take it en passant on the next move."""
+    if not (board.ep and pos.ep) or pos.ep[1] != pawn or pos.ep[2] == side:
+        return False
+    file, rank = pawn
+    enemy = pos.black if side == "W" else pos.white
+    return any((board.neighbor(file, delta), rank) in enemy for delta in (-1, 1))
+
+
 def _pawn_is_passed(board: Board, pos: Position, side: str, pawn: Square) -> bool:
     _, rank = pawn
     enemy = pos.black if side == "W" else pos.white
+    if board.ep_passed and _can_be_taken_ep(board, pos, side, pawn):
+        return False
     files = {pawn[0], board.neighbor(pawn[0], -1), board.neighbor(pawn[0], 1)} - {None}
     if side == "W":
         return not any(file in files and enemy_rank > rank for file, enemy_rank in enemy)

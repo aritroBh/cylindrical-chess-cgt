@@ -1,12 +1,18 @@
 """Compare whole-position pawn chess with the project's CGT sum model.
 
 Run from the repository root with ``.venv/bin/python -m crosscheck.compare``.
+Both passed-pawn settings (e.p.-aware, then textbook) are run by default.  Nothing
+is written unless ``--write`` is given, which appends dated sections to REPORT.md.
+Exit status is nonzero if any single-component case disagrees in either setting.
 """
 from __future__ import annotations
 
+import argparse
 import random
+import sys
+from datetime import date
 from collections import Counter
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 
 from cylcgt import cgt, pawns
@@ -92,7 +98,7 @@ def _random_cases() -> tuple[list[Case], Counter]:
     seen = set()
     skipped_dual_pass = Counter()
     for index, (wrap, ep_enabled) in enumerate(modes):
-        board = Board(8, 8, wrap, ep_enabled)
+        board = Board(8, 8, wrap, ep_enabled, ep_passed=False)  # same case set for both settings
         want_active_ep = ep_enabled and rng.randrange(5) == 0
         while True:
             pos = _random_position(rng, board, want_active_ep)
@@ -113,17 +119,20 @@ def _cases() -> tuple[list[Case], Counter]:
     for label, text, _claim in CLAIMS:
         pos = parse_position(text)
         for ep_enabled in (True, False):
-            claims.append(Case(f"paper claim: {label}", Board(8, 8, True, ep_enabled), pos, "claim"))
+            claims.append(Case(f"paper claim: {label}", Board(8, 8, True, ep_enabled, ep_passed=False), pos, "claim"))
     random_cases, skipped = _random_cases()
     return claims + random_cases, skipped
 
 
-def _evaluate(case: Case) -> dict:
+def _evaluate(case: Case, ep_aware: bool) -> dict:
+    case = replace(case, board=replace(case.board, ep_passed=ep_aware))
     board, pos = case.board, case.pos
     white_to_move = winner(board, pos, "W")
     black_to_move = winner(board, pos, "B")
     exact = outcome_class(board, pos)
 
+    pawns.PASSED_RESPECTS_EP = ep_aware
+    pawns._value.cache_clear()
     c_board, c_pos = _engine_board(board), _engine_position(pos)
     components = pawns.components(c_board, c_pos)
     pawns.race_hits.clear()
@@ -134,6 +143,7 @@ def _evaluate(case: Case) -> dict:
         "white_to_move": white_to_move,
         "black_to_move": black_to_move,
         "exact": exact,
+        "ep_aware": ep_aware,
         "game": cgt.show(game),
         "cgt": cgt_outcome,
         "components": components,
@@ -199,42 +209,60 @@ def _case_detail(result: dict, index: int) -> str:
     )
 
 
-def run() -> None:
-    cases, skipped = _cases()
-    results = [_evaluate(case) for case in cases]
-    disagreements = [result for result in results if result["exact"] != result["cgt"]]
-    report = [
-        "# Independent pawn-chess cross-check\n",
-        "## Method\n",
-        "`minimax.py` searches the whole board and includes side to move and the expiring en-passant right in each memoized state. It does not import `cylcgt`; only this comparison harness imports the CGT implementation. Outcome classes are derived from the winners with White and Black to move.\n",
-        f"Compared all {len(CLAIMS)} `verify_paper.CLAIMS` positions with e.p. enabled and disabled ({2 * len(CLAIMS)} claim cases), plus {RANDOM_POSITIONS:,} distinct random positions (seed `{SEED}`; 2–7 pawns; 2,400 cylindrical and 600 flat; e.p. rule enabled and disabled in each geometry). The random set skipped starting positions where both sides already had passers. It generated {sum(1 for case in cases if case.source == 'random' and case.pos.ep is not None):,} live e.p. rights.\n",
-        f"Random candidates skipped for two starting passer sides: {sum(skipped.values()):,}. White pawns on rank 1 and pawns on rank 8 are included in sampling.\n",
-        "## Summary\n",
-        _summary_table(results),
-        "\n\nSingle-component rows are the decisive check: the exact search and `cylcgt` must agree there. Multi-component results expose the limits of the disjunctive-sum approximation.\n",
-        "## Disagreement diagnosis\n",
-        _diagnosis(results),
-        "\n\nThe categories above identify the likely source, not proof by label. In particular, each single-component mismatch must be replayed against the move/race rules; multi-component mismatches without live e.p. need a concrete cross-component race witness before being attributed to that approximation.\n",
-        "## First 15 disagreements\n",
-    ]
-    if disagreements:
-        report.extend(_case_detail(result, i) for i, result in enumerate(disagreements[:15], 1))
-        if len(disagreements) > 15:
-            report.append(f"Only the first 15 of {len(disagreements)} disagreements are shown.\n")
-    else:
-        report.append("No disagreements.\n")
+def _label(ep_aware: bool) -> str:
+    return "e.p.-aware" if ep_aware else "textbook"
 
-    report_text = "\n".join(report).rstrip() + "\n"
-    report_path = Path(__file__).with_name("REPORT.md")
-    report_path.write_text(report_text)
-    print(_summary_table(results))
-    print(f"\nCompared {len(results):,} positions; {len(disagreements):,} disagreements.")
-    if disagreements:
-        print("\nFirst 15 disagreements:\n")
-        print("\n".join(_case_detail(result, i).rstrip()
-                        for i, result in enumerate(disagreements[:15], 1)))
-    print(f"\nWrote {report_path}")
+
+def _section(ep_aware: bool, results: list[dict], today: str) -> str:
+    bad = [r for r in results if r["exact"] != r["cgt"]]
+    parts = [
+        f"## Run {today}: {_label(ep_aware)} passed-pawn test (PASSED_RESPECTS_EP={ep_aware}), race rule `{pawns.RACE_RULE}`\n",
+        f"{len(results):,} cases, {len(results) - len(bad):,} agree, {len(bad)} disagree. Solver setting `ep_passed={ep_aware}` in `minimax.py`, `pawns.PASSED_RESPECTS_EP={ep_aware}` in `cylcgt`.\n",
+        _summary_table(results) + "\n",
+        _diagnosis(results) + "\n",
+    ]
+    if bad:
+        parts.append(f"### Disagreements ({_label(ep_aware)}, first 15)\n")
+        parts.extend(_case_detail(r, i) for i, r in enumerate(bad[:15], 1))
+    return "\n".join(parts)
+
+
+def run(argv: list[str] | None = None) -> int:
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    ap.add_argument("--setting", choices=("both", "ep", "textbook"), default="both")
+    ap.add_argument("--write", action="store_true", help="append dated sections to crosscheck/REPORT.md")
+    args = ap.parse_args(argv)
+    settings = {"both": (True, False), "ep": (True,), "textbook": (False,)}[args.setting]
+    cases, _skipped = _cases()
+    today = date.today().isoformat()
+    failed = False
+    sections = []
+    for ep_aware in settings:
+        results = [_evaluate(case, ep_aware) for case in cases]
+        bad = [r for r in results if r["exact"] != r["cgt"]]
+        single_bad = [r for r in bad if len(r["components"]) == 1]
+        failed |= bool(single_bad)
+        single = [r for r in results if len(r["components"]) == 1]
+        print(f"\n=== passed-pawn test: {_label(ep_aware)} (PASSED_RESPECTS_EP={ep_aware}); race rule: {pawns.RACE_RULE} ===")
+        print(_summary_table(results))
+        print(f"\n{len(results):,} cases: {len(results) - len(bad):,} agree, {len(bad)} disagree; "
+              f"single components: {len(single) - len(single_bad):,} of {len(single):,} agree.")
+        for i, r in enumerate(bad[:15], 1):
+            print("\n" + _case_detail(r, i).rstrip())
+        sections.append(_section(ep_aware, results, today))
+    pawns.PASSED_RESPECTS_EP = True
+    pawns._value.cache_clear()
+    if args.write:
+        path = Path(__file__).with_name("REPORT.md")
+        with path.open("a") as fh:
+            fh.write("\n" + "\n".join(sections))
+        print(f"\nAppended to {path}")
+    else:
+        print("\nNothing written (use --write to append to crosscheck/REPORT.md).")
+    if failed:
+        print("FAIL: a single-component case disagrees.")
+    return 1 if failed else 0
 
 
 if __name__ == "__main__":
-    run()
+    sys.exit(run())

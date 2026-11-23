@@ -462,6 +462,17 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   - `sum_safe()` True with S != W: 0 except 8 one-component roots under textbook + mover.
 - **Paper fact-check round 11.** 15 findings confirmed and applied (`delegate/REVIEW.md`).
 
+- **Cross-check brought in line with the default passed-pawn test (2026-11-22; found by the T79 audit).** The
+  independent minimax in `crosscheck/` used only the textbook passed-pawn test, so the README command reported 24 of
+  the 1,070 single components disagreeing once the engine's default became e.p.-aware. The minimax now has its own
+  e.p.-aware test, written from the rule. Both settings rerun: 1,070 of 1,070 single components agree under each;
+  12 (e.p.-aware) and 10 (textbook) multi-component cases differ, as before, from the cross-component race rule and the
+  e.p. right across components (`crosscheck/REPORT.md`, "Run 2026-11-22"). CHECKED-2. The paper's sentence is unchanged.
+- **T79, reviewer's-eye audit by Codex (report kept local, not tracked: it quotes the identifiers it found).** A clean copy failed at the first README
+  command (no setup step; added). The tracked files (2.3 GB) cannot be made anonymous by term replacement alone: 64
+  paths must be left out. 18 raw CLI transcripts with session identifiers or unrelated personal context are no longer
+  tracked. The two review PDFs carry no identifier.
+
 ## 7. Pending
 
 **Verification gaps.** 35 adversarial verifiers were cut off by the Claude usage limit. Not verified:

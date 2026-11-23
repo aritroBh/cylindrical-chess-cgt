@@ -41,7 +41,12 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
   PDF checks pass on all four files: US Letter, every font embedded, no Type 3 fonts, no raster images, no author
   name in the anonymous text, metadata or links; abstract 197 words. One fail, the author's: the anonymous code link
   is still the placeholder (`\anoncodeurl`, `tog.tex` line 26 and `supplement.tex` line 27). Not run: IEEE PDF eXpress
-- [~] Reviewer's-eye audit by Codex: README reproduces from a clean copy; term list for the anonymous copy (`delegate/out/T79/`)
+- [x] Reviewer's-eye audit by Codex (`delegate/out/T79/REPORT.md`): README now has a setup step; the cross-check runs
+  under both passed-pawn tests and all 1,070 single components agree under each; 18 raw CLI transcripts untracked
+- [ ] Privacy: two files already on the public repository hold personal material (`kings/delegate/logs/K8.log`,
+  `K13b.log`); purge from history and force-push, or make the repository private (author's word)
+- [ ] Anonymous code copy: build a small curated export (the full 2.3 GB cannot be anonymised by term replacement;
+  Codex's term list and 64 exclusions are in `delegate/out/T79/`)
 
 ## Results being added
 - [x] Twisted tablebases audited: paper numbers stand (`research/mobius_repair/`)

@@ -3,7 +3,7 @@
 Aritro Bhattacharjee
 
 **Paper:** [paper/Bhattacharjee_Cylinder_Chess_IEEE.pdf](paper/Bhattacharjee_Cylinder_Chess_IEEE.pdf) (IEEE
-format, 15 pages). Source: [paper/ieee/](paper/ieee/). An arXiv-ready package is built by `sh dist/arxiv/build.sh`.
+format, 15 pages). Source: [paper/ieee/](paper/ieee/). An arXiv-ready package is built by `bash dist/arxiv/build.sh`.
 
 Cylinder chess joins the a-file to the h-file, so the board has no side edges or corners. This repository studies
 its king-and-pawn endgames with combinatorial game theory (CGT), following Elkies: a passed pawn wins, and the kings
@@ -61,6 +61,20 @@ from the rules alone, without reading the first. Exhaustive scans have their rin
 counter, a transfer matrix with Burnside's lemma (`research/c9_rings/validate/`). Hand proofs of the wall families
 rest on three lemmas (`research/ring_family_proof/proof.tex`), and their finite base cases are checked by computer.
 [`RESULTS.md`](RESULTS.md) records the status of each claim.
+
+## Setup
+
+Create the environment (the code itself uses only the standard library; pytest runs the tests):
+
+```bash
+python3 -m venv .venv
+```
+
+```bash
+.venv/bin/python -m pip install pytest
+```
+
+The optional parts need a C compiler (the tablebase and the solvers) and Tectonic (the paper).
 
 ## Reproduce
 
