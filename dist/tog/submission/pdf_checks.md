@@ -1,6 +1,6 @@
 # PDF checks
 
-Run on 2026-11-22 on the PDFs built at 17:58. Tools present: `pdfinfo`, `pdffonts`, `pdfimages`, `pdftotext` (poppler, `/opt/homebrew/bin`). The URI scan used `python3` (re, zlib) on the raw file and on all decompressed streams.
+Run on 2026-11-22 on the PDFs built at 17:58. Tools present: `pdfinfo`, `pdffonts`, `pdfimages`, `pdftotext` (poppler, `/opt/homebrew/bin`). The URI scan used `python3` (re, zlib) on the raw file and on all decompressed streams. Page counts in the table below were refreshed on 2026-11-23 (supplement 95 pages); the other rows are from the 2026-11-22 run.
 
 Files: A = `tog.pdf` (named), B = `tog_review.pdf` (anonymous), C = `supplement.pdf` (named), D = `supplement_review.pdf` (anonymous). All in `/Users/aritro/Downloads/Research/Chessendgames/dist/tog/`.
 
@@ -19,7 +19,7 @@ Files: A = `tog.pdf` (named), B = `tog_review.pdf` (anonymous), C = `supplement.
 
 | | A tog.pdf | B tog_review.pdf | C supplement.pdf | D supplement_review.pdf |
 |---|---|---|---|---|
-| Pages | 10 | 10 | 82 | 82 |
+| Pages | 10 | 10 | 95 | 95 |
 | Page size | 612 x 792 pts (letter) | same | same | same |
 | PDF version | 1.5 | 1.5 | 1.5 | 1.5 |
 | Title | Chess Endgames on a Cylindrical Chessboard: Exact Combinatorial Game Values, Real-Chess Checks, and Tablebases | same | (empty) | (empty) |

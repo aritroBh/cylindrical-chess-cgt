@@ -96,8 +96,9 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 - [ ] R2 (Sonnet): audit every pointer from the 10-page paper into the supplement (hard-coded S numbers), every
   label, and the submission files against the current PDFs (`delegate/out/R2_xref_audit/REPORT.md`)
 - [ ] R3 (Opus): is there a family of *3 rings on the Möbius strip, as on the cylinder? (`research/mobius_star3_family/`)
-- [ ] R4 (Haiku): recount the facts in `dist/tog/submission/` (pages, hashes, words in the abstract, references,
-  figures, tables) from the built PDFs (`delegate/out/R4_submission_facts/REPORT.md`)
+- [x] R4 (Haiku): recount the facts in `dist/tog/submission/` (pages, hashes, words in the abstract, references,
+  figures, tables) from the built PDFs (`delegate/out/R4_submission_facts/REPORT.md`): all match except one stale page count
+  (82, now 95) in `pdf_checks.md`, fixed
 - [ ] 12-file Möbius scan: summarise when all 128 chunks are done (47 done on 2026-11-23, one *2 so far, the
   family member with one pawn per file)
 
