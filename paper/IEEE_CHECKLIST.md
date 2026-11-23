@@ -121,13 +121,27 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 - [x] R10 (Sonnet): per-result record of who wrote and who checked each S proof, and which programs computed its
   finite parts (`delegate/out/R10_provenance/TABLE.md`). It shows uneven checking: several final texts were never
   re-read after their fixes, and Note 2 of S15 was rewritten by its only other-vendor referee
-- [ ] T83 (Codex): re-read the FINAL text of appendix A.10 to A.17 and of the Möbius note (S15 Note 5)
+- [x] T83 (Codex): re-read the FINAL text of appendix A.10 to A.17 and of the Möbius note (S15 Note 5).
+  Verdict: appendix GAP (A.16 timing clause false: the reply itself can mate while the projected position is
+  live; counterexample checked with python-chess; the promotion-game win stands), Möbius note sound with
+  fixes. 1 blocker, 1 major (A.14 needs the race rule), about 25 minor wordings (`delegate/out/T83/`)
+- [x] Apply the T83 fixes to `s12a_core.tex` and `s15_note5.md` (Sonnet), review, rebuild (supplement 95 pages)
+- [ ] Kings session: same timing clause in LOOPY Theorem 2.7 (line 1008); sync `s12_kings.md` after its commit
+- [ ] Free coding tools as extra referees of final texts (asked by the author on 2026-11-23). Working: Codex,
+  Kilo (nemotron-3-ultra, flint, openrouter/free, ling), OpenCode (beam-free). Not working today: agy (quota,
+  about 76 h), Cursor (out of usage), muse (billing), qwen (no login), OmniRoute free routes (upstream
+  unavailable or limit reached).
+  - [ ] T84k (Kilo nemotron-3-ultra): S14 and S15 Note 4 (`delegate/out/T84_kilo/`)
+  - [ ] T85 (OpenCode beam-free): S12.1 A.1 to A.9, sum safety, with its own small search (`delegate/out/T85_opencode/`)
+  - [ ] T85k (Kilo flint): the same text, second free model (`delegate/out/T85_kilo/`)
+  - [ ] T86 (Kilo openrouter/free): S15 Notes 1 and 3 (`delegate/out/T86_kilo/`)
 - [ ] T84 (Codex, after T83): re-read the FINAL text of S14 and S15 Note 4
 - [ ] R11 (Opus): independent referee of the FINAL text of S15 Note 2 (the *3 with n+2 pawns, even n)
 - [ ] Kings session asked for the checker record of its theorems and an other-vendor check of Theorem 3.4
-- [ ] R12: wording the record does not support (the "finite parts" sentence in Section XIII, the acknowledgment's
-  "wrote the full proofs", Note 3's status line, the label on the theorem of S13), then a provenance table in the
-  supplement; after T83, T84 and R11
+- [x] R12a: wording the record does not support: Section XIII now "programs ran the ring base cases" (a longer
+  wording costs a page in the named build), acknowledgment "wrote and checked the proofs", Note 3's status line
+  (Codex T63 on record), label on the theorem of S13 ("given the computed facts C1 and C2")
+- [ ] R12b: provenance table in the supplement, after T84, R11, the free-tool reports and kings K51 to K53
 - [x] R8 (Haiku): bibliography consistency check of both .bib files and the rendered reference list: 20 references,
   numbered in order of first citation, no missing key, no broken entry, both .bib files identical. No change made: the
   DOIs it called duplicated are printed from the note field (the style does not print the doi field)

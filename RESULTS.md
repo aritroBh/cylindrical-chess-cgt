@@ -588,6 +588,20 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
   result"; several sentences reworded. Left for the author: human verification of the S proofs, Table I (corrections
   to an unpublished study), and the code package name in the supplement while the repository is public.
 
+- **2026-11-23, re-read of the final proof texts (Codex T83).** Appendix S12.1, A.10 to A.17: one false clause.
+  A.16 said the punisher wins "with one of its next h moves"; the reply itself can be mate while the projected
+  position is live (flat board, Z on a,b, buffer c, `W Ka6 b6 b7 d6 / B Ka8 a7 e7`, Black to move: Kb8, b6xa7
+  mate; in the projection Black has Kc7 and White promotes, so horizon 1 passes). Checked with python-chess
+  (`delegate/out/T83/check.py`). The promotion-game win stands; the statement now reads "no later than its h-th
+  subsequent move; the reply itself may already mate", and the last proof step treats an earlier mate first. The
+  10-page text is unaffected. A.14 now names the race rule (count, BIG = 256: S is R with count and opponent, N
+  with mover; W is N in all three). About 25 wording fixes in A.11 to A.16 and in the Möbius note (S15 Note 5),
+  which was found sound. Also: S13's final label now says "given the computed facts C1 and C2"; Note 3's status
+  line records its Codex referee (T63); Section XIII says programs ran the ring base cases.
+- **Free coding tools as referees (asked 2026-11-23).** Working: Codex, Kilo (four free models), OpenCode
+  (beam-free). Not available that day: agy (quota), Cursor (usage), muse (billing), qwen (no login), OmniRoute
+  free routes (upstream unavailable). Jobs T84k, T85, T85k, T86 on final texts: see `paper/IEEE_CHECKLIST.md`.
+
 ## 7. Pending
 
 **Verification gaps.** 35 adversarial verifiers were cut off by the Claude usage limit. Not verified:

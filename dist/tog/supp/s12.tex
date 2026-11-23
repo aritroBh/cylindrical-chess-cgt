@@ -236,7 +236,7 @@ attacks only the files at distance $1$ from its own, and a Z-pawn's capture land
 \end{proof}
 
 \textbf{Decisive events.} Let $Q$ be a position made of a king group $Z$ and its context, with a side to move. A move is a
-\emph{decisive event} if it is a Z-move, or a context move after which $W(X)$ would end, that is, some side has a passed
+\emph{decisive event} if it is a Z-move, or a context move that leaves some side with a passed
 pawn among the context pawns. Since the Z-pawns are at least two files away, this is also the passed-pawn test on the whole
 board for the context pawns. $\mathrm{R}(Q)$ is the set of chess positions reached from $Q$ by legal moves none of which is
 a decisive event ($Q$ included). Kings and Z-pawns do not move along such play, so a position $Y\in\mathrm{R}(Q)$ is fixed
@@ -246,13 +246,12 @@ by its context part $X_Y$, its right and its side to move.
 \begin{itemize}
 \item[(V1)] the legal chess moves of $s$ that are not Z-moves are exactly the moves of $s$ in $W$ at $X_Y$, with the same
 resulting context and right; none of these moves gives check and nobody is in check; and $s$ has a legal chess move (a Z-move counts);
-\item[(V2)] every context move at $Y$ after which $W$ ends with winner $\sigma$ leads to a chess position that $\sigma$ wins;
+\item[(V2)] every context move at $Y$ that produces a passed pawn and is adjudicated for $\sigma$ in $W$ leads to a chess position that $\sigma$ wins;
 \item[(V3)] every legal Z-move at $Y$ leads to a chess position that the opponent of its mover wins.
 \end{itemize}
 (V4) is: $X$ is HSS, satisfies (E), and $\BIG>N(X)$.
 
-\textbf{A.11 Theorem (validity of the convention; Theorem~\ref{thm:validity}).} \emph{Main text: under (V1)--(V3)
-``the chess result, with either side to move, is the outcome of $W(X)$ \dots\ without draws''. Precise form: let $Q$ be a
+\textbf{A.11 Theorem (validity of the convention; Theorem~\ref{thm:validity}).} \emph{For the given side to move, the main text identifies the chess result with the outcome of $W(X)$ under (V1)--(V3). Precise form: let $Q$ be a
 king group with its context, with no passed pawn in $X$, and let (V1)--(V3) hold at every position of $\mathrm{R}(Q)$. If
 $\sigma$ wins $W(X)$ with the side to move of $Q$, then $\sigma$ wins $Q$ in chess. In particular $Q$ is not a draw.}
 
@@ -262,38 +261,38 @@ show that every play under it is a $\sigma$-win. Along the play, as long as no d
 $Y$ lies in $\mathrm{R}(Q)$ and $X_Y$ is a position of $W(X)$ won by $\sigma$ with the same side to move. This holds at $Q$.
 
 \emph{$\sigma$ to move.} $\sigma$ plays the move of its strategy at $X_Y$. By (V1) it is a legal chess move with the same
-result. If it ends $W$, the winner is $\sigma$, and by (V2) the chess position reached is won by $\sigma$; $\sigma$ follows
+result. If it produces a passed pawn, the winner is $\sigma$, and by (V2) the chess position reached is won by $\sigma$; $\sigma$ follows
 a winning strategy from there. Otherwise the move is not decisive, the new position is in $\mathrm{R}(Q)$, and $W$ is won by
 $\sigma$ there.
 
 \emph{$\bar\sigma$ to move.} By (V1), $\bar\sigma$ has a legal move. A Z-move leads to a position won by $\sigma$, by (V3).
 Any other legal move is, by (V1), a move of $W$ at $X_Y$, and all of these lead to positions won by $\sigma$ in $W$. If it
-ends $W$, the winner is $\sigma$, and (V2) applies. Otherwise the new position is in $\mathrm{R}(Q)$ and won by $\sigma$ in
+produces a passed pawn, the winner is $\sigma$, and (V2) applies. Otherwise the new position is in $\mathrm{R}(Q)$ and won by $\sigma$ in
 $W$. (If $\bar\sigma$ has no move in $W$, its legal moves are all Z-moves.)
 
 Every move before the first decisive event is a pawn move of $W$, so by Lemma~A.2(b) there are at most
-$\Phi_W(X)+\Phi_B(X)$ of them; (V1) then still supplies a legal move, so a decisive event occurs by move $\Phi_W(X)+\Phi_B(X)+1$, and at the event (V2) or (V3) gives $\sigma$ a strategy that wins in finitely many further moves. The play is never stalemate (V1). No promotion occurs before the event: a Z-pawn promotion is a Z-move, and a context
-promotion makes a passed pawn (Lemma~A.2(a)) and so is itself an event. Moreover at each $Y\in\mathrm{R}(Q)$ the context
+$\Phi_W(X)+\Phi_B(X)$ of them; (V1) then still supplies a legal move, so a decisive event occurs by move $\Phi_W(X)+\Phi_B(X)+1$, and at the event (V2) or (V3) gives $\sigma$ a strategy that wins in finitely many further moves. Before the event, (V1) excludes stalemate; from the event onward the chosen winning continuation excludes it. No promotion occurs before the event: a Z-pawn promotion is a Z-move, and a context
+promotion would make a passed pawn in the pawn-game successor by Lemma~A.2(a) and so would itself be an event. Moreover at each $Y\in\mathrm{R}(Q)$ the context
 $X_Y$ has no passed pawn and its right, if any, was made by the side not to move, so by Lemma~A.2(c) no context move at $Y$
 promotes; the moves compared in (V1) and (V2) are pawn moves that leave pawns.
 \end{proof}
 
-\textbf{A.12 Remark.} (a) The proof uses from (V1) only the equality of move sets and the existence of a legal move, not the
+\textbf{A.12 Remark.} (a) The proof uses from (V1) only the move correspondence with matching successors and the existence of a legal move, not the
 clauses on checks. A context move never gives check before a decisive event, by Lemma~A.10, since the kings stay on $F_Z$;
 and a side in check from a Z-pawn has no legal context move, so the equality of move sets then fails unless $W$ has no move
 either. (b) The theorem and the proof hold word for word
 with chess replaced by $\mathrm{P}$ or by $\mathrm{F}$; in $\mathrm{F}$, (V3) holds for every king move by definition.
-(c) $X$ must have no passed pawn; otherwise $W(X)$ is not defined. The main text leaves implicit that the board has at least five ranks; all its boards with kings have at least six.
+(c) $X$ must have no passed pawn; otherwise $W(X)$ is not defined. The main theorem explicitly assumes at least five ranks, as required for the use of Lemma~A.2(c).
 (d) Unlike (V1a) of Theorem~1.14 in the longer treatment, (V1) contains no condition (E): it compares chess with the whole-board game $W(X)$, whose e.p.\ rights lapse after one move as in chess. Condition (E) is needed only to pass from $W(X)$ to $S(X)$ (Theorem~A.7), hence in (V4).
 
 \textbf{A.13 Corollary (Corollary~\ref{cor:v4}).} \emph{Main text: ``If also (V4) \dots\ the chess result is the outcome
-class of the components' $\pm\BIG$ value.'' Precise form: for a side to move for which the hypotheses of Theorem~A.11 hold, assume also (V4) and a local race rule, as in Theorem~A.7. Then the chess winner of $Q$ with that side to move is the winner of $S(X)$ with that side moving first. (The main text's ``either side to move'' assumes the hypotheses for both. They can hold for one side only: on the ordinary board, with the king group \pos{W Kb6 c7 / B Ka8 a5} and no other pawn, they hold with Black to move, who must play a5--a4 and is mated by c8=Q, but not with White to move, who mates at once although the empty sum is lost for the side to move.)}
+class of the components' $\pm\BIG$ value.'' Precise form: for a side to move for which the hypotheses of Theorem~A.11 hold, assume also (V4) and a local race rule, as in Theorem~A.7. Then the chess winner of $Q$ with that side to move is the winner of $S(X)$ with that side moving first. (To infer the full outcome class one must verify the chess hypotheses for both starters. They can hold for one side only: on the ordinary board, with the king group \pos{W Kb6 c7 / B Ka8 a5} and no other pawn, they hold with Black to move, who must play a5--a4 and is mated by c8=Q, but not with White to move, who mates at once although the empty sum is lost for the side to move.)}
 
 \begin{proof}
 By Theorem~A.11 the chess winner is the winner of $W(X)$, and by Theorem~A.7 this is the winner of $S(X)$.
 \end{proof}
 
-\textbf{A.14 Proposition (Proposition~\ref{prop:sumcounter}).} \emph{On $\cyl{8}$ with e.p.\ off, let
+\textbf{A.14 Proposition (Proposition~\ref{prop:sumcounter}).} \emph{On $\cyl{8}$ with e.p.\ off, the count race rule and $\BIG=256$, let
 $X=$\,\pos{W b2 d4 g3 h5 / B a7 c7 f7 g4}. (a) $X$ is one component. (b) $X$ is not HSS. (c) (Checked by computer only, not
 proved here and not used here.) $S(X)$ is a black win whoever starts and $W(X)$ a first-player win.}
 
@@ -327,22 +326,30 @@ its first $h$ moves, or it fails.
 only $s$ moves: its king steps to squares that hold no pawn of $s$ and are not attacked by a pawn of $\bar s$ (it may
 capture such pawns), and its pawns move by the pawn rules without e.p. Every sequence of such moves that ends with a
 promotion has at least $h+1$ moves.
-\item[(C3)] \emph{No stalemate.} $\bar s$ has a \emph{guided} strategy from $Q$, one that at each turn makes a Z-move
-whose projection is a winning move of the local game of (C1) at the projected position, with the moves that remain, such that in no play from $Q$
-following it is $s$ stalemated before $\bar s$'s $h$-th move.
+\item[(C3)] \emph{No stalemate.} There is a strategy for $\bar s$ from
+$Q$ in $\mathrm{P}$ with the following property. Until the game ends or
+$\bar s$ has made $h$ moves from $Q$, each move it prescribes is a legal
+Z-move whose projection is winning in (C1) with the remaining number
+of moves. In every such play $s$ is never stalemated before $\bar s$'s
+$h$-th move. Call this a guided strategy satisfying (C3).
 \end{itemize}
 
 \textbf{A.15 Remark (the main text's form).} The main text says that $m$ has a certificate of horizon $h$ ``if, with
 only $Z$ on the board, the punisher promotes or mates within $h$ moves of its reply, no defender pawn outside $Z$ is that
-fast, and no stalemate comes first''. This is a summary of (C1)--(C3): ``with only $Z$ on the board'' is the local game of
-(C1), in which the context is deleted, the defender may pass and the punisher's king stays on $F_Z$; ``no defender pawn
-outside $Z$'' is (C2), the defender's context pawns moving alone in $Q^\circ$ (its Z-pawns are covered by (C1)); and the
-stalemate clause is (C3). A clause that an unsafe queen is a failure, used in the long version with chess in view, only strengthens
+fast, and no stalemate comes first''. The quoted sentence summarizes (C1)--(C3). The clock counts the
+punisher's moves after its reply. Condition (C1) uses the projected board,
+a defender allowed to pass out of check, and a punisher whose king stays
+on $F_Z$. Condition (C2) lets the defender move its king and context
+pawns consecutively in $Q^\circ$, including king captures of blockers.
+Condition (C3) requires a choice of guided real strategy that avoids
+defender stalemate throughout the window. A clause that an unsafe queen is a failure, used in the long version with chess in view, only strengthens
 (C1); it gives no chess win either (Remark~A.17).
 
 \textbf{A.16 Theorem (certificate).} \emph{Main text: ``In the promotion game (the first promotion wins) such a move loses
 for its mover.'' Precise form: if $m$ has a certificate of horizon $h$ with reply $r$, then after $m$ the side $\bar s$ wins
-$\mathrm{P}$: it plays $r$ and the guided strategy of (C3), and promotes or mates with one of its next $h$ moves.}
+$\mathrm{P}$: it plays $r$ and wins by promotion or mate no later than its $h$-th
+subsequent move. The reply itself may already mate; otherwise it follows
+the guided strategy of (C3) for as long as play continues.}
 
 \begin{proof}
 Consider any play from $Q$ in which $\bar s$ follows the guided strategy $\rho$ and $s$ makes legal moves, up to $\bar s$'s
@@ -362,19 +369,17 @@ e.p.\ captures in the play are by Z-pawns of pawns on $F_Z$, and $\pi$ keeps tho
 $\pi(R)$: the target square holds the same piece or less, the kings are the same, and the pawns of $\bar s$ that attack it
 in $\pi(R)$ also do in $R$; a capture of a context pawn becomes a plain move. A Z-pawn move of $s$ uses squares of $F_Z$,
 which carry the same pieces in $R$ and $\pi(R)$, and the checks are the same by (I3); a Z-pawn promotion is a promotion in
-the local game. A context-pawn move leaves $\pi(R)$ unchanged except for the side to move and the right, as a pass does; it
+the local game. A non-promoting context-pawn move leaves $\pi(R)$ unchanged except for the side to move and the right, as a pass does; it
 is legal only if $s$ is not in check, since a context pawn can neither capture on $F_Z$ (I1) nor block a pawn check; so the
-pass is allowed in $\pi(R)$. Hence the projection of the play is a play of the local game in which $\bar s$ plays only
+pass is allowed in $\pi(R)$. Hence, up to a possible first context promotion, each nonterminal real prefix projects to a legal prefix of the local game in which $\bar s$ plays only
 winning moves, with the same count of moves of each side.
 
 \emph{Step 2: permitted local moves of $\bar s$ are legal.} Let $\bar s$ be to move in $R$ and let $\nu$
-be a permitted local move at $\pi(R)$. Its squares lie on $F_Z$, which holds the same pieces in $R$ and $\pi(R)$, and its
-right is the same (I4). After $\nu$, $\bar s$'s king stands on $F_Z$, where no context pawn of $s$ attacks (I1); the other
-attackers are the same as in $\pi(R)$. There are no sliding pieces, so there are no pins. So $\nu$ is legal in $R$. By Step~1 the projected position is one that $\bar s$ wins in the local game with the moves that remain, so a winning move exists there, and the
+be a permitted local move at $\pi(R)$. Its squares lie on $F_Z$, which holds the same pieces in $R$ and $\pi(R)$, and every right usable by this local move agrees in the two positions (I4). After $\nu$, $\bar s$'s king stands on $F_Z$, where no context pawn of $s$ attacks (I1); the other
+attackers are the same as in $\pi(R)$. There are no sliding pieces, so there are no pins. So $\nu$ is legal in $R$. By (C1) at the root and induction using Step~1 and the previous guided choices, the live projected position is one that $\bar s$ wins in the local game with the moves that remain, so a winning move exists there, and the
 guided strategy is defined at every turn of $\bar s$ before it wins; in particular $\bar s$ is never mated or stalemated.
 
-\emph{Step 3: $s$ does not promote first.} By Step 1 and since $\bar s$, playing only winning moves, wins the local game by its $h$-th move, which
-follows $s$'s $h$-th turn, $s$ has at most $h$ turns. A promotion of a Z-pawn of $s$ would be a promotion by $s$ in the
+\emph{Step 3: $s$ does not promote first.} In the window from $Q$ through $\bar s$'s $h$-th subsequent move, $s$ has at most $h$ turns, since $s$ moves first. A promotion of a Z-pawn of $s$ would be a promotion by $s$ in the
 local game, a failure for $\bar s$, which cannot happen from a local position that $\bar s$ wins. Suppose a context pawn of $s$ promotes at
 $s$'s $j$-th turn, $j\le h$. Delete from the play all moves of $\bar s$ and all Z-pawn moves of $s$. What remains is at most
 $j$ moves of $s$, king moves and context-pawn moves, ending with the promotion. It is a legal sequence in $Q^\circ$: $s$'s
@@ -383,13 +388,21 @@ square not attacked by a context pawn of $\bar s$ and not holding a pawn of $s$;
 whose occupants are the same, since $\bar s$'s king and the Z-pawns are on $F_Z$; and no e.p.\ capture is involved (I4).
 This contradicts (C2).
 
-\emph{Step 4: $\bar s$ wins.} $s$ cannot mate $\bar s$ (Step 2), $\bar s$ is not stalemated (Step 2), $s$ is not
-stalemated before $\bar s$ wins (C3), and $s$ does not promote first (Step 3). The projected play is a play of the local
-game in which $\bar s$ plays only winning moves, so it ends by $\bar s$'s $h$-th move with a promotion by $\bar s$ or a mate of $s$. A
-promotion is a legal real move (Step 2) and wins $\mathrm{P}$. If $s$ is mated in $\pi(R)$, it is in check in $R$ (I3),
-and a legal move of $s$ in $R$ would project to a legal local move, a pass being impossible in check (Step 1); so $s$ is
-mated in $R$. Every play is finite, since it lasts at most $h$ moves of $\bar s$.
+\emph{Step 4: $\bar s$ wins.} If $s$ is already mated at $Q$ or is
+mated earlier on the real line, $\bar s$ has won. Otherwise (C3)
+excludes real stalemate of $s$ at each of its turns before the deadline.
+Step~2 supplies a legal winning move at each live punisher turn, and
+Step~3 excludes defender promotion in the window. Thus while the real
+line continues its projection is a local prefix with only winning
+punisher moves at their remaining budgets. Such a prefix cannot continue
+past the $h$-th punisher move without local promotion or mate. A local
+punisher promotion is the same legal real promotion. At a local mate
+$s$ is in check in the real game by (I3), and any real escape would
+project to a legal local escape by Step~1. Hence the real game ends in
+a punisher win by the stated deadline.
 \end{proof}
+
+\textbf{Remark (timing).} The reply $r$ itself may already mate while the projected position is still live: on the flat board take $F_Z=\{a,b\}$, buffer c, \pos{W Ka6 b6 b7 d6 / B Ka8 a7 e7} with Black to move, $m=\mathrm{Kb8}$ and $r=\mathrm{b6{\times}a7}$ mate. In $\pi(Q)$ Black has Kc7 and White promotes a8=Q, so $h=1$ works, yet the real game is over after $r$, so the win need not come after the reply.
 
 \textbf{A.17 Remark.} Theorem~A.16 is a statement about $\mathrm{P}$ only. A won promotion in $\mathrm{P}$ need not be a
 won chess game, so it does not give (V3) for chess, as the main text says. With Remark~A.12(b) and $Q$ as in Theorem~A.11, certificates for every
