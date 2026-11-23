@@ -29,7 +29,7 @@ Full paper (regular paper). The exact name of the option in ScholarOne: not veri
 | Pages | 10, including references (limit 10) | `pdfinfo`, US Letter |
 | Figures | 7 (Fig. 1 to Fig. 7, several with sub-panels) | caption lines in `pdftotext` of the review PDF; `\begin{figure}` blocks in `sections/*.tex` |
 | Tables | 5 (Table I to Table V) | same |
-| References | 18 | `build/tog_review.bbl` has 18 `\bibitem`; the PDF list ends at [18] |
+| References | 20 | `build/tog_review.bbl` has 20 `\bibitem`; the PDF list ends at [20] |
 | Supplement pages | 80 (not counted toward the limit, per AUDIT.md) | `pdfinfo supplement_review.pdf` |
 
 ## AI-use statement (plain text)

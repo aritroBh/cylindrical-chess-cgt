@@ -5,6 +5,8 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 ## Format and submission
 - [x] IEEEtran journal class, abstract under 200 words, index terms
 - [x] All 19 references checked against publishers
+- [x] Two references added and checked against Crossref (2026-11-23): Thompson 1986 (retrograde analysis) and
+  Tomašev et al. 2022 (rule changes to chess with AlphaZero); 20 references in the 10-page version
 - [x] 29 referee findings applied; facts match the research reports
 - [x] AI-use statement in the Acknowledgment
 - [x] Anonymous review build (14 pages) and named build (15 pages)
@@ -40,8 +42,8 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
   scope (52 repairs hold with frozen kings, 31 with real kings; the rule is not sound on every board), six settings
   not nine in Section VI, the abstract's wording on frozen kings (199 words), a caption label and three stale report
   headers. The sum cross-check was rerun with both sides e.p.-aware: 0 of 2,483,775 pairs differ, so the sentence in
-  Section XIII stands and now has a log. Open, need space or an author decision: missing prior-work references (Thompson 1986, Syzygy,
-  fairy-chess generators, CGSuite, Tomašev et al.), a self-contained rewrite of supplement S12
+  Section XIII stands and now has a log. Open: further prior-work references (Syzygy, fairy-chess generators, CGSuite) if space allows, and a
+  self-contained rewrite of supplement S12
 - [x] Supplement S3.4 added: the census table by rule and test, and the 19-row table of the real-king sum test; 81 pages
 - [x] Submission package (`dist/tog/submission/`): cover letter, ScholarOne fields, upload table, steps for the author.
   PDF checks pass on all four files: US Letter, every font embedded, no Type 3 fonts, no raster images, no author

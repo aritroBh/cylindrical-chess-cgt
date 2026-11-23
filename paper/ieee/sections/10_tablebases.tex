@@ -3,7 +3,8 @@
 We now bring in the pieces and ask a classical question: without corners, which material can still force
 mate? We computed the tablebases of eight pawnless endings, king and one or two pieces against the bare
 king, on the ordinary board, on the cylinder and on the torus, where ranks 1 and 8 are joined as well. Chess
-on these boards is an old variant~\cite{Pritchard}. Prose sources say that king and rook cannot force mate
+on these boards is an old variant~\cite{Pritchard}, and other changes to the rules of chess have been studied with
+self-play engines~\cite{Tomasev2022}. Prose sources say that king and rook cannot force mate
 on the cylinder, nor king and queen on the torus~\cite{WikiCylinder,HGMCylinder}; we confirm the torus claim,
 but the rook mates from 2.80\% of cylinder positions. We found no earlier tablebase for them.
 
@@ -12,7 +13,7 @@ and no fifty-move rule, and stalemate and bare kings are draws. A position is le
 adjacent, across the seams included, and the side not to move is not in check. Both dimensions of the board
 are even, so the coloring of the squares survives the gluing.
 
-\emph{Verification.} Two retrograde solvers, written independently from these rules, agree on every position
+\emph{Verification.} Two retrograde solvers~\cite{Thompson1986}, written independently from these rules, agree on every position
 of all 24 tables, about 607 million values with either side to move \lab{C2}. On the ordinary board both
 reproduce the known longest mates.
 
