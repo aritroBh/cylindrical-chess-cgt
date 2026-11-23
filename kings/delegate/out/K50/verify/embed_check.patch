@@ -1,0 +1,35 @@
+--- a/kings/embed_check.py
++++ b/kings/embed_check.py
+@@ -436,6 +436,13 @@
+                 c["dmin_" + side] = min((dp(B, side, p) for st in c["states"]
+                                          for p in (st[0] if side == "W" else st[1])), default=INF)
+                 c["mu_" + side] = self.multi_mu(c["states"], side)
++                # a terminal of another component can be the position of this one at a terminal of the whole
++                # board (a move here makes a passer here and lets an e.p. right lapse there: a race of two
++                # components), so the bounds used at terminals also run over this component's terminal states
++                tst = c["states"] | {t[0] for t in c["terms"]}
++                c["dmin_t_" + side] = min((dp(B, side, p) for st in tst
++                                           for p in (st[0] if side == "W" else st[1])), default=INF)
++                c["mu_t_" + side] = self.multi_mu(tst, side)
+ 
+     def multi_mu(self, states, side, limit=None):
+         """min over states of mu_side: least number of consecutive side-moves to a promotion (pawns only)."""
+@@ -833,7 +840,7 @@
+             own = (w - {p}, b, ep if (ep and ep[2] == omega and N == omega) else None) if beta == "W" else \
+                 (w, b - {p}, ep if (ep and ep[2] == omega and N == omega) else None)
+             mu = self.mu_from(own, omega, e + 1)
+-            others = min((c["mu_" + omega] for c in self.comps if c is not comp), default=INF)
++            others = min((c["mu_t_" + omega] for c in self.comps if c is not comp), default=INF)
+             mu = min(mu, others)
+             if mu < e + 1:
+                 reasons.append(f"(H5) fails for {nm(p)}: mu = {mu}, e = {e}")
+@@ -842,7 +849,8 @@
+             # (L2) there: omega's context pawns need >= D0 - j moves after j omega-moves, j <= e - 1
+             if e >= 1 and Tmax_k >= 1:
+                 om = b if omega == "B" else w
+-                d0 = min([dp(B, omega, q) for q in om] + [c["dmin_" + omega] for c in self.comps if c is not comp])
++                d0 = min([dp(B, omega, q) for q in om] + [c["dmin_t_" + omega] for c in self.comps if c is not comp],
++                         default=INF)
+                 if d0 - (e - 1) < Tmax_k + 1 and not (Tmax_k == 0):
+                     reasons.append(f"(L2) at the nodes of the push not shown for {nm(p)}: D0 = {d0}, e = {e}, "
+                                    f"T = {Tmax_k}")

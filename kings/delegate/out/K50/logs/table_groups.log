@@ -1,0 +1,84 @@
+Fig (a) trebuchet | cyl:8x8 | Kh5 Pa4 kb4 pa5 w | ctx=False | F_Z=hab buffer=cg files_left=3 | UNDECIDED | D=Black
+    Kh5-g4: UNDECIDED, T=6, (L1_P) holds but (L3_F) fails for every reply
+    Kh5-g5: UNDECIDED, T=6, (L1_P) holds but (L3_F) fails for every reply
+    Kh5-g6: UNDECIDED, T=5, (L1_P) holds but (L3_F) fails for every reply
+    Kh5-h6: UNDECIDED, T=6, (L1_P) holds but (L3_F) fails for every reply
+    Kh5-a6: UNDECIDED, T=6, (L1_P) holds but (L3_F) fails for every reply
+    kb4-a3: UNDECIDED, T=6, (L1_P) holds but (L3_F) fails for every reply
+    kb4-b3: UNDECIDED, T=6, (L1_P) holds but (L3_F) fails for every reply
+    kb4-c3: UNDECIDED, T=5, (L1_P) holds but (L3_F) fails for every reply
+    kb4-c4: UNDECIDED, T=6, (L1_P) holds but (L3_F) fails for every reply
+    kb4-c5: UNDECIDED, T=6, (L1_P) holds but (L3_F) fails for every reply
+Fig (a) trebuchet | cyl:8x8 | Kh5 Pa4 kb4 pa5 w | ctx=True | F_Z=hab buffer=cg files_left=3 | CERTIFIED | D=Black
+Fig (a) trebuchet | cyl:8x8 | Kh5 Pa4 kb4 pa5 b | ctx=False | F_Z=hab buffer=cg files_left=3 | UNDECIDED | D=White
+Fig (a) trebuchet | cyl:8x8 | Kh5 Pa4 kb4 pa5 b | ctx=True | F_Z=hab buffer=cg files_left=3 | CERTIFIED | D=White
+Fig (b) trebuchet T | flat:8x8 | Kf5 Pg4 kh4 pg5 w | ctx=False | F_Z=fgh buffer=e files_left=4 | UNDECIDED | D=Black
+    Kf5-e4: UNDECIDED, T=6, (L1_P) holds but (L3_F) fails for every reply
+    Kf5-e5: UNDECIDED, T=6, (L1_P) holds but (L3_F) fails for every reply
+    Kf5-e6: UNDECIDED, T=5, (L1_P) holds but (L3_F) fails for every reply
+    Kf5-f6: UNDECIDED, T=6, (L1_P) holds but (L3_F) fails for every reply
+    Kf5-g6: UNDECIDED, T=6, (L1_P) holds but (L3_F) fails for every reply
+    kh4-g3: UNDECIDED, T=6, (L1_P) holds but (L3_F) fails for every reply
+    kh4-h3: UNDECIDED, T=6, (L1_P) holds but (L3_F) fails for every reply
+Fig (b) trebuchet T | flat:8x8 | Kf5 Pg4 kh4 pg5 w | ctx=True | F_Z=fgh buffer=e files_left=4 | CERTIFIED | D=Black
+Fig (b) trebuchet T | flat:8x8 | Kf5 Pg4 kh4 pg5 b | ctx=False | F_Z=fgh buffer=e files_left=4 | UNDECIDED | D=White
+Fig (b) trebuchet T | flat:8x8 | Kf5 Pg4 kh4 pg5 b | ctx=True | F_Z=fgh buffer=e files_left=4 | CERTIFIED | D=White
+Z_T | cyl:8x6 | Ka4 Pb3 kc3 pb4 w | ctx=False | F_Z=abc buffer=dh files_left=3 | UNDECIDED | D=Black
+    Ka4-h3: UNDECIDED, T=4, (L1_P) holds but (L3_F) fails for every reply
+    Ka4-h4: UNDECIDED, T=4, (L1_P) holds but (L3_F) fails for every reply
+    Ka4-h5: UNDECIDED, T=4, (L1_P) holds but (L3_F) fails for every reply
+    Ka4-a5: UNDECIDED, T=4, (L1_P) holds but (L3_F) fails for every reply
+    Ka4-b5: UNDECIDED, T=4, (L1_P) holds but (L3_F) fails for every reply
+    kc3-b2: UNDECIDED, T=4, (L1_P) holds but (L3_F) fails for every reply
+    kc3-c2: UNDECIDED, T=4, (L1_P) holds but (L3_F) fails for every reply
+    kc3-d2: UNDECIDED, T=4, (L1_P) holds but (L3_F) fails for every reply
+    kc3-d3: UNDECIDED, T=4, (L1_P) holds but (L3_F) fails for every reply
+    kc3-d4: UNDECIDED, T=4, (L1_P) holds but (L3_F) fails for every reply
+Z_T | cyl:8x6 | Ka4 Pb3 kc3 pb4 w | ctx=True | F_Z=abc buffer=dh files_left=3 | CERTIFIED | D=Black
+Z_T | cyl:8x6 | Ka4 Pb3 kc3 pb4 b | ctx=False | F_Z=abc buffer=dh files_left=3 | UNDECIDED | D=White
+Z_T | cyl:8x6 | Ka4 Pb3 kc3 pb4 b | ctx=True | F_Z=abc buffer=dh files_left=3 | CERTIFIED | D=White
+K29 class 1 | cyl:8x6 | Kb3 Pa2 Pc2 kb1 pa3 pc3 w | ctx=False | F_Z=abc buffer=dh files_left=3 | UNDECIDED | D=Black
+    Kb3-a3: CERTIFIED, T=3, (L3_F) holds
+    Kb3-a4: UNDECIDED, T=3, (L1_P) holds but (L3_F) fails for every reply
+    Kb3-b4: CERTIFIED, T=3, (L3_F) holds
+    Kb3-c3: CERTIFIED, T=3, (L3_F) holds
+    Kb3-c4: UNDECIDED, T=3, (L1_P) holds but (L3_F) fails for every reply
+    kb1-a1: UNDECIDED, T=4, (L1_P) holds but (L3_F) fails for every reply
+    kb1-c1: UNDECIDED, T=4, (L1_P) holds but (L3_F) fails for every reply
+K29 class 1 | cyl:8x6 | Kb3 Pa2 Pc2 kb1 pa3 pc3 w | ctx=True | F_Z=abc buffer=dh files_left=3 | CERTIFIED | D=Black
+K29 class 1 | cyl:8x6 | Kb3 Pa2 Pc2 kb1 pa3 pc3 b | ctx=False | F_Z=abc buffer=dh files_left=3 | UNDECIDED | D=White
+K29 class 1 | cyl:8x6 | Kb3 Pa2 Pc2 kb1 pa3 pc3 b | ctx=True | F_Z=abc buffer=dh files_left=3 | CERTIFIED | D=White
+K29 class 2 | cyl:8x6 | Kb1 Pa2 Pb3 ka3 pb2 pc5 w | ctx=False | F_Z=ab buffer=ch files_left=4 | FAILS | D=None
+    separation: ['pawn(s) c5 on the buffer file(s) c, h']
+K29 class 2 | cyl:8x6 | Kb1 Pa2 Pb3 ka3 pb2 pc5 w | ctx=True | F_Z=ab buffer=ch files_left=4 | FAILS | D=None
+K29 class 2 | cyl:8x6 | Kb1 Pa2 Pb3 ka3 pb2 pc5 b | ctx=False | F_Z=ab buffer=ch files_left=4 | FAILS | D=None
+K29 class 2 | cyl:8x6 | Kb1 Pa2 Pb3 ka3 pb2 pc5 b | ctx=True | F_Z=ab buffer=ch files_left=4 | FAILS | D=None
+K29 class 3 | cyl:8x6 | Kb3 Pa2 Pa4 ka5 pa3 pb4 w | ctx=False | F_Z=abc buffer=dh files_left=3 | UNDECIDED | D=Black
+    Kb3-c2: UNDECIDED, T=None, no reply r gives (L1_P) within T <= 8
+    Kb3-c4: UNDECIDED, T=None, no reply r gives (L1_P) within T <= 8
+    ka5-h4: UNDECIDED, T=2, (L1_P) holds but (L3_F) fails for every reply
+    ka5-h6: UNDECIDED, T=None, no reply r gives (L1_P) within T <= 8
+    ka5-a6: UNDECIDED, T=None, no reply r gives (L1_P) within T <= 8
+    ka5-b6: UNDECIDED, T=None, no reply r gives (L1_P) within T <= 8
+K29 class 3 | cyl:8x6 | Kb3 Pa2 Pa4 ka5 pa3 pb4 w | ctx=True | F_Z=abc buffer=dh files_left=3 | UNDECIDED | D=Black
+K29 class 3 | cyl:8x6 | Kb3 Pa2 Pa4 ka5 pa3 pb4 b | ctx=False | F_Z=abc buffer=dh files_left=3 | UNDECIDED | D=White
+K29 class 3 | cyl:8x6 | Kb3 Pa2 Pa4 ka5 pa3 pb4 b | ctx=True | F_Z=abc buffer=dh files_left=3 | UNDECIDED | D=White
+K29 class 4 | cyl:8x6 | Kb3 Pc2 Pa4 ka5 pc3 pb4 w | ctx=False | F_Z=abc buffer=dh files_left=3 | UNDECIDED | D=Black
+    Kb3-a2: UNDECIDED, T=None, no reply r gives (L1_P) within T <= 8
+    Kb3-c4: UNDECIDED, T=5, (L1_P) holds but (L3_F) fails for every reply
+    ka5-h4: UNDECIDED, T=2, (L1_P) holds but (L3_F) fails for every reply
+    ka5-h6: UNDECIDED, T=6, (L1_P) holds but (L3_F) fails for every reply
+    ka5-a6: UNDECIDED, T=6, (L1_P) holds but (L3_F) fails for every reply
+    ka5-b6: UNDECIDED, T=6, (L1_P) holds but (L3_F) fails for every reply
+K29 class 4 | cyl:8x6 | Kb3 Pc2 Pa4 ka5 pc3 pb4 w | ctx=True | F_Z=abc buffer=dh files_left=3 | UNDECIDED | D=Black
+K29 class 4 | cyl:8x6 | Kb3 Pc2 Pa4 ka5 pc3 pb4 b | ctx=False | F_Z=abc buffer=dh files_left=3 | UNDECIDED | D=White
+K29 class 4 | cyl:8x6 | Kb3 Pc2 Pa4 ka5 pc3 pb4 b | ctx=True | F_Z=abc buffer=dh files_left=3 | CERTIFIED | D=White
+Fig (c) 7.2 group | cyl:8x8 | Ke6 Pd7 kd8 pe7 w | ctx=False | F_Z=de buffer=cf files_left=4 | UNDECIDED | D=Black
+    Ke6-d5: UNDECIDED, T=None, no reply r gives (L1_P) within T <= 8
+    Ke6-e5: UNDECIDED, T=None, no reply r gives (L1_P) within T <= 8
+    Ke6-f5: UNDECIDED, T=None, no reply r gives (L1_P) within T <= 8
+    Ke6-f7: UNDECIDED, T=4, (L1_P) holds but (L3_F) fails for every reply
+    kd8-c7: CERTIFIED, T=0, the reply promotes at once (P-win)
+Fig (c) 7.2 group | cyl:8x8 | Ke6 Pd7 kd8 pe7 w | ctx=True | F_Z=de buffer=cf files_left=4 | UNDECIDED | D=Black
+Fig (c) 7.2 group | cyl:8x8 | Ke6 Pd7 kd8 pe7 b | ctx=False | F_Z=de buffer=cf files_left=4 | UNDECIDED | D=White
+Fig (c) 7.2 group | cyl:8x8 | Ke6 Pd7 kd8 pe7 b | ctx=True | F_Z=de buffer=cf files_left=4 | CERTIFIED | D=White

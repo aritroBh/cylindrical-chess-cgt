@@ -1,0 +1,221 @@
+K50 FINDINGS: kings/embed_check.py, a checker that certifies the frozen-king model for one K+P position
+(brief: kings/delegate/briefs/K50_certified_embedding_checker.md; 2026-11-23)
+
+SUMMARY
+1. kings/embed_check.py (standard library only) reads a FEN, finds the king group Z, F_Z, the buffer and the
+   context, checks separation (Definition 2.1) and reports CERTIFIED / FAILS / UNDECIDED for (V1), (V2), (V3), with a
+   witness, plus the D-game result and what is proved (a result in P; chess only under (A_Q)(X), never checked).
+2. Default (strict) mode uses only sufficient conditions stated in LOOPY. In it, the paper's two trebuchets
+   (Fig. (a), (b)), Z_T and K29 class 1 are NEVER certified, beside any context, bare included: every sortie has a
+   local win ((L1_P)) but the literal (L3_F) fails, as LOOPY section 5.1 itself records ("The strict form (L3_F) fails
+   in every case"). Where a passer terminal can be reached, (V2) also fails to be certified, because (H2) of
+   Proposition 2.11 fails for every trebuchet (each king stands next to a Z-pawn file). This is the honest answer
+   to "is the frozen-king model certified": for the trebuchets, not by LOOPY as written.
+3. --ctx adds two direct checks over an over-approximation of the reachable contexts ((L3) itself, and (V1b)
+   via buffer squares). They are this program's argument, written out below, not statements of LOOPY. With --ctx
+   the bare trebuchets and locked or slow contexts get certified.
+4. Tests. (a) ChessSums: all 23 APART positions pass separation; all 14 ADJACENT and all 30 sampled SHARED
+   positions fail it (with the declared group); none of the 23 is CERTIFIED (UNDECIDED, reason as in 2); the D-game
+   result agrees with the listed outcome class in all 23. (b) 2,080 positions on 6-rank boards against
+   kp_p --pmodel: 193 CERTIFIED (64 by Theorem 1.14(i), 129 by its sharp form), 7 FAILS, 1,880 UNDECIDED;
+   0 CERTIFIED positions disagree with kp_p; all 7 FAILS are P draws.
+
+USAGE (the paper side)
+  python3 kings/embed_check.py [--board flat:8x8|cyl:8x8|flat:WxH|cyl:WxH] [--fz f,g,h] [--group Kf5,Pg4,kh4,pg5]
+                               [--tmax 8] [--cap 300000] [--ctx] [--pretty] ['FEN' ...]
+  - Default board flat:8x8. Positions are FEN/EPD (first four fields) or kpsolve tokens ("Kf5 Pg4 kh4 pg5 Pa2 w -");
+    with no position argument, one per line on stdin. One JSON object per position on stdout.
+  - F_Z: default = the shortest arc holding both kings' files. --fz sets it (needed when both kings stand on one
+    file, e.g. K29 class 1: --fz a,b,c). --group declares the king group's squares (wk, wp..., bk, bp...); then every
+    pawn on F_Z must be declared, else separation FAILS ("component pawn on a group file"). Use --group when
+    rebuilding a test set from a generator that knows its group (ChessSums meta.json "freeze").
+  - Read "verdict" first: CERTIFIED means the position may enter a test set whose ground truth is the D-result,
+    and "proves" says which theorem gives it and for which side; "D_result" is that result. FAILS means a
+    hypothesis is false with the witness given (separation, check, stalemate, a promoting Z-move). UNDECIDED means
+    nothing is claimed; the clause entries say which sufficient condition did not apply.
+  - The certificate is for the promotion game P (first promotion wins). For the chess value, also check (A_Q)(X)
+    with kpsolve (Section 1.2 of LOOPY); the program never does.
+  - Example: python3 kings/embed_check.py --pretty --board cyl:7x6 'Kb1 Pa2 Pb3 ka3 pb2 pc5 Pe3 pe4 w -' --fz a,b,c
+
+WHAT EACH VERDICT MEANS AND WHICH LOOPY STATEMENT BACKS IT
+separation (PASS/FAILS): Definition 2.1: one king each, no officer, kings not adjacent, no pawn on rank 1 or H,
+  F_Z an arc holding both kings, buffer files (distance 1) pawn-free, so the context is at distance >= 2; nobody in
+  check; H >= 5 (needed by Proposition 2.10(a) and the e.p. arguments). Also reports F_Z, buffer, context files and
+  "files_left_for_components" (W - |F_Z| - |buffer|). If separation fails, nothing else is claimed.
+Reachable contexts: every component of the context is enumerated by moves of either side in any order (an
+  over-approximation of the chess-reachable non-terminal contexts; a double step yields both the state with and
+  without the right; terminal = a passer under cylcgt's e.p.-aware test, which has fewer terminals than the textbook
+  test, so the set is a superset for both). Cap 300,000 states, else UNDECIDED.
+(V1)
+  check     CERTIFIED: nobody in check at X; Proposition 1.15(a) (PROVED): check status is decided at X and no check
+            arises before the first decisive event. A side to move in check makes separation FAIL.
+  (E)       CERTIFIED: no reachable context carries a usable e.p. right, or only one-component contexts do
+            (L1.6/Theorem 1.6 of notes/lemmas.md: (E) is about positions with >= 2 components). FAILS: a usable right
+            at the root with >= 2 context components (Proposition 1.15(b)). Else UNDECIDED.
+  (V1b)     CERTIFIED per side: a Z-move legal in every reachable context: a Z-pawn move or a king step onto F_Z
+            (Lemma 2.2: context pawns never occupy or attack F_Z, and Z does not change before the first decisive
+            event). FAILS: stalemate at X. (--ctx: also a king step onto a buffer square no reachable enemy context
+            pawn attacks.)
+(V3) per side, per Z-move m (computed in the Z-only position, a superset of the moves legal in context):
+  FAILS if m promotes. CERTIFIED (with reply r and T) by Theorem 2.7(a) (PROVED in P): a promoting reply (T = 0, an
+  immediate P-win), or a reply r with (L1_P) within T (local game of Definition 2.6: k = infinity passes, s-bar's
+  king confined to F_Z, any s-bar promotion wins, an s promotion fails; Theorem 2.7 holds with (L1_P)), (L3_F)
+  (every line where s-bar plays only winning moves leaves s a Z-pawn move or a king move onto F_Z), and (L2):
+  T = 1 and H >= 5: Proposition 2.10(a); otherwise mu_s >= T + 1 at every reachable context, shown either by
+  "every reachable s context pawn needs >= T + 1 moves" or by a breadth-first search over Q-degree (s's king from its
+  square after m, s's context pawns, s-bar's static context pawns) started from every reachable state of each
+  component (min over components is a lower bound for mu_s: pawns of other components only hinder). The same
+  certificate gives (V2) at the Z-move terminals.
+(V2) at passer and race terminals: every terminal reachable by one move from a reachable context, credited by
+  cylcgt's rule (count rule for races), must satisfy Corollary 2.11a, i.e. (H1)-(H5) of Proposition 2.11 for some
+  pawn p (mu_omega: exact search on the terminal's own component with p deleted, multi-source minimum over the other
+  components' reachable states; omega's Z-pawns contribute nothing because the next condition requires they have no
+  move). Proposition 2.11 is a win in the frozen model F. It is carried to P by Corollary 2.7' (PROVED in P): every
+  king move of omega at the nodes of the push must be a P-loss; this is shown by Theorem 2.7(a) with the strict
+  (L1_P)+(L3_F) certificate of that king move (context-independent because Z cannot change: the program requires
+  omega to have no Z-pawn move) and (L2) at those nodes by the bound D0 - (e - 1) >= T + 1 (D0 = least number of moves
+  of an omega context pawn at the terminal; each omega move lowers it by at most 1). (H2) and (H3) are checked
+  statically (Z-pawns next to beta's king file; root files as a superset of occupied files). No terminal: CERTIFIED
+  vacuously. Never FAILS (no exact witness is computed). On flat boards the output notes that Proposition 2.11 is
+  written out for cylinders only (LOOPY: "the same proof works ... (not separately written out)").
+(V4) not checked; needed only for the BIG value S(X) (Theorem 1.14(ii)).
+Conclusion ("verdict", "proves", "D_result"):
+  - D_result: the D-game of the context alone (Z deleted), chess e.p., first passer or race ends it (credit as
+    above), a side with no move loses; memo cap 300,000.
+  - CERTIFIED via Theorem 1.14(i) (PROVED) if (V1) [check, (E), (V1b) both sides], (V2) and (V3) [both sides] are
+    all CERTIFIED: P(X) = D(X).
+  - Else CERTIFIED via the sharp form of Theorem 1.14 (PROVED after repair; its "Reading in the vocabulary of
+    Theorem 1.14"), with sigma = the D-winner for the side to move: no check, (V1b) for the loser, (V3) for every
+    Z-move of the loser, (V2) at every terminal credited to sigma. Then X is a P-win for sigma. (E) is not needed
+    there, because the D used is the whole-board game with chess e.p., whose pawn moves are exactly the legal chess
+    context moves.
+  - FAILS if separation or a clause fails with a witness and the sharp form does not apply; else UNDECIDED.
+
+THE --ctx ARGUMENTS (this program's, not LOOPY's; off by default)
+  (L3) of Definition 2.6 asks for a guided strategy under which the real s is never stalemated in the window.
+  Check: on every line of L_T where s-bar plays only winning moves, at every s-turn s has a local move that is
+  (i) a Z-pawn move, (ii) a king step onto F_Z, or (iii) a king step onto a square outside U, where U is the union
+  over all reachable contexts of the s-bar context pawns' squares and the squares they attack, and of the forward
+  cones (on context files only) of s's context pawns. Why it suffices: by Step 1 of the proof of Theorem 2.7 the real
+  play projects onto such a line; s-bar's context pawns never move in the window and are only removed, so their
+  squares and attacks stay inside U; s's context pawns stay on context files (Lemma 2.2) inside their forward cones;
+  so a move of kind (iii) is legal in the real position (empty square, not attacked by a context pawn; the Z part
+  and the kings are as in the local position), and (i), (ii) are legal by Lemma 2.2. So s has a legal move, and is
+  not stalemated. Only the (V3) certificate uses it; the Corollary 2.7' transfer in (V2) uses the strict T only,
+  because after a passer the context leaves the enumerated set.
+  (V1b) via a buffer square: a king step from F_Z onto a buffer square that is legal in the Z-only position and not
+  attacked by an enemy context pawn in any reachable context (buffer squares never hold a pawn, Lemma 2.2).
+  No referee has read these two arguments. Treat --ctx verdicts as COMPUTED-1 at best until one does.
+
+TEST (a): ChessSums (engine/runs/chesssums/; split as in research/engine_baselines/embedding_flaw.py)
+  Script scripts/test_chesssums.py 30, log logs/chesssums.log (flat:8x8, strict mode, budget 20 CPU-s each).
+  - With --group = the declared freeze group (wk, wp, bk, bp from meta.json):
+      APART 23/23 pass separation; ADJACENT 14/14 FAIL (pawn on the buffer file); SHARED 30/30 of a random sample
+      (seed 50) FAIL ("component pawn on a group file", often also a buffer pawn). So the mixed positions fail, as
+      required. (Sampled 30 of 163, not all; the classification itself is the embedding_flaw.py rule.)
+  - APART, 23: CERTIFIED 0, FAILS 0, UNDECIDED 23. Per clause: (V1) CERTIFIED 23 ((E) certified in all 23);
+    (V3) UNDECIDED 23 (every sortie of T: (L1_P) with T = 5 or 6, (L3_F) fails); (V2) UNDECIDED 23 (the Z-move part
+    via (V3); where a passer terminal exists, (H2) fails). Files left for components: 4 in every APART position.
+    The D-result for the side to move agrees with the listed outcome class in 23/23 (P: 10 lost for the mover;
+    N: 6 won; L/R: 7 won by the listed side).
+  - Default F_Z (no --group), for comparison: APART 23 the same; ADJACENT 14 FAIL; SHARED 13 FAIL and 17 pass
+    separation, because the extra pawns on the group files then count as Z-pawns, i.e. a different, larger group;
+    all 17 UNDECIDED (16 with (V1) certified, 1 hit the cap). Use --group for the rebuilt set.
+  - CPU: <= 1 s per position with --group; up to 20.5 s (budget) in default mode on SHARED positions with many
+    Z-pawns.
+
+TEST (b): small boards against the solvers (scripts/test_solver.py, logs/solver_*.log, logs/summary_solver.txt)
+  Solvers: kp_p --pmodel (P with real kings; K7's kp_p.c) and kpsolve --frozen, both compiled into this directory
+  and deleted afterwards (kp_p, kpsolve). Groups (6 ranks): ZT = Ka4 Pb3 kc3 pb4 (cyl:7x6, context e,f);
+  K29a = Kb3 Pa2 Pc2 kb1 pa3 pc3 (cyl:7x6, --fz a,b,c); K29c2 = Kb1 Pa2 Pb3 ka3 pb2 pc5 (cyl:7x6, --fz a,b,c);
+  Z72 = Kc4 Pb5 kb6 pc5 (cyl:7x6, context e,f,g); T6 = Kf4 Pg3 kh3 pg4 (flat:8x6, context a-d). Contexts: random,
+  1-4 pawns, <= 2 a side, ranks 2-5, no passer at the root (80 per group), and "locked" ones (1-2 blocked pairs plus
+  at most one loose pawn, 40 per group); both sides to move; strict and --ctx.
+                                      positions CERTIFIED (full/sharp) FAILS UNDECIDED  disagree with kp_p
+    ZT strict / --ctx, random            160      0 / 2 (0/2)          0      160 / 158   0
+    ZT strict / --ctx, locked             80      0 / 2 (0/2)          0       80 / 78    0
+    K29a strict / --ctx, random          160      0 / 32 (28/4)        0      160 / 128   0
+    K29a strict / --ctx, locked           80      0 / 36 (36/0)        0       80 / 44    0
+    K29c2 strict / --ctx, random         160     23 / 23 (0/23)        0      137 / 137   0
+    K29c2 strict, locked                  80     20 (0/20)             0       60         0
+    Z72 strict / --ctx, random           160      0 / 14 (0/14)        2 / 2  158 / 144   0
+    Z72 --ctx, locked                     80     21 (0/21)             3       56         0
+    T6 strict / --ctx, random            160      0 / 20 (0/20)        0      160 / 140   0
+  Totals over the 13 runs (2,080 position runs; the strict and --ctx runs share positions): CERTIFIED 193 (64 by
+  Theorem 1.14(i), 129 by the sharp form), FAILS 7, UNDECIDED 1,880. CERTIFIED positions disagreeing with kp_p: 0.
+  Strict mode alone: 43 CERTIFIED (all K29c2, sharp form, White to move), 0 disagreements. All 7 FAILS are root
+  stalemates (V1b witness "stalemate at X"), and kp_p gives a draw (D D) for all 7. In the certified positions
+  kpsolve --frozen equals kp_p as well. Among UNDECIDED positions the D-result equals kp_p in 1,752 of 1,880: the
+  convention is often right without a certificate, which the program does not claim.
+  CPU and memory per batch: 6.5 to 238 CPU-s for 80 to 160 positions (at most about 1.5 CPU-s per position;
+  several batches exceeded one CPU-minute in total, each position stayed far below), peak RSS 52 to 722 MB.
+  Cross-checks of the local game against LOOPY: section 5.1 group on cyl:8x8, (L1_P) T = 6, 6, 5, 6, 6 for
+  Kg4, Kg5, Kg6, Kh6, Ka6 and the same for Ka3, Kb3, Kc3, Kc4, Kc5 (LOOPY: identical lists); Z_T on cyl:7x6,
+  1...Kd2 2.Kxb4, T = 4, and (L2) by the king search: mu_s = 4 beside {Pe2, pe3} (fails, mu_s = T) and >= 5 beside
+  {Pe3, pe4} (LOOPY/K23 referee: 4 and 5).
+
+ITEM 3: KNOWN GROUPS ON EIGHT FILES (scripts/table_groups.py, logs/table_groups.log, logs/table_groups_k29c2.log;
+bare groups, both sides to move)
+  group (board)                              F_Z / buffer   files left  sorties: least T of (L1_P); (L3_F)        strict  --ctx (bare)
+  Fig (a) Kh5 Pa4 kb4 pa5 (cyl:8x8)          h,a,b / c,g    3           W 6,6,5,6,6; B 6,6,5,6,6; fails all   UND     CERT (both stm)
+  Fig (b) T Kf5 Pg4 kh4 pg5 (flat:8x8)       f,g,h / e      4 (a-d)     W 6,6,5,6,6; B 6,6; fails all         UND     CERT (both stm)
+  Z_T Ka4 Pb3 kc3 pb4 (cyl:8x6)              a,b,c / d,h    3 (e-g)     W 4 x5; B 4 x5; fails all             UND     CERT (both stm)
+  K29 cl.1 Kb3 Pa2 Pc2 kb1 pa3 pc3 (cyl:8x6) a,b,c / d,h    3           W 3 x5, (L3_F) holds for 3 of 5;
+                                                                        B 4,4, fails                          UND     CERT (both stm)
+  K29 cl.2 Kb1 Pa2 Pb3 ka3 pb2 pc5 (cyl:8x6, --fz a,b,c)
+                                             a,b,c / d,h    3           W: Kc2 T=0, b3-b4 T=2, certified;
+                                                                        B: 3, 8, none, 4, 4                   CERT wtm; UND btm   same
+  K29 cl.3 Kb3 Pa2 Pa4 ka5 pa3 pb4 (cyl:8x6) a,b,c / d,h    3           W none; B 2 (fails), none x3          UND     UND
+  K29 cl.4 Kb3 Pc2 Pa4 ka5 pc3 pb4 (cyl:8x6) a,b,c / d,h    3           W none, 5; B 2, 6, 6, 6               UND     CERT btm only
+  Fig (c) Ke6 Pd7 kd8 pe7 (cyl:8x8)          d,e / c,f      4           W: no certificate; B: Kc7 T=0         UND     CERT btm (sharp)
+  ("none" = no (L1_P) win within T <= 8 for any reply; LC_T is sufficient only.)
+  Context sizes covered:
+  - By a proof (this program, strict mode): Fig (a), Fig (b), Z_T, K29 classes 1, 3, 4: no context at all, bare
+    included ((L3_F) fails). K29 class 2 with White to move: every context of the 3 context files in which (V1),
+    the D-result, and the (V2) terminals credited to Black can be certified; the (L2) need is mu_s >= 3 (T = 2),
+    met for instance whenever every reachable White context pawn needs >= 3 moves. On cyl:7x6 that held in 43 of
+    240 sampled contexts (test b).
+  - By the --ctx check: the bare groups above marked CERT, and contexts in which (L2) mu_s >= T + 1 holds at
+    every reachable context (T = 5-6 for the trebuchets: every context pawn of the defender >= 6-7 moves from
+    promotion even with its king's help, i.e. essentially locked or far-back contexts on 8 ranks) and no passer
+    terminal can be reached (else (H2) blocks (V2)).
+  - By K29 (computation, not proof; kings/delegate/out/K29/findings.txt): classes 1-4 act as 0 in P beside all 885
+    contexts of at most 2 pawns a side on e,f of cyl:7x6 (CHECKED-2), and beside the 885 on e,g of cyl:8x6 (classes
+    1-4, CHECKED-2); classes 3 and 4 fail beside Pf2 pf3 pf4 pf5 (1 + 3 pawns); classes 1 and 2 had no failing
+    context among the first 2,682 of 3,237 contexts with at most 3 a side (COMPUTED-1). K29 says nothing about 8
+    ranks, nor about Fig (a), (b) or Z_T (Z_T fails beside {Pe2, pe3}, P13).
+  - For 8x8 with T next to it: 4 context files (a-d, flat); Fig (a) leaves 3 (d, e, f). ChessSums' clean APART rows
+    have k <= 2 components and none are certifiable in strict mode.
+
+LIMITATIONS (all of them that I know)
+  1. Sufficient conditions only. UNDECIDED says nothing about the position; 1,752 of the 1,880 UNDECIDED test
+     positions have P = D anyway.
+  2. Strict mode cannot certify any trebuchet ((L3_F) fails; LOOPY section 5.1 says so). Certifying them needs (L3)
+     in a context, which LOOPY never proves for a context; --ctx does it by an argument of this program that no
+     referee has read.
+  3. (V2) at passer terminals: Proposition 2.11 (frozen) + Corollary 2.7' only. (H2) fails for every group whose
+     king stands next to a Z-pawn file, i.e. every trebuchet, so any reachable terminal credited to that side blocks
+     (V2). Theorem 2.11K (real kings) is not used: it also needs (H2). The transfer additionally demands that omega
+     has no Z-pawn move. No FAILS is ever reported for (V2).
+  4. (V2) on flat boards rests on LOOPY's remark that the cylinder proof of Proposition 2.11 carries over (not
+     written out there); the output says so.
+  5. (L2) for T >= 2 uses lower bounds on mu_s over an over-approximated reachable set; tight contexts may be
+     UNDECIDED although (L2) holds. (L1) is (L1_P) (no queen clause): enough for P (Theorem 2.7), not a chess claim.
+  6. (V3) checks every Z-move of the Z-only position, a superset of the moves legal in context (sound, may be
+     stricter than needed). The sharp form needs only the loser's moves and is used when (V1)-(V3) do not all hold.
+  7. (E): certified only when no usable e.p. right is reachable in a multi-component context; otherwise UNDECIDED
+     (LOOPY: needed-ness of (E) is a CONJECTURE). The sharp form does not need (E).
+  8. (V4) and (A_Q)(X) are not checked. The chess value needs (A_Q)(X), which is false in general (LOOPY 1.2).
+  9. Root with a passer, H < 5, officers, more than the caps (300,000 context states, 300,000 D-game nodes,
+     the per-position CPU budget, default 50 s, in the local game): UNDECIDED or FAILS(separation) as stated.
+ 10. Default F_Z is the shortest arc of the kings' files; a group whose pawns lie outside it needs --fz or --group.
+ 11. The program is one implementation (COMPUTED-1). It agrees with LOOPY's published T lists and mu_s values and
+     with kp_p on every certified test position, but no second implementation or referee has checked it.
+ 12. Test (b) is a sample (2,080 runs, 5 groups, contexts of <= 2 pawns a side or locked pairs), not a sweep;
+     test (a) sampled 30 of the 163 SHARED positions.
+
+FILES
+  kings/embed_check.py; kings/delegate/out/K50/findings.txt (this file);
+  scripts/test_chesssums.py, scripts/test_solver.py, scripts/summarize.py, scripts/table_groups.py;
+  logs/chesssums.log, logs/solver_*.log, logs/time_*.txt (/usr/bin/time -l), logs/summary_solver.txt,
+  logs/table_groups.log, logs/table_groups_k29c2.log. The solver binaries were deleted after the runs.
