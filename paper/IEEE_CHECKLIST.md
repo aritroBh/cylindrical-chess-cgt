@@ -28,7 +28,7 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 - [x] Last page: both builds at 10 pages; named build ends 747 and 719 pt (about two lines spare), anonymous 748 and 647 pt
 - [x] Title: the original title on both versions (author decision)
 - [x] Author block: University of Illinois Urbana-Champaign (ORCID optional, add in the submission system)
-- [ ] Push to the public repository (on the author's word)
+- [x] Pushed to the public repository on the author's word, 2026-11-23: main 3cc612a8..6e4a69aa (108 commits; gitleaks on the range: no leaks; no CLI transcripts added; `/Users/aritro` paths in about 70 research and solver files, reported to the author before the push)
 - [x] Second mock review of the 10-page text (`delegate/out/tog_review2/REPORT.md`): 5 blockers and 12 should-fix items.
   Applied: conclusion no longer mixes the 8x8 accuracy with the six-rank square-rule result; the 92.5% now gives its
   pool (2,154 positions, 105 draws); real-king test says queen promotions only; Möbius counts labelled; FEN defined;
@@ -219,6 +219,6 @@ Roles: Fable plans and reviews; Opus referees; Sonnet codes and applies; Haiku r
 - [x] `dist/tog/set_anon_url.sh URL` sets the link in both anonymous builds and calls `dist/tog/rebuild.sh` (dry run and bad-URL refusal tested; the full path runs when the link exists)
 - [x] `dist/tog/submission/` refreshed (W1): AI statement quoted from the paper, steps renumbered 1-13, repository described as public by the author's decision, page counts and dates current
 - [x] Rebuilt: 10-page paper 10/10 pages (0.36 in free), supplement 108 pages, long version 16/16; number, anonymity and arXiv checks pass; anonymous code copy rebuilt from commit 4ead14e7, all checks PASS
-- [ ] Author: read the proofs (`paper/PROOF_READING_ORDER.md`, page numbers of the 108-page supplement); create the anonymous link and run `sh dist/tog/set_anon_url.sh <URL>`; confirm the statements in `dist/tog/submission/SUBMIT_STEPS.md`; say when to push; submit in ScholarOne
+- [ ] Author: read the proofs (`paper/PROOF_READING_ORDER.md`, page numbers of the 108-page supplement); create the anonymous link and run `sh dist/tog/set_anon_url.sh <URL>`; confirm the statements in `dist/tog/submission/SUBMIT_STEPS.md`; submit in ScholarOne
 - [x] Author's decision, 2026-11-23 (second time): the GitHub repository stays public during review. Known cost: a reviewer who searches the title finds it.
 - Open after R14, not done: supplement S12.2-S15 are still proof notes with their own numbering and labels (R14 asks for self-contained proofs); Fig. 6 does not plot the ten-pawn star-3 rings on C7 and C8; the engine section is a pilot; W4's skipped wording items
