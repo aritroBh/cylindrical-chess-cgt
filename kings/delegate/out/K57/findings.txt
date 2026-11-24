@@ -1,0 +1,103 @@
+K57 FINDINGS: the 2 + 3 group of cyl:10x6 has the results of over in every D-sum                 Task date 2026-11-23
+=================================================================================================================
+AI work (one agent), no human re-derivation, not refereed.  Paths relative to kings/delegate/out/K57/.  Labels: PROVED
+(complete hand proof, PROOF.md), COMPUTED-1 (one program), CHECKED-2 (two programs agree).  Model as K47/K55/K56: the
+group is the P game of its own pieces in the D-sum of Definition 1.3 with K40's convention (a side with no move loses).
+
+0. SHORT ANSWER
+---------------
+- Proposition 1 (PROVED): over >= 0 in D-sums: White does at least as well beside omega as beside 0_D, for every finite
+  D-game.  So Black, winning (or not losing) beside over, may give over's passes up at any moment.
+- Lemma 2 (PROVED): an exact over group of Definition 4.8 has the results of over beside every finite D-game T (loopy or
+  short, terminals allowed, both roots, both sides; each q has the results of 0_D) if (B1): every non-shuttle Black move at
+  a root leaves a position that White wins beside -1 (Black may once move elsewhere).  Nothing beyond Definition 4.8 is
+  needed on White's side or at the q's.
+- Corollary 3: H10 = Kg4 kf6/kg6 Pb3 Pe2 pa5 pb4 pe5 (cyl:10x6) has the results of over beside every finite D-game.
+  PROVED given CHECKED-2 computations (Definition 4.8: K45; (B1): K55's za and rz, refereed for cyl:10x6, and K57's pr57).
+  Not refereed.
+- Why K56 failed on White's side: it kept over's passes for Black after a bad White move and charged Black a board move for
+  each.  Here Black answers the bad move on the board and then replaces omega by 0_D (Proposition 1); from then on Black
+  never needs an unforced board move.  White's five "failures" of K56 (Kg4-f3 at both roots, e2-e4 at f6, e2-e3 and Kg4-g3
+  at g6) need only that they lose at once in P, which Definition 4.8 gives.  Black's side genuinely needs one token, because
+  White cannot give over up (that would be a downgrade for White): this is where Z_O fails (1...e5-e4), matching K47's
+  observation that every difference of Z_O from over favours Black.
+- No separating test game exists for H10 (by the corollary).  Sanity: the lemma predicts that the four cyl:8x7 groups, which
+  satisfy (B1) by one program, are also over; K57's sum code finds 0 differences from over for three of them on K56's 600
+  random D-games (sec. 3).
+- Abstract check (sec. 3b): on the K56 referee's toy groups, the 1,758 random exact groups with (B1) never differ from over
+  (1,581,232 results); 379 of the 2,742 without (B1) differ.
+
+1. THE PROOF (PROOF.md)
+-----------------------
+Sum operation, class of T, conventions: PROOF.md sec. 1.  Strategy transfer for winning and for non-losing strategies, both
+colours.  Phase 1: copy over's strategy S while the group is at the roots and q's (shuttle = omega -> omega, freeze = omega
+-> 0_D).  Entry after the opponent X's other move m (losing at once by Definition 4.8):
+  E1 (X = White, anywhere): Black plays its P-winning reply; if m was at a root the virtual over becomes 0_D (Proposition 1);
+     budget 0.
+  E2 (X = Black at a q): White's P-winning reply; budget 0.
+  E3 (X = Black at a root): White's reply in G with one Black token, by (B1); budget 1 (over may still ask White once for
+     omega -> 0_D).
+Phase 2: answer board moves on the board (attractor of the token game), moves elsewhere by S elsewhere ("pauses"), and make
+an unforced board move only when S asks for an over-move (at most once, White, budget 1).  Termination by the attractor
+ranks; draws transfer; terminals of T are answered by S.
+Weakest step: the phase-2 bookkeeping (termination count and the budget, i.e. which side can be asked for an unforced board
+move); for the corollary, the completeness of the computed list of Black root moves and the e.p. handling (below).
+
+2. THE CERTIFICATE FOR H10 (CHECKED-2)
+--------------------------------------
+Hypotheses used: Definition 4.8 for H10 (K45: two implementations, ref3m and kp_p; K56's pr56 reproduces it) and (B1).
+(B1): the ten non-shuttle Black moves at the roots (f6 root: ...Ke6, ...a4, ...a3, ...e4, ...e3; g6 root: ...Kh6, ...a4,
+...a3, ...e4, ...e3).  Positions after them, White to move, beside the test game -1:
+  - za and rz (K55's sources copied to src/za_k55.cpp, src/rz_k55.cpp, built unchanged; cert/H10_blackmoves.txt,
+    cert/t_m1.txt; logs/C_za_H10.out, C_rz_H10.out): W for the 8 moves without an e.p. right, both solvers.  Their input
+    has no e.p. right: for ...a5-a3 (White's b3 pawn can take e.p. on a4) they give L without the right; run instead on the
+    position after b3xa4 e.p., Black to move (cert/H10_ep.txt; logs/C_*_H10ep.out): W beside -1 at both roots, both solvers.
+    So White wins at x_m by that capture.  (Beside 0 the same; beside off, five of the ten positions are draws, as the K55
+    referee saw: harmless, (B1) needs one token only.)
+  - pr57 = K56's pr56 plus an --explore mode (src/pr57.cpp; logs/E1.out and K56 logs B_H10_c10.out): every one of the ten
+    moves is lost for Black with one Black pass (W1 = yes; stalemate counted as a draw, a stronger statement).
+  So (B1) for H10 is CHECKED-2.  Peak memory: za 0.85 GB, rz 0.96 GB.
+The structure behind White's side (COMPUTED-1, logs/E1.out): e.g. after Kg4-f3 at the f6 root Black's only P-winning reply is
+...Kf5, after which White to move loses in P; with White to move instead (Black passed) White can return Kf3-g4 to the root.
+So Kg4-f3 is a threat that Black answers on the board, and Proposition 1 lets Black then forget over's passes.
+
+3. OTHER GROUPS
+---------------
+- The four exact groups of cyl:8x7 (K48): (B1) holds by pr56/pr57 only (K56 logs B_T*_c87.out, C_T3_c87.out: every non-shuttle
+  Black root move has N1 = yes), so Lemma 2 gives "over" for them conditional on a COMPUTED-1 fact.  za/rz were not used:
+  they are not validated on 7 ranks.  K57's sum code beside K56's 600 random D-games (tests/rnd_all.txt, src/cmp56.py):
+  T1, T2, T4: 0 of 2,400 results each differ from over (logs/S_rnd_T*.out); T3 (14.3 million nodes) not run, for memory.
+3b. TOY GROUPS (COMPUTED-1)
+  src/toy57.py on the K56 referee's harness (src/toy_k56ref.py, copied unchanged): random abstract exact groups (Definition
+  4.8 on finite D-games) beside 60 random finite D-games each (loops and terminals), seeds 11, 12, 13, 1,500 exact groups
+  per seed (logs/toy_*.out).  With (B1): 617 + 577 + 564 groups, 0 differ from over.  Without (B1): 883 + 923 + 936 groups,
+  124 + 111 + 144 differ; so (B1) is not necessary, but no counterexample to Lemma 2.  Tempo-exact (K56) but not (B1):
+  71 groups (they use K56's (V1) alternative, which Lemma 2 does not include).
+- Z_O (cyl:8x6, flat 8x6) and its two flat translates fail (B1) at 1...e5-e4 (resp. ...f5-f4, ...b5-b4), saved by one
+  Black token (K56), consistent with K47.
+- Correction to K56's findings.txt (not edited, K56 is under review): "(T2) holds in 6 of 9 (all but the Z_O family)" should
+  read 5 of 9: the Z_O family is four groups (Z_O on cyl:8x6 and flat 8x6, and the two flat translates).
+
+4. IDEAS OF THE BRIEF
+---------------------
+1 (White's tempo in t, over already has it): used, in the precise form of Proposition 1.  2 (matched passes): not needed; the
+budgets are asymmetric (0 for White's bad moves, 1 for Black's at the roots).  3 (simulation certificate): Lemma 2 is such a
+transfer lemma, with R = roots and q's and the certificate (B1); no larger model game is needed.  4 (a separating test game):
+none exists for H10 by Corollary 3.
+
+5. WHAT I COULD NOT DO
+----------------------
+- A referee check of Lemma 2 (one AI proof).
+- A second program for (B1) on the cyl:8x7 groups (za/rz unvalidated on 7 ranks).
+- Necessity of (B1) in general: it is not necessary (toy groups); K56's (V1) alternative was not added to Lemma 2.
+- The K56 referee's erratum (monotonicity of the pass layers is false) does not touch Lemma 2: it uses only the 0- and
+  1-token games, the step from one token to none through the token move itself, and the inclusion "draw-convention win
+  => sum-convention win" (stalemate of the loser relabelled from draw to loss), which does hold.
+
+6. PROCESS AND FILES
+--------------------
+All solver runs through kings/delegate/heavy.sh under /usr/bin/time -l (hrun.sh); PIDs in pids.log (also the batch drivers
+run_sums87.sh, run_toy.sh).  Peak memory: pr57 explore 0.75 GB, za 0.85 GB, rz 0.96 GB, sum batteries on cyl:8x7 0.68 to 1.08 GB, toy runs 0.02 GB.  No pattern kills;
+no process stopped.  Binaries deleted; no output over 256 KB.
+Files: findings.txt, PROOF.md, EDITS.md; src/ (pr57.cpp, za_k55.cpp, rz_k55.cpp, over56.py, gen56.py, cmp56.py, toy57.py, toy_k56ref.py); cert/
+(certificate inputs); ex1.txt (explored positions); tests/rnd_all.txt; hrun.sh, run_sums87.sh, run_toy.sh; logs/; pids.log.

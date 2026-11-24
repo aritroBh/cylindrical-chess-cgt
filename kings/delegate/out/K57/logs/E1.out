@@ -1,0 +1,98 @@
+board cyl:10x6 root Kg4 kf6 Pb3 Pe2 pa5 pb4 pe5 shuttle f6-g6: 3778695 nodes, 26431557 edges, peak 579 MB after build
+peak 625 MB after layers
+EXPLORE Kg4 kf6 Pe2 Pb3 pb4 pa5 pe5 w - | P=W W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   Kg4f3     -> Kf3 kf6 Pe2 Pb3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   Kg4g3     -> Kg3 kf6 Pe2 Pb3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=y XWb=y XWw=n
+   Kg4h3     -> Kh3 kf6 Pe2 Pb3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=y XWb=y XWw=n
+   Kg4h4     -> Kh4 kf6 Pe2 Pb3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=y XWb=y XWw=n
+   Kg4h5     -> Kh5 kf6 Pe2 Pb3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=y XWb=y XWw=n
+   Pe2e3     -> Kg4 kf6 Pb3 Pe3 pb4 pa5 pe5 b - | P=W W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   Pe2e4     -> Kg4 kf6 Pb3 Pe4 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+EXPLORE Kg4 kg6 Pe2 Pb3 pb4 pa5 pe5 w - | P=W W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   Kg4f3     -> Kf3 kg6 Pe2 Pb3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   Kg4g3     -> Kg3 kg6 Pe2 Pb3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=n XWb=y XWw=n
+   Kg4h3     -> Kh3 kg6 Pe2 Pb3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=y XWb=y XWw=n
+   Kg4h4     -> Kh4 kg6 Pe2 Pb3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=y XWb=y XWw=n
+   Pe2e3     -> Kg4 kg6 Pb3 Pe3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   Pe2e4     -> Kg4 kg6 Pb3 Pe4 pb4 pa5 pe5 b - | P=W W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+EXPLORE Kf3 kf6 Pe2 Pb3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   kf6e6     -> Kf3 ke6 Pe2 Pb3 pb4 pa5 pe5 w - | P=W W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   kf6f5     -> Kf3 kf5 Pe2 Pb3 pb4 pa5 pe5 w - | P=L W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   kf6g5     -> Kf3 kg5 Pe2 Pb3 pb4 pa5 pe5 w - | P=W W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   kf6g6     -> Kf3 kg6 Pe2 Pb3 pb4 pa5 pe5 w - | P=W W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   pa5a4     -> Kf3 kf6 Pe2 Pb3 pa4 pb4 pe5 w - | P=W W1=y Wi=y B1=n Bi=n XWb=n XWw=y
+   pa5a3     -> Kf3 kf6 Pe2 Pb3 pa3 pb4 pe5 w a4 | P=W W1=y Wi=y B1=n Bi=n XWb=n XWw=y
+   pe5e4     -> Kf3 kf6 Pe2 Pb3 pb4 pe4 pa5 w - | P=W W1=y Wi=y B1=n Bi=n XWb=n XWw=y CHECK
+   pe5e3     -> Kf3 kf6 Pe2 Pb3 pe3 pb4 pa5 w - | P=W W1=y Wi=n B1=n Bi=n XWb=n XWw=y
+EXPLORE Kf3 kf6 Pe2 Pb3 pb4 pa5 pe5 w - | P=W W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   Kf3e3     -> Ke3 kf6 Pe2 Pb3 pb4 pa5 pe5 b - | P=W W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   Kf3e4     -> Ke4 kf6 Pe2 Pb3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   Kf3f2     -> Kf2 kf6 Pe2 Pb3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=y XWb=y XWw=n
+   Kf3g2     -> Kg2 kf6 Pe2 Pb3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=y XWb=y XWw=n
+   Kf3g3     -> Kg3 kf6 Pe2 Pb3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=y XWb=y XWw=n
+   Kf3g4     -> Kg4 kf6 Pe2 Pb3 pb4 pa5 pe5 b - | P=W W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   Pe2e3     -> Kf3 kf6 Pb3 Pe3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=n XWb=y XWw=y
+   Pe2e4     -> Kf3 kf6 Pb3 Pe4 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=n XWb=y XWw=n
+EXPLORE Kg4 kf6 Pb3 Pe4 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   kf6e6     -> Kg4 ke6 Pb3 Pe4 pb4 pa5 pe5 w - | P=W W1=y Wi=n B1=n Bi=n XWb=n XWw=y
+   kf6g6     -> Kg4 kg6 Pb3 Pe4 pb4 pa5 pe5 w - | P=L W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   pa5a4     -> Kg4 kf6 Pb3 Pe4 pa4 pb4 pe5 w - | P=W W1=y Wi=y B1=n Bi=n XWb=n XWw=y
+   pa5a3     -> Kg4 kf6 Pb3 Pe4 pa3 pb4 pe5 w a4 | P=W W1=y Wi=y B1=n Bi=n XWb=n XWw=y
+EXPLORE Kg4 kf6 Pb3 Pe4 pb4 pa5 pe5 w - | P=W W1=y Wi=n B1=n Bi=n XWb=n XWw=y
+   Kg4f3     -> Kf3 kf6 Pb3 Pe4 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=n XWb=y XWw=n
+   Kg4g3     -> Kg3 kf6 Pb3 Pe4 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=n XWb=y XWw=n
+   Kg4h3     -> Kh3 kf6 Pb3 Pe4 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=n XWb=y XWw=n
+   Kg4h4     -> Kh4 kf6 Pb3 Pe4 pb4 pa5 pe5 b - | P=W W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   Kg4h5     -> Kh5 kf6 Pb3 Pe4 pb4 pa5 pe5 b - | P=W W1=y Wi=n B1=n Bi=n XWb=n XWw=y
+EXPLORE Kf3 kg6 Pe2 Pb3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   kg6f5     -> Kf3 kf5 Pe2 Pb3 pb4 pa5 pe5 w - | P=L W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   kg6f6     -> Kf3 kf6 Pe2 Pb3 pb4 pa5 pe5 w - | P=W W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   kg6g5     -> Kf3 kg5 Pe2 Pb3 pb4 pa5 pe5 w - | P=W W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   kg6h5     -> Kf3 kh5 Pe2 Pb3 pb4 pa5 pe5 w - | P=W W1=y Wi=y B1=n Bi=n XWb=n XWw=y
+   kg6h6     -> Kf3 kh6 Pe2 Pb3 pb4 pa5 pe5 w - | P=W W1=y Wi=y B1=n Bi=n XWb=n XWw=y
+   pa5a4     -> Kf3 kg6 Pe2 Pb3 pa4 pb4 pe5 w - | P=W W1=y Wi=y B1=n Bi=n XWb=n XWw=y
+   pa5a3     -> Kf3 kg6 Pe2 Pb3 pa3 pb4 pe5 w a4 | P=W W1=y Wi=y B1=n Bi=n XWb=n XWw=y
+   pe5e4     -> Kf3 kg6 Pe2 Pb3 pb4 pe4 pa5 w - | P=W W1=y Wi=y B1=n Bi=n XWb=n XWw=y CHECK
+   pe5e3     -> Kf3 kg6 Pe2 Pb3 pe3 pb4 pa5 w - | P=W W1=y Wi=y B1=n Bi=n XWb=n XWw=y
+EXPLORE Kf3 kg6 Pe2 Pb3 pb4 pa5 pe5 w - | P=W W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   Kf3e3     -> Ke3 kg6 Pe2 Pb3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   Kf3e4     -> Ke4 kg6 Pe2 Pb3 pb4 pa5 pe5 b - | P=W W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   Kf3f2     -> Kf2 kg6 Pe2 Pb3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=y XWb=y XWw=n
+   Kf3g2     -> Kg2 kg6 Pe2 Pb3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=n XWb=y XWw=n
+   Kf3g3     -> Kg3 kg6 Pe2 Pb3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=n XWb=y XWw=n
+   Kf3g4     -> Kg4 kg6 Pe2 Pb3 pb4 pa5 pe5 b - | P=W W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   Pe2e3     -> Kf3 kg6 Pb3 Pe3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=n XWb=y XWw=y
+   Pe2e4     -> Kf3 kg6 Pb3 Pe4 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=y XWb=y XWw=n
+EXPLORE Kg3 kg6 Pe2 Pb3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=n XWb=y XWw=n
+   kg6f5     -> Kg3 kf5 Pe2 Pb3 pb4 pa5 pe5 w - | P=W W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   kg6f6     -> Kg3 kf6 Pe2 Pb3 pb4 pa5 pe5 w - | P=W W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   kg6g5     -> Kg3 kg5 Pe2 Pb3 pb4 pa5 pe5 w - | P=L W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   kg6h5     -> Kg3 kh5 Pe2 Pb3 pb4 pa5 pe5 w - | P=L W1=n Wi=n B1=y Bi=n XWb=y XWw=n
+   kg6h6     -> Kg3 kh6 Pe2 Pb3 pb4 pa5 pe5 w - | P=L W1=n Wi=n B1=y Bi=n XWb=y XWw=n
+   pa5a4     -> Kg3 kg6 Pe2 Pb3 pa4 pb4 pe5 w - | P=W W1=y Wi=y B1=n Bi=n XWb=n XWw=y
+   pa5a3     -> Kg3 kg6 Pe2 Pb3 pa3 pb4 pe5 w a4 | P=W W1=y Wi=y B1=n Bi=n XWb=n XWw=y
+   pe5e4     -> Kg3 kg6 Pe2 Pb3 pb4 pe4 pa5 w - | P=W W1=y Wi=y B1=n Bi=n XWb=n XWw=y
+   pe5e3     -> Kg3 kg6 Pe2 Pb3 pe3 pb4 pa5 w - | P=W W1=y Wi=n B1=n Bi=n XWb=n XWw=y
+EXPLORE Kg3 kg6 Pe2 Pb3 pb4 pa5 pe5 w - | P=W W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   Kg3f2     -> Kf2 kg6 Pe2 Pb3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=y XWb=y XWw=n
+   Kg3f3     -> Kf3 kg6 Pe2 Pb3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   Kg3g2     -> Kg2 kg6 Pe2 Pb3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=n XWb=y XWw=n
+   Kg3g4     -> Kg4 kg6 Pe2 Pb3 pb4 pa5 pe5 b - | P=W W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   Kg3h2     -> Kh2 kg6 Pe2 Pb3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=y XWb=y XWw=n
+   Kg3h3     -> Kh3 kg6 Pe2 Pb3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=y XWb=y XWw=n
+   Kg3h4     -> Kh4 kg6 Pe2 Pb3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=y XWb=y XWw=n
+   Pe2e3     -> Kg3 kg6 Pb3 Pe3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=n XWb=y XWw=n
+   Pe2e4     -> Kg3 kg6 Pb3 Pe4 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=n XWb=y XWw=n
+EXPLORE Kg4 kg6 Pb3 Pe3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   kg6f6     -> Kg4 kf6 Pb3 Pe3 pb4 pa5 pe5 w - | P=L W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   kg6h6     -> Kg4 kh6 Pb3 Pe3 pb4 pa5 pe5 w - | P=W W1=y Wi=y B1=n Bi=n XWb=n XWw=y
+   pa5a4     -> Kg4 kg6 Pb3 Pe3 pa4 pb4 pe5 w - | P=W W1=y Wi=y B1=n Bi=n XWb=n XWw=y
+   pa5a3     -> Kg4 kg6 Pb3 Pe3 pa3 pb4 pe5 w a4 | P=W W1=y Wi=y B1=n Bi=n XWb=n XWw=y
+   pe5e4     -> Kg4 kg6 Pb3 Pe3 pb4 pe4 pa5 w - | P=W W1=y Wi=y B1=n Bi=n XWb=n XWw=y
+EXPLORE Kg4 kg6 Pb3 Pe3 pb4 pa5 pe5 w - | P=W W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+   Kg4f3     -> Kf3 kg6 Pb3 Pe3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=n XWb=y XWw=y
+   Kg4g3     -> Kg3 kg6 Pb3 Pe3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=n XWb=y XWw=n
+   Kg4h3     -> Kh3 kg6 Pb3 Pe3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=y XWb=y XWw=n
+   Kg4h4     -> Kh4 kg6 Pb3 Pe3 pb4 pa5 pe5 b - | P=L W1=n Wi=n B1=y Bi=y XWb=y XWw=n
+   Pe3e4     -> Kg4 kg6 Pb3 Pe4 pb4 pa5 pe5 b - | P=W W1=n Wi=n B1=n Bi=n XWb=y XWw=y
+peak 625 MB

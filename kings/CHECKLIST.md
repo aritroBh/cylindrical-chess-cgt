@@ -19,11 +19,12 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
    - [x] The other exact groups in sums: the 2 + 3 group of cyl:10×6 has the results of over on all 752 tests; the
          3 + 3 group does not on any width (K55)
    - [ ] The value of the 3 + 3 group: no candidate of 3,000 survives; it is not a stopper (K55)
-   - [ ] The 2 + 3 group against loopy test games and beside P contexts; groups on cyl:11×6 and wider in sums
+   - [ ] The 2 + 3 group beside P contexts and in chess; groups on cyl:11×6 and wider in sums
    - [x] Lemma 4.13: tempo-exact groups have the results of over beside every finite test game (proved by hand,
          refereed); none of the nine known groups is tempo-exact (K56)
-   - [~] Is the 2 + 3 group over? K57 claims a hand proof (over ≥ 0, and a lemma needing one condition on Black's side)
-         resting on two computed facts; Opus referee running, Codex blind proof (K58) in preparation
+   - [x] The 2 + 3 group has the results of over beside every finite test game: Proposition 4.14, Lemma 4.15 (proved,
+         refereed, proved again blind by Codex K58), Corollary 4.16 (proved given two twice-checked computations) (K57)
+   - [ ] A second program for the Black-side condition on the four cyl:8×7 groups; is the condition necessary?
    - [ ] Hand proof of (O1) and of the d5 root of the K45 group
    - [x] The K45 group in chess at cap 1: d4 freeze and its zero exact, the rest undecided; exact groups also on flat
          8×6 to 10×6 and on cyl:8×7 (K48)

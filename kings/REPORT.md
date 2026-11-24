@@ -487,6 +487,14 @@ Every deliverable was given to independent referees (Claude models) told to brea
     every finite test game, with or without terminals. No known group meets it: all nine exact groups fail on White's side,
     and the 3 + 3 group also on Black's, at 1…e5–e4. So the lemma has no instance yet and whether the 2 + 3 group is over
     stays open (`kings/delegate/out/K56/REVIEW.md`).
+  - K57 (2026-11-23) settles the 2 + 3 group in sums. Proposition 4.14 (PROVED): over ≥ 0 in D-sums. Lemma 4.15 (PROVED): an
+    exact group of Definition 4.8 has the results of over beside every finite test game if one condition holds on Black's
+    side, (B1): after every non-shuttle Black root move White still wins when Black has one spare move elsewhere. Nothing
+    more is needed on White's side. Corollary 4.16 (PROVED given CHECKED-2 computations): the 2 + 3 group
+    `Kg4 kf6/kg6 Pb3 Pe2 pa5 pb4 pe5` of cyl:10×6 has the results of over beside every finite test game. Both general
+    statements were re-derived by an independent referee and proved again blind by Codex (K58); the referee recomputed (B1)
+    with its own code and found 0 differences from over on 12,000 abstract groups. The 3 + 3 group fails (B1) at
+    1…e5–e4. Not claimed: equality with over as a game, P contexts, chess (`kings/delegate/out/K57/REVIEW.md`).
   - Theorem 1.11(c) repaired (2026-11-23): its proof used the e.p. condition (E) without assuming it, and its frontier
     step used an unproved inheritance of threats by re-split components. (E) is now a hypothesis (every use already had
     it through Theorem 1.14), and the inheritance is proved. Found while the paper's proofs appendix was written and
