@@ -27,8 +27,9 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
    - [x] The four cyl:8×7 groups have the results of over (Black-side condition by two programs); five groups with
          the results of over on flat 8×7, the smallest with 2 + 2 pawns, four of them also on flat 8×8:
          Corollary 4.17 (proved given twice-checked computations, refereed) (K59)
-   - [~] The 2 + 2 group on the ordinary 8×8 board: in chess, and beside P contexts (K63, investigator running)
-   - [ ] Other file classes of flat 8×7; full searches of flat 9×7 and 8×8
+   - [~] The 2 + 2 group on the ordinary 8×8 board: in chess, and beside P contexts (K63: investigator done, cap 1 leaves half the chess values open; referee running, with tablebase lookups for the six- and seven-man groups)
+   - [~] Census of exact over groups on flat 8×8, two programs, with (B1) and ladder length for every hit (K65, investigator running)
+   - [ ] Other file classes of flat 8×7; flat 9×7
    - [x] The exact condition in place of the Black-side condition: Theorem 4.18, decided by one game on the group's
          own graph or by one short test game, Corollary 4.19 (proved, refereed) (K60)
    - [x] Blind proof of Theorem 4.18 by Codex: all four statements proved; part (c) without the determinacy theorem;
@@ -37,7 +38,7 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
          groups (Theorem 4.22); a ladder as long as the number of boards decides, so one ladder per board size
          (Theorem 4.20, Corollary 4.23) (proved, refereed) (K62)
    - [x] Blind proof of Theorems 4.20 and 4.22 by Codex: both proved, no repair (K64)
-   - [ ] Does a real group need a ladder longer than 2? The 3 + 3 group needs exactly 2
+   - [~] Does a real group need a ladder longer than 2? The 3 + 3 group needs exactly 2 (K65 classifies every hit of its census)
    - [ ] Hand proof of (O1) and of the d5 root of the K45 group
    - [x] The K45 group in chess at cap 1: d4 freeze and its zero exact, the rest undecided; exact groups also on flat
          8×6 to 10×6 and on cyl:8×7 (K48)
