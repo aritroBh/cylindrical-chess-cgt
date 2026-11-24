@@ -281,3 +281,11 @@ Roles: Fable plans and reviews; Opus referees; Sonnet codes and applies; Haiku r
 - [ ] Author confirms with him the printed name, affiliation and e-mail, and that he has read the manuscript and the AI-use statement
 - [x] README author line and citation entry name both authors
 - [x] Pushed on the author's word, 2026-11-24: main 1d2adff9..73c34b0c (8 commits, 308 files, the two-author papers and README; gitleaks on the range: no leaks; no CLI transcripts, nothing from the ignored folders, no private paths; the only e-mail addresses are the two in the author footnote)
+
+## Tidy-up of the working folder (2026-11-24)
+
+- [x] Dead worktree pruned, merged branch `ep-aware-passed` deleted, stray file moved out of the top folder
+- [x] 12,180 loose raw outputs of finished runs packed into 20 archives (`raw_outputs_2026-11-24*.tar.zst`, about 6 MB); each archive extracted and compared byte for byte before the loose files were removed; contents scanned for private strings first
+- [x] Research scripts, small result files and pending run records committed; compiled binaries, `.pid` files, agents' scratch, one raw CLI transcript and five large scan outputs (80 MB, on disk only) ignored
+- [x] Tests: 24 passed. README says where the archives are and how to unpack them
+- [ ] `kings/`: 36 uncommitted entries belong to the kings session (asked to tidy its own folder)

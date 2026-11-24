@@ -56,6 +56,9 @@ The labels are the paper's:
 | [`prior_work/`](prior_work/) | The June 2025 study this work extends |
 | [`RESULTS.md`](RESULTS.md) | Every result with its status and the file that holds it |
 
+Raw outputs of finished runs are packed as `raw_outputs_2026-11-24*.tar.zst` in the folder they belong to
+(20 archives, 12,180 files). To unpack one, run `zstd -dc <archive> | tar -xf -` from the repository root.
+
 ## How results are checked
 
 Every computational claim is run by at least two programs where the paper says C2. The second program is written
