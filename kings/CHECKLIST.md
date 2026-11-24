@@ -83,5 +83,5 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
 ## Housekeeping
 
 - [x] Post-commit checks K41 and K46 applied
-- [x] Pushed by the paper side on the author's word, up to 1d2adff9 (2026-11-24); later commits wait for the next push
+- [x] Pushed by the paper side on the author's word, up to 9fe01bb5 (2026-11-24); later commits wait for the next push
 - [ ] No raw CLI transcripts in commits (rule since 2026-11-22)
