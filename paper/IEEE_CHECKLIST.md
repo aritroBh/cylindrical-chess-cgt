@@ -272,3 +272,4 @@ Roles: Fable plans and reviews; Opus referees; Sonnet codes and applies; Haiku r
   - Trimmed to stay at 10 pages: the unused Conj label, a duplicate B = 256 sentence, three short phrases. Free space 0.19 in
   - Declined: e.p. wording of Fig. 2(a) and VIII-A (correct as chess statements); Klein bottle rule (in the supplement); "607 million values"; heap move and e.p. flag (in S13); mark 26; the anonymous link placeholder (waits for the author)
 - [x] W11 (Sonnet): the same fixes in the long version and its frozen copies, 24 files, no line count changed; I read the diff (`delegate/out/W11_port_t93/REPORT.md`). Paper 10 and 10 pages, supplement 67, long version 16; all checks pass
+- [x] Pushed on the author's word, 2026-11-24: main c63145cd..1d2adff9 (8 commits, 155 files; gitleaks on the range: no leaks; no CLI transcripts, nothing from the ignored folders, no private paths in added lines)
