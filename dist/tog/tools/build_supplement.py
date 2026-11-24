@@ -24,6 +24,11 @@ def L(f, a, b):
     s = s.replace(r'{0.16\textwidth}', r'{0.165\textwidth}').replace(r'height=1.05in', r'height=1.1in')  # labels >= 8 pt
     return s + '\n'
 
+def REP(text, old, new):
+    # exact replacement in a sliced piece of the long paper; the old string must occur exactly once
+    assert text.count(old) == 1, old
+    return text.replace(old, new)
+
 def W(name, *parts):
     open('supp/' + name + '.tex', 'w').write('\n'.join(parts))
 
@@ -62,8 +67,25 @@ W('s02',
   r'This section holds the parts of Section~\ref{sec:kings} of the main text that were moved out: the certificate '
   r'theory, the local test for (V2), the loopy games and the details of the failure sweep. Full proofs are in Section~\ref{S-kingsproof}.',
   r'\subsection{Certificates}',
-  L('04_kings', 89, 127),
-  L('04_kings', 129, 154),
+  REP(REP(L('04_kings', 89, 127),
+      "For (V2) a local test is known only if king moves also lose \\lab{S}: a passed pawn then wins the promotion\n"
+      "game if, besides conditions on checks, stalemates and its own nearby pawns, its path is empty and every enemy\n"
+      "pawn, passed or not, needs a move more to promote.",
+      "For (V2) we give a sufficient test in the frozen-king game \\lab{S} (Proposition~A.19 of Section~\\ref{S-kingslong}): "
+      "the side credited\n"
+      "after a context move that makes a passed pawn wins that game if it has an e.p.-aware passed pawn with a clear\n"
+      "path, the king-safety, escape-square and nearby-pawn conditions of Proposition~A.19 hold, and, with this pawn\n"
+      "removed, no sequence of enemy pawn moves promotes within the enemy turns available before its promoting push."),
+      "and a locked pawn pair can still break their zero \\lab{C2}.",
+      "and a locked pawn pair can still break their zero \\lab{C2}. An example: the tr\\'ebuchet \\pos{W Ka4 b3 / B Kc3 b4} on the "
+      "cylinder with seven files and six ranks acts as zero in the promotion game beside the locked pair \\pos{W e3 / B e4}, "
+      "but beside the locked pair \\pos{W e2 / B e3}, which also has no move and no passed pawn, black to move wins by "
+      "1\\dots Kd2 instead of losing. Three separately written programs agree; no hand proof is given."),
+  REP(REP(L('04_kings', 129, 154),
+      "otherwise play can go on forever.\n\\end{proof}",
+      "otherwise play can go on forever. The full proof is Theorem~A.18a of Section~\\ref{S-kingslong}.\n\\end{proof}"),
+      "removing\nthe edges changes the class of $12.5$--$20.5\\%$ of them \\lab{C2}.",
+      "removing\nthe edges changes the class of $12.5$--$20.5\\%$ of them \\lab{C2} (the counts are in \\texttt{kings/REPORT.md}, task K4, in the code copy)."),
   r'\subsection{Details of the Failure Sweep}',
   L('04_kings', 158, 168),
   r'Fig.~\ref{fig:f3} shows the agreement rates with Wilson 95\% intervals. The intervals treat positions as '
@@ -196,7 +218,7 @@ W('s04', r'\section{The Atlas: Details}\label{S-atlas}',
 # S5 small values -----------------------------------------------------------------------------------
 W('s05', r'\section{Elkies\textquotesingle{} Small Values: Details}\label{S-targets}',
   r'Theorem~\ref{thm:eighth} of the main text states that the position of its Fig.~\ref{fig:eighth}(a) has value exactly $1/8$.',
-  L('07_targets', 62, 90))
+  REP(L('07_targets', 62, 90), 'To see why, look at Fig.~\\ref{fig:eighth}(a). If white moves first', 'If white moves first'))
 
 # S6 *2 -----------------------------------------------------------------------------------------------
 W('s06', r'\section{The \texorpdfstring{$\nim{2}$}{*2} Question: Details and Ring Listings}\label{S-star2}',
@@ -321,7 +343,8 @@ For the other heights, that no smaller position exists and that no $\nim{4}$ occ
 ''')
 
 # S7 real chess ---------------------------------------------------------------------------------------
-W('s07', r'\section{From the Model to Real Chess: Details}\label{S-real}', L('09_real', 29, 74))
+W('s07', r'\section{From the Model to Real Chess: Details}\label{S-real}', REP(L('09_real', 29, 74), 'no file between its pawns and T is free of pawns, so Theorem~\\ref{thm:validity} does not apply',
+      'file e holds pawns and file f the white king, so T has no empty buffer and Theorem~\\ref{thm:validity} does not apply'))
 
 # S8 tablebases ---------------------------------------------------------------------------------------
 W('s08', r'\section{Tablebases: Rules and King and Pawn Against King}\label{S-tb}',
@@ -346,13 +369,8 @@ W('s12', r'\section{Full Proofs: Validity of the Convention, Sums, Certificates 
   scrub(open('supp_src/s12a_core.tex', encoding='utf-8').read().replace(
       r'\subsection*{The Four Main Results, Self-Contained}',
       r'\subsection{The Four Main Results, Self-Contained}\label{S-core}')),
-  r'\subsection{The Longer Treatment}\label{S-kingslong}',
-  NOTE % (r'kings/theory/LOOPY.md, Sections 1--3 (the theory note on frozen king groups)',
-          r'Theorem~\ref{thm:validity} (validity) and Corollary~\ref{cor:v4} are Theorem~1.14 there, (V4) being part (ii); '
-          r'Theorem~\ref{thm:hss} (sum safety) rests on Theorem~1.11 and Theorem~1.14(ii); the certificate theorem of '
-          r'Section~\ref{S-kings} is Theorem~2.7; the horizon-1 proposition is Proposition~2.10(a); the theorem on '
-          r'outcomes with spare moves is Theorem~3.4.'),
-  MD('kings/theory/LOOPY.md', 225, 2213, cur='s12_kings.md'))
+  r'\subsection{Two Further Proofs for Section~S2}\label{S-kingslong}',
+  scrub(open('supp_src/s12b_extra.tex', encoding='utf-8').read()))
 
 # S13 wall rings n+3 ------------------------------------------------------------------------------------
 pt = open(R + 'research/ring_family_proof/proof.tex').read()

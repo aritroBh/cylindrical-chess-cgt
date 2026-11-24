@@ -1,6 +1,6 @@
 # PDF checks
 
-Run on 2026-11-23 on the PDFs built that day (`pdfinfo` CreationDate of `tog.pdf`: Mon Nov 23 16:44:07 2026 PST). Tools present: `pdfinfo`, `pdffonts`, `pdfimages`, `pdftotext` (poppler, `/opt/homebrew/bin`). The URI scan used `python3` (re, zlib) on the raw file and on all decompressed streams. Checks 1, 2, 4 and 5 were rerun on these PDFs on 2026-11-23 and every value in the tables below matched (supplement 106 pages; file sizes as in the table).
+Run on 2026-11-23 on the PDFs built that day (`pdfinfo` CreationDate of `tog.pdf`: Mon Nov 23 16:44:07 2026 PST). Tools present: `pdfinfo`, `pdffonts`, `pdfimages`, `pdftotext` (poppler, `/opt/homebrew/bin`). The URI scan used `python3` (re, zlib) on the raw file and on all decompressed streams. Checks 1, 2, 4 and 5 were rerun on these PDFs on 2026-11-23 and every value in the tables below matched (supplement 67 pages; file sizes as in the table).
 
 Files: A = `tog.pdf` (named), B = `tog_review.pdf` (anonymous), C = `supplement.pdf` (named), D = `supplement_review.pdf` (anonymous). All in `dist/tog/`.
 
@@ -19,7 +19,7 @@ Files: A = `tog.pdf` (named), B = `tog_review.pdf` (anonymous), C = `supplement.
 
 | | A tog.pdf | B tog_review.pdf | C supplement.pdf | D supplement_review.pdf |
 |---|---|---|---|---|
-| Pages | 10 | 10 | 109 | 109 |
+| Pages | 10 | 10 | 67 | 67 |
 | Page size | 612 x 792 pts (letter) | same | same | same |
 | PDF version | 1.5 | 1.5 | 1.5 | 1.5 |
 | Title | Chess Endgames on a Cylindrical Chessboard: Exact Combinatorial Game Values, Real-Chess Checks, and Tablebases | same | (empty) | (empty) |
@@ -28,7 +28,7 @@ Files: A = `tog.pdf` (named), B = `tog_review.pdf` (anonymous), C = `supplement.
 | Keywords | (empty) | (empty) | (empty) | (empty) |
 | Creator / Producer | LaTeX with hyperref / xdvipdfmx (0.1) | same | same | same |
 | Metadata stream (XMP) | no | no | no | no |
-| File size (bytes) | 261283 | 260692 | 853888 | 853702 |
+| File size (bytes) | 261065 | 260466 | 609564 | 609391 |
 
 Evidence: `Page size: 612 x 792 pts (letter)` on all four; B `pdfinfo` has no `Author:` line; D has no `Author:` line. Result: PASS. The paper is 10 pages including references, at the ToG limit. Subject and Keywords are empty in all four; ToG does not ask for them in the PDF (not verified), so this is not a failure. The supplements carry no Title field; optional.
 

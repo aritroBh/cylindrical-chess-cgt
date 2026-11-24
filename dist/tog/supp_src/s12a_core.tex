@@ -292,7 +292,7 @@ and a side in check from a Z-pawn has no legal context move, so the equality of 
 either. (b) The theorem and the proof hold word for word
 with chess replaced by $\mathrm{P}$ or by $\mathrm{F}$; in $\mathrm{F}$, (V3) holds for every king move by definition.
 (c) $X$ must have no passed pawn; otherwise $W(X)$ is not defined. The main theorem explicitly assumes at least five ranks, as required for the use of Lemma~A.2(c).
-(d) Unlike (V1a) of Theorem~1.14 in the longer treatment, (V1) contains no condition (E): it compares chess with the whole-board game $W(X)$, whose e.p.\ rights lapse after one move as in chess. Condition (E) is needed only to pass from $W(X)$ to $S(X)$ (Theorem~A.7), hence in (V4).
+(d) (V1) contains no condition (E): it compares chess with the whole-board game $W(X)$, whose e.p.\ rights lapse after one move as in chess. Condition (E) is needed only to pass from $W(X)$ to $S(X)$ (Theorem~A.7), hence in (V4).
 
 \textbf{A.13 Corollary (Corollary~\ref{cor:v4}).} \emph{Main text: ``If also (V4) holds, that is, $X$ is hereditarily sum-safe, satisfies condition (E) of Theorem~\ref{thm:hss}, and $\BIG$ exceeds the number of moves either side can make, then for that side to move the chess result is the one given by the components' $\pm\BIG$ value.'' Precise form: for a side to move for which the hypotheses of Theorem~A.11 hold, assume also (V4) and a local race rule, as in Theorem~A.7. Then the chess winner of $Q$ with that side to move is the winner of $S(X)$ with that side moving first. (To infer the full outcome class one must verify the chess hypotheses for both starters. They can hold for one side only: on the ordinary board, with the king group \pos{W Kb6 c7 / B Ka8 a5} and no other pawn, they hold with Black to move, who must play a5--a4 and is mated by c8=Q, but not with White to move, who mates at once although the empty sum is lost for the side to move.)}
 
@@ -416,10 +416,4 @@ a punisher win by the stated deadline.
 won chess game, so it does not give (V3) for chess, as the main text says. With Remark~A.12(b) and $Q$ as in Theorem~A.11, certificates for every
 Z-move at every position of $\mathrm{R}(Q)$ give (V3) in $\mathrm{P}$.
 
-\textbf{Where to find the longer treatment.} In the numbering of the rest of this section: Lemma~A.1 and A.10 are
-Lemma~2.2; Lemma~A.2(b) and the move bound are the tempo counts of Definition~1.10; Lemma~A.6 and Theorem~A.7 are the frontier step
-and the induction of Theorem~1.11(c); Lemma~A.5 is the inheritance of threats by re-split components in that frontier step, and Lemma~A.4
-is the use that the induction makes of (E);
-Proposition~A.8 is Proposition~1.12; Theorem~A.11 is the chess form of Theorem~1.14(i), proved as the sharp form of Theorem~1.14 with $N=\mathrm{R}(Q)$ (since (V2) and (V3) are stated in chess, (A$_Q$) is not needed), Remark~A.12(a) is
-Proposition~1.15(a), and Corollary~A.13 is the chess form of Theorem~1.14(ii); the certificate (C1)--(C3) is Definition~2.6, conditions (L1$_P$),
-(L2), (L3), and Theorem~A.16 is Theorem~2.7(a); Remark~A.17 is ``What Theorem 2.7 does not give''.
+\textbf{Further material.} The working note \texttt{kings/theory/LOOPY.md} in the code copy has further results and the records of the computer checks; its numbering differs from the numbering used here.

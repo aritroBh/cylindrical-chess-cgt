@@ -229,6 +229,20 @@ Roles: Fable plans and reviews; Opus referees; Sonnet codes and applies; Haiku r
 - [x] W6 (Opus): the wording items of T90 that had no exact text (control cuts, race-rule shorthand, heap range, Note 1 and Note 2 sentences about S13): 38 exact replacements in S14 and Notes 1-4, no number or label changed (`delegate/out/W6_notes_wording/REPORT.md`); I added two of its leftover items (Note 3 "repaired", Note 2 heap sentence). Supplement is now 109 pages
 - [x] R18 (Sonnet): what depends on supplement S12.2 (47 pages): nothing in the 10-page paper; only two labelled statements of S2 (Theorem S4, the (V2) local test) have their proof there (`delegate/out/R18_s122_dependency/REPORT.md`)
   - [x] Label error found by R18 and fixed in the long version (and so in S2): "Clause (ii) cannot be weakened to h-1 moves" rests on one computed example, now labelled C1, not S
-  - [ ] DECISION (author): cut S12.2 from the supplement, keeping only the proofs of Theorem 3.4 and Proposition 2.11 (about 109 -> 67 pages). Asked 2026-11-23
-- [ ] R19 (Opus): second mock-referee pass on the rebuilt PDFs
-- [ ] Rebuild, checks, commit
+  - [x] DECISION (author, 2026-11-23): "Yes, cut it": S12.2 leaves the supplement; only the proofs of Theorem 3.4 and Proposition 2.11 stay
+- [x] W7 (Opus): the two proofs condensed into a new S12.2 "Two Further Proofs for Section S2" (items A.18-A.18b, A.19-A.19b), `dist/tog/supp_src/s12b_extra.tex`, 5 pages
+- [x] T91 (Codex): other-vendor referee: Theorem A.18a and Proposition A.19 hold; Lemma A.18(b),(c) false as first stated (the blocker's pass), "short" lacked "acyclic", 12 wording points (`delegate/out/T91/REPORT.md`)
+- [x] W10 (Opus): all 14 findings checked by hand and applied (`delegate/out/W10_t91_fixes/REPORT.md`)
+- [x] T92 (Codex): re-read: every item sound; four wording fixes applied by me; its fifth (drop the pointer to the working note) declined, since S17 names the note (`delegate/out/T92/REPORT.md`)
+- [x] W8 (Sonnet): S12.2 removed from the build; pointers in S12.1, S2 and S17 fixed; "hand proof" and the P label explained on the supplement's first page; S5 and S7.1 wording; submission files; reading order (`delegate/out/W8_cut_s122/REPORT.md`). I replaced its locked-pair example by the note's trebuchet example (Ka4 b3 / Kc3 b4 beside e2/e3 on the 7x6 cylinder)
+- [x] Supplement: 109 -> 67 pages; both papers 10 pages; all checks pass
+- Open: S2 keeps "Real trebuchets seem to need h = 5-7" as a conjecture with no printed evidence (source: kings/REPORT.md); the 10-page paper no longer says it
+- [x] R19 (Opus): second mock-referee pass: MINOR REVISION (first round: major); 2 must fix, 5 should fix, 5 optional (`delegate/out/R19_second_referee/REPORT.md`)
+  - [x] Must 1: Definition 12 read as if the pair formula applied to all three draw treatments; reworded
+  - [x] Must 2: "(E) ... in our model" was labelled P but the proof is in the supplement; now S. Supplement label key says what P means inside S12-S15 (W8)
+  - [x] C2 definition: "(ours are AI-written)", since some second checks are the Lichess tablebase
+  - [x] Duplicate S3 pointer removed; HSS count sentence starts "In the default setting"; "a window of a few files"; "further details"; conclusion item 3 no longer cites h = 5-7 (no printed evidence)
+  - [x] Proposition 7 is labelled C2 but S(X) had been computed by one program: W9 (Sonnet) wrote a second program from the paper's rules (`delegate/out/W9_sx_second_program/sx2.py`, 273 nodes): S(X) is a black win whoever starts, W(X) a first-player win; 400 of 400 random positions agree with cylcgt. I reran it. The label C2 stays
+  - [x] "Hand proof" explained in the supplement; S2 gets the locked-pair example; S5 and S7.1 wording; submission files (W8)
+  - Declined: "no human referee has yet" stays until the author reports which proofs they read (the sentence is rewritten then); theorem statements of S14 and Notes 2-4 keep "h < 256" (true as stated; each note now says its heap step uses no bound)
+- [x] Rebuild, checks, commit (local commits only; nothing pushed since 6e4a69aa)

@@ -1,0 +1,285 @@
+% Section S12, second subsection: full proofs of the two statements of Section S2 whose proofs are not in S12.1
+% (the theorem on outcomes with spare moves, and the local test for (V2)). Items are numbered A.18, A.19 by hand.
+
+This subsection proves two statements of Section~\ref{S-kings}: Theorem~\ref{thm:loopy} on outcomes with spare moves
+(Theorem~A.18a), and the frozen-king test for (V2) (Proposition~A.19 and Corollary~A.19a). They are Theorem~3.4 and
+Proposition~2.11 with Corollary~2.11a of the working note \texttt{kings/theory/LOOPY.md} in the code copy. We use the
+notation of Parts A.I--A.III and cite items A.1--A.17 of the previous subsection. Every further definition is given
+here, and every proof is a hand proof. The one computed statement (in Remark~A.19b) is marked as such and is used
+nowhere.
+
+\subsubsection*{A.V Games with decisive terminals and spare moves}
+
+\textbf{D-games.} A \emph{D-game} $G$ is a finite set of positions with, for each position $x$, a finite set $L(x)$ of
+White options and a finite set $R(x)$ of Black options. An option is a position or one of two \emph{terminals}:
+$\oplus$, ``White has won'', and $\ominus$, ``Black has won''. A move to a terminal is a \emph{decisive event}; a move of
+$\sigma$ to the terminal of $\bar\sigma$ is a \emph{suicide}. Play from a position $x$ with a side $s$ to move
+alternates, the mover choosing one of its options. A move to a terminal ends play with that winner, a player with no
+option loses, and infinite play is a draw. A side $\sigma$ \emph{wins} $(x,s)$ if it has a strategy that ends every play
+with a win for $\sigma$ after finitely many moves. At most one side wins (play the two strategies against each other);
+if neither does, $(x,s)$ is a \emph{draw}. $G$ is \emph{short} if the directed graph on its positions, with an edge from
+$x$ to every position in $L(x)\cup R(x)$, is acyclic; a move from $x$ to $x$ is a cycle. Then a sequence of moves
+between positions, made by either side in any order, visits distinct positions, so it has at most $h-1$ moves, where $h$
+is the number of positions of $G$; and the positions can be listed so that every option of a position that is itself a
+position comes before it.
+
+\textbf{Sums.} The sum $A_1\boxplus\dots\boxplus A_k$ of D-games has the tuples of positions as positions. A move is a
+move in one coordinate, and a move to a terminal in any coordinate ends the whole play with that terminal: every
+decisive event ends the game. The sum is a D-game (an option of a tuple is a terminal, or the tuple with one coordinate
+replaced by an option of it), and it is short if every $A_i$ is, since a move between tuples moves one coordinate
+to an earlier position in its listing and leaves the others fixed.
+
+\textbf{Spare moves.} The king group $Z$ of Section~\ref{S-kings}, in which a side that can wait passes and every other
+move loses, is modelled by a D-game, also called $Z$, with a single position $z$ and $L(z)\subseteq\{z,\ominus\}$,
+$R(z)\subseteq\{z,\oplus\}$. White \emph{can wait} if $z\in L(z)$, and Black if $z\in R(z)$. The move $z\to z$ is a
+\emph{pass}: it changes only the side to move. The other options of $Z$ are suicides, the moves of $Z$ that lose. Without
+suicides, $Z$ is the D-game form of $\mathrm{on}$ if only White can wait, of $\mathrm{off}$ if only Black can, and of
+$\mathrm{dud}$ if both can. For a short D-game $G$ we study $G\boxplus Z$; we write its position $(x,z)$ as $x$. It is not
+short when a side can wait.
+
+\textbf{Forcing.} Let $G$ be short. To test forcing from $(x,s)$, let the opponent $\bar\sigma$ choose at each of its
+turns any move of $G$ or a pass (whether or not $\bar\sigma$ can wait in $Z$), and let $\sigma$ choose only moves of $G$.
+Then $\sigma$ \emph{forces a decisive event against a passing opponent} from $(x,s)$ if $\sigma$ has a strategy under
+which every such play reaches the terminal of $\sigma$ after finitely many moves. Since the opponent always has a pass,
+$\sigma$ cannot win such a play by leaving it without a move.
+
+\textbf{Predicates.} Let $G$ be short. Going through the positions of $G$ in an order that lists every option that is a
+position before the position it is an option of, define for each position $x$,
+first $\lambda_{\mathrm L}(x)$ and then $\lambda_{\mathrm R}(x)$:
+\begin{itemize}
+\item[] $\lambda_{\mathrm L}(x)$: some White option of $x$ is $\oplus$, or is a position $y$ with $\lambda_{\mathrm R}(y)$;
+\item[] $\lambda_{\mathrm R}(x)$: $\lambda_{\mathrm L}(x)$ holds, and every Black option of $x$ is $\oplus$ or a
+position $y$ with $\lambda_{\mathrm L}(y)$.
+\end{itemize}
+Define $\varrho_{\mathrm R}(x)$ and $\varrho_{\mathrm L}(x)$ in the same way with the colours exchanged: some Black option
+of $x$ is $\ominus$ or a position $y$ with $\varrho_{\mathrm L}(y)$; and $\varrho_{\mathrm R}(x)$ holds and every White
+option of $x$ is $\ominus$ or a position $y$ with $\varrho_{\mathrm R}(y)$. The subscript names the side to move
+($\mathrm L$ for White, $\mathrm R$ for Black). By Lemma~A.18, $\lambda_s(x)$ says that White forces a decisive event
+against a passing opponent from $(x,s)$, and $\varrho_s(x)$ the same for Black; this is the condition for winning when the
+opponent can wait (Theorem~A.18a), but not in general. By definition $\lambda_{\mathrm R}(x)$ implies
+$\lambda_{\mathrm L}(x)$, and $\varrho_{\mathrm L}(x)$ implies $\varrho_{\mathrm R}(x)$.
+
+\textbf{A.18 Lemma (forcing and blocking).} \emph{Let $G$ be a short D-game, $Z$ as above, $x$ a position of $G$ and $s$
+a side to move. (a) If $\lambda_s(x)$, White has a strategy in $G\boxplus Z$ that uses only moves of $G$ and wins
+against every play of Black, passes included, whether or not Black can wait; in particular White forces a decisive
+event against a passing opponent from $(x,s)$. (b) Let $\lambda_s(x)$ fail, and grant Black a pass at every Black turn
+(a pass changes only the side to move). Then Black has a strategy that uses only moves of $G$ and passes, under which no
+play reaches $\oplus$, whatever White does (moves of $G$, passes, suicides); in particular White does not force a
+decisive event against a passing opponent from $(x,s)$. If Black can wait in $Z$, this is a strategy in $G\boxplus Z$
+itself. (c) Parts (a) and (b) also hold with the colours exchanged, $\varrho$ in place of $\lambda$; in (b) White is
+granted the pass, and the strategy is one in $G\boxplus Z$ if White can wait.}
+
+\begin{proof}
+(a) White keeps the invariant that at the current position $y$, with $t$ to move, $\lambda_t(y)$ holds; this is true at
+the start. With White to move, $\lambda_{\mathrm L}(y)$ gives a White option that is $\oplus$, and White wins, or a
+position $y'$ with $\lambda_{\mathrm R}(y')$; White plays it. With Black to move, $\lambda_{\mathrm R}(y)$ holds. A Black
+pass leads to $y$ with White to move, and $\lambda_{\mathrm L}(y)$ holds since $\lambda_{\mathrm R}$ implies
+$\lambda_{\mathrm L}$. A Black move of $G$ leads to $\oplus$ or to a position $y'$ with $\lambda_{\mathrm L}(y')$, by the
+second clause of $\lambda_{\mathrm R}(y)$; a Black suicide in $Z$ is $\oplus$. So the invariant holds, no play reaches
+$\ominus$, and White always has a move. Every White move is a move of $G$, to $\oplus$ or to a position, and the moves of
+$G$ between positions in a play are at most $h-1$, since $G$ is short. White moves at every second turn, so every play
+has at most $2h+1$ moves. It ends at $\oplus$ or with Black unable to move; either way White wins. Against a passing
+opponent Black always has a move, so the play ends at $\oplus$.
+
+(b) Black keeps the invariant that $\lambda_t(y)$ fails at the current position $y$ with $t$ to move. With Black to move,
+$\lambda_{\mathrm R}(y)$ fails. If $\lambda_{\mathrm L}(y)$ fails, Black uses its granted pass. Otherwise the second
+clause of $\lambda_{\mathrm R}(y)$ fails, so some Black option of $y$ is $\ominus$, and Black plays it and wins, or is a position
+$y'$ where $\lambda_{\mathrm L}(y')$ fails, and Black plays it. With White to move, $\lambda_{\mathrm L}(y)$ fails, so no
+White option of $y$ is $\oplus$ and every White option that is a position $y'$ has $\lambda_{\mathrm R}(y')$ false. A
+White pass leads to $y$ with Black to move, where $\lambda_{\mathrm R}(y)$ fails because $\lambda_{\mathrm L}(y)$ does; a
+White suicide is $\ominus$. So the invariant holds, and neither White nor Black (under this strategy) ever moves to
+$\oplus$. Black's prescribed replies are legal in the forcing test with White forcing; every White move of $G$ keeps the
+invariant, and if White to move has no option in $G$ the test ends without reaching $\oplus$. So White does not force a
+decisive event against a passing opponent. If Black can wait in $Z$, the granted pass is the pass of $Z$, and the strategy is one in
+$G\boxplus Z$.
+
+(c) is (a) and (b) with the colours exchanged.
+\end{proof}
+
+\textbf{A.18a Theorem (outcomes with spare moves; Theorem~\ref{thm:loopy}).} \emph{Let $G$ be a short D-game, for
+instance a sum of short D-games, let $Z$ be as above, and consider $G\boxplus Z$ from a position $x$ with $s$ to move.
+\begin{itemize}
+\item[(a)] If both sides can wait: White wins if and only if $\lambda_s(x)$, if and only if White forces a decisive event
+against a passing opponent; Black wins if and only if $\varrho_s(x)$, if and only if Black forces a decisive event
+against a passing opponent; otherwise $(x,s)$ is a draw. A side that wins has a winning strategy that never passes, and
+having the move never hurts: $\lambda_{\mathrm R}(x)$ implies $\lambda_{\mathrm L}(x)$, and $\varrho_{\mathrm L}(x)$
+implies $\varrho_{\mathrm R}(x)$.
+\item[(b)] If only White can wait: every play is finite and $(x,s)$ is not a draw. Black wins if and only if
+$\varrho_s(x)$, if and only if Black forces a decisive event against a passing White; otherwise White wins.
+\item[(c)] If only Black can wait: the mirror image of (b).
+\end{itemize}}
+
+\begin{proof}
+(a) If $\lambda_s(x)$, White wins by Lemma~A.18(a), with a strategy that uses only moves of $G$. If $\lambda_s(x)$
+fails, Black follows the strategy of Lemma~A.18(b), which is a strategy in $G\boxplus Z$ since Black can wait; under it no
+play reaches $\oplus$, and Black always has a move (a pass or the chosen option). A play ends in a White win only at
+$\oplus$ or with Black unable to move, so White does not win. The two parts of Lemma~A.18 also show that $\lambda_s(x)$
+holds exactly when White forces a decisive event against a passing opponent. The statements for Black follow in the same
+way from Lemma~A.18(c), whose blocking strategy for White is a strategy in $G\boxplus Z$ since White can wait. If neither
+$\lambda_s(x)$ nor $\varrho_s(x)$ holds, neither side wins, which is a draw: each side, by its blocking strategy, avoids
+defeat against every play of the other, and when both follow these strategies the play never ends. The implications are
+the remark after the definition of the predicates.
+
+(b) Black cannot pass, so every Black move is a move of $G$ between positions, or a move to a terminal (in $G$ or a
+suicide), which ends play. The moves of $G$ between positions in a play, by either side, are at most $h-1$, since passes
+leave the position of $G$ unchanged and $G$ is short. So Black makes at most $h$ moves, and since the turns alternate
+every play has at most $2h+1$ moves. Each position has finitely many options, so the game from $(x,s)$ is a finite game
+tree whose every leaf has a winner (a terminal, or a player with no option), and by Zermelo's theorem one side
+wins: there are no draws. If $\varrho_s(x)$, Black wins by Lemma~A.18(c), part (a) with colours exchanged; its strategy uses only moves of $G$ and
+beats White's passes. If $\varrho_s(x)$ fails, White follows the strategy of Lemma~A.18(c), part (b) with colours
+exchanged, which uses moves of $G$ and passes and is a strategy in $G\boxplus Z$ since White can wait. Under it no play
+reaches $\ominus$ and White always has a move; every play is finite, so it ends at $\oplus$ or with Black unable to move, and
+White wins. As in (a), $\varrho_s(x)$ holds exactly when Black forces a decisive event against a passing White.
+
+(c) is (b) with the colours exchanged.
+\end{proof}
+
+\textbf{A.18b Remark (the statement of Section~\ref{S-kings}).} Theorem~\ref{thm:loopy} is (a) and (b): ``the
+components form a short game in which every decisive event ends the game'' is $G=A_1\boxplus\dots\boxplus A_k$ with short
+$A_i$; ``let a side that can wait pass at any time'' and ``let every other move in $Z$ lose'' are the D-game $Z$: a side
+that can wait may pass at any of its turns, and every other move of $Z$ is a suicide, an immediate win for the opponent.
+The forcing and blocking strategies above never prescribe a suicide, and each of them covers an opponent who plays one.
+``Against a passing opponent'' means against an opponent who chooses at each turn between a move of $G$ and a pass, not
+one who must pass: if $G$ has one position $x$ with $L(x)=\{\oplus\}$ and $R(x)=\{\ominus\}$, and White is to move, Black
+reaches $\ominus$ against a White that always passes, yet $\varrho_{\mathrm L}(x)$ fails and White wins by moving to
+$\oplus$. In (b) Black can win only at a terminal, since White always has a pass, so ``Black wins'' means ``Black forces $\ominus$''; White may also win because Black runs out of moves. The theorem is about the
+D-game. That a king stepping back and forth in chess acts as such a pass is a further hypothesis, not treated here: the
+steps must be legal at every position reached, and must change nothing else (in chess a king move also ends an e.p.\
+right, while the pass of $Z$ keeps the position of $G$, right included).
+
+\subsubsection*{A.VI A local test for (V2) with frozen kings}
+
+\textbf{Setting.} We use the frozen-king game $\mathrm{F}$ of Part~A.III: chess in which the first promotion ends the game
+and wins for the promoter, and a legal king move ends the game at once with a loss for its maker. Checkmate wins; a side
+with no legal move (king moves count) that is not in check is stalemated, a draw; infinite play is a draw. The board is
+flat or a cylinder with $H\ge5$ ranks. Let $y$ be a legal position (the kings not adjacent, the side not to move not in
+check) with pawns and the two kings only, no promotion having occurred, with side $s$ to move and with the
+e.p.\ right, if any, created by the double step that led to $y$ (Part~A.I). Fix a side $\beta$, the beneficiary, and let $\omega=\bar\beta$. For a pawn $q$ of either colour let $\rho(q)$ be its rank counted
+from $\beta$'s side: $\rho(q)$ is its rank if $\beta$ is White and $H+1$ minus its rank if $\beta$ is Black. So $\beta$'s
+pawns move to larger $\rho$, $\omega$'s to smaller $\rho$, and ``ahead of a pawn of $\beta$'' means larger $\rho$. For a
+pawn $p$ of $\beta$ let
+\[
+d=H-\rho(p)\ \text{ if }\rho(p)\ge3,\qquad d=H-3\ \text{ if }\rho(p)=2,
+\]
+the number of moves $p$ needs to promote when it moves alone, with a double step first if $\rho(p)=2$; and let $e=d$ if
+$s=\omega$ and $e=d-1$ if $s=\beta$. If play reaches the $d$-th move of $p$ and $p$ has moved at every turn of $\beta$,
+then $\omega$ has made exactly $e$ moves before that move.
+
+\textbf{The game $G_\omega(y;p)$.} Delete $p$ from $y$. Only $\omega$ moves, one move after another. $\beta$'s other
+pawns stand still and may be captured; both kings stand still, occupy their squares and are never captured. $\omega$'s
+pawns step, double step and capture by the pawn rules of Part~A.I, with the kings as obstacles and with no test of check,
+and may capture e.p.\ only as the first move, only if $s=\omega$, and only with the right of $y$ (by (H1) that right
+allows no capture of $p$). Let $\mu_\omega(y;p)$ be the least number of moves of a sequence in $G_\omega(y;p)$
+after which some pawn of $\omega$ stands on its last rank, or $\infty$ if there is none. This minimum is over all pawns of
+$\omega$, passed or not, and over all sequences, captures of $\beta$'s pawns included.
+
+\textbf{Hypotheses.} Let $f$ be the file of $p$; the \emph{strip} is the set of files at distance at most $1$ from $f$.
+\begin{itemize}
+\item[(H1)] \emph{Clear path.} $p$ passes the e.p.-aware test at $y$ (Part~A.I): no pawn of $\omega$ in the strip has
+$\rho>\rho(p)$, and $p$ has not just double stepped with a pawn of $\omega$ beside it. Moreover no pawn and no king of
+either colour stands on a square of $f$ ahead of $p$, the promotion square included.
+\item[(H2)] \emph{No check.} No pawn of either colour stands on a file at distance $1$ from the file of $\beta$'s king.
+\item[(H3)] \emph{No stalemate.} $\omega$'s king has a neighbouring square $t$ at king distance (the maximum of the
+file distance and the absolute difference of the ranks) at least $2$ from $\beta$'s king such that no pawn of either colour stands on
+the file of $t$ or on a file at distance $1$ from it.
+\item[(H4)] \emph{No interference.} Every pawn of $\beta$ other than $p$ on a file at distance $1$ from $f$ has
+$\rho\le\rho(p)+1$.
+\item[(H5)] \emph{Timing.} $\mu_\omega(y;p)\ge e+1$.
+\end{itemize}
+
+\textbf{A.19 Proposition (frozen-king passer test).} \emph{Under (H1)--(H5), $\beta$ wins $\mathrm{F}$ from $y$ with $s$
+to move by the strategy $\Pi$: move $p$ forward at every turn, by a double step if $\rho(p)=2$. Every move of $\Pi$ is
+legal when it is due, and every play in which $\beta$ follows $\Pi$ ends with a win for $\beta$, at the latest with the
+$d$-th move of $p$, which promotes.}
+
+\begin{proof}
+Write $\rho_p$ for the current value of $\rho(p)$ and $\rho_0$ for its value at $y$. We consider plays in which $\beta$
+follows $\Pi$ and $\omega$ moves arbitrarily, as long as the game has not ended.
+
+\emph{Step 0 (frame).} No promotion has occurred, so the only pieces are pawns and kings, and by Lemma~A.1 a pawn changes
+file only by capturing a pawn on the file it enters; a file with no pawn never gets one. A king move ends $\mathrm{F}$, so
+in a play that goes on neither king has moved, and both stand where they stood at $y$. Under $\Pi$, $p$ is the only pawn
+of $\beta$ that moves, and it stays on $f$.
+
+\emph{Step 1 (checks and stalemate).} By (H2) and Step~0, no pawn ever stands on a file at distance $1$ from the file
+of $\beta$'s king, so no pawn of $\omega$ attacks it, and $\omega$'s king, which does not move, is not adjacent to it
+since $y$ is legal. So $\beta$ is never in check, and a move of $p$ is illegal only if its squares are occupied. By (H3)
+and Step~0, the file of $t$ and the files at distance $1$ from it never hold a pawn; in particular $f$ is not one of them.
+So $t$ is never occupied or attacked by a pawn, it is neither the square of $\beta$'s king nor adjacent to it, and the
+move of $\omega$'s king to $t$ is legal at every turn of $\omega$, even in check. So $\omega$ is never stalemated.
+
+\emph{Step 2 (invariant).} We show, by induction on the number of moves played, that
+\begin{itemize}
+\item[] (J$_\beta$) with $\beta$ to move, every pawn of $\omega$ in the strip has $\rho\le\rho_p+1$;
+\item[] (J$_\omega$) with $\omega$ to move, every pawn of $\omega$ in the strip has $\rho\le\rho_p$, and $p$ cannot be
+captured e.p.;
+\item[] (I) no pawn and no king stands on a square of $f$ ahead of $p$.
+\end{itemize}
+At $y$ these are (H1): with $s=\omega$ it is (J$_\omega$) as stated, and with $s=\beta$ the bound $\rho\le\rho_0$ gives
+(J$_\beta$). The kings never move (Step~0), so (I) concerns pawns only after $y$.
+
+\emph{$\beta$ moves.} By (I) the squares of the move of $p$ are empty, and by Step~1 the move is legal; $p$ goes to
+$\rho'\in\{\rho_p+1,\rho_p+2\}$ and stays on $f$, so (I) still holds. By (J$_\beta$) every pawn of $\omega$ in the strip
+has $\rho\le\rho_p+1\le\rho'$. After a single step there is no right. After a double step, $\rho'=\rho_p+2$, every pawn
+of $\omega$ in the strip is below $\rho'$, and a pawn that could capture $p$ e.p.\ would stand beside $p$ at $\rho'$; there
+is none. So (J$_\omega$) holds.
+
+\emph{$\omega$ moves a pawn.} A step or a double step lowers $\rho$ and keeps the file, so (J$_\beta$) holds for the
+moved pawn. It cannot enter a square of $f$ ahead of $p$: a pawn of $\omega$ on $f$ has $\rho\le\rho_p$ by (J$_\omega$)
+and moves to smaller $\rho$. A capture lands on the square of a captured pawn $q$ of $\beta$, or, e.p., on the square that
+$q$ skipped. First, $q\ne p$: a capture of $p$ would need a pawn of $\omega$ in the strip at $\rho_p+1$, or a usable
+right against $p$, and (J$_\omega$) excludes both. Second, a pawn $q\ne p$ of $\beta$ has not moved since $y$. If $q$ is on
+$f$, it stands behind the square of $p$ at $y$ by (H1), and $p$ only advances; so the landing square, the square of $q$
+or, e.p., the square behind it, is behind $p$, and (I) is kept. If $q$ is on a file at distance $1$ from $f$, then
+$\rho(q)\le\rho_0+1\le\rho_p+1$ by (H4), and the landing rank is $\rho(q)$, or $\rho(q)-1$ for an e.p.\ capture. Captures
+landing outside the strip do not concern (J$_\beta$). Third, an e.p.\ capture by $\omega$ needs a right created by
+$\beta$; under $\Pi$ only $p$ double steps, and $p$ cannot be captured e.p., so any such capture is made at the first turn
+from $y$, with $s=\omega$, using the right of $y$ against a pawn $q\ne p$; it is covered above. So after the move every pawn of
+$\omega$ in the strip has $\rho\le\rho_p+1$, which is (J$_\beta$), and (I) holds. (Pawns of $\omega$ never move to
+larger $\rho$, but a capture of a pawn of $\beta$ on a file next to $f$ brings a pawn of $\omega$ into the strip at the
+rank of the captured pawn, or one rank lower after an e.p.\ capture; (H4) is what bounds it.)
+
+\emph{Step 3 ($p$ survives and is never blocked).} By (J$_\omega$), at no turn of $\omega$ can $p$ be captured, by a
+normal or an e.p.\ capture; by (I) its path is empty at every turn of $\beta$. With Step~1, every move of $\Pi$ is legal.
+
+\emph{Step 4 ($\omega$'s pawn moves are moves of $G_\omega$).} Take a prefix of a play that follows $\Pi$ which contains no king
+move and no promotion, except that its last move may be a promotion by a pawn of $\omega$. After each move of the prefix, the pieces other than $p$ stand on the same
+squares as after the same pawn moves of $\omega$, in the same order, in $G_\omega(y;p)$ (a promoting pawn counted on its arrival square): the kings and $\beta$'s other
+pawns have not moved, the same pawns of $\beta$ have been captured in both, and $p$ was never captured (Step~3). We
+compare the moves in order. A step or double step of $\omega$ in the play uses empty squares, which are also empty in
+$G_\omega$, where $p$ is deleted. A capture takes a pawn $q\ne p$ of $\beta$, which stands on the same square in
+$G_\omega$. Any e.p.\ capture by $\omega$ uses the right of $y$ at $\omega$'s first move (Step~2), and the same capture,
+by the same pawn, is allowed in $G_\omega$. So the pawn moves of $\omega$, in order, form a sequence of
+$G_\omega(y;p)$, and if $\omega$ promotes with its $k$-th move then $k\ge\mu_\omega(y;p)$.
+
+\emph{Step 5 (count).} Let a play follow $\Pi$. Before the $d$-th move of $p$, $\omega$ has at most $e$ turns. If
+$\omega$ makes a king move at one of them, $\beta$ wins at once. Otherwise its moves there are pawn moves, and by Step~4
+and (H5) none of them promotes, since $e<\mu_\omega(y;p)$. By Step~1, $\omega$ always has a legal move, the king move to
+$t$, so it is neither stalemated nor checkmated, and $\beta$ is never in check; by Step~3, $\beta$ always has the move of
+$\Pi$. So a play that has not ended with a king move of $\omega$ reaches the $d$-th move of $p$, which is legal by Step~3
+and promotes, and $\beta$ wins.
+\end{proof}
+
+\textbf{A.19a Corollary ((V2) with frozen kings).} \emph{Let $Q$ be a king group with its context as in Part~A.III, let
+$Y\in\mathrm{R}(Q)$ have side $M$ to move, and let $\mu$ be a context move at $Y$ that produces a passed pawn and is
+adjudicated for $\sigma$ in $W$. Let $y'$ be the position after $\mu$, with $N=\bar M$ to move. If for some pawn $p$ of
+$\sigma$ the hypotheses (H1)--(H5) hold at $y'$ with $s=N$ and $\beta=\sigma$ (so $e=d$ if $\sigma=M$ and $e=d-1$ if
+$\sigma=N$), then $\sigma$ wins $y'$ in $\mathrm{F}$. If this holds for every such move at every $Y\in\mathrm{R}(Q)$, then
+(V2) holds with chess replaced by $\mathrm{F}$, the form used in Remark~A.12(b).}
+
+\begin{proof}
+$y'$ is a legal position reached by a legal move. No promotion has occurred: play from $Q$ to $Y$ contains no decisive
+event, hence no Z-move and no context promotion (proof of Theorem~A.11), and $\mu$ does not promote, by Lemma~A.2(c) as
+in that proof. So Proposition~A.19 applies at $y'$ with $N$ to move and $\beta=\sigma$.
+\end{proof}
+
+\textbf{A.19b Remark (what the test gives and what it does not).} (a) The test is a sufficient condition. For any
+fixed race rule, the corollary applies the test to the side that $W$ credits at that move; a different rule can change
+the side to be tested. (H5) counts every pawn of $\omega$, passed or not, and every sequence of $\omega$'s moves with $p$
+removed, including captures of $\beta$'s other pawns and any e.p.\ capture available at the first move; a count of
+passed pawns alone does not suffice. (b) It is a statement about $\mathrm{F}$, where king moves lose; Step~0 uses that the kings never move. It gives
+neither $\mathrm{P}$ nor chess. On $\cyl{8}$ with six ranks, with White king a1 and pawn c2, Black king a6 and White to
+move, (H1)--(H5) hold for $\beta$ White and $p=$\,c2 ($\mu_\omega=\infty$), so White wins $\mathrm{F}$; yet in
+$\mathrm{P}$, with real kings, the position is a draw \lab{C1}. Thus, when the test passes at
+every move that Corollary~A.19a quantifies over, the corollary supplies (V2) for Theorem~A.11 in the form of Remark~A.12(b) with $\mathrm{F}$, and not
+for $\mathrm{P}$ or chess.

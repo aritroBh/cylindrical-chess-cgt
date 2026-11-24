@@ -18,9 +18,10 @@ In chess small margins fail. On the cylinder with seven files and six ranks, Kb4
 white to move, the king move Kb4--c5 has a certificate of horizon~1, yet the chess result after it is a draw, and
 Kc5--d5 in Kc5, Pe2 against Ka3, Pc4 on the same board has horizon~2, yet White wins \lab{C1}.
 
-For (V2) a local test is known only if king moves also lose \lab{S}: a passed pawn then wins the promotion
-game if, besides conditions on checks, stalemates and its own nearby pawns, its path is empty and every enemy
-pawn, passed or not, needs a move more to promote. The model looks only at passed pawns: with Pc2, Pd4 against
+For (V2) we give a sufficient test in the frozen-king game \lab{S} (Proposition~A.19 of Section~\ref{S-kingslong}): the side credited
+after a context move that makes a passed pawn wins that game if it has an e.p.-aware passed pawn with a clear
+path, the king-safety, escape-square and nearby-pawn conditions of Proposition~A.19 hold, and, with this pawn
+removed, no sequence of enemy pawn moves promotes within the enemy turns available before its promoting push. The model looks only at passed pawns: with Pc2, Pd4 against
 Pd3 on the $8\times6$ cylinder, black to move, it credits white, yet d3$\times$c2 and c1=Q come first \lab{C1}.
 
 \begin{proposition}[\lab{S}]\label{prop:horizon1}
@@ -39,7 +40,7 @@ On a board with room for two files beyond the buffer, for every king group whose
 moves, some context without a passed pawn leaves a move in the group unpunished.
 \end{conjecture}
 
-Real tr\'ebuchets seem to need $h\approx5$--$7$ \lab{Conj}, and a locked pawn pair can still break their zero \lab{C2}.
+Real tr\'ebuchets seem to need $h\approx5$--$7$ \lab{Conj}, and a locked pawn pair can still break their zero \lab{C2}. An example: the tr\'ebuchet \pos{W Ka4 b3 / B Kc3 b4} on the cylinder with seven files and six ranks acts as zero in the promotion game beside the locked pair \pos{W e3 / B e4}, but beside the locked pair \pos{W e2 / B e3}, which also has no move and no passed pawn, black to move wins by 1\dots Kd2 instead of losing. Three separately written programs agree; no hand proof is given.
 
 \subsection{Spare King Moves Are Loopy}
 
@@ -59,14 +60,14 @@ it can do so against a passing opponent, and otherwise the game is drawn.
 If only white can wait, every play is finite, since black's moves are, so the game is determined, and black
 wins exactly when some move of black's wins against every white reply, a pass included. If both can wait, a
 winning side never needs to pass, so it wins exactly when it can force a decisive event against passes;
-otherwise play can go on forever.
+otherwise play can go on forever. The full proof is Theorem~A.18a of Section~\ref{S-kingslong}.
 \end{proof}
 
 Beside a spare king move, then, component values matter only through their forcing threats. The kings
 alone are already loopy: in normal play (a stalemate loses), every quiet K+P against K placement on the boards
 from $3\times4$ to $5\times5$, summed with sixteen test games, behaves as a decisive win, $\textsf{on}$,
 $\textsf{off}$ or $\textsf{dud}$, or as none of these; none behaves as a number or an infinitesimal, and removing
-the edges changes the class of $12.5$--$20.5\%$ of them \lab{C2}.
+the edges changes the class of $12.5$--$20.5\%$ of them \lab{C2} (the counts are in \texttt{kings/REPORT.md}, task K4, in the code copy).
 
 \subsection{Details of the Failure Sweep}
 We solved, with the kings played out, every component with at most two pawns a side beside a

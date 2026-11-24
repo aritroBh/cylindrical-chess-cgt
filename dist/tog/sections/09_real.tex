@@ -8,8 +8,8 @@ Let $X$ be a pawn component on the ordinary board beside T. An \emph{end positio
 position where a line of play first reaches a passed pawn; its two \emph{sides} are white to move and black to
 move. Replace each end position by $+\BIG$ if white wins it in real chess with either side to move, by $-\BIG$
 if black does, by $\game{+\BIG}{-\BIG}$ if the side to move wins, and by $0$ if the side to move loses. If a side
-is drawn, the \emph{draw treatment} counts that draw as a win for black, as a win for white, or as worth $0$, scoring the end position $\game{\BIG r_W}{\BIG r_B}$ ($r_W,r_B\in\{-1,0,1\}$: white's results with white and with
-black to move; a dead draw is scored $\star$). The canonical value of the resulting tree is the \emph{oracle value} $O(X)$.
+is drawn, the \emph{draw treatment} counts that draw as a win for black or for white, scored as above, or as worth $0$, scoring the end position $\game{\BIG r_W}{\BIG r_B}$ ($r_W,r_B\in\{-1,0,1\}$: white's results with white and with
+black to move; a dead draw is $\star$). The canonical value of the resulting tree is the \emph{oracle value} $O(X)$.
 \end{definition}
 
 \begin{lemma}[Sandwich; \lab{P}]\label{lem:sandwich}

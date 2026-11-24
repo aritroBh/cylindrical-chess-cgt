@@ -14,7 +14,7 @@ h6$\times$a5 across the seam leaves $\star$, so the h/a component is hot, not th
 pawns of Puzzle~2 form an infinitesimal with mean $0$, and its king group (Fig.~\ref{fig:kinggroup72}) is a
 zugzwang for black only, on the ordinary board \lab{C2} (our solver and the Lichess tablebase) and on the
 cylinder \lab{C2}, so the real result of this ten-man position is open. Puzzle~3 is illegal as drawn; on files c and d its value is $\tinyg{1}$, and the legal copy
-one rank up, \pos{W c2 c4 d4 / B c3 d5 d6 d7}, has the same value (Section~S3 shows the puzzles).
+one rank up, \pos{W c2 c4 d4 / B c3 d5 d6 d7}, has the same value.
 
 \subsection{When Is the Sum Model Right?}\label{sec:sums-hss}
 
@@ -46,12 +46,12 @@ one, so black runs out of moves before white's $+\BIG$ does. The full proof, by 
 Section~S12.
 \end{proof}
 
-Of all $599{,}098$ positions without a passed pawn that have at most six pawns on flat boards three to five
-files wide, the $540{,}503$ HSS ones all agree in outcome and, in the default setting, $19.3\%$ of the rest differ, the
+In the default setting, of all $599{,}098$ positions without a passed pawn that have at most six pawns on flat boards three to five
+files wide, the $540{,}503$ HSS ones all agree in outcome and $19.3\%$ of the rest differ, the
 smallest being \pos{W a5 d3 / B b6 e4}, a second-player win as a sum and a first-player win on the board
 \lab{C1}. With $\BIG=256$ the move
 bound always holds on boards up to $8\times8$. HSS is needed (Proposition~\ref{prop:sumcounter}), and so is
-(E): without it, sums fail even in the pawn game with no passed-pawn rule \lab{C1} (Section~S3), and in our model \lab{P} (Section~S12).
+(E): without it, sums fail even in the pawn game with no passed-pawn rule \lab{C1} (Section~S3), and in our model \lab{S} (Section~S12).
 
 \begin{proposition}[\lab{C2}]\label{prop:sumcounter}
 A test of the top-level components alone is not enough: on $\cyl{8}$ with en passant off and the count rule, $X=$\,\pos{W b2 d4 g3

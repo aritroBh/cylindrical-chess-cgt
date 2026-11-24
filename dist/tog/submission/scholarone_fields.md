@@ -8,7 +8,7 @@ Chess Endgames on a Cylindrical Chessboard: Exact Combinatorial Game Values, Rea
 
 ## Abstract (plain text, 199 words)
 
-Word count: 199, computed with a script on `dist/tog/sections/00_abstract.tex` (LaTeX removed, hyphenated words such as "a-file" and "tablebase-backed" counted as one word). ToG asks for 150-200 words (AUDIT.md), so there are 3 words of headroom. The review PDF carries the same text.
+Word count: 199, computed with a script on `dist/tog/sections/00_abstract.tex` (LaTeX removed, hyphenated words such as "a-file" and "tablebase-backed" counted as one word). ToG asks for 150-200 words (AUDIT.md), so there is 1 word of headroom. The review PDF carries the same text.
 
 Cylinder chess joins the a-file to the h-file, leaving no side edges or corners. We study king-and-pawn endgames with combinatorial game theory after Elkies: a passed pawn wins, and the kings are frozen in a mutual zugzwang worth zero. We make the passed-pawn test respect en passant, and give conditions for frozen kings to match chess. Under this test and the count rule, no position of at most six pawns on an ordinary board of any width has a nimber above star; with seven, star two appears once, plus its color-reversed twin, confirmed by three programs; its real-chess value is open. In pawn-only whole-board rings, star two needs six pawns on three files and, from ten files on, one per file (proof sketched); on seven files ten-pawn rings reach star three. We find positions with a legal pawn history worth one-eighth, up-second star and Tiny 1; with frozen kings and queen promotions only, the one-eighth position's tablebase-backed oracle value is one-eighth. On the cylinder king and rook rarely force mate, but opposite-colored bishops can. We correct earlier work on cylinder Dawson's chess: the ring is a first-player win exactly when the strip three files shorter has Grundy value zero.
 
@@ -30,7 +30,7 @@ Full paper (regular paper). The exact name of the option in ScholarOne: not veri
 | Figures | 7 (Fig. 1 to Fig. 7, several with sub-panels) | caption lines in `pdftotext` of the review PDF; `\begin{figure}` blocks in `sections/*.tex` |
 | Tables | 4 (Table I to Table IV) | same |
 | References | 20 | `build/tog_review.bbl` has 20 `\bibitem`; the PDF list ends at [20] |
-| Supplement pages | 109 (not counted toward the limit, per AUDIT.md) | `pdfinfo supplement_review.pdf` |
+| Supplement pages | 67 (not counted toward the limit, per AUDIT.md) | `pdfinfo supplement_review.pdf` |
 
 ## AI-use statement (plain text)
 
@@ -54,7 +54,7 @@ After acceptance (named version): github.com/aritroBh/cylindrical-chess-cgt. Thi
 
 | File | One-line description |
 |---|---|
-| `supplement_review.pdf` | Anonymous supplement, 109 pages: material moved out of the 10-page paper (S1-S11), full proofs of the [S] results (S12-S15), the square-rule passer test with a counterexample (S16), and who wrote and who checked each proof (S17). |
+| `supplement_review.pdf` | Anonymous supplement, 67 pages: material moved out of the 10-page paper (S1-S11), full proofs of the [S] results (S12-S15), the square-rule passer test with a counterexample (S16), and who wrote and who checked each proof (S17). |
 
 (Code and data are not uploaded as a file; they are reached through the anonymous link. A zip of sources for the "sources" slot: Author must confirm whether ScholarOne asks for it. Not verified.)
 

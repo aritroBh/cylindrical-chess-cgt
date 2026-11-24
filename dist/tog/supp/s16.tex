@@ -67,18 +67,17 @@ Claude Opus referee (no); Codex (yes): proved, and the sentence in the main text
 corrected. Final text re-read by Codex (yes): the timing clause was false, see below; corrected. &
 No computation in the proof. The counterexample to the old clause was checked with python-chess by Codex.\\
 \addlinespace
-Longer treatment, S12.2: Theorems 1.11(c), 1.14, 2.7, 3.4; Propositions 2.10(a), 2.11 &
-Drafts by Claude (Opus) in October 2026, revised by free models run through Kilo and OpenCode (MiniMax, Nemotron, some
-not recorded) and integrated by Claude. Later repairs by Claude Opus and Sonnet models. Theorem 3.4 by an open model run
-through OpenCode (vendor not recorded), integrated by Claude. &
-Claude reviewers throughout (no). Codex (yes) re-derived blindly, then read the printed proof of: Theorem 1.14 (sharp
-form), Theorem 2.7, Proposition 2.11 (sound, two passages tightened). In November: Theorem 3.4 holds, one sentence of
-its proof was false and was replaced; Theorem 1.11(c) and 1.14 hold, the move-count step of 1.11(c) had a gap that a
-replacement argument fills, and 1.14(i) needs ``before the first decisive event'' in its hypothesis, which has been
-added to the note. Codex (yes) then read the new printed proof of the move-count step of 1.11(c) and the repaired Theorem 2.7: every step sound, wording fixes only; Proposition 2.10(a), every step sound. OpenCode models (vendor not recorded) also read some of these. &
+S12.2, A.18--A.19b (theorem on outcomes with spare moves; frozen-king passer test) &
+Claude (Anthropic), a Claude Opus model, in November 2026, as a condensation of Theorem 3.4 and of Proposition 2.11 with
+Corollary 2.11a of the working note \texttt{kings/theory/LOOPY.md}. The note's Theorem 3.4 was written by an open model run
+through OpenCode (vendor not recorded) and integrated by Claude. &
+Checks of the note's results, not of the condensed text: Claude reviewers (no). Codex (yes) re-derived blindly, then read the
+printed proof of Proposition 2.11 (sound, two passages tightened). In November, Codex (yes) found that Theorem 3.4 holds and
+that one sentence of its proof was false; the sentence was replaced.
+Codex (yes) then refereed the condensed text: Theorem~A.18a and Proposition~A.19 hold; the auxiliary Lemma~A.18(b),(c) was false as first stated (its blocking strategy used a pass that the blocker need not have) and was restated; the definition of a short game lacked ``acyclic''; wording fixes in A.19. Codex (yes) re-read the corrected text: every item sound, four wording fixes, applied.
+&
 Many programs, each recomputing examples and bounds, not facts the proofs use. Codex: 22{,}522{,}464 comparisons on
-763{,}440 small games (Theorem 3.4); 32{,}880 comparisons of $S$ with $W$ on 10{,}960 roots (Theorem 1.11(c));
-145{,}444{,}720 context states (Proposition 2.10(a)). Several independent programs for Proposition 2.11.\\
+763{,}440 small games (Theorem 3.4). Several independent programs for Proposition 2.11.\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -149,8 +148,8 @@ The checks caught real errors in November 2026, all corrected. The main text sai
 then replaces components with a passed pawn; the engine and the theorem test the moved component first and split only if
 no pawn is passed, and the two orders differ. The validity corollary was stated for both sides to move, but its
 hypotheses can hold for one side only; it is now stated for the side to move. The certificate theorem said the punisher wins with one of its next moves, but the reply itself can
-already be mate, so the clause now reads ``no later than''. The proof of Theorem~3.4 had one false sentence about which
-moves win for Left. The printed proof of Theorem~1.11(c) had a gap in the move-count step. The proof of the wall rings (Section~\ref{S-wall}) named the wrong capture in one case of its Lemma~2 and had a gap in its Lemma~3; the lemmas themselves hold. The horizon-1 proposition was false on four ranks,
+already be mate, so the clause now reads ``no later than''. The proof of Theorem~A.18a had one false sentence about which
+moves win for Left (in the note's version, Theorem~3.4). An earlier proof of the induction behind Theorem~A.7 (Lemma~A.6 and Theorem~A.7) had a gap in its move-count step. The proof of the wall rings (Section~\ref{S-wall}) named the wrong capture in one case of its Lemma~2 and had a gap in its Lemma~3; the lemmas themselves hold. The horizon-1 proposition of Section~\ref{S-kings} was false on four ranks,
 and promotion inside the pawn games had to be pinned down. An earlier proof, of the square-rule passer test, passed two AI
 referees and was later refuted by a counterexample (Section~\ref{S-square}); we now state it as a computation.
 These errors were found by AI checkers, and none of these checks replaces a human referee.
