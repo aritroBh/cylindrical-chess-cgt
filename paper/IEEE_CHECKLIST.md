@@ -248,3 +248,17 @@ Roles: Fable plans and reviews; Opus referees; Sonnet codes and applies; Haiku r
 - [x] Rebuild, checks, commit (local commits only; nothing pushed since 6e4a69aa)
 - Kings session, K57/K58 (commit ccf30ebe, kings/ only): the 2 + 3 group on the 10x6 cylinder has the results of over beside every finite test game (Lemma 4.15, Corollary 4.16 of `kings/theory/LOOPY.md`; AI proof, AI-refereed, blind Codex re-proof; two computed facts). Not in either paper: the 10-page paper is full and neither paper defines the over test. Author's choice whether the long version gets the paragraph the kings session drafted
 - [x] Pushed on the author's word ("Yes, push"), 2026-11-23 evening: main 6e4a69aa..c63145cd (12 commits, 333 files; gitleaks on the range: no leaks; no CLI transcripts, nothing from the ignored folders; the only private-path string in added lines is this checklist's own note about the earlier push)
+
+## Full check on the author's request ("make sure it works and is good"), 2026-11-23, night
+
+- [x] Rebuild from source: paper 10 pages (named and anonymous), supplement 67, long version 16; number check, anonymity grep, arXiv checks pass; no "??", no bad characters, all fonts embedded
+- [x] All 10 pages and 7 figures read as images by the planner: nothing cut off, overlapping or misplaced
+- [x] V1 (Sonnet): every pointer from the paper into the 67-page supplement, every label, every abstract and conclusion number, figures, tables, references (`delegate/out/V1_pointer_audit/REPORT.md`): nothing gone or renumbered after the cut; 3 fails, 19 unsure
+  - [x] "FEN of every position with kings" was more than Section S11 gives: now "the main positions with kings" (paper twice, supplement first page)
+  - [x] Two pointers inside the supplement named the wrong section of the paper (S3.3 -> Section S6; S7 -> Section IX-A)
+  - [x] Theorem 16 said "machine-checked for n <= 22"; the only saved record is `dawson/pawnboard_16.txt` (rings 3-16, no mismatch). Now "n <= 16" in the paper, the long version and RESULTS.md; supplement S9 names the program and the record
+  - [x] Supplement S6.3 now states the star-3 minima that Fig. 6 shows (no nine-pawn ring on C7, C8; none known on C3-C6, C9; C10 and C12), from the records W5 checked
+  - [x] A.7 quotes Theorem 6 word for word; A.14(c) says two programs (C2); S17 says the programs behind C1 and C2 are AI-written and points to the README
+  - Not changed: the S label on "every n >= N" ring results (large n by the insertion proof, small n by programs; Section XIII and the paper's text say so); C1/C2 counts that are in the code copy but not in the supplement
+- [x] V2 (Sonnet): the anonymous code copy run as a reviewer would (`delegate/out/V2_reviewer_run/REPORT.md`): tests 24 + 10 pass; KBN on the cylinder, ring M10, Proposition 7, Dawson, the 6x6 trebuchet all match the paper; anonymity grep clean
+- [ ] V3 (Sonnet): code copy: scripts hard-code the scrubbed project path; README lacks expected outputs and an offline note (`delegate/out/V3_anon_copy_fix/`)

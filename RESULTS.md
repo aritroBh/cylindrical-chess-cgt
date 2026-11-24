@@ -218,7 +218,7 @@ Every value in the audit is **unchanged** under the e.p.-aware convention (re-ru
     - No value is cylinder-only under all six race/e.p. settings.
   - All of this uses the textbook passed test. The re-run under the e.p.-aware test is pending.
 - **Dawson's chess** ([dawson/REPORT.md](dawson/REPORT.md)):
-  - **Cylinder ring rule (proved; checked for n ≤ 22).** The first player on a full 3×n cylinder wins iff
+  - **Cylinder ring rule (proved; checked for n ≤ 16, record `dawson/pawnboard_16.txt`).** The first player on a full 3×n cylinder wins iff
     g(n−3) = 0.
   - **Normal play (classical, reproduced).** Period 34, last exception n = 51.
   - **Misère play,** Dawson's original 1935 question (verified):

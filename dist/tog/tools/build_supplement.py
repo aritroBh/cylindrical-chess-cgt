@@ -208,7 +208,7 @@ W('s03',
   r'\subsection{Condition (E)}',
   L('05_sums', 126, 134),
   r'\subsection{Two Models}',
-  L('05_sums', 136, 142),
+  REP(L('05_sums', 136, 142), 'Section~\\ref{sec:star2-five}) is', 'Section~\\ref{S-star2}) is'),
   S34)
 
 # S4 atlas ------------------------------------------------------------------------------------------
@@ -226,7 +226,10 @@ W('s06', r'\section{The \texorpdfstring{$\nim{2}$}{*2} Question: Details and Rin
   r'\subsection{Census and Seven Pawns}', L('08_star2', 53, 58), L('08_star2', 67, 83),
   r'\subsection{Counts, Five Files and Rings}',
   r'This subsection gives in full what Sections~\ref{sec:star2-five} and~\ref{sec:star2-rings} of the main text summarize, with every listed ring, count and check.',
-  L('08_star2', 110, 181),
+  REP(L('08_star2', 110, 181), 'and as sums six keep the value. On',
+      'and as sums six keep the value. Ten is the least on $\\cyl{7}$ and $\\cyl{8}$: no nine-pawn ring there is $\\nim{3}$ \\lab{C1}. '
+      'No $\\nim{3}$ ring is known on $\\cyl{3}$ to $\\cyl{6}$ or on $\\cyl{9}$, where no ring with nine or ten pawns is one \\lab{C1}; '
+      'on $\\cyl{10}$ no ring with ten or eleven pawns is, and on $\\cyl{12}$ none with twelve \\lab{C1}. On'),
   r'''\subsection{Rings on the M\"obius Strip}
 The strip joins the first and last files with the ranks reversed: square $(n,r)$ is beside $(1,9-r)$. Every pawn
 has a direction; white pawns start moving up and black pawns down, and a capture across the seam lands on the
@@ -343,7 +346,7 @@ For the other heights, that no smaller position exists and that no $\nim{4}$ occ
 ''')
 
 # S7 real chess ---------------------------------------------------------------------------------------
-W('s07', r'\section{From the Model to Real Chess: Details}\label{S-real}', REP(L('09_real', 29, 74), 'no file between its pawns and T is free of pawns, so Theorem~\\ref{thm:validity} does not apply',
+W('s07', r'\section{From the Model to Real Chess: Details}\label{S-real}', REP(REP(L('09_real', 29, 74), 'rule with en passant on (Section~\\ref{sec:star2})', 'rule with en passant on (Section~\\ref{sec:real-cand} of the main text)'), 'no file between its pawns and T is free of pawns, so Theorem~\\ref{thm:validity} does not apply',
       'file e holds pawns and file f the white king, so T has no empty buffer and Theorem~\\ref{thm:validity} does not apply'))
 
 # S8 tablebases ---------------------------------------------------------------------------------------
@@ -353,6 +356,9 @@ W('s08', r'\section{Tablebases: Rules and King and Pawn Against King}\label{S-tb
 # S9 Dawson ---------------------------------------------------------------------------------------------
 W('s09', r'\section{Dawson\textquotesingle{}s Chess: Details and Learning}\label{S-dawson}',
   L('11_dawson', 7, 24), L('11_dawson', 35, 66), L('11_dawson', 84, 92),
+  r'\emph{The machine check of Theorem~\ref{thm:ring}.} A program that plays the pawn rules directly '
+  r'(\texttt{dawson/pawnboard.py} in the code copy, record \texttt{dawson/pawnboard\_16.txt}) builds every position of the full '
+  r'ring for $3\le n\le16$. For each $n$ and each side to move first, the outcome in normal and in mis\`ere play is the one the ring rule gives \lab{C1}.',
   r'\subsection{Learning Dawson\textquotesingle{}s Chess}', L('12_engines', 75, 78))
 
 # S10 open problems -------------------------------------------------------------------------------------

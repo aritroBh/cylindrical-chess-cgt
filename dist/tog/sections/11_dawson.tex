@@ -31,7 +31,7 @@ neighbors were empty, so a full row of two or more pawns has no move. Its recurr
 $g(n-2)$ and the value $g(1)=1$, agrees with $g$ at only 31 of the 301 values $n\le300$, and gives the wrong
 cylinder outcome for 56 of them, the first at $n=4$ \lab{C2}.
 
-\begin{theorem}[Ring rule; \lab{P}, machine-checked for $n\le22$]\label{thm:ring}
+\begin{theorem}[Ring rule; \lab{P}, machine-checked for $n\le16$]\label{thm:ring}
 On the full $3\times n$ cylinder, $n\ge3$, every first move with its forced captures leaves one strip of
 $n-3$ untouched files, with the opponent to move. Hence the cylinder has Grundy value
 $\operatorname{mex}\{g(n-3)\}$, and the first player wins if and only if $g(n-3)=0$, that is, for

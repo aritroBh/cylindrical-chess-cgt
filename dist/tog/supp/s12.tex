@@ -170,7 +170,7 @@ $N(X)+1\le\BIG$ moves, and the summand $\BIG$ alone supplies $\BIG$ of them. So 
 
 \textbf{A.7 Theorem (sum safety; Theorem~\ref{thm:hss}).} \emph{Main text: ``Suppose that $X$ has no passed pawn and is HSS, that no position
 reachable from $X$ with two or more components has a usable en passant right (condition (E)), and that $\BIG$ exceeds the
-number of moves either side can make. Then $S(X)$ and $W(X)$ have the same outcome.'' Precise form: let $X$ be a pawn
+number of moves one side can make in any sequence of pawn moves from $X$. Then $S(X)$ and $W(X)$ have the same outcome.'' Precise form: let $X$ be a pawn
 position with no passed pawn, fix a setting with a local race rule, and suppose that $X$ is HSS, satisfies (E), and
 $\BIG>N(X)$. Then for each side to move first, $S(X)$ and $W(X)$ have the same winner.}
 
@@ -302,7 +302,7 @@ By Theorem~A.11 the chess winner is the winner of $W(X)$, and by Theorem~A.7 thi
 \end{proof}
 
 \textbf{A.14 Proposition (Proposition~\ref{prop:sumcounter}).} \emph{On $\cyl{8}$ with e.p.\ off, the count race rule and $\BIG=256$, let
-$X=$\,\pos{W b2 d4 g3 h5 / B a7 c7 f7 g4}. (a) $X$ is one component. (b) $X$ is not HSS. (c) (Checked by computer only, not
+$X=$\,\pos{W b2 d4 g3 h5 / B a7 c7 f7 g4}. (a) $X$ is one component. (b) $X$ is not HSS. (c) (Checked by two separately written programs \lab{C2}, not
 proved here and not used here.) $S(X)$ is a black win whoever starts and $W(X)$ a first-player win.}
 
 \begin{proof}

@@ -61,6 +61,7 @@ with exhaustive search on 7.4 million positions \lab{C2}; the next quotient did 
 although $g(5)=3$. The outcome agrees, but only $g$ adds up: a sum of such values would let a player reply
 elsewhere while a capture is pending.
 
+\emph{The machine check of Theorem~\ref{thm:ring}.} A program that plays the pawn rules directly (\texttt{dawson/pawnboard.py} in the code copy, record \texttt{dawson/pawnboard\_16.txt}) builds every position of the full ring for $3\le n\le16$. For each $n$ and each side to move first, the outcome in normal and in mis\`ere play is the one the ring rule gives \lab{C1}.
 \subsection{Learning Dawson\textquotesingle{}s Chess}
 In normal-play Dawson's chess the first player wins exactly when the strips' Grundy values have a nonzero
 nim-sum~\cite{GuySmith1956,WinningWays}. A long short-term memory (LSTM) value network in PyTorch~\cite{PyTorch}, trained on total lengths up to
