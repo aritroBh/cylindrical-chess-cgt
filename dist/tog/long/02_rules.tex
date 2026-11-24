@@ -19,7 +19,7 @@ $1/2=\game{0}{1}$), \emph{nimbers} $\nim{k}$ (Section~\ref{sec:intro}), and \emp
 so for a number $a$, $a\pm x=a+(\pm x)=\game{a+x}{a-x}$. The \emph{birthday} of a game is the height of its
 canonical game tree, so $\nim{k}$ has birthday $k$. Each game has a \emph{mean} and a \emph{temperature}, read
 from its thermograph~\cite{WinningWays}; $\pm x$ has mean $0$ and temperature $x$. The \emph{left} and
-\emph{right stops} of $G$ are the numbers reached when white or black moves first and both sides play until a
+\emph{right stops} of $G$ are the numbers reached when white or black moves first and both sides play well until a
 number appears; both stops of $0$ and of $\nim{2}$ are $0$. Infinitesimals such as ${\uparrow}=\game{0}{\star}$ and
 $\tinyg{1}=\ggame{0}{0\mid -1}$ are introduced with their positions in Section~\ref{sec:basic}.
 
@@ -28,7 +28,7 @@ Following Elkies~\cite{Elkies1996}, we change chess just enough for normal play~
 \begin{itemize}
 \item In pawn-only positions, a player who has no move loses; there are no null moves.
 \item A position in which exactly one side has a passed pawn is decided, worth $+\BIG$ if that pawn is white and
-  $-\BIG$ if it is black, where $\BIG$ exceeds any count of spare moves (our programs use $\BIG=256$);
+  $-\BIG$ if it is black, where $\BIG$ exceeds any count of spare moves (our programs use $\BIG=256$, enough on boards up to $8\times8$);
   M\"aser models such global threats with loopy games~\cite{Maeser2002}.
 \item Kings are added as a group in mutual zugzwang, the tr\'ebuchet, and are then \emph{frozen}: the model
   never moves them and counts the group as $0$, since whoever moves a king there first loses a pawn, and then
@@ -107,7 +107,7 @@ stated.
 \subsection{Components and the Cut Lemma}
 A pawn changes file only by capturing onto a file where an enemy pawn stands (en passant included), so an empty
 file stays empty forever and the pawns on either side of it never interact. Each block of neighboring occupied
-files is a game of its own, a \emph{component}, and a position is the sum of its components; on the cylinder a
+files is a game of its own, a \emph{component}, and we value a position as the sum of its components (Section~\ref{sec:sums-hss} tests this); on the cylinder a
 component is an arc or one \emph{ring} that uses every file.
 
 \begin{theorem}[Cut lemma; \lab{P}, \lab{C2}]\label{thm:cut}

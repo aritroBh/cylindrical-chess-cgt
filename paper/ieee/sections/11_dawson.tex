@@ -42,8 +42,8 @@ squares. Suppose white plays c1--c2 with the b- and d-files untouched. The pawn 
 black must capture, say b3$\times$c2. That pawn attacks b1 and d1, so white must recapture, say
 d1$\times$c2, and then come d3$\times$c2 and b1$\times$c2. This leaves black to move, with the b- and
 d-files empty and the c-file blocked for good, since a pawn enters a file only by capturing. At the end of a
-row the push takes three plies and empties its one neighbor; a push with no untouched neighbor is
-blocked.
+row the push takes three plies and empties its one neighbor; a push with no untouched neighbor only
+blocks its file.
 
 Each such sequence is forced and touches only the pushed file and its neighbors. Counting a whole sequence as
 one move, strips separated by empty files never interact, and both players have the same sequences, so this
@@ -84,7 +84,7 @@ correct $g$ (Fig.~\ref{fig:dawson_grundy}).
 \emph{Mis\`ere play.} A forced sequence has odd length and ends with the player who began it, so the
 ring rule carries over: the first player wins the mis\`ere cylinder exactly when the strip of $n-3$ files is
 a mis\`ere P-position. Our implementation of the Plambeck--Siegel algorithm~\cite{PlambeckSiegel2008}
-reproduces their partial quotient for strips of at most 32 files (order 638, 109 P-positions) and agrees
+reproduces their partial quotient for strips of at most 32 files (order 638, P-portion of size 109) and agrees
 with exhaustive search on 7.4 million positions \lab{C2}; the next quotient did not finish.
 
 \emph{A warning about sums.} As a partizan game on its own, the ordinary $3\times5$ board is $\star$,

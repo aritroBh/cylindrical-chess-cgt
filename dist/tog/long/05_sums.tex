@@ -85,9 +85,9 @@ one rank up, \pos{W c2 c4 d4 / B c3 d5 d6 d7}, has the same value.
 
 \subsection{When Is the Sum Model Right?}\label{sec:sums-hss}
 
-In chess the first passed pawn ends the game; in a sum, a component with a passed pawn becomes $\pm\BIG$ and
+On the whole board the first passed pawn ends the game; in a sum, a component with a passed pawn becomes $\pm\BIG$ and
 play goes on elsewhere, so a $+\BIG$ can cancel a $-\BIG$. In $\game{\BIG}{0}+\game{0}{-\BIG}$ the first player
-makes a passed pawn and wins the chess game, but the sum is $0$ for every $\BIG$, since the second player
+makes a passed pawn and wins on the whole board, but the sum is $0$ for every $\BIG$, since the second player
 answers in the other component \lab{P}. We write $W(X)$ for the whole-board game of a pawn position $X$, which ends at
 the first passed pawn, and $S(X)$ for its sum model: after a move, the moved component becomes $\pm\BIG$ if a
 side has a passed pawn in it (by the race rule if both have one); only otherwise is it re-split along empty files (one ring
@@ -135,7 +135,7 @@ both say black wins.
 
 \emph{Two models.} Our CGT engine computes $S$, as Elkies does~\cite{Elkies1996}, and the independent
 whole-board solver $W$. Wherever the two disagree, in every case we tested,
-our engine with splitting switched off matches the whole-board solver. The two models agree on every headline value: the $1/8$ and $\upsec\star$
+our engine with splitting switched off matches the whole-board solver. The two models agree on these headline values: the $1/8$ and $\upsec\star$
 positions of Section~\ref{sec:targets} in all nine settings (Section~\ref{sec:ep}), and the seven-pawn $\nim{2}$
 of Section~\ref{sec:star2} in the default setting. Elsewhere they can differ, even in outcome: under the
 opponent rule with the e.p.-aware test, \pos{W a3 b3 c2 e2 / B a6 c5 d5 e3} (the first five-file $\nim{2}$ of

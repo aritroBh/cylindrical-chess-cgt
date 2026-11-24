@@ -84,8 +84,8 @@ b7 d7 f7 g6 j6} on $\cyl{11}$ are $\nim{2}$ \lab{C2}, and with pairs of files B4
 of the first, or B7, W5 between files a and b of the second, they stay $\nim{2}$ for every $n\le60$ \lab{C2}; on $\cyl{10}$ and $\cyl{11}$ no other ring with $n$ pawns is \lab{C1}.
 For proofs we use \emph{walls}: runs of files with one pawn each, alternating in color, the black pawn two
 ranks above the white (B4, W2: a black pawn on rank 4, a white one on rank 2); the \emph{window} is the
-five or six files, core and adjacent wall files, where the reduced game is played. If a wall pawn moves, its neighbor captures it and gets a passed
-pawn, so wall moves lose; with them deleted, inserting a pair of wall files leaves the \emph{reduced game}
+five or six files, core and adjacent wall files, where the reduced game is played. If a pawn inside a wall moves, its neighbor captures it and gets a passed
+pawn, so these moves lose; with them deleted, inserting a pair of wall files leaves the \emph{reduced game}
 unchanged. As a whole-board game this gives a ring $\nim{2}$ with $n+3$ pawns on
 every $\cyl{n}$ with $n\ge5$, for example \pos{W b2 c3 c5 d2 f2 h2 / B a5 b5 c6 e4 g4} on $\cyl{8}$ \lab{S}: the
 reduced games have $144$ and $104$ positions (odd, even $n$), and two programs check $n\le61$ \lab{C2}. As a sum of components, where captures can split the ring, our engine confirms it only

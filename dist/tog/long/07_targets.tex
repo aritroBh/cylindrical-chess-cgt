@@ -3,7 +3,7 @@
 Elkies~\cite{Elkies1996} found fractions, ups and tinies in chess endgames on the ordinary board. We searched
 the census (Section~\ref{sec:atlas}) for smaller values of these kinds: $1/8$, $1/16$ and $1/32$;
 \emph{up-second} $\upsec=\game{0}{{\downarrow}\star}$, positive but smaller than ${\uparrow}$, and
-$\upsec\star=\game{0,\star}{{\downarrow}}$; and the \emph{tinies} $\tinyg{x}=\ggame{0}{0\mid -x}$ (a number $x$).
+$\upsec\star=\game{0,\star}{{\downarrow}}$; and the \emph{tinies} $\tinyg{x}=\ggame{0}{0\mid -x}$ (a number $x>0$).
 Table~\ref{tab:targets} counts them under both passed-pawn tests; under the e.p.-aware test $1/32$
 disappears. We do not claim these kinds of value as new; what is new is $10$-man positions with a legal pawn
 history, checked in all nine settings (Tiny~1 in the six with en passant on).
@@ -27,7 +27,7 @@ $\tinyg{x}$, $x\notin\mathbb{Z}$ & $\ggame{0}{0\mid -x}$ & $0$ & $0$ \\
 \end{tabular}
 
 \smallskip
-\parbox{\columnwidth}{\footnotesize Positions of each exact value in the census (count rule). Textbook
+\parbox{\columnwidth}{\footnotesize Positions of each exact value in the census (count rule); no census position is $\tinyg{x}$ for a dyadic $x\notin\mathbb{Z}$ below $8$ with denominator at most $16$. Textbook
 column: an independent C solver confirmed each identity (position minus target $=0$) \lab{C2}. E.p.-aware
 column: \lab{C1}.}
 \end{table}
@@ -79,7 +79,7 @@ Now move the black c-pawn back to c6 (Fig.~\ref{fig:eighth}(c)). If white moves 
 If black moves first, a6--a5 leaves $-1/2\pm1/2=\game{0}{-1}$, and c6--c5, which reaches the $\upsec\star$
 position, is dominated, since $\game{0}{-1}\le\upsec\star$. Thus $G=\ggame{0}{0\mid -1}=\tinyg{1}$ under
 every race rule with en passant on (textbook test \lab{C2}, e.p.-aware test \lab{C1}); with e.p.\ off it is
-${\uparrow}$. Unlike the Tiny~1 of Section~\ref{sec:basic-inf}, it needs no seam. Both pawn structures
+${\uparrow}$. Both pawn structures
 arise from the starting position by c2$\times$b3, b3--b4--b5--b6, a7--a6 and c7--c5 (c7--c6 for Tiny~1).
 
 \subsection{Two Textbook Values That Fail}
