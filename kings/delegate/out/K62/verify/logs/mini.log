@@ -1,0 +1,24 @@
+literal-reading example (from lit3): 3 boards, exact (literal, M1): True, N* = 3 at B -> (0, False), value beside T_N*: not W
+   Black  A: ->B; B: ->A, ->A, =>q | with right: promotes; q: =>B
+   White  A: ->q; B: ->q | with right: promotes; q: =>B | with right: ->q
+   beside T_0: x + u_0 = W; roots (Black to move) = W, W
+   beside T_1: x + u_0 = W; roots (Black to move) = W, L
+   beside T_2: x + u_0 = W; roots (Black to move) = L, L
+   beside T_3: x + u_0 = L; roots (Black to move) = L, L
+   beside T_4: x + u_0 = L; roots (Black to move) = L, L
+   exact strict M1: False
+   exact strict M2: False
+   exact literal M1: True
+   exact literal M2: False
+M2 e.p. example (from m2ep4): 4 boards, exact (strict, M2): True, N* = 3 at B -> (0, True), value beside T_N*: not W
+   Black  A: ->B; B: ->A, =>A, ->g3; q: =>g3; g3: promotes
+   White  A: =>q; B: ->q; q: ->g3; g3: ->q | with right: promotes
+   beside T_0: x + u_0 = W; roots (Black to move) = W, W
+   beside T_1: x + u_0 = W; roots (Black to move) = W, L
+   beside T_2: x + u_0 = W; roots (Black to move) = L, L
+   beside T_3: x + u_0 = L; roots (Black to move) = L, L
+   beside T_4: x + u_0 = L; roots (Black to move) = L, L
+   exact strict M1: True
+   exact strict M2: True
+   exact literal M1: True
+   exact literal M2: True

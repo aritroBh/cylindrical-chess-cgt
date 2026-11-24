@@ -1,0 +1,70 @@
+  mode lit3: N* = 0 reached (restart 1, 0 s)
+  mode lit3: N* = 3 reached (restart 1, 0 s)
+  mode lit3: N* = 2 reached (restart 8, 2 s)
+  mode lit3: N* = 1 reached (restart 11, 2 s)
+climb lit3 seed 7: restarts 262, best N* 3, 50 s
+  example with N* = 3: mv={(0, 0, 0): [(2, False), (2, False)], (0, 1, 0): [(2, False), (2, False), 'P', (2, True)], (0, 0, 1): [(1, False)], (0, 1, 1): [(1, False), (1, True)], (1, 0, 0): [(2, False), (1, True), (1, True)], (1, 1, 0): [(2, False), (1, True), (1, True), 'P', (2, False), (0, True)], (1, 0, 1): [(0, False), (0, False), (0, False), (1, True), (2, True)], (1, 1, 1): [(0, False), (0, False), (0, False), (1, True), (2, True), 'P', (0, True)], (2, 0, 0): [(1, True)], (2, 1, 0): [(1, True), (1, False), (2, False), (2, True)], (2, 0, 1): [(1, True)], (2, 1, 1): [(1, True), (0, True), (2, False)]} chk=[[False, False], [False, False], [False, False]]
+      196.21 real        47.77 user         1.04 sys
+            19382272  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               76203  page reclaims
+                 274  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                 208  signals received
+                 430  voluntary context switches
+              104112  involuntary context switches
+           451751116  instructions retired
+           404617089  cycles elapsed
+             1786192  peak memory footprint
+  mode m2ep4: N* = 0 reached (restart 1, 0 s)
+  mode m2ep4: N* = 2 reached (restart 9, 2 s)
+  mode m2ep4: N* = 3 reached (restart 9, 2 s)
+  mode m2ep4: N* = 1 reached (restart 41, 9 s)
+climb m2ep4 seed 7: restarts 242, best N* 3, 50 s
+  example with N* = 3: mv={(0, 0, 0): [(2, True), (3, True)], (0, 1, 0): [(2, True), (3, True)], (0, 0, 1): [(1, False)], (0, 1, 1): [(1, False), (3, False)], (1, 0, 0): [(2, False)], (1, 1, 0): [(2, False), (0, True), (3, False)], (1, 0, 1): [(0, False), (0, True), (3, False)], (1, 1, 1): [(0, False), (0, True), (3, False)], (2, 0, 0): [(3, False)], (2, 1, 0): [(3, False), (1, False)], (2, 0, 1): [(3, True)], (2, 1, 1): [(3, True), (3, False)], (3, 0, 0): [(2, False)], (3, 1, 0): [(2, False), 'P', (1, True), (1, False)], (3, 0, 1): ['P', (2, False), (1, True), (0, False)], (3, 1, 1): ['P', (2, False), (1, True), (0, False), 'P']} chk=[[False, False], [False, False], [False, False], [False, False]]
+       50.23 real        47.76 user         0.56 sys
+            19398656  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                4485  page reclaims
+                  44  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   5  signals received
+                  27  voluntary context switches
+               89909  involuntary context switches
+            39349262  instructions retired
+            46422375  cycles elapsed
+             1786168  peak memory footprint
+  mode m2chk5: N* = 0 reached (restart 1, 0 s)
+  mode m2chk5: N* = 2 reached (restart 8, 2 s)
+  mode m2chk5: N* = 1 reached (restart 12, 3 s)
+climb m2chk5 seed 7: restarts 153, best N* 2, 50 s
+       50.23 real        47.64 user         0.55 sys
+            19382272  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                3733  page reclaims
+                 252  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   5  signals received
+                  50  voluntary context switches
+               91366  involuntary context switches
+            28717487  instructions retired
+            30751082  cycles elapsed
+             1737040  peak memory footprint

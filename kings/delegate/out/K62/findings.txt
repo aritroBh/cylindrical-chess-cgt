@@ -1,0 +1,58 @@
+K62 findings (2026-11-24; one AI agent; not refereed; no human re-derivation). Details and proofs: PROOF.md.
+
+SHORT ANSWER
+Q1 Ladder length. PROVED. For every N >= 1 there is an abstract exact over group with a bad Black move m such that
+   x_m + u_0 (White to move) is a White win beside T_n for n < N and a Black win beside T_N (Proposition 4.21).
+   Sharp bound (Theorem 4.20): N*(m) <= |P(x_m) \ E(x_m)| <= b (number of boards), where P = boards whose
+   right-free Black-to-move state is reachable from x_m by a White pass in Aux before the freeze, E = those where
+   White, to move and not in check, already wins beside -1; sharper N* <= |P \ (E u S_inf)|. N* <= b - 1 when no
+   e.p. move of White promotes (always in chess). So T_b (T_{b-1} in chess) replaces T_K, K ~ 4b.
+   Attained: N* = b with e.p. promotions (Gamma2(k,AB), b = k + 4 >= 5; Gamma(0,AB), b = 4, in reading M1);
+   N* = b - 1 without e.p. (Pi(k,AB), b = k + 5 >= 6; Pi_self(4), b = 5, in M1).
+   Smallest boards for N* = N (strict reading: no promotion at any state of a root or q board):
+     M1 (K61 model, a move may return to the same board): with e.p. max(4, N); without e.p. max(5, N + 1). Tight.
+     M2 (every move changes the board): without e.p. 5, 5, 6, 6, N + 1 (N = 1, 2, 3, 4, >= 5), tight for groups
+       without checks (5 boards force N* <= 2); with e.p. 4, 4, 5, 5, N (4 boards for N = 3, 4 open).
+   Checks are not needed by any construction; without e.p. every exact group with <= 4 boards satisfies (C), checks
+   allowed. Under the literal reading of (O1)-(O4) a 3-board group fails (C) (e.p. promotions at a root board).
+Q2 No universal finite family. PROVED (Theorem 4.22). Lambda_N (N + 5 boards, no checks, no e.p.) has the results
+   of omega beside every finite D-game with <= N positions, and not beside the short chain C_N (N + 1 positions) or
+   T_{N+1}. So every finite set F of finite D-games is passed by Lambda_{max|T|} without it having the results of
+   omega; no single finite D-game U (loopy or short) is universal, not even via the root test. {T_N} is universal
+   (Theorem 4.18(c)/Corollary 4.19(i); T_b suffices for a group with b boards). The escaping failures are in the
+   win half of (C) (D where omega wins); the draw half is decided by under_D alone (K60 remark, not re-derived).
+Q3 Fixed boards. PROVED (Corollary 4.23). On a w x h board with <= p pawns a side: T_M, M = (wh)^2 (wh+1)^{2p},
+   decides every exact over group (any M >= b - 1). Known real values: Z_O fails at 1...e5-e4 with N* = 2 (root test
+   from T_2 at d4); H10, the four cyl:8x7 groups and the five flat 8x7 groups satisfy (B1), so every ladder passes.
+Q4 Counter in chess. The counter is a route of Black quiet moves after the bad move on which White's only safe reply
+   is a tempo elsewhere (her freeze into a mutual zugzwang lets Black wait elsewhere). In chess: a Black king walk or
+   pawn march of n steps that keeps White's freeze available and is dead in every zugzwang the freeze creates.
+   Exactness does not forbid it; whether a real group has N* >= 3 is OPEN; search: N* >= 3 at a bad Black root move
+   (White wins beside T_2, Aux lost), by the layer recursion on the group's graph.
+
+CHECKED BY PROGRAM (COMPUTED-1; own code in src/, commands in PROOF.md section 6; every run < 45 s, < 70 MB)
+- Families (logs/q1_families.log): 97 (group, bad move) rows over Gamma2, Gamma, Pi, Pi_self, Lambda_1..6 and the
+  3-board literal group: all exact; N* from direct ladder solves equals the hand value; Aux (Buchi solver) lost iff
+  N* finite; N* <= |P\(E u Sinf)| <= |P\E| <= b (b - 1 without e.p. promotions); chain stabilisation; 0 violations.
+- Random (logs/q1_random.log): 4,500 random exact groups (4-8 boards; plain, checks, e.p., both), 7,778 bad moves,
+  493 failing (C), N* 0..4: 0 violations of Theorem 4.20.
+- Lambda_N (logs/q2_*.log): all 64 + 32,896 D-games with 1 or 2 positions (unreduced, up to relabelling) and all
+  89,613 reduced 3-position games: Lambda_1 fails 128 and 3,868 (first: *), Lambda_2 fails 0 and 384 (first: C_2,
+  i.e. down-arrow), Lambda_3..Lambda_5 pass all; full results-of-omega check agrees with (C) on every game. Ladders:
+  Lambda_N passes T_0..T_N, fails T_{N+1} (N <= 5); passes under_D. Chains: Lambda_N fails C_N..C_8, passes
+  C_1..C_{N-1} (N <= 6). 3,000 random loopy games (2-9 positions): no game with <= N positions separates Lambda_N.
+  Example asked for in the brief: Lambda_5 passes every D-game with <= 3 positions and T_0..T_5; C_5 and T_6
+  separate it (root A, Black to move: D; omega: W).
+- EDITS.md applies cleanly to a scratch copy (logs/apply_edits_test.log: 2 applied, 0 rejected).
+
+NOT CHECKED / OPEN
+- No real-board runs (by the brief). The real-group values quoted for Q3 are K60's (CHECKED-2 there).
+- M2 smallest boards: with e.p., N = 3, 4 on 4 boards; with checks and no e.p., N = 3, 4 on 5 boards.
+- Whether a real king-and-pawn exact group has N* >= 3.
+- The draw-half statement (under_D decides it) is cited from K60, not re-derived here.
+- Random searches are evidence only; the minimal-board claims marked tight rest on the hand proofs of PROOF.md 2.5.
+
+FILES
+PROOF.md, findings.txt, EDITS.md, pids.log, src/k62lib.py, src/k62families.py, src/k62q1.py, src/k62q2.py,
+src/k62chain.py, logs/q1_families.log, logs/q1_random.log, logs/q2_ladders.log, logs/q2_small2.log,
+logs/q2_small3.log, logs/q2_random.log, logs/q2_chains.log, logs/apply_edits_test.log.

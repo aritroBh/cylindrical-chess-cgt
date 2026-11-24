@@ -1,0 +1,37 @@
+Lambda_N beside ladders, chains and under_D (A = root A, Black to move; omega with Black to move)
+Lambda_1: T0:pass T1:pass T2:FAIL T3:FAIL T4:FAIL T5:FAIL T6:FAIL T7:FAIL T8:FAIL
+          C1:FAIL(A=D,w=W) C2:FAIL(A=D,w=W) C3:FAIL(A=D,w=W) C4:FAIL(A=D,w=W) C5:FAIL(A=D,w=W) C6:FAIL(A=D,w=W) C7:FAIL(A=D,w=W) C8:FAIL(A=D,w=W)
+          beside T_2 at u_0: A=D omega=W x=D; beside under_D: pass
+Lambda_2: T0:pass T1:pass T2:pass T3:FAIL T4:FAIL T5:FAIL T6:FAIL T7:FAIL T8:FAIL
+          C1:pass(A=W,w=W) C2:FAIL(A=D,w=W) C3:FAIL(A=D,w=W) C4:FAIL(A=D,w=W) C5:FAIL(A=D,w=W) C6:FAIL(A=D,w=W) C7:FAIL(A=D,w=W) C8:FAIL(A=D,w=W)
+          beside T_3 at u_0: A=D omega=W x=D; beside under_D: pass
+Lambda_3: T0:pass T1:pass T2:pass T3:pass T4:FAIL T5:FAIL T6:FAIL T7:FAIL T8:FAIL
+          C1:pass(A=W,w=W) C2:pass(A=W,w=W) C3:FAIL(A=D,w=W) C4:FAIL(A=D,w=W) C5:FAIL(A=D,w=W) C6:FAIL(A=D,w=W) C7:FAIL(A=D,w=W) C8:FAIL(A=D,w=W)
+          beside T_4 at u_0: A=D omega=W x=D; beside under_D: pass
+Lambda_4: T0:pass T1:pass T2:pass T3:pass T4:pass T5:FAIL T6:FAIL T7:FAIL T8:FAIL
+          C1:pass(A=W,w=W) C2:pass(A=W,w=W) C3:pass(A=W,w=W) C4:FAIL(A=D,w=W) C5:FAIL(A=D,w=W) C6:FAIL(A=D,w=W) C7:FAIL(A=D,w=W) C8:FAIL(A=D,w=W)
+          beside T_5 at u_0: A=D omega=W x=D; beside under_D: pass
+Lambda_5: T0:pass T1:pass T2:pass T3:pass T4:pass T5:pass T6:FAIL T7:FAIL T8:FAIL
+          C1:pass(A=W,w=W) C2:pass(A=W,w=W) C3:pass(A=W,w=W) C4:pass(A=W,w=W) C5:FAIL(A=D,w=W) C6:FAIL(A=D,w=W) C7:FAIL(A=D,w=W) C8:FAIL(A=D,w=W)
+          beside T_6 at u_0: A=D omega=W x=D; beside under_D: pass
+Lambda_6: T0:pass T1:pass T2:pass T3:pass T4:pass T5:pass T6:pass T7:FAIL T8:FAIL
+          C1:pass(A=W,w=W) C2:pass(A=W,w=W) C3:pass(A=W,w=W) C4:pass(A=W,w=W) C5:pass(A=W,w=W) C6:FAIL(A=D,w=W) C7:FAIL(A=D,w=W) C8:FAIL(A=D,w=W)
+          beside T_7 at u_0: A=D omega=W x=D; beside under_D: pass
+        0.04 real         0.03 user         0.00 sys
+            18333696  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                1459  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                  25  involuntary context switches
+           552552996  instructions retired
+           151835414  cycles elapsed
+            11174272  peak memory footprint

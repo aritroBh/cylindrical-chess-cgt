@@ -33,9 +33,10 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
          own graph or by one short test game, Corollary 4.19 (proved, refereed) (K60)
    - [x] Blind proof of Theorem 4.18 by Codex: all four statements proved; part (c) without the determinacy theorem;
          the proofs need the e.p. right to add moves only, as in chess (K61)
-   - [~] A test family for the results of over that does not depend on the group (K62: investigator reports that
-         every finite family misses some group, and that a ladder as long as the number of boards suffices; referee
-         running)
+   - [x] A test family for the results of over that does not depend on the group: none that is finite, for abstract
+         groups (Theorem 4.22); a ladder as long as the number of boards decides, so one ladder per board size
+         (Theorem 4.20, Corollary 4.23) (proved, refereed) (K62)
+   - [ ] Does a real group need a ladder longer than 2? The 3 + 3 group needs exactly 2
    - [ ] Hand proof of (O1) and of the d5 root of the K45 group
    - [x] The K45 group in chess at cap 1: d4 freeze and its zero exact, the rest undecided; exact groups also on flat
          8×6 to 10×6 and on cyl:8×7 (K48)

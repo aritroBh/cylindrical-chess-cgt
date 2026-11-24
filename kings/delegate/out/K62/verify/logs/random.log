@@ -1,0 +1,69 @@
+seed 11: {'groups': 1500, 'bad': 2057, 'fail': 129, 'viol': 0, 'tries': 55883, 'withchk': 394, 'withep': 787, 'dbl_bad': 460, 'epP': 285}
+  N* histogram (failing bad moves): {0: 7, 1: 65, 2: 34, 3: 17, 4: 6}
+  (N*, |P\(E u Sinf)|, |P\E|, b) counts: {(0, 0, 0, 8): 1, (0, 1, 1, 8): 1, (0, 3, 3, 6): 1, (0, 3, 3, 7): 2, (0, 3, 3, 8): 1, (0, 3, 3, 9): 1, (1, 1, 1, 4): 1, (1, 1, 1, 5): 3, (1, 1, 1, 6): 1, (1, 1, 1, 7): 2, (1, 1, 1, 8): 3, (1, 1, 1, 9): 2, (1, 2, 2, 7): 1, (1, 2, 2, 8): 3, (1, 2, 2, 9): 1, (1, 3, 3, 5): 3, (1, 3, 3, 6): 2, (1, 3, 3, 7): 1, (1, 3, 3, 8): 5, (1, 3, 3, 9): 8, (1, 4, 4, 5): 1, (1, 4, 4, 6): 5, (1, 4, 4, 8): 2, (1, 4, 4, 9): 3, (1, 4, 5, 8): 2, (1, 4, 5, 9): 1, (1, 5, 5, 7): 3, (1, 5, 5, 8): 1, (1, 5, 5, 9): 6, (1, 6, 6, 9): 2, (1, 7, 7, 9): 3, (2, 3, 3, 5): 2, (2, 3, 3, 6): 1, (2, 3, 3, 7): 1, (2, 3, 3, 8): 2, (2, 4, 4, 5): 2, (2, 4, 4, 7): 4, (2, 4, 4, 8): 3, (2, 4, 4, 9): 3, (2, 4, 6, 9): 1, (2, 5, 5, 5): 2, (2, 5, 5, 6): 1, (2, 5, 5, 7): 1, (2, 5, 5, 8): 4, (2, 5, 5, 9): 1, (2, 6, 6, 8): 2, (2, 6, 6, 9): 4, (3, 3, 3, 4): 1, (3, 3, 3, 5): 2, (3, 3, 3, 6): 3, (3, 3, 3, 7): 1, (3, 3, 3, 8): 1, (3, 4, 4, 7): 3, (3, 5, 5, 5): 1, (3, 5, 5, 8): 1, (3, 5, 5, 9): 3, (3, 6, 6, 9): 1, (4, 4, 4, 5): 1, (4, 4, 4, 8): 2, (4, 5, 5, 5): 1, (4, 5, 5, 6): 1, (4, 6, 6, 8): 1}
+  per (model, reading, M2): {('checks', 'literal', False): 39, ('checks', 'literal', True): 46, ('checks', 'strict', False): 60, ('checks', 'strict', True): 94, ('checks+ep', 'literal', False): 31, ('checks+ep', 'literal', True): 45, ('checks+ep', 'strict', False): 76, ('checks+ep', 'strict', True): 94, ('ep', 'literal', False): 69, ('ep', 'literal', True): 91, ('ep', 'strict', False): 178, ('ep', 'strict', True): 215, ('plain', 'literal', False): 63, ('plain', 'literal', True): 69, ('plain', 'strict', False): 134, ('plain', 'strict', True): 196}
+  time 18.3 s
+       73.71 real        16.54 user         0.45 sys
+            19808256  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               31220  page reclaims
+                  96  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                  81  signals received
+                 175  voluntary context switches
+               50910  involuntary context switches
+           180740127  instructions retired
+           157863556  cycles elapsed
+             1769808  peak memory footprint
+seed 12: {'groups': 1500, 'bad': 2087, 'fail': 132, 'viol': 0, 'tries': 55455, 'withchk': 410, 'withep': 770, 'dbl_bad': 459, 'epP': 286}
+  N* histogram (failing bad moves): {0: 10, 1: 75, 2: 35, 3: 9, 4: 3}
+  (N*, |P\(E u Sinf)|, |P\E|, b) counts: {(0, 0, 0, 6): 2, (0, 0, 0, 7): 1, (0, 2, 2, 6): 1, (0, 2, 2, 7): 1, (0, 2, 2, 8): 2, (0, 3, 3, 8): 1, (0, 4, 4, 9): 2, (1, 1, 1, 5): 4, (1, 1, 1, 6): 4, (1, 1, 1, 8): 3, (1, 1, 1, 9): 2, (1, 2, 2, 5): 1, (1, 2, 2, 6): 1, (1, 2, 2, 7): 1, (1, 2, 2, 8): 1, (1, 2, 2, 9): 2, (1, 3, 3, 4): 1, (1, 3, 3, 5): 2, (1, 3, 3, 6): 4, (1, 3, 3, 7): 4, (1, 3, 3, 8): 4, (1, 3, 3, 9): 5, (1, 3, 4, 7): 1, (1, 4, 4, 5): 2, (1, 4, 4, 6): 1, (1, 4, 4, 7): 6, (1, 4, 4, 8): 2, (1, 4, 4, 9): 4, (1, 4, 5, 9): 1, (1, 5, 5, 6): 1, (1, 5, 5, 7): 7, (1, 5, 5, 8): 3, (1, 5, 5, 9): 4, (1, 6, 6, 8): 1, (1, 6, 6, 9): 2, (1, 7, 7, 9): 1, (2, 2, 2, 7): 1, (2, 2, 2, 8): 1, (2, 3, 3, 6): 1, (2, 3, 3, 8): 3, (2, 3, 3, 9): 1, (2, 4, 4, 5): 1, (2, 4, 4, 7): 1, (2, 4, 4, 8): 5, (2, 4, 5, 8): 2, (2, 5, 5, 6): 2, (2, 5, 5, 8): 2, (2, 5, 5, 9): 4, (2, 6, 6, 7): 1, (2, 6, 6, 9): 4, (2, 6, 7, 9): 2, (2, 7, 7, 9): 3, (2, 8, 8, 9): 1, (3, 3, 3, 8): 1, (3, 3, 3, 9): 3, (3, 4, 4, 7): 1, (3, 4, 4, 8): 1, (3, 7, 7, 9): 3, (4, 6, 6, 7): 2, (4, 8, 8, 9): 1}
+  per (model, reading, M2): {('checks', 'literal', False): 34, ('checks', 'literal', True): 40, ('checks', 'strict', False): 63, ('checks', 'strict', True): 97, ('checks+ep', 'literal', False): 37, ('checks+ep', 'literal', True): 55, ('checks+ep', 'strict', False): 77, ('checks+ep', 'strict', True): 86, ('ep', 'literal', False): 86, ('ep', 'literal', True): 74, ('ep', 'strict', False): 176, ('ep', 'strict', True): 189, ('plain', 'literal', False): 56, ('plain', 'literal', True): 93, ('plain', 'strict', False): 146, ('plain', 'strict', True): 191}
+  time 18.0 s
+       18.01 real        16.51 user         0.33 sys
+            19890176  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                3406  page reclaims
+                   7  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   4  signals received
+                   8  voluntary context switches
+               45753  involuntary context switches
+            26548513  instructions retired
+            27442093  cycles elapsed
+             1753424  peak memory footprint
+seed 13: {'groups': 1500, 'bad': 2144, 'fail': 158, 'viol': 0, 'tries': 53402, 'withchk': 400, 'withep': 775, 'dbl_bad': 484, 'epP': 314}
+  N* histogram (failing bad moves): {0: 4, 1: 72, 2: 61, 3: 17, 4: 2, 5: 2}
+  (N*, |P\(E u Sinf)|, |P\E|, b) counts: {(0, 3, 3, 7): 2, (0, 3, 3, 9): 2, (1, 1, 1, 5): 3, (1, 1, 1, 6): 3, (1, 1, 1, 7): 2, (1, 1, 1, 8): 3, (1, 1, 1, 9): 1, (1, 1, 2, 7): 1, (1, 2, 2, 8): 2, (1, 2, 2, 9): 1, (1, 3, 3, 4): 1, (1, 3, 3, 5): 6, (1, 3, 3, 6): 2, (1, 3, 3, 7): 4, (1, 3, 3, 8): 5, (1, 3, 3, 9): 4, (1, 4, 4, 6): 5, (1, 4, 4, 7): 4, (1, 4, 4, 8): 1, (1, 4, 4, 9): 5, (1, 4, 5, 8): 2, (1, 4, 5, 9): 2, (1, 4, 6, 8): 1, (1, 5, 5, 6): 3, (1, 5, 5, 7): 2, (1, 5, 5, 8): 1, (1, 5, 5, 9): 1, (1, 5, 6, 8): 1, (1, 6, 6, 9): 3, (1, 7, 7, 8): 1, (1, 7, 7, 9): 1, (1, 8, 8, 9): 1, (2, 2, 2, 7): 2, (2, 2, 2, 8): 1, (2, 3, 3, 5): 3, (2, 3, 3, 6): 1, (2, 3, 3, 8): 4, (2, 3, 3, 9): 1, (2, 4, 4, 5): 2, (2, 4, 4, 6): 6, (2, 4, 4, 7): 6, (2, 4, 4, 8): 5, (2, 4, 4, 9): 2, (2, 5, 5, 6): 1, (2, 5, 5, 7): 6, (2, 5, 5, 8): 1, (2, 5, 5, 9): 4, (2, 6, 6, 8): 7, (2, 6, 6, 9): 6, (2, 7, 7, 8): 1, (2, 8, 8, 9): 2, (3, 3, 3, 4): 1, (3, 3, 3, 5): 1, (3, 3, 3, 7): 1, (3, 3, 3, 8): 1, (3, 3, 3, 9): 1, (3, 4, 4, 6): 1, (3, 4, 4, 7): 1, (3, 4, 6, 8): 1, (3, 5, 5, 7): 2, (3, 5, 5, 8): 1, (3, 5, 5, 9): 2, (3, 6, 6, 8): 1, (3, 6, 6, 9): 2, (3, 7, 7, 9): 1, (4, 4, 4, 7): 1, (4, 5, 5, 7): 1, (5, 6, 6, 9): 2}
+  per (model, reading, M2): {('checks', 'literal', False): 23, ('checks', 'literal', True): 45, ('checks', 'strict', False): 66, ('checks', 'strict', True): 86, ('checks+ep', 'literal', False): 40, ('checks+ep', 'literal', True): 58, ('checks+ep', 'strict', False): 83, ('checks+ep', 'strict', True): 85, ('ep', 'literal', False): 64, ('ep', 'literal', True): 77, ('ep', 'strict', False): 157, ('ep', 'strict', True): 217, ('plain', 'literal', False): 42, ('plain', 'literal', True): 98, ('plain', 'strict', False): 157, ('plain', 'strict', True): 202}
+  time 17.4 s
+       17.42 real        16.10 user         0.31 sys
+            19890176  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                3168  page reclaims
+                  14  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   4  signals received
+                   9  voluntary context switches
+               33362  involuntary context switches
+            26287813  instructions retired
+            21444275  cycles elapsed
+             1753424  peak memory footprint

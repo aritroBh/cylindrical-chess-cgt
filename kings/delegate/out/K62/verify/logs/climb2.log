@@ -1,0 +1,46 @@
+  mode m2ep4: N* = 0 reached (restart 1, 0 s)
+  mode m2ep4: N* = 2 reached (restart 6, 1 s)
+  mode m2ep4: N* = 1 reached (restart 27, 5 s)
+  mode m2ep4: N* = 3 reached (restart 35, 7 s)
+  mode m2ep4: N* = 4 reached (restart 82, 17 s)
+climb m2ep4 seed 23: restarts 551, best N* 4, 120 s
+  example with N* = 3: mv={(0, 0, 0): [(2, True)], (0, 1, 0): [(2, True)], (0, 0, 1): [(1, False)], (0, 1, 1): [(1, False)], (1, 0, 0): [(2, True)], (1, 1, 0): [(2, True), (3, True), (0, True)], (1, 0, 1): [(0, False), (3, False), (0, True)], (1, 1, 1): [(0, False), (3, False), (0, True)], (2, 0, 0): [(3, True)], (2, 1, 0): [(3, True), (1, True)], (2, 1, 1): [(3, True)], (3, 0, 0): [(2, True)], (3, 1, 0): [(2, True), 'P'], (3, 0, 1): ['P', (0, True), (2, False), (0, False), (1, True)], (3, 1, 1): ['P', (0, True), (2, False), (0, False), (1, True), (2, True)]} chk=[[False, False], [False, False], [False, False], [False, False]]
+  example with N* = 4: mv={(0, 0, 0): [(2, False)], (0, 1, 0): [(2, False), (3, False), (2, True), (1, True)], (0, 0, 1): [(1, False)], (0, 1, 1): [(1, False)], (1, 0, 0): [(2, True)], (1, 1, 0): [(2, True), (3, True)], (1, 0, 1): [(0, False), (3, False), (0, True), (3, True)], (1, 1, 1): [(0, False), (3, False), (0, True), (3, True)], (2, 0, 0): [(3, True)], (2, 1, 0): [(3, True), (1, False)], (2, 0, 1): [(3, True)], (2, 1, 1): [(3, True), (0, False)], (3, 0, 0): [(2, True), (1, False), (2, False)], (3, 1, 0): [(2, True), (1, False), (2, False), 'P'], (3, 0, 1): [(1, False), (0, False), (2, False)], (3, 1, 1): [(1, False), (0, False), (2, False), 'P']} chk=[[False, False], [False, False], [False, False], [False, False]]
+      120.08 real       109.32 user         2.63 sys
+            19349504  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                3897  page reclaims
+                  51  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   4  signals received
+                  15  voluntary context switches
+              337188  involuntary context switches
+            27010123  instructions retired
+            22165766  cycles elapsed
+             1720656  peak memory footprint
+  mode lit3m2: N* = 0 reached (restart 2, 0 s)
+climb lit3m2 seed 23: restarts 1343, best N* 0, 120 s
+      120.04 real       115.01 user         1.43 sys
+            19103744  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                3682  page reclaims
+                  19  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   4  signals received
+                  23  voluntary context switches
+              137289  involuntary context switches
+            26854380  instructions retired
+            17755750  cycles elapsed
+             1720656  peak memory footprint

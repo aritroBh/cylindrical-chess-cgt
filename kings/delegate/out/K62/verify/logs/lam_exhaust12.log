@@ -1,0 +1,48 @@
+exhaust n=1 mode=unreduced: 64 games up to relabelling; full != (C): 0; 0 s
+  Lambda_1 fails 0
+  Lambda_2 fails 0
+  Lambda_3 fails 0
+  Lambda_4 fails 0
+  Lambda_5 fails 0
+        0.02 real         0.02 user         0.00 sys
+            18317312  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                1460  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                  30  involuntary context switches
+           336712501  instructions retired
+           103158896  cycles elapsed
+            11141504  peak memory footprint
+exhaust n=2 mode=unreduced: 32896 games up to relabelling; full != (C): 0; 7 s
+  Lambda_1 fails 128; first: L=[[], [0]] R=[[], [0]]
+  Lambda_2 fails 0
+  Lambda_3 fails 0
+  Lambda_4 fails 0
+  Lambda_5 fails 0
+        7.07 real         6.14 user         0.14 sys
+            18350080  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                1461  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+               30528  involuntary context switches
+        123704592463  instructions retired
+         23526589865  cycles elapsed
+            11174272  peak memory footprint

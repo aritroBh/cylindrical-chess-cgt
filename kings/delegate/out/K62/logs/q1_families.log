@@ -1,0 +1,99 @@
+# Q1 families: model, construction, boards b, bad move, Aux, N*, |P|, |P-E|, |P-(E+Sinf)|, value at T_N*
+ep         Gamma end=P (N*=1)     b= 4 bad=A:(3, False) aux=False N*=1    |P|= 1 |P-E|= 1 |P-(E+Sinf)|= 1 val=-1 self=yes
+ep         Gamma(k=0)             b= 4 bad=A:(3, False) aux=False N*=2    |P|= 2 |P-E|= 2 |P-(E+Sinf)|= 2 val=-1 self=yes
+ep         Gamma(k=0,A)           b= 4 bad=A:(3, False) aux=False N*=3    |P|= 4 |P-E|= 4 |P-(E+Sinf)|= 4 val=-1 self=yes
+ep         Gamma(k=0,A)           b= 4 bad=A:(2, True)  aux=False N*=1    |P|= 4 |P-E|= 4 |P-(E+Sinf)|= 4 val=-1 self=yes
+ep         Gamma(k=0,AB)          b= 4 bad=A:(3, False) aux=False N*=4    |P|= 4 |P-E|= 4 |P-(E+Sinf)|= 4 val=-1 self=yes
+ep         Gamma(k=0,AB)          b= 4 bad=B:(2, True)  aux=False N*=1    |P|= 4 |P-E|= 4 |P-(E+Sinf)|= 4 val=-1 self=yes
+ep         Gamma(k=1)             b= 5 bad=A:(3, False) aux=False N*=3    |P|= 3 |P-E|= 3 |P-(E+Sinf)|= 3 val=-1 self=yes
+ep         Gamma(k=1,A)           b= 5 bad=A:(3, False) aux=False N*=4    |P|= 5 |P-E|= 5 |P-(E+Sinf)|= 5 val=-1 self=yes
+ep         Gamma(k=1,A)           b= 5 bad=A:(2, True)  aux=False N*=1    |P|= 5 |P-E|= 5 |P-(E+Sinf)|= 5 val=-1 self=yes
+ep         Gamma(k=1,AB)          b= 5 bad=A:(3, False) aux=False N*=5    |P|= 5 |P-E|= 5 |P-(E+Sinf)|= 5 val=-1 self=yes
+ep         Gamma(k=1,AB)          b= 5 bad=B:(2, True)  aux=False N*=1    |P|= 5 |P-E|= 5 |P-(E+Sinf)|= 5 val=-1 self=yes
+ep         Gamma(k=2)             b= 6 bad=A:(3, False) aux=False N*=4    |P|= 4 |P-E|= 4 |P-(E+Sinf)|= 4 val=-1 self=yes
+ep         Gamma(k=2,A)           b= 6 bad=A:(3, False) aux=False N*=5    |P|= 6 |P-E|= 6 |P-(E+Sinf)|= 6 val=-1 self=yes
+ep         Gamma(k=2,A)           b= 6 bad=A:(2, True)  aux=False N*=1    |P|= 6 |P-E|= 6 |P-(E+Sinf)|= 6 val=-1 self=yes
+ep         Gamma(k=2,AB)          b= 6 bad=A:(3, False) aux=False N*=6    |P|= 6 |P-E|= 6 |P-(E+Sinf)|= 6 val=-1 self=yes
+ep         Gamma(k=2,AB)          b= 6 bad=B:(2, True)  aux=False N*=1    |P|= 6 |P-E|= 6 |P-(E+Sinf)|= 6 val=-1 self=yes
+ep         Gamma(k=3)             b= 7 bad=A:(3, False) aux=False N*=5    |P|= 5 |P-E|= 5 |P-(E+Sinf)|= 5 val=-1 self=yes
+ep         Gamma(k=3,A)           b= 7 bad=A:(3, False) aux=False N*=6    |P|= 7 |P-E|= 7 |P-(E+Sinf)|= 7 val=-1 self=yes
+ep         Gamma(k=3,A)           b= 7 bad=A:(2, True)  aux=False N*=1    |P|= 7 |P-E|= 7 |P-(E+Sinf)|= 7 val=-1 self=yes
+ep         Gamma(k=3,AB)          b= 7 bad=A:(3, False) aux=False N*=7    |P|= 7 |P-E|= 7 |P-(E+Sinf)|= 7 val=-1 self=yes
+ep         Gamma(k=3,AB)          b= 7 bad=B:(2, True)  aux=False N*=1    |P|= 7 |P-E|= 7 |P-(E+Sinf)|= 7 val=-1 self=yes
+ep         Gamma(k=4)             b= 8 bad=A:(3, False) aux=False N*=6    |P|= 6 |P-E|= 6 |P-(E+Sinf)|= 6 val=-1 self=yes
+ep         Gamma(k=4,A)           b= 8 bad=A:(3, False) aux=False N*=7    |P|= 8 |P-E|= 8 |P-(E+Sinf)|= 8 val=-1 self=yes
+ep         Gamma(k=4,A)           b= 8 bad=A:(2, True)  aux=False N*=1    |P|= 8 |P-E|= 8 |P-(E+Sinf)|= 8 val=-1 self=yes
+ep         Gamma(k=4,AB)          b= 8 bad=A:(3, False) aux=False N*=8    |P|= 8 |P-E|= 8 |P-(E+Sinf)|= 8 val=-1 self=yes
+ep         Gamma(k=4,AB)          b= 8 bad=B:(2, True)  aux=False N*=1    |P|= 8 |P-E|= 8 |P-(E+Sinf)|= 8 val=-1 self=yes
+ep         Gamma(k=5)             b= 9 bad=A:(3, False) aux=False N*=7    |P|= 7 |P-E|= 7 |P-(E+Sinf)|= 7 val=-1 self=yes
+ep         Gamma(k=5,A)           b= 9 bad=A:(3, False) aux=False N*=8    |P|= 9 |P-E|= 9 |P-(E+Sinf)|= 9 val=-1 self=yes
+ep         Gamma(k=5,A)           b= 9 bad=A:(2, True)  aux=False N*=1    |P|= 9 |P-E|= 9 |P-(E+Sinf)|= 9 val=-1 self=yes
+ep         Gamma(k=5,AB)          b= 9 bad=A:(3, False) aux=False N*=9    |P|= 9 |P-E|= 9 |P-(E+Sinf)|= 9 val=-1 self=yes
+ep         Gamma(k=5,AB)          b= 9 bad=B:(2, True)  aux=False N*=1    |P|= 9 |P-E|= 9 |P-(E+Sinf)|= 9 val=-1 self=yes
+plain      Pi end=P (N*=1)        b= 5 bad=A:(4, False) aux=False N*=1    |P|= 2 |P-E|= 1 |P-(E+Sinf)|= 1 val=-1 self=no
+plain      Pi(k=0)                b= 5 bad=A:(4, False) aux=False N*=2    |P|= 3 |P-E|= 2 |P-(E+Sinf)|= 2 val=-1 self=no
+plain      Pi(k=1)                b= 6 bad=A:(4, False) aux=False N*=3    |P|= 4 |P-E|= 3 |P-(E+Sinf)|= 3 val=-1 self=no
+plain      Pi(k=1,A)              b= 6 bad=A:(4, False) aux=False N*=4    |P|= 6 |P-E|= 5 |P-(E+Sinf)|= 5 val=-1 self=no
+plain      Pi(k=1,A)              b= 6 bad=A:(5, False) aux=False N*=2    |P|= 3 |P-E|= 2 |P-(E+Sinf)|= 2 val=-1 self=no
+plain      Pi(k=1,AB)             b= 6 bad=A:(4, False) aux=False N*=5    |P|= 6 |P-E|= 5 |P-(E+Sinf)|= 5 val=-1 self=no
+plain      Pi(k=1,AB)             b= 6 bad=B:(5, False) aux=False N*=2    |P|= 3 |P-E|= 2 |P-(E+Sinf)|= 2 val=-1 self=no
+plain      Pi(k=2)                b= 7 bad=A:(4, False) aux=False N*=4    |P|= 5 |P-E|= 4 |P-(E+Sinf)|= 4 val=-1 self=no
+plain      Pi(k=2,A)              b= 7 bad=A:(4, False) aux=False N*=5    |P|= 7 |P-E|= 6 |P-(E+Sinf)|= 6 val=-1 self=no
+plain      Pi(k=2,A)              b= 7 bad=A:(5, False) aux=False N*=3    |P|= 4 |P-E|= 3 |P-(E+Sinf)|= 3 val=-1 self=no
+plain      Pi(k=2,AB)             b= 7 bad=A:(4, False) aux=False N*=6    |P|= 7 |P-E|= 6 |P-(E+Sinf)|= 6 val=-1 self=no
+plain      Pi(k=2,AB)             b= 7 bad=B:(5, False) aux=False N*=3    |P|= 4 |P-E|= 3 |P-(E+Sinf)|= 3 val=-1 self=no
+plain      Pi(k=3)                b= 8 bad=A:(4, False) aux=False N*=5    |P|= 6 |P-E|= 5 |P-(E+Sinf)|= 5 val=-1 self=no
+plain      Pi(k=3,A)              b= 8 bad=A:(4, False) aux=False N*=6    |P|= 8 |P-E|= 7 |P-(E+Sinf)|= 7 val=-1 self=no
+plain      Pi(k=3,A)              b= 8 bad=A:(5, False) aux=False N*=4    |P|= 5 |P-E|= 4 |P-(E+Sinf)|= 4 val=-1 self=no
+plain      Pi(k=3,AB)             b= 8 bad=A:(4, False) aux=False N*=7    |P|= 8 |P-E|= 7 |P-(E+Sinf)|= 7 val=-1 self=no
+plain      Pi(k=3,AB)             b= 8 bad=B:(5, False) aux=False N*=4    |P|= 5 |P-E|= 4 |P-(E+Sinf)|= 4 val=-1 self=no
+plain      Pi(k=4)                b= 9 bad=A:(4, False) aux=False N*=6    |P|= 7 |P-E|= 6 |P-(E+Sinf)|= 6 val=-1 self=no
+plain      Pi(k=4,A)              b= 9 bad=A:(4, False) aux=False N*=7    |P|= 9 |P-E|= 8 |P-(E+Sinf)|= 8 val=-1 self=no
+plain      Pi(k=4,A)              b= 9 bad=A:(5, False) aux=False N*=5    |P|= 6 |P-E|= 5 |P-(E+Sinf)|= 5 val=-1 self=no
+plain      Pi(k=4,AB)             b= 9 bad=A:(4, False) aux=False N*=8    |P|= 9 |P-E|= 8 |P-(E+Sinf)|= 8 val=-1 self=no
+plain      Pi(k=4,AB)             b= 9 bad=B:(5, False) aux=False N*=5    |P|= 6 |P-E|= 5 |P-(E+Sinf)|= 5 val=-1 self=no
+plain      Pi(k=5)                b=10 bad=A:(4, False) aux=False N*=7    |P|= 8 |P-E|= 7 |P-(E+Sinf)|= 7 val=-1 self=no
+plain      Pi(k=5,A)              b=10 bad=A:(4, False) aux=False N*=8    |P|=10 |P-E|= 9 |P-(E+Sinf)|= 9 val=-1 self=no
+plain      Pi(k=5,A)              b=10 bad=A:(5, False) aux=False N*=6    |P|= 7 |P-E|= 6 |P-(E+Sinf)|= 6 val=-1 self=no
+plain      Pi(k=5,AB)             b=10 bad=A:(4, False) aux=False N*=9    |P|=10 |P-E|= 9 |P-(E+Sinf)|= 9 val=-1 self=no
+plain      Pi(k=5,AB)             b=10 bad=B:(5, False) aux=False N*=6    |P|= 7 |P-E|= 6 |P-(E+Sinf)|= 6 val=-1 self=no
+ep         Gamma2 end=P (N*=1)    b= 4 bad=A:(3, False) aux=False N*=1    |P|= 1 |P-E|= 1 |P-(E+Sinf)|= 1 val=-1 self=no
+ep         Gamma2(k=0)            b= 4 bad=A:(3, False) aux=False N*=2    |P|= 2 |P-E|= 2 |P-(E+Sinf)|= 2 val=-1 self=no
+ep         Gamma2(k=1)            b= 5 bad=A:(3, False) aux=False N*=3    |P|= 3 |P-E|= 3 |P-(E+Sinf)|= 3 val=-1 self=no
+ep         Gamma2(k=1,A)          b= 5 bad=A:(3, False) aux=False N*=4    |P|= 5 |P-E|= 5 |P-(E+Sinf)|= 5 val=-1 self=no
+ep         Gamma2(k=1,A)          b= 5 bad=A:(4, False) aux=False N*=2    |P|= 5 |P-E|= 5 |P-(E+Sinf)|= 5 val=-1 self=no
+ep         Gamma2(k=1,AB)         b= 5 bad=A:(3, False) aux=False N*=5    |P|= 5 |P-E|= 5 |P-(E+Sinf)|= 5 val=-1 self=no
+ep         Gamma2(k=1,AB)         b= 5 bad=B:(4, False) aux=False N*=2    |P|= 5 |P-E|= 5 |P-(E+Sinf)|= 5 val=-1 self=no
+ep         Gamma2(k=2)            b= 6 bad=A:(3, False) aux=False N*=4    |P|= 4 |P-E|= 4 |P-(E+Sinf)|= 4 val=-1 self=no
+ep         Gamma2(k=2,A)          b= 6 bad=A:(3, False) aux=False N*=5    |P|= 6 |P-E|= 6 |P-(E+Sinf)|= 6 val=-1 self=no
+ep         Gamma2(k=2,A)          b= 6 bad=A:(4, False) aux=False N*=3    |P|= 6 |P-E|= 6 |P-(E+Sinf)|= 6 val=-1 self=no
+ep         Gamma2(k=2,AB)         b= 6 bad=A:(3, False) aux=False N*=6    |P|= 6 |P-E|= 6 |P-(E+Sinf)|= 6 val=-1 self=no
+ep         Gamma2(k=2,AB)         b= 6 bad=B:(4, False) aux=False N*=3    |P|= 6 |P-E|= 6 |P-(E+Sinf)|= 6 val=-1 self=no
+ep         Gamma2(k=3)            b= 7 bad=A:(3, False) aux=False N*=5    |P|= 5 |P-E|= 5 |P-(E+Sinf)|= 5 val=-1 self=no
+ep         Gamma2(k=3,A)          b= 7 bad=A:(3, False) aux=False N*=6    |P|= 7 |P-E|= 7 |P-(E+Sinf)|= 7 val=-1 self=no
+ep         Gamma2(k=3,A)          b= 7 bad=A:(4, False) aux=False N*=4    |P|= 7 |P-E|= 7 |P-(E+Sinf)|= 7 val=-1 self=no
+ep         Gamma2(k=3,AB)         b= 7 bad=A:(3, False) aux=False N*=7    |P|= 7 |P-E|= 7 |P-(E+Sinf)|= 7 val=-1 self=no
+ep         Gamma2(k=3,AB)         b= 7 bad=B:(4, False) aux=False N*=4    |P|= 7 |P-E|= 7 |P-(E+Sinf)|= 7 val=-1 self=no
+ep         Gamma2(k=4)            b= 8 bad=A:(3, False) aux=False N*=6    |P|= 6 |P-E|= 6 |P-(E+Sinf)|= 6 val=-1 self=no
+ep         Gamma2(k=4,A)          b= 8 bad=A:(3, False) aux=False N*=7    |P|= 8 |P-E|= 8 |P-(E+Sinf)|= 8 val=-1 self=no
+ep         Gamma2(k=4,A)          b= 8 bad=A:(4, False) aux=False N*=5    |P|= 8 |P-E|= 8 |P-(E+Sinf)|= 8 val=-1 self=no
+ep         Gamma2(k=4,AB)         b= 8 bad=A:(3, False) aux=False N*=8    |P|= 8 |P-E|= 8 |P-(E+Sinf)|= 8 val=-1 self=no
+ep         Gamma2(k=4,AB)         b= 8 bad=B:(4, False) aux=False N*=5    |P|= 8 |P-E|= 8 |P-(E+Sinf)|= 8 val=-1 self=no
+ep         Gamma2(k=5)            b= 9 bad=A:(3, False) aux=False N*=7    |P|= 7 |P-E|= 7 |P-(E+Sinf)|= 7 val=-1 self=no
+ep         Gamma2(k=5,A)          b= 9 bad=A:(3, False) aux=False N*=8    |P|= 9 |P-E|= 9 |P-(E+Sinf)|= 9 val=-1 self=no
+ep         Gamma2(k=5,A)          b= 9 bad=A:(4, False) aux=False N*=6    |P|= 9 |P-E|= 9 |P-(E+Sinf)|= 9 val=-1 self=no
+ep         Gamma2(k=5,AB)         b= 9 bad=A:(3, False) aux=False N*=9    |P|= 9 |P-E|= 9 |P-(E+Sinf)|= 9 val=-1 self=no
+ep         Gamma2(k=5,AB)         b= 9 bad=B:(4, False) aux=False N*=6    |P|= 9 |P-E|= 9 |P-(E+Sinf)|= 9 val=-1 self=no
+plain      Pi_self(3)             b= 5 bad=B:(4, False) aux=False N*=2    |P|= 3 |P-E|= 2 |P-(E+Sinf)|= 2 val=-1 self=yes
+plain      Pi_self(3)             b= 5 bad=B:(1, False) aux=False N*=3    |P|= 5 |P-E|= 4 |P-(E+Sinf)|= 4 val=-1 self=yes
+plain      Pi_self(4)             b= 5 bad=A:(0, False) aux=False N*=4    |P|= 5 |P-E|= 4 |P-(E+Sinf)|= 4 val=-1 self=yes
+plain      Pi_self(4)             b= 5 bad=B:(4, False) aux=False N*=2    |P|= 3 |P-E|= 2 |P-(E+Sinf)|= 2 val=-1 self=yes
+plain      Lambda_1               b= 6 bad=A:(5, False) aux=False N*=2    |P|= 3 |P-E|= 2 |P-(E+Sinf)|= 2 val=0  self=no
+plain      Lambda_2               b= 7 bad=A:(5, False) aux=False N*=3    |P|= 4 |P-E|= 3 |P-(E+Sinf)|= 3 val=0  self=no
+plain      Lambda_3               b= 8 bad=A:(5, False) aux=False N*=4    |P|= 5 |P-E|= 4 |P-(E+Sinf)|= 4 val=0  self=no
+plain      Lambda_4               b= 9 bad=A:(5, False) aux=False N*=5    |P|= 6 |P-E|= 5 |P-(E+Sinf)|= 5 val=0  self=no
+plain      Lambda_5               b=10 bad=A:(5, False) aux=False N*=6    |P|= 7 |P-E|= 6 |P-(E+Sinf)|= 6 val=0  self=no
+plain      Lambda_6               b=11 bad=A:(5, False) aux=False N*=7    |P|= 8 |P-E|= 7 |P-(E+Sinf)|= 7 val=0  self=no
+ep-literal 3-board literal reading b= 3 bad=A:(1, True)  aux=False N*=2    |P|= 3 |P-E|= 3 |P-(E+Sinf)|= 3 val=-1 self=yes
+ep-literal 3-board literal reading b= 3 bad=B:(2, True)  aux=False N*=1    |P|= 3 |P-E|= 3 |P-(E+Sinf)|= 3 val=-1 self=yes
+violations of Theorem 4.20 / consistency: 0

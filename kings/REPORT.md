@@ -512,6 +512,12 @@ Every deliverable was given to independent referees (Claude models) told to brea
     with (B1) on flat 8×8, the ordinary chessboard. The four cyl:8×7 groups of K48 have the results of over too
     (Corollary 4.16, (B1) now by two programs). The referee wrote a third solver and found no error; one wording
     correction (five placements, four shapes) (`kings/delegate/out/K59/REVIEW.md`).
+  - K62 (2026-11-24, refereed): is there a test for the results of over that does not depend on the group?
+    Theorem 4.20 (PROVED): the ladder T_b, b the number of boards of the group, decides (T_{b−1} in chess), so one
+    ladder decides every group on one board size (Corollary 4.23). Theorem 4.22 (PROVED): no finite set of finite
+    D-games decides for every abstract exact over group; the group Λ_N passes every D-game with at most N positions
+    and fails one with N + 1. Proposition 4.21: every ladder length occurs. For king-and-pawn groups the question
+    is open; the only real group that fails needs a ladder of length 2 (`kings/delegate/out/K62/REVIEW.md`).
   - Theorem 1.11(c) repaired (2026-11-23): its proof used the e.p. condition (E) without assuming it, and its frontier
     step used an unproved inheritance of threats by re-split components. (E) is now a hypothesis (every use already had
     it through Theorem 1.14), and the inheritance is proved. Found while the paper's proofs appendix was written and
