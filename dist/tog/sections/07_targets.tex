@@ -3,7 +3,7 @@
 Elkies~\cite{Elkies1996} found fractions, ups and tinies in chess endgames on the ordinary board. We searched
 the census (Section~\ref{sec:atlas}) for smaller values of these kinds: $1/8$, $1/16$ and $1/32$;
 \emph{up-second} $\upsec=\game{0}{{\downarrow}\star}$, positive but smaller than ${\uparrow}$, and
-$\upsec\star=\game{0,\star}{{\downarrow}}$; and the \emph{tinies} $\tinyg{x}=\ggame{0}{0\mid -x}$ (a number $x$).
+$\upsec\star=\game{0,\star}{{\downarrow}}$; and the \emph{tinies} $\tinyg{x}=\ggame{0}{0\mid -x}$ (a number $x>0$).
 Table~\ref{tab:targets} counts them under both passed-pawn tests; under the e.p.-aware test $1/32$
 disappears. We do not claim these kinds of value as new; what is new is $10$-man positions with a legal pawn
 history, checked in all nine settings (Tiny~1 in the six with en passant on).
@@ -27,7 +27,7 @@ $\tinyg{1}$ & $\ggame{0}{0\mid -1}$ & $13$ & $16$ \\
 
 \smallskip
 \parbox{\columnwidth}{\footnotesize Positions of each exact value in the census (count rule); no census position
-is $\tinyg{x}$ with $x\notin\mathbb{Z}$. Textbook column: an independent C solver confirmed each identity
+is $\tinyg{x}$ for a dyadic $x\notin\mathbb{Z}$ below $8$ with denominator at most $16$. Textbook column: an independent C solver confirmed each identity
 (position minus target $=0$) \lab{C2}. E.p.-aware column: \lab{C1}.}
 \end{table}
 
@@ -65,7 +65,7 @@ White a2, b2, b6 against black a6, b7, c5 (Fig.~\ref{fig:eighth}(b)) is $\game{0
 in all nine settings \lab{C2}: white's a2--a4 and a2--a3 leave $0$ and $\star$, black's a6--a5 leaves
 ${\downarrow}$. With the c-pawn on c6 (Fig.~\ref{fig:eighth}(c)), white's a2--a3 leaves $0$ and black's a6--a5
 leaves $\game{0}{-1}$, which dominates c6--c5, so $G=\tinyg{1}$ under every race rule with en passant on
-(textbook test \lab{C2}, e.p.-aware test \lab{C1}); with e.p.\ off it is ${\uparrow}$. Unlike
-Fig.~\ref{fig:basic}(c), it needs no seam. Both structures arise from the starting position by c2$\times$b3,
+(textbook test \lab{C2}, e.p.-aware test \lab{C1}); with e.p.\ off it is ${\uparrow}$.
+Both structures arise from the starting position by c2$\times$b3,
 b3--b4--b5--b6, a7--a6 and c7--c5 (c7--c6 for Tiny~1). A textbook-test $1/8$ and $\upsec$ in the census fail under the e.p.-aware test (Section~S5), so we state
 these values for all nine settings.

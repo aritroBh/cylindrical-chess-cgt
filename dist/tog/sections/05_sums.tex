@@ -18,9 +18,9 @@ one rank up, \pos{W c2 c4 d4 / B c3 d5 d6 d7}, has the same value.
 
 \subsection{When Is the Sum Model Right?}\label{sec:sums-hss}
 
-In chess the first passed pawn ends the game; in a sum, a component with a passed pawn becomes $\pm\BIG$ and
+On the whole board the first passed pawn ends the game; in a sum, a component with a passed pawn becomes $\pm\BIG$ and
 play goes on elsewhere, so a $+\BIG$ can cancel a $-\BIG$. In $\game{\BIG}{0}+\game{0}{-\BIG}$ the first player
-makes a passed pawn and wins the chess game, but the sum is $0$ for every $\BIG$, since the second player
+makes a passed pawn and wins on the whole board, but the sum is $0$ for every $\BIG$, since the second player
 answers in the other component \lab{P}. We write $W(X)$ for the whole-board game of a pawn position $X$, which
 ends at the first passed pawn, and $S(X)$ for its sum model: after a move, the moved component becomes $\pm\BIG$ if a side has a
 passed pawn in it (by the race rule if both have one); otherwise it is re-split along empty files
@@ -49,8 +49,7 @@ Section~S12.
 In the default setting, of all $599{,}098$ positions without a passed pawn that have at most six pawns on flat boards three to five
 files wide, the $540{,}503$ HSS ones all agree in outcome and $19.3\%$ of the rest differ, the
 smallest being \pos{W a5 d3 / B b6 e4}, a second-player win as a sum and a first-player win on the board
-\lab{C1}. With $\BIG=256$ the move
-bound always holds on boards up to $8\times8$. HSS is needed (Proposition~\ref{prop:sumcounter}), and so is
+\lab{C1}. HSS is needed (Proposition~\ref{prop:sumcounter}), and so is
 (E): without it, sums fail even in the pawn game with no passed-pawn rule \lab{C1} (Section~S3), and in our model \lab{S} (Section~S12).
 
 \begin{proposition}[\lab{C2}]\label{prop:sumcounter}
@@ -61,7 +60,7 @@ opposite threats appear later in its tree, so Theorem~\ref{thm:hss} does not app
 \end{proposition}
 
 \emph{Two models.} Our CGT engine computes $S$, the model of~\cite{Elkies1996}, and the independent
-whole-board solver $W$. They agree on every headline value: the $1/8$ and $\upsec\star$ in all nine settings,
+whole-board solver $W$. They agree on these headline values: the $1/8$ and $\upsec\star$ in all nine settings,
 and the seven-pawn $\nim{2}$ in the default setting. Elsewhere they can differ, even in outcome (Section~S3);
 there we name the model we mean.
 \emph{Real kings.} On a six-rank $\cyl{8}$ we solved $19$ sums of two components beside a tr\'ebuchet with real

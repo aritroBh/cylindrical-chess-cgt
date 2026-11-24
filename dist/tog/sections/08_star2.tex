@@ -101,17 +101,17 @@ ten pawns are the least on $\cyl{7}$ and $\cyl{8}$.}
 \label{fig:least}
 \end{figure}
 
-Fig.~\ref{fig:least} gives the least ring $\nim{2}$ and $\nim{3}$ on each cylinder; Section~S6 lists example rings, counts and checks for every $n$. The first ring $\nim{2}$ on
+Fig.~\ref{fig:least} gives the least known ring $\nim{2}$ and $\nim{3}$ on each cylinder; Section~S6 lists example rings, counts and checks for every $n$. The first ring $\nim{2}$ on
 $\cyl{n}$ has $n+3$ pawns for $n=3,\dots,7$ \lab{C2}, among them the six-pawn \pos{W a2 a3 b2 / B b7 c6 c7} on
 $\cyl{3}$, one pawn fewer than any ordinary board of width at most four allows; it needs two en passant
 captures, and with e.p.\ off it is $0$ \lab{C2}. On $\cyl{8}$ and $\cyl{9}$ ten is again the least \lab{C2}.
-From $\cyl{10}$ on, one pawn per file, the least a ring can have, suffices: \pos{W b2 d2 e3 h3 j5 / B a4 c6 f6
+From $\cyl{10}$ on, one pawn per file suffices: \pos{W b2 d2 e3 h3 j5 / B a4 c6 f6
 g7 i7} on $\cyl{10}$ (the ring $M_{10}$ of Fig.~\ref{fig:ring}) and \pos{W c5 e3 h3 i2 k2 / B a4 b7 d7 f7 g6 j6}
 on $\cyl{11}$ are $\nim{2}$ \lab{C2}.
 
 For proofs we use \emph{walls}: runs of files with one pawn each, alternating in color, the black pawn two
-ranks above the white (B4, W2: a black pawn on rank 4, a white one on rank 2). If a wall pawn moves, its neighbor
-captures it and gets a passed pawn, so wall moves lose; with them deleted, inserting a pair of wall files leaves
+ranks above the white (B4, W2: a black pawn on rank 4, a white one on rank 2). If a pawn inside a wall moves, its neighbor
+captures it and gets a passed pawn, so these moves lose; with them deleted, inserting a pair of wall files leaves
 the \emph{reduced game}, played in a window of a few files, unchanged. As a whole-board game this gives a
 ring $\nim{2}$ with $n+3$ pawns on every $\cyl{n}$ with $n\ge5$ \lab{S}, checked by two programs for $n\le61$
 \lab{C2}, and as sums of components our engine confirms it only to $n=12$ \lab{C1}. The same argument proves the
@@ -121,7 +121,7 @@ components they are $\nim{2}$ on $\cyl{10}$ and $\cyl{11}$ \lab{C1}.
 A $\nim{3}$ lies just beyond these scans, as a single component with nine pawns: B with a white a2 and a black a4
 added, \pos{W a2 b4 c2 d2 / B a4 a6 a7 c6 d5}, is $\nim{3}$ on four files \lab{C2}. In the whole-board game no
 position with eight pawns or fewer on up to eight files, ordinary or cylinder, is $\nim{3}$ \lab{C1}. On
-$\cyl{7}$ eight ten-pawn rings are $\nim{3}$ \lab{C2}. Wall insertion gives a whole-board $\nim{3}$ with $n+2$
+$\cyl{7}$ eight ten-pawn rings are $\nim{3}$ \lab{C2}, six of them also as sums. Wall insertion gives a whole-board $\nim{3}$ with $n+2$
 pawns on every $\cyl{n}$ with even $n\ge8$ and odd $n\ge11$ \lab{S}, and with $n+1$ pawns on $\cyl{11}$ \lab{C2} and on every $\cyl{n}$ with $n\ge12$ \lab{S}. Height matters: on boards of three to five files, seven ranks give a $\nim{2}$ with four
 pawns, \pos{W a2 c2 / B c3 b6}, and a $\nim{3}$ with six; six ranks give a $\nim{2}$ and five give none
 \lab{C2}. But no $\nim{4}$ has turned up:

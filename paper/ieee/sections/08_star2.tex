@@ -114,7 +114,7 @@ Theorem~\ref{thm:census}, seven is the least number of pawns in a $\nim{2}$ on t
 whole-board game, a scan of every position with at most seven pawns on up to nine files extends this to ordinary
 boards of any width: a run of empty files acts like one, and every part has pawns of both colors and spans at most
 as many files as it has pawns, so six pawns fit on eight files and seven on nine. It finds no $\nim{k}$ with $k\ge2$ with six pawns or fewer, and the only seven-pawn $\nim{2}$ are A and
-B \lab{C2}.
+B \lab{C2}. For $k\ge4$ this rests on the first program alone, since the second tests heaps up to $\nim{3}$ \lab{C1}. As sums, other seven-pawn positions are $\nim{2}$ on five files: \pos{W a2 b2 d2 / B a4 d4 e3 e4} is one, and black wins it on the whole board whoever starts, because in the sum a $+\BIG$ cancels a $-\BIG$ \lab{C2}.
 
 On five files a scan of all $14{,}680{,}983$ eight-pawn positions finds $21$ of value $\nim{2}$ in the default
 setting \lab{C1}, each using all five files. As whole-board games all $21$ are $\nim{2}$ by two programs \lab{C2};

@@ -15,7 +15,7 @@ Call a file \emph{untouched} if both its pawns stand on their starting squares. 
 b- and d-files untouched, the captures b3$\times$c2, d1$\times$c2, d3$\times$c2 and b1$\times$c2 are forced
 (up to the choice of side), and leave black to move with the b- and d-files empty and the c-file blocked for
 good. At the end of a row the push takes three plies and empties its one neighbor; a push with no untouched
-neighbor is blocked. Counting each forced sequence as one move, strips separated by empty files never interact,
+neighbor only blocks its file. Counting each forced sequence as one move, strips separated by empty files never interact,
 and the game is impartial: a strip of $n$ untouched files is the octal game
 $\mathbf{0.137}$~\cite{GuySmith1956,WinningWays}, in which a move removes a file and its untouched neighbors. Its
 Grundy values are $g(0)=0$, $g(1)=1$ and, for $n\ge2$,
@@ -56,5 +56,5 @@ $3\times(m+3)$ cylinder a first-player win (Theorem~\ref{thm:ring}).}
 The ring formula of~\cite{Study2025}, and its remark that the ring's value is 0 or 1, hold with the correct $g$
 (Fig.~\ref{fig:dawson_grundy}). In mis\`ere play the ring rule carries over, since a forced sequence has odd
 length (the first player wins exactly when the $(n-3)$-file strip is a mis\`ere P-position); our implementation of the Plambeck--Siegel algorithm~\cite{PlambeckSiegel2008} reproduces their partial
-quotient for strips of at most 32 files (order 638, 109 P-positions) \lab{C2}, and the next quotient did not
+quotient for strips of at most 32 files (order 638, P-portion of size 109) \lab{C2}, and the next quotient did not
 finish (Section~S9).

@@ -19,7 +19,7 @@ player may move to any of $\nim{0}=0$, $\nim{1}=\star=\game{0}{0}$, \dots, $\nim
 $\nim{2}=\game{0,\star}{0,\star}$. The \emph{birthday} of a game is the height of its canonical game tree, so
 $\nim{k}$ has birthday $k$. Each game has a \emph{mean} and a \emph{temperature}, read from its
 thermograph~\cite{WinningWays}; $\pm x$ has mean $0$ and temperature $x$. The \emph{left} and \emph{right stops}
-are the numbers reached when white or black moves first and both play until a number appears. Infinitesimals
+are the numbers reached when white or black moves first and both play well until a number appears. Infinitesimals
 include \emph{up} ${\uparrow}=\game{0}{\star}$, ${\downarrow}=-{\uparrow}$, ${\Uparrow}={\uparrow}+{\uparrow}$,
 and $\tinyg{1}=\ggame{0}{0\mid -1}=\game{0}{\game{0}{-1}}$.
 
@@ -27,7 +27,7 @@ and $\tinyg{1}=\ggame{0}{0\mid -1}=\game{0}{\game{0}{-1}}$.
 Following Elkies~\cite{Elkies1996}, we change chess just enough for normal play~\cite{WinningWays}. In pawn-only
 positions a player who has no move loses; there are no null moves. A position in which exactly one side has a
 passed pawn is decided, worth $+\BIG$ if that pawn is white and $-\BIG$ if it is black, where $\BIG$ exceeds the number of moves
-either side can make (we use $\BIG=256$) and a pawn on its last rank counts as passed; M\"aser models such global threats with loopy
+either side can make (we use $\BIG=256$, enough on boards up to $8\times8$) and a pawn on its last rank counts as passed; M\"aser models such global threats with loopy
 games~\cite{Maeser2002}. Kings are added as a group in mutual zugzwang, the tr\'ebuchet, and are then
 \emph{frozen}: the model never moves them and counts the group as $0$, since whoever moves a king there first
 loses a pawn, and then the game; Section~\ref{sec:kings} asks when this is exact. A move that gives both sides a
@@ -83,7 +83,7 @@ $4{,}070$ of them in outcome \lab{C1} (Section~S1). The three race rules and thr
 \subsection{Components and the Cut Lemma}
 A pawn changes file only by capturing onto a file where an enemy pawn stands (en passant included), so an empty
 file stays empty forever and the pawns on either side of it never interact. Each block of neighboring occupied
-files is a game of its own, a \emph{component}, and a position is the sum of its components; on the cylinder a
+files is a game of its own, a \emph{component}, and we value a position as the sum of its components (Section~\ref{sec:sums-hss} tests this); on the cylinder a
 component is an arc or one \emph{ring} that uses every file.
 
 \begin{theorem}[Cut lemma; \lab{P}, \lab{C2}]\label{thm:cut}
@@ -103,9 +103,8 @@ empty file to separate a king group (Section~\ref{sec:kings-valid}), so ring val
 
 The basic values of~\cite{Study2025} come from pawns alone. Each board in Fig.~\ref{fig:basic} leaves a file
 empty, so by Theorem~\ref{thm:cut} its value is that of an ordinary-board position cut open along that
-file~\cite{Elkies1996,WuYuLandry2010}, but the play crosses the seam. A move the opponent can answer with a
-passed pawn loses and drops out~\cite{WinningWays,WuYuLandry2010}. The derivations of $1$, $2$, $\star$,
-${\uparrow}$ and ${\Uparrow}\star$ are standard and are in Section~S1 of the supplementary material.
+file~\cite{Elkies1996,WuYuLandry2010}, but the play crosses the seam. In these examples a move the opponent can answer with a
+passed pawn loses and drops out~\cite{WinningWays,WuYuLandry2010}. The derivations are standard and are in Section~S1.
 
 In Fig.~\ref{fig:basic}(b), if white goes first, it must play h3--h4, and black captures across the seam,
 a5$\times$h4, with a passed pawn. If black goes first, h6--h5 is met by a4$\times$h5. Whoever moves first loses:
