@@ -6,7 +6,7 @@ R=$(cd "$(dirname "$0")/../.." && pwd); cd "$R/dist/tog"
 nice -n 15 sh sbuild.sh > build/sbuild.stdout 2>&1; tail -1 build/sbuild.stdout
 for f in tog tog_review supplement supplement_review; do echo "$f $(pdfinfo build/$f.pdf | awk '/Pages/{print $2}')"; done
 sh freespace.sh build/tog.pdf | tail -1; python3 check_numbers.py | tail -1
-for f in tog_review supplement_review; do echo "$f anon hits: $(pdftotext build/$f.pdf - | grep -ciE 'aritro|bhattacharjee|uiuc|illinois|morley')"; done
+for f in tog_review supplement_review; do echo "$f anon hits: $(pdftotext build/$f.pdf - | grep -ciE 'aritro|bhattacharjee|uiuc|illinois|morley|gatech|georgia')"; done
 echo "overfull/undef-ref: $(grep -c 'Overfull\|Reference.*undefined\|Undefined control' build/tog.log) $(grep -c 'Overfull\|Reference.*undefined\|Undefined control' build/supplement.log)"
 [ "$(pdfinfo build/tog.pdf | awk '/Pages/{print $2}')" = 10 ] && [ "$(pdfinfo build/tog_review.pdf | awk '/Pages/{print $2}')" = 10 ] || { echo "PAGE COUNT WRONG, not copying"; exit 1; }
 cp build/tog.pdf build/tog_review.pdf build/supplement.pdf build/supplement_review.pdf .

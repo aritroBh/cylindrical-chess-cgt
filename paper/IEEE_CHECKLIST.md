@@ -277,6 +277,7 @@ Roles: Fable plans and reviews; Opus referees; Sonnet codes and applies; Haiku r
 ## Co-author (2026-11-24)
 
 - [x] Byline "Aritro Bhattacharjee and Thomas Morley" in the 10-page paper, the supplement and the long version (author's decision). Acknowledgment says "the authors"; the thanks to the mentor is removed; the 2025 study is "by the first author". Paper 10 and 10 pages (0.53 in free), supplement 67, long version 16; arXiv checks pass; anonymous builds have no name
-- [ ] Prof. Morley's consent, affiliation and e-mail (author's step; he has not been contacted from here). Then: second line of the first-page footnote, ScholarOne author list, cover letter
+- [x] Prof. Morley agreed (author's word, 2026-11-24). Affiliation and e-mail from his own e-mail signature: School of Mathematics, Georgia Institute of Technology, Atlanta, GA 30332 USA, morley@math.gatech.edu. In the first-page footnote of both papers, the cover letter and the ScholarOne fields. Paper 10 and 10 pages (named version 0.03 in free), long version 16; anonymity checks now also search for gatech and georgia
+- [ ] Author confirms with him the printed name, affiliation and e-mail, and that he has read the manuscript and the AI-use statement
 - [ ] README author line and citation entry: change when he has agreed
 - [ ] Not pushed: the public repository still shows the single-author PDFs

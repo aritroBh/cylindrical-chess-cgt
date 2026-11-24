@@ -60,7 +60,7 @@ After acceptance (named version): github.com/aritroBh/cylindrical-chess-cgt. Thi
 
 ## Other fields that need author input
 
-- Authors: Aritro Bhattacharjee and Thomas Morley (co-author added 2026-11-24; his affiliation, e-mail and consent are needed before submission). Name, affiliation, e-mail, ORCID of each: Author must confirm. Affiliation per the paper: University of Illinois Urbana-Champaign, Urbana, IL 61801 USA; e-mail given in the named paper. ORCID: not in the paper.
+- Authors: Aritro Bhattacharjee and Thomas Morley (co-author added 2026-11-24; School of Mathematics, Georgia Institute of Technology, Atlanta, GA 30332 USA, morley@math.gatech.edu, taken from his e-mail signature). Name, affiliation, e-mail, ORCID of each: Author must confirm. Affiliation per the paper: University of Illinois Urbana-Champaign, Urbana, IL 61801 USA; e-mail given in the named paper. ORCID: not in the paper.
 - Funding: the paper states none. Author must confirm that there is none.
 - Prior or related submissions, conference or preprint versions: the paper says only that it extends an unpublished 2025 study. Author must confirm there is no preprint or conference version.
 - Suggested or opposed reviewers: none suggested (as instructed).
