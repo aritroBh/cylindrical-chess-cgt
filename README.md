@@ -1,6 +1,6 @@
 # Chess Endgames on a Cylindrical Chessboard
 
-Aritro Bhattacharjee
+Aritro Bhattacharjee and Thomas Morley
 
 **Paper:** [paper/Bhattacharjee_Cylinder_Chess_IEEE.pdf](paper/Bhattacharjee_Cylinder_Chess_IEEE.pdf) (IEEE
 format, 16 pages). Source: [paper/ieee/](paper/ieee/). An arXiv-ready package is built by `bash dist/arxiv/build.sh`.
@@ -144,7 +144,7 @@ uv pip install --python .venv-ml/bin/python -r ml/requirements-lock.txt
 
 ```bibtex
 @misc{Bhattacharjee2026cylinder,
-  author = {Aritro Bhattacharjee},
+  author = {Aritro Bhattacharjee and Thomas Morley},
   title  = {Chess Endgames on a Cylindrical Chessboard},
   year   = {2026},
   url    = {https://github.com/aritroBh/cylindrical-chess-cgt}
