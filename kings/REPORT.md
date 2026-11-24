@@ -518,6 +518,8 @@ Every deliverable was given to independent referees (Claude models) told to brea
     D-games decides for every abstract exact over group; the group Λ_N passes every D-game with at most N positions
     and fails one with N + 1. Proposition 4.21: every ladder length occurs. For king-and-pawn groups the question
     is open; the only real group that fails needs a ladder of length 2 (`kings/delegate/out/K62/REVIEW.md`).
+  - K64 (2026-11-24): Codex (gpt-6.2-astra) proved Theorem 4.20 (a), (c), (d) and Theorem 4.22 blind, from the
+    definitions and the statements only, with no repair (`kings/delegate/out/K64/PROOF.md`; not refereed separately).
   - Theorem 1.11(c) repaired (2026-11-23): its proof used the e.p. condition (E) without assuming it, and its frontier
     step used an unproved inheritance of threats by re-split components. (E) is now a hypothesis (every use already had
     it through Theorem 1.14), and the inheritance is proved. Found while the paper's proofs appendix was written and

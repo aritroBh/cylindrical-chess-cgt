@@ -16,3 +16,7 @@ delegate/out/**/.pytest_cache/
 delegate/out/**/*.tar.zst
 delegate/out/**/v_mask
 delegate/locks/
+# raw CLI transcripts and job progress files: local only (rule since 2026-11-22)
+delegate/logs/*.log
+delegate/logs/*.out
+delegate/out/**/*.pid

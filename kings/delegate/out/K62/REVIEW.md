@@ -39,3 +39,11 @@ Each ran 4,500 random exact toy groups against Theorem 4.20: 0 violations.
 - Two small board-count cases stay open (see `verify/VERIFY.md`).
 - Nothing on real boards. Whether a real group needs a ladder longer than 2 is open; the 3 + 3 group of cyl:8×6
   needs exactly 2.
+
+## Blind proof by Codex (K64, 2026-11-24)
+
+Codex (model gpt-6.2-astra) was given the definitions, the facts of Theorem 4.18 and the statements only
+(`kings/delegate/briefs/K64_ladder_bound_blind.md`). It proved Theorem 4.20 (a), (c), (d) and Theorem 4.22 (the group
+Λ_N is exact, passes every D-game with at most N positions, fails the chain and the next ladder), with no repair and
+no counterexample: `kings/delegate/out/K64/PROOF.md`, `REPORT.md`. Its proof was not refereed separately. Part (b) of
+Theorem 4.20 and Proposition 4.21 were not in the packet.
