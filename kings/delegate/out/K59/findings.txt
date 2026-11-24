@@ -1,0 +1,109 @@
+K59 FINDINGS: more groups with the results of over (cyl:8x7 checked by a second program; flat boards)   (2026-11-23)
+=================================================================================================================
+Brief: kings/delegate/briefs/K59_brief.md.  AI work (one agent), not refereed, no human re-derivation.  Paths are relative to
+kings/delegate/out/K59/ unless they start with kings/.  Labels: COMPUTED-1 (one program), CHECKED-2 (two independently written
+programs agree).  "Has the results of over beside every finite D-game" for a group = Lemma 4.15 applied to it; it is
+"PROVED given CHECKED-2 computations" only when Definition 4.8 and (B1) are both CHECKED-2 for that group.
+
+0. SHORT ANSWER
+---------------
+1. Part 1.  (B1) is CHECKED-2 for all four exact groups of cyl:8x7 (K48).  So, with Definition 4.8 (CHECKED-2, K48), each of the
+   four has the results of over beside every finite D-game: PROVED given CHECKED-2 computations.
+2. Part 2.  None of the cyl:8x7 groups or their translates is exact on flat 8x7, 9x7 or 8x8 (CHECKED-2).  But the exhaustive
+   search on flat 8x7 in the four file classes of the known shape finds FIVE exact over groups, all without the wrap, and all
+   five meet (B1).  Both facts are CHECKED-2 for each, so each has the results of over beside every finite D-game on a FLAT
+   board: PROVED given CHECKED-2 computations.  The smallest has 2 + 2 pawns: Ka4 kc4/kc5 Pb2 Pf5 pb6 pf6.  Direct sums agree
+   (0 differences from over in 1,215 + 2,400 results per group, two programs, COMPUTED-1 each).
+
+1. PROGRAMS
+-----------
+- vgsum59 (src/vgsum59.cpp): the K57 referee's vgsum.cpp (the K56 referee's vg.cpp generator plus the K57 referee's token game
+  and D-sum solver).  Changed ONLY in memory layout (32-bit edge offsets, forward edge list freed after the reverse lists are
+  built, 32-bit queue, optional --reserve capacity hint, optional --lowmem that regenerates moves instead of storing them; all
+  marked "K59 MEM").  Regression: on H10 (cyl:10x6, with the 63 test games and 6 queries) and on Z_O flat 8x6 its output equals
+  K57's logs/h10.out and logs/ZO_flat86.out line for line, except the "peak" lines (logs/reg_h10.out, reg_zoflat.out); with
+  --lowmem it again equals H10 and its own T4 output (logs/reg_h10_lowmem.out, reg_T4_lowmem.out).  It computes (B1) directly
+  under the sum's rule (one Black token, no token in check, the token clears the e.p. right, a side with no move loses), keeping
+  the e.p. right after a double step, and also the one-pass game (stalemate a draw).
+- pr57 (src/pr57.cpp, K57's copy of K56's pr56): (N1) = the move loses against one Black pass (stalemate a draw), which implies
+  (B1) (K57 referee).  No code shared with vg/vgsum.
+- Definition 4.8: src/def48.py (the K48 referee's checker, only the heavy.sh path changed) reading the --moves values of ref3m
+  (K23) and of kp_p --pmodel (K44); and the exhaustive searches p45a (K45 implementation A) and r48 (K45 referee's R with the
+  flat option, K48).
+- Direct sums: vgsum59 beside the K57 referee's 63 finite D-games (in/T_h10.txt; src/cmp_sum.py with src/toyref.py, copied) and
+  pr57 --sum beside K56's 600 random D-games (in/rnd_all.txt; src/cmp56.py with src/over56.py, copied).
+
+2. PART 1: (B1) FOR THE FOUR cyl:8x7 GROUPS
+-------------------------------------------
+Black shuttles on the pair given; freezes as in K48.  vgsum59 runs: logs/p1_T*.out; comparison with K56's pr56 logs
+(kings/delegate/out/K56/logs/B_T1_c87.out, B_T2_c87.out, B_T4_c87.out, C_T3_c87.out) by src/cmp_p1.py.
+  T1 Kd4 kf4/kf5 Pa4 Pb5 Pe2 pa5 pb6 pe6, shuttle f4-f5, freezes e2-e4 (f4), e2-e3 (f5): 11 non-shuttle Black root moves
+  T2 Kd4 kf4/kf5 Pb3 Pb5 Pe2 pb4 pb6 pe6, same shuttle and freezes:                        11 moves
+  T3 Kd4 kf4/kf5 Pb3 Pb5 Pe2 pa5 pb6 pe6, same shuttle and freezes:                        13 moves
+  T4 Kc4 ka4/ka5 Pb2 Pe3 Pe5 pb6 pe4 pe6, shuttle a4-a5, freezes b2-b4 (a4), b2-b3 (a5):  11 moves
+For every one of the 46 moves: vgsum59 (B1) under the sum's rule = W, vgsum59 one-pass game = W, pr56 (N1) = yes.  The move lists
+of the two programs are identical (and equal ref3m's lists in K48's def48 logs).  Moves that give check (e.g. ...e6-e5 in T3,
+...b6-b5 in T4) and double steps (...e6-e4, ...b6-b4, with the right) are included.  vgsum59's root P values and freezes also
+agree with K48.
+=> (B1) CHECKED-2 for T1-T4.  With Definition 4.8 CHECKED-2 (K48: A and R on the whole search, ref3m and kp_p per group), Lemma
+   4.15 gives: each of T1-T4 has the results of over beside every finite D-game.  PROVED given CHECKED-2 computations.
+Direct sums (vgsum59, 63 games, logs/sum_T*.out): T1, T2, T4 each 0 of 1,215 results differ from over (COMPUTED-1; K57 had pr57
+0 of 2,400 for the same three).  T3 not run: graph plus product states would exceed 2 GB.
+
+3. PART 2: FLAT BOARDS
+----------------------
+3a. The cyl:8x7 groups on flat boards (def48 with ref3m and with kp_p; src/groups59.py; logs/p2a_*.txt, p2b_*.txt):
+  flat 8x7, all 13 translates that fit (T1-T3 by 0-2 files, T4 by 0-3): all FAIL, the two solvers give identical move values.
+  flat 9x7, all 17 translates: all FAIL, identical values.  flat 8x8, the 13 translates as placed and one rank up (26): all FAIL,
+  identical values.  CHECKED-2: no cyl:8x7 group or translate is exact on these flat boards (the wrap matters: e.g. at T1's f4
+  root on flat 8x7 Kd4-d3 and e2-e3 become draws).
+3b. Exhaustive search, flat 8x7 (ranks 2-6, at most 3 + 3 pawns on the three files, every king placement), the classes of the
+  known shape {f, f+1, f+4} up to left-right reflection: {a,b,e}, {a,d,e}, {b,c,f}, {b,e,f} (search_table.txt; logs/search/).
+  A and R agree counter for counter on all four classes (placements 858,879,880 / 853,532,776 / 785,481,597 / 787,186,302) and
+  on the hit sets; A's over and under counters are equal.  Exact over groups: 1, 0, 3, 5; five distinct groups (a group with
+  pawns on two files lies in two classes):
+    F1  Ka4 kc4/kc5 Pb2 Pe4 Pe5 pb6 pe6        3 + 2  shuttle c4-c5  freezes b2-b4 (c4), b2-b3 (c5)
+    F2  Ka4 kc4/kc5 Pb2 Pf5 pb6 pf6            2 + 2  shuttle c4-c5  freezes b2-b4 (c4), b2-b3 (c5)
+    F3  Ke4 kc4/kc5 Pb2 Pb5 Pf5 pb6 pf6        3 + 2  shuttle c4-c5  freezes b2-b4 (c4), b2-b3 (c5)
+    F4  Kc4 ke4/ke5 Pb5 Pf2 Pf5 pb6 pf6        3 + 2  shuttle e4-e5  freezes f2-f4 (e4), f2-f3 (e5)
+    F5  Ka4 kc4/kc5 Pb2 Pe5 Pf4 pb6 pe6 pf5    3 + 3  shuttle c4-c5  freezes b2-b4 (c4), b2-b3 (c5)
+  (Their colour mirrors are the exact under groups that R reports.)  At every root no king is in check; after a double-step
+  freeze no Black pawn can take e.p.
+3c. Each of F1-F5 on flat 8x7 (src/run_group.sh; logs/F*_*):
+  - Definition 4.8 by def48 from ref3m and from kp_p: PASS for both, identical move values (CHECKED-2, in addition to A = R).
+  - (B1): non-shuttle Black root moves F1 8, F2 11, F3 6, F4 6, F5 10; every one W under the sum's rule (vgsum59) and (N1) yes
+    (pr57); same move lists (src/cmp_p1.py).  CHECKED-2.
+  - pr57 also reports Definition 4.8 exact for each (a third reading); none is pass-robust or tempo-exact (Lemma 4.13 does not
+    apply; Lemma 4.15 does).
+  - Direct sums: vgsum59, 63 games: 0 of 1,215 results differ from over for each group; pr57, 600 random games: 0 of 2,400 for
+    each.  COMPUTED-1 per program.
+  => F1-F5 each have the results of over beside every finite D-game on flat 8x7.  PROVED given CHECKED-2 computations.
+3d. Wider and taller flat boards (src/groups59.py, groupsF.py; logs/p2c_*, p2d_*, X97_*, X88_*, F1_9x7_*, F1_8x8_*):
+  - F1 as placed is exact on flat 9x7 and flat 8x8 (ref3m, kp_p), meets (B1) (vgsum59, pr57), and its direct sums agree with
+    over (1,215 + 2,400 results each, 0 differences).  Its translates (by 1-3 files on 8x7 and 8x8, 1-4 on 9x7) and its one-rank-up
+    version on 8x8 are not exact.
+  - Exact by ref3m and kp_p, with (B1) by vgsum59 and pr57 (so PROVED given CHECKED-2 computations; direct sums not run):
+    flat 9x7: F2, F3, F4, F5 as placed; F3 by 1 and 2 files (Kf4 kd4 Pc2 Pc5 Pg5 pc6 pg6; Kg4 ke4 Pd2 Pd5 Ph5 pd6 ph6); F4 by 1 and
+    2 files (Kd4 kf4 Pc5 Pg2 Pg5 pc6 pg6; Ke4 kg4 Pd5 Ph2 Ph5 pd6 ph6).  On 9 files F3 and F4 translated by 2 are reflections of
+    each other's untranslated placement, so these are three placements up to reflection.
+    flat 8x8: F2, F3, F4 as placed; F3 by 1 and F4 by 1 file (reflections of F4 and F3).  F5 is not exact on 8x8; no one-rank-up
+    version is exact.
+
+4. WHAT WAS AND WAS NOT CHECKED
+-------------------------------
+Checked: everything in sections 2 and 3 with the labels given.  Not checked / not done:
+- No referee: this is one agent's work.  The vgsum59 changes are memory-only and regression-tested, but a referee should look.
+- Direct sums of T3 (memory).  Direct sums of the 9x7/8x8 placements other than F1.
+- Other file classes of flat 8x7 (e.g. four files, or three-file classes of other shapes); full searches of flat 9x7 and 8x8.
+- Chess, and P contexts, for any of these groups.
+- Hand proof of any computed fact.
+
+5. PROCESS
+----------
+All solver runs through kings/delegate/heavy.sh under /usr/bin/time -l (src/hrun.sh, src/run_*.sh); every PID in pids.log
+(def48.py and the searches log their own heavy.sh PIDs).  Smallest inputs measured first (T4 0.85 GB before T3; p45a/r48 at 1 + 1
+and 2 + 2).  T3 ran with --lowmem under an RSS watchdog for my own process only (src/watch.sh); it was never triggered.
+Peak memory: vgsum59 on T3 1.78 GB; r48 searches 1.19 GB; vgsum59/pr57 elsewhere at most 1.29 GB; p45a 0.30 GB; ref3m/kp_p small.
+No process signalled; no pattern kills.  Binaries deleted; outputs over 256 KB xz-compressed.  No git changes; nothing edited
+outside kings/delegate/out/K59/.
+Files: findings.txt, EDITS.md, search_table.txt, src/ (vgsum59.cpp and the copied sources and scripts), in/, logs/, pids.log.

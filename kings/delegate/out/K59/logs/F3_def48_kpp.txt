@@ -1,0 +1,11 @@
+PASS kpp flat:8x7 shuttler b z=c4,c5 f0=e4 pieces "Ke4 kc4 Pb2 Pb5 Pf5 pb6 pf6" freezes ['Pb2b4 at Ke4 kc4', 'Pb2b3 at Ke4 kc5']
+       root Ke4 kc4 Pb2 Pb5 Pf5 pb6 pf6 b - : W  Kc4c5:W Kc4b4:W Kc4b5:W Kc4b3:W
+       root Ke4 kc4 Pb2 Pb5 Pf5 pb6 pf6 w - : W  Ke4e3:L Ke4f4:L Ke4f3:L Pb2b3:L Pb2b4:W
+       root Ke4 kc5 Pb2 Pb5 Pf5 pb6 pf6 b - : W  Kc5c4:W Kc5b5:W Kc5d6:W Kc5b4:W
+       root Ke4 kc5 Pb2 Pb5 Pf5 pb6 pf6 w - : W  Ke4e3:L Ke4f4:L Ke4f3:L Ke4d3:L Pb2b3:W Pb2b4:L
+       freeze Pb2b4 at Ke4 kc4 Pb2 Pb5 Pf5 pb6 pf6 w -
+         q S to move Ke4 kc4 Pb4 Pb5 Pf5 pb6 pf6 b b3 : W  Kc4c3:W Kc4b4:W Kc4b5:W Kc4b3:W
+         q F to move Ke4 kc4 Pb4 Pb5 Pf5 pb6 pf6 w - : L  Ke4e3:L Ke4f4:L Ke4f3:L
+       freeze Pb2b3 at Ke4 kc5 Pb2 Pb5 Pf5 pb6 pf6 w -
+         q S to move Ke4 kc5 Pb3 Pb5 Pf5 pb6 pf6 b - : W  Kc5b5:W Kc5d6:W Kc5b4:W
+         q F to move Ke4 kc5 Pb3 Pb5 Pf5 pb6 pf6 w - : L  Ke4e3:L Ke4f4:L Ke4f3:L Ke4d3:L Pb3b4:L

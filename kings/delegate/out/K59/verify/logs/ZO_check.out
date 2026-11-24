@@ -1,0 +1,77 @@
+board cyl:8x6  pieces Kf5 kd4 Pb2 Pb4 Pe2 pa4 pb5 pe5  shuttle d4-d5
+P graph: 5500963 nodes, 39183479 edges
+root Kf5 kd4 Pb2 Pe2 Pb4 pa4 pb5 pe5 b - : P=W, 6 moves
+   kd4e3    -> Kf5 ke3 Pb2 Pe2 Pb4 pa4 pb5 pe5 w -  P(after)=W
+   kd4c4    -> Kf5 kc4 Pb2 Pe2 Pb4 pa4 pb5 pe5 w -  P(after)=W
+   kd4d5    -> Kf5 kd5 Pb2 Pe2 Pb4 pa4 pb5 pe5 w -  P(after)=W  shuttle
+   pa4a3    -> Kf5 kd4 Pb2 Pe2 Pb4 pa3 pb5 pe5 w -  P(after)=W
+   pe5e4    -> Kf5 kd4 Pb2 Pe2 Pb4 pa4 pe4 pb5 w -  P(after)=W
+   pe5e3    -> Kf5 kd4 Pb2 Pe2 Pb4 pe3 pa4 pb5 w -  P(after)=W
+root Kf5 kd4 Pb2 Pe2 Pb4 pa4 pb5 pe5 w - : P=W, 8 moves
+   Kf5g4    -> Kg4 kd4 Pb2 Pe2 Pb4 pa4 pb5 pe5 b -  P(after)=L
+   Kf5g5    -> Kg5 kd4 Pb2 Pe2 Pb4 pa4 pb5 pe5 b -  P(after)=L
+   Kf5e6    -> Ke6 kd4 Pb2 Pe2 Pb4 pa4 pb5 pe5 b -  P(after)=L
+   Kf5f6    -> Kf6 kd4 Pb2 Pe2 Pb4 pa4 pb5 pe5 b -  P(after)=L
+   Kf5g6    -> Kg6 kd4 Pb2 Pe2 Pb4 pa4 pb5 pe5 b -  P(after)=L
+   Pb2b3    -> Kf5 kd4 Pe2 Pb3 Pb4 pa4 pb5 pe5 b -  P(after)=L
+   Pe2e3    -> Kf5 kd4 Pb2 Pe3 Pb4 pa4 pb5 pe5 b -  P(after)=L
+   Pe2e4    -> Kf5 kd4 Pb2 Pb4 Pe4 pa4 pb5 pe5 b -  P(after)=W  FREEZE
+root Kf5 kd5 Pb2 Pe2 Pb4 pa4 pb5 pe5 b - : P=W, 7 moves
+   kd5c4    -> Kf5 kc4 Pb2 Pe2 Pb4 pa4 pb5 pe5 w -  P(after)=W
+   kd5d4    -> Kf5 kd4 Pb2 Pe2 Pb4 pa4 pb5 pe5 w -  P(after)=W  shuttle
+   kd5c6    -> Kf5 kc6 Pb2 Pe2 Pb4 pa4 pb5 pe5 w -  P(after)=W
+   kd5d6    -> Kf5 kd6 Pb2 Pe2 Pb4 pa4 pb5 pe5 w -  P(after)=W
+   pa4a3    -> Kf5 kd5 Pb2 Pe2 Pb4 pa3 pb5 pe5 w -  P(after)=W
+   pe5e4    -> Kf5 kd5 Pb2 Pe2 Pb4 pa4 pe4 pb5 w -  P(after)=W
+   pe5e3    -> Kf5 kd5 Pb2 Pe2 Pb4 pe3 pa4 pb5 w -  P(after)=W
+root Kf5 kd5 Pb2 Pe2 Pb4 pa4 pb5 pe5 w - : P=W, 7 moves
+   Kf5g4    -> Kg4 kd5 Pb2 Pe2 Pb4 pa4 pb5 pe5 b -  P(after)=L
+   Kf5g5    -> Kg5 kd5 Pb2 Pe2 Pb4 pa4 pb5 pe5 b -  P(after)=L
+   Kf5f6    -> Kf6 kd5 Pb2 Pe2 Pb4 pa4 pb5 pe5 b -  P(after)=L
+   Kf5g6    -> Kg6 kd5 Pb2 Pe2 Pb4 pa4 pb5 pe5 b -  P(after)=L
+   Pb2b3    -> Kf5 kd5 Pe2 Pb3 Pb4 pa4 pb5 pe5 b -  P(after)=L
+   Pe2e3    -> Kf5 kd5 Pb2 Pe3 Pb4 pa4 pb5 pe5 b -  P(after)=W  FREEZE
+   Pe2e4    -> Kf5 kd5 Pb2 Pb4 Pe4 pa4 pb5 pe5 b -  P(after)=L
+freeze Pe2e4 at d4
+   q Black to move Kf5 kd4 Pb2 Pb4 Pe4 pa4 pb5 pe5 b - : P=W, 4 moves
+      kd4d3    P(after)=W
+      kd4e3    P(after)=W
+      kd4c4    P(after)=W
+      pa4a3    P(after)=W
+   q Black to move without the right: every move loses at once: yes
+   q White to move Kf5 kd4 Pb2 Pb4 Pe4 pa4 pb5 pe5 w - : P=L, 6 moves
+      Kf5g4    P(after)=L
+      Kf5g5    P(after)=L
+      Kf5e6    P(after)=L
+      Kf5f6    P(after)=L
+      Kf5g6    P(after)=L
+      Pb2b3    P(after)=L
+freeze Pe2e3 at d5
+   q Black to move Kf5 kd5 Pb2 Pe3 Pb4 pa4 pb5 pe5 b - : P=W, 5 moves
+      kd5c4    P(after)=W
+      kd5c6    P(after)=W
+      kd5d6    P(after)=W
+      pa4a3    P(after)=W
+      pe5e4    P(after)=W
+   q Black to move without the right: every move loses at once: yes
+   q White to move Kf5 kd5 Pb2 Pe3 Pb4 pa4 pb5 pe5 w - : P=L, 6 moves
+      Kf5g4    P(after)=L
+      Kf5g5    P(after)=L
+      Kf5f6    P(after)=L
+      Kf5g6    P(after)=L
+      Pb2b3    P(after)=L
+      Pe3e4    P(after)=L
+DEFINITION 4.8 (over): exact (0 failures)
+(B1) graph (group (+) -1, sum rule): 11002091 nodes, 81002343 edges
+   B1 kd4e3 at d4    -> Kf5 ke3 Pb2 Pe2 Pb4 pa4 pb5 pe5 w - : beside -1 W
+   B1 kd4c4 at d4    -> Kf5 kc4 Pb2 Pe2 Pb4 pa4 pb5 pe5 w - : beside -1 W
+   B1 pa4a3 at d4    -> Kf5 kd4 Pb2 Pe2 Pb4 pa3 pb5 pe5 w - : beside -1 W
+   B1 pe5e4 at d4    -> Kf5 kd4 Pb2 Pe2 Pb4 pa4 pe4 pb5 w - : beside -1 L
+   B1 pe5e3 at d4    -> Kf5 kd4 Pb2 Pe2 Pb4 pe3 pa4 pb5 w - : beside -1 W
+   B1 kd5c4 at d5    -> Kf5 kc4 Pb2 Pe2 Pb4 pa4 pb5 pe5 w - : beside -1 W
+   B1 kd5c6 at d5    -> Kf5 kc6 Pb2 Pe2 Pb4 pa4 pb5 pe5 w - : beside -1 W
+   B1 kd5d6 at d5    -> Kf5 kd6 Pb2 Pe2 Pb4 pa4 pb5 pe5 w - : beside -1 W
+   B1 pa4a3 at d5    -> Kf5 kd5 Pb2 Pe2 Pb4 pa3 pb5 pe5 w - : beside -1 W
+   B1 pe5e4 at d5    -> Kf5 kd5 Pb2 Pe2 Pb4 pa4 pe4 pb5 w - : beside -1 W
+   B1 pe5e3 at d5    -> Kf5 kd5 Pb2 Pe2 Pb4 pe3 pa4 pb5 w - : beside -1 W
+(B1): 11 non-shuttle Black root moves, 1 not a White win beside -1

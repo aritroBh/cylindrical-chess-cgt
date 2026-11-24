@@ -24,9 +24,11 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
          refereed); none of the nine known groups is tempo-exact (K56)
    - [x] The 2 + 3 group has the results of over beside every finite test game: Proposition 4.14, Lemma 4.15 (proved,
          refereed, proved again blind by Codex K58), Corollary 4.16 (proved given two twice-checked computations) (K57)
-   - [~] A second program for the Black-side condition on the four cyl:8×7 groups; a group with the results of over
-         on a flat board (K59: investigator reports five groups on flat 8×7, the smallest with 2 + 2 pawns; referee
-         running)
+   - [x] The four cyl:8×7 groups have the results of over (Black-side condition by two programs); five groups with
+         the results of over on flat 8×7, the smallest with 2 + 2 pawns, four of them also on flat 8×8:
+         Corollary 4.17 (proved given twice-checked computations, refereed) (K59)
+   - [ ] The 2 + 2 group on the ordinary 8×8 board: in chess, and beside P contexts
+   - [ ] Other file classes of flat 8×7; full searches of flat 9×7 and 8×8
    - [x] The exact condition in place of the Black-side condition: Theorem 4.18, decided by one game on the group's
          own graph or by one short test game, Corollary 4.19 (proved, refereed) (K60)
    - [x] Blind proof of Theorem 4.18 by Codex: all four statements proved; part (c) without the determinacy theorem;

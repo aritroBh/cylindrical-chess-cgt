@@ -1,0 +1,226 @@
+PASS kpp flat:8x8 shuttler b z=c4,c5 f0=a4 pieces "Ka4 kc4 Pb2 Pe4 Pe5 pb6 pe6" freezes ['Pb2b4 at Ka4 kc4', 'Pb2b3 at Ka4 kc5']
+       root Ka4 kc4 Pb2 Pe4 Pe5 pb6 pe6 b - : W  Kc4c5:W Kc4d4:W Kc4d3:W Pb6b5:W
+       root Ka4 kc4 Pb2 Pe4 Pe5 pb6 pe6 w - : W  Ka4a3:L Pb2b3:L Pb2b4:W
+       root Ka4 kc5 Pb2 Pe4 Pe5 pb6 pe6 b - : W  Kc5c6:W Kc5c4:W Kc5d4:W Pb6b5:W
+       root Ka4 kc5 Pb2 Pe4 Pe5 pb6 pe6 w - : W  Ka4a3:L Ka4b3:L Pb2b3:W Pb2b4:L
+       freeze Pb2b4 at Ka4 kc4 Pb2 Pe4 Pe5 pb6 pe6 w -
+         q S to move Ka4 kc4 Pb4 Pe4 Pe5 pb6 pe6 b b3 : W  Kc4c3:W Kc4d4:W Kc4d3:W Pb6b5:W
+         q F to move Ka4 kc4 Pb4 Pe4 Pe5 pb6 pe6 w - : L  Ka4a3:L Pb4b5:L
+       freeze Pb2b3 at Ka4 kc5 Pb2 Pe4 Pe5 pb6 pe6 w -
+         q S to move Ka4 kc5 Pb3 Pe4 Pe5 pb6 pe6 b - : W  Kc5c6:W Kc5d4:W Pb6b5:W
+         q F to move Ka4 kc5 Pb3 Pe4 Pe5 pb6 pe6 w - : L  Ka4a3:L Pb3b4:L
+FAIL kpp flat:8x8 shuttler b z=d4,d5 f0=b4 pieces "Kb4 kd4 Pc2 Pf4 Pf5 pc6 pf6" freezes ['Kb4a5 at Kb4 kd4', 'Pc2c3 at Kb4 kd4', 'Pc2c4 at Kb4 kd4', 'Kb4a5 at Kb4 kd5', 'Pc2c3 at Kb4 kd5']
+    (4) Ka5a6 does not lose at once (W) at Ka5 kd4 Pc2 Pf4 Pf5 pc6 pf6 w -
+    (4) Ka5b6 does not lose at once (W) at Ka5 kd4 Pc2 Pf4 Pf5 pc6 pf6 w -
+    (4) Ka5b4 does not lose at once (W) at Ka5 kd4 Pc2 Pf4 Pf5 pc6 pf6 w -
+    (4) q illegal or no move: Kb4 kd4 Pc3 Pf4 Pf5 pc6 pf6 w -
+    (4) Ka5a6 does not lose at once (W) at Ka5 kd5 Pc2 Pf4 Pf5 pc6 pf6 w -
+    (4) Ka5b6 does not lose at once (W) at Ka5 kd5 Pc2 Pf4 Pf5 pc6 pf6 w -
+    (4) Ka5b4 does not lose at once (W) at Ka5 kd5 Pc2 Pf4 Pf5 pc6 pf6 w -
+    (4) Pc2c3 does not lose at once (W) at Ka5 kd5 Pc2 Pf4 Pf5 pc6 pf6 w -
+    (4) Kb4a5 does not lose at once (W) at Kb4 kd5 Pc3 Pf4 Pf5 pc6 pf6 w -
+       root Kb4 kd4 Pc2 Pf4 Pf5 pc6 pf6 b - : W  Kd4d5:W Kd4e4:W Kd4e3:W Pc6c5:W
+       root Kb4 kd4 Pc2 Pf4 Pf5 pc6 pf6 w - : W  Kb4b3:L Kb4a4:L Kb4a5:W Kb4a3:L Pc2c3:W Pc2c4:W
+       root Kb4 kd5 Pc2 Pf4 Pf5 pc6 pf6 b - : W  Kd5d6:W Kd5d4:W Kd5e4:W Pc6c5:W
+       root Kb4 kd5 Pc2 Pf4 Pf5 pc6 pf6 w - : W  Kb4b3:L Kb4a4:L Kb4c3:L Kb4a5:W Kb4a3:L Pc2c3:W Pc2c4:L
+       freeze Kb4a5 at Kb4 kd4 Pc2 Pf4 Pf5 pc6 pf6 w -
+         q S to move Ka5 kd4 Pc2 Pf4 Pf5 pc6 pf6 b - : W  Kd4d5:W Kd4e4:W Kd4c4:W Kd4e3:W Kd4c5:W Kd4c3:W Pc6c5:W
+         q F to move Ka5 kd4 Pc2 Pf4 Pf5 pc6 pf6 w - : W  Ka5a6:W Ka5a4:L Ka5b6:W Ka5b4:W Pc2c3:L Pc2c4:L
+       freeze Pc2c3 at Kb4 kd4 Pc2 Pf4 Pf5 pc6 pf6 w -
+         q S to move Kb4 kd4 Pc3 Pf4 Pf5 pc6 pf6 b - : W  Kd4d5:W Kd4d3:W Kd4e4:W Kd4e3:W
+         q F to move Kb4 kd4 Pc3 Pf4 Pf5 pc6 pf6 w - : X  
+       freeze Pc2c4 at Kb4 kd4 Pc2 Pf4 Pf5 pc6 pf6 w -
+         q S to move Kb4 kd4 Pc4 Pf4 Pf5 pc6 pf6 b c3 : W  Kd4d3:W Kd4e4:W Kd4e3:W Pc6c5:W
+         q F to move Kb4 kd4 Pc4 Pf4 Pf5 pc6 pf6 w - : L  Kb4b3:L Kb4a4:L Kb4a5:L Kb4a3:L Pc4c5:L
+       freeze Kb4a5 at Kb4 kd5 Pc2 Pf4 Pf5 pc6 pf6 w -
+         q S to move Ka5 kd5 Pc2 Pf4 Pf5 pc6 pf6 b - : W  Kd5d6:W Kd5d4:W Kd5c5:W Kd5e4:W Kd5c4:W Pc6c5:W
+         q F to move Ka5 kd5 Pc2 Pf4 Pf5 pc6 pf6 w - : W  Ka5a6:W Ka5a4:L Ka5b6:W Ka5b4:W Pc2c3:W Pc2c4:L
+       freeze Pc2c3 at Kb4 kd5 Pc2 Pf4 Pf5 pc6 pf6 w -
+         q S to move Kb4 kd5 Pc3 Pf4 Pf5 pc6 pf6 b - : W  Kd5d6:W Kd5e4:W Pc6c5:W
+         q F to move Kb4 kd5 Pc3 Pf4 Pf5 pc6 pf6 w - : W  Kb4b3:L Kb4a4:L Kb4a5:W Kb4a3:L Pc3c4:L
+FAIL kpp flat:8x8 shuttler b z=e4,e5 f0=c4 pieces "Kc4 ke4 Pd2 Pg4 Pg5 pd6 pg6" freezes ['Kc4b5 at Kc4 ke4', 'Pd2d3 at Kc4 ke4', 'Pd2d4 at Kc4 ke4', 'Kc4b5 at Kc4 ke5', 'Pd2d3 at Kc4 ke5']
+    (4) Kb5b6 does not lose at once (W) at Kb5 ke4 Pd2 Pg4 Pg5 pd6 pg6 w -
+    (4) Kb5c6 does not lose at once (W) at Kb5 ke4 Pd2 Pg4 Pg5 pd6 pg6 w -
+    (4) Kb5c4 does not lose at once (W) at Kb5 ke4 Pd2 Pg4 Pg5 pd6 pg6 w -
+    (4) q illegal or no move: Kc4 ke4 Pd3 Pg4 Pg5 pd6 pg6 w -
+    (4) Kb5b6 does not lose at once (W) at Kb5 ke5 Pd2 Pg4 Pg5 pd6 pg6 w -
+    (4) Kb5c6 does not lose at once (W) at Kb5 ke5 Pd2 Pg4 Pg5 pd6 pg6 w -
+    (4) Kb5c4 does not lose at once (W) at Kb5 ke5 Pd2 Pg4 Pg5 pd6 pg6 w -
+    (4) Pd2d3 does not lose at once (W) at Kb5 ke5 Pd2 Pg4 Pg5 pd6 pg6 w -
+    (4) Kc4b5 does not lose at once (W) at Kc4 ke5 Pd3 Pg4 Pg5 pd6 pg6 w -
+       root Kc4 ke4 Pd2 Pg4 Pg5 pd6 pg6 b - : W  Ke4e5:W Ke4f4:W Ke4f3:W Pd6d5:W
+       root Kc4 ke4 Pd2 Pg4 Pg5 pd6 pg6 w - : W  Kc4c3:L Kc4b4:L Kc4b5:W Kc4b3:L Pd2d3:W Pd2d4:W
+       root Kc4 ke5 Pd2 Pg4 Pg5 pd6 pg6 b - : W  Ke5e6:W Ke5e4:W Ke5f4:W Pd6d5:W
+       root Kc4 ke5 Pd2 Pg4 Pg5 pd6 pg6 w - : W  Kc4c3:L Kc4b4:L Kc4d3:L Kc4b5:W Kc4b3:L Pd2d3:W Pd2d4:L
+       freeze Kc4b5 at Kc4 ke4 Pd2 Pg4 Pg5 pd6 pg6 w -
+         q S to move Kb5 ke4 Pd2 Pg4 Pg5 pd6 pg6 b - : W  Ke4e5:W Ke4f4:W Ke4d4:W Ke4f3:W Ke4d5:W Ke4d3:W Pd6d5:W
+         q F to move Kb5 ke4 Pd2 Pg4 Pg5 pd6 pg6 w - : W  Kb5b6:W Kb5b4:L Kb5a5:L Kb5c6:W Kb5c4:W Kb5a6:L Kb5a4:L Pd2d3:L Pd2d4:L
+       freeze Pd2d3 at Kc4 ke4 Pd2 Pg4 Pg5 pd6 pg6 w -
+         q S to move Kc4 ke4 Pd3 Pg4 Pg5 pd6 pg6 b - : W  Ke4e5:W Ke4e3:W Ke4f4:W Ke4f3:W
+         q F to move Kc4 ke4 Pd3 Pg4 Pg5 pd6 pg6 w - : X  
+       freeze Pd2d4 at Kc4 ke4 Pd2 Pg4 Pg5 pd6 pg6 w -
+         q S to move Kc4 ke4 Pd4 Pg4 Pg5 pd6 pg6 b d3 : W  Ke4e3:W Ke4f4:W Ke4f3:W Pd6d5:W
+         q F to move Kc4 ke4 Pd4 Pg4 Pg5 pd6 pg6 w - : L  Kc4c3:L Kc4b4:L Kc4b5:L Kc4b3:L Pd4d5:L
+       freeze Kc4b5 at Kc4 ke5 Pd2 Pg4 Pg5 pd6 pg6 w -
+         q S to move Kb5 ke5 Pd2 Pg4 Pg5 pd6 pg6 b - : W  Ke5e6:W Ke5e4:W Ke5d5:W Ke5f4:W Ke5d4:W Pd6d5:W
+         q F to move Kb5 ke5 Pd2 Pg4 Pg5 pd6 pg6 w - : W  Kb5b6:W Kb5b4:L Kb5a5:L Kb5c6:W Kb5c4:W Kb5a6:L Kb5a4:L Pd2d3:W Pd2d4:L
+       freeze Pd2d3 at Kc4 ke5 Pd2 Pg4 Pg5 pd6 pg6 w -
+         q S to move Kc4 ke5 Pd3 Pg4 Pg5 pd6 pg6 b - : W  Ke5e6:W Ke5f4:W Pd6d5:W
+         q F to move Kc4 ke5 Pd3 Pg4 Pg5 pd6 pg6 w - : W  Kc4c3:L Kc4b4:L Kc4b5:W Kc4b3:L Pd3d4:L
+FAIL kpp flat:8x8 shuttler b z=f4,f5 f0=d4 pieces "Kd4 kf4 Pe2 Ph4 Ph5 pe6 ph6" freezes ['Kd4c5 at Kd4 kf4', 'Pe2e3 at Kd4 kf4', 'Pe2e4 at Kd4 kf4', 'Kd4c5 at Kd4 kf5', 'Pe2e3 at Kd4 kf5']
+    (3) Kf4e3 does not lose at once (D) at Kc5 kf4 Pe2 Ph4 Ph5 pe6 ph6 b -
+    (4) Kc5c6 does not lose at once (D) at Kc5 kf4 Pe2 Ph4 Ph5 pe6 ph6 w -
+    (4) Kc5d6 does not lose at once (W) at Kc5 kf4 Pe2 Ph4 Ph5 pe6 ph6 w -
+    (4) Kc5d4 does not lose at once (W) at Kc5 kf4 Pe2 Ph4 Ph5 pe6 ph6 w -
+    (4) Pe2e3 does not lose at once (D) at Kc5 kf4 Pe2 Ph4 Ph5 pe6 ph6 w -
+    (3) Kf4f5 does not lose at once (D) at Kd4 kf4 Pe3 Ph4 Ph5 pe6 ph6 b -
+    (3) Kf4f3 does not lose at once (D) at Kd4 kf4 Pe3 Ph4 Ph5 pe6 ph6 b -
+    (4) q illegal or no move: Kd4 kf4 Pe3 Ph4 Ph5 pe6 ph6 w -
+    (3) Kf4f3 does not lose at once (D) at Kd4 kf4 Pe4 Ph4 Ph5 pe6 ph6 b e3
+    (3) Kf4g4 does not lose at once (D) at Kd4 kf4 Pe4 Ph4 Ph5 pe6 ph6 b e3
+    (3) Kf4g3 does not lose at once (D) at Kd4 kf4 Pe4 Ph4 Ph5 pe6 ph6 b e3
+    (4) Kc5c6 does not lose at once (W) at Kc5 kf5 Pe2 Ph4 Ph5 pe6 ph6 w -
+    (4) Kc5d6 does not lose at once (W) at Kc5 kf5 Pe2 Ph4 Ph5 pe6 ph6 w -
+    (4) Kc5d4 does not lose at once (D) at Kc5 kf5 Pe2 Ph4 Ph5 pe6 ph6 w -
+    (4) Pe2e3 does not lose at once (D) at Kc5 kf5 Pe2 Ph4 Ph5 pe6 ph6 w -
+    (3) Kf5f6 does not lose at once (D) at Kd4 kf5 Pe3 Ph4 Ph5 pe6 ph6 b -
+    (4) Kd4c5 does not lose at once (D) at Kd4 kf5 Pe3 Ph4 Ph5 pe6 ph6 w -
+       root Kd4 kf4 Pe2 Ph4 Ph5 pe6 ph6 b - : W  Kf4f5:W Kf4g4:W Kf4g3:W Pe6e5:W
+       root Kd4 kf4 Pe2 Ph4 Ph5 pe6 ph6 w - : D  Kd4d3:L Kd4c4:L Kd4c5:D Kd4c3:L Pe2e3:D Pe2e4:D
+       root Kd4 kf5 Pe2 Ph4 Ph5 pe6 ph6 b - : D  Kf5f6:W Kf5f4:D Kf5g4:W Pe6e5:W
+       root Kd4 kf5 Pe2 Ph4 Ph5 pe6 ph6 w - : W  Kd4d3:L Kd4c4:L Kd4e3:L Kd4c5:W Kd4c3:L Pe2e3:D Pe2e4:L
+       freeze Kd4c5 at Kd4 kf4 Pe2 Ph4 Ph5 pe6 ph6 w -
+         q S to move Kc5 kf4 Pe2 Ph4 Ph5 pe6 ph6 b - : D  Kf4f5:W Kf4g4:W Kf4e4:W Kf4g3:W Kf4e5:W Kf4e3:D Pe6e5:W
+         q F to move Kc5 kf4 Pe2 Ph4 Ph5 pe6 ph6 w - : W  Kc5c6:D Kc5c4:L Kc5b5:L Kc5d6:W Kc5d4:W Kc5b6:L Kc5b4:L Pe2e3:D Pe2e4:L
+       freeze Pe2e3 at Kd4 kf4 Pe2 Ph4 Ph5 pe6 ph6 w -
+         q S to move Kd4 kf4 Pe3 Ph4 Ph5 pe6 ph6 b - : D  Kf4f5:D Kf4f3:D Kf4g4:W Kf4g3:W
+         q F to move Kd4 kf4 Pe3 Ph4 Ph5 pe6 ph6 w - : X  
+       freeze Pe2e4 at Kd4 kf4 Pe2 Ph4 Ph5 pe6 ph6 w -
+         q S to move Kd4 kf4 Pe4 Ph4 Ph5 pe6 ph6 b e3 : D  Kf4f3:D Kf4g4:D Kf4g3:D Pe6e5:W
+         q F to move Kd4 kf4 Pe4 Ph4 Ph5 pe6 ph6 w - : L  Kd4d3:L Kd4c4:L Kd4c5:L Kd4c3:L Pe4e5:L
+       freeze Kd4c5 at Kd4 kf5 Pe2 Ph4 Ph5 pe6 ph6 w -
+         q S to move Kc5 kf5 Pe2 Ph4 Ph5 pe6 ph6 b - : W  Kf5f6:W Kf5f4:W Kf5e5:W Kf5g4:W Kf5e4:W Pe6e5:W
+         q F to move Kc5 kf5 Pe2 Ph4 Ph5 pe6 ph6 w - : W  Kc5c6:W Kc5c4:L Kc5b5:L Kc5d6:W Kc5d4:D Kc5b6:L Kc5b4:L Pe2e3:D Pe2e4:L
+       freeze Pe2e3 at Kd4 kf5 Pe2 Ph4 Ph5 pe6 ph6 w -
+         q S to move Kd4 kf5 Pe3 Ph4 Ph5 pe6 ph6 b - : D  Kf5f6:D Kf5g4:W Pe6e5:W
+         q F to move Kd4 kf5 Pe3 Ph4 Ph5 pe6 ph6 w - : D  Kd4d3:L Kd4c4:L Kd4c5:D Kd4c3:L Pe3e4:L
+FAIL kpp flat:8x8 shuttler b z=c5,c6 f0=a5 pieces "Ka5 kc5 Pb3 Pe5 Pe6 pb7 pe7" freezes ['Pb3b4 at Ka5 kc6']
+    (2) no freeze at Ka5 kc5 Pb3 Pe5 Pe6 pb7 pe7 w -
+       root Ka5 kc5 Pb3 Pe5 Pe6 pb7 pe7 b - : W  Kc5c6:W Kc5d5:W Kc5d4:W Pb7b6:W Pb7b5:W
+       root Ka5 kc5 Pb3 Pe5 Pe6 pb7 pe7 w - : L  Ka5a4:L Pb3b4:L
+       root Ka5 kc6 Pb3 Pe5 Pe6 pb7 pe7 b - : L  Kc6c7:W Kc6c5:L Kc6d5:W Pb7b6:W Pb7b5:W
+       root Ka5 kc6 Pb3 Pe5 Pe6 pb7 pe7 w - : W  Ka5a4:L Ka5b4:L Pb3b4:W
+       freeze Pb3b4 at Ka5 kc6 Pb3 Pe5 Pe6 pb7 pe7 w -
+         q S to move Ka5 kc6 Pb4 Pe5 Pe6 pb7 pe7 b - : W  Kc6c7:W Kc6d5:W Pb7b6:W Pb7b5:W
+         q F to move Ka5 kc6 Pb4 Pe5 Pe6 pb7 pe7 w - : L  Ka5a4:L Pb4b5:L
+FAIL kpp flat:8x8 shuttler b z=d5,d6 f0=b5 pieces "Kb5 kd5 Pc3 Pf5 Pf6 pc7 pf7" freezes ['Kb5a6 at Kb5 kd5', 'Pc3c4 at Kb5 kd5', 'Kb5a6 at Kb5 kd6', 'Pc3c4 at Kb5 kd6']
+    (3) Kd5e5 does not lose at once (D) at Ka6 kd5 Pc3 Pf5 Pf6 pc7 pf7 b -
+    (3) Kd5e4 does not lose at once (D) at Ka6 kd5 Pc3 Pf5 Pf6 pc7 pf7 b -
+    (4) Ka6a7 does not lose at once (D) at Ka6 kd5 Pc3 Pf5 Pf6 pc7 pf7 w -
+    (4) Ka6b7 does not lose at once (W) at Ka6 kd5 Pc3 Pf5 Pf6 pc7 pf7 w -
+    (4) Ka6b5 does not lose at once (W) at Ka6 kd5 Pc3 Pf5 Pf6 pc7 pf7 w -
+    (4) q illegal or no move: Kb5 kd5 Pc4 Pf5 Pf6 pc7 pf7 w -
+    (3) Kd6e5 does not lose at once (D) at Ka6 kd6 Pc3 Pf5 Pf6 pc7 pf7 b -
+    (4) Ka6a7 does not lose at once (D) at Ka6 kd6 Pc3 Pf5 Pf6 pc7 pf7 w -
+    (4) Ka6b7 does not lose at once (W) at Ka6 kd6 Pc3 Pf5 Pf6 pc7 pf7 w -
+    (4) Ka6b5 does not lose at once (W) at Ka6 kd6 Pc3 Pf5 Pf6 pc7 pf7 w -
+    (4) Pc3c4 does not lose at once (W) at Ka6 kd6 Pc3 Pf5 Pf6 pc7 pf7 w -
+    (4) Kb5b4 does not lose at once (D) at Kb5 kd6 Pc4 Pf5 Pf6 pc7 pf7 w -
+    (4) Kb5a6 does not lose at once (W) at Kb5 kd6 Pc4 Pf5 Pf6 pc7 pf7 w -
+       root Kb5 kd5 Pc3 Pf5 Pf6 pc7 pf7 b - : W  Kd5d6:W Kd5e5:W Kd5e4:W Pc7c6:W Pc7c5:W
+       root Kb5 kd5 Pc3 Pf5 Pf6 pc7 pf7 w - : W  Kb5b4:L Kb5a5:L Kb5a6:D Kb5a4:L Pc3c4:W
+       root Kb5 kd6 Pc3 Pf5 Pf6 pc7 pf7 b - : W  Kd6d7:W Kd6d5:W Kd6e5:W Pc7c6:W Pc7c5:W
+       root Kb5 kd6 Pc3 Pf5 Pf6 pc7 pf7 w - : W  Kb5b4:L Kb5a5:L Kb5c4:L Kb5a6:D Kb5a4:L Pc3c4:W
+       freeze Kb5a6 at Kb5 kd5 Pc3 Pf5 Pf6 pc7 pf7 w -
+         q S to move Ka6 kd5 Pc3 Pf5 Pf6 pc7 pf7 b - : D  Kd5d6:W Kd5e5:D Kd5c5:W Kd5e4:D Kd5c6:W Kd5c4:W Pc7c6:W Pc7c5:W
+         q F to move Ka6 kd5 Pc3 Pf5 Pf6 pc7 pf7 w - : W  Ka6a7:D Ka6a5:L Ka6b7:W Ka6b5:W Pc3c4:L
+       freeze Pc3c4 at Kb5 kd5 Pc3 Pf5 Pf6 pc7 pf7 w -
+         q S to move Kb5 kd5 Pc4 Pf5 Pf6 pc7 pf7 b - : W  Kd5d6:W Kd5d4:W Kd5e5:W Kd5e4:W
+         q F to move Kb5 kd5 Pc4 Pf5 Pf6 pc7 pf7 w - : X  
+       freeze Kb5a6 at Kb5 kd6 Pc3 Pf5 Pf6 pc7 pf7 w -
+         q S to move Ka6 kd6 Pc3 Pf5 Pf6 pc7 pf7 b - : D  Kd6d7:W Kd6d5:W Kd6c6:W Kd6e5:D Kd6c5:W Pc7c6:W Pc7c5:W
+         q F to move Ka6 kd6 Pc3 Pf5 Pf6 pc7 pf7 w - : W  Ka6a7:D Ka6a5:L Ka6b7:W Ka6b5:W Pc3c4:W
+       freeze Pc3c4 at Kb5 kd6 Pc3 Pf5 Pf6 pc7 pf7 w -
+         q S to move Kb5 kd6 Pc4 Pf5 Pf6 pc7 pf7 b - : W  Kd6d7:W Kd6e5:W Pc7c6:W Pc7c5:W
+         q F to move Kb5 kd6 Pc4 Pf5 Pf6 pc7 pf7 w - : W  Kb5b4:D Kb5a5:L Kb5a6:W Kb5a4:L Pc4c5:L
+FAIL kpp flat:8x8 shuttler b z=e5,e6 f0=c5 pieces "Kc5 ke5 Pd3 Pg5 Pg6 pd7 pg7" freezes ['Kc5b6 at Kc5 ke5', 'Pd3d4 at Kc5 ke5', 'Kc5b6 at Kc5 ke6', 'Pd3d4 at Kc5 ke6']
+    (3) Ke5f5 does not lose at once (D) at Kb6 ke5 Pd3 Pg5 Pg6 pd7 pg7 b -
+    (3) Ke5f4 does not lose at once (D) at Kb6 ke5 Pd3 Pg5 Pg6 pd7 pg7 b -
+    (4) Kb6b7 does not lose at once (D) at Kb6 ke5 Pd3 Pg5 Pg6 pd7 pg7 w -
+    (4) Kb6c7 does not lose at once (W) at Kb6 ke5 Pd3 Pg5 Pg6 pd7 pg7 w -
+    (4) Kb6c5 does not lose at once (W) at Kb6 ke5 Pd3 Pg5 Pg6 pd7 pg7 w -
+    (4) q illegal or no move: Kc5 ke5 Pd4 Pg5 Pg6 pd7 pg7 w -
+    (3) Ke6f5 does not lose at once (D) at Kb6 ke6 Pd3 Pg5 Pg6 pd7 pg7 b -
+    (4) Kb6b7 does not lose at once (D) at Kb6 ke6 Pd3 Pg5 Pg6 pd7 pg7 w -
+    (4) Kb6c7 does not lose at once (W) at Kb6 ke6 Pd3 Pg5 Pg6 pd7 pg7 w -
+    (4) Kb6c5 does not lose at once (W) at Kb6 ke6 Pd3 Pg5 Pg6 pd7 pg7 w -
+    (4) Pd3d4 does not lose at once (W) at Kb6 ke6 Pd3 Pg5 Pg6 pd7 pg7 w -
+    (4) Kc5c4 does not lose at once (D) at Kc5 ke6 Pd4 Pg5 Pg6 pd7 pg7 w -
+    (4) Kc5b6 does not lose at once (W) at Kc5 ke6 Pd4 Pg5 Pg6 pd7 pg7 w -
+       root Kc5 ke5 Pd3 Pg5 Pg6 pd7 pg7 b - : W  Ke5e6:W Ke5f5:W Ke5f4:W Pd7d6:W Pd7d5:W
+       root Kc5 ke5 Pd3 Pg5 Pg6 pd7 pg7 w - : W  Kc5c4:L Kc5b5:L Kc5b6:D Kc5b4:L Pd3d4:W
+       root Kc5 ke6 Pd3 Pg5 Pg6 pd7 pg7 b - : W  Ke6e7:W Ke6e5:W Ke6f5:W Pd7d6:W Pd7d5:W
+       root Kc5 ke6 Pd3 Pg5 Pg6 pd7 pg7 w - : W  Kc5c4:L Kc5b5:L Kc5d4:L Kc5b6:D Kc5b4:L Pd3d4:W
+       freeze Kc5b6 at Kc5 ke5 Pd3 Pg5 Pg6 pd7 pg7 w -
+         q S to move Kb6 ke5 Pd3 Pg5 Pg6 pd7 pg7 b - : D  Ke5e6:W Ke5f5:D Ke5d5:W Ke5f4:D Ke5d6:W Ke5d4:W Pd7d6:W Pd7d5:W
+         q F to move Kb6 ke5 Pd3 Pg5 Pg6 pd7 pg7 w - : W  Kb6b7:D Kb6b5:L Kb6a6:L Kb6c7:W Kb6c5:W Kb6a7:L Kb6a5:L Pd3d4:L
+       freeze Pd3d4 at Kc5 ke5 Pd3 Pg5 Pg6 pd7 pg7 w -
+         q S to move Kc5 ke5 Pd4 Pg5 Pg6 pd7 pg7 b - : W  Ke5e6:W Ke5e4:W Ke5f5:W Ke5f4:W
+         q F to move Kc5 ke5 Pd4 Pg5 Pg6 pd7 pg7 w - : X  
+       freeze Kc5b6 at Kc5 ke6 Pd3 Pg5 Pg6 pd7 pg7 w -
+         q S to move Kb6 ke6 Pd3 Pg5 Pg6 pd7 pg7 b - : D  Ke6e7:W Ke6e5:W Ke6d6:W Ke6f5:D Ke6d5:W Pd7d6:W Pd7d5:W
+         q F to move Kb6 ke6 Pd3 Pg5 Pg6 pd7 pg7 w - : W  Kb6b7:D Kb6b5:L Kb6a6:L Kb6c7:W Kb6c5:W Kb6a7:L Kb6a5:L Pd3d4:W
+       freeze Pd3d4 at Kc5 ke6 Pd3 Pg5 Pg6 pd7 pg7 w -
+         q S to move Kc5 ke6 Pd4 Pg5 Pg6 pd7 pg7 b - : W  Ke6e7:W Ke6f5:W Pd7d6:W Pd7d5:W
+         q F to move Kc5 ke6 Pd4 Pg5 Pg6 pd7 pg7 w - : W  Kc5c4:D Kc5b5:L Kc5b6:W Kc5b4:L Pd4d5:L
+FAIL kpp flat:8x8 shuttler b z=f5,f6 f0=d5 pieces "Kd5 kf5 Pe3 Ph5 Ph6 pe7 ph7" freezes ['Kd5c6 at Kd5 kf5', 'Pe3e4 at Kd5 kf5', 'Kd5c6 at Kd5 kf6', 'Pe3e4 at Kd5 kf6']
+    (1) Pe7e6 does not lose at once (D) at Kd5 kf5 Pe3 Ph5 Ph6 pe7 ph7 b -
+    (1) Pe7e5 does not lose at once (D) at Kd5 kf5 Pe3 Ph5 Ph6 pe7 ph7 b -
+    (1) Kf6f7 does not lose at once (D) at Kd5 kf6 Pe3 Ph5 Ph6 pe7 ph7 b -
+    (1) Pe7e6 does not lose at once (D) at Kd5 kf6 Pe3 Ph5 Ph6 pe7 ph7 b -
+    (1) Pe7e5 does not lose at once (D) at Kd5 kf6 Pe3 Ph5 Ph6 pe7 ph7 b -
+    (3) Kf5f6 does not lose at once (D) at Kc6 kf5 Pe3 Ph5 Ph6 pe7 ph7 b -
+    (3) Kf5g5 does not lose at once (D) at Kc6 kf5 Pe3 Ph5 Ph6 pe7 ph7 b -
+    (3) Kf5e5 does not lose at once (D) at Kc6 kf5 Pe3 Ph5 Ph6 pe7 ph7 b -
+    (3) Kf5e6 does not lose at once (D) at Kc6 kf5 Pe3 Ph5 Ph6 pe7 ph7 b -
+    (3) Kf5e4 does not lose at once (D) at Kc6 kf5 Pe3 Ph5 Ph6 pe7 ph7 b -
+    (3) Pe7e6 does not lose at once (D) at Kc6 kf5 Pe3 Ph5 Ph6 pe7 ph7 b -
+    (3) Pe7e5 does not lose at once (D) at Kc6 kf5 Pe3 Ph5 Ph6 pe7 ph7 b -
+    (4) Kc6c7 does not lose at once (D) at Kc6 kf5 Pe3 Ph5 Ph6 pe7 ph7 w -
+    (4) Kc6d7 does not lose at once (D) at Kc6 kf5 Pe3 Ph5 Ph6 pe7 ph7 w -
+    (4) Kc6d5 does not lose at once (D) at Kc6 kf5 Pe3 Ph5 Ph6 pe7 ph7 w -
+    (3) Kf5f6 does not lose at once (D) at Kd5 kf5 Pe4 Ph5 Ph6 pe7 ph7 b -
+    (3) Kf5f4 does not lose at once (D) at Kd5 kf5 Pe4 Ph5 Ph6 pe7 ph7 b -
+    (4) q illegal or no move: Kd5 kf5 Pe4 Ph5 Ph6 pe7 ph7 w -
+    (3) Kf6f7 does not lose at once (D) at Kc6 kf6 Pe3 Ph5 Ph6 pe7 ph7 b -
+    (3) Kf6f5 does not lose at once (D) at Kc6 kf6 Pe3 Ph5 Ph6 pe7 ph7 b -
+    (3) Kf6e6 does not lose at once (D) at Kc6 kf6 Pe3 Ph5 Ph6 pe7 ph7 b -
+    (3) Kf6g5 does not lose at once (D) at Kc6 kf6 Pe3 Ph5 Ph6 pe7 ph7 b -
+    (3) Kf6e5 does not lose at once (D) at Kc6 kf6 Pe3 Ph5 Ph6 pe7 ph7 b -
+    (3) Pe7e6 does not lose at once (D) at Kc6 kf6 Pe3 Ph5 Ph6 pe7 ph7 b -
+    (3) Pe7e5 does not lose at once (D) at Kc6 kf6 Pe3 Ph5 Ph6 pe7 ph7 b -
+    (4) Kc6c7 does not lose at once (D) at Kc6 kf6 Pe3 Ph5 Ph6 pe7 ph7 w -
+    (4) Kc6d7 does not lose at once (D) at Kc6 kf6 Pe3 Ph5 Ph6 pe7 ph7 w -
+    (4) Kc6d5 does not lose at once (D) at Kc6 kf6 Pe3 Ph5 Ph6 pe7 ph7 w -
+    (4) Pe3e4 does not lose at once (D) at Kc6 kf6 Pe3 Ph5 Ph6 pe7 ph7 w -
+    (3) Kf6f7 does not lose at once (D) at Kd5 kf6 Pe4 Ph5 Ph6 pe7 ph7 b -
+    (3) Pe7e6 does not lose at once (D) at Kd5 kf6 Pe4 Ph5 Ph6 pe7 ph7 b -
+    (3) Pe7e5 does not lose at once (D) at Kd5 kf6 Pe4 Ph5 Ph6 pe7 ph7 b -
+    (4) Kd5d4 does not lose at once (D) at Kd5 kf6 Pe4 Ph5 Ph6 pe7 ph7 w -
+    (4) Kd5c6 does not lose at once (D) at Kd5 kf6 Pe4 Ph5 Ph6 pe7 ph7 w -
+       root Kd5 kf5 Pe3 Ph5 Ph6 pe7 ph7 b - : D  Kf5f6:D Kf5g5:W Kf5g4:W Pe7e6:D Pe7e5:D
+       root Kd5 kf5 Pe3 Ph5 Ph6 pe7 ph7 w - : D  Kd5d4:L Kd5c5:L Kd5c6:D Kd5c4:L Pe3e4:D
+       root Kd5 kf6 Pe3 Ph5 Ph6 pe7 ph7 b - : D  Kf6f7:D Kf6f5:D Kf6g5:W Pe7e6:D Pe7e5:D
+       root Kd5 kf6 Pe3 Ph5 Ph6 pe7 ph7 w - : D  Kd5d4:L Kd5c5:L Kd5e4:L Kd5c6:D Kd5c4:L Pe3e4:D
+       freeze Kd5c6 at Kd5 kf5 Pe3 Ph5 Ph6 pe7 ph7 w -
+         q S to move Kc6 kf5 Pe3 Ph5 Ph6 pe7 ph7 b - : D  Kf5f6:D Kf5g5:D Kf5e5:D Kf5g4:W Kf5e6:D Kf5e4:D Pe7e6:D Pe7e5:D
+         q F to move Kc6 kf5 Pe3 Ph5 Ph6 pe7 ph7 w - : D  Kc6c7:D Kc6c5:L Kc6b6:L Kc6d7:D Kc6d5:D Kc6b7:L Kc6b5:L Pe3e4:L
+       freeze Pe3e4 at Kd5 kf5 Pe3 Ph5 Ph6 pe7 ph7 w -
+         q S to move Kd5 kf5 Pe4 Ph5 Ph6 pe7 ph7 b - : D  Kf5f6:D Kf5f4:D Kf5g5:W Kf5g4:W
+         q F to move Kd5 kf5 Pe4 Ph5 Ph6 pe7 ph7 w - : X  
+       freeze Kd5c6 at Kd5 kf6 Pe3 Ph5 Ph6 pe7 ph7 w -
+         q S to move Kc6 kf6 Pe3 Ph5 Ph6 pe7 ph7 b - : D  Kf6f7:D Kf6f5:D Kf6e6:D Kf6g5:D Kf6e5:D Pe7e6:D Pe7e5:D
+         q F to move Kc6 kf6 Pe3 Ph5 Ph6 pe7 ph7 w - : D  Kc6c7:D Kc6c5:L Kc6b6:L Kc6d7:D Kc6d5:D Kc6b7:L Kc6b5:L Pe3e4:D
+       freeze Pe3e4 at Kd5 kf6 Pe3 Ph5 Ph6 pe7 ph7 w -
+         q S to move Kd5 kf6 Pe4 Ph5 Ph6 pe7 ph7 b - : D  Kf6f7:D Kf6g5:W Pe7e6:D Pe7e5:D
+         q F to move Kd5 kf6 Pe4 Ph5 Ph6 pe7 ph7 w - : D  Kd5d4:D Kd5c5:L Kd5c6:D Kd5c4:L Pe4e5:L

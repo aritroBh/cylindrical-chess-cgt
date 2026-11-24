@@ -1,0 +1,25 @@
+nodes 1975627 edges 12804963 peak 208 MB
+rootA_w Kg4 ke4 Pd2 Pd5 Ph5 pd6 ph6 w - P=W moves=5 promo=0 check=0
+   Kg4g3    -> Kg3 ke4 Pd2 Pd5 Ph5 pd6 ph6 b -  P(after)=L
+   Kg4h3    -> Kh3 ke4 Pd2 Pd5 Ph5 pd6 ph6 b -  P(after)=L
+   Kg4h4    -> Kh4 ke4 Pd2 Pd5 Ph5 pd6 ph6 b -  P(after)=L
+   Pd2d3    -> Kg4 ke4 Pd3 Pd5 Ph5 pd6 ph6 b -  P(after)=L
+   Pd2d4    -> Kg4 ke4 Pd4 Pd5 Ph5 pd6 ph6 b d3  P(after)=W  FREEZE
+rootA_b Kg4 ke4 Pd2 Pd5 Ph5 pd6 ph6 b - P=W moves=4 promo=0 check=0
+   ke4d3    -> Kg4 kd3 Pd2 Pd5 Ph5 pd6 ph6 w -  P(after)=W  B1(sum rule, -1)=W  [pass game 1 pass, stalemate draw: W]  check=0
+   ke4d4    -> Kg4 kd4 Pd2 Pd5 Ph5 pd6 ph6 w -  P(after)=W  B1(sum rule, -1)=W  [pass game 1 pass, stalemate draw: W]  check=0
+   ke4d5    -> Kg4 kd5 Pd2 Ph5 pd6 ph6 w -  P(after)=W  B1(sum rule, -1)=W  [pass game 1 pass, stalemate draw: W]  check=0
+   ke4e5    shuttle -> Kg4 ke5 Pd2 Pd5 Ph5 pd6 ph6 w -
+rootB_w Kg4 ke5 Pd2 Pd5 Ph5 pd6 ph6 w - P=W moves=6 promo=0 check=0
+   Kg4f3    -> Kf3 ke5 Pd2 Pd5 Ph5 pd6 ph6 b -  P(after)=L
+   Kg4g3    -> Kg3 ke5 Pd2 Pd5 Ph5 pd6 ph6 b -  P(after)=L
+   Kg4h3    -> Kh3 ke5 Pd2 Pd5 Ph5 pd6 ph6 b -  P(after)=L
+   Kg4h4    -> Kh4 ke5 Pd2 Pd5 Ph5 pd6 ph6 b -  P(after)=L
+   Pd2d3    -> Kg4 ke5 Pd3 Pd5 Ph5 pd6 ph6 b -  P(after)=W  FREEZE
+   Pd2d4    -> Kg4 ke5 Pd4 Pd5 Ph5 pd6 ph6 b d3  P(after)=L
+rootB_b Kg4 ke5 Pd2 Pd5 Ph5 pd6 ph6 b - P=W moves=4 promo=0 check=0
+   ke5d4    -> Kg4 kd4 Pd2 Pd5 Ph5 pd6 ph6 w -  P(after)=W  B1(sum rule, -1)=W  [pass game 1 pass, stalemate draw: W]  check=0
+   ke5e4    shuttle -> Kg4 ke4 Pd2 Pd5 Ph5 pd6 ph6 w -
+   ke5d5    -> Kg4 kd5 Pd2 Ph5 pd6 ph6 w -  P(after)=W  B1(sum rule, -1)=W  [pass game 1 pass, stalemate draw: W]  check=0
+   ke5f6    -> Kg4 kf6 Pd2 Pd5 Ph5 pd6 ph6 w -  P(after)=W  B1(sum rule, -1)=W  [pass game 1 pass, stalemate draw: W]  check=0
+peak 230 MB after token games

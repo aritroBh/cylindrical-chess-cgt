@@ -506,6 +506,12 @@ Every deliverable was given to independent referees (Claude models) told to brea
     the statements only. Its proof of part (c) does not use the determinacy theorem. It also shows that the proofs
     need the e.p. right to add moves only, as it does in chess: in an abstract group where the absence of a right
     makes a move legal, the statements fail (`kings/delegate/out/K61/PROOF.md`; not refereed separately).
+  - K59 (2026-11-23, refereed 2026-11-24): groups with the results of over on a flat board. Corollary 4.17 (PROVED
+    given CHECKED-2 computations): five exact over groups on flat 8×7, with no wrap, have the results of over beside
+    every finite D-game; the smallest has 2 + 2 pawns, `Ka4 kc4/kc5 Pb2 Pf5 pb6 pf6`. Four of them are also exact
+    with (B1) on flat 8×8, the ordinary chessboard. The four cyl:8×7 groups of K48 have the results of over too
+    (Corollary 4.16, (B1) now by two programs). The referee wrote a third solver and found no error; one wording
+    correction (five placements, four shapes) (`kings/delegate/out/K59/REVIEW.md`).
   - Theorem 1.11(c) repaired (2026-11-23): its proof used the e.p. condition (E) without assuming it, and its frontier
     step used an unproved inheritance of threats by re-split components. (E) is now a hypothesis (every use already had
     it through Theorem 1.14), and the inheritance is proved. Found while the paper's proofs appendix was written and

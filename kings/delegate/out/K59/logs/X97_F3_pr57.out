@@ -1,0 +1,29 @@
+board flat:9x7 root Ke4 kc4 Pb2 Pb5 Pf5 pb6 pf6 shuttle c4-c5: 1672739 nodes, 10964737 edges, peak 270 MB after build
+peak 303 MB after layers
+root kc4 b (P value W): 4 moves
+   kc4b3     loses at once yes, loses vs free passes yes, smallest number of passes that saves it: -; budget test: (N1) yes (V1) no
+   kc4b4     loses at once yes, loses vs free passes yes, smallest number of passes that saves it: -; budget test: (N1) yes (V1) no
+   kc4b5     loses at once yes, loses vs free passes yes, smallest number of passes that saves it: -; budget test: (N1) yes (V1) no
+   kc4c5     shuttle
+root kc4 w (P value W): 5 moves
+   Ke4e3     loses at once yes, loses vs free passes NO, smallest number of passes that saves it: none<=6,unlimited:draw; budget test: (Ninf) no (V0) no
+   Ke4f3     loses at once yes, loses vs free passes NO, smallest number of passes that saves it: none<=6,unlimited:draw; budget test: (Ninf) no (V0) no
+   Ke4f4     loses at once yes, loses vs free passes NO, smallest number of passes that saves it: none<=6,unlimited:draw; budget test: (Ninf) no (V0) no
+   Pb2b3     loses at once yes, loses vs free passes NO, smallest number of passes that saves it: 1; budget test: (Ninf) no (V0) no
+   Pb2b4     candidate freeze (does not lose at once): q is a P-zero (Def 4.8) yes, pass-robust zero yes
+      q = Ke4 kc4 Pb4 Pb5 Pf5 pb6 pf6 b - ; q with White to move: Ke4 kc4 Pb4 Pb5 Pf5 pb6 pf6 w -
+root kc5 b (P value W): 4 moves
+   kc5b4     loses at once yes, loses vs free passes yes, smallest number of passes that saves it: -; budget test: (N1) yes (V1) no
+   kc5b5     loses at once yes, loses vs free passes yes, smallest number of passes that saves it: -; budget test: (N1) yes (V1) no
+   kc5c4     shuttle
+   kc5d6     loses at once yes, loses vs free passes NO, smallest number of passes that saves it: 2; budget test: (N1) yes (V1) no
+root kc5 w (P value W): 6 moves
+   Ke4d3     loses vs free passes (and at once: yes); budget test: (Ninf) yes (V0) no
+   Ke4e3     loses at once yes, loses vs free passes NO, smallest number of passes that saves it: none<=6,unlimited:draw; budget test: (Ninf) no (V0) no
+   Ke4f3     loses at once yes, loses vs free passes NO, smallest number of passes that saves it: none<=6,unlimited:draw; budget test: (Ninf) no (V0) no
+   Ke4f4     loses at once yes, loses vs free passes NO, smallest number of passes that saves it: none<=6,unlimited:draw; budget test: (Ninf) no (V0) no
+   Pb2b3     candidate freeze (does not lose at once): q is a P-zero (Def 4.8) yes, pass-robust zero NO [q b: kc5d6 not lost vs free passes; saved by 1 passes] [q w: Ke4e3 not lost vs free passes; saved by none<=6,unlimited:draw passes] [q w: Ke4f3 not lost vs free passes; saved by none<=6,unlimited:draw passes] [q w: Ke4f4 not lost vs free passes; saved by none<=6,unlimited:draw passes] [q w: Pb3b4 not lost vs free passes; saved by 1 passes]
+      q = Ke4 kc5 Pb3 Pb5 Pf5 pb6 pf6 b - ; q with White to move: Ke4 kc5 Pb3 Pb5 Pf5 pb6 pf6 w -
+   Pb2b4     loses at once yes, loses vs free passes NO, smallest number of passes that saves it: 1; budget test: (Ninf) no (V0) no
+RESULT flat:9x7 Ke4 kc4 Pb2 Pb5 Pf5 pb6 pf6 shuttle c5: Definition 4.8 exact: yes; pass-robust exact: NO; failing moves (pass-robust): 14; tempo-exact (budget test): NO, failing root moves 8
+peak 303 MB

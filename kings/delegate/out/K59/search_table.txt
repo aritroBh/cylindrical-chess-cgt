@@ -1,0 +1,34 @@
+K59 flat 8x7 search (ranks 2..6, <= 3 + 3 pawns on the three files, every king placement; Definition 4.8).
+A = p45a (K45 implementation A), both orientations; R = r48 (K45 referee's r45 with the flat option), under orientation.
+Counters: placements, (U1)/(O1), promotion freeze, (U1)+(U2), loose, exact.  One class per left-right reflection.
+files 0,1,4 | A under (858879880, 267657246, 194805785, 72842491, 66346671, 1) | A over (858879880, 267657246, 194805785, 72842491, 66346671, 1) | R (858879880, 267657246, 194805785, 72842491, 66346671, 1) | A=R
+   A HIT sh=0 Kc3 ka4 Pb2 Pe2 pb6 pe3 pe4 w -  shuttle c3c4
+   A HIT sh=1 Ka4 kc4 Pb2 Pe4 Pe5 pb6 pe6 b -  shuttle c4c5
+   R HIT under: shuttle c3-c4, Black king a4, Pb2 Pe2 pe3 pe4 pb6
+files 0,3,4 | A under (853532776, 264081649, 192368635, 71707424, 64582402, 0) | A over (853532776, 264081649, 192368635, 71707424, 64582402, 0) | R (853532776, 264081649, 192368635, 71707424, 64582402, 0) | A=R
+files 1,2,5 | A under (785481597, 243614537, 176100018, 67502437, 62013700, 3) | A over (785481597, 243614537, 176100018, 67502437, 62013700, 3) | R (785481597, 243614537, 176100018, 67502437, 62013700, 3) | A=R
+   A HIT sh=0 Kc3 ka4 Pb2 Pf2 pb6 pf3 w -  shuttle c3c4
+   A HIT sh=0 Kc3 ke4 Pb2 Pf2 pb3 pb6 pf3 w -  shuttle c3c4
+   A HIT sh=0 Ke3 kc4 Pb2 Pf2 pb3 pf3 pf6 w -  shuttle e3e4
+   A HIT sh=1 Ka4 kc4 Pb2 Pf5 pb6 pf6 b -  shuttle c4c5
+   A HIT sh=1 Ke4 kc4 Pb2 Pb5 Pf5 pb6 pf6 b -  shuttle c4c5
+   A HIT sh=1 Kc4 ke4 Pb5 Pf2 Pf5 pb6 pf6 b -  shuttle e4e5
+   R HIT under: shuttle c3-c4, Black king a4, Pb2 Pf2 pf3 pb6
+   R HIT under: shuttle c3-c4, Black king e4, Pb2 Pf2 pb3 pf3 pb6
+   R HIT under: shuttle e3-e4, Black king c4, Pb2 Pf2 pb3 pf3 pf6
+files 1,4,5 | A under (787186302, 244247796, 176531950, 67704415, 62101015, 5) | A over (787186302, 244247796, 176531950, 67704415, 62101015, 5) | R (787186302, 244247796, 176531950, 67704415, 62101015, 5) | A=R
+   A HIT sh=0 Kc3 ka4 Pb2 Pf2 pb6 pf3 w -  shuttle c3c4
+   A HIT sh=0 Kc3 ke4 Pb2 Pf2 pb3 pb6 pf3 w -  shuttle c3c4
+   A HIT sh=0 Ke3 kc4 Pb2 Pf2 pb3 pf3 pf6 w -  shuttle e3e4
+   A HIT sh=0 Kc3 ka4 Pb2 Pe2 pb6 pe3 pe4 w -  shuttle c3c4
+   A HIT sh=0 Kc3 ka4 Pb2 Pe2 Pf3 pb6 pe3 pf4 w -  shuttle c3c4
+   A HIT sh=1 Ka4 kc4 Pb2 Pf5 pb6 pf6 b -  shuttle c4c5
+   A HIT sh=1 Ke4 kc4 Pb2 Pb5 Pf5 pb6 pf6 b -  shuttle c4c5
+   A HIT sh=1 Kc4 ke4 Pb5 Pf2 Pf5 pb6 pf6 b -  shuttle e4e5
+   A HIT sh=1 Ka4 kc4 Pb2 Pe4 Pe5 pb6 pe6 b -  shuttle c4c5
+   A HIT sh=1 Ka4 kc4 Pb2 Pe5 Pf4 pb6 pe6 pf5 b -  shuttle c4c5
+   R HIT under: shuttle c3-c4, Black king a4, Pb2 Pe2 pe3 pe4 pb6
+   R HIT under: shuttle c3-c4, Black king a4, Pb2 Pf2 pf3 pb6
+   R HIT under: shuttle c3-c4, Black king e4, Pb2 Pf2 pb3 pf3 pb6
+   R HIT under: shuttle c3-c4, Black king a4, Pb2 Pe2 Pf3 pe3 pf4 pb6
+   R HIT under: shuttle e3-e4, Black king c4, Pb2 Pf2 pb3 pf3 pf6

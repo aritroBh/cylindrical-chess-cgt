@@ -1,0 +1,30 @@
+nodes 6174579 edges 43060336 peak 1001 MB
+rootA_w Kd4 kf4 Pe2 Pa4 Pb5 pa5 pb6 pe6 w - P=W moves=5 promo=0 check=0
+   Kd4c3    -> Kc3 kf4 Pe2 Pa4 Pb5 pa5 pb6 pe6 b -  P(after)=L
+   Kd4d3    -> Kd3 kf4 Pe2 Pa4 Pb5 pa5 pb6 pe6 b -  P(after)=L
+   Kd4c4    -> Kc4 kf4 Pe2 Pa4 Pb5 pa5 pb6 pe6 b -  P(after)=L
+   Pe2e3    -> Kd4 kf4 Pe3 Pa4 Pb5 pa5 pb6 pe6 b -  P(after)=L
+   Pe2e4    -> Kd4 kf4 Pa4 Pe4 Pb5 pa5 pb6 pe6 b e3  P(after)=W  FREEZE
+rootA_b Kd4 kf4 Pe2 Pa4 Pb5 pa5 pb6 pe6 b - P=W moves=6 promo=0 check=0
+   kf4g3    -> Kd4 kg3 Pe2 Pa4 Pb5 pa5 pb6 pe6 w -  P(after)=W  B1(sum rule, -1)=W  [pass game 1 pass, stalemate draw: W]  check=0
+   kf4g4    -> Kd4 kg4 Pe2 Pa4 Pb5 pa5 pb6 pe6 w -  P(after)=W  B1(sum rule, -1)=W  [pass game 1 pass, stalemate draw: W]  check=0
+   kf4f5    shuttle -> Kd4 kf5 Pe2 Pa4 Pb5 pa5 pb6 pe6 w -
+   kf4g5    -> Kd4 kg5 Pe2 Pa4 Pb5 pa5 pb6 pe6 w -  P(after)=W  B1(sum rule, -1)=W  [pass game 1 pass, stalemate draw: W]  check=0
+   pe6e5    -> Kd4 kf4 Pe2 Pa4 Pb5 pa5 pe5 pb6 w -  P(after)=W  B1(sum rule, -1)=W  [pass game 1 pass, stalemate draw: W]  check=1
+   pe6e4    -> Kd4 kf4 Pe2 Pa4 Pb5 pe4 pa5 pb6 w e5  P(after)=W  B1(sum rule, -1)=W  [pass game 1 pass, stalemate draw: W]  check=0
+rootB_w Kd4 kf5 Pe2 Pa4 Pb5 pa5 pb6 pe6 w - P=W moves=6 promo=0 check=0
+   Kd4c3    -> Kc3 kf5 Pe2 Pa4 Pb5 pa5 pb6 pe6 b -  P(after)=L
+   Kd4d3    -> Kd3 kf5 Pe2 Pa4 Pb5 pa5 pb6 pe6 b -  P(after)=L
+   Kd4e3    -> Ke3 kf5 Pe2 Pa4 Pb5 pa5 pb6 pe6 b -  P(after)=L
+   Kd4c4    -> Kc4 kf5 Pe2 Pa4 Pb5 pa5 pb6 pe6 b -  P(after)=L
+   Pe2e3    -> Kd4 kf5 Pe3 Pa4 Pb5 pa5 pb6 pe6 b -  P(after)=W  FREEZE
+   Pe2e4    -> Kd4 kf5 Pa4 Pe4 Pb5 pa5 pb6 pe6 b e3  P(after)=L
+rootB_b Kd4 kf5 Pe2 Pa4 Pb5 pa5 pb6 pe6 b - P=W moves=7 promo=0 check=0
+   kf5f4    shuttle -> Kd4 kf4 Pe2 Pa4 Pb5 pa5 pb6 pe6 w -
+   kf5g4    -> Kd4 kg4 Pe2 Pa4 Pb5 pa5 pb6 pe6 w -  P(after)=W  B1(sum rule, -1)=W  [pass game 1 pass, stalemate draw: W]  check=0
+   kf5g5    -> Kd4 kg5 Pe2 Pa4 Pb5 pa5 pb6 pe6 w -  P(after)=W  B1(sum rule, -1)=W  [pass game 1 pass, stalemate draw: W]  check=0
+   kf5f6    -> Kd4 kf6 Pe2 Pa4 Pb5 pa5 pb6 pe6 w -  P(after)=W  B1(sum rule, -1)=W  [pass game 1 pass, stalemate draw: W]  check=0
+   kf5g6    -> Kd4 kg6 Pe2 Pa4 Pb5 pa5 pb6 pe6 w -  P(after)=W  B1(sum rule, -1)=W  [pass game 1 pass, stalemate draw: W]  check=0
+   pe6e5    -> Kd4 kf5 Pe2 Pa4 Pb5 pa5 pe5 pb6 w -  P(after)=W  B1(sum rule, -1)=W  [pass game 1 pass, stalemate draw: W]  check=1
+   pe6e4    -> Kd4 kf5 Pe2 Pa4 Pb5 pe4 pa5 pb6 w e5  P(after)=W  B1(sum rule, -1)=W  [pass game 1 pass, stalemate draw: W]  check=0
+peak 1085 MB after token games
