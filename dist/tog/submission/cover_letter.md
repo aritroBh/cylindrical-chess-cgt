@@ -8,7 +8,7 @@ Re: Full paper, "Chess Endgames on a Cylindrical Chessboard: Exact Combinatorial
 
 Dear Editor,
 
-I submit the manuscript above for review as a full paper. It is 10 pages including references. Supplementary material (108 pages) holds the full proofs and listings and is not part of the page count.
+I submit the manuscript above for review as a full paper. It is 10 pages including references. Supplementary material (109 pages) holds the full proofs and listings and is not part of the page count.
 
 Cylinder chess joins the a-file to the h-file, leaving no side edges or corners. The paper studies king-and-pawn endgames on this board with combinatorial game theory after Elkies. The main results are these.
 

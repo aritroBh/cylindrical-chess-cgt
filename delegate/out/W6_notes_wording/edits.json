@@ -1,0 +1,192 @@
+[
+ {
+  "file": "s15_note1.md",
+  "old": "insertion), quoted in section 2 |",
+  "new": "insertion), restated in section 2 |"
+ },
+ {
+  "file": "s15_note1.md",
+  "old": "(with the repaired definition of section 2)",
+  "new": "(restated in section 2)"
+ },
+ {
+  "file": "s15_note1.md",
+  "old": "(statements quoted from Lemmas 1-3 there)",
+  "new": "(statements restated from Lemmas 1-3 there)"
+ },
+ {
+  "file": "s15_note1.md",
+  "old": "The statements of Lemmas 1-3 below are those of Section S13. They rely",
+  "new": "The statements of Lemmas 1-3 below have the hypotheses and conclusions of Section S13 in abbreviated wording (in Lemma 3 the insertion is that of Section S13, paragraph \"Insertion\"). They rely"
+ },
+ {
+  "file": "s15_note1.md",
+  "old": "Lemma 2's proof (\"neighbours of $q$ are pawns of the other colour two ranks further on\") needs the exact content.",
+  "new": "Lemma 2's proof (files $j\\pm1$ hold only an enemy pawn two ranks ahead of $q$) needs the exact content."
+ },
+ {
+  "file": "s15_note1.md",
+  "old": "with an e.p. flag (if any) protecting a pawn of the player not to move.",
+  "new": "with an e.p. flag (if any) marking an e.p.-capturable pawn of the player not to move."
+ },
+ {
+  "file": "s15_note1.md",
+  "old": "and an e.p. flag (if any) protecting a pawn of $X$, the player not to move.",
+  "new": "and an e.p. flag (if any) marking an e.p.-capturable pawn of $X$, the player not to move."
+ },
+ {
+  "file": "s15_note1.md",
+  "old": "Step (iii) of the proof of Lemma 3 concerns the replies of $Y$ to a far move of $X$. What it needs is the following, which is proved here in full from Lemma 2 and the view lemma V.",
+  "new": "Section S13 proves steps (i)-(iii) of Lemma 3 in full. This section gives the same local proof in the coordinates of $P_n$. Step (iii) concerns the replies of $Y$ to a far move of $X$; it is proved below from Lemma 2 and the view lemma V."
+ },
+ {
+  "file": "s15_note1.md",
+  "old": "It also shows that the only role of the cut is to guarantee that $A\\subset$ pattern files (the hypothesis); it is not otherwise special (H6).",
+  "new": "It also shows that, besides the numeric bounds $4\\le c\\le n-6$ of Lemma 3, which keep the files $c-4,\\dots,c+5$ distinct, with no wrap across the seam between files $n-1$ and $0$, the only role of the cut is to guarantee that $A$ consists of consecutive pattern files of one wall (the hypothesis); it is not otherwise special (H6)."
+ },
+ {
+  "file": "s15_note1.md",
+  "old": "(This justifies that the case analysis of Lemma 2(b) in Section S13 lists only forward steps.)",
+  "new": "(The proof of Lemma 2 in Section S13 gives the same argument before its case analysis, which therefore lists only forward steps.)"
+ },
+ {
+  "file": "s15_note1.md",
+  "old": "($h<256$ in the model of Section S13, where a passed pawn is worth $\\pm256$; the step below uses no bound)",
+  "new": "(the theorem of Section S13 holds for every $h\\ge0$ and names the range $0\\le h<256$ in particular; the step below uses no bound)"
+ },
+ {
+  "file": "s15_note1.md",
+  "old": "The only repairs are precisions: the definition of \"pattern file\" (section 2), the explicit bound $n\\ge n_0$ (H6), the no-capture remark (H3), the large-heap step and the meaning of \"$=\\star2$\" (H8), and the written-out step (iii) (2b).",
+  "new": "What this note adds for $P_n$ are precisions: the restated definition of \"pattern file\" (section 2), the explicit bound $n\\ge n_0$ (H6), the no-capture remark (H3), the large-heap step and the meaning of \"$=\\star2$\" (H8), and the local proof of steps (ii)-(iii) in the coordinates of $P_n$ (2b)."
+ },
+ {
+  "file": "s15_note1.md",
+  "old": "Their hand proofs are those of Section S13; H4 restates the race rule. Section 2b writes out steps (ii)-(iii) of Lemma 3 for this family.",
+  "new": "Their hand proofs are those of Section S13, which defines the model in full (including the race rule and the flag across a heap move) and proves Lemma 3 (i)-(iii) in full; H4 discusses the role of the race rule. Section 2b gives the local proof of steps (ii)-(iii) in the coordinates of $P_n$."
+ },
+ {
+  "file": "s15_note1.md",
+  "old": "| H4 | the race rule enters only through the passed-pawn set of a child, which $\\mathrm{ins}$ preserves | PROVED |",
+  "new": "| H4 | the race rule enters only through the passed pawns of a child (colour, rank, front-pawn status) and the last mover, which $\\mathrm{ins}$ preserves; so the argument holds for any race rule invariant under the file embedding and determined by these data, such as count, mover and opponent | PROVED |"
+ },
+ {
+  "file": "s15_note1.md",
+  "old": "(and under any race rule invariant under this file embedding and determined by preserved data, including the front-pawn information and last mover needed for count)",
+  "new": "(and under any race rule that is invariant under this file embedding and is determined by data the insertion preserves: the passed pawns with their colours, ranks and front-pawn status, and the last mover; count, mover and opponent are such rules)"
+ },
+ {
+  "file": "s15_note1.md",
+  "old": "The proof's lemmas are rule-independent (H4); C1' is not.",
+  "new": "The proof's lemmas hold for every race rule of the class described in H4, which contains count, mover and opponent; C1' does not."
+ },
+ {
+  "file": "s15_note1.md",
+  "old": "passes for every $c=7..n-2$ and fails only for $c=6$, which cuts the zone)",
+  "new": "passes for every $c=7..n-2$, which for $c$ outside $11..n-6$ is a test of the conclusion outside the sufficient hypotheses, and fails only for $c=6$, where file 6 lies in the zone, so the copied pair is not always a pattern pair and the map tested is the unrestricted file-copy map)"
+ },
+ {
+  "file": "s15_note1.md",
+  "old": "and with the arc requirement dropped it finds 774 and 422 mismatches at $c=5,6$ ($n=18$), so the test can fail.",
+  "new": "and at the cuts $c=5,6$ ($n=18$), where the copied pair is not always a pattern pair (file 5 is a core file, file 6 lies in the zone) and the map is the unrestricted file-copy map, it finds 774 and 422 mismatches, so the test can fail."
+ },
+ {
+  "file": "s15_note1.md",
+  "old": "arcs of 2 and 4 files fail (897 and 99 mismatches), arcs of 6 files and longer pass, so radius 5 is conservative.",
+  "new": "with arcs of 2 and 4 files, a test of the conclusion outside the sufficient hypotheses, the tested correspondence fails (897 and 99 mismatches); arcs of 6 files and longer pass, so radius 5 is conservative."
+ },
+ {
+  "file": "s15_note1.md",
+  "old": "with the arc shortened by 3 files the same test finds a mismatch (1 of 42 accepted).",
+  "new": "with the arc shortened by 3 files, a test of the conclusion outside the sufficient hypotheses, the same test finds a mismatch (1 of 42 accepted)."
+ },
+ {
+  "file": "s15_note1.md",
+  "old": "and for every cut $c=7..n-2$ (fails only for $c=6$).",
+  "new": "and for every cut $c=7..n-2$ (for $c$ outside $11..n-6$ a test of the conclusion outside the sufficient hypotheses); at $c=6$, where the copied pair is not always a pattern pair and the map is the unrestricted file-copy map, the tested correspondence fails."
+ },
+ {
+  "file": "s15_note2.md",
+  "old": "**PROVED**: Lemmas 1–2 and the statement of Lemma 3 in Section S13; the proof of Lemma 3 (ii)–(iii) is written out in Note 1 of Section S15, §2b. |",
+  "new": "**PROVED**: Lemmas 1–3 and their proofs, including steps (i)–(iii) of the proof of Lemma 3, in Section S13; steps (ii)–(iii) are also written out, in the coordinates of $P_n$, in Note 1 of Section S15, §2b. |"
+ },
+ {
+  "file": "s14_ringn.md",
+  "old": "At $O_{19}$ the five additional controls $c=6$ through $10$ all had zero mismatches. No failing $O$ control was recorded in that sweep.",
+  "new": "At $O_{19}$ five additional cuts all had zero mismatches: $c=6$ through $9$, where the copied pair is a pattern pair but the ten-file interval leaves the wall (a test of the conclusion outside the sufficient hypotheses), and $c=10$, where file 11 lies beyond the designated wall, so the map is the unrestricted file-copy map. No mismatch at an $O$ cut was recorded in that sweep."
+ },
+ {
+  "file": "s14_ringn.md",
+  "old": "control fails at $c=9$ (600 of 882).",
+  "new": "at the control cut $c=9$, where file 10 lies beyond the wall, so the map is the unrestricted file-copy map, the tested correspondence fails (600 of 882)."
+ },
+ {
+  "file": "s14_ringn.md",
+  "old": "the five further controls $c=6..10$ at $O_{19}$ all had 0 mismatches (the proof uses $c=5$); no failing $O$ control was recorded.",
+  "new": "the five further cuts $c=6..10$ at $O_{19}$ (for $c\\le9$ tests of the conclusion outside the sufficient hypotheses, for $c=10$ the unrestricted file-copy map) all had 0 mismatches (the proof uses $c=5$); no mismatch at an $O$ cut was recorded."
+ },
+ {
+  "file": "s14_ringn.md",
+  "old": "$G\\equiv\\star2$ means that for every heap $\\star h$, $h<256$ (a passed pawn is worth $\\pm256$), $G+\\star h$ and $\\star2+\\star h$ have the same outcome: P for $h=2$ and N otherwise.",
+  "new": "$G\\equiv\\star2$ means that for every heap $\\star h$ with $h<256$ (the range named in the theorem of Section S13, which itself holds for every $h\\ge0$; a resolved position is scored $\\pm256$), $G+\\star h$ and $\\star2+\\star h$ have the same outcome: P for $h=2$ and N otherwise; the argument below uses no bound on $h$."
+ },
+ {
+  "file": "s15_note3.md",
+  "old": "so it is sufficient, not necessary: the computation shows that",
+  "new": "so it is sufficient, not necessary: in a test of the conclusion outside the sufficient hypotheses, the computation shows that"
+ },
+ {
+  "file": "s15_note3.md",
+  "old": "Control: for the cuts $c=7..10$ Lemma 3's conclusion still holds on the nodes of $n=19$ although the arc meets the zone (radius 5 is conservative), for $c=11$ (arc $7..16$) it fails at 48 of 858 ($R$) and 150 of 2574 ($Qo$) (node, side) pairs, so the test can fail.",
+  "new": "Control: for the cuts $c=7..10$ the copied pair is a pattern pair but the arc meets the zone; in this test of the conclusion outside the sufficient hypotheses the conclusion of Lemma 3 still holds on the nodes of $n=19$ (radius 5 is conservative). For $c=11$ (arc $7..16$) the copied file 12 lies in the zone, so the map is the unrestricted file-copy map, and the tested correspondence fails at 48 of 858 ($R$) and 150 of 2574 ($Qo$) (node, side) pairs, so the test can fail."
+ },
+ {
+  "file": "s15_note3.md",
+  "old": "gives 0 mismatches at $c=5,7,9$ (the radius-5 hypothesis is conservative) and mismatches at $c=10$ (208 of 1500), $c=11$ (233) and $c=12$ (1311), so the test fails when the hypothesis fails (a rerun",
+  "new": "gives 0 mismatches at $c=5,7,9$ (tests of the conclusion outside the sufficient hypotheses; the radius-5 hypothesis is conservative) and mismatches at $c=10$ (208 of 1500), $c=11$ (233) and $c=12$ (1311). At $c=10$ the ten-file hypothesis fails; at $c=11,12$ the copied pair can contain a randomized file, so the map is the unrestricted file-copy map. The tested correspondence fails at these control cuts (a rerun"
+ },
+ {
+  "file": "s15_note3.md",
+  "old": "(the tested correspondence fails at this control cut only at $c=11$)",
+  "new": "(the tested correspondence fails only at the control cut $c=11$, where the map is the unrestricted file-copy map)"
+ },
+ {
+  "file": "s15_note3.md",
+  "old": "so any race rule invariant under this file embedding and determined by preserved data, including the front-pawn information and last mover needed for count, gives the same class (Note 1 of Section S15, H4).",
+  "new": "so any race rule that is invariant under this file embedding and is determined by data the insertion preserves (the passed pawns with their colours, ranks and front-pawn status, and the last mover) gives the same class (Note 1 of Section S15, H4); count, mover and opponent are such rules."
+ },
+ {
+  "file": "s15_note3.md",
+  "old": "$G=\\star k$ means that for every heap $\\star h$, $h<256$ (a passed pawn is worth $\\pm256$), $G+\\star h$ and $\\star k+\\star h$ have the same outcome, namely P for $h=k$ and N otherwise.",
+  "new": "$G=\\star k$ means that for every heap $\\star h$ with $h<256$ (the range named in the theorem of Section S13, which itself holds for every $h\\ge0$; a resolved position is scored $\\pm256$), $G+\\star h$ and $\\star k+\\star h$ have the same outcome, namely P for $h=k$ and N otherwise; the heap steps below use no bound on $h$."
+ },
+ {
+  "file": "s15_note4.md",
+  "old": "The ranges are sufficient, not necessary: E's control cuts give exact insertion for $c=5..8$ ($T$, $n=20$) and $c=8..11$ ($S$, $n=23$), first failure at $c=9$ ($T$) and $c=12$ ($S$).",
+  "new": "The ranges are sufficient, not necessary: E's control cuts $c=5..8$ ($T$, $n=20$) and $c=8..11$ ($S$, $n=23$), tests of the conclusion outside the sufficient hypotheses, give exact insertion. At $c=9$ ($T$) and $c=12$ ($S$) the copied pair is not always a pattern pair (file 10 of $T_{20}$ is a core file; file 13 of $S_{23}$ lies in the zone), so the map is the unrestricted file-copy map, and the tested correspondence first fails at these control cuts."
+ },
+ {
+  "file": "s15_note4.md",
+  "old": "control fails first at $c=9$ (1328 of 2610).",
+  "new": "the tested correspondence first fails at the control cut $c=9$ (1328 of 2610), where the copied file 10 is a core file, so the map is the unrestricted file-copy map."
+ },
+ {
+  "file": "s15_note4.md",
+  "old": "control fails first at $c=12$.",
+  "new": "the tested correspondence first fails at the control cut $c=12$, where the copied file 13 lies in the zone, so the map is the unrestricted file-copy map."
+ },
+ {
+  "file": "s15_note4.md",
+  "old": "$G\\equiv\\star3$ means that for every heap $\\star h$, $h<256$ (a passed pawn is worth $\\pm256$), $G+\\star h$ and $\\star3+\\star h$ have the same outcome: P for $h=3$ and N otherwise. C1 gives signature NNNPNN for $h=0..5$; for $6\\le h<256$, the heap move to the P-position $G+\\star3$ gives N.",
+  "new": "$G\\equiv\\star3$ means that for every heap $\\star h$ with $h<256$ (the range named in the theorem of Section S13, which itself holds for every $h\\ge0$; a resolved position is scored $\\pm256$), $G+\\star h$ and $\\star3+\\star h$ have the same outcome: P for $h=3$ and N otherwise. C1 gives signature NNNPNN for $h=0..5$; for $6\\le h<256$, the heap move to the P-position $G+\\star3$ gives N (this step uses no bound on $h$)."
+ },
+ {
+  "file": "s15_note1.md",
+  "old": "a sensitivity control (arcs of 2 and 4 files) fails as it should.",
+  "new": "a sensitivity control with arcs of 2 and 4 files, a test of the conclusion outside the sufficient hypotheses, finds mismatches, as expected."
+ },
+ {
+  "file": "s15_note3.md",
+  "old": "the control fails at $c=10,11,12$ and passes at $c=5,7,9$.",
+  "new": "the tested correspondence fails at the control cuts $c=10,11,12$ (at $c=10$ outside the sufficient hypotheses, at $c=11,12$ the unrestricted file-copy map) and holds at $c=5,7,9$."
+ }
+]

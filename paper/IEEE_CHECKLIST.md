@@ -222,3 +222,13 @@ Roles: Fable plans and reviews; Opus referees; Sonnet codes and applies; Haiku r
 - [ ] Author: read the proofs (`paper/PROOF_READING_ORDER.md`, page numbers of the 108-page supplement); create the anonymous link and run `sh dist/tog/set_anon_url.sh <URL>`; confirm the statements in `dist/tog/submission/SUBMIT_STEPS.md`; submit in ScholarOne
 - [x] Author's decision, 2026-11-23 (second time): the GitHub repository stays public during review. Known cost: a reviewer who searches the title finds it.
 - Open after R14, not done: supplement S12.2-S15 are still proof notes with their own numbering and labels (R14 asks for self-contained proofs); Fig. 6 does not plot the ten-pawn star-3 rings on C7 and C8; the engine section is a pilot; W4's skipped wording items
+
+## Continuing after the push (2026-11-23, evening)
+
+- [x] W5 (Sonnet): Fig. 6 shows the ten-pawn star-3 rings on C7 and C8 and marks exact minima apart from upper bounds (R14 item 13). Checked against RESULTS.md, c7/progress.txt, c8_independent/out9_*.txt and c9_rings reports; caption now says no star-3 ring is known for n <= 6 or n = 9; both papers still 10 pages (`delegate/out/W5_fig6/REPORT.md`)
+- [x] W6 (Opus): the wording items of T90 that had no exact text (control cuts, race-rule shorthand, heap range, Note 1 and Note 2 sentences about S13): 38 exact replacements in S14 and Notes 1-4, no number or label changed (`delegate/out/W6_notes_wording/REPORT.md`); I added two of its leftover items (Note 3 "repaired", Note 2 heap sentence). Supplement is now 109 pages
+- [x] R18 (Sonnet): what depends on supplement S12.2 (47 pages): nothing in the 10-page paper; only two labelled statements of S2 (Theorem S4, the (V2) local test) have their proof there (`delegate/out/R18_s122_dependency/REPORT.md`)
+  - [x] Label error found by R18 and fixed in the long version (and so in S2): "Clause (ii) cannot be weakened to h-1 moves" rests on one computed example, now labelled C1, not S
+  - [ ] DECISION (author): cut S12.2 from the supplement, keeping only the proofs of Theorem 3.4 and Proposition 2.11 (about 109 -> 67 pages). Asked 2026-11-23
+- [ ] R19 (Opus): second mock-referee pass on the rebuilt PDFs
+- [ ] Rebuild, checks, commit

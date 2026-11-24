@@ -17,7 +17,7 @@
 
 | Claim | Status and evidence |
 |---|---|
-| Lemmas 1–3 of Section S13 and the insertion detail in Note 1 of Section S15, §2b | **PROVED**: Lemmas 1–2 and the statement of Lemma 3 in Section S13; the proof of Lemma 3 (ii)–(iii) is written out in Note 1 of Section S15, §2b. |
+| Lemmas 1–3 of Section S13 and the insertion detail in Note 1 of Section S15, §2b | **PROVED**: Lemmas 1–3 and their proofs, including steps (i)–(iii) of the proof of Lemma 3, in Section S13; steps (ii)–(iii) are also written out, in the coordinates of $P_n$, in Note 1 of Section S15, §2b. |
 | H1–H8 and the induction below | **PROVED** conditional on C1, on the lemmas of Section S13 and on the proof of Lemma 3 in Note 1 of Section S15, §2b. |
 | C1: $R_{22}$ graph, zone, flags, and reduced signature | **CHECKED-2**: A (`rg.c`, pump) and E (a Python engine, in the paper's code repository); E also checked no passer at every node. |
 | C2: unreduced signature NNNP, $h=0..3$, even $n=8..24$ | **CHECKED-2**: A (unreduced search) and F (`independent.py`, in the paper's code repository). |
@@ -28,7 +28,7 @@ A is the C whole-board engine of Section S13; E is the independently written Pyt
 
 ## 1. Model and lemmas
 
-The game is the whole-board normal-play game on $C_n$: White is Left, Black is Right, and a side with no move loses. Race rule is `count` (promotion distance counted as on an empty board, a double step counting as one move); en passant is on, an e.p. flag is recorded only if an enemy pawn stands beside the landing square, and an e.p.-capturable pawn is not passed. A passer ends the game; if both sides have one, compare their shortest promotion distances (of the front passed pawns eligible under the count rule of Section S13), with a tie won by the side that did not just move. The terminal score convention is $\pm256$, so heaps considered in the value statement have $h<256$.
+The game is the whole-board normal-play game on $C_n$: White is Left, Black is Right, and a side with no move loses. Race rule is `count` (promotion distance counted as on an empty board, a double step counting as one move); en passant is on, an e.p. flag is recorded only if an enemy pawn stands beside the landing square, and an e.p.-capturable pawn is not passed. A passer ends the game; if both sides have one, compare their shortest promotion distances (of the front passed pawns eligible under the count rule of Section S13), with a tie won by the side that did not just move. The terminal score convention is $\pm256$; the value statement names the heaps with $h<256$, and the heap step of H8 uses no bound on $h$.
 
 For even $n\ge8$, the files of $Q_n$ are
 $$ W4,\ B7,\ (B4,W2)^{(n-8)/2},\ W3B6,\ W3,\ W2B5,\ B5,\ W2,\ B4, $$
