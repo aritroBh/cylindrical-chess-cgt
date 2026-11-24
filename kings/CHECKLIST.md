@@ -68,11 +68,11 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
 - [x] General referee report sent; applied where it checked out
 - [x] Engine-on-sums test: only separated placements count (answered)
 - [x] K47 result sent to the paper side (the K45 group is not over in sums)
-- [ ] Final over-group sentence for the long version, after K48
+- [x] Over-group wording sent (K57 result); neither paper has an over-group sentence, the author has not asked for one
 - [ ] Self-contained S12 (referee point M4), if the paper side asks
 
 ## Housekeeping
 
 - [x] Post-commit checks K41 and K46 applied
-- [ ] Nothing is pushed since 2026-10-29; pushing waits for the author
+- [x] Pushed by the paper side on the author's word, up to c63145cd (2026-11-23); later commits wait for the next push
 - [ ] No raw CLI transcripts in commits (rule since 2026-11-22)
