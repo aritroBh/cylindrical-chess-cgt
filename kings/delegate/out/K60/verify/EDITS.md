@@ -1,0 +1,42 @@
+### EDIT Lemma 4.15: pointer to the exact condition (K60 and its referee, 2026-11-23)
+<<<<<<< OLD
+(B1) is sufficient, not necessary; it cannot simply be dropped (Z_O, K47; K58 gives an abstract exact shuttle game without (B1) that loses beside \* where over wins).
+=======
+(B1) is sufficient, not necessary; it cannot simply be dropped (Z_O, K47; K58 gives an abstract exact shuttle game without (B1) that loses beside \* where over wins). The exact condition is (C) of Theorem 4.18 (K60): it is decided by one game on the group's own graph, and (B1) is the special case in which White never passes there (Corollary 4.19, which also gives an abstract exact group without (B1) that has the results of over).
+>>>>>>> NEW
+
+### EDIT Conjecture 4.7, opening paragraph: the exact condition (K60, 2026-11-23)
+<<<<<<< OLD
+With one Black token after each non-shuttle Black root move it does force the results of over (Lemma 4.15, K57),
+=======
+With one Black token after each non-shuttle Black root move it does force the results of over (Lemma 4.15, K57; the exact condition, (C) of Theorem 4.18, K60, fails for Z_O only at 1…e5–e4),
+>>>>>>> NEW
+
+### EDIT Conjecture 4.7, K47 bullet: Z_O fails the exact condition at one move (K60, 2026-11-23)
+<<<<<<< OLD
+while Z_O fails (B1) at 1…e5–e4.)
+=======
+while Z_O fails (B1) at 1…e5–e4. K60, 2026-11-23: Theorem 4.18 gives the exact condition for the results of over, and Z_O on cyl:8×6 fails it exactly at 1…e5–e4, CHECKED-2, Corollary 4.19.)
+>>>>>>> NEW
+
+### EDIT §8 item 2: the exact condition (K60, 2026-11-23)
+<<<<<<< OLD
+has the results of over beside every finite D-game (Lemma 4.15 and Corollary 4.16, PROVED given CHECKED-2 computations, refereed);
+=======
+has the results of over beside every finite D-game (Lemma 4.15 and Corollary 4.16, PROVED given CHECKED-2 computations, refereed); K60 (2026-11-23) proved the exact condition for an exact over group to have the results of over (Theorem 4.18; it is decided by one game on the group's own graph, or by one short test game, Corollary 4.19) and gave an abstract exact group that has the results of over without (B1); no known real group has the results of over without (B1);
+>>>>>>> NEW
+
+### EDIT new Theorem 4.18 and Corollary 4.19, after Corollary 4.16 (and after K59's Corollary 4.17), before the K43 computable test (K60, 2026-11-23)
+<<<<<<< OLD
+*Computable test (K43).* `kings/delegate/out/K43/plocalp3.cpp`
+=======
+**Theorem 4.18 (the exact condition for the results of over). PROVED** (new, K60, 2026-11-23; `kings/delegate/out/K60/PROOF.md` §§2–3; one AI proof, re-derived step by step by the K60 referee, `kings/delegate/out/K60/verify/VERIFY.md`; no human re-derivation; part (c) uses a KNOWN theorem: Büchi games on finite graphs are determined with positional strategies, Grädel, Thomas, Wilke (eds.), *Automata, Logics, and Infinite Games*, LNCS 2500, 2002, ch. 2). Let G be an exact over group of Definition 4.8, taken as the P game of its own pieces in a D-sum (as in Lemma 4.15). For a non-shuttle Black move m at a root, let x_m be the position after it (White to move, with White's e.p. right if m is a double step).
+(a) For every exact over group, with no further condition, every q has the results of 0_D, and r(root ⊞ t, s) ≤ r(ω ⊞ t, s) for every finite D-game T, position t and side s. (This is K57's proof of Lemma 4.15 without its Case E3, the only step that uses (B1).)
+(b) G has the results of ω beside every finite D-game iff **(C)**: for every such m, every finite D-game T and every position t, r(x_m ⊞ t, White to move) ≥ r(ω ⊞ t, **Black** to move) (order L < D < W). This holds game by game: G has the results of ω beside a given T iff (C) holds for that T. The comparison must be with Black to move: with White to move in ω ⊞ t it is sufficient but not necessary (K60's abstract group G2 satisfies (B1), but beside t0 with L(t0) = {t1}, R(t0) = {⊖}, L(t1) = {⊕}, R(t1) = ∅, the position x_m ⊞ t0 is lost for White to move, because Black to move at x_m would promote, while ω ⊞ t0 with White to move is a White win).
+(c) (C) holds at m iff White wins **Aux(x_m)**: G ⊞ under_D from x_m, White to move, where under_D is the colour mirror of over_D (White may pass ω̄ → ω̄ at will, Black may once freeze ω̄ → 0̄). Finite plays follow the sum's rules: a pass or freeze is a move elsewhere, so it is not allowed while in check and it clears the mover's e.p. right; a promotion ends the play; a side with no move loses. An infinite play is a White win iff White passed infinitely often, and a Black win otherwise (a Büchi game on the group's own graph, four states for each board with its e.p. right). Equivalently, (C) holds at m iff x_m ⊞ u_0, White to move, is a White win in the short D-game T_N for every N, or for one N ≥ K; here T_N has positions u_0, …, u_N and z, with L(u_i) = {u_{i+1}} for i < N, L(u_N) = {⊕}, R(u_i) = {z}, and z without options, and K is the number of (board, e.p. right, side to move) states of the group.
+*Proof idea.* (a): in K57's proof, a bad White move and every move at a q enter phase 2 with no token (Cases E1, E2). (b): necessity, because m is a Black option at the root, so r(root ⊞ t, Black to move) ≤ r(x_m ⊞ t, White to move); sufficiency, because after a bad Black move White can drop the virtual over-game and play optimally in G ⊞ T from the real position, whose value (C) bounds from below. (c): Aux ⇒ (C): White plays its Aux strategy on the board and over's strategy S in T; a virtual Black answers each White pass in under by a pass in over, and copies S's ω → 0_D as its freeze in under; when S wins there are finitely many passes, and the Büchi scoring rules out an infinite tail on the board alone. (C) ⇒ T_N: ω ⊞ u_0, Black to move, is a White win. T_N for one N ≥ K ⇒ Aux: if White lost Aux, Black would have a positional winning strategy; it allows no cycle through a White pass, so every play has fewer than K passes, and the same strategy keeps x_m ⊞ u_0 from being a White win in T_N.
+
+**Corollary 4.19 (one short test game; (B1) as a special case; examples). PROVED** (new, K60, 2026-11-23; same proof file and referee report). (i) G has the results of ω beside every finite D-game iff both roots, Black to move, are White wins beside u_0 of T_K. So one short D-game decides, and the results of ω beside short D-games give them beside loopy ones. (ii) (B1) of Lemma 4.15 is "White wins Aux(x_m) without ever passing", so (B1) implies (C): a second proof of Lemma 4.15. (iii) K60's abstract exact group G1 (ten boards, no checks, no e.p. right; `kings/delegate/out/K60/PROOF.md` §5) fails (B1) and has the results of ω: after the bad Black move White passes first in Aux, and Black is in zugzwang on the board. K58's abstract witness fails (C). *Computed (toy groups).* K60's own code: 7,509 abstract exact groups with checks and e.p. rights, 282 finite D-games each, 83,127,655 results; the K60 referee's separate code (`kings/delegate/out/K60/verify/src/`, two Büchi solvers): 9,012 exact groups (5,264 with a check, 22,681 bad Black root moves, 7,120 of them double steps and 2,185 giving check), 292 finite D-games each (named, sums of two, random loopy games with terminals for both sides and with White moves, T_N for N = 0, 1, 2, 3, 4, 6 and K), 63,607,102 results. K60's run: 0 violations of (a) at the q's, of (b) and (c) on its battery, and of (B1) ⇒ Aux. The referee's run: 0 violations of (a) (both parts), of (b) game by game, of (c) on the battery and beside T_K, of (B1) ⇒ Aux and of (i), and its two Büchi solvers agree at every bad move; 677 groups have the results of ω on the battery without (B1), and at 2 bad moves (C) fails only beside some T_N (COMPUTED-1 each). *Real groups.* Z_O on cyl:8×6 fails (C) exactly at 1…e5–e4 at the d4 root: there x_m ⊞ u_0, White to move, is lost beside T_2 to T_6 (CHECKED-2: the K57 referee's sum solver vgsum on the K56 referee's move generator, and K57's pr57 in its sum mode on K56's separately written generator), while ω ⊞ u_0, Black to move, is a White win (PROVED); at its other ten bad Black root moves (B1) holds (CHECKED-2, the same two programs), so (C) holds there by (ii). For H10, (B1) is CHECKED-2 (Corollary 4.16), so (C) holds at all ten bad moves by (ii); K60's Aux program `aux60` (on the K56 referee's generator) finds Aux won at all ten directly (COMPUTED-1). No known real group has the results of ω without (B1).
+
+*Computable test (K43).* `kings/delegate/out/K43/plocalp3.cpp`
+>>>>>>> NEW

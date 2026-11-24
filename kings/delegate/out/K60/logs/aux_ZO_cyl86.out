@@ -1,0 +1,19 @@
+nodes 6496367 edges 43690223 peak 1097 MB
+aux iterations 4; peak 1239 MB
+rootA Kf5 kd4 Pb2 Pe2 Pb4 pa4 pb5 pe5 b - (Black to move): 6 moves, promotion 0
+   kd4e3    -> Kf5 ke3 Pb2 Pe2 Pb4 pa4 pb5 pe5 w -      alone(sum rule)=W  B1=W  x(+)under=W  AUX=WIN (C holds)  check=0
+   kd4c4    -> Kf5 kc4 Pb2 Pe2 Pb4 pa4 pb5 pe5 w -      alone(sum rule)=W  B1=W  x(+)under=W  AUX=WIN (C holds)  check=0
+   kd4d5    shuttle
+   pa4a3    -> Kf5 kd4 Pb2 Pe2 Pb4 pa3 pb5 pe5 w -      alone(sum rule)=W  B1=W  x(+)under=W  AUX=WIN (C holds)  check=0
+   pe5e4    -> Kf5 kd4 Pb2 Pe2 Pb4 pa4 pe4 pb5 w -      alone(sum rule)=W  B1=not W  x(+)under=L  AUX=LOSS (C fails)  check=0
+   pe5e3    -> Kf5 kd4 Pb2 Pe2 Pb4 pe3 pa4 pb5 w e4     alone(sum rule)=W  B1=W  x(+)under=W  AUX=WIN (C holds)  check=0
+rootB Kf5 kd5 Pb2 Pe2 Pb4 pa4 pb5 pe5 b - (Black to move): 7 moves, promotion 0
+   kd5c4    -> Kf5 kc4 Pb2 Pe2 Pb4 pa4 pb5 pe5 w -      alone(sum rule)=W  B1=W  x(+)under=W  AUX=WIN (C holds)  check=0
+   kd5d4    shuttle
+   kd5c6    -> Kf5 kc6 Pb2 Pe2 Pb4 pa4 pb5 pe5 w -      alone(sum rule)=W  B1=W  x(+)under=W  AUX=WIN (C holds)  check=0
+   kd5d6    -> Kf5 kd6 Pb2 Pe2 Pb4 pa4 pb5 pe5 w -      alone(sum rule)=W  B1=W  x(+)under=W  AUX=WIN (C holds)  check=0
+   pa4a3    -> Kf5 kd5 Pb2 Pe2 Pb4 pa3 pb5 pe5 w -      alone(sum rule)=W  B1=W  x(+)under=W  AUX=WIN (C holds)  check=0
+   pe5e4    -> Kf5 kd5 Pb2 Pe2 Pb4 pa4 pe4 pb5 w -      alone(sum rule)=W  B1=W  x(+)under=W  AUX=WIN (C holds)  check=0
+   pe5e3    -> Kf5 kd5 Pb2 Pe2 Pb4 pe3 pa4 pb5 w e4     alone(sum rule)=W  B1=W  x(+)under=W  AUX=WIN (C holds)  check=0
+bad Black root moves 11, (B1) fails at 1, Aux fails at 1
+peak 1239 MB

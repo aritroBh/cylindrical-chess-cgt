@@ -1,0 +1,175 @@
+nodes 6496367 edges 43690223 peak 1093 MB
+rootA_w Kf5 kd4 Pb2 Pe2 Pb4 pa4 pb5 pe5 w - P=W moves=8 promo=0 check=0
+   Kf5g4    -> Kg4 kd4 Pb2 Pe2 Pb4 pa4 pb5 pe5 b -  P(after)=L
+   Kf5g5    -> Kg5 kd4 Pb2 Pe2 Pb4 pa4 pb5 pe5 b -  P(after)=L
+   Kf5e6    -> Ke6 kd4 Pb2 Pe2 Pb4 pa4 pb5 pe5 b -  P(after)=L
+   Kf5f6    -> Kf6 kd4 Pb2 Pe2 Pb4 pa4 pb5 pe5 b -  P(after)=L
+   Kf5g6    -> Kg6 kd4 Pb2 Pe2 Pb4 pa4 pb5 pe5 b -  P(after)=L
+   Pb2b3    -> Kf5 kd4 Pe2 Pb3 Pb4 pa4 pb5 pe5 b -  P(after)=L
+   Pe2e3    -> Kf5 kd4 Pb2 Pe3 Pb4 pa4 pb5 pe5 b -  P(after)=L
+   Pe2e4    -> Kf5 kd4 Pb2 Pb4 Pe4 pa4 pb5 pe5 b e3  P(after)=W  FREEZE
+rootA_b Kf5 kd4 Pb2 Pe2 Pb4 pa4 pb5 pe5 b - P=W moves=6 promo=0 check=0
+   kd4e3    -> Kf5 ke3 Pb2 Pe2 Pb4 pa4 pb5 pe5 w -  P(after)=W  B1(sum rule, -1)=W  [pass game 1 pass, stalemate draw: W]  check=0
+   kd4c4    -> Kf5 kc4 Pb2 Pe2 Pb4 pa4 pb5 pe5 w -  P(after)=W  B1(sum rule, -1)=W  [pass game 1 pass, stalemate draw: W]  check=0
+   kd4d5    shuttle -> Kf5 kd5 Pb2 Pe2 Pb4 pa4 pb5 pe5 w -
+   pa4a3    -> Kf5 kd4 Pb2 Pe2 Pb4 pa3 pb5 pe5 w -  P(after)=W  B1(sum rule, -1)=W  [pass game 1 pass, stalemate draw: W]  check=0
+   pe5e4    -> Kf5 kd4 Pb2 Pe2 Pb4 pa4 pe4 pb5 w -  P(after)=W  B1(sum rule, -1)=not W  [pass game 1 pass, stalemate draw: not W]  check=0
+   pe5e3    -> Kf5 kd4 Pb2 Pe2 Pb4 pe3 pa4 pb5 w e4  P(after)=W  B1(sum rule, -1)=W  [pass game 1 pass, stalemate draw: W]  check=0
+rootB_w Kf5 kd5 Pb2 Pe2 Pb4 pa4 pb5 pe5 w - P=W moves=7 promo=0 check=0
+   Kf5g4    -> Kg4 kd5 Pb2 Pe2 Pb4 pa4 pb5 pe5 b -  P(after)=L
+   Kf5g5    -> Kg5 kd5 Pb2 Pe2 Pb4 pa4 pb5 pe5 b -  P(after)=L
+   Kf5f6    -> Kf6 kd5 Pb2 Pe2 Pb4 pa4 pb5 pe5 b -  P(after)=L
+   Kf5g6    -> Kg6 kd5 Pb2 Pe2 Pb4 pa4 pb5 pe5 b -  P(after)=L
+   Pb2b3    -> Kf5 kd5 Pe2 Pb3 Pb4 pa4 pb5 pe5 b -  P(after)=L
+   Pe2e3    -> Kf5 kd5 Pb2 Pe3 Pb4 pa4 pb5 pe5 b -  P(after)=W  FREEZE
+   Pe2e4    -> Kf5 kd5 Pb2 Pb4 Pe4 pa4 pb5 pe5 b e3  P(after)=L
+rootB_b Kf5 kd5 Pb2 Pe2 Pb4 pa4 pb5 pe5 b - P=W moves=7 promo=0 check=0
+   kd5c4    -> Kf5 kc4 Pb2 Pe2 Pb4 pa4 pb5 pe5 w -  P(after)=W  B1(sum rule, -1)=W  [pass game 1 pass, stalemate draw: W]  check=0
+   kd5d4    shuttle -> Kf5 kd4 Pb2 Pe2 Pb4 pa4 pb5 pe5 w -
+   kd5c6    -> Kf5 kc6 Pb2 Pe2 Pb4 pa4 pb5 pe5 w -  P(after)=W  B1(sum rule, -1)=W  [pass game 1 pass, stalemate draw: W]  check=0
+   kd5d6    -> Kf5 kd6 Pb2 Pe2 Pb4 pa4 pb5 pe5 w -  P(after)=W  B1(sum rule, -1)=W  [pass game 1 pass, stalemate draw: W]  check=0
+   pa4a3    -> Kf5 kd5 Pb2 Pe2 Pb4 pa3 pb5 pe5 w -  P(after)=W  B1(sum rule, -1)=W  [pass game 1 pass, stalemate draw: W]  check=0
+   pe5e4    -> Kf5 kd5 Pb2 Pe2 Pb4 pa4 pe4 pb5 w -  P(after)=W  B1(sum rule, -1)=W  [pass game 1 pass, stalemate draw: W]  check=0
+   pe5e3    -> Kf5 kd5 Pb2 Pe2 Pb4 pe3 pa4 pb5 w e4  P(after)=W  B1(sum rule, -1)=W  [pass game 1 pass, stalemate draw: W]  check=0
+peak 1224 MB after token games
+SUM T0 rootA_w 0 WW
+SUM T0 rootA_w_q_Pe2e4_b 1 LW
+SUM T0 rootA_w_q_Pe2e4_w 0 WL
+SUM T0 rootA_w_q_Pe2e4_bnoep 1 LW
+SUM T0 rootA_b 1 WW
+SUM T0 rootA_b_kd4e3 0 WW
+SUM T0 rootA_b_kd4c4 0 WW
+SUM T0 rootA_b_pa4a3 0 WW
+SUM T0 rootA_b_pe5e4 0 WW
+SUM T0 rootA_b_pe5e3 0 WW
+SUM T0 rootB_w 0 WW
+SUM T0 rootB_w_q_Pe2e3_b 1 LW
+SUM T0 rootB_w_q_Pe2e3_w 0 WL
+SUM T0 rootB_b 1 WW
+SUM T0 rootB_b_kd5c4 0 WW
+SUM T0 rootB_b_kd5c6 0 WW
+SUM T0 rootB_b_kd5d6 0 WW
+SUM T0 rootB_b_pa4a3 0 WW
+SUM T0 rootB_b_pe5e4 0 WW
+SUM T0 rootB_b_pe5e3 0 WW
+SUM T1 rootA_w 0 WWW
+SUM T1 rootA_w_q_Pe2e4_b 1 LLW
+SUM T1 rootA_w_q_Pe2e4_w 0 LWL
+SUM T1 rootA_w_q_Pe2e4_bnoep 1 LLW
+SUM T1 rootA_b 1 WWW
+SUM T1 rootA_b_kd4e3 0 WWW
+SUM T1 rootA_b_kd4c4 0 WWW
+SUM T1 rootA_b_pa4a3 0 WWW
+SUM T1 rootA_b_pe5e4 0 WWW
+SUM T1 rootA_b_pe5e3 0 WWW
+SUM T1 rootB_w 0 WWW
+SUM T1 rootB_w_q_Pe2e3_b 1 LLW
+SUM T1 rootB_w_q_Pe2e3_w 0 LWL
+SUM T1 rootB_b 1 WWW
+SUM T1 rootB_b_kd5c4 0 WWW
+SUM T1 rootB_b_kd5c6 0 WWW
+SUM T1 rootB_b_kd5d6 0 WWW
+SUM T1 rootB_b_pa4a3 0 WWW
+SUM T1 rootB_b_pe5e4 0 WWW
+SUM T1 rootB_b_pe5e3 0 WWW
+SUM T2 rootA_w 0 WWWW
+SUM T2 rootA_w_q_Pe2e4_b 1 LLLW
+SUM T2 rootA_w_q_Pe2e4_w 0 LLWL
+SUM T2 rootA_w_q_Pe2e4_bnoep 1 LLLW
+SUM T2 rootA_b 1 LWWW
+SUM T2 rootA_b_kd4e3 0 WWWW
+SUM T2 rootA_b_kd4c4 0 WWWW
+SUM T2 rootA_b_pa4a3 0 WWWW
+SUM T2 rootA_b_pe5e4 0 LWWW
+SUM T2 rootA_b_pe5e3 0 WWWW
+SUM T2 rootB_w 0 WWWW
+SUM T2 rootB_w_q_Pe2e3_b 1 LLLW
+SUM T2 rootB_w_q_Pe2e3_w 0 LLWL
+SUM T2 rootB_b 1 WWWW
+SUM T2 rootB_b_kd5c4 0 WWWW
+SUM T2 rootB_b_kd5c6 0 WWWW
+SUM T2 rootB_b_kd5d6 0 WWWW
+SUM T2 rootB_b_pa4a3 0 WWWW
+SUM T2 rootB_b_pe5e4 0 WWWW
+SUM T2 rootB_b_pe5e3 0 WWWW
+SUM T3 rootA_w 0 LWWWW
+SUM T3 rootA_w_q_Pe2e4_b 1 LLLLW
+SUM T3 rootA_w_q_Pe2e4_w 0 LLLWL
+SUM T3 rootA_w_q_Pe2e4_bnoep 1 LLLLW
+SUM T3 rootA_b 1 LLWWW
+SUM T3 rootA_b_kd4e3 0 WWWWW
+SUM T3 rootA_b_kd4c4 0 WWWWW
+SUM T3 rootA_b_pa4a3 0 WWWWW
+SUM T3 rootA_b_pe5e4 0 LLWWW
+SUM T3 rootA_b_pe5e3 0 WWWWW
+SUM T3 rootB_w 0 WWWWW
+SUM T3 rootB_w_q_Pe2e3_b 1 LLLLW
+SUM T3 rootB_w_q_Pe2e3_w 0 LLLWL
+SUM T3 rootB_b 1 LWWWW
+SUM T3 rootB_b_kd5c4 0 WWWWW
+SUM T3 rootB_b_kd5c6 0 WWWWW
+SUM T3 rootB_b_kd5d6 0 WWWWW
+SUM T3 rootB_b_pa4a3 0 WWWWW
+SUM T3 rootB_b_pe5e4 0 WWWWW
+SUM T3 rootB_b_pe5e3 0 WWWWW
+SUM T4 rootA_w 0 LLWWWW
+SUM T4 rootA_w_q_Pe2e4_b 1 LLLLLW
+SUM T4 rootA_w_q_Pe2e4_w 0 LLLLWL
+SUM T4 rootA_w_q_Pe2e4_bnoep 1 LLLLLW
+SUM T4 rootA_b 1 LLLWWW
+SUM T4 rootA_b_kd4e3 0 WWWWWW
+SUM T4 rootA_b_kd4c4 0 WWWWWW
+SUM T4 rootA_b_pa4a3 0 WWWWWW
+SUM T4 rootA_b_pe5e4 0 LLLWWW
+SUM T4 rootA_b_pe5e3 0 WWWWWW
+SUM T4 rootB_w 0 LWWWWW
+SUM T4 rootB_w_q_Pe2e3_b 1 LLLLLW
+SUM T4 rootB_w_q_Pe2e3_w 0 LLLLWL
+SUM T4 rootB_b 1 LLWWWW
+SUM T4 rootB_b_kd5c4 0 WWWWWW
+SUM T4 rootB_b_kd5c6 0 WWWWWW
+SUM T4 rootB_b_kd5d6 0 WWWWWW
+SUM T4 rootB_b_pa4a3 0 WWWWWW
+SUM T4 rootB_b_pe5e4 0 WWWWWW
+SUM T4 rootB_b_pe5e3 0 WWWWWW
+SUM T5 rootA_w 0 LLLWWWW
+SUM T5 rootA_w_q_Pe2e4_b 1 LLLLLLW
+SUM T5 rootA_w_q_Pe2e4_w 0 LLLLLWL
+SUM T5 rootA_w_q_Pe2e4_bnoep 1 LLLLLLW
+SUM T5 rootA_b 1 LLLLWWW
+SUM T5 rootA_b_kd4e3 0 WWWWWWW
+SUM T5 rootA_b_kd4c4 0 WWWWWWW
+SUM T5 rootA_b_pa4a3 0 WWWWWWW
+SUM T5 rootA_b_pe5e4 0 LLLLWWW
+SUM T5 rootA_b_pe5e3 0 WWWWWWW
+SUM T5 rootB_w 0 LLWWWWW
+SUM T5 rootB_w_q_Pe2e3_b 1 LLLLLLW
+SUM T5 rootB_w_q_Pe2e3_w 0 LLLLLWL
+SUM T5 rootB_b 1 LLLWWWW
+SUM T5 rootB_b_kd5c4 0 WWWWWWW
+SUM T5 rootB_b_kd5c6 0 WWWWWWW
+SUM T5 rootB_b_kd5d6 0 WWWWWWW
+SUM T5 rootB_b_pa4a3 0 WWWWWWW
+SUM T5 rootB_b_pe5e4 0 WWWWWWW
+SUM T5 rootB_b_pe5e3 0 WWWWWWW
+SUM T6 rootA_w 0 LLLLWWWW
+SUM T6 rootA_w_q_Pe2e4_b 1 LLLLLLLW
+SUM T6 rootA_w_q_Pe2e4_w 0 LLLLLLWL
+SUM T6 rootA_w_q_Pe2e4_bnoep 1 LLLLLLLW
+SUM T6 rootA_b 1 LLLLLWWW
+SUM T6 rootA_b_kd4e3 0 WWWWWWWW
+SUM T6 rootA_b_kd4c4 0 WWWWWWWW
+SUM T6 rootA_b_pa4a3 0 WWWWWWWW
+SUM T6 rootA_b_pe5e4 0 LLLLLWWW
+SUM T6 rootA_b_pe5e3 0 WWWWWWWW
+SUM T6 rootB_w 0 LLLWWWWW
+SUM T6 rootB_w_q_Pe2e3_b 1 LLLLLLLW
+SUM T6 rootB_w_q_Pe2e3_w 0 LLLLLLWL
+SUM T6 rootB_b 1 LLLLWWWW
+SUM T6 rootB_b_kd5c4 0 WWWWWWWW
+SUM T6 rootB_b_kd5c6 0 WWWWWWWW
+SUM T6 rootB_b_kd5d6 0 WWWWWWWW
+SUM T6 rootB_b_pa4a3 0 WWWWWWWW
+SUM T6 rootB_b_pe5e4 0 WWWWWWWW
+SUM T6 rootB_b_pe5e3 0 WWWWWWWW
+peak 1752 MB after sums

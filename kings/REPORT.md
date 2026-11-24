@@ -495,6 +495,13 @@ Every deliverable was given to independent referees (Claude models) told to brea
     statements were re-derived by an independent referee and proved again blind by Codex (K58); the referee recomputed (B1)
     with its own code and found 0 differences from over on 12,000 abstract groups. The 3 + 3 group fails (B1) at
     1…e5–e4. Not claimed: equality with over as a game, P contexts, chess (`kings/delegate/out/K57/REVIEW.md`).
+  - K60 (2026-11-23) gives the exact condition. Theorem 4.18 (PROVED, re-derived by the referee; part (c) uses the known
+    determinacy of Büchi games): an exact over group has the results of over beside every finite D-game iff, after every
+    non-shuttle Black root move, White wins the position beside under when an infinite play counts for White only if
+    White passed infinitely often. One short test game decides (Corollary 4.19), and (B1) is the case where White never
+    passes. An abstract exact group fails (B1) and still has the results of over; no known real group does. The 3 + 3
+    group fails the exact condition only at 1…e5–e4 (CHECKED-2). Open: a test family that does not depend on the group
+    (`kings/delegate/out/K60/REVIEW.md`).
   - Theorem 1.11(c) repaired (2026-11-23): its proof used the e.p. condition (E) without assuming it, and its frontier
     step used an unproved inheritance of threats by re-split components. (E) is now a hypothesis (every use already had
     it through Theorem 1.14), and the inheritance is proved. Found while the paper's proofs appendix was written and

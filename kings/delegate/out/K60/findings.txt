@@ -1,0 +1,42 @@
+K60 findings (2026-11-23). AI work, one agent, not refereed. Details and proofs: PROOF.md.
+
+SHORT ANSWER
+- Exact condition (Theorem A, PROVED). An exact over group G has the results of omega beside every finite D-game iff
+  (C): for every non-shuttle Black root move m (x_m = position after m, White to move, with White's e.p. right if m is
+  a double step), every finite D-game T and position t: r(x_m (+) t, White to move) >= r(omega (+) t, BLACK to move).
+  The q's have the results of 0_D, and Black does at least as well beside G as beside omega, with no condition
+  (Proposition A0 = K57's proof without its Case E3). In K57's proof (B1) is used only in Case E3 and the token budget
+  b = 1 it creates; (C) replaces E3 by "White plays an optimal strategy of G (+) T from the real state".
+  Comparing with omega (+) t WHITE to move is sufficient, not necessary (Proposition A2, PROVED, explicit group G2
+  with (B1)).
+- Decidable on the group's own graph (Theorem B, PROVED). (C) at m iff White wins Aux(x_m) = x_m (+) under_D, White
+  to move, sum rules for finite plays, an infinite play a White win iff White passed in under infinitely often (Buchi
+  game, 4*|boards| states). Equivalently iff x_m (+) u_0 is a White win in the finite D-game T_N (u_0..u_N, 0; White
+  u_i -> u_{i+1}, u_N -> (+); Black u_i -> 0) for every N, or for one N >= K (K = number of (board, e.p., side) states).
+  Corollary B3: ONE test game suffices: G has the results of omega iff both roots, Black to move, are White wins beside
+  u_0 of T_K. Corollary B2: (B1) = "White wins Aux without passing", which re-proves Lemma 4.15.
+- Example (PROVED). G1 (PROOF.md sec. 5, 10 boards, no checks): exact, fails (B1), has the results of omega; after the
+  bad Black move White passes first and Black is in zugzwang. K58's witness fails (C) (Aux is a Black win).
+- Real groups (COMPUTED-1 / two solvers sharing one move generator). H10: Aux WIN at all 10 bad Black root moves.
+  Z_O cyl:8x6: Aux WIN at 10 of 11, LOSS at 1...e5-e4 (d4 root), the only (B1) failure; the K57 referee's vgsum sum
+  solver confirms the failure of (C) there: x (+) u_0 is L beside T_2..T_6. So no known real group has the results of
+  omega without (B1).
+
+WHAT WAS CHECKED (COMPUTED-1, own code src/k60lib.py, k60games.py, validate.py)
+- 7,509 abstract exact toy groups (seeds 11-13; 4,500 random, 3,000 adversarial, plus G1, G2, K58's group three
+  times), with checks (4,246 groups), double steps (7,274) and e.p.-only moves (3,067); 282 test D-games each
+  (34 named, 96 sums, 150 random loopy with terminals, T_{4n}); 83,127,655 results; 21,556 bad Black root moves.
+- 0 violations of: Theorem A on the battery; q = 0_D; Aux => (C) on battery; (C) on battery => Aux;
+  Aux <=> x (+) T_{4n}; (B1) => Aux.
+- 19,155 Aux wins, 2,401 Aux losses, 1,604 Aux wins without (B1); 6,358 groups with the results of omega on the
+  battery, 872 of them without (B1), 866 of them failing the White-to-move comparison (C_W).
+- Smallest N for T_N: 0..5 on the toys. k copies of down as a test: not exact for k = 1..4 (365, 135, 5, 3
+  disagreements).
+- Peak memory: toys 26 MB; aux60 0.89 GB (H10), 1.30 GB (Z_O); vgsum T_N run 1.84 GB.
+
+NOT DONE / OPEN
+- Whether a fixed finite test family independent of the group exists (T_K grows with the group): OPEN.
+- Aux not run on Z_O's flat translates, the cyl:8x7 groups or K59's flat 8x7 groups (all except Z_O's family satisfy
+  (B1) by earlier computations, so Aux holds there by Corollary B2 given those computations).
+- No second move generator for aux60 (it reuses the K57 referee's). Nothing about P contexts or chess.
+- Not refereed. Everything "not yet refereed".

@@ -27,8 +27,10 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
    - [~] A second program for the Black-side condition on the four cyl:8×7 groups; a group with the results of over
          on a flat board (K59: investigator reports five groups on flat 8×7, the smallest with 2 + 2 pawns; referee
          running)
-   - [~] The exact condition in place of the Black-side condition, and whether it can be computed on the group's own
-         graph (K60)
+   - [x] The exact condition in place of the Black-side condition: Theorem 4.18, decided by one game on the group's
+         own graph or by one short test game, Corollary 4.19 (proved, refereed) (K60)
+   - [~] Blind proof of Theorem 4.18 by Codex (K61)
+   - [ ] A test family for the results of over that does not depend on the group
    - [ ] Hand proof of (O1) and of the d5 root of the K45 group
    - [x] The K45 group in chess at cap 1: d4 freeze and its zero exact, the rest undecided; exact groups also on flat
          8×6 to 10×6 and on cyl:8×7 (K48)

@@ -1,0 +1,29 @@
+hand G1 bad [(0, 5, 0), (1, 5, 0)] aux [True, True] B1 [False, False] CW [True, True] omega True TN [{0: True, 1: True, 2: True, 3: True, 4: True, 6: True, 40: True}, {0: True, 1: True, 2: True, 3: True, 4: True, 6: True, 40: True}]
+hand G2 bad [(0, 5, 0)] aux [True] B1 [True] CW [False] omega True TN [{0: True, 1: True, 2: True, 3: True, 4: True, 6: True, 32: True}]
+hand K58 bad [(0, 3, 0), (1, 3, 0)] aux [False, False] B1 [False, False] CW [False, False] omega False TN [{0: True, 1: False, 2: False, 3: False, 4: False, 6: False, 20: False}, {0: True, 1: False, 2: False, 3: False, 4: False, 6: False, 20: False}]
+hand R1 bad [(0, 5, 1)] aux [False] B1 [False] CW [False] omega False TN [{0: False, 1: False, 2: False, 3: False, 4: False, 6: False, 36: False}]
+EXAMPLE aux loss separated only by T_N: tempo15797 x 6 e 0 TN {0: True, 1: True, 2: False, 3: False, 4: False, 6: False, 44: False} mv [[[(2, 'd'), (7, 'n'), (7, 'n')], [(1, 'n'), (6, 'n'), (10, 'n'), (4, 'n')]], [[(2, 'n'), (7, 'd')], [(0, 'n'), (4, 'n')]], [[(4, 'n')], [(5, 'n')]], [[(10, 'n'), (7, 'n')], [(4, 'd'), (5, 'd')]], [[(6, 'n'), (8, 'p')], [(7, 'p')]], [[(8, 'p'), (5, 'n')], [(7, 'n')]], [[(9, 'n'), (5, 'n')], [(8, 'd')]], [[(2, 'd')], [(10, 'p'), (2, 'p')]], [[(6, 'n')], [(9, 'n'), (10, 'n')]], [[(1, 'n'), (2, 'p')], [(8, 'd'), (5, 'd')]], [[(9, 'p'), (10, 'n')], [(1, 'n'), (10, 'p')]]] ep [[[], []], [[], []], [[], []], [[], []], [[], []], [[(7, 'n')], [(5, 'p')]], [[(10, 'n')], [(10, 'n')]], [[], []], [[], []], [[], []], [[], []]] chk [[False, False], [False, False], [False, False], [False, False], [False, False], [False, False], [False, False], [False, False], [False, False], [False, False], [False, False]]
+seed 103 battery size 292
+aux_loss                                      323
+aux_loss_not_separated_without_TN             1
+aux_loss_separated_by_non_TN                  322
+aux_win                                       7251
+aux_win_without_B1                            344
+bad_moves                                     7574
+bad_moves_double_step                         2335
+bad_moves_giving_check                        767
+buchi_cross_checked                           7574
+exact_adv                                     808
+exact_hand                                    4
+exact_rand                                    453
+exact_tempo                                   1739
+generation_tries                              24078
+groups_differ_from_omega                      214
+groups_omega_but_CW_fails                     277
+groups_omega_without_B1                       225
+groups_results_of_omega_on_battery            2790
+groups_with_check                             1729
+groups_with_double_step                       2970
+groups_with_ep_moves                          2842
+results                                       20903320
+violations 0
