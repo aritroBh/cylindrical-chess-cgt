@@ -1,0 +1,19 @@
+O_19: nodes=2132 K=6352 T=2680 flagged=0 zone=[0, 12, 13, 14, 15, 16, 17, 18] sig(h=0..4)=NNPNN; no passed pawn, no flag; files 1..10 are exact pattern files in every node
+  Lemma 2 at n=19: central files 2..9; windows {2: (1, 5), 3: (2, 6), 4: (3, 7), 5: (4, 8), 6: (5, 9), 7: (6, 10), 8: (5, 9), 9: (6, 10)}
+    q-positions=17056 moves=25584; (a) failures 0; (b) T/K moves 0; by (file, class) {(2, 'P'): 2132, (3, 'P'): 4264, (4, 'P'): 2132, (5, 'P'): 4264, (6, 'P'): 2132, (7, 'P'): 4264, (8, 'P'): 2132, (9, 'P'): 4264}
+    arc ends: j=2 window (1, 5) (left end); j=9 window (6, 10) (right end)
+    (info) moves of the wall-end pawn, file 10, by (file, class): {(10, 'P'): 2132}
+O_21: nodes=2132 K=6352 T=2680 flagged=0 zone=[0, 14, 15, 16, 17, 18, 19, 20] sig(h=0..4)=NNPNN; no passed pawn, no flag; files 1..12 are exact pattern files in every node
+  Lemma 2 at n=21: central files 2..11; windows {2: (1, 5), 3: (2, 6), 4: (3, 7), 5: (4, 8), 6: (5, 9), 7: (6, 10), 8: (7, 11), 9: (8, 12), 10: (7, 11), 11: (8, 12)}
+    q-positions=21320 moves=31980; (a) failures 0; (b) T/K moves 0; by (file, class) {(2, 'P'): 2132, (3, 'P'): 4264, (4, 'P'): 2132, (5, 'P'): 4264, (6, 'P'): 2132, (7, 'P'): 4264, (8, 'P'): 2132, (9, 'P'): 4264, (10, 'P'): 2132, (11, 'P'): 4264}
+    arc ends: j=2 window (1, 5) (left end); j=11 window (8, 12) (right end)
+    (info) moves of the wall-end pawn, file 12, by (file, class): {(12, 'P'): 2132}
+O_23: nodes=2132 K=6352 T=2680 flagged=0 zone=[0, 16, 17, 18, 19, 20, 21, 22] sig(h=0..4)=NNPNN; no passed pawn, no flag; files 1..14 are exact pattern files in every node
+  ins_5(start_19) = start_21; graph_21 = ins_5(graph_19): 2132 nodes onto 2132 nodes, K- and T-children equal for all 4264 (node, side) pairs; Lemma 3 recomputed on every ins_5(p): 0 mismatches
+  ins_5(start_21) = start_23; graph_23 = ins_5(graph_21): 2132 nodes onto 2132 nodes, K- and T-children equal for all 4264 (node, side) pairs; Lemma 3 recomputed on every ins_5(p): 0 mismatches
+  control, cut c=6 (arc 2..11): Lemma 3 conclusion fails at 0 of 4264 (node, side) pairs
+  control, cut c=7 (arc 3..12): Lemma 3 conclusion fails at 0 of 4264 (node, side) pairs
+  control, cut c=8 (arc 4..13): Lemma 3 conclusion fails at 0 of 4264 (node, side) pairs
+  control, cut c=9 (arc 5..14): Lemma 3 conclusion fails at 0 of 4264 (node, side) pairs
+  control, cut c=10 (arc 6..15): Lemma 3 conclusion fails at 0 of 4264 (node, side) pairs
+O: ALL CHECKS PASSED (146s)

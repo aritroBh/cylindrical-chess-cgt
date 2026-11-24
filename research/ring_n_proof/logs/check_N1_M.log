@@ -1,0 +1,19 @@
+M_18: nodes=441 K=1128 T=428 flagged=0 zone=[10, 11, 12, 13, 14, 15, 17] sig(h=0..4)=NNPNN; no passed pawn, no flag; files 0..9 are exact pattern files in every node
+  Lemma 2 at n=18: central files 1..8; windows {1: (0, 4), 2: (1, 5), 3: (2, 6), 4: (3, 7), 5: (4, 8), 6: (5, 9), 7: (4, 8), 8: (5, 9)}
+    q-positions=3528 moves=5292; (a) failures 0; (b) T/K moves 0; by (file, class) {(1, 'L'): 441, (1, 'P'): 441, (2, 'P'): 441, (3, 'P'): 882, (4, 'P'): 441, (5, 'P'): 882, (6, 'P'): 441, (7, 'P'): 882, (8, 'P'): 441}
+    arc ends: j=1 window (0, 4) (left end); j=8 window (5, 9) (right end)
+    (info) moves of the wall-end pawn, file 9, by (file, class): {(9, 'P'): 882}
+M_20: nodes=441 K=1128 T=428 flagged=0 zone=[12, 13, 14, 15, 16, 17, 19] sig(h=0..4)=NNPNN; no passed pawn, no flag; files 0..11 are exact pattern files in every node
+  Lemma 2 at n=20: central files 1..10; windows {1: (0, 4), 2: (1, 5), 3: (2, 6), 4: (3, 7), 5: (4, 8), 6: (5, 9), 7: (6, 10), 8: (7, 11), 9: (6, 10), 10: (7, 11)}
+    q-positions=4410 moves=6615; (a) failures 0; (b) T/K moves 0; by (file, class) {(1, 'L'): 441, (1, 'P'): 441, (2, 'P'): 441, (3, 'P'): 882, (4, 'P'): 441, (5, 'P'): 882, (6, 'P'): 441, (7, 'P'): 882, (8, 'P'): 441, (9, 'P'): 882, (10, 'P'): 441}
+    arc ends: j=1 window (0, 4) (left end); j=10 window (7, 11) (right end)
+    (info) moves of the wall-end pawn, file 11, by (file, class): {(11, 'P'): 882}
+M_22: nodes=441 K=1128 T=428 flagged=0 zone=[14, 15, 16, 17, 18, 19, 21] sig(h=0..4)=NNPNN; no passed pawn, no flag; files 0..13 are exact pattern files in every node
+  ins_4(start_18) = start_20; graph_20 = ins_4(graph_18): 441 nodes onto 441 nodes, K- and T-children equal for all 882 (node, side) pairs; Lemma 3 recomputed on every ins_4(p): 0 mismatches
+  ins_4(start_20) = start_22; graph_22 = ins_4(graph_20): 441 nodes onto 441 nodes, K- and T-children equal for all 882 (node, side) pairs; Lemma 3 recomputed on every ins_4(p): 0 mismatches
+  control, cut c=5 (arc 1..10): Lemma 3 conclusion fails at 0 of 882 (node, side) pairs
+  control, cut c=6 (arc 2..11): Lemma 3 conclusion fails at 0 of 882 (node, side) pairs
+  control, cut c=7 (arc 3..12): Lemma 3 conclusion fails at 0 of 882 (node, side) pairs
+  control, cut c=8 (arc 4..13): Lemma 3 conclusion fails at 0 of 882 (node, side) pairs
+  control, cut c=9 (arc 5..14): Lemma 3 conclusion fails at 600 of 882 (node, side) pairs
+M: ALL CHECKS PASSED (28s)

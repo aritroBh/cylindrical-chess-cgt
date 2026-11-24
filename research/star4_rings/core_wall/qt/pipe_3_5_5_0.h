@@ -1,0 +1,10 @@
+#H	L.......	4699
+#H	NL......	325
+#H	NNL.....	3
+#H	NNNNNNNN	5454
+#H	NNR.....	16
+#H	NPNNNNNN	95
+#H	NR......	454
+#H	PNNNNNNN	254
+#H	R.......	5409
+#HIST evaluated=16709
