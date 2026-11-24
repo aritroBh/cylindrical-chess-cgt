@@ -36,6 +36,7 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
    - [x] A test family for the results of over that does not depend on the group: none that is finite, for abstract
          groups (Theorem 4.22); a ladder as long as the number of boards decides, so one ladder per board size
          (Theorem 4.20, Corollary 4.23) (proved, refereed) (K62)
+   - [~] Blind proof of Theorems 4.20 and 4.22 by Codex (K64)
    - [ ] Does a real group need a ladder longer than 2? The 3 + 3 group needs exactly 2
    - [ ] Hand proof of (O1) and of the d5 root of the K45 group
    - [x] The K45 group in chess at cap 1: d4 freeze and its zero exact, the rest undecided; exact groups also on flat
