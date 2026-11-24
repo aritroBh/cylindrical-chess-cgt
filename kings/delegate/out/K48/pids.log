@@ -1,0 +1,78 @@
+15292 p1_cap1.sh driver
+15298 hrun ZO_kp 09:15:30
+16469 val_flat.sh driver
+16482 hrun val_r48_flat8 09:17:05
+16902 queue_flat.sh A driver
+16902 A_flat8x6_f0_1_2 09:17:26
+16492 solver val_r48_flat8
+18322 hrun val_ref3m_flat8 09:18:38
+18330 solver val_ref3m_flat8
+19556 hrun val_r48_flat10 09:19:49
+21143 queue_flat.sh R driver
+21143 R_flat8x6_f0_1_2 09:21:52
+19564 solver val_r48_flat10
+21261 hrun val_ref3m_flat10 09:21:58
+21269 solver val_ref3m_flat10
+22749 hrun grp_r48_cyl8 09:23:41
+22757 solver grp_r48_cyl8
+16902 A_flat8x6_f0_1_3 09:26:09
+16902 A_flat8x6_f0_1_4 09:28:55
+15305 solver ZO_kp
+31039 hrun ZO_kp39r 09:30:48
+16902 A_flat8x6_f0_1_5 09:31:15
+16902 A_flat8x6_f0_2_3 09:33:33
+16902 A_flat8x6_f0_2_4 09:36:51
+44042 vhits_flat8.sh
+16902 A_flat8x6_f0_2_5 09:40:04
+16902 A_flat8x6_f0_3_4 09:42:58
+16902 A_flat8x6_f0_3_5 09:45:27
+16902 A_flat8x6_f0_4_5 09:47:46
+16902 A_flat8x6_f1_2_3 09:51:22
+16902 A_flat8x6_f1_2_4 09:54:57
+16902 A_flat8x6_f1_2_5 09:57:34
+31046 solver ZO_kp39r
+82538 hrun ZO_own_b0_r1 09:58:35
+83936 p1_cap2.sh driver
+83945 hrun ZO_c2_Ap 09:59:23
+16902 A_flat8x6_f1_2_6 09:59:47
+82545 solver ZO_own_b0_r1
+93425 hrun ZO_own_b1_r1 10:07:34
+killed own driver 15292 (p1_cap1.sh) after own39 b1 started; rf39 cap-1 runs skipped
+94244 val_flat2.sh driver
+94255 hrun val2_r48_flat8 10:08:22
+93432 solver ZO_own_b1_r1
+16902 A_flat8x6_f1_3_4 10:18:44
+10:20:02 killed own queue drivers 16902 (A) and 21143 (R) and R's waiting heavy.sh 21151 (no slot held), to add a pause between jobs; A job 4019 (files 1,3,4) left running
+5390 resume_A.sh (then queue_flat.sh A) driver
+5391 queue_flat.sh R driver (restarted)
+5391 R_flat8x6_f0_1_2 10:20:08
+5390 A_flat8x6_f1_3_5 10:21:18
+5390 A_flat8x6_f1_3_6 10:25:14
+10:32:53 killed own queue drivers 5390 5391 and their waiting heavy.sh 5425 10629 (no slot held) to switch to batched jobs
+19432 chain_flat.sh A driver
+19433 chain_flat.sh R driver
+19432 batch A W=8 1,3,6 1,4,5 2,3,4 2,3,5 10:33:02
+19433 batch R W=8 0,1,2 0,1,3 0,1,4 0,1,5 0,2,3 10:33:02
+84212 fpwatch for 77138
+84411 fpwatch for 77138 (restarted; killed own 84212)
+12:05:08 killed own p1_cap2.sh driver 83936 and own kp39 A' solver 77138 (cpu time 19 min, stalled by system-wide swapping: 34 GB swap used by other processes); B' not started
+77138 solver ZO_c2_Ap
+12:18:06 machine rebooted ~12:13; all PIDs above are dead. Restart after reboot:
+4565 chain2.sh A driver
+4566 chain2.sh R driver
+4565 batch2 A W=8 1,3,6 1,4,5 2,3,4 2,3,5 13:14:20
+4566 batch2 R W=8 0,1,2 0,1,3 0,1,4 0,1,5 0,2,3 13:14:20
+58257 vhits_flat8b.sh
+4565 batch2 A W=9 0,1,4 0,3,4 1,2,5 1,4,5 2,3,6 13:28:31
+4566 batch2 R W=8 0,2,4 0,2,5 0,3,4 0,3,5 0,4,5 13:33:47
+4566 batch2 R W=8 1,2,3 1,2,4 1,2,5 1,2,6 1,3,4 13:52:08
+4565 batch2 A W=10 0,1,4 0,3,4 1,2,5 1,4,5 2,3,6 2,5,6 13:52:34
+81856 tall.sh driver
+81856 tall A cyl8x7 14:07:07
+4566 batch2 R W=8 1,3,5 1,3,6 1,4,5 2,3,4 2,3,5 14:08:42
+99455 vhits_tall.sh
+verify ZO on cyl8x7 started 14:43:42
+4566 batch2 R W=9 0,1,4 0,3,4 1,2,5 1,4,5 2,3,6 14:45:21
+81856 tall R cyl8x7 14:45:26
+4566 batch2 R W=10 0,1,4 0,3,4 1,2,5 1,4,5 2,3,6 2,5,6 15:10:31
+15:55:46 all K48 runs finished; binaries deleted

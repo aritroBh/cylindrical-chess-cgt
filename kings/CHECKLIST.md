@@ -18,7 +18,10 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
          proved by hand (K47)
    - [~] The value of the K45 group; do the other exact groups of K45 equal over in sums? (K55)
    - [ ] Hand proof of (O1) and of the d5 root of the K45 group
-   - [~] The K45 group in chess (promotion cap 1 and 2); over groups on flat and taller boards (K48)
+   - [x] The K45 group in chess at cap 1: d4 freeze and its zero exact, the rest undecided; exact groups also on flat
+         8×6 to 10×6 and on cyl:8×7 (K48)
+   - [ ] The K45 group in chess at cap 2 (kpsolve is at the 3 GB limit there); other file classes on flat 9×6, 10×6 and
+         cyl:8×7; cyl:8×8
 3. King-against-king fights
    - [x] Values up to width 10, three blocked pairs: over, under, ±1 occur (K20, K44)
    - [ ] The parity classes and the 885,715 unclassified roots

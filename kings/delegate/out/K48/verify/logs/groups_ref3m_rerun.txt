@@ -1,0 +1,22 @@
+PASS ref3m flat:8x6 shuttler b z=c4,c5 f0=a5 pieces "Ka5 kc4 Pb2 Pe2 Pe4 pb5 pe5 pf4" freezes ['Pb2b4 at Ka5 kc4', 'Pb2b3 at Ka5 kc5']
+       root Ka5 kc4 Pb2 Pe2 Pe4 pb5 pe5 pf4 b - : W  Kc4b3:W Kc4c5:W Kc4d4:W Pf4f3:W Pb5b4:W Pb5b3:W
+       root Ka5 kc4 Pb2 Pe2 Pe4 pb5 pe5 pf4 w - : W  Ka5a6:L Ka5b6:L Pb2b3:L Pb2b4:W Pe2e3:L
+       root Ka5 kc5 Pb2 Pe2 Pe4 pb5 pe5 pf4 b - : W  Kc5c4:W Kc5c6:W Kc5d4:W Kc5d6:W Pf4f3:W Pb5b4:W Pb5b3:W
+       root Ka5 kc5 Pb2 Pe2 Pe4 pb5 pe5 pf4 w - : W  Ka5a6:L Pb2b3:W Pb2b4:L Pe2e3:L
+       freeze Pb2b4 at Ka5 kc4 Pb2 Pe2 Pe4 pb5 pe5 pf4 w -
+         q S to move Ka5 kc4 Pb4 Pe2 Pe4 pb5 pe5 pf4 b b3 : W  Kc4b3:W Kc4c3:W Kc4d4:W Pf4f3:W
+         q F to move Ka5 kc4 Pb4 Pe2 Pe4 pb5 pe5 pf4 w - : L  Ka5a6:L Ka5b6:L Pe2e3:L
+       freeze Pb2b3 at Ka5 kc5 Pb2 Pe2 Pe4 pb5 pe5 pf4 w -
+         q S to move Ka5 kc5 Pb3 Pe2 Pe4 pb5 pe5 pf4 b - : W  Kc5c6:W Kc5d4:W Kc5d6:W Pf4f3:W Pb5b4:W
+         q F to move Ka5 kc5 Pb3 Pe2 Pe4 pb5 pe5 pf4 w - : L  Ka5a6:L Pe2e3:L Pb3b4:L
+PASS ref3m flat:8x6 shuttler w z=c2,c3 f0=a2 pieces "Kc2 ka2 Pb2 Pe2 Pf3 pb5 pe3 pe5" freezes ['Pb5b4 at Kc2 ka2', 'Pb5b3 at Kc3 ka2']
+       root Kc2 ka2 Pb2 Pe2 Pf3 pb5 pe3 pe5 w - : L  Kc2c1:L Kc2c3:L Kc2d1:L Kc2d3:L Pb2b3:L Pb2b4:L Pf3f4:L
+       root Kc2 ka2 Pb2 Pe2 Pf3 pb5 pe3 pe5 b - : L  Ka2a1:W Pb5b4:L Pb5b3:W Pe5e4:W
+       root Kc3 ka2 Pb2 Pe2 Pf3 pb5 pe3 pe5 w - : L  Kc3b4:L Kc3c2:L Kc3d3:L Pb2b3:L Pb2b4:L Pf3f4:L
+       root Kc3 ka2 Pb2 Pe2 Pf3 pb5 pe3 pe5 b - : L  Ka2a1:W Ka2b1:W Pb5b4:W Pb5b3:L Pe5e4:W
+       freeze Pb5b4 at Kc2 ka2 Pb2 Pe2 Pf3 pb5 pe3 pe5 b -
+         q S to move Kc2 ka2 Pb2 Pe2 Pf3 pb4 pe3 pe5 w - : L  Kc2c1:L Kc2d1:L Kc2d3:L Pb2b3:L Pf3f4:L
+         q F to move Kc2 ka2 Pb2 Pe2 Pf3 pb4 pe3 pe5 b - : W  Ka2a1:W Pb4b3:W Pe5e4:W
+       freeze Pb5b3 at Kc3 ka2 Pb2 Pe2 Pf3 pb5 pe3 pe5 b -
+         q S to move Kc3 ka2 Pb2 Pe2 Pf3 pb3 pe3 pe5 w b4 : L  Kc3b4:L Kc3c4:L Kc3d3:L Pf3f4:L
+         q F to move Kc3 ka2 Pb2 Pe2 Pf3 pb3 pe3 pe5 b - : W  Ka2a1:W Ka2b1:W Pe5e4:W

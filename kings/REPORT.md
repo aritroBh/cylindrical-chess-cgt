@@ -469,6 +469,12 @@ Every deliverable was given to independent referees (Claude models) told to brea
     when the mover has a tempo elsewhere, so Definition 4.8 does not force the value over. Its freeze at the d4 root is a
     mutual zugzwang on every cyl:W×6, W ≥ 8 (PROVED by hand, after a referee repair). The group's value is not identified;
     a group with the value over is still not known (`kings/delegate/out/K47/REVIEW.md`).
+  - K48 (2026-11-23) takes the same group to chess and to other boards (CHECKED-2). In chess on cyl:8×6 at promotion cap 1
+    its d4 freeze still wins and the position after it is an exact mutual zugzwang; the d5 root is undecided, so exactness
+    in chess is open. The wrap is not needed: on flat 8×6 the group and its two translates are, up to left-right
+    reflection, the only exact groups of Definition 4.8 in the searched range, and translates are exact on flat 9×6 and
+    10×6. On cyl:8×7 there are four other exact groups. No value in sums was computed for any of these
+    (`kings/delegate/out/K48/REVIEW.md`).
   - Theorem 1.11(c) repaired (2026-11-23): its proof used the e.p. condition (E) without assuming it, and its frontier
     step used an unproved inheritance of threats by re-split components. (E) is now a hypothesis (every use already had
     it through Theorem 1.14), and the inheritance is proved. Found while the paper's proofs appendix was written and

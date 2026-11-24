@@ -1,0 +1,158 @@
+K48 FINDINGS: the K45 over group in chess, and the Definition 4.8 search on flat boards   (2026-11-23)
+======================================================================================================
+(findings.txt, not FINDINGS.md.)  Brief: kings/delegate/briefs/K48_over_group_chess_flat.md.  AI work, no human re-derivation.
+Paths are relative to kings/delegate/out/K48/ unless they start with kings/.  Labels: PROVED (hand proofs only) / CONJECTURE /
+KNOWN / COMPUTED-1 (one implementation) / CHECKED-2 (two independently written implementations agree).  No solver result is PROVED.
+Z_O = `Kf5 kd4 Pb2 Pb4 Pe2 pa4 pb5 pe5`, the K45 exact over group (Black shuttles d4-d5; freezes e2-e4 at the d4 root, e2-e3 at
+the d5 root).  The machine rebooted at about 12:13 and was swapping heavily before that; see section 5 for what this cut off.
+
+0. SHORT ANSWER
+---------------
+1. Chess on cyl:8x6 (cap 1, with and without the capture refinement; CHECKED-2 for every value below: kp39 --refine and own39,
+   two code families, agree on all 8 positions and all 49 move values; plain kpsolve gives the same or weaker bounds).
+   (a) The freeze of the d4 root and its q survive exactly.  The root (kd4, White to move) is exactly W; e2-e4 wins (exact).
+       After e2-e4, q with Black to move is exactly W (all 4 Black moves lose, exactly) and q with White to move is exactly L
+       (all 6 White moves lose, exactly).  So q = Kf5 kd4 Pb2 Pb4 Pe4 pa4 pb5 pe5 is a mutual zugzwang 0 in chess, as in P.
+   (b) Everything else is not decided at cap 1.  The three other roots are (W, L).  At the d5 root the P freeze e2-e3 is (W, L),
+       and its q (Kf5 kd5 Pb2 Pb4 Pe3 pa4 pb5 pe5) is (W, L) with either side to move.  So whether Z_O is still "every move
+       but the freeze loses, and after the freeze both sides to move lose" in chess is OPEN: neither confirmed nor refuted.
+   (c) No move was found whose chess value is better for the mover than its P value: every one of the 49 move values that is
+       exact in chess (28 of them) equals P's verdict "loses at once" (or "wins" for the freeze e2-e4).  The 21 others are open;
+       for 9 of them (the White king moves Kf5-g4, g5, g6 at three positions) chess already excludes a White win (upper bound D),
+       but D versus L is open.  No move value differs from P where chess decides it.
+   (d) Restricted cap 2 (one officer a side, as K39 did for Z_C) was started for bound A' and stopped before it finished
+       (19 CPU minutes, stalled by system-wide swapping; no output).  B' was not started.  NOT_RUN.
+2. Flat boards.  An exact over group (and its mirror under group) of Definition 4.8 EXISTS on flat 8x6 without the wrap:
+   the same placement Z_O, files a, b, e (CHECKED-2: K45's implementation A and the adapted K45 referee solver R on the full
+   flat 8x6 search, 0 counter differences on all 20 file classes; ref3m and kp_p --pmodel move values on the groups).  On flat
+   8x6 the only exact groups are Z_O and its two translates (files b, c, f and c, d, g).  On flat 9x6 and 10x6 the translates of
+   Z_O are exact too (A and R agree on the classes of that shape, CHECKED-2); the rest of those two searches was not run.
+3. Taller boards: on cyl:8x7 (files a, b, e) there are exactly 4 exact over groups (CHECKED-2: A and R on the whole search;
+   ref3m and kp_p on each group), all different
+   from Z_O, which is not exact there.  cyl:8x8 NOT_RUN.
+
+1. PART 1: Z_O IN CHESS ON cyl:8x6
+----------------------------------
+Inputs (in/ZO_cyl_8x6.in): the 4 roots (kd4/kd5, Black/White to move), q1 = after e2-e4 from (kd4, w) with Black to move
+(e.p. square e3; no Black pawn can take) and the same q1 with White to move, q2 = after e2-e3 from (kd5, w) with either side to
+move.  Every child of these 8 positions (49 moves, all moves of both sides, including the freezes and every move from each q) is
+valued through --moves.  Promotions to Q, R, B, N; e.p. on.
+Solvers (scripts/build.sh, scripts/p1_cap1.sh; logs/ZO_*):
+  - kings/kpsolve, cap 1, both bounds (logs/ZO_kp.out; 2,463,450,624 states, 917 s, 1.9 GB);
+  - kp39 --refine (K39's copy of kpsolve with the capture refinement: a capped promotion by the side the bound favours is scored
+    as the value after the opponent's best capture of the new piece; packed layers) (logs/ZO_kp39r.out; 1,667 s, 0.5 GB);
+  - own39, bound A and bound B, refinement on (K39's second family, from the K27 referee's ownchess.cpp, no code shared with
+    kpsolve) (logs/ZO_own_b0_r1.out, ZO_own_b1_r1.out; 1,406,161,200 states, 540 s each, 0.35 GB).
+  kp39 --refine and own39 agree on every position value and every move value (0 differences; p1_table.txt).  So every value
+  below is CHECKED-2 as a bound pair; "exact" means the two bounds agree.  K39 validated both tools on random cylinder positions.
+Values are from White's view (W White wins, L Black wins).  "loses" = exact loss for the mover.
+
+  position                                   cap1 refined  moves (refined bounds; P verdict in K45: all lose except the freeze)
+  (kd4, b)  Kf5 kd4 ... b -                  (W, L)        Kd4-e3 loses, a4-a3 loses; Kd4-d5 (shuttle), Kd4-c4, e5-e4, e5-e3 open
+  (kd4, w)  Kf5 kd4 ... w -                  W exact       e2-e4 WINS (the freeze); Kf5-f6, Kf5-e6, b2-b3 lose;
+                                                           Kf5-g4, g5, g6: (D, L) (White cannot win; D or L open); e2-e3 open
+  (kd5, b)  Kf5 kd5 ... b -                  (W, L)        Kd5-d4 (shuttle), d6, c6, a4-a3 lose; Kd5-c4, e5-e4, e5-e3 open
+  (kd5, w)  Kf5 kd5 ... w -                  (W, L)        Kf5-f6, b2-b3, e2-e4 lose; Kf5-g4, g5, g6 (D, L); e2-e3 (the freeze) open
+  q1 b      Kf5 kd4 Pb2 Pb4 Pe4 ... b e3     W exact       all 4 (Kd4-d3, c4, e3, a4-a3) lose
+  q1 w      Kf5 kd4 Pb2 Pb4 Pe4 ... w -      L exact       all 6 (Kf5-e6, f6, g4, g5, g6, b2-b3) lose
+  q2 b      Kf5 kd5 Pb2 Pb4 Pe3 ... b -      (W, L)        Kd5-d6, c6, a4-a3 lose; Kd5-c4, e5-e4 open
+  q2 w      Kf5 kd5 Pb2 Pb4 Pe3 ... w -      (W, L)        b2-b3, e3-e4 lose; Kf5-g4, g5, g6 (D, L); Kf5-f6 open
+  (full per-move table with kp, kp39r and own39r bounds: p1_table.txt)
+
+Plain cap 1 without refinement is weaker in one place only: the White king moves at (kd4, w), (kd5, w) are (W, L) instead of
+(L, L) for Kf5-f6, Kf5-e6 and (D, L) for Kf5-g4, g5, g6 (logs/ZO_kp.out).  Root values are the same.
+Count: 49 move values; 28 exact (27 "loses", 1 "wins" = e2-e4 at the d4 root), 9 at (D, L), 12 at (W, L).  Every exact value
+agrees with P (K45: all non-freeze moves lose at once in P; the freeze does not lose).  So the brief's list "moves whose chess
+value differs from the P value" is EMPTY as far as chess is decided at cap 1; 21 moves are undecided.
+Why the gaps: at cap 1 a second promotion is capped.  In the open lines both sides can queen (Black's a-pawn via a3xb2 or
+a3-a2, White's e-pawn or b-pawn after Kxb4/Kc4 lines), and with two officers on the board the bound decides.  The capture
+refinement closed only the f6/e6 king moves.
+Restricted cap 2 (scripts/p1_cap2.sh; A': bound A, Black held to one queen, B': bound B, White held to one queen, as K39 did
+for Z_C): A' ran 1,900 s wall / 19 CPU minutes at 0.45 GB footprint and was stopped by me at 12:05 because it had stalled under
+system-wide swapping (other processes held about 34 GB of swap); no output (logs/ZO_c2_Ap.*).  B' was not started.  NOT_RUN.
+After the reboot it was not restarted (the coordinator asked to finish in a few hours; its run time is unknown and the K39
+estimate for cap 2 with more than four pawns was "over 3 GB").
+
+2. PART 2: DEFINITION 4.8 ON FLAT BOARDS
+----------------------------------------
+Test: Definition 4.8 exactly as K45 ran it ((O1)-(O4) for the over orientation, (U1)-(U4) for its colour mirror; K1, K2; a freeze
+that is a promotion makes the placement non-exact), plain P, kings anywhere, every pawn configuration with at most 3 White and 3
+Black pawns on the three files, ranks 2 to 5.  On a flat board there is no rotation, so a "file class" is a set {f1<f2<f3} with
+f3 - f1 <= 5 (inside a six-file span), one per left-right reflection (in/triples_flatW.txt: 20 classes on 8x6, 26 on 9x6, 30 on
+10x6).  The colour mirror maps the domain to itself, so the numbers of exact over and exact under groups are equal; A counts both
+and finds them equal on every class.
+Implementations:
+  A = K45's src/p45a.cpp (K43's table solver plocalp3.cpp with a pawn-file list and 128-bit masks), run with --kind flat;
+      K43 already used this code on flat 7x6 and 8x6.  Both orientations.
+  R = src/r48.cpp = the K45 referee's r45.cpp (written from SPEC.md and Definition 4.8, no code shared with A) with a flat-board
+      option (off-board squares instead of the wrap; board names pln:WxH) and a one-entry memo cache (speed only).  Under
+      orientation (over = colour mirror, same domain).  Validation: R against ref3m on 1,000 random flat 8x6 positions and 600
+      random flat 10x6 positions (P values, scripts/gen_random.py): 0 differences (logs/val_r48_flat8.out, val_ref3m_flat8.out,
+      val_r48_flat10.out, val_ref3m_flat10.out; this was the binary before the cache was added; the cached binary is checked by
+      the counter agreement with A below).  R in cylinder mode reproduces the K45 group test on cyl:8x6 (logs/grp_r48_cyl8.out).
+Results (flat_table.txt; per class: placements, (O1), promotion freeze, (O1)+(O2), loose, exact; logs/flat/):
+  flat 8x6, ALL 20 classes, A and R: equal counter for counter on every class (CHECKED-2).  Totals per orientation:
+      placements 2,515,002,479; (O1) 721,681,367; promotion freeze 557,085,797; (O1)+(O2) 164,554,343; loose 150,926,274; exact 3.
+  The three exact over groups of flat 8x6 are Z_O and its translates (each with its colour-mirror under group):
+      files a, b, e   Kf5 kd4 Pb2 Pb4 Pe2 pa4 pb5 pe5   (Black shuttles d4-d5; freezes e2-e4, e2-e3)    = Z_O itself
+      files b, c, f   Kg5 ke4 Pc2 Pc4 Pf2 pb4 pc5 pf5   (shuttle e4-e5; freezes f2-f4, f2-f3)
+      files c, d, g   reported in its reflected form on files b, e, f: Ka5 kc4 Pb2 Pe2 Pe4 pb5 pe5 pf4 (shuttle c4-c5; freezes b2-b4, b2-b3)
+      under mirrors: Kd2 kf2 Pa3 Pb2 Pe2 pb3 pb5 pe5 (d2-d3), Ke2 kg2 Pb3 Pc2 Pf2 pc3 pc5 pf5 (e2-e3), Kc2 ka2 Pb2 Pe2 Pf3 pb5 pe3 pe5 (c2-c3).
+  ref3m and kp_p --pmodel (scripts/verify_hit48.py, which only reads the solvers' --moves values) PASS all three over groups and
+  the Z_O under mirror on flat 8x6 (logs/vhits_flat8.txt, logs/vhits_flat8b.txt).  So the group needs no wrap: CHECKED-2.
+  A translate by three files would put the White king on file i, off the board: on flat 8x6 these three are all the translates.
+  flat 9x6 and 10x6, the classes of the group's shape only (files {f, f+1, f+4} at every offset, with their reflections:
+  in/target_flat9.txt, 5 classes; in/target_flat10.txt, 6 classes), A: exactly one exact over group per class whose king file
+  f + 5 is on the board, and it is the translate of Z_O (9x6: offsets 0 to 3, 4 groups; 10x6: offsets 0 to 4, 5 groups);
+  none in the class {0,3,4}, which is the reflection of the offset whose king file would be off the board.  R on these classes:
+  identical counters and hit sets on all 11 classes (9x6 totals per orientation: 891,994,478 placements, 4 exact; 10x6:
+  1,454,473,915 placements, 5 exact): CHECKED-2 for these classes.  The other 21 classes of 9x6 and 24 of 10x6 were NOT_RUN.
+So: an exact over group of Definition 4.8 exists without the wrap, on flat 8x6, 9x6 and 10x6, and on flat 8x6 the full search
+(every class within a six-file span) finds no other exact group than the translates of Z_O.
+
+3. PART 3: TALLER BOARDS
+------------------------
+cyl:8x7, files a, b, e (one class), at most 3 + 3 pawns on ranks 2 to 6, every king placement:
+  A (logs/tall/A_cyl8x7_f0_1_4.out, 1,190 s): 873,305,946 placements per orientation, (O1) 270,332,695, promotion freeze
+  196,275,343, (O1)+(O2) 74,045,765, loose 66,382,935, exact 4 per orientation.  The four exact over groups:
+      Kd4 kf4 Pa4 Pb5 Pe2 pa5 pb6 pe6   Black shuttles f4-f5; freezes e2-e4, e2-e3
+      Kd4 kf4 Pb3 Pb5 Pe2 pb4 pb6 pe6   f4-f5; e2-e4, e2-e3
+      Kd4 kf4 Pb3 Pb5 Pe2 pa5 pb6 pe6   f4-f5; e2-e4, e2-e3
+      Kc4 ka4 Pb2 Pe3 Pe5 pb6 pe4 pe6   a4-a5; b2-b4, b2-b3
+  ref3m and kp_p --pmodel PASS all four (logs/vhits_tall.txt): CHECKED-2 for the four groups.  They are new groups, not Z_O:
+  Z_O placed on cyl:8x7 is not exact (ref3m: (O1) fails, Kd4-c4 and e5-e4 do not lose; logs/vhit_ZO_cyl8x7.txt; A agrees).
+  R (r48 in cylinder mode, i.e. the K45 referee's r45 with the memo cache) on the whole cyl:8x7 search: the same counters (873,305,946;
+  270,332,695; 196,275,343; 74,045,765; 66,382,935; 4) and the same 4 groups (logs/tall/R_cyl8x7_f0_1_4.out): the whole cyl:8x7
+  search for files a, b, e is CHECKED-2.
+cyl:8x8: NOT_RUN (592,657 pawn layers, a 1.2 GB table for A; about 100 min per implementation on an idle machine).
+
+4. TOOLS AND VALIDATION
+-----------------------
+Built by scripts/build.sh from the sources in place (no copies except src/r48.cpp); all binaries deleted at the end.
+  kings/kpsolve (existing binary, not rebuilt); kp39 and own39 (K39 src/kp39.c, src/own39.cpp; two families, validated in K39
+  on random cylinder positions, both bounds, with and without refinement); p45a (K45 src/p45a.cpp); r48 (src/r48.cpp, from
+  K45 verify/r45.cpp); ref3m (K23 verify/ref3m.cpp); kp_p10 (K44 scripts/kp_p10.c, used with --pmodel).  own2 and rf39 were
+  built but not used (the rf39 cap-1 runs were dropped to save slot time; the cap-2 run never completed).
+  All heavy runs went through kings/delegate/heavy.sh at nice 15 (scripts/hrun.sh with the K39 watch2.sh 3 GB RSS watchdog for
+  the chess runs; scripts/batch_flat.sh, chain_flat.sh, chain2.sh, tall.sh for the searches).  Peak footprints: kpsolve 1.9 GB,
+  kp39 0.5 GB, own39 0.35 GB, p45a under 0.4 GB, r48 under 1.1 GB.
+
+5. WHAT IS NOT DONE
+-------------------
+- Chess: restricted cap 2 (A', B') for the 21 undecided move values and the three undecided roots (stopped / not started; see
+  section 1).  So the chess question of the brief, "is Z_O still exact", is OPEN; only the d4 freeze and its q are settled.
+  Chess on flat 8x6 (where Z_O is also exact in P) was not run.
+- Flat 9x6 and 10x6: only the classes of the group's own shape (5 and 6 classes) were searched; 21 resp. 24 classes NOT_RUN.
+- cyl:8x8 NOT_RUN; on cyl:8x7 only the file class a, b, e.
+- The machine rebooted at about 12:13 and every process died.  Cut off and redone after the reboot: the flat 8x6 A runs of 4
+  classes and the R runs (none had finished).  Cut off and not redone: kp39 cap 2 A' (already stopped by me at 12:05, see
+  section 1) and the re-validation of the cached r48 binary against ref3m (val_flat2.sh; replaced by the A = R agreement).
+- Equality of the groups with over in sums (outside the brief).
+
+6. FILES
+--------
+findings.txt; EDITS.md; p1_table.txt (part 1, every move); flat_table.txt (part 2, every class, A and R counters and hits);
+in/ (inputs, file-class lists, random positions); logs/ (ZO_* chess runs; flat/ and tall/ searches; vhits_*.txt group checks;
+val_* solver checks); scripts/ (build.sh, hrun.sh, watch2.sh, fpwatch.sh, p1_cap1.sh, p1_cap2.sh, p1_table.py, val_flat.sh,
+val_flat2.sh, gen_random.py, triples.py, queue_flat.sh, batch_flat.sh, chain_flat.sh, chain2.sh, resume_A.sh, tall.sh,
+cmp_flat.py (reads the .out files; they are now .out.xz), cmpval.py, verify_hit48.py, vhits_*.sh); src/r48.cpp; pids.log.  Raw outputs over 256 KB are xz-compressed.
