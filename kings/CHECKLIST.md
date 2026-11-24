@@ -20,8 +20,9 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
          3 + 3 group does not on any width (K55)
    - [ ] The value of the 3 + 3 group: no candidate of 3,000 survives; it is not a stopper (K55)
    - [ ] The 2 + 3 group against loopy test games and beside P contexts; groups on cyl:11×6 and wider in sums
-   - [~] A stronger exact test (losing moves still lose against free passes) and a lemma that it forces the results of
-         over (K56)
+   - [~] A sufficient criterion (tempo-exact) with a hand proof that it forces the results of over; none of the nine
+         known groups meets it (K56: investigator done, referee running)
+   - [~] Is the 2 + 3 group equal to over? A two-sided argument or a checkable certificate (K57)
    - [ ] Hand proof of (O1) and of the d5 root of the K45 group
    - [x] The K45 group in chess at cap 1: d4 freeze and its zero exact, the rest undecided; exact groups also on flat
          8×6 to 10×6 and on cyl:8×7 (K48)
