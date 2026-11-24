@@ -1,0 +1,39 @@
+board cyl:8x6 root Kf5 kd4 Pb2 Pb4 Pe2 pa4 pb5 pe5 shuttle d4-d5: 5501308 nodes, 37588348 edges, peak 957 MB after build
+peak 1039 MB after layers
+root kd4 b (P value W): 6 moves
+   kd4c4     loses at once yes, loses vs free passes yes, smallest number of passes that saves it: -
+   kd4d5     shuttle
+   kd4e3     loses at once yes, loses vs free passes yes, smallest number of passes that saves it: -
+   pa4a3     loses at once yes, loses vs free passes yes, smallest number of passes that saves it: -
+   pe5e4     loses at once yes, loses vs free passes NO, smallest number of passes that saves it: 1
+   pe5e3     loses at once yes, loses vs free passes NO, smallest number of passes that saves it: none<=4,unlimited:draw
+root kd4 w (P value W): 8 moves
+   Kf5e6     loses vs free passes (and at once: yes)
+   Kf5f6     loses vs free passes (and at once: yes)
+   Kf5g4     loses vs free passes (and at once: yes)
+   Kf5g5     loses vs free passes (and at once: yes)
+   Kf5g6     loses vs free passes (and at once: yes)
+   Pb2b3     loses vs free passes (and at once: yes)
+   Pe2e3     loses vs free passes (and at once: yes)
+   Pe2e4     candidate freeze (at once: does not lose): q is a P-zero (Def 4.8) yes, pass-robust zero yes
+      q = Kf5 kd4 Pb2 Pb4 Pe4 pa4 pb5 pe5 b - ; q with White to move: Kf5 kd4 Pb2 Pb4 Pe4 pa4 pb5 pe5 w -
+root kd5 b (P value W): 7 moves
+   kd5c4     loses at once yes, loses vs free passes yes, smallest number of passes that saves it: -
+   kd5c6     loses at once yes, loses vs free passes yes, smallest number of passes that saves it: -
+   kd5d4     shuttle
+   kd5d6     loses at once yes, loses vs free passes NO, smallest number of passes that saves it: none<=4,unlimited:draw
+   pa4a3     loses at once yes, loses vs free passes yes, smallest number of passes that saves it: -
+   pe5e4     loses at once yes, loses vs free passes NO, smallest number of passes that saves it: none<=4,unlimited:draw
+   pe5e3     loses at once yes, loses vs free passes NO, smallest number of passes that saves it: none<=4,unlimited:draw
+root kd5 w (P value W): 7 moves
+   Kf5f6     loses vs free passes (and at once: yes)
+   Kf5g4     loses vs free passes (and at once: yes)
+   Kf5g5     loses vs free passes (and at once: yes)
+   Kf5g6     loses vs free passes (and at once: yes)
+   Pb2b3     loses vs free passes (and at once: yes)
+   Pe2e3     candidate freeze (at once: does not lose): q is a P-zero (Def 4.8) yes, pass-robust zero NO [q b: kd5d6 not lost vs free passes; saved by none<=4,unlimited:draw passes] [q b: pe5e4 not lost vs free passes; saved by none<=4,unlimited:draw passes] [q b: kd5d6 not lost vs free passes; saved by none<=4,unlimited:draw passes] [q b: pe5e4 not lost vs free passes; saved by none<=4,unlimited:draw passes] [q w: Pe3e4 not lost vs free passes; saved by 1 passes]
+      q = Kf5 kd5 Pb2 Pe3 Pb4 pa4 pb5 pe5 b - ; q with White to move: Kf5 kd5 Pb2 Pe3 Pb4 pa4 pb5 pe5 w -
+   Pe2e4     candidate freeze (at once: loses): q is a P-zero (Def 4.8) no, pass-robust zero NO check-in-q [q b: kd5d4 not lost vs free passes; saved by 0 passes] [q b: kd5d6 not lost vs free passes; saved by none<=4,unlimited:draw passes] [q b: kd5d4 not lost vs free passes; saved by 0 passes] [q b: kd5d6 not lost vs free passes; saved by none<=4,unlimited:draw passes]
+      q = Kf5 kd5 Pb2 Pb4 Pe4 pa4 pb5 pe5 b - ; q with White to move: Kf5 kd5 Pb2 Pb4 Pe4 pa4 pb5 pe5 w -
+RESULT cyl:8x6 Kf5 kd4 Pb2 Pb4 Pe2 pa4 pb5 pe5 shuttle d5: Definition 4.8 exact: yes; pass-robust exact: NO; failing moves (pass-robust): 14
+peak 1039 MB

@@ -481,6 +481,12 @@ Every deliverable was given to independent referees (Claude models) told to brea
     The difference is one move: in the 3 + 3 group 1…e5–e4 wins as soon as Black has a spare move, and the 2 + 3 group
     has no such move (COMPUTED-1). The value of the 3 + 3 group is not identified: none of over 3,000 candidates
     survives, and the group is not a stopper (`kings/delegate/out/K55/REVIEW.md`).
+  - K56 (2026-11-23) gives a criterion that does force the results of over. Lemma 4.13 (PROVED by hand, re-derived by the
+    referee): a group that is tempo-exact (Definition 4.12: Black's losing root moves still lose when Black has one spare
+    move; White's lose against any number of spare moves, or after a Black pass in reply) has the results of over beside
+    every finite test game, with or without terminals. No known group meets it: all nine exact groups fail on White's side,
+    and the 3 + 3 group also on Black's, at 1…e5–e4. So the lemma has no instance yet and whether the 2 + 3 group is over
+    stays open (`kings/delegate/out/K56/REVIEW.md`).
   - Theorem 1.11(c) repaired (2026-11-23): its proof used the e.p. condition (E) without assuming it, and its frontier
     step used an unproved inheritance of threats by re-split components. (E) is now a hypothesis (every use already had
     it through Theorem 1.14), and the inheritance is proved. Found while the paper's proofs appendix was written and

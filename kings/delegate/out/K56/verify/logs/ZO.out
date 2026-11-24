@@ -1,0 +1,37 @@
+board cyl:8x6 root Kf5 kd4 Pb2 Pb4 Pe2 pa4 pb5 pe5 shuttle d5: 6496367 nodes, 43690223 edges, peak 1098 MB after build
+peak 1218 MB after solving
+root Kf5 kd4 Pb2 Pe2 Pb4 pa4 pb5 pe5 w - (P value W): 8 moves
+   Kf5g4    Att^W_0 yes  Att^W_1 yes  Att^W_inf yes  | Ninf yes  V0 no
+   Kf5g5    Att^W_0 yes  Att^W_1 yes  Att^W_inf yes  | Ninf yes  V0 no
+   Kf5e6    Att^W_0 yes  Att^W_1 yes  Att^W_inf yes  | Ninf yes  V0 no
+   Kf5f6    Att^W_0 yes  Att^W_1 yes  Att^W_inf yes  | Ninf yes  V0 no
+   Kf5g6    Att^W_0 yes  Att^W_1 yes  Att^W_inf yes  | Ninf yes  V0 no
+   Pb2b3    Att^W_0 yes  Att^W_1 yes  Att^W_inf yes  | Ninf yes  V0 no
+   Pe2e3    Att^W_0 yes  Att^W_1 yes  Att^W_inf yes  | Ninf yes  V0 no(Black in check)
+   Pe2e4    freeze candidate: q Black-to-move all moves lose (Att^B_0) yes, q White-to-move all lose (Att^W_0) yes
+root Kf5 kd4 Pb2 Pe2 Pb4 pa4 pb5 pe5 b - (P value W): 6 moves
+   kd4e3    Att^B_0 yes  Att^B_1 yes  Att^B_inf yes  | N1 yes  V1 no
+   kd4c4    Att^B_0 yes  Att^B_1 yes  Att^B_inf yes  | N1 yes  V1 no
+   kd4d5    shuttle
+   pa4a3    Att^B_0 yes  Att^B_1 yes  Att^B_inf yes  | N1 yes  V1 no
+   pe5e4    Att^B_0 yes  Att^B_1 no  Att^B_inf no  | N1 no  V1 no
+   pe5e3    Att^B_0 yes  Att^B_1 yes  Att^B_inf no  | N1 yes  V1 no
+root Kf5 kd5 Pb2 Pe2 Pb4 pa4 pb5 pe5 w - (P value W): 7 moves
+   Kf5g4    Att^W_0 yes  Att^W_1 yes  Att^W_inf yes  | Ninf yes  V0 no
+   Kf5g5    Att^W_0 yes  Att^W_1 yes  Att^W_inf yes  | Ninf yes  V0 no
+   Kf5f6    Att^W_0 yes  Att^W_1 yes  Att^W_inf yes  | Ninf yes  V0 no
+   Kf5g6    Att^W_0 yes  Att^W_1 yes  Att^W_inf yes  | Ninf yes  V0 no
+   Pb2b3    Att^W_0 yes  Att^W_1 yes  Att^W_inf yes  | Ninf yes  V0 no
+   Pe2e3    freeze candidate: q Black-to-move all moves lose (Att^B_0) yes, q White-to-move all lose (Att^W_0) yes
+   Pe2e4    Att^W_0 yes  Att^W_1 no  Att^W_inf no  | Ninf no  V0 no(Black in check)
+root Kf5 kd5 Pb2 Pe2 Pb4 pa4 pb5 pe5 b - (P value W): 7 moves
+   kd5c4    Att^B_0 yes  Att^B_1 yes  Att^B_inf yes  | N1 yes  V1 no
+   kd5d4    shuttle
+   kd5c6    Att^B_0 yes  Att^B_1 yes  Att^B_inf yes  | N1 yes  V1 no
+   kd5d6    Att^B_0 yes  Att^B_1 yes  Att^B_inf no  | N1 yes  V1 no
+   pa4a3    Att^B_0 yes  Att^B_1 yes  Att^B_inf yes  | N1 yes  V1 no
+   pe5e4    Att^B_0 yes  Att^B_1 yes  Att^B_inf no  | N1 yes  V1 no
+   pe5e3    Att^B_0 yes  Att^B_1 yes  Att^B_inf no  | N1 yes  V1 no
+query Kf5 kd4 Pb2 Pb4 Pe2 pa4 pb5 pe4 w - : P W  Att^B_0 yes Att^B_1 no Att^B_inf no  Att^W_0 no Att^W_1 no Att^W_inf no
+query Kf5 kd4 Pb2 Pb4 Pe2 pa4 pb5 pe4 b - : P L  Att^B_0 no Att^B_1 no Att^B_inf no  Att^W_0 yes Att^W_1 yes Att^W_inf yes
+peak 1218 MB

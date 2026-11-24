@@ -1,0 +1,135 @@
+K56 FINDINGS: a pass-robust criterion that forces the results of over, and the 2 + 3 group      Task date 2026-11-23
+=================================================================================================================
+AI work (one agent), no human re-derivation, not refereed.  Paths relative to kings/delegate/out/K56/.  Labels:
+PROVED (complete hand proof, PROOF.md), COMPUTED-1 (one program), CHECKED-2 (two programs agree).
+Model: as K47/K55.  A group is the P game of its own pieces as a component of a D-sum (Definition 1.3, K40's convention:
+a promotion ends the play as a win for the promoter; a side in check may not move in the other component; a move elsewhere
+clears the e.p. right; a side with no move in any component loses; infinite play is a draw).  over_D = {w, 0_D}, L(w) = {0_D},
+R(w) = {w}.  Stalemate: a draw in P alone and in the pass games below; a loss in a sum only if the side also has no move in
+the other component.
+
+0. SHORT ANSWER
+---------------
+- Part B.  Lemma (PROVED, PROOF.md): a "tempo-exact" over group has the results of over beside every finite D-game T,
+  loopy or not, WITH OR WITHOUT TERMINALS, at both roots and with both sides to move; each q has the results of 0_D (= T alone).
+  Tempo-exact = Definition 4.8 plus, at the roots only:
+    (T2) every non-shuttle Black move loses even if Black may still pass ONCE (N1), or loses even after a White pass in reply
+         with Black still allowed one pass (V1);
+    (T3) every non-freeze White move loses against UNLIMITED White passes (N-inf), or loses in P alone after a Black pass in
+         reply, Black not being in check (V0).
+  Nothing beyond Definition 4.8 is needed at q.  The brief's pass-robust form (every such move, at roots and at q, loses against
+  unlimited passes of the mover) implies tempo-exactness, so it is sufficient too, but it is far stronger than needed.
+  The budgets 0 / 1 / unlimited are exactly how often the proof's winner can be asked to make an unforced move in the group
+  (White's only over-move is used once; Black's over-pass any number of times; at 0_D there is none).
+  Draws need no separate treatment; two-sided passes (the winner may pass too) give the same winning sets as one-sided ones
+  when passes are unlimited (Remark 4; not for finite budgets).  Sufficient, not shown necessary.
+- Part A (COMPUTED-1, one program; its P values CHECKED-2 against kp_p --pmodel on 1,350 sampled states).
+  All nine groups are exact in the sense of Definition 4.8 (reproducing K45/K48), NONE is pass-robust exact, NONE is tempo-exact.
+  Black's side (T2) holds in every group except Z_O and its two flat translates (1...e5-e4 at the d4 root and its translates,
+  saved by one Black pass: the K47 mechanism).  White's side (T3) fails in every group (a White king or pawn move at a root that
+  is saved by one White pass, or by unlimited passes, and is not lost after a Black pass).
+- The 2 + 3 group H10 (cyl:10x6).  The lemma does not apply ((T3) fails at five White root moves).  My own sum solver
+  (written for K56, validated against K47's 936 refereed Z_O results) finds H10 equal to over on 600 random small D-games
+  (300 with terminals) and on the K47 battery games of at most 30 nodes (sec. 3), 0 differences; the same random battery
+  separates Z_O from over in 56 of 2,400 results.  So no counterexample; H10 = over stays OPEN (supported).
+
+1. PART A: THE NINE GROUPS
+--------------------------
+Solver: src/pr56.cpp (written for K56 from SPEC.md and Definitions 1.2, 1.3, 4.8; no code from other solvers).  It builds the
+component reachable from the four roots and closed under passes, then computes, for each passer X and budget k = 0..8 and
+k = unlimited, the set of states the other side Y wins (retrograde with counters; a pass is allowed when not in check, clears
+the e.p. right, gives the move away; k = 0 is P alone).  It also gives the mover's own result with unlimited passes.
+Validation (no passes): P values of 150 random reachable states per group (1,350 in all, every board used) against K44's
+kp_p10.c --pmodel: 0 differences (val/, logs/V_*).  The pass layers were cross-checked inside the program family by the separate
+sum code (G (+) -1, G (+) 1, G (+) off, G (+) on; logs/X_*): e.g. Z_O after 1...e5-e4 is W beside 0 and L beside -1; H10 after
+Kg4-f3 (f6 root) is L beside 0 and W beside 1; H10 after ...Kf6-e6 or ...e5-e4 is W beside -1 and D beside off.  Same move
+generator, so this is a consistency check, not CHECKED-2.
+Definition 4.8 (k = 0) reproduces K45/K48 for all nine groups (move counts and freezes as reported there).
+
+Per group: the root moves that fail the brief's test (not lost against unlimited passes), with the smallest number of passes of
+the mover that saves them ("unl" = no k <= 8 saves it, only unlimited passes, giving a draw unless stated); then the tempo test.
+Roots: A = shuttling king on its first square, B = on its second.  Failures at q (brief's test only) are in the logs; the
+tempo test needs nothing at q.
+  Z_O cyl:8x6 (Kf5 kd4/kd5 Pb2 Pb4 Pe2 pa4 pb5 pe5): A b: ...e5-e4 1, ...e5-e3 unl; B b: ...Kd6 unl, ...e5-e4 unl, ...e5-e3 unl;
+      B w: e2-e4 1 (it checks).  q_B (after e2-e3) fails the brief's test (...Kd6, ...e4 unl; e3-e4 1); q_A passes it.
+      Tempo test: FAILS at ...e5-e4 (A; N1 and V1 both fail) and e2-e4 (B; Ninf and V0 fail).
+  Same group on flat 8x6, and its translates Kg5 ke4/ke5 Pc2 Pc4 Pf2 pb4 pc5 pf5 and Ka5 kc4/kc5 Pb2 Pe2 Pe4 pb5 pe5 pf4 (flat
+      8x6): the same pattern move for move (...f5-f4 resp. ...b5-b4 saved by 1; f2-f4 resp. b2-b4 saved by 1).  Tempo test FAILS
+      at those two moves in each.
+  H10 cyl:10x6 (Kg4 kf6/kg6 Pb3 Pe2 pa5 pb4 pe5): A b: ...Ke6, ...e5-e4, ...e5-e3 unl; A w: Kg4-f3 1, e2-e4 1; B b: ...e5-e3 unl;
+      B w: Kg4-f3 1, Kg4-g3 unl, e2-e3 1.  Both q fail the brief's test (q_A: ...Kg6 1, Kf3 2, Kg3 2, e3-e4 1, ...Ke6 unl;
+      q_B: ...Kf6, Kg3, Kh3, Kh4 unl).  Tempo test: Black side PASSES (all Black failures satisfy N1); White side FAILS at
+      Kg4-f3 (A), e2-e4 (A), Kg4-f3 (B), Kg4-g3 (B), e2-e3 (B).
+  cyl:8x7 T1 Kd4 kf4/kf5 Pa4 Pb5 Pe2 pa5 pb6 pe6: A w: Kc3, Kc4, Kd3 unl, e2-e3 1; B b: ...Kf6 2; B w: Kc3, Kc4, Kd3 unl, e2-e4 1.
+      Tempo: Black side passes (N1), White side FAILS at those 8 moves.
+  cyl:8x7 T2 Kd4 kf4/kf5 Pb3 Pb5 Pe2 pb4 pb6 pe6: A w: Kd3 1, e2-e3 1; B b: ...Kf6 2; B w: Kc4, Kd3, Ke3 1, e2-e4 1.
+      Tempo: Black side passes, White side FAILS (6 moves).
+  cyl:8x7 T3 Kd4 kf4/kf5 Pb3 Pb5 Pe2 pa5 pb6 pe6 (run with k <= 1 only, for memory): A w: Kd3 unl, e2-e3 1; B b: ...Kf6 (Black
+      WINS with unlimited passes; not saved by one); B w: Kd3 unl, e2-e4 1.  Tempo: Black side passes (N1), White side FAILS (4).
+  cyl:8x7 T4 Kc4 ka4/ka5 Pb2 Pe3 Pe5 pb6 pe4 pe6: A w: Kc3 1, b2-b3 1; B b: ...Ka6 2; B w: Kb3, Kc3, Kd4 1, b2-b4 1.
+      Tempo: Black side passes, White side FAILS (6).
+Summary: pass-robust exact 0 of 9; tempo-exact 0 of 9.  (T2) holds in 6 of 9 (all but the Z_O family); (T3) holds in none.
+(In every group the failing White moves are non-freeze moves at the roots; a freeze candidate's q never failed a tempo condition,
+since none is needed at q.)  Logs: logs/B_*.out (final run, k <= 8), logs/C_T3_c87.out, logs/A_*.out (first run with samples).
+
+2. PART B: THE LEMMA (PROVED; PROOF.md)
+---------------------------------------
+Statement, sum operation, class of T: PROOF.md sec. 1-2.  Every finite D-game T (Definition 1.1), loopy or short, terminals
+allowed; D-sum of Definition 1.3 with K40's convention; results by the least fixed point.  r(root (+) t, s) = r(w (+) t, s) and
+r(q (+) t, s) = r(t, s) for every position t and side s.
+Method: strategy transfer in both directions for winning and for non-losing strategies.  The winner Y copies its over-strategy
+S while the group stays in {roots, q} (shuttle = Black's over-pass, freeze = White's move to 0_D); after a losing move of the
+opponent X, Y answers X's group moves inside the group with its pass-game strategy, answers X's moves elsewhere with S's answer
+elsewhere ("pauses"), and makes an unforced group move only when S asks for an over-move.  The number of such requests is the
+budget: 0 at 0_D, 1 for White at w, unlimited for Black at w.  A move can also be read as the mover's own over-move (the (V)
+alternatives).  Points the brief asked about (PROOF.md sec. 4): draws (both directions, no special case); a winner in check
+(always answers on the board); different freezes at the two roots (irrelevant); one- versus two-sided passes (same winning
+sets for unlimited passes); test games with terminals (covered: X's moves elsewhere are always answered elsewhere by S).
+Weakest step (my judgement): the termination count in phase 2 (PROOF.md sec. 3, "Termination"), which combines the attractor
+ranks of three pass budgets with pauses and the loss of e.p. rights; and (P2), the e.p. right, where the pass game's
+"stalemate is a draw" differs from the sum's rule (handled by the b-safe invariant, which never needs a stalemated X).
+What is NOT claimed: necessity.  Tempo-exactness is sufficient only; failing (T3) is not evidence against over.
+
+3. THE 2 + 3 GROUP AND Z_O IN SUMS (COMPUTED-1; my sum code validated against K47)
+----------------------------------------------------------------------------------
+Sum code: pr56 --sum (product of the group's component with a test game, retrograde with counters, the D-sum rules above);
+over_D (+) T by src/over56.py (a separate small Python solver).  Validation: Z_O against K47's test games of at most 20 nodes
+(234 games, 936 results): identical to K47's refereed results (logs/full_A_N.out of K47), and over56.py equals K47's over column
+on all of them.  So my sum code and K47's za agree (CHECKED-2 for those 936 results; K47's za was itself refereed).
+Batteries:
+  rnd_all: 600 random D-games with 2 to 5 nodes (src/gen56.py, seeds 1 and 2): 300 without terminals, 300 with W/B terminals.
+  k47_le30: K47's 275 test games with at most 30 nodes (261 games).
+Results (roots A, B, both sides; compare src/cmp56.py):
+  Z_O beside rnd_all: 56 of 2,400 results differ from over (38 games; 9 of them with terminals), all in Black's favour
+      (G = L where over = D: 37; G = L where over = W: 14; G = D where over = W: 5), as in K47.
+  H10 beside rnd_all: 0 of 2,400 differ from over.
+  H10 beside k47_le30: 0 of 1,044 differ from over.
+So the random battery has the power to find the Z_O failures and finds none for H10.  With K55 (752 games, CHECKED-2 by the K55
+referee) this is strong support for "H10 = over", not a proof: the White-side failures of (T3) are a gap of the proof method
+(PROOF.md sec. 5), and no test game exploiting them was found.  H10 is not a stopper (K55), so no simplest-form argument applies.
+H10 beside k47_le30: 0 of 1,044 results differ from over (261 games; agrees with K55, which ran these with other solvers).
+
+4. WHAT I COULD NOT DO
+----------------------
+- Prove H10 = over: the gap is White's side, PROOF.md sec. 5 (two possible routes named there).
+- A second, independent implementation of the pass games (the pass results are COMPUTED-1; only the no-pass P values are
+  CHECKED-2 against kp_p).
+- H10 beside K55's further test games (tests55*, stopped for time after the K47 battery; K55 and its referee already ran them).
+- The under (colour-mirror) groups: by symmetry the same results with colours swapped; not run.
+
+5. PROCESS
+----------
+Every solver run went through kings/delegate/heavy.sh under /usr/bin/time -l (hrun.sh), PIDs in pids.log.  Peak memory: pr56
+0.6 to 1.16 GB on all groups except cyl:8x7 T3, whose first run peaked at 2.83 GB (14.3 million nodes; over the 2 GB design
+limit, under the 3 GB hard limit; it was not measured before the batch, my mistake); its rerun with 32-bit offsets, reserved
+arrays and k <= 1 peaked at 1.93 GB.  Sum runs 0.65 to 1.85 GB (the 1.85 GB was a one-test measurement with a 30-node game on
+Z_O; Z_O batteries were then limited to 20 nodes, 1.53 GB).  kp_p 0.05 GB at most.  No pattern kills.  One process of mine
+was stopped by its recorded PID: the batch driver run_sums.sh (to skip the K55 battery), after its K47 step had started.
+Binaries deleted at the end; outputs over 256 KB xz-compressed.
+
+6. FILES
+--------
+findings.txt, PROOF.md, EDITS.md; src/pr56.cpp (P and pass-game solver, Definition 4.8 / pass-robust / tempo tests, D-sum code),
+src/over56.py (over_D (+) T and T alone), src/gen56.py (random test games), src/cmp56.py (comparison); groups.txt;
+hrun.sh, run_partA*.sh, run_val.sh, run_sums.sh; tests/ (test-game files and over results); val/ (sampled states, my values,
+kp_p inputs); logs/ (A_*, B_*, C_* Part A; V_* kp_p; S_* sums; X_* pass cross-checks; m_* measurements); pids.log.

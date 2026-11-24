@@ -1,0 +1,35 @@
+board cyl:10x6 root Kg4 kf6 Pb3 Pe2 pa5 pb4 pe5 shuttle f6-g6: 3778695 nodes, 26431557 edges, peak 605 MB after build
+peak 710 MB after layers
+root kf6 b (P value W): 6 moves
+   kf6e6     loses at once yes, loses vs free passes NO, smallest number of passes that saves it: none<=8,unlimited:draw; budget test: (N1) yes (V1) no
+   kf6g6     shuttle
+   pa5a4     loses at once yes, loses vs free passes yes, smallest number of passes that saves it: -; budget test: (N1) yes (V1) no
+   pa5a3     loses at once yes, loses vs free passes yes, smallest number of passes that saves it: -; budget test: (N1) yes (V1) no
+   pe5e4     loses at once yes, loses vs free passes NO, smallest number of passes that saves it: none<=8,unlimited:draw; budget test: (N1) yes (V1) yes
+   pe5e3     loses at once yes, loses vs free passes NO, smallest number of passes that saves it: none<=8,unlimited:draw; budget test: (N1) yes (V1) no
+root kf6 w (P value W): 7 moves
+   Kg4f3     loses at once yes, loses vs free passes NO, smallest number of passes that saves it: 1; budget test: (Ninf) no (V0) no
+   Kg4g3     loses vs free passes (and at once: yes); budget test: (Ninf) yes (V0) no
+   Kg4h3     loses vs free passes (and at once: yes); budget test: (Ninf) yes (V0) no
+   Kg4h4     loses vs free passes (and at once: yes); budget test: (Ninf) yes (V0) no
+   Kg4h5     loses vs free passes (and at once: yes); budget test: (Ninf) yes (V0) no
+   Pe2e3     candidate freeze (does not lose at once): q is a P-zero (Def 4.8) yes, pass-robust zero NO [q b: kf6e6 not lost vs free passes; saved by none<=8,unlimited:draw passes] [q b: kf6g6 not lost vs free passes; saved by 1 passes] [q w: Kg4f3 not lost vs free passes; saved by 2 passes] [q w: Kg4g3 not lost vs free passes; saved by 2 passes] [q w: Pe3e4 not lost vs free passes; saved by 1 passes]
+      q = Kg4 kf6 Pb3 Pe3 pb4 pa5 pe5 b - ; q with White to move: Kg4 kf6 Pb3 Pe3 pb4 pa5 pe5 w -
+   Pe2e4     loses at once yes, loses vs free passes NO, smallest number of passes that saves it: 1; budget test: (Ninf) no (V0) no
+root kg6 b (P value W): 6 moves
+   kg6f6     shuttle
+   kg6h6     loses at once yes, loses vs free passes yes, smallest number of passes that saves it: -; budget test: (N1) yes (V1) no
+   pa5a4     loses at once yes, loses vs free passes yes, smallest number of passes that saves it: -; budget test: (N1) yes (V1) no
+   pa5a3     loses at once yes, loses vs free passes yes, smallest number of passes that saves it: -; budget test: (N1) yes (V1) no
+   pe5e4     loses at once yes, loses vs free passes yes, smallest number of passes that saves it: -; budget test: (N1) yes (V1) yes
+   pe5e3     loses at once yes, loses vs free passes NO, smallest number of passes that saves it: none<=8,unlimited:draw; budget test: (N1) yes (V1) yes
+root kg6 w (P value W): 6 moves
+   Kg4f3     loses at once yes, loses vs free passes NO, smallest number of passes that saves it: 1; budget test: (Ninf) no (V0) no
+   Kg4g3     loses at once yes, loses vs free passes NO, smallest number of passes that saves it: none<=8,unlimited:draw; budget test: (Ninf) no (V0) no
+   Kg4h3     loses vs free passes (and at once: yes); budget test: (Ninf) yes (V0) no
+   Kg4h4     loses vs free passes (and at once: yes); budget test: (Ninf) yes (V0) no
+   Pe2e3     loses at once yes, loses vs free passes NO, smallest number of passes that saves it: 1; budget test: (Ninf) no (V0) no
+   Pe2e4     candidate freeze (does not lose at once): q is a P-zero (Def 4.8) yes, pass-robust zero NO [q b: kg6f6 not lost vs free passes; saved by none<=8,unlimited:draw passes] [q w: Kg4g3 not lost vs free passes; saved by none<=8,unlimited:draw passes] [q w: Kg4h3 not lost vs free passes; saved by none<=8,unlimited:draw passes] [q w: Kg4h4 not lost vs free passes; saved by none<=8,unlimited:draw passes]
+      q = Kg4 kg6 Pb3 Pe4 pb4 pa5 pe5 b - ; q with White to move: Kg4 kg6 Pb3 Pe4 pb4 pa5 pe5 w -
+RESULT cyl:10x6 Kg4 kf6 Pb3 Pe2 pa5 pb4 pe5 shuttle g6: Definition 4.8 exact: yes; pass-robust exact: NO; failing moves (pass-robust): 18; tempo-exact (budget test): NO, failing root moves 5
+peak 710 MB
