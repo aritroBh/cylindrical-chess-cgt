@@ -43,7 +43,8 @@ def MD(path, a=None, b=None, cur=None):
 
 NOTE = (r'\noindent\emph{Source.} ' '%s. ' r'The note is typeset here without changes to its mathematics; it keeps its own '
         r'numbering, labels (PROVED, CHECKED-2, COMPUTED-1, CONJECTURE) and file references, which are paths in the '
-        r'code repository. Its statements correspond to the main text as follows: %s' '\n\n')
+        r'code repository. Its labels PROVED, CHECKED-2, COMPUTED-1 and CONJECTURE correspond to \lab{S}, \lab{C2}, \lab{C1} and '
+        r'\lab{Conj} of the main text. Its statements correspond to the main text as follows: %s' '\n\n')
 
 # S1 basic positions -----------------------------------------------------------------------------
 W('s01',
@@ -180,7 +181,7 @@ W('s03',
   r'\section{Sums: The Puzzles and Condition (E)}\label{S-sums}',
   r'\subsection{The Two Principles and the Puzzles}',
   L('05_sums', 8, 14),
-  L('05_sums', 18, 41),
+  L('05_sums', 18, 60),
   L('05_sums', 62, 84),
   r'\subsection{Condition (E)}',
   L('05_sums', 126, 134),
@@ -194,6 +195,7 @@ W('s04', r'\section{The Atlas: Details}\label{S-atlas}',
 
 # S5 small values -----------------------------------------------------------------------------------
 W('s05', r'\section{Elkies\textquotesingle{} Small Values: Details}\label{S-targets}',
+  r'Theorem~\ref{thm:eighth} of the main text states that the position of its Fig.~\ref{fig:eighth}(a) has value exactly $1/8$.',
   L('07_targets', 62, 90))
 
 # S6 *2 -----------------------------------------------------------------------------------------------
@@ -360,7 +362,7 @@ body = body.replace(r'\subsection*', r'\subsection')
 for env in ('theorem', 'lemma'):
     body = body.replace(r'\begin{%s}' % env, r'\begin{w%s}' % env).replace(r'\end{%s}' % env, r'\end{w%s}' % env)
 W('s13', r'\section{Full Proof: Wall Rings of Value \texorpdfstring{$\nim{2}$}{*2} with \texorpdfstring{$n+3$}{n+3} Pawns}\label{S-wall}',
-  r'\noindent\emph{Source.} research/ring\_family\_proof/proof.tex, typeset unchanged. It proves the $n+3$-pawn ring '
+  r'\noindent\emph{Source.} \texttt{research/ring\_family\_proof/proof.tex}. It proves the $n+3$-pawn ring '
   r'$\nim{2}$ on every $\cyl{n}$, $n\ge5$, of Section~\ref{sec:star2-rings}, and its Lemmas 1--3 are used in '
   r'Sections~\ref{S-ringn}--\ref{S-star3}.' + '\n\n' + body + '\n\n'
   + pt[pt.index(r'\paragraph{The five poisoned wall moves'):pt.index(r'\paragraph{Remarks.}')])
@@ -376,13 +378,13 @@ W('s15', r'\section{Full Proofs: The Lemma 3 Write-Up, the \texorpdfstring{$\nim
   r'This section holds six notes. The first writes out Lemma~3 of Section~\ref{S-wall} (its Section 2b), which the '
   r'other proofs cite, and proves a further $\nim{2}$ family with $n+2$ pawns. The second and third prove the whole-board '
   r'$\nim{3}$ with $n+2$ pawns for even $n\ge8$ and odd $n\ge11$; the fourth proves the $\nim{3}$ with $n+1$ pawns for '
-  r'every $n\ge12$ (Section~\ref{sec:star2-rings}); the fifth carries the insertion argument over to the M\"obius strip (Section~\ref{S-star2}); the sixth proves the $\nim{3}$ with $n+1$ pawns on the M\"obius strip for every $n\ge11$. Each is typeset without changes to its mathematics.',
-  r'\subsection{Note 1: research/ring\_n\_plus\_2\_proof/PROOF.md}', MD('research/ring_n_plus_2_proof/PROOF.md', cur='s15_note1.md'),
-  r'\subsection{Note 2: research/ring\_n\_plus\_2\_proof/PROOF\_Q.md (even $n$)}', MD('research/ring_n_plus_2_proof/PROOF_Q.md', cur='s15_note2.md'),
-  r'\subsection{Note 3: research/ring\_n\_plus\_2\_proof/PROOF\_odd.md (odd $n$)}', MD('research/ring_n_plus_2_proof/PROOF_odd.md', cur='s15_note3.md'),
-  r'\subsection{Note 4: research/star3\_proof/PROOF\_S3T3.md}', MD('research/star3_proof/PROOF_S3T3.md', cur='s15_note4.md'),
-  r'\subsection{Note 5: research/mobius\_rings\_proof/PROOF.md (M\"obius strip)}', MD('research/mobius_rings_proof/PROOF.md', cur='s15_note5.md'),
-  r'\subsection{Note 6: research/mobius\_star3\_family/PROOF.md (M\"obius strip, $\nim{3}$ with $n+1$ pawns)}', MD('research/mobius_star3_family/PROOF.md', cur='s15_note6.md'))
+  r'every $n\ge12$ (Section~\ref{sec:star2-rings}); the fifth carries the insertion argument over to the M\"obius strip (Section~\ref{S-star2}); the sixth proves the $\nim{3}$ with $n+1$ pawns on the M\"obius strip for every $n\ge11$. Each is typeset without changes to its mathematics. Their labels PROVED, CHECKED-2, COMPUTED-1 and CONJECTURE correspond to \lab{S}, \lab{C2}, \lab{C1} and \lab{Conj} of the main text.',
+  r'\subsection{Note 1: Rings of value $\nim{2}$ with $n+2$ pawns, even $n\ge8$, and the full proof of Lemma~3}' '\n\n' r'\noindent\emph{File in the code repository:} \texttt{research/ring\_n\_plus\_2\_proof/PROOF.md}.\par' '\n\n', MD('research/ring_n_plus_2_proof/PROOF.md', cur='s15_note1.md'),
+  r'\subsection{Note 2: Rings of value $\nim{3}$ with $n+2$ pawns, even $n\ge8$}' '\n\n' r'\noindent\emph{File in the code repository:} \texttt{research/ring\_n\_plus\_2\_proof/PROOF\_Q.md}.\par' '\n\n', MD('research/ring_n_plus_2_proof/PROOF_Q.md', cur='s15_note2.md'),
+  r'\subsection{Note 3: Rings of value $\nim{2}$ and $\nim{3}$ with $n+2$ pawns, odd $n\ge11$}' '\n\n' r'\noindent\emph{File in the code repository:} \texttt{research/ring\_n\_plus\_2\_proof/PROOF\_odd.md}.\par' '\n\n', MD('research/ring_n_plus_2_proof/PROOF_odd.md', cur='s15_note3.md'),
+  r'\subsection{Note 4: Rings of value $\nim{3}$ with $n+1$ pawns, $n\ge12$}' '\n\n' r'\noindent\emph{File in the code repository:} \texttt{research/star3\_proof/PROOF\_S3T3.md}.\par' '\n\n', MD('research/star3_proof/PROOF_S3T3.md', cur='s15_note4.md'),
+  r'\subsection{Note 5: The M\"obius strip: rings of value $\nim{2}$ with $n$ or $n+1$ pawns}' '\n\n' r'\noindent\emph{File in the code repository:} \texttt{research/mobius\_rings\_proof/PROOF.md}.\par' '\n\n', MD('research/mobius_rings_proof/PROOF.md', cur='s15_note5.md'),
+  r'\subsection{Note 6: The M\"obius strip: rings of value $\nim{3}$ with $n+1$ pawns, $n\ge11$}' '\n\n' r'\noindent\emph{File in the code repository:} \texttt{research/mobius\_star3\_family/PROOF.md}.\par' '\n\n', MD('research/mobius_star3_family/PROOF.md', cur='s15_note6.md'))
 
 # S16 square rule ---------------------------------------------------------------------------------------
 W('s16', r'\section{The Square-Rule Passer Test: Definition, Checks and a Counterexample}\label{S-square}',

@@ -28,8 +28,8 @@ This paper extends an unpublished 2025 study of the basic values\bytheauthor~\ci
 every position by computer, correct its errors and carry the analysis on, in the position-by-position format
 of Wu, Y\"u and Landry~\cite{WuYuLandry2010}. Theorems and headline numbers
 carry labels: \lab{P}, proved here; \lab{S}, proof sketched here and given in full in the
-repository; \lab{C2}, two independently written programs agree,
-the second written from the rules alone; \lab{C1}, one program; \lab{Conj}, a conjecture. Our contributions
+repository; \lab{C2}, two separately written programs agree,
+the second from the rules alone (both AI-written; Section~S17); \lab{C1}, one program; \lab{Conj}, a conjecture. Our contributions
 are:
 \begin{itemize}
 \item \emph{Model} (Sections~\ref{sec:rules} and~\ref{sec:sums}): a passed-pawn test that respects en passant,
@@ -47,13 +47,13 @@ are:
   \lab{C2} and only $n$, one per file, on every $\cyl{n}$ with $n\ge10$ as a whole-board game \lab{S}, and on $\cyl{7}$ some ten-pawn
   rings are $\nim{3}$ \lab{C2}; from $\cyl{11}$ on, $n+1$ pawns give a $\nim{3}$ \lab{S}.
 \item \emph{Real chess} (Section~\ref{sec:real}): with the new test the textbook $\nim{2}$ candidate is not
-  $\nim{2}$, however draws are treated; with queen promotions only and frozen kings, the oracle value of the $1/8$ position
+  $\nim{2}$, however draws are treated \lab{C1}; with queen promotions only and frozen kings, the oracle value of the $1/8$ position
   is exactly $1/8$ \lab{C1}.
 \item \emph{Tablebases} (Section~\ref{sec:tb}): king and rook win only 2.80\% of cylinder positions, and on the
   torus, among the eight endings computed, only KRRK and KQRK force mate \lab{C2}.
 \item \emph{Dawson's chess} (Section~\ref{sec:dawson}): the $3\times n$ cylinder is a first-player win exactly
   when the $3\times(n-3)$ strip has Grundy value $0$ \lab{P}.
-\item \emph{Engines} (Section~\ref{sec:engines}): in a $233$-position pilot, Stockfish at low depth is weakest on infinitesimals, and on sums
+\item \emph{Engines} (Section~\ref{sec:engines}): in a $233$-position pilot, Stockfish at low depth matches the tablebase least often on infinitesimals, significantly less than on hot positions, numbers and switches, and on sums
   engines often miss the model's winning moves \lab{C1}.
 \end{itemize}
 

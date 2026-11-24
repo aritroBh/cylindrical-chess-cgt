@@ -32,10 +32,10 @@ pawns~\cite{DrummondCole2005}. We ask whether $\nim{2}$ (Section~\ref{sec:notati
 endgame on an 8-rank board, the \emph{$\nim{2}$ question}, and whether real chess agrees.
 
 This paper extends an unpublished 2025 study of the basic values\bytheauthor~\cite{Study2025}: we check
-every position by computer, correct its errors (Table~\ref{tab:puzzles} and Section~\ref{sec:dawson}) and carry
+every position by computer, correct its errors (Sections~\ref{sec:sums} and~\ref{sec:dawson}) and carry
 the analysis on, in the position-by-position format of Wu, Y\"u and Landry~\cite{WuYuLandry2010}. Results carry
 labels: \lab{P}, proved here; \lab{S}, proof sketched here, with a full AI-written, AI-refereed proof in the supplement;
-\lab{C2}, two independently written programs agree, the second written from the rules alone; \lab{C1}, one
+\lab{C2}, two separately written programs agree, the second from the rules alone (both AI-written; Section~S17); \lab{C1}, one
 program; \lab{Conj}, a conjecture. Our contributions are:
 \begin{itemize}
 \item \emph{Model and kings} (Sections~\ref{sec:rules}, \ref{sec:kings} and~\ref{sec:sums}): a passed-pawn
@@ -51,14 +51,14 @@ program; \lab{Conj}, a conjecture. Our contributions are:
   and only $n$, one per file, on every $\cyl{n}$ with $n\ge10$ as a whole-board game \lab{S}; on $\cyl{7}$
   some ten-pawn rings are $\nim{3}$ \lab{C2}; $n+1$ pawns give a $\nim{3}$ on $\cyl{11}$ \lab{C2} and on every $\cyl{n}$ with $n\ge12$ \lab{S}.
 \item \emph{Real chess} (Section~\ref{sec:real}): with the e.p.-aware test the textbook $\nim{2}$ candidate is not $\nim{2}$, however
-  draws are treated; with queen promotions only and frozen kings, the oracle value of the $1/8$ position is
+  draws are treated \lab{C1}; with queen promotions only and frozen kings, the oracle value of the $1/8$ position is
   exactly $1/8$ \lab{C1}.
 \item \emph{Tablebases and Dawson's chess} (Sections~\ref{sec:tb} and~\ref{sec:dawson}): king and rook win only
   2.80\% of cylinder positions, and on the torus, of eight endings, only KRRK and KQRK force mate \lab{C2}; the
   $3\times n$ Dawson cylinder is a first-player win exactly when the $3\times(n-3)$ strip has Grundy value $0$
   \lab{P}.
-\item \emph{Engines} (Section~\ref{sec:engines}): in a $233$-position pilot, Stockfish at low depth is weakest
-  on infinitesimals \lab{C1}.
+\item \emph{Engines} (Section~\ref{sec:engines}): in a $233$-position pilot, Stockfish at low depth matches the tablebase least
+  often on infinitesimals, significantly less than on hot positions, numbers and switches \lab{C1}.
 \end{itemize}
 The supplementary material holds the full proofs, the material moved out of this version and the Forsyth--Edwards Notation (FEN) of
 every position with kings.

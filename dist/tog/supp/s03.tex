@@ -32,6 +32,25 @@ gives their exact values. (a)~White wins whoever moves first. (b)~The pawn part 
 Table~\ref{tab:puzzles} compares the values first claimed~\cite{Study2025} with the exact ones: the earlier
 walk-throughs pick the right winners, but not always the right values.
 
+\begin{table}[!htbp]
+\centering
+\caption{Puzzles of Fig.~\ref{fig:puzzles}: Claimed and Exact Values \lab{C2}}
+\label{tab:puzzles}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Part & Claimed~\cite{Study2025} & Exact \\
+\midrule
+1: c-file & $\pm1$ & $\pm1$ \\
+1: f-file & $\game{\game{2}{1}}{0}$ & the same (mean $3/4$) \\
+1: files h, a & $1$ & $\game{+\BIG}{\star}$ (hot) \\
+1: total & $1\pm1+\game{\game{2}{1}}{0}$ & white wins either way \\
+2: pawns & $\pm1$ & infinitesimal, mean $0$ \\
+2: kings & $0$ & not mutual \\
+3: files c, d & $1$ & $\tinyg{1}$ \\
+3: total & $2$ & $+\BIG$ before any move \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \emph{Puzzle 1} (Fig.~\ref{fig:puzzle71}) has three components. The earlier values of the c- and f-files are right;
 those of files h and a are not. White's a5--a6 still wins

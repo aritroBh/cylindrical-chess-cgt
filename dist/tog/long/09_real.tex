@@ -10,8 +10,8 @@ of its model tree is a position where a line of play first reaches a passed pawn
 white to move and black to move. Replace each end position by $+\BIG$ if white wins it in real chess with either
 side to move, by $-\BIG$ if black does, by $\game{+\BIG}{-\BIG}$ if the side to move wins, and by $0$ if the
 side to move loses. If a side is drawn, the \emph{draw treatment} counts that draw as a win for black, as a win
-for white, or as worth $0$; in the last case the end position is $\game{\BIG r_W}{\BIG r_B}$, where
-$r_W,r_B\in\{-1,0,1\}$ are white's results with white and with black to move. All lie between $-2\BIG$ and $2\BIG$. The canonical value of the resulting tree is the \emph{oracle value} $O(X)$.
+for white, or as worth $0$, scoring the end position $\game{\BIG r_W}{\BIG r_B}$ ($r_W,r_B\in\{-1,0,1\}$ are
+white's results with white and with black to move; a dead draw is scored $\star$). All lie between $-2\BIG$ and $2\BIG$. The canonical value of the resulting tree is the \emph{oracle value} $O(X)$.
 \end{definition}
 
 \begin{lemma}[Sandwich; \lab{P}]\label{lem:sandwich}
@@ -69,6 +69,6 @@ This $1/8$ assumes the frozen kings of the tree (Section~\ref{sec:kings}); wheth
 has value $1/8$ is open. The same method applies to $\upsec\star$ and $\tinyg{1}$: their lower bounds already equal the
 target values, with $10$ and $12$ end positions of $9$ or $10$ men still open \lab{C1}. Positions A and B have $11$ men beside
 T, and the five-file $\nim{2}$ \pos{W a3 b3 c2 e2 / B a6 c5 d5 e3}, which sits legally
-beside T, has $12$, with only file f free of pawns between them. Their oracle values are open: for A and B a
+beside T, has $12$; no file between its pawns and T is free of pawns, so Theorem~\ref{thm:validity} does not apply. Their oracle values are open: for A and B a
 search finds the deciding end positions; the five and seven of them with $8$ men agree with the model
 \lab{C2}, but those with $9$ to $11$ men are unsolved, so their $\nim{2}$ is a model value.

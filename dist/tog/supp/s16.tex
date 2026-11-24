@@ -47,29 +47,29 @@ table says whether the corrected text was read again and by whom; ``final text r
 Result and location & Written by & Checked by (other vendor than the writer?) & Facts recomputed by\\
 \midrule
 Sum safety, Theorem~\ref{thm:hss}; S12.1, A.1--A.9 &
-Claude (Anthropic), an Opus agent &
+Claude (Anthropic), a Claude Opus model &
 Claude Opus referees (no); Codex (yes): the induction must run over positions with their actual side to move, and the
-domain must exclude positions with a passed pawn; fixes applied. Final text read by a Claude Opus agent (no) and by an
+domain must exclude positions with a passed pawn; fixes applied. Final text read by a Claude Opus model (no) and by an
 open model run through OpenCode (vendor not recorded): sound, one sentence added. &
 The proof uses no computation. Censuses of $S$ against $W$ by one program each, all with no difference: Codex (45{,}588
 comparisons, on four files and six ranks), a Claude brute force, and the OpenCode model's own solver.\\
 \addlinespace
 Validity theorem and corollary; S12.1, A.10--A.13 &
-Claude (Anthropic), an Opus agent &
+Claude (Anthropic), a Claude Opus model &
 Claude Opus referee (no); Codex (yes): the corollary as first stated was false (a position where the hypotheses hold
 for Black to move only); it now holds per side to move, and the text was corrected. Final text re-read by Codex (yes): sound,
 wording fixes applied. &
 No computation in the proof. The counterexample was found and checked by Codex.\\
 \addlinespace
 Certificate theorem; S12.1, A.15--A.17 &
-Claude (Anthropic), an Opus agent &
+Claude (Anthropic), a Claude Opus model &
 Claude Opus referee (no); Codex (yes): proved, and the sentence in the main text was a loose paraphrase, now
 corrected. Final text re-read by Codex (yes): the timing clause was false, see below; corrected. &
 No computation in the proof. The counterexample to the old clause was checked with python-chess by Codex.\\
 \addlinespace
 Longer treatment, S12.2: Theorems 1.11(c), 1.14, 2.7, 3.4; Propositions 2.10(a), 2.11 &
-Drafts by Claude (Opus) in 2026-10, revised by free models run through Kilo and OpenCode (MiniMax, Nemotron, some
-not recorded) and integrated by Claude. Later repairs by Claude Opus and Sonnet agents. Theorem 3.4 by an open model run
+Drafts by Claude (Opus) in October 2026, revised by free models run through Kilo and OpenCode (MiniMax, Nemotron, some
+not recorded) and integrated by Claude. Later repairs by Claude Opus and Sonnet models. Theorem 3.4 by an open model run
 through OpenCode (vendor not recorded), integrated by Claude. &
 Claude reviewers throughout (no). Codex (yes) re-derived blindly, then read the printed proof of: Theorem 1.14 (sharp
 form), Theorem 2.7, Proposition 2.11 (sound, two passages tightened). In November: Theorem 3.4 holds, one sentence of
@@ -94,12 +94,12 @@ Many programs, each recomputing examples and bounds, not facts the proofs use. C
 Result and location & Written by & Checked by (other vendor than the writer?) & Facts recomputed by\\
 \midrule
 Wall rings with $n+3$ pawns, value $\nim{2}$, $n\ge5$; S13 &
-Claude (Anthropic), an agent; model not recorded &
-Claude Sonnet verifier (no): no mathematical error found. An OpenCode model (vendor not recorded): sound. Codex (yes)
-refereed the written-out Lemma 3 (Note 1) and the transfer of Lemmas 1--3, but did not read S13 itself. Claude Opus
-re-derived Lemmas 1--3 (no). &
-Base cases: three programs agree, all written by Claude models, one of them by the verifier from the rules. Larger $n$ by
-whole-board solvers up to $n=10$ and by the verifier's engine up to $n=61$.\\
+Claude (Anthropic), a Claude model; version not recorded &
+A Claude Sonnet model (no): no mathematical error found. An OpenCode model (vendor not recorded): sound. Codex (yes)
+refereed the written-out Lemma 3 (Note 1) and the transfer of Lemmas 1--3. Claude Opus
+re-derived Lemmas 1--3 (no). Codex (yes) then refereed S13 itself: the theorem and the conclusions of the three lemmas hold, but the proof named the wrong capture in one case of Lemma~2(b), a step of Lemma~3 had a gap, and insertion was not defined for positions with an e.p.\ flag; Codex's own program gave the stated outcomes for every $n$ from 5 to 17. A Claude Opus model then rewrote the proofs. Final text re-read by Codex (yes): sound, wording fixes applied. &
+Base cases: three programs agree, all written by Claude models, one of them by that Sonnet model from the rules. For larger $n$, whole-board solvers agree up to $n=10$, and the writer's unreduced search and that
+model's engine agree up to $n=61$.\\
 \addlinespace
 One pawn per file, $n\ge10$; S14 &
 Open model run through OpenCode; vendor not recorded &
@@ -109,19 +109,19 @@ Four programs: two Claude-written and two Codex-written. The two Codex programs 
 \addlinespace
 Note 1: $n+2$ pawns, even $n\ge8$, value $\nim{2}$; S15 &
 Claude (Anthropic) &
-Two adversarial Claude lenses (no), fixes applied. Codex (yes) read the corrected text: sound. An OpenCode model (vendor not recorded), final text: sound with fixes; it recomputed only structural facts. &
+Two Claude reviewers instructed to look for errors (no), fixes applied. Codex (yes) read the corrected text: sound. An OpenCode model (vendor not recorded), final text: sound with fixes; it recomputed only structural facts. &
 Five Claude-written programs and one Codex program. All were written from one description of the rules.\\
 \addlinespace
 Note 2: $n+2$ pawns, even $n\ge8$, value $\nim{3}$; S15 &
-Open model run through Kilo (an automatic choice after the intended tool failed); model and vendor not recorded &
+Open model run through Kilo (chosen automatically by the tool); model and vendor not recorded &
 Codex: sound, and it rewrote parts of the text itself. Then Claude Opus (writer's vendor not recorded), final text:
 sound with minor fixes, wording and two wrong reasons that do not affect the proof. &
 Two Claude-written programs and one Codex program. A further program by Claude Opus, written from the rules, reproduced the
 reduced graph and the signatures. Part of the base case is by one Codex program.\\
 \addlinespace
 Note 3: $n+2$ pawns, odd $n\ge11$, values $\nim{2}$ and $\nim{3}$; S15 &
-Claude (Anthropic); the specific agent is not recorded &
-Two adversarial Claude lenses (no). Codex (yes): sound. An OpenCode model (vendor not recorded), final text: sound with
+Claude (Anthropic); the model version is not recorded &
+Two Claude reviewers instructed to look for errors (no). Codex (yes): sound. An OpenCode model (vendor not recorded), final text: sound with
 fixes, one contradiction between two status sentences repaired. &
 Six Claude-written programs and one Codex program.\\
 \addlinespace
@@ -132,12 +132,12 @@ claim. The fixes were applied by Claude. Final text read by an open model run th
 Two Claude-written programs and one Codex program for the base cases; the smaller $n$ by the Codex program.\\
 \addlinespace
 Note 5: M\"obius strip, $\nim{2}$ with one pawn per file, $\ge10$ files; S15 &
-Claude (Anthropic), an Opus agent &
+Claude (Anthropic), a Claude Opus model &
 Codex (yes): holds, two wording fixes applied. Final text re-read by Codex (yes): sound, wording fixes applied. &
 Two programs for the base case (the writer's and Codex's); the first run was by one. Codex also ran an unreduced search on small strips.\\
 \addlinespace
 Note 6: M\"obius strip, $\nim{3}$ with $n+1$ pawns, $n\ge11$; S15 &
-Claude (Anthropic), an Opus agent; the families were found by another Opus agent's search &
+Claude (Anthropic), a Claude Opus model; the families were found by another Claude Opus model's search &
 Codex (yes): holds with fixes; one false sentence in the insertion step (a far reply can change a file near the cut) corrected, the seam argument confirmed; fixes applied. &
 Both base graphs, both insertion steps and the small widths by the writer's program and by an independent Codex program; the small widths also by two earlier solvers.\\
 \bottomrule
@@ -148,9 +148,9 @@ Both base graphs, both insertion steps and the small widths by the writer's prog
 The checks caught real errors in November 2026, all corrected. The main text said that the sum model re-splits a position and
 then replaces components with a passed pawn; the engine and the theorem test the moved component first and split only if
 no pawn is passed, and the two orders differ. The validity corollary was stated for both sides to move, but its
-hypotheses can hold for one side only. The certificate theorem said the punisher wins with one of its next moves, but the reply itself can
+hypotheses can hold for one side only; it is now stated for the side to move. The certificate theorem said the punisher wins with one of its next moves, but the reply itself can
 already be mate, so the clause now reads ``no later than''. The proof of Theorem~3.4 had one false sentence about which
-moves win for Left. The printed proof of Theorem~1.11(c) had a gap in the move-count step. The horizon-1 proposition was false on four ranks,
+moves win for Left. The printed proof of Theorem~1.11(c) had a gap in the move-count step. The proof of the wall rings (Section~\ref{S-wall}) named the wrong capture in one case of its Lemma~2 and had a gap in its Lemma~3; the lemmas themselves hold. The horizon-1 proposition was false on four ranks,
 and promotion inside the pawn games had to be pinned down. An earlier proof, of the square-rule passer test, passed two AI
 referees and was later refuted by a counterexample (Section~\ref{S-square}); we now state it as a computation.
 These errors were found by AI checkers, and none of these checks replaces a human referee.

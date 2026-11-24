@@ -88,7 +88,7 @@ five or six files, core and adjacent wall files, where the reduced game is playe
 pawn, so wall moves lose; with them deleted, inserting a pair of wall files leaves the \emph{reduced game}
 unchanged. As a whole-board game this gives a ring $\nim{2}$ with $n+3$ pawns on
 every $\cyl{n}$ with $n\ge5$, for example \pos{W b2 c3 c5 d2 f2 h2 / B a5 b5 c6 e4 g4} on $\cyl{8}$ \lab{S}: the
-reduced games have $144$ and $104$ positions (odd, even $n$), and two programs check $n<17$ \lab{C2}. As a sum of components, where captures can split the ring, our engine confirms it only
+reduced games have $144$ and $104$ positions (odd, even $n$), and two programs check $n\le61$ \lab{C2}. As a sum of components, where captures can split the ring, our engine confirms it only
 to $n=12$ \lab{C1}. The same argument proves the two families with $n$ pawns above $\nim{2}$ as whole-board games for every
 $n\ge10$ \lab{S}, and as sums of components they are $\nim{2}$ on $\cyl{10}$ and $\cyl{11}$ \lab{C1}. The $\cyl{3}$ ring is a $\nim{2}$ with one pawn fewer than any ordinary board of width at most four allows,
 and it needs two en passant captures: without black's b4$\times$a3 it is $\uparrow$, without white's

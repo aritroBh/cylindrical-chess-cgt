@@ -116,9 +116,9 @@ sides. $X$ satisfies \emph{(E)} if no $Y\in\mathrm{Reach}(X)$ with at least two 
 
 \textbf{A.3 Remark (the precise form is implied by the main text's).} Definition~\ref{def:hss} and Theorem~\ref{thm:hss}
 quantify over positions reachable by moves of either side \emph{in any order}; we use only $\mathrm{Reach}(X)$, which is
-smaller, so our HSS and (E) are implied by the main text's. The main text's threat does not say ``before the first passed
-pawn''. Reading it without that clause gives more threats and a stronger hypothesis. Our reading has fewer threats, so the
-theorem below covers both readings. ``$\BIG$ exceeds the number of moves either side can make'' is $\BIG>N(X)$. The main
+smaller, so our HSS and (E) are implied by the main text's. The main text's threat is the same notion in words: play on the component's own files, with no passed
+pawn earlier (a race gives both sides one). Dropping the clause about earlier passed pawns would give more threats and a stronger
+hypothesis; our reading has fewer threats, so the theorem below covers both readings. ``$\BIG$ exceeds the number of moves either side can make'' is $\BIG>N(X)$. The main
 text leaves implicit that the race rule is local, and that a pawn on its last rank stays a pawn and so counts as passed, as in our engine.
 
 \textbf{A.4 Lemma (what (E) gives).} \emph{Let $X$ satisfy (E), let $Y\in\mathrm{Reach}(X)$ have at least two components,
@@ -294,8 +294,7 @@ with chess replaced by $\mathrm{P}$ or by $\mathrm{F}$; in $\mathrm{F}$, (V3) ho
 (c) $X$ must have no passed pawn; otherwise $W(X)$ is not defined. The main theorem explicitly assumes at least five ranks, as required for the use of Lemma~A.2(c).
 (d) Unlike (V1a) of Theorem~1.14 in the longer treatment, (V1) contains no condition (E): it compares chess with the whole-board game $W(X)$, whose e.p.\ rights lapse after one move as in chess. Condition (E) is needed only to pass from $W(X)$ to $S(X)$ (Theorem~A.7), hence in (V4).
 
-\textbf{A.13 Corollary (Corollary~\ref{cor:v4}).} \emph{Main text: ``If also (V4) \dots\ the chess result is the outcome
-class of the components' $\pm\BIG$ value.'' Precise form: for a side to move for which the hypotheses of Theorem~A.11 hold, assume also (V4) and a local race rule, as in Theorem~A.7. Then the chess winner of $Q$ with that side to move is the winner of $S(X)$ with that side moving first. (To infer the full outcome class one must verify the chess hypotheses for both starters. They can hold for one side only: on the ordinary board, with the king group \pos{W Kb6 c7 / B Ka8 a5} and no other pawn, they hold with Black to move, who must play a5--a4 and is mated by c8=Q, but not with White to move, who mates at once although the empty sum is lost for the side to move.)}
+\textbf{A.13 Corollary (Corollary~\ref{cor:v4}).} \emph{Main text: ``If also (V4) holds, that is, $X$ is hereditarily sum-safe, satisfies condition (E) of Theorem~\ref{thm:hss}, and $\BIG$ exceeds the number of moves either side can make, then for that side to move the chess result is the one given by the components' $\pm\BIG$ value.'' Precise form: for a side to move for which the hypotheses of Theorem~A.11 hold, assume also (V4) and a local race rule, as in Theorem~A.7. Then the chess winner of $Q$ with that side to move is the winner of $S(X)$ with that side moving first. (To infer the full outcome class one must verify the chess hypotheses for both starters. They can hold for one side only: on the ordinary board, with the king group \pos{W Kb6 c7 / B Ka8 a5} and no other pawn, they hold with Black to move, who must play a5--a4 and is mated by c8=Q, but not with White to move, who mates at once although the empty sum is lost for the side to move.)}
 
 \begin{proof}
 By Theorem~A.11 the chess winner is the winner of $W(X)$, and by Theorem~A.7 this is the winner of $S(X)$.

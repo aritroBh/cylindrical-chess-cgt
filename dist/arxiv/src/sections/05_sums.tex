@@ -96,7 +96,7 @@ the outcome of $\nim{k}+\nim{h}$ for every heap $h$; our scans and the wall proo
 
 \begin{definition}[Hereditary sum safety]\label{def:hss}
 Call a position \emph{reachable} if moves of either side, in any order, lead to it. A component carries a
-\emph{threat} for a side if a position reachable from it gives that side a passed pawn. A position $X$ is
+\emph{threat} for a side if play on its own files can reach a position, with no passed pawn earlier, that gives that side a passed pawn (a race gives both sides one). A position $X$ is
 \emph{hereditarily sum-safe} (HSS) if no position reachable from $X$ before the first passed pawn, $X$ included, has two components with threats for opposite sides.
 \end{definition}
 
@@ -117,10 +117,10 @@ files wide, counted up to symmetry, the $540{,}503$ HSS ones all agree in outcom
 smallest being \pos{W a5 d3 / B b6 e4}, a second-player win as a sum and a first-player win on the board
 \lab{C1}. With $\BIG=256$ the move
 bound always holds on boards up to $8\times8$. HSS cannot be dropped (Proposition~\ref{prop:sumcounter});
-without (E) the decomposition already fails in the pure pawn game (Proposition~\ref{prop:condE}).
+without (E) the decomposition already fails in the pure pawn game (Proposition~\ref{prop:condE}), and in our model \lab{P} (the position is in the repository).
 
 \begin{proposition}[\lab{C2}]\label{prop:sumcounter}
-A test of the top-level components alone is not enough: on $\cyl{8}$ with en passant off, $X=$\,\pos{W b2 d4 g3
+A test of the top-level components alone is not enough: on $\cyl{8}$ with en passant off and the count rule, $X=$\,\pos{W b2 d4 g3
 h5 / B a7 c7 f7 g4} is a single component, spanning files f to d across the seam, so such a test passes it; yet
 $S(X)$ is a black win whoever starts and $W(X)$ a first-player win. Moreover $X$ is not HSS: components with
 opposite threats appear later in its tree, so Theorem~\ref{thm:hss} does not apply.
@@ -147,8 +147,8 @@ Section~\ref{sec:star2-five}) is ${\Uparrow}$ as a sum but $\nim{2}$ on the whol
 \emph{Sums with real kings.} The sum model can also be tested against chess itself. On a six-rank $\cyl{8}$ we
 put a tr\'ebuchet (\pos{W a3 / B a4}, kings on h4 and b3) beside two pawn components of three or four pawns on
 files d and f, and solved the position with real kings and queen promotions, bounding the play after the first
-promotion. We ran $19$ such sums, each with either side to move. Of the $38$ positions, $19$ are solved exactly
+promotion. We ran $19$ such sums, each with either side to move. Of the $38$ sides to move, $19$ are solved exactly
 and all agree with the outcome of the model sum; they include sums of two live components such as
-$\{1\mid0\}+\{1\mid0\}$ and $-1+\{0\mid-1\}$. The other $19$ positions, among them every sum that is a
-second-player win, are only bounded, and no bound contradicts the model \lab{C1}. So this test supports the sum
-model where one side wins outright and leaves the zero sums open.
+$\{1\mid0\}+\{1\mid0\}$ and $-1+\{0\mid-1\}$. The other $19$ have only bounds, each consistent with the
+sum; all $19$ sums share one king placement \lab{C1}. So this test supports the sum
+model where the solver is exact and does not contradict it elsewhere.

@@ -1,4 +1,4 @@
-**How the statements were checked.** The labels are used as follows. PROVED: a hand proof is given in this section. CHECKED-2: a finite computation on which two or more independently written programs agree. COMPUTED-1: a computation by one program. CONJECTURE: a statement supported by evidence only. KNOWN marks a result from the literature, cited and not proved again. These correspond to the labels of the paper: PROVED here is the paper's S (a full proof written and refereed by AI models), CHECKED-2 is C2, COMPUTED-1 is C1 and CONJECTURE is Conj. The hand proofs were checked by AI referees; no human referee has checked them yet. A referee from a different model vendor than the writer checked the statement and the earlier proof of Theorem 1.11(c) (the new proof of its move-count step, revised 2026-11-23, was re-derived by Claude agents and then read by a model of another vendor, which found every step sound), Theorem 1.14 (the statement, the sharp form and the revisions of 2026-11-23), Theorem 2.7, Corollary 2.7′, Proposition 2.10(a), Lemma 2.9 (an audit), Proposition 2.11, Theorem 2.11K, Proposition 3.2′, Lemmas B, 3.2″ and 3.8a, Theorems 3.2‴, 3.4, 3.7, 3.8 and 3.11, Corollary 3.8b and its one-sided extension; the other proofs were checked by referees of the writer's model family. Below, a check is mentioned only where a specific computation supports a specific claim. References to §4–§8 and to Appendix A are to later parts of the source note, which are not reproduced here.
+**How the statements were checked.** The labels are used as follows. PROVED: a hand proof is given in this section. CHECKED-2: a finite computation on which two or more independently written programs agree. COMPUTED-1: a computation by one program. CONJECTURE: a statement supported by evidence only. KNOWN marks a result from the literature, cited and not proved again. These correspond to the labels of the paper: PROVED here is the paper's S (a full proof written and refereed by AI models), CHECKED-2 is C2, COMPUTED-1 is C1 and CONJECTURE is Conj. The hand proofs were checked by AI referees; no human referee has checked them yet. A referee from a different model vendor than the writer checked the statement and the earlier proof of Theorem 1.11(c) (the new proof of its move-count step was re-derived by Claude agents and then read by a model of another vendor, which found every step sound), Theorem 1.14 (the statement and the sharp form), Theorem 2.7, Corollary 2.7′, Proposition 2.10(a), Lemma 2.9 (an audit), Proposition 2.11, Theorem 2.11K, Proposition 3.2′, Lemmas B, 3.2″ and 3.8a, Theorems 3.2‴, 3.4, 3.7, 3.8 and 3.11, Corollary 3.8b and its one-sided extension; the other proofs were checked by referees of the writer's model family. Below, a check is mentioned only where a specific computation supports a specific claim. References to §4–§8 and to Appendix A are to later parts of the source note, which are not reproduced here.
 
 ## 1. Chess semantics versus CGT semantics
 
@@ -24,7 +24,7 @@
   flat 4 ranks `W a2 / B b3`, where a2–a4 is a race scored for White with the pawn left on a4, and on flat 5 ranks
   `W a2 b2 / B b4`, where after a2–a4 nobody is passed under the e.p.-aware test and White's option a4–a5 is scored
   +BIG). With this convention the promotion recursion of S, W and D is defined at every board
-  height from a passer-free root, and no result of §1 needs a bound on H (revised 2026-11-23: the earlier "defined on
+  height from a passer-free root, and no result of §1 needs a bound on H (the earlier "defined on
   every board height" was too wide; at a root that already has passers of both colours S sums +BIG − BIG = 0 when they
   are in different components, flat 8×8 `W a2 / B h7`, and the engine raises an error when they are in one, flat 8×8
   `W a5 / B b4`; COMPUTED-1; such an initial race needs a separate convention, as at P11). A bound is needed only for the statement that the side to move at a passer-free position,
@@ -70,7 +70,7 @@ obtained by replacing ⊕ with the integer B and ⊖ with −B. For a sum, (A₁
 - **C(X), chess.** The rules of `kings/SPEC.md`: checkmate wins, stalemate is a draw, infinite play is a draw.
 - **P(X), the promotion model.** Chess, except that the first promotion ends the game as a win for the
   promoter. Stalemate and infinite play are still draws.
-  - `kpsolve --frozen` computes the frozen-king model F of Corollary 2.7′ (a king move loses at once for the mover), not P. P itself, with free kings, is computed by a separate build of the solver, `kp_p` (its flag is `--pmodel`; `kings/kpsolve.c` has no such flag), and by two further, independently written solvers.
+  - `kpsolve --frozen` computes the frozen-king model F of Corollary 2.7′ (a king move loses at once for the mover), not P. P itself, with free kings, is computed by a separate build of the solver, `kp_p` (not in the code copy; available on request; its flag is `--pmodel`; `kings/kpsolve.c` has no such flag), and by two further, independently written solvers.
 - **D(X), the decisive-event model.** A D-game. Its positions are the positions before the first decisive
   event. Its terminals are the decisive events:
   - a passer appears (as in `cylcgt`), with races scored by a race rule; a promotion is a passer, by the convention of
@@ -101,7 +101,7 @@ obtained by replacing ⊕ with the integer B and ⊖ with −B. For a sum, (A₁
 The models are connected by bridges, each with its own hypotheses:
 
 *Notation.* o(G) is the outcome class of a CGT game G (𝓛, 𝓡, 𝓝, 𝓟); W(X) is the whole-board convention game
-of a pawn position X, in which the first passer ends the game (`notes/lemmas.md`); S(X) is the BIG value of
+of a pawn position X, in which the first passer ends the game (`notes/lemmas.md`, a working file of lemmas that is not in the code copy; the statements cited from it are restated where they are used); S(X) is the BIG value of
 §1.5; and HSS, hereditary sum-safety, is the hypothesis (HSS) of Theorem 1.11(c).
 
 ```
@@ -182,12 +182,12 @@ D-games.
   - In the pawn game every White move advances a White pawn by at least one rank, so
     M_W ≤ Σ_white pawns (H − rank) ≤ (H − 2)p for p legal White pawns. On H ranks the bound is (H − 2)p. For
     H ≤ 8 this is at most 6p, hence at most 48 for p ≤ 8, and there BIG = 256 exceeds 6p whenever p ≤ 42
-    (revised 2026-11-23: the earlier "≤ 6p in general" is false on boards taller than 8 ranks; on flat 1×11,
+    (the earlier "≤ 6p in general" is false on boards taller than 8 ranks; on flat 1×11,
     `W a2 / B a10`, White alone pushes seven times, a3 to a9, still without a passer. PROVED). The count ignores a final Z-move, so
     add 1 where a move inside the king group is possible.
 - **Threats.** In this definition and in Theorem 1.11, "reachable" means by a sequence of options of either player
   in any order, not necessarily alternating, as for M (the frontier step in the proof
-  of Theorem 1.11(c) prefixes a split move to a threat sequence of a daughter component, which needs this reading; revised 2026-11-23: the new frontier step also projects the opponent's play alone onto a
+  of Theorem 1.11(c) prefixes a split move to a threat sequence of a daughter component, which needs this reading; the frontier step also projects the opponent's play alone onto a
   component, which needs this reading too, and the program that computes threats uses this reach, for the τ_P defined
   below).
   τ(y) ⊆ {+, −} contains + iff some position reachable from y without passing a terminal has an
@@ -195,7 +195,7 @@ D-games.
   move into the opponent's terminal is a threat for the opponent, and a suicide counts for the side that
   gains from it. Like M, τ is monotone: τ(y′) ⊆ τ(y) whenever y′ is reachable from y.
   - A τ that counted only Left options to ⊕ and Right options to ⊖ would be blind to suicides.
-  - **Pawn threats τ_P (revised 2026-11-23).** For a pawn position y, τ_P(y) contains + iff some position reachable
+  - **Pawn threats τ_P.** For a pawn position y, τ_P(y) contains + iff some position reachable
     from y in the same any-order sense (y included, not continuing past a position with a passer) has a White
     passer, and − iff some such position has a Black passer; a race puts both signs in. This is the τ of
     `notes/lemmas.md` (Definition 2.0) and of `lemmas/common.py: threats`, which count a passer created by either
@@ -245,7 +245,7 @@ D-games.
     The stack can reach 0 = { | } only with Left's last move: reaching 0 takes B ≥ M_R(Y) + 1 Left turns, so
     by then Right has made M_R(Y) moves, the most it can make, and Right, to move, has no move. Right runs out of moves first and loses, whoever started. ∎
 
-**(c) The re-splitting version (the frontier step re-proved, revised 2026-11-23).** Let X be a pawn position with no passed pawn (at a root with passers of both
+**(c) The re-splitting version (the frontier step re-proved).** Let X be a pawn position with no passed pawn (at a root with passers of both
 colours in different components the engine sums +BIG and −BIG to 0, which is not the D-result; S tests the moved
 component before re-splitting it, §1.5), let S(X) be its
 BIG value computed with re-splitting (§1.5), and let D(X) be the decisive-event game of X, in which the
@@ -253,13 +253,13 @@ position is split into its components at every node, a move is a move in one com
 event ends the play. Suppose:
 - **(HSS)** at every position Y reachable from X before the first decisive event, the components of Y are
   pairwise safe for the pawn threats τ_P of Definition 1.10: a passer of either colour counts, whoever creates it,
-  and a race counts for both colours (revised 2026-11-23: this is what the program that checks (HSS) tests; the
+  and a race counts for both colours (this is what the program that checks (HSS) tests; the
   proof uses only the credited sign, so (c) also holds with the scored τ in (HSS), a weaker hypothesis, PROVED by
   the same proof); and
 - **(B)** BIG exceeds every tempo count of every such Y; and
 - **(E)** condition (E) of L1.6 in `notes/lemmas.md`: no such Y with two or more components carries a usable e.p.
   right. (The step "both models give the child" of the proof uses it.)
-  **(E) cannot be dropped (revised 2026-11-23).**
+  **(E) cannot be dropped.**
   On flat 5×7, e.p. on, play a2–a4 from the passer-free position `W a2 b3 e2 / B a5 b4 e4`. The result
   X = `W a4 b3 e2 / B a5 b4 e4`, with Black's right on a3, is passer-free and satisfies (HSS) and (B), yet
   o(S(X)) = 𝓡 while the D-result pair is 𝓝. PROVED by hand: the a/b component is locked except for b4×a3 e.p.,
@@ -280,8 +280,7 @@ event ends the play. Suppose:
   on five files and six or seven ranks, the adopted passed test and all three race rules, the outcome equality
   holds in the later-failure stratum (COMPUTED-1: 48,576 rule/root outcome-pair comparisons at 3+3 agree, 12,600
   of them with a later failure of (E), one implementation; finite coverage of these board sizes by a first-split
-  reduction, PROVED). Whether (E) can be omitted for arbitrary right-free roots remains OPEN (revised
-  2026-11-23); the flag-free predecessors of both witnesses agree (COMPUTED-1). A census of roots run for this check, whose failing-(E) stratum is empty, does not bear on this:
+  reduction, PROVED). Whether (E) can be omitted for arbitrary right-free roots remains OPEN; the flag-free predecessors of both witnesses agree (COMPUTED-1). A census of roots run for this check, whose failing-(E) stratum is empty, does not bear on this:
   with ≤ 2 + 2 pawns (E) cannot fail at all, since a usable right needs three pawns in a passer-free component
   (the capturer needs an enemy pawn ahead of it) and a second passer-free component needs two more (PROVED).
 
@@ -290,28 +289,28 @@ Then the outcome class of S(X) is the outcome class of the D-result pair of D(X)
 *Proof.* Unfold S(X) as a game form F whose positions are pairs (Y, N), where Y is a tuple of live pawn
 components, each with its own e.p. right (F keeps a right with its component while play goes on elsewhere), and
 N is a finite multiset of integer stacks, each ±B when it is frozen; spending a token reduces the magnitude of a
-stack by one (revised 2026-11-23: "a multiset of frozen integers ±B" missed the spent stacks). A move
+stack by one ("a multiset of frozen integers ±B" would miss the spent stacks). A move
 is either a move in an integer stack (the move form n = {n − 1 | } for n > 0 and its negative, before canonical
 simplification) or a pawn move in a live component Z; if that move creates a passer (or a race) in Z, the passed
 test being applied to all of Z before it is re-split (§1.5), then Z leaves Y and ±B joins N; otherwise Z is
 replaced by its new components. This is `cylcgt.pawns.value` unfolded.
-- **Frontier (re-proved, revised 2026-11-23).** Let Y be a non-terminal position reachable from X,
+- **Frontier (re-proved).** Let Y be a non-terminal position reachable from X,
   let a move in its component Z create a passer or a race in Z credited to σ, and let Y″ be the other
   components of Y. Then σ wins F(Y″, {σB}) whoever moves first. Take σ = + (White); the case σ = − is the colour
   reverse. (An earlier proof charged every later opponent move to the stopped count M_{−σ}(Y″) as if all of
   them were moves of one continuing D-play. After a later freeze in one daughter the opponent can go on in a
   sister, past the point where the stopped count of their common parent stops, so that step was a gap. The
   argument below was sketched by a model of another vendor, then written out and re-derived step by step by
-  Claude agents. A model of another vendor (2026-11-23) then read this printed quiet-move proof and found every
+  Claude agents. A model of another vendor then read this printed quiet-move proof and found every
   step sound, under all three race rules and through arbitrarily many splits; its wording corrections are made
-  in the text (revised 2026-11-23). PROVED.)
+  in the text. PROVED.)
   - *What is used.* + ∈ τ_P(Z), since White has a passer after the move, so by (HSS) at Y no component C of
     Y″ has − ∈ τ_P(C) (the scored τ would do as well: the move is an option into a terminal credited to White).
     By (B) at Y, B > M_R(Y) ≥ Σ_{C ∈ Y″} M_R(C). If Y″ is non-empty, no right that F keeps in Y″ is usable: the
     right of the move that led to Y by (E) at Y, which has two or more components; an older right by (E) at the
     position its double step led to, which had two or more components too, since otherwise the next move would
     have been in the same component and replaced the right, and its component has not been played since
-    (revised 2026-11-23, wording: if a surplus right was already supplied at X, apply (E) at X; otherwise apply it
+    (in words: if a surplus right was already supplied at X, apply (E) at X; otherwise apply it
     at the first pre-event position carrying that right; a right surviving a move elsewhere already lay in a
     separate, untouched component there). A right
     that is not usable allows no capture and protects no pawn from the passed test (both need an enemy pawn
@@ -355,7 +354,7 @@ replaced by its new components. This is `cylcgt.pawns.value` unfolded.
     sequence of legal pawn moves from X, by either side in any order, play continuing past passed pawns. Under
     (E), B > N(X) implies (B): at a reachable Y the longest stopped sequences of the components of Y can be
     played one after another after the moves from X to Y, so Σ M ≤ N(X) (PROVED). The converse fails. The
-    different stopping rules alone give only this weak inequality, so a witness is needed (revised 2026-11-23: the
+    different stopping rules alone give only this weak inequality, so a witness is needed (the
     earlier justification "since a stopped count ends at the first passer and N(X) does not" had this gap). On
     flat 2×7, e.p. off, `W a2 / B b3`, B = 2: every first move is terminal, so both stopped maxima are 1 and (B)
     holds; after a2×b3, b3–b4 is legal in continuing play, so N(X) ≥ 2 = B (PROVED). On boards up to 8×8 with no pawn on its own first
@@ -374,13 +373,12 @@ replaced by its new components. This is `cylcgt.pawns.value` unfolded.
     the same options in both models and no passer in the child (the two children differ at most by rights
     that are not usable, which change no option and no passed test). For the same reason, after the frontier
     the opponent never captures e.p. with a right left from before it. That alone does not bound the opponent's
-    later moves by a stopped count; the frontier step does (revised 2026-11-23: an earlier clause, "so its moves
+    later moves by a stopped count; the frontier step does (an earlier clause, "so its moves
     are moves of D and the tempo count bounds them", is withdrawn; read as one continuing D-play it is false).
   - If the move creates a σ-passer, or a race scored σ, then D gives the terminal σ, which σ wins whoever
     starts. F gives (Y″, {σB}), where Y″ consists of the other components of Y, and σ wins it whoever starts by
     the frontier step, which uses (HSS) and (B) at Y itself, and (E) at Y and at the earlier positions where the
-    rights that F keeps at Y were made. So σ wins this option too. (Revised 2026-11-23.
-    An earlier text bounded M_{−σ}(Y″) ≤ M_{−σ}(Y) ≤ M_{−σ}(X); the second inequality is false
+    rights that F keeps at Y were made. So σ wins this option too. (An earlier text bounded M_{−σ}(Y″) ≤ M_{−σ}(Y) ≤ M_{−σ}(X); the second inequality is false
     for re-split positions: flat 5×6, e.p. off, `W a2 a3 c2 d2 d3 e3 / B a4 b3 d4` is one component with stopped
     M_Black = 1, and after c2×b3 each of its two daughters has M_Black = 1, since in either a Black capture
     creates a White passer (COMPUTED-1). It is not needed, since (B) holds at Y. The text also said that for a
@@ -389,7 +387,7 @@ replaced by its new components. This is `cylcgt.pawns.value` unfolded.
     local, so all passers of the child lie in Z and the promotion distances are the same in both models.
 Outcomes are determined by the outcomes of the options, so o(F(Y, ∅)) = o(D(Y)). ∎
 
-*The hypotheses of (c) are needed in a uniform statement (revised 2026-11-23).*
+*The hypotheses of (c) are needed in a uniform statement.*
 - (E): the flat 5×7 example stated with (E) above (PROVED).
 - (HSS): flat 5×6, e.p. off, `W a4 d4 / B b5 e5`. In each pair every move ends the component: each side has a
   capture that leaves its own passer, and each push makes a race, so each pair is {B | −B} whatever the races
@@ -410,7 +408,7 @@ the re-splitting D(X) is the one used in Theorem 1.14(i).
 Theorem 1.11(b) is the fixed-sum version of L2.1: its coordinates are the components of the root and never
 split. The re-splitting version is (c) above, and the test "hereditarily sum-safe" of `notes/lemmas.md` is
 (HSS), not pairwise safety at the root: it re-checks the re-split components at every reachable position, and it
-uses the passer-colour τ_P of Definition 1.10 (revised 2026-11-23: this said "the either-player τ", which differs
+uses the passer-colour τ_P of Definition 1.10 (this is not "the either-player τ", which differs
 from τ_P at races; Theorem 1.11(c) holds with either).
 
 **Proposition 1.12 (opposite threats cancel for every B). PROVED.** Let A = {⊕ | ∅} and A′ = {∅ | ⊖}.
@@ -451,7 +449,7 @@ m ≥ 1, 𝓟 if m = 0 and 𝓡 if m ≤ −1.
 So BIG must be large compared with the tempo counts. In Proposition 1.13 the BIG outcome is right exactly when
 n ≤ B, and Theorem 1.11(b) asks for B > M, so that the owner of the stack wins even when it must move first.
 With BIG = 256 and pawns only, on boards of at most 8 ranks B > M holds as long as p ≤ 42, since M ≤ 6p there
-(and M ≤ 48 on 8 ranks when p ≤ 8); on H ranks M ≤ (H − 2)p (revised 2026-11-23). With a shuttling king the tempo count is infinite, and no BIG works (§3).
+(and M ≤ 48 on 8 ranks when p ≤ 8); on H ranks M ≤ (H − 2)p. With a shuttling king the tempo count is infinite, and no BIG works (§3).
 
 ### 1.5 The exact validity statement
 
@@ -475,7 +473,7 @@ X" means by chess play from X with a fixed side s to move first, as in the concl
   - the pawn components of Y, re-split as the files split (an empty file stays empty, so a component may split
     into two), with the king group Z deleted, are pairwise safe: no two different components carry + ∈ τ_P and
     − ∈ τ_P, where τ_P counts a passer of either colour, whoever creates it, and a race for both colours
-    (Definition 1.10; revised 2026-11-23: τ_P, as in (HSS) and in the program that checks (HSS));
+    (Definition 1.10: τ_P, as in (HSS) and in the program that checks (HSS));
   - BIG exceeds every tempo count of Y.
 
 Then, for each side s to move at X such that (V1)–(V3) hold at every chess position reachable from X with s moving
@@ -485,7 +483,7 @@ b7 are covered by Kb6, b8 by c7), a suicide answered by c8=Q mate, so (V1)–(V3
 White to move c8=Q mates at once, a legal Z-move that is not a suicide, so (V3) fails, and the normal-play result of
 the empty sum (Z deleted) is a loss for White while P is a White win. PROVED by hand):
 - **(i)** P(X) = D(X) with s to move. There are no draws, and the result is the normal-play result of G₁ ⊞ … ⊞ G_k (Z
-  deleted). Here X is a position of D(X), that is, before the first decisive event. (Revised 2026-11-23: if the
+  deleted). Here X is a position of D(X), that is, before the first decisive event. (If the
   convention already credits a terminal at X, no event is reached by a move and (V2) says nothing; (i) then needs
   its own root certificate, that X with s to move is a P-win for the credited side, as in P11. Without it (i) is
   false: cyl:8×6 `Ka1 ka6 Pc2 Pd4 pd3 b -`, where d4 is passed and d3 is blocked by c2, so D credits White, but
@@ -500,7 +498,7 @@ the empty sum (Z deleted) is a loss for White while P is a White win. PROVED by 
   starters, the outcome class of S(X) — the BIG value of the pawn components, with the king
   group Z deleted — equals the outcome class of the D-result pair of P(X).
 - **(iii)** Under (A_Q)(X) (the per-position hypothesis of §1.2, checked by kpsolve), C(X) = P(X) with s to move.
-  (Revised 2026-11-23: this used to be called a tautology; (A_Q)(X) is only the implication "P-win for
+  (This is not a tautology: (A_Q)(X) is only the implication "P-win for
   σ ⇒ C-win for σ" and says nothing about a P-draw, so (iii) also uses (i).)
 
 *Proof.*
@@ -520,7 +518,7 @@ the empty sum (Z deleted) is a loss for White while P is a White win. PROVED by 
   entry for a starter s at which (V1)–(V3) hold is the result of P(X) with s to move; if they hold for both
   starters, the pair is the result pair of P(X).
 - **(iii)** By (i) the starter s has a P-winner σ. By (A_Q)(X) σ wins C from the same root with the same starter,
-  so the two entries agree (revised 2026-11-23). ∎
+  so the two entries agree. ∎
 
 **Sharp form (PROVED).**
 
@@ -635,8 +633,8 @@ sometimes right by accident.
 
 | Hypothesis | Counterexample (where in this note or the project) |
 |---|---|
-| (V1b) no stalemate | §5.4: the only suicide square is covered, and the position is a draw instead of a win (PROVED). The isolated failure needs (V3) to hold, so use the frozen model, where (V3) holds by fiat: `--frozen` gives `Ka5 Pb4 Pc5 Pe2 Pe4 kc6 pb5 pe5` as (D, D), with every king move L, while the convention reads Z as 0 and the context as +1, i.e. (W, W) (COMPUTED-1, `kings/kpsolve --frozen`). With real kings the same position also violates (V3): Ka6 and Kg4–g6 are legal Z-moves that are not suicides |
-| (V1a) non-interaction | **The clause "no checks": needed, CHECKED-2 (the position is small enough that a hand proof of P = White wins is possible, but none is given).** cyl:6×6 `Ka2 kb4 Pa3 pa4 Pd2 pe3 b -`. Z = Ka2, kb4 and the locked pair Pa3/pa4 on F_Z = {a, b}; context Pd2/pe3 on d, e; buffer c, f. The Z-pawn a3 checks kb4, so Black's only legal moves are the four king moves Kb5, Kc5, Kc4, Ka5 (Z-moves), and every one loses in P with real kings: P(X) = White wins (CHECKED-2: three independently written solvers agree, `kp_p --pmodel`, `refp.py` and `ref3m`, the last written from the rules `kings/SPEC.md` only). D, with Z deleted, lets Black play e3–e2 or e3×d2, a passer at once, so D(X) = Black wins with Black to move (and White wins with White to move: outcome class N; CHECKED-2: a separately written D-solver and `cylcgt` o(S) both give N). The whole-board D-solver D_whole and the fixed-sum D-solver D_fix give the same pair at X, White to move White wins and Black to move Black wins, so they agree with the value N, and they show no (E) violation at X (COMPUTED-1: one program; the separately written D-solver reproduces N but was not run as D_fix or D_whole). So P(X) ≠ D(X). Here (V1b) holds (4 legal moves), (V2) and (V3) hold at every chess-reachable position (X alone, because every legal move is a Z-move, and all four lead to P-wins for White), and (V4) holds at X (COMPUTED-1: the exact (HSS) test, a stronger variant of it and the tempo test all pass at X; the tempo test is the bound of Definition 1.10, (H − 2)·n + 1 < BIG with n the number of pawns, so it covers the tempo half of (V4); a separately written program re-ran this test only for the twin below, which has the same context, and not for X). The twin with kb5 (no check) satisfies (V1)–(V4) at every chess-reachable position (checked by a second, separately written program) and P = D for both sides to move (White to move: White wins, Black to move: Black wins), so the check is the only cause. Whether X is retrograde-legal (the last White move must have been a capture onto a3, such as Pb2×a3) was not examined; Theorem 1.14 speaks of a K+P chess position and all solvers treat X as legal. A deeper context, `Kb6 kb3 Pa2 pa3 Pd2 Pe3 pe5 b -` (twin kb2; 4 chess-reachable positions with Black to move and 6 with White to move), behaves the same (CHECKED-2: kp_p and ref3m agree: X = White wins; twin, White to move: White wins, Black to move: Black wins; D = N in the separately written D-solver and in `cylcgt`). With frozen kings (V3 by fiat) `Ka1 kb4 Pa3 pa4 Pd2 pe3 b -` behaves the same (CHECKED-2: `kpsolve --frozen` and `ref3m --frozen`: White wins; twin kb5: Black wins with Black to move). Statistics of a systematic search (CHECKED-2 as counts: a second program reproduces every figure below with its own generator, its own D and `ref3m`): frozen, 514/514 (flat:6×6 and cyl:7×6, ≤ 2+2 pawns on 3 context files), 411/411 (cyl:6×6, ≤ 3+3 pawns on 2 files) and 6/6 (cyl:5×6, one context file) contexts where Black wins D moving first give P ≠ D at the checked root; real kings, 781 (cyl:6×6), 3780 (flat:6×6), 3657 (cyl:7×6) layouts (≤ 2+2 pawns) with P = White wins ≠ D = Black wins, of which 257, 1362 and 1210 have a twin that satisfies all of (V1)–(V4) with real kings (cyl:5×6, one context file, ≤ 3+3: 0 hits). King sorties (41 of 449 tablebase king moves draw and 7 win, `engine/suite/`, `RESULTS.md` §1) are (V2)/(V3) failures. The clause **(E)**: no isolated counterexample, see Proposition 1.15(b) (CONJECTURE that (E) is not needed when (HSS) holds, in the searched boundary only; for pawn sums in general it is needed, Theorem 1.11(c), revised 2026-11-23) |
+| (V1b) no stalemate | §5.4: the only suicide square is covered, and the position is a draw instead of a win (PROVED). The isolated failure needs (V3) to hold, so use the frozen model, where (V3) holds by fiat: `--frozen` gives `Ka5 Pb4 Pc5 Pe2 Pe4 kc6 pb5 pe5` as (D, D), with every king move L, while the convention reads Z as 0 and the context as +1, i.e. (W, W) (COMPUTED-1, `kings/kpsolve.c` with `--frozen`). With real kings the same position also violates (V3): Ka6 and Kg4–g6 are legal Z-moves that are not suicides |
+| (V1a) non-interaction | **The clause "no checks": needed, CHECKED-2 (the position is small enough that a hand proof of P = White wins is possible, but none is given).** cyl:6×6 `Ka2 kb4 Pa3 pa4 Pd2 pe3 b -`. Z = Ka2, kb4 and the locked pair Pa3/pa4 on F_Z = {a, b}; context Pd2/pe3 on d, e; buffer c, f. The Z-pawn a3 checks kb4, so Black's only legal moves are the four king moves Kb5, Kc5, Kc4, Ka5 (Z-moves), and every one loses in P with real kings: P(X) = White wins (CHECKED-2: three independently written solvers agree, `kp_p --pmodel`, `refp.py` (not in the code copy; available on request) and `ref3m`, the last written from the rules `kings/SPEC.md` only). D, with Z deleted, lets Black play e3–e2 or e3×d2, a passer at once, so D(X) = Black wins with Black to move (and White wins with White to move: outcome class N; CHECKED-2: a separately written D-solver and `cylcgt` o(S) both give N). The whole-board D-solver D_whole and the fixed-sum D-solver D_fix give the same pair at X, White to move White wins and Black to move Black wins, so they agree with the value N, and they show no (E) violation at X (COMPUTED-1: one program; the separately written D-solver reproduces N but was not run as D_fix or D_whole). So P(X) ≠ D(X). Here (V1b) holds (4 legal moves), (V2) and (V3) hold at every chess-reachable position (X alone, because every legal move is a Z-move, and all four lead to P-wins for White), and (V4) holds at X (COMPUTED-1: the exact (HSS) test, a stronger variant of it and the tempo test all pass at X; the tempo test is the bound of Definition 1.10, (H − 2)·n + 1 < BIG with n the number of pawns, so it covers the tempo half of (V4); a separately written program re-ran this test only for the twin below, which has the same context, and not for X). The twin with kb5 (no check) satisfies (V1)–(V4) at every chess-reachable position (checked by a second, separately written program) and P = D for both sides to move (White to move: White wins, Black to move: Black wins), so the check is the only cause. Whether X is retrograde-legal (the last White move must have been a capture onto a3, such as Pb2×a3) was not examined; Theorem 1.14 speaks of a K+P chess position and all solvers treat X as legal. A deeper context, `Kb6 kb3 Pa2 pa3 Pd2 Pe3 pe5 b -` (twin kb2; 4 chess-reachable positions with Black to move and 6 with White to move), behaves the same (CHECKED-2: kp_p and ref3m agree: X = White wins; twin, White to move: White wins, Black to move: Black wins; D = N in the separately written D-solver and in `cylcgt`). With frozen kings (V3 by fiat) `Ka1 kb4 Pa3 pa4 Pd2 pe3 b -` behaves the same (CHECKED-2: `kpsolve --frozen` and `ref3m --frozen`: White wins; twin kb5: Black wins with Black to move). Statistics of a systematic search (CHECKED-2 as counts: a second program reproduces every figure below with its own generator, its own D and `ref3m`): frozen, 514/514 (flat:6×6 and cyl:7×6, ≤ 2+2 pawns on 3 context files), 411/411 (cyl:6×6, ≤ 3+3 pawns on 2 files) and 6/6 (cyl:5×6, one context file) contexts where Black wins D moving first give P ≠ D at the checked root; real kings, 781 (cyl:6×6), 3780 (flat:6×6), 3657 (cyl:7×6) layouts (≤ 2+2 pawns) with P = White wins ≠ D = Black wins, of which 257, 1362 and 1210 have a twin that satisfies all of (V1)–(V4) with real kings (cyl:5×6, one context file, ≤ 3+3: 0 hits). King sorties (41 of 449 tablebase king moves draw and 7 win, `engine/suite/`, `RESULTS.md` §1) are (V2)/(V3) failures. The clause **(E)**: no isolated counterexample, see Proposition 1.15(b) (CONJECTURE that (E) is not needed when (HSS) holds, in the searched boundary only; for pawn sums in general it is needed, Theorem 1.11(c)) |
 | (V2) decisiveness | Races: L4.1 of `notes/lemmas.md` (forced wins, modulo KQK). A dropped pawn that does not lose: §5.5 |
 | (V3) frozen Z | 7.3: f7–f8=Q is available at once (§5.3) |
 | (V4) dominance | Proposition 1.12 (cancellation, for every B) and Proposition 1.13 (tempo above B) |
@@ -677,7 +675,7 @@ Y be a chess position reachable from X by legal moves in which no Z-move has bee
     because HSS fails in all 48. Among the 5,584 HSS roots of the ≤ 5 + 5 run there is no difference (o(S) = D_whole in all of
     them), and none among the 2,560 HSS multi-component roots of the ≤ 4 + 4 run. So no isolated counterexample for (E) was
     found, and when (HSS) holds the sum reading and the chess reading agreed on every searched root. CONJECTURE that (E) can be
-    dropped under (V4), in this boundary only (outside it (E) cannot be dropped from Theorem 1.11(c): a pawn-only position on flat 5×7 satisfies (HSS) and (B) and gives o(S) ≠ D; revised 2026-11-23); this (E) search tested (HSS) only, not the second half of (V4), "BIG exceeds every tempo count".
+    dropped under (V4), in this boundary only (outside it (E) cannot be dropped from Theorem 1.11(c): a pawn-only position on flat 5×7 satisfies (HSS) and (B) and gives o(S) ≠ D); this (E) search tested (HSS) only, not the second half of (V4), "BIG exceeds every tempo count".
 
 ---
 
@@ -740,7 +738,7 @@ In chess, assume also (V1b): the side to move always has a legal move.
 *The P-game of the context is **not** covered, and the theorem is false for it.* The P-model keeps stalemate as a draw, so "G has no draws" fails there and the step "since G has no draws the results agree" is not available. Counterexample: cyl:7×6,
 `Ka4 Pb3 Pe3 kc3 pb4 pe4` (Z_T + H0). The context G = {Pe3, pe4} has no move for either side, so it is (D, D)
 under P; `kpsolve --frozen` gives (L, W), and there the hypothesis of (a) holds by fiat (king moves lose and
-the Z-pawns have no moves); with real kings, White to move is L (exact) (COMPUTED-1, `kings/kpsolve`).
+the Z-pawns have no moves); with real kings, White to move is L (exact) (COMPUTED-1, `kings/kpsolve.c`).
 
 *Proof of (b).*
 - σ plays its winning strategy in G and never moves in Z, so Z stays in its initial state.
@@ -836,8 +834,7 @@ LC_T(m) holds at Y if some such reply r satisfies (L1), (L2) and (L3).
       whatever their distance from promotion (a promotion by s is a failure for s̄ in the local game).
     - Anyone who wants the stronger hypothesis may assume both; the theorem holds a fortiori.
   - **μ_s ≥ T + 1 is the exact bound for P.** Step 4 shows that s promotes no earlier than its (T + 1)-th turn, and
-    s̄ wins, by a promotion or a mate, no later than its T-th move, which follows s's T-th turn (earlier wording:
-    "s̄ queens on its T-th move"). With μ_s = T, s promotes first (example below).
+    s̄ wins, by a promotion or a mate, no later than its T-th move, which follows s's T-th turn. With μ_s = T, s promotes first (example below).
   - **(L2⁺)**, μ_s ≥ T + 2, is only a margin, and it does not give a chess win. With μ_s = T + 1, s promotes at once
     after s̄ queens (queen against queen, not against a pawn on its seventh rank). With μ_s = T + 2, s̄ has one move
     with its new queen, and a draw can still follow. No margin of μ_s replaces (A_Q) at the position (examples in
@@ -861,8 +858,8 @@ LC_T(m) holds at Y if some such reply r satisfies (L1), (L2) and (L3).
 **Theorem 2.7 (sufficiency of the certificate). PROVED (in P).** Without the e.p. clause of (L2), (b) is false; see the example in the list "The conditions cannot be dropped" below.
 - **(a)** If LC_T(m) holds at Y, with reply r, then s̄ has a forced win in P after m: it plays r and wins, by a
   promotion or by a mate of s, no later than its T-th move after r. The reply r itself may already mate s
-  (example after the proof). So m is decisively punished in P. (Revised 2026-11-23 after a re-read by a model of
-  another vendor: the earlier wording "it plays r and then wins with one of its next T moves" was false, because a
+  (example after the proof). So m is decisively punished in P. (A re-read by a model of
+  another vendor showed that the earlier wording "it plays r and then wins with one of its next T moves" was false, because a
   real mate of s, helped by an s̄ context pawn, need not be a mate in the projection; the P-win was not affected.)
 - **(b) Window form.** The proof does not use how Q arose. Let Q be a position with s to move which is
   chess-legal, or which arises from a position Y of Definition 2.1 by legal moves m and r as in (a), and in which
@@ -909,7 +906,7 @@ the real positions in it.
     safety is as in the previous case. So it is legal in π(R) with the same result. In particular a promotion of
     a Z-pawn of s is a promotion by s in the local game.
   - *A context-pawn move.* It changes only context pawns, so in π(R) the projected pieces stay fixed, the turn
-    changes, and any previous projected right expires, exactly as in a pass of rule 2 (revised 2026-11-23: the
+    changes, and any previous projected right expires, exactly as in a pass of rule 2 (the
     earlier "π(R) is unchanged except for the side to move" was literally false when π(R) carried an e.p. right.
     Example: F_Z = {a, b, c}, `W Ka6 Pb7 Pa2 / B Kc4 Pb4 Pe7`, Black to move; after Kc5 and the admissible reply
     a2–a4, Black's e7–e6 clears the usable right on a3, in projection too, and White promotes b8=Q safely on its
@@ -957,9 +954,8 @@ the real positions in it.
     position (Step 2).
   - s̄ is not stalemated (Step 3). s is not stalemated by (L3). There is no infinite play: the window has at
     most T moves of s̄.
-  - A mate of s ends the play in s̄'s favour. It may come before the local game is over (Step 6) (revised
-    2026-11-23).
-- **Step 6: s̄ wins in time.** (revised 2026-11-23) A mate of s is a win for s̄ in P, wherever it
+  - A mate of s ends the play in s̄'s favour. It may come before the local game is over (Step 6).
+- **Step 6: s̄ wins in time.** A mate of s is a win for s̄ in P, wherever it
   occurs. Step 1 gives one direction only: every legal real move of s is a legal local move or a pass. The
   converse fails, because an s̄ context pawn may attack a square next to s's king that is free in π(R). So s may
   be mated in the real game, at Q or at a later turn of s, while π(R) is not a local mate (example below); then
@@ -982,7 +978,7 @@ every pawn is still a Z-pawn on F_Z or a context pawn on a context file and the 
 s̄'s king is on F_Z by the Data; no s̄ context pawn attacks s's king, because m was legal and r moves no context
 pawn; and the only e.p. right Q can carry is one created by r, with its target on F_Z.
 
-**Example (the reply itself can mate). PROVED. (revised 2026-11-23)** Flat 8×8, F_Z = {a, b}, buffer
+**Example (the reply itself can mate). PROVED.** Flat 8×8, F_Z = {a, b}, buffer
 c, context on d–h, s = Black, s̄ = White. Y = White Ka6, Pb6, Pb7, Pd6; Black Ka8, Pa7, Pe7; Black to move.
 - *Y is as in Definition 2.1.* Kings and Z-pawns stand on a and b, the context pawns d6 and e7 on files at
   distance 2 and 3 from F_Z, the buffer c is empty, there is no officer. Black is in check from b7, which Definition
@@ -1237,7 +1233,7 @@ any T. ∎ (The proof does not use that s̄'s king is confined to F_Z, nor the m
     (f+1, H−1) and promotes next move.
   - So (L2) fails there, and a punishment with T ≥ 2 is never certified for all contexts. That statement is PROVED
     (the example above). Whether the freeze itself fails in P is a different statement. It is split below into a checked example and a CONJECTURE.
-  - *Three implementations.* Every number below is exact, in P with real kings, and every one was produced by three codes: the kpsolve family (`kpsolve --frozen` and the `--pmodel` build `kp_p.c`, which share one source), an independently written solver `pk2.c`, and a third solver `ref3`, written from the rules `kings/SPEC.md` alone. "CHECKED-2 (three implementations agree)" below means that they agree on every position of the
+  - *Three implementations.* Every number below is exact, in P with real kings, and every one was produced by three codes: the kpsolve family (`kpsolve --frozen` and the `--pmodel` build `kp_p.c`, which share one source), an independently written solver `pk2.c` (not in the code copy; available on request), and a third solver `ref3`, written from the rules `kings/SPEC.md` alone. "CHECKED-2 (three implementations agree)" below means that they agree on every position of the
     computation. It is a finite computation, not a proof.
   - *Definition (the zero beside a context, in P).* For a group Z and a context G (Definition 2.1) let Φ(G ⊞ Z) be the
     pair (w, b) of P results, White to move and Black to move, from White's view. Let Ψ(G ⊞ Z) be the same pair in the
@@ -1517,7 +1513,7 @@ Corollary 2.11a states it for the D-model.
     ω's king allowed to move and to capture β's other pawns in G_ω, let q₀, …, q_d be the squares p occupies before its first push and
     after each push, and n_j = j if s = ω, j − 1 if s = β; if d(k_ω, q_j) ≥ n_j + 2 for every j (j = 0 only if s = ω), then β wins P with real kings.
     It drops (H3) of Proposition 2.11, and with real kings ω can be stalemated, or can walk into a stalemate, which is a draw in P (the Remark's own
-    caveat). CHECKED-2 (kp_p `--pmodel`, a second, independently written P solver and a pure-Python solver `pyp.py` agree; an independently written certificate checker accepts the named pawn in each case): cyl:6×6 `Ka4 ka6 Pa5 Pd5 b -` (β = White, p = d5, Black has no legal move at y itself), flat:6×6
+    caveat). CHECKED-2 (kp_p `--pmodel`, a second, independently written P solver and a pure-Python solver `pyp.py` (not in the code copy; available on request) agree; an independently written certificate checker accepts the named pawn in each case): cyl:6×6 `Ka4 ka6 Pa5 Pd5 b -` (β = White, p = d5, Black has no legal move at y itself), flat:6×6
     `Kc1 ka1 Pc2 pa2 w -` (one pawn each, ω's king is shut in by its own pawn and β's king), `Kc1 ka1 Pc2 pa3 w -` (ω steers into the stalemate: c3 pa2 c4) and
     `Kd2 kf1 Pa2 Pf3 pf2 pd3 w -` (stalemate after the first push) are (D, D) although every hypothesis holds. Samples with the White king on a1 only and ≤ 2 + 2 pawns cannot meet such nets.
     Two implementations of the certificate in one code base agree on 15,000 random positions (COMPUTED-1).
@@ -1665,7 +1661,7 @@ for its positions.
   - Suppose Left first wins (x, L) at stage n by passing. Then Left won (x, R) at an earlier stage. But
     Right's pass from (x, R) leads back to (x, L), so (x, L) was won at a stage earlier still, a
     contradiction.
-  - So whenever Left wins on its turn, some winning G-move exists (revised 2026-11-23, after a re-read by a model of
+  - So whenever Left wins on its turn, some winning G-move exists (after a re-read by a model of
     another vendor: the earlier "Left's winning moves are always G-moves" is false. For X = {x}, L(x) = {⊕},
     R(x) = ∅, White to move can pass, Black's only option is to pass back, and White takes ⊕; so the pass is a
     winning move. The stage argument above shows only that a first-stage win is never established by the pass.
@@ -1698,7 +1694,7 @@ sense of Definition 1.1, with loopy components allowed, the sum ⊞ of Definitio
 whole play, infinite play is a draw) and the loopy CGT translation y^B, which is Definition 1.4 used verbatim for loopy components (Definition 1.4 states it for short
 ones; ⊕ ↦ the chain +B, ⊖ ↦ −B; the translated components have no terminals, and Σ y_i^B is the ordinary disjunctive sum under normal play, with draws by
 infinite play). First-event dominance (below) is Definition 1.10 restated for loopy components.
-- *Labels.* Theorem 3.7, Lemma 3.8a, Theorem 3.8, Corollary 3.8b, Propositions 3.9 and 3.10 and Theorem 3.11 are PROVED. Corollary 3.11a is immediate from Theorem 3.11, and the body of Proposition 3.12 follows from Theorems 3.3 and 3.4 (both PROVED). Random tests of the statements (564 bridge positions, 546 criterion positions, 3,584 sandwich positions, 1,185 reserve implications, 0 failures) are COMPUTED-1. The brute-force results are CHECKED-2 where two independent solvers agree (`dsum.py` and a second solver written from scratch: 20,324 states, 0 disagreements) and COMPUTED-1 otherwise (a count from one generator); the chess P-model counts are COMPUTED-1, because the P-model oracle was run only once.
+- *Labels.* Theorem 3.7, Lemma 3.8a, Theorem 3.8, Corollary 3.8b, Propositions 3.9 and 3.10 and Theorem 3.11 are PROVED. Corollary 3.11a is immediate from Theorem 3.11, and the body of Proposition 3.12 follows from Theorems 3.3 and 3.4 (both PROVED). Random tests of the statements (564 bridge positions, 546 criterion positions, 3,584 sandwich positions, 1,185 reserve implications, 0 failures) are COMPUTED-1. The brute-force results are CHECKED-2 where two independent solvers agree (`dsum.py` (not in the code copy; available on request) and a second solver written from scratch: 20,324 states, 0 disagreements) and COMPUTED-1 otherwise (a count from one generator); the chess P-model counts are COMPUTED-1, because the P-model oracle was run only once.
 - *Conventions.* "σ wins at a position" means "σ forces a win in finitely many moves", i.e. the position is in the least
   fixed point W_σ of Definition 1.2; ρ(v) is its stage. W_L ∩ W_R = ∅ (KNOWN). "G + n" is G with n extra Left tokens (the
   integer n; only the number of unused tokens matters, and Right cannot touch them). "Left wins G + n second" means that
@@ -1860,7 +1856,7 @@ does not favour (of both sides for `dud`). Theorem 3.4, not Theorem 1.11, is the
 - *The criterion is not necessary.* `{∣⊕, 0}` ⊞ `{⊖, 0 ∣ 0}` (each with a self-loop at its only node; the first is off-like with a Right suicide, the second dud-like with a Left suicide) is dominant at B = 5 and D = CGT = (D, D),
   although the criterion fails: λ_5 of the second component is exactly B = 5 (Left stops Right's passes only by her suicide to −B), and the criterion asks for ≤ B − 1 (22 cases of this kind among the 4,693 dominant loopy cases; a second solver confirms D = CGT = (D, D) for B = 3, 5, 7, dominance true, criterion false, λ_5 of the second component exactly 5; CHECKED-2).
 
-**Computations (COMPUTED-1 for the experiments, CHECKED-2 where two independent solvers agree, as marked).** The first set of programs consists of a Python solver `dsum.py` with a test driver and a C solver `sumsolve.c`; a third solver was written separately from the definitions. Random components: short DAGs (≤ 4 or 5 nodes, ≤ 2 or 3 options per side, both signs of terminal options), random loopy components with terminals (≤ 3 nodes), on, off, over, under, dud, random stoppers (≤ 4 or 5 nodes); 2 or 3 components.
+**Computations (COMPUTED-1 for the experiments, CHECKED-2 where two independent solvers agree, as marked).** The first set of programs consists of a Python solver `dsum.py` with a test driver and a C solver `sumsolve.c` (not in the code copy; available on request); a third solver was written separately from the definitions. Random components: short DAGs (≤ 4 or 5 nodes, ≤ 2 or 3 options per side, both signs of terminal options), random loopy components with terminals (≤ 3 nodes), on, off, over, under, dud, random stoppers (≤ 4 or 5 nodes); 2 or 3 components.
 - *Solver cross-check:* Python (explicit reachable product, counter-based least fixed point) against `sumsolve.c` (dense product, naive iteration, its own translation) on the root tuple, both movers, D-result and CGT outcome:
   0 disagreements on 6,000 instances, and on 3,000 more with another seed; 1,169 have D ≠ CGT, 1,468 a draw. In a second mode the C program gives the D-result and the CGT outcome at *every* tuple of original nodes, and these are compared with the Python results at every reachable tuple, both movers: 47,896 states in two runs (the second with a richer generator), 0 disagreements. These all-states samples contain no instance with D ≠ CGT and no draw, so they test only the agreeing regime; the differing regime is covered by the root cross-checks (1,169 and 557 instances with D ≠ CGT) and by the third solver. *Third solver:* written from the definitions, it agrees with `dsum.py` on 1,500 random instances (2 or 3 components of up to 4 nodes, loopy or short, with terminals, B in {1, 2, 4, 6}):
   D-result and CGT outcome at every reachable tuple and both movers, 20,324 states, 0 disagreements, and dominance and the reserve criterion on all 1,500 instances: CHECKED-2. The dominance, reserve and regime statistics of the first set use the Python solver only (COMPUTED-1).
@@ -1956,12 +1952,11 @@ U_n^σ(B). For s = σ, an option of u that is good at stage n maps by (i) to a g
 of φ(u) is φ of an option of u by (ii), which is good by induction. For s = σ̄, every option of φ(u) is φ of an option
 of u by (ii), and every option t of u maps to an option of φ(u) by (i). The union over n is the least fixed point. ∎
 
-**Lemma B (the winner of G ⊞ dud_D need never pass; revised 2026-11-23: "never passes" was too strong, a winning pass can exist, as in the example in the proof of Theorem 3.4(a)).** Let (x, ω, σ) be in W^σ of G ⊞ dud_D, entering at stage n. Then
+**Lemma B (the winner of G ⊞ dud_D need never pass: "never passes" is too strong, a winning pass can exist, as in the example in the proof of Theorem 3.4(a)).** Let (x, ω, σ) be in W^σ of G ⊞ dud_D, entering at stage n. Then
 some option that makes it enter at stage n is a G-move (a σ-terminal of G or a position (x′, ω) with σ̄ to move and
 stage ≤ n − 1). *Proof.* If the only such option were the pass, to (x, ω, σ̄) at stage m ≤ n − 1, then every option of
 (x, ω, σ̄), the pass back included, has stage ≤ m − 1, so (x, ω, σ) would enter at stage ≤ m < n. ∎
-This is the content of the proof of Theorem 3.4(a), "whenever Left wins on its turn, some winning G-move exists"
-(revised 2026-11-23).
+This is the content of the proof of Theorem 3.4(a), "whenever Left wins on its turn, some winning G-move exists".
 
 *(a)* Let A = G ⊞ Z and A⁰ = G ⊞ Z⁰, where Z⁰ keeps only the four shuttle options at the four states.
 - The stage sets of A and A⁰ coincide. A deleted option is a Left option ⊖ or a Right option ⊕. For the player to move

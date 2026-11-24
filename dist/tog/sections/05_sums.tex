@@ -8,33 +8,13 @@ side gains by moving there first.
 
 \subsection{The Puzzles Revisited}
 
-Table~\ref{tab:puzzles} compares the values first claimed for three puzzles of~\cite{Study2025} with the exact
-ones: the earlier walk-throughs pick the right winners, but not always the right values. In Puzzle~1, black's
+We re-solved three puzzles of~\cite{Study2025} (Section~S3 shows them and tabulates the claimed and the exact
+values): the earlier walk-throughs pick the right winners, but not always the right values. In Puzzle~1, black's
 h6$\times$a5 across the seam leaves $\star$, so the h/a component is hot, not the number $1$. The
 pawns of Puzzle~2 form an infinitesimal with mean $0$, and its king group (Fig.~\ref{fig:kinggroup72}) is a
 zugzwang for black only, on the ordinary board \lab{C2} (our solver and the Lichess tablebase) and on the
 cylinder \lab{C2}, so the real result of this ten-man position is open. Puzzle~3 is illegal as drawn; on files c and d its value is $\tinyg{1}$, and the legal copy
 one rank up, \pos{W c2 c4 d4 / B c3 d5 d6 d7}, has the same value (Section~S3 shows the puzzles).
-
-\begin{table}[!t]
-\centering
-\caption{Puzzles of the 2025 Study: Claimed and Exact Values \lab{C2}}
-\label{tab:puzzles}
-\begin{tabular}{@{}lll@{}}
-\toprule
-Part & Claimed~\cite{Study2025} & Exact \\
-\midrule
-1: c-file & $\pm1$ & $\pm1$ \\
-1: f-file & $\game{\game{2}{1}}{0}$ & the same (mean $3/4$) \\
-1: files h, a & $1$ & $\game{+\BIG}{\star}$ (hot) \\
-1: total & $1\pm1+\game{\game{2}{1}}{0}$ & white wins either way \\
-2: pawns & $\pm1$ & infinitesimal, mean $0$ \\
-2: kings & $0$ & not mutual \\
-3: files c, d & $1$ & $\tinyg{1}$ \\
-3: total & $2$ & $+\BIG$ before any move \\
-\bottomrule
-\end{tabular}
-\end{table}
 
 \subsection{When Is the Sum Model Right?}\label{sec:sums-hss}
 
@@ -50,7 +30,7 @@ exactly this.
 
 \begin{definition}[Hereditary sum safety]\label{def:hss}
 Positions are \emph{reachable} by moves of either side in any order. A component carries a \emph{threat} for a
-side if a position reachable from it gives that side a passed pawn. A position $X$ is \emph{hereditarily
+side if play on its own files can reach a position, with no passed pawn earlier, that gives that side a passed pawn (a race gives both sides one). A position $X$ is \emph{hereditarily
 sum-safe} (HSS) if no position reachable from $X$ before the first passed pawn, $X$ included, has two components with opposite threats.
 \end{definition}
 
@@ -71,10 +51,10 @@ files wide, the $540{,}503$ HSS ones all agree in outcome and, in the default se
 smallest being \pos{W a5 d3 / B b6 e4}, a second-player win as a sum and a first-player win on the board
 \lab{C1}. With $\BIG=256$ the move
 bound always holds on boards up to $8\times8$. HSS is needed (Proposition~\ref{prop:sumcounter}), and so is
-(E): without it, sums fail even in the pawn game with no passed-pawn rule \lab{C1} (Section~S3).
+(E): without it, sums fail even in the pawn game with no passed-pawn rule \lab{C1} (Section~S3), and in our model \lab{P} (Section~S12).
 
 \begin{proposition}[\lab{C2}]\label{prop:sumcounter}
-A test of the top-level components alone is not enough: on $\cyl{8}$ with en passant off, $X=$\,\pos{W b2 d4 g3
+A test of the top-level components alone is not enough: on $\cyl{8}$ with en passant off and the count rule, $X=$\,\pos{W b2 d4 g3
 h5 / B a7 c7 f7 g4} is a single component, spanning files f to d across the seam, so such a test passes it; yet
 $S(X)$ is a black win whoever starts and $W(X)$ a first-player win. Moreover $X$ is not HSS: components with
 opposite threats appear later in its tree, so Theorem~\ref{thm:hss} does not apply.
@@ -85,5 +65,5 @@ whole-board solver $W$. They agree on every headline value: the $1/8$ and $\upse
 and the seven-pawn $\nim{2}$ in the default setting. Elsewhere they can differ, even in outcome (Section~S3);
 there we name the model we mean.
 \emph{Real kings.} On a six-rank $\cyl{8}$ we solved $19$ sums of two components beside a tr\'ebuchet with real
-kings and queen promotions only. Of the $38$ positions, $19$ are solved and agree with the sum; the other
-$19$, all the second-player wins, have only bounds, each consistent with the sum \lab{C1}.
+kings and queen promotions only. Of the $38$ sides to move, $19$ are solved and agree with the sum; the other
+$19$ have only bounds, each consistent with the sum; all $19$ sums share one king placement \lab{C1}.

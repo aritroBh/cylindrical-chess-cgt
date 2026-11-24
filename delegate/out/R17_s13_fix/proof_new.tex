@@ -1,0 +1,222 @@
+% proof.tex -- the wall rings are *2 for every n (whole-board game).
+% Standalone wrapper. The part inside \begin{wallproof} ... \end{wallproof} is typeset as a section of the supplement;
+% it only uses the macros \lab, \nim, \cyl, \ins (fall-backs below).
+% Labels: \lab{P} = proved by hand, \lab{C2} = checked by two independently written programs.
+\documentclass[10pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=2cm]{geometry}
+\providecommand{\lab}[1]{\textsf{\footnotesize[#1]}}
+\providecommand{\nim}[1]{\mathord{\star#1}}
+\providecommand{\cyl}[1]{C_{#1}}
+\providecommand{\ins}{\operatorname{ins}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newenvironment{wallproof}{}{}
+\begin{document}
+
+\begin{wallproof}
+\subsection*{The wall rings are $\nim{2}$ for every $n$ (whole-board game)}
+
+\paragraph{Model.}
+The board $\cyl{n}$ has ranks $1,\dots,8$ and $n$ files, numbered modulo $n$, so file $n-1$ is next to file $0$. White pawns move
+towards rank 8, Black pawns towards rank 1. A pawn steps one square forward to an empty square, or two squares from its home rank (2 for
+White, 7 for Black) if both squares are empty, and captures an enemy pawn one square diagonally forward, also across the seam
+between files $n-1$ and $0$. After a double step an \emph{e.p.\ flag} is recorded if, and only if, an enemy pawn stands beside the landing
+square. The flag names the pawn that stepped; the opponent of that pawn holds the right to capture it en passant, with a pawn standing beside it, onto the skipped square.
+Every pawn move removes the old flag (and may record a new one); a heap move leaves the board and the flag unchanged.
+A pawn is \emph{passed} if no enemy pawn stands strictly ahead of it on its own file or on a neighbouring file, and it is not the
+flagged pawn (a pawn that can still be taken e.p.\ is not passed).
+A position reached by a pawn move is \emph{terminal} if some side has a passed pawn. If only one side has one, that side wins. If both
+have one, the race rule ``count'' decides: the distance of a side is the least value of $8-r-[r=2]$ (White) or $r-1-[r=7]$ (Black) over
+its passed pawns on rank $r$ that have no pawn of either colour ahead on their own file (the empty minimum is
+$\infty$); the smaller distance wins, and a tie goes to the side that did not make the last move.
+In the \emph{whole-board game} $G+\nim h$ the players alternate; the player to move makes a pawn move on $G$ or lowers the heap.
+A pawn move to a terminal position ends the game, won by the winner of that position whoever would move next. A player with no move
+loses. There is no splitting of $G$ into components.
+
+Let $X$ be the player to move in a non-terminal position $p$ and $Y$ the other. A pawn move $\mu$ of $X$ to $x$ is \emph{T} (\emph{L}) if
+$x$ is terminal and won by $X$ (by $Y$); \emph{P} (poisoned) if $x$ is not terminal and $Y$ has a pawn move from $x$ to a terminal
+position won by $Y$; \emph{K} otherwise. The classes are defined for pawn moves only and depend on who moves. The \emph{reduced game}
+$R(g)$ of a non-terminal position $g$ has as nodes the positions reachable from $g$ by K-moves (of either side, in any order); at a node,
+each side has its K-moves (to nodes) and possibly T-moves. In $R(g)+\nim h$ the player to move may make a T-move (and wins), a K-move,
+or a heap move.
+
+\paragraph{The rings.}
+A file is written by its pawns ($W23B4$: white pawns on ranks 2 and 3, a black pawn on rank 4); files are listed from $0$ to $n-1$.
+$O_n$ ($n=2k+3\ge5$): $W23B4,\,B5,\,W2B5,\,(W3,B5)^k$.\quad
+$E_n$ ($n=2m+6\ge6$): $B5,\,W2B5,\,W35B6,\,W2,\,(B4,W2)^{m+1}$. Both have $n+3$ pawns and no flag.
+Put $G_n=O_n$ for odd $n\ge5$ and $G_n=E_n$ for even $n\ge6$, and $\mathrm{start}_n$ for this position.
+A \emph{wall} is a run of consecutive files that start with single pawns, alternately a white pawn and a black pawn two ranks above it:
+$W3/B5$ (type O) or $W2/B4$ (type E). In $G_n$ the wall is files $3,\dots,n-1$ (type O: $W3$ on odd, $B5$ on even files; type E: $W2$ on
+odd, $B4$ on even files). A \emph{pattern file} is a wall file whose content is exactly its starting pawn (same colour, same rank) and
+nothing else; its pawn is a \emph{wall pawn}. On a pattern file, each neighbouring pattern file holds a single enemy pawn two ranks
+further on in the direction of the file's own pawn.
+
+\begin{theorem}
+For every $n\ge5$ and every heap $0\le h<256$, the whole-board position $G_n+\nim h$ is a P-position if $h=2$ and an N-position
+otherwise. So $G_n$ and $\nim2$ have the same outcome in every sum with a nim-heap; in this sense $G_n=\nim2$.
+\end{theorem}
+
+\begin{lemma}[Reduction; \lab{P}]
+Let $g$ be a non-terminal position, $h\ge0$, and let either side move first. That side wins $g+\nim h$ iff it wins $R(g)+\nim h$.
+\end{lemma}
+\begin{proof}
+Let $\pi(p)$ be the number of single steps all pawns of $p$ still need to reach their last rank. A pawn move lowers $\pi$ (a step
+advances a pawn; a capture advances the capturer and removes a pawn) and a heap move lowers $h$. We show, by induction on
+$\pi(p)+h$, that for every node $p$ of $R(g)$ the player $X$ to move wins $p+\nim h$ iff $X$ wins $p+\nim h$ in $R(g)+\nim h$. A player wins iff
+some option is lost by the opponent moving first. In $p+\nim h$ a T-move wins at once and an L-move loses at once. After a P-move to $x$
+the opponent $Y$ wins $x+\nim h$ moving first by his terminal reply, so a P-move is never a winning option. A K-move leads to a node, and a
+heap move to $p+\nim{h'}$, $h'<h$, with the board and flag unchanged; for both, by induction, the opponent loses moving first in the full
+game iff he does in the reduced game. So $X$ has a winning option in one game iff in the other. Take $p=g$.
+\end{proof}
+
+\begin{lemma}[Wall pawns; \lab{P}]
+Let $p$ have no passed pawn, with an e.p.\ flag (if any) protecting a pawn of the player not to move. Let $Z$ be the player to move and
+$q$ a pawn of $Z$ on file $j$, where files $j-1,j,j+1$ are pattern files of one wall.
+(a) After any move of $q$, $Z$ has no passed pawn.
+(b) If moreover $p$ has no flag and files $j-1,\dots,j+3$ or files $j-3,\dots,j+1$ are pattern files of that wall, every move of $q$ is
+L or P.
+\end{lemma}
+\begin{proof}
+Files $j\pm1$ hold only an enemy pawn two ranks ahead of $q$. So the squares $q$ could capture on are empty. An e.p.\ capture by $q$
+would need an enemy pawn beside $q$ on file $j\pm1$; there is none. File $j$ holds only $q$. Hence $q$ only advances: W3$\to$4, B5$\to$4 (type O),
+W2$\to$3, W2$\to$4, B4$\to$3 (type E).
+(a) The status of a pawn depends only on the enemy pawns on its three files and on the flag. No enemy pawn moves, and the old flag,
+if any, protected an enemy pawn; so no other pawn of $Z$ becomes passed. After a single step $q$ still has an enemy pawn strictly
+ahead on $j\pm1$. After W2$\to$4 the $B4$ pawns on $j\pm1$ stand beside $q$, so a flag is recorded and $q$ is not passed.
+(b) Choose $s\in\{1,-1\}$ such that $j-s,j,j+s,j+2s,j+3s$ are pattern files. By (a) $X=Z$ has no passed pawn after the move. If $Y$
+has one, the move is L. Otherwise $Y$ captures $q$ with his pawn on $j+s$: after a single step this pawn stands diagonally in front of $q$, and after
+W2$\to$4 it stands beside $q$ and takes it en passant. Now files $j-1,j,j+1$ hold no pawn of $X$: file $j-s$ holds a pawn of $Y$ only, file
+$j$ only the capturer, file $j+s$ nothing. So the capturer is passed (no flag after a capture). By (a) no pawn of $X$ was passed before the reply. A pawn of $X$ can change status only if a pawn of $Y$ on its three files left or
+arrived, or a flag protecting it lapsed. The only flag (after W2$\to$4) protected $q$, which is gone; the arrival on $j$ only adds a
+blocker; and file $j+s$ is one of the three files only of pawns on $j$, $j+s$, $j+2s$. Files $j$ and $j+s$ hold no $X$ pawn, and the
+$X$ pawn on $j+2s$ is still blocked by the $Y$ pawn on $j+3s$. So $Y$ alone has a passed pawn, the reply wins for $Y$, and the move is P.
+\end{proof}
+The side $s$ matters: for the window $j-3,\dots,j+1$ the capture from $j+1$ can release the enemy pawn on $j+2$ and lose a race.
+
+\paragraph{Insertion.}
+Let $q$ be a position on $\cyl{n}$ and $0\le c\le n-2$, such that files $c,c+1$ are pattern files of one wall and the flagged pawn, if
+any, is on neither of them. $\ins_c(q)$ on $\cyl{n+2}$ is $q$ with two new files placed after file $c$, holding copies of the contents
+of files $c+1$ and $c$: old file $f$ goes to $f$ if $f\le c$ and to $f+2$ if $f\ge c+1$; a flag goes with its pawn, and the same side
+holds the right. The new files continue the alternation, so they are pattern files of the lengthened wall. Two facts follow.
+(V) The neighbours of every old file are copies of its old neighbours (old file $c$ now sees a copy of file $c+1$, old file $c+1$ a copy
+of file $c$; the seam joins files $n+1$ and $0$), and the neighbours of the flagged pawn are the images of its old neighbours. So every old pawn has the same three files and
+the same flag status: the same moves and the same status. A new pawn has an enemy pawn two ranks ahead on both neighbouring files and is
+not passed. Hence the passed pawns of $\ins_c(q)$ are the images of those of $q$, with the same colour, rank, own-file content and
+flag status; for the same last mover $q$ and $\ins_c(q)$ are both non-terminal, or both terminal with the same winner.
+(C) If a pawn move $\nu$ in $q$ changes no square on files $c,c+1$, the image pawn has the corresponding move $\hat\nu$ in $\ins_c(q)$, and
+$\ins_c(q\nu)=\ins_c(q)\hat\nu$. (Files $c,c+1$ of $q\nu$ are unchanged, a new flag lies on the file of $\nu$, and by (V) a double step
+records a flag in both positions or in neither.)
+
+\begin{lemma}[Insertion; \lab{P}]
+Let $p$ on $\cyl{n}$ have no passed pawn and no e.p.\ flag, let $4\le c\le n-6$, and let files $c-4,\dots,c+5$ be pattern files of one
+wall. Let $\hat p=\ins_c(p)$. Then $\hat p$ has no passed pawn and no flag, and for each side: the children of its K-moves in $\hat p$ are
+the $\ins_c$-images of the children of its K-moves in $p$, and it has a T-move in $\hat p$ iff it has one in $p$.
+\end{lemma}
+\begin{proof}
+By (V), $\hat p$ has no passed pawn; it has no flag. Files $c-4,\dots,c+7$ of $\hat p$ are pattern files. Let $X$ move.
+(i) \emph{Central pawns.} A pawn of $X$ on a file $j\in\{c-3,\dots,c+4\}$ of $p$ has the window $j-1,\dots,j+3$ (if $j\le c+2$) or
+$j-3,\dots,j+1$ (if $j\ge c-1$) inside $c-4,\dots,c+5$. By Lemma~2(b) all its moves are L or P. The same holds in $\hat p$ for the pawns on
+files $c-3,\dots,c+6$ (the new pawns included), with windows inside $c-4,\dots,c+7$.
+(ii) \emph{Far moves.} Every other pawn of $X$ is on a file $f\le c-4$ or $f\ge c+5$ of $p$, and its image is on $f$ or $f+2$ of $\hat p$;
+every pawn of $\hat p$ not covered by (i) is such an image. A move $\mu$ of such a pawn changes only its own file and a neighbouring
+file (the target of a capture, which is also the file of an e.p.\ victim), so only files $\le c-3$ or $\ge c+4$ (files modulo $n$), and a new
+flag lies on its own file. Files $c-2,\dots,c+3$ of the child $p\mu$ are unchanged, so $\ins_c(p\mu)$ is defined and, by (C), equals $\hat p\hat\mu$.
+By (V), $\mu$ and $\hat\mu$ are both T, both L, or both non-terminal.
+(iii) \emph{Poison.} Let $p\mu$ be non-terminal. Its files $c-2,\dots,c+3$ are pattern files, and files $c-2,\dots,c+5$ of $\hat p\hat\mu$ are.
+Call a pawn of $Y$ \emph{near} if it is on files $c-1,\dots,c+2$ of $p\mu$, resp.\ $c-1,\dots,c+4$ of $\hat p\hat\mu$, and \emph{far} otherwise.
+A near pawn has three pattern files; the position has no passed pawn and its flag, if any, protects the pawn of $X$ that just moved. By
+Lemma~2(a), after a near reply $Y$ has no passed pawn, so the reply does not win for $Y$; this holds on both boards.
+The far pawns of $p\mu$ and of $\hat p\hat\mu$ correspond, with the same moves (V). A far reply $\nu$ starts on a file $\le c-2$ or $\ge c+3$
+and changes only files $\le c-1$ or $\ge c+2$; an e.p.\ reply takes the pawn moved by $\mu$, which stands on a file $\le c-4$ or
+$\ge c+5$, from a neighbouring file. So $\nu$ does not touch files $c,c+1$, and $\ins_c(p\mu\nu)=\hat p\hat\mu\hat\nu$ by (C). By (V),
+$\nu$ wins for $Y$ iff $\hat\nu$ does. Hence $\mu$ is P iff $\hat\mu$ is.
+By (i)--(iii), the T-moves of $X$ in $\hat p$ are the images of those in $p$, and the K-moves of $X$ in $\hat p$ are the images $\hat\mu$ of
+the K-moves $\mu$ in $p$, with children $\ins_c(p\mu)$.
+\end{proof}
+
+\paragraph{Finite checks.} Let $n_0=17$ for odd $n$ and $n_0=16$ for even $n$. Let $Z_n=\{n-1,0,1,2,3,4\}$ (odd $n$) and
+$Z_n=\{n-1,0,1,2,3\}$ (even $n$).
+\begin{itemize}
+\item[\textbf{C1}] \lab{C2} The reduced game $R(G_{n_0})$ has 144 nodes ($O_{17}$) resp.\ 104 nodes ($E_{16}$), with 209 resp.\ 177
+K-edges; no node has an e.p.\ flag; every node agrees with $\mathrm{start}_{n_0}$ outside $Z_{n_0}$; and $R(G_{n_0})+\nim2$ is a
+P-position. The graph (nodes and, for each side, the K-children and the existence of a T-move) was built by \texttt{rg.c} (C) and,
+identically, by a second builder that uses the move generator, passed-pawn test and race rule of the library \texttt{cylcgt}; the
+Python engine \texttt{eng.py} gives the same node and move counts, no flag and the same states on $Z_{n_0}$. The P-outcome at heap 2 was
+obtained by solving this graph (\texttt{rg.c}, \texttt{eng.py}), by the canonical value $\nim2$ of the \texttt{cylcgt}-built reduced game
+in \texttt{cylcgt}'s CGT arithmetic, and, without reduction, by C2 at $n_0$.
+\item[\textbf{C2}] \lab{C2} For every odd $n$ with $5\le n\le61$ and every even $n$ with $6\le n\le60$, two independently written
+unreduced whole-board searches, \texttt{rg.c} (C) and \texttt{eng.py} (Python), give the outcomes N, N, P, N for $G_n+\nim h$,
+$h=0,1,2,3$, for each side moving first. Neither search uses the reduced game or Lemmas 1--3. In addition, the canonical value of the whole
+board $G_n$, computed with \texttt{cylcgt}, is $\nim2$ for $5\le n\le10$. The proof uses only the widths $n<n_0$.
+\end{itemize}
+
+\begin{proof}[Proof of the Theorem]
+Let $c=9$ (odd $n$) or $c=8$ (even $n$). In $\mathrm{start}_n$ every pawn has an enemy pawn strictly ahead on its own or a neighbouring
+file, so it has no passed pawn; it has no flag; and for $n\ge n_0$, $\ins_c(\mathrm{start}_n)=\mathrm{start}_{n+2}$ (the copies of files
+$c+1,c$ add one period to the wall). For $n\ge n_0$ of the right parity let $I_n$ say: no node of $R(G_n)$ has a flag, and every node agrees with
+$\mathrm{start}_n$ outside $Z_n$. $I_{n_0}$ is C1.
+Assume $I_n$. Every node $p$ is non-terminal (it is the root or the child of a K-move) and has no flag. The files $c-4,\dots,c+5$
+($5,\dots,14$, resp.\ $4,\dots,13$) are wall files outside $Z_n$, because $n-2\ge14$ for odd $n\ge17$ and $n-2\ge13$ for even
+$n\ge16$; so they hold their start content and are pattern files. Also $4\le c\le n-6$. So Lemma~3 applies to every node.
+$\ins_c$ is injective (delete the two new files). By Lemma~3, the image of a K-edge is a K-edge, so, by induction on the distance from
+$\mathrm{start}_n$, the images of the nodes of $R(G_n)$ are nodes of $R(G_{n+2})$; and every K-child of an image $\ins_c(p)$ is the image of a K-child of $p$, so, by induction on the distance
+from $\mathrm{start}_{n+2}=\ins_c(\mathrm{start}_n)$, every node of $R(G_{n+2})$ is an image. Thus $\ins_c$ is an isomorphism of the
+reduced games: nodes, side-labelled K-edges and, for each side, the existence of a T-move. Images have no flag. The new files are copies of files outside $Z_n$, $Z_n\setminus\{n-1\}$ lies left of the cut, and $n-1$ goes to
+$n+1$; so every image agrees with $\mathrm{start}_{n+2}$ outside $Z_{n+2}$, and $I_{n+2}$ holds.
+Hence $I_n$ holds and $R(G_n)\cong R(G_{n_0})$ for every $n\ge n_0$ of the right parity. The outcome of $R(g)+\nim h$ depends only on
+this structure and $h$. So $R(G_n)+\nim2$ is a P-position by C1, and
+$G_n+\nim2$ is a P-position by Lemma~1. For $n<n_0$ this is C2 (odd $5,\dots,15$; even $6,\dots,14$). No width is skipped.
+Other heaps: in $G_n+\nim2$ every option loses, in particular the heap moves to $G_n+\nim0$ and $G_n+\nim1$ with the other side to
+move; as this holds for either side moving first, $G_n+\nim0$ and $G_n+\nim1$ are N-positions. For $h\ge3$ the heap move to $G_n+\nim2$
+wins, so $G_n+\nim h$ is an N-position. These are the outcomes of $\nim2+\nim h$.
+(\lab{P}, given the computed facts C1 and C2.)
+\end{proof}
+
+\paragraph{What is and is not proved.}
+The theorem gives the outcome of $G_n+\nim h$ for every heap; the proof uses no bound on $h$. Moreover, replace the child of every move
+to a terminal position by the integer $+256$ (won by White) or $-256$ (won by Black). This gives a short partizan game $\hat G_n$, and
+$G_n+\nim h$ has the outcome of the disjunctive sum $\hat G_n+\nim h$ (a heap move keeps the board and its flag, and $\pm256+\nim{h'}$ is won
+by the favoured side whoever moves). As $\hat G_n+\nim2$ is a P-position, $\hat G_n=\nim2$ in normal-play CGT. This does not cover sums of
+$G_n$ with other pawn positions when the first passed pawn on any board ends the game, nor the component-sum model of \texttt{cylcgt},
+in which a ring that splits into components is evaluated as a sum; Lemma~1 is not available there. Only the race rule ``count'' is used.
+\end{wallproof}
+
+\bigskip\hrule\bigskip
+\section*{Details (not part of the proof)}
+
+\paragraph{Reachable positions.} By C1 and the induction, for every $n\ge n_0$ the reduced game has exactly 144 (odd) resp.\ 104 (even)
+nodes. A node is $\mathrm{start}_n$ with the contents of the files of $Z_n$ replaced by one of the zone states listed in the code
+repository. $Z_n$ holds files $0,1,2$ and the wall pawns next to them (odd: $B5$ on $n-1$, $W3$ on 3, $B5$ on 4; even: $W2$ on $n-1$ and
+on 3). In every node of the reduced game the wall files $5,\dots,n-2$ (odd) resp.\ $4,\dots,n-2$ (even) keep their start content. This
+says nothing about play after an L- or P-move, or after a T-move.
+
+\paragraph{The five poisoned wall moves (Lemma~2(b)).}
+The table lists the wall advances and the poisoning reply of $Y$ when the advance does not already lose (if $Y$ has a passed pawn after
+it, the move is L). It shows the window $j-1,\dots,j+3$ ($s=1$); for the window $j-3,\dots,j+1$ replace $j+k$ by $j-k$.
+\begin{center}\small
+\begin{tabular}{llll}
+type & move of $q$ on file $j$ & reply of $Y$ & why $X$ has no passed pawn afterwards\\\hline
+O & W3$\to$4 & B5 on $j{+}1$ takes on $(j,4)$ & W3 on $j{+}2$ blocked by B5 on $j{+}3$\\
+O & B5$\to$4 & W3 on $j{+}1$ takes on $(j,4)$ & B5 on $j{+}2$ blocked by W3 on $j{+}3$\\
+E & W2$\to$3 & B4 on $j{+}1$ takes on $(j,3)$ & W2 on $j{+}2$ blocked by B4 on $j{+}3$\\
+E & W2$\to$4 & B4 on $j{+}1$ takes e.p.\ on $(j,3)$ & same\\
+E & B4$\to$3 & W2 on $j{+}1$ takes on $(j,3)$ & B4 on $j{+}2$ blocked by W2 on $j{+}3$\\
+\end{tabular}
+\end{center}
+In each case the capturer is passed because files $j-1,j,j+1$ then hold no pawn of $X$. Example for the side: on eleven files with
+$W3,B5,W3,B5,W3,B5$ on files $3,\dots,8$ and nothing else, B5$\to$4 on file 6 has only the window $3,\dots,7$. The capture from file 5
+wins for White; the capture from file 7 releases the $B5$ on file 8, both distances are 4, and Black wins the tie.
+
+\paragraph{Remarks.}
+(1) Only the whole-board game is covered. In the component-sum model of \texttt{cylcgt}, Lemma~1 is not available: a decisive passer in one
+component can be cancelled by a $-256$ option in another.
+(2) The ten-file pattern interval (radius 5) in Lemma~3 is what the hand proof uses; it is a sufficient hypothesis. In a random sample
+for the odd family, the correctly phased insertion had counterexamples at radius 1 and 2 and none at radius 3, and a wrongly phased
+insertion had counterexamples at radius 5; the correctly phased samples at radius 5 had none.
+(3) The same induction applies to the single-step family with core $K=(W3B6,B6,W4B7,W4,W6B7)$: $F_n=(B4,W2)^{(n-5)/2}K$ for odd
+$n\ge5$ and $F_n=(B4,W2)^{(n-6)/2}K\,W2$ for even $n\ge8$. Its reduced games have 662 nodes (even $n$, $n_0=18$, cut $c=4$, zone
+$\{n-7,\dots,n-3\}$) and 3568 nodes (odd $n$, $n_0=19$, cut $c=6$, zone $\{0,1,n-6,\dots,n-2\}$); in both the ten-file interval lies in the
+unchanged part of the wall. The analogues of C1 and C2 were computed for it (C2 by the same two searches for $n=5$ and $7\le n\le61$).
+This transfer has not been written out in full.
+\end{document}

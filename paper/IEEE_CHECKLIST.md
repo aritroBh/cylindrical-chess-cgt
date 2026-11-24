@@ -199,3 +199,24 @@ Target: IEEE Transactions on Games. Updated 2026-11-22. `[x]` done, `[~]` runnin
 - [x] Anonymous code copy rebuilt from commit 2be946c1 at the end of the round: all checks PASS, 0 FAIL
   (`dist/anon/VERIFY.md`)
 - [ ] Free tools that need the author before they can run: agy (quota), Cursor (usage), muse (billing), qwen (login)
+
+## Submission readiness (started 2026-11-23)
+
+Roles: Fable plans and reviews; Opus referees; Sonnet codes and applies; Haiku runs quick checks.
+
+- [x] R14 (Opus): mock ToG referee report, `delegate/out/R14_final_review/REPORT.md`. Verdict: major revision. Verified by me against the source: Corollary 4 stated for both sides (supplement proves it per side); "all the second-player wins" false by Table S2 (bounded sides counted: 19, P1 and N3 among them).
+- [x] W2 (Sonnet): R14 items 1-7, 10, 12, 13 and the bibliography fixes applied to the 10-page paper (diff reviewed by me; four small corrections of mine on top). Table I left the 10 pages and now prints in the supplement's S3 as Table S1. Engine statistics recomputed (`delegate/out/W2_review_fixes/fisher_tablev.py`): the referee's p-values confirmed; threshold 150 cp at `engine/runs/analyze_sf.py:22`. Draw scoring confirmed at `realchess/oracle_value.py:635-645`. Paper 10 pages, 0.36 in free; abstract 199 words.
+- [x] W3 (Sonnet): the same corrections in the long version and in `dist/tog/long/` (line counts unchanged, `04_kings.tex` copies identical; diff reviewed). The supplement's S7 no longer says the five-file ring sits beside T with a free file (false: the white king is on f). Long version rebuilt: 16 pages named, 16 anonymous; arXiv checks pass.
+- [x] T89 (Codex): referee of the wall-ring proof S13 itself, `delegate/out/T89/REPORT.md`. Verdict: holds with fixes. The theorem and the three lemmas' conclusions stand; the printed direction of the punishing capture in Lemma 2(b) is wrong in the left-window case (counterexample to the reply, not to the lemma), step (iii) of Lemma 3 has a gap that a replacement closes, insertion was not defined for flagged positions. Its own program gives NNPN for every width 5..17. Two unreduced engines agree for every width 5..61, so the paper's "two programs for n<17" is true.
+- [x] R17 (Opus): repaired S13 text from T89 (11 of 12 findings adopted, the F-family remark partly); swapped into `research/ring_family_proof/proof.tex`; Note 1, the supplement builder and S17 brought in line
+- [x] T90 (Codex): final re-read of the repaired S13, `delegate/out/T90/REPORT.md`: sound with wording fixes; the cuts of S14 and Notes 1-4 satisfy the new hypotheses
+- [ ] W4 (Sonnet): apply T90's exact replacements to S13 and to the restatements in S14 and Notes 1-4 (running)
+- Decided, not applied: position B is not renamed and S(X) keeps its letter (the supplement and figures use them); ChessSums paragraph stays; repository paths stay in the supplement (the anonymous code copy has the same paths; a title search finds the public repository whatever the supplement prints)
+- [x] R15 (Sonnet): consistency audit, report in `delegate/out/R15_consistency/REPORT.md`. Cross-references 25/25 and numbers 14/14 pass; no identifying text. To fix: two bibliography entries (no year in [15], no institution in [10]); AI statement differs between paper and submission files; eight stale statements in `dist/tog/submission/`; eight cited paths missing from the anonymous code copy; six supplement headings are file paths; 36 revision-date lines in the supplement.
+- [x] R16 (Haiku): PDF technical checks: all four PDFs US Letter, every font embedded, no Type 3, no raster images; both anonymous PDFs have no Author field, no name or e-mail in the text. The only github.com text in the anonymous paper is the Stockfish and lc0 references (third-party, fine).
+- [ ] Apply the fixes from R14-R16 (one Sonnet writer), keep 10 pages
+- [x] Supplement (W1, Sonnet): six S15 headings are descriptive, with the file path on a line below; the six programs and the lemma notes that are not in the code copy are marked so; `kings/kpsolve.c` named correctly; 36 revision-date phrases removed from S12.2 (no mathematics changed; reviewed in the diff)
+- [x] `dist/tog/set_anon_url.sh URL` sets the link in both anonymous builds and calls `dist/tog/rebuild.sh` (dry run and bad-URL refusal tested; the full path runs when the link exists)
+- [x] `dist/tog/submission/` refreshed (W1): AI statement quoted from the paper, steps renumbered 1-13, repository described as public by the author's decision, page counts and dates current
+- [ ] Rebuild everything, rerun all checks, rebuild the anonymous code copy
+- [ ] Author: read the proofs (`paper/PROOF_READING_ORDER.md`); create the anonymous link; confirm the statements in SUBMIT_STEPS; say when to push; submit in ScholarOne

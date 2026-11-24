@@ -7,18 +7,18 @@ evaluation can miss them until the search sees the fight's end.
 \subsection{A CGT Test Suite}
 
 We built $233$ legal positions on the ordinary $8\times8$ board with at most seven men, each labeled by its CGT
-class (Table~\ref{tab:sf}). In $181$ of them the Lichess tablebase~\cite{LichessTB} confirms the winning moves
+class in the model (Table~\ref{tab:sf}). In $181$ of them the Lichess tablebase~\cite{LichessTB} confirms the winning moves
 that CGT predicts; in the other $52$ the model and the tablebase disagree, so we score the engines against the
 tablebase.
 
 \subsection{Stockfish and Lc0}
 
 We ran Stockfish~19~\cite{Stockfish} on one thread with a $64$~MB hash and no tablebases. It solves all $233$
-positions at $10^5$ nodes, and $232$ already at $10^3$ \lab{C1}. The classes separate at a small fixed depth
-(Table~\ref{tab:sf}): at depth~1 the engine reads hot positions, numbers and switches correctly
-$73$--$81\%$ of the time, but infinitesimals only $30\%$ ($26\%$ at depth~2) and nimbers $53\%$
-\lab{C1}, consistent with tempo and parity fights, though nimbers and the class \emph{other} are not clearly
-separated at this sample size. Both classes reach $100\%$ by depth~8.
+positions at $10^5$ nodes, and $232$ already at $10^3$ \lab{C1}. A verdict (win, draw or loss at $\pm150$\,cp) matches if it agrees with the tablebase. At depth~1
+(Table~\ref{tab:sf}) the engine matches on hot positions, numbers and switches $73$--$81\%$ of the time, on
+infinitesimals $30\%$ ($8$ of $27$) and on nimbers $53\%$ \lab{C1}. Infinitesimals trail the first three classes
+(Fisher's exact test, $p<0.001$ each) but not nimbers or the class \emph{other}. Infinitesimals and nimbers reach
+$100\%$ by depth~8.
 With one engine and a small sample, this is a pilot.
 
 \begin{table}[!t]

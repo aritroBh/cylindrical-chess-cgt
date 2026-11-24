@@ -8,9 +8,8 @@ Let $X$ be a pawn component on the ordinary board beside T. An \emph{end positio
 position where a line of play first reaches a passed pawn; its two \emph{sides} are white to move and black to
 move. Replace each end position by $+\BIG$ if white wins it in real chess with either side to move, by $-\BIG$
 if black does, by $\game{+\BIG}{-\BIG}$ if the side to move wins, and by $0$ if the side to move loses. If a side
-is drawn, the \emph{draw treatment} counts that draw as a win for black, as a win for white, or as worth $0$; in
-the last case the end position is $\game{\BIG r_W}{\BIG r_B}$, where $r_W,r_B\in\{-1,0,1\}$ are white's results
-with white and with black to move. The canonical value of the resulting tree is the \emph{oracle value} $O(X)$.
+is drawn, the \emph{draw treatment} counts that draw as a win for black, as a win for white, or as worth $0$, scoring the end position $\game{\BIG r_W}{\BIG r_B}$ ($r_W,r_B\in\{-1,0,1\}$: white's results with white and with
+black to move; a dead draw is scored $\star$). The canonical value of the resulting tree is the \emph{oracle value} $O(X)$.
 \end{definition}
 
 \begin{lemma}[Sandwich; \lab{P}]\label{lem:sandwich}
@@ -49,7 +48,7 @@ $\nim{2}$ under the opponent rule with en passant on, has a positive oracle valu
 
 The $1/8$ position of Section~\ref{sec:targets} has $10$ men. Its e.p.-aware tree has $302$ end-position sides
 with at most seven men, all resolved by the tablebase: in $290$ only one side has a passed pawn, of which $283$
-agree with the model, $5$ disagree and $2$ are draws. A search for the larger end positions that decide the value
+agree with the model, $5$ disagree and $2$ are draws (the other $12$ are races). A search for the larger end positions that decide the value
 leaves, after one eight-man result against the model, one eight-man position and three of nine men; our
 king-and-pawn solver (queen promotions only) shows that all four agree with the model on both sides. The hardest,
 black to move in \pos{W b2 b5 / B a5 b4}, needed $6.1\times10^{10}$ states in $15.6$~h (Section~S7).
