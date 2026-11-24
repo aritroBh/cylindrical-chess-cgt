@@ -1,0 +1,133 @@
+K55 FINDINGS: do the other exact groups of K45 equal over in sums, and what is the value of Z_O?   Task date 2026-11-23
+==================================================================================================================
+AI work, no human re-derivation.  Model and reading as in K47: a group is the P game of its own pieces as a component of a
+D-sum (Definition 1.3; K40's convention: a promotion is a terminal win for the promoter and ends the play, a side in check may
+not move in the other component, a move elsewhere clears the e.p. right, a side with no move loses, convention N).  Labels:
+COMPUTED-1 one program, CHECKED-2 two programs agree.  Nothing here is PROVED.  Roots: A = shuttling king on its first
+square (d4, or f6 for the 2 + 3 group), B = on its second square (d5, or g6).
+
+Solvers: K47's za.cpp (investigator) and K47's referee solver rz.cpp, copied to src/ and changed only where needed:
+- both: hash keys widened so that pawn bits up to 49 (cyl:10x6) no longer overlap the king and e.p. fields (K47's keys were
+  correct for W <= 9 only); both print their peak memory;
+- za: frees its hash map and node list after the build; rz: frees its hash table after the build, replaces its FIFO queue by
+  bit sets of BFS levels, keeps value and counter in one byte, accepts terminals (W, B) in test games (za already did).
+Regression: the changed za reproduces K47's logs/full_A_N.out byte for byte (1,100 results; logs/p1_za_G8reg.out) and the
+27-test subset again after the last change; the changed rz reproduces K47's verify/logs/main_N.out byte for byte (108 results).
+Every result below was computed by both za and rz, and they agree on every result of every run (0 differences in all).
+
+PART 1: THE OTHER EXACT GROUPS (CHECKED-2)
+------------------------------------------
+K45's ten exact groups on cyl:8x6, 9x6, 10x6 are five over groups and their colour mirrors (under groups; a colour mirror
+gives the negated results, so they were not run).  Of the five over groups, the cyl:8x6 group on files a, b, f is the
+reflection of Z_O (files a, b, e), so the same game.  That leaves three new groups:
+  G9   cyl:9x6   Kf5 kd4/kd5 Pb2 Pb4 Pe2 pa4 pb5 pe5   (the pawn group of Z_O)
+  G10  cyl:10x6  the same
+  H10  cyl:10x6  Kg4 kf6/kg6 Pb3 Pe2 pa5 pb4 pe5        (the 2 + 3 group)
+Each against K47's 275 test games, both roots, both sides to move (1,100 results), r(G + T) against r(over + T) (the over
+column was checked once more by a third, small Python solver: 0 differences).
+  G9:  differs from over at 38 of 1,100 results, and its 1,100 results are identical to Z_O's (the same 38 differences:
+       T = *, down, under and sums with them, every one a Black win where over gives a White win or a draw).
+  G10: the same: 38 differences, identical to Z_O at all 1,100 results.
+  H10: equal to over at all 1,100 results.  Then also against the 433 + 44 test games of part 2 (tests55.txt, tests55b.txt):
+       equal to over at all 3,008 results (752 test games, both roots, both sides).
+Answer: yes, one group agrees with over on the whole battery: the 2 + 3 group H10 of cyl:10x6 (CHECKED-2), on K47's battery
+and on the 477 further test games of part 2.  This is agreement on a finite battery, not a proof that H10 = over (see part 2.4).
+The pawn group of Z_O behaves the same on cyl:8x6, 9x6 and 10x6 (not over).
+Node counts (za / rz): G9 5,232,179 / 3,890,866; G10 6,743,855 / 4,986,946; H10 2,550,522 / 1,972,978 (za keeps every e.p.
+target, rz only capturable ones, as in K47).
+
+PART 2: THE VALUE OF Z_O (cyl:8x6)
+---------------------------------
+2.1 Enlarged battery (data CHECKED-2; the candidate scan is one Python program, COMPUTED-1).
+  tests275  K47's 275 games (K47's za and zb, and our za regression).
+  tests55   433 new games: up*, down*, dbl_up (⇑), dbl_down, dbl_upstar (⇑*), dbl_downstar, up2nd (↑², Conway's {0 | ↓*}),
+            down2nd, tiny-n and miny-n (n = 1..4), the switches {n | -n} (n = 2..4), {n | 0}, {0 | -n} (n = 1..4; named swa/b),
+            and every sum of one to three atoms from {*, ↑, ↓, tiny-1, miny-1, tiny-2, miny-2, ±1, 1, -1, over, under} not already
+            in tests275.  Games reduced by bisimulation (results unchanged), at most 90 nodes.
+  tests55b  44 games added after the first scan: miny-n for n = 5..30, tiny-n, B_n = {0 | tiny-n} and -B_n, and sums with
+            miny-13 and -B_13.
+  tests55c  21 games: the loopy candidates tA = {0 ‖ 0 | off}, tB = {0 | tA}, their negatives and sums.
+  tests55d  21 games: the D-game candidates tD = {0 ‖ 0 | ⊖}, uD = {0 | tD} (⊖ a terminal), their negatives and sums.
+  In all 794 test games, 3,176 results; Z_O differs from over at 38 + 375 + 92 + 45 + 30 of them.  Z_O has draws only beside
+  loopy tests (every one contains dud, on + off, over + under, or tA/tB against the other's negative).
+Candidates (src/cands55.py, src/candsD.py): every named game above; every sum of two from the atoms and new singles; every
+sum of three atoms; tiny-n for n = 5..30 and their sums with the short atoms; B_n; all 1,905 games {Ls | Rs} with Ls from
+{0, *, ↑, ↑*} and Rs from {0, *, ↑, ↑*, tiny-20, tiny-20 + *, tiny-20 + ↑}; tA, tB, tD, uD.  3,085 + 4 candidates.
+Survivors, battery by battery:
+  275 tests:   A: tiny-2, tiny-3, tiny-4 (and equal games);  B: ⇑* (and equal games, e.g. * + ⇑, ↑ + ↑*).   (K47's result.)
+  + tests55:   A: tiny-n for every n from 5 to 20 tried; tiny-2, -3, -4 fail (tiny-k fails exactly at the tests miny-m with
+               m >= k: Z_O + miny-k is a Black win with either side to move).  B: {0 | tiny-20} and games equal to it; ⇑* fails
+               (at miny-n, ⇓*, ↓² and similar tests with Black to move).
+  + tests55b:  A: none (tiny-30 fails only at miny-30, Black to move: A < tiny-n for every n tried).  B: only B_30, whose
+               negative is not in the battery; B_20 fails exactly at -B_20 and miny-30.
+  + tests55c:  tA matches A everywhere except 4 results (its own negative: tA - tA is a draw, Z_O + (-tA) a Black win);
+               tB matches B except 8.
+  + tests55d:  tD matches A everywhere except 4 results, uD matches B except 4; again the failures are their own negatives.
+  So NO candidate survives the whole battery at either root.  The data point to this picture (an interpretation, not a
+  result): A is a positive infinitesimal below every tiny-n, i.e. Black's threat is a promotion, larger than any finite
+  reserve in the tests; B looks like {0 | A}.  Every exact candidate written down so far was refuted by the test game -H.
+2.2 Order tests (definition and results; src/order55.py, logs/order.txt).
+  Definition used.  LOOPY §3 has no order relation on loopy D-games.  The nearest definitions are in Proposition 3.9′
+  ("y equals a number x (that is, y − x is a second-player win: both players lose moving first)") and in the conventions of
+  "Sums with loopy components" ("Left wins G + n second" = (G + n, Right to move) ∈ W_L); Proposition 4.5's proof of
+  0 < over < x uses the same difference game.  So we used the difference test in the D-sum:
+     G >= H  iff White survives Z_O ⊞ (-H) with Black to move first;   G <= H iff Black survives it with White to move first;
+  "survives" counted twice: draws for Left (White survives = W or D) and draws for Right (White must win, W).  -H is the
+  negative (Left and Right swapped, ⊕ and ⊖ swapped).  Both counts gave the same answer in every case below (none of the
+  deciding results was a draw).
+  Results (W/L = White/Black wins; (White first, Black first) of Z_O ⊞ (-H)):
+     H                 root A                            root B
+     0                 (W, W): A > 0                     (W, W): B > 0
+     ↑                 (L, L): A < ↑                     (W, L): B || ↑ (confused)
+     ⇑*                (L, L): A < ⇑*                    (L, L): B < ⇑*
+     over              (L, L): A < over                  (L, L): B < over
+     tiny-n, n = 2, 4, 5, 12, 20, 30   (L, L): A < tiny-n   (W, L): B || tiny-n
+     B_n, n = 5, 12, 20                (L, L): A < B_n      (L, L): B < B_n
+     tA, tB            (L, L): A < tA, A < tB            tA: (W, L) confused;  tB: (L, L) B < tB
+     tD, uD            (W, W): A > tD; uD: (W, L)        (W, W): B > tD, B > uD
+  These are D-sum outcomes (CHECKED-2: za = rz).  They are not an order: for loopy or D-games the difference test is not even
+  reflexive here.  tA ⊞ (-tA) is a draw with either side first (so "tA = tA" holds only with draws counted for the survivor),
+  and tD ⊞ (-tD) with Black first is a Black win (Black's threat ⊖ comes one move before White's ⊕), so "tD >= tD" fails.
+  Hence "A > tD" and "A < tA" say nothing about equality or about A's place between tD and tA.
+2.3 Stopper.  Z_O is NOT a stopper (CHECKED by rz's stopper mode, COMPUTED-1; also by hand).  By hand: root A with Black to
+  move, ...Kd4-d5 Kf5-f6 ...Kd5-d4 Kf6-f5 returns to it (every move legal: f6, f5 are not attacked, the kings stay two files
+  apart), an alternating cycle of length 4.  By program (LOOPY §3 definition: the graph on (node, mover) with alternating moves
+  has a cycle): 5,513,626 legal (node, mover) states, 5,512,994 of them start an infinite alternating line, all four root
+  states included; a printed 16-cycle runs both kings round rank 1 (logs/stop_G8.out).  G9, G10, H10 are not stoppers either.
+  What this means for 2.2: (i) Siegel's simplest forms, which LOOPY §3 ("Reading") uses for stoppers, are not available;
+  (ii) Proposition 3.10 (no draws beside a stopper) does not apply, and draws do occur (beside over, under, on, dud);
+  (iii) for non-stoppers G - G need not be a second-player win (on + off = dud), so the difference test is not a test of
+  order or of equality; it is reported above as a list of D-sum outcomes only.  Z_O also has terminals (promotions), so
+  the CGT translation of Theorem 3.7 needs first-event dominance, which was not checked.
+2.4 Labels and what a battery can prove.  No candidate passed every test, so no COMPUTED-1 value is claimed.  The 2 + 3 group
+  H10 passes every test against over (752 games, CHECKED-2); in the brief's terms this is a COMPUTED-1/CHECKED-2 signature,
+  not a value.  A finite battery and an order test against one game do not prove equality: equality in D-sums means equal
+  results in every context, and LOOPY §3 has no theorem that reduces this to finitely many tests or to the difference game.
+  The nearest statements (Theorem 3.7 and the "Reading" after Theorem 3.8) identify a sum's D-result with a CGT outcome under
+  first-event dominance and point to Siegel's theory for stoppers; Z_O and H10 are not stoppers, so neither applies.
+
+NOT DONE
+--------
+- The exact over groups of K45 on cyl:11x6 and wider (the solvers are limited to 64 squares).
+- H10 against the loopy and D-game candidate batteries (tests55c, tests55d), and H10 beside P contexts.
+- -B_30 and larger n (would settle whether B_n ever survives); a value of Z_O; a proof of anything.
+- The colour-mirror (under) groups (their results are the negatives) and the reflected cyl:8x6 group (the same game).
+
+PROCESS
+-------
+All solver runs went through kings/delegate/heavy.sh (nice 15) under capped.sh, which polls the solver's RSS every 2 s and
+stops its own recorded PID above 2.9 GB.  Memory was measured with /usr/bin/time -l (T = 0) before any batch
+(logs/m_*.err): 0.85 to 2.27 GB.  Over-limit events (all stopped by the watchdog or seen in a measurement; none of their
+outputs is used): rz on cyl:8x6 with a 90-node test peaked at 3.62 GB in a measurement run (logs/m2_rz_G8.err; the polling
+missed the spike); rz on cyl:10x6 reached 4.0 GB, then 3.05 GB in measurement runs and 3.30 GB in the batch; za on cyl:10x6
+3.25 and 3.08 GB in chunked runs; za and rz with 120-node tests 3.51 and 3.04 GB.  Fixes: the memory changes listed above,
+smaller test games, and one fresh process per test or per 5 tests (memory grew from test to test in one process).  Every
+completed run stayed under 3.0 GB (largest 2.96 GB, za on tests55).  Only PIDs started here were stopped (by capped.sh, own
+child PID); no pattern kills; pids.log lists every process.  Binaries were deleted at the end.
+
+FILES (kings/delegate/out/K55/)
+-------------------------------
+src/: za.cpp, rz.cpp (changed copies), games55.py (games, sums, reduction, small solver), gen55.py, gen55b.py, gen55c.py,
+gen55d.py (batteries), compare55.py (za against rz, Z against over), cands55.py, candsD.py (candidate scans), order55.py,
+gen_tests.py and small.py (K47's, for reference).  tests275.txt, tests55*.txt, roots_*.txt; run_*.sh, capped.sh; chunks*/
+(single-test inputs); logs/ (p1_* part 1, p2*_* part 2, stop_* stopper, cands.txt, order.txt, m*_* memory); pids.log.

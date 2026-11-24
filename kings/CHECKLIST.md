@@ -16,8 +16,10 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
    - [x] Exact over and under groups exist in P on cyl:8×6 and wider, files a, b, e (K45)
    - [x] The K45 group is not equal to over in sums (38 of 1,100 results differ); its d4 freeze is a mutual zugzwang,
          proved by hand (K47)
-   - [~] The value of the K45 group; do the other exact groups of K45 equal over in sums? (K55: investigator done, referee
-         running; the 2 + 3 group on cyl:10×6 is reported to have the results of over on every test, not yet checked)
+   - [x] The other exact groups in sums: the 2 + 3 group of cyl:10×6 has the results of over on all 752 tests; the
+         3 + 3 group does not on any width (K55)
+   - [ ] The value of the 3 + 3 group: no candidate of 3,000 survives; it is not a stopper (K55)
+   - [ ] The 2 + 3 group against loopy test games and beside P contexts; groups on cyl:11×6 and wider in sums
    - [~] A stronger exact test (losing moves still lose against free passes) and a lemma that it forces the results of
          over (K56)
    - [ ] Hand proof of (O1) and of the d5 root of the K45 group

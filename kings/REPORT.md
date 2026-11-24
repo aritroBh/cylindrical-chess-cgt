@@ -475,6 +475,12 @@ Every deliverable was given to independent referees (Claude models) told to brea
     reflection, the only exact groups of Definition 4.8 in the searched range, and translates are exact on flat 9×6 and
     10×6. On cyl:8×7 there are four other exact groups. No value in sums was computed for any of these
     (`kings/delegate/out/K48/REVIEW.md`).
+  - K55 (2026-11-23) runs the other exact groups of K45 in sums. The 3 + 3 pawn group gives the same 38 differences from
+    over on cyl:9×6 and 10×6. The 2 + 3 group of cyl:10×6 (`Kg4 kf6/kg6 Pb3 Pe2 pa5 pb4 pe5`) has the results of over
+    against all 752 test games tried (CHECKED-2, and a third solver on the decisive tests): a finite battery, not a proof.
+    The difference is one move: in the 3 + 3 group 1…e5–e4 wins as soon as Black has a spare move, and the 2 + 3 group
+    has no such move (COMPUTED-1). The value of the 3 + 3 group is not identified: none of over 3,000 candidates
+    survives, and the group is not a stopper (`kings/delegate/out/K55/REVIEW.md`).
   - Theorem 1.11(c) repaired (2026-11-23): its proof used the e.p. condition (E) without assuming it, and its frontier
     step used an unproved inheritance of threats by re-split components. (E) is now a hypothesis (every use already had
     it through Theorem 1.14), and the inheritance is proved. Found while the paper's proofs appendix was written and
