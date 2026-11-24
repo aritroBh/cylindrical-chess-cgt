@@ -31,7 +31,8 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
          own graph or by one short test game, Corollary 4.19 (proved, refereed) (K60)
    - [x] Blind proof of Theorem 4.18 by Codex: all four statements proved; part (c) without the determinacy theorem;
          the proofs need the e.p. right to add moves only, as in chess (K61)
-   - [ ] A test family for the results of over that does not depend on the group
+   - [~] A test family for the results of over that does not depend on the group: is there one, or does every
+         finite family miss some group? (K62, investigator running)
    - [ ] Hand proof of (O1) and of the d5 root of the K45 group
    - [x] The K45 group in chess at cap 1: d4 freeze and its zero exact, the rest undecided; exact groups also on flat
          8×6 to 10×6 and on cyl:8×7 (K48)
