@@ -39,3 +39,15 @@ AI work, no human re-derivation.
 
 Three wording slips in `PROOF.md` are listed at its top. The investigator's `EDITS.md` numbered the new statements
 4.17 and 4.18; the note uses 4.18 and 4.19 because K59 takes 4.17.
+
+## Blind proof by Codex (K61, 2026-11-24)
+
+Codex (model gpt-6.2-astra) was given the definitions and the four statements only (`kings/delegate/briefs/K61_over_test_blind.md`)
+and proved all four: `kings/delegate/out/K61/PROOF.md`, `kings/delegate/out/K61/REPORT.md`. Two points it adds:
+
+- Its proof of part (c) does not cite the determinacy theorem for Büchi games. It uses a descending sequence of
+  finite win sets on the group's K states.
+- The proofs need the e.p. right to add moves only. That holds in chess and in the toy groups. Codex gives three
+  abstract groups where the absence of a right makes a move legal, and the statements fail there.
+
+Neither point was refereed separately. The second is now stated in the note under Theorem 4.18.

@@ -502,6 +502,10 @@ Every deliverable was given to independent referees (Claude models) told to brea
     passes. An abstract exact group fails (B1) and still has the results of over; no known real group does. The 3 + 3
     group fails the exact condition only at 1…e5–e4 (CHECKED-2). Open: a test family that does not depend on the group
     (`kings/delegate/out/K60/REVIEW.md`).
+  - K61 (2026-11-24): Codex (gpt-6.2-astra) proved Theorem 4.18 and Corollary 4.19(i) blind, from the definitions and
+    the statements only. Its proof of part (c) does not use the determinacy theorem. It also shows that the proofs
+    need the e.p. right to add moves only, as it does in chess: in an abstract group where the absence of a right
+    makes a move legal, the statements fail (`kings/delegate/out/K61/PROOF.md`; not refereed separately).
   - Theorem 1.11(c) repaired (2026-11-23): its proof used the e.p. condition (E) without assuming it, and its frontier
     step used an unproved inheritance of threats by re-split components. (E) is now a hypothesis (every use already had
     it through Theorem 1.14), and the inheritance is proved. Found while the paper's proofs appendix was written and

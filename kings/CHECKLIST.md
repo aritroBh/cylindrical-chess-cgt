@@ -1,6 +1,6 @@
 # Kings checklist
 
-Updated 2026-11-23. `[x]` done and committed, `[~]` running, `[ ]` open. Each item has an investigator and an
+Updated 2026-11-24. `[x]` done and committed, `[~]` running, `[ ]` open. Each item has an investigator and an
 independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings/theory/LOOPY.md`.
 
 ## Open questions of LOOPY §8
@@ -29,7 +29,8 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
          running)
    - [x] The exact condition in place of the Black-side condition: Theorem 4.18, decided by one game on the group's
          own graph or by one short test game, Corollary 4.19 (proved, refereed) (K60)
-   - [~] Blind proof of Theorem 4.18 by Codex (K61)
+   - [x] Blind proof of Theorem 4.18 by Codex: all four statements proved; part (c) without the determinacy theorem;
+         the proofs need the e.p. right to add moves only, as in chess (K61)
    - [ ] A test family for the results of over that does not depend on the group
    - [ ] Hand proof of (O1) and of the d5 root of the K45 group
    - [x] The K45 group in chess at cap 1: d4 freeze and its zero exact, the rest undecided; exact groups also on flat
@@ -78,5 +79,5 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
 ## Housekeeping
 
 - [x] Post-commit checks K41 and K46 applied
-- [x] Pushed by the paper side on the author's word, up to c63145cd (2026-11-23); later commits wait for the next push
+- [x] Pushed by the paper side on the author's word, up to 1d2adff9 (2026-11-24); later commits wait for the next push
 - [ ] No raw CLI transcripts in commits (rule since 2026-11-22)
