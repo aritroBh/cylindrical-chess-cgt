@@ -34,9 +34,9 @@ Full paper (regular paper). The exact name of the option in ScholarOne: not veri
 
 ## AI-use statement (plain text)
 
-This is the paper's own statement, from its Acknowledgment (named version, which says "the author"; the review version says "the authors"). Copy the review version into ScholarOne if a separate field asks for it.
+This is the paper's own statement, from its Acknowledgment (both versions say "the authors" since the co-author was added on 2026-11-24). Copy the review version into ScholarOne if a separate field asks for it.
 
-Named version: AI coding assistants (Claude, Anthropic; Codex, OpenAI; and open models run through the OpenCode and Kilo tools) wrote and ran, under the author's direction, the software for the simulations, endgame searches, tablebases and cross-checks of Sections II-XIII and the scripts that draw the figures, wrote and checked the proofs of Sections S12-S15, and helped draft and edit the text of all sections. The author chose the research questions, directed the work and is responsible for all content.
+Named version: AI coding assistants (Claude, Anthropic; Codex, OpenAI; and open models run through the OpenCode and Kilo tools) wrote and ran, under the authors' direction, the software for the simulations, endgame searches, tablebases and cross-checks of Sections II-XIII and the scripts that draw the figures, wrote and checked the proofs of Sections S12-S15, and helped draft and edit the text of all sections. The authors chose the research questions, directed the work and are responsible for all content.
 
 Review version: AI coding assistants (Claude, Anthropic; Codex, OpenAI; and open models run through the OpenCode and Kilo tools) wrote and ran, under the authors' direction, the software for the simulations, endgame searches, tablebases and cross-checks of Sections II-XIII and the scripts that draw the figures, wrote and checked the proofs of Sections S12-S15, and helped draft and edit the text of all sections. The authors chose the research questions, directed the work and are responsible for all content.
 
@@ -60,7 +60,7 @@ After acceptance (named version): github.com/aritroBh/cylindrical-chess-cgt. Thi
 
 ## Other fields that need author input
 
-- Author name, affiliation, e-mail, ORCID: Author must confirm. Affiliation per the paper: University of Illinois Urbana-Champaign, Urbana, IL 61801 USA; e-mail given in the named paper. ORCID: not in the paper.
+- Authors: Aritro Bhattacharjee and Thomas Morley (co-author added 2026-11-24; his affiliation, e-mail and consent are needed before submission). Name, affiliation, e-mail, ORCID of each: Author must confirm. Affiliation per the paper: University of Illinois Urbana-Champaign, Urbana, IL 61801 USA; e-mail given in the named paper. ORCID: not in the paper.
 - Funding: the paper states none. Author must confirm that there is none.
 - Prior or related submissions, conference or preprint versions: the paper says only that it extends an unpublished 2025 study. Author must confirm there is no preprint or conference version.
 - Suggested or opposed reviewers: none suggested (as instructed).

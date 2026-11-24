@@ -20,6 +20,8 @@
 
 ## Author must confirm
 
+0. Co-author (added 2026-11-24 on the author's decision): the byline is "Aritro Bhattacharjee and Thomas Morley". Before submission Prof. Morley must agree to be an author, approve the manuscript and the AI-use statement (it now speaks for both authors), and give his affiliation and e-mail for the first-page footnote and for ScholarOne, which e-mails every co-author. Not done yet: he has not been contacted from here, and the footnote gives only the first author's affiliation.
+
 1. The manuscript is original and not under review elsewhere (cover letter).
 2. The 2025 study is unpublished and not public anywhere (paper Section I and the cover letter). No preprint, conference or thesis version exists.
 3. There is no funding to declare. The paper's Acknowledgment names none.

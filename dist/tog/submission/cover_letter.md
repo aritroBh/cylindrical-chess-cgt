@@ -31,6 +31,6 @@ Thank you for considering the paper.
 
 Sincerely,
 
-Aritro Bhattacharjee
-University of Illinois Urbana-Champaign
+Aritro Bhattacharjee (University of Illinois Urbana-Champaign) and Thomas Morley
+[Author must confirm: Prof. Morley's affiliation, and that he has approved this letter.]
 [Author must confirm: the ToG guidelines as audited do not say whether ScholarOne shows the cover letter to reviewers. If it does, upload a copy without the name and affiliation. Not verified.]

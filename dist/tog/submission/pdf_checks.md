@@ -23,12 +23,12 @@ Files: A = `tog.pdf` (named), B = `tog_review.pdf` (anonymous), C = `supplement.
 | Page size | 612 x 792 pts (letter) | same | same | same |
 | PDF version | 1.5 | 1.5 | 1.5 | 1.5 |
 | Title | Chess Endgames on a Cylindrical Chessboard: Exact Combinatorial Game Values, Real-Chess Checks, and Tablebases | same | (empty) | (empty) |
-| Author | Aritro Bhattacharjee | (empty) | (empty) | (empty) |
+| Author | Aritro Bhattacharjee and Thomas Morley | (empty) | (empty) | (empty) |
 | Subject | (empty) | (empty) | (empty) | (empty) |
 | Keywords | (empty) | (empty) | (empty) | (empty) |
 | Creator / Producer | LaTeX with hyperref / xdvipdfmx (0.1) | same | same | same |
 | Metadata stream (XMP) | no | no | no | no |
-| File size (bytes) | 260995 | 260464 | 611221 | 611040 |
+| File size (bytes) | 260976 | 260465 | 611236 | 611041 |
 
 Evidence: `Page size: 612 x 792 pts (letter)` on all four; B `pdfinfo` has no `Author:` line; D has no `Author:` line. Result: PASS. The paper is 10 pages including references, at the ToG limit. Subject and Keywords are empty in all four; ToG does not ask for them in the PDF (not verified), so this is not a failure. The supplements carry no Title field; optional.
 
