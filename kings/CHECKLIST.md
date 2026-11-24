@@ -25,8 +25,10 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
    - [x] The 2 + 3 group has the results of over beside every finite test game: Proposition 4.14, Lemma 4.15 (proved,
          refereed, proved again blind by Codex K58), Corollary 4.16 (proved given two twice-checked computations) (K57)
    - [~] A second program for the Black-side condition on the four cyl:8×7 groups; a group with the results of over
-         on a flat board (K59)
-   - [ ] Is the Black-side condition necessary?
+         on a flat board (K59: investigator reports five groups on flat 8×7, the smallest with 2 + 2 pawns; referee
+         running)
+   - [~] The exact condition in place of the Black-side condition, and whether it can be computed on the group's own
+         graph (K60)
    - [ ] Hand proof of (O1) and of the d5 root of the K45 group
    - [x] The K45 group in chess at cap 1: d4 freeze and its zero exact, the rest undecided; exact groups also on flat
          8×6 to 10×6 and on cyl:8×7 (K48)
