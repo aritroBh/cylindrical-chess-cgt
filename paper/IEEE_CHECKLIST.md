@@ -280,4 +280,4 @@ Roles: Fable plans and reviews; Opus referees; Sonnet codes and applies; Haiku r
 - [x] Prof. Morley agreed (author's word, 2026-11-24). Affiliation and e-mail from his own e-mail signature: School of Mathematics, Georgia Institute of Technology, Atlanta, GA 30332 USA, morley@math.gatech.edu. In the first-page footnote of both papers, the cover letter and the ScholarOne fields. Paper 10 and 10 pages (named version 0.03 in free), long version 16; anonymity checks now also search for gatech and georgia
 - [ ] Author confirms with him the printed name, affiliation and e-mail, and that he has read the manuscript and the AI-use statement
 - [x] README author line and citation entry name both authors
-- [ ] Not pushed: the public repository still shows the single-author PDFs
+- [x] Pushed on the author's word, 2026-11-24: main 1d2adff9..73c34b0c (8 commits, 308 files, the two-author papers and README; gitleaks on the range: no leaks; no CLI transcripts, nothing from the ignored folders, no private paths; the only e-mail addresses are the two in the author footnote)
