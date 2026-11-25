@@ -1,0 +1,19 @@
+contexts 283; agree 271; differ 12; positions differing 40; in favour of {'Black': 40, 'White': 0}
+(prediction, P) pairs and positions: {('W', 'L'): 34, 'A b': 9, 'B b': 12, 'B w': 8, 'qB b': 6, 'A w': 3, ('W', 'D'): 6, 'qB w': 2}
+contexts where pk's P differs from the investigator's P or kp_p column: 0
+contexts where the referee's prediction differs from the investigator's prediction column: 0
+contexts with Ph2 and ph3 or ph4: 38; of them differ 12, agree 26
+differing contexts without that pair: []
+  DIFF Ph2 ph3 [('A b', 'W', 'L'), ('B b', 'W', 'L'), ('B w', 'W', 'L'), ('qB b', 'W', 'L')]
+  DIFF Ph2 ph4 [('B b', 'W', 'L')]
+  DIFF Ph2 ph3 ph4 [('A b', 'W', 'L'), ('B b', 'W', 'L'), ('B w', 'W', 'L'), ('qB b', 'W', 'L')]
+  DIFF Ph2 Ph4 ph3 ph5 [('A b', 'W', 'L'), ('B b', 'W', 'L'), ('B w', 'W', 'L'), ('qB b', 'W', 'L')]
+  DIFF Ph2 Ph4 ph3 ph6 [('A b', 'W', 'L'), ('A w', 'W', 'L'), ('B b', 'W', 'L'), ('B w', 'W', 'D'), ('qB w', 'W', 'D')]
+  DIFF Ph2 Ph4 ph3 ph7 [('A b', 'W', 'L'), ('A w', 'W', 'L'), ('B b', 'W', 'L'), ('B w', 'W', 'L')]
+  DIFF Ph2 Ph5 ph3 ph6 [('A b', 'W', 'L'), ('B b', 'W', 'L'), ('B w', 'W', 'L'), ('qB b', 'W', 'L')]
+  DIFF Ph2 Ph5 ph3 ph7 [('A b', 'W', 'L'), ('A w', 'W', 'L'), ('B b', 'W', 'L'), ('B w', 'W', 'D'), ('qB w', 'W', 'D')]
+  DIFF Ph2 Ph5 ph4 ph6 [('B b', 'W', 'L')]
+  DIFF Ph2 Ph5 ph4 ph7 [('A b', 'W', 'L'), ('B b', 'W', 'D'), ('qB b', 'W', 'D')]
+  DIFF Ph2 Ph6 ph3 ph7 [('A b', 'W', 'L'), ('B b', 'W', 'L'), ('B w', 'W', 'L'), ('qB b', 'W', 'L')]
+  DIFF Ph2 Ph6 ph4 ph7 [('B b', 'W', 'L')]
+agreeing contexts with the pair: ['Ph2 ph3 ph5', 'Ph2 ph3 ph6', 'Ph2 ph3 ph7', 'Ph2 ph4 ph5', 'Ph2 ph4 ph6', 'Ph2 ph4 ph7', 'Ph2 Ph3 ph4', 'Ph2 Ph3 ph4 ph5', 'Ph2 Ph3 ph4 ph6', 'Ph2 Ph3 ph4 ph7', 'Ph2 Ph4 ph3', 'Ph2 Ph5 ph3', 'Ph2 Ph5 ph4', 'Ph2 Ph5 ph3 ph4', 'Ph2 Ph6 ph3', 'Ph2 Ph6 ph4', 'Ph2 Ph6 ph3 ph4', 'Ph2 Ph6 ph3 ph5', 'Ph2 Ph6 ph4 ph5', 'Ph2 Ph7 ph3', 'Ph2 Ph7 ph4', 'Ph2 Ph7 ph3 ph4', 'Ph2 Ph7 ph3 ph5', 'Ph2 Ph7 ph3 ph6', 'Ph2 Ph7 ph4 ph5', 'Ph2 Ph7 ph4 ph6']

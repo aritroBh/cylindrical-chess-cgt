@@ -1,0 +1,328 @@
+# context | P results (ref3m) and kp_p at: A b, A w, B b, B w, qA b, qA w, qB b, qB w (White's view) | prediction | verdict
+ctx0   empty          P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx1   ph2            P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx2   ph3            P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx3   ph4            P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx4   ph5            P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx5   ph6            P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx6   ph7            P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx7   ph2 ph3        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx8   ph2 ph4        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx9   ph2 ph5        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx10  ph2 ph6        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx11  ph2 ph7        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx12  ph3 ph4        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx13  ph3 ph5        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx14  ph3 ph6        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx15  ph3 ph7        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx16  ph4 ph5        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx17  ph4 ph6        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx18  ph4 ph7        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx19  ph5 ph6        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx20  ph5 ph7        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx21  ph6 ph7        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx22  Ph2            P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx23  Ph2 ph3        P L W L L W L L L  kp_p L W L L W L L L  pred W W W W W L W L  DIFFER at A b, B b, B w, qB b
+ctx24  Ph2 ph4        P W W L W L W L W  kp_p W W L W L W L W  pred W W W W L W L W  DIFFER at B b
+ctx25  Ph2 ph5        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx26  Ph2 ph6        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx27  Ph2 ph7        P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx28  Ph2 ph3 ph4    P L W L L W L L L  kp_p L W L L W L L L  pred W W W W W L W L  DIFFER at A b, B b, B w, qB b
+ctx29  Ph2 ph3 ph5    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx30  Ph2 ph3 ph6    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx31  Ph2 ph3 ph7    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx32  Ph2 ph4 ph5    P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx33  Ph2 ph4 ph6    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx34  Ph2 ph4 ph7    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx35  Ph2 ph5 ph6    P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx36  Ph2 ph5 ph7    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx37  Ph2 ph6 ph7    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx38  Ph3            P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx39  Ph3 ph2        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx40  Ph3 ph4        P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx41  Ph3 ph5        P W W W W L W L W  kp_p W W W W L W L W  pred W W W W L W L W
+ctx42  Ph3 ph6        P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx43  Ph3 ph7        P W W W W L L L L  kp_p W W W W L L L L  pred W W W W L L L L
+ctx44  Ph3 ph2 ph4    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx45  Ph3 ph2 ph5    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx46  Ph3 ph2 ph6    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx47  Ph3 ph2 ph7    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx48  Ph3 ph4 ph5    P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx49  Ph3 ph4 ph6    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx50  Ph3 ph4 ph7    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx51  Ph3 ph5 ph6    P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx52  Ph3 ph5 ph7    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx53  Ph3 ph6 ph7    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx54  Ph4            P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx55  Ph4 ph2        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx56  Ph4 ph3        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx57  Ph4 ph5        P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx58  Ph4 ph6        P W W W W L W L W  kp_p W W W W L W L W  pred W W W W L W L W
+ctx59  Ph4 ph7        P W W W W L L L L  kp_p W W W W L L L L  pred W W W W L L L L
+ctx60  Ph4 ph2 ph3    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx61  Ph4 ph2 ph5    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx62  Ph4 ph2 ph6    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx63  Ph4 ph2 ph7    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx64  Ph4 ph3 ph5    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx65  Ph4 ph3 ph6    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx66  Ph4 ph3 ph7    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx67  Ph4 ph5 ph6    P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx68  Ph4 ph5 ph7    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx69  Ph4 ph6 ph7    P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx70  Ph5            P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx71  Ph5 ph2        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx72  Ph5 ph3        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx73  Ph5 ph4        P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx74  Ph5 ph6        P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx75  Ph5 ph7        P W W W W L W L W  kp_p W W W W L W L W  pred W W W W L W L W
+ctx76  Ph5 ph2 ph3    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx77  Ph5 ph2 ph4    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx78  Ph5 ph2 ph6    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx79  Ph5 ph2 ph7    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx80  Ph5 ph3 ph4    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx81  Ph5 ph3 ph6    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx82  Ph5 ph3 ph7    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx83  Ph5 ph4 ph6    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx84  Ph5 ph4 ph7    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx85  Ph5 ph6 ph7    P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx86  Ph6            P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx87  Ph6 ph2        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx88  Ph6 ph3        P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx89  Ph6 ph4        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx90  Ph6 ph5        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx91  Ph6 ph7        P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx92  Ph6 ph2 ph3    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx93  Ph6 ph2 ph4    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx94  Ph6 ph2 ph5    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx95  Ph6 ph2 ph7    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx96  Ph6 ph3 ph4    P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx97  Ph6 ph3 ph5    P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx98  Ph6 ph3 ph7    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx99  Ph6 ph4 ph5    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx100 Ph6 ph4 ph7    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx101 Ph6 ph5 ph7    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx102 Ph7            P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx103 Ph7 ph2        P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx104 Ph7 ph3        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx105 Ph7 ph4        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx106 Ph7 ph5        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx107 Ph7 ph6        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx108 Ph7 ph2 ph3    P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx109 Ph7 ph2 ph4    P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx110 Ph7 ph2 ph5    P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx111 Ph7 ph2 ph6    P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx112 Ph7 ph3 ph4    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx113 Ph7 ph3 ph5    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx114 Ph7 ph3 ph6    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx115 Ph7 ph4 ph5    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx116 Ph7 ph4 ph6    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx117 Ph7 ph5 ph6    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx118 Ph2 Ph3        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx119 Ph2 Ph3 ph4    P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx120 Ph2 Ph3 ph5    P W W W W L W L W  kp_p W W W W L W L W  pred W W W W L W L W
+ctx121 Ph2 Ph3 ph6    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx122 Ph2 Ph3 ph7    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx123 Ph2 Ph3 ph4 ph5 P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx124 Ph2 Ph3 ph4 ph6 P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx125 Ph2 Ph3 ph4 ph7 P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx126 Ph2 Ph3 ph5 ph6 P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx127 Ph2 Ph3 ph5 ph7 P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx128 Ph2 Ph3 ph6 ph7 P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx129 Ph2 Ph4        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx130 Ph2 Ph4 ph3    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx131 Ph2 Ph4 ph5    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx132 Ph2 Ph4 ph6    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx133 Ph2 Ph4 ph7    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx134 Ph2 Ph4 ph3 ph5 P L W L L W L L L  kp_p L W L L W L L L  pred W W W W W L W L  DIFFER at A b, B b, B w, qB b
+ctx135 Ph2 Ph4 ph3 ph6 P L L L D L W L D  kp_p L L L D L W L D  pred W W W W L W L W  DIFFER at A b, A w, B b, B w, qB w
+ctx136 Ph2 Ph4 ph3 ph7 P L L L L L L L L  kp_p L L L L L L L L  pred W W W W L L L L  DIFFER at A b, A w, B b, B w
+ctx137 Ph2 Ph4 ph5 ph6 P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx138 Ph2 Ph4 ph5 ph7 P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx139 Ph2 Ph4 ph6 ph7 P W W W W L W L W  kp_p W W W W L W L W  pred W W W W L W L W
+ctx140 Ph2 Ph5        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx141 Ph2 Ph5 ph3    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx142 Ph2 Ph5 ph4    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx143 Ph2 Ph5 ph6    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx144 Ph2 Ph5 ph7    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx145 Ph2 Ph5 ph3 ph4 P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx146 Ph2 Ph5 ph3 ph6 P L W L L W L L L  kp_p L W L L W L L L  pred W W W W W L W L  DIFFER at A b, B b, B w, qB b
+ctx147 Ph2 Ph5 ph3 ph7 P L L L D L W L D  kp_p L L L D L W L D  pred W W W W L W L W  DIFFER at A b, A w, B b, B w, qB w
+ctx148 Ph2 Ph5 ph4 ph6 P W W L W L W L W  kp_p W W L W L W L W  pred W W W W L W L W  DIFFER at B b
+ctx149 Ph2 Ph5 ph4 ph7 P L W D W W L D L  kp_p L W D W W L D L  pred W W W W W L W L  DIFFER at A b, B b, qB b
+ctx150 Ph2 Ph5 ph6 ph7 P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx151 Ph2 Ph6        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx152 Ph2 Ph6 ph3    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx153 Ph2 Ph6 ph4    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx154 Ph2 Ph6 ph5    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx155 Ph2 Ph6 ph7    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx156 Ph2 Ph6 ph3 ph4 P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx157 Ph2 Ph6 ph3 ph5 P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx158 Ph2 Ph6 ph3 ph7 P L W L L W L L L  kp_p L W L L W L L L  pred W W W W W L W L  DIFFER at A b, B b, B w, qB b
+ctx159 Ph2 Ph6 ph4 ph5 P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx160 Ph2 Ph6 ph4 ph7 P W W L W L W L W  kp_p W W L W L W L W  pred W W W W L W L W  DIFFER at B b
+ctx161 Ph2 Ph6 ph5 ph7 P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx162 Ph2 Ph7        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx163 Ph2 Ph7 ph3    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx164 Ph2 Ph7 ph4    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx165 Ph2 Ph7 ph5    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx166 Ph2 Ph7 ph6    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx167 Ph2 Ph7 ph3 ph4 P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx168 Ph2 Ph7 ph3 ph5 P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx169 Ph2 Ph7 ph3 ph6 P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx170 Ph2 Ph7 ph4 ph5 P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx171 Ph2 Ph7 ph4 ph6 P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx172 Ph2 Ph7 ph5 ph6 P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx173 Ph3 Ph4        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx174 Ph3 Ph4 ph2    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx175 Ph3 Ph4 ph5    P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx176 Ph3 Ph4 ph6    P W W W W L W L W  kp_p W W W W L W L W  pred W W W W L W L W
+ctx177 Ph3 Ph4 ph7    P W W W W L W L W  kp_p W W W W L W L W  pred W W W W L W L W
+ctx178 Ph3 Ph4 ph2 ph5 P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx179 Ph3 Ph4 ph2 ph6 P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx180 Ph3 Ph4 ph2 ph7 P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx181 Ph3 Ph4 ph5 ph6 P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx182 Ph3 Ph4 ph5 ph7 P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx183 Ph3 Ph4 ph6 ph7 P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx184 Ph3 Ph5        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx185 Ph3 Ph5 ph2    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx186 Ph3 Ph5 ph4    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx187 Ph3 Ph5 ph6    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx188 Ph3 Ph5 ph7    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx189 Ph3 Ph5 ph2 ph4 P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx190 Ph3 Ph5 ph2 ph6 P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx191 Ph3 Ph5 ph2 ph7 P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx192 Ph3 Ph5 ph4 ph6 P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx193 Ph3 Ph5 ph4 ph7 P W W W W L W L W  kp_p W W W W L W L W  pred W W W W L W L W
+ctx194 Ph3 Ph5 ph6 ph7 P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx195 Ph3 Ph6        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx196 Ph3 Ph6 ph2    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx197 Ph3 Ph6 ph4    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx198 Ph3 Ph6 ph5    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx199 Ph3 Ph6 ph7    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx200 Ph3 Ph6 ph2 ph4 P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx201 Ph3 Ph6 ph2 ph5 P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx202 Ph3 Ph6 ph2 ph7 P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx203 Ph3 Ph6 ph4 ph5 P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx204 Ph3 Ph6 ph4 ph7 P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx205 Ph3 Ph6 ph5 ph7 P W W W W L W L W  kp_p W W W W L W L W  pred W W W W L W L W
+ctx206 Ph3 Ph7        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx207 Ph3 Ph7 ph2    P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx208 Ph3 Ph7 ph4    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx209 Ph3 Ph7 ph5    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx210 Ph3 Ph7 ph6    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx211 Ph3 Ph7 ph2 ph4 P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx212 Ph3 Ph7 ph2 ph5 P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx213 Ph3 Ph7 ph2 ph6 P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx214 Ph3 Ph7 ph4 ph5 P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx215 Ph3 Ph7 ph4 ph6 P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx216 Ph3 Ph7 ph5 ph6 P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx217 Ph4 Ph5        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx218 Ph4 Ph5 ph2    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx219 Ph4 Ph5 ph3    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx220 Ph4 Ph5 ph6    P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx221 Ph4 Ph5 ph7    P W W W W L W L W  kp_p W W W W L W L W  pred W W W W L W L W
+ctx222 Ph4 Ph5 ph2 ph3 P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx223 Ph4 Ph5 ph2 ph6 P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx224 Ph4 Ph5 ph2 ph7 P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx225 Ph4 Ph5 ph3 ph6 P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx226 Ph4 Ph5 ph3 ph7 P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx227 Ph4 Ph5 ph6 ph7 P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx228 Ph4 Ph6        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx229 Ph4 Ph6 ph2    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx230 Ph4 Ph6 ph3    P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx231 Ph4 Ph6 ph5    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx232 Ph4 Ph6 ph7    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx233 Ph4 Ph6 ph2 ph3 P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx234 Ph4 Ph6 ph2 ph5 P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx235 Ph4 Ph6 ph2 ph7 P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx236 Ph4 Ph6 ph3 ph5 P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx237 Ph4 Ph6 ph3 ph7 P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx238 Ph4 Ph6 ph5 ph7 P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx239 Ph4 Ph7        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx240 Ph4 Ph7 ph2    P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx241 Ph4 Ph7 ph3    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx242 Ph4 Ph7 ph5    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx243 Ph4 Ph7 ph6    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx244 Ph4 Ph7 ph2 ph3 P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx245 Ph4 Ph7 ph2 ph5 P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx246 Ph4 Ph7 ph2 ph6 P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx247 Ph4 Ph7 ph3 ph5 P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx248 Ph4 Ph7 ph3 ph6 P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx249 Ph4 Ph7 ph5 ph6 P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx250 Ph5 Ph6        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx251 Ph5 Ph6 ph2    P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx252 Ph5 Ph6 ph3    P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx253 Ph5 Ph6 ph4    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx254 Ph5 Ph6 ph7    P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx255 Ph5 Ph6 ph2 ph3 P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx256 Ph5 Ph6 ph2 ph4 P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx257 Ph5 Ph6 ph2 ph7 P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx258 Ph5 Ph6 ph3 ph4 P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx259 Ph5 Ph6 ph3 ph7 P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx260 Ph5 Ph6 ph4 ph7 P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx261 Ph5 Ph7        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx262 Ph5 Ph7 ph2    P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx263 Ph5 Ph7 ph3    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx264 Ph5 Ph7 ph4    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx265 Ph5 Ph7 ph6    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx266 Ph5 Ph7 ph2 ph3 P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx267 Ph5 Ph7 ph2 ph4 P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx268 Ph5 Ph7 ph2 ph6 P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx269 Ph5 Ph7 ph3 ph4 P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx270 Ph5 Ph7 ph3 ph6 P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx271 Ph5 Ph7 ph4 ph6 P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx272 Ph6 Ph7        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx273 Ph6 Ph7 ph2    P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx274 Ph6 Ph7 ph3    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx275 Ph6 Ph7 ph4    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx276 Ph6 Ph7 ph5    P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx277 Ph6 Ph7 ph2 ph3 P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx278 Ph6 Ph7 ph2 ph4 P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx279 Ph6 Ph7 ph2 ph5 P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx280 Ph6 Ph7 ph3 ph4 P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx281 Ph6 Ph7 ph3 ph5 P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx282 Ph6 Ph7 ph4 ph5 P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+# disagreements (40):
+ctx23 [Ph2 ph3] A b: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Ph2 ph3 b -)
+ctx23 [Ph2 ph3] B b: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Ph2 ph3 b -)
+ctx23 [Ph2 ph3] B w: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Ph2 ph3 w -)
+ctx23 [Ph2 ph3] qB b: P L, prediction W   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Ph2 ph3 b -)
+ctx24 [Ph2 ph4] B b: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Ph2 ph4 b -)
+ctx28 [Ph2 ph3 ph4] A b: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Ph2 ph3 ph4 b -)
+ctx28 [Ph2 ph3 ph4] B b: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Ph2 ph3 ph4 b -)
+ctx28 [Ph2 ph3 ph4] B w: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Ph2 ph3 ph4 w -)
+ctx28 [Ph2 ph3 ph4] qB b: P L, prediction W   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Ph2 ph3 ph4 b -)
+ctx134 [Ph2 Ph4 ph3 ph5] A b: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Ph2 Ph4 ph3 ph5 b -)
+ctx134 [Ph2 Ph4 ph3 ph5] B b: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Ph2 Ph4 ph3 ph5 b -)
+ctx134 [Ph2 Ph4 ph3 ph5] B w: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Ph2 Ph4 ph3 ph5 w -)
+ctx134 [Ph2 Ph4 ph3 ph5] qB b: P L, prediction W   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Ph2 Ph4 ph3 ph5 b -)
+ctx135 [Ph2 Ph4 ph3 ph6] A b: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Ph2 Ph4 ph3 ph6 b -)
+ctx135 [Ph2 Ph4 ph3 ph6] A w: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Ph2 Ph4 ph3 ph6 w -)
+ctx135 [Ph2 Ph4 ph3 ph6] B b: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Ph2 Ph4 ph3 ph6 b -)
+ctx135 [Ph2 Ph4 ph3 ph6] B w: P D, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Ph2 Ph4 ph3 ph6 w -)
+ctx135 [Ph2 Ph4 ph3 ph6] qB w: P D, prediction W   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Ph2 Ph4 ph3 ph6 w -)
+ctx136 [Ph2 Ph4 ph3 ph7] A b: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Ph2 Ph4 ph3 ph7 b -)
+ctx136 [Ph2 Ph4 ph3 ph7] A w: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Ph2 Ph4 ph3 ph7 w -)
+ctx136 [Ph2 Ph4 ph3 ph7] B b: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Ph2 Ph4 ph3 ph7 b -)
+ctx136 [Ph2 Ph4 ph3 ph7] B w: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Ph2 Ph4 ph3 ph7 w -)
+ctx146 [Ph2 Ph5 ph3 ph6] A b: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Ph2 Ph5 ph3 ph6 b -)
+ctx146 [Ph2 Ph5 ph3 ph6] B b: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Ph2 Ph5 ph3 ph6 b -)
+ctx146 [Ph2 Ph5 ph3 ph6] B w: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Ph2 Ph5 ph3 ph6 w -)
+ctx146 [Ph2 Ph5 ph3 ph6] qB b: P L, prediction W   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Ph2 Ph5 ph3 ph6 b -)
+ctx147 [Ph2 Ph5 ph3 ph7] A b: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Ph2 Ph5 ph3 ph7 b -)
+ctx147 [Ph2 Ph5 ph3 ph7] A w: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Ph2 Ph5 ph3 ph7 w -)
+ctx147 [Ph2 Ph5 ph3 ph7] B b: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Ph2 Ph5 ph3 ph7 b -)
+ctx147 [Ph2 Ph5 ph3 ph7] B w: P D, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Ph2 Ph5 ph3 ph7 w -)
+ctx147 [Ph2 Ph5 ph3 ph7] qB w: P D, prediction W   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Ph2 Ph5 ph3 ph7 w -)
+ctx148 [Ph2 Ph5 ph4 ph6] B b: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Ph2 Ph5 ph4 ph6 b -)
+ctx149 [Ph2 Ph5 ph4 ph7] A b: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Ph2 Ph5 ph4 ph7 b -)
+ctx149 [Ph2 Ph5 ph4 ph7] B b: P D, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Ph2 Ph5 ph4 ph7 b -)
+ctx149 [Ph2 Ph5 ph4 ph7] qB b: P D, prediction W   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Ph2 Ph5 ph4 ph7 b -)
+ctx158 [Ph2 Ph6 ph3 ph7] A b: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Ph2 Ph6 ph3 ph7 b -)
+ctx158 [Ph2 Ph6 ph3 ph7] B b: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Ph2 Ph6 ph3 ph7 b -)
+ctx158 [Ph2 Ph6 ph3 ph7] B w: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Ph2 Ph6 ph3 ph7 w -)
+ctx158 [Ph2 Ph6 ph3 ph7] qB b: P L, prediction W   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Ph2 Ph6 ph3 ph7 b -)
+ctx160 [Ph2 Ph6 ph4 ph7] B b: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Ph2 Ph6 ph4 ph7 b -)
+# contexts 283: {'agree': 271, 'differ': 12}
+# per position: {'A b differ': 9, 'A b same': 274, 'A w differ': 3, 'A w same': 280, 'B b differ': 12, 'B b same': 271, 'B w differ': 8, 'B w same': 275, 'qA b same': 283, 'qA w same': 283, 'qB b differ': 6, 'qB b same': 277, 'qB w differ': 2, 'qB w same': 281}
+# ref3m vs kp_p differences: 0

@@ -1,0 +1,261 @@
+# context | P results (ref3m) and kp_p at: A b, A w, B b, B w, qA b, qA w, qB b, qB w (White's view) | prediction | verdict
+ctx0   empty          P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx1   pg2            P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx2   pg3            P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx3   pg4            P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx4   pg5            P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx5   pg6            P L W L W L W L W  kp_p L W L W L W L W  pred L L L L L L L L  DIFFER at A w, B w, qA w, qB w
+ctx6   pg7            P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx7   ph2            P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx8   ph3            P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx9   ph4            P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx10  ph5            P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx11  ph6            P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx12  ph7            P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx13  Pg2            P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx14  Pg2 pg3        P L L L L L L L L  kp_p L L L L L L L L  pred W W W W W L W L  DIFFER at A b, A w, B b, B w, qA b, qB b
+ctx15  Pg2 pg4        P L L L W L W L W  kp_p L L L W L W L W  pred W W W W L W L W  DIFFER at A b, A w, B b
+ctx16  Pg2 pg5        P L W W W W W W W  kp_p L W W W W W W W  pred W W W W W W W W  DIFFER at A b
+ctx17  Pg2 pg6        P L W L W L W L W  kp_p L W L W L W L W  pred W W W W W W W W  DIFFER at A b, B b, qA b, qB b
+ctx18  Pg2 pg7        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W L W L  DIFFER at qA w, qB w
+ctx19  Pg2 ph2        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx20  Pg2 ph3        P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx21  Pg2 ph4        P L L L L L L L L  kp_p L L L L L L L L  pred W W W W W L W L  DIFFER at A b, A w, B b, B w, qA b, qB b
+ctx22  Pg2 ph5        P L L L D L W L D  kp_p L L L D L W L D  pred W W W W L W L W  DIFFER at A b, A w, B b, B w, qB w
+ctx23  Pg2 ph6        P L W D W W W D W  kp_p L W D W W W D W  pred W W W W W W W W  DIFFER at A b, B b, qB b
+ctx24  Pg2 ph7        P L W D W W L D L  kp_p L W D W W L D L  pred W W W W W L W L  DIFFER at A b, B b, qB b
+ctx25  Pg3            P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx26  Pg3 pg2        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx27  Pg3 pg4        P L W L L W L L L  kp_p L W L L W L L L  pred W W W W W L W L  DIFFER at A b, B b, B w, qB b
+ctx28  Pg3 pg5        P W W L W L W L W  kp_p W W L W L W L W  pred W W W W L W L W  DIFFER at B b
+ctx29  Pg3 pg6        P L W L W L W L W  kp_p L W L W L W L W  pred W W W W W L W L  DIFFER at A b, B b, qA b, qA w, qB b, qB w
+ctx30  Pg3 pg7        P W W W W W W W D  kp_p W W W W W W W D  pred W W W W L L L L  DIFFER at qA b, qA w, qB b, qB w
+ctx31  Pg3 ph2        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx32  Pg3 ph3        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx33  Pg3 ph4        P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx34  Pg3 ph5        P L W L L W L L L  kp_p L W L L W L L L  pred W W W W W L W L  DIFFER at A b, B b, B w, qB b
+ctx35  Pg3 ph6        P W W L W L W L W  kp_p W W L W L W L W  pred W W W W L W L W  DIFFER at B b
+ctx36  Pg3 ph7        P W W L W L L L L  kp_p W W L W L L L L  pred W W W W L L L L  DIFFER at B b
+ctx37  Pg4            P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx38  Pg4 pg2        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx39  Pg4 pg3        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx40  Pg4 pg5        P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx41  Pg4 pg6        P W W W W L W L W  kp_p W W W W L W L W  pred W W W W L W L W
+ctx42  Pg4 pg7        P D W W D W L D L  kp_p D W W D W L D L  pred W W W W L L L L  DIFFER at A b, B w, qA b, qB b
+ctx43  Pg4 ph2        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx44  Pg4 ph3        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx45  Pg4 ph4        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx46  Pg4 ph5        P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx47  Pg4 ph6        P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx48  Pg4 ph7        P W W W W L W L W  kp_p W W W W L W L W  pred W W W W L W L W
+ctx49  Pg5            P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx50  Pg5 pg2        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx51  Pg5 pg3        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx52  Pg5 pg4        P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx53  Pg5 pg6        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W L W L  DIFFER at qA w, qB w
+ctx54  Pg5 pg7        P L W L W L W L W  kp_p L W L W L W L W  pred W W W W L W L W  DIFFER at A b, B b
+ctx55  Pg5 ph2        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx56  Pg5 ph3        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx57  Pg5 ph4        P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx58  Pg5 ph5        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx59  Pg5 ph6        P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx60  Pg5 ph7        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W L W L  DIFFER at qA w, qB w
+ctx61  Pg6            P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx62  Pg6 pg2        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx63  Pg6 pg3        P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx64  Pg6 pg4        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx65  Pg6 pg5        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx66  Pg6 pg7        P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx67  Pg6 ph2        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx68  Pg6 ph3        P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx69  Pg6 ph4        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx70  Pg6 ph5        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx71  Pg6 ph6        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx72  Pg6 ph7        P W W W W W W W W  kp_p W W W W W W W W  pred L W L W L W L W  DIFFER at A b, B b, qA b, qB b
+ctx73  Pg7            P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx74  Pg7 pg2        P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx75  Pg7 pg3        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx76  Pg7 pg4        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx77  Pg7 pg5        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx78  Pg7 pg6        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx79  Pg7 ph2        P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx80  Pg7 ph3        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx81  Pg7 ph4        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx82  Pg7 ph5        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx83  Pg7 ph6        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx84  Pg7 ph7        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx85  Ph2            P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx86  Ph2 pg2        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx87  Ph2 pg3        P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx88  Ph2 pg4        P L W L L W L L L  kp_p L W L L W L L L  pred W W W W W L W L  DIFFER at A b, B b, B w, qB b
+ctx89  Ph2 pg5        P W W L W L W L W  kp_p W W L W L W L W  pred W W W W L W L W  DIFFER at B b
+ctx90  Ph2 pg6        P L W L W L W L W  kp_p L W L W L W L W  pred W W W W W W W W  DIFFER at A b, B b, qA b, qB b
+ctx91  Ph2 pg7        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W L W L  DIFFER at qA w, qB w
+ctx92  Ph2 ph3        P L W L L W L L L  kp_p L W L L W L L L  pred W W W W W L W L  DIFFER at A b, B b, B w, qB b
+ctx93  Ph2 ph4        P W W L W L W L W  kp_p W W L W L W L W  pred W W W W L W L W  DIFFER at B b
+ctx94  Ph2 ph5        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx95  Ph2 ph6        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx96  Ph2 ph7        P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx97  Ph3            P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx98  Ph3 pg2        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx99  Ph3 pg3        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx100 Ph3 pg4        P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx101 Ph3 pg5        P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx102 Ph3 pg6        P L W L W L W L W  kp_p L W L W L W L W  pred W W W W L W L W  DIFFER at A b, B b
+ctx103 Ph3 pg7        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W L L L L  DIFFER at qA b, qA w, qB b, qB w
+ctx104 Ph3 ph2        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx105 Ph3 ph4        P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx106 Ph3 ph5        P W W W W L W L W  kp_p W W W W L W L W  pred W W W W L W L W
+ctx107 Ph3 ph6        P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx108 Ph3 ph7        P W W W W L L L L  kp_p W W W W L L L L  pred W W W W L L L L
+ctx109 Ph4            P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx110 Ph4 pg2        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx111 Ph4 pg3        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx112 Ph4 pg4        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx113 Ph4 pg5        P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx114 Ph4 pg6        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W L W L  DIFFER at qA w, qB w
+ctx115 Ph4 pg7        P L W L W W W L W  kp_p L W L W W W L W  pred W W W W L W L W  DIFFER at A b, B b, qA b
+ctx116 Ph4 ph2        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx117 Ph4 ph3        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx118 Ph4 ph5        P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx119 Ph4 ph6        P W W W W L W L W  kp_p W W W W L W L W  pred W W W W L W L W
+ctx120 Ph4 ph7        P W W W W L L L L  kp_p W W W W L L L L  pred W W W W L L L L
+ctx121 Ph5            P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx122 Ph5 pg2        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx123 Ph5 pg3        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx124 Ph5 pg4        P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx125 Ph5 pg5        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx126 Ph5 pg6        P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx127 Ph5 pg7        P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx128 Ph5 ph2        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx129 Ph5 ph3        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx130 Ph5 ph4        P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx131 Ph5 ph6        P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx132 Ph5 ph7        P W W W W L W L W  kp_p W W W W L W L W  pred W W W W L W L W
+ctx133 Ph6            P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx134 Ph6 pg2        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx135 Ph6 pg3        P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx136 Ph6 pg4        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx137 Ph6 pg5        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx138 Ph6 pg6        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx139 Ph6 pg7        P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx140 Ph6 ph2        P L L L L L L L L  kp_p L L L L L L L L  pred L L L L L L L L
+ctx141 Ph6 ph3        P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx142 Ph6 ph4        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx143 Ph6 ph5        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx144 Ph6 ph7        P W W W W W L W L  kp_p W W W W W L W L  pred W W W W W L W L
+ctx145 Ph7            P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx146 Ph7 pg2        P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx147 Ph7 pg3        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx148 Ph7 pg4        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx149 Ph7 pg5        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx150 Ph7 pg6        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx151 Ph7 pg7        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx152 Ph7 ph2        P L W L W L W L W  kp_p L W L W L W L W  pred L W L W L W L W
+ctx153 Ph7 ph3        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx154 Ph7 ph4        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx155 Ph7 ph5        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+ctx156 Ph7 ph6        P W W W W W W W W  kp_p W W W W W W W W  pred W W W W W W W W
+# disagreements (99):
+ctx5 [pg6] A w: P W, prediction L   (Ka4 kc4 Pb2 Pf5 pb6 pf6 pg6 w -)
+ctx5 [pg6] B w: P W, prediction L   (Ka4 kc5 Pb2 Pf5 pb6 pf6 pg6 w -)
+ctx5 [pg6] qA w: P W, prediction L   (Ka4 kc4 Pb4 Pf5 pb6 pf6 pg6 w -)
+ctx5 [pg6] qB w: P W, prediction L   (Ka4 kc5 Pb3 Pf5 pb6 pf6 pg6 w -)
+ctx14 [Pg2 pg3] A b: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Pg2 pg3 b -)
+ctx14 [Pg2 pg3] A w: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Pg2 pg3 w -)
+ctx14 [Pg2 pg3] B b: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Pg2 pg3 b -)
+ctx14 [Pg2 pg3] B w: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Pg2 pg3 w -)
+ctx14 [Pg2 pg3] qA b: P L, prediction W   (Ka4 kc4 Pb4 Pf5 pb6 pf6 Pg2 pg3 b b3)
+ctx14 [Pg2 pg3] qB b: P L, prediction W   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Pg2 pg3 b -)
+ctx15 [Pg2 pg4] A b: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Pg2 pg4 b -)
+ctx15 [Pg2 pg4] A w: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Pg2 pg4 w -)
+ctx15 [Pg2 pg4] B b: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Pg2 pg4 b -)
+ctx16 [Pg2 pg5] A b: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Pg2 pg5 b -)
+ctx17 [Pg2 pg6] A b: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Pg2 pg6 b -)
+ctx17 [Pg2 pg6] B b: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Pg2 pg6 b -)
+ctx17 [Pg2 pg6] qA b: P L, prediction W   (Ka4 kc4 Pb4 Pf5 pb6 pf6 Pg2 pg6 b b3)
+ctx17 [Pg2 pg6] qB b: P L, prediction W   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Pg2 pg6 b -)
+ctx18 [Pg2 pg7] qA w: P W, prediction L   (Ka4 kc4 Pb4 Pf5 pb6 pf6 Pg2 pg7 w -)
+ctx18 [Pg2 pg7] qB w: P W, prediction L   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Pg2 pg7 w -)
+ctx21 [Pg2 ph4] A b: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Pg2 ph4 b -)
+ctx21 [Pg2 ph4] A w: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Pg2 ph4 w -)
+ctx21 [Pg2 ph4] B b: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Pg2 ph4 b -)
+ctx21 [Pg2 ph4] B w: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Pg2 ph4 w -)
+ctx21 [Pg2 ph4] qA b: P L, prediction W   (Ka4 kc4 Pb4 Pf5 pb6 pf6 Pg2 ph4 b b3)
+ctx21 [Pg2 ph4] qB b: P L, prediction W   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Pg2 ph4 b -)
+ctx22 [Pg2 ph5] A b: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Pg2 ph5 b -)
+ctx22 [Pg2 ph5] A w: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Pg2 ph5 w -)
+ctx22 [Pg2 ph5] B b: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Pg2 ph5 b -)
+ctx22 [Pg2 ph5] B w: P D, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Pg2 ph5 w -)
+ctx22 [Pg2 ph5] qB w: P D, prediction W   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Pg2 ph5 w -)
+ctx23 [Pg2 ph6] A b: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Pg2 ph6 b -)
+ctx23 [Pg2 ph6] B b: P D, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Pg2 ph6 b -)
+ctx23 [Pg2 ph6] qB b: P D, prediction W   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Pg2 ph6 b -)
+ctx24 [Pg2 ph7] A b: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Pg2 ph7 b -)
+ctx24 [Pg2 ph7] B b: P D, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Pg2 ph7 b -)
+ctx24 [Pg2 ph7] qB b: P D, prediction W   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Pg2 ph7 b -)
+ctx27 [Pg3 pg4] A b: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Pg3 pg4 b -)
+ctx27 [Pg3 pg4] B b: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Pg3 pg4 b -)
+ctx27 [Pg3 pg4] B w: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Pg3 pg4 w -)
+ctx27 [Pg3 pg4] qB b: P L, prediction W   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Pg3 pg4 b -)
+ctx28 [Pg3 pg5] B b: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Pg3 pg5 b -)
+ctx29 [Pg3 pg6] A b: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Pg3 pg6 b -)
+ctx29 [Pg3 pg6] B b: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Pg3 pg6 b -)
+ctx29 [Pg3 pg6] qA b: P L, prediction W   (Ka4 kc4 Pb4 Pf5 pb6 pf6 Pg3 pg6 b b3)
+ctx29 [Pg3 pg6] qA w: P W, prediction L   (Ka4 kc4 Pb4 Pf5 pb6 pf6 Pg3 pg6 w -)
+ctx29 [Pg3 pg6] qB b: P L, prediction W   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Pg3 pg6 b -)
+ctx29 [Pg3 pg6] qB w: P W, prediction L   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Pg3 pg6 w -)
+ctx30 [Pg3 pg7] qA b: P W, prediction L   (Ka4 kc4 Pb4 Pf5 pb6 pf6 Pg3 pg7 b b3)
+ctx30 [Pg3 pg7] qA w: P W, prediction L   (Ka4 kc4 Pb4 Pf5 pb6 pf6 Pg3 pg7 w -)
+ctx30 [Pg3 pg7] qB b: P W, prediction L   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Pg3 pg7 b -)
+ctx30 [Pg3 pg7] qB w: P D, prediction L   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Pg3 pg7 w -)
+ctx34 [Pg3 ph5] A b: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Pg3 ph5 b -)
+ctx34 [Pg3 ph5] B b: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Pg3 ph5 b -)
+ctx34 [Pg3 ph5] B w: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Pg3 ph5 w -)
+ctx34 [Pg3 ph5] qB b: P L, prediction W   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Pg3 ph5 b -)
+ctx35 [Pg3 ph6] B b: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Pg3 ph6 b -)
+ctx36 [Pg3 ph7] B b: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Pg3 ph7 b -)
+ctx42 [Pg4 pg7] A b: P D, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Pg4 pg7 b -)
+ctx42 [Pg4 pg7] B w: P D, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Pg4 pg7 w -)
+ctx42 [Pg4 pg7] qA b: P W, prediction L   (Ka4 kc4 Pb4 Pf5 pb6 pf6 Pg4 pg7 b b3)
+ctx42 [Pg4 pg7] qB b: P D, prediction L   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Pg4 pg7 b -)
+ctx53 [Pg5 pg6] qA w: P W, prediction L   (Ka4 kc4 Pb4 Pf5 pb6 pf6 Pg5 pg6 w -)
+ctx53 [Pg5 pg6] qB w: P W, prediction L   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Pg5 pg6 w -)
+ctx54 [Pg5 pg7] A b: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Pg5 pg7 b -)
+ctx54 [Pg5 pg7] B b: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Pg5 pg7 b -)
+ctx60 [Pg5 ph7] qA w: P W, prediction L   (Ka4 kc4 Pb4 Pf5 pb6 pf6 Pg5 ph7 w -)
+ctx60 [Pg5 ph7] qB w: P W, prediction L   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Pg5 ph7 w -)
+ctx72 [Pg6 ph7] A b: P W, prediction L   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Pg6 ph7 b -)
+ctx72 [Pg6 ph7] B b: P W, prediction L   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Pg6 ph7 b -)
+ctx72 [Pg6 ph7] qA b: P W, prediction L   (Ka4 kc4 Pb4 Pf5 pb6 pf6 Pg6 ph7 b b3)
+ctx72 [Pg6 ph7] qB b: P W, prediction L   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Pg6 ph7 b -)
+ctx88 [Ph2 pg4] A b: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Ph2 pg4 b -)
+ctx88 [Ph2 pg4] B b: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Ph2 pg4 b -)
+ctx88 [Ph2 pg4] B w: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Ph2 pg4 w -)
+ctx88 [Ph2 pg4] qB b: P L, prediction W   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Ph2 pg4 b -)
+ctx89 [Ph2 pg5] B b: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Ph2 pg5 b -)
+ctx90 [Ph2 pg6] A b: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Ph2 pg6 b -)
+ctx90 [Ph2 pg6] B b: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Ph2 pg6 b -)
+ctx90 [Ph2 pg6] qA b: P L, prediction W   (Ka4 kc4 Pb4 Pf5 pb6 pf6 Ph2 pg6 b b3)
+ctx90 [Ph2 pg6] qB b: P L, prediction W   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Ph2 pg6 b -)
+ctx91 [Ph2 pg7] qA w: P W, prediction L   (Ka4 kc4 Pb4 Pf5 pb6 pf6 Ph2 pg7 w -)
+ctx91 [Ph2 pg7] qB w: P W, prediction L   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Ph2 pg7 w -)
+ctx92 [Ph2 ph3] A b: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Ph2 ph3 b -)
+ctx92 [Ph2 ph3] B b: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Ph2 ph3 b -)
+ctx92 [Ph2 ph3] B w: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Ph2 ph3 w -)
+ctx92 [Ph2 ph3] qB b: P L, prediction W   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Ph2 ph3 b -)
+ctx93 [Ph2 ph4] B b: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Ph2 ph4 b -)
+ctx102 [Ph3 pg6] A b: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Ph3 pg6 b -)
+ctx102 [Ph3 pg6] B b: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Ph3 pg6 b -)
+ctx103 [Ph3 pg7] qA b: P W, prediction L   (Ka4 kc4 Pb4 Pf5 pb6 pf6 Ph3 pg7 b b3)
+ctx103 [Ph3 pg7] qA w: P W, prediction L   (Ka4 kc4 Pb4 Pf5 pb6 pf6 Ph3 pg7 w -)
+ctx103 [Ph3 pg7] qB b: P W, prediction L   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Ph3 pg7 b -)
+ctx103 [Ph3 pg7] qB w: P W, prediction L   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Ph3 pg7 w -)
+ctx114 [Ph4 pg6] qA w: P W, prediction L   (Ka4 kc4 Pb4 Pf5 pb6 pf6 Ph4 pg6 w -)
+ctx114 [Ph4 pg6] qB w: P W, prediction L   (Ka4 kc5 Pb3 Pf5 pb6 pf6 Ph4 pg6 w -)
+ctx115 [Ph4 pg7] A b: P L, prediction W   (Ka4 kc4 Pb2 Pf5 pb6 pf6 Ph4 pg7 b -)
+ctx115 [Ph4 pg7] B b: P L, prediction W   (Ka4 kc5 Pb2 Pf5 pb6 pf6 Ph4 pg7 b -)
+ctx115 [Ph4 pg7] qA b: P W, prediction L   (Ka4 kc4 Pb4 Pf5 pb6 pf6 Ph4 pg7 b b3)
+# contexts 157: {'agree': 125, 'differ': 32}
+# per position: {'A b differ': 19, 'A b same': 138, 'A w differ': 5, 'A w same': 152, 'B b differ': 22, 'B b same': 135, 'B w differ': 9, 'B w same': 148, 'qA b differ': 10, 'qA b same': 147, 'qA w differ': 9, 'qA w same': 148, 'qB b differ': 15, 'qB b same': 142, 'qB w differ': 10, 'qB w same': 147}
+# ref3m vs kp_p differences: 0

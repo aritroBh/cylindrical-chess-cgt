@@ -1,0 +1,57 @@
+board flat:8x8  pieces Kc4 ke4 Pb5 Pf2 Pf5 pb6 pf6  shuttle e4-e5
+P graph: 2301564 nodes, 15463214 edges
+root Kc4 ke4 Pf2 Pb5 Pf5 pb6 pf6 b - : P=W, 4 moves
+   ke4f3    -> Kc4 kf3 Pf2 Pb5 Pf5 pb6 pf6 w -  P(after)=W
+   ke4f4    -> Kc4 kf4 Pf2 Pb5 Pf5 pb6 pf6 w -  P(after)=W
+   ke4e5    -> Kc4 ke5 Pf2 Pb5 Pf5 pb6 pf6 w -  P(after)=W  shuttle
+   ke4f5    -> Kc4 kf5 Pf2 Pb5 pb6 pf6 w -  P(after)=W
+root Kc4 ke4 Pf2 Pb5 Pf5 pb6 pf6 w - : P=W, 5 moves
+   Kc4b3    -> Kb3 ke4 Pf2 Pb5 Pf5 pb6 pf6 b -  P(after)=L
+   Kc4c3    -> Kc3 ke4 Pf2 Pb5 Pf5 pb6 pf6 b -  P(after)=L
+   Kc4b4    -> Kb4 ke4 Pf2 Pb5 Pf5 pb6 pf6 b -  P(after)=L
+   Pf2f3    -> Kc4 ke4 Pf3 Pb5 Pf5 pb6 pf6 b -  P(after)=L
+   Pf2f4    -> Kc4 ke4 Pf4 Pb5 Pf5 pb6 pf6 b -  P(after)=W  FREEZE
+root Kc4 ke5 Pf2 Pb5 Pf5 pb6 pf6 b - : P=W, 4 moves
+   ke5e4    -> Kc4 ke4 Pf2 Pb5 Pf5 pb6 pf6 w -  P(after)=W  shuttle
+   ke5f4    -> Kc4 kf4 Pf2 Pb5 Pf5 pb6 pf6 w -  P(after)=W
+   ke5f5    -> Kc4 kf5 Pf2 Pb5 pb6 pf6 w -  P(after)=W
+   ke5d6    -> Kc4 kd6 Pf2 Pb5 Pf5 pb6 pf6 w -  P(after)=W
+root Kc4 ke5 Pf2 Pb5 Pf5 pb6 pf6 w - : P=W, 6 moves
+   Kc4b3    -> Kb3 ke5 Pf2 Pb5 Pf5 pb6 pf6 b -  P(after)=L
+   Kc4c3    -> Kc3 ke5 Pf2 Pb5 Pf5 pb6 pf6 b -  P(after)=L
+   Kc4d3    -> Kd3 ke5 Pf2 Pb5 Pf5 pb6 pf6 b -  P(after)=L
+   Kc4b4    -> Kb4 ke5 Pf2 Pb5 Pf5 pb6 pf6 b -  P(after)=L
+   Pf2f3    -> Kc4 ke5 Pf3 Pb5 Pf5 pb6 pf6 b -  P(after)=W  FREEZE
+   Pf2f4    -> Kc4 ke5 Pf4 Pb5 Pf5 pb6 pf6 b -  P(after)=L
+freeze Pf2f4 at e4
+   q Black to move Kc4 ke4 Pf4 Pb5 Pf5 pb6 pf6 b - : P=W, 4 moves
+      ke4e3    P(after)=W
+      ke4f3    P(after)=W
+      ke4f4    P(after)=W
+      ke4f5    P(after)=W
+   q Black to move without the right: every move loses at once: yes
+   q White to move Kc4 ke4 Pf4 Pb5 Pf5 pb6 pf6 w - : P=L, 3 moves
+      Kc4b3    P(after)=L
+      Kc4c3    P(after)=L
+      Kc4b4    P(after)=L
+freeze Pf2f3 at e5
+   q Black to move Kc4 ke5 Pf3 Pb5 Pf5 pb6 pf6 b - : P=W, 3 moves
+      ke5f4    P(after)=W
+      ke5f5    P(after)=W
+      ke5d6    P(after)=W
+   q Black to move without the right: every move loses at once: yes
+   q White to move Kc4 ke5 Pf3 Pb5 Pf5 pb6 pf6 w - : P=L, 5 moves
+      Kc4b3    P(after)=L
+      Kc4c3    P(after)=L
+      Kc4d3    P(after)=L
+      Kc4b4    P(after)=L
+      Pf3f4    P(after)=L
+DEFINITION 4.8 (over): exact (0 failures)
+(B1) graph (group (+) -1, sum rule): 4603257 nodes, 32046200 edges
+   B1 ke4f3 at e4    -> Kc4 kf3 Pf2 Pb5 Pf5 pb6 pf6 w - : beside -1 W
+   B1 ke4f4 at e4    -> Kc4 kf4 Pf2 Pb5 Pf5 pb6 pf6 w - : beside -1 W
+   B1 ke4f5 at e4    -> Kc4 kf5 Pf2 Pb5 pb6 pf6 w - : beside -1 W
+   B1 ke5f4 at e5    -> Kc4 kf4 Pf2 Pb5 Pf5 pb6 pf6 w - : beside -1 W
+   B1 ke5f5 at e5    -> Kc4 kf5 Pf2 Pb5 pb6 pf6 w - : beside -1 W
+   B1 ke5d6 at e5    -> Kc4 kd6 Pf2 Pb5 Pf5 pb6 pf6 w - : beside -1 W
+(B1): 6 non-shuttle Black root moves, 0 not a White win beside -1

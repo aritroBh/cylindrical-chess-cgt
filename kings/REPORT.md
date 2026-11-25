@@ -520,6 +520,13 @@ Every deliverable was given to independent referees (Claude models) told to brea
     is open; the only real group that fails needs a ladder of length 2 (`kings/delegate/out/K62/REVIEW.md`).
   - K64 (2026-11-24): Codex (gpt-6.2-astra) proved Theorem 4.20 (a), (c), (d) and Theorem 4.22 blind, from the
     definitions and the statements only, with no repair (`kings/delegate/out/K64/PROOF.md`; not refereed separately).
+  - K63 (2026-11-24, refereed): the 2 + 2 over group F2 on the ordinary 8×8 board. In chess it is not an exact over
+    group (KNOWN, Syzygy tablebases): White Ka4, Pb2, Pf5 against Black Kc4, pb6, pf6 is a draw with Black to move,
+    and the position after the freeze b2–b3 is a draw with Black to move. Only the freeze b2–b4 survives: after it
+    (White Ka4, Pb4, Pf5; Black Kc4, pb6, pf6) the side to move loses. F1 behaves the same way; F3 and F4 keep the
+    other freeze. Beside pawns on file h in P the D-sum prediction holds in 271 of 283 contexts; the 12 failures
+    have a blocked White pawn on h2 that the Black king can win (CHECKED-2). So the results of over in D-sums carry
+    over neither to chess nor to P contexts (`kings/delegate/out/K63/REVIEW.md`).
   - Theorem 1.11(c) repaired (2026-11-23): its proof used the e.p. condition (E) without assuming it, and its frontier
     step used an unproved inheritance of threats by re-split components. (E) is now a hypothesis (every use already had
     it through Theorem 1.14), and the inheritance is proved. Found while the paper's proofs appendix was written and

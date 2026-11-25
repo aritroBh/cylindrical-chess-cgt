@@ -1,0 +1,49 @@
+board flat:8x8  pieces Ka4 kc4 Pb2 Pe4 Pe5 pb6 pe6  shuttle c4-c5
+P graph: 2705747 nodes, 18073010 edges
+root Ka4 kc4 Pb2 Pe4 Pe5 pb6 pe6 b - : P=W, 4 moves
+   kc4d3    -> Ka4 kd3 Pb2 Pe4 Pe5 pb6 pe6 w -  P(after)=W
+   kc4d4    -> Ka4 kd4 Pb2 Pe4 Pe5 pb6 pe6 w -  P(after)=W
+   kc4c5    -> Ka4 kc5 Pb2 Pe4 Pe5 pb6 pe6 w -  P(after)=W  shuttle
+   pb6b5    -> Ka4 kc4 Pb2 Pe4 Pe5 pb5 pe6 w -  P(after)=W  check
+root Ka4 kc4 Pb2 Pe4 Pe5 pb6 pe6 w - : P=W, 3 moves
+   Ka4a3    -> Ka3 kc4 Pb2 Pe4 Pe5 pb6 pe6 b -  P(after)=L
+   Pb2b3    -> Ka4 kc4 Pb3 Pe4 Pe5 pb6 pe6 b -  P(after)=L
+   Pb2b4    -> Ka4 kc4 Pb4 Pe4 Pe5 pb6 pe6 b -  P(after)=W  FREEZE
+root Ka4 kc5 Pb2 Pe4 Pe5 pb6 pe6 b - : P=W, 4 moves
+   kc5c4    -> Ka4 kc4 Pb2 Pe4 Pe5 pb6 pe6 w -  P(after)=W  shuttle
+   kc5d4    -> Ka4 kd4 Pb2 Pe4 Pe5 pb6 pe6 w -  P(after)=W
+   kc5c6    -> Ka4 kc6 Pb2 Pe4 Pe5 pb6 pe6 w -  P(after)=W
+   pb6b5    -> Ka4 kc5 Pb2 Pe4 Pe5 pb5 pe6 w -  P(after)=W  check
+root Ka4 kc5 Pb2 Pe4 Pe5 pb6 pe6 w - : P=W, 4 moves
+   Ka4a3    -> Ka3 kc5 Pb2 Pe4 Pe5 pb6 pe6 b -  P(after)=L
+   Ka4b3    -> Kb3 kc5 Pb2 Pe4 Pe5 pb6 pe6 b -  P(after)=L
+   Pb2b3    -> Ka4 kc5 Pb3 Pe4 Pe5 pb6 pe6 b -  P(after)=W  FREEZE
+   Pb2b4    -> Ka4 kc5 Pb4 Pe4 Pe5 pb6 pe6 b -  P(after)=L
+freeze Pb2b4 at c4
+   q Black to move Ka4 kc4 Pb4 Pe4 Pe5 pb6 pe6 b - : P=W, 4 moves
+      kc4c3    P(after)=W
+      kc4d3    P(after)=W
+      kc4d4    P(after)=W
+      pb6b5    P(after)=W
+   q Black to move without the right: every move loses at once: yes
+   q White to move Ka4 kc4 Pb4 Pe4 Pe5 pb6 pe6 w - : P=L, 2 moves
+      Ka4a3    P(after)=L
+      Pb4b5    P(after)=L
+freeze Pb2b3 at c5
+   q Black to move Ka4 kc5 Pb3 Pe4 Pe5 pb6 pe6 b - : P=W, 3 moves
+      kc5d4    P(after)=W
+      kc5c6    P(after)=W
+      pb6b5    P(after)=W
+   q Black to move without the right: every move loses at once: yes
+   q White to move Ka4 kc5 Pb3 Pe4 Pe5 pb6 pe6 w - : P=L, 2 moves
+      Ka4a3    P(after)=L
+      Pb3b4    P(after)=L
+DEFINITION 4.8 (over): exact (0 failures)
+(B1) graph (group (+) -1, sum rule): 5411569 nodes, 37460351 edges
+   B1 kc4d3 at c4    -> Ka4 kd3 Pb2 Pe4 Pe5 pb6 pe6 w - : beside -1 W
+   B1 kc4d4 at c4    -> Ka4 kd4 Pb2 Pe4 Pe5 pb6 pe6 w - : beside -1 W
+   B1 pb6b5 at c4    -> Ka4 kc4 Pb2 Pe4 Pe5 pb5 pe6 w - : beside -1 W
+   B1 kc5d4 at c5    -> Ka4 kd4 Pb2 Pe4 Pe5 pb6 pe6 w - : beside -1 W
+   B1 kc5c6 at c5    -> Ka4 kc6 Pb2 Pe4 Pe5 pb6 pe6 w - : beside -1 W
+   B1 pb6b5 at c5    -> Ka4 kc5 Pb2 Pe4 Pe5 pb5 pe6 w - : beside -1 W
+(B1): 6 non-shuttle Black root moves, 0 not a White win beside -1

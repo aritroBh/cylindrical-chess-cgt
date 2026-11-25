@@ -1,0 +1,16 @@
+2026-11-24T15:51:53 note: one direct test run of pk on F2 alone (8 positions, 0.3 s, not via heavy.sh; PID not recorded)
+2026-11-24T15:52:15 meas1 heavy.sh wrapper pid 41346 : pk
+2026-11-24T15:52:16 meas1 done, exit 0, watchdog peak rss 0 kB
+2026-11-24T15:52:23 h22_pk heavy.sh wrapper pid 41634 : pk 
+2026-11-24T15:52:24 h22_pk solver pid 41642 (pk)
+2026-11-24T15:56:12 spot_pk heavy.sh wrapper pid 48506 : pk 
+2026-11-24T15:56:13 spot_pk solver pid 48518 (sleep)
+2026-11-24T15:56:35 spot_pk: wrapper 48506 killed by me while still waiting for a slot (its watchdog had recorded the slot-wait 'sleep' 48518 instead of the solver; hrun.sh fixed; rerun below)
+2026-11-24T15:56:35 spot_pk done, exit 0, watchdog peak rss 1136 kB
+2026-11-24T15:56:35 replay_pk heavy.sh wrapper pid 49319 : pk 
+2026-11-24T15:57:02 spot_pk heavy.sh wrapper pid 50225 : pk 
+2026-11-24T15:57:36 replay_pk solver pid 51807 (pk)
+2026-11-24T15:58:02 replay_pk done, exit 0, watchdog peak rss 177440 kB
+2026-11-24T15:58:03 spot_pk solver pid 53100 (pk)
+2026-11-24T16:01:19 spot_pk done, exit 0, watchdog peak rss 1566976 kB
+2026-11-24T16:21:45 h22_pk done, exit 0, watchdog peak rss 207168 kB

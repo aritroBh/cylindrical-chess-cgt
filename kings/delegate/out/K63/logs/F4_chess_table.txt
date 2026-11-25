@@ -1,0 +1,45 @@
+# F4: chess at cap 1. Position value and every move value as bounds (A, B), White's view; one letter = exact.
+# columns: refined (kp39 --refine = own39 with refinement, CHECKED-2 when "agree") | plain kpsolve
+Kc4 ke4 Pb5 Pf2 Pf5 pb6 pf6 b -  value W      (plain ?     ) kp39r = own39
+      Ke4e5    W       (plain ?)
+      Ke4f3    W       (plain ?)
+      Ke4f4    W       (plain ?)
+      Ke4f5    W       (plain ?)
+Kc4 ke4 Pb5 Pf2 Pf5 pb6 pf6 w -  value (W,L)  (plain ?     ) kp39r = own39
+      Kc4b3    L       (plain ?)
+      Kc4b4    L       (plain ?)
+      Kc4c3    L       (plain ?)
+      Pf2f3    L       (plain ?)
+      Pf2f4    (W,L)   (plain ?)
+Kc4 ke5 Pb5 Pf2 Pf5 pb6 pf6 b -  value (W,L)  (plain ?     ) kp39r = own39
+      Ke5d6    W       (plain ?)
+      Ke5e4    (W,L)   (plain ?)
+      Ke5f4    W       (plain ?)
+      Ke5f5    W       (plain ?)
+Kc4 ke5 Pb5 Pf2 Pf5 pb6 pf6 w -  value W      (plain ?     ) kp39r = own39
+      Kc4b3    L       (plain ?)
+      Kc4b4    L       (plain ?)
+      Kc4c3    L       (plain ?)
+      Kc4d3    L       (plain ?)
+      Pf2f3    W       (plain ?)
+      Pf2f4    L       (plain ?)
+Kc4 ke4 Pb5 Pf4 Pf5 pb6 pf6 b f3 value (W,L)  (plain ?     ) kp39r = own39
+      Ke4e3    W       (plain ?)
+      Ke4f3    W       (plain ?)
+      Ke4f4    (W,L)   (plain ?)
+      Ke4f5    (W,L)   (plain ?)
+Kc4 ke4 Pb5 Pf4 Pf5 pb6 pf6 w -  value L      (plain ?     ) kp39r = own39
+      Kc4b3    L       (plain ?)
+      Kc4b4    L       (plain ?)
+      Kc4c3    L       (plain ?)
+Kc4 ke5 Pb5 Pf3 Pf5 pb6 pf6 b -  value W      (plain ?     ) kp39r = own39
+      Ke5d6    W       (plain ?)
+      Ke5f4    W       (plain ?)
+      Ke5f5    W       (plain ?)
+Kc4 ke5 Pb5 Pf3 Pf5 pb6 pf6 w -  value L      (plain ?     ) kp39r = own39
+      Kc4b3    L       (plain ?)
+      Kc4b4    L       (plain ?)
+      Kc4c3    L       (plain ?)
+      Kc4d3    L       (plain ?)
+      Pf3f4    L       (plain ?)
+# positions where kp39 --refine and own39 disagree: 0; moves 34, exact (refined) 30; plain tighter than refined: 0

@@ -1,0 +1,100 @@
+ctx5 [pg6] A w: P W, pred L  -> pawn-contact + ctx-promotes
+ctx5 [pg6] B w: P W, pred L  -> pawn-contact + ctx-promotes
+ctx5 [pg6] qA w: P W, pred L  -> pawn-contact + ctx-promotes
+ctx5 [pg6] qB w: P W, pred L  -> pawn-contact + ctx-promotes
+ctx14 [Pg2 pg3] A b: P L, pred W  -> king-raid + ctx-promotes
+ctx14 [Pg2 pg3] A w: P L, pred W  -> grp-promotes
+ctx14 [Pg2 pg3] B b: P L, pred W  -> king-raid + ctx-promotes
+ctx14 [Pg2 pg3] B w: P L, pred W  -> king-raid + ctx-promotes
+ctx14 [Pg2 pg3] qA b: P L, pred W  -> king-raid + ctx-promotes
+ctx14 [Pg2 pg3] qB b: P L, pred W  -> king-raid + ctx-promotes
+ctx15 [Pg2 pg4] A b: P L, pred W  -> grp-promotes
+ctx15 [Pg2 pg4] A w: P L, pred W  -> king-raid + ctx-promotes
+ctx15 [Pg2 pg4] B b: P L, pred W  -> king-raid + ctx-promotes
+ctx16 [Pg2 pg5] A b: P L, pred W  -> king-raid + ctx-promotes
+ctx17 [Pg2 pg6] A b: P L, pred W  -> pawn-contact + ctx-promotes
+ctx17 [Pg2 pg6] B b: P L, pred W  -> pawn-contact + ctx-promotes
+ctx17 [Pg2 pg6] qA b: P L, pred W  -> pawn-contact + ctx-promotes
+ctx17 [Pg2 pg6] qB b: P L, pred W  -> pawn-contact + ctx-promotes
+ctx18 [Pg2 pg7] qA w: P W, pred L  -> grp-promotes
+ctx18 [Pg2 pg7] qB w: P W, pred L  -> grp-promotes
+ctx21 [Pg2 ph4] A b: P L, pred W  -> ctx-promotes
+ctx21 [Pg2 ph4] A w: P L, pred W  -> ctx-promotes
+ctx21 [Pg2 ph4] B b: P L, pred W  -> ctx-promotes
+ctx21 [Pg2 ph4] B w: P L, pred W  -> ctx-promotes
+ctx21 [Pg2 ph4] qA b: P L, pred W  -> king-raid + ctx-promotes
+ctx21 [Pg2 ph4] qB b: P L, pred W  -> ctx-promotes
+ctx22 [Pg2 ph5] A b: P L, pred W  -> ctx-promotes
+ctx22 [Pg2 ph5] A w: P L, pred W  -> ctx-promotes
+ctx22 [Pg2 ph5] B b: P L, pred W  -> ctx-promotes
+ctx22 [Pg2 ph5] B w: P D, pred W  -> draw
+ctx22 [Pg2 ph5] qB w: P D, pred W  -> draw
+ctx23 [Pg2 ph6] A b: P L, pred W  -> ctx-promotes
+ctx23 [Pg2 ph6] B b: P D, pred W  -> draw
+ctx23 [Pg2 ph6] qB b: P D, pred W  -> draw
+ctx24 [Pg2 ph7] A b: P L, pred W  -> ctx-promotes
+ctx24 [Pg2 ph7] B b: P D, pred W  -> draw
+ctx24 [Pg2 ph7] qB b: P D, pred W  -> draw
+ctx27 [Pg3 pg4] A b: P L, pred W  -> grp-promotes
+ctx27 [Pg3 pg4] B b: P L, pred W  -> king-raid + ctx-promotes
+ctx27 [Pg3 pg4] B w: P L, pred W  -> grp-promotes
+ctx27 [Pg3 pg4] qB b: P L, pred W  -> king-raid + ctx-promotes
+ctx28 [Pg3 pg5] B b: P L, pred W  -> grp-promotes
+ctx29 [Pg3 pg6] A b: P L, pred W  -> pawn-contact + ctx-promotes
+ctx29 [Pg3 pg6] B b: P L, pred W  -> pawn-contact + ctx-promotes
+ctx29 [Pg3 pg6] qA b: P L, pred W  -> pawn-contact + ctx-promotes
+ctx29 [Pg3 pg6] qA w: P W, pred L  -> pawn-contact + ctx-promotes
+ctx29 [Pg3 pg6] qB b: P L, pred W  -> pawn-contact + ctx-promotes
+ctx29 [Pg3 pg6] qB w: P W, pred L  -> pawn-contact + ctx-promotes
+ctx30 [Pg3 pg7] qA b: P W, pred L  -> grp-promotes
+ctx30 [Pg3 pg7] qA w: P W, pred L  -> grp-promotes
+ctx30 [Pg3 pg7] qB b: P W, pred L  -> grp-promotes
+ctx30 [Pg3 pg7] qB w: P D, pred L  -> draw
+ctx34 [Pg3 ph5] A b: P L, pred W  -> pawn-contact + ctx-promotes
+ctx34 [Pg3 ph5] B b: P L, pred W  -> king-raid + ctx-promotes
+ctx34 [Pg3 ph5] B w: P L, pred W  -> pawn-contact + ctx-promotes
+ctx34 [Pg3 ph5] qB b: P L, pred W  -> king-raid + ctx-promotes
+ctx35 [Pg3 ph6] B b: P L, pred W  -> pawn-contact + ctx-promotes
+ctx36 [Pg3 ph7] B b: P L, pred W  -> pawn-contact + ctx-promotes
+ctx42 [Pg4 pg7] A b: P D, pred W  -> draw
+ctx42 [Pg4 pg7] B w: P D, pred W  -> draw
+ctx42 [Pg4 pg7] qA b: P W, pred L  -> grp-promotes
+ctx42 [Pg4 pg7] qB b: P D, pred L  -> draw
+ctx53 [Pg5 pg6] qA w: P W, pred L  -> pawn-contact + grp-promotes
+ctx53 [Pg5 pg6] qB w: P W, pred L  -> pawn-contact + ctx-promotes
+ctx54 [Pg5 pg7] A b: P L, pred W  -> pawn-contact + ctx-promotes
+ctx54 [Pg5 pg7] B b: P L, pred W  -> pawn-contact + ctx-promotes
+ctx60 [Pg5 ph7] qA w: P W, pred L  -> ctx-promotes
+ctx60 [Pg5 ph7] qB w: P W, pred L  -> ctx-promotes
+ctx72 [Pg6 ph7] A b: P W, pred L  -> ctx-promotes
+ctx72 [Pg6 ph7] B b: P W, pred L  -> ctx-promotes
+ctx72 [Pg6 ph7] qA b: P W, pred L  -> ctx-promotes
+ctx72 [Pg6 ph7] qB b: P W, pred L  -> ctx-promotes
+ctx88 [Ph2 pg4] A b: P L, pred W  -> ctx-promotes
+ctx88 [Ph2 pg4] B b: P L, pred W  -> king-raid + ctx-promotes
+ctx88 [Ph2 pg4] B w: P L, pred W  -> ctx-promotes
+ctx88 [Ph2 pg4] qB b: P L, pred W  -> king-raid + ctx-promotes
+ctx89 [Ph2 pg5] B b: P L, pred W  -> ctx-promotes
+ctx90 [Ph2 pg6] A b: P L, pred W  -> pawn-contact + grp-promotes
+ctx90 [Ph2 pg6] B b: P L, pred W  -> pawn-contact + grp-promotes
+ctx90 [Ph2 pg6] qA b: P L, pred W  -> pawn-contact + grp-promotes
+ctx90 [Ph2 pg6] qB b: P L, pred W  -> pawn-contact + grp-promotes
+ctx91 [Ph2 pg7] qA w: P W, pred L  -> ctx-promotes
+ctx91 [Ph2 pg7] qB w: P W, pred L  -> ctx-promotes
+ctx92 [Ph2 ph3] A b: P L, pred W  -> grp-promotes
+ctx92 [Ph2 ph3] B b: P L, pred W  -> king-raid + ctx-promotes
+ctx92 [Ph2 ph3] B w: P L, pred W  -> grp-promotes
+ctx92 [Ph2 ph3] qB b: P L, pred W  -> king-raid + ctx-promotes
+ctx93 [Ph2 ph4] B b: P L, pred W  -> grp-promotes
+ctx102 [Ph3 pg6] A b: P L, pred W  -> pawn-contact + grp-promotes
+ctx102 [Ph3 pg6] B b: P L, pred W  -> pawn-contact + grp-promotes
+ctx103 [Ph3 pg7] qA b: P W, pred L  -> ctx-promotes
+ctx103 [Ph3 pg7] qA w: P W, pred L  -> ctx-promotes
+ctx103 [Ph3 pg7] qB b: P W, pred L  -> pawn-contact + ctx-promotes
+ctx103 [Ph3 pg7] qB w: P W, pred L  -> ctx-promotes
+ctx114 [Ph4 pg6] qA w: P W, pred L  -> pawn-contact + ctx-promotes
+ctx114 [Ph4 pg6] qB w: P W, pred L  -> pawn-contact + ctx-promotes
+ctx115 [Ph4 pg7] A b: P L, pred W  -> ctx-promotes
+ctx115 [Ph4 pg7] B b: P L, pred W  -> ctx-promotes
+ctx115 [Ph4 pg7] qA b: P W, pred L  -> ctx-promotes
+# tally: {'ctx-promotes': 27, 'pawn-contact + ctx-promotes': 24, 'king-raid + ctx-promotes': 17, 'grp-promotes': 14, 'draw': 10, 'pawn-contact + grp-promotes': 7}

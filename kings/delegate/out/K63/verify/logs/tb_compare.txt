@@ -1,0 +1,45 @@
+# 1. Investigator's cap-1 bounds against the tablebase
+  exact cap-1 values compared: 111; bound pairs compared: 47; disagreements: 0
+  categories other than win/draw/loss anywhere (position or move): none
+
+# 2. Tablebase tables (White's view; 50-move rule ignored = with it, since no special category occurs)
+  F2       rootA Ka4 kc4 Pb2 Pf5 pb6 pf6      White to move: win   = W | b4 W, Ka3 L, b3+ L
+  F2       rootA Ka4 kc4 Pb2 Pf5 pb6 pf6      Black to move: draw  = D | b5+ D, Kd3 D, Kd4 D, Kc5 D, Kd5 D
+  F2       rootB Ka4 kc5 Pb2 Pf5 pb6 pf6      White to move: draw  = D | b3 D, Ka3 D, Kb3 D, b4+ L
+  F2       rootB Ka4 kc5 Pb2 Pf5 pb6 pf6      Black to move: draw  = D | Kd4 D, Kd5 D, Kc6 D, Kd6 D, b5+ W, Kc4 W
+  F2       qA    Ka4 kc4 Pb4 Pf5 pb6 pf6      White to move: loss  = L | Ka3 L, b5 L
+  F2       qA    Ka4 kc4 Pb4 Pf5 pb6 pf6      Black to move: loss  = W | Kc3 W, Kd3 W, Kd4 W, b5+ W, Kd5 W
+  F2       qB    Ka4 kc5 Pb3 Pf5 pb6 pf6      White to move: loss  = L | Ka3 L, b4+ L
+  F2       qB    Ka4 kc5 Pb3 Pf5 pb6 pf6      Black to move: draw  = D | Kd4 D, Kd5 D, Kc6 D, Kd6 D, b5+ W
+  F1       rootA Ka4 kc4 Pb2 Pe4 Pe5 pb6 pe6  White to move: win   = W | b4 W, Ka3 L, b3+ L
+  F1       rootA Ka4 kc4 Pb2 Pe4 Pe5 pb6 pe6  Black to move: draw  = D | b5+ D, Kd3 D, Kd4 D, Kc5 D
+  F1       rootB Ka4 kc5 Pb2 Pe4 Pe5 pb6 pe6  White to move: draw  = D | b3 D, Ka3 D, Kb3 D, b4+ L
+  F1       rootB Ka4 kc5 Pb2 Pe4 Pe5 pb6 pe6  Black to move: draw  = D | Kd4 D, Kc6 W, Kc4 W, b5+ W
+  F1       qA    Ka4 kc4 Pb4 Pe4 Pe5 pb6 pe6  White to move: loss  = L | Ka3 L, b5 L
+  F1       qA    Ka4 kc4 Pb4 Pe4 Pe5 pb6 pe6  Black to move: loss  = W | Kc3 W, Kd3 W, Kd4 W, b5+ W
+  F1       qB    Ka4 kc5 Pb3 Pe4 Pe5 pb6 pe6  White to move: loss  = L | Ka3 L, b4+ L
+  F1       qB    Ka4 kc5 Pb3 Pe4 Pe5 pb6 pe6  Black to move: draw  = D | Kd4 D, Kc6 W, b5+ W
+  F3       rootA Ke4 kc4 Pb2 Pb5 Pf5 pb6 pf6  White to move: draw  = D | b4 D, Ke3 L, Kf3 L, Kf4 L, b3+ L
+  F3       rootA Ke4 kc4 Pb2 Pb5 Pf5 pb6 pf6  Black to move: loss  = W | Kb4 W, Kb3 W, Kc5 W, Kxb5 W
+  F3       rootB Ke4 kc5 Pb2 Pb5 Pf5 pb6 pf6  White to move: win   = W | b3 W, Ke3 L, Kf3 L, Kd3 L, Kf4 L, b4+ L
+  F3       rootB Ke4 kc5 Pb2 Pb5 Pf5 pb6 pf6  Black to move: draw  = D | Kc4 D, Kb4 W, Kd6 W, Kxb5 W
+  F3       qA    Ke4 kc4 Pb4 Pb5 Pf5 pb6 pf6  White to move: loss  = L | Ke3 L, Kf3 L, Kf4 L
+  F3       qA    Ke4 kc4 Pb4 Pb5 Pf5 pb6 pf6  Black to move: draw  = D | Kxb4 D, Kxb5 D, Kb3 W, Kc3 W
+  F3       qB    Ke4 kc5 Pb3 Pb5 Pf5 pb6 pf6  White to move: loss  = L | Ke3 L, Kf3 L, Kd3 L, Kf4 L, b4+ L
+  F3       qB    Ke4 kc5 Pb3 Pb5 Pf5 pb6 pf6  Black to move: loss  = W | Kd6 W, Kb4 W, Kxb5 W
+  F4       rootA Kc4 ke4 Pb5 Pf2 Pf5 pb6 pf6  White to move: draw  = D | f4 D, Kb3 L, Kc3 L, Kb4 L, f3+ L
+  F4       rootA Kc4 ke4 Pb5 Pf2 Pf5 pb6 pf6  Black to move: loss  = W | Kf4 W, Kf3 W, Ke5 W, Kxf5 W
+  F4       rootB Kc4 ke5 Pb5 Pf2 Pf5 pb6 pf6  White to move: win   = W | f3 W, Kb3 L, Kc3 L, Kd3 L, Kb4 L, f4+ L
+  F4       rootB Kc4 ke5 Pb5 Pf2 Pf5 pb6 pf6  Black to move: draw  = D | Ke4 D, Kf4 W, Kd6 W, Kxf5 W
+  F4       qA    Kc4 ke4 Pb5 Pf4 Pf5 pb6 pf6  White to move: loss  = L | Kc3 L, Kb3 L, Kb4 L
+  F4       qA    Kc4 ke4 Pb5 Pf4 Pf5 pb6 pf6  Black to move: draw  = D | Kxf4 D, Kxf5 D, Ke3 W, Kf3 W
+  F4       qB    Kc4 ke5 Pb5 Pf3 Pf5 pb6 pf6  White to move: loss  = L | Kb3 L, Kc3 L, Kd3 L, Kb4 L, f4+ L
+  F4       qB    Kc4 ke5 Pb5 Pf3 Pf5 pb6 pf6  Black to move: loss  = W | Kd6 W, Kf4 W, Kxf5 W
+  F2mirror rootA Kc5 ka5 Pb3 Pf3 pb7 pf4      White to move: draw  = D | b4+ D, Kc4 D, Kd4 D, Kd5 D, Kd6 D
+  F2mirror rootA Kc5 ka5 Pb3 Pf3 pb7 pf4      Black to move: win   = L | b5 L, Ka6 W, b6+ W
+  F2mirror rootB Kc4 ka5 Pb3 Pf3 pb7 pf4      White to move: draw  = D | Kc3 D, Kd3 D, Kd4 D, Kd5 D, b4+ L, Kc5 L
+  F2mirror rootB Kc4 ka5 Pb3 Pf3 pb7 pf4      Black to move: draw  = D | b6 D, Ka6 D, Kb6 D, b5+ W
+  F2mirror qA    Kc5 ka5 Pb3 Pf3 pb5 pf4      White to move: loss  = L | Kd5 L, Kc6 L, Kd6 L, b4+ L, Kd4 L
+  F2mirror qA    Kc5 ka5 Pb3 Pf3 pb5 pf4      Black to move: loss  = W | Ka6 W, b4 W
+  F2mirror qB    Kc4 ka5 Pb3 Pf3 pb6 pf4      White to move: draw  = D | Kc3 D, Kd3 D, Kd4 D, Kd5 D, b4+ L
+  F2mirror qB    Kc4 ka5 Pb3 Pf3 pb6 pf4      Black to move: loss  = W | Ka6 W, b5+ W

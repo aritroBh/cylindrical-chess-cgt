@@ -1,0 +1,99 @@
+55384 heavy.sh F2_88_ref3m ref3m call 1
+55400 heavy.sh F2_88_ref3m ref3m call 2
+55416 heavy.sh F2_88_kpp kpp call 1
+55422 heavy.sh F2_88_kpp kpp call 2
+55429 heavy.sh F2_88_kref_check 11:29:12
+55732 heavy.sh F2_88_vgsum 11:29:22
+56378 heavy.sh F2_88_kp_meas 11:29:47
+59643 run_q1.sh F2 11:31:42
+60754 heavy.sh F2_dump87 11:32:06
+60770 heavy.sh F2_dump88 11:32:07
+61407 heavy.sh F2m_88_ref3m ref3m call 1
+61440 heavy.sh F2m_88_ref3m ref3m call 2
+61453 heavy.sh F2m_88_kpp kpp call 1
+61465 heavy.sh F2m_88_kpp kpp call 2
+63162 heavy.sh F2_kp 11:33:57
+63157 run_q1.sh F2 (restart) 11:33:59
+64248 heavy.sh meas_ref3m 11:35:04
+64556 run_ctx.sh gh11 de11 11:35:24
+64564 heavy.sh ctx_gh11_ref3m 11:35:24
+64741 heavy.sh F2_kp39r 11:35:34
+65947 heavy.sh ctx_gh11_kpp 11:36:24
+67307 heavy.sh ctx_de11_ref3m 11:37:23
+67747 heavy.sh F2_own_A 11:37:33
+68677 heavy.sh pv_test 11:38:04
+68989 heavy.sh F2_own_B 11:38:16
+69027 heavy.sh ctx_de11_kpp 11:38:18
+72974 run_pv.sh gh11 11:40:11
+72979 heavy.sh pv gh11 11:40:11
+72993 run_ctx.sh h22 11:40:11
+73002 heavy.sh ctx_h22_ref3m 11:40:11
+73304 heavy.sh pv gh11 11:40:21
+73481 heavy.sh pv gh11 11:40:31
+73563 heavy.sh pv gh11 11:40:35
+73692 heavy.sh pv gh11 11:40:43
+73927 heavy.sh pv gh11 11:40:54
+74100 heavy.sh F1_88_kref_check 11:41:02
+74146 heavy.sh pv gh11 11:41:05
+74434 heavy.sh pv gh11 11:41:18
+74693 heavy.sh ctx_h22_kpp 11:41:26
+74743 heavy.sh pv gh11 11:41:30
+75022 heavy.sh pv gh11 11:41:39
+75230 heavy.sh pv gh11 11:41:50
+75460 heavy.sh pv gh11 11:42:02
+75695 heavy.sh pv gh11 11:42:13
+75977 heavy.sh pv gh11 11:42:24
+76172 heavy.sh pv gh11 11:42:34
+76393 heavy.sh pv gh11 11:42:43
+76507 heavy.sh pv gh11 11:42:53
+76713 heavy.sh pv gh11 11:43:04
+76916 heavy.sh pv gh11 11:43:14
+77162 heavy.sh pv gh11 11:43:24
+77285 heavy.sh pv gh11 11:43:33
+77516 heavy.sh pv gh11 11:43:44
+77646 heavy.sh pv gh11 11:43:53
+77843 heavy.sh pv gh11 11:44:02
+78119 heavy.sh pv gh11 11:44:12
+78527 heavy.sh pv gh11 11:44:23
+78836 heavy.sh pv gh11 11:44:34
+79078 heavy.sh pv gh11 11:44:43
+79401 heavy.sh pv gh11 11:44:52
+72974 killed by me (run_pv.sh gh11, replaced by ref3pv) 11:44:59
+79965 heavy.sh F3_88_kref_check 11:45:12
+80050 run_lines.sh h22 gh11 de11 11:45:15
+80059 heavy.sh lines_h22 11:45:15
+80122 heavy.sh F4_88_kref_check 11:45:18
+80512 heavy.sh F1_own_A 11:45:32
+80878 heavy.sh lines_gh11 11:45:49
+82009 heavy.sh lines_de11 11:46:35
+85024 run_q1b.sh 11:49:12
+85030 heavy.sh dsum_gh11 11:49:12
+85034 heavy.sh F1_own_B 11:49:12
+92725 run_ctx_chunks.sh gh22 11:52:34
+92735 heavy.sh gh22_chunks/c00_ref3m 11:52:34
+95739 heavy.sh F3_own_A 11:54:44
+95980 heavy.sh dsum_h22 11:54:51
+99443 heavy.sh F3_own_B 11:57:28
+1908 heavy.sh gh22_chunks/c00_kpp 11:58:55
+(direct run, under a minute) ref3pv F2 P lines 11:59:07
+4467 heavy.sh F4_own_A 12:00:01
+6702 heavy.sh gh22_chunks/c01_ref3m 12:02:24
+6812 heavy.sh F4_own_B 12:02:26
+10345 heavy.sh F1_kp39r 12:04:55
+11986 heavy.sh gh22_chunks/c01_kpp 12:05:35
+19751 heavy.sh gh22_chunks/c02_ref3m 12:09:00
+25248 heavy.sh F3_kp39r 12:12:05
+33885 heavy.sh F4_kp39r 12:18:43
+34991 heavy.sh gh22_chunks/c02_kpp 12:19:47
+92725 killed by me (run_ctx_chunks.sh gh22, replaced by two chains over the remaining chunks) 12:29:40
+51621 run_chunks2.sh gh22 c03-c07 12:29:40
+51622 run_chunks2.sh gh22 c08-c11 12:29:40
+51635 heavy.sh gh22_chunks/c08_ref3m 12:29:40
+51634 heavy.sh gh22_chunks/c03_ref3m 12:29:40
+(direct run, under a minute) ref3pv F2 P lines, rerun after the promotion-name fix 12:30:25
+61224 heavy.sh gh22_chunks/c08_kpp 12:37:44
+51648 51622 51621 61230 killed by me 12:42:42: chunk solvers c03_ref3m (6.0 GB RSS) and c08_kpp (2.1 GB) over the memory budget, and their two chain scripts
+70631 heavy.sh lines_h22 12:43:09
+71431 heavy.sh lines_gh11 12:43:41
+72381 heavy.sh lines_de11 12:44:22
+lines rerun (run_lines.sh, foreground) 12:45:08

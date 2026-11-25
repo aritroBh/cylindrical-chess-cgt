@@ -1,0 +1,273 @@
+K63 FINDINGS: the 2 + 2 over group F2 on the ordinary chessboard, in chess and beside other pawns   (2026-11-24)
+================================================================================================================
+Brief: kings/delegate/briefs/K63_brief.md.  AI work (one agent), not refereed, no human re-derivation.  Paths are relative to
+kings/delegate/out/K63/ unless they start with kings/.  Labels: COMPUTED-1 (one program), CHECKED-2 (two separately written
+programs agree).  Values are White's view: W White wins, L Black wins, D draw.  F2 = Ka4 kc4/kc5 Pb2 Pf5 pb6 pf6 (Black
+shuttles c4-c5; White's freezes b2-b4 at the c4 root, b2-b3 at the c5 root).  Roots: A = Black king c4, B = Black king c5.
+qA = Ka4 kc4 Pb4 Pf5 pb6 pf6 (after b2-b4), qB = Ka4 kc5 Pb3 Pf5 pb6 pf6 (after b2-b3).
+
+0. SHORT ANSWER
+---------------
+F2 on the ordinary chessboard (flat 8x8) is the exact over group of Corollary 4.17 (reproduced: Definition 4.8 by three
+programs, (B1) at all 9 non-shuttle Black root moves by two, CHECKED-2).  In chess at cap 1 (CHECKED-2 as bounds, kp39 and
+own39) part of the structure survives exactly: at the c4 root the freeze b2-b4 is the only non-losing White move, and its q
+(Ka4 kc4 Pb4 Pf5 pb6 pf6) is an exact mutual zugzwang of chess; at the c5 root b2-b4 and ...b6-b5 lose exactly and qB with
+White to move is lost; the other three root values and 16 of 32 move values are undecided, so whether F2 is exact in chess is
+OPEN.  Every move value that cap 1 decides agrees with P.  F1 behaves the same; in F3 and F4 the other freeze (b2-b3, f2-f3)
+and its q are exact in chess.  Flat 8x8 differs from flat 8x7 at the roots only by the missing double step ...b6-b4 (9 bad
+Black root moves instead of 11); no root or q move value changes.  Beside P contexts F2 is not over: on the one separated
+file (h) the P result equals the D-sum prediction r(omega (+) X) in 271 of 283 contexts of at most 2 + 2 pawns, and the 12
+failures, all in Black's favour, all hold a White pawn on h2 blocked by a Black pawn, which the Black king walks to
+and wins (CHECKED-2); on touching files the prediction fails in 15-40 % of contexts (pawn contact with the f-pawns,
+king raids).  The colour mirror Kc5/Kc4 ka5 Pb3 Pf3 pb7 pf4 is an exact under group (CHECKED-2).  Memory: three 2 + 2 context
+chunk runs went over the 3 GB limit (4.9, 5.2 and 6.2 GB; a fourth reached 2.9 GB) before I saw it; the run was stopped and only its completed part
+(1,146 of 4,579 contexts) is reported (section 7).
+
+Headline numbers.
+  Chess cap 1, F2: 8 positions, 32 move values, 16 exact; F1 17 of 26; F3 30 of 34; F4 30 of 34 exact.  0 disagreements
+    between kp39 --refine and own39.  0 exact values that differ from P.
+  P contexts (ref3m = kp_p everywhere):  h <=2+2: 271/283 agree;  g,h <=1+1: 125/157;  d,e <=1+1: 95/157;
+    g,h <=2+2 (first 1,146 contexts): 969/1,146.
+  Direct D-sums F2 (+) X with vgsum59: 0 of 14,904 results differ from over (356 e.p.-free contexts).
+
+1. SANITY: COROLLARY 4.17 FOR F2 ON FLAT 8x8 (reproduced)
+---------------------------------------------------------
+- Definition 4.8 (over orientation), clause by clause: PASS by three programs with identical move lists and values: ref3m and
+  kp_p --pmodel through the K48 referee's def48.py (logs/F2_88_def48_ref3m.txt, F2_88_def48_kpp.txt) and the K59 referee's
+  kref (logs/F2_88_kref_check.out; P graph 1,395,489 nodes).  CHECKED-2 (three programs).
+    root A, Black to move: Kc4-c5 (shuttle), Kd3, Kd4, Kd5, ...b6-b5+ : all W          (root value W)
+    root A, White to move: Ka3 L, b2-b3 L, b2-b4 W (the freeze)                         (root value W)
+    root B, Black to move: Kc5-c4 (shuttle), Kc6, Kd4, Kd5, Kd6, ...b6-b5+ : all W      (root value W)
+    root B, White to move: Ka3 L, Kb3 L, b2-b3 W (the freeze), b2-b4 L                  (root value W)
+    qA: Black to move (e.p. square b3, no Black pawn can use it) Kc3, Kd3, Kd4, Kd5, ...b5: all W; White to move Ka3, b4-b5: L
+    qB: Black to move Kc6, Kd4, Kd5, Kd6, ...b5: all W; White to move Ka3, b3-b4: L
+- (B1): all 9 non-shuttle Black root moves are White wins beside -1 under the sum's rule: kref and vgsum59 (logs/F2_88_vgsum.out),
+  same move list.  CHECKED-2.  Direct sums: vgsum59 beside the K57 referee's 63 test games, 0 of 1,215 results differ from over
+  (src/cmp_sum.py).  So Corollary 4.17's statement for F2 on flat 8x8 is reproduced (K59 had it from ref3m, kp_p, vgsum59, pr57).
+- P lines for every root move and every q move (ref3pv, one optimal line each; logs/F2_88_P_lines.out).  Short summary of why
+  the bad moves lose in P: a Black king step off c4/c5 lets the White king in (Ka4-b5, Kxb6, and the b-pawn runs: after 1...Kd3
+  2.Kb5 Ke4 3.b4 Kxf5 4.Kxb6 White queens first); White's bad moves let the Black king go for f5 (after 1.Ka3 or 1.b3 at A,
+  Black plays ...b5, ...Kd3/Kd4-e4xf5 and the f-pawn runs) or give up b4 (1.b4? at B: ...Kc4, ...b5, ...Kxb4).
+
+2. QUESTION 1: CHESS (MODEL C) ON FLAT 8x8
+-------------------------------------------
+Tools (all at cap 1, promotion to Q, R, B, N, e.p. on, board flat:8x8; inputs in/F*_88_chess.in = the 4 roots, qA and qB
+with each side to move, every legal move valued):
+  - kp39 --refine (K39's copy of kpsolve with the capture refinement) and own39 bounds A and B with the refinement (K39's
+    second family, from the K27 referee's ownchess.cpp, no code shared with kpsolve).  They agree on every position value and
+    every move value for F1, F2, F3 and F4 (0 differences; logs/F*_chess_table.txt): CHECKED-2 as bound pairs.
+  - plain kpsolve (no refinement) for F2 only: never tighter than the refined bounds (it is looser at one move, ...b6-b5 at B).
+Meaning of a cap-1 result.  At cap 1 at most one officer may be on the board.  A promotion that would make a second officer is
+"capped": bound A scores it as a White win, bound B as a Black win (the refinement scores a capped promotion by the favoured
+side as the value after the opponent's best capture of the new piece; sound for that bound).  A >= chess value >= B (White's
+view).  So: where A = B the value is the exact value of the position in chess under kpsolve's rules (SPEC.md: no 50-move
+rule, no castling, endless play is a draw, stalemate a draw); this is a proof by computation, CHECKED-2 here.  Where A > B
+the position is undecided: (W, L) says nothing, (W, D) says Black cannot win, (D, L) says White cannot win.  A cap-1 bound is
+never evidence about what happens with two or more officers; no move is "refuted" by an open bound.  The 50-move rule could
+in principle turn a long win into a draw; not checked.
+
+F2 (Ka4 kc4/kc5 Pb2 Pf5 pb6 pf6), refined bounds (logs/F2_chess_table.txt):
+  position                         value    moves (bounds; one letter = exact)                         P (section 1)
+  A, Black to move                 (W,L)    Kc5 (W,L), Kd3 (W,L), Kd4 (W,L), Kd5 (W,L), ...b5+ (W,D)     all W
+  A, White to move                 W        Ka3 L, b2-b3 L, b2-b4 W                                     same
+  B, Black to move                 (W,L)    Kc4 W, Kc6 (W,D), Kd4 (W,L), Kd5 (W,L), Kd6 (W,L), ...b5+ W   all W
+  B, White to move                 (W,L)    Ka3 (W,L), Kb3 (D,L), b2-b3 (W,L), b2-b4 L                    W; freeze b3
+  qA, Black to move (e.p. b3)      W        Kc3 W, Kd3 W, Kd4 W, Kd5 W, ...b5 W                          same
+  qA, White to move                L        Ka3 L, b4-b5 L                                              same
+  qB, Black to move                (W,L)    Kc6 (W,D), Kd4 (W,L), Kd5 (W,L), Kd6 (W,L), ...b5 W          all W
+  qB, White to move                L        Ka3 L, b3-b4 L                                              same
+  32 move values: 16 exact, 16 open.  Every exact value equals the P verdict (no move found whose chess value differs from P
+  where chess is decided).
+  Structure of Definition 4.8 in chess:
+  - At root A the freeze b2-b4 is exactly the only non-losing White move (it wins; Ka3 and b2-b3 lose), and qA is an EXACT
+    MUTUAL ZUGZWANG in chess: Black to move loses (all 5 moves), White to move loses (both moves).  CHECKED-2.
+  - At root B: b2-b4 loses exactly; the freeze b2-b3 and Ka3 are (W,L), Kb3 is (D,L): not settled whether b2-b3 is the only
+    non-losing move, nor whether it wins.  qB with White to move is exactly lost for White (both moves lose); qB with Black to
+    move is (W,L): ...b5 loses exactly, the four king moves are open (Kc6: Black cannot win).  So "qB is a mutual zugzwang" is
+    open in chess.
+  - Black's root moves: ...b6-b5+ at B and the shuttle Kc5-c4 at B lose exactly (the shuttle leads to root A with White to
+    move, an exact White win).  Every other Black root move is open ((W,L), or (W,D) for ...b5+ at A and Kc6 at B: Black
+    cannot win after them).  So "every non-shuttle Black move loses" is open at both roots.
+  - The four root values: A with White to move is exactly W (as in P); the other three are (W,L).
+  So F2 is NOT shown to keep the whole structure of Definition 4.8 in chess, and NOT shown to lose it: one freeze with its q
+  survives exactly (as for Z_O in K48), the rest needs more than one officer.
+
+F1 (Ka4 kc4/kc5 Pb2 Pe4 Pe5 pb6 pe6), 26 move values, 17 exact (logs/F1_chess_table.txt).  Same picture as F2: root A White
+  to move exactly W with b2-b4 the only non-losing move (Ka3, b2-b3 lose); qA an exact mutual zugzwang (Black's 4 moves and
+  White's 2 moves all lose); qB White to move exactly L; at B b2-b4 loses, Black's Kc4, Kc6 and ...b5 lose exactly; the other
+  root values are (W,L); Kd3 and ...b5 at A are (W,D), Kd4 at A and at B (W,L).
+F3 (Ke4 kc4/kc5 Pb2 Pb5 Pf5 pb6 pf6), 34 move values, 30 exact (logs/F3_chess_table.txt).  Here the settled freeze is at the
+  other root: root B White to move exactly W with b2-b3 the only non-losing move (Kd3, Ke3, Kf3, Kf4, b2-b4 all lose); qB an
+  exact mutual zugzwang (Black's 3 moves, White's 5 moves all lose); root A Black to move exactly W (all four Black moves,
+  shuttle included, lose exactly); qA White to move exactly L.  Open: root A White to move (W,L) (the freeze b2-b4 is (W,L),
+  the other four moves lose exactly), root B Black to move (W,L) (only the shuttle Kc5-c4 is open, Kb4, Kb5, Kd6 lose exactly),
+  qA Black to move (W,L) (Kb3, Kc3 lose exactly; Kb4, Kb5 open).
+F4 (Kc4 ke4/ke5 Pb5 Pf2 Pf5 pb6 pf6; F3 reflected and moved one file), 34 move values, 30 exact (logs/F4_chess_table.txt): the
+  same as F3 with e4/e5 for c4/c5 and f2-f4/f2-f3 for b2-b4/b2-b3: root B (ke5) White to move exactly W, f2-f3 the only
+  non-losing move; qB exact mutual zugzwang; root A (ke4) Black to move exactly W; qA White to move exactly L; open: root A
+  White to move (freeze f2-f4 (W,L)), root B Black to move (shuttle Ke5-e4 (W,L)), qA Black to move (Kf4, Kxf5 open).
+In all four groups every move value that cap 1 decides equals the P verdict.  CHECKED-2 for every table.
+
+Cap 2.  Not run.  At cap 1 F2 already needs 196 million states (kpsolve 1.23 GB; F1, F3, F4: 709-749 million states in kp39,
+1.1-1.2 GB).  A layer with two officers has 64*63*62*61*2, about 3.0e7, king-and-officer placements per pair of officer kinds
+(about 36 pairs of colour and type), about 1e9 states per pawn layer before pawn squares are removed; at kpsolve's 5-6 bytes per
+state one such layer alone is several GB.  K39's restricted cap 2 (one queen a side) still has about 3e7 states per pawn layer
+and many layers.  No small measured run can come under 2 GB, so cap 2 was not started (brief: "only if a measured small run
+shows it stays under 2 GB").
+Exact chess evidence in the repository.  realchess/ holds an offline cache of tablebase records (realchess/kb.py, 1,626
+records answering 8,445 positions of 2 to 8 men).  None of F2's 8 positions or 32 children is among them
+(src/kb_lookup.py, logs/F2_kb_lookup.txt: 40 looked up, 0 found).  cylcgt/ holds CGT code only, no chess tables.  So nothing
+in the repository settles the open values; a 6-man tablebase would settle every F2 value exactly, but downloads were not
+allowed.
+
+3. QUESTION 2: FLAT 8x8 AGAINST FLAT 8x7 (P graph of F2)
+-------------------------------------------------------
+Method: kref63 (the K59 referee's kref plus a "dump" command) lists every position reachable from the four roots with its P
+value, on flat 8x7 and on flat 8x8 (logs/F2_dump87.out.xz, F2_dump88.out.xz); src/cmp_boards.py joins them on the position
+(logs/F2_cmp_boards.txt).  COMPUTED-1 for the counts; the root and q values are CHECKED-2 (K59 on 8x7, section 1 on 8x8).
+  - Graph: 883,243 positions on flat 8x7 (the K59 referee's count), 1,395,489 on flat 8x8; every 8x7 position is also reachable
+    on 8x8 (of the extra 512,246, 512,230 have a king on rank 8 or a White pawn on rank 7, which flat 8x7 cannot have; 16 others,
+    e.g. Kb5 kb7 Pb6 pf6 w, are simply not reached on 8x7).
+  - Root moves.  On flat 8x7 rank 6 is Black's second rank, so ...b6-b4 is a double step there; on flat 8x8 it is not.  So:
+      root A, Black to move: 8x7 has Kc5, Kd3, Kd4, Kd5, ...b5+, ...b4 (6 moves); 8x8 has the same without ...b4 (5).
+      root B, Black to move: 8x7 Kc4, Kc6, Kd4, Kd5, Kd6, ...b5+, ...b4 (7); 8x8 the same without ...b4 (6).
+      qB, Black to move: 8x7 has ...b6-b4 as well (6 moves); 8x8 has 5.
+    White's root and q moves are the same on both boards (Ka3, b2-b3, b2-b4 at A; Ka3, Kb3, b2-b3, b2-b4 at B; Ka3, b4-b5 at qA;
+    Ka3, b3-b4 at qB).  Non-shuttle Black root moves, hence (B1) moves: 11 on 8x7, 9 on 8x8.
+  - Values.  Every root, q and root or q move present on both boards has the same P value on both (all Black root moves W, the
+    freezes W and the other White moves L, qA and qB: W with Black to move, L with White to move).  So no root move changes its
+    value; the only change at the roots is the missing double step.
+  - Away from the roots 39,859 of the 883,243 common positions (4.5 %) change value: W -> L 18,969, W -> D 11,846, L -> D 6,697,
+    L -> W 1,007, D -> L 837, D -> W 503 (8x7 -> 8x8).  24,343 of them have a White pawn on rank 6 (one step from promotion on 8x7,
+    two on 8x8) or a Black pawn on rank 6 (a double step on 8x7 only); the other 15,516 change through longer races (White
+    promotes one rank later everywhere).  None of them is reached by a root move with a changed value.
+
+4. QUESTION 3: F2 BESIDE OTHER PAWNS IN P (one board, one game)
+---------------------------------------------------------------
+Setting.  One board (flat 8x8), one game P: F2's pieces plus context pawns X on free files; F2 at a root (A or B) or at a q,
+either side to move, no e.p. right except qA with Black to move (b3, unusable).  Prediction: the D-sum result, in which X is
+the D-game of the context pawns alone (pawn moves only, single and double steps, captures, e.p.; a promotion is a terminal
+win for the promoter; a side with no move loses; in the sum a move elsewhere clears X's e.p. right).  By Corollary 4.17 (on
+flat 8x8, section 1) r(F2-root (+) X, s) = r(omega (+) X, s) and r(q (+) X, s) = r(X, s), so the prediction is
+r(omega (+) X) at the roots and r(X) at the q's.
+Separation (Definition 2.1).  F2's kings and pawns stand on files a, b, c, f.  The files at distance >= 2 from {a, b, c, f}
+(and from the interval a-f) are h only; d, e and g are next to a group file and are buffer files.  So only contexts on file h
+are separated in the note's sense; contexts on g touch the f-pawns (f5xg6, ...f6xg5 are possible), contexts on d, e touch
+the Black king's files and the f-pawns.  The separation is about pawns: the kings of F2 may walk anywhere in P.
+Programs.  P values: ref3m and kp_p --pmodel, separately written, agree on every position of every run (CHECKED-2; 0
+differences on 1,256 + 1,256 + 2,264 + 9,168 positions).  Prediction: src/gen_ctx63.py and src/pred2.py (separately written,
+same author; 0 differences on all 157 + 157 + 283 + 4,579 contexts) and, for the contexts that can never create an e.p.
+right, the K57 referee's toyref.over_vals (0 differences).  Direct D-sums: vgsum59 gives r(F2 (+) X) = r(over (+) X) at all
+6,993 + 7,911 results beside the 121 + 235 e.p.-free contexts of gh11 and h22 (COMPUTED-1; agrees with Corollary 4.17).
+Lines: ref3pv (ref3m plus a resolution-order record; logs/lines_*.out), one optimal line per disagreement; mechanism labels
+by src/classify_lines.py (logs/mech_*.txt).
+
+Results (logs/ctx_<tag>_table.txt; 8 positions per context: A b, A w, B b, B w, qA b, qA w, qB b, qB w):
+  run   files  pawns   contexts  agree  differ  positions differing   separated?        direction of the differences
+  h22   h      <=2+2   283       271    12      40 of 2,264           yes (file h)      all 40 in Black's favour
+  gh11  g, h   <=1+1   157       125    32      99 of 1,256           h-only part: 43   5 (h-only) + 63 Black, 31 White
+                                                                       contexts, 2 differ
+  de11  d, e   <=1+1   157       95     62      250 of 1,256 (+48 X)  no                230 Black, 20 White
+  gh22a g, h   <=2+2,  1,146     969    177     654 of 9,168          h-only part as    9 (h-only) + 280 Black, 365 White
+               first 1,146 of 4,579 (all contexts with at most one White pawn and 263 with two; see below)
+  (X: 24 d/e contexts put the Black king in check from a context pawn at some root or q, so that White-to-move position is
+  illegal; ignored.)
+
+Separated contexts (file h).  Of the 283 contexts of at most 2 + 2 pawns on h, 271 give exactly the D-sum prediction at all 8
+positions.  Each of the 12 others holds a White pawn on h2 blocked by a Black pawn on h3, or by one on h4 that can step
+to h3 (the 22 other contexts with such a pair agree: in each another h-pawn already decides the prediction, which is W at
+all 8 positions, L at all 8, or a win for the side to move) (Ph2 ph3, Ph2 ph4, Ph2 ph3 ph4, Ph2 Ph4 ph3 ph5, Ph2 Ph4 ph3 ph6, Ph2 Ph4 ph3 ph7, Ph2 Ph5 ph3 ph6,
+Ph2 Ph5 ph3 ph7, Ph2 Ph5 ph4 ph6, Ph2 Ph5 ph4 ph7, Ph2 Ph6 ph3 ph7, Ph2 Ph6 ph4 ph7).  All 40 differences are in Black's
+favour (P gives L or D where the prediction is W).  qA is never affected; the differences sit at qB (8), root B (20) and
+root A (12, of which 9 with Black to move, who can shuttle to root B).  Mechanism: the dead pair h2/h3 is 0 as a D-game of pawns, but in
+P it is a target for the Black king.  At qB with Black to move (prediction W, P result L):
+    Ka4 kc5 Pb3 Pf5 pb6 pf6 Ph2 ph3, Black to move:  1...Kd4 2.Kb5 Ke3 3.Kc6 b5 4.Kd7 Kf2 5.Ke7 Kg1 6.Kf8 b4 7.Kg8 Kxh2
+    8.Kh8 Kg1 9.Kg8 h2 10.Kh8 h1 (promotion; White's moves are the solver's longest resistance, not a plan)
+  and at root B with White to move every move now loses (the freeze b2-b3 walks into that qB; e.g. 1.Kb3 b5 2.Kc3 Kd5 3.Kb4
+  Ke4 4.Kc5 Kxf5 and Black's f-pawn promotes).  Ph2 ph4 differs only at root B with Black to move: 1...h4-h3! makes the
+  dead pair and gives White the move at root B.  So the context test on the separated file still separates F2 from over,
+  always in Black's favour, by a king walking to a context pawn.  In 6 of the 40 positions the P result is a draw (e.g. Ph2 Ph4
+  ph3 ph6, root B, White to move: b2-b4 draws, every other move loses).
+Touching files.  On g, h (at most 1 + 1) 30 of the 32 differing contexts have a pawn on g.  Their lines: a context pawn
+promotes after the group's f-pawn has met it (f5xg6 or ...f6xg5) or after a king has taken a pawn, e.g. pg6 alone: the
+prediction is a Black win with White to move (the lone g-pawn runs) but P gives W, 1.f5xg6! f5 2.g7 ... 3.g8; with Pg2 pg3
+the Black king walks to g2.  Labels (one line each): gh11 ctx-promotes 27, pawn-contact + ctx-promotes 24, king-raid +
+ctx-promotes 17, grp-promotes 14, pawn-contact + grp-promotes 7, draw 10.  On d, e the Black king stands next to the
+context: de11 king-raid + ctx-promotes 143, grp-promotes 55, ctx-promotes 26, pawn-contact 12, king-raid + grp-promotes 4,
+draw 10; 230 of 250 differences are in Black's favour.
+2 + 2 on g, h (partial).  The 4,579 contexts were run in 12 chunks; only chunks 0-2 (contexts 0-1,145: every context with at
+most one White pawn, 883, and the first 263 with two) were completed by both solvers (CHECKED-2): 969 agree, 177 differ, of
+which 3 are h-only (the same 3 as in h22 within that range) and 174 have a pawn on g; here the differences go both ways (365
+positions in White's favour, 280 in Black's, among the non-separated).  Chunks 3-11 were not completed: see section 6 and the
+memory note in section 7.  No lines were extracted for gh22a.
+Answer to the brief's question.  F2 does better than the cyl:8x6 group Z_O in D-sums (it has the results of over there,
+Z_O does not), but beside P contexts it is not over either: on the one separated file it fails exactly when the context holds
+a blocked White pawn that the Black king can reach, and on touching files it fails often, through pawn contact with the
+f-pawns and king raids.  On file h no difference came from a pawn race between context and group pawns: every h-file context without
+a blocked h2-pawn agrees, races included; checks from promotions do not arise in P (the first promotion ends the game).  For
+comparison, K47 found P = r(over + C) on its separated file in all 63 contexts on cyl:9x6 and in 199 of 200 on cyl:10x6
+(Z_O); here F2 gives it in 271 of 283.
+
+5. QUESTION 4: THE MIRROR
+-------------------------
+The colour flip of F2 on flat 8x8 (rank r -> 9 - r, colours swapped) is the exact under group
+    Kc5/Kc4 ka5 Pb3 Pf3 pb7 pf4        (White king shuttles c5-c4; Black's freezes b7-b5 at the c5 root, b7-b6 at the c4 root)
+as a chess position: White Kc5 (or Kc4), Pb3, Pf3; Black Ka5, pb7, pf4.  def48.py with White as the shuttler PASSES with ref3m
+and with kp_p --pmodel, identical move values (logs/F2mirror_88_def48_ref3m.txt, F2mirror_88_def48_kpp.txt): CHECKED-2.
+    root Kc5, White to move: Kc4 (shuttle), Kd4, Kd5, Kd6, b3-b4+ : all L     root Kc5, Black to move: Ka6 W, b7-b6 W, b7-b5 L (freeze)
+    root Kc4, White to move: Kc5 (shuttle), Kc3, Kd3, Kd4, Kd5, b3-b4+: all L root Kc4, Black to move: Ka6 W, Kb6 W, b7-b5 W, b7-b6 L (freeze)
+    q after b7-b5 (Kc5 ka5 Pb3 Pf3 pb5 pf4): White to move all L; Black to move Ka6, b5-b4: W
+    q after b7-b6 (Kc4 ka5 Pb3 Pf3 pb6 pf4): White to move all L; Black to move Ka6, b6-b5: W
+The chess facts of section 2 carry over to it with colours and ranks exchanged (the solvers are colour-symmetric; not re-run).
+
+6. WHAT WAS NOT CHECKED / NOT DONE
+----------------------------------
+- No referee.  Everything here is one agent's work.
+- Chess: cap 2 (or K39's restricted cap 2) not run, by the memory estimate in section 2; so 16 of F2's 32 move values, 9 of
+  F1's 26, 4 of F3's and 4 of F4's 34, and three root values of F1/F2 and two of F3/F4, stay open.  The 50-move rule is not
+  modelled.  The chess runs are for the groups alone (roots and q's), not beside contexts.  The mirror under group was not run
+  in chess (the solvers are colour-symmetric, so its values are the colour flip of section 2, but this was not executed).  F5
+  is not exact on flat 8x8 (K59) and was not run.
+- No tablebase was used (downloads not allowed); the repository's cache has none of these positions.
+- P contexts: 2 + 2 on files d, e not run; no context of more than 2 + 2 pawns; no context mixing h with d or e.  The context
+  pawns stand on ranks 2-7 with no officer.  The q's beside contexts were compared with r(X); the brief asked for the roots.
+- The D-sum prediction r(omega (+) X) is CHECKED-2 by two programs written by the same agent (gen_ctx63.py and pred2.py, own
+  move generators and solvers), plus the K57 referee's toyref on the contexts without any e.p. possibility; the direct sum
+  r(F2 (+) X) (vgsum59) was run only for e.p.-free contexts (the T format cannot clear a context's e.p. right) and is COMPUTED-1.
+- Lines of play: one optimal line per disagreement, chosen by resolution order (the winner moves to the child resolved first,
+  the loser to the one resolved last), so they end but are neither shortest nor unique; the losing side's moves are often
+  aimless.  The mechanism labels (src/classify_lines.py) are read from these lines only.  A third P solver (kref63) confirmed
+  7 disagreement positions and hit its 15-million-node limit on 22 others (logs/pv_kref63_gh11_partial.txt,
+  kref63_pv_ctx92_Ab.out); no position was contradicted.
+- Question 2 compares P only; the chess values were run on flat 8x8 only.
+- No hand proof of anything.
+
+7. PROGRAMS, RUNS, FILES
+------------------------
+Sources (src/; copies of earlier programs are unchanged except where marked):
+  kpsolve.c (copy of kings/kpsolve.c), kp39.c, own39.cpp (K39), ref3m.cpp, kp_p10.c, vgsum59.cpp, def48.py, cmp_sum.py,
+  toyref.py (K59 copies), kref.cpp (K59 referee), gen_ctx_k47.py (K47's gen_ctx.py, for reference only);
+  new or changed in K63: kref63.cpp (kref + "dump", "pv", resolution order, node limit; marked K63), ref3pv.cpp (ref3m +
+  resolution order and --pv lines; marked K63), gen_ctx63.py, pred2.py, pred3_toyref.py, cmp_ctx63.py, direction.py,
+  classify_lines.py, cmp_boards.py, q1_table.py, kb_lookup.py; scripts build.sh, hrun.sh, watch2.sh, run_q1.sh, run_q1b.sh,
+  run_ctx.sh, run_ctx_chunks.sh, run_chunks2.sh, run_lines.sh.
+Inputs (in/): chess inputs F*_88_chess.in, F2_88_after.pos; contexts ctx_<tag>.pos/.pred/.tg (+ _noep.tg), dis_<tag>.pos;
+  T_h10.txt (K57 referee's 63 test games); ctx_gh22a.* = the first 1,146 contexts of ctx_gh22.* (the large gh22 files are xz-compressed, as are
+  logs/ctx_gh22a_*.out); the 12 chunks of
+  ctx_gh22.pos were made by `split -l 3056 -d -a 2` and deleted afterwards.
+Logs (logs/): every run's .out and .err (/usr/bin/time -l); tables F*_chess_table.txt, ctx_<tag>_table.txt, mech_<tag>.txt,
+  F2_cmp_boards.txt, F2_kb_lookup.txt; lines lines_<tag>.out, F2_88_P_lines.out; dumps F2_dump87/88.out.xz; packed:
+  grp.tar.xz (def48 solver calls), gh22_chunks.tar.xz (the chunk runs, including the incomplete c03 and c08).
+Peak memory (maximum resident set size): kpsolve F2 cap 1 1.23 GB; kp39 --refine F1/F3/F4 1.11-1.23 GB (F2 1.07 GB); own39
+  0.35-0.44 GB; kref checks 0.47-0.75 GB; ref3m/kp_p on the 1+1 and h contexts 0.31-0.50 GB; ref3pv lines 1.81 GB (de11);
+  kref63 pv 1.6-1.7 GB (node limit); vgsum59 0.29-1.05 GB.
+MEMORY BREACH (my error): the 2 + 2 g,h chunks were started without a watchdog after the first two chunks measured 1.0-1.5 GB.
+  Chunk c02 then peaked at 5.2 GB (ref3m) and 4.9 GB (kp_p), c08 at 2.9 GB (ref3m), and c03 (ref3m) was at 6.0 GB when I
+  noticed and stopped it (and c08's kp_p at 2.1 GB): over the 3 GB limit.  The later chunks hold contexts with two White
+  pawns, whose layer sets are much larger.  I stopped only my own processes (PIDs in pids.log), ran nothing further on 2 + 2,
+  and put every later run (the lines) under src/watch2.sh at 2.2 GB.
+Process: heavy runs through kings/delegate/heavy.sh under /usr/bin/time -l (src/hrun.sh), PIDs in pids.log; small direct runs
+  (under a minute, under 500 MB) are noted there too.  Only my own PIDs were signalled (the two loop scripts replaced, and
+  the over-budget chunk solvers).  No downloads.  No git commands that change anything.  Binaries (bin/) deleted at the end.
+Edits: EDITS.md (one edit to Corollary 4.17's paragraph, "not yet refereed"); applies cleanly to a scratch copy of the
+  current LOOPY.md (`.venv/bin/python kings/delegate/apply_edits.py`: 1 applied, 0 rejected).

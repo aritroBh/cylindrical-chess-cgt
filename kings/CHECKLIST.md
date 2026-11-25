@@ -27,7 +27,7 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
    - [x] The four cyl:8×7 groups have the results of over (Black-side condition by two programs); five groups with
          the results of over on flat 8×7, the smallest with 2 + 2 pawns, four of them also on flat 8×8:
          Corollary 4.17 (proved given twice-checked computations, refereed) (K59)
-   - [~] The 2 + 2 group on the ordinary 8×8 board: in chess, and beside P contexts (K63: investigator done, cap 1 leaves half the chess values open; referee running, with tablebase lookups for the six- and seven-man groups)
+   - [x] The 2 + 2 group on the ordinary 8×8 board: in chess, and beside P contexts (K63, refereed): not an exact over group in chess (tablebase), one freeze survives as a mutual zugzwang; beside file-h pawns in P the prediction fails in 12 of 283 contexts
    - [~] Census of exact over groups on flat 8×8, two programs, with (B1) and ladder length for every hit (K65, investigator running)
    - [ ] Other file classes of flat 8×7; flat 9×7
    - [x] The exact condition in place of the Black-side condition: Theorem 4.18, decided by one game on the group's
