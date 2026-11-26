@@ -1,0 +1,287 @@
+atlas/flat8/rerun/analyze.py:636:    first_fail = None
+atlas/flat8/rerun/analyze.py:640:            ok, first_fail = False, n
+atlas/flat8/rerun/nimscan.c:218:    int d = white ? 1 : -1, start = white ? 2 : 7;
+atlas/flat8/rerun/nimscan.c:331:    int d = white ? 1 : -1, start = white ? 2 : 7;
+atlas/targets/pcgt.c:662:    int d = white ? 1 : -1, start = white ? 2 : 7;
+atlas/targets/pcgt.c:717:    int startf = 0;
+atlas/targets/pcgt.c:718:    if (WRAP) { for (int f = 0; f < W; f++) if (!(occf & (1 << f))) { startf = (f + 1) % W; break; } }
+bench/ab.c:190:    int d = side_white ? 1 : -1, start = side_white ? 2 : R - 1;
+bench/baseline.py:93:        start = 2 if side_white else RANKS - 1
+bench/baseline.py:172:    w_first = s.solve(white, black, True) == 1   # White wins moving first
+bench/baseline.py:173:    b_first = s.solve(white, black, False) == 1  # Black wins moving first
+bench/board.py:51:    start = 2 if side == "W" else geo.ranks - 1
+crosscheck/minimax.py:88:    start_rank = 2 if side == "W" else 7
+cylcgt/pawns.py:145:    start = 2 if side == "W" else board.ranks - 1
+dawson/pawnboard.py:152:    start = bd.start()
+dawson/pawnboard.py:249:    start_shape = bd.shape_heaps(bd.start())
+delegate/out/R11_note2_referee/qref.py:113:                start = 2 if col == W else 7
+delegate/out/T80/check.c:20:    first_file=0;
+delegate/out/T80/check.c:136:            int starts=wrap ? files : 1;
+delegate/out/T81/check.py:52:        home = 1 if side == WHITE else self.h-2
+delegate/out/T81/check.py:117:        for i, (side, move) in enumerate(moves, start=1):
+delegate/out/T81/check.py:129:    start = tiny.pos("a2", "b3")
+delegate/out/T81/check.py:133:    start = short.pos("a2 b2", "b4")
+delegate/out/T81/check.py:201:    def summed(blocks, bank, side, split_first=False):
+delegate/out/T82/referee.py:236:        start = chart + (span-width)//2
+delegate/out/T84_opencode/solve.py:169:    home = 2 if c == W else 7
+delegate/out/T84_opencode/solve.py:293:        self.start = (pos0, None)
+delegate/out/T85_opencode/solver.py:95:        start=None
+delegate/out/T85_opencode/solver.py:98:                start=i; break
+delegate/out/T85_opencode/solver.py:269:        start_key=(frozenset(w0), frozenset(b0), right_key(r0))
+delegate/out/T89/check.py:11:    start = [0, 0]
+delegate/out/T89/check.py:20:    first = sum(1 << (n * r) for r in range(8))
+delegate/out/T93/replay.py:113:    start={(f,r):pc for r,row in [(1,'RNBQKBNR'),(2,'P'*8),(7,'p'*8),(8,'rnbqkbnr')]
+delegate/out/T93/replay.py:140:    start=(1<<n)-1
+delegate/out/W9_sx_second_program/sx2.py:40:    start = 2 if side == 0 else NR - 1
+engine/perft/cylperft.c:128:            int fwd = c == 0 ? 1 : -1, start = c == 0 ? 1 : 6;
+engine/run_suite.py:232:    first = None
+engine/run_suite.py:236:                first = depth
+engine/run_suite.py:238:            first = None
+engine/suite/cgtpos.py:41:    start = 2 if side == "W" else board.ranks - 1
+lemmas/minichess.py:179:            start = 2 if col == "W" else geo.ranks - 1
+lemmas/test_L1_components.py:90:        start = next(f for f in fs if (f - 1) % b.files not in fs)
+notes/novelty2/verify_t29/dawson_brute.py:35:    start=tuple([1]*n+[0]*n+[2]*n)
+notes/proof_audit2/checks/dawson_ring_check.py:46:    start = (frozenset((f, 1) for f in range(n)), frozenset((f, 3) for f in range(n)))
+notes/proof_audit2/checks/dawson_ring_check.py:69:        strip_first = win(W, B, 0)
+notes/proof_audit2/checks/dawson_ring_check.py:74:            ring_first = winc(Wc, Bc, 0)
+notes/proof_audit2/checks/indep_sum_model.py:79:    start = 2 if side == 'W' else Cfg.ranks - 1
+realchess/movegen.py:192:            start = 1 if me == WHITE else 6
+realchess/movegen.py:387:        start_sq = pos.ep + 8 if pos.stm == WHITE else pos.ep - 8
+realchess/validate_movegen.py:139:        start = pos.ep + 8 if pos.stm == mg.WHITE else pos.ep - 8
+research/c3_star2/cyl_eval.c:232:    int d = white ? 1 : -1, start = white ? 2 : 7;
+research/c3_star2/cyl_eval.c:348:    int d = white ? 1 : -1, start = white ? 2 : 7;
+research/c3_star2/reach.py:86:    start = pawns.Pos.parse(start_text)
+research/c3_star2/verify_t33/mysolve.py:157:        start = 2 if side == "W" else self.R - 1
+research/c3_star2/walk.py:48:            dbl = c.ep is not None
+research/c7_independent/part1_crosscheck.py:91:                start = 0 if turn == WHITE else 5
+research/c9_rings/codex/engine.py:154:        start_rank = 2 if side == W else 7
+research/c9_rings/rg_copy.c:153:    int d = side == 0 ? 1 : -1, start = side == 0 ? 2 : 7;
+research/convention_ladder/kpsolve_stalemate_loss.c:374:  int dir = us == WHITE ? W : -W, start = us == WHITE ? 1 : H - 2;
+research/convention_ladder/kpsolve_stalemate_loss.c:650:  uint32_t *start = calloc(n + 1, sizeof *start), *pred = malloc((ne + 1) * sizeof *pred);
+research/convention_ladder/kpsolve_stalemate_loss.c:841:        origin = skipped - (mover == WHITE ? W : -W);
+research/dawson_variants/dawson_variants.py:309:    start = surface.start_position()
+research/dawson_variants/dawson_variants.py:357:        ring_misere_first_wins = misere_strip_P[strip_len] if strip_len > 0 else False
+research/dawson_variants/dawson_variants.py:360:        # So ring_misere_first_wins = misere_P((0,)) = False for n=3
+research/dawson_variants/dawson_variants.py:363:        ring_normal_first_wins = (g[strip_len] == 0)
+research/dawson_variants/dawson_variants.py:595:    start = board.start_position()
+research/five_file_legal/covering_push.py:57:    start_w = frozenset((f, 2) for f in wf)
+research/five_file_legal/covering_push.py:58:    start_b = frozenset((f, 7) for f in bf)
+research/five_file_legal/covering_push.py:71:        start_w, start_b = info
+research/five_file_legal/covering_push.py:72:        ok, msg = rc.replay(moves, W, B, start=(start_w, start_b))
+research/five_file_legal/pawnhist.py:209:def find_history(target_w, target_b, start_w=START_W, start_b=START_B, prune=True,
+research/five_file_legal/replay_check.py:72:def replay(history, target_w, target_b, start=None):
+research/five_file_legal/replay_check.py:100:            home = 2 if side == "W" else 7
+research/five_file_legal/t32_search.c:16: *     default start = standard 8-pawn start; the optional hex pair overrides it.
+research/five_file_legal/validate_search.py:128:        m1, i1 = ph.find_history(w, b, start_w=W0, start_b=B0, prune=True, node_cap=10**7)
+research/five_file_legal/validate_search.py:129:        m0, i0 = ph.find_history(w, b, start_w=W0, start_b=B0, prune=False, node_cap=10**7)
+research/five_file_legal/validate_search.py:139:            okr, msg = rc.replay(m1, w, b, start=(W0, B0))
+research/mobius/kpsolve_mob.c:377:  int dir = us == WHITE ? W : -W, start = us == WHITE ? 1 : H - 2;
+research/mobius/kpsolve_mob.c:653:  uint32_t *start = calloc(n + 1, sizeof *start), *pred = malloc((ne + 1) * sizeof *pred);
+research/mobius/kpsolve_mob.c:844:        origin = skipped - (mover == WHITE ? W : -W);
+research/mobius/mob_pawns.py:207:            start = 2 if d == 1 else H - 1
+research/mobius/mobius_kpk.py:218:    start_rank = 1 if pawn_dir == 1 else H - 2
+research/mobius/mobius_kpk.py:269:            dbl = PAWN_DBL_WHITE[pawn_sq]
+research/mobius/mobius_pawns.py:155:    start = 2 if side == "W" else board.ranks - 1
+research/mobius_repair/fixed_kpsolve_mob.c:378:  int dir = us == WHITE ? W : -W, start = us == WHITE ? 1 : H - 2;
+research/mobius_repair/fixed_kpsolve_mob.c:654:  uint32_t *start = calloc(n + 1, sizeof *start), *pred = malloc((ne + 1) * sizeof *pred);
+research/mobius_repair/fixed_kpsolve_mob.c:845:        origin = skipped - (mover == WHITE ? W : -W);
+research/mobius_rings/mob1.c:75:        unsigned mk = p->m[c][di][f]; int d = di ? -1 : 1, start = di ? 7 : 2;
+research/mobius_rings/mob2.c:85:            int R2 = r + 2 * D, home = D > 0 ? 2 : 7;
+research/mobius_rings_check/check.c:28:            int home = r == (down ? 5 : 0);
+research/mobius_rings_n/check.c:28:            int home = r == (down ? 5 : 0);
+research/mobius_rings_n/check_orig.c:28:            int home = r == (down ? 5 : 0);
+research/mobius_rings_n/mob1.c:77:        unsigned mk = p->m[c][di][f]; int d = di ? -1 : 1, start = di ? 7 : 2;
+research/mobius_rings_n/mob2.c:87:            int R2 = r + 2 * D, home = D > 0 ? 2 : 7;
+research/mobius_rings_proof/mgame.py:128:                    home = 2 if d > 0 else 7; r2 = r + 2 * d
+research/mobius_star3_family/lemma_flag_test.py:28:        start = rnd.choice([0, n - L, rnd.randint(0, n - L)])
+research/odd_cylinders/kpsolve9.c:376:  int dir = us == WHITE ? W : -W, start = us == WHITE ? 1 : H - 2;
+research/odd_cylinders/kpsolve9.c:654:  uint32_t *start = calloc(n + 1, sizeof *start), *pred = malloc((ne + 1) * sizeof *pred);
+research/odd_cylinders/kpsolve9.c:845:        origin = skipped - (mover == WHITE ? W : -W);
+research/odd_cylinders_verify/kpsolve_wide.c:375:  int dir = us == WHITE ? W : -W, start = us == WHITE ? 1 : H - 2;
+research/odd_cylinders_verify/kpsolve_wide.c:653:  uint32_t *start = calloc(n + 1, sizeof *start), *pred = malloc((ne + 1) * sizeof *pred);
+research/odd_cylinders_verify/kpsolve_wide.c:844:        origin = skipped - (mover == WHITE ? W : -W);
+research/odd_n_plus_2/rg.c:152:    int d = side == 0 ? 1 : -1, start = side == 0 ? 2 : 7;
+research/q_family_check/solver2.py:36:        self.startW=W0
+research/q_family_check/solver2.py:37:        self.startB=B0
+research/ring_family/ringeval.c:142:    uint64_t start = h;
+research/ring_family/ringeval.c:220:    int d = white ? 1 : -1, start = white ? 2 : 7;
+research/ring_family/ringeval_w.c:147:    uint64_t start = h;
+research/ring_family/ringeval_w.c:225:    int d = white ? 1 : -1, start = white ? 2 : 7;
+research/ring_family_proof/rg.c:152:    int d = side == 0 ? 1 : -1, start = side == 0 ? 2 : 7;
+research/ring_family_proof/verify/eng.py:67:    start = 2 if side == 'W' else 7
+research/ring_family_proof_check/independent_check.py:58:    start_rank = 2 if side == "W" else board.ranks - 1
+research/ring_min_c5c6/ring.c:74:    uint64_t start = i;
+research/ring_min_c5c6/ring.c:84:    uint64_t start = i;
+research/ring_min_c5c6/ring.c:124:    int n = 0, dir = (col == 1) ? 1 : -1, start = (col == 1) ? 2 : 7, en = 3 - col;
+research/ring_min_c5c6/ring.c:226:    p += sprintf(p, "W:"); first = 1;
+research/ring_min_c5c6/ring.c:227:    for (int f = 0; f < N; f++) for (int r = 1; r <= 8; r++) if (b->c[f][r] == 1) { p += sprintf(p, " %c%d", 'a' + f, r); first = 0; }
+research/ring_min_independent/ring.c:115:    int n = 0, dir = (col == 1) ? 1 : -1, start = (col == 1) ? 2 : 7, en = 3 - col;
+research/ring_min_independent/ring.c:217:    p += sprintf(p, "W:"); first = 1;
+research/ring_min_independent/ring.c:218:    for (int f = 0; f < N; f++) for (int r = 1; r <= 8; r++) if (b->c[f][r] == 1) { p += sprintf(p, " %c%d", 'a' + f, r); first = 0; }
+research/ring_min_independent/ring_check.py:64:    start = 2 if col == 'W' else 7
+research/ring_min_independent/verify_t34/vt34_solver.py:69:    start = 2 if me == 'W' else 7
+research/ring_n_check/independent.py:131:        start_rank = 2 if side == W else 7
+research/ring_n_plus_2_check/independent.py:60:    start_rank = 2 if side == W else 7
+research/ring_n_plus_2_check/odd/independent.py:130:        start_rank = 2 if side == W else 7
+research/ring_n_plus_2_check/q/independent.py:82:    start_rank = 2 if side == W else 7
+research/ring_n_plus_2_proof/check3/eng.py:68:    start = 2 if side == 'W' else 7
+research/ring_n_plus_2_proof/verify_compute/myeng.py:137:    home = 2 if c == W else 7
+research/ring_n_plus_2_proof/verify_compute/myeng.py:257:        self.start = (pos0, None)
+research/ring_n_plus_2_proof/verify_compute/t50/eng.py:67:    start = 2 if side == 'W' else 7
+research/ring_n_plus_2_proof/verify_computeOdd/diff_rules.py:178:    starts = [O.start(fam, n) for fam in ('R', 'Qo') for n in (9, 11, 13, 15)]
+research/ring_n_plus_2_proof/verify_computeOdd/oddeng.py:162:    home = 2 if c == WH else 7
+research/ring_n_plus_2_proof/verify_computeOdd/oddeng.py:297:        self.start = (pos0, None)
+research/ring_n_plus_2_proof/verify_logic/engine.py:106:    start = 2 if side == 'W' else 7
+research/ring_n_plus_2_proof/verify_logicOdd/engineD.py:106:    start = 2 if side == 'W' else 7
+research/star26_rings/frontier_split.c:197:    int d = white ? 1 : -1, start = white ? 2 : 7;
+research/star26_rings/frontier_split1.c:145:    uint64_t start = h;
+research/star26_rings/frontier_split1.c:222:    int d = white ? 1 : -1, start = white ? 2 : 7;
+research/star26_rings/frontier_split1_fixed.c:156:    uint64_t start = h;
+research/star26_rings/frontier_split1_fixed.c:233:    int d = white ? 1 : -1, start = white ? 2 : 7;
+research/star26_rings/frontier_split1_fixed2.c:157:    uint64_t start = h;
+research/star26_rings/frontier_split1_fixed2.c:234:    int d = white ? 1 : -1, start = white ? 2 : 7;
+research/star2_frontier/frontier.c:232:    int d = white ? 1 : -1, start = white ? 2 : 7;
+research/star2_frontier/frontier.c:348:    int d = white ? 1 : -1, start = white ? 2 : 7;
+research/star2_frontier/nimscan.c:218:    int d = white ? 1 : -1, start = white ? 2 : 7;
+research/star2_frontier/nimscan.c:331:    int d = white ? 1 : -1, start = white ? 2 : 7;
+research/star2_frontier_b/nimscan.c:218:    int d = white ? 1 : -1, start = white ? 2 : 7;
+research/star2_frontier_b/nimscan.c:331:    int d = white ? 1 : -1, start = white ? 2 : 7;
+research/star2_frontier_recheck/frontier_copy.c:232:    int d = white ? 1 : -1, start = white ? 2 : 7;
+research/star2_frontier_recheck/frontier_copy.c:348:    int d = white ? 1 : -1, start = white ? 2 : 7;
+research/star2_min_wide/scan_R.c:158:    uint64_t start = h;
+research/star2_min_wide/scan_R.c:235:    int d = white ? 1 : -1, start = white ? 2 : 7;
+research/star2_min_wide/scan_wide.c:162:    uint64_t start = h;
+research/star2_min_wide/scan_wide.c:239:    int d = white ? 1 : -1, start = white ? 2 : 7;
+research/star2_min_wide/scan_wide_R.c:162:    uint64_t start = h;
+research/star2_min_wide/scan_wide_R.c:239:    int d = white ? 1 : -1, start = white ? 2 : 7;
+research/star2_width5/frontier_split.c:197:    int d = white ? 1 : -1, start = white ? 2 : 7;
+research/star3_check/independent.py:167:        start_rank = 2 if side == W else 7
+research/star3_hunt/frontier_split.c:197:    int d = white ? 1 : -1, start = white ? 2 : 7;
+research/star3_single/base_fixed2.c:157:    uint64_t start = h;
+research/star3_single/base_fixed2.c:234:    int d = white ? 1 : -1, start = white ? 2 : 7;
+research/star3_single/s3.c:153:    uint64_t start = h;
+research/star3_single/s3.c:229:    int d = white ? 1 : -1, start = white ? 2 : 7;
+research/star4_hunt/h4.c:171:    uint64_t start = h;
+research/star4_hunt/h4.c:248:    int d = white ? 1 : -1, start = white ? 2 : 7;
+research/star4_hunt/h4.c:646:    int d = white ? 1 : -1, start = white ? 2 : 7;
+research/star4_hunt/h4.c:712:        int d = white ? 1 : -1, start = white ? 2 : 7;
+research/star4_hunt/ringeval_budget.c:144:    uint64_t start = h;
+research/star4_hunt/ringeval_budget.c:222:    int d = white ? 1 : -1, start = white ? 2 : 7;
+research/star4_hunt/s3.c:153:    uint64_t start = h;
+research/star4_hunt/s3.c:229:    int d = white ? 1 : -1, start = white ? 2 : 7;
+research/star4_hunt/verify/s2.c:65:  u64 acc=0, occ=wm|bm; u64 mine=side==0?wm:bm, theirs=side==0?bm:wm; int d=side==0?1:-1, start=side==0?2:7;
+research/star4_rings/rg.c:152:    int d = side == 0 ? 1 : -1, start = side == 0 ? 2 : 7;
+research/sum_truth_cyl/k12ep/checker.py:152:        start_rank = 2
+research/sum_truth_cyl/k12ep/checker.py:156:        start_rank = H-1
+research/sum_truth_cyl/k12ep/gen.py:90:        origin_rank = 2
+research/sum_truth_cyl/k12ep/gen.py:95:        origin_rank = H-1
+research/sum_truth_cyl/k12ep/gen.py:103:        origin = (f, origin_rank)
+research/sumtest_epaware_rerun/sumsolver.py:322:            start = 0
+research/sumtest_epaware_rerun/sumsolver.py:324:                start = occ.index(False)          # rotate so we begin on an empty file
+research/tall_boards/tw.c:100:    int d = white ? 1 : -1, start = white ? 2 : R - 1;
+research/trebuchet_unfreeze/src/kpsolve_orig.c:374:  int dir = us == WHITE ? W : -W, start = us == WHITE ? 1 : H - 2;
+research/trebuchet_unfreeze/src/kpsolve_orig.c:650:  uint32_t *start = calloc(n + 1, sizeof *start), *pred = malloc((ne + 1) * sizeof *pred);
+research/trebuchet_unfreeze/src/kpsolve_orig.c:841:        origin = skipped - (mover == WHITE ? W : -W);
+research/trebuchet_unfreeze/src/kpv.c:398:  int dir = us == WHITE ? W : -W, start = us == WHITE ? 1 : H - 2;
+research/trebuchet_unfreeze/src/kpv.c:674:  uint32_t *start = calloc(n + 1, sizeof *start), *pred = malloc((ne + 1) * sizeof *pred);
+research/trebuchet_unfreeze/src/kpv.c:865:        origin = skipped - (mover == WHITE ? W : -W);
+research/trebuchet_unfreeze/src/kpv5.c:399:  int dir = us == WHITE ? W : -W, start = us == WHITE ? 1 : H - 2;
+research/trebuchet_unfreeze/src/kpv5.c:675:  uint32_t *start = calloc(n + 1, sizeof *start), *pred = malloc((ne + 1) * sizeof *pred);
+research/trebuchet_unfreeze/src/kpv5.c:866:        origin = skipped - (mover == WHITE ? W : -W);
+research/trebuchet_unfreeze/src/kpw.c:398:  int dir = us == WHITE ? W : -W, start = us == WHITE ? 1 : H - 2;
+research/trebuchet_unfreeze/src/kpw.c:674:  uint32_t *start = calloc(n + 1, sizeof *start), *pred = malloc((ne + 1) * sizeof *pred);
+research/trebuchet_unfreeze/src/kpw.c:865:        origin = skipped - (mover == WHITE ? W : -W);
+research/v2_mechanisms/mechanisms.py:194:    first_q_move = chain[0]
+research/v2_mechanisms/mechanisms.py:195:    first_is_capture = "x" in first_q_move
+research/v2_mechanisms/mechanisms.py:198:    return dict(runner_start=q0, runner_chain=chain, runner_blocked_at_Nstar=(not q_passed), blockers=blockers,
+research/v2_mechanisms/mechanisms.py:199:                runner_first_move_is_capture=first_is_capture, runner_moves_in_pv=len(chain))
+research/v2_mechanisms/mechanisms.py:222:            first = path[0][1]
+research/v2_mechanisms/pawngame.py:56:        start = 2 if side == "W" else self.H - 1
+research/v2_mechanisms/tests.py:51:    start = 2 if X == "W" else G.H - 1
+sumtest/sumsolver.py:322:            start = 0
+sumtest/sumsolver.py:324:                start = occ.index(False)          # rotate so we begin on an empty file
+verify/cylatlas/C3-refute/mypawns.py:94:    start = 2 if side == "W" else RANKS - 1
+verify/cylatlas/C4-refute/indep.py:327:        start = 2 if side == "W" else RANKS - 1
+verify/cylatlas/C5-refute/pg.py:99:        mine, theirs, d, start = Ws, Bs, 1, 2
+verify/cylatlas/C5-refute/pg.py:101:        mine, theirs, d, start = Bs, Ws, -1, RANKS - 1
+verify/cylatlas/C5-reproduce/indep_scan.py:104:    home = 2 if side == "W" else RANKS - 1
+verify/cylatlas/C5-reproduce/indep_sum.py:124:    home = 2 if side == "W" else RANKS - 1
+verify/cylatlas/C7-refute/freeze_indep.py:116:    start = 2 if white else H - 1
+verify/cylatlas/C7-refute/freeze_indep.py:171:    start = (W0, B0, None)
+verify/cylatlas/C7-refute/freeze_indep.py:207:                            first_check = min((d for d, k, _t in viol if k == "check"), default=None)
+verify/cylatlas/C7-refute/freeze_indep.py:209:                                               first=viol[0] if viol else None,
+verify/cylatlas/C7-refute/freeze_indep.py:210:                                               first_check_depth=first_check, notes=sorted(notes))
+verify/cylatlas/C7-refute/freeze_indep.py:349:                print("  cyl8 o=%d m=%d s=%+d r=%d WK %s BK %s first=%s firstcheck=%s kinds=%s" % (
+verify/cylatlas/C7-reproduce/indep_freeze.py:46:    home = 2 if side == "W" else ranks - 1
+verify/cylatlas/C7-reproduce/indep_freeze.py:75:    start = (frozenset(W0), frozenset(B0), None)
+verify/cylatlas/C7-reproduce/indep_freeze.py:105:    start = (frozenset(W0), frozenset(B0), None, first)
+verify/cylatlas/C7-theory/myfreeze.py:48:    start = 2 if side == "W" else 7
+verify/cylatlas/C7-theory/myfreeze.py:74:    start = (W, B, None)
+verify/dawson/C2-refute/dblstep_probe.py:15:    start = tuple(x for f in range(n) for x in (1, 0, 2))
+verify/dawson/C2-refute/dblstep_probe.py:17:    quiet_dbl = 0; any_dbl = 0; promo = 0; ex = None
+verify/dawson/C2-refute/dblstep_probe.py:24:        dbl = False
+verify/dawson/C2-refute/dblstep_probe.py:33:                home = 0 if side == 1 else 2
+verify/dawson/C2-refute/dblstep_probe.py:34:                if r == home and b[f*3+1] == 0 and b[f*3+(2-home)] == 0: dbl = True
+verify/dawson/C3-refute/ring_refute.py:51:        self.dbl_geom = 0
+verify/dawson/C3-refute/ring_refute.py:52:        self.dbl_legal = 0
+verify/dawson/C3-refute/ring_refute.py:87:        first = 1 if side == 0 else 3
+verify/dawson/C3-refute/ring_refute.py:91:        dbl = False
+verify/dawson/C3-refute/ring_refute.py:118:                        dbl = True
+verify/dawson/C3-refute/ring_refute.py:157:    start = tuple([FULL] * n)
+verify/dawson/C3-refute/ring_refute.py:260:            res, bad, nfirst = macro_from_start(n, side, all_files=(n <= 80))
+verify/dawson/C3-refute/ring_refute.py:284:            print("  FLAT FLAG m=%d promo=%d dbl_legal=%d" % (m, F.promo_legal, F.dbl_legal))
+verify/dawson/C3-refute/ring_refute.py:298:              " | g(n-3)=%d heapMisP=%s | promo_legal=%d dbl_geom=%d dbl_legal=%d ok=%s"
+verify/dawson/C3-refute/v2_pawn.c:44:  int dbl=0;
+verify/dawson/C3-refute/v2_pawn.c:52:      int r3=r2+dir; if(((s==1&&r==1)||(s==2&&r==3)) && r3>=1&&r3<=3 && get(b,f,r3)==0) dbl=1; }
+verify/dawson/C3-refute/v2_pawn.c:112:    N=n; WRAP=0; tinit(1<<16); promo_legal=dbl_quiet=dbl_capt=stuck_last=0;
+verify/dawson/C3-refute/v2_pawn.c:123:    N=n; WRAP=1; tinit(1<<16); promo_legal=dbl_quiet=dbl_capt=stuck_last=0;
+verify/diagrams/K1-refute/k1_check.py:91:            start = 1 if colour == "w" else 6
+verify/diagrams/K1-refute/k1_refute.py:141:            start = 1 if side == "W" else 6
+verify/diagrams/K1-reproduce/k1_check.py:100:                start = 2 if c == "P" else 7
+verify/diagrams/K1-reproduce/k1_indep.py:157:    start = parse(fen)
+verify/diagrams/N1-refute/refute_n1.py:191:        start = 2 if side == "W" else 7
+verify/diagrams/N1-refute/v3/indep_n1.py:156:    start = 2 if side == "W" else NR - 1
+verify/diagrams/N1-reproduce/indep_tiny.py:74:    home = 2 if side == "W" else CFG["ranks"] - 1
+verify/diagrams/N1-reproduce/run2/indep2.py:137:    home = 2 if side == "W" else CFG["R"] - 1
+verify/diagrams/V1-refute/fresh.py:94:    home = 2 if white else NR - 1
+verify/engines/C1-refute/indep.py:90:    start = 2 if stm == "W" else 7
+verify/engines/C1-refute/x/suite/cgtpos.py:41:    start = 2 if side == "W" else board.ranks - 1
+verify/engines/C1-reproduce/work/engine/suite/cgtpos.py:41:    start = 2 if side == "W" else board.ranks - 1
+verify/engines/C1-theory/suite_copy/cgtpos.py:41:    start = 2 if side == "W" else board.ranks - 1
+verify/lemmas/L2.1-HSS-theorem-refute/indep.py:93:    start = 2 if side == "W" else bd.m - 1
+verify/lemmas/L2.1-HSS-theorem-reproduce/indep_hss.py:52:    start = 2 if side == "W" else m - 1
+verify/lemmas/L2.1-HSS-theorem-reproduce/indep_l21.py:73:    start = 2 if side == "W" else bd.m - 1
+verify/lemmas/L2.2-sum_safe-counterexample-refute/indep.py:117:    start = 2 if side == "W" else B.m - 1
+verify/lemmas/L2.2-sum_safe-counterexample-refute/run2/indep2.py:123:    start = 2 if side == "W" else B.m - 1
+verify/lemmas/L2.2-sum_safe-counterexample-reproduce/indep.py:113:    start = 2 if side == "W" else bd.m - 1
+verify/lemmas/L2.2-sum_safe-counterexample-reproduce/r2_indep.py:99:    home = 2 if side == "W" else m - 1
+verify/lemmas/L2.2-sum_safe-counterexample-theory/indep.py:59:    start = 2 if side == "W" else bd.nr - 1
+verify/lemmas/L3.4-candidate-all-models-refute/indep.py:94:    start = 2 if side == "W" else RANKS - 1
+verify/lemmas/L3.4-candidate-all-models-refute/indep_v2.py:88:    start = 2 if side == "W" else RANKS - 1
+verify/lemmas/L3.4-candidate-all-models-reproduce/indep.py:74:    start = 2 if side == "W" else ranks - 1
+verify/lemmas/L3.4-candidate-all-models-theory/indep.py:94:    start = 2 if side == "W" else bd.ranks - 1
+verify/lemmas/L4.2-critical-races-refute/fresh2.py:71:    home = 2 if side == "W" else 7
+verify/lemmas/L4.2-critical-races-refute/indep.py:87:    home = 2 if side == "W" else NRANKS - 1
+verify/lemmas/L4.2-critical-races-reproduce/indep.py:97:    start = 2 if side == "W" else NR - 1
+verify/lemmas/L4.2-critical-races-reproduce/indep_check.py:81:    home = 2 if side == "W" else RANKS - 1
+verify/sumtest/C1-refute/v2/bf.py:159:        home = 2 if side == "W" else RANKS - 1
+verify/sumtest/C1-refute/vsolve.py:164:        home = 2 if side == "W" else RANKS - 1
+verify/sumtest/C1-reproduce/pkg/sumtest/sumsolver.py:322:            start = 0
+verify/sumtest/C1-reproduce/pkg/sumtest/sumsolver.py:324:                start = occ.index(False)          # rotate so we begin on an empty file
+verify/sumtest/C1-reproduce/rerun2/vthird.py:101:        home = 2 if white else NR - 1
+verify/sumtest/C2-refute/indep.py:182:    home = 2 if side == "W" else cfg.ranks - 1
+verify/sumtest/C2-refute/run2/mine.py:165:    home = 2 if side == "W" else C.ranks - 1
+verify/sumtest/C2-reproduce/indep.py:102:        home = 2 if color == 'W' else self.NR - 1
+verify/sumtest/C2-reproduce/indep_nim.py:85:        home = 2 if side == "W" else NR - 1
+verify/sumtest/C2-theory/indep.py:86:        home = 2 if side == "W" else self.H - 1
+verify/sumtest/C3-refute/c3_indep.py:126:        home = 2 if white else NR - 1
+verify/sumtest/C3-reproduce/indep_aware.py:44:        home = 2 if colour == "W" else NR - 1
+verify/sumtest/C3-reproduce/run2/indep2.py:119:        d, home = (1, 2) if col == "W" else (-1, 7)
+verify/sumtest/C3-theory/indep_sum.py:93:        home = 2 if side == "W" else NR - 1
+verify/sumtest/C4-refute/c4check.py:254:        home = 2 if side == "W" else self.N - 1
+verify/sumtest/C4-reproduce/c4_indep_v2.py:64:        home = 2 if side == "W" else NR - 1
+verify_ext/codex/solver.py:295:        home = 1 if side == 1 else 6
+verify_ext/codex/solver.py:335:                home = 1 if side == 1 else 6
+verify_ext/codex/solver.py:488:    started = time.monotonic()
+verify_ext/omniroute/solver.py:409:        home = HOME_RANK_WHITE if side == 1 else HOME_RANK_BLACK
+verify_ext/omniroute/solver.py:452:        home = HOME_RANK_WHITE if side == 1 else HOME_RANK_BLACK

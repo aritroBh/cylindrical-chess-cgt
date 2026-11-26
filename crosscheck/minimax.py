@@ -85,7 +85,7 @@ def legal_moves(board: Board, pos: Position, side: str) -> tuple[Position, ...]:
     theirs = pos.black if side == "W" else pos.white
     occupied = pos.white | pos.black
     direction = 1 if side == "W" else -1
-    start_rank = 2 if side == "W" else 7
+    start_rank = 2 if side == "W" else board.ranks - 1
     en_passant = pos.ep if board.ep and pos.ep and pos.ep[2] == side else None
     out = []
 
@@ -168,7 +168,7 @@ def _promotion_distance(board: Board, pos: Position, side: str) -> int | float:
             if side == "W":
                 distances.append(board.ranks - rank - (rank == 2))
             else:
-                distances.append(rank - 1 - (rank == 7))
+                distances.append(rank - 1 - (rank == board.ranks - 1))
     return min(distances, default=inf)
 
 

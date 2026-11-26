@@ -1,0 +1,28 @@
+--- 3x7 flat ep=True W: a2 / B: c6 side=B
+  engine : ['W:a2 B:c4', 'W:a2 B:c5']
+  orig   : ['W:a2 B:c5'] | equals engine: False
+  fixed  : ['W:a2 B:c4', 'W:a2 B:c5'] | equals engine: True
+  orig missing: ['W:a2 B:c4']  orig extra: []
+--- 3x7 flat ep=True W: a2 / B: c6 side=W
+  engine : ['W:a3 B:c6', 'W:a4 B:c6']
+  orig   : ['W:a3 B:c6', 'W:a4 B:c6'] | equals engine: True
+  fixed  : ['W:a3 B:c6', 'W:a4 B:c6'] | equals engine: True
+--- 3x6 flat ep=True W: a2 / B: c5 side=B
+  engine : ['W:a2 B:c3', 'W:a2 B:c4']
+  orig   : ['W:a2 B:c4'] | equals engine: False
+  fixed  : ['W:a2 B:c3', 'W:a2 B:c4'] | equals engine: True
+  orig missing: ['W:a2 B:c3']  orig extra: []
+--- 3x5 flat ep=True W: a2 / B: c4 side=B
+  engine : ['W:a2 B:c2', 'W:a2 B:c3']
+  orig   : ['W:a2 B:c3'] | equals engine: False
+  fixed  : ['W:a2 B:c2', 'W:a2 B:c3'] | equals engine: True
+  orig missing: ['W:a2 B:c2']  orig extra: []
+--- 3x7 flat ep=True W: a2 / B: c7 side=B
+  engine : ['W:a2 B:c6']
+  orig   : ['W:a2 B:c5', 'W:a2 B:c6'] | equals engine: False
+  fixed  : ['W:a2 B:c6'] | equals engine: True
+  orig missing: []  orig extra: ['W:a2 B:c5']
+--- 8x8 cyl ep=True W: a2 / B: c7 side=B
+  engine : ['W:a2 B:c5', 'W:a2 B:c6']
+  orig   : ['W:a2 B:c5', 'W:a2 B:c6'] | equals engine: True
+  fixed  : ['W:a2 B:c5', 'W:a2 B:c6'] | equals engine: True

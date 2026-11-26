@@ -1,0 +1,191 @@
+  █████  ██████ ██████  █████ ██  ██ ██████  █████ ██  ██ ██████ █████ 
+  ██  ██ ██     ██     ██     ██  ██ ██     ██     ██ ██  ██     ██  ██
+  █████  █████  █████  ██     ██████ █████  ██     ████   █████  █████ 
+  ██ ██  ██     ██     ██     ██  ██ ██     ██     ██ ██  ██     ██ ██ 
+  ██  ██ ██████ ██      █████ ██  ██ ██████  █████ ██  ██ ██████ ██  ██
+
+  academic reference verification  +  AI-text detection   v3.1.12
+
+  academic-refchecker <input> [options]   ·   add --help for the full list
+
+  Check
+    --paper       one paper — ArXiv ID, URL, PDF, .tex, .bib, or text
+    --paper-list  many papers from a newline-delimited file
+    --openreview  fetch + scan an entire OpenReview venue
+
+  AI-text detection  · opt-in, advisory — never proof of misconduct
+    local         ○ desklib DeBERTa — offline & calibrated (download in Settings)
+    llm-judge     reuse your configured LLM provider (uncalibrated)
+    external      Pangram / GPTZero — key + explicit consent
+
+  Output
+    --report-file structured report — json · jsonl · csv · text
+    --output-file human-readable error list
+
+  Environment
+    python 3.11.14  ·  Darwin 27.3.0 (arm64)
+    runtime  ○ torch/onnx   ○ transformers   ○ llm sdks
+    sources  Semantic Scholar · OpenAlex · Crossref · DBLP · ACL Anthology · arXiv · OpenReview
+
+  ────────────────────────────────────────────────────────────────────────
+
+📄 Processing: Local Document tog_refs.bib
+   Local File: tog_refs.bib
+   file://<scratch>/in/tog_refs.bib
+2026-11-25 16:40:19,465 - INFO - Processing BibTeX file: ../in/tog_refs.bib
+   Bibliography extraction: .bib bibliography
+[1/16] On numbers and endgames: Combinatorial game theory in chess endgames
+       Noam D. Elkies
+       Games of No Chance
+       1996
+
+       Matched Database: Semantic Scholar
+       Verified URL: https://www.semanticscholar.org/paper/0d79f514151a9f04a427570768b7eea2a89a36e9
+      ⚠️  Warning: Year mismatch:
+                      cited:  1996
+                      actual: 1999
+[2/16] Higher nimbers in pawn endgames on large chessboards
+       Noam D. Elkies
+       More Games of No Chance
+       2002
+       10.1017/9781316135167.007
+       https://doi.org/10.1017/9781316135167.007
+
+       Matched Database: CrossRef
+       Verified URL: https://doi.org/10.1017/9781316135167.007
+[3/16] Winning Ways for Your Mathematical Plays
+       Elwyn R. Berlekamp, John H. Conway, Richard K. Guy
+       2001
+
+       Matched Database: Semantic Scholar
+       Verified URL: https://www.semanticscholar.org/paper/d73e4eb21f190d6c781d7f5a95eaf10760559bee
+       DOI URL: https://doi.org/10.2307/3617209
+      ⚠️  Warning: Year mismatch:
+                      cited:  2001
+                      actual: 1983
+      ⚠️  Warning: Venue missing: should include 'Mathematical Gazette'
+[4/16] On Numbers and Games
+       John H. Conway
+       2001
+
+       Matched Database: Semantic Scholar
+       Verified URL: https://www.semanticscholar.org/paper/354faa8b2e5e0813277ad8e5e663d61ed1f4db31
+       DOI URL: https://doi.org/10.1109/proc.1978.11005
+      ⚠️  Warning: Year mismatch:
+                      cited:  2001
+                      actual: 1978
+      ⚠️  Warning: Venue missing: should include 'Proceedings of the IEEE'
+[5/16] Combinatorial Game Theory
+       Aaron N. Siegel
+       2013
+       10.1090/gsm/146
+       https://doi.org/10.1090/gsm/146
+
+       Matched Database: CrossRef
+       Verified URL: https://doi.org/10.1090/gsm/146
+      ⚠️  Warning: Missing venue:
+                      actual: Graduate Studies in Mathematics
+[6/16] Positions of value \star2 in generalized Domineering and chess
+       Gabriel C. Drummond-Cole
+       Integers
+       2005
+
+      ❓ Could not verify: Positions of value {$\star2$} in generalized {D}omineering and chess
+         Subreason: Paper not found by any checker; no match in CrossRef, OpenAlex, ACL Anthology, official proceedings, institutional reports, datacite; checker failures: Semantic Scholar API failed: rate_limited_or_timeout; DBLP API request failed
+[7/16] The G-values of various games
+       Richard K. Guy, Cedric A. B. Smith
+       Proc. Cambridge Philos. Soc.
+       1956
+       10.1017/S0305004100031509
+       https://doi.org/10.1017/s0305004100031509
+
+       Matched Database: CrossRef
+       Verified URL: https://doi.org/10.1017/s0305004100031509
+[8/16] Misere quotients for impartial games
+       Thane E. Plambeck, Aaron N. Siegel
+       J. Combin. Theory Ser. A
+       2008
+       10.1016/j.jcta.2007.07.008
+       https://doi.org/10.1016/j.jcta.2007.07.008
+
+       Matched Database: CrossRef
+       Verified URL: https://doi.org/10.1016/j.jcta.2007.07.008
+[9/16] Caissa's Wild Roses
+       Thomas R. Dawson
+       Five Classics of Fairy Chess
+       1973
+
+      ❓ Could not verify: Caissa's Wild Roses
+         Subreason: Paper not found by any checker; no match in CrossRef, OpenAlex, ACL Anthology, official proceedings, institutional reports, datacite; checker failures: Semantic Scholar API failed: rate_limited_or_timeout; DBLP API request failed
+[10/16] The Classified Encyclopedia of Chess Variants
+       David B. Pritchard
+       2007
+
+      ❓ Could not verify: The Classified Encyclopedia of Chess Variants
+         Subreason: Paper not found by any checker; no match in CrossRef, OpenAlex, ACL Anthology, official proceedings, institutional reports, datacite; checker failures: Semantic Scholar API failed: rate_limited_or_timeout; DBLP API request failed
+[11/16] Global threats in combinatorial games: A computation model with applications to chess endgames
+       Fabian Maser
+       More Games of No Chance
+       2002
+       10.1017/9781316135167.012
+       https://doi.org/10.1017/9781316135167.012
+
+       Matched Database: CrossRef
+       Verified URL: https://doi.org/10.1017/9781316135167.012
+2026-11-25 16:43:30,961 - WARNING - OpenReview browser verification prevented metadata lookup for https://openreview.net/forum?id=Bix4y5nYv0
+[12/16] A combinatorial game theoretic analysis of chess endgames
+       Qingyun Wu, Frank Yu, Michael Landry
+       2010
+       https://web.stanford.edu/~wqy/research/Math\%20191-\%20Chess.pdf
+
+      ❓ Could not verify: A combinatorial game theoretic analysis of chess endgames
+         Subreason: Non-existent web page: https://web.stanford.edu/~wqy/research/Math\%20191-\%20Chess.pdf
+      ❌ Error: Non-existent web page: https://web.stanford.edu/~wqy/research/Math\%20191-\%20Chess.pdf
+[13/16] PyTorch: An imperative style, high-performance deep learning library
+       Adam Paszke, et al
+       Proc. Adv. Neural Inf. Process. Syst. (NeurIPS)
+       2019
+
+      ❓ Could not verify: {PyTorch}: An imperative style, high-performance deep learning library
+         Subreason: Paper not found on OpenReview
+[14/16] 
+       Unknown Author
+       2025
+
+      ❓ Could not verify: \studytitle
+         Subreason: Paper not found by any checker; no match in CrossRef, OpenAlex, ACL Anthology, official proceedings, institutional reports, datacite; checker failures: Semantic Scholar API failed: rate_limited_or_timeout; DBLP API request failed
+[15/16] Retrograde analysis of certain endgames
+       Ken Thompson
+       {ICCA} J.
+       1986
+       10.3233/ICG-1986-9302
+       https://doi.org/10.3233/icg-1986-9302
+
+       Matched Database: CrossRef
+       Verified URL: https://doi.org/10.3233/icg-1986-9302
+      ⚠️  Warning: Venue mismatch:
+                      cited:  {ICCA} J.
+                      actual: ICGA Journal
+[16/16] Reimagining chess with AlphaZero
+       Nenad Tomaev, Ulrich Paquet, Demis Hassabis, Vladimir Kramnik
+       Commun. {ACM}
+       2022
+       10.1145/3460349
+       https://doi.org/10.1145/3460349
+
+       Matched Database: CrossRef
+       Verified URL: https://doi.org/10.1145/3460349
+      ❌ Error: First author mismatch:
+                      cited:  Nenad Tomaev
+                      actual: Nenad Tomašev
+
+============================================================
+📋 SUMMARY
+============================================================
+📚 Total references processed: 16
+❌ Total errors: 2
+⚠️  Total warnings: 7
+❓ Total unverified: 6
+🏅 Citation health: Poor — errors need correction
+
+💾 Detailed results saved to: refchecker_errors.txt

@@ -1,0 +1,575 @@
+{
+  "generated_at": "2026-11-26T00:44:53.250285Z",
+  "summary": {
+    "total_papers_processed": 1,
+    "total_references_processed": 16,
+    "total_errors_found": 2,
+    "total_warnings_found": 7,
+    "total_info_found": 0,
+    "total_unverified_refs": 6,
+    "records_written": 12,
+    "papers_with_records": 1,
+    "flagged_records": 0,
+    "flagged_papers": 0
+  },
+  "papers": [
+    {
+      "source_paper_id": "local_tog_refs",
+      "source_title": "Tog Refs",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file://<scratch>/in/tog_refs.bib",
+      "total_records": 12,
+      "flagged_records": 0,
+      "max_flag_level": "none",
+      "error_type_counts": {
+        "unverified": 5,
+        "multiple": 3,
+        "venue": 2,
+        "author": 1,
+        "year": 1
+      },
+      "reason_counts": {},
+      "has_flagged_records": false
+    }
+  ],
+  "records": [
+    {
+      "source_paper_id": "local_tog_refs",
+      "source_title": "Tog Refs",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file://<scratch>/in/tog_refs.bib",
+      "ref_paper_id": null,
+      "ref_title": "On numbers and endgames: Combinatorial game theory in chess endgames",
+      "ref_authors_cited": "Noam D. Elkies",
+      "ref_year_cited": 1996,
+      "ref_url_cited": "",
+      "ref_raw_text": "@incollection{Elkies1996, ...}",
+      "error_type": "year",
+      "error_details": "Year mismatch:\n       cited:  1996\n       actual: 1999",
+      "_original_errors": [
+        {
+          "warning_type": "year",
+          "warning_details": "Year mismatch:\n       cited:  1996\n       actual: 1999",
+          "ref_year_correct": 1999
+        }
+      ],
+      "original_reference": {
+        "title": "On numbers and endgames: Combinatorial game theory in chess endgames",
+        "authors": [
+          "Noam D. Elkies"
+        ],
+        "year": 1996,
+        "journal": "Games of No Chance",
+        "doi": "",
+        "url": "",
+        "type": "other",
+        "bibtex_key": "Elkies1996",
+        "bibtex_type": "incollection",
+        "raw_text": "@incollection{Elkies1996, ...}"
+      },
+      "ref_year_correct": 1999,
+      "ref_verified_url": "https://www.semanticscholar.org/paper/0d79f514151a9f04a427570768b7eea2a89a36e9",
+      "matched_database": "Semantic Scholar",
+      "ref_standard_format": "(1999)",
+      "ref_corrected_plaintext": "N. Elkies. (1999). \"On Numbers and Endgames: combinatorial Game Theory in Chess Endgames\". https://www.semanticscholar.org/paper/0d79f514151a9f04a427570768b7eea2a89a36e9.\n\n% Citation key for BibTeX: @incollection{Elkies1996, ...}",
+      "ref_corrected_bibtex": "@incollection{Elkies1996,\n  author = {N. Elkies},\n  title = {On Numbers and Endgames: combinatorial Game Theory in Chess Endgames},\n  year = {1999},\n  url = {https://www.semanticscholar.org/paper/0d79f514151a9f04a427570768b7eea2a89a36e9}\n}",
+      "ref_corrected_bibitem": "\\bibitem{unknown}\nN. Elkies. (1999). \\textit{On Numbers and Endgames: combinatorial Game Theory in Chess Endgames}. \\url{https://www.semanticscholar.org/paper/0d79f514151a9f04a427570768b7eea2a89a36e9}."
+    },
+    {
+      "source_paper_id": "local_tog_refs",
+      "source_title": "Tog Refs",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file://<scratch>/in/tog_refs.bib",
+      "ref_paper_id": null,
+      "ref_title": "Winning Ways for Your Mathematical Plays",
+      "ref_authors_cited": "Elwyn R. Berlekamp, John H. Conway, Richard K. Guy",
+      "ref_year_cited": 2001,
+      "ref_url_cited": "",
+      "ref_raw_text": "@book{WinningWays, ...}",
+      "original_reference": {
+        "title": "Winning Ways for Your Mathematical Plays",
+        "authors": [
+          "Elwyn R. Berlekamp",
+          "John H. Conway",
+          "Richard K. Guy"
+        ],
+        "year": 2001,
+        "journal": "",
+        "doi": "",
+        "url": "",
+        "type": "other",
+        "bibtex_key": "WinningWays",
+        "bibtex_type": "book",
+        "raw_text": "@book{WinningWays, ...}",
+        "publisher": "A K Peters",
+        "isbn": ""
+      },
+      "ref_year_correct": 1983,
+      "ref_venue_correct": "Mathematical Gazette",
+      "error_type": "multiple",
+      "error_details": "- Year mismatch:\n       cited:  2001\n       actual: 1983\n- Venue missing: should include 'Mathematical Gazette'",
+      "_original_errors": [
+        {
+          "warning_type": "year",
+          "warning_details": "Year mismatch:\n       cited:  2001\n       actual: 1983",
+          "ref_year_correct": 1983
+        },
+        {
+          "warning_type": "venue",
+          "warning_details": "Venue missing: should include 'Mathematical Gazette'",
+          "ref_venue_correct": "Mathematical Gazette"
+        }
+      ],
+      "ref_verified_url": "https://www.semanticscholar.org/paper/d73e4eb21f190d6c781d7f5a95eaf10760559bee",
+      "matched_database": "Semantic Scholar",
+      "ref_corrected_plaintext": "A. Austin, E. Berlekamp, J. Conway, R. Guy. (1983). \"Winning Ways for Your Mathematical Plays\". In Mathematical Gazette. https://www.semanticscholar.org/paper/d73e4eb21f190d6c781d7f5a95eaf10760559bee.\n\n% Citation key for BibTeX: @book{WinningWays, ...}",
+      "ref_corrected_bibtex": "@book{WinningWays,\n  author = {A. Austin and E. Berlekamp and J. Conway and R. Guy},\n  title = {Winning Ways for Your Mathematical Plays},\n  publisher = {A K Peters},\n  year = {1983},\n  url = {https://www.semanticscholar.org/paper/d73e4eb21f190d6c781d7f5a95eaf10760559bee}\n}",
+      "ref_corrected_bibitem": "\\bibitem{unknown}\nA. Austin, E. Berlekamp, J. Conway, R. Guy. (1983). \\textit{Winning Ways for Your Mathematical Plays}. In \\textit{Mathematical Gazette}. \\url{https://www.semanticscholar.org/paper/d73e4eb21f190d6c781d7f5a95eaf10760559bee}."
+    },
+    {
+      "source_paper_id": "local_tog_refs",
+      "source_title": "Tog Refs",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file://<scratch>/in/tog_refs.bib",
+      "ref_paper_id": null,
+      "ref_title": "On Numbers and Games",
+      "ref_authors_cited": "John H. Conway",
+      "ref_year_cited": 2001,
+      "ref_url_cited": "",
+      "ref_raw_text": "@book{ONAG, ...}",
+      "original_reference": {
+        "title": "On Numbers and Games",
+        "authors": [
+          "John H. Conway"
+        ],
+        "year": 2001,
+        "journal": "",
+        "doi": "",
+        "url": "",
+        "type": "other",
+        "bibtex_key": "ONAG",
+        "bibtex_type": "book",
+        "raw_text": "@book{ONAG, ...}",
+        "publisher": "A K Peters",
+        "isbn": ""
+      },
+      "ref_year_correct": 1978,
+      "ref_venue_correct": "Proceedings of the IEEE",
+      "error_type": "multiple",
+      "error_details": "- Year mismatch:\n       cited:  2001\n       actual: 1978\n- Venue missing: should include 'Proceedings of the IEEE'",
+      "_original_errors": [
+        {
+          "warning_type": "year",
+          "warning_details": "Year mismatch:\n       cited:  2001\n       actual: 1978",
+          "ref_year_correct": 1978
+        },
+        {
+          "warning_type": "venue",
+          "warning_details": "Venue missing: should include 'Proceedings of the IEEE'",
+          "ref_venue_correct": "Proceedings of the IEEE"
+        }
+      ],
+      "ref_verified_url": "https://www.semanticscholar.org/paper/354faa8b2e5e0813277ad8e5e663d61ed1f4db31",
+      "matched_database": "Semantic Scholar",
+      "ref_corrected_plaintext": "J. Conway. (1978). \"On numbers and games\". In Proceedings of the IEEE. https://www.semanticscholar.org/paper/354faa8b2e5e0813277ad8e5e663d61ed1f4db31.\n\n% Citation key for BibTeX: @book{ONAG, ...}",
+      "ref_corrected_bibtex": "@book{ONAG,\n  author = {J. Conway},\n  title = {On numbers and games},\n  publisher = {A K Peters},\n  year = {1978},\n  url = {https://www.semanticscholar.org/paper/354faa8b2e5e0813277ad8e5e663d61ed1f4db31}\n}",
+      "ref_corrected_bibitem": "\\bibitem{unknown}\nJ. Conway. (1978). \\textit{On numbers and games}. In \\textit{Proceedings of the IEEE}. \\url{https://www.semanticscholar.org/paper/354faa8b2e5e0813277ad8e5e663d61ed1f4db31}."
+    },
+    {
+      "source_paper_id": "local_tog_refs",
+      "source_title": "Tog Refs",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file://<scratch>/in/tog_refs.bib",
+      "ref_paper_id": null,
+      "ref_title": "Combinatorial Game Theory",
+      "ref_authors_cited": "Aaron N. Siegel",
+      "ref_year_cited": 2013,
+      "ref_url_cited": "https://doi.org/10.1090/gsm/146",
+      "ref_raw_text": "@book{Siegel2013, ...}",
+      "error_type": "venue",
+      "error_details": "Missing venue:\n       actual: Graduate Studies in Mathematics",
+      "_original_errors": [
+        {
+          "warning_type": "venue",
+          "warning_details": "Missing venue:\n       actual: Graduate Studies in Mathematics",
+          "ref_venue_correct": "Graduate Studies in Mathematics"
+        }
+      ],
+      "original_reference": {
+        "title": "Combinatorial Game Theory",
+        "authors": [
+          "Aaron N. Siegel"
+        ],
+        "year": 2013,
+        "journal": "",
+        "doi": "10.1090/gsm/146",
+        "url": "https://doi.org/10.1090/gsm/146",
+        "type": "non-arxiv",
+        "bibtex_key": "Siegel2013",
+        "bibtex_type": "book",
+        "raw_text": "@book{Siegel2013, ...}",
+        "publisher": "American Mathematical Society",
+        "isbn": ""
+      },
+      "ref_venue_correct": "Graduate Studies in Mathematics",
+      "ref_verified_url": "https://doi.org/10.1090/gsm/146",
+      "matched_database": "CrossRef",
+      "ref_standard_format": "",
+      "ref_corrected_plaintext": "Aaron Siegel. (2013). \"Combinatorial Game Theory\". In Graduate Studies in Mathematics. https://doi.org/10.1090/gsm/146.\n\n% Citation key for BibTeX: @book{Siegel2013, ...}",
+      "ref_corrected_bibtex": "@book{Siegel2013,\n  author = {Aaron Siegel},\n  title = {Combinatorial Game Theory},\n  publisher = {American Mathematical Society},\n  year = {2013},\n  url = {https://doi.org/10.1090/gsm/146}\n}",
+      "ref_corrected_bibitem": "\\bibitem{unknown}\nAaron Siegel. (2013). \\textit{Combinatorial Game Theory}. In \\textit{Graduate Studies in Mathematics}. \\url{https://doi.org/10.1090/gsm/146}."
+    },
+    {
+      "source_paper_id": "local_tog_refs",
+      "source_title": "Tog Refs",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file://<scratch>/in/tog_refs.bib",
+      "ref_paper_id": null,
+      "ref_title": "Positions of value {$\\star2$} in generalized {D}omineering and chess",
+      "ref_authors_cited": "Gabriel C. Drummond-Cole",
+      "ref_year_cited": 2005,
+      "ref_url_cited": "",
+      "ref_raw_text": "@article{DrummondCole2005, ...}",
+      "error_type": "unverified",
+      "error_details": "Paper not found by any checker; no match in CrossRef, OpenAlex, ACL Anthology, official proceedings, institutional reports, datacite; checker failures: Semantic Scholar API failed: rate_limited_or_timeout; DBLP API request failed",
+      "_original_errors": [
+        {
+          "error_type": "unverified",
+          "error_details": "Paper not found by any checker; no match in CrossRef, OpenAlex, ACL Anthology, official proceedings, institutional reports, datacite; checker failures: Semantic Scholar API failed: rate_limited_or_timeout; DBLP API request failed",
+          "sources_checked": 8,
+          "sources_negative": 6
+        }
+      ],
+      "original_reference": {
+        "title": "Positions of value {$\\star2$} in generalized {D}omineering and chess",
+        "authors": [
+          "Gabriel C. Drummond-Cole"
+        ],
+        "year": 2005,
+        "journal": "Integers",
+        "doi": "",
+        "url": "",
+        "type": "other",
+        "bibtex_key": "DrummondCole2005",
+        "bibtex_type": "article",
+        "raw_text": "@article{DrummondCole2005, ...}",
+        "volume": "5",
+        "number": "1",
+        "pages": ""
+      },
+      "sources_checked": 8,
+      "sources_negative": 6,
+      "ref_standard_format": null
+    },
+    {
+      "source_paper_id": "local_tog_refs",
+      "source_title": "Tog Refs",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file://<scratch>/in/tog_refs.bib",
+      "ref_paper_id": null,
+      "ref_title": "Caissa's Wild Roses",
+      "ref_authors_cited": "Thomas R. Dawson",
+      "ref_year_cited": 1973,
+      "ref_url_cited": "",
+      "ref_raw_text": "@incollection{Dawson1935, ...}",
+      "error_type": "unverified",
+      "error_details": "Paper not found by any checker; no match in CrossRef, OpenAlex, ACL Anthology, official proceedings, institutional reports, datacite; checker failures: Semantic Scholar API failed: rate_limited_or_timeout; DBLP API request failed",
+      "_original_errors": [
+        {
+          "error_type": "unverified",
+          "error_details": "Paper not found by any checker; no match in CrossRef, OpenAlex, ACL Anthology, official proceedings, institutional reports, datacite; checker failures: Semantic Scholar API failed: rate_limited_or_timeout; DBLP API request failed",
+          "sources_checked": 8,
+          "sources_negative": 6
+        }
+      ],
+      "original_reference": {
+        "title": "Caissa's Wild Roses",
+        "authors": [
+          "Thomas R. Dawson"
+        ],
+        "year": 1973,
+        "journal": "Five Classics of Fairy Chess",
+        "doi": "",
+        "url": "",
+        "type": "other",
+        "bibtex_key": "Dawson1935",
+        "bibtex_type": "incollection",
+        "raw_text": "@incollection{Dawson1935, ...}"
+      },
+      "sources_checked": 8,
+      "sources_negative": 6,
+      "ref_standard_format": null
+    },
+    {
+      "source_paper_id": "local_tog_refs",
+      "source_title": "Tog Refs",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file://<scratch>/in/tog_refs.bib",
+      "ref_paper_id": null,
+      "ref_title": "The Classified Encyclopedia of Chess Variants",
+      "ref_authors_cited": "David B. Pritchard",
+      "ref_year_cited": 2007,
+      "ref_url_cited": "",
+      "ref_raw_text": "@book{Pritchard, ...}",
+      "error_type": "unverified",
+      "error_details": "Paper not found by any checker; no match in CrossRef, OpenAlex, ACL Anthology, official proceedings, institutional reports, datacite; checker failures: Semantic Scholar API failed: rate_limited_or_timeout; DBLP API request failed",
+      "_original_errors": [
+        {
+          "error_type": "unverified",
+          "error_details": "Paper not found by any checker; no match in CrossRef, OpenAlex, ACL Anthology, official proceedings, institutional reports, datacite; checker failures: Semantic Scholar API failed: rate_limited_or_timeout; DBLP API request failed",
+          "sources_checked": 8,
+          "sources_negative": 6
+        }
+      ],
+      "original_reference": {
+        "title": "The Classified Encyclopedia of Chess Variants",
+        "authors": [
+          "David B. Pritchard"
+        ],
+        "year": 2007,
+        "journal": "",
+        "doi": "",
+        "url": "",
+        "type": "other",
+        "bibtex_key": "Pritchard",
+        "bibtex_type": "book",
+        "raw_text": "@book{Pritchard, ...}",
+        "publisher": "John Beasley",
+        "isbn": ""
+      },
+      "sources_checked": 8,
+      "sources_negative": 6,
+      "ref_standard_format": null
+    },
+    {
+      "source_paper_id": "local_tog_refs",
+      "source_title": "Tog Refs",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file://<scratch>/in/tog_refs.bib",
+      "ref_paper_id": null,
+      "ref_title": "A combinatorial game theoretic analysis of chess endgames",
+      "ref_authors_cited": "Qingyun Wu, Frank Yu, Michael Landry",
+      "ref_year_cited": 2010,
+      "ref_url_cited": "https://web.stanford.edu/~wqy/research/Math\\%20191-\\%20Chess.pdf",
+      "ref_raw_text": "@misc{WuYuLandry2010, ...}",
+      "original_reference": {
+        "title": "A combinatorial game theoretic analysis of chess endgames",
+        "authors": [
+          "Qingyun Wu",
+          "Frank Yu",
+          "Michael Landry"
+        ],
+        "year": 2010,
+        "journal": "",
+        "doi": "",
+        "url": "https://web.stanford.edu/~wqy/research/Math\\%20191-\\%20Chess.pdf",
+        "type": "non-arxiv",
+        "bibtex_key": "WuYuLandry2010",
+        "bibtex_type": "misc",
+        "raw_text": "@misc{WuYuLandry2010, ...}"
+      },
+      "error_type": "multiple",
+      "error_details": "- Paper not found by any checker; no match in CrossRef, OpenAlex, ACL Anthology, official proceedings, institutional reports, datacite; checker failures: Semantic Scholar API failed: rate_limited_or_timeout; DBLP API request failed\n- Non-existent web page: https://web.stanford.edu/~wqy/research/Math\\%20191-\\%20Chess.pdf",
+      "_original_errors": [
+        {
+          "error_type": "unverified",
+          "error_details": "Paper not found by any checker; no match in CrossRef, OpenAlex, ACL Anthology, official proceedings, institutional reports, datacite; checker failures: Semantic Scholar API failed: rate_limited_or_timeout; DBLP API request failed",
+          "sources_checked": 8,
+          "sources_negative": 6
+        },
+        {
+          "error_type": "url",
+          "error_details": "Non-existent web page: https://web.stanford.edu/~wqy/research/Math\\%20191-\\%20Chess.pdf"
+        }
+      ],
+      "ref_verified_url": "https://web.stanford.edu/~wqy/research/Math\\%20191-\\%20Chess.pdf",
+      "ref_corrected_plaintext": "https://web.stanford.edu/~wqy/research/Math\\%20191-\\%20Chess.pdf.\n\n% Citation key for BibTeX: @misc{WuYuLandry2010, ...}",
+      "ref_corrected_bibtex": "@misc{WuYuLandry2010,\n  url = {https://web.stanford.edu/~wqy/research/Math\\%20191-\\%20Chess.pdf}\n}",
+      "ref_corrected_bibitem": "\\bibitem{unknown}\n\\url{https://web.stanford.edu/~wqy/research/Math\\%20191-\\%20Chess.pdf}."
+    },
+    {
+      "source_paper_id": "local_tog_refs",
+      "source_title": "Tog Refs",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file://<scratch>/in/tog_refs.bib",
+      "ref_paper_id": null,
+      "ref_title": "{PyTorch}: An imperative style, high-performance deep learning library",
+      "ref_authors_cited": "Adam Paszke, et al",
+      "ref_year_cited": 2019,
+      "ref_url_cited": "",
+      "ref_raw_text": "@inproceedings{PyTorch, ...}",
+      "error_type": "unverified",
+      "error_details": "Paper not found on OpenReview",
+      "_original_errors": [
+        {
+          "error_type": "unverified",
+          "error_details": "Paper not found on OpenReview"
+        }
+      ],
+      "original_reference": {
+        "title": "{PyTorch}: An imperative style, high-performance deep learning library",
+        "authors": [
+          "Adam Paszke",
+          "et al"
+        ],
+        "year": 2019,
+        "journal": "Proc. Adv. Neural Inf. Process. Syst. (NeurIPS)",
+        "doi": "",
+        "url": "",
+        "type": "other",
+        "bibtex_key": "PyTorch",
+        "bibtex_type": "inproceedings",
+        "raw_text": "@inproceedings{PyTorch, ...}",
+        "pages": "8026--8037",
+        "organization": ""
+      },
+      "ref_verified_url": "https://openreview.net/forum?id=Bix4y5nYv0",
+      "ref_standard_format": null
+    },
+    {
+      "source_paper_id": "local_tog_refs",
+      "source_title": "Tog Refs",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file://<scratch>/in/tog_refs.bib",
+      "ref_paper_id": null,
+      "ref_title": "\\studytitle",
+      "ref_authors_cited": "Unknown Author",
+      "ref_year_cited": 2025,
+      "ref_url_cited": "",
+      "ref_raw_text": "@unpublished{Study2025, ...}",
+      "error_type": "unverified",
+      "error_details": "Paper not found by any checker; no match in CrossRef, OpenAlex, ACL Anthology, official proceedings, institutional reports, datacite; checker failures: Semantic Scholar API failed: rate_limited_or_timeout; DBLP API request failed",
+      "_original_errors": [
+        {
+          "error_type": "unverified",
+          "error_details": "Paper not found by any checker; no match in CrossRef, OpenAlex, ACL Anthology, official proceedings, institutional reports, datacite; checker failures: Semantic Scholar API failed: rate_limited_or_timeout; DBLP API request failed",
+          "sources_checked": 8,
+          "sources_negative": 6
+        }
+      ],
+      "original_reference": {
+        "title": "\\studytitle",
+        "authors": [
+          "Unknown Author"
+        ],
+        "year": 2025,
+        "journal": "",
+        "doi": "",
+        "url": "",
+        "type": "other",
+        "bibtex_key": "Study2025",
+        "bibtex_type": "unpublished",
+        "raw_text": "@unpublished{Study2025, ...}"
+      },
+      "sources_checked": 8,
+      "sources_negative": 6,
+      "ref_standard_format": null
+    },
+    {
+      "source_paper_id": "local_tog_refs",
+      "source_title": "Tog Refs",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file://<scratch>/in/tog_refs.bib",
+      "ref_paper_id": null,
+      "ref_title": "Retrograde analysis of certain endgames",
+      "ref_authors_cited": "Ken Thompson",
+      "ref_year_cited": 1986,
+      "ref_url_cited": "https://doi.org/10.3233/icg-1986-9302",
+      "ref_raw_text": "@article{Thompson1986, ...}",
+      "error_type": "venue",
+      "error_details": "Venue mismatch:\n       cited:  {ICCA} J.\n       actual: ICGA Journal",
+      "_original_errors": [
+        {
+          "warning_type": "venue",
+          "warning_details": "Venue mismatch:\n       cited:  {ICCA} J.\n       actual: ICGA Journal",
+          "ref_venue_correct": "ICGA Journal"
+        }
+      ],
+      "original_reference": {
+        "title": "Retrograde analysis of certain endgames",
+        "authors": [
+          "Ken Thompson"
+        ],
+        "year": 1986,
+        "journal": "{ICCA} J.",
+        "doi": "10.3233/ICG-1986-9302",
+        "url": "https://doi.org/10.3233/icg-1986-9302",
+        "type": "non-arxiv",
+        "bibtex_key": "Thompson1986",
+        "bibtex_type": "article",
+        "raw_text": "@article{Thompson1986, ...}",
+        "volume": "9",
+        "number": "3",
+        "pages": "131--139"
+      },
+      "ref_venue_correct": "ICGA Journal",
+      "ref_verified_url": "https://doi.org/10.3233/icg-1986-9302",
+      "matched_database": "CrossRef",
+      "ref_standard_format": "",
+      "ref_corrected_plaintext": "Ken Thompson. (1986). \"Retrograde Analysis of Certain Endgames\". In ICGA Journal. https://doi.org/10.3233/icg-1986-9302.\n\n% Citation key for BibTeX: @article{Thompson1986, ...}",
+      "ref_corrected_bibtex": "@article{Thompson1986,\n  author = {Ken Thompson},\n  title = {Retrograde Analysis of Certain Endgames},\n  journal = {{ICCA} J.},\n  volume = {9},\n  number = {3},\n  pages = {131--139},\n  year = {1986},\n  url = {https://doi.org/10.3233/icg-1986-9302}\n}",
+      "ref_corrected_bibitem": "\\bibitem{unknown}\nKen Thompson. (1986). \\textit{Retrograde Analysis of Certain Endgames}. In \\textit{ICGA Journal}. \\url{https://doi.org/10.3233/icg-1986-9302}."
+    },
+    {
+      "source_paper_id": "local_tog_refs",
+      "source_title": "Tog Refs",
+      "source_authors": "Unknown",
+      "source_year": 2026,
+      "source_url": "file://<scratch>/in/tog_refs.bib",
+      "ref_paper_id": null,
+      "ref_title": "Reimagining chess with {AlphaZero}",
+      "ref_authors_cited": "Nenad Tomaev, Ulrich Paquet, Demis Hassabis, Vladimir Kramnik",
+      "ref_year_cited": 2022,
+      "ref_url_cited": "https://doi.org/10.1145/3460349",
+      "ref_raw_text": "@article{Tomasev2022, ...}",
+      "error_type": "author",
+      "error_details": "First author mismatch:\n       cited:  Nenad Tomaev\n       actual: Nenad Tomašev",
+      "_original_errors": [
+        {
+          "error_type": "author",
+          "error_details": "First author mismatch:\n       cited:  Nenad Tomaev\n       actual: Nenad Tomašev",
+          "ref_authors_correct": "Nenad Tomašev, Ulrich Paquet, Demis Hassabis, Vladimir Kramnik"
+        }
+      ],
+      "original_reference": {
+        "title": "Reimagining chess with {AlphaZero}",
+        "authors": [
+          "Nenad Tomaev",
+          "Ulrich Paquet",
+          "Demis Hassabis",
+          "Vladimir Kramnik"
+        ],
+        "year": 2022,
+        "journal": "Commun. {ACM}",
+        "doi": "10.1145/3460349",
+        "url": "https://doi.org/10.1145/3460349",
+        "type": "non-arxiv",
+        "bibtex_key": "Tomasev2022",
+        "bibtex_type": "article",
+        "raw_text": "@article{Tomasev2022, ...}",
+        "volume": "65",
+        "number": "2",
+        "pages": "60--66"
+      },
+      "ref_authors_correct": "Nenad Tomašev, Ulrich Paquet, Demis Hassabis, Vladimir Kramnik",
+      "ref_verified_url": "https://doi.org/10.1145/3460349",
+      "matched_database": "CrossRef",
+      "ref_standard_format": "Nenad Tomašev, Ulrich Paquet, Demis Hassabis et al..",
+      "ref_corrected_plaintext": "Nenad Tomašev, Ulrich Paquet, Demis Hassabis, Vladimir Kramnik. (2022). \"Reimagining chess with AlphaZero\". In Communications of the ACM. https://doi.org/10.1145/3460349.\n\n% Citation key for BibTeX: @article{Tomasev2022, ...}",
+      "ref_corrected_bibtex": "@article{Tomasev2022,\n  author = {Nenad Tomašev and Ulrich Paquet and Demis Hassabis and Vladimir Kramnik},\n  title = {Reimagining chess with AlphaZero},\n  journal = {Commun. {ACM}},\n  volume = {65},\n  number = {2},\n  pages = {60--66},\n  year = {2022},\n  url = {https://doi.org/10.1145/3460349}\n}",
+      "ref_corrected_bibitem": "\\bibitem{unknown}\nNenad Tomašev, Ulrich Paquet, Demis Hassabis, Vladimir Kramnik. (2022). \\textit{Reimagining chess with AlphaZero}. In \\textit{Communications of the ACM}. \\url{https://doi.org/10.1145/3460349}."
+    }
+  ]
+}
