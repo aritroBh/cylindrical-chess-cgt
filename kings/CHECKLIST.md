@@ -29,7 +29,7 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
          Corollary 4.17 (proved given twice-checked computations, refereed) (K59)
    - [x] The 2 + 2 group on the ordinary 8×8 board: in chess, and beside P contexts (K63, refereed): not an exact over group in chess (tablebase), one freeze survives as a mutual zugzwang; beside file-h pawns in P the prediction fails in 12 of 283 contexts
    - [x] Census of exact over groups on flat 8×8, classes {b,c,f} and {b,e,f}, with (B1), condition (C) and ladder length for every group (K65 refereed, K66 independent check): 38 groups; 27 with (B1); 7 with the results of over without (B1); 4 fail (C); 5 seven-man groups exact in chess (tablebase). Both search programs agree on both classes
-   - [~] The other two classes of the known shape on flat 8×8, {a,b,e} and {a,d,e}, with classification and tablebase verdicts (K67: first program found 10 and 3 groups, 10 new, 48 distinct in the four classes; second program running; then a referee)
+   - [~] The other two classes of the known shape on flat 8×8, {a,b,e} and {a,d,e}, with classification and tablebase verdicts (K67 done: both search programs agree, 10 and 3 groups, 10 new, 48 distinct in the four classes, two more exact in chess; referee K77 running)
    - [ ] Other file classes of flat 8×7; flat 9×7
    - [x] The exact condition in place of the Black-side condition: Theorem 4.18, decided by one game on the group's
          own graph or by one short test game, Corollary 4.19 (proved, refereed) (K60)
@@ -44,8 +44,8 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
    - [x] That lemma: a case table of 486 rows (K70, Codex, blind), accepted by two separately written checkers; referee K73 checked 42 rows by hand, no error; label stays CHECKED-2 (Proposition 4.25 updated). K71 (change the reduction): not achieved, 14 positions left, unrefereed
    - [ ] That lemma by a short hand proof, or the full table checked by hand (30 to 50 hours by the referee's estimate): open
    - [x] The five chess-exact groups beside real pawns on a separated file of the same board, in P (K72, refereed by K74 with a third solver: only C125_10 agrees in all 283 contexts of at most 2 + 2 pawns, and it fails in 3 of all 729 placements on h; the other four fail with 1 + 1 pawns already; paragraph after Proposition 4.25)
-   - [~] Which of the 48 groups keep the results of ω beside real pawns, and a rule in terms of the kings' distance to the context file (K75 running)
-   - [~] Does a real group need a ladder longer than 3? (K67, first program: none of the 10 new groups; one more with N\* = 2)
+   - [~] Which of the 48 groups keep the results of ω beside real pawns, and a rule in terms of the kings' distance to the context file (K75 done, unrefereed: 58 group and file pairs, 11 clean with one pawn a side, no rule in distances alone; referee K76 running)
+   - [~] Does a real group need a ladder longer than 3? (K67: none of the 10 new groups; one more with N\* = 2; referee K77 running)
    - [ ] Hand proof of (O1) and of the d5 root of the K45 group
    - [x] The K45 group in chess at cap 1: d4 freeze and its zero exact, the rest undecided; exact groups also on flat
          8×6 to 10×6 and on cyl:8×7 (K48)
