@@ -1,0 +1,8 @@
+# K65 edits for kings/theory/LOOPY.md (not yet refereed)
+
+### EDIT Corollary 4.17: census of two file classes on flat 8×8 (K65)
+<<<<<<< OLD
+F5 is not exact on flat 8×8, and no placement one rank up is.
+=======
+F5 is not exact on flat 8×8, and no placement one rank up is. *Flat 8×8 census (K65, 2026-11-24; `kings/delegate/out/K65/findings.txt`; AI work, not yet refereed).* Exhaustive search on flat 8×8 (ranks 2 to 7, at most 3 + 3 pawns, every king placement) in two of the four classes of the known shape: {b,c,f} has exactly 23 exact over groups (p45a and r48 agree on every counter and hit, CHECKED-2) and {b,e,f} has 25 (p45a only, COMPUTED-1); together 38 groups, 26 up to reflection and file translation, each exact again by ref3m and `kp_p` (CHECKED-2). The smallest have 2 + 2 pawns: F2, `Ka5 kc5/kc6 Pb2 Pf6 pb7 pf7` and `Kc5 ka4/ka5 Pb2 Pf3 pb5 pf4`. (B1) is CHECKED-2 for 19 of them (vgsum59, pr57), COMPUTED-1 for one, not checked for 16 (memory). It fails at two: `Kb5 kd5/kd6 Pb6 Pc2 Pf5 pb7 pc5 pf6` at …Kd5–d4 (COMPUTED-1; (C) not decided), and `Kc4 ke4/ke5 Pb5 Pf2 Pf6 pb6 pf7` (Black shuttles e4–e5, freezes f2–f4 at e4 and f2–f3 at e5) at …Ke5–d6 and …Ke5–e6 (vgsum59 and pr57). For this group White wins Aux at both moves (aux60, COMPUTED-1) and every ladder T_0, …, T_6 (vgsum59, pr57), so by Theorem 4.18 it has the results of ω beside every finite D-game without (B1): the first real group known to do so, PROVED given Definition 4.8 (CHECKED-2) and Aux (COMPUTED-1). No real group with N\* ≥ 3 was found. Not searched: {a,b,e}, {a,d,e}, 11 of the 16 two-file classes, other three-file classes.
+>>>>>>> NEW

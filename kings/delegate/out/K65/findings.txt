@@ -1,0 +1,247 @@
+K65 FINDINGS: exact over groups on flat 8x8 (two of the four classes of the known shape)   (2026-11-24)
+===================================================================================================
+Brief: kings/delegate/briefs/K65_brief.md.  AI work (one agent), not refereed, no human re-derivation.  Paths are relative to
+kings/delegate/out/K65/ unless they start with kings/.  COMPUTED-1 = one program, CHECKED-2 = two separately written programs agree.
+
+0. SHORT ANSWER
+---------------
+Searched: flat 8x8, pawns on ranks 2-7 (double steps from rank 2 for White, rank 7 for Black), at most 3 + 3 pawns, every king
+placement, in two file classes of the known shape: {b,c,f} and {b,e,f}.  NOT searched: {a,b,e}, {a,d,e} (the other two classes of
+part a), 11 of the 16 classes of part b (two files; the other 5 lie inside {b,c,f} or {b,e,f}), and all of part c.
+Up to left-right reflection the shape {f,f+1,f+4} has exactly four classes on eight files: {a,b,e} (= {d,g,h}), {b,c,f}
+(= {c,f,g}), {c,d,g} (= {b,e,f}) and {d,e,h} (= {a,d,e}); so part a is the brief's four classes, and two of them were done.
+
+Census (exact over groups of Definition 4.8):
+  class    placements      exact  programs                  label
+  {b,c,f}  3,712,376,700    23    p45a and r48, every counter equal, same 23 hits     CHECKED-2 (search)
+  {b,e,f}  3,718,505,519    25    p45a only (r48 not run: time budget)                COMPUTED-1 (search)
+  Together 38 distinct groups (10 have pawns on b and f only and lie in both classes), 26 up to reflection and file translation.
+  Each of the 38 passes Definition 4.8 again by def48.py from ref3m AND from kp_p --pmodel: CHECKED-2 for every hit.
+  So: "these 38 are exact" is CHECKED-2; "{b,c,f} has no other" is CHECKED-2; "{b,e,f} has no other" is COMPUTED-1.
+  Smallest: 2 + 2 pawns, 6 men; four groups, three shapes: F2 `Ka4 kc4/kc5 Pb2 Pf5 pb6 pf6` (as in K59), the same one rank up
+  except the b2 pawn, `Ka5 kc5/kc6 Pb2 Pf6 pb7 pf7`, and `Kc5 ka4/ka5 Pb2 Pf3 pb5 pf4` (= `Ke5 kg4/kg5 Pb3 Pf2 pb4 pf5` reflected
+  and moved).  K59's F1, F2, F3, F4 placed as on 8x7 are among the hits (F2 regression check: found by both programs).
+
+Classification ((B1) at every non-shuttle Black root move; vgsum59 under the sum's rule, pr57 (N1)):
+  (B1) holds, CHECKED-2 ........................... 19 groups
+  (B1) holds, COMPUTED-1 (vgsum59; pr57 > 2.2 GB) .  1 group  (C145_20)
+  (B1) FAILS, checked by two programs ............   1 group  (C125_09, below)
+  (B1) FAILS, COMPUTED-1 (vgsum59; pr57 > 2.2 GB) .  1 group  (C125_14, below)
+  (B1) NOT CHECKED (both programs > 2.2 GB) ....... 16 groups (all have 3 + 3 pawns or a king on the back rank; see section 3)
+
+  C125_09 = `Kc4 ke4/ke5 Pb5 Pf2 Pf6 pb6 pf7` (3 + 2 pawns, 7 men; Black shuttles e4-e5, freezes f2-f4 at e4 and f2-f3 at e5;
+    q = `Kc4 ke4 Pb5 Pf4 Pf6 pb6 pf7`, Black to move with the right on f3, and `Kc4 ke5 Pb5 Pf3 Pf6 pb6 pf7`).
+    (B1) fails exactly at 1...Ke5-d6 and 1...Ke5-e6 (e5 root): after either, White to move is not a White win beside -1 under
+    the sum's rule (vgsum59; pr57 --sum beside -1 gives D; pr57 (N1) no).  CHECKED-2.  The other 6 bad moves satisfy (B1).
+    Condition (C) of Theorem 4.18: HOLDS at both moves: White wins Aux(x_m) (aux60, K60's program, COMPUTED-1).  Ladders: x_m (+) u_0,
+    White to move, is a White win beside T_0, ..., T_6, and both roots, Black to move, are White wins beside T_0..T_6 (vgsum59
+    --tests and pr57 --sum: CHECKED-2 for T_0..T_6).  So no ladder up to T_6 separates it, N* = infinity by Aux (COMPUTED-1).
+    => By Theorem 4.18, C125_09 has the results of over beside every finite D-game WITHOUT (B1): the first real group known with
+       this property (LOOPY Corollary 4.19 says "No known real group has the results of omega without (B1)").  Status: PROVED
+       given Definition 4.8 (CHECKED-2) and Aux (COMPUTED-1, one program).  A second Aux program is needed before it is CHECKED-2.
+    Beside under_D alone (the D-sum, not Aux) both x_m are draws (vgsum59 via aux60's x(+)under, and pr57 --sum), as expected:
+    White wins Aux only by passing for ever.
+  C125_14 = `Kb5 kd5/kd6 Pb6 Pc2 Pf5 pb7 pc5 pf6` (3 + 3, 8 men; shuttle d5-d6, freezes c2-c3 at d5, c2-c4 at d6).
+    (B1) fails at 1...Kd5-d4 by vgsum59 (COMPUTED-1); pr57 and aux60 need more than 2.2 GB (aux60 killed by the watchdog at
+    2.24 GB).  (C) and N* NOT decided.
+  No group with N* >= 3 was found: the one decided (B1) failure has (C) (N* = infinity); the other is undecided.
+
+Near misses (counters of p45a, over orientation; R gives the same for {b,c,f}).  Only counts, no analysis:
+                                          {b,c,f}        {b,e,f}
+  fail only (O4) (loose, not exact)     362,409,087    362,051,623
+    of which (O4) fails only because a freezing pawn gives check   18,529   22,379
+    of which (O4) holds at one root but not the other (half exact)  5,352    5,018
+  fail only the promotion rule of (O2) (every other clause holds,
+    some freeze promotes; p45a refstyle promoU4ok)                 57,699   55,392
+  (Clauses (O1), (O2), (O3) are tested in order, so the counters do not give "every clause but (O1)" etc.)
+
+Solver time and memory: about 6.1 h of solver time in all (wall times under /usr/bin/time: measurements 0.18 h, regression 0.53 h,
+searches 5.08 h (p45a 0.71 h per class, r48 3.66 h for {b,c,f}), group checks 0.28 h).  Peak memory of the largest search run:
+p45a 1.29 GB (r48 1.04 GB).  But see section 4: several group checks went over 3 GB before the watchdog stopped them.
+
+1. PROGRAMS AND REGRESSION
+--------------------------
+- src/p45a.cpp: K59's copy, unchanged; run with --mode over.  src/r48.cpp: K59's copy with one change (enum takes two or three
+  files; marked K65).  No change was needed for 8x8: both put pawns on ranks 2..H-1 and give the double step from rank 2 (White)
+  and rank H-1 = 7 (Black).  Both compiled with -O2 as in K59.
+- Regression on flat 8x7 {b,c,f} at 3 + 3 (logs/regress/): p45a over (785,481,597, 243,614,537, 176,100,018, 67,502,437,
+  62,013,700, 3) and r48 the same six numbers, equal to K59's; the 3 hits are K59's F2, F3, F4 (r48 as their colour mirrors).
+- Flat 8x8 measurement at 2 + 2 (logs/meas/): both programs give (180,865,972, 59,480,914, 33,483,229, 25,994,925, 22,957,722,
+  4) and the same 4 hits, among them F2 as placed in K59 (`Ka4 kc4 Pb2 Pf5 pb6 pf6`, shuttle c4-c5).
+- Per hit: src/def48.py (K59's copy, unchanged) from ref3m and from kp_p --pmodel; vgsum59 --lowmem (B1) under the sum's rule;
+  pr57 --orient over (N1); src/cmp_p1.py compares the move lists.  Classification of C125_09: aux60 (K60), vgsum59 --tests
+  in/T_N.txt, pr57 --sum in/TN_pr57.txt --probe in/probes_C125_09.txt (logs/cls/).
+- src/hits.py (A/R hit sets, mirrors R into the over frame, groups by reflection and translation), src/report.py, src/summ.py.
+
+2. SEARCH TABLE (flat 8x8, ranks 2-7, <= 3 + 3 pawns, every king placement)
+-------------------------------------------------------------------------
+Counters: placements, (O1), promotion freeze, (O1)+(O2), loose, exact.
+  {b,c,f} files 1,2,5  A (3712376700, 1215931963, 818915105, 396988830, 362409110, 23)  R (same six)  A=R, same hit set  CHECKED-2
+          A 2548 s 1.29 GB; R 13178 s 1.04 GB
+  {b,e,f} files 1,4,5  A (3718505519, 1217644122, 820498702, 397118871, 362051648, 25)  R not run                         COMPUTED-1
+          A 2552 s 1.29 GB; R started and cancelled after 14 s (logs/search/R88_f1_4_5_CANCELLED.*), for the time budget
+  Not searched: {a,b,e}, {a,d,e}; and all of part c.  Two-file classes: {b,c}, {b,f}, {c,f} lie in {b,c,f} and {b,e}, {e,f}
+  (= {d,g}, {c,d} reflected) in {b,e,f}, so 5 of the 16 two-file classes up to reflection are covered (the last two COMPUTED-1);
+  the other 11, {a,b}, {d,e}, {a,c}, {b,d}, {c,e}, {a,d}, {a,e}, {a,f}, {b,g}, {a,g}, {a,h}, were not searched.
+  Estimated cost of each remaining three-file class: p45a 0.7 h + r48 3.7 h; each two-file class roughly 0.1 h + 0.3 h.
+
+3. THE 38 GROUPS (both roots: Black king on z0, Black shuttles to /z1; Def 4.8 by ref3m / kp_p; (B1))
+-------------------------------------------------------------------------------------------------
+Shapes up to reflection and file translation, men = pawns + 2 kings (src/hits.py; same shape = same number):
+  6 men (2+2): shapes 1-3 (4 groups);  7 men: shapes 4-13 (15 groups);  8 men (3+3): shapes 14-26 (19 groups).
+  Shape list: logs/hits_shapes.txt.  {b,e,f} hits that are also {b,c,f} hits:
+  C145_01 = C125_01
+  C145_02 = C125_02
+  C145_03 = C125_03
+  C145_04 = C125_04
+  C145_05 = C125_06
+  C145_06 = C125_07
+  C145_08 = C125_08
+  C145_10 = C125_09
+  C145_11 = C125_10
+  C145_14 = C125_12
+
+C125_01  Ke5 kg4 Pb3 Pf2 pb4 pf5 /g5  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pf2f4 at kg4; Pf2f3 at kg5; q (Black to move): Ke5 kg4 Pb3 Pf4 pb4 pf5 b f3 | Ke5 kg5 Pb3 Pf3 pb4 pf5 b -
+    (B1) holds at all 10 non-shuttle Black root moves (vgsum59 and pr57): CHECKED-2
+C125_02  Kc5 ka4 Pb2 Pf3 pb5 pf4 /a5  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pb2b4 at ka4; Pb2b3 at ka5; q (Black to move): Kc5 ka4 Pb4 Pf3 pb5 pf4 b b3 | Kc5 ka5 Pb3 Pf3 pb5 pf4 b -
+    (B1) holds at all 4 non-shuttle Black root moves (vgsum59 and pr57): CHECKED-2
+C125_03  Ka4 kc4 Pb2 Pf5 pb6 pf6 /c5  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pb2b4 at kc4; Pb2b3 at kc5; q (Black to move): Ka4 kc4 Pb4 Pf5 pb6 pf6 b b3 | Ka4 kc5 Pb3 Pf5 pb6 pf6 b -
+    (B1) holds at all 9 non-shuttle Black root moves (vgsum59 and pr57): CHECKED-2
+C125_04  Ka5 kc5 Pb2 Pf6 pb7 pf7 /c6  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pb2b3 at kc5; Pb2b4 at kc6; q (Black to move): Ka5 kc5 Pb3 Pf6 pb7 pf7 b - | Ka5 kc6 Pb4 Pf6 pb7 pf7 b b3
+    (B1) holds at all 12 non-shuttle Black root moves (vgsum59 and pr57): CHECKED-2
+C125_05  Kd4 kb4 Pb6 Pc2 Pc5 pb7 pc6 /b5  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pc2c4 at kb4; Pc2c3 at kb5; q (Black to move): Kd4 kb4 Pb6 Pc4 Pc5 pb7 pc6 b c3 | Kd4 kb5 Pb6 Pc3 Pc5 pb7 pc6 b -
+    (B1) holds at all 6 non-shuttle Black root moves (vgsum59 and pr57): CHECKED-2
+C125_06  Ke4 kc4 Pb2 Pb5 Pf5 pb6 pf6 /c5  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pb2b4 at kc4; Pb2b3 at kc5; q (Black to move): Ke4 kc4 Pb4 Pb5 Pf5 pb6 pf6 b b3 | Ke4 kc5 Pb3 Pb5 Pf5 pb6 pf6 b -
+    (B1) holds at all 6 non-shuttle Black root moves (vgsum59 and pr57): CHECKED-2
+C125_07  Kc4 ke4 Pb5 Pf2 Pf5 pb6 pf6 /e5  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pf2f4 at ke4; Pf2f3 at ke5; q (Black to move): Kc4 ke4 Pb5 Pf4 Pf5 pb6 pf6 b f3 | Kc4 ke5 Pb5 Pf3 Pf5 pb6 pf6 b -
+    (B1) holds at all 6 non-shuttle Black root moves (vgsum59 and pr57): CHECKED-2
+C125_08  Ke5 kc5 Pb2 Pb6 Pf6 pb7 pf7 /c6  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pb2b3 at kc5; Pb2b4 at kc6; q (Black to move): Ke5 kc5 Pb3 Pb6 Pf6 pb7 pf7 b - | Ke5 kc6 Pb4 Pb6 Pf6 pb7 pf7 b b3
+    (B1) holds at all 7 non-shuttle Black root moves (vgsum59 and pr57): CHECKED-2
+C125_09  Kc4 ke4 Pb5 Pf2 Pf6 pb6 pf7 /e5  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pf2f4 at ke4; Pf2f3 at ke5; q (Black to move): Kc4 ke4 Pb5 Pf4 Pf6 pb6 pf7 b f3 | Kc4 ke5 Pb5 Pf3 Pf6 pb6 pf7 b -
+    (B1) FAILS at ke5d6, ke5e6 (of 8 moves; vgsum59 sum rule, and pr57 (N1) no; see findings for pr57 beside -1)
+C125_10  Kc5 ke5 Pb6 Pf2 Pf6 pb7 pf7 /e6  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pf2f3 at ke5; Pf2f4 at ke6; q (Black to move): Kc5 ke5 Pb6 Pf3 Pf6 pb7 pf7 b - | Kc5 ke6 Pb6 Pf4 Pf6 pb7 pf7 b f3
+    (B1) holds at all 7 non-shuttle Black root moves (vgsum59 and pr57): CHECKED-2
+C125_11  Kg5 ke5 Pc5 Pf2 Pf6 pb7 pf7 /e6  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pf2f3 at ke5; Pf2f4 at ke6; q (Black to move): Kg5 ke5 Pc5 Pf3 Pf6 pb7 pf7 b - | Kg5 ke6 Pc5 Pf4 Pf6 pb7 pf7 b f3
+    (B1) holds at all 9 non-shuttle Black root moves (vgsum59 and pr57): CHECKED-2
+C125_12  Ka4 kc4 Pb2 Pf3 Pf4 pb6 pf5 /c5  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pb2b4 at kc4; Pb2b3 at kc5; q (Black to move): Ka4 kc4 Pb4 Pf3 Pf4 pb6 pf5 b b3 | Ka4 kc5 Pb3 Pf3 Pf4 pb6 pf5 b -
+    (B1) holds at all 9 non-shuttle Black root moves (vgsum59 and pr57): CHECKED-2
+C125_13  Kf6 ke8 Pc5 Pf2 pb7 pc6 pf7 /f8  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pf2f3 at ke8; Pf2f4 at kf8; q (Black to move): Kf6 ke8 Pc5 Pf3 pb7 pc6 pf7 b - | Kf6 kf8 Pc5 Pf4 pb7 pc6 pf7 b f3
+    (B1) NOT CHECKED (vgsum59 and pr57 over 2.2 GB)
+C125_14  Kb5 kd5 Pb6 Pc2 Pf5 pb7 pc5 pf6 /d6  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pc2c3 at kd5; Pc2c4 at kd6; q (Black to move): Kb5 kd5 Pb6 Pc3 Pf5 pb7 pc5 pf6 b - | Kb5 kd6 Pb6 Pc4 Pf5 pb7 pc5 pf6 b c3
+    (B1) FAILS at kd5d4 (of 8 moves) by vgsum59 only (pr57 over 2.2 GB): COMPUTED-1
+C125_15  Kg5 ke5 Pb2 Pf2 Pf6 pc4 pf5 pf7 /e6  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pf2f3 at ke5; Pf2f4 at ke6; q (Black to move): Kg5 ke5 Pb2 Pf3 Pf6 pc4 pf5 pf7 b - | Kg5 ke6 Pb2 Pf4 Pf6 pc4 pf5 pf7 b f3
+    (B1) NOT CHECKED (vgsum59 and pr57 over 2.2 GB)
+C125_16  Ke5 kg4 Pb2 Pc3 Pf2 pb5 pc4 pf5 /g5  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pf2f4 at kg4; Pf2f3 at kg5; q (Black to move): Ke5 kg4 Pb2 Pc3 Pf4 pb5 pc4 pf5 b f3 | Ke5 kg5 Pb2 Pc3 Pf3 pb5 pc4 pf5 b -
+    (B1) NOT CHECKED (vgsum59 and pr57 over 2.2 GB)
+C125_17  Kc4 ka4 Pb2 Pb5 Pf6 pb6 pc7 pf7 /a5  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pb2b4 at ka4; Pb2b3 at ka5; q (Black to move): Kc4 ka4 Pb4 Pb5 Pf6 pb6 pc7 pf7 b b3 | Kc4 ka5 Pb3 Pb5 Pf6 pb6 pc7 pf7 b -
+    (B1) NOT CHECKED (vgsum59 and pr57 over 2.2 GB)
+C125_18  Kd4 kb4 Pc2 Pc5 Pf6 pb7 pc6 pf7 /b5  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pc2c4 at kb4; Pc2c3 at kb5; q (Black to move): Kd4 kb4 Pc4 Pc5 Pf6 pb7 pc6 pf7 b c3 | Kd4 kb5 Pc3 Pc5 Pf6 pb7 pc6 pf7 b -
+    (B1) NOT CHECKED (vgsum59 and pr57 over 2.2 GB)
+C125_19  Kg5 ke5 Pc5 Pf2 Pf6 pb7 pc6 pf7 /e6  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pf2f3 at ke5; Pf2f4 at ke6; q (Black to move): Kg5 ke5 Pc5 Pf3 Pf6 pb7 pc6 pf7 b - | Kg5 ke6 Pc5 Pf4 Pf6 pb7 pc6 pf7 b f3
+    (B1) NOT CHECKED (vgsum59 and pr57 over 2.2 GB)
+C125_20  Ke4 kg4 Pc4 Pc5 Pf2 pc6 pf6 pf7 /g5  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pf2f4 at kg4; Pf2f3 at kg5; q (Black to move): Ke4 kg4 Pc4 Pc5 Pf4 pc6 pf6 pf7 b f3 | Ke4 kg5 Pc4 Pc5 Pf3 pc6 pf6 pf7 b -
+    (B1) holds at all 9 non-shuttle Black root moves (vgsum59 and pr57): CHECKED-2
+C125_21  Kd4 kb4 Pc2 Pf4 Pf5 pc6 pc7 pf6 /b5  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pc2c4 at kb4; Pc2c3 at kb5; q (Black to move): Kd4 kb4 Pc4 Pf4 Pf5 pc6 pc7 pf6 b c3 | Kd4 kb5 Pc3 Pf4 Pf5 pc6 pc7 pf6 b -
+    (B1) holds at all 9 non-shuttle Black root moves (vgsum59 and pr57): CHECKED-2
+C125_22  Ka4 kc4 Pb2 Pc3 Pf6 pb6 pb7 pf7 /c5  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pb2b4 at kc4; Pb2b3 at kc5; q (Black to move): Ka4 kc4 Pb4 Pc3 Pf6 pb6 pb7 pf7 b b3 | Ka4 kc5 Pb3 Pc3 Pf6 pb6 pb7 pf7 b -
+    (B1) NOT CHECKED (vgsum59 and pr57 over 2.2 GB)
+C125_23  Ke5 kg5 Pc3 Pf2 Pf6 pb7 pc6 pf7 /g6  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pf2f3 at kg5; Pf2f4 at kg6; q (Black to move): Ke5 kg5 Pc3 Pf3 Pf6 pb7 pc6 pf7 b - | Ke5 kg6 Pc3 Pf4 Pf6 pb7 pc6 pf7 b f3
+    (B1) NOT CHECKED (vgsum59 and pr57 over 2.2 GB)
+C145_07  Kg4 ke4 Pe6 Pf2 Pf5 pe7 pf6 /e5  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pf2f4 at ke4; Pf2f3 at ke5; q (Black to move): Kg4 ke4 Pe6 Pf4 Pf5 pe7 pf6 b f3 | Kg4 ke5 Pe6 Pf3 Pf5 pe7 pf6 b -
+    (B1) holds at all 6 non-shuttle Black root moves (vgsum59 and pr57): CHECKED-2
+C145_09  Kd4 kf4 Pe2 Pe5 Pf6 pe6 pf7 /f5  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pe2e4 at kf4; Pe2e3 at kf5; q (Black to move): Kd4 kf4 Pe4 Pe5 Pf6 pe6 pf7 b e3 | Kd4 kf5 Pe3 Pe5 Pf6 pe6 pf7 b -
+    (B1) holds at all 6 non-shuttle Black root moves (vgsum59 and pr57): CHECKED-2
+C145_12  Ka4 kc4 Pb2 Pe4 Pe5 pb6 pe6 /c5  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pb2b4 at kc4; Pb2b3 at kc5; q (Black to move): Ka4 kc4 Pb4 Pe4 Pe5 pb6 pe6 b b3 | Ka4 kc5 Pb3 Pe4 Pe5 pb6 pe6 b -
+    (B1) holds at all 6 non-shuttle Black root moves (vgsum59 and pr57): CHECKED-2
+C145_13  Ka5 kc5 Pb2 Pe5 Pe6 pb7 pe7 /c6  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pb2b3 at kc5; Pb2b4 at kc6; q (Black to move): Ka5 kc5 Pb3 Pe5 Pe6 pb7 pe7 b - | Ka5 kc6 Pb4 Pe5 Pe6 pb7 pe7 b b3
+    (B1) holds at all 9 non-shuttle Black root moves (vgsum59 and pr57): CHECKED-2
+C145_15  Ka4 kc4 Pb2 Pf3 Pf4 pb6 pe6 /c5  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pb2b4 at kc4; Pb2b3 at kc5; q (Black to move): Ka4 kc4 Pb4 Pf3 Pf4 pb6 pe6 b b3 | Ka4 kc5 Pb3 Pf3 Pf4 pb6 pe6 b -
+    (B1) NOT CHECKED (vgsum59 and pr57 over 2.2 GB)
+C145_16  Kb6 kb8 Pb2 Pe5 pb7 pe6 pf7 /c8  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pb2b4 at kb8; Pb2b3 at kc8; q (Black to move): Kb6 kb8 Pb4 Pe5 pb7 pe6 pf7 b b3 | Kb6 kc8 Pb3 Pe5 pb7 pe6 pf7 b -
+    (B1) NOT CHECKED (vgsum59 and pr57 over 2.2 GB)
+C145_17  Ka4 kc4 Pb2 Pe6 Pf5 pb6 pe7 pf6 /c5  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pb2b4 at kc4; Pb2b3 at kc5; q (Black to move): Ka4 kc4 Pb4 Pe6 Pf5 pb6 pe7 pf6 b b3 | Ka4 kc5 Pb3 Pe6 Pf5 pb6 pe7 pf6 b -
+    (B1) holds at all 9 non-shuttle Black root moves (vgsum59 and pr57): CHECKED-2
+C145_18  Kd4 kf4 Pb6 Pe2 Pe5 pb7 pe6 pf7 /f5  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pe2e4 at kf4; Pe2e3 at kf5; q (Black to move): Kd4 kf4 Pb6 Pe4 Pe5 pb7 pe6 pf7 b e3 | Kd4 kf5 Pb6 Pe3 Pe5 pb7 pe6 pf7 b -
+    (B1) NOT CHECKED (vgsum59 and pr57 over 2.2 GB)
+C145_19  Kc5 ka4 Pb2 Pe3 Pf2 pb5 pe4 pf5 /a5  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pb2b4 at ka4; Pb2b3 at ka5; q (Black to move): Kc5 ka4 Pb4 Pe3 Pf2 pb5 pe4 pf5 b b3 | Kc5 ka5 Pb3 Pe3 Pf2 pb5 pe4 pf5 b -
+    (B1) NOT CHECKED (vgsum59 and pr57 over 2.2 GB)
+C145_20  Ka5 kc5 Pb2 Pe6 Pf5 pb7 pe7 pf6 /c6  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pb2b3 at kc5; Pb2b4 at kc6; q (Black to move): Ka5 kc5 Pb3 Pe6 Pf5 pb7 pe7 pf6 b - | Ka5 kc6 Pb4 Pe6 Pf5 pb7 pe7 pf6 b b3
+    (B1) holds at all 11 non-shuttle Black root moves by vgsum59 only (pr57 over 2.2 GB): COMPUTED-1
+C145_21  Ke4 kg4 Pb6 Pf2 Pf5 pb7 pe7 pf6 /g5  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pf2f4 at kg4; Pf2f3 at kg5; q (Black to move): Ke4 kg4 Pb6 Pf4 Pf5 pb7 pe7 pf6 b f3 | Ke4 kg5 Pb6 Pf3 Pf5 pb7 pe7 pf6 b -
+    (B1) NOT CHECKED (vgsum59 and pr57 over 2.2 GB)
+C145_22  Kd4 kf4 Pb4 Pb5 Pe2 pb6 pe6 pe7 /f5  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pe2e4 at kf4; Pe2e3 at kf5; q (Black to move): Kd4 kf4 Pb4 Pb5 Pe4 pb6 pe6 pe7 b e3 | Kd4 kf5 Pb4 Pb5 Pe3 pb6 pe6 pe7 b -
+    (B1) holds at all 9 non-shuttle Black root moves (vgsum59 and pr57): CHECKED-2
+C145_23  Ka4 kc4 Pb2 Pe4 Pf3 pb6 pe5 pe6 /c5  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pb2b4 at kc4; Pb2b3 at kc5; q (Black to move): Ka4 kc4 Pb4 Pe4 Pf3 pb6 pe5 pe6 b b3 | Ka4 kc5 Pb3 Pe4 Pf3 pb6 pe5 pe6 b -
+    (B1) NOT CHECKED (vgsum59 and pr57 over 2.2 GB)
+C145_24  Kc5 ka5 Pb2 Pb6 Pe3 pb7 pe6 pf7 /a6  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pb2b3 at ka5; Pb2b4 at ka6; q (Black to move): Kc5 ka5 Pb3 Pb6 Pe3 pb7 pe6 pf7 b - | Kc5 ka6 Pb4 Pb6 Pe3 pb7 pe6 pf7 b b3
+    (B1) NOT CHECKED (vgsum59 and pr57 over 2.2 GB)
+C145_25  Ka4 kc4 Pb2 Pe4 Pf2 pb6 pe5 pe7 /c5  Def 4.8 ref3m/kp_p PASS/PASS
+    freezes: Pb2b4 at kc4; Pb2b3 at kc5; q (Black to move): Ka4 kc4 Pb4 Pe4 Pf2 pb6 pe5 pe7 b b3 | Ka4 kc5 Pb3 Pe4 Pf2 pb6 pe5 pe7 b -
+    (B1) NOT CHECKED (vgsum59 and pr57 over 2.2 GB)
+
+4. WHAT WENT WRONG, AND WHAT WAS NOT DONE OR CHECKED
+---------------------------------------------------
+- MEMORY RULE BROKEN in the group checks.  The first watchdog (src/watch.sh, src/watch2.sh) polled every 2 s; vgsum59 and pr57 on
+  the 8x8 groups allocate about 1 GB a second, so between two polls 8 runs passed 3 GB before they were killed (peak RSS from
+  /usr/bin/time: vgsum59 3.49, 3.51, 3.52 GB for C125_16, _22, _23; pr57 3.02, 3.01, 3.00, 3.07, 3.05 GB for C125_17, _18, _19,
+  _22, _23).  Worse, src/run_groups.sh went on through the list after the first kill (C125_13), i.e. a chain of runs that kept
+  meeting the limit.  After this I switched to src/watch3.sh (0.2 s polls) for every later run; the highest RSS seen since then
+  is 2.69 GB (vgsum59 on C145_18, killed).  Nothing else of the machine was affected as far as I can see, but the 3 GB rule was
+  not kept.  All kills were of PIDs that my own watchdog had recorded as descendants of my own heavy.sh (pids.log).
+- (B1) not checked for 16 groups (memory) and only by one program for 2 (C145_20 holds, C125_14 fails).
+- C125_09: (C) by one Aux program only.  C125_14: (C) and N* not decided (memory).
+- r48 not run on {b,e,f}: the {b,c,f} run took 3.66 h, not the 2 h I had estimated (its 1 GB memo guard clears and recomputes
+  tables about five times on 8x8), so the second class would have taken the total to about 9.5 h.  I first cancelled the
+  queued r48 run, re-queued it after a mistaken recount, and then cancelled it again 14 s after it started (pids.log).
+- Not searched: see section 2.  No direct D-sum checks, no hand proofs, no P contexts or chess.
+- No referee.
+
+5. PROCESS
+----------
+Every solver run went through kings/delegate/heavy.sh under /usr/bin/time -l (src/hrunw.sh, hrun2.sh, hrun3.sh) with my own RSS
+watchdog on the recorded PID (watch.sh / watch2.sh 2 s, watch3.sh 0.2 s, kill at 2.2 GB); def48.py runs (which call heavy.sh
+themselves) were watched through the def48.py PID.  Every PID is in pids.log.  Measured first (2 + 2), then the regression, then
+the long runs.  No pattern kills; no process of another agent signalled.  Binaries deleted.  No git changes; nothing written
+outside kings/delegate/out/K65/.
+EDITS.md: one edit, tested with kings/delegate/apply_edits.py on a scratch copy of LOOPY.md (1 applied, 0 rejected).
+Files: findings.txt, EDITS.md, pids.log (home path prefixes shortened to K65/), src/ (p45a.cpp, r48.cpp, def48.py, ref3m.cpp,
+kp_p10.c, vgsum59.cpp, pr57.cpp, aux60.cpp copies; cmp_p1.py; K65 scripts), in/ (T_N, probes, group lists), logs/ (search, regress,
+meas, cls; per-group def48/vgsum59/pr57 logs packed in logs/grp.tar.xz, watchdog logs in logs/watch_logs.tar.xz; outputs over
+256 KB xz-compressed; groups_report.txt, hits_shapes.txt).

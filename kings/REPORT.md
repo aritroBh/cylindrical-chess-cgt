@@ -527,6 +527,13 @@ Every deliverable was given to independent referees (Claude models) told to brea
     other freeze. Beside pawns on file h in P the D-sum prediction holds in 271 of 283 contexts; the 12 failures
     have a blocked White pawn on h2 that the Black king can win (CHECKED-2). So the results of over in D-sums carry
     over neither to chess nor to P contexts (`kings/delegate/out/K63/REVIEW.md`).
+  - K65 (2026-11-25, refereed; the referee's own findings checked again by K66 with a third program): census of
+    exact over groups on the flat 8×8 board, file classes {b,c,f} and {b,e,f}, at most 3 + 3 pawns: 38 groups, 26 up
+    to symmetry, four with 2 + 2 pawns. (B1) holds for 27. Seven of the other 11 have the results of over all the
+    same (first real examples; Corollary 4.19), three fail with ladder length 2, and one,
+    `Kg5 ke5/ke6 Pb2 Pf2 Pf6 pc4 pf5 pf7`, has ladder length 3 (Proposition 4.24; the question is now length 4).
+    In chess, by the tablebase, five of the 19 groups with at most seven men are exact over groups, for example
+    `Kd4 kb4/kb5 Pb6 Pc2 Pc5 pb7 pc6` (`kings/delegate/out/K65/REVIEW.md`).
   - Theorem 1.11(c) repaired (2026-11-23): its proof used the e.p. condition (E) without assuming it, and its frontier
     step used an unproved inheritance of threats by re-split components. (E) is now a hypothesis (every use already had
     it through Theorem 1.14), and the inheritance is proved. Found while the paper's proofs appendix was written and
