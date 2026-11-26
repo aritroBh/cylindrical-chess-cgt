@@ -7,8 +7,8 @@
 \emph{Cross-checks.} Our CGT engine agrees with a separate brute-force sum solver on $55{,}195$ positions $G$
 (at most two pawns a side, $3$--$5$ files), for three race rules and $15$ reference games $R$: all
 $4{,}967{,}550$ outcomes of $G+R$ match under the textbook test, e.p.\ on and off, and all $2{,}483{,}775$
-under the e.p.-aware test. A whole-board minimax confirms its outcomes on $1{,}070$ single components. Our
-legal-move generator matches Lichess on all $160$ test positions. AI models wrote the full \lab{S} proofs. AI referees, some from another vendor, checked them, and
+under the e.p.-aware test. A whole-board minimax confirms its outcomes on $1{,}070$ single components. A Lean~4
+project checks $123$ finite statements (Section~S17). AI models wrote the full \lab{S} proofs. AI referees, some from another vendor, checked them, and
 programs ran the ring base cases; no human referee has yet.
 
 \emph{Code and data availability.} The code and data are \codeavail. The supplementary material gives the

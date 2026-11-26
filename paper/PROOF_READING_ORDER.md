@@ -1,6 +1,6 @@
 # Reading order for the AI-written proofs
 
-Page numbers are those of `dist/tog/supplement.pdf` (67 pages, build of 2026-11-23, after S12.2 was replaced by the new 4-page subsection).
+Page numbers are those of `dist/tog/supplement.pdf` (68 pages, build of 2026-11-26; S17 gained a paragraph on the Lean check, and the pages of S12 to S16 are those of the 67-page build of 2026-11-23).
 The 10-page paper's ⟨S⟩ claims rest on about 43 of these pages: S12.1 (pp. 17–23) and S13–S15 (pp. 28–63).
 S12.2 (pp. 23–27) is not needed for them; S12.1 is self-contained.
 
@@ -20,7 +20,7 @@ Each item lists what it proves in the paper, what it uses, and the steps where a
 
 Every ring proof has two parts. The hand part shows that inserting two files leaves the reduced game unchanged
 (Lemmas 1–3). The computed part is one base graph and the small widths. Reading can check only the hand part;
-the computed part can only be rerun (S17, pp. 64–67, says which programs agree).
+the computed part can only be rerun (S17, pp. 64–68, says which programs agree).
 
 | # | Read | Pages | Proves (10-page paper) | Read slowest |
 |---|---|---|---|---|

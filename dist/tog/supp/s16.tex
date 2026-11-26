@@ -143,6 +143,26 @@ Both base graphs, both insertion steps and the small widths by the writer's prog
 \end{tabular}
 \end{table}
 
+\paragraph{A Lean check of the finite claims.}
+A Lean~4 project (Lean~4.36, no Mathlib; folder \texttt{lean/} of the code copy) states the rules of the pawn game and
+rechecks finite claims of the main text. It covers the seven-pawn positions of value $\nim{2}$ and the nine-pawn $\nim{3}$;
+the value $1/8$ in the nine settings and for every assignment of race outcomes; the position of
+Proposition~\ref{prop:sumcounter}; the ring families on every width up to a bound (the wall rings for $5\le n\le 61$,
+one pawn per file for $10\le n\le 50$, the $\nim{3}$ families up to $n=40$, or $n=25$ for the odd family with $n+1$
+pawns, and between $9$ and $21$ members of each M\"obius family); the ring rule for Dawson's chess by pawn play for
+$3\le n\le 20$; one step of the cut lemma on small boards; the census counts; and the least ring $\nim{2}$ on $\cyl{3}$
+and $\cyl{4}$, by listing every smaller ring.
+
+The project has $123$ statements. The Lean kernel checks $29$ of them. The other $94$ are evaluated by compiled Lean
+code (\texttt{native\_decide}), which trusts the Lean compiler; most of these run a fast search that is tested against
+the stated rules on small positions and is not proved equal to them. No statement for every $n$ is in Lean, so the
+insertion step of the ring proofs (Lemmas~1--3 of Section~\ref{S-wall}) is still the hand proof, and the large ring
+scans and the atlas have no Lean theorem. The Lean files were written by Claude. Codex and models run through the Kilo,
+OpenCode and Cursor tools read them in two rounds (Cursor in the first only) and recomputed parts with programs of their own. They found no wrong
+theorem. They found a fast passed-pawn test that fails on boards of about $1000$ ranks (no claim uses more than eight)
+and three tests that let an undecided answer pass; all are corrected. The file \texttt{lean/notes/L11\_table.md} lists
+each theorem beside the sentence it checks.
+
 \paragraph{What the checks found.}
 The checks caught real errors in November 2026, all corrected. The main text said that the sum model re-splits a position and
 then replaces components with a passed pawn; the engine and the theorem test the moved component first and split only if

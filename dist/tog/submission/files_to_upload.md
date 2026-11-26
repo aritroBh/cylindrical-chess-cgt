@@ -6,8 +6,8 @@ Root: `dist/tog/`
 
 | ScholarOne slot | File (full path) | Bytes | Pages | SHA-256 | Status |
 |---|---|---|---|---|---|
-| Main document for review | `dist/tog/tog_review.pdf` | 260465 | 10 | `a74349ce97009cff6b005870f439496e1922f8095942da5181654d5655b2f1f6` | Placeholder link; rebuild first |
-| Supplementary material | `dist/tog/supplement_review.pdf` | 611041 | 67 | `0a763612f71454c8e69d2702f7cd9efb7c600f30cfe48813673ffe01be75e744` | Placeholder link; rebuild first |
+| Main document for review | `dist/tog/tog_review.pdf` | 260484 | 10 | `783b15b9c2283dd452719fdab1460ac0e92d90b17a0121633f197b391f9c5405` | Placeholder link; rebuild first |
+| Supplementary material | `dist/tog/supplement_review.pdf` | 614283 | 68 | `3eb61419aedd69ca203f5e1fbb05e02c113ae53c19b872fabbb44acfaf530c73` | Placeholder link; rebuild first |
 | Sources (only if asked) | LaTeX sources of the anonymous build: `tog_review.tex`, `tog.tex`, `macros.tex`, `refs.bib`, `sections/`, `figures/` | not computed | n/a | not computed | Author must confirm that ScholarOne asks for sources at review stage (not verified). If sent, they must be anonymous. These source files hold the author's name or the named GitHub URL (checked with grep on 2026-11-23): `tog.tex` (lines 42, 45, 47, 109-113, 147: GitHub URL, `\studyauthor`, PDF metadata, author block and affiliation, Prof. Morley), `macros.tex` (line 13: `\repourl`, the GitHub URL, unconditional; `sections/13_verify.tex` falls back to it), and `supplement.tex` (lines 34 and 36: GitHub URL and `\studyauthor`; line 79: the author's name). Do not send sources for review without stripping all three files. |
 | Cover letter | `dist/tog/submission/cover_letter.md` (paste text, or export to PDF) | n/a | 1 | n/a | Needs the anonymous link and author checks |
 
@@ -15,7 +15,7 @@ Do not upload (named versions, kept for after acceptance):
 
 | File | Bytes | Pages | SHA-256 |
 |---|---|---|---|
-| `dist/tog/tog.pdf` | 260980 | 10 | `731feb123a83b33394841c1f13b1f94d94f018547b13e0abbc9773665241e8e2` |
-| `dist/tog/supplement.pdf` | 611236 | 67 | `5d38d5886500dc4ab41fa565a65f338e352de49ad7aca96c6c848e8f631017d0` |
+| `dist/tog/tog.pdf` | 261005 | 10 | `74e25f786ecc39c4ee6210dfc5e7bbd9f6e557285d24b392e64f34df2314407e` |
+| `dist/tog/supplement.pdf` | 614555 | 68 | `4bdfdc942e164dc8f7fa151c4c6f817a095db788de9a869c66e32bbac32146e1` |
 
 Maximum upload size per file in ScholarOne for ToG: not verified.
