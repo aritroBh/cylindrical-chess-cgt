@@ -1,0 +1,65 @@
+K71 findings (2026-11-25). One AI investigator, not refereed. K70 not opened.
+
+SHORT ANSWER
+(T) is NOT fully proved by hand.
+PROVED given F0, where F0 is a pawnless lemma, CHECKED-2 by two programs with no shared code:
+  - Black wins after Q1 Ke3, Q1 Ke4 and Q1 Ke5 (3 of the 17 moves). Lemma B is not used.
+  - After Q1 Kd3 ...Kxc5, White's replies Kc2, Kd2, Ke2, Ke3 and Ke4 lose.
+  - Inside the other starts, the reply that puts the c-pawn on c4 unprotected loses: ...Kxc5 c2-c4 after R1/R2
+    Ke3, Ke4, Ke5, and ...Kxc5 c3-c4 after Q2 Ke3, Ke4, Ke5.
+PROVED given F, as a tool: Lemma K. With the blocker on c_{j+1}, b7, and Black's king on d_j or b_j, Black takes
+  the c-pawn within 2 moves, for every White king placement and either side to move. j = 2, 3, 4.
+LEFT, 14 positions (Black to move; oracle P value = plies to Black's promotion):
+  R1 Kd3 L39, R1 Ke3 L39, R1 Ke4 L39, R1 Ke5 L29,
+  R2 Kc3 L39, R2 Kd3 L39, R2 Ke3 L39, R2 Ke4 L39, R2 Ke5 L29,
+  Q2 Kd3 L31, Q2 Ke3 L33, Q2 Ke4 L31, Q2 Ke5 L29,
+  Q1 Kd3 Kxc5 Kc3 (8/1p6/1Pp5/2k5/2P5/2K5/8/8 b) L39.
+  Through K68's Lemma C these use 30 of the 42 Lemma B positions (logs/needed30.txt).
+The label of Proposition 4.25 does not change (still PROVED given CHECKED-2), so there is no EDITS.md.
+
+F0: lone White king against Black Kb6, pb7, pc6, White to move, 55 positions, all Black wins.
+F, the whole pawnless family (lone White king against Black K with a b- and/or c-pawn): k71 (the r68 core) and
+src/f0check.py agree on all 273,227 common positions, 0 disagreements.
+
+ROUTE TABLE (item 1)
+Measured with the oracle; logs/routes.out, logs/level2.out.
+A. K68: ...Kxc5, ...Kxb6, then Lemma B.
+   Starts L23-L41; Lemma B up to L38; 42 positions; no hand proof. Status: CHECKED-2 only.
+B. Chosen. c-pawn first: ...Kxc4 when unprotected (in Q1 after Ke5, first ...Kxc5), ...Kb5(-a6), ...Kxb6, then F0.
+   Counted race against Kd6-c7.
+   At most 9 plies to F0; 124 Black positions; 654 plays; 3 zones.
+   Status: PROVED given F0 for 3 moves and for the sub-lines above.
+C. King in front, queenside (Black's king on files a-c after ...Kxb6).
+   Restricted game: wins 38 of the 42 Lemma B positions (gamma captured within <= 24 plies). Fails exactly 4:
+   c2 with the White king on b3, c3 or d3, and c4 with the king on c3.
+   From the starts it wins R1 Ke5, R2 Ke5, Q1 Ke3/Ke4/Ke5 and Q2 (all), and fails the other 8.
+   Files a-e give the same set.
+   Status: not written (38-position zone proof, 10 to 24 plies deep).
+D. Blocker on c_{j+1}, then king to d_j or b_j (Lemma K).
+   Reach to the Lemma K configuration: 17-39 plies; to the local-battle box: 5-23 plies.
+   DTM trees from Q2: about 10^5 leaves.
+   Status: Lemma K PROVED given F; blocker phase and local battle open.
+Frozen pawns until the c-pawn falls (b-pawn, c-pawn, or both): wins only Q1 Ke3/Ke4/Ke5 (with the c-pawn frozen,
+   also Q2 Kd3 and Ke3). Rejected.
+
+STRATEGY TEST (item 3)
+Written rules played literally against every White reply; leaves checked in both programs.
+S_E (Lemma E), 10 starts (logs/testE_starts.txt):
+  654 plays, 0 failures, longest play 9 plies, 124 Black positions, 49 F0 leaves (all Black wins).
+S_K (Lemma K), every placement (j = 2, 3, 4; king on d_j or b_j; both sides to move):
+  2,412 plays, 0 failures, longest play 4 plies, 199 pawnless leaves (all Black wins).
+Failures are illegal or missing rules, repetitions, a stalemate of either side, and a White promotion.
+
+RULES
+No rule broken.
+- Only toy runs: each about 10 s and under 30 MB. One shell command chained about 15 such runs (about 3 minutes in
+  all) and was moved to the background; it finished normally.
+- Binaries were built in a scratch directory outside the repository and deleted.
+- No process was killed or signalled. No git changes. No network.
+
+FILES (kings/delegate/out/K71/)
+PROOF_T.md, findings.txt
+src/k71.cpp (r68 core plus K71 tools and tests), src/f0check.py (independent pawnless solver)
+logs/: testE.out, testE_rulecount.out, testE_starts.txt, testK.out, f0check_compare.out, f0check_leavesE.out,
+       f0check_leavesK.out, leavesE_F0.txt, leavesK.txt, left14.txt, needed30.txt, level2.out, routes.out,
+       universal.out, values17.out

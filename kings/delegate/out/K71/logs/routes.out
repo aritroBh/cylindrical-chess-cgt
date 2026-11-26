@@ -1,0 +1,63 @@
+# Order of the 17 positions in every row: R1 Kd3 Ke3 Ke4 Ke5 | R2 Kc3 Kd3 Ke3 Ke4 Ke5 | Q1 Kd3 Ke3 Ke4 Ke5 | Q2 Kd3 Ke3 Ke4 Ke5
+# Restricted solves from the 17 starts (restriction active once Pb6 is captured): value in P under the restriction
+STRAT=0: L39 L39 L39 L29 L39 L39 L39 L39 L29 L41 L27 L23 L25 L31 L33 L31 L29 
+STRAT=1: D0 D0 D0 D0 D0 D0 D0 D0 D0 D0 L27 L23 L27 D0 D0 D0 D0 
+STRAT=2: D0 D0 D0 D0 D0 D0 D0 D0 D0 D0 L27 L23 L25 L33 L45 D0 D0 
+STRAT=3: D0 D0 D0 D0 D0 D0 D0 D0 D0 D0 L27 L23 L27 D0 D0 D0 D0 
+STRAT=7: D0 D0 D0 L35 D0 D0 D0 D0 L35 D0 L27 L23 L25 L31 L37 L33 L31 
+STRAT=9: D0 D0 D0 L29 D0 D0 D0 D0 L29 D0 L27 L23 L25 L31 L33 L31 L29 
+# STRAT: 0 none; 1 b-pawn frozen while gamma lives; 2 c-pawn frozen; 3 both frozen; 7 Black king on files a-c (captures allowed); 9 files a-e
+# Reach depth (plies, Black to move) from the 17 starts to target sets:
+TARGET=1: L29 L29 L29 L27 L29 L29 L29 L29 L27 L39 L25 L23 L17 L25 L23 L23 L23 
+TARGET=2: L31 L31 L31 L25 L31 L31 L31 L31 L25 L27 L5 L5 L9 L15 L19 L19 L17 
+TARGET=3: L27 L27 L27 L23 L27 L27 L27 L27 L23 L27 L5 L5 L9 L15 L17 L17 L15 
+TARGET=8: L31 L29 L29 L29 L31 L31 L29 L29 L29 L11 L11 L11 L11 L19 L19 L23 L23 
+TARGET=18: L19 L19 L19 L19 L19 L19 L19 L19 L19 L9 L5 L5 L9 L11 L11 L11 L11 
+TARGET=1027: L23 L21 L21 L21 L23 L23 L21 L21 L21 L11 L5 L5 L9 L13 L13 L15 L15 
+TARGET=3073: L23 L23 L25 L25 L23 L23 L23 L25 L25 L11 L5 L5 L9 L15 L15 L19 L19 
+TARGET=8193: L29 L29 L29 L25 L29 L29 L29 L29 L25 L35 L5 L5 L9 L25 L23 L17 L15 
+TARGET=2048: L33 L31 L31 L27 L33 L33 L31 L31 L27 L33 L5 L5 L9 L23 L25 L25 L23 
+# TARGET bits: 1 key-square configuration of Lemma K (blocker c_{j+1}, b-pawn >= b_{j+2}, BK d_j/b_j); 2 gamma gone and Black wins; 8 blocker+b7+Black wins; 16 blocker anywhere+Black wins; 1024 local-battle box (blocker, b7, Black to move, BK files a-e ranks j-1..j+1, blocker not en prise); 2048 no White pawns, Black b-pawn (not b2) and c-pawn; 8192 F0/F1 pawnless configurations
+# Restricted solves of the 42 Lemma B positions with STRAT=7 (king files a-c), TARGET=2 (gamma captured, win):
+8/1p6/1kp1K3/8/2P5/8/8/8 w P=L22 S0=L10
+8/1p6/1kp1K3/8/8/2P5/8/8 w P=L20 S0=L14
+8/1p6/1kp1K3/8/8/8/2P5/8 w P=L26 S0=L20
+8/1p6/1kp2K2/8/2P5/8/8/8 w P=L18 S0=L4
+8/1p6/1kp2K2/8/8/2P5/8/8 w P=L18 S0=L6
+8/1p6/1kp2K2/8/8/8/2P5/8 w P=L26 S0=L20
+8/1p6/1kp5/4K3/2P5/8/8/8 w P=L28 S0=L12
+8/1p6/1kp5/4K3/8/2P5/8/8 w P=L26 S0=L12
+8/1p6/1kp5/4K3/8/8/2P5/8 w P=L26 S0=L22
+8/1p6/1kp5/5K2/2P5/8/8/8 w P=L24 S0=L6
+8/1p6/1kp5/5K2/8/2P5/8/8 w P=L24 S0=L10
+8/1p6/1kp5/5K2/8/8/2P5/8 w P=L26 S0=L20
+8/1p6/1kp5/8/2P1K3/8/8/8 w P=L28 S0=L12
+8/1p6/1kp5/8/2P2K2/8/8/8 w P=L24 S0=L6
+8/1p6/1kp5/8/2P5/2K5/8/8 w P=L38 S0=D0
+8/1p6/1kp5/8/2P5/3K4/8/8 w P=L28 S0=L12
+8/1p6/1kp5/8/2P5/4K3/8/8 w P=L28 S0=L12
+8/1p6/1kp5/8/2P5/5K2/8/8 w P=L24 S0=L6
+8/1p6/1kp5/8/2P5/8/2K5/8 w P=L26 S0=L8
+8/1p6/1kp5/8/2P5/8/3K4/8 w P=L26 S0=L8
+8/1p6/1kp5/8/2P5/8/4K3/8 w P=L26 S0=L8
+8/1p6/1kp5/8/2P5/8/5K2/8 w P=L24 S0=L6
+8/1p6/1kp5/8/4K3/2P5/8/8 w P=L26 S0=L12
+8/1p6/1kp5/8/4K3/8/2P5/8 w P=L26 S0=L22
+8/1p6/1kp5/8/5K2/2P5/8/8 w P=L24 S0=L10
+8/1p6/1kp5/8/5K2/8/2P5/8 w P=L24 S0=L20
+8/1p6/1kp5/8/8/1K6/2P5/8 w P=L36 S0=D0
+8/1p6/1kp5/8/8/2K5/2P5/8 w P=L36 S0=D0
+8/1p6/1kp5/8/8/2P1K3/8/8 w P=L26 S0=L12
+8/1p6/1kp5/8/8/2P2K2/8/8 w P=L24 S0=L10
+8/1p6/1kp5/8/8/2P5/2K5/8 w P=L26 S0=L10
+8/1p6/1kp5/8/8/2P5/3K4/8 w P=L26 S0=L10
+8/1p6/1kp5/8/8/2P5/4K3/8 w P=L24 S0=L10
+8/1p6/1kp5/8/8/2P5/5K2/8 w P=L24 S0=L10
+8/1p6/1kp5/8/8/2PK4/8/8 w P=L30 S0=L16
+8/1p6/1kp5/8/8/3K4/2P5/8 w P=L36 S0=D0
+8/1p6/1kp5/8/8/4K3/2P5/8 w P=L26 S0=L22
+8/1p6/1kp5/8/8/5K2/2P5/8 w P=L24 S0=L20
+8/1p6/1kp5/8/8/8/1KP5/8 w P=L28 S0=L24
+8/1p6/1kp5/8/8/8/2P1K3/8 w P=L26 S0=L22
+8/1p6/1kp5/8/8/8/2P2K2/8 w P=L24 S0=L20
+8/1p6/1kp5/8/8/8/2PK4/8 w P=L26 S0=L24

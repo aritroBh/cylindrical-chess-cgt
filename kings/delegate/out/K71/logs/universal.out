@@ -1,0 +1,41 @@
+# COMPUTED-1 (k71 = r68 core). For each pawn structure and side to move: the Black-king squares from which Black
+# wins in P against EVERY legal White-king square ('universal squares'). Structures: White gamma (c-pawn) / Black pawns.
+W c2 B b7,c6 White to move: b2 d2 b6 c7
+W c3 B b7,c6 White to move: b2 c2 d2 b3 d3 b6 c7
+W c4 B b7,c6 White to move: b3 c3 d3 b4 d4
+W c3 B b7,c6 Black to move: a1 b1 c1 d1 e1 a2 b2 c2 d2 e2 a3 b3 d3 e3 a4 b4 c4 d4 e4 a5 b5 c5 a6 b6 a7 c7 d7 a8 b8 c8 d8
+W c4 B b7,c6 Black to move: a2 b2 c2 d2 e2 a3 b3 c3 d3 e3 a4 b4 d4 e4 a5 b5 c5 d5 e5 b6 c7 d7 d8
+W c4 B b6,c5 Black to move: a2 b2 c2 d2 e2 a3 b3 c3 d3 e3 a4 b4 d4 e4
+W c4 B b6,c5 White to move: a3 b3 c3 d3 a4 b4 d4
+W c3 B b5,c4 Black to move: a1 b1 c1 d1 e1 a2 b2 c2 d2 e2 a3 b3 d3 e3 a4 b4 d4 e4 a5 c5 d5 a6 b6 c6 d6 b7
+W c3 B b5,c4 White to move: a2 b2 c2 d2 a3 b3 d3 a4 a5 c5 a6 b6 c6
+W c2 B b4,c3 Black to move: a1 b1 c1 d1 e1 a2 b2 d2 e2 a3 b3 d3 e3 a4 c4 d4 a5 b5 c5 d5 b6
+W c2 B b4,c3 White to move: a1 b1 c1 d1 a2 b2 d2 a3 a4 c4 a5 b5 c5
+W c4 B b7,c5 Black to move: a3 b3 c3 d3 e3 a4 b4 d4 e4 a5 b5 d5 e5 a6 c6
+W c4 B b7,c5 White to move: b4 d4 c6
+W c3 B b7,c4 Black to move: a2 b2 c2 d2 e2 a3 b3 d3 e3 a4 b4 d4 e4 a5 c5 a6 c6
+W c3 B b7,c4 White to move: b3 d3 c5
+W c2 B b7,c3 Black to move: c1 a2 b2 d2 e2 a3 b3 d3 e3 c4
+W c2 B b7,c3 White to move: b2 d2 c4
+W c2 B b6,c3 White to move: b2 d2 c4
+W c2 B b6,c3 Black to move: c1 a2 b2 d2 e2 a3 b3 d3 e3 c4
+W c2 B b5,c3 White to move: b2 d2 c4
+W c2 B b5,c3 Black to move: a1 b1 c1 d1 e1 a2 b2 d2 e2 a3 b3 d3 e3 a4 c4 a5 c5
+W c3 B b6,c4 White to move: b3 d3 c5
+W c3 B b6,c4 Black to move: a2 b2 c2 d2 e2 a3 b3 d3 e3 a4 b4 d4 e4 a5 c5 a6 c6
+W c2 B b7,c4 White to move: b4 c5
+W c2 B b7,c4 Black to move: b1 c1 d1 b2 d2 a3 a4 b4 a5 b5 c5 a6 c6
+W c2 B b7,c5 White to move: c6
+W c2 B b7,c5 Black to move: b2 d2 a4 b4 a5 b5 a6 b6 c6 a7
+W c3 B b7,c5 White to move: b5 c6
+W c3 B b7,c5 Black to move: b2 c2 d2 b3 d3 a4 b4 d4 e4 a5 b5 a6 b6 c6 a7
+W c2 B b7,c6 Black to move: a1 b1 c1 d1 e1 a2 b2 d2 e2 a3 b3 c3 d3 e3 a5 b5 c5 a6 b6 a7 c7 d7 a8 b8 c8 d8
+W - B b7,c6 Black to move: a1 b1 c1 d1 e1 f1 g1 h1 a2 b2 c2 d2 e2 f2 g2 h2 a3 b3 c3 d3 e3 f3 g3 h3 a4 b4 c4 d4 e4 f4 g4 h4 a5 b5 c5 d5 e5 f5 g5 h5 a6 b6 d6 e6 f6 g6 h6 a7 c7 d7 e7 f7 g7 h7 a8 b8 c8 d8 e8 f8 g8 h8
+W - B b7,c6 White to move: a1 b1 c1 d1 e1 f1 g1 h1 a2 b2 c2 d2 e2 f2 g2 h2 a3 b3 c3 d3 e3 f3 g3 h3 a4 b4 c4 d4 e4 f4 g4 h4 a5 b5 c5 d5 e5 f5 g5 h5 a6 b6 d6 e6 f6 g6 h6 a7 c7 d7 e7 f7 g7 h7 a8 b8 c8 d8 e8 f8 g8 h8
+W - B c6 White to move: (none)
+W - B c6 Black to move: b4 c4 d4
+W - B b7 White to move: (none)
+W - B b7 Black to move: a5 b5 c5
+W - B c5 White to move: (none)
+W - B c4 White to move: b3 c3 d3
+W - B c3 White to move: b2 c2 d2

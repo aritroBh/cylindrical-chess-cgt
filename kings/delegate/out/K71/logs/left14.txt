@@ -1,0 +1,19 @@
+# The positions left by K71 (Black to move in each). Value in P from the oracle (k71 = r68 core; r68 gives the same):
+# L<n> = Black wins, promoting at ply n with best play on both sides (plies counted from this position).
+# R1 = 8/1p6/1Pp5/2P5/1k1K4/8/2P5/8 w, R2 = 8/1p6/1Pp5/1kP5/3K4/8/2P5/8 w, Q2 = 8/1p6/1Pp5/1kP5/3K4/2P5/8/8 w
+R1 Kd3   8/1p6/1Pp5/2P5/1k6/3K4/2P5/8 b   L39
+R1 Ke3   8/1p6/1Pp5/2P5/1k6/4K3/2P5/8 b   L39
+R1 Ke4   8/1p6/1Pp5/2P5/1k2K3/8/2P5/8 b   L39
+R1 Ke5   8/1p6/1Pp5/2P1K3/1k6/8/2P5/8 b   L29
+R2 Kc3   8/1p6/1Pp5/1kP5/8/2K5/2P5/8 b    L39
+R2 Kd3   8/1p6/1Pp5/1kP5/8/3K4/2P5/8 b    L39
+R2 Ke3   8/1p6/1Pp5/1kP5/8/4K3/2P5/8 b    L39
+R2 Ke4   8/1p6/1Pp5/1kP5/4K3/8/2P5/8 b    L39
+R2 Ke5   8/1p6/1Pp5/1kP1K3/8/8/2P5/8 b    L29
+Q2 Kd3   8/1p6/1Pp5/1kP5/8/2PK4/8/8 b     L31
+Q2 Ke3   8/1p6/1Pp5/1kP5/8/2P1K3/8/8 b    L33
+Q2 Ke4   8/1p6/1Pp5/1kP5/4K3/2P5/8/8 b    L31
+Q2 Ke5   8/1p6/1Pp5/1kP1K3/8/2P5/8/8 b    L29
+Q1 Kd3 Kxc5 Kc3   8/1p6/1Pp5/2k5/2P5/2K5/8/8 b   L39
+# In the 13 starts above, the replies to ...Kxc5 that put the c-pawn on c4 unprotected (c2-c4 after R1/R2 Ke3, Ke4, Ke5;
+# c3-c4 after Q2 Ke3, Ke4, Ke5) are proved (Lemma E, family E3); all other White replies are not.
