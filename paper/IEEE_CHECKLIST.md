@@ -289,3 +289,37 @@ Roles: Fable plans and reviews; Opus referees; Sonnet codes and applies; Haiku r
 - [x] Research scripts, small result files and pending run records committed; compiled binaries, `.pid` files, agents' scratch, one raw CLI transcript and five large scan outputs (80 MB, on disk only) ignored
 - [x] Tests: 24 passed. README says where the archives are and how to unpack them
 - [ ] `kings/`: 36 uncommitted entries belong to the kings session (asked to tidy its own folder)
+
+## Lean 4 check (2026-11-25)
+
+Author asked for a Lean check run by Opus, Sonnet and Haiku agents. Lean is not installed; nothing below has run.
+Roles: main session plans and reads every result; Opus writes and referees the definitions; Sonnet writes and runs the Lean code; Haiku compares outputs.
+
+Stage 0, setup
+- [ ] L0 Author allows the download: `elan` and the Lean 4 toolchain through Homebrew (about 0.5 GB). Mathlib (about 5 GB) only if Stage 3 is chosen
+- [ ] L1 (Opus) The rules in Lean: boards (flat, cylinder, Möbius), pawn moves and captures across the seam, the e.p. settings, the end at the first passed pawn, the race rule, BIG. This is the part a person must read, so it stays short
+- [ ] L2 (second Opus, blind) L1 read against Section II; (Haiku) move lists of the Lean definition equal those of `cylcgt/` on 1,000 random positions
+
+Stage 1, finite claims. Each Lean theorem says whether the kernel checked it (`decide`) or compiled code did (`native_decide`)
+- [ ] L3 (Sonnet) Value test "G = v" as "G minus v is a win for the second player": an outcome search, no canonical forms
+- [ ] L4 Seven-pawn positions A and B are star-2; not star-2 with e.p. off or under the opponent rule
+- [ ] L5 White a2 b2 b3 against black a5 a6 b6 is 1/8 in all nine settings
+- [ ] L6 Sum counterexample: S(X) a black win, W(X) a first-player win
+- [ ] L7 Ring base cases behind the star-2 and star-3 families (walls, one pawn per file, Möbius), as far as the runs fit
+- [ ] L8 Ring rule on the 3-by-n cylinder for n up to 16
+- [ ] L9 Cut lemma on every position up to a stated size
+- [ ] L10 Census counts (6,724 zeros, 4,042 stars, no star-k with k at least 2), if the run fits
+
+Stage 2, comparison
+- [ ] L11 (Haiku) Every Lean result against the paper's number and the Python output, one table
+- [ ] L12 (Codex, other vendor) Cold read: does each Lean statement say what the paper says
+
+Stage 3, statements for every n (weeks, no promise; needs the author's word)
+- [ ] L13 Sandwich lemma; Cut lemma; Ring rule for every n
+- [ ] L14 Sum safety (Theorem 6)
+- [ ] L15 Ring insertion Lemmas 1 to 3 (S13)
+
+Outside Lean's reach: results that rest on the Lichess tablebase or Stockfish (label C1), the large tablebase builds, and hypotheses V1 to V3 of the validity theorem, which are facts about real chess.
+
+Stage 4, paper
+- [ ] L16 One sentence and one S17 row naming exactly what Lean checked; the 10-page paper has 0.03 in free, so a line must be cut for it
