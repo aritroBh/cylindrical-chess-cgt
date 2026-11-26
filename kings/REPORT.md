@@ -541,6 +541,11 @@ Every deliverable was given to independent referees (Claude models) told to brea
     (Black Kb6, pb7, pc6 against a king and a c-pawn; 42 positions used), which three programs agree on and nobody
     has proved by hand. The referee re-derived every step and withdrew one false chess fact from the proof; the
     chess values stay KNOWN from the tablebase (`kings/delegate/out/K68/REVIEW.md`).
+    For the lemma a model of another vendor, working blind, wrote a certificate: a table of 486 rows in which
+    every White reply leads to a lower row (K70). Two separately written checkers accept every row and a referee
+    checked 42 rows by hand without finding an error (K73); the full check by hand, about 40,000 replies, has
+    not been done, so the lemma stays computed (`kings/delegate/out/K70/REVIEW.md`). Changing the reduction does
+    not avoid the lemma (K71, unrefereed: 14 positions left).
   - Theorem 1.11(c) repaired (2026-11-23): its proof used the e.p. condition (E) without assuming it, and its frontier
     step used an unproved inheritance of threats by re-split components. (E) is now a hypothesis (every use already had
     it through Theorem 1.14), and the inheritance is proved. Found while the paper's proofs appendix was written and

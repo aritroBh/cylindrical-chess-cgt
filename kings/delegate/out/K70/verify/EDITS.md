@@ -1,0 +1,12 @@
+# K73 referee: edit for kings/theory/LOOPY.md (Proposition 4.25, the Lemma B sentence)
+
+The label of Lemma B stays CHECKED-2. The edit records the K70 certificate, how it was checked, and that the 42
+needed positions do not shorten it. Tested with `kings/delegate/apply_edits.py` on a scratch copy: 1 applied,
+0 rejected.
+
+### EDIT Proposition 4.25: Lemma B certificate (K70, K73)
+<<<<<<< OLD
+*Lemma B (CHECKED-2, not proved by hand):* White to move, Black Kb6, pb7, pc6 against one White pawn on c2, c3 or c4 is a Black win in P for every empty White king square not next to b6 (54 squares for each pawn square, 162 positions), except b4 with the pawn on c4, a draw (the three programs: K68's o68, K68's ax68q (the K65 referee's ax65 with a query block) and the K68 referee's r68, written without reading either, agree on every one).
+=======
+*Lemma B (CHECKED-2; a certificate that can be checked on a board exists, but no one has checked all of it by hand):* White to move, Black Kb6, pb7, pc6 against one White pawn on c2, c3 or c4 is a Black win in P for every empty White king square not next to b6 (54 squares for each pawn square, 162 positions), except b4 with the pawn on c4, a draw (the three programs: K68's o68, K68's ax68q (the K65 referee's ax65 with a query block) and the K68 referee's r68, written without reading either, agree on every one). A blind attempt from outside the vendor (K70, `kings/delegate/out/K70/PROOF.md`; refereed by K73, 2026-11-25) gives a certificate: an opening rule for Black's first reply, Table B (486 rows, 6,742 positions with Black to move, 36,408 White replies) for the 161 wins, in which every reply goes to a lower row, so the induction is well founded, and Table D (97 rows, 1,088 positions, 3,902 Black replies) with a blockade lemma F and Black's fixed-pawn defence for the draw. Two checkers written separately (K70's `check.py`; the K73 referee's `k73_check.py`, written from PROOF.md's prose before reading K70's code) find 0 failures. r68 makes all 6,742 Table B positions Black wins, and none of the 1,088 Table D positions or the 716 instances of F a Black win (`kings/delegate/out/K70/verify/VERIFY.md`). The K73 referee checked 42 rows and every prose argument (the opening rule, the c4/Kb4 draw, F) by hand and found no error in a row. The other rows are checked only by the programs: about 40,000 replies, several days of work by hand. The 42 positions below reach 484 of the 486 rows (6,613 positions), so the part that is needed is no shorter.
+>>>>>>> NEW

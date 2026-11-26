@@ -1,0 +1,39 @@
+K73 checker of PROOF.md tables
+  B rows: 486
+  B positions: 6742
+  B terminal positions: 643
+  B replies: 36408
+  D rows: 97
+  D positions: 1088
+  D blockade: 163
+  D promote: 246
+  D replies: 3948
+  D bare king: 88
+  starts: 162
+  first White moves: 1149
+  Table B rows parsed: 486, Table D rows parsed: 97
+  rows with an empty zone after the discards: []
+  Kb4/c4 White moves: ['Ka3', 'Ka4', 'Kb3', 'Kc3', 'c5']; 1.c5+ Black replies -> D rows: [('Ka6', [80]), ('Ka7', [80]), ('Kc7', [81])]
+  drawn start found by the opening rule: ('c4', 'b4', 'c5')
+  blockade F instances (legal, Black to move, all shapes, White pawn none/b6/b7): 716
+  F used in Table D at 163 positions; shapes Counter({'B': 159, 'C': 2, 'A': 2})
+  cited row numbers never used by any position (class:row): 0
+  notes: 0
+  FAILURES: 17
+     FAIL D8 b7: reply Kb6 -> 8/8/1kp5/8/2K5/8/8/8 w - not in D[10]
+     FAIL D8 b7: reply Ka8 -> k7/8/2p5/8/2K5/8/8/8 w - not in D[10]
+     FAIL D8 b7: reply Kb8 -> 1k6/8/2p5/8/2K5/8/8/8 w - not in D[10]
+     FAIL D8 b7: reply Kc8 -> 2k5/8/2p5/8/2K5/8/8/8 w - not in D[10]
+     FAIL D8 b7: reply c5 -> 8/1k6/8/2p5/2K5/8/8/8 w - not in D[2]
+     FAIL D29 d5: reply c4 -> 8/1P6/8/3k4/2p5/3K4/8/8 w - not in D[4]
+     FAIL D45 b7: reply Ka6 -> 8/8/kPp5/8/2K5/8/8/8 w - not in D[48]
+     FAIL D45 b7: reply Kxb6 not listed; 8/1k6/1Pp5/8/2K5/8/8/8 b -
+     FAIL D45 b7: reply c5 -> 8/1k6/1P6/2p5/2K5/8/8/8 w - not in D[28]
+     FAIL D50 b7: reply Ka6 -> 8/8/kPp5/8/2K5/8/8/8 w - not in D[48, 49]
+     FAIL D50 b7: reply Kxb6 not listed; 8/1k6/1Pp5/8/2K5/8/8/8 b -
+     FAIL D50 b7: reply c5 -> 8/1k6/1P6/2p5/2K5/8/8/8 w - not in D[28]
+     FAIL D50 d7: reply c5 -> 8/3k4/1P6/2p5/2K5/8/8/8 w - not in D[28]
+     FAIL D62 c7: reply Kxb6 not listed; 8/2k5/1Pp5/8/2K5/8/8/8 b -
+     FAIL D62 c7: reply Kd6 -> 8/8/1Ppk4/8/2K5/8/8/8 w - not in D[48]
+     FAIL D72 c7: reply Kxb6 not listed; 8/2k5/1Pp5/8/2K5/8/8/8 b -
+     FAIL D72 c7: reply Kd6 -> 8/8/1Ppk4/8/2K5/8/8/8 w - not in D[48]

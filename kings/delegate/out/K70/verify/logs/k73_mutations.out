@@ -1,0 +1,11 @@
+K73 mutation tests: each line edits one row of a scratch copy of PROOF.md; the checker must fail.
+== B4 reference 1 -> 2: FAILURES: 283 | first: FAIL B4 a1: reply Ka2 -> 8/8/8/8/8/8/K1pk4/8 b - not in rows [2]
+== B481 zone loses e4: FAILURES: 8 | first: FAIL start c2 Kd3: move Ke4 -> 8/1p6/1kp5/8/4K3/8/2P5/8 b - not in entry rows [481, 486]
+== B414 drops Kxb7: FAILURES: 3 | first: FAIL B414 a8: reply Kxb7 (class Kxb7) not listed; K7/1p6/2p5/2k5/8/8/8/8 w -
+== B70 cites a higher row: FAILURES: 10 | first: FAIL B70: reference 71 not lower
+== B1 king d3: FAILURES: 290 | first: FAIL B1 c1: prescribed c1 illegal (8/8/8/8/8/3k4/2p5/2K5 b -)
+== B445 plays Ka6: FAILURES: 675 | first: FAIL B445 a1: reply Kb1 -> 8/1p6/k1p5/8/2P5/8/8/1K6 b - not in rows [390, 395, 403, 409]
+== D80 b5 into a row without e.p.: FAILURES: 3 | first: FAIL D80 a6: reply b5 -> 8/8/k1p5/1pP5/K7/8/8/8 w b6 not in D[71]
+== D61 loses its e.p. annotation: FAILURES: 6 | first: FAIL D61 a6: prescribed cxb6 illegal (8/8/k1p5/1pP5/K7/8/8/8 w -)
+== D2 plays Kd3 (no blockade): FAILURES: 1 | first: FAIL D2 b6: end->F but no blockade shape after Kd3: 8/8/1k6/2p5/8/3K4/8/8 b -
+== B22 zone gains c1 (c3, Kc2... last-rank trap): FAILURES: 1 | first: FAIL B22 c1: reply Kb1 -> 8/8/8/8/8/1kp5/8/1K6 b - not in rows [6, 9, 19]

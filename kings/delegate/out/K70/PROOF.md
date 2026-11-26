@@ -1,5 +1,12 @@
 # Lemma B in first-promotion chess
 
+*Note added after the referee's report (K73, 2026-11-25, `verify/VERIFY.md`). The text below is the author's,
+unchanged. Its PROVED labels on the tables are too strong: the tables were found by search, and all of their rows
+have been checked only by programs (two checkers written separately, 0 failures); the referee checked 42 rows and
+the prose arguments by hand. Read those labels as CHECKED. In Table D, where a row lists `end→F` next to reply
+numbers, F applies position by position (rows D8, D29, D45, D50, D62, D72). In the paragraph on the pawn on c5,
+read "b5 was next to the original Black king, b6 was its square, c6 holds a Black pawn".*
+
 **PROVED.** Black wins all 46 starts in the required set S.  
 **PROVED.** On the full board Black wins 54 starts with γ on c2, 54 with γ on c3, and 53 with γ on c4.  
 **PROVED.** The remaining start, White Kb4 and c4, draws. Only 1.c5+ holds.  
