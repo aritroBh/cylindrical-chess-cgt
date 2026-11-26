@@ -341,6 +341,6 @@ Found on the way (2026-11-25)
 - [ ] Wording: Section II.C and supplement S6 should say the race count uses the front passed pawn; the supplement remark after A.7 should name `lemmas/common.py`; `research/mobius/RULES.md` §2.4 disagrees with the paper on the Möbius double step
 - [ ] Wording (found by Codex, L14): the census of Section IV lists diagrams with no en passant right; the text says "every such position". Codex counted the 22,290 further records with a live e.p. right after a double step: 180 zeros, 260 stars, no star-k with k at least 2, so the theorem's statement survives either reading. One clause in `06_atlas.tex` would settle it
 - [ ] Wording: "with e.p. off it is 0" for the six-pawn ring on C_3 holds under the count and mover rules, not under the opponent rule; the sentence names no rule (the default is count)
-- [ ] Rebuild the anonymous code copy so it carries the fixed `crosscheck/minimax.py` and `lean/`
+- [x] Anonymous code copy rebuilt from commit cfec575c (2026-11-26): 5,795 files, 26 MB zip, every check of `dist/anon/build.py` passes (identifier scan of tree and zip, README paths, tests and the quick commands in a fresh copy); it carries the fixed `crosscheck/minimax.py`. `lean/` is not in the copy: the 10-page paper does not mention the Lean check yet (L16). If the sentence is added, add `lean/*` to the generator's list and rebuild.
 
 - [ ] L16 One sentence and one S17 row naming exactly what Lean checked; the 10-page paper has 0.03 in free, so a line must be cut for it
