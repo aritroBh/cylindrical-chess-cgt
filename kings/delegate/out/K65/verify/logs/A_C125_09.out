@@ -1,0 +1,69 @@
+ax65 flat:8x8  Kc4 ke4 Pb5 Pf2 Pf6 pb6 pf7  shuttle e4-e5
+configurations 410, states per layer 3358720, bytes per layer 419840, peak layers 4, estimated peak 41705600 bytes
+root Kc4 ke4 Pf2 Pb5 Pf6 pb6 pf7 b - : P=W, 4 moves
+   ke4f3   P(after)=W
+   ke4f4   P(after)=W
+   ke4e5   P(after)=W  shuttle
+   ke4f5   P(after)=W
+root Kc4 ke4 Pf2 Pb5 Pf6 pb6 pf7 w - : P=W, 5 moves
+   Kc4b3   P(after)=L
+   Kc4c3   P(after)=L
+   Kc4b4   P(after)=L
+   Pf2f3   P(after)=L
+   Pf2f4   P(after)=W  FREEZE
+   freeze Pf2f4 at e4 -> q = Kc4 ke4 Pf4 Pb5 Pf6 pb6 pf7 b -
+      q Black to move: every move loses at once: yes  [ ke4e3=W ke4f3=W ke4f4=W ke4f5=W ]
+      q White to move: every move loses at once: yes  [ Kc4b3=L Kc4c3=L Kc4b4=L Pf4f5=L ]
+root Kc4 ke5 Pf2 Pb5 Pf6 pb6 pf7 b - : P=W, 6 moves
+   ke5e4   P(after)=W  shuttle
+   ke5f4   P(after)=W
+   ke5f5   P(after)=W
+   ke5d6   P(after)=W
+   ke5e6   P(after)=W
+   ke5f6   P(after)=W
+root Kc4 ke5 Pf2 Pb5 Pf6 pb6 pf7 w - : P=W, 6 moves
+   Kc4b3   P(after)=L
+   Kc4c3   P(after)=L
+   Kc4d3   P(after)=L
+   Kc4b4   P(after)=L
+   Pf2f3   P(after)=W  FREEZE
+   freeze Pf2f3 at e5 -> q = Kc4 ke5 Pf3 Pb5 Pf6 pb6 pf7 b -
+      q Black to move: every move loses at once: yes  [ ke5f4=W ke5f5=W ke5d6=W ke5e6=W ke5f6=W ]
+      q White to move: every move loses at once: yes  [ Kc4b3=L Kc4c3=L Kc4d3=L Kc4b4=L Pf3f4=L ]
+   Pf2f4   P(after)=L
+DEFINITION 4.8 (over): exact (0 failures)
+B1 ke4f3@e4     x_m = Kc4 kf3 Pf2 Pb5 Pf6 pb6 pf7 w - : beside -1 WHITE WIN ; beside 0 W
+B1 ke4f4@e4     x_m = Kc4 kf4 Pf2 Pb5 Pf6 pb6 pf7 w - : beside -1 WHITE WIN ; beside 0 W
+B1 ke4f5@e4     x_m = Kc4 kf5 Pf2 Pb5 Pf6 pb6 pf7 w - : beside -1 WHITE WIN ; beside 0 W
+B1 ke5f4@e5     x_m = Kc4 kf4 Pf2 Pb5 Pf6 pb6 pf7 w - : beside -1 WHITE WIN ; beside 0 W
+B1 ke5f5@e5     x_m = Kc4 kf5 Pf2 Pb5 Pf6 pb6 pf7 w - : beside -1 WHITE WIN ; beside 0 W
+B1 ke5d6@e5     x_m = Kc4 kd6 Pf2 Pb5 Pf6 pb6 pf7 w - : beside -1 not a White win ; beside 0 W
+B1 ke5e6@e5     x_m = Kc4 ke6 Pf2 Pb5 Pf6 pb6 pf7 w - : beside -1 not a White win ; beside 0 W
+B1 ke5f6@e5     x_m = Kc4 kf6 Pf2 Pb5 pb6 pf7 w - : beside -1 WHITE WIN ; beside 0 W
+(B1): 8 non-shuttle Black root moves, 2 not a White win beside -1
+AUX ke4f3@e4     : White WINS Aux(x_m)
+AUX ke4f4@e4     : White WINS Aux(x_m)
+AUX ke4f5@e4     : White WINS Aux(x_m)
+AUX ke5f4@e5     : White WINS Aux(x_m)
+AUX ke5f5@e5     : White WINS Aux(x_m)
+AUX ke5d6@e5     : White WINS Aux(x_m)  (only by passing: (B1) fails here)
+AUX ke5e6@e5     : White WINS Aux(x_m)  (only by passing: (B1) fails here)
+AUX ke5f6@e5     : White WINS Aux(x_m)
+Buchi outer iterations so far 2893
+T_0: ke4f3@e4=W ke4f4@e4=W ke4f5@e4=W ke5f4@e5=W ke5f5@e5=W ke5d6@e5=W ke5e6@e5=W ke5f6@e5=W roote4(Black to move)=W roote5(Black to move)=W
+T_1: ke4f3@e4=W ke4f4@e4=W ke4f5@e4=W ke5f4@e5=W ke5f5@e5=W ke5d6@e5=W ke5e6@e5=W ke5f6@e5=W roote4(Black to move)=W roote5(Black to move)=W
+T_2: ke4f3@e4=W ke4f4@e4=W ke4f5@e4=W ke5f4@e5=W ke5f5@e5=W ke5d6@e5=W ke5e6@e5=W ke5f6@e5=W roote4(Black to move)=W roote5(Black to move)=W
+T_3: ke4f3@e4=W ke4f4@e4=W ke4f5@e4=W ke5f4@e5=W ke5f5@e5=W ke5d6@e5=W ke5e6@e5=W ke5f6@e5=W roote4(Black to move)=W roote5(Black to move)=W
+T_4: ke4f3@e4=W ke4f4@e4=W ke4f5@e4=W ke5f4@e5=W ke5f5@e5=W ke5d6@e5=W ke5e6@e5=W ke5f6@e5=W roote4(Black to move)=W roote5(Black to move)=W
+T_5: ke4f3@e4=W ke4f4@e4=W ke4f5@e4=W ke5f4@e5=W ke5f5@e5=W ke5d6@e5=W ke5e6@e5=W ke5f6@e5=W roote4(Black to move)=W roote5(Black to move)=W
+ladder layers stable from T_4 on (layer T_5 equals T_4 bit for bit)
+stable ladder layer equals the Aux layer: yes
+LADDER ke4f3@e4     : White wins beside every T_N computed
+LADDER ke4f4@e4     : White wins beside every T_N computed
+LADDER ke4f5@e4     : White wins beside every T_N computed
+LADDER ke5f4@e5     : White wins beside every T_N computed
+LADDER ke5f5@e5     : White wins beside every T_N computed
+LADDER ke5d6@e5     : White wins beside every T_N computed
+LADDER ke5e6@e5     : White wins beside every T_N computed
+LADDER ke5f6@e5     : White wins beside every T_N computed
+done

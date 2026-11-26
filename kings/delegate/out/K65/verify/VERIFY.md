@@ -17,7 +17,8 @@ from computed facts is "PROVED, given CHECKED-2 computations".
   without (B1) (Aux won at every failing move, CHECKED-2). Four fail (C) at exactly one bad move: C125_14, C125_16, C145_19
   with N\* = 2, and **C125_15 = `Kg5 ke5/ke6 Pb2 Pf2 Pf6 pc4 pf5 pf7` with N\* = 3 at …Ke5–e4 (CHECKED-2): the first real
   exact group with a ladder length of 3**, which answers the question left OPEN after Corollary 4.23.
-- **Census**: r48 on {b,e,f} — RESULT FILLED IN BELOW (section B). The recount from the hit lists confirms 23 + 25 hits,
+- **Census: CONFIRMED, now CHECKED-2 in both classes.** r48 on {b,e,f} (my run, 5.01 h, 1.04 GB) gives p45a's six
+  counters exactly and the same 25 groups. The recount from the hit lists confirms 23 + 25 hits,
   38 distinct, 10 in both classes, 26 up to reflection and file translation, and four 2 + 2 groups in three shapes.
 - **Chess (tablebase, KNOWN)**: 19 groups (not 18) have at most seven men. Five of them are exact over groups in chess:
   C125_05, C125_08, C125_10, C145_07, C145_09. The other 14 (F1–F4 by K63's referee, 10 by me) are not.
@@ -35,7 +36,7 @@ from computed facts is "PROVED, given CHECKED-2 computations".
 | A5 | Hence the results of ω without (B1), "first real group known" | CONFIRMED, CORRECTED in scope: one of seven such groups in the same census (A1–A4 hold for all seven, see table 2) | Theorem 4.18 (b), (c) | PROVED given CHECKED-2 computations |
 | A6 | Theorem 4.18 applies | CONFIRMED | No king in check at any root or q (ax65 tests it); K1, K2 hold (kings two apart, no attacked z square); the e.p. right after f2–f4 is empty (no Black pawn on e4 or g4), and in chess a right only adds moves (remark (2)); no promotion is within one move of a root or q, and both Aux solvers treat a promotion as the end of the play | reading |
 | B1 | {b,c,f}: 23 exact, p45a = r48 on every counter and hit | CONFIRMED (hit lists) | own recount `src/recount.py` from the raw outputs | CHECKED-2 |
-| B2 | {b,e,f}: 25 exact (p45a only) | SEE SECTION B (r48 run by me) | r48 under watchdog | see below |
+| B2 | {b,e,f}: 25 exact (p45a only) | CONFIRMED: r48 gives (3,718,505,519; 1,217,644,122; 820,498,702; 397,118,871; 362,051,648; 25), p45a's six counters, and the same 25 groups | r48 (my run), `src/recount.py` | CHECKED-2 |
 | B3 | 38 distinct, 10 in both classes, 26 up to reflection and file translation | CONFIRMED | `src/recount.py` | KNOWN arithmetic on the hit lists |
 | B4 | Smallest: four 2 + 2 groups in three shapes (findings §0) vs three named (EDITS.md) | SETTLED: four groups, three shapes; the EDITS.md sentence named only three groups (it left out `Ke5 kg4/kg5 Pb3 Pf2 pb4 pf5`, the reflected translate of `Kc5 ka4/ka5 Pb2 Pf3 pb5 pf4`) | `src/recount.py` | — |
 | B5 | Group list (roots, shuttle, freezes, q's) | CONFIRMED for all 38, not only five: same freezes and q's, all exact | ax65 on every group, `src/cmp_freezes.py` | CHECKED-2 |
@@ -68,7 +69,7 @@ other ten; x_m ⊞ u_0 won beside T_0, T_1, lost from T_2 (N\* = 2), root d4 los
 (B1) at all nine. Validation of pk_sum: (B1) of C125_09 (= vgsum59, pr57, ax65); Aux of C125_09 (= aux60). On all 18 groups it was run
 on it then agreed with ax65 at every bad move, for (B1) and for Aux.
 
-Results (ax65 `logs/A_C125_09.out`; pk_sum `logs/pk/`):
+Results (ax65 `logs/A_C125_09.out`; pk_sum `logs/groups_logs.tar.xz`, folder pk/):
 
 | bad move | (B1) beside −1 | beside 0 | Aux | T_0 … T_6 |
 |---|---|---|---|---|
@@ -90,14 +91,17 @@ White win; this is exactly what over's own shuttle is matched by in the D-sum. A
 
 ## B. Census
 
-r48 on {b,e,f} (flat 8×8, ranks 2–7, ≤ 3 + 3): RESULT FILLED IN BELOW.
+r48 on {b,e,f} (flat 8×8, ranks 2–7, ≤ 3 + 3; `logs/R88_f1_4_5.out`): placements 3,718,505,519, (O1) 1,217,644,122,
+promotion freeze 820,498,702, (O1)+(O2) 397,118,871, loose 362,051,648, exact 25: every counter equal to p45a's, and the
+hit set, mirrored into the over frame, equal to p45a's. 18,038 s wall, peak RSS 1.04 GB, no watchdog action.
+So "{b,e,f} has no other exact over group" is now CHECKED-2, like {b,c,f}.
 
 Recount (`src/recount.py`, from `../logs/search/A88_f1_2_5.out.xz`, `A88_f1_4_5.out.xz`, `R88_f1_2_5.out`): p45a {b,c,f}
 23, p45a {b,e,f} 25, r48 {b,c,f} 23 and equal to p45a's set after the colour mirror; 38 distinct; 10 in both classes; 26
 up to reflection and file translation; by men: six 4 groups (3 shapes), seven 15 (10), eight 19 (13). The four smallest:
 `Ka4 kc4/kc5 Pb2 Pf5 pb6 pf6` (F2), `Ka5 kc5/kc6 Pb2 Pf6 pb7 pf7`, `Kc5 ka4/ka5 Pb2 Pf3 pb5 pf4` and
 `Ke5 kg4/kg5 Pb3 Pf2 pb4 pf5` (the last two one shape). The list of 38 in findings §3 equals the union of the hit sets.
-The near-miss counters were not checked beyond what r48 reproduces (its five counters are compared below).
+The near-miss sub-counters of findings §0 (check, half exact, promotion-only) were not checked; r48 does not print them.
 
 ## C. Classification of the 38 groups
 
@@ -181,10 +185,25 @@ shuttle included), and the four q positions are lost for the side to move, as in
 
 ## What was not checked
 
-- The near-miss counters of findings §0 (other than the five counters r48 prints).
+- The near-miss sub-counters of findings §0 (other than the counters r48 prints).
 - The classes {a,b,e}, {a,d,e}, the eleven two-file classes outside {b,c,f} and {b,e,f}, part c of the brief: not
   searched by anyone.
 - Aux "won" at the 7 + 4 groups rests on two Büchi solvers of mine (ax65 and pk_sum), which share no code but were
   written by the same referee; for C125_09 aux60 is a third, independent one.
 - Chess: groups with eight men (no tablebase); only Definition 4.8 in chess was asked, not the D-sum behaviour in chess.
 - No hand proofs of the computed facts.
+
+## Files
+
+`src/ax65.cpp`, `src/pk_sum.cpp` (solvers), `src/run.sh` + `src/wd.sh` (every run through `kings/delegate/heavy.sh` under
+`/usr/bin/time -l`, watchdog on the solver's own PID, 0.1 s polls, kill at 2.0 GB; never fired), chain scripts,
+`src/recount.py`, `src/cmp_freezes.py`, `src/cmp_aux.sh`, `src/tb65.py`; `in/` (query positions written from ax65's logs);
+`logs/groups_logs.tar.xz` (ax65 on all 38 groups `g/`, ladders `lad/`, pk_sum runs `pk/`, watchdog and chain logs),
+`logs/val_logs.tar.xz` (ax65 on Z_O, H10, F2), `logs/A_C125_09*.out` (C125_09 with ladders, and with the explanations),
+`logs/R88_f1_4_5.*` (r48 on {b,e,f}), `logs/tb/` and `logs/tbcache.tar.xz` (tablebase; `tb65_first_criterion.out` is the
+same data under a first, too strict reading that also required the shuttle not to lose), `tb_ledger.jsonl` (120 requests),
+`pids.log`. Binaries deleted.
+
+Process notes: one watchdog for the tablebase script was started with a wrong command name and never attached; a second
+one was attached by hand (pids.log). A first pk_sum build crashed at once (a variable shadowed the T-state index; caught
+by the address sanitizer, fixed before any result was used). No run was killed; nothing passed 1.1 GB.

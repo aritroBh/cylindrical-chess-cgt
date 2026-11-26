@@ -1,0 +1,136 @@
+C125_01 Ke5 kg4 Pb3 Pf2 pb4 pf5 /g5: exact over group in chess: no
+  root g4  White to move: win          non-losing moves ['e5e6', 'e5f6', 'f2f4']  (Def 4.8 allows ['f2f4']) NO
+  root g4  Black to move: loss         non-losing moves []  (Def 4.8 allows ['g4g5']) ok
+  root g5  White to move: win          non-losing moves ['e5d4', 'e5d5', 'e5d6', 'e5e6', 'f2f3']  (Def 4.8 allows ['f2f3']) NO
+  root g5  Black to move: loss         non-losing moves []  (Def 4.8 allows ['g5g4']) ok
+  q after f2f4 at g4 White to move: loss         ok   8/8/8/4Kp2/1p3Pk1/1P6/8/8 w - - 0 1
+  q after f2f4 at g4 Black to move: loss         ok   8/8/8/4Kp2/1p3Pk1/1P6/8/8 b - f3 0 1
+  q after f2f3 at g5 White to move: loss         ok   8/8/8/4Kpk1/1p6/1P3P2/8/8 w - - 0 1
+  q after f2f3 at g5 Black to move: loss         ok   8/8/8/4Kpk1/1p6/1P3P2/8/8 b - - 0 1
+C125_02 Kc5 ka4 Pb2 Pf3 pb5 pf4 /a5: exact over group in chess: no
+  root a4  White to move: win          non-losing moves ['b2b4', 'c5b6', 'c5c6']  (Def 4.8 allows ['b2b4']) NO
+  root a4  Black to move: loss         non-losing moves []  (Def 4.8 allows ['a4a5']) ok
+  root a5  White to move: win          non-losing moves ['b2b3', 'c5c6', 'c5d4', 'c5d5', 'c5d6']  (Def 4.8 allows ['b2b3']) NO
+  root a5  Black to move: loss         non-losing moves []  (Def 4.8 allows ['a5a4']) ok
+  q after b2b4 at a4 White to move: loss         ok   8/8/8/1pK5/kP3p2/5P2/8/8 w - - 0 1
+  q after b2b4 at a4 Black to move: loss         ok   8/8/8/1pK5/kP3p2/5P2/8/8 b - b3 0 1
+  q after b2b3 at a5 White to move: loss         ok   8/8/8/kpK5/5p2/1P3P2/8/8 w - - 0 1
+  q after b2b3 at a5 Black to move: loss         ok   8/8/8/kpK5/5p2/1P3P2/8/8 b - - 0 1
+C125_04 Ka5 kc5 Pb2 Pf6 pb7 pf7 /c6: exact over group in chess: no
+  root c5  White to move: draw         non-losing moves ['a5a4', 'b2b3']  (Def 4.8 allows ['b2b3']) NO
+  root c5  Black to move: draw         non-losing moves ['c5d4', 'c5d5', 'c5d6']  (Def 4.8 allows ['c5c6']) NO
+  root c6  White to move: win          non-losing moves ['a5a4', 'a5b4', 'b2b4']  (Def 4.8 allows ['b2b4']) NO
+  root c6  Black to move: draw         non-losing moves ['c6c5', 'c6c7', 'c6d5', 'c6d6', 'c6d7']  (Def 4.8 allows ['c6c5']) NO
+  q after b2b3 at c5 White to move: loss         ok   8/1p3p2/5P2/K1k5/8/1P6/8/8 w - - 0 1
+  q after b2b3 at c5 Black to move: draw         NO (not a loss for the side to move)   8/1p3p2/5P2/K1k5/8/1P6/8/8 b - - 0 1
+  q after b2b4 at c6 White to move: loss         ok   8/1p3p2/2k2P2/K7/1P6/8/8/8 w - - 0 1
+  q after b2b4 at c6 Black to move: loss         ok   8/1p3p2/2k2P2/K7/1P6/8/8/8 b - b3 0 1
+C125_05 Kd4 kb4 Pb6 Pc2 Pc5 pb7 pc6 /b5: exact over group in chess: YES
+  root b4  White to move: win          non-losing moves ['c2c4']  (Def 4.8 allows ['c2c4']) ok
+  root b4  Black to move: loss         non-losing moves []  (Def 4.8 allows ['b4b5']) ok
+  root b5  White to move: win          non-losing moves ['c2c3']  (Def 4.8 allows ['c2c3']) ok
+  root b5  Black to move: loss         non-losing moves []  (Def 4.8 allows ['b5b4']) ok
+  q after c2c4 at b4 White to move: loss         ok   8/1p6/1Pp5/2P5/1kPK4/8/8/8 w - - 0 1
+  q after c2c4 at b4 Black to move: loss         ok   8/1p6/1Pp5/2P5/1kPK4/8/8/8 b - c3 0 1
+  q after c2c3 at b5 White to move: loss         ok   8/1p6/1Pp5/1kP5/3K4/2P5/8/8 w - - 0 1
+  q after c2c3 at b5 Black to move: loss         ok   8/1p6/1Pp5/1kP5/3K4/2P5/8/8 b - - 0 1
+C125_08 Ke5 kc5 Pb2 Pb6 Pf6 pb7 pf7 /c6: exact over group in chess: YES
+  root c5  White to move: win          non-losing moves ['b2b3']  (Def 4.8 allows ['b2b3']) ok
+  root c5  Black to move: loss         non-losing moves []  (Def 4.8 allows ['c5c6']) ok
+  root c6  White to move: win          non-losing moves ['b2b4']  (Def 4.8 allows ['b2b4']) ok
+  root c6  Black to move: loss         non-losing moves []  (Def 4.8 allows ['c6c5']) ok
+  q after b2b3 at c5 White to move: loss         ok   8/1p3p2/1P3P2/2k1K3/8/1P6/8/8 w - - 0 1
+  q after b2b3 at c5 Black to move: loss         ok   8/1p3p2/1P3P2/2k1K3/8/1P6/8/8 b - - 0 1
+  q after b2b4 at c6 White to move: loss         ok   8/1p3p2/1Pk2P2/4K3/1P6/8/8/8 w - - 0 1
+  q after b2b4 at c6 Black to move: loss         ok   8/1p3p2/1Pk2P2/4K3/1P6/8/8/8 b - b3 0 1
+C125_09 Kc4 ke4 Pb5 Pf2 Pf6 pb6 pf7 /e5: exact over group in chess: no
+  root e4  White to move: win          non-losing moves ['c4c3', 'f2f3', 'f2f4']  (Def 4.8 allows ['f2f4']) NO
+  root e4  Black to move: loss         non-losing moves []  (Def 4.8 allows ['e4e5']) ok
+  root e5  White to move: win          non-losing moves ['c4c3', 'c4d3', 'f2f3', 'f2f4']  (Def 4.8 allows ['f2f3']) NO
+  root e5  Black to move: loss         non-losing moves []  (Def 4.8 allows ['e5e4']) ok
+  q after f2f4 at e4 White to move: draw         NO (not a loss for the side to move)   8/5p2/1p3P2/1P6/2K1kP2/8/8/8 w - - 0 1
+  q after f2f4 at e4 Black to move: loss         ok   8/5p2/1p3P2/1P6/2K1kP2/8/8/8 b - f3 0 1
+  q after f2f3 at e5 White to move: draw         NO (not a loss for the side to move)   8/5p2/1p3P2/1P2k3/2K5/5P2/8/8 w - - 0 1
+  q after f2f3 at e5 Black to move: loss         ok   8/5p2/1p3P2/1P2k3/2K5/5P2/8/8 b - - 0 1
+C125_10 Kc5 ke5 Pb6 Pf2 Pf6 pb7 pf7 /e6: exact over group in chess: YES
+  root e5  White to move: win          non-losing moves ['f2f3']  (Def 4.8 allows ['f2f3']) ok
+  root e5  Black to move: loss         non-losing moves []  (Def 4.8 allows ['e5e6']) ok
+  root e6  White to move: win          non-losing moves ['f2f4']  (Def 4.8 allows ['f2f4']) ok
+  root e6  Black to move: loss         non-losing moves []  (Def 4.8 allows ['e6e5']) ok
+  q after f2f3 at e5 White to move: loss         ok   8/1p3p2/1P3P2/2K1k3/8/5P2/8/8 w - - 0 1
+  q after f2f3 at e5 Black to move: loss         ok   8/1p3p2/1P3P2/2K1k3/8/5P2/8/8 b - - 0 1
+  q after f2f4 at e6 White to move: loss         ok   8/1p3p2/1P2kP2/2K5/5P2/8/8/8 w - - 0 1
+  q after f2f4 at e6 Black to move: loss         ok   8/1p3p2/1P2kP2/2K5/5P2/8/8/8 b - f3 0 1
+C125_11 Kg5 ke5 Pc5 Pf2 Pf6 pb7 pf7 /e6: exact over group in chess: no
+  root e5  White to move: win          non-losing moves ['f2f3', 'f2f4', 'g5g4', 'g5h4', 'g5h5', 'g5h6']  (Def 4.8 allows ['f2f3']) NO
+  root e5  Black to move: loss         non-losing moves []  (Def 4.8 allows ['e5e6']) ok
+  root e6  White to move: win          non-losing moves ['f2f3', 'f2f4', 'g5f4', 'g5g4', 'g5h4', 'g5h5', 'g5h6']  (Def 4.8 allows ['f2f4']) NO
+  root e6  Black to move: loss         non-losing moves []  (Def 4.8 allows ['e6e5']) ok
+  q after f2f3 at e5 White to move: draw         NO (not a loss for the side to move)   8/1p3p2/5P2/2P1k1K1/8/5P2/8/8 w - - 0 1
+  q after f2f3 at e5 Black to move: loss         ok   8/1p3p2/5P2/2P1k1K1/8/5P2/8/8 b - - 0 1
+  q after f2f4 at e6 White to move: draw         NO (not a loss for the side to move)   8/1p3p2/4kP2/2P3K1/5P2/8/8/8 w - - 0 1
+  q after f2f4 at e6 Black to move: loss         ok   8/1p3p2/4kP2/2P3K1/5P2/8/8/8 b - f3 0 1
+C125_12 Ka4 kc4 Pb2 Pf3 Pf4 pb6 pf5 /c5: exact over group in chess: no
+  root c4  White to move: draw         non-losing moves ['b2b4']  (Def 4.8 allows ['b2b4']) ok
+  root c4  Black to move: draw         non-losing moves ['b6b5', 'c4c5', 'c4d3', 'c4d4', 'c4d5']  (Def 4.8 allows ['c4c5']) NO
+  root c5  White to move: draw         non-losing moves ['a4a3', 'a4b3', 'b2b3']  (Def 4.8 allows ['b2b3']) NO
+  root c5  Black to move: draw         non-losing moves ['b6b5', 'c5c4', 'c5c6', 'c5d4', 'c5d5']  (Def 4.8 allows ['c5c4']) NO
+  q after b2b4 at c4 White to move: loss         ok   8/8/1p6/5p2/KPk2P2/5P2/8/8 w - - 0 1
+  q after b2b4 at c4 Black to move: draw         NO (not a loss for the side to move)   8/8/1p6/5p2/KPk2P2/5P2/8/8 b - b3 0 1
+  q after b2b3 at c5 White to move: loss         ok   8/8/1p6/2k2p2/K4P2/1P3P2/8/8 w - - 0 1
+  q after b2b3 at c5 Black to move: draw         NO (not a loss for the side to move)   8/8/1p6/2k2p2/K4P2/1P3P2/8/8 b - - 0 1
+C125_13 Kf6 ke8 Pc5 Pf2 pb7 pc6 pf7 /f8: exact over group in chess: no
+  root e8  White to move: draw         non-losing moves ['f2f3', 'f2f4', 'f6e5', 'f6f5']  (Def 4.8 allows ['f2f3']) NO
+  root e8  Black to move: draw         non-losing moves ['b7b5', 'b7b6', 'e8d7', 'e8d8', 'e8f8']  (Def 4.8 allows ['e8f8']) NO
+  root f8  White to move: draw         non-losing moves ['f2f3', 'f2f4', 'f6e5', 'f6f5', 'f6g5']  (Def 4.8 allows ['f2f4']) NO
+  root f8  Black to move: draw         non-losing moves ['f8e8', 'f8g8']  (Def 4.8 allows ['f8e8']) NO
+  q after f2f3 at e8 White to move: draw         NO (not a loss for the side to move)   4k3/1p3p2/2p2K2/2P5/8/5P2/8/8 w - - 0 1
+  q after f2f3 at e8 Black to move: draw         NO (not a loss for the side to move)   4k3/1p3p2/2p2K2/2P5/8/5P2/8/8 b - - 0 1
+  q after f2f4 at f8 White to move: draw         NO (not a loss for the side to move)   5k2/1p3p2/2p2K2/2P5/5P2/8/8/8 w - - 0 1
+  q after f2f4 at f8 Black to move: draw         NO (not a loss for the side to move)   5k2/1p3p2/2p2K2/2P5/5P2/8/8/8 b - f3 0 1
+C145_07 Kg4 ke4 Pe6 Pf2 Pf5 pe7 pf6 /e5: exact over group in chess: YES
+  root e4  White to move: win          non-losing moves ['f2f4']  (Def 4.8 allows ['f2f4']) ok
+  root e4  Black to move: loss         non-losing moves []  (Def 4.8 allows ['e4e5']) ok
+  root e5  White to move: win          non-losing moves ['f2f3']  (Def 4.8 allows ['f2f3']) ok
+  root e5  Black to move: loss         non-losing moves []  (Def 4.8 allows ['e5e4']) ok
+  q after f2f4 at e4 White to move: loss         ok   8/4p3/4Pp2/5P2/4kPK1/8/8/8 w - - 0 1
+  q after f2f4 at e4 Black to move: loss         ok   8/4p3/4Pp2/5P2/4kPK1/8/8/8 b - f3 0 1
+  q after f2f3 at e5 White to move: loss         ok   8/4p3/4Pp2/4kP2/6K1/5P2/8/8 w - - 0 1
+  q after f2f3 at e5 Black to move: loss         ok   8/4p3/4Pp2/4kP2/6K1/5P2/8/8 b - - 0 1
+C145_09 Kd4 kf4 Pe2 Pe5 Pf6 pe6 pf7 /f5: exact over group in chess: YES
+  root f4  White to move: win          non-losing moves ['e2e4']  (Def 4.8 allows ['e2e4']) ok
+  root f4  Black to move: loss         non-losing moves []  (Def 4.8 allows ['f4f5']) ok
+  root f5  White to move: win          non-losing moves ['e2e3']  (Def 4.8 allows ['e2e3']) ok
+  root f5  Black to move: loss         non-losing moves []  (Def 4.8 allows ['f5f4']) ok
+  q after e2e4 at f4 White to move: loss         ok   8/5p2/4pP2/4P3/3KPk2/8/8/8 w - - 0 1
+  q after e2e4 at f4 Black to move: loss         ok   8/5p2/4pP2/4P3/3KPk2/8/8/8 b - e3 0 1
+  q after e2e3 at f5 White to move: loss         ok   8/5p2/4pP2/4Pk2/3K4/4P3/8/8 w - - 0 1
+  q after e2e3 at f5 Black to move: loss         ok   8/5p2/4pP2/4Pk2/3K4/4P3/8/8 b - - 0 1
+C145_13 Ka5 kc5 Pb2 Pe5 Pe6 pb7 pe7 /c6: exact over group in chess: no
+  root c5  White to move: draw         non-losing moves ['a5a4', 'b2b3']  (Def 4.8 allows ['b2b3']) NO
+  root c5  Black to move: draw         non-losing moves ['b7b6', 'c5d4', 'c5d5']  (Def 4.8 allows ['c5c6']) NO
+  root c6  White to move: win          non-losing moves ['a5a4', 'a5b4', 'b2b4']  (Def 4.8 allows ['b2b4']) NO
+  root c6  Black to move: draw         non-losing moves ['c6c5', 'c6d5']  (Def 4.8 allows ['c6c5']) NO
+  q after b2b3 at c5 White to move: loss         ok   8/1p2p3/4P3/K1k1P3/8/1P6/8/8 w - - 0 1
+  q after b2b3 at c5 Black to move: draw         NO (not a loss for the side to move)   8/1p2p3/4P3/K1k1P3/8/1P6/8/8 b - - 0 1
+  q after b2b4 at c6 White to move: loss         ok   8/1p2p3/2k1P3/K3P3/1P6/8/8/8 w - - 0 1
+  q after b2b4 at c6 Black to move: loss         ok   8/1p2p3/2k1P3/K3P3/1P6/8/8/8 b - b3 0 1
+C145_15 Ka4 kc4 Pb2 Pf3 Pf4 pb6 pe6 /c5: exact over group in chess: no
+  root c4  White to move: win          non-losing moves ['a4a3', 'b2b3', 'b2b4', 'f4f5']  (Def 4.8 allows ['b2b4']) NO
+  root c4  Black to move: draw         non-losing moves ['c4c5', 'c4d3', 'c4d4']  (Def 4.8 allows ['c4c5']) NO
+  root c5  White to move: draw         non-losing moves ['a4a3', 'a4b3', 'b2b3']  (Def 4.8 allows ['b2b3']) NO
+  root c5  Black to move: draw         non-losing moves ['c5d4']  (Def 4.8 allows ['c5c4']) NO
+  q after b2b4 at c4 White to move: loss         ok   8/8/1p2p3/8/KPk2P2/5P2/8/8 w - - 0 1
+  q after b2b4 at c4 Black to move: loss         ok   8/8/1p2p3/8/KPk2P2/5P2/8/8 b - b3 0 1
+  q after b2b3 at c5 White to move: draw         NO (not a loss for the side to move)   8/8/1p2p3/2k5/K4P2/1P3P2/8/8 w - - 0 1
+  q after b2b3 at c5 Black to move: draw         NO (not a loss for the side to move)   8/8/1p2p3/2k5/K4P2/1P3P2/8/8 b - - 0 1
+C145_16 Kb6 kb8 Pb2 Pe5 pb7 pe6 pf7 /c8: exact over group in chess: no
+  root b8  White to move: draw         non-losing moves ['b2b4']  (Def 4.8 allows ['b2b4']) ok
+  root b8  Black to move: win          non-losing moves ['b8c8']  (Def 4.8 allows ['b8c8']) ok
+  root c8  White to move: loss         non-losing moves []  (Def 4.8 allows ['b2b3']) NO
+  root c8  Black to move: win          non-losing moves ['c8b8', 'c8d7', 'c8d8', 'f7f5', 'f7f6']  (Def 4.8 allows ['c8b8']) NO
+  q after b2b4 at b8 White to move: loss         ok   1k6/1p3p2/1K2p3/4P3/1P6/8/8/8 w - - 0 1
+  q after b2b4 at b8 Black to move: draw         NO (not a loss for the side to move)   1k6/1p3p2/1K2p3/4P3/1P6/8/8/8 b - b3 0 1
+  q after b2b3 at c8 White to move: loss         ok   2k5/1p3p2/1K2p3/4P3/8/1P6/8/8 w - - 0 1
+  q after b2b3 at c8 Black to move: win          NO (not a loss for the side to move)   2k5/1p3p2/1K2p3/4P3/8/1P6/8/8 b - - 0 1
+requests in ledger: 120  cache hits this run: 120

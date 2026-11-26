@@ -17,8 +17,9 @@ condition (C) and ladder length N\*, chess verdicts from the tablebase. Three pa
 
 ## Labels and their basis
 
-- {b,c,f}: CHECKED-2 (p45a, r48). {b,e,f}: the count 25 is COMPUTED-1 (p45a); the referee's r48 run on this class was
-  still going when this review was written. Each of the 38 groups is exact by three programs.
+- {b,c,f} and {b,e,f}: CHECKED-2 (p45a, r48). The referee's r48 run on {b,e,f} ended after this review was first
+  written (5.01 h, 1.04 GB): the same six counters and the same 25 groups as p45a; the note's sentence was updated
+  on 2026-11-25. Each of the 38 groups is exact by three programs.
 - (B1) for all 38, Aux at every failing move, ladders: ax65 and pk_sum (both by the referee) and, for the 11 groups
   where (B1) fails, k66 (the K66 checker, written without sight of the referee's code): three programs, two authors.
   (B1) for the 27 groups where it holds was not rechecked by K66.
@@ -32,7 +33,7 @@ condition (C) and ladder length N\*, chess verdicts from the tablebase. Three pa
 
 - The referee's edits applied (5 of 5), then K66's one edit (a citation: Theorem 4.18 (b), (c) instead of Corollary
   4.19).
-- By hand: the label of the {b,e,f} count (COMPUTED-1 until r48 ends); K66 named where its program adds a check; the
+- By hand: the label of the {b,e,f} count (COMPUTED-1 at first, CHECKED-2 once r48 had ended); K66 named where its program adds a check; the
   reading used for the chess verdicts and the sentence that nothing is claimed about sums in chess; two lines of play
   for Proposition 4.24 from K66; one sentence in Corollary 4.23's paragraph (three groups with N\* = 2, one with 3).
 - The investigator's `EDITS.md` is superseded and was not applied.
