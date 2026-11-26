@@ -1,0 +1,42 @@
+ax65 flat:8x8  Kd4 kb4 Pb6 Pc2 Pc5 pb7 pc6  shuttle b4-b5
+configurations 452, states per layer 3702784, bytes per layer 462848, peak layers 2, estimated peak 40954624 bytes
+root Kd4 kb4 Pc2 Pc5 Pb6 pc6 pb7 b - : P=W, 4 moves
+   kb4a3   P(after)=W
+   kb4a4   P(after)=W
+   kb4a5   P(after)=W
+   kb4b5   P(after)=W  shuttle
+root Kd4 kb4 Pc2 Pc5 Pb6 pc6 pb7 w - : P=W, 6 moves
+   Kd4d3   P(after)=L
+   Kd4e3   P(after)=L
+   Kd4e4   P(after)=L
+   Kd4e5   P(after)=L
+   Pc2c3   P(after)=L
+   Pc2c4   P(after)=W  FREEZE
+   freeze Pc2c4 at b4 -> q = Kd4 kb4 Pc4 Pc5 Pb6 pc6 pb7 b -
+      q Black to move: every move loses at once: yes  [ kb4a3=W kb4b3=W kb4a4=W kb4a5=W ]
+      q White to move: every move loses at once: yes  [ Kd4d3=L Kd4e3=L Kd4e4=L Kd4e5=L ]
+root Kd4 kb5 Pc2 Pc5 Pb6 pc6 pb7 b - : P=W, 4 moves
+   kb5a4   P(after)=W
+   kb5b4   P(after)=W  shuttle
+   kb5a5   P(after)=W
+   kb5a6   P(after)=W
+root Kd4 kb5 Pc2 Pc5 Pb6 pc6 pb7 w - : P=W, 7 moves
+   Kd4c3   P(after)=L
+   Kd4d3   P(after)=L
+   Kd4e3   P(after)=L
+   Kd4e4   P(after)=L
+   Kd4e5   P(after)=L
+   Pc2c3   P(after)=W  FREEZE
+   freeze Pc2c3 at b5 -> q = Kd4 kb5 Pc3 Pc5 Pb6 pc6 pb7 b -
+      q Black to move: every move loses at once: yes  [ kb5a4=W kb5a5=W kb5a6=W ]
+      q White to move: every move loses at once: yes  [ Kd4d3=L Kd4e3=L Kd4e4=L Kd4e5=L Pc3c4=L ]
+   Pc2c4   P(after)=L
+DEFINITION 4.8 (over): exact (0 failures)
+B1 kb4a3@b4     x_m = Kd4 ka3 Pc2 Pc5 Pb6 pc6 pb7 w - : beside -1 WHITE WIN ; beside 0 W
+B1 kb4a4@b4     x_m = Kd4 ka4 Pc2 Pc5 Pb6 pc6 pb7 w - : beside -1 WHITE WIN ; beside 0 W
+B1 kb4a5@b4     x_m = Kd4 ka5 Pc2 Pc5 Pb6 pc6 pb7 w - : beside -1 WHITE WIN ; beside 0 W
+B1 kb5a4@b5     x_m = Kd4 ka4 Pc2 Pc5 Pb6 pc6 pb7 w - : beside -1 WHITE WIN ; beside 0 W
+B1 kb5a5@b5     x_m = Kd4 ka5 Pc2 Pc5 Pb6 pc6 pb7 w - : beside -1 WHITE WIN ; beside 0 W
+B1 kb5a6@b5     x_m = Kd4 ka6 Pc2 Pc5 Pb6 pc6 pb7 w - : beside -1 WHITE WIN ; beside 0 W
+(B1): 6 non-shuttle Black root moves, 0 not a White win beside -1
+done

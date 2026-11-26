@@ -1,0 +1,9 @@
+# o68 S (P beside -1, Black holds the token: last field 1), run 2026-11-25 with the first version of o68.cpp
+# (adjacency lists; the CSR change made later only lowers memory). Copied from the run's standard output; the
+# run took 2 s and peaked at 0.73 GB (above the 0.5 GB toy limit, not under heavy.sh; see findings.txt).
+# A rerun under heavy.sh was queued and then stopped by me: both heavy slots were held by other jobs for hours.
+d4 a3 b6,c2,c5 b7,c6 w - 1  =>  W17   line: Kd4-e5 Ka3-a4 Ke5-d6 Ka4-a5 Kd6-c7 Ka5-a6 Kc7-b8 (-1) Kb8-c7 Ka6-a5 Kc7xb7 Ka5-a4 Kb7-a6 Ka4-a3 b6-b7 Ka3-a2 b7-b8=
+d4 a4 b6,c2,c5 b7,c6 w - 1  =>  W17   line: Kd4-e5 Ka4-b4 Ke5-d6 Kb4-a5 Kd6-c7 Ka5-a6 Kc7-b8 (-1) Kb8-c7 Ka6-a5 Kc7xb7 Ka5-a4 Kb7-a6 Ka4-a3 b6-b7 Ka3-a2 b7-b8=
+d4 a5 b6,c2,c5 b7,c6 w - 1  =>  W17   line: Kd4-e5 Ka5-a4 Ke5-d6 Ka4-a5 Kd6-c7 Ka5-a6 Kc7-b8 (-1) Kb8-c7 Ka6-a5 Kc7xb7 Ka5-a4 Kb7-a6 Ka4-a3 b6-b7 Ka3-a2 b7-b8=
+d4 a6 b6,c2,c5 b7,c6 w - 1  =>  W17   line: Kd4-e5 Ka6-a5 Ke5-d6 Ka5-b5 Kd6-c7 Kb5-a6 Kc7-b8 (-1) Kb8-c7 Ka6-a5 Kc7xb7 Ka5-a4 Kb7-a6 Ka4-a3 b6-b7 Ka3-a2 b7-b8=
+d4 a3 b6,c2,c5 b7,c6 w - 0  =>  W15   line: Kd4-e5 Ka3-a4 Ke5-d6 Ka4-a5 Kd6-c7 Ka5-a6 Kc7-b8 Ka6-a5 Kb8xb7 Ka5-a4 Kb7-a6 Ka4-a3 b6-b7 Ka3-a2 b7-b8=

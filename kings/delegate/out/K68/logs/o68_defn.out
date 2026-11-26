@@ -1,0 +1,75 @@
+table * b6 c2 b7,c6 w  (value for the side to move, plies)
+8  L18  L24  L26  L26  L26  L26  L22  L20 
+7    .    .    .  L26  L26  L26  L22  L20 
+6    .    .    .  L26  L26  L26  L22  L20 
+5    .    .    .  L36  L26  L26  L24  L24 
+4  L36  L38  L36  L36  L26  L24  L24  L24 
+3  L36  L36  L36  L36  L26  L24  L24  L24 
+2  L28  L28    .  L26  L26  L24  L24  L24 
+1  L28  L28  L28  L26  L26  L24  L24  L24 
+   a    b    c    d    e    f    g    h
+table * b6 c3 b7,c6 w  (value for the side to move, plies)
+8  L16  L20  L20  L20  L20  L18  L16  L16 
+7    .    .    .  L20  L20  L18  L18  L18 
+6    .    .    .  L22  L20  L18  L18  L18 
+5    .    .    .  L30  L26  L24  L22  L18 
+4  L36  L38  L36  L30  L26  L24  L22  L18 
+3  L36  L36    .  L30  L26  L24  L22  L18 
+2  L24  L26  L26  L26  L24  L24  L22  L18 
+1  L24  L24  L24  L24  L24  L24  L22  L18 
+   a    b    c    d    e    f    g    h
+table * b6 c4 b7,c6 w  (value for the side to move, plies)
+8  L16  L16  L16  L16  L14  L14  L14  L14 
+7    .    .    .  L22  L22  L16  L16  L16 
+6    .    .    .  L20  L22  L18  L18  L18 
+5    .    .    .  L28  L28  L24  L18  L18 
+4  L38    D    .  L26  L28  L24  L18  L18 
+3  L38  L38  L38  L28  L28  L24  L18  L18 
+2  L26  L26  L26  L26  L26  L24  L18  L18 
+1  L26  L26  L26  L26  L26  L24  L18  L18 
+   a    b    c    d    e    f    g    h
+d4 b4 b6,c2,c5 b7,c6 b - 0  =>  L18   line: Kb4-b5 c2-c3 Kb5-a4 Kd4-e5 Ka4-a5 Ke5-d6 Ka5-b5 Kd6-c7 Kb5-a6 Kc7-b8 Ka6-a5 Kb8xb7 Ka5-a4 Kb7-a6 Ka4-a3 b6-b7 Ka3-a2 b7-b8=
+    Kb4-a3     L16
+    Kb4-a4     L16
+    Kb4-a5     L16
+    Kb4-b5     L18
+d4 b4 b6,c2,c5 b7,c6 w - 0  =>  W17   line: c2-c4 Kb4-a3 Kd4-e5 Ka3-a4 Ke5-d6 Ka4-a5 Kd6-c7 Ka5-a6 Kc7-b8 Ka6-a5 Kb8xb7 Ka5-a4 Kb7-a6 Ka4-a3 b6-b7 Ka3-a2 b7-b8=
+    Kd4-d3     L40
+    Kd4-e3     L40
+    Kd4-e4     L40
+    Kd4-e5     L30
+    c2-c3      L46
+    c2-c4      W17
+d4 b5 b6,c2,c5 b7,c6 b - 0  =>  L18   line: Kb5-b4 c2-c4 Kb4-a3 Kd4-e5 Ka3-a4 Ke5-d6 Ka4-a5 Kd6-c7 Ka5-a6 Kc7-b8 Ka6-a5 Kb8xb7 Ka5-a4 Kb7-a6 Ka4-a3 b6-b7 Ka3-a2 b7-b8=
+    Kb5-a4     L16
+    Kb5-b4     L18
+    Kb5-a5     L16
+    Kb5-a6     L16
+d4 b5 b6,c2,c5 b7,c6 w - 0  =>  W17   line: c2-c3 Kb5-a4 Kd4-e5 Ka4-a5 Ke5-d6 Ka5-b5 Kd6-c7 Kb5-a6 Kc7-b8 Ka6-a5 Kb8xb7 Ka5-a4 Kb7-a6 Ka4-a3 b6-b7 Ka3-a2 b7-b8=
+    Kd4-c3     L40
+    Kd4-d3     L40
+    Kd4-e3     L40
+    Kd4-e4     L40
+    Kd4-e5     L30
+    c2-c3      W17
+    c2-c4      L44
+d4 b4 b6,c4,c5 b7,c6 b - 0  =>  L16   line: Kb4-a3 Kd4-e5 Ka3-a4 Ke5-d6 Ka4-a5 Kd6-c7 Ka5-a6 Kc7-b8 Ka6-a5 Kb8xb7 Ka5-a4 Kb7-a6 Ka4-a3 b6-b7 Ka3-a2 b7-b8=
+    Kb4-a3     L16
+    Kb4-b3     L16
+    Kb4-a4     L16
+    Kb4-a5     L16
+d4 b4 b6,c4,c5 b7,c6 w - 0  =>  L42   line: Kd4-d3 Kb4xc5 Kd3-c3 Kc5xb6 Kc3-b4 c6-c5 Kb4-c3 Kb6-c7 Kc3-d3 Kc7-c6 Kd3-c2 Kc6-d6 Kc2-d2 Kd6-e5 Kd2-e3 b7-b6 Ke3-d3 Ke5-f4 Kd3-c2 Kf4-e3 Kc2-c3 Ke3-e4 Kc3-c2 Ke4-d4 Kc2-b3 Kd4-d3 Kb3-b2 Kd3xc4 Kb2-c2 Kc4-d4 Kc2-b1 Kd4-c3 Kb1-a1 Kc3-d2 Ka1-b1 c5-c4 Kb1-a1 c4-c3 Ka1-b1 c3-c2 Kb1-a1 c2-c1=
+    Kd4-d3     L42
+    Kd4-e3     L28
+    Kd4-e4     L24
+    Kd4-e5     L26
+d4 b5 b6,c3,c5 b7,c6 b - 0  =>  L16   line: Kb5-a4 Kd4-e5 Ka4-a5 Ke5-d6 Ka5-b5 Kd6-c7 Kb5-a6 Kc7-b8 Ka6-a5 Kb8xb7 Ka5-a4 Kb7-a6 Ka4-a3 b6-b7 Ka3-a2 b7-b8=
+    Kb5-a4     L16
+    Kb5-a5     L16
+    Kb5-a6     L16
+d4 b5 b6,c3,c5 b7,c6 w - 0  =>  L44   line: c3-c4 Kb5-b4 Kd4-d3 Kb4xc5 Kd3-c3 Kc5xb6 Kc3-b4 c6-c5 Kb4-c3 Kb6-c7 Kc3-d3 Kc7-c6 Kd3-c2 Kc6-d6 Kc2-d2 Kd6-e5 Kd2-e3 b7-b6 Ke3-d3 Ke5-f4 Kd3-c2 Kf4-e3 Kc2-c3 Ke3-e4 Kc3-c2 Ke4-d4 Kc2-b3 Kd4-d3 Kb3-b2 Kd3xc4 Kb2-c2 Kc4-d4 Kc2-b1 Kd4-c3 Kb1-a1 Kc3-d2 Ka1-b1 c5-c4 Kb1-a1 c4-c3 Ka1-b1 c3-c2 Kb1-a1 c2-c1=
+    Kd4-d3     L32
+    Kd4-e3     L34
+    Kd4-e4     L32
+    Kd4-e5     L30
+    c3-c4      L44

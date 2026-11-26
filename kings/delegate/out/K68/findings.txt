@@ -1,0 +1,41 @@
+K68 findings (2026-11-25). G = C125_05 = Kd4 kb4/kb5 Pb6 Pc2 Pc5 pb7 pc6, flat 8x8. Proof: PROOF.md.
+
+SHORT ANSWER
+PROVED by hand (P):
+  (O0) no checks, no e.p. right at roots and q's.
+  (O1) Black has only king moves; the shuttle is legal; the six bad moves ...Ka3/a4/a5 (b4), ...Ka4/a5/a6 (b5) lose at once.
+  (O2) the freezes c2-c4 (b4), c2-c3 (b5) do not lose (they win); no root move promotes.
+  (O3) q1 (...Ka3, Ka4, Ka5, Kb3) and q2 (...Ka4, Ka5, Ka6), Black to move: every move loses at once.
+  (B1) at all six bad moves, move by move: White wins beside -1 (one strategy, by White's 9th move).
+  All by one White strategy S_A: Ke5, Kd6, Kc7, (Kb8 if Black's king is on a6), Kxb7, K to c7/a7, b7, b8 -- by move 8.
+  The wrong pawn steps (c2-c3+ at b4, c2-c4+ at b5, c3-c4+ in q2) transpose to the other q, White to move.
+PROVED given Lemma B (hand reduction, Lemma C): every White king move at the roots and q's loses; so the freezes are
+  exactly c2-c4 / c2-c3 and (O4) holds; Definition 4.8 holds.
+NOT by hand: Lemma B (White to move, Black Kb6 pb7 pc6 vs one White pawn on c2/c3/c4, any White king square: Black wins
+  P, except Kb4 with the pawn on c4, a draw). CHECKED-2: o68 and ax68q (= K65 referee's ax65) agree on all 162 positions.
+Theorem (Proposition 4.25): results of omega beside every finite D-game, PROVED given Lemma B (CHECKED-2) via Lemma 4.15.
+  "No computed fact at all" is NOT reached: the Black-win half (Lemma B) remains computed.
+Chess: roots Black to move lost (every move), roots White to move won by the freeze, q1/q2 Black to move lost (every
+  move): PROVED given KNOWN (queen beats a pawn >= 3 moves from promotion; no stalemate and queen safe proved in sec. 7).
+  Left to the tablebase (KNOWN, K65 cache): q1/q2 White to move lost; non-freeze White root moves lose.
+
+ORACLE COMPARISON
+  src/check_lemmaA.py (python-chess, independent): S_A as written vs every Black reply; 11 starts in P (promotes by move 8),
+    4 boards beside -1 (by move 9); side claims (Lemma A2, Kxc5 not before B3, Black king rank <= 5 at Kxb7, never on
+    rank 7/8 before Kxb7, queen safe and no stalemate after b8=Q, Black pawn on rank 4-6 at promotion): ALL OK.
+  o68 vs ax68q: 255 positions (roots, q's, all their moves, Lemma C reduction positions, Lemma B family): 0 disagreements.
+  ax68q on the group: Definition 4.8 exact, same freezes, (B1) at all 6 bad moves. o68 beside -1: W17 at all 4 boards.
+  Chess cache (8 root/q positions, all move categories): every chess claim agrees; move lists equal python-chess's.
+  Mismatches found: none.
+
+RULE NOTE (memory): before I changed o68 to CSR arrays, about seven P runs of o68 (about 2 s each) peaked at 0.55 GB
+  and one run beside -1 at 0.73 GB, above the 0.5 GB toy limit and not under heavy.sh (below 2 GB). After the change
+  o68 P peaks at 0.39 GB. A heavy.sh rerun of the -1 run waited for a slot (both held by other jobs) and was stopped by
+  me (my own task only); logs/o68_b1.out holds the earlier run's output. No other process was touched.
+
+FILES: PROOF.md, findings.txt, EDITS.md (tested with apply_edits.py: 1 applied, 0 rejected), pids.log,
+  src/o68.cpp, src/ax68q.cpp, src/check_lemmaA.py, src/compare.py, src/chess_check.py,
+  logs/ (compare_values.txt, compare_queries.txt, check_lemmaA.out, chess_check.out, ax68q_group.out, o68_defn.out,
+  o68_b1.out, q_*.txt, *.err). Binaries were built in a scratch directory outside the repo.
+  Rebuild: c++ -O2 -std=c++17 -o o68 src/o68.cpp; c++ -O2 -std=c++17 -o ax68q src/ax68q.cpp;
+  chess_check.py needs ../K65/verify/logs/tbcache.tar.xz unpacked (tar -xJf ... -C tb).
