@@ -40,7 +40,8 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
          (Theorem 4.20, Corollary 4.23) (proved, refereed) (K62)
    - [x] Blind proof of Theorems 4.20 and 4.22 by Codex: both proved, no repair (K64)
    - [x] Does a real group need a ladder longer than 2? Yes: one group of the 8×8 census needs 3 (Proposition 4.24; K65 referee, K66)
-   - [~] A hand proof for one real group: `Kd4 kb4/kb5 Pb6 Pc2 Pc5 pb7 pc6` (K68 done, unrefereed: Definition 4.8's White half and (B1) by hand; the Black half reduced by hand to one computed lemma on two pawns against one, CHECKED-2; referee running; K70: Codex tries that lemma blind)
+   - [x] A hand proof for one real group: `Kd4 kb4/kb5 Pb6 Pc2 Pc5 pb7 pc6` (K68, refereed; Proposition 4.25): Definition 4.8's White half and (B1) by hand; the Black half reduced by hand to one computed lemma on two pawns against one (three programs)
+   - [~] That lemma by hand (42 positions; the referee did not get it; K70: Codex tries it blind)
    - [~] Does a real group need a ladder longer than 3? (K67 classifies the groups of two more file classes)
    - [ ] Hand proof of (O1) and of the d5 root of the K45 group
    - [x] The K45 group in chess at cap 1: d4 freeze and its zero exact, the rest undecided; exact groups also on flat

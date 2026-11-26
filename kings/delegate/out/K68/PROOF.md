@@ -1,6 +1,10 @@
 # K68: the seven-man group C125_05 by hand
 
-`Kd4 kb4/kb5 Pb6 Pc2 Pc5 pb7 pc6` on the ordinary 8×8 board. One AI proof (K68, 2026-11-25), not yet refereed.
+`Kd4 kb4/kb5 Pb6 Pc2 Pc5 pb7 pc6` on the ordinary 8×8 board. One AI proof (K68, 2026-11-25). Refereed the same day (`verify/VERIFY.md`): the proof in P stands with the repairs
+G0, G1, G2 and G4 written out in `verify/VERIFY.md` §4, which replace the corresponding sentences below. The fact
+cited in §7 (a queen beats a pawn three or more moves from promotion) is withdrawn (G3): the chess values are KNOWN
+from the tablebase, and the hand reduction of §7 rests on 460 computed positions (COMPUTED-1), not on a known fact.
+The text below is the investigator's, unchanged.
 
 ## 0. Summary
 

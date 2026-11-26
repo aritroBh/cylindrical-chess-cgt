@@ -534,6 +534,13 @@ Every deliverable was given to independent referees (Claude models) told to brea
     `Kg5 ke5/ke6 Pb2 Pf2 Pf6 pc4 pf5 pf7`, has ladder length 3 (Proposition 4.24; the question is now length 4).
     In chess, by the tablebase, five of the 19 groups with at most seven men are exact over groups, for example
     `Kd4 kb4/kb5 Pb6 Pc2 Pc5 pb7 pc6` (`kings/delegate/out/K65/REVIEW.md`).
+  - K68 (2026-11-25, refereed): the first real exact over group with a proof by hand, up to one computed lemma
+    (Proposition 4.25). For `Kd4 kb4/kb5 Pb6 Pc2 Pc5 pb7 pc6` on the flat 8×8 board one White plan of eight moves
+    (king to e5, d6, c7, takes b7, then the b-pawn promotes) proves that every bad Black move loses, that both
+    freezes win, and (B1). That every other White move loses is reduced by hand to a two-pawns-against-one ending
+    (Black Kb6, pb7, pc6 against a king and a c-pawn; 42 positions used), which three programs agree on and nobody
+    has proved by hand. The referee re-derived every step and withdrew one false chess fact from the proof; the
+    chess values stay KNOWN from the tablebase (`kings/delegate/out/K68/REVIEW.md`).
   - Theorem 1.11(c) repaired (2026-11-23): its proof used the e.p. condition (E) without assuming it, and its frontier
     step used an unproved inheritance of threats by re-split components. (E) is now a hypothesis (every use already had
     it through Theorem 1.14), and the inheritance is proved. Found while the paper's proofs appendix was written and
