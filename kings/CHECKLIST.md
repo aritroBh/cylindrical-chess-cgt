@@ -44,7 +44,8 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
    - [x] That lemma: a case table of 486 rows (K70, Codex, blind), accepted by two separately written checkers; referee K73 checked 42 rows by hand, no error; label stays CHECKED-2 (Proposition 4.25 updated). K71 (change the reduction): not achieved, 14 positions left, unrefereed
    - [ ] That lemma by a short hand proof, or the full table checked by hand (30 to 50 hours by the referee's estimate): open
    - [x] The five chess-exact groups beside real pawns on a separated file of the same board, in P (K72, refereed by K74 with a third solver: only C125_10 agrees in all 283 contexts of at most 2 + 2 pawns, and it fails in 3 of all 729 placements on h; the other four fail with 1 + 1 pawns already; paragraph after Proposition 4.25)
-   - [~] Which of the 48 groups keep the results of ω beside real pawns, and a rule in terms of the kings' distance to the context file (K75 done, unrefereed: 58 group and file pairs, 11 clean with one pawn a side, no rule in distances alone; referee K76 running)
+   - [x] Which of the 48 groups keep the results of ω beside real pawns: 11 of 58 group and file pairs with one pawn a side, six beside every placement on the file; king distance does not decide (K75, refereed by K76; paragraph after the K72 paragraph)
+   - [ ] A hypothesis that pins both kings, under which a real group provably keeps the results of ω beside real pawns (open; no candidate rule survives the 58 pairs)
    - [~] The seven two-file classes of flat 8×8 outside the four classes: {a,c}, {a,f}, {a,g}, {a,h}, {b,d}, {b,g}, {c,e} (K78 running)
    - [x] Does a real group need a ladder longer than 3? Not among the 48 groups of the four classes (K67, K77); open for other shapes and boards
    - [ ] Hand proof of (O1) and of the d5 root of the K45 group

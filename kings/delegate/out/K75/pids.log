@@ -1,0 +1,546 @@
+2026-11-25T23:29:36 meas_C125_02_h_11_pk watch.sh pid 64895, time pid 64896 : pk 
+2026-11-25T23:29:36 meas_C125_02_h_11_pk solver pid 64899 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:29:45 meas_C125_02_h_11_pk done, exit 0, polled peak rss 62272 kB, wall 8 s
+2026-11-25T23:29:51 meas_C125_02_h_11_ref3m watch.sh pid 66321, time pid 66323 : ref3m --board pln:8x8
+2026-11-25T23:29:51 meas_C125_02_h_11_ref3m solver pid 66326 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:30:02 meas_C125_02_h_11_ref3m done, exit 0, polled peak rss 66304 kB, wall 10 s
+2026-11-25T23:30:02 meas_C145_25_h_11_pk watch.sh pid 67330, time pid 67331 : pk 
+2026-11-25T23:30:02 meas_C145_25_h_11_pk solver pid 67333 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:30:02 meas_C145_25_h_11_pk done, exit 3, polled peak rss 17872 kB, wall 0 s
+2026-11-25T23:30:32 meas_C145_25_h_11s_pk watch.sh pid 69938, time pid 69939 : pk 
+2026-11-25T23:30:32 meas_C145_25_h_11s_pk solver pid 69941 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:32:54 meas_C145_25_h_11s_pk done, exit 143, polled peak rss 303456 kB, wall 141 s
+2026-11-25T23:32:55 meas_C145_25_h_11s_pk: stopped by me (kill 69941, my own solver PID) after 2.5 min: the split input is far slower; not used
+2026-11-25T23:35:42 meas_C125_12_h_11_pk watch.sh pid 98472, time pid 98473 : pk 
+2026-11-25T23:35:42 meas_C125_12_h_11_pk solver pid 98476 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:36:02 meas_C125_12_h_11_pk done, exit 0, polled peak rss 187040 kB, wall 19 s
+2026-11-25T23:36:24 chain direct_11 started (zsh run.sh direct 11, 32 pairs)
+2026-11-25T23:36:24 C125_12_h_11_pk watch.sh pid 3421, time pid 3424 : pk 
+2026-11-25T23:36:24 C125_12_h_11_pk solver pid 3428 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:36:35 chain heavy_11 started (zsh run.sh heavy 11, 26 pairs, each solver run through heavy.sh)
+2026-11-25T23:36:44 C125_12_h_11_pk done, exit 0, polled peak rss 187344 kB, wall 19 s
+2026-11-25T23:36:44 C125_12_h_11_ref3m watch.sh pid 5858, time pid 5859 : ref3m --board pln:8x8
+2026-11-25T23:36:44 C125_12_h_11_ref3m solver pid 5861 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:37:03 chain heavy_11 stopped by me before any solver ran (kill 4784 = my run.sh, 4789 = my heavy.sh still waiting for a slot): restarting with split inputs for the groups of >= 4730 configurations (ref3m memory margin)
+2026-11-25T23:37:09 C125_12_h_11_ref3m done, exit 0, polled peak rss 190688 kB, wall 25 s
+2026-11-25T23:37:09 C125_02_h_11_pk watch.sh pid 8657, time pid 8658 : pk 
+2026-11-25T23:37:09 C125_02_h_11_pk solver pid 8660 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:37:15 run.sh heavy 11 pid 9282 : C125_20:a C125_21:h C145_22:h C014_05:h C125_14:h C145_17:h C014_04:g C014_04:h C125_13:h C145_16:h C145_15:h C145_20:h C014_06:g C014_06:h C034_03:h C125_17:h C125_18:h C145_18:h C014_10:h C145_23:h:split C125_22:h:split C014_08:h:split C145_19:h:split C014_09:h:split C145_24:h:split C145_25:h:split
+2026-11-25T23:37:16 C125_02_h_11_pk done, exit 0, polled peak rss 62400 kB, wall 6 s
+2026-11-25T23:37:16 C125_02_h_11_ref3m watch.sh pid 9470, time pid 9473 : ref3m --board pln:8x8
+2026-11-25T23:37:16 C125_02_h_11_ref3m solver pid 9475 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:37:24 C125_02_h_11_ref3m done, exit 0, polled peak rss 64784 kB, wall 8 s
+2026-11-25T23:37:24 C125_03_h_11_pk watch.sh pid 10326, time pid 10328 : pk 
+2026-11-25T23:37:24 C125_03_h_11_pk solver pid 10332 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:37:33 C125_03_h_11_pk done, exit 0, polled peak rss 79888 kB, wall 8 s
+2026-11-25T23:37:33 C125_03_h_11_ref3m watch.sh pid 11359, time pid 11360 : ref3m --board pln:8x8
+2026-11-25T23:37:33 C125_03_h_11_ref3m solver pid 11364 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:37:43 C125_03_h_11_ref3m done, exit 0, polled peak rss 84224 kB, wall 10 s
+2026-11-25T23:37:44 C014_01_e_11_pk watch.sh pid 12574, time pid 12575 : pk 
+2026-11-25T23:37:44 C014_01_e_11_pk solver pid 12577 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:37:52 C014_01_e_11_pk done, exit 0, polled peak rss 82800 kB, wall 8 s
+2026-11-25T23:37:52 C014_01_e_11_ref3m watch.sh pid 13571, time pid 13578 : ref3m --board pln:8x8
+2026-11-25T23:37:53 C014_01_e_11_ref3m solver pid 13580 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:38:04 C014_01_e_11_ref3m done, exit 0, polled peak rss 86768 kB, wall 11 s
+2026-11-25T23:38:04 C014_01_f_11_pk watch.sh pid 14868, time pid 14869 : pk 
+2026-11-25T23:38:04 C014_01_f_11_pk solver pid 14871 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:38:13 C014_01_f_11_pk done, exit 0, polled peak rss 83840 kB, wall 9 s
+2026-11-25T23:38:13 C014_01_f_11_ref3m watch.sh pid 16009, time pid 16010 : ref3m --board pln:8x8
+2026-11-25T23:38:13 C014_01_f_11_ref3m solver pid 16012 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:38:24 C014_01_f_11_ref3m done, exit 0, polled peak rss 86992 kB, wall 11 s
+2026-11-25T23:38:24 C014_01_g_11_pk watch.sh pid 17312, time pid 17313 : pk 
+2026-11-25T23:38:24 C014_01_g_11_pk solver pid 17315 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:38:33 C014_01_g_11_pk done, exit 0, polled peak rss 83488 kB, wall 8 s
+2026-11-25T23:38:33 C014_01_g_11_ref3m watch.sh pid 18326, time pid 18327 : ref3m --board pln:8x8
+2026-11-25T23:38:33 C014_01_g_11_ref3m solver pid 18329 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:38:45 C014_01_g_11_ref3m done, exit 0, polled peak rss 87200 kB, wall 11 s
+2026-11-25T23:38:45 C014_01_h_11_pk watch.sh pid 19553, time pid 19557 : pk 
+2026-11-25T23:38:45 C014_01_h_11_pk solver pid 19560 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:38:54 C014_01_h_11_pk done, exit 0, polled peak rss 82160 kB, wall 9 s
+2026-11-25T23:38:54 C014_01_h_11_ref3m watch.sh pid 20575, time pid 20577 : ref3m --board pln:8x8
+2026-11-25T23:38:54 C014_01_h_11_ref3m solver pid 20579 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:39:05 C014_01_h_11_ref3m done, exit 0, polled peak rss 86416 kB, wall 11 s
+2026-11-25T23:39:05 C125_04_h_11_pk watch.sh pid 21807, time pid 21808 : pk 
+2026-11-25T23:39:05 C125_04_h_11_pk solver pid 21810 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:39:16 C125_04_h_11_pk done, exit 0, polled peak rss 100640 kB, wall 10 s
+2026-11-25T23:39:16 C125_04_h_11_ref3m watch.sh pid 23263, time pid 23265 : ref3m --board pln:8x8
+2026-11-25T23:39:16 C125_04_h_11_ref3m solver pid 23267 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:39:30 C125_04_h_11_ref3m done, exit 0, polled peak rss 106496 kB, wall 13 s
+2026-11-25T23:39:30 C125_06_h_11_pk watch.sh pid 24757, time pid 24758 : pk 
+2026-11-25T23:39:30 C125_06_h_11_pk solver pid 24760 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:39:44 C125_06_h_11_pk done, exit 0, polled peak rss 132544 kB, wall 14 s
+2026-11-25T23:39:44 C125_06_h_11_ref3m watch.sh pid 26508, time pid 26510 : ref3m --board pln:8x8
+2026-11-25T23:39:44 C125_06_h_11_ref3m solver pid 26512 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:40:02 C125_06_h_11_ref3m done, exit 0, polled peak rss 136352 kB, wall 18 s
+2026-11-25T23:40:02 C125_07_h_11_pk watch.sh pid 28759, time pid 28761 : pk 
+2026-11-25T23:40:02 C125_07_h_11_pk solver pid 28764 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:40:16 C125_07_h_11_pk done, exit 0, polled peak rss 131728 kB, wall 14 s
+2026-11-25T23:40:16 C125_07_h_11_ref3m watch.sh pid 30375, time pid 30376 : ref3m --board pln:8x8
+2026-11-25T23:40:16 C125_07_h_11_ref3m solver pid 30378 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:40:34 C125_07_h_11_ref3m done, exit 0, polled peak rss 136096 kB, wall 17 s
+2026-11-25T23:40:34 C125_08_h_11_pk watch.sh pid 32282, time pid 32283 : pk 
+2026-11-25T23:40:34 C125_08_h_11_pk solver pid 32285 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:40:50 C125_08_h_11_pk done, exit 0, polled peak rss 145680 kB, wall 15 s
+2026-11-25T23:40:50 C125_08_h_11_ref3m watch.sh pid 33896, time pid 33897 : ref3m --board pln:8x8
+2026-11-25T23:40:50 C125_08_h_11_ref3m solver pid 33899 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:41:10 C125_08_h_11_ref3m done, exit 0, polled peak rss 151664 kB, wall 20 s
+2026-11-25T23:41:10 C125_09_h_11_pk watch.sh pid 35992, time pid 35993 : pk 
+2026-11-25T23:41:10 C125_09_h_11_pk solver pid 35995 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:41:26 C125_09_h_11_pk done, exit 0, polled peak rss 146448 kB, wall 16 s
+2026-11-25T23:41:26 C125_09_h_11_ref3m watch.sh pid 37764, time pid 37765 : ref3m --board pln:8x8
+2026-11-25T23:41:27 C125_09_h_11_ref3m solver pid 37767 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:41:47 C125_09_h_11_ref3m done, exit 0, polled peak rss 152016 kB, wall 20 s
+2026-11-25T23:41:47 C125_10_h_11_pk watch.sh pid 40029, time pid 40030 : pk 
+2026-11-25T23:41:47 C125_10_h_11_pk solver pid 40033 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:42:03 C125_10_h_11_pk done, exit 0, polled peak rss 146128 kB, wall 16 s
+2026-11-25T23:42:03 C125_10_h_11_ref3m watch.sh pid 41855, time pid 41856 : ref3m --board pln:8x8
+2026-11-25T23:42:03 C125_10_h_11_ref3m solver pid 41858 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:42:23 C125_10_h_11_ref3m done, exit 0, polled peak rss 152400 kB, wall 20 s
+2026-11-25T23:42:23 C145_12_g_11_pk watch.sh pid 44239, time pid 44241 : pk 
+2026-11-25T23:42:23 C145_12_g_11_pk solver pid 44243 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:42:40 C145_12_g_11_pk done, exit 0, polled peak rss 155456 kB, wall 16 s
+2026-11-25T23:42:40 C145_12_g_11_ref3m watch.sh pid 46096, time pid 46098 : ref3m --board pln:8x8
+2026-11-25T23:42:40 C145_12_g_11_ref3m solver pid 46100 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:43:00 C145_12_g_11_ref3m done, exit 0, polled peak rss 161632 kB, wall 20 s
+2026-11-25T23:43:00 C145_12_h_11_pk watch.sh pid 48399, time pid 48400 : pk 
+2026-11-25T23:43:00 C145_12_h_11_pk solver pid 48402 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:43:17 C145_12_h_11_pk done, exit 0, polled peak rss 156752 kB, wall 16 s
+2026-11-25T23:43:17 C145_12_h_11_ref3m watch.sh pid 50247, time pid 50248 : ref3m --board pln:8x8
+2026-11-25T23:43:17 C145_12_h_11_ref3m solver pid 50251 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:43:38 C145_12_h_11_ref3m done, exit 0, polled peak rss 161344 kB, wall 21 s
+2026-11-25T23:43:39 C034_01_a_11_pk watch.sh pid 52671, time pid 52674 : pk 
+2026-11-25T23:43:39 C034_01_a_11_pk solver pid 52676 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:43:57 C034_01_a_11_pk done, exit 0, polled peak rss 160064 kB, wall 18 s
+2026-11-25T23:43:57 C034_01_a_11_ref3m watch.sh pid 54819, time pid 54820 : ref3m --board pln:8x8
+2026-11-25T23:43:57 C034_01_a_11_ref3m solver pid 54822 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:44:12 C034_01_a_11_ref3m done, exit 0, polled peak rss 114240 kB, wall 14 s
+2026-11-25T23:44:12 C034_01_g_11_pk watch.sh pid 56393, time pid 56394 : pk 
+2026-11-25T23:44:12 C034_01_g_11_pk solver pid 56396 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:44:29 C034_01_g_11_pk done, exit 0, polled peak rss 160336 kB, wall 17 s
+2026-11-25T23:44:29 C034_01_g_11_ref3m watch.sh pid 58530, time pid 58531 : ref3m --board pln:8x8
+2026-11-25T23:44:29 C034_01_g_11_ref3m solver pid 58533 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:44:44 C034_01_g_11_ref3m done, exit 0, polled peak rss 113392 kB, wall 14 s
+2026-11-25T23:44:44 C034_01_h_11_pk watch.sh pid 60295, time pid 60296 : pk 
+2026-11-25T23:44:44 C034_01_h_11_pk solver pid 60298 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:45:02 C034_01_h_11_pk done, exit 0, polled peak rss 161520 kB, wall 18 s
+2026-11-25T23:45:02 C034_01_h_11_ref3m watch.sh pid 62280, time pid 62281 : ref3m --board pln:8x8
+2026-11-25T23:45:02 C034_01_h_11_ref3m solver pid 62283 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:45:17 C034_01_h_11_ref3m done, exit 0, polled peak rss 112896 kB, wall 14 s
+2026-11-25T23:45:17 C034_02_a_11_pk watch.sh pid 63866, time pid 63868 : pk 
+2026-11-25T23:45:17 C034_02_a_11_pk solver pid 63870 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:45:35 C034_02_a_11_pk done, exit 0, polled peak rss 161680 kB, wall 17 s
+2026-11-25T23:45:35 C034_02_a_11_ref3m watch.sh pid 65768, time pid 65769 : ref3m --board pln:8x8
+2026-11-25T23:45:35 C034_02_a_11_ref3m solver pid 65771 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:45:50 C034_02_a_11_ref3m done, exit 0, polled peak rss 113376 kB, wall 14 s
+2026-11-25T23:45:50 C034_02_b_11_pk watch.sh pid 67526, time pid 67527 : pk 
+2026-11-25T23:45:50 C034_02_b_11_pk solver pid 67529 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:46:07 C034_02_b_11_pk done, exit 0, polled peak rss 159744 kB, wall 17 s
+2026-11-25T23:46:07 C034_02_b_11_ref3m watch.sh pid 69461, time pid 69462 : ref3m --board pln:8x8
+2026-11-25T23:46:07 C034_02_b_11_ref3m solver pid 69464 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:46:22 C034_02_b_11_ref3m done, exit 0, polled peak rss 113600 kB, wall 14 s
+2026-11-25T23:46:22 C034_02_h_11_pk watch.sh pid 71038, time pid 71039 : pk 
+2026-11-25T23:46:22 C034_02_h_11_pk solver pid 71041 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:46:40 C034_02_h_11_pk done, exit 0, polled peak rss 160880 kB, wall 17 s
+2026-11-25T23:46:40 C034_02_h_11_ref3m watch.sh pid 73055, time pid 73062 : ref3m --board pln:8x8
+2026-11-25T23:46:40 C034_02_h_11_ref3m solver pid 73064 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:46:55 C034_02_h_11_ref3m done, exit 0, polled peak rss 114016 kB, wall 14 s
+2026-11-25T23:46:55 C125_05_f_11_pk watch.sh pid 74694, time pid 74695 : pk 
+2026-11-25T23:46:55 C125_05_f_11_pk solver pid 74697 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:47:12 C125_05_f_11_pk done, exit 0, polled peak rss 161392 kB, wall 17 s
+2026-11-25T23:47:12 C125_05_f_11_ref3m watch.sh pid 76701, time pid 76703 : ref3m --board pln:8x8
+2026-11-25T23:47:12 C125_05_f_11_ref3m solver pid 76705 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:47:27 C125_05_f_11_ref3m done, exit 0, polled peak rss 113792 kB, wall 14 s
+2026-11-25T23:47:27 C125_05_g_11_pk watch.sh pid 78157, time pid 78158 : pk 
+2026-11-25T23:47:27 C125_05_g_11_pk solver pid 78160 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:47:44 C125_05_g_11_pk done, exit 0, polled peak rss 160112 kB, wall 17 s
+2026-11-25T23:47:44 C125_05_g_11_ref3m watch.sh pid 79929, time pid 79930 : ref3m --board pln:8x8
+2026-11-25T23:47:44 C125_05_g_11_ref3m solver pid 79932 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:47:58 C125_05_g_11_ref3m done, exit 0, polled peak rss 112960 kB, wall 14 s
+2026-11-25T23:47:58 C125_05_h_11_pk watch.sh pid 81485, time pid 81486 : pk 
+2026-11-25T23:47:58 C125_05_h_11_pk solver pid 81488 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:48:16 C125_05_h_11_pk done, exit 0, polled peak rss 160160 kB, wall 17 s
+2026-11-25T23:48:16 C125_05_h_11_ref3m watch.sh pid 83245, time pid 83246 : ref3m --board pln:8x8
+2026-11-25T23:48:16 C125_05_h_11_ref3m solver pid 83248 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:48:30 C125_05_h_11_ref3m done, exit 0, polled peak rss 113456 kB, wall 14 s
+2026-11-25T23:48:30 C145_07_a_11_pk watch.sh pid 84721, time pid 84722 : pk 
+2026-11-25T23:48:31 C145_07_a_11_pk solver pid 84727 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:48:48 C145_07_a_11_pk done, exit 0, polled peak rss 161648 kB, wall 17 s
+2026-11-25T23:48:48 C145_07_a_11_ref3m watch.sh pid 86551, time pid 86552 : ref3m --board pln:8x8
+2026-11-25T23:48:48 C145_07_a_11_ref3m solver pid 86554 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:49:03 C145_07_a_11_ref3m done, exit 0, polled peak rss 114448 kB, wall 14 s
+2026-11-25T23:49:03 C145_07_b_11_pk watch.sh pid 88129, time pid 88130 : pk 
+2026-11-25T23:49:03 C145_07_b_11_pk solver pid 88132 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:49:21 C145_07_b_11_pk done, exit 0, polled peak rss 161696 kB, wall 17 s
+2026-11-25T23:49:21 C145_07_b_11_ref3m watch.sh pid 89947, time pid 89948 : ref3m --board pln:8x8
+2026-11-25T23:49:21 C145_07_b_11_ref3m solver pid 89950 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:49:35 C145_07_b_11_ref3m done, exit 0, polled peak rss 112576 kB, wall 14 s
+2026-11-25T23:49:35 C145_07_c_11_pk watch.sh pid 91593, time pid 91595 : pk 
+2026-11-25T23:49:35 C145_07_c_11_pk solver pid 91599 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:49:53 C145_07_c_11_pk done, exit 0, polled peak rss 161248 kB, wall 17 s
+2026-11-25T23:49:53 C145_07_c_11_ref3m watch.sh pid 93430, time pid 93431 : ref3m --board pln:8x8
+2026-11-25T23:49:53 C145_07_c_11_ref3m solver pid 93433 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:50:08 C145_07_c_11_ref3m done, exit 0, polled peak rss 113536 kB, wall 14 s
+2026-11-25T23:50:08 C145_09_a_11_pk watch.sh pid 94980, time pid 94981 : pk 
+2026-11-25T23:50:08 C145_09_a_11_pk solver pid 94986 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:50:26 C145_09_a_11_pk done, exit 0, polled peak rss 161040 kB, wall 18 s
+2026-11-25T23:50:26 C145_09_a_11_ref3m watch.sh pid 96895, time pid 96896 : ref3m --board pln:8x8
+2026-11-25T23:50:26 C145_09_a_11_ref3m solver pid 96898 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:50:41 C145_09_a_11_ref3m done, exit 0, polled peak rss 114064 kB, wall 14 s
+2026-11-25T23:50:41 C145_09_b_11_pk watch.sh pid 98390, time pid 98391 : pk 
+2026-11-25T23:50:41 C145_09_b_11_pk solver pid 98393 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:50:59 C145_09_b_11_pk done, exit 0, polled peak rss 160096 kB, wall 17 s
+2026-11-25T23:50:59 C145_09_b_11_ref3m watch.sh pid 275, time pid 277 : ref3m --board pln:8x8
+2026-11-25T23:50:59 C145_09_b_11_ref3m solver pid 281 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:51:13 C145_09_b_11_ref3m done, exit 0, polled peak rss 114448 kB, wall 14 s
+2026-11-25T23:51:13 C145_09_h_11_pk watch.sh pid 2021, time pid 2022 : pk 
+2026-11-25T23:51:13 C145_09_h_11_pk solver pid 2024 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:51:31 C145_09_h_11_pk done, exit 0, polled peak rss 161648 kB, wall 17 s
+2026-11-25T23:51:31 C145_09_h_11_ref3m watch.sh pid 3827, time pid 3828 : ref3m --board pln:8x8
+2026-11-25T23:51:31 C145_09_h_11_ref3m solver pid 3830 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:51:46 C145_09_h_11_ref3m done, exit 0, polled peak rss 113840 kB, wall 15 s
+2026-11-25T23:51:46 C145_13_g_11_pk watch.sh pid 5415, time pid 5419 : pk 
+2026-11-25T23:51:46 C145_13_g_11_pk solver pid 5421 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:52:04 C145_13_g_11_pk done, exit 0, polled peak rss 168992 kB, wall 18 s
+2026-11-25T23:52:04 C145_13_g_11_ref3m watch.sh pid 7394, time pid 7395 : ref3m --board pln:8x8
+2026-11-25T23:52:04 C145_13_g_11_ref3m solver pid 7399 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:52:26 C145_13_g_11_ref3m done, exit 0, polled peak rss 175056 kB, wall 22 s
+2026-11-25T23:52:26 C145_13_h_11_pk watch.sh pid 9659, time pid 9660 : pk 
+2026-11-25T23:52:26 C145_13_h_11_pk solver pid 9662 (kings/delegate/out/K75/bin/pk)
+2026-11-25T23:52:44 C145_13_h_11_pk done, exit 0, polled peak rss 168096 kB, wall 17 s
+2026-11-25T23:52:44 C145_13_h_11_ref3m watch.sh pid 11512, time pid 11513 : ref3m --board pln:8x8
+2026-11-25T23:52:44 C145_13_h_11_ref3m solver pid 11515 (kings/delegate/out/K75/bin/ref3m)
+2026-11-25T23:53:07 C145_13_h_11_ref3m done, exit 0, polled peak rss 175024 kB, wall 22 s
+2026-11-25T23:53:23 run.sh heavy 22 pid 15226 : C014_01:h C145_13:h C125_10:h
+2026-11-25T23:59:15 meas_slack_g09 watch.sh pid 44820, time pid 44821 : pk_sum -T 18|/;/0;/1;/2;/3;/4;/5;/6;/7;/;9/;10/;11/;12/;13/;14/;15/;16/
+2026-11-25T23:59:15 meas_slack_g09 solver pid 44823 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-25T23:59:22 meas_slack_g09 done, exit 0, polled peak rss 71728 kB, wall 7 s
+2026-11-26T00:00:02 slack.sh direct pid 48944 : 00 01 02 03 04 05 06 07 08 09 10 11 19 20 23 24 25 26 34 38 40 45 46
+2026-11-26T00:00:02 slack_g00 watch.sh pid 48955, time pid 48956 : pk_sum -T 18|/;/0;/1;/2;/3;/4;/5;/6;/7;/;9/;10/;11/;12/;13/;14/;15/;16/
+2026-11-26T00:00:02 slack_g00 solver pid 48958 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:00:05 slack_g00 done, exit 0, polled peak rss 36016 kB, wall 2 s
+2026-11-26T00:00:05 slack_g01 watch.sh pid 49258, time pid 49259 : pk_sum -T 18|/;/0;/1;/2;/3;/4;/5;/6;/7;/;9/;10/;11/;12/;13/;14/;15/;16/
+2026-11-26T00:00:05 slack_g01 solver pid 49261 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:00:08 slack_g01 done, exit 0, polled peak rss 36864 kB, wall 3 s
+2026-11-26T00:00:08 slack_g02 watch.sh pid 49608, time pid 49609 : pk_sum -T 18|/;/0;/1;/2;/3;/4;/5;/6;/7;/;9/;10/;11/;12/;13/;14/;15/;16/
+2026-11-26T00:00:08 slack_g02 solver pid 49611 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:00:12 slack_g02 done, exit 0, polled peak rss 44752 kB, wall 3 s
+2026-11-26T00:00:12 slack_g03 watch.sh pid 50038, time pid 50039 : pk_sum -T 18|/;/0;/1;/2;/3;/4;/5;/6;/7;/;9/;10/;11/;12/;13/;14/;15/;16/
+2026-11-26T00:00:12 slack_g03 solver pid 50041 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:00:17 slack_g03 done, exit 0, polled peak rss 53760 kB, wall 4 s
+2026-11-26T00:00:17 slack_g04 watch.sh pid 50546, time pid 50547 : pk_sum -T 18|/;/0;/1;/2;/3;/4;/5;/6;/7;/;9/;10/;11/;12/;13/;14/;15/;16/
+2026-11-26T00:00:17 slack_g04 solver pid 50549 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:00:25 slack_g04 done, exit 0, polled peak rss 77760 kB, wall 7 s
+2026-11-26T00:00:25 slack_g05 watch.sh pid 51357, time pid 51358 : pk_sum -T 18|/;/0;/1;/2;/3;/4;/5;/6;/7;/;9/;10/;11/;12/;13/;14/;15/;16/
+2026-11-26T00:00:25 slack_g05 solver pid 51360 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:00:32 slack_g05 done, exit 0, polled peak rss 66384 kB, wall 6 s
+2026-11-26T00:00:32 slack_g06 watch.sh pid 52018, time pid 52019 : pk_sum -T 18|/;/0;/1;/2;/3;/4;/5;/6;/7;/;9/;10/;11/;12/;13/;14/;15/;16/
+2026-11-26T00:00:32 slack_g06 solver pid 52021 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:00:38 slack_g06 done, exit 0, polled peak rss 67360 kB, wall 6 s
+2026-11-26T00:00:38 slack_g07 watch.sh pid 52695, time pid 52696 : pk_sum -T 18|/;/0;/1;/2;/3;/4;/5;/6;/7;/;9/;10/;11/;12/;13/;14/;15/;16/
+2026-11-26T00:00:38 slack_g07 solver pid 52699 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:00:45 slack_g07 done, exit 0, polled peak rss 72944 kB, wall 7 s
+2026-11-26T00:00:45 slack_g08 watch.sh pid 53405, time pid 53408 : pk_sum -T 18|/;/0;/1;/2;/3;/4;/5;/6;/7;/;9/;10/;11/;12/;13/;14/;15/;16/
+2026-11-26T00:00:45 slack_g08 solver pid 53410 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:00:52 slack_g08 done, exit 0, polled peak rss 72336 kB, wall 7 s
+2026-11-26T00:00:52 slack_g09 watch.sh pid 54119, time pid 54120 : pk_sum -T 18|/;/0;/1;/2;/3;/4;/5;/6;/7;/;9/;10/;11/;12/;13/;14/;15/;16/
+2026-11-26T00:00:52 slack_g09 solver pid 54122 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:00:59 slack_g09 done, exit 0, polled peak rss 72464 kB, wall 7 s
+2026-11-26T00:00:59 slack_g10 watch.sh pid 54881, time pid 54884 : pk_sum -T 18|/;/0;/1;/2;/3;/4;/5;/6;/7;/;9/;10/;11/;12/;13/;14/;15/;16/
+2026-11-26T00:00:59 slack_g10 solver pid 54886 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:01:24 slack_g10 done, exit 0, polled peak rss 223952 kB, wall 24 s
+2026-11-26T00:01:24 slack_g11 watch.sh pid 57495, time pid 57496 : pk_sum -T 18|/;/0;/1;/2;/3;/4;/5;/6;/7;/;9/;10/;11/;12/;13/;14/;15/;16/
+2026-11-26T00:01:24 slack_g11 solver pid 57498 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:01:33 slack_g11 done, exit 0, polled peak rss 90192 kB, wall 9 s
+2026-11-26T00:01:33 slack_g19 watch.sh pid 58517, time pid 58518 : pk_sum -T 18|/;/0;/1;/2;/3;/4;/5;/6;/7;/;9/;10/;11/;12/;13/;14/;15/;16/
+2026-11-26T00:01:33 slack_g19 solver pid 58520 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:01:54 slack_g19 done, exit 0, polled peak rss 198032 kB, wall 20 s
+2026-11-26T00:01:54 slack_g20 watch.sh pid 60664, time pid 60665 : pk_sum -T 18|/;/0;/1;/2;/3;/4;/5;/6;/7;/;9/;10/;11/;12/;13/;14/;15/;16/
+2026-11-26T00:01:54 slack_g20 solver pid 60667 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:02:15 slack_g20 done, exit 0, polled peak rss 197088 kB, wall 20 s
+2026-11-26T00:02:15 slack_g23 watch.sh pid 62802, time pid 62803 : pk_sum -T 18|/;/0;/1;/2;/3;/4;/5;/6;/7;/;9/;10/;11/;12/;13/;14/;15/;16/
+2026-11-26T00:02:15 slack_g23 solver pid 62805 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:02:23 slack_g23 done, exit 0, polled peak rss 78528 kB, wall 7 s
+2026-11-26T00:02:23 slack_g24 watch.sh pid 63672, time pid 63673 : pk_sum -T 18|/;/0;/1;/2;/3;/4;/5;/6;/7;/;9/;10/;11/;12/;13/;14/;15/;16/
+2026-11-26T00:02:23 slack_g24 solver pid 63675 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:02:31 slack_g24 done, exit 0, polled peak rss 79040 kB, wall 8 s
+2026-11-26T00:02:31 slack_g25 watch.sh pid 64500, time pid 64501 : pk_sum -T 18|/;/0;/1;/2;/3;/4;/5;/6;/7;/;9/;10/;11/;12/;13/;14/;15/;16/
+2026-11-26T00:02:31 slack_g25 solver pid 64503 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:02:38 slack_g25 done, exit 0, polled peak rss 77136 kB, wall 7 s
+2026-11-26T00:02:38 slack_g26 watch.sh pid 65255, time pid 65256 : pk_sum -T 18|/;/0;/1;/2;/3;/4;/5;/6;/7;/;9/;10/;11/;12/;13/;14/;15/;16/
+2026-11-26T00:02:38 slack_g26 solver pid 65258 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:02:46 slack_g26 done, exit 0, polled peak rss 81392 kB, wall 8 s
+2026-11-26T00:02:46 slack_g34 watch.sh pid 66167, time pid 66168 : pk_sum -T 18|/;/0;/1;/2;/3;/4;/5;/6;/7;/;9/;10/;11/;12/;13/;14/;15/;16/
+2026-11-26T00:02:46 slack_g34 solver pid 66171 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:03:07 slack_g34 done, exit 0, polled peak rss 197872 kB, wall 20 s
+2026-11-26T00:03:07 slack_g38 watch.sh pid 68277, time pid 68280 : pk_sum -T 18|/;/0;/1;/2;/3;/4;/5;/6;/7;/;9/;10/;11/;12/;13/;14/;15/;16/
+2026-11-26T00:03:07 slack_g38 solver pid 68283 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:03:11 slack_g38 done, exit 0, polled peak rss 46560 kB, wall 4 s
+2026-11-26T00:03:11 slack_g40 watch.sh pid 68714, time pid 68715 : pk_sum -T 18|/;/0;/1;/2;/3;/4;/5;/6;/7;/;9/;10/;11/;12/;13/;14/;15/;16/
+2026-11-26T00:03:11 slack_g40 solver pid 68717 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:03:27 C125_20_a_11_pk watch.sh pid 70288, time pid 70289 : pk 
+2026-11-26T00:03:27 C125_20_a_11_pk solver pid 70291 (kings/delegate/out/K75/bin/pk)
+2026-11-26T00:03:37 slack_g40 done, exit 0, polled peak rss 224624 kB, wall 25 s
+2026-11-26T00:03:37 slack_g45 watch.sh pid 71259, time pid 71260 : pk_sum -T 18|/;/0;/1;/2;/3;/4;/5;/6;/7;/;9/;10/;11/;12/;13/;14/;15/;16/
+2026-11-26T00:03:37 slack_g45 solver pid 71263 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:03:45 slack_g45 done, exit 0, polled peak rss 79136 kB, wall 8 s
+2026-11-26T00:03:45 slack_g46 watch.sh pid 71997, time pid 71998 : pk_sum -T 18|/;/0;/1;/2;/3;/4;/5;/6;/7;/;9/;10/;11/;12/;13/;14/;15/;16/
+2026-11-26T00:03:46 slack_g46 solver pid 72000 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:03:54 slack_g46 done, exit 0, polled peak rss 79232 kB, wall 8 s
+2026-11-26T00:04:15 C125_20_a_11_pk done, exit 0, polled peak rss 443856 kB, wall 48 s
+2026-11-26T00:04:15 C125_20_a_11_ref3m watch.sh pid 74293, time pid 74294 : ref3m --board pln:8x8
+2026-11-26T00:04:15 C125_20_a_11_ref3m solver pid 74296 (kings/delegate/out/K75/bin/ref3m)
+2026-11-26T00:04:54 race.sh direct pid 77092 : 09
+2026-11-26T00:04:54 race_g09 watch.sh pid 77094, time pid 77095 : pk_sum -T 25|/;/B;/1;/2;/3;/4;/5;/6;/7;/8;/9;/10;/11;W/;13/;14/;15/;16/;17/;18/;19/;20/;21/;22/;23/
+2026-11-26T00:04:54 race_g09 solver pid 77097 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:05:05 race_g09 done, exit 0, polled peak rss 107536 kB, wall 10 s
+2026-11-26T00:05:14 race.sh direct pid 78610 : 00 01 02 03 04 05 06 07 08 11 23 24 25 26 38 45 46
+2026-11-26T00:05:14 race_g00 watch.sh pid 78612, time pid 78613 : pk_sum -T 25|/;/B;/1;/2;/3;/4;/5;/6;/7;/8;/9;/10;/11;W/;13/;14/;15/;16/;17/;18/;19/;20/;21/;22/;23/
+2026-11-26T00:05:14 race_g00 solver pid 78615 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:05:14 C125_20_a_11_ref3m done, exit 0, polled peak rss 448160 kB, wall 59 s
+2026-11-26T00:05:14 C125_21_h_11_pk watch.sh pid 78651, time pid 78652 : pk 
+2026-11-26T00:05:14 C125_21_h_11_pk solver pid 78654 (kings/delegate/out/K75/bin/pk)
+2026-11-26T00:05:18 race_g00 done, exit 0, polled peak rss 52592 kB, wall 4 s
+2026-11-26T00:05:18 race_g01 watch.sh pid 78976, time pid 78977 : pk_sum -T 25|/;/B;/1;/2;/3;/4;/5;/6;/7;/8;/9;/10;/11;W/;13/;14/;15/;16/;17/;18/;19/;20/;21/;22/;23/
+2026-11-26T00:05:18 race_g01 solver pid 78979 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:05:22 race_g01 done, exit 0, polled peak rss 53664 kB, wall 4 s
+2026-11-26T00:05:22 race_g02 watch.sh pid 79354, time pid 79355 : pk_sum -T 25|/;/B;/1;/2;/3;/4;/5;/6;/7;/8;/9;/10;/11;W/;13/;14/;15/;16/;17/;18/;19/;20/;21/;22/;23/
+2026-11-26T00:05:23 race_g02 solver pid 79357 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:05:28 race_g02 done, exit 0, polled peak rss 64272 kB, wall 5 s
+2026-11-26T00:05:28 race_g03 watch.sh pid 79900, time pid 79901 : pk_sum -T 25|/;/B;/1;/2;/3;/4;/5;/6;/7;/8;/9;/10;/11;W/;13/;14/;15/;16/;17/;18/;19/;20/;21/;22/;23/
+2026-11-26T00:05:28 race_g03 solver pid 79903 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:05:35 race_g03 done, exit 0, polled peak rss 78464 kB, wall 7 s
+2026-11-26T00:05:35 race_g04 watch.sh pid 80489, time pid 80490 : pk_sum -T 25|/;/B;/1;/2;/3;/4;/5;/6;/7;/8;/9;/10;/11;W/;13/;14/;15/;16/;17/;18/;19/;20/;21/;22/;23/
+2026-11-26T00:05:35 race_g04 solver pid 80492 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:05:47 race_g04 done, exit 0, polled peak rss 115296 kB, wall 11 s
+2026-11-26T00:05:47 race_g05 watch.sh pid 81473, time pid 81474 : pk_sum -T 25|/;/B;/1;/2;/3;/4;/5;/6;/7;/8;/9;/10;/11;W/;13/;14/;15/;16/;17/;18/;19/;20/;21/;22/;23/
+2026-11-26T00:05:47 race_g05 solver pid 81476 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:05:55 race_g05 done, exit 0, polled peak rss 96448 kB, wall 8 s
+2026-11-26T00:05:55 race_g06 watch.sh pid 82221, time pid 82222 : pk_sum -T 25|/;/B;/1;/2;/3;/4;/5;/6;/7;/8;/9;/10;/11;W/;13/;14/;15/;16/;17/;18/;19/;20/;21/;22/;23/
+2026-11-26T00:05:55 race_g06 solver pid 82224 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:06:02 C125_21_h_11_pk done, exit 0, polled peak rss 444768 kB, wall 47 s
+2026-11-26T00:06:02 C125_21_h_11_ref3m watch.sh pid 82897, time pid 82899 : ref3m --board pln:8x8
+2026-11-26T00:06:02 C125_21_h_11_ref3m solver pid 82901 (kings/delegate/out/K75/bin/ref3m)
+2026-11-26T00:06:05 race_g06 done, exit 0, polled peak rss 97392 kB, wall 9 s
+2026-11-26T00:06:05 race_g07 watch.sh pid 83080, time pid 83081 : pk_sum -T 25|/;/B;/1;/2;/3;/4;/5;/6;/7;/8;/9;/10;/11;W/;13/;14/;15/;16/;17/;18/;19/;20/;21/;22/;23/
+2026-11-26T00:06:05 race_g07 solver pid 83083 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:06:15 race_g07 done, exit 0, polled peak rss 105936 kB, wall 10 s
+2026-11-26T00:06:15 race_g08 watch.sh pid 83948, time pid 83949 : pk_sum -T 25|/;/B;/1;/2;/3;/4;/5;/6;/7;/8;/9;/10;/11;W/;13/;14/;15/;16/;17/;18/;19/;20/;21/;22/;23/
+2026-11-26T00:06:15 race_g08 solver pid 83951 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:06:25 race_g08 done, exit 0, polled peak rss 105824 kB, wall 9 s
+2026-11-26T00:06:25 race_g11 watch.sh pid 84799, time pid 84800 : pk_sum -T 25|/;/B;/1;/2;/3;/4;/5;/6;/7;/8;/9;/10;/11;W/;13/;14/;15/;16/;17/;18/;19/;20/;21/;22/;23/
+2026-11-26T00:06:25 race_g11 solver pid 84802 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:06:37 race_g11 done, exit 0, polled peak rss 129680 kB, wall 12 s
+2026-11-26T00:06:37 race_g23 watch.sh pid 85916, time pid 85917 : pk_sum -T 25|/;/B;/1;/2;/3;/4;/5;/6;/7;/8;/9;/10;/11;W/;13/;14/;15/;16/;17/;18/;19/;20/;21/;22/;23/
+2026-11-26T00:06:37 race_g23 solver pid 85919 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:06:48 race_g23 done, exit 0, polled peak rss 113536 kB, wall 10 s
+2026-11-26T00:06:48 race_g24 watch.sh pid 86917, time pid 86918 : pk_sum -T 25|/;/B;/1;/2;/3;/4;/5;/6;/7;/8;/9;/10;/11;W/;13/;14/;15/;16/;17/;18/;19/;20/;21/;22/;23/
+2026-11-26T00:06:48 race_g24 solver pid 86920 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:07:00 race_g24 done, exit 0, polled peak rss 115840 kB, wall 12 s
+2026-11-26T00:07:00 race_g25 watch.sh pid 87921, time pid 87922 : pk_sum -T 25|/;/B;/1;/2;/3;/4;/5;/6;/7;/8;/9;/10;/11;W/;13/;14/;15/;16/;17/;18/;19/;20/;21/;22/;23/
+2026-11-26T00:07:00 race_g25 solver pid 87924 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:07:02 C125_21_h_11_ref3m done, exit 0, polled peak rss 448832 kB, wall 59 s
+2026-11-26T00:07:02 C145_22_h_11_pk watch.sh pid 88086, time pid 88091 : pk 
+2026-11-26T00:07:02 C145_22_h_11_pk solver pid 88094 (kings/delegate/out/K75/bin/pk)
+2026-11-26T00:07:11 race_g25 done, exit 0, polled peak rss 112752 kB, wall 10 s
+2026-11-26T00:07:11 race_g26 watch.sh pid 88828, time pid 88829 : pk_sum -T 25|/;/B;/1;/2;/3;/4;/5;/6;/7;/8;/9;/10;/11;W/;13/;14/;15/;16/;17/;18/;19/;20/;21/;22/;23/
+2026-11-26T00:07:11 race_g26 solver pid 88832 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:07:22 race_g26 done, exit 0, polled peak rss 120368 kB, wall 11 s
+2026-11-26T00:07:22 race_g38 watch.sh pid 89841, time pid 89843 : pk_sum -T 25|/;/B;/1;/2;/3;/4;/5;/6;/7;/8;/9;/10;/11;W/;13/;14/;15/;16/;17/;18/;19/;20/;21/;22/;23/
+2026-11-26T00:07:22 race_g38 solver pid 89845 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:07:28 race_g38 done, exit 0, polled peak rss 66768 kB, wall 5 s
+2026-11-26T00:07:28 race_g45 watch.sh pid 90365, time pid 90367 : pk_sum -T 25|/;/B;/1;/2;/3;/4;/5;/6;/7;/8;/9;/10;/11;W/;13/;14/;15/;16/;17/;18/;19/;20/;21/;22/;23/
+2026-11-26T00:07:28 race_g45 solver pid 90370 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:07:39 race_g45 done, exit 0, polled peak rss 113264 kB, wall 10 s
+2026-11-26T00:07:39 race_g46 watch.sh pid 91296, time pid 91297 : pk_sum -T 25|/;/B;/1;/2;/3;/4;/5;/6;/7;/8;/9;/10;/11;W/;13/;14/;15/;16/;17/;18/;19/;20/;21/;22/;23/
+2026-11-26T00:07:39 race_g46 solver pid 91299 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T00:07:49 C145_22_h_11_pk done, exit 0, polled peak rss 444928 kB, wall 46 s
+2026-11-26T00:07:49 C145_22_h_11_ref3m watch.sh pid 92163, time pid 92164 : ref3m --board pln:8x8
+2026-11-26T00:07:49 C145_22_h_11_ref3m solver pid 92166 (kings/delegate/out/K75/bin/ref3m)
+2026-11-26T00:07:50 race_g46 done, exit 0, polled peak rss 113856 kB, wall 10 s
+2026-11-26T00:08:46 C145_22_h_11_ref3m done, exit 0, polled peak rss 448576 kB, wall 57 s
+2026-11-26T00:08:46 C014_05_h_11_pk watch.sh pid 96140, time pid 96141 : pk 
+2026-11-26T00:08:46 C014_05_h_11_pk solver pid 96144 (kings/delegate/out/K75/bin/pk)
+2026-11-26T00:09:41 C014_05_h_11_pk done, exit 0, polled peak rss 505904 kB, wall 54 s
+2026-11-26T00:09:41 C014_05_h_11_ref3m watch.sh pid 99991, time pid 99992 : ref3m --board pln:8x8
+2026-11-26T00:09:41 C014_05_h_11_ref3m solver pid 99994 (kings/delegate/out/K75/bin/ref3m)
+2026-11-26T00:10:49 C014_05_h_11_ref3m done, exit 0, polled peak rss 521936 kB, wall 68 s
+2026-11-26T00:10:49 C125_14_h_11_pk watch.sh pid 5444, time pid 5445 : pk 
+2026-11-26T00:10:49 C125_14_h_11_pk solver pid 5447 (kings/delegate/out/K75/bin/pk)
+2026-11-26T00:12:03 C125_14_h_11_pk done, exit 0, polled peak rss 687248 kB, wall 73 s
+2026-11-26T00:12:03 C125_14_h_11_ref3m watch.sh pid 10809, time pid 10810 : ref3m --board pln:8x8
+2026-11-26T00:12:03 C125_14_h_11_ref3m solver pid 10812 (kings/delegate/out/K75/bin/ref3m)
+2026-11-26T00:13:34 C125_14_h_11_ref3m done, exit 0, polled peak rss 699776 kB, wall 91 s
+2026-11-26T00:13:34 C145_17_h_11_pk watch.sh pid 17505, time pid 17506 : pk 
+2026-11-26T00:13:35 C145_17_h_11_pk solver pid 17508 (kings/delegate/out/K75/bin/pk)
+2026-11-26T00:15:06 C145_17_h_11_pk done, exit 0, polled peak rss 858720 kB, wall 91 s
+2026-11-26T00:15:06 C145_17_h_11_ref3m watch.sh pid 24215, time pid 24216 : ref3m --board pln:8x8
+2026-11-26T00:15:06 C145_17_h_11_ref3m solver pid 24218 (kings/delegate/out/K75/bin/ref3m)
+2026-11-26T00:16:19 C145_17_h_11_ref3m done, exit 0, polled peak rss 568240 kB, wall 72 s
+2026-11-26T00:16:19 C014_04_g_11_pk watch.sh pid 29417, time pid 29418 : pk 
+2026-11-26T00:16:19 C014_04_g_11_pk solver pid 29420 (kings/delegate/out/K75/bin/pk)
+2026-11-26T00:17:55 C014_04_g_11_pk done, exit 0, polled peak rss 907184 kB, wall 95 s
+2026-11-26T00:17:55 C014_04_g_11_ref3m watch.sh pid 36298, time pid 36299 : ref3m --board pln:8x8
+2026-11-26T00:17:55 C014_04_g_11_ref3m solver pid 36301 (kings/delegate/out/K75/bin/ref3m)
+2026-11-26T00:19:46 C014_04_g_11_ref3m done, exit 0, polled peak rss 887440 kB, wall 111 s
+2026-11-26T00:19:46 C014_04_h_11_pk watch.sh pid 44324, time pid 44325 : pk 
+2026-11-26T00:19:46 C014_04_h_11_pk solver pid 44327 (kings/delegate/out/K75/bin/pk)
+2026-11-26T00:21:24 C014_04_h_11_pk done, exit 0, polled peak rss 905984 kB, wall 97 s
+2026-11-26T00:21:24 C014_04_h_11_ref3m watch.sh pid 51026, time pid 51027 : ref3m --board pln:8x8
+2026-11-26T00:21:24 C014_04_h_11_ref3m solver pid 51029 (kings/delegate/out/K75/bin/ref3m)
+2026-11-26T00:23:19 C014_04_h_11_ref3m done, exit 0, polled peak rss 887392 kB, wall 115 s
+2026-11-26T00:23:19 C125_13_h_11_pk watch.sh pid 60605, time pid 60606 : pk 
+2026-11-26T00:23:19 C125_13_h_11_pk solver pid 60608 (kings/delegate/out/K75/bin/pk)
+2026-11-26T00:24:56 C125_13_h_11_pk done, exit 0, polled peak rss 907280 kB, wall 97 s
+2026-11-26T00:24:56 C125_13_h_11_ref3m watch.sh pid 68046, time pid 68047 : ref3m --board pln:8x8
+2026-11-26T00:24:56 C125_13_h_11_ref3m solver pid 68049 (kings/delegate/out/K75/bin/ref3m)
+2026-11-26T00:26:52 C125_13_h_11_ref3m done, exit 0, polled peak rss 887472 kB, wall 115 s
+2026-11-26T00:26:52 C014_01_h_22_pk watch.sh pid 76171, time pid 76172 : pk 
+2026-11-26T00:26:52 C014_01_h_22_pk solver pid 76174 (kings/delegate/out/K75/bin/pk)
+2026-11-26T00:27:48 C014_01_h_22_pk done, exit 0, polled peak rss 533696 kB, wall 55 s
+2026-11-26T00:27:48 C014_01_h_22_ref3m watch.sh pid 80189, time pid 80190 : ref3m --board pln:8x8
+2026-11-26T00:27:48 C014_01_h_22_ref3m solver pid 80192 (kings/delegate/out/K75/bin/ref3m)
+2026-11-26T00:28:59 C014_01_h_22_ref3m done, exit 0, polled peak rss 538320 kB, wall 70 s
+2026-11-26T00:28:59 C145_13_h_22_pk watch.sh pid 85108, time pid 85111 : pk 
+2026-11-26T00:28:59 C145_13_h_22_pk solver pid 85113 (kings/delegate/out/K75/bin/pk)
+2026-11-26T00:30:52 C145_13_h_22_pk done, exit 0, polled peak rss 1103088 kB, wall 113 s
+2026-11-26T00:30:52 C145_13_h_22_ref3m watch.sh pid 92927, time pid 92928 : ref3m --board pln:8x8
+2026-11-26T00:30:52 C145_13_h_22_ref3m solver pid 92930 (kings/delegate/out/K75/bin/ref3m)
+2026-11-26T00:33:12 C145_13_h_22_ref3m done, exit 0, polled peak rss 1100736 kB, wall 139 s
+2026-11-26T00:33:12 C125_10_h_22_pk watch.sh pid 2976, time pid 2977 : pk 
+2026-11-26T00:33:12 C125_10_h_22_pk solver pid 2979 (kings/delegate/out/K75/bin/pk)
+2026-11-26T00:34:50 C125_10_h_22_pk done, exit 0, polled peak rss 950496 kB, wall 98 s
+2026-11-26T00:34:50 C125_10_h_22_ref3m watch.sh pid 10147, time pid 10148 : ref3m --board pln:8x8
+2026-11-26T00:34:50 C125_10_h_22_ref3m solver pid 10150 (kings/delegate/out/K75/bin/ref3m)
+2026-11-26T00:36:53 C125_10_h_22_ref3m done, exit 0, polled peak rss 949296 kB, wall 123 s
+2026-11-26T00:36:55 C145_16_h_11_pk watch.sh pid 18838, time pid 18839 : pk 
+2026-11-26T00:36:55 C145_16_h_11_pk solver pid 18841 (kings/delegate/out/K75/bin/pk)
+2026-11-26T00:36:55 run.sh heavy 33 pid 18860 : C014_01:h
+2026-11-26T00:38:33 C145_16_h_11_pk done, exit 0, polled peak rss 906656 kB, wall 98 s
+2026-11-26T00:38:33 C145_16_h_11_ref3m watch.sh pid 25845, time pid 25847 : ref3m --board pln:8x8
+2026-11-26T00:38:33 C145_16_h_11_ref3m solver pid 25849 (kings/delegate/out/K75/bin/ref3m)
+2026-11-26T00:40:28 C145_16_h_11_ref3m done, exit 0, polled peak rss 888976 kB, wall 115 s
+2026-11-26T00:40:28 C145_15_h_11_pk watch.sh pid 34098, time pid 34099 : pk 
+2026-11-26T00:40:28 C145_15_h_11_pk solver pid 34101 (kings/delegate/out/K75/bin/pk)
+2026-11-26T00:42:22 C145_15_h_11_pk done, exit 0, polled peak rss 1076848 kB, wall 114 s
+2026-11-26T00:42:22 C145_15_h_11_ref3m watch.sh pid 42283, time pid 42284 : ref3m --board pln:8x8
+2026-11-26T00:42:22 C145_15_h_11_ref3m solver pid 42286 (kings/delegate/out/K75/bin/ref3m)
+2026-11-26T00:44:43 C145_15_h_11_ref3m done, exit 0, polled peak rss 1071664 kB, wall 140 s
+2026-11-26T00:44:43 C145_20_h_11_pk watch.sh pid 52266, time pid 52267 : pk 
+2026-11-26T00:44:43 C145_20_h_11_pk solver pid 52269 (kings/delegate/out/K75/bin/pk)
+2026-11-26T00:46:39 C145_20_h_11_pk done, exit 0, polled peak rss 1092560 kB, wall 115 s
+2026-11-26T00:46:39 C145_20_h_11_ref3m watch.sh pid 60545, time pid 60546 : ref3m --board pln:8x8
+2026-11-26T00:46:39 C145_20_h_11_ref3m solver pid 60548 (kings/delegate/out/K75/bin/ref3m)
+2026-11-26T00:48:12 C145_20_h_11_ref3m done, exit 0, polled peak rss 722384 kB, wall 92 s
+2026-11-26T00:48:12 C014_06_g_11_pk watch.sh pid 67180, time pid 67181 : pk 
+2026-11-26T00:48:12 C014_06_g_11_pk solver pid 67183 (kings/delegate/out/K75/bin/pk)
+2026-11-26T00:50:28 C014_06_g_11_pk done, exit 0, polled peak rss 1292960 kB, wall 136 s
+2026-11-26T00:50:28 C014_06_g_11_ref3m watch.sh pid 76827, time pid 76828 : ref3m --board pln:8x8
+2026-11-26T00:50:29 C014_06_g_11_ref3m solver pid 76830 (kings/delegate/out/K75/bin/ref3m)
+2026-11-26T00:53:08 C014_06_g_11_ref3m done, exit 0, polled peak rss 1287520 kB, wall 160 s
+2026-11-26T00:53:09 C014_06_h_11_pk watch.sh pid 88165, time pid 88166 : pk 
+2026-11-26T00:53:09 C014_06_h_11_pk solver pid 88168 (kings/delegate/out/K75/bin/pk)
+2026-11-26T00:55:26 C014_06_h_11_pk done, exit 0, polled peak rss 1294176 kB, wall 137 s
+2026-11-26T00:55:26 C014_06_h_11_ref3m watch.sh pid 97666, time pid 97667 : ref3m --board pln:8x8
+2026-11-26T00:55:26 C014_06_h_11_ref3m solver pid 97669 (kings/delegate/out/K75/bin/ref3m)
+2026-11-26T00:58:08 C014_06_h_11_ref3m done, exit 0, polled peak rss 1287984 kB, wall 161 s
+2026-11-26T00:58:08 C034_03_h_11_pk watch.sh pid 9175, time pid 9176 : pk 
+2026-11-26T00:58:08 C034_03_h_11_pk solver pid 9178 (kings/delegate/out/K75/bin/pk)
+2026-11-26T01:00:28 C034_03_h_11_pk done, exit 0, polled peak rss 1294464 kB, wall 140 s
+2026-11-26T01:00:28 C034_03_h_11_ref3m watch.sh pid 18805, time pid 18806 : ref3m --board pln:8x8
+2026-11-26T01:00:28 C034_03_h_11_ref3m solver pid 18808 (kings/delegate/out/K75/bin/ref3m)
+2026-11-26T01:03:13 C034_03_h_11_ref3m done, exit 0, polled peak rss 1286544 kB, wall 164 s
+2026-11-26T01:03:13 C125_17_h_11_pk watch.sh pid 30134, time pid 30135 : pk 
+2026-11-26T01:03:13 C125_17_h_11_pk solver pid 30137 (kings/delegate/out/K75/bin/pk)
+2026-11-26T01:05:30 C125_17_h_11_pk done, exit 0, polled peak rss 1293040 kB, wall 137 s
+2026-11-26T01:05:30 C125_17_h_11_ref3m watch.sh pid 39635, time pid 39639 : ref3m --board pln:8x8
+2026-11-26T01:05:30 C125_17_h_11_ref3m solver pid 39641 (kings/delegate/out/K75/bin/ref3m)
+2026-11-26T01:08:12 C125_17_h_11_ref3m done, exit 0, polled peak rss 1287888 kB, wall 161 s
+2026-11-26T01:08:12 C125_18_h_11_pk watch.sh pid 50786, time pid 50787 : pk 
+2026-11-26T01:08:12 C125_18_h_11_pk solver pid 50789 (kings/delegate/out/K75/bin/pk)
+2026-11-26T01:10:30 C125_18_h_11_pk done, exit 0, polled peak rss 1292928 kB, wall 138 s
+2026-11-26T01:10:30 C125_18_h_11_ref3m watch.sh pid 60291, time pid 60294 : ref3m --board pln:8x8
+2026-11-26T01:10:30 C125_18_h_11_ref3m solver pid 60296 (kings/delegate/out/K75/bin/ref3m)
+2026-11-26T01:13:14 C125_18_h_11_ref3m done, exit 0, polled peak rss 1288496 kB, wall 163 s
+2026-11-26T01:13:14 C145_18_h_11_pk watch.sh pid 71625, time pid 71627 : pk 
+2026-11-26T01:13:14 C145_18_h_11_pk solver pid 71629 (kings/delegate/out/K75/bin/pk)
+2026-11-26T01:15:32 C145_18_h_11_pk done, exit 0, polled peak rss 1294064 kB, wall 138 s
+2026-11-26T01:15:32 C145_18_h_11_ref3m watch.sh pid 81139, time pid 81140 : ref3m --board pln:8x8
+2026-11-26T01:15:32 C145_18_h_11_ref3m solver pid 81142 (kings/delegate/out/K75/bin/ref3m)
+2026-11-26T01:17:56 race.sh heavy pid 91172 : 19 20 17 41 40 34
+2026-11-26T01:18:15 C145_18_h_11_ref3m done, exit 0, polled peak rss 1287728 kB, wall 162 s
+2026-11-26T01:18:15 C014_10_h_11_pk watch.sh pid 92517, time pid 92518 : pk 
+2026-11-26T01:18:15 C014_10_h_11_pk solver pid 92520 (kings/delegate/out/K75/bin/pk)
+2026-11-26T01:20:36 C014_10_h_11_pk done, exit 0, polled peak rss 1325456 kB, wall 141 s
+2026-11-26T01:20:36 C014_10_h_11_ref3m watch.sh pid 5988, time pid 5989 : ref3m --board pln:8x8
+2026-11-26T01:20:36 C014_10_h_11_ref3m solver pid 5991 (kings/delegate/out/K75/bin/ref3m)
+2026-11-26T01:23:23 C014_10_h_11_ref3m done, exit 0, polled peak rss 1295552 kB, wall 166 s
+2026-11-26T01:23:23 C145_23_h_11_pk watch.sh pid 20710, time pid 20712 : pk 
+2026-11-26T01:23:23 C145_23_h_11_pk solver pid 20716 (kings/delegate/out/K75/bin/pk)
+2026-11-26T01:27:03 C145_23_h_11_pk done, exit 0, polled peak rss 1085008 kB, wall 220 s
+2026-11-26T01:27:03 C145_23_h_11_ref3m watch.sh pid 40096, time pid 40097 : ref3m --board pln:8x8
+2026-11-26T01:27:03 C145_23_h_11_ref3m solver pid 40099 (kings/delegate/out/K75/bin/ref3m)
+2026-11-26T01:31:17 C145_23_h_11_ref3m done, exit 0, polled peak rss 1021936 kB, wall 253 s
+2026-11-26T01:31:17 C125_22_h_11_pk watch.sh pid 62665, time pid 62666 : pk 
+2026-11-26T01:31:17 C125_22_h_11_pk solver pid 62668 (kings/delegate/out/K75/bin/pk)
+2026-11-26T01:35:49 C125_22_h_11_pk done, exit 0, polled peak rss 1319424 kB, wall 271 s
+2026-11-26T01:35:49 C125_22_h_11_ref3m watch.sh pid 86763, time pid 86764 : ref3m --board pln:8x8
+2026-11-26T01:35:49 C125_22_h_11_ref3m solver pid 86768 (kings/delegate/out/K75/bin/ref3m)
+2026-11-26T01:41:19 C125_22_h_11_ref3m done, exit 0, polled peak rss 1348208 kB, wall 330 s
+2026-11-26T01:41:19 C014_08_h_11_pk watch.sh pid 16469, time pid 16470 : pk 
+2026-11-26T01:41:19 C014_08_h_11_pk solver pid 16472 (kings/delegate/out/K75/bin/pk)
+2026-11-26T01:45:57 C014_08_h_11_pk done, exit 0, polled peak rss 1352832 kB, wall 277 s
+2026-11-26T01:45:57 C014_08_h_11_ref3m watch.sh pid 41101, time pid 41102 : ref3m --board pln:8x8
+2026-11-26T01:45:57 C014_08_h_11_ref3m solver pid 41104 (kings/delegate/out/K75/bin/ref3m)
+2026-11-26T01:51:11 C014_08_h_11_ref3m done, exit 0, polled peak rss 1282112 kB, wall 314 s
+2026-11-26T01:51:11 C145_19_h_11_pk watch.sh pid 69118, time pid 69119 : pk 
+2026-11-26T01:51:11 C145_19_h_11_pk solver pid 69121 (kings/delegate/out/K75/bin/pk)
+2026-11-26T01:55:47 C145_19_h_11_pk done, exit 0, polled peak rss 1352848 kB, wall 275 s
+2026-11-26T01:55:47 C145_19_h_11_ref3m watch.sh pid 93496, time pid 93497 : ref3m --board pln:8x8
+2026-11-26T01:55:47 C145_19_h_11_ref3m solver pid 93499 (kings/delegate/out/K75/bin/ref3m)
+2026-11-26T02:01:04 C145_19_h_11_ref3m done, exit 0, polled peak rss 1281696 kB, wall 316 s
+2026-11-26T02:01:04 C014_09_h_11_pk watch.sh pid 17111, time pid 17112 : pk 
+2026-11-26T02:01:04 C014_09_h_11_pk solver pid 17114 (kings/delegate/out/K75/bin/pk)
+2026-11-26T02:05:56 C014_09_h_11_pk done, exit 0, polled peak rss 1436048 kB, wall 292 s
+2026-11-26T02:05:56 C014_09_h_11_ref3m watch.sh pid 37295, time pid 37296 : ref3m --board pln:8x8
+2026-11-26T02:05:56 C014_09_h_11_ref3m solver pid 37298 (kings/delegate/out/K75/bin/ref3m)
+2026-11-26T02:11:52 C014_09_h_11_ref3m done, exit 0, polled peak rss 1453760 kB, wall 356 s
+2026-11-26T02:11:53 C145_24_h_11_pk watch.sh pid 61880, time pid 61881 : pk 
+2026-11-26T02:11:53 C145_24_h_11_pk solver pid 61883 (kings/delegate/out/K75/bin/pk)
+2026-11-26T02:16:43 C145_24_h_11_pk done, exit 0, polled peak rss 1436064 kB, wall 290 s
+2026-11-26T02:16:43 C145_24_h_11_ref3m watch.sh pid 81854, time pid 81855 : ref3m --board pln:8x8
+2026-11-26T02:16:43 C145_24_h_11_ref3m solver pid 81857 (kings/delegate/out/K75/bin/ref3m)
+2026-11-26T02:22:35 C145_24_h_11_ref3m done, exit 0, polled peak rss 1453568 kB, wall 351 s
+2026-11-26T02:22:35 C145_25_h_11_pk watch.sh pid 6492, time pid 6493 : pk 
+2026-11-26T02:22:35 C145_25_h_11_pk solver pid 6495 (kings/delegate/out/K75/bin/pk)
+2026-11-26T02:28:16 C145_25_h_11_pk done, exit 0, polled peak rss 1677728 kB, wall 341 s
+2026-11-26T02:28:16 C145_25_h_11_ref3m watch.sh pid 31367, time pid 31368 : ref3m --board pln:8x8
+2026-11-26T02:28:16 C145_25_h_11_ref3m solver pid 31370 (kings/delegate/out/K75/bin/ref3m)
+2026-11-26T02:35:11 C145_25_h_11_ref3m done, exit 0, polled peak rss 1723040 kB, wall 415 s
+2026-11-26T02:35:14 C014_01_h_33_pk watch.sh pid 64080, time pid 64081 : pk 
+2026-11-26T02:35:14 C014_01_h_33_pk solver pid 64083 (kings/delegate/out/K75/bin/pk)
+2026-11-26T02:37:04 C014_01_h_33_pk done, exit 0, polled peak rss 1098112 kB, wall 109 s
+2026-11-26T02:37:04 C014_01_h_33_ref3m watch.sh pid 71784, time pid 71785 : ref3m --board pln:8x8
+2026-11-26T02:37:04 C014_01_h_33_ref3m solver pid 71787 (kings/delegate/out/K75/bin/ref3m)
+2026-11-26T02:39:22 C014_01_h_33_ref3m done, exit 0, polled peak rss 1106816 kB, wall 138 s
+2026-11-26T02:39:26 lines_11 run started (heavy.sh, watch.sh)
+2026-11-26T02:40:51 lines_11 watch.sh pid 87195, time pid 87196 : ref3pv --board pln:8x8 --pv 160
+2026-11-26T02:40:51 lines_11 solver pid 87199 (kings/delegate/out/K75/bin/ref3pv)
+2026-11-26T02:44:47 lines_11 done, exit 3, polled peak rss 1944928 kB, wall 236 s
+2026-11-26T02:44:48 race_g19 watch.sh pid 4222, time pid 4223 : pk_sum -T 25|/;/B;/1;/2;/3;/4;/5;/6;/7;/8;/9;/10;/11;W/;13/;14/;15/;16/;17/;18/;19/;20/;21/;22/;23/
+2026-11-26T02:44:48 race_g19 solver pid 4225 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T02:45:16 race_g19 done, exit 0, polled peak rss 288832 kB, wall 28 s
+2026-11-26T02:45:16 race_g20 watch.sh pid 6101, time pid 6102 : pk_sum -T 25|/;/B;/1;/2;/3;/4;/5;/6;/7;/8;/9;/10;/11;W/;13/;14/;15/;16/;17/;18/;19/;20/;21/;22/;23/
+2026-11-26T02:45:16 race_g20 solver pid 6105 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T02:45:44 race_g20 done, exit 0, polled peak rss 290704 kB, wall 28 s
+2026-11-26T02:45:44 race_g17 watch.sh pid 7966, time pid 7967 : pk_sum -T 25|/;/B;/1;/2;/3;/4;/5;/6;/7;/8;/9;/10;/11;W/;13/;14/;15/;16/;17/;18/;19/;20/;21/;22/;23/
+2026-11-26T02:45:44 race_g17 solver pid 7969 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T02:47:08 race_g17 done, exit 0, polled peak rss 813824 kB, wall 84 s
+2026-11-26T02:47:08 race_g41 watch.sh pid 13664, time pid 13665 : pk_sum -T 25|/;/B;/1;/2;/3;/4;/5;/6;/7;/8;/9;/10;/11;W/;13/;14/;15/;16/;17/;18/;19/;20/;21/;22/;23/
+2026-11-26T02:47:08 race_g41 solver pid 13667 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T02:48:33 race_g41 done, exit 0, polled peak rss 814928 kB, wall 85 s
+2026-11-26T02:48:33 race_g40 watch.sh pid 19339, time pid 19340 : pk_sum -T 25|/;/B;/1;/2;/3;/4;/5;/6;/7;/8;/9;/10;/11;W/;13/;14/;15/;16/;17/;18/;19/;20/;21/;22/;23/
+2026-11-26T02:48:33 race_g40 solver pid 19342 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T02:49:07 race_g40 done, exit 0, polled peak rss 327936 kB, wall 33 s
+2026-11-26T02:49:07 race_g34 watch.sh pid 21599, time pid 21600 : pk_sum -T 25|/;/B;/1;/2;/3;/4;/5;/6;/7;/8;/9;/10;/11;W/;13/;14/;15/;16/;17/;18/;19/;20/;21/;22/;23/
+2026-11-26T02:49:07 race_g34 solver pid 21602 (kings/delegate/out/K75/bin/pk_sum)
+2026-11-26T02:49:35 race_g34 done, exit 0, polled peak rss 289760 kB, wall 27 s

@@ -1,0 +1,35 @@
+58 pairs; 11 clean; 427 failing contexts
+
+(R1) White-favour failures in every pair with dW <= 3:
+  13 pairs with dW <= 3; without a White-favour failure: []
+  White-favour failures with dW >= 4: ['C014_08 h (dW 4, dB 2, AUXL, 16 failing, kind BW)', 'C125_05 h (dW 4, dB 6, B1, 9 failing, kind W)', 'C145_15 h (dW 7, dB 5, B1, 3 failing, kind BW)', 'C145_16 h (dW 6, dB 5, AUXW, 3 failing, kind W)', 'C145_24 h (dW 5, dB 7, AUXW, 9 failing, kind W)']
+
+(R2) Black-favour failures in every pair with dB <= 4:
+  31 pairs with dB <= 4; without a Black-favour failure: ['C014_04 h (dW 3, dB 3, AUXW, 9 failing, kind W)', 'C125_10 h (dW 5, dB 3, B1, 0 failing, kind -)']
+  Black-favour failures with dB >= 5: 10; with dW <= 4 among them: []
+  pairs with dB >= 5 and dW >= 5: 18
+
+(R3) clean only if dW >= 4 and dB >= 5; clean pairs violating it: ['C125_10 h (dW 5, dB 3, B1, 0 failing, kind -)']
+  cell dW = 4, dB >= 5: 5 pairs, clean 4: ['C014_06 g (dW 4, dB 6, B1, 0 failing, kind -)', 'C125_05 h (dW 4, dB 6, B1, 9 failing, kind W)', 'C125_18 h (dW 4, dB 6, B1, 0 failing, kind -)', 'C125_20 a (dW 4, dB 6, B1, 0 failing, kind -)', 'C125_21 h (dW 4, dB 6, B1, 0 failing, kind -)']
+  cell dW >= 5, dB >= 5: 18 pairs, clean 6: ['C014_01 h (dW 7, dB 5, B1, 0 failing, kind -)', 'C014_06 h (dW 5, dB 7, B1, 0 failing, kind -)', 'C125_02 h (dW 5, dB 7, B1, 1 failing, kind B)', 'C125_03 h (dW 7, dB 5, B1, 2 failing, kind B)', 'C125_04 h (dW 7, dB 5, B1, 2 failing, kind B)', 'C125_12 h (dW 7, dB 5, B1, 2 failing, kind B)', 'C125_17 h (dW 5, dB 7, B1, 0 failing, kind -)', 'C125_22 h (dW 7, dB 5, AUXW, 2 failing, kind B)', 'C145_12 h (dW 7, dB 5, B1, 2 failing, kind B)', 'C145_13 h (dW 7, dB 5, B1, 0 failing, kind -)', 'C145_15 h (dW 7, dB 5, B1, 3 failing, kind BW)', 'C145_16 h (dW 6, dB 5, AUXW, 3 failing, kind W)', 'C145_17 h (dW 7, dB 5, B1, 0 failing, kind -)', 'C145_19 h (dW 5, dB 7, AUXL, 9 failing, kind B)', 'C145_20 h (dW 7, dB 5, B1, 0 failing, kind -)', 'C145_23 h (dW 7, dB 5, B1, 5 failing, kind B)', 'C145_24 h (dW 5, dB 7, AUXW, 9 failing, kind W)', 'C145_25 h (dW 7, dB 5, AUXW, 5 failing, kind B)']
+
+clean pairs: ['C014_01 h (dW 7, dB 5, B1, 0 failing, kind -)', 'C014_06 g (dW 4, dB 6, B1, 0 failing, kind -)', 'C014_06 h (dW 5, dB 7, B1, 0 failing, kind -)', 'C125_10 h (dW 5, dB 3, B1, 0 failing, kind -)', 'C125_17 h (dW 5, dB 7, B1, 0 failing, kind -)', 'C125_18 h (dW 4, dB 6, B1, 0 failing, kind -)', 'C125_20 a (dW 4, dB 6, B1, 0 failing, kind -)', 'C125_21 h (dW 4, dB 6, B1, 0 failing, kind -)', 'C145_13 h (dW 7, dB 5, B1, 0 failing, kind -)', 'C145_17 h (dW 7, dB 5, B1, 0 failing, kind -)', 'C145_20 h (dW 7, dB 5, B1, 0 failing, kind -)']
+
+necessary conditions tried (clean pairs violating each):
+  dW + dB >= 8: clean violating []; pairs satisfying it 39, clean among them 11
+  dW + dB >= 10: clean violating ['C125_10 h (dW 5, dB 3, B1, 0 failing, kind -)']; pairs satisfying it 28, clean among them 10
+  min(dW, dB) >= 4: clean violating ['C125_10 h (dW 5, dB 3, B1, 0 failing, kind -)']; pairs satisfying it 28, clean among them 10
+  dW >= 4: clean violating []; pairs satisfying it 45, clean among them 11
+
+cells (dW, dB): clean/total
+  (2, 2): 0/2  C014_04 g:15, C125_13 h:15
+  (2, 4): 0/6  C014_05 h:13, C014_10 h:13, C034_01 a:17, C034_02 h:17, C125_05 f:16, C145_09 b:16
+  (3, 3): 0/1  C014_04 h:9
+  (3, 5): 0/4  C125_05 g:13, C125_06 h:7, C125_08 h:10, C145_09 a:13
+  (4, 2): 0/10  C014_01 e:8, C014_08 h:16, C014_09 h:3, C034_01 g:18, C034_02 b:18, C034_03 h:18, C145_07 c:18, C145_09 h:18, C145_18 h:15, C145_22 h:18
+  (4, 6): 4/5  C014_06 g:0, C125_05 h:9, C125_18 h:0, C125_20 a:0, C125_21 h:0
+  (5, 3): 1/7  C014_01 f:4, C034_01 h:5, C034_02 a:5, C125_07 h:5, C125_09 h:10, C125_10 h:0, C145_07 b:5
+  (5, 7): 2/5  C014_06 h:0, C125_02 h:1, C125_17 h:0, C145_19 h:9, C145_24 h:9
+  (6, 4): 0/5  C014_01 g:2, C125_14 h:4, C145_07 a:2, C145_12 g:5, C145_13 g:2
+  (6, 5): 0/1  C145_16 h:3
+  (7, 5): 4/12  C014_01 h:0, C125_03 h:2, C125_04 h:2, C125_12 h:2, C125_22 h:2, C145_12 h:2, C145_13 h:0, C145_15 h:3, C145_17 h:0, C145_20 h:0, C145_23 h:5, C145_25 h:5

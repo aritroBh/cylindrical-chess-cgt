@@ -1,0 +1,216 @@
+K75 FINDINGS: the 48 exact over groups of flat 8x8 beside real pawns on one separated file, in P   (2026-11-26)
+=============================================================================================================
+Brief: kings/delegate/briefs/K75_brief.md.  AI work (one agent), not refereed.  Paths are relative to
+kings/delegate/out/K75/ unless they start with kings/.  Values are White's view: W White wins, L Black wins, D draw.
+Labels: CHECKED-2 (two separately written programs agree), COMPUTED-1, CONJECTURE.  Nothing here is PROVED.
+
+0. SHORT ANSWER
+---------------
+Setup as K72.  Groups: K65's 38 and K67's 10 (K67's search confirmed by one program: "provisional", marked * below).
+Context files (Definition 2.1): files at distance >= 2 from every file of F_Z (White king, both shuttle squares,
+group pawns): 58 (group, file) pairs; 7 groups have no context file (C125_01, 11, 15, 16, 19, 23, C145_21).
+Contexts: at most 1 + 1 pawns on the file, ranks 2-7 (43 contexts, 8 positions each: A b, A w, B b, B w, qA b, qA w,
+qB b, qB w).  Prediction: r(w (+) X) at the roots, r(X) at the q's (X = the file's pawns as a D-game), for (B1) groups
+(Lemma 4.15) and for AUXW groups (no (B1), Aux won: Theorem 4.18 (b), (c), same prediction).  For the three AUXL
+groups with a file (Aux lost: C125_14, C145_19, C014_08*) only Theorem 4.18 (a) is proved (root <= w, q = 0_D; and
+the ladder bound, results of w beside T_0 ... T_(N*-1) only); the table compares with r(w (+) X) and says where a
+root result is below it (inside the bound).  None is above it.
+All P values CHECKED-2: pk (K63 referee) and ref3m (K23 referee's solver, K63 copy), K72's copies with their memory
+guards, agree at all 19,952 positions of the 58 runs, and at the 2 + 2 and 3 + 3 runs below (0 mismatches).
+Predictions CHECKED-2: K72's dpred.py (K63 referee) and my pred75.py (own code, retrograde with counters) agree on
+all 283 contexts of at most 2 + 2 pawns; dpred33.py (dpred.py with the bound raised to 3) and pred75.py agree on all
+583 contexts of at most 3 + 3.
+
+Table (Q1, Q2).  dW = files from the context file to the White king; dA, dB = to the two shuttle squares; kind:
+B = some position is worse for White than predicted (Black's favour), W = better for White (White's favour).
+  group   men class  file dW dA dB  1+1 agree/fail  kind   larger contexts
+  C125_02  6 B1     h   5  7  7   42/1    B     -
+  C125_03  6 B1     h   7  5  5   41/2    B     -        (F2; K63: 271/283 at 2 + 2)
+  C125_04  6 B1     h   7  5  5   41/2    B     -
+  C125_05  7 B1     f   2  4  4   27/16   BW    -        (K72 identical: 27/16)
+  C125_05  7 B1     g   3  5  5   30/13   W     -        (K72 30/13)
+  C125_05  7 B1     h   4  6  6   34/9    W     -        (K72 34/9)
+  C125_06  7 B1     h   3  5  5   36/7    W     -
+  C125_07  7 B1     h   5  3  3   38/5    B     -
+  C125_08  7 B1     h   3  5  5   33/10   W     -        (K72 33/10)
+  C125_09  7 AUXW   h   5  3  3   33/10   B     -
+  C125_10  7 B1     h   5  3  3   43/0    -     2+2: 283/0 (K72 283/0, identical tables)
+  C125_12  7 B1     h   7  5  5   41/2    B     -
+  C125_13  7 AUXW   h   2  3  2   28/15   BW    -
+  C125_14  8 AUXL   h   6  4  4   39/4    B     -        (3 of the 4 fail only at the roots, below w)
+  C125_17  8 B1     h   5  7  7   43/0    -     2+2 does not fit (see 2)
+  C125_18  8 B1     h   4  6  6   43/0    -     2+2 does not fit
+  C125_20  8 B1     a   4  6  6   43/0    -     2+2 does not fit
+  C125_21  8 B1     h   4  6  6   43/0    -     2+2 does not fit
+  C125_22  8 AUXW   h   7  5  5   41/2    B     -
+  C145_07  7 B1     a   6  4  4   41/2    B     -        (K72 41/2)
+  C145_07  7 B1     b   5  3  3   38/5    B     -        (K72 38/5)
+  C145_07  7 B1     c   4  2  2   25/18   B     -        (K72 25/18)
+  C145_09  7 B1     a   3  5  5   30/13   W     -        (K72 30/13)
+  C145_09  7 B1     b   2  4  4   27/16   BW    -        (K72 27/16)
+  C145_09  7 B1     h   4  2  2   25/18   B     -        (K72 25/18)
+  C145_12  7 B1     g   6  4  4   38/5    B     -
+  C145_12  7 B1     h   7  5  5   41/2    B     -        (F1)
+  C145_13  7 B1     g   6  4  4   41/2    B     -
+  C145_13  7 B1     h   7  5  5   43/0    -     2+2: 283/0
+  C145_15  7 B1     h   7  5  5   40/3    BW    -
+  C145_16  7 AUXW   h   6  6  5   40/3    W     -
+  C145_17  8 B1     h   7  5  5   43/0    -     2+2 does not fit
+  C145_18  8 B1     h   4  2  2   28/15   B     -
+  C145_19  8 AUXL   h   5  7  7   34/9    B     -        (all 9 only at the roots, below w)
+  C145_20  8 B1     h   7  5  5   43/0    -     2+2 does not fit
+  C145_22  8 B1     h   4  2  2   25/18   B     -
+  C145_23  8 B1     h   7  5  5   38/5    B     -
+  C145_24  8 AUXW   h   5  7  7   34/9    W     -
+  C145_25  8 AUXW   h   7  5  5   38/5    B     -
+  C014_01  6 B1*    e   4  2  2   35/8    B     -
+  C014_01  6 B1*    f   5  3  3   39/4    B     -
+  C014_01  6 B1*    g   6  4  4   41/2    B     -
+  C014_01  6 B1*    h   7  5  5   43/0    -     2+2: 283/0;  3+3: 583/0
+  C014_04  7 AUXW*  g   2  3  2   28/15   BW    -
+  C014_04  7 AUXW*  h   3  4  3   34/9    W     -
+  C014_05  7 B1*    h   2  4  4   30/13   BW    -
+  C014_06  8 B1*    g   4  6  6   43/0    -     2+2 does not fit
+  C014_06  8 B1*    h   5  7  7   43/0    -     2+2 does not fit
+  C014_08  8 AUXL*  h   4  2  2   27/16   BW    -        (6 of the 16 fail only at the roots, below w)
+  C014_09  8 AUXW*  h   4  2  2   40/3    B     -
+  C014_10  8 B1*    h   2  4  4   30/13   BW    -
+  C034_01  7 B1*    a   2  4  4   26/17   BW    -
+  C034_01  7 B1*    g   4  2  2   25/18   B     -
+  C034_01  7 B1*    h   5  3  3   38/5    B     -
+  C034_02  7 B1*    a   5  3  3   38/5    B     -
+  C034_02  7 B1*    b   4  2  2   25/18   B     -
+  C034_02  7 B1*    h   2  4  4   26/17   BW    -
+  C034_03  8 B1*    h   4  2  2   25/18   B     -
+Totals: 58 pairs, 2,494 contexts; 11 pairs with no failure (10 groups); 427 failing contexts, 1,434 differing
+positions.  K72's 11 pairs: my counts and tables are identical to K72's (same inputs byte for byte).  Translates and
+reflections of one shape (C145_07, C034_01, C034_02) give identical counts at the same relative file, a consistency
+check.  Per position: <group>_<file>_NN_table.txt inside logs/raw_outputs.tar.xz (with every solver output and time -l log); summary lines logs/summary_11.txt, summary_22.txt, summary_33.txt; logs/table_11.txt.
+
+Both colours (Q3, K72's observation): YES on all 58 pairs.  Every one of the 427 failing contexts (and none of the
+contexts at 2 + 2 and 3 + 3 below, which all agree) has pawns of both colours on the file; every one-colour context
+agrees everywhere (CHECKED-2).
+
+Rule (Q3), CONJECTURE (empirical, from this table only).  Let dB = min(dA, dB) (the nearer shuttle square).
+  (R1) White-favour failures occur in every pair with dW <= 3 (13 pairs, no exception); with dW >= 4 only in
+       C125_05 h (dW 4), C145_15 h (7), C145_16 h (6, AUXW), C145_24 h (5, AUXW), C014_08 h (4, AUXL).
+  (R2) Black-favour failures occur in every pair with dB <= 4, except C125_10 h (dB 3) and C014_04 h (dB 3, which
+       fails in White's favour); with dB >= 5 only when dW >= 5 (no exception): C125_02, 03, 04, 12, 22, C145_12 h,
+       15, 19, 23, 25 (10 of the 18 pairs with dB >= 5 and dW >= 5; two more, C145_16 h and C145_24 h, both AUXW, fail for White only).
+  (R3) Hence a clean pair needs dW >= 4 and dB >= 5, with the one exception C125_10 h (dW 5, dB 3).  Conversely:
+       dW = 4 and dB >= 5: 4 of 5 pairs clean (C014_06 g, C125_18, C125_20, C125_21; fails: C125_05 h, White's
+       favour, 9 contexts); dW >= 5 and dB >= 5: 6 of 18 clean (C014_01 h, C014_06 h, C125_17, C145_13 h, C145_17,
+       C145_20).
+  So the simplest rule that holds: "a pair is clean only if the White king is at least 4 files and the nearer
+  shuttle square at least 5 files from the context file (one exception, C125_10 h)".  The simplest sufficient rule
+  tried, "dW = 4 and dB >= 5", has one violator (C125_05 h).  No rule in the two distances alone separates the
+  pairs with dW >= 5 and dB >= 5: identical distances (dW 7, dB 5, Black king on c4/c5 or c5/c6) give 0 failures
+  for C014_01, C145_13, C145_17, C145_20 and 2 to 5 (always Ph2 ph3, Ph2 ph4 first, F2's kind) for C125_03, 04, 12,
+  C145_12, 15, 23, 25, C125_22: the group's pawns decide.  Two tempo counts were tried and do not separate either
+  (section 3): static king-route lengths around the group pawns (src/routes.py) and the speed of each side's
+  punishment beside a race game (src/race.py).
+  (R1') A tempo refinement of (R1), COMPUTED-1 (pk_sum, 24 groups computed): let tau_B be, over the White king
+       moves at a q that step towards the context file, the least r such that Black still wins after the move beside
+       a White chain of r moves to a White terminal (how fast Black punishes the White king's departure; src/race.py).
+       On every computed pair with dW <= 4 and such a move, White-favour failures occur iff tau_B >= 9: tau_B = 8 in
+       the clean C014_06 g, C125_18 h, C125_20 a, C125_21 h; 9 or > 12 in the 10 failing pairs (C125_05 f, g, h,
+       C125_06, C125_08, C145_09 a, b, C034_01 a, C034_02 h, C014_05 h).  This separates the cell dW = 4, dB >= 5
+       (C125_05 h: tau_B > 12).  No such count was found for Black's raids (section 3).
+  Reading of the rule: the White king within 3 files leaves its zugzwang and wins a Black pawn (K72's kind b);
+  the Black king within 4 files leaves the shuttle and wins or ties down a White pawn (kind a); a far White king
+  (>= 5 files) cannot come back to defend a blocked White rank-2 pawn (F2's kind).  dW = 4 is close enough to
+  defend and too far to raid.
+
+Quotable statements (Q4), CHECKED-2 (both solvers, both predictors):
+  - "Of the 48 exact over groups of flat 8x8 (41 with a separated file), 10 have a context file on which, beside
+    every context of at most one White and one Black pawn (43 contexts, both roots and both q's, either side to move),
+    the result in P is the one that omega predicts; on 47 of the 58 (group, file) pairs some such context fails, and
+    every failing context has pawns of both colours."
+  - "Beside every context of at most 3 + 3 pawns on file h (583 contexts, 4,664 positions), the group
+    Ka5 kc4/kc5 Pa4 Pa6 Pb2 pa7 (C014_01, freezes b2-b4 at c4 and b2-b3 at c5) has the results that omega predicts."
+    (Its search, K67, is confirmed by one program; Definition 4.8 and (B1) are CHECKED-2 there.  Not exact in chess.)
+  - "Beside every context of at most 2 + 2 pawns on file h (283 contexts, 2,264 positions), the group
+    Ka5 kc5/kc6 Pb2 Pe5 Pe6 pb7 pe7 (C145_13; freezes b2-b3 at c5, b2-b4 at c6) has the results that omega predicts."
+  - "Beside every context of at most 2 + 2 pawns on file h, Kc5 ke5/ke6 Pb6 Pf2 Pf6 pb7 pf7 (C125_10), the only one
+    of the five chess-exact groups with this property, has the results that omega predicts" (K72's result, reproduced
+    with identical tables).
+  - Eight-man pairs with no failure at 1 + 1 (largest size that fits, see 2): C125_17 h, C125_18 h, C125_20 a,
+    C125_21 h, C145_17 h, C145_20 h, C014_06 g and h.
+
+1. RUNS AND MEMORY
+------------------
+Programs (src/): pk.cpp, ref3m.cpp, ref3pv.cpp, dpred.py, classify.py: K72's copies, unchanged.  pk_sum.cpp: the K65
+referee's, unchanged (for race.py / slack.py only).  Mine: groups.py (group table from the ax65 logs of K65's referee
+and K67), gen.py (K72's generator reading in/groups48.txt; reproduces K72's inputs byte for byte; option "split":
+two problems separated by a blank line, contexts with no White pawn above a Black pawn first, used for the seven
+largest eight-man groups), pred75.py, dpred33.py, cmp.py, run.sh, watch.sh (K72's), analyze.py, pick_lines.py,
+routes.py, race.py, race.sh, slack.py, slack.sh.
+Measured first: C125_02 h (6 men) 8 s / 0.06 GB; C125_12 h (7 men, the largest of the short set) 20 s / 0.19 GB;
+C145_25 h (8 men) one problem = 241,764 configurations, refused by pk's guard (2.00 GB): split.  32 pairs (groups of
+at most 528 configurations) ran directly, one at a time, under watch.sh (each < 25 s, < 0.2 GB); the other 26, the
+2 + 2 and 3 + 3 runs, the line run and the large race runs went through kings/delegate/heavy.sh under watch.sh
+(/usr/bin/time -l, the solver's own PID recorded in pids.log, 5 polls a second, kill at 2.0 GB).  The watchdog never
+fired.  Peak RSS: 1.72 GB (ref3m, C145_25 h split; pk 1.68 GB); 2 + 2: 1.10 GB (C145_13); 3 + 3: 1.11 GB (C014_01 h,
+134,090 configurations); ref3pv line run 1.99 GB max resident (its own guard stopped it, exit 3, at 1.94 GB polled,
+below the watchdog's 2.0 GB; see 3).
+Why 2 + 2 does not fit for the eight-man clean pairs: at 2 + 2 a seven-man group needs about 270 times its own
+configurations (C145_13: 476 -> 134,708, 1.1 GB); the eight-man clean groups have 1,260 to 3,772 (C125_20, 21: 1,260
+-> about 340,000, 2.8 GB in one problem; split by the order of the colours on the file the largest part keeps about
+60 per cent, 1.7 to 1.9 GB, too near the 2 GB limit for ref3m).  Not run.  So 1 + 1 is the largest size tested for them.
+Solver time: about 3.3 h (1 + 1: 58 pairs x 2 solvers; 2 + 2: 3 pairs; 3 + 3: 1 pair; lines; race and slack).
+
+2. FAILURES: MECHANISMS (COMPUTED-1, ref3pv lines; logs/lines_11.out, logs/mech_11.txt)
+--------------------------------------------------------------------------------------
+One line per failing context, at most 3 per pair, for the 25 failing pairs of at most seven men that K72 did not
+already explain (67 positions; ref3pv stopped at its own 2 GB guard in C014_04 h, so 55 lines were classified; the
+pairs C125_13, C145_15, C145_16 have no line).  Of the 55: P = L 32 (the Black king captures a pawn on or beside the
+context file in 9; in 23 no context pawn is taken and a Black group pawn queens: the Black king's walk towards the
+blocked White pawn draws the White king away from the group); P = W 11 (the White king takes a Black context pawn in
+7: h3, h4, g3, a7, a2 ...; a White group pawn queens without it in 4); P = D 9 (blocked pairs, e.g. Ph2 ph3).  These
+are K72's two kinds.  The lines are the solver's (winner: child resolved first; loser: last), not plans.
+
+3. TEMPO COUNTS TRIED (COMPUTED-1, pk_sum only)
+-----------------------------------------------
+- slack.py (logs/slack.txt, 23 groups): the largest k with White still winning x_m beside -k: >= 8 at nearly every
+  Black king move towards the context; not related to the failures.
+- race.py (logs/race.txt, 24 groups: all of at most 528 configurations plus C014_05, C014_06, C125_18, C125_20, C125_21, C145_22;
+  KMAX 12): tau_W(m) = the least r such that White wins x_m beside a Black chain of r moves to a Black terminal;
+  tau_B likewise for White's bad moves.  For Black's raids (tau_W at Black king moves towards the file): 6 to 8 or
+  > 12, the same values in clean and failing pairs (C125_10 h 6 clean, C125_07 h 7 failing; C145_13 h 8 clean,
+  C125_03 h 8 failing): no separation.  For White's raids (tau_B at q moves of the White king towards the file) it
+  separates, (R1') above.
+- routes.py (logs/routes.txt): static king-route lengths to the context file (group pawns and their attacks as
+  obstacles).  The three eight-man pairs in which the Black king cannot reach the file at all (C014_06 g, h,
+  C125_17 h) are clean, but equal routes give different outcomes elsewhere (C125_05 h and C125_18/20/21: Black 8,
+  White 4 in all four; C125_05 h fails).
+So the rule above is in file distances only, with its exceptions; no tempo count separates the dW >= 5, dB >= 5 pairs.
+
+4. NOT COVERED
+--------------
+- 2 + 2 for the eight eight-man clean pairs (memory, section 1); 3 + 3 only for C014_01 h.
+- Contexts on two files; buffer files; chess (9+ men).  K67's ten groups rest on a search confirmed by one program.
+- Lines for the eight-man pairs and for C125_13, C145_15, C145_16; mechanism labels are COMPUTED-1 samples.
+- Not refereed.  K72 is being refereed; where my counts touch K72's they are identical.
+
+5. PROCESS NOTES (against or near the rules)
+--------------------------------------------
+- One measurement run was started directly and ran longer than 30 s: the first split test of C145_25 h (one problem
+  per context; pk, 141 s, 0.30 GB, under watch.sh).  I stopped it myself (kill of its own recorded solver PID 69941,
+  pids.log); its output was not used.  The direct race and slack runs were each under 25 s and 0.11 GB.
+- I stopped my own first heavy chain (PIDs 4784, 4789, both mine, recorded) before any solver ran, to restart it with
+  split inputs for the seven largest groups.
+- From about 00:05 to 02:35 my heavy chain held one of the two slots almost without a gap (heavy.sh hands the slot to
+  whoever asks first, and my chain asked again at once); the other slot held another agent's r48 search the whole
+  time.  For about 10 minutes (00:28-00:37) my 2 + 2 chain held the second slot too.
+- The ref3pv line run stopped at its own memory guard (exit 3, 1.99 GB maximum resident by time -l, 1.94 GB polled),
+  not by the watchdog (2.0 GB).
+- Nothing written outside this folder; tmp/ and bin/ deleted; no git command; no network.
+
+6. FILES
+--------
+findings.txt, EDITS.md, pids.log; in/groups48.txt (the 48 groups), in.tar.xz (every input: .pos, .names, slack and
+race inputs); src/ (programs above); logs/: summary_11.txt, summary_22.txt, summary_33.txt, table_11.txt, dpred.txt,
+dpred33.txt, pred75_22.txt, pred75_33.txt, mech_11.txt, race.txt, slack.txt, routes.txt, chain_*.log,
+raw_outputs.tar.xz (solver outputs, time logs, per-pair tables, the ref3pv lines), race_slack_raw.tar.xz.
+slack.sh and race.sh read their split inputs from tmp/sl, tmp/rc (made from in/slack.pos, in/race.pos by splitting at
+blank lines; deleted at the end).

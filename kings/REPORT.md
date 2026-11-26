@@ -563,6 +563,13 @@ Every deliverable was given to independent referees (Claude models) told to brea
     breaks the mutual zugzwang after the freeze), or a context pawn takes a buffer square from a group king. No
     theorem is contradicted: the theorems are about D-sums with an abstract game, and the kings are not kept
     apart by the buffer file (`kings/delegate/out/K72/REVIEW.md`).
+  - K75 (2026-11-26, refereed by K76): the same test on all 48 groups, every separated file (58 group and file
+    pairs), contexts of at most one pawn a side. Eleven pairs (ten groups) have the predicted result
+    everywhere; the other 47 fail somewhere, always with pawns of both colours on the file (three solvers agree
+    on all 19,952 positions). Six pairs stay clean beside all 729 pawn placements on the file (one program):
+    C014_01, C145_13, C145_17, C145_20 and C125_21 on h, C125_20 on a. Every clean pair has the White king at
+    least four files from the context file, but distances do not decide: of twelve pairs with the same two
+    distances four are clean and eight fail. No rule is conjectured (`kings/delegate/out/K75/REVIEW.md`).
   - Theorem 1.11(c) repaired (2026-11-23): its proof used the e.p. condition (E) without assuming it, and its frontier
     step used an unproved inheritance of threats by re-split components. (E) is now a hypothesis (every use already had
     it through Theorem 1.14), and the inheritance is proved. Found while the paper's proofs appendix was written and
