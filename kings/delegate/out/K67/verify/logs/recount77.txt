@@ -1,0 +1,40 @@
+{a,b,e}  p45a (4018737400, 1320170800, 895942831, 424206769, 385255761, 10)
+         r48  (4018737400, 1320170800, 895942831, 424206769, 385255761, 10)  counters EQUAL; hits p45a 10, r48 10, same set
+{a,d,e}  p45a (3992135379, 1302596389, 885042479, 417540383, 377285211, 3)
+         r48  (3992135379, 1302596389, 885042479, 417540383, 377285211, 3)  counters EQUAL; hits p45a 3, r48 3, same set
+{b,c,f}  p45a (3712376700, 1215931963, 818915105, 396988830, 362409110, 23)
+         r48  (3712376700, 1215931963, 818915105, 396988830, 362409110, 23)  counters EQUAL; hits p45a 23, r48 23, same set
+{b,e,f}  p45a (3718505519, 1217644122, 820498702, 397118871, 362051648, 25)
+         r48  (3718505519, 1217644122, 820498702, 397118871, 362051648, 25)  counters EQUAL; hits p45a 25, r48 25, same set
+K65 classes: 38 distinct, 26 shapes
+K67 classes: 13 distinct; 10 not among K65's; in both K67 classes 0
+four classes: 48 distinct, 27 up to reflection and file translation
+  6 men: 5 groups, 4 shapes; new groups 1, new shapes 1
+  7 men: 19 groups, 10 shapes; new groups 4, new shapes 0
+  8 men: 24 groups, 13 shapes; new groups 5, new shapes 0
+  {a,b,e}: 10, also in another class 3
+  {a,d,e}: 3, also in another class 0
+  {b,c,f}: 23, also in another class 10
+  {b,e,f}: 25, also in another class 13
+new groups (not in K65's 38):
+  Ka5 kc4/kc5 Pa4 Pa6 Pb2 pa7                  men 6 pawns 3+1  {a,b,e}  NEW SHAPE
+  Kc4 ka4/ka5 Pb2 Pb5 Pe6 pa7 pb6 pe7          men 8 pawns 3+3  {a,b,e}  known shape: Kd4 kb4/kb5 Pc2 Pc5 Pf6 pb7 pc6 pf7; Kd4 kf4/kf5 Pb6 Pe2 Pe5 pb7 pe6 pf7
+  Kc4 ke4/ke5 Pd2 Pd5 Pe6 pd6 pe7              men 7 pawns 3+2  {a,d,e}  known shape: Kd4 kb4/kb5 Pb6 Pc2 Pc5 pb7 pc6; Kd4 kf4/kf5 Pe2 Pe5 Pf6 pe6 pf7; Kg4 ke4/ke5 Pe6 Pf2 Pf5 pe7 pf6
+  Kd4 kf4/kf5 Pa6 Pe2 Pe5 pa7 pd7 pe6          men 8 pawns 3+3  {a,d,e}  known shape: Kc4 ka4/ka5 Pb2 Pb5 Pf6 pb6 pc7 pf7; Ke4 kg4/kg5 Pb6 Pf2 Pf5 pb7 pe7 pf6
+  Kd5 kf4/kf5 Pa2 Pb3 Pe2 pa5 pb4 pe5          men 8 pawns 3+3  {a,b,e}  known shape: Kc5 ka4/ka5 Pb2 Pe3 Pf2 pb5 pe4 pf5; Ke5 kg4/kg5 Pb2 Pc3 Pf2 pb5 pc4 pf5
+  Kd5 kf5/kf6 Pb3 Pe2 Pe6 pa7 pb6 pe7          men 8 pawns 3+3  {a,b,e}  known shape: Kc5 ka5/ka6 Pb2 Pb6 Pe3 pb7 pe6 pf7; Ke5 kg5/kg6 Pc3 Pf2 Pf6 pb7 pc6 pf7
+  Ke6 kd8/ke8 Pb5 Pe2 pa7 pb6 pe7              men 7 pawns 2+3  {a,b,e}  known shape: Kb6 kb8/kc8 Pb2 Pe5 pb7 pe6 pf7; Kf6 ke8/kf8 Pc5 Pf2 pb7 pc6 pf7
+  Kf4 kd4/kd5 Pd6 Pe2 Pe5 pd7 pe6              men 7 pawns 3+2  {a,d,e}  known shape: Kd4 kb4/kb5 Pb6 Pc2 Pc5 pb7 pc6; Kd4 kf4/kf5 Pe2 Pe5 Pf6 pe6 pf7; Kg4 ke4/ke5 Pe6 Pf2 Pf5 pe7 pf6
+  Kf5 kd5/kd6 Pb5 Pe2 Pe6 pa7 pb6 pe7          men 8 pawns 3+3  {a,b,e}  known shape: Kg5 ke5/ke6 Pc5 Pf2 Pf6 pb7 pc6 pf7
+  Kf5 kd5/kd6 Pb5 Pe2 Pe6 pa7 pe7              men 7 pawns 3+2  {a,b,e}  known shape: Kg5 ke5/ke6 Pc5 Pf2 Pf6 pb7 pf7
+K67 hits already in K65:
+  Ka4 kc4/kc5 Pb2 Pe4 Pe5 pb6 pe6
+  Ka5 kc5/kc6 Pb2 Pe5 Pe6 pb7 pe7
+  Kd4 kf4/kf5 Pb4 Pb5 Pe2 pb6 pe6 pe7
+2+2 or 3+1 etc. (6 men) groups:
+  Ka4 kc4/kc5 Pb2 Pf5 pb6 pf6  shape-mates 1
+  Ka5 kc4/kc5 Pa4 Pa6 Pb2 pa7  shape-mates 1
+  Ka5 kc5/kc6 Pb2 Pf6 pb7 pf7  shape-mates 1
+  Kc5 ka4/ka5 Pb2 Pf3 pb5 pf4  shape-mates 2
+  Ke5 kg4/kg5 Pb3 Pf2 pb4 pf5  shape-mates 2
+ALL CHECKS OK

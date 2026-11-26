@@ -1,0 +1,33 @@
+p45a {a,b,e}: 10 exact over groups
+p45a {a,d,e}: 3 exact over groups
+p45a {b,c,f}: 23 exact over groups
+p45a {b,e,f}: 25 exact over groups
+r48 {a,b,e}: 10 hits, same set as p45a: True
+r48 {a,d,e}: 3 hits, same set as p45a: True
+K65 (two classes): 38 distinct; K67 classes: 13 distinct, 10 of them not among K65's 38; in both K67 classes: 0
+four classes: 48 distinct groups, 27 up to reflection and file translation
+new shapes (not a reflection/translation of a K65 group): 1
+  men 6: 5 groups (1 new), 4 shapes (1 new shapes)
+  men 7: 19 groups (4 new), 10 shapes (0 new shapes)
+  men 8: 24 groups (5 new), 13 shapes (0 new shapes)
+per class: groups also in another class:
+  {a,b,e} 10, of which also in another of the four classes 3
+  {a,d,e} 3, of which also in another of the four classes 0
+  {b,c,f} 23, of which also in another of the four classes 10
+  {b,e,f} 25, of which also in another of the four classes 13
+new groups:
+  C014_01  Ka5 kc4/c5 Pa4 Pa6 Pb2 pa7  men 6  new shape  
+  C014_02  Ka4 kc4/c5 Pb2 Pe4 Pe5 pb6 pe6  men 7  shape known from K65  K65 group
+  C014_03  Ka5 kc5/c6 Pb2 Pe5 Pe6 pb7 pe7  men 7  shape known from K65  K65 group
+  C014_04  Ke6 kd8/e8 Pb5 Pe2 pa7 pb6 pe7  men 7  shape known from K65  
+  C014_05  Kf5 kd5/d6 Pb5 Pe2 Pe6 pa7 pe7  men 7  shape known from K65  
+  C014_06  Kc4 ka4/a5 Pb2 Pb5 Pe6 pa7 pb6 pe7  men 8  shape known from K65  
+  C014_07  Kd4 kf4/f5 Pb4 Pb5 Pe2 pb6 pe6 pe7  men 8  shape known from K65  K65 group
+  C014_08  Kd5 kf4/f5 Pa2 Pb3 Pe2 pa5 pb4 pe5  men 8  shape known from K65  
+  C014_09  Kd5 kf5/f6 Pb3 Pe2 Pe6 pa7 pb6 pe7  men 8  shape known from K65  
+  C014_10  Kf5 kd5/d6 Pb5 Pe2 Pe6 pa7 pb6 pe7  men 8  shape known from K65  
+  C034_01  Kc4 ke4/e5 Pd2 Pd5 Pe6 pd6 pe7  men 7  shape known from K65  
+  C034_02  Kf4 kd4/d5 Pd6 Pe2 Pe5 pd7 pe6  men 7  shape known from K65  
+  C034_03  Kd4 kf4/f5 Pa6 Pe2 Pe5 pa7 pd7 pe6  men 8  shape known from K65  
+10 groups to classify -> in/groups_new.txt
+r48 {b,e,f} (K65 referee's run, read only): 25 hits, same set as p45a {b,e,f}: True (src/census.py with that file in the r48 slot)

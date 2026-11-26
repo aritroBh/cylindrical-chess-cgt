@@ -1,0 +1,24 @@
+C014_08  Kd5 kf4 Pa2 Pb3 Pe2 pa5 pb4 pe5  /f5
+  def48 ref3m: PASS ref3m
+  def48 kpp: PASS kpp
+  ax65: DEFINITION 4.8 (over): exact (0 failures)
+  ax65: (B1): 12 non-shuttle Black root moves, 1 not a White win beside -1
+  ax65: ladder layers stable from T_5 on (layer T_6 equals T_5 bit for bit)
+  ax65: stable ladder layer equals the Aux layer: yes
+  kf4e3@f4       x_m=Kd5 ke3 Pa2 Pe2 Pb3 pb4 pa5 pe5 w -      B1 ax65=W pk_sum=W(W)  Aux ax65=W pk_sum=W(W)  ladder(ax65): White wins beside every T_N computed
+  kf4g3@f4       x_m=Kd5 kg3 Pa2 Pe2 Pb3 pb4 pa5 pe5 w -      B1 ax65=W pk_sum=W(W)  Aux ax65=W pk_sum=W(W)  ladder(ax65): White wins beside every T_N computed
+  kf4g4@f4       x_m=Kd5 kg4 Pa2 Pe2 Pb3 pb4 pa5 pe5 w -      B1 ax65=W pk_sum=W(W)  Aux ax65=W pk_sum=W(W)  ladder(ax65): White wins beside every T_N computed
+  kf4g5@f4       x_m=Kd5 kg5 Pa2 Pe2 Pb3 pb4 pa5 pe5 w -      B1 ax65=W pk_sum=W(W)  Aux ax65=W pk_sum=W(W)  ladder(ax65): White wins beside every T_N computed
+  pa5a4@f4       x_m=Kd5 kf4 Pa2 Pe2 Pb3 pa4 pb4 pe5 w -      B1 ax65=W pk_sum=W(W)  Aux ax65=W pk_sum=W(W)  ladder(ax65): White wins beside every T_N computed
+  pe5e4@f4       x_m=Kd5 kf4 Pa2 Pe2 Pb3 pb4 pe4 pa5 w -      B1 ax65=N pk_sum=N(L)  Aux ax65=N pk_sum=N(D)  ladder(ax65): first T_N not won: N = 2
+  kf5g4@f5       x_m=Kd5 kg4 Pa2 Pe2 Pb3 pb4 pa5 pe5 w -      B1 ax65=W pk_sum=W(W)  Aux ax65=W pk_sum=W(W)  ladder(ax65): White wins beside every T_N computed
+  kf5g5@f5       x_m=Kd5 kg5 Pa2 Pe2 Pb3 pb4 pa5 pe5 w -      B1 ax65=W pk_sum=W(W)  Aux ax65=W pk_sum=W(W)  ladder(ax65): White wins beside every T_N computed
+  kf5f6@f5       x_m=Kd5 kf6 Pa2 Pe2 Pb3 pb4 pa5 pe5 w -      B1 ax65=W pk_sum=W(W)  Aux ax65=W pk_sum=W(W)  ladder(ax65): White wins beside every T_N computed
+  kf5g6@f5       x_m=Kd5 kg6 Pa2 Pe2 Pb3 pb4 pa5 pe5 w -      B1 ax65=W pk_sum=W(W)  Aux ax65=W pk_sum=W(W)  ladder(ax65): White wins beside every T_N computed
+  pa5a4@f5       x_m=Kd5 kf5 Pa2 Pe2 Pb3 pa4 pb4 pe5 w -      B1 ax65=W pk_sum=W(W)  Aux ax65=W pk_sum=W(W)  ladder(ax65): White wins beside every T_N computed
+  pe5e4@f5       x_m=Kd5 kf5 Pa2 Pe2 Pb3 pb4 pe4 pa5 w -      B1 ax65=W pk_sum=W(W)  Aux ax65=W pk_sum=W(W)  ladder(ax65): White wins beside every T_N computed
+  bad moves 12, (B1) fails at 1, Aux lost at 1, disagreements ax65/pk_sum 0
+  pk_sum ladder at pe5e4@f4 beside T_0: x_m W, root f4 (Black to move) W, root f5 W
+  pk_sum ladder at pe5e4@f4 beside T_1: x_m W, root f4 (Black to move) W, root f5 W
+  pk_sum ladder at pe5e4@f4 beside T_2: x_m L, root f4 (Black to move) L, root f5 W
+  => N* at pe5e4@f4 = 2 (pk_sum); ax65: first T_N not won: N = 2

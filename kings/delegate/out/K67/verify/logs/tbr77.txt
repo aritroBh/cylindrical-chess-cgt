@@ -1,0 +1,74 @@
+C014_01 Ka5 Pa4 Pa6 Pb2 pa7 kc4/kc5: exact over group in chess: no
+  root c4 Black to move: draw  non-losing Black moves ['c4d4', 'c4c5', 'c4d5']
+  root c4 White to move: draw  non-losing White moves (chess freezes) ['b2b4']
+    q after b2b4 (c4), Black to move: draw  non-losing ['c4d4', 'c4d5']
+    q after b2b4 (c4), White to move: loss  non-losing []
+  root c5 Black to move: draw  non-losing Black moves ['c5c4', 'c5d4', 'c5d5', 'c5c6', 'c5d6']
+  root c5 White to move: draw  non-losing White moves (chess freezes) ['b2b3']
+    q after b2b3 (c5), Black to move: draw  non-losing ['c5d4', 'c5d5', 'c5c6', 'c5d6']
+    q after b2b3 (c5), White to move: loss  non-losing []
+    - O1 fails at c4: c4d4,c4d5
+    - O3 fails after b2b4 at c4
+    - O1 fails at c5: c5d4,c5d5,c5c6,c5d6
+    - O3 fails after b2b3 at c5
+C014_04 Ke6 Pb5 Pe2 pa7 pb6 pe7 kd8/ke8: exact over group in chess: no
+  root d8 Black to move: win   non-losing Black moves ['d8c7', 'a7a6', 'a7a5', 'd8c8', 'd8e8']
+  root d8 White to move: loss  non-losing White moves (chess freezes) []
+  root e8 Black to move: win   non-losing Black moves ['e8d8']
+  root e8 White to move: draw  non-losing White moves (chess freezes) ['e2e4']
+    q after e2e4 (e8), Black to move: draw  non-losing ['e8d8']
+    q after e2e4 (e8), White to move: loss  non-losing []
+    - O1 fails at d8: d8c7,a7a6,a7a5,d8c8
+    - O2: no non-losing White move at d8
+    - O3 fails after e2e4 at e8
+C014_05 Kf5 Pb5 Pe2 Pe6 pa7 pe7 kd5/kd6: exact over group in chess: no
+  root d5 Black to move: loss  non-losing Black moves []
+  root d5 White to move: win   non-losing White moves (chess freezes) ['e2e3', 'e2e4', 'f5f4', 'f5g5', 'f5g6']
+    q after e2e3 (d5), Black to move: loss  non-losing []
+    q after e2e3 (d5), White to move: draw  non-losing ['e3e4', 'f5f4', 'f5g5', 'f5g6']
+  root d6 Black to move: loss  non-losing Black moves []
+  root d6 White to move: win   non-losing White moves (chess freezes) ['e2e4', 'e2e3', 'f5e4', 'f5f4', 'f5g5', 'f5g6']
+    q after e2e4 (d6), Black to move: loss  non-losing []
+    q after e2e4 (d6), White to move: draw  non-losing ['e4e5', 'f5f4']
+    - O4 fails after e2e3 at d5
+    - O4: q after e2e4 at d5 with White to move is illegal
+    - O4 fails after e2e4 at d6
+C034_01 Kc4 Pd2 Pd5 Pe6 pd6 pe7 ke4/ke5: exact over group in chess: YES
+  root e4 Black to move: loss  non-losing Black moves []
+  root e4 White to move: win   non-losing White moves (chess freezes) ['d2d4']
+    q after d2d4 (e4), Black to move: loss  non-losing []
+    q after d2d4 (e4), White to move: loss  non-losing []
+  root e5 Black to move: loss  non-losing Black moves []
+  root e5 White to move: win   non-losing White moves (chess freezes) ['d2d3']
+    q after d2d3 (e5), Black to move: loss  non-losing []
+    q after d2d3 (e5), White to move: loss  non-losing []
+C034_02 Kf4 Pd6 Pe2 Pe5 pd7 pe6 kd4/kd5: exact over group in chess: YES
+  root d4 Black to move: loss  non-losing Black moves []
+  root d4 White to move: win   non-losing White moves (chess freezes) ['e2e4']
+    q after e2e4 (d4), Black to move: loss  non-losing []
+    q after e2e4 (d4), White to move: loss  non-losing []
+  root d5 Black to move: loss  non-losing Black moves []
+  root d5 White to move: win   non-losing White moves (chess freezes) ['e2e3']
+    q after e2e3 (d5), Black to move: loss  non-losing []
+    q after e2e3 (d5), White to move: loss  non-losing []
+C034_01 = C145_07 reflected and moved [1] file(s); plain translate: no
+C034_02 = C145_09 reflected and moved [1] file(s); plain translate: no
+the 7 chess-exact groups fall into 2 shapes: C125_05, C145_07, C145_09, C034_01, C034_02 | C125_08, C125_10
+positions needed but not in the cache: 17
+    8/p3p3/4P3/1P1k1K2/4P3/8/8/8 b - - 0 1
+    8/p3p3/4P3/1P1k4/5K2/8/4P3/8 b - - 0 1
+    8/p3p3/4P3/1P1k4/5K2/8/4P3/8 w - - 0 1
+    8/p3p3/4P3/1P1k2K1/8/8/4P3/8 b - - 0 1
+    8/p3p3/4P3/1P1k2K1/8/8/4P3/8 w - - 0 1
+    8/p3p3/4P1K1/1P1k4/8/8/4P3/8 b - - 0 1
+    8/p3p3/4P1K1/1P1k4/8/8/4P3/8 w - - 0 1
+    8/p3p3/3kP3/1P3K2/8/4P3/8/8 b - - 0 1
+    8/p3p3/3kP3/1P3K2/8/4P3/8/8 w - - 0 1
+    8/p3p3/3kP3/1P6/4K3/8/4P3/8 b - - 0 1
+    8/p3p3/3kP3/1P6/4K3/8/4P3/8 w - - 0 1
+    8/p3p3/3kP3/1P6/5K2/8/4P3/8 b - - 0 1
+    8/p3p3/3kP3/1P6/5K2/8/4P3/8 w - - 0 1
+    8/p3p3/3kP3/1P4K1/8/8/4P3/8 b - - 0 1
+    8/p3p3/3kP3/1P4K1/8/8/4P3/8 w - - 0 1
+    8/p3p3/3kP1K1/1P6/8/8/4P3/8 b - - 0 1
+    8/p3p3/3kP1K1/1P6/8/8/4P3/8 w - - 0 1

@@ -1,0 +1,119 @@
+K67 FINDINGS: the other two file classes of the known shape on flat 8x8   (2026-11-25/26)
+=========================================================================================
+Brief: kings/delegate/briefs/K67_brief.md.  AI work (one agent), not refereed.  Paths are relative to kings/delegate/out/K67/
+unless they start with kings/.  Labels: KNOWN (tablebase), CHECKED-2 (two separately written programs agree), COMPUTED-1.
+
+0. SHORT ANSWER
+---------------
+Census (flat 8x8, ranks 2-7, <= 3 + 3 pawns, every king placement; exact over groups of Definition 4.8, promotion game P):
+
+  class    placements      exact  in another class  label (search)
+  {a,b,e}  4,018,737,400     10          3          CHECKED-2 (p45a = r48 on every counter and hit; K67)
+  {a,d,e}  3,992,135,379      3          0          CHECKED-2 (K67)
+  {b,c,f}  3,712,376,700     23         10          CHECKED-2 (K65)
+  {b,e,f}  3,718,505,519     25         13          CHECKED-2 (p45a K65; r48 by the K65 referee, read here: same 25)
+  Four classes: 48 distinct groups, 27 up to reflection and file translation.
+  By men: 6 men 5 groups (4 shapes), 7 men 19 groups (10 shapes), 8 men 24 groups (13 shapes).
+  New in K67: 10 groups (the other 3 {a,b,e} hits are K65's C145_12 = F1, C145_13, C145_22, with pawns on b and e only).
+  Only 1 new shape: C014_01 `Ka5 kc4/kc5 Pa4 Pa6 Pb2 pa7` (3 + 1 pawns, 6 men; freezes b2-b4 at c4, b2-b3 at c5).
+  The other 9 new groups are reflections or translates of K65 shapes, placed in other positions.
+
+Classification of the 10 new groups (every value CHECKED-2: ax65 and pk_sum agree at every bad move, 0 disagreements;
+Definition 4.8 again by def48.py from ref3m and from kp_p, and by ax65, all PASS):
+  (B1) at every bad move ............................. 7  C014_01, 05, 06, 10; C034_01, 02, 03
+  (B1) fails, Aux won at every failing move .......... 2  C014_04 (...Ke8-f8), C014_09 (...b6-b5 at both roots)
+  Aux lost at one bad move ........................... 1  C014_08 `Kd5 kf4/kf5 Pa2 Pb3 Pe2 pa5 pb4 pe5` at ...e5-e4 (f4 root):
+       x_m (+) u_0 W beside T_0, T_1, L beside T_2 (pk_sum; ax65: not won from T_2): N* = 2; root f4, Black to move, L
+       beside T_2.  So C014_08 has the results of omega beside T_0 and T_1 only.
+  NO group with N* >= 4.  No new N* = 3.
+  All 48 groups: (B1) 34; (B1) fails but Aux won (results of omega by Thm 4.18) 9; Aux lost 5 (N* = 3 once, 2 four times).
+
+Chess (Syzygy tablebase via realchess/probe.py, 40 requests of the cap of 150; KNOWN).  5 new groups have <= 7 men:
+  C034_01 `Kc4 ke4/ke5 Pd2 Pd5 Pe6 pd6 pe7`   YES, an exact over group in chess
+  C034_02 `Kf4 kd4/kd5 Pd6 Pe2 Pe5 pd7 pe6`   YES
+  C014_01 `Ka5 kc4/kc5 Pa4 Pa6 Pb2 pa7`       no  (roots drawn; Black has other drawing moves; q's with Black to move draw)
+  C014_04 `Ke6 kd8/ke8 Pb5 Pe2 pa7 pb6 pe7`   no  (root d8: White to move loses, Black to move wins; q's Black to move not lost)
+  C014_05 `Kf5 kd5/kd6 Pb5 Pe2 Pe6 pa7 pe7`   no  (White also wins by other moves at the roots; q's White to move draw)
+  C034_01 is K65's chess-exact C145_07 `Kg4 ke4/ke5 Pe6 Pf2 Pf5 pe7 pf6` reflected and moved one file.  C034_02 is
+  C145_09 `Kd4 kf4/kf5 Pe2 Pe5 Pf6 pe6 pf7` reflected and moved one file.  So with K65: 7 of the 24 groups with <= 7 men in
+  the four classes are exact over groups in chess, but only in 5 shapes.
+
+1. PROGRAMS, REGRESSION, PROCESS
+--------------------------------
+- src/p45a.cpp: K65's copy with ONE change, a memory guard (marked K67) that sizes the table and work arrays before
+  allocating and exits over 2.0 GB.  The guard estimated 1.21 GB on 8x8 3+3.  r48, ref3m, kp_p10, def48.py (K65 copies),
+  ax65 and pk_sum (K65 referee copies) are unchanged apart from a header line.  hits.py, cmp_p1.py, recount.py and
+  cmp_freezes.py are copies; recount.py's logic is reused in src/census.py.  tb67.py is tb65.py with its own folder,
+  cache and ledger and the group list as an argument (changes marked K67).
+- Regression before the long runs:
+  - p45a on flat 8x7 {b,c,f} 3+3 gave 785,481,597 / 243,614,537 / 176,100,018 / 67,502,437 / 62,013,700 / 3, hits F2, F3,
+    F4 (equal to K59 and K65).
+  - r48 on flat 8x8 {b,c,f} 2+2 gave 180,865,972 / 59,480,914 / 33,483,229 / 25,994,925 / 22,957,722 / 4 (equal to K65).
+- Pipeline check before the new groups: classify.py on K65's C125_15 gives N* = 3 at ...Ke5-e4 from both ax65 and pk_sum
+  (W at T_0, T_1, T_2, D at T_3; root e5 D at T_3), as the K65 referee found.
+- Every run went through kings/delegate/heavy.sh under /usr/bin/time -l (src/run.sh).  The watchdog src/wd.sh polled every
+  0.1 s, from one ps snapshot, every descendant of my own recorded heavy.sh or def48.py PID.  It would kill that one PID
+  at 2.0 GB and write logs/STOP; every chain refuses to start a run while STOP exists.  It was self-tested with a lowered
+  limit (it killed a 110 MB test process).  No real run was killed.
+- A mistaken early hand-back stopped the first p45a {a,b,e} run after 2 min (17:27; my own PIDs 68036 and 51025, in
+  pids.log).  Its partial logs were deleted and the run was redone from the start.
+
+2. SEARCH TABLE (counters: placements, (O1), promotion freeze, (O1)+(O2), loose, exact)
+-------------------------------------------------------------------------------------
+  {a,b,e} files 0,1,4  A (4018737400, 1320170800, 895942831, 424206769, 385255761, 10)  R (same six), same 10 hits  CHECKED-2
+          A 2911 s, 0.64 GB;  R 14559 s, 1.04 GB
+  {a,d,e} files 0,3,4  A (3992135379, 1302596389, 885042479, 417540383, 377285211, 3)   R (same six), same 3 hits   CHECKED-2
+          A 2909 s, 0.93 GB;  R 18646 s, 1.04 GB
+  ({b,e,f}: the K65 referee's r48, kings/delegate/out/K65/verify/logs/R88_f1_4_5.out, has finished: (3718505519, 1217644122,
+   820498702, 397118871, 362051648, 25), equal to K65's p45a, the same 25 hits by src/census.py.  I only read it, not refereed.)
+  p45a near misses, over orientation:
+                                                      {a,b,e}       {a,d,e}
+    fail only (O4) (loose, not exact)              385,255,751   377,285,208
+    of which a freezing pawn gives check                14,921        10,543
+    of which (O4) holds at one root only (half)          3,898         1,861
+    fail only the promotion rule of (O2)                64,032        54,623
+  Census with K65: logs/census.txt (src/census.py).  Hit lists: logs/search/A88_*.out.xz, R88_*.out.
+
+3. THE 10 NEW GROUPS (Black king on z0, shuttles to /z1; freezes and q's in logs/g_pk.tar.xz g/<name>.out)
+--------------------------------------------------------------------------------------------------------
+  name     group                                   men  bad  (B1) fails at            Aux lost at    N*   chess
+  C014_01  Ka5 kc4/kc5 Pa4 Pa6 Pb2 pa7              6    8   -                        -              -    no
+  C014_04  Ke6 kd8/ke8 Pb5 Pe2 pa7 pb6 pe7          7    7   ...Ke8-f8                -              inf  no
+  C014_05  Kf5 kd5/kd6 Pb5 Pe2 Pe6 pa7 pe7          7    9   -                        -              -    no
+  C014_06  Kc4 ka4/ka5 Pb2 Pb5 Pe6 pa7 pb6 pe7      8    3   -                        -              -    (8 men)
+  C014_08  Kd5 kf4/kf5 Pa2 Pb3 Pe2 pa5 pb4 pe5      8   12   ...e5-e4 (f4)            ...e5-e4 (f4)  2    (8 men)
+  C014_09  Kd5 kf5/kf6 Pb3 Pe2 Pe6 pa7 pb6 pe7      8   13   ...b6-b5 (f5, f6)        -              inf  (8 men)
+  C014_10  Kf5 kd5/kd6 Pb5 Pe2 Pe6 pa7 pb6 pe7      8    9   -                        -              -    (8 men)
+  C034_01  Kc4 ke4/ke5 Pd2 Pd5 Pe6 pd6 pe7          7    6   -                        -              -    YES
+  C034_02  Kf4 kd4/kd5 Pd6 Pe2 Pe5 pd7 pe6          7    6   -                        -              -    YES
+  C034_03  Kd4 kf4/kf5 Pa6 Pe2 Pe5 pa7 pd7 pe6      8   10   -                        -              -    (8 men)
+  "inf": (C) holds at every bad move, so the group has the results of omega by Theorem 4.18 (b), (c), given these CHECKED-2
+  computations.  Per-move values: logs/cls/<name>.sum and logs/classify.log.
+
+4. NOT SEARCHED OR NOT CHECKED
+------------------------------
+- Question 4 not done.  The ten-hour budget was spent: total solver time about 11.3 h (regression 0.23 h, p45a 1.65 h,
+  r48 9.2 h, classification about 0.2 h).  Under the machine load r48 took 4.0 h and 5.2 h, against K65's 3.7 h.
+  The two-file classes outside all four searched classes, up to reflection: {a,c}, {a,f}, {a,g}, {a,h}, {b,d}, {b,g},
+  {c,e}.  Seven, not K65's eleven: {a,b}, {a,d}, {a,e}, {d,e} lie inside {a,b,e} or {a,d,e}.  p45a's time for one was
+  not measured.  K65's estimate is about 0.1 h each.
+- Other shapes, other boards: not searched.
+- Chess only for groups with <= 7 men, and only Definition 4.8 read with chess values (no D-sums in chess).
+- The near-miss counters are p45a's only, beyond the five that r48 prints (all equal).
+- Aux "won" and the ladders rest on ax65 and pk_sum, two programs by the same K65 referee that share no code.
+- No hand proofs.  No referee yet.
+
+5. MEMORY (peak RSS by /usr/bin/time -l)
+----------------------------------------
+  p45a 8x8 search 0.93 GB (8x7 regression 0.27 GB);  r48 8x8 search 1.04 GB (2+2 regression 0.21 GB);
+  ax65 at most 0.03 GB;  pk_sum at most 0.20 GB;  ref3m and kp_p at most 0.08 GB.  No watchdog kill.
+
+6. FILES
+--------
+findings.txt, EDITS.md (one edit replacing the census sentences of the K65 referee's first edit; tested with
+kings/delegate/apply_edits.py on a scratch copy after the K65 edits: applies), pids.log, tb_ledger.jsonl (40 requests),
+src/ (copies listed in section 1; build.sh, run.sh, wd.sh, chainA.sh, chainB.sh, classify.py, census.py, tb67.py),
+in/ (group lists, x_m and ladder inputs), logs/ (search/, regress/; classify.log, cls/, census.txt, tb67.out, tb/,
+chain logs; g_pk.tar.xz = ax65 and pk_sum outputs, grp.tar.xz = def48 runs, wd_logs.tar.xz, test.tar.xz,
+tbcache.tar.xz = tablebase cache with K65's entries).  Binaries deleted; no __pycache__; no executable bits;
+no git changes; nothing written outside K67.

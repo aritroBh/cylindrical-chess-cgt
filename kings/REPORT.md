@@ -546,6 +546,13 @@ Every deliverable was given to independent referees (Claude models) told to brea
     checked 42 rows by hand without finding an error (K73); the full check by hand, about 40,000 replies, has
     not been done, so the lemma stays computed (`kings/delegate/out/K70/REVIEW.md`). Changing the reduction does
     not avoid the lemma (K71, unrefereed: 14 positions left).
+  - K67 (2026-11-26, refereed by K77): the other two file classes of the shape on flat 8×8, {a,b,e} and
+    {a,d,e}, hold 10 and 3 exact over groups (two search programs agree on every counter and group). With K65
+    the four classes hold 48 distinct groups, 27 up to symmetry. Ten are new, with one new shape (`Ka5 kc4/kc5
+    Pa4 Pa6 Pb2 pa7`, six men). Of the 48, 34 have (B1), 9 more have the results of ω because White wins Aux,
+    and 5 fail condition (C): one needs the ladder T_3, four T_2. No group needs a longer ladder. Two of the new
+    groups are exact over groups in chess, so seven in all, but they are only two shapes
+    (`kings/delegate/out/K67/REVIEW.md`).
   - K72 (2026-11-26, refereed by K74): real over groups beside real pawns. The five seven-man groups that are
     exact in chess were put, in P, beside every context of at most 2 + 2 pawns on one separated file of the same
     8×8 board (283 contexts a file, three solvers agree on all 24,904 positions). Only one, C125_10 (White Kc5,
