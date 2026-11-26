@@ -1,0 +1,33 @@
+'CylChess.Claims.star2seven_shape' depends on axioms: [propext, star2seven_shape._native.native_decide.ax_1_1]
+'CylChess.Claims.star2seven_default' depends on axioms: [propext, star2seven_default._native.native_decide.ax_1_1]
+'CylChess.Claims.star2seven_not_ep_off' depends on axioms: [propext, star2seven_not_ep_off._native.native_decide.ax_1_1]
+'CylChess.Claims.star2seven_not_opponent' depends on axioms: [propext,
+ star2seven_not_opponent._native.native_decide.ax_1_1]
+'CylChess.Claims.star2seven_table_extra' depends on axioms: [propext,
+ star2seven_table_extra._native.native_decide.ax_1_1]
+'CylChess.Claims.star2_A_white_kernel' depends on axioms: [propext]
+'CylChess.Claims.star2_B_white_kernel' depends on axioms: [propext]
+'CylChess.Claims.star2_B_black_kernel' depends on axioms: [propext]
+'CylChess.Claims.eighth_nine_settings' depends on axioms: [propext, eighth_nine_settings._native.native_decide.ax_1_1]
+'CylChess.Claims.eighth_mirror_nine_settings' depends on axioms: [propext,
+ eighth_mirror_nine_settings._native.native_decide.ax_1_1]
+'CylChess.Claims.eighth_race_counts' depends on axioms: [propext, eighth_race_counts._native.native_decide.ax_1_1]
+'CylChess.Claims.eighth_all_assignments' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ eighth_all_assignments._native.native_decide.ax_1_1]
+'CylChess.Claims.eighth_default_kernel' depends on axioms: [propext]
+'CylChess.Claims.sumcounter_shape' depends on axioms: [propext, sumcounter_shape._native.native_decide.ax_1_1]
+'CylChess.Claims.sumcounter_W' depends on axioms: [propext, sumcounter_W._native.native_decide.ax_1_1]
+'CylChess.Claims.sumcounter_S' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ sumcounter_S._native.native_decide.ax_1_1]
+'CylChess.Claims.sumcounter_S_spec_big24' depends on axioms: [propext,
+ sumcounter_S_spec_big24._native.native_decide.ax_1_1]
+'CylChess.Claims.sumcounter_W_white_kernel' depends on axioms: [propext]
+'CylChess.Claims.sumcounter_W_black_kernel' depends on axioms: [propext]
+[(CylChess.EpRule.aware, 9, true, 9), (CylChess.EpRule.textbook, 10, true, 10), (CylChess.EpRule.off, 9, true, 9)]
+(true, some false, some false, true)
+(none, some false)
+[(CylChess.EpRule.aware, true, false), (CylChess.EpRule.textbook, true, false), (CylChess.EpRule.off, true, false)]

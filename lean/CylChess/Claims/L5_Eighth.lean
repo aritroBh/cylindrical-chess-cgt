@@ -12,11 +12,16 @@ winner, normally given by the setting's race rule. Here an assignment is a table
 (race position reached, side that moved). The race positions are the ones reached in the pawn game of the
 position, component by component (see `Game.lean`); there are `k` of them (`raceKeys`), so there are `2^k`
 assignments, and all are checked, for each of the three e.p. options. A race reached that the table does not
-cover makes the answer unknown, so the check also shows that the table is complete.
+cover is *not* an error: it makes the options through it unknown, and the check can still return a definite
+`true` (so this check does not show that the list of race positions is complete). Completeness is not needed for
+the statement: `L5_EmptyTable.lean` proves on the specification that the value is `1/8` when every race is
+unknown, and (`eighth_every_race_function`) that it is then `1/8` for every race function whatever. The sentence
+"in the sum model": all values in this file are values in the sum model of `Game.lean`.
 
-Monotonicity (not formalised): replacing a race outcome by a better one for White can only help White, so
-"for every assignment" is equivalent to the two extremes (all races for Black give `G >= 1/8`; all races for
-White give `G <= 1/8`). Both extremes are among the assignments checked.
+Monotonicity: the paper's remark (replacing a race outcome by a better one for White can only help White, so
+the two extremes suffice) is not what is formalised here; the statement proved is the one of `L5_EmptyTable.lean`
+(a definite answer under unknown races stays the same for every race function). Both extremes are among the
+assignments checked below.
 -/
 namespace CylChess.Claims
 
@@ -38,8 +43,10 @@ theorem eighth_mirror_nine_settings :
 /-! ### Every assignment of outcomes to the race positions -/
 
 /-- All (race position, mover) pairs reachable from the pawn components of `pos`: breadth-first over the
-component positions, following only moves that leave the game open. Not trusted: if it missed a race
-position, the table would not cover it and `Env.race` would answer `none`. -/
+component positions, following only moves that leave the game open. Not trusted, and not needed to be
+complete: if it missed a race position, the table would not cover it, `Env.race` would answer `none` there, and
+the check would run on a partial table, which `L5_EmptyTable.lean` shows is also covered (a missed key does
+not make the check fail). -/
 def raceKeys (e : Env) (pos : Position) : List (Position × Color) :=
   let rec go : Nat → List Position → List Position → List (Position × Color) → List (Position × Color)
     | 0, _, _, acc => acc

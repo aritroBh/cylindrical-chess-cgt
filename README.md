@@ -53,6 +53,7 @@ The labels are the paper's:
 | [`engine/`](engine/) | Stockfish and Lc0 experiments on cylinder positions and CGT sums |
 | [`atlas/`](atlas/), [`sumtest/`](sumtest/), [`lemmas/`](lemmas/) | The value atlas, sum-model tests, lemma checks |
 | [`verify/`](verify/), [`delegate/`](delegate/) | Independent re-implementations, cross-checks and their reports |
+| [`lean/`](lean/) | Lean 4 check of the finite claims: rules, values, ring base cases, the ring rule, the census ([what is checked](lean/notes/L11_table.md), [axioms](lean/notes/AXIOMS.md)) |
 | [`prior_work/`](prior_work/) | The June 2025 study this work extends |
 | [`RESULTS.md`](RESULTS.md) | Every result with its status and the file that holds it |
 
@@ -66,6 +67,14 @@ from the rules alone, without reading the first. Exhaustive scans have their rin
 counter, a transfer matrix with Burnside's lemma (`research/c9_rings/validate/`). Hand proofs of the wall families
 rest on three lemmas (`research/ring_family_proof/proof.tex`), and their finite base cases are checked by computer.
 [`RESULTS.md`](RESULTS.md) records the status of each claim.
+
+A Lean 4 project (`lean/`, no Mathlib) states the rules of the pawn game and re-checks finite claims of the paper: the
+seven-pawn positions of value star-2, the value 1/8 in nine settings and for every race outcome, the sum counterexample,
+the ring families on every width up to a stated bound, the ring rule for Dawson's chess on small rings, one step of the
+cut lemma on small boards, and the census counts. Of 116 statements the Lean kernel checks 29; the other 87 are
+evaluated by compiled Lean code (`native_decide`), most of them through a fast search that is tested against the
+specification and not proved equal to it. Statements for every n are not in Lean. `lean/notes/L11_table.md` lists each
+theorem beside the paper's sentence, and the paper's computed claims that have no Lean theorem.
 
 ## Setup
 
@@ -117,6 +126,12 @@ cc -O2 -o egt tablebase/egt_prototype.c
 
 ```bash
 ./egt cyl BN
+```
+
+Check the Lean statements (Lean 4.36, about 45 minutes with two workers, 3.5 GB of memory):
+
+```bash
+cd lean && lake build
 ```
 
 Build the paper:

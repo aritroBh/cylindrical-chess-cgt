@@ -1,0 +1,185 @@
+# L11: Lean theorems against the paper and the Python/C results
+
+Scope: every named theorem in the Lean files listed in the task (23 files under `lean/CylChess/Claims/`, `lean/CylChess/Dawson.lean`, `lean/CylChess/CensusData.lean`). Helper lemmas (`anyOpt_mono`, `wins_mono`, `isValue_mono`, `comp_options_le`, `sum_options_le`, `le_refl'`, `forall₂_*`) are not rows. `isValue_mono` is used by row 12 and is not a claim of its own. Definitions and `#print axioms` lines are not rows.
+
+Paths are relative to the repository root. "Lean says less / more" compares the Lean statement with the paper sentence. Where the paper quotes a range, both ranges are given.
+
+Proof kinds: `native_decide`, `decide`, `decide +kernel`, or "proof term" (no tactic of its own).
+
+Result-column codes: "found" = number read in the file; "located" = file contains the position or family, value not read; "not found" = no file located for this claim.
+
+## Table
+
+| # | Lean theorem (file) | What the Lean statement says, with numbers | Paper or supplement sentence (file:line) | Paper's number | Python/C result (path: number found, or "not found") | Same? | Proof kind |
+|---|---|---|---|---|---|---|---|
+| 1 | `star2seven_shape` (`lean/CylChess/Claims/L4_Star2.lean`) | Position A and position B each have 1 component on `flat8`. | Not stated. `dist/tog/sections/08_star2.tex:52` says only "Both fit beside T". | none | not found | Lean says more: component count is not in the paper. | native_decide |
+| 2 | `star2seven_default` (L4_Star2) | A (`W a4 b3 d2 d3 / B a7 b7 c5`) and B (`W b4 c2 d2 / B a6 a7 c6 d5`) have value *2, default setting, spec `IsValue`, 8-file flat board. | `08_star2.tex:46-48`: value *2 for A and B in the default setting. | *2 | located: `research/star2_seven_check/enumerate.py:42` (A); `RESULTS.md` section 6c "Round 7": A and B are one *2. Value file not read. | yes | native_decide |
+| 3 | `star2seven_not_ep_off` (L4_Star2) | A and B are not *2 with e.p. off, for each of the race rules count, mover, opponent. | `08_star2.tex:48-49`: not *2 with e.p. off; table row `08_star2.tex:73`: count or mover, e.p. off, not *2. | not *2 | not found | yes | native_decide |
+| 4 | `star2seven_not_opponent` (L4_Star2) | A and B are not *2 under the opponent rule, for each e.p. option. | `08_star2.tex:49` and table row `08_star2.tex:74`: opponent, any e.p. option, not *2. | not *2 | not found | yes | native_decide |
+| 5 | `star2seven_table_extra` (L4_Star2) | A and B are *2 in (aware, mover), (textbook, count), (textbook, mover). | Table `08_star2.tex:70-72`: A and B *2 in those rows. | *2 | located: `RESULTS.md` section 6c "Round 7" (A and B agree in all settings). Value file not read. | yes | native_decide |
+| 6 | `eighth_nine_settings` (L5_Eighth.lean) | `posG` (`W a2 b2 b3 / B a5 a6 b6`) has value 1/8 in all nine settings, spec `IsValue`. | `dist/tog/sections/07_targets.tex:55-56`: value exactly 1/8 in all nine settings. | 1/8 | found: `atlas/flat8/rerun/REPORT.md:53`: the mirror `W a2 b2 b3 / B a5 a6 b6` is 1/8 under all 9 settings. | yes | native_decide |
+| 7 | `eighth_mirror_nine_settings` (L5_Eighth) | `posGMirror` (`W a2 a3 b2 / B a6 b5 b6`) has value 1/8 in all nine settings. | `07_targets.tex:62`: "The checks ran on its mirror image (Section S5)." No squares given. | 1/8 | found: `atlas/flat8/rerun/REPORT.md:68`: 1/8 at `W a2 a3 b2 / B a6 b5 b6` under all 9 settings. | yes | native_decide |
+| 8 | `eighth_race_counts` (L5_Eighth) | Number of race positions of `posG` per e.p. option: [9, 10, 9]. | Not stated. | none | not found | Lean says more: the paper does not state the count. | native_decide |
+| 9 | `eighth_all_assignments` (L5_Eighth) | For each e.p. option, all 2^k winner tables over the race keys of `posG` (keys built with rule count) give 1/8. Uses the fast `Search.isValue`. | `07_targets.tex:55-56`: "for every assignment of outcomes to its race positions". | 1/8 for every assignment | found: `atlas/flat8/rerun/REPORT.md:68`: "under every assignment of race outcomes" (checked two ways). | Lean says less: three e.p. options only; race rule enters only through the assignments; fast search, not the spec. | native_decide |
+| 10 | `eighth_empty_table_nine_settings` (L5_EmptyTable.lean) | `posG` has value 1/8 in all nine settings when no race outcome is known (`race := none`), spec. | Not stated (intermediate step of the proof). | none | not found | Lean says more: an intermediate claim. | native_decide |
+| 11 | `eighth_empty_table_default_kernel` (L5_EmptyTable) | Same as row 10, default setting only, checked in the kernel. | Not stated. | none | not found | Lean says less: default setting only. | decide +kernel |
+| 12 | `eighth_every_race_function` (L5_EmptyTable) | For every race function `r`, total or partial, `posG` has value 1/8 in all nine settings. Derived from row 10 by `isValue_mono`. | `07_targets.tex:55-56`: every assignment to the race positions. | 1/8 | found: `atlas/flat8/rerun/REPORT.md:68`: 1/8 "under every race outcome" (checked two ways). | Lean says more: partial race functions are included. | proof term (uses native_decide of row 10) |
+| 13 | `sumcounter_shape` (L6_SumCounter.lean) | X = `W b2 d4 g3 h5 / B a7 c7 f7 g4` on `C_8` is one component; no passed pawn for either colour (e.p. off, count). | `05_sums.tex:56-57`: X "is a single component, spanning files f to d across the seam." | one component | not found for the component count; `RESULTS.md` section 4 names X as passing `sum_safe()`. | Lean says less: the span "f to d across the seam" is not checked. | native_decide |
+| 14 | `sumcounter_W` (L6_SumCounter) | W(X) is a first-player win: the player to move wins, for both colours. Spec `W`. | `05_sums.tex:58`: "W(X) a first-player win". | first player wins | not found. | yes | native_decide |
+| 15 | `sumcounter_S` (L6_SumCounter) | S(X): White to move loses (`some false`), Black to move wins (`some true`). Fast `Search.S`. | `05_sums.tex:58`: "S(X) is a black win whoever starts". | Black wins either way | not found. | yes | native_decide |
+| 16 | `sumcounter_S_spec_big24` (L6_SumCounter) | Same two S outcomes with the spec and `big := 24`, fuel 100. | `05_sums.tex:21-22` and `thm:hss` `05_sums.tex:38-39`: BIG only has to exceed the move count. Paper's number for BIG is not fixed. | BIG unspecified | not found. | Lean says less: only BIG = 24, not the paper's 256. | native_decide |
+| 17 | `notHSS_way_in` (L6_NotHSS.lean) | Explicit legal line x1 then x2, with no passed pawn at the roots and at x2. x2 has exactly two components `[bd, fh]`. | `05_sums.tex:58-59`: "X is not HSS: components with opposite threats appear later in its tree." | not a number | not found. | yes (one witness; that is what "not HSS" needs, per the file header). | decide |
+| 18 | `bd_white_threat` (L6_NotHSS) | Component `bd` threatens White: d4-d5, c7-c5 is legal; `bd2` gives White a passer and Black none. | Not stated (the threat definition is at `05_sums.tex:32-34`). | none | not found. | Lean says more. | decide |
+| 19 | `fh_black_threat` (L6_NotHSS) | Component `fh` threatens Black: f7-f5, f5-f4, f4-f3; `fh3` gives Black a passer. | Not stated. | none | not found. | Lean says more. | decide |
+| 20 | `fh_race_line` (L6_NotHSS) | Line h6-h5, h5-h4, g3xh4 in `fh` is legal with no earlier passer; the last position is a race. | Not stated. | none | not found. | Lean says more. | decide |
+| 21 | `roots_open_AB` (RootsOpen.lean) | `posA` and `posB` have no passed pawn in all nine settings on `flat8`. | `06_atlas.tex:3-4`: the atlas scope has "no passed pawn"; no sentence for A or B. | none | not found. | Lean says more. | decide |
+| 22 | `roots_open_G` (RootsOpen) | `posG` and `posGMirror` have no passed pawn in all nine settings. | Not stated for these positions. | none | not found. | Lean says more. | decide |
+| 23 | `roots_open_X` (RootsOpen) | `posX` on `cyl8`, e.p. off, count: no passed pawn. | Not stated. | none | not found. | Lean says more. | decide |
+| 24 | `named_rings_are_family_members` (L7a_NamedRings.lean) | `ringM10` = `Fam.mEven 10`, `ringO11` = `Fam.oneOdd 11`. | `08_star2.tex:108-109`: rings M_10 and O_11. | M_10, O_11 by name | found: `RESULTS.md` section 6d: M_10 = B4 W2 B6 W2 W3 B6 B7 W3 B7 W5 and O_11 = B4 B7 W5 B7 W3 B7 B6 W3 W2 B6 W2. Expanded file by file, both equal the Lean lists. | yes | native_decide |
+| 25 | `ring6_shape` (L7a_NamedRings) | `W a2 a3 b2 / B b7 c6 c7` on `cyl3`: 6 pawns, 1 component, no passed pawn (default). | `08_star2.tex:105-106`: the six-pawn ring on C_3. No shape sentence. | six pawns | not found. | Lean says more: shape and no-passer are not in the paper. | native_decide |
+| 26 | `ring6_star2` (L7a_NamedRings) | Same ring has value *2 on `cyl3`, default, sum model (fast search). | `08_star2.tex:105-106`; `dist/tog/supp/s06.tex:68-69`: the only six-pawn *2 ring on C_3. | *2 | found: `research/c3_star2/verify_t33/run_settings.out`, "C3 W a2 a3 b2 / B b7 c6 c7", count ep-on aware: nimber *2. | yes | native_decide |
+| 27 | `ring6_ep_off_zero` (L7a_NamedRings) | Same ring, count rule, e.p. off: value 0 (fast search). | `08_star2.tex:106-107`; `s06.tex:94-95`: "with e.p. off it is 0". The two-capture claim is not formalised (the Lean file says so). | 0 | found: `research/c3_star2/verify_t33/run_settings.out`, count ep-off: outcome P, nimber *0. | Lean says less: "needs two en passant captures" is not formalised. | native_decide |
+| 28 | `rings_M10_O11_star2_sum` (L7a_NamedRings) | Sum model, default: `ringM10` on `cyl10` and `ringO11` on `cyl11` are *2. | `08_star2.tex:108-110`: both are *2, C2. | *2 | found: `research/sum_model_rings/npawn_values.txt`, entries C10 and C11 with whole=False: "value = *2" for both. | yes | native_decide |
+| 29 | `rings_M10_O11_star2_whole` (L7a_NamedRings) | Whole-board game with nim heap: `ringM10` on `cyl10` and `ringO11` on `cyl11` are *2 against heaps h <= 6 (`WideStar`, heap 2 is P). | `08_star2.tex:108-110` (*2); `s06.tex:82-84` (whole-board, C2). | *2 | found: `research/sum_model_rings/npawn_values.txt`, entries C10 and C11 with whole=True: "value = *2" for both. | yes | native_decide |
+| 30 | `star3_nine_pawns` (L7a_NamedRings) | `pos9` = `W a2 b4 c2 d2 / B a4 a6 a7 c6 d5` on 4 files: 1 component; value *3 (fast search, default). | `08_star2.tex:121-122`: "is *3 on four files" (C2). | *3 | found: `research/star3_single/REPORT.md:42`: `W a2 b4 c2 d2 / B a4 a6 a7 c6 d5` is *3, cylcgt sum (*3). | yes | native_decide |
+| 31 | `star2_seven_ranks` (L7a_NamedRings) | `W a2 c2 / B c3 b6` is *2 on flat boards of width 3, 4, 5 with 7 ranks (default). | `08_star2.tex:125-127`: "seven ranks give a *2 with four pawns, W a2 c2 / B c3 b6" (C2). | *2 | not found in any file opened. | yes | native_decide |
+| 32 | `c4_seven_pawn_rings` (L7a_S6Rings.lean) | `W a4 b2 c2 / B b6 c5 d6 d7` and its colour-reversed twin `W b3 c4 d3 d2 / B a5 b7 c7` are *2 on `cyl4` (sum). | `dist/tog/supp/s06.tex:21-22`: first ring and "color-reversed twin, with seven ... our engine confirms both". | *2 | found: `research/c3_star2/verify_t33/run_settings.out`: "C4 W a4 b2 c2 / B b6 c5 d6 d7", count ep-on aware: *2. Twin not located. | yes | native_decide |
+| 33 | `c6_nine_pawn_ring` (L7a_S6Rings) | `W a4 c4 d2 e2 / B b6 b7 d6 e5 f6` is *2 on `cyl6` (sum). | `s06.tex:27-28` and `s06.tex:72-73`: "W a4 c4 d2 e2 / B b6 b7 d6 e5 f6" on C_6 (C1, C2). | *2 | not found in a result file; `RESULTS.md` section 6c names the position. | yes | native_decide |
+| 34 | `c7_ten_pawn_rings` (L7a_S6Rings) | `W a2 a3 c3 e3 f2 / B a4 b5 d5 f5 g5` is *2 and `W a2 a5 c4 e2 f2 / B a7 b4 d7 e5 g7` is *3 on `cyl7` (sum). | `s06.tex:32-34`: 63 of the ten-pawn rings are *2, eight are *3; both examples given. | 63 *2, 8 *3 | located: `research/c7_independent/p10_hits_check.tsv:51` (the *3 position; the file shows star2=0, not the *3 value). | Lean says less: one example each of 63 *2 and 8 *3 rings. | native_decide |
+| 35 | `c8_ten_pawn_rings` (L7a_S6Rings) | `W a3 b3 c3 d2 f2 / B b6 d5 e5 g4 h5` is *2 and `W a4 c3 d3 e2 g2 / B b7 c6 e5 f5 h4` is *3 on `cyl8` (sum). | `s06.tex:40-41`: 18 *2 and 2 *3 among ten-pawn rings; both examples. `s06.tex:105`: the *3 example. | 18 *2, 2 *3 | found in part: `research/ring_n_plus_2/REPORT.md:34` row 1 = the *2 example. The *3 example is `RESULTS.md` line 364 (b7) and is the family member `Q_8` of `Families.lean`. | Lean says less (one example each). | native_decide |
+| 36 | `c8_wall_example_is_E8` (L7a_S6Rings) | `W b2 c3 c5 d2 f2 h2 / B a5 b5 c6 e4 g4` on C_8 equals the wall family member `Fam.wall 8`. | `s06.tex:90`: example wall ring on C_8, "\lab{S}". Family identity not stated. | example only | located: `research/sum_model_rings/sum_values.txt:7` (same wall, extended to C14 with 17 pawns). C8 record not read. | Lean says more: identity with the family member. | native_decide |
+| 37 | `c11_twelve_pawn_ring_sum` (L7a_S6Rings) | `W c4 d6 e3 h3 i2 k2 / B a4 b7 d7 f7 g6 j6` is *3 on `cyl11` (sum, default). | `08_star2.tex:124-125`: n+1 pawns on C_11 (C2); `s06.tex:108-109`: this ring is *3 (C2). | *3 | located: `RESULTS.md` section 6d, "two twelve-pawn rings are *3 (CHECKED-2)", file `research/c9_rings/star3/REPORT.md` (not read). | yes | native_decide |
+| 38 | `wall_rings_star2` (L7b_Walls.lean) | Wall family `Fam.wall`: `G_n + *h` is P for h=2 and N for h<=6, n+3 pawns, for every n = 5..61 (whole board). | `08_star2.tex:115-117`: *2 with n+3 pawns on every C_n with n>=5 (S); two programs for n<=61 (C2). | n >= 5; n <= 61 finite | located: `research/ring_family/families.tsv` (not read); `RESULTS.md` section 6c "Round 10": wall rings *2 for every n >= 5. | yes | native_decide |
+| 39 | `P_rings_star2` (L7b_Walls) | `Fam.pEven` (n+2 pawns) *2 against h<=6, every even n = 8..60. | `dist/tog/supp/s15.tex:8-10`: P_n = *2 for every even n >= 8 (proof). `s15.tex:15`: finite checks n = 8..16. | every even n >= 8 | located: `RESULTS.md` section 6d table, P_n = *2, 813 nodes, "Codex T53, SOUND" (file `research/ring_n_plus_2`, not read). | Lean says less: finite n <= 60; the paper's universal claim is a proof. | native_decide |
+| 40 | `R_rings_star2` (L7b_Walls) | `Fam.rOdd` (n+2 pawns) *2 against h<=6, every odd n = 11..59. | `dist/tog/supp/s16.tex:121`: Note 3, n+2 pawns, odd n >= 11, values *2 and *3 (S15). | every odd n >= 11 | located: `RESULTS.md` section 6d (R_n = *2, Codex T63). | Lean says less: finite n <= 59. | native_decide |
+| 41 | `M_rings_star2` (L7b_OnePerFile.lean) | `Fam.mEven` (n pawns, one per file) *2 against h<=6, even n = 10..50. | `08_star2.tex:118-119`: two n-pawn families are *2 for every n >= 10 (S). `s06.tex:83-84`: for every n <= 60 (C2). | every n >= 10 (S); n <= 60 (C2) | located: `RESULTS.md` section 6d: M_n = *2 for n = 10..60 (COMPUTED-1, rg). | Lean says less: finite n <= 50 (paper's finite range is n <= 60). | native_decide |
+| 42 | `oddOnePerFile_rings_star2` (L7b_OnePerFile) | `Fam.oneOdd` (n pawns) *2 against h<=6, odd n = 11..49. | Same as row 41 (`08_star2.tex:118-119`, `s06.tex:83-84`). | every n >= 10 (S); n <= 60 (C2) | located: `RESULTS.md` section 6d: O_n = *2 for n = 10..60. | Lean says less: finite n <= 49. | native_decide |
+| 43 | `Q_rings_star3` (L7b_Star3.lean) | `Fam.qEven` (n+2 pawns) is *3 against h=3 (lost by mover), h<=6, even n = 8..40. | `08_star2.tex:124-125`: *3 with n+2 pawns for even n >= 8 (S). `supp/s16.tex:114`: Note 2 (S15). | every even n >= 8 | located: `RESULTS.md` section 6d: Q_n = *3, 7,968 nodes, "Codex T62, SOUND". | Lean says less: finite n <= 40. | native_decide |
+| 44 | `Qo_rings_star3` (L7b_Star3) | `Fam.qoOdd` (n+2 pawns) *3, odd n = 11..39. | `08_star2.tex:124-125`; `supp/s16.tex:121` (Note 3, odd n >= 11). | every odd n >= 11 | located: `RESULTS.md` section 6d: Qo_n = *3, "Codex T63, SOUND". | Lean says less: finite n <= 39. | native_decide |
+| 45 | `T_rings_star3` (L7b_Star3) | `Fam.tEven` (n+1 pawns) *3, even n = 12..40. | `08_star2.tex:125-126`: n+1 pawns on every C_n with n >= 12 (S). `supp/s16.tex:127`: Note 4 (S15). | every n >= 12 | located: `RESULTS.md` section 6d: T_n = *3 (rg; CHECKED-2 for n <= 15), 1305 nodes. | Lean says less: finite n <= 40. | native_decide |
+| 46 | `S_rings_star3` (L7b_S.lean) | `Fam.sOdd` (n+1 pawns) *3, odd n = 13..25. | `08_star2.tex:125-126`; `supp/s16.tex:127`. | every n >= 12 | located: `research/star3_check/S_base_compact.log` (40,445-node base graph, the number in the Lean comment). Result not read. | Lean says less: finite odd n <= 25. | native_decide |
+| 47 | `F1_star2` (L7b_Mobius.lean) | Strip family F1(m): n = 2m+8 files, n pawns, *2 for m = 1..20 (`checkMob`, all widths). | `08_star2.tex:131-135`: Mobius strip; `dist/tog/supp/s06.tex:170-171` (m = 1..12, C2); `s06.tex:177-178` (every m >= 1, S). | every m >= 1 (S); m <= 12 (C2) | located: `research/mobius_rings_proof/PROOF.md` (proof, not read); `RESULTS.md` section 6d "Möbius ring families proved". | Lean says less than the universal claim (finite m <= 20); Lean's finite range is wider than the paper's C2 range (m <= 12). | native_decide |
+| 48 | `F2_star2` (L7b_Mobius) | Strip family F2(m): n = 2m+9 files, n pawns, *2 for m = 1..20. | `s06.tex:172-173` (m = 1..11, C2); `s06.tex:177` (every m >= 1, S). | every m >= 1 (S) | located: `research/mobius_rings_proof/PROOF.md` (not read). | Lean says less than the universal claim (finite m <= 20). | native_decide |
+| 49 | `F3_star2` (L7b_Mobius) | Strip family F3(m): n = 2m+7 files, n+1 pawns, *2 for m = 0..20. | `s06.tex:174-175` (m = 0..12, C2); `s06.tex:177` (every m >= 0, S). | every m >= 0 (S) | located: `research/mobius_rings_proof/PROOF.md` (not read). | Lean says less than the universal claim (finite m <= 20). | native_decide |
+| 50 | `TT_star3` (L7b_Mobius) | Strip family TT(m): n = 2m+10 files, n+1 pawns, *3 for m = 1..14 (n = 12..38). | `08_star2.tex:135`: n+1 pawns on every strip of n >= 11 files (S). `s06.tex:188-189`: Mobius *3 families (S). | every n >= 11 (S) | not found for TT. | Lean says less: finite m <= 14. | native_decide |
+| 51 | `Mobius_controls` (L7b_Mobius) | Controls: F1(0) has class RNRRR, F2(0) NNRRR, TT(0) LLLLL (outcomes of G + *h for h = 0..4). | `s06.tex:182-183`: "The members with m = 0 of the first two families are not *2." No classes given. | not *2 | not found. | Lean says more: specific outcome classes. | native_decide |
+| 52 | `SS_star3` (L7b_MobiusSS.lean) | Strip family SS(m): n = 2m+11 files, n+1 pawns, *3 for m = 0..8 (odd n = 11..27). | `08_star2.tex:135` (n+1 pawns, n >= 11, S); `s06.tex:188`. | every n >= 11 (S) | not found. | Lean says less: finite m <= 8. | native_decide |
+| 53 | `controls_cylinder` (L7b_Controls.lean) | Negative controls on `cyl n`: R_9 and Qo_9 are LLLLL; M_8 heap-2 class N; O_9 heap-2 class R; T_10 heap-3 class L; S_11 heap-3 class R. | Not stated in the paper. The notes `lean/notes/L7_L10.md` carry it. | none | not found. | Lean says more: a paper-silent control set. | native_decide |
+| 54 | `fam_generator_brute` (L9_Cut.lean, namespace `CylChess.Claims.Cut`) | The explicit family generator equals a brute-force filter on (3,3,6), (3,4,4), (4,3,4). | Not a paper claim (`dist/tog/sections/02_rules.tex` does not state it). | none | not found. | Lean says more: an internal check. | native_decide |
+| 55 | `fam_nonvacuous` (L9_Cut) | Family (4,8,3), default setting, contains a real e.p. right, a race, and a one-sided passer. | Not stated. | none | not found. | Lean says more: an internal check. | native_decide |
+| 56 | `cut_step_3_5_6` (L9_Cut) | `allCheck 3 5 6`: for every empty file e and all nine settings, closure, one-step cut, passer, e.p. and component agreement hold on F(3,5,6). | `dist/tog/sections/02_rules.tex:89-92`: cut lemma, "same value as the flat board", \lab{P}, \lab{C2}. | all n (proved) | partial: `atlas/cylinder/REPORT.md:27`: random-position tests and a set check over the atlas, "0 values missing for n = 4-8". Not per step. | Lean says less: one-step statement on finite families; the induction is not formalised (file header). | native_decide |
+| 57 | `cut_step_3_8_4` (L9_Cut) | `allCheck 3 8 4`, same content. | Same as row 56. | all n | partial, as row 56. | Lean says less (as row 56). | native_decide |
+| 58 | `cut_step_4_5_4` (L9_Cut) | `allCheck 4 5 4`. | Same as row 56. | all n | partial, as row 56. | Lean says less. | native_decide |
+| 59 | `cut_step_4_6_4` (L9_Cut) | `allCheck 4 6 4`. | Same as row 56. | all n | partial, as row 56. | Lean says less. | native_decide |
+| 60 | `cut_step_4_8_3` (L9_Cut) | `allCheck 4 8 3`. | Same as row 56. | all n | partial, as row 56. | Lean says less. | native_decide |
+| 61 | `cut_step_5_5_4` (L9_Cut) | `allCheck 5 5 4`. | Same as row 56. | all n | partial, as row 56. | Lean says less. | native_decide |
+| 62 | `cut_step_5_6_3` (L9_Cut) | `allCheck 5 6 3`. | Same as row 56. | all n | partial, as row 56. | Lean says less. | native_decide |
+| 63 | `cut_step_5_8_3` (L9_Cut) | `allCheck 5 8 3`. | Same as row 56. | all n | partial, as row 56. | Lean says less. | native_decide |
+| 64 | `cut_step_6_8_2` (L9_Cut) | `allCheck 6 8 2`. | Same as row 56. | all n | partial, as row 56. | Lean says less. | native_decide |
+| 65 | `cut_step_7_5_3` (L9_Cut) | `allCheck 7 5 3`. | Same as row 56. | all n | partial, as row 56. | Lean says less. | native_decide |
+| 66 | `cut_step_8_5_2` (L9_Cut) | `allCheck 8 5 2`. | Same as row 56. | all n | partial, as row 56. | Lean says less. | native_decide |
+| 67 | `cut_value_3_5_4` (L9_Cut) | `valueAll 3 5 4`: outcomes of P + T and cut P + T agree for 5 test games T, both movers, nine settings, `big := 20`, memoized `Search`. | Same cut lemma, `02_rules.tex:89-92`. | all n | not found. | Lean says less: five test games, memoized search. | native_decide |
+| 68 | `cut_value_4_5_3` (L9_Cut) | `valueAll 4 5 3`, as row 67. | Same. | all n | not found. | Lean says less. | native_decide |
+| 69 | `cut_value_5_4_3` (L9_Cut) | `valueAll 5 4 3`, as row 67. | Same. | all n | not found. | Lean says less. | native_decide |
+| 70 | `cut_value_4_6_3` (L9_Cut) | `valueAll 4 6 3`, as row 67. | Same. | all n | not found. | Lean says less. | native_decide |
+| 71 | `census_all_groups_covered` (L10_Census.lean) | The census table has 20 (width, pawn-count) groups. | `dist/tog/sections/06_atlas.tex:7-9`: every position with at most six pawns on F_1..F_4. No group count. | none | `atlas/flat8/rerun/census.tsv`: 231,071 data rows (checked, row count only). | Lean says more: group bookkeeping. | decide |
+| 72 | `census_totals` (L10_Census) | Sum of the expected tallies: 231,071 records, 459,443 positions, 6,724 zeros, 4,042 stars, 220,305 no-nimber, 0 heap j >= 2, 0 unsettled. | `06_atlas.tex:8-9`: 231,071 records for 459,443 positions. `08_star2.tex:36-37`: 6,724 zeros, 4,042 stars. | 231,071; 459,443; 6,724; 4,042 | found: `atlas/flat8/rerun/census.tsv` 231,071 rows; column count/epon/aware: P = 6,724 (checked). `atlas/flat8/rerun/REPORT.md:20`: 459,443 positions. Star count 4,042: `RESULTS.md` lines 46-47; not separated in census.tsv. | yes | decide |
+| 73 | `census_small` (L10_CensusSmall.lean) | Per-group tallies for widths 1-3 (pawns 2-6) and width 4 (pawns 2-5) equal `expected`, computed by `classesTally`. | `08_star2.tex:35-38` (Census theorem). | as row 72 | located: `atlas/flat8/rerun/census.tsv` (independent Python tabulation per `CensusData.lean` header; not re-tallied per group here). | yes | native_decide |
+| 74 | `census_big` (L10_CensusBig.lean) | Width 4, six pawns (142,335 records): tally equals `expected`. | `08_star2.tex:35-38`; `08_star2.tex:40-41`: two programs agree on every record. | as row 72 | found in part: `atlas/flat8/rerun/REPORT.md:22`: 140,835 of 142,335 records were imported from `../values.jsonl`, not recomputed in that run. | yes (with that caveat) | native_decide |
+| 75 | `ring_min_C3_below` (L11_RingMinC3.lean) | Rings on `C_3` with 3, 4, 5 pawns: 330, 4740, 34170 raw rings; none *2 or *j, j >= 2. | `dist/tog/supp/s06.tex:68-72`: no smaller ring on C_3 or C_4 is *2 (C2). | no *2 | found: `research/ring_min_independent/c3_run.out` rows 3-5: 330, 4740, 34170 rings; raw *2 = 0. | yes | native_decide |
+| 76 | `ring_min_C3_six` (L11_RingMinC3) | 160,515 six-pawn rings on `C_3`; exactly six *2; no *j, j >= 2; the six are one orbit of `W a2 a3 b2 / B b7 c6 c7`. | `s06.tex:68-70`: the only six-pawn *2 ring on C_3 (C2); `08_star2.tex:105-106`. | one ring (up to symmetry) | found: `research/ring_min_independent/c3_run.out` row 6: 160515 rings; raw *2 = 6; classes *2 = 1. | yes | native_decide |
+| 77 | `ring_min_C4` (L11_RingMinC4.lean) | Rings on `C_4` with 4, 5, 6 pawns: 1490, 32752, 336992 rings; none *2. | `s06.tex:71-72`: no smaller ring on C_4 is *2 (C2). | no *2 | found: `research/ring_min_independent/c4_run.out` rows 3-5: 1490, 32752, 336992; raw *2 = 0. | yes | native_decide |
+| 78 | `g_table` (dawson `CylChess/Dawson.lean`) | g(0..33) equals the table `gKnown`. | `dist/tog/sections/11_dawson.tex:26-27`: period 34, last exception n = 51; reproduced for n <= 300 (C2). | period 34, exception 51 | found: `dawson/octal_300.txt`, "n= 0.. 33: 0112031103322405223301130211045274", equal to `gKnown`. | Lean says less: n <= 33 only; the period-34 and exception-51 claim is not a Lean theorem. | decide +kernel |
+| 79 | `g_recurrence` (Dawson) | gRec(n) = g(n) for n = 2..71. | `11_dawson.tex:21-25` (recurrence, eq:dawson); `11_dawson.tex:27` (n <= 300, C2). | recurrence; n <= 300 | located: `dawson/octal_300.txt` lists g(0..300) (values, not a recurrence check). | Lean says less: n <= 71 vs paper's n <= 300. | decide +kernel |
+| 80 | `ring_win_list` (Dawson) | Cylinders n = 3..57 with first player win (g(n-3) = 0) are exactly 3, 7, 11, 17, 23, 27, 31, 37, 41, 45, 57. | `11_dawson.tex:38`: "n=3,7,11,17,23,27,31,37,41,45,57,...". | same list | found: `dawson/octal_300.txt` values g(0), g(4), g(8), g(14), g(20), g(24), g(28), g(34), g(38), g(42), g(54) are 0. | yes | decide +kernel |
+| 81 | `ring_outcome` (Dawson) | Pawn-rule first-player result on `cyl n` for n = 3..20 equals g(n-3) = 0 (fast search). | `11_dawson.tex:34-39`: ring rule, "machine-checked for n <= 16". | n <= 16 | located: `dawson/pawnboard_16.txt` (cylinder rows not read). | Lean says more: n <= 20 vs paper's n <= 16. | native_decide |
+| 82 | `ring_win_range` (Dawson) | Among cylinders n = 3..20 the first player wins exactly for n = 3, 7, 11, 17. | `11_dawson.tex:37-38`: the list, to n = 57. | list to n = 57 | located: `dawson/pawnboard_16.txt` (not read in detail). | Lean says less: n <= 20 vs the paper's list up to 57. | native_decide |
+| 83 | `ring_grundy` (Dawson) | For n = 3..16: cylinder Grundy value is mex{g(n-3)}, and the option after a push has value g(n-3). | `11_dawson.tex:34-39`: Grundy value mex{g(n-3)}, machine-checked n <= 16. | n <= 16 | located: `dawson/pawnboard_16.txt` (macro Grundy column; cylinder rows not read). | yes | native_decide |
+| 84 | `ring_structure` (Dawson) | For n = 3..20 and both first movers: the only first moves are the n pushes; forced captures end in `afterRing`, opponent to move. | `11_dawson.tex:35-37` and proof `11_dawson.tex:41-44`: one strip of n-3 untouched files, for every n. | every n >= 3 (proof) | not found. | Lean says less: n <= 20 (paper's statement is proved for all n). | native_decide |
+| 85 | `strip_check` (Dawson) | Ordinary 3 x m board, m = 1..15: first player wins iff g(m) != 0, and the pawn-level Grundy value is g(m). | `11_dawson.tex:25-26`: "The first player wins the ordinary 3xn board exactly when g(n) != 0." | all n (cited) | found in part: `dawson/pawnboard_16.txt` flat rows 1-2: win/win (g(1) = g(2) = 1). | Lean says less: m <= 15. | native_decide |
+| 86 | `no_promotion` (Dawson) | No promotion is reached on cylinders n = 3..14 and strips m = 1..14 (complete walk). | `11_dawson.tex:9-12`: rule "no pawn can double-step or promote". No number. | rule | found in part: `dawson/pawnboard_16.txt` column "promo" = False on the flat rows. | Lean says more: checks a consequence the paper states as a rule. | native_decide |
+| 87 | `ring_naive_kernel` (Dawson) | Naive specification search (no memo) on cylinders n = 3..6 agrees with g(n-3) = 0. | Not stated. | none | not found. | Lean says more: an internal check. | decide +kernel |
+| 88 | `strip_naive_kernel` (Dawson) | Naive specification search on strips m = 1..6 agrees with g(m) != 0. | Not stated. | none | not found. | Lean says more: an internal check. | decide +kernel |
+| 89 | `naive_native` (Dawson) | Naive specification search on cylinders n = 3..8 and strips m = 1..9 agrees with the g-based answer. | Not stated. | none | not found. | Lean says more: an internal check. | native_decide |
+| 90 | `g_period_to_300`, `g_last_exception` (L8_Period.lean; added by the main session after this table was made) | `g (n + 34) = g n` for n = 52..266 (values up to g(300)); `g 85 ≠ g 51`. | `11_dawson.tex:26-27`: period 34, last exception n = 51, reproduced for n ≤ 300 | 34; 51; 300 | not looked up | yes for n ≤ 300 | native_decide |
+
+## Differences and gaps
+
+Rows that are not a plain "yes" (row numbers refer to the table):
+
+- Row 1: Lean says more (component count, paper silent).
+- Row 8: Lean says more (race-position counts, paper silent).
+- Row 9: Lean says less (three e.p. options; race rule only through assignments; fast search).
+- Row 10: Lean says more (intermediate claim).
+- Row 11: Lean says less (default setting only).
+- Row 12: Lean says more (partial race functions).
+- Row 13: Lean says less (the "f to d across the seam" span is not checked).
+- Row 16: Lean says less (BIG = 24 only).
+- Row 18, 19, 20: Lean says more (components and lines not in the paper).
+- Rows 21, 22, 23: Lean says more (no-passed-pawn roots; paper silent on these positions).
+- Row 25: Lean says more (shape and no-passer not in the paper).
+- Row 27: Lean says less ("needs two en passant captures" not formalised).
+- Row 34: Lean says less (one example each of 63 *2 and 8 *3 rings).
+- Row 35: Lean says less (one example each).
+- Row 36: Lean says more (identity with family member).
+- Row 39: Lean says less (finite n <= 60; paper proves all even n >= 8).
+- Row 40: Lean says less (finite n <= 59).
+- Row 41: Lean says less (finite n <= 50; paper's finite range is n <= 60).
+- Row 42: Lean says less (finite n <= 49).
+- Row 43: Lean says less (finite n <= 40).
+- Row 44: Lean says less (finite n <= 39).
+- Row 45: Lean says less (finite n <= 40).
+- Row 46: Lean says less (finite odd n <= 25).
+- Rows 47, 48, 49: Lean says less than the universal claim; finite m <= 20.
+- Row 50: Lean says less (finite m <= 14).
+- Row 51: Lean says more (outcome classes; paper gives only "not *2").
+- Row 52: Lean says less (finite m <= 8).
+- Row 53: Lean says more (paper silent).
+- Rows 54, 55, 87, 88, 89: Lean says more (internal checks; paper silent).
+- Rows 56-70: Lean says less (finite one-step and value checks; the cut induction is not formalised).
+- Row 71: Lean says more (group bookkeeping).
+- Row 74: caveat: 140,835 of the 142,335 Python records were imported, not recomputed (`atlas/flat8/rerun/REPORT.md:22`).
+- Rows 78, 79: Lean says less (n <= 33 and n <= 71; paper's period-34 and n = 51 exception to n <= 300).
+- Row 81: Lean says more (n <= 20 vs paper's n <= 16).
+- Row 82: Lean says less (n <= 20 vs paper's list to n = 57).
+- Row 84: Lean says less (n <= 20; paper proves all n >= 3).
+- Row 85: Lean says less (m <= 15; paper's statement is for all n).
+- Row 86: Lean says more (consequence of a stated rule).
+
+Not a row: the Lean files `lean/CylChess/Claims/KernelL4_A_white.lean`, `KernelL4_B_white.lean`, `KernelL4_B_black.lean`, `KernelL5.lean`, `KernelL6.lean`, `KernelL6Black.lean`, `Axioms_L5_L9.lean`, `Axioms_L7_L10.lean`, `L5_EmptyTable` helpers and `WideCommon.lean` are not in the task's file list. Their theorems are not in the table.
+
+Discrepancies between the paper, Lean and a result file:
+
+- No square difference in row 35: `research/ring_n_plus_2/REPORT.md:34` (row 7 of its table of the 18 *2 classes) is `W a4 c3 d3 e2 g2 / B b6 c6 e5 f5 h4`, a *2 ring. The *3 ring of the paper and of Lean has `B b7` and is a different position (the family member `Q_8`). (Corrected by the main session after reading both files.)
+- Census: `atlas/flat8/rerun/REPORT.md:22` says 140,835 of the 142,335 width-4, six-pawn records were imported from `../values.jsonl` (same cylcgt code), so the independent C check of those records is not a separate run.
+- `atlas/flat8/rerun/REPORT.md:53` and the Lean mirror `posGMirror` agree on the 1/8 representative `W a2 a3 b2 / B a6 b5 b6`; the paper gives no square list for the mirror (`07_targets.tex:62`).
+
+Paper claims with a computed label (C1 or C2) in `08_star2.tex`, `06_atlas.tex`, `07_targets.tex`, `05_sums.tex` and `11_dawson.tex` that have no Lean theorem (the list says what Lean does not cover; it is not a criticism):
+
+- `dist/tog/sections/08_star2.tex:26-31`, \lab{C2}: candidate value `{2±1 | -2±1}` under the e.p.-aware test, and `*2` under the textbook test. No Lean theorem for the candidate.
+- `dist/tog/sections/08_star2.tex:86-87`, \lab{C1}: 5,503,282 root positions, two `*2` with seven pawns, four with eight.
+- `dist/tog/sections/08_star2.tex:87-88`, \lab{C2}: seven is the least number of pawns in a `*2` on ordinary boards of width <= 4.
+- `dist/tog/sections/08_star2.tex:88-90`, \lab{C2}: whole-board scan of positions with <= 7 pawns on up to 9 files finds no `*k` (k >= 2) with <= 6 pawns; the only seven-pawn `*2` are A and B.
+- `dist/tog/sections/08_star2.tex:104-107`, \lab{C2}: minimal `*2` ring pawn counts n+3 for n = 3..7; ten pawns on C_8 and C_9. Lean covers the existence of rings on C_3, C_4, C_6, C_7, C_8 and minimality on C_3 and C_4 only.
+- `dist/tog/sections/08_star2.tex:121-123`, \lab{C1}: no whole-board position with at most eight pawns on up to eight files is `*3`.
+- `dist/tog/sections/08_star2.tex:124-125`, \lab{C2}: eight ten-pawn rings on C_7 are `*3`, six also as sums. Lean checks one example.
+- `dist/tog/sections/08_star2.tex:125-127`, \lab{C2}: six ranks give a `*2`, five ranks give none; seven ranks give a `*3` with six pawns (`08_star2.tex:126-127` as printed: "a `*3` with six").
+- `dist/tog/sections/08_star2.tex:127-129`, \lab{C1}: no `*4` among 134,920,191 ten-pawn positions on five files and about 24 million rings.
+- `dist/tog/sections/08_star2.tex:131-135`, \lab{C2}: least pawn counts of Möbius `*2` rings, 6, 8, 6, 8, 8, 8 for n = 3..8, and 10, 10, 11 for n = 9..11.
+- `dist/tog/sections/08_star2.tex:133-135`, \lab{S} and \lab{C1}: one pawn per file is enough on eight files, not on nine.
+- `dist/tog/sections/08_star2.tex:135`, \lab{C2}: nine pawns give a `*3` on five and on six files.
+- `dist/tog/sections/07_targets.tex:7-9` and `:29-31` (table `tab:targets`), \lab{C2} and \lab{C1}: counts 13/9, 3/2, 1/0, 5/2, 10/10, 13/16 of the Elkies values under the two passed-pawn tests; textbook identities.
+- `dist/tog/sections/07_targets.tex:64-65`, \lab{C2}: `upsec*` = game{0,*|down} in all nine settings.
+- `dist/tog/sections/07_targets.tex:66-70`, \lab{C2} and \lab{C1}: tiny(1) under race rules with e.p. on, and the e.p.-aware test value; e.p. off gives up-arrow.
+- `dist/tog/sections/06_atlas.tex:5-7`, \lab{C1}: atlas of 1,223,689 positions; independent minimax confirms 12,568 rings and 4,000 components.
+- `dist/tog/sections/06_atlas.tex:12-14`, \lab{C1}: highest temperature 3 among atlas values.
+- `dist/tog/sections/06_atlas.tex:17-20`, \lab{C1}: prop:cylonly, 53 cylinder-only values (40 from 3-file rings, 13 from 4-file rings).
+- `dist/tog/sections/06_atlas.tex:22-23`, \lab{C2}: `3/4` on C_3 with a2, b4 against b7, c6, reached on an ordinary board with six pawns.
+- `dist/tog/sections/06_atlas.tex:23-25`, \lab{C1}: no atlas value is cylinder-only in all six settings.
+- `dist/tog/sections/05_sums.tex:15-16`, \lab{C2}: king-group zugzwang for black on the ordinary board and on the cylinder (Puzzle 2).
+- `dist/tog/sections/05_sums.tex:49-53`, \lab{C1}: 599,098 passer-free positions; 540,503 HSS; 19.3% of the rest differ; smallest counterexample `W a5 d3 / B b6 e4`.
+- `dist/tog/sections/05_sums.tex:52-53`, \lab{C1}: sums fail in the pawn game without the passed-pawn rule (Section S3).
+- `dist/tog/sections/05_sums.tex:66-68`, \lab{C1}: 19 sums beside a trébuchet with real kings solved; all share one king placement.
+- `dist/tog/sections/11_dawson.tex:26-27`, \lab{C2}: period 34 with last exception n = 51, reproduced for n <= 300. Now covered up to n = 300 by row 90.
+- `dist/tog/sections/11_dawson.tex:29-32`, \lab{C2}: the earlier study's recurrence agrees with g at 31 of 301 values and gives the wrong cylinder outcome at 56 of them, first at n = 4.
+- `dist/tog/sections/11_dawson.tex:58-60`, \lab{C2}: Plambeck-Siegel quotient for strips <= 32 files (order 638, P-portion 109); the next quotient not finished.

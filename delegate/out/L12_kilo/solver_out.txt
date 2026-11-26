@@ -1,0 +1,31 @@
+=== L4: star2 (Theorem thm:star2seven) ===
+  A default value==*2: True
+  A ep-off race=count value==*2: False
+  A ep-off race=mover value==*2: False
+  A ep-off race=opponent value==*2: False
+  A opponent ep=aware value==*2: False
+  A opponent ep=textbook value==*2: False
+  A opponent ep=off value==*2: False
+  B default value==*2: True
+  B ep-off race=count value==*2: False
+  B ep-off race=mover value==*2: False
+  B ep-off race=opponent value==*2: False
+  B opponent ep=aware value==*2: False
+  B opponent ep=textbook value==*2: False
+  B opponent ep=off value==*2: False
+=== L5: eighth (Theorem thm:eighth) ===
+  ep=aware    race=count    value==1/8: True
+  ep=aware    race=mover    value==1/8: True
+  ep=aware    race=opponent value==1/8: True
+  ep=textbook race=count    value==1/8: True
+  ep=textbook race=mover    value==1/8: True
+  ep=textbook race=opponent value==1/8: True
+  ep=off      race=count    value==1/8: True
+  ep=off      race=mover    value==1/8: True
+  ep=off      race=opponent value==1/8: True
+=== L6: sumcounter (Proposition prop:sumcounter) ===
+  X single component: True
+  W(X) white to move wins: True
+  W(X) black to move wins: True
+  S(X) white to move wins: False
+  S(X) black to move wins: True

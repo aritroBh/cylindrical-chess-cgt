@@ -7,7 +7,8 @@ import CylChess.Claims.Common
 > B a6 a7 c6 d5, on files a--d of the ordinary board, have value *2. Neither is *2 with e.p. off or under
 > the opponent rule."
 
-Stated with the specification (`Game.lean`, naive recursion, no memo): `IsValue` / `NotValue`.
+Stated with the specification (`Game.lean`, naive recursion, no memo): `IsValue` / `NotValue`. "Value" means value in
+the sum model of `Game.lean`.
 -/
 namespace CylChess.Claims
 
@@ -17,7 +18,8 @@ def posA : Position :=
 def posB : Position :=
   Position.ofSquares [sqr 'b' 4, sqr 'c' 2, sqr 'd' 2] [sqr 'a' 6, sqr 'a' 7, sqr 'c' 6, sqr 'd' 5]
 
-/-- Both positions have no passed pawn and each is a single component (files a-d). -/
+/-- Both positions are a single component (files a-d); that they have no passed pawn is checked by `isValue`
+(`star2seven_default`) and in `RootsOpen.lean`. -/
 theorem star2seven_shape :
     (components flat8 posA).length = 1 ∧ (components flat8 posB).length = 1 := by native_decide
 

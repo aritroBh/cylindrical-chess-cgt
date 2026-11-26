@@ -1,0 +1,56 @@
+Independent solver for L12 cold read
+Written from the paper's rules, not from cylcgt/ or any repo solver.
+
+============================================================
+L4: Positions A and B, value *2
+============================================================
+
+Default (aware, count):
+  posA = *2: True
+  posB = *2: True
+  ep off, count: posA not *2: True, posB not *2: True
+  ep off, mover: posA not *2: True, posB not *2: True
+  ep off, opponent: posA not *2: True, posB not *2: True
+  aware, opponent: posA not *2: True, posB not *2: True
+  textbook, opponent: posA not *2: True, posB not *2: True
+  off, opponent: posA not *2: True, posB not *2: True
+  aware, mover: posA = *2: True, posB = *2: True
+  textbook, count: posA = *2: True, posB = *2: True
+  textbook, mover: posA = *2: True, posB = *2: True
+
+============================================================
+L5: posG = 1/8 in all nine settings
+============================================================
+  (aware, count): 1/8 = True
+  (aware, mover): 1/8 = True
+  (aware, opponent): 1/8 = True
+  (textbook, count): 1/8 = True
+  (textbook, mover): 1/8 = True
+  (textbook, opponent): 1/8 = True
+  (off, count): 1/8 = True
+  (off, mover): 1/8 = True
+  (off, opponent): 1/8 = True
+
+  Checking all race assignments...
+  ep=aware: 9 race positions, checking 2^9 = 512 assignments
+    All assignments: PASS
+  ep=textbook: 10 race positions, checking 2^10 = 1024 assignments
+    All assignments: PASS
+  ep=off: 9 race positions, checking 2^9 = 512 assignments
+    All assignments: PASS
+
+============================================================
+L6: posX on C8, ep off, count rule
+============================================================
+  Components: 1
+  Has passed W: False
+  Has passed B: False
+  W(X), White to move wins: True
+  W(X), Black to move wins: True
+  W(X) is first-player win: True
+  S(X), White to move wins: False
+  S(X), Black to move wins: True
+  S(X) is Black win: True
+
+============================================================
+Done.

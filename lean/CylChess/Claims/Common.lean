@@ -16,7 +16,8 @@ def env (s : Settings) (b : Board) : Env := { s := s, b := b }
 def allSettings : List Settings :=
   [EpRule.aware, .textbook, .off].flatMap fun ep => [RaceRule.count, .mover, .opponent].map fun r => ⟨ep, r⟩
 
-/-- Fuel for every claim: more than `BIG = 256` free moves plus the longest pawn game plus the tree. -/
+/-- Fuel for every claim. An answer `some b` of `Game.wins` or of a search is the outcome whatever the fuel is;
+with too little fuel the answer is `none` and the claim does not compile. -/
 def fuel : Nat := 400
 
 end CylChess.Claims

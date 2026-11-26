@@ -4,7 +4,10 @@ import Std.Data.HashMap
 /-!
 # The fast search
 
-The same outcomes as `Game.wins` and `W`, but memoized in a hash map threaded through the recursion, and with
+The same definite outcomes as `Game.wins` and `W` (a definite answer `some b` is the true outcome whatever the fuel),
+but not the same answers at equal fuel: merging integers makes some branches shorter, so at a small fuel the fast
+search can answer `some b` where the specification says `none` (unknown); `SearchAgrees.lean` tests only fuel 400.
+It is memoized in a hash map threaded through the recursion, and with
 the integer components of a sum merged into one (`n` free moves for Left and `m` for Right are `n - m`;
 a component equal to `0` is dropped). It is trusted like `Game.lean`; `SearchAgrees.lean` tests that it
 agrees with it, which is a test and not a proof.

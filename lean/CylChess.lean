@@ -7,3 +7,5 @@ import CylChess.Claims.L4_Star2
 import CylChess.Claims.L5_Eighth
 import CylChess.Claims.L6_SumCounter
 import CylChess.Claims.Axioms
+import CylChess.Claims.Axioms_L5_L9
+import CylChess.Claims.Axioms_L7_L10

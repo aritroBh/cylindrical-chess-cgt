@@ -292,27 +292,33 @@ Roles: Fable plans and reviews; Opus referees; Sonnet codes and applies; Haiku r
 
 ## Lean 4 check (2026-11-25)
 
-Author asked for a Lean check run by Opus, Sonnet and Haiku agents. Lean is not installed; nothing below has run.
+Author asked for a Lean check run by Opus, Sonnet and Haiku agents. Lean 4.36.0 is installed (no Mathlib); the project is `lean/` (commit 0643d94f onwards). Clean build: `cd lean && lake clean && lake build`.
 Roles: main session plans and reads every result; Opus writes and referees the definitions; Sonnet writes and runs the Lean code; Haiku compares outputs.
 
 Stage 0, setup
-- [ ] L0 Author allows the download: `elan` and the Lean 4 toolchain through Homebrew (about 0.5 GB). Mathlib (about 5 GB) only if Stage 3 is chosen
-- [ ] L1 (Opus) The rules in Lean: boards (flat, cylinder, Möbius), pawn moves and captures across the seam, the e.p. settings, the end at the first passed pawn, the race rule, BIG. This is the part a person must read, so it stays short
-- [ ] L2 (second Opus, blind) L1 read against Section II; (Haiku) move lists of the Lean definition equal those of `cylcgt/` on 1,000 random positions
+- [x] L0 Author allowed the download ("Yes, start"): `elan` and the Lean 4 toolchain through Homebrew (3.0 GB on disk, not the 0.5 GB estimated). Mathlib (about 5 GB) only if Stage 3 is chosen
+- [x] L1 (Opus) `lean/CylChess/Rules.lean`, notes in `lean/notes/L1.md`. The rules in Lean: boards (flat, cylinder, Möbius), pawn moves and captures across the seam, the e.p. settings, the end at the first passed pawn, the race rule, BIG. This is the part a person must read, so it stays short
+- [x] L2 (second Opus, blind) L1 read against Section II, changes applied (`lean/notes/L2_referee.md`); move lists of the Lean definition equal those of the Python engines on 13,000 fresh random positions and the 48 named positions of the paper (`sh lean/tools/compare.sh <seed> <n>`)
 
 Stage 1, finite claims. Each Lean theorem says whether the kernel checked it (`decide`) or compiled code did (`native_decide`)
-- [ ] L3 (Sonnet) Value test "G = v" as "G minus v is a win for the second player": an outcome search, no canonical forms
-- [ ] L4 Seven-pawn positions A and B are star-2; not star-2 with e.p. off or under the opponent rule
-- [ ] L5 White a2 b2 b3 against black a5 a6 b6 is 1/8 in all nine settings
-- [ ] L6 Sum counterexample: S(X) a black win, W(X) a first-player win
-- [ ] L7 Ring base cases behind the star-2 and star-3 families (walls, one pawn per file, Möbius), as far as the runs fit
-- [ ] L8 Ring rule on the 3-by-n cylinder for n up to 16
-- [ ] L9 Cut lemma on every position up to a stated size
-- [ ] L10 Census counts (6,724 zeros, 4,042 stars, no star-k with k at least 2), if the run fits
+- [x] L3 (Sonnet) `Game.lean` (specification) and `Search.lean` (memoized, tested equal to the specification on 3,378 positions, not proved equal). Value test "G = v" as "G minus v is a win for the second player": an outcome search, no canonical forms. Refereed by Opus (`lean/notes/L3_referee.md`): no wrong definition, 17 hand-worked positions agree
+- [x] L4 Seven-pawn positions A and B are star-2; not star-2 with e.p. off or under the opponent rule. `native_decide`; kernel-checked for three of the four (position, side to move) cases, A with Black to move needs 4.8 GB and was left out
+- [x] L5 White a2 b2 b3 against black a5 a6 b6 is 1/8 in all nine settings and for all 2,048 race assignments. `native_decide`; default setting kernel-checked
+- [x] L6 Sum counterexample: S(X) a black win, W(X) a first-player win. W kernel-checked for both sides to move; S by `native_decide`
+- [x] L7 Ring base cases, whole-board game with a nim heap, default setting, all `native_decide` on a fast search (`SearchWide.lean`, tested against its specification on 5,010 small positions): wall rings star-2 for n = 5 to 61; n+2 pawns star-2 to n = 60 and 59; one pawn per file star-2 to n = 50 and 49; star-3 with n+2 pawns to n = 40 and 39, with n+1 pawns to n = 40 (even) and 25 (odd); Möbius star-2 to 49 files, star-3 to 38 and 27 files; the notes' negative controls. Every induction base of the supplement is inside these ranges. Named rings and the S6 example rings in the sum model. No ring with fewer than n+3 pawns is star-2 on C_3 and C_4 (full enumeration); C_5 to C_7 not run. The insertion step to every n is not in Lean (`lean/notes/L7_L10.md`)
+- [x] L8 Dawson's chess with its own pawn rules (`Dawson.lean`): Grundy values to n = 33 and the recurrence to n = 71 by the kernel; ring outcome and structure for n = 3 to 20, ring Grundy values for n = 3 to 16 by `native_decide`. The period 34 from n = 52 up to n = 300 and the exception at n = 51 by `native_decide` (`Claims/L8_Period.lean`). Misère play is not in Lean (`lean/notes/L8_L9.md`)
+- [x] L9 Cut lemma, one step: eleven board sizes checked on every position of the stated families, and equal values on four small sizes, all `native_decide`. The induction from one step to equal values is in words only
+- [x] L10 Census: Lean lists the 231,071 records itself (459,443 positions) and finds 6,724 zeros, 4,042 stars and no star-k for any k at least 2 (`Heaps.lean` computes every heap at once, so no bound on k). `native_decide` per group, the totals by the kernel. Main session compared the Lean table with `atlas/flat8/rerun/census.tsv` group by group: equal
 
 Stage 2, comparison
-- [ ] L11 (Haiku) Every Lean result against the paper's number and the Python output, one table
-- [ ] L12 (Codex, other vendor) Cold read: does each Lean statement say what the paper says
+- [x] L11 (Haiku, one row corrected by the main session) `lean/notes/L11_table.md`: 89 theorems beside the paper's sentence and the result file. No number differs. The file also lists the paper's computed claims with no Lean theorem (the large scans, the Möbius minimum pawn counts, the Elkies-value table). `lean/notes/AXIOMS.md`: 116 statements, 29 checked by the kernel, 87 by compiled code, none with `sorry` or an added axiom. Clean build 2026-11-26: 103 modules, 44 minutes with two workers, peak 3.5 GB
+- [x] L12 round 1 (Codex, Kilo, Cursor reports; agy ran out of quota after its solver agreed; `delegate/out/L12_*/`): each tool compared the Lean statements of L4 to L6 with the paper square by square and recomputed the three claims with a program of its own. No wrong statement, no `sorry` or hand-written axiom, all numbers agree. Findings, all acted on or listed below:
+  - the comment in `L5_Eighth.lean` that a missed race key makes the check fail is false (the 1/8 value holds with an empty race table, which is the stronger statement)
+  - `notValue`, `S` and `W` do not test that the starting position has no passed pawn; the claims need a separate statement that their starting positions are open in every setting used
+  - "X is not HSS" is not in Lean; Codex gave a witness line (h5-h6, a7xh6, then d4-d5 c7-c5 and h6-h5 h5-h4 g3xh4)
+  - the fast search and the specification can differ at equal small fuel (the fast one cancels integers); answers `some _` are the same
+  - Fixed (Sonnet, brief `delegate/briefs/L13_lean_corrections.md`): `L5_EmptyTable.lean` proves 1/8 for every race function, total or partial, on the specification; `RootsOpen.lean` proves the starting positions open (kernel); `L6_NotHSS.lean` gives a kernel-checked witness that X is not hereditarily sum-safe; the false comments are corrected
+- [ ] L12 round 2: the same outside read for L7 to L10
 
 Stage 3, statements for every n (weeks, no promise; needs the author's word)
 - [ ] L13 Sandwich lemma; Cut lemma; Ring rule for every n
@@ -322,4 +328,11 @@ Stage 3, statements for every n (weeks, no promise; needs the author's word)
 Outside Lean's reach: results that rest on the Lichess tablebase or Stockfish (label C1), the large tablebase builds, and hypotheses V1 to V3 of the validity theorem, which are facts about real chess.
 
 Stage 4, paper
+Found on the way (2026-11-25)
+- [x] Second solver `crosscheck/minimax.py`: Black's double step and race distance used rank 7 instead of "top rank minus one". Fixed with a test (commit cde92021). Audit `delegate/out/L1_minimax_rank_audit/REPORT.md`: every published use is on 8 ranks, no number changes
+- [x] Reference check with refchecker and hallucinator (`delegate/out/V4_refcheck/REPORT.md`): no invented reference, nothing to change
+- [ ] Author: open the Wu-Yü-Landry Stanford link once in a browser (it answers 403 to scripts)
+- [ ] Wording: Section II.C and supplement S6 should say the race count uses the front passed pawn; the supplement remark after A.7 should name `lemmas/common.py`; `research/mobius/RULES.md` §2.4 disagrees with the paper on the Möbius double step
+- [ ] Rebuild the anonymous code copy so it carries the fixed `crosscheck/minimax.py` and `lean/`
+
 - [ ] L16 One sentence and one S17 row naming exactly what Lean checked; the 10-page paper has 0.03 in free, so a line must be cut for it

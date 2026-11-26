@@ -4,7 +4,9 @@ import CylChess.Claims.L5_Eighth
 /-!
 # Evidence that `Search` computes what `Game` specifies
 
-**This is a test, not a proof.** `Search.lean` is not shown equal to `Game.lean`; both are only run on a finite
+**This is a test, not a proof.** "Agree" means: at fuel 400 the two return the same answer on the family below. They
+need not agree at equal small fuel (the fast search cancels integers and can be definite where the specification runs
+out of fuel); only the definite answers `some b` are the true outcomes. `Search.lean` is not shown equal to `Game.lean`; both are only run on a finite
 family of positions and compared with `native_decide` (compiled code, so this also trusts the compiler).
 
 ## The family (exact)
