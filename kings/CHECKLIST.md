@@ -47,7 +47,7 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
    - [x] Which of the 48 groups keep the results of ω beside real pawns: 11 of 58 group and file pairs with one pawn a side, six beside every placement on the file; king distance does not decide (K75, refereed by K76; paragraph after the K72 paragraph)
    - [~] The six pairs clean beside every pawn placement on the file: a second program, and a hand-proved lemma on why the kings stay (K79 running)
    - [ ] A hypothesis that pins both kings, under which a real group provably keeps the results of ω beside real pawns (open; no candidate rule survives the 58 pairs)
-   - [~] The seven two-file classes of flat 8×8 outside the four classes: {a,c}, {a,f}, {a,g}, {a,h}, {b,d}, {b,g}, {c,e} (K78 running)
+   - [~] The seven two-file classes of flat 8×8 outside the four classes: {a,c}, {a,f}, {a,g}, {a,h}, {b,d}, {b,g}, {c,e} (K78 done, both search programs agree: 0, 0, 0, 0, 1, 6, 3 groups, 10 new, all with (B1), none exact in chess; 58 groups in eleven classes; referee K80 running)
    - [x] Does a real group need a ladder longer than 3? Not among the 48 groups of the four classes (K67, K77); open for other shapes and boards
    - [ ] Hand proof of (O1) and of the d5 root of the K45 group
    - [x] The K45 group in chess at cap 1: d4 freeze and its zero exact, the rest undecided; exact groups also on flat
