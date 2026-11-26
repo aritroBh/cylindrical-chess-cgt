@@ -1,0 +1,17 @@
+posG components: [(((0, 2, True), (1, 2, True), (1, 3, True)), ((0, 5, False), (0, 6, False), (1, 6, False)), None)]
+setting ('aware', 'count') isValue 1/8: True
+setting ('aware', 'mover') isValue 1/8: True
+setting ('aware', 'opponent') isValue 1/8: True
+setting ('textbook', 'count') isValue 1/8: True
+setting ('textbook', 'mover') isValue 1/8: True
+setting ('textbook', 'opponent') isValue 1/8: True
+setting ('off', 'count') isValue 1/8: True
+setting ('off', 'mover') isValue 1/8: True
+setting ('off', 'opponent') isValue 1/8: True
+F1 m=1 width 10 pawns 10
+hasPassed W/B False False
+F1 m=1 outcomes h=0..6: [('T', 'T'), ('T', 'T'), ('T', 'T'), ('T', 'T'), ('T', 'T'), ('T', 'T'), ('T', 'T')]
+F1 m=1 is *2 for h=0..6: False
+control F1 m=0 width=8 pawns=8 sig(0..4)=RRRRR
+control F2 m=0 width=9 pawns=9 sig(0..4)=RRRRR
+control TT m=0 width=10 pawns=11 sig(0..4)=LLLLL

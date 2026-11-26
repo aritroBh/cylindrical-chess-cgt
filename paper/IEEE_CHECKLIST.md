@@ -318,7 +318,13 @@ Stage 2, comparison
   - "X is not HSS" is not in Lean; Codex gave a witness line (h5-h6, a7xh6, then d4-d5 c7-c5 and h6-h5 h5-h4 g3xh4)
   - the fast search and the specification can differ at equal small fuel (the fast one cancels integers); answers `some _` are the same
   - Fixed (Sonnet, brief `delegate/briefs/L13_lean_corrections.md`): `L5_EmptyTable.lean` proves 1/8 for every race function, total or partial, on the specification; `RootsOpen.lean` proves the starting positions open (kernel); `L6_NotHSS.lean` gives a kernel-checked witness that X is not hereditarily sum-safe; the false comments are corrected
-- [ ] L12 round 2: the same outside read for L7 to L10
+- [x] L12 round 2 (brief `delegate/briefs/L14_lean_cold_read_2.md`; reports `delegate/out/L14_codex/`, `L14_kilo/`, `L14_opencode/`; Cursor and agy had no quota): no wrong theorem. Each tool recomputed part of the claims with its own program: Codex the whole census group by group (equal), the wall rings on 5 to 10 files, M_10, the eleven-file ring, the Möbius controls, Dawson rings to n = 20 and one cut instance; Kilo Dawson to n = 60 and three cut instances; OpenCode the 1/8 with an empty race table, the not-HSS lines and Möbius F3(0). The logs name the project's own solvers only where the shared brief, the paper or the Lean comments name them. Findings, sent to a Sonnet agent as `delegate/briefs/L15_lean_corrections_2.md`:
+  - the fast passed-pawn test of `SearchWide.lean` used 1000 as "no pawn on this file" and is wrong on boards with about 1000 ranks; every claim uses 8 ranks
+  - two agreement tests let an unknown answer pass (`HeapsAgrees`, `SearchWideAgrees`); Codex reran them strictly and they pass
+  - 2,658 of the 3,378 small test positions are not legal placements (Black on the fifth rank of a five-rank board); they test the code, they are not a count of positions
+  - the twelve-pawn ring on C_11 was checked as a sum only, the paper states the whole-board value; Codex's program gives star-3 there
+  - the control positions were not tested for an open root (Codex: all open); several wrong comments and two wrong sentences in the notes
+- [ ] L12 round 2 fixes built and read by the main session
 
 Stage 3, statements for every n (weeks, no promise; needs the author's word)
 - [ ] L13 Sandwich lemma; Cut lemma; Ring rule for every n
@@ -333,6 +339,8 @@ Found on the way (2026-11-25)
 - [x] Reference check with refchecker and hallucinator (`delegate/out/V4_refcheck/REPORT.md`): no invented reference, nothing to change
 - [ ] Author: open the Wu-Yü-Landry Stanford link once in a browser (it answers 403 to scripts)
 - [ ] Wording: Section II.C and supplement S6 should say the race count uses the front passed pawn; the supplement remark after A.7 should name `lemmas/common.py`; `research/mobius/RULES.md` §2.4 disagrees with the paper on the Möbius double step
+- [ ] Wording (found by Codex, L14): the census of Section IV lists diagrams with no en passant right; the text says "every such position". Codex counted the 22,290 further records with a live e.p. right after a double step: 180 zeros, 260 stars, no star-k with k at least 2, so the theorem's statement survives either reading. One clause in `06_atlas.tex` would settle it
+- [ ] Wording: "with e.p. off it is 0" for the six-pawn ring on C_3 holds under the count and mover rules, not under the opponent rule; the sentence names no rule (the default is count)
 - [ ] Rebuild the anonymous code copy so it carries the fixed `crosscheck/minimax.py` and `lean/`
 
 - [ ] L16 One sentence and one S17 row naming exactly what Lean checked; the 10-page paper has 0.03 in free, so a line must be cut for it
