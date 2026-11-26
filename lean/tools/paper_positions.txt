@@ -1,0 +1,67 @@
+# Named positions of the paper (dist/tog/sections/*.tex, \pos{...}), each in the setting the text gives.
+# "default" = aware e.p. test and count rule (the paper's default setting, 02_rules.tex). Lines starting with # are skipped by both printers.
+# Caption (a), 02_rules.tex fig:basic: ordinary board, default setting, value 0
+flat 8 8 aware count | W: a2 / B: b4
+# 02_rules.tex l.75: ordinary board, default setting, value 0
+flat 8 8 aware count | W: a2 b3 / B: b4
+# 02_rules.tex fig:basic (b) and (c): cylinder, value 0 and Tiny 1, stated "in all nine settings"
+cyl 8 8 aware count | W: a4 h3 / B: a5 h6
+cyl 8 8 aware mover | W: a4 h3 / B: a5 h6
+cyl 8 8 aware opponent | W: a4 h3 / B: a5 h6
+cyl 8 8 textbook count | W: a4 h3 / B: a5 h6
+cyl 8 8 textbook mover | W: a4 h3 / B: a5 h6
+cyl 8 8 textbook opponent | W: a4 h3 / B: a5 h6
+cyl 8 8 off count | W: a4 h3 / B: a5 h6
+cyl 8 8 off mover | W: a4 h3 / B: a5 h6
+cyl 8 8 off opponent | W: a4 h3 / B: a5 h6
+cyl 8 8 aware count | W: a4 h2 h4 / B: a5 a6 a7 h3
+cyl 8 8 aware mover | W: a4 h2 h4 / B: a5 a6 a7 h3
+cyl 8 8 aware opponent | W: a4 h2 h4 / B: a5 a6 a7 h3
+cyl 8 8 textbook count | W: a4 h2 h4 / B: a5 a6 a7 h3
+cyl 8 8 textbook mover | W: a4 h2 h4 / B: a5 a6 a7 h3
+cyl 8 8 textbook opponent | W: a4 h2 h4 / B: a5 a6 a7 h3
+cyl 8 8 off count | W: a4 h2 h4 / B: a5 a6 a7 h3
+cyl 8 8 off mover | W: a4 h2 h4 / B: a5 a6 a7 h3
+cyl 8 8 off opponent | W: a4 h2 h4 / B: a5 a6 a7 h3
+# 02_rules.tex l.112: cylinder, default setting gives 2; e.p. off gives the infinitesimal
+cyl 8 8 aware count | W: a5 h2 / B: a6 h7
+cyl 8 8 off count | W: a5 h2 / B: a6 h7
+# 08_star2.tex l.25 and 09_real.tex l.30: textbook test with the count rule
+flat 8 8 textbook count | W: a2 c2 / B: b7 d7
+# 08_star2.tex l.29: e.p.-aware test
+flat 8 8 aware count | W: a2 c2 / B: b4 d7
+# 08_star2.tex thm:star2seven (default setting; also e.p. off and the opponent rule, which the theorem excludes)
+flat 4 8 aware count | W: a4 b3 d2 d3 / B: a7 b7 c5
+flat 4 8 aware count | W: b4 c2 d2 / B: a6 a7 c6 d5
+flat 4 8 off count | W: a4 b3 d2 d3 / B: a7 b7 c5
+flat 4 8 off count | W: b4 c2 d2 / B: a6 a7 c6 d5
+flat 4 8 aware opponent | W: a4 b3 d2 d3 / B: a7 b7 c5
+flat 4 8 aware opponent | W: b4 c2 d2 / B: a6 a7 c6 d5
+# 08_star2.tex l.105: six-pawn ring nim2 on cyl3 (default); with e.p. off it is 0
+cyl 3 8 aware count | W: a2 a3 b2 / B: b7 c6 c7
+cyl 3 8 off count | W: a2 a3 b2 / B: b7 c6 c7
+# 08_star2.tex l.108-109: nim2 rings on cyl10 and cyl11 (default)
+cyl 10 8 aware count | W: b2 d2 e3 h3 j5 / B: a4 c6 f6 g7 i7
+cyl 11 8 aware count | W: c5 e3 h3 i2 k2 / B: a4 b7 d7 f7 g6 j6
+# 08_star2.tex l.122: nim3 on four files, whole board (topology not stated; both shown)
+flat 4 8 aware count | W: a2 b4 c2 d2 / B: a4 a6 a7 c6 d5
+cyl 4 8 aware count | W: a2 b4 c2 d2 / B: a4 a6 a7 c6 d5
+# 08_star2.tex l.126: nim2 on seven ranks with three to five files (default; flat boards)
+flat 3 7 aware count | W: a2 c2 / B: c3 b6
+flat 4 7 aware count | W: a2 c2 / B: c3 b6
+flat 5 7 aware count | W: a2 c2 / B: c3 b6
+# 07_targets.tex caption: Elkies' small values, ordinary board, default setting
+flat 8 8 aware count | W: a2 b2 b3 / B: a5 a6 b6
+flat 8 8 aware count | W: a2 b2 b6 / B: a6 b7 c5
+flat 8 8 aware count | W: a2 b2 b6 / B: a6 b7 c6
+# 05_sums.tex l.17: legal copy of Puzzle 3, ordinary board, default setting (assumed; text gives no setting)
+flat 8 8 aware count | W: c2 c4 d4 / B: c3 d5 d6 d7
+# 05_sums.tex l.51: default setting, flat boards three to five files wide (five files here)
+flat 5 8 aware count | W: a5 d3 / B: b6 e4
+# 05_sums.tex l.56: cylinder with e.p. off and the count rule
+cyl 8 8 off count | W: b2 d4 g3 h5 / B: a7 c7 f7 g4
+# 09_real.tex l.43: opponent rule with e.p. on (both e.p. options given; textbook and aware)
+flat 8 8 aware opponent | W: a3 b3 c2 / B: b5 b7 c6
+flat 8 8 textbook opponent | W: a3 b3 c2 / B: b5 b7 c6
+# 09_real.tex l.54: black to move in this position; setting not stated (default assumed)
+flat 8 8 aware count | W: b2 b5 / B: a5 b4

@@ -1,0 +1,10 @@
+name = "CylChess"
+version = "0.1.0"
+defaultTargets = ["CylChess", "movelist"]
+
+[[lean_lib]]
+name = "CylChess"
+
+[[lean_exe]]
+name = "movelist"
+root = "MoveList"
