@@ -28,7 +28,7 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
          the results of over on flat 8×7, the smallest with 2 + 2 pawns, four of them also on flat 8×8:
          Corollary 4.17 (proved given twice-checked computations, refereed) (K59)
    - [x] The 2 + 2 group on the ordinary 8×8 board: in chess, and beside P contexts (K63, refereed): not an exact over group in chess (tablebase), one freeze survives as a mutual zugzwang; beside file-h pawns in P the prediction fails in 12 of 283 contexts
-   - [~] Census of exact over groups on flat 8×8, two programs, with (B1) and ladder length for every hit (K65, investigator running)
+   - [~] Census of exact over groups on flat 8×8, two programs, with (B1) and ladder length for every hit (K65: investigator done, two of four classes of the known shape, 38 groups, one claimed to have the results of over without (B1); referee running)
    - [ ] Other file classes of flat 8×7; flat 9×7
    - [x] The exact condition in place of the Black-side condition: Theorem 4.18, decided by one game on the group's
          own graph or by one short test game, Corollary 4.19 (proved, refereed) (K60)
