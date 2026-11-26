@@ -3,6 +3,8 @@ import CylChess.Heaps
 /-!
 # The census of Section 4 (`dist/tog/sections/06_atlas.tex`, Theorem `thm:census`): the list of positions
 
+Every record is a diagram with no en passant right (`ep = none`), not a position reached by a double step.
+
 > "The census holds every such position with at most six pawns on `F_1, ..., F_4`, up to translation and mirror
 > image: 231,071 records standing for 459,443 positions." (every such position: every pawn on ranks 2-7, at least
 > one pawn per side, no passed pawn.)
@@ -74,8 +76,8 @@ namespace Census
 open Heaps
 
 /-- Tally of a batch of records: records, board positions they stand for, records of value `0`, records of value `*`,
-records whose set of heaps `j` with `X + *j` lost by the mover is neither `{0}`, `{1}` nor empty and contains no `j ≥ 2`
-(`odd`, none expected), records with such a heap `j ≥ 2` (`big`, i.e. `X = *j`), records the computation did not settle
+records whose set of lost heaps has no `j ≥ 2` and is neither `{0}` nor `{1}` (`noNimber`: this includes the empty
+set, and none is expected), records with such a heap `j ≥ 2` (`big`, i.e. `X = *j`), records the computation did not settle
 (`failed`). -/
 structure Tally where
   recs : Nat := 0

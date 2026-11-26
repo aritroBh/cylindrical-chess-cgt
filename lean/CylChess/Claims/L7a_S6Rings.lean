@@ -49,10 +49,17 @@ theorem c8_wall_example_is_E8 :
     S6 [('b', 2), ('c', 3), ('c', 5), ('d', 2), ('f', 2), ('h', 2)] [('a', 5), ('b', 5), ('c', 6), ('e', 4), ('g', 4)] =
       Wide.ofFiles (Fam.wall 8) := by native_decide
 
-/-- "`C_11`: the twelve-pawn `W c4 d6 e3 h3 i2 k2 / B a4 b7 d7 f7 g6 j6` is `*3` \lab{C2}": sum model, and the
-whole-board game with a heap (not stated for this model in the paper). -/
+/-- "`C_11`: the twelve-pawn `W c4 d6 e3 h3 i2 k2 / B a4 b7 d7 f7 g6 j6` is `*3` \lab{C2}", in the sum model (the
+paper does not name the model here; the whole-board game is `c11_twelve_pawn_ring_whole`). -/
 theorem c11_twelve_pawn_ring_sum :
     sumStar 11 3 (S6 [('c', 4), ('d', 6), ('e', 3), ('h', 3), ('i', 2), ('k', 2)]
       [('a', 4), ('b', 7), ('d', 7), ('f', 7), ('g', 6), ('j', 6)]) = true := by native_decide
+
+/-- The same ring in the whole-board game with a nim heap (`08_star2.tex`, "with `n+1` pawns on `C_11`"): `G + *h` is
+lost by the mover exactly for `h = 3` (`h ≤ 6`). -/
+theorem c11_twelve_pawn_ring_whole :
+    WideStar (defEnv (cylinder 11)) wideFuel
+      (S6 [('c', 4), ('d', 6), ('e', 3), ('h', 3), ('i', 2), ('k', 2)]
+        [('a', 4), ('b', 7), ('d', 7), ('f', 7), ('g', 6), ('j', 6)]) 3 6 := by native_decide
 
 end CylChess.Claims

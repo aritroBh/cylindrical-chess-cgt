@@ -30,4 +30,12 @@ theorem controls_cylinder :
     (sig 10 T10).toList[3]? = some 'L' ∧ (sig 11 S11).toList[3]? = some 'R' := by
   native_decide
 
+/-- The root of each control has no passed pawn for either side in the default setting (`sigString` does not test it). -/
+def openRoot (n : Nat) (fs : List String) : Bool :=
+  !hasPassed Settings.default (cylinder n) (ofFiles fs) .white && !hasPassed Settings.default (cylinder n) (ofFiles fs) .black
+
+theorem controls_cylinder_open :
+    openRoot 9 R9 = true ∧ openRoot 9 Qo9 = true ∧ openRoot 8 M8 = true ∧ openRoot 9 O9 = true ∧
+    openRoot 10 T10 = true ∧ openRoot 11 S11 = true := by native_decide
+
 end CylChess.Claims

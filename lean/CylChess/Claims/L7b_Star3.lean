@@ -8,7 +8,7 @@ import CylChess.Claims.WideCommon
 
 `Q_n` (even `n ≥ 8`, N2) and `Qo_n` (odd `n ≥ 11`, N3) have `n + 2` pawns; `T_n` (even `n ≥ 12`) and `S_n` (odd `n ≥ 13`)
 (N4) have `n + 1`. "`*3`" is the heap test of S13: `G + *h` is lost by the mover exactly for `h = 3`. The paper's induction
-needs base cases `n_0 = 22, 22, 20, 23` for `Q, Qo (19), T, S`; the instances below go up to the bound in each
+needs base cases `n_0 = 22` for `Q`, `19` for `Qo`, `20` for `T` and `23` for `S`; the instances below go up to the bound in each
 theorem. (`S_n` is in `L7b_S`, it is the slowest family.)
 -/
 namespace CylChess.Claims

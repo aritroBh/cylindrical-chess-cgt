@@ -71,7 +71,7 @@ rest on three lemmas (`research/ring_family_proof/proof.tex`), and their finite 
 A Lean 4 project (`lean/`, no Mathlib) states the rules of the pawn game and re-checks finite claims of the paper: the
 seven-pawn positions of value star-2, the value 1/8 in nine settings and for every race outcome, the sum counterexample,
 the ring families on every width up to a stated bound, the ring rule for Dawson's chess on small rings, one step of the
-cut lemma on small boards, and the census counts. Of 116 statements the Lean kernel checks 29; the other 87 are
+cut lemma on small boards, and the census counts. Of 123 statements the Lean kernel checks 29; the other 94 are
 evaluated by compiled Lean code (`native_decide`), most of them through a fast search that is tested against the
 specification and not proved equal to it. Statements for every n are not in Lean. `lean/notes/L11_table.md` lists each
 theorem beside the paper's sentence, and the paper's computed claims that have no Lean theorem.

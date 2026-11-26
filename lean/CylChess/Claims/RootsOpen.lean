@@ -11,9 +11,11 @@ about a root that already has a passed pawn would be a different statement. Here
 claims that use `NotValue`, `S` or `W` (and, for the record, those that use `IsValue`) is checked to have no
 passed pawn for either colour, in each setting of the claim.
 
-Not added for the L7 to L10 files: their theorems use `Search.isValue` or `Wide.starTest`, and both begin with
-`!hasPassed .. .white && !hasPassed .. .black` on the root (`Search.lean`, `SearchWide.lean`); the L9 families
-compare whole families of positions and are not roots of a value claim.
+Not added here for the L7 to L10 files. The census screens its records in `Census.records` (no passed pawn); the
+family claims test the root in `Wide.starTest` (`SearchWide.lean`), which begins with
+`!hasPassed .. .white && !hasPassed .. .black`; the controls (`L7b_Controls`, `L7b_Mobius`) get their own theorems
+(`controls_cylinder_open`, `Mobius_controls_open`). The L9 families compare whole families of positions and are not roots of a
+value claim.
 -/
 namespace CylChess.Claims
 

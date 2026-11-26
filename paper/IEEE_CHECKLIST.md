@@ -324,7 +324,7 @@ Stage 2, comparison
   - 2,658 of the 3,378 small test positions are not legal placements (Black on the fifth rank of a five-rank board); they test the code, they are not a count of positions
   - the twelve-pawn ring on C_11 was checked as a sum only, the paper states the whole-board value; Codex's program gives star-3 there
   - the control positions were not tested for an open root (Codex: all open); several wrong comments and two wrong sentences in the notes
-- [ ] L12 round 2 fixes built and read by the main session
+- [x] L12 round 2 fixes built and read by the main session (2026-11-26, brief `delegate/briefs/L15_lean_corrections_2.md`, Sonnet): all 13 items applied and no test weakened. The fast passed-pawn test takes its empty-file value from the board (`ranks + 1`); the three agreement tests require a definite answer and still pass; new theorems `passed_tall`, `wide_tall` (the referee's two tall boards), `cases_valid_count` (720 of 3,378 test inputs are legal placements), `casesOpen_valid_count` (2,352 of 5,010), `c11_twelve_pawn_ring_whole` (the twelve-pawn C_11 ring is ★3 as a whole-board game), `controls_cylinder_open`, `Mobius_controls_open`. Clean build: 105 jobs, 2,639 s, peak 3.5 GB, no `sorryAx` (`delegate/out/L15_build.log`); one comment in `RootsOpen.lean` was corrected afterwards and rebuilt. Now 123 statements: 29 kernel, 94 compiled code (`lean/notes/AXIOMS.md`).
 
 Stage 3, statements for every n (weeks, no promise; needs the author's word)
 - [ ] L13 Sandwich lemma; Cut lemma; Ring rule for every n

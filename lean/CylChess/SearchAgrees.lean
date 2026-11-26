@@ -20,6 +20,11 @@ the following eight outcomes agree between `Game` and `Search` (`BIG = 256`, fue
 in all (`family_size`): `W` with White to move and with Black to move; and `outcome` (the sum of the position's
 components and a game tree) for each mover and each of the trees `0` (this is `S`), `*1` and `1/2`.
 
+The family is a set of test inputs for the code, not a set of legal placements: 2658 of the 3378 positions fail
+`Position.valid` (Black pawns on rank 5 of a five-rank board, where a black pawn has no square to stand on in a real
+game), which leaves 720 valid ones (`cases_valid_count`). The agreement is required to be definite: both answers are
+`some _` (`none == none` would pass an equality test).
+
 Then one more test on the position of Theorem `thm:eighth`: the specification and the fast search agree on
 `isValue` for the nine settings, and for three race assignments (all won by White, all won by Black,
 alternating) on the 8x8 board.
@@ -57,10 +62,15 @@ def cases : List (Env × Position) :=
 /-- One position: the specification and the search give the same answers. -/
 def agreeOn (ep : Env × Position) : Bool :=
   let (e, p) := ep
-  colors.all (fun c => W e fuel p c == Search.wholeBoard e fuel p c) &&
-  trees.all fun t => colors.all fun c => outcome e fuel p t c == Search.outcome e fuel p t c
+  colors.all (fun c => (W e fuel p c).isSome && W e fuel p c == Search.wholeBoard e fuel p c) &&
+  trees.all fun t => colors.all fun c => (outcome e fuel p t c).isSome && outcome e fuel p t c == Search.outcome e fuel p t c
 
 theorem family_size : cases.length = 3378 := by native_decide
+
+/-- Of the 3378 test inputs, 720 are valid positions and 2658 are not (`Position.valid` of `Rules.lean`). -/
+theorem cases_valid_count :
+    (cases.filter fun (e, p) => p.valid e.b).length = 720 ∧ (cases.filter fun (e, p) => !p.valid e.b).length = 2658 := by
+  native_decide
 
 theorem search_agrees_on_family : cases.all agreeOn = true := by native_decide
 

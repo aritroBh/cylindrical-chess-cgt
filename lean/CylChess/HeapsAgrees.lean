@@ -7,13 +7,16 @@ import CylChess.Census
 
 **A test, not a proof** (like `SearchAgrees.lean`). For the positions of `SearchAgrees.family` (3378 positions: flat
 board and cylinder, three files, five ranks, two white and two black pawns, three settings, no passed pawn at the
-root) the sets `WL`, `WR` of `Heaps.sets` are compared, for each mover, with
+root; a set of test inputs for the code, 2658 of them not valid placements, 720 valid: `Agrees.cases_valid_count`) the sets `WL`, `WR` of `Heaps.sets` are compared, for each mover, with
 
 * `Game.wins` (the specification, naive recursion) on `X + *j`, `j = 0 .. 3`: `heaps_agree_spec`;
 * `Search.run` (memoized) on `X + *j`, `j = 0 .. 7`: `heaps_agree_search`;
 * the same two comparisons on census records of the census environment (`BIG = 256`, flat board, default setting):
   `heaps_agree_census_spec` (the specification, `j = 0 .. 3`, the 385 records of class `W=2, w=2, b=2` and the
   75 of `W=2, w=2, b=1`) and `heaps_agree_census_search` (`j = 0 .. 7`, the 915 records of `W=3, w=2, b=2`).
+
+The reference answer must be definite: `agreeWith` compares `some (wl.mem j)` with the answer of the reference, so an
+unknown answer (`none`) fails the test.
 -/
 namespace CylChess.HeapsAgrees
 open CylChess CylChess.Claims CylChess.Agrees
@@ -25,7 +28,7 @@ def agreeWith (win : Env → List Comp → Nat → Color → Option Bool) (jmax 
   | none => false
   | some (wl, wr) =>
     (List.range (jmax + 1)).all fun j =>
-      wl.mem j == (win e cs j .white == some true) && wr.mem j == (win e cs j .black == some true)
+      some (wl.mem j) == win e cs j .white && some (wr.mem j) == win e cs j .black
 
 def spec (e : Env) (cs : List Comp) (j : Nat) (c : Color) : Option Bool :=
   Game.wins e 400 (cs ++ [.tree (Tree.star j)]) c

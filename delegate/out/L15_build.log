@@ -1,0 +1,508 @@
+✔ [2/105] Built CylChess.Rules (403ms)
+✔ [4/105] Built CylChess.Rules:c.o (621ms)
+✔ [5/105] Built MoveList (254ms)
+✔ [6/105] Built CylChess.Game (243ms)
+✔ [7/105] Built CylChess.RulesExamples (277ms)
+✔ [11/105] Built MoveList:c.o (168ms)
+✔ [12/105] Built movelist:exe (231ms)
+✔ [13/105] Built CylChess.Claims.Common (179ms)
+✔ [14/105] Built CylChess.Search (329ms)
+✔ [17/105] Built CylChess.Claims.L4_Star2 (131s)
+ℹ [18/105] Built CylChess.Dawson (189s)
+info: CylChess/Dawson.lean:370:0: 'CylChess.Dawson.g_table' depends on axioms: [propext]
+info: CylChess/Dawson.lean:371:0: 'CylChess.Dawson.g_recurrence' depends on axioms: [propext]
+info: CylChess/Dawson.lean:372:0: 'CylChess.Dawson.ring_win_list' depends on axioms: [propext]
+info: CylChess/Dawson.lean:373:0: 'CylChess.Dawson.ring_outcome' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ ring_outcome._native.native_decide.ax_1_1]
+info: CylChess/Dawson.lean:374:0: 'CylChess.Dawson.ring_win_range' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ ring_win_range._native.native_decide.ax_1_1]
+info: CylChess/Dawson.lean:375:0: 'CylChess.Dawson.ring_grundy' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ ring_grundy._native.native_decide.ax_1_1]
+info: CylChess/Dawson.lean:376:0: 'CylChess.Dawson.ring_structure' depends on axioms: [propext, ring_structure._native.native_decide.ax_1_1]
+info: CylChess/Dawson.lean:377:0: 'CylChess.Dawson.strip_check' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ strip_check._native.native_decide.ax_1_1]
+info: CylChess/Dawson.lean:378:0: 'CylChess.Dawson.no_promotion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ no_promotion._native.native_decide.ax_1_1]
+info: CylChess/Dawson.lean:379:0: 'CylChess.Dawson.ring_naive_kernel' depends on axioms: [propext]
+info: CylChess/Dawson.lean:380:0: 'CylChess.Dawson.strip_naive_kernel' depends on axioms: [propext]
+info: CylChess/Dawson.lean:381:0: 'CylChess.Dawson.naive_native' depends on axioms: [propext, naive_native._native.native_decide.ax_1_1]
+✔ [19/105] Built CylChess.Claims.L5_Eighth (119s)
+✔ [20/105] Built CylChess.Claims.L6_SumCounter (66s)
+✔ [21/105] Built CylChess.Heaps (264ms)
+✔ [26/105] Built CylChess.SearchWide (291ms)
+✔ [29/105] Built CylChess.Claims.KernelL4_B_black (6.2s)
+✔ [30/105] Built CylChess.Claims.KernelL4_B_white (6.4s)
+✔ [31/105] Built CylChess.Claims.KernelL4_A_white (11s)
+✔ [32/105] Built CylChess.Claims.L8_Period (2.5s)
+✔ [33/105] Built CylChess.SearchAgrees (43s)
+ℹ [34/105] Built CylChess.Claims.L5_EmptyTable (27s)
+info: CylChess/Claims/L5_EmptyTable.lean:177:0: 'CylChess.Claims.eighth_empty_table_default_kernel' depends on axioms: [propext]
+info: CylChess/Claims/L5_EmptyTable.lean:178:0: 'CylChess.Claims.eighth_every_race_function' depends on axioms: [propext,
+ eighth_empty_table_nine_settings._native.native_decide.ax_1_1]
+✔ [35/105] Built CylChess.Claims.KernelL5 (8.8s)
+✔ [36/105] Built CylChess.Claims.RootsOpen (243ms)
+✔ [37/105] Built CylChess.Claims.L6_NotHSS (305ms)
+✔ [38/105] Built CylChess.Claims.KernelL6Black (10s)
+✔ [39/105] Built CylChess.Claims.KernelL6 (8.9s)
+✔ [42/105] Built CylChess.Census (292ms)
+✔ [44/105] Built CylChess.Families (238ms)
+✔ [53/105] Built CylChess.WideLemmas (208ms)
+✔ [57/105] Built CylChess.SearchWideAgrees (354s)
+ℹ [58/105] Built CylChess.Claims.Axioms (220ms)
+info: CylChess/Claims/Axioms.lean:14:0: 'CylChess.Claims.star2seven_shape' depends on axioms: [propext,
+ CylChess.Claims.star2seven_shape._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms.lean:15:0: 'CylChess.Claims.star2seven_default' depends on axioms: [propext,
+ CylChess.Claims.star2seven_default._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms.lean:16:0: 'CylChess.Claims.star2seven_not_ep_off' depends on axioms: [propext,
+ CylChess.Claims.star2seven_not_ep_off._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms.lean:17:0: 'CylChess.Claims.star2seven_not_opponent' depends on axioms: [propext,
+ CylChess.Claims.star2seven_not_opponent._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms.lean:18:0: 'CylChess.Claims.star2seven_table_extra' depends on axioms: [propext,
+ CylChess.Claims.star2seven_table_extra._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms.lean:19:0: 'CylChess.Claims.eighth_nine_settings' depends on axioms: [propext,
+ CylChess.Claims.eighth_nine_settings._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms.lean:20:0: 'CylChess.Claims.eighth_mirror_nine_settings' depends on axioms: [propext,
+ CylChess.Claims.eighth_mirror_nine_settings._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms.lean:21:0: 'CylChess.Claims.eighth_race_counts' depends on axioms: [propext,
+ CylChess.Claims.eighth_race_counts._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms.lean:22:0: 'CylChess.Claims.eighth_all_assignments' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.eighth_all_assignments._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms.lean:23:0: 'CylChess.Claims.eighth_default_kernel' depends on axioms: [propext]
+info: CylChess/Claims/Axioms.lean:24:0: 'CylChess.Claims.sumcounter_shape' depends on axioms: [propext,
+ CylChess.Claims.sumcounter_shape._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms.lean:25:0: 'CylChess.Claims.sumcounter_W' depends on axioms: [propext, CylChess.Claims.sumcounter_W._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms.lean:26:0: 'CylChess.Claims.sumcounter_S' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.sumcounter_S._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms.lean:27:0: 'CylChess.Claims.sumcounter_S_spec_big24' depends on axioms: [propext,
+ CylChess.Claims.sumcounter_S_spec_big24._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms.lean:28:0: 'CylChess.Claims.sumcounter_W_white_kernel' depends on axioms: [propext]
+info: CylChess/Claims/Axioms.lean:29:0: 'CylChess.Claims.sumcounter_W_black_kernel' depends on axioms: [propext]
+info: CylChess/Claims/Axioms.lean:30:0: 'CylChess.Claims.star2_A_white_kernel' depends on axioms: [propext]
+info: CylChess/Claims/Axioms.lean:31:0: 'CylChess.Claims.star2_B_white_kernel' depends on axioms: [propext]
+info: CylChess/Claims/Axioms.lean:32:0: 'CylChess.Claims.star2_B_black_kernel' depends on axioms: [propext]
+info: CylChess/Claims/Axioms.lean:33:0: 'CylChess.Agrees.family_size' depends on axioms: [CylChess.Agrees.family_size._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms.lean:34:0: 'CylChess.Agrees.cases_valid_count' depends on axioms: [CylChess.Agrees.cases_valid_count._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms.lean:35:0: 'CylChess.Agrees.search_agrees_on_family' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Agrees.search_agrees_on_family._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms.lean:36:0: 'CylChess.Agrees.search_agrees_eighth' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Agrees.search_agrees_eighth._native.native_decide.ax_1_1]
+✔ [59/105] Built CylChess.HeapsAgrees (447s)
+✔ [60/105] Built CylChess.RingScan (277ms)
+✔ [61/105] Built CylChess.CensusData (215ms)
+✔ [62/105] Built CylChess.Claims.L7a_NamedRings (32s)
+✔ [63/105] Built CylChess.Claims.L7a_S6Rings (53s)
+✔ [69/105] Built CylChess.Claims.WideCommon (216ms)
+ℹ [73/105] Built CylChess.Claims.L9_Cut (1313s)
+info: CylChess/Claims/L9_Cut.lean:210:0: 'CylChess.Claims.Cut.fam_generator_brute' depends on axioms: [propext, fam_generator_brute._native.native_decide.ax_1_1]
+info: CylChess/Claims/L9_Cut.lean:211:0: 'CylChess.Claims.Cut.fam_nonvacuous' depends on axioms: [propext, fam_nonvacuous._native.native_decide.ax_1_1]
+info: CylChess/Claims/L9_Cut.lean:212:0: 'CylChess.Claims.Cut.cut_step_3_5_6' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ cut_step_3_5_6._native.native_decide.ax_1_1]
+info: CylChess/Claims/L9_Cut.lean:213:0: 'CylChess.Claims.Cut.cut_step_3_8_4' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ cut_step_3_8_4._native.native_decide.ax_1_1]
+info: CylChess/Claims/L9_Cut.lean:214:0: 'CylChess.Claims.Cut.cut_step_4_5_4' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ cut_step_4_5_4._native.native_decide.ax_1_1]
+info: CylChess/Claims/L9_Cut.lean:215:0: 'CylChess.Claims.Cut.cut_step_4_6_4' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ cut_step_4_6_4._native.native_decide.ax_1_1]
+info: CylChess/Claims/L9_Cut.lean:216:0: 'CylChess.Claims.Cut.cut_step_4_8_3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ cut_step_4_8_3._native.native_decide.ax_1_1]
+info: CylChess/Claims/L9_Cut.lean:217:0: 'CylChess.Claims.Cut.cut_step_5_5_4' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ cut_step_5_5_4._native.native_decide.ax_1_1]
+info: CylChess/Claims/L9_Cut.lean:218:0: 'CylChess.Claims.Cut.cut_step_5_6_3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ cut_step_5_6_3._native.native_decide.ax_1_1]
+info: CylChess/Claims/L9_Cut.lean:219:0: 'CylChess.Claims.Cut.cut_step_5_8_3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ cut_step_5_8_3._native.native_decide.ax_1_1]
+info: CylChess/Claims/L9_Cut.lean:220:0: 'CylChess.Claims.Cut.cut_step_6_8_2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ cut_step_6_8_2._native.native_decide.ax_1_1]
+info: CylChess/Claims/L9_Cut.lean:221:0: 'CylChess.Claims.Cut.cut_step_7_5_3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ cut_step_7_5_3._native.native_decide.ax_1_1]
+info: CylChess/Claims/L9_Cut.lean:222:0: 'CylChess.Claims.Cut.cut_step_8_5_2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ cut_step_8_5_2._native.native_decide.ax_1_1]
+info: CylChess/Claims/L9_Cut.lean:223:0: 'CylChess.Claims.Cut.cut_value_3_5_4' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ cut_value_3_5_4._native.native_decide.ax_1_1]
+info: CylChess/Claims/L9_Cut.lean:224:0: 'CylChess.Claims.Cut.cut_value_4_5_3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ cut_value_4_5_3._native.native_decide.ax_1_1]
+info: CylChess/Claims/L9_Cut.lean:225:0: 'CylChess.Claims.Cut.cut_value_5_4_3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ cut_value_5_4_3._native.native_decide.ax_1_1]
+info: CylChess/Claims/L9_Cut.lean:226:0: 'CylChess.Claims.Cut.cut_value_4_6_3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ cut_value_4_6_3._native.native_decide.ax_1_1]
+✔ [74/105] Built CylChess.Claims.L11_RingMinC4 (657s)
+✔ [75/105] Built CylChess.Claims.L11_RingMinC3 (405s)
+✔ [76/105] Built CylChess.Claims.L10_CensusSmall (75s)
+✔ [77/105] Built CylChess.Claims.L7b_Controls (2.8s)
+✔ [78/105] Built CylChess.Claims.L10_CensusBig (264s)
+✔ [79/105] Built CylChess.Claims.L7b_Mobius (184s)
+✔ [80/105] Built CylChess.Claims.L7b_OnePerFile (153s)
+✔ [81/105] Built CylChess.Claims.L7b_S (136s)
+✔ [83/105] Built CylChess.Claims.L7b_Walls (144s)
+ℹ [93/105] Built CylChess.Claims.Axioms_L5_L9 (237ms)
+info: CylChess/Claims/Axioms_L5_L9.lean:11:0: 'CylChess.Claims.anyOpt_mono' depends on axioms: [propext]
+info: CylChess/Claims/Axioms_L5_L9.lean:12:0: 'CylChess.Claims.comp_options_le' depends on axioms: [propext]
+info: CylChess/Claims/Axioms_L5_L9.lean:13:0: 'CylChess.Claims.sum_options_le' depends on axioms: [propext]
+info: CylChess/Claims/Axioms_L5_L9.lean:14:0: 'CylChess.Claims.wins_mono' depends on axioms: [propext]
+info: CylChess/Claims/Axioms_L5_L9.lean:15:0: 'CylChess.Claims.isValue_mono' depends on axioms: [propext]
+info: CylChess/Claims/Axioms_L5_L9.lean:16:0: 'CylChess.Claims.eighth_empty_table_nine_settings' depends on axioms: [propext,
+ CylChess.Claims.eighth_empty_table_nine_settings._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L5_L9.lean:17:0: 'CylChess.Claims.eighth_empty_table_default_kernel' depends on axioms: [propext]
+info: CylChess/Claims/Axioms_L5_L9.lean:18:0: 'CylChess.Claims.eighth_every_race_function' depends on axioms: [propext,
+ CylChess.Claims.eighth_empty_table_nine_settings._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L5_L9.lean:19:0: 'CylChess.Claims.roots_open_AB' does not depend on any axioms
+info: CylChess/Claims/Axioms_L5_L9.lean:20:0: 'CylChess.Claims.roots_open_G' does not depend on any axioms
+info: CylChess/Claims/Axioms_L5_L9.lean:21:0: 'CylChess.Claims.roots_open_X' does not depend on any axioms
+info: CylChess/Claims/Axioms_L5_L9.lean:22:0: 'CylChess.Claims.notHSS_way_in' depends on axioms: [propext]
+info: CylChess/Claims/Axioms_L5_L9.lean:23:0: 'CylChess.Claims.bd_white_threat' does not depend on any axioms
+info: CylChess/Claims/Axioms_L5_L9.lean:24:0: 'CylChess.Claims.fh_black_threat' does not depend on any axioms
+info: CylChess/Claims/Axioms_L5_L9.lean:25:0: 'CylChess.Claims.fh_race_line' does not depend on any axioms
+info: CylChess/Claims/Axioms_L5_L9.lean:26:0: 'CylChess.Dawson.g_table' depends on axioms: [propext]
+info: CylChess/Claims/Axioms_L5_L9.lean:27:0: 'CylChess.Dawson.g_recurrence' depends on axioms: [propext]
+info: CylChess/Claims/Axioms_L5_L9.lean:28:0: 'CylChess.Dawson.ring_win_list' depends on axioms: [propext]
+info: CylChess/Claims/Axioms_L5_L9.lean:29:0: 'CylChess.Dawson.ring_outcome' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Dawson.ring_outcome._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L5_L9.lean:30:0: 'CylChess.Dawson.ring_win_range' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Dawson.ring_win_range._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L5_L9.lean:31:0: 'CylChess.Dawson.ring_grundy' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Dawson.ring_grundy._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L5_L9.lean:32:0: 'CylChess.Dawson.ring_structure' depends on axioms: [propext,
+ CylChess.Dawson.ring_structure._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L5_L9.lean:33:0: 'CylChess.Dawson.strip_check' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Dawson.strip_check._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L5_L9.lean:34:0: 'CylChess.Dawson.no_promotion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Dawson.no_promotion._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L5_L9.lean:35:0: 'CylChess.Dawson.ring_naive_kernel' depends on axioms: [propext]
+info: CylChess/Claims/Axioms_L5_L9.lean:36:0: 'CylChess.Dawson.strip_naive_kernel' depends on axioms: [propext]
+info: CylChess/Claims/Axioms_L5_L9.lean:37:0: 'CylChess.Dawson.naive_native' depends on axioms: [propext, CylChess.Dawson.naive_native._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L5_L9.lean:38:0: 'CylChess.Claims.Cut.fam_generator_brute' depends on axioms: [propext,
+ CylChess.Claims.Cut.fam_generator_brute._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L5_L9.lean:39:0: 'CylChess.Claims.Cut.fam_nonvacuous' depends on axioms: [propext,
+ CylChess.Claims.Cut.fam_nonvacuous._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L5_L9.lean:40:0: 'CylChess.Claims.Cut.cut_step_3_5_6' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.Cut.cut_step_3_5_6._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L5_L9.lean:41:0: 'CylChess.Claims.Cut.cut_step_3_8_4' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.Cut.cut_step_3_8_4._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L5_L9.lean:42:0: 'CylChess.Claims.Cut.cut_step_4_5_4' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.Cut.cut_step_4_5_4._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L5_L9.lean:43:0: 'CylChess.Claims.Cut.cut_step_4_6_4' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.Cut.cut_step_4_6_4._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L5_L9.lean:44:0: 'CylChess.Claims.Cut.cut_step_4_8_3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.Cut.cut_step_4_8_3._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L5_L9.lean:45:0: 'CylChess.Claims.Cut.cut_step_5_5_4' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.Cut.cut_step_5_5_4._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L5_L9.lean:46:0: 'CylChess.Claims.Cut.cut_step_5_6_3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.Cut.cut_step_5_6_3._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L5_L9.lean:47:0: 'CylChess.Claims.Cut.cut_step_5_8_3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.Cut.cut_step_5_8_3._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L5_L9.lean:48:0: 'CylChess.Claims.Cut.cut_step_6_8_2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.Cut.cut_step_6_8_2._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L5_L9.lean:49:0: 'CylChess.Claims.Cut.cut_step_7_5_3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.Cut.cut_step_7_5_3._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L5_L9.lean:50:0: 'CylChess.Claims.Cut.cut_step_8_5_2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.Cut.cut_step_8_5_2._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L5_L9.lean:51:0: 'CylChess.Claims.Cut.cut_value_3_5_4' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.Cut.cut_value_3_5_4._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L5_L9.lean:52:0: 'CylChess.Claims.Cut.cut_value_4_5_3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.Cut.cut_value_4_5_3._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L5_L9.lean:53:0: 'CylChess.Claims.Cut.cut_value_5_4_3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.Cut.cut_value_5_4_3._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L5_L9.lean:54:0: 'CylChess.Claims.Cut.cut_value_4_6_3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.Cut.cut_value_4_6_3._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L5_L9.lean:55:0: 'CylChess.Dawson.g_period_to_300' depends on axioms: [propext,
+ CylChess.Dawson.g_period_to_300._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L5_L9.lean:56:0: 'CylChess.Dawson.g_last_exception' depends on axioms: [propext,
+ CylChess.Dawson.g_last_exception._native.native_decide.ax_1_1]
+✔ [94/105] Built CylChess.Claims.L10_Census (219ms)
+✔ [96/105] Built CylChess.Claims.L7b_Star3 (204s)
+✔ [99/105] Built CylChess.Claims.L7b_MobiusSS (122s)
+ℹ [101/105] Built CylChess.Claims.Axioms_L7_L10 (235ms)
+info: CylChess/Claims/Axioms_L7_L10.lean:19:0: 'CylChess.Wide.anyOpt_true_of_mem' depends on axioms: [propext]
+info: CylChess/Claims/Axioms_L7_L10.lean:20:0: 'CylChess.Wide.WH_heap_win' depends on axioms: [propext, Quot.sound]
+info: CylChess/Claims/Axioms_L7_L10.lean:21:0: 'CylChess.Wide.WH_all_larger_heaps' depends on axioms: [propext, Quot.sound]
+info: CylChess/Claims/Axioms_L7_L10.lean:22:0: 'CylChess.WideAgrees.passed_agrees' depends on axioms: [CylChess.WideAgrees.passed_agrees._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:23:0: 'CylChess.WideAgrees.family_open_size' depends on axioms: [CylChess.WideAgrees.family_open_size._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:24:0: 'CylChess.WideAgrees.wide_agrees_spec' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.WideAgrees.wide_agrees_spec._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:25:0: 'CylChess.WideAgrees.casesOpen_valid_count' depends on axioms: [CylChess.WideAgrees.casesOpen_valid_count._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:26:0: 'CylChess.WideAgrees.passed_tall' depends on axioms: [CylChess.WideAgrees.passed_tall._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:27:0: 'CylChess.WideAgrees.wide_tall' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.WideAgrees.wide_tall._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:28:0: 'CylChess.WideAgrees.wide_agrees_slow_rings' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.WideAgrees.wide_agrees_slow_rings._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:29:0: 'CylChess.HeapsAgrees.heaps_agree_spec' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.HeapsAgrees.heaps_agree_spec._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:30:0: 'CylChess.HeapsAgrees.heaps_agree_search' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.HeapsAgrees.heaps_agree_search._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:31:0: 'CylChess.HeapsAgrees.heaps_agree_census_spec' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.HeapsAgrees.heaps_agree_census_spec._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:32:0: 'CylChess.HeapsAgrees.heaps_agree_census_search' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.HeapsAgrees.heaps_agree_census_search._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:33:0: 'CylChess.Claims.named_rings_are_family_members' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.named_rings_are_family_members._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:34:0: 'CylChess.Claims.ring6_shape' depends on axioms: [propext, CylChess.Claims.ring6_shape._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:35:0: 'CylChess.Claims.ring6_star2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.ring6_star2._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:36:0: 'CylChess.Claims.ring6_ep_off_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.ring6_ep_off_zero._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:37:0: 'CylChess.Claims.rings_M10_O11_star2_sum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.rings_M10_O11_star2_sum._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:38:0: 'CylChess.Claims.rings_M10_O11_star2_whole' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.rings_M10_O11_star2_whole._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:39:0: 'CylChess.Claims.star3_nine_pawns' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.star3_nine_pawns._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:40:0: 'CylChess.Claims.star2_seven_ranks' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.star2_seven_ranks._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:41:0: 'CylChess.Claims.c4_seven_pawn_rings' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.c4_seven_pawn_rings._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:42:0: 'CylChess.Claims.c6_nine_pawn_ring' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.c6_nine_pawn_ring._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:43:0: 'CylChess.Claims.c7_ten_pawn_rings' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.c7_ten_pawn_rings._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:44:0: 'CylChess.Claims.c8_ten_pawn_rings' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.c8_ten_pawn_rings._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:45:0: 'CylChess.Claims.c8_wall_example_is_E8' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.c8_wall_example_is_E8._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:46:0: 'CylChess.Claims.c11_twelve_pawn_ring_sum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.c11_twelve_pawn_ring_sum._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:47:0: 'CylChess.Claims.c11_twelve_pawn_ring_whole' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.c11_twelve_pawn_ring_whole._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:48:0: 'CylChess.Claims.wall_rings_star2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.wall_rings_star2._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:49:0: 'CylChess.Claims.P_rings_star2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.P_rings_star2._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:50:0: 'CylChess.Claims.R_rings_star2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.R_rings_star2._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:51:0: 'CylChess.Claims.Q_rings_star3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.Q_rings_star3._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:52:0: 'CylChess.Claims.Qo_rings_star3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.Qo_rings_star3._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:53:0: 'CylChess.Claims.T_rings_star3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.T_rings_star3._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:54:0: 'CylChess.Claims.S_rings_star3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.S_rings_star3._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:55:0: 'CylChess.Claims.M_rings_star2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.M_rings_star2._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:56:0: 'CylChess.Claims.oddOnePerFile_rings_star2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.oddOnePerFile_rings_star2._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:57:0: 'CylChess.Claims.F1_star2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.F1_star2._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:58:0: 'CylChess.Claims.F2_star2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.F2_star2._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:59:0: 'CylChess.Claims.F3_star2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.F3_star2._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:60:0: 'CylChess.Claims.TT_star3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.TT_star3._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:61:0: 'CylChess.Claims.SS_star3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.SS_star3._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:62:0: 'CylChess.Claims.Mobius_controls' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.Mobius_controls._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:63:0: 'CylChess.Claims.controls_cylinder' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.controls_cylinder._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:64:0: 'CylChess.Claims.controls_cylinder_open' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.controls_cylinder_open._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:65:0: 'CylChess.Claims.Mobius_controls_open' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.Mobius_controls_open._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:66:0: 'CylChess.Claims.census_small' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.census_small._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:67:0: 'CylChess.Claims.census_big' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.census_big._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:68:0: 'CylChess.Claims.census_all_groups_covered' does not depend on any axioms
+info: CylChess/Claims/Axioms_L7_L10.lean:69:0: 'CylChess.Claims.census_totals' does not depend on any axioms
+info: CylChess/Claims/Axioms_L7_L10.lean:70:0: 'CylChess.Claims.ring_min_C3_below' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.ring_min_C3_below._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:71:0: 'CylChess.Claims.ring_min_C3_six' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.ring_min_C3_six._native.native_decide.ax_1_1]
+info: CylChess/Claims/Axioms_L7_L10.lean:72:0: 'CylChess.Claims.ring_min_C4' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ CylChess.Claims.ring_min_C4._native.native_decide.ax_1_1]
+✔ [103/105] Built CylChess (207ms)
+Build completed successfully (105 jobs).
+     2638.55 real      5143.20 user        21.20 sys
+          3496493056  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             2883534  page reclaims
+               10112  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                 783  voluntary context switches
+              513203  involuntary context switches
+          2381613092  instructions retired
+          2220679931  cycles elapsed
+            18432984  peak memory footprint

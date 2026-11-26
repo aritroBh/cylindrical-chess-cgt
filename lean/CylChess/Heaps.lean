@@ -16,8 +16,9 @@ are the complement of `WL(X) ∪ WR(X)`: `X = *j` in the sense of `IsValue` exac
 iff `X + *j` is a second-player win, §2.2). This gives the whole nimber test with no bound on `j`.
 
 `solve` computes the two sets from the two sets of options, `sets` runs the recursion over the options of `Game.lean`
-(`Sum.options`), memoized, and `SearchAgrees`-style tests in `Claims/L10_Census*.lean` compare it with
-`Game.wins` for the heaps `0 .. 6`. No `partial`, no `sorry`.
+(`Sum.options`), memoized. The tests are in `HeapsAgrees.lean`: the sets are compared with `Game.wins` (the
+specification) for the heaps `0 .. 3` and with `Search.run` (the fast search) for the heaps `0 .. 7`. No `partial`,
+no `sorry`.
 -/
 namespace CylChess
 namespace Heaps

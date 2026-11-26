@@ -39,4 +39,13 @@ theorem TT_star3 : (allWidths 1 14).all (checkMob Fam.tt 3 (2 * · + 10) (2 * ·
 theorem Mobius_controls :
     sigMob Fam.f1 0 = "RNRRR" ∧ sigMob Fam.f2 0 = "NNRRR" ∧ sigMob Fam.tt 0 = "LLLLL" := by native_decide
 
+/-- The root of each Möbius control has no passed pawn for either side in the default setting (`sigString` does not
+test it). -/
+def openMob (fam : Nat → List String) (m : Nat) : Bool :=
+  let e := defEnv (mobius (fam m).length)
+  !hasPassed e.s e.b (ofFiles (fam m)) .white && !hasPassed e.s e.b (ofFiles (fam m)) .black
+
+theorem Mobius_controls_open : openMob Fam.f1 0 = true ∧ openMob Fam.f2 0 = true ∧ openMob Fam.tt 0 = true := by
+  native_decide
+
 end CylChess.Claims

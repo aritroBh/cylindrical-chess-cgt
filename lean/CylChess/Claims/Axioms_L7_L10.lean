@@ -22,6 +22,9 @@ import CylChess.Claims.L11_RingMinC4
 #print axioms CylChess.WideAgrees.passed_agrees
 #print axioms CylChess.WideAgrees.family_open_size
 #print axioms CylChess.WideAgrees.wide_agrees_spec
+#print axioms CylChess.WideAgrees.casesOpen_valid_count
+#print axioms CylChess.WideAgrees.passed_tall
+#print axioms CylChess.WideAgrees.wide_tall
 #print axioms CylChess.WideAgrees.wide_agrees_slow_rings
 #print axioms CylChess.HeapsAgrees.heaps_agree_spec
 #print axioms CylChess.HeapsAgrees.heaps_agree_search
@@ -41,6 +44,7 @@ import CylChess.Claims.L11_RingMinC4
 #print axioms CylChess.Claims.c8_ten_pawn_rings
 #print axioms CylChess.Claims.c8_wall_example_is_E8
 #print axioms CylChess.Claims.c11_twelve_pawn_ring_sum
+#print axioms CylChess.Claims.c11_twelve_pawn_ring_whole
 #print axioms CylChess.Claims.wall_rings_star2
 #print axioms CylChess.Claims.P_rings_star2
 #print axioms CylChess.Claims.R_rings_star2
@@ -57,6 +61,8 @@ import CylChess.Claims.L11_RingMinC4
 #print axioms CylChess.Claims.SS_star3
 #print axioms CylChess.Claims.Mobius_controls
 #print axioms CylChess.Claims.controls_cylinder
+#print axioms CylChess.Claims.controls_cylinder_open
+#print axioms CylChess.Claims.Mobius_controls_open
 #print axioms CylChess.Claims.census_small
 #print axioms CylChess.Claims.census_big
 #print axioms CylChess.Claims.census_all_groups_covered

@@ -40,6 +40,7 @@ From the `#print axioms` lines of a clean `lake build` (Lean 4.36.0, no Mathlib)
 | `CylChess.Claims.star2_B_white_kernel` | kernel | propext |
 | `CylChess.Claims.star2_B_black_kernel` | kernel | propext |
 | `CylChess.Agrees.family_size` | compiled code (native_decide) | none |
+| `CylChess.Agrees.cases_valid_count` | compiled code (native_decide) | none |
 | `CylChess.Agrees.search_agrees_on_family` | compiled code (native_decide) | propext, Classical.choice, Quot.sound |
 | `CylChess.Agrees.search_agrees_eighth` | compiled code (native_decide) | propext, Classical.choice, Quot.sound |
 | `CylChess.Claims.Cut.fam_generator_brute` | compiled code (native_decide) | propext |
@@ -71,7 +72,10 @@ From the `#print axioms` lines of a clean `lake build` (Lean 4.36.0, no Mathlib)
 | `CylChess.Wide.WH_all_larger_heaps` | kernel | propext, Quot.sound |
 | `CylChess.WideAgrees.passed_agrees` | compiled code (native_decide) | none |
 | `CylChess.WideAgrees.family_open_size` | compiled code (native_decide) | none |
+| `CylChess.WideAgrees.casesOpen_valid_count` | compiled code (native_decide) | none |
 | `CylChess.WideAgrees.wide_agrees_spec` | compiled code (native_decide) | propext, Classical.choice, Quot.sound |
+| `CylChess.WideAgrees.passed_tall` | compiled code (native_decide) | none |
+| `CylChess.WideAgrees.wide_tall` | compiled code (native_decide) | propext, Classical.choice, Quot.sound |
 | `CylChess.WideAgrees.wide_agrees_slow_rings` | compiled code (native_decide) | propext, Classical.choice, Quot.sound |
 | `CylChess.HeapsAgrees.heaps_agree_spec` | compiled code (native_decide) | propext, Classical.choice, Quot.sound |
 | `CylChess.HeapsAgrees.heaps_agree_search` | compiled code (native_decide) | propext, Classical.choice, Quot.sound |
@@ -91,6 +95,7 @@ From the `#print axioms` lines of a clean `lake build` (Lean 4.36.0, no Mathlib)
 | `CylChess.Claims.c8_ten_pawn_rings` | compiled code (native_decide) | propext, Classical.choice, Quot.sound |
 | `CylChess.Claims.c8_wall_example_is_E8` | compiled code (native_decide) | propext, Classical.choice, Quot.sound |
 | `CylChess.Claims.c11_twelve_pawn_ring_sum` | compiled code (native_decide) | propext, Classical.choice, Quot.sound |
+| `CylChess.Claims.c11_twelve_pawn_ring_whole` | compiled code (native_decide) | propext, Classical.choice, Quot.sound |
 | `CylChess.Claims.wall_rings_star2` | compiled code (native_decide) | propext, Classical.choice, Quot.sound |
 | `CylChess.Claims.P_rings_star2` | compiled code (native_decide) | propext, Classical.choice, Quot.sound |
 | `CylChess.Claims.R_rings_star2` | compiled code (native_decide) | propext, Classical.choice, Quot.sound |
@@ -106,7 +111,9 @@ From the `#print axioms` lines of a clean `lake build` (Lean 4.36.0, no Mathlib)
 | `CylChess.Claims.TT_star3` | compiled code (native_decide) | propext, Classical.choice, Quot.sound |
 | `CylChess.Claims.SS_star3` | compiled code (native_decide) | propext, Classical.choice, Quot.sound |
 | `CylChess.Claims.Mobius_controls` | compiled code (native_decide) | propext, Classical.choice, Quot.sound |
+| `CylChess.Claims.Mobius_controls_open` | compiled code (native_decide) | propext, Classical.choice, Quot.sound |
 | `CylChess.Claims.controls_cylinder` | compiled code (native_decide) | propext, Classical.choice, Quot.sound |
+| `CylChess.Claims.controls_cylinder_open` | compiled code (native_decide) | propext, Classical.choice, Quot.sound |
 | `CylChess.Claims.census_small` | compiled code (native_decide) | propext, Classical.choice, Quot.sound |
 | `CylChess.Claims.census_big` | compiled code (native_decide) | propext, Classical.choice, Quot.sound |
 | `CylChess.Claims.ring_min_C3_below` | compiled code (native_decide) | propext, Classical.choice, Quot.sound |

@@ -102,6 +102,8 @@ Result-column codes: "found" = number read in the file; "located" = file contain
 | 88 | `strip_naive_kernel` (Dawson) | Naive specification search on strips m = 1..6 agrees with g(m) != 0. | Not stated. | none | not found. | Lean says more: an internal check. | decide +kernel |
 | 89 | `naive_native` (Dawson) | Naive specification search on cylinders n = 3..8 and strips m = 1..9 agrees with the g-based answer. | Not stated. | none | not found. | Lean says more: an internal check. | native_decide |
 | 90 | `g_period_to_300`, `g_last_exception` (L8_Period.lean; added by the main session after this table was made) | `g (n + 34) = g n` for n = 52..266 (values up to g(300)); `g 85 ≠ g 51`. | `11_dawson.tex:26-27`: period 34, last exception n = 51, reproduced for n ≤ 300 | 34; 51; 300 | not looked up | yes for n ≤ 300 | native_decide |
+| 91 | `c11_twelve_pawn_ring_whole` (L7a_S6Rings; added 2026-11-26 after the second outside read) | The ring of row 37 in the whole-board game on `cyl11`: `G + *h` is lost by the mover exactly for h = 3 (h ≤ 6). | `08_star2.tex:124-125`: n+1 pawns on C_11 (C2). | *3 | an outside referee's own program gives the classes NNNPN for h = 0..4 (`delegate/out/L14_codex/REPORT.md`). | yes | native_decide |
+| 92 | `controls_cylinder_open` (L7b_Controls), `Mobius_controls_open` (L7b_Mobius); added 2026-11-26 | The roots of the nine controls of rows 51 and 53 have no passed pawn for either side (default setting). | Not stated. | none | not found. | Lean says more: an internal check. | native_decide |
 
 ## Differences and gaps
 

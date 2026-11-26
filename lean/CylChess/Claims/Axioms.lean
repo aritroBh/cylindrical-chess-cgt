@@ -31,5 +31,6 @@ import CylChess.Claims.KernelL4_B_black
 #print axioms CylChess.Claims.star2_B_white_kernel
 #print axioms CylChess.Claims.star2_B_black_kernel
 #print axioms CylChess.Agrees.family_size
+#print axioms CylChess.Agrees.cases_valid_count
 #print axioms CylChess.Agrees.search_agrees_on_family
 #print axioms CylChess.Agrees.search_agrees_eighth

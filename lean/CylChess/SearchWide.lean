@@ -19,7 +19,8 @@ and (Section 5 of the paper): "We call `W(X)` a `*k` when `W(X) + *h` has the ou
   a heap move (`pos` is passed on unchanged); a pawn move drops it (`Rules.moves`).
 * `wide`: the same outcomes, memoized, for wide boards. It differs from `WH` in these ways only:
   (1) `hasPassed` is replaced by `passedF`, which reads the highest and the lowest enemy rank on each file instead of
-  looking at every enemy pawn (`SearchWideAgrees.lean` tests that they agree on every position reached);
+  looking at every enemy pawn (`SearchWideAgrees.lean` tests that they agree on the positions within two moves of the family positions, and on two
+  tall boards where the earlier constant `1000` for an empty file failed);
   (2) the moves of a pawn are the four lists of `Rules.lean` (`stepMoves`, `doubleStepMoves`, `captureMoves`,
   `epMoves`), taken pawn by pawn, without `eraseDups` (a repeated option changes no outcome);
   (3) a move that wins at once is looked for first, among the pawns near the file of the last move (order and early
@@ -73,14 +74,17 @@ def WH (e : Env) : Nat → Position → Nat → Color → Option Bool
 
 /-! ## Fast passed-pawn test -/
 
-/-- The highest and lowest rank of the pawns of one colour on each file (`0` and `1000` on an empty file). -/
+/-- The highest and lowest rank of the pawns of one colour on each file (on an empty file: `0` for the highest and
+`ranks + 1` for the lowest, a value taken from the board and larger than every rank; every comparison of `blockedF`
+is then false for an empty file: `r < 0`, `ranks + 1 < r`, `ranks + 1 < ranks + 1 - r` and `ranks + 1 - r < 0` all
+fail for `1 ≤ r ≤ ranks`, on the own file, on a neighbouring file and across the Möbius seam). -/
 structure Ext where
   mx : Array Nat
   mn : Array Nat
 
-def Ext.ofPawns (n : Nat) (ps : List Pawn) : Ext :=
+def Ext.ofPawns (b : Board) (ps : List Pawn) : Ext :=
   ps.foldl (fun e p => ⟨e.mx.modify p.file (max · p.rank), e.mn.modify p.file (min · p.rank)⟩)
-    ⟨Array.replicate n 0, Array.replicate n 1000⟩
+    ⟨Array.replicate b.files 0, Array.replicate b.files (b.ranks + 1)⟩
 
 /-- Some enemy pawn (the enemy's extremes are `ext`) stands strictly ahead of `p`, on its own file or a
 neighbouring file, in the sense of `Board.blocks`; the seam neighbour is read in mirrored ranks. -/
@@ -99,7 +103,7 @@ def blockedF (b : Board) (ext : Ext) (p : Pawn) : Bool :=
 
 /-- `hasPassed`, from the extremes of the enemy ranks per file. -/
 def passedF (s : Settings) (b : Board) (pos : Position) (c : Color) : Bool :=
-  let ext := Ext.ofPawns b.files (pos.pawns c.other)
+  let ext := Ext.ofPawns b (pos.pawns c.other)
   (pos.pawns c).any fun p => !blockedF b ext p && !(s.ep == EpRule.aware && epCapturable b pos c p)
 
 /-- `Env.verdict`, with `passedF`. -/
