@@ -43,7 +43,7 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
    - [x] A hand proof for one real group: `Kd4 kb4/kb5 Pb6 Pc2 Pc5 pb7 pc6` (K68, refereed; Proposition 4.25): Definition 4.8's White half and (B1) by hand; the Black half reduced by hand to one computed lemma on two pawns against one (three programs)
    - [x] That lemma: a case table of 486 rows (K70, Codex, blind), accepted by two separately written checkers; referee K73 checked 42 rows by hand, no error; label stays CHECKED-2 (Proposition 4.25 updated). K71 (change the reduction): not achieved, 14 positions left, unrefereed
    - [ ] That lemma by a short hand proof, or the full table checked by hand (30 to 50 hours by the referee's estimate): open
-   - [~] The five chess-exact groups beside real pawns on a separated file of the same board, in P (K72 done, unrefereed: only C125_10 agrees in all 283 contexts of at most 2 + 2 pawns; the other four fail with 1 + 1 pawns already; referee K74 running)
+   - [x] The five chess-exact groups beside real pawns on a separated file of the same board, in P (K72, refereed by K74 with a third solver: only C125_10 agrees in all 283 contexts of at most 2 + 2 pawns, and it fails in 3 of all 729 placements on h; the other four fail with 1 + 1 pawns already; paragraph after Proposition 4.25)
    - [~] Which of the 48 groups keep the results of ω beside real pawns, and a rule in terms of the kings' distance to the context file (K75 running)
    - [~] Does a real group need a ladder longer than 3? (K67, first program: none of the 10 new groups; one more with N\* = 2)
    - [ ] Hand proof of (O1) and of the d5 root of the K45 group

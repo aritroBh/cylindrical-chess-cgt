@@ -1,0 +1,132 @@
+K72 FINDINGS: the five chess-exact over groups beside real pawns on one separated file, in P   (2026-11-25)
+=========================================================================================================
+Brief: kings/delegate/briefs/K72_brief.md.  AI work (one agent), not refereed.  Paths are relative to
+kings/delegate/out/K72/ unless they start with kings/.  Values are White's view: W White wins, L Black wins, D draw.
+Labels: CHECKED-2 (two separately written programs agree), COMPUTED-1.  Nothing here is PROVED.
+
+0. SHORT ANSWER
+---------------
+Contexts: every placement of at most n White and n Black pawns on ranks 2-7 of ONE context file (n = 1: 43 contexts;
+n = 2: 283 contexts, the 1 + 1 ones included); 8 positions per context (A b, A w, B b, B w, qA b, qA w, qB b, qB w).
+Prediction (Corollary 4.17 with Lemma 4.15; (B1) holds for all five, K65): r(omega (+) X) at both roots, r(X) at both q's.
+
+  group     context file             <=1+1: agree/fail    <=2+2: contexts  agree  fail   positions differing (of 2,264)
+  C125_05   f (far from rim)            27 / 16                 283        208     75    228 (131 for White, 97 for Black)
+  C125_05   g                           30 / 13                 283        233     50    108 (all for White)
+  C125_05   h (rim)                     34 /  9                 283        252     31     53 (all for White)
+  C125_08   h (rim, only file)          33 / 10                 283        248     35    100 (all for White)
+  C125_10   h (rim, only file)          43 /  0                 283        283      0      0
+  C145_07   a (rim)                     41 /  2                 283        271     12     56 (all for Black)
+  C145_07   b                           38 /  5                 283        261     22    116 (all for Black)
+  C145_07   c                           25 / 18                 283        232     51    239 (238 for Black, 1 for White)
+  C145_09   a (far side, rim)           30 / 13                 283        233     50    108 (all for White)
+  C145_09   b (far side)                27 / 16                 283        209     74    261 (128 for White, 133 for Black)
+  C145_09   h (rim, near side)          25 / 18                 283        224     59    275 (259 for Black, 16 for White)
+  For comparison, F2 (K63) on h: 271 / 283.
+
+All counts CHECKED-2: pk (the K63 referee's solver) and ref3m (the K63 investigator's solver), separately written,
+agree at every one of the 24,904 P positions (0 mismatches in 11 x 2,264; the 1 + 1 runs, 11 x 344, also agree and
+are identical to the 1 + 1 rows of the 2 + 2 runs).  Predictions: the K63 referee's predictor and the K63
+investigator's prediction table agree on all 283 rank patterns (the prediction depends on the ranks only).
+
+Answers.
+1. Only C125_10 has the results of omega beside every tested context: 283 of 283 on h, the only separated file.
+   The other four fail on every separated file, at 2 + 2 already in 12 to 75 of 283 contexts, and already at 1 + 1.
+2. Rigidity (exactness in chess) is not enough.  Every failing context, in every group and file, has pawns of
+   BOTH colours on the context file; every one-colour context agrees (all groups, all files).  Two kinds:
+   (a) F2's kind, in Black's favour: the Black king leaves the shuttle and wins a White context pawn (the blocked
+       pair Pa2/pa3 for C145_07 on a: ...Kd4-d3-c2-b1xa2, then ...a3-a2-a1) or catches a free White context pawn
+       inside its square while its own context pawn runs (C145_09 h, Ph5 ph4, root B with White to move: the
+       h5-pawn is caught from f5 and ...h4-h3-h2-h1 wins).  Groups C145_07 (a, b, c) and C145_09 (h).
+   (b) NEW, in White's favour: the WHITE king, which does not shuttle, leaves the group and wins a Black context
+       pawn, and a White pawn (the context pawn, or the group's b/c-pawn after the Black king has been drawn
+       away) queens first.  This breaks the q's mutual zugzwang: q with White to move is predicted L (0_D (+) X, X a
+       second-player win) and is W in P.  Groups C125_05 (f, g, h), C125_08 (h), C145_09 (a, b).  E.g. C125_08,
+       qA = Ke5 kc5 Pb3 Pb6 Pf6 pb7 pf7, context Ph2 ph3, White to move (prediction L, P W):
+       1.b4 Kc6 2.Kf4 Kb5 3.Kg3 Kxb6 4.Kxh3 Kb5 5.Kg2 b6 6.h4 Kc6 7.b5+ Kd7 8.h5 Ke8 9.h6 Kf8 10.h7 Ke8 11.h8 (ref3pv;
+       the loser's moves are the solver's longest resistance, not a plan).
+   The kind follows the king that is near the context file: C125_08's White king e5 is three files from h (kind b);
+   C125_10's White king c5 is five files from h, and nothing fails.  This is an observation on five groups, not a
+   rule.  Counts by kind and by result pair: logs/mech_11.txt, logs/mech_22.txt, logs/classes_22.txt.
+3. Quotable statement (CHECKED-2).  On the ordinary 8x8 board, in P, the group C125_10 = White Kc5, Pb6, Pf2, Pf6
+   against Black Ke5/Ke6, pb7, pf7 has the results that omega predicts beside every context of at most 2 + 2 pawns
+   on file h (283 contexts: at both roots r(omega (+) X), at both q's r(X), either side to move; 2,264 positions).
+   Smallest counterexamples for the others (1 + 1, the q, White to move unless said; prediction -> P):
+     C125_08 h: qA (Ke5 kc5 Pb3 Pb6 Pf6 pb7 pf7) + Ph2 ph3, L -> W.
+     C125_05 h: qB (Kd4 kb5 Pb6 Pc3 Pc5 pb7 pc6) + Ph2 ph7, L -> W;  f: qB + Pf2 pf3, L -> D;  g: qB + Pg2 pg3, L -> D.
+     C145_09 a: qB (Kd4 kf5 Pe3 Pe5 Pf6 pe6 pf7) + Pa2 pa3, L -> D;  b: same with Pb2 pb3, L -> D;
+              h: root A (Kd4 kf4 Pe2 Pe5 Pf6 pe6 pf7) + Ph2 ph3, Black to move, W -> D.
+     C145_07 a: root A (Kg4 ke4 Pe6 Pf2 Pf5 pe7 pf6) + Pa2 pa3, Black to move, W -> L (and every other position of
+              this context is L: the Black king takes a2 as in F2);  b: same with Pb2 pb3;  c: Pc2 pc3, W -> D.
+4. Programs: CHECKED-2 for every P value and every count above.  The mechanism labels rest on one program (ref3pv,
+   ref3m plus a resolution order; one line per failing context) and are COMPUTED-1.
+
+1. SETUP
+--------
+Groups and freezes (K66 table 4): C125_05 Kd4 kb4/kb5 Pb6 Pc2 Pc5 pb7 pc6 (c2-c4 at b4, c2-c3 at b5);
+C125_08 Ke5 kc5/kc6 Pb2 Pb6 Pf6 pb7 pf7 (b2-b3 at c5, b2-b4 at c6); C125_10 Kc5 ke5/ke6 Pb6 Pf2 Pf6 pb7 pf7 (f2-f3 at
+e5, f2-f4 at e6); C145_07 Kg4 ke4/ke5 Pe6 Pf2 Pf5 pe7 pf6 (f2-f4 at e4, f2-f3 at e5); C145_09 Kd4 kf4/kf5 Pe2 Pe5 Pf6
+pe6 pf7 (e2-e4 at f4, e2-e3 at f5).  Root A = first Black king square.  pk reproduces Definition 4.8 for all five on
+flat 8x8 in P alone (roots W; at the q's Black to move W, White to move L; every move value as required:
+logs/raw_outputs.tar.xz, alone_pk.err and the alone run in pids.log).
+Context files (Definition 2.1, F_Z = the arc of files holding both kings, both shuttle squares, and the group pawns;
+buffer = the files at distance 1; context = distance >= 2):
+  C125_05: F_Z b-d, buffer a, e; context f, g, h (h the rim; no file on the far side: a is buffer).
+  C125_08, C125_10: F_Z b-f, buffer a, g; context h only.
+  C145_07: F_Z e-g, buffer d, h; context a, b, c (a the rim; nothing on the far side: h is buffer).
+  C145_09: F_Z d-f, buffer c, g; context a, b (far side, a the rim) and h (rim on the near side).
+No e.p. square at the q's: no Black pawn stands beside the freezing pawn, and context pawns are two files away.
+Black pawns may stand on rank 2 and White pawns on rank 7 (K63's enumeration).  No context checks a king (the
+context is two files from every king square), so every position is legal.
+Prediction: X = the D-game of the context pawns alone (one file: pushes and double steps only, a promotion a terminal
+win, a side with no move loses); over_D = {omega, 0} with White omega -> 0, Black omega -> omega (K63 convention).
+Each run = one group, one file, one n: all its contexts in ONE solver problem (the union of their configurations is
+solved once; 2 + 2: 110,000-128,000 pawn configurations, 0.9-1.05 GB of tables).
+
+2. PROGRAMS (src/)
+------------------
+pk.cpp     K63 referee's P solver (kings/delegate/out/K63/verify/src/pk.cpp), plus a memory guard (sizes the tables
+           before allocating, exit 3 over 2 GB).  Game logic unchanged.
+ref3m.cpp  K63 investigator's copy of the K23 referee's P solver (kings/delegate/out/K63/src/ref3m.cpp), plus a memory
+           guard (checks before each new layer) and memo clearing at blank lines (not used in the context runs).
+           Board argument "pln:8x8" (flat); "flat:8x8" is misparsed by this program (gives X), so not used.
+ref3pv.cpp K63's ref3m plus resolution-order lines (kings/delegate/out/K63/src/ref3pv.cpp), plus the same guard.
+dpred.py   K63 referee's D-sum predictor (unchanged; logs/dpred.txt is byte-identical to K63's dpred_h.txt).
+gen.py, cmp.py, run.sh, watch.sh, pick_lines.py, classify.py: inputs, comparison, driver, watchdog, line picking,
+           mechanism labels.  Inputs are in in.tar.xz (untar to rerun).
+Runs: 22 short 1 + 1 runs (14-23 s each, measured first) started directly under watch.sh; every 2 + 2 run and both
+line runs through kings/delegate/heavy.sh and watch.sh.  watch.sh starts /usr/bin/time -l, records the solver's PID
+(the child of time) in pids.log, polls its RSS five times a second and kills only that PID above 2.0 GB.  It never
+fired.  Peak maximum resident set size: 1.07 GB (pk, 2 + 2 runs); ref3m 0.95 GB; ref3pv 1.40 GB (lines_22).
+Rule note: once I copied an input file to /tmp for a comparison (outside this folder); it was deleted at once.
+Solver time: 2 + 2 runs 44 x 1.5-2 min = 72 min; 1 + 1 runs 6 min; lines 8 + 86 min (one optimal line for 459
+failing contexts; the 2 + 2 line run was slow on the loaded machine).
+
+3. FAILURES IN DETAIL
+---------------------
+Per context and position: logs/<group>_<file>_22_table.txt (P by pk, P by ref3m, prediction, verdict); lists in
+logs/summary_22.txt.  Per group (2 + 2), result pairs prediction -> P:
+  C125_05 f: L->W 120, W->D 54, W->L 43, L->D 11.   g: L->W 106, L->D 2.   h: L->W 53 (only at the q's).
+  C125_08 h: L->W 80, L->D 20.
+  C145_07 a: W->L 56.   b: W->L 116.   c: W->L 221, W->D 17, L->D 1.
+  C145_09 a: L->W 89, L->D 19.   b: L->W 117, W->D 86, W->L 47, L->D 11.   h: W->L 163, W->D 96, L->D 16.
+Lines (logs/mech_*.txt; first differing position of each failing context; COMPUTED-1):
+  459 lines (120 for the 1 + 1 contexts, 339 for the other 2 + 2 contexts).
+  P = W (233 lines): the White king takes a Black context pawn in 195 (then a context pawn queens in 145, a group
+  pawn in 50); 31 have no capture on the context file and a group pawn queens; 5 have a Black king capture there;
+  2 reach no promotion within 160 plies.
+  P = L (133 lines): the Black king takes a White context pawn in 53 (then a context pawn queens in 33, a group pawn
+  in 20); 75 have no capture there and a group e/f-pawn queens (the White king is drawn away, or the line is the
+  loser's longest resistance); 5 have a White king capture there.
+  P = D (93 lines): mostly blocked pairs (Pf2 pf3, Pa2 pa3, Ph2 ph3) where the raid only reaches a draw.
+Not of F2's kind: failures at the q with White to move (kind b) mean the q of these groups is not a mutual zugzwang
+beside a real context; in F2 the q after b2-b4 was never affected.
+
+4. NOT COVERED
+--------------
+- Contexts of more than 2 + 2 pawns, and contexts on two files (excluded by the brief).
+- Touching (buffer) files: not separated, not run.
+- Chess (positions have nine to eleven men).  Direct D-sums of the groups with X (vgsum59 not allowed on 8+ men).
+- The mechanism sentences are read from one line per failing context, chosen by resolution order (the loser's line is
+  the longest resistance); they are labels, not proofs.  Not every failing position has its own line.
+- Not refereed.

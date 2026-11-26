@@ -546,6 +546,16 @@ Every deliverable was given to independent referees (Claude models) told to brea
     checked 42 rows by hand without finding an error (K73); the full check by hand, about 40,000 replies, has
     not been done, so the lemma stays computed (`kings/delegate/out/K70/REVIEW.md`). Changing the reduction does
     not avoid the lemma (K71, unrefereed: 14 positions left).
+  - K72 (2026-11-26, refereed by K74): real over groups beside real pawns. The five seven-man groups that are
+    exact in chess were put, in P, beside every context of at most 2 + 2 pawns on one separated file of the same
+    8×8 board (283 contexts a file, three solvers agree on all 24,904 positions). Only one, C125_10 (White Kc5,
+    Pb6, Pf2, Pf6 against Black Ke5/Ke6, pb7, pf7; file h), has the predicted result in all 283; even it fails
+    in 3 of all 729 placements on h (smallest: four White pawns h3–h6 against h7). The other four fail with one
+    pawn a side already. Every failing context of at most 2 + 2 pawns has pawns of both colours. Mechanisms: a
+    king leaves the group and wins a context pawn (the Black king as in F2, or, new, the White king, which
+    breaks the mutual zugzwang after the freeze), or a context pawn takes a buffer square from a group king. No
+    theorem is contradicted: the theorems are about D-sums with an abstract game, and the kings are not kept
+    apart by the buffer file (`kings/delegate/out/K72/REVIEW.md`).
   - Theorem 1.11(c) repaired (2026-11-23): its proof used the e.p. condition (E) without assuming it, and its frontier
     step used an unproved inheritance of threats by re-split components. (E) is now a hypothesis (every use already had
     it through Theorem 1.14), and the inheritance is proved. Found while the paper's proofs appendix was written and

@@ -1,0 +1,1089 @@
+# K74 referee: processes I started.  Before run74.sh existed: tests of p74 started directly in the foreground
+# (Lemma B 162 positions 0.05 s, the K68 root and move values 45 positions, C125_10 h 1 + 1 5 s and 56 MB; all
+# finished by themselves); one profiling run of a debug build (p74g, pid 96633, C125_10 h 1 + 1, 5 s) sampled with
+# /usr/bin/sample for 3 s (read-only sampling, no signal) and ended by itself.
+2026-11-25T23:36:01 C125_05_f_11 run74.sh pid 887, time pid 888, p74 
+2026-11-25T23:36:01 C125_05_f_11 solver pid 890 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-25T23:36:05 C125_05_f_11 done, exit 0, polled peak rss 43760 kB, wall 3 s
+2026-11-25T23:36:05 C125_05_g_11 run74.sh pid 1410, time pid 1411, p74 
+2026-11-25T23:36:05 C125_05_g_11 solver pid 1413 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-25T23:36:09 C125_05_g_11 done, exit 0, polled peak rss 43936 kB, wall 3 s
+2026-11-25T23:36:09 C125_05_h_11 run74.sh pid 1837, time pid 1838, p74 
+2026-11-25T23:36:09 C125_05_h_11 solver pid 1840 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-25T23:36:13 C125_05_h_11 done, exit 0, polled peak rss 44112 kB, wall 3 s
+2026-11-25T23:36:13 C125_08_h_11 run74.sh pid 2262, time pid 2263, p74 
+2026-11-25T23:36:13 C125_08_h_11 solver pid 2265 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-25T23:36:18 C125_08_h_11 done, exit 0, polled peak rss 53296 kB, wall 5 s
+2026-11-25T23:36:18 C125_10_h_11 run74.sh pid 2788, time pid 2789, p74 
+2026-11-25T23:36:18 C125_10_h_11 solver pid 2792 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-25T23:36:23 C125_10_h_11 done, exit 0, polled peak rss 53760 kB, wall 5 s
+2026-11-25T23:36:23 C145_07_a_11 run74.sh pid 3343, time pid 3345, p74 
+2026-11-25T23:36:23 C145_07_a_11 solver pid 3347 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-25T23:36:27 C145_07_a_11 done, exit 0, polled peak rss 44336 kB, wall 3 s
+2026-11-25T23:36:27 C145_07_b_11 run74.sh pid 3777, time pid 3778, p74 
+2026-11-25T23:36:27 C145_07_b_11 solver pid 3781 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-25T23:36:31 C145_07_b_11 done, exit 0, polled peak rss 44144 kB, wall 3 s
+2026-11-25T23:36:31 C145_07_c_11 run74.sh pid 4209, time pid 4210, p74 
+2026-11-25T23:36:31 C145_07_c_11 solver pid 4212 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-25T23:36:35 C145_07_c_11 done, exit 0, polled peak rss 44480 kB, wall 3 s
+2026-11-25T23:36:35 C145_09_a_11 run74.sh pid 4714, time pid 4715, p74 
+2026-11-25T23:36:35 C145_09_a_11 solver pid 4717 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-25T23:36:39 C145_09_a_11 done, exit 0, polled peak rss 44352 kB, wall 3 s
+2026-11-25T23:36:39 C145_09_b_11 run74.sh pid 5294, time pid 5295, p74 
+2026-11-25T23:36:39 C145_09_b_11 solver pid 5297 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-25T23:36:43 C145_09_b_11 done, exit 0, polled peak rss 44240 kB, wall 3 s
+2026-11-25T23:36:43 C145_09_h_11 run74.sh pid 5732, time pid 5733, p74 
+2026-11-25T23:36:43 C145_09_h_11 solver pid 5735 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-25T23:36:46 C145_09_h_11 done, exit 0, polled peak rss 43328 kB, wall 3 s
+2026-11-25T23:38:04 ten_lines run74.sh pid 14981, time pid 14982, p74 -d -m -l 160
+2026-11-25T23:38:04 ten_lines solver pid 14984 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-25T23:38:12 ten_lines done, exit 0, polled peak rss 490208 kB, wall 7 s
+2026-11-25T23:40:02 replay_lines run74.sh pid 28664, time pid 28665, p74 
+2026-11-25T23:40:02 replay_lines solver pid 28667 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-25T23:40:06 replay_lines done, exit 0, polled peak rss 48272 kB, wall 4 s
+2026-11-25T23:41:32 q_extra run74.sh pid 38425, time pid 38426, p74 -d -m -l 60
+2026-11-25T23:41:32 q_extra solver pid 38428 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-25T23:41:35 q_extra done, exit 0, polled peak rss 165792 kB, wall 2 s
+2026-11-25T23:41:52 q_extra2 run74.sh pid 40682, time pid 40685, p74 -d -m -l 40
+2026-11-25T23:41:52 q_extra2 solver pid 40687 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-25T23:41:53 q_extra2 done, exit 0, polled peak rss 47888 kB, wall 0 s
+2026-11-25T23:43:47 c10_moves run74.sh pid 53610, time pid 53611, p74 -d -m
+2026-11-25T23:43:47 c10_moves solver pid 53613 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-25T23:43:50 c10_moves done, exit 0, polled peak rss 220912 kB, wall 3 s
+2026-11-25T23:44:28 alone run74.sh pid 58286, time pid 58287, p74 -m
+2026-11-25T23:44:28 alone solver pid 58289 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-25T23:44:28 alone done, exit 0, polled peak rss 20624 kB, wall 0 s
+2026-11-25T23:45:07 f56 run74.sh pid 62828, time pid 62830, p74 -d -m -l 30
+2026-11-25T23:45:07 f56 solver pid 62832 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-25T23:45:09 f56 done, exit 0, polled peak rss 87024 kB, wall 1 s
+2026-11-26T01:17:33 profiling run p74g pid 89501 (C125_10 h 1+1, debug build, sampled 3 s)
+2026-11-26T01:18:06 stopping my own queued chain: chain74.sh pid 11747 and its heavy.sh pid 11762 (still waiting for a slot since 23:37, never ran p74; other agents' short runs took every freed slot). Replaced by direct runs of chunks of 10 contexts, each measured under 30 s and 0.6 GB.
+2026-11-26T01:18:25 measure_largest_chunk run74.sh pid 93357, time pid 93358, p74 
+2026-11-26T01:18:25 measure_largest_chunk solver pid 93360 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:18:41 measure_largest_chunk done, exit 0, polled peak rss 127760 kB, wall 15 s
+2026-11-26T01:18:50 C125_10_h_22_aa run74.sh pid 95350, time pid 95351, p74 
+2026-11-26T01:18:50 C125_10_h_22_aa solver pid 95353 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:18:51 C125_10_h_22_aa done, exit 0, polled peak rss 26832 kB, wall 1 s
+2026-11-26T01:18:51 C125_10_h_22_ab run74.sh pid 95483, time pid 95484, p74 
+2026-11-26T01:18:51 C125_10_h_22_ab solver pid 95486 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:18:53 C125_10_h_22_ab done, exit 0, polled peak rss 34544 kB, wall 2 s
+2026-11-26T01:18:53 C125_10_h_22_ac run74.sh pid 95696, time pid 95697, p74 
+2026-11-26T01:18:53 C125_10_h_22_ac solver pid 95699 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:18:59 C125_10_h_22_ac done, exit 0, polled peak rss 54976 kB, wall 5 s
+2026-11-26T01:18:59 C125_10_h_22_ad run74.sh pid 96346, time pid 96347, p74 
+2026-11-26T01:18:59 C125_10_h_22_ad solver pid 96351 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:19:07 C125_10_h_22_ad done, exit 0, polled peak rss 74352 kB, wall 8 s
+2026-11-26T01:19:07 C125_10_h_22_ae run74.sh pid 97297, time pid 97300, p74 
+2026-11-26T01:19:07 C125_10_h_22_ae solver pid 97302 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:19:13 C125_10_h_22_ae done, exit 0, polled peak rss 59136 kB, wall 5 s
+2026-11-26T01:19:13 C125_10_h_22_af run74.sh pid 98110, time pid 98111, p74 
+2026-11-26T01:19:13 C125_10_h_22_af solver pid 98113 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:19:19 C125_10_h_22_af done, exit 0, polled peak rss 63168 kB, wall 6 s
+2026-11-26T01:19:19 C125_10_h_22_ag run74.sh pid 98678, time pid 98679, p74 
+2026-11-26T01:19:19 C125_10_h_22_ag solver pid 98681 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:19:26 C125_10_h_22_ag done, exit 0, polled peak rss 67680 kB, wall 7 s
+2026-11-26T01:19:26 C125_10_h_22_ah run74.sh pid 99363, time pid 99364, p74 
+2026-11-26T01:19:26 C125_10_h_22_ah solver pid 99366 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:19:30 C125_10_h_22_ah done, exit 0, polled peak rss 48416 kB, wall 4 s
+2026-11-26T01:19:30 C125_10_h_22_ai run74.sh pid 99769, time pid 99770, p74 
+2026-11-26T01:19:30 C125_10_h_22_ai solver pid 99772 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:19:37 C125_10_h_22_ai done, exit 0, polled peak rss 64800 kB, wall 6 s
+2026-11-26T01:19:37 C125_10_h_22_aj run74.sh pid 540, time pid 542, p74 
+2026-11-26T01:19:37 C125_10_h_22_aj solver pid 547 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:19:42 C125_10_h_22_aj done, exit 0, polled peak rss 52880 kB, wall 4 s
+2026-11-26T01:19:42 C125_10_h_22_ak run74.sh pid 1154, time pid 1155, p74 
+2026-11-26T01:19:42 C125_10_h_22_ak solver pid 1159 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:19:46 C125_10_h_22_ak done, exit 0, polled peak rss 49808 kB, wall 4 s
+2026-11-26T01:19:46 C125_10_h_22_al run74.sh pid 1553, time pid 1554, p74 
+2026-11-26T01:19:46 C125_10_h_22_al solver pid 1556 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:19:53 C125_10_h_22_al done, exit 0, polled peak rss 65200 kB, wall 6 s
+2026-11-26T01:19:53 C125_10_h_22_am run74.sh pid 2163, time pid 2164, p74 
+2026-11-26T01:19:53 C125_10_h_22_am solver pid 2166 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:20:07 C125_10_h_22_am done, exit 0, polled peak rss 112544 kB, wall 13 s
+2026-11-26T01:20:07 C125_10_h_22_an run74.sh pid 3392, time pid 3393, p74 
+2026-11-26T01:20:07 C125_10_h_22_an solver pid 3395 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:20:23 C125_10_h_22_an done, exit 0, polled peak rss 128192 kB, wall 15 s
+2026-11-26T01:20:23 C125_10_h_22_ao run74.sh pid 4787, time pid 4789, p74 
+2026-11-26T01:20:23 C125_10_h_22_ao solver pid 4791 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:20:37 C125_10_h_22_ao done, exit 0, polled peak rss 118272 kB, wall 14 s
+2026-11-26T01:20:37 C125_10_h_22_ap run74.sh pid 6060, time pid 6062, p74 
+2026-11-26T01:20:37 C125_10_h_22_ap solver pid 6065 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:20:53 C125_10_h_22_ap done, exit 0, polled peak rss 126832 kB, wall 15 s
+2026-11-26T01:20:53 C125_10_h_22_aq run74.sh pid 7435, time pid 7440, p74 
+2026-11-26T01:20:53 C125_10_h_22_aq solver pid 7442 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:21:06 C125_10_h_22_aq done, exit 0, polled peak rss 115136 kB, wall 13 s
+2026-11-26T01:21:06 C125_10_h_22_ar run74.sh pid 8652, time pid 8654, p74 
+2026-11-26T01:21:06 C125_10_h_22_ar solver pid 8656 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:21:21 C125_10_h_22_ar done, exit 0, polled peak rss 124128 kB, wall 14 s
+2026-11-26T01:21:21 C125_10_h_22_as run74.sh pid 9984, time pid 9985, p74 
+2026-11-26T01:21:21 C125_10_h_22_as solver pid 9987 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:21:36 C125_10_h_22_as done, exit 0, polled peak rss 122864 kB, wall 14 s
+2026-11-26T01:21:36 C125_10_h_22_at run74.sh pid 11276, time pid 11277, p74 
+2026-11-26T01:21:36 C125_10_h_22_at solver pid 11279 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:21:50 C125_10_h_22_at done, exit 0, polled peak rss 117424 kB, wall 14 s
+2026-11-26T01:21:50 C125_10_h_22_au run74.sh pid 12508, time pid 12509, p74 
+2026-11-26T01:21:50 C125_10_h_22_au solver pid 12511 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:22:04 C125_10_h_22_au done, exit 0, polled peak rss 114816 kB, wall 13 s
+2026-11-26T01:22:04 C125_10_h_22_av run74.sh pid 13691, time pid 13693, p74 
+2026-11-26T01:22:04 C125_10_h_22_av solver pid 13695 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:22:15 C125_10_h_22_av done, exit 0, polled peak rss 97536 kB, wall 11 s
+2026-11-26T01:22:15 C125_10_h_22_aw run74.sh pid 14661, time pid 14662, p74 
+2026-11-26T01:22:15 C125_10_h_22_aw solver pid 14664 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:22:26 C125_10_h_22_aw done, exit 0, polled peak rss 98400 kB, wall 11 s
+2026-11-26T01:22:26 C125_10_h_22_ax run74.sh pid 15671, time pid 15672, p74 
+2026-11-26T01:22:26 C125_10_h_22_ax solver pid 15674 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:22:38 C125_10_h_22_ax done, exit 0, polled peak rss 104976 kB, wall 12 s
+2026-11-26T01:22:39 C125_10_h_22_ay run74.sh pid 16736, time pid 16737, p74 
+2026-11-26T01:22:39 C125_10_h_22_ay solver pid 16739 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:22:47 C125_10_h_22_ay done, exit 0, polled peak rss 80832 kB, wall 8 s
+2026-11-26T01:22:47 C125_10_h_22_az run74.sh pid 17496, time pid 17497, p74 
+2026-11-26T01:22:47 C125_10_h_22_az solver pid 17499 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:22:55 C125_10_h_22_az done, exit 0, polled peak rss 76016 kB, wall 8 s
+2026-11-26T01:22:55 C125_10_h_22_ba run74.sh pid 18230, time pid 18231, p74 
+2026-11-26T01:22:55 C125_10_h_22_ba solver pid 18233 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:23:05 C125_10_h_22_ba done, exit 0, polled peak rss 84848 kB, wall 9 s
+2026-11-26T01:23:05 C125_10_h_22_bb run74.sh pid 19040, time pid 19041, p74 
+2026-11-26T01:23:05 C125_10_h_22_bb solver pid 19048 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:23:12 C125_10_h_22_bb done, exit 0, polled peak rss 68912 kB, wall 7 s
+2026-11-26T01:23:12 C125_10_h_22_bc run74.sh pid 19678, time pid 19680, p74 
+2026-11-26T01:23:12 C125_10_h_22_bc solver pid 19682 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:23:17 C125_10_h_22_bc done, exit 0, polled peak rss 54752 kB, wall 5 s
+2026-11-26T01:23:17 C125_08_h_22_aa run74.sh pid 20137, time pid 20138, p74 
+2026-11-26T01:23:17 C125_08_h_22_aa solver pid 20140 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:23:18 C125_08_h_22_aa done, exit 0, polled peak rss 26848 kB, wall 1 s
+2026-11-26T01:23:18 C125_08_h_22_ab run74.sh pid 20270, time pid 20271, p74 
+2026-11-26T01:23:18 C125_08_h_22_ab solver pid 20273 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:23:21 C125_08_h_22_ab done, exit 0, polled peak rss 34400 kB, wall 2 s
+2026-11-26T01:23:21 C125_08_h_22_ac run74.sh pid 20496, time pid 20497, p74 
+2026-11-26T01:23:21 C125_08_h_22_ac solver pid 20499 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:23:26 C125_08_h_22_ac done, exit 0, polled peak rss 55008 kB, wall 5 s
+2026-11-26T01:23:26 C125_08_h_22_ad run74.sh pid 21020, time pid 21021, p74 
+2026-11-26T01:23:26 C125_08_h_22_ad solver pid 21024 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:23:35 C125_08_h_22_ad done, exit 0, polled peak rss 75232 kB, wall 8 s
+2026-11-26T01:23:35 C125_08_h_22_ae run74.sh pid 21776, time pid 21778, p74 
+2026-11-26T01:23:35 C125_08_h_22_ae solver pid 21780 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:23:40 C125_08_h_22_ae done, exit 0, polled peak rss 58416 kB, wall 5 s
+2026-11-26T01:23:40 C125_08_h_22_af run74.sh pid 22289, time pid 22290, p74 
+2026-11-26T01:23:40 C125_08_h_22_af solver pid 22292 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:23:47 C125_08_h_22_af done, exit 0, polled peak rss 64016 kB, wall 6 s
+2026-11-26T01:23:47 C125_08_h_22_ag run74.sh pid 22867, time pid 22868, p74 
+2026-11-26T01:23:47 C125_08_h_22_ag solver pid 22870 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:23:54 C125_08_h_22_ag done, exit 0, polled peak rss 67360 kB, wall 7 s
+2026-11-26T01:23:54 C125_08_h_22_ah run74.sh pid 23490, time pid 23491, p74 
+2026-11-26T01:23:54 C125_08_h_22_ah solver pid 23493 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:23:58 C125_08_h_22_ah done, exit 0, polled peak rss 48128 kB, wall 4 s
+2026-11-26T01:23:58 C125_08_h_22_ai run74.sh pid 23875, time pid 23876, p74 
+2026-11-26T01:23:58 C125_08_h_22_ai solver pid 23879 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:24:05 C125_08_h_22_ai done, exit 0, polled peak rss 64576 kB, wall 6 s
+2026-11-26T01:24:05 C125_08_h_22_aj run74.sh pid 24455, time pid 24456, p74 
+2026-11-26T01:24:05 C125_08_h_22_aj solver pid 24458 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:24:10 C125_08_h_22_aj done, exit 0, polled peak rss 52544 kB, wall 4 s
+2026-11-26T01:24:10 C125_08_h_22_ak run74.sh pid 24900, time pid 24901, p74 
+2026-11-26T01:24:10 C125_08_h_22_ak solver pid 24903 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:24:15 C125_08_h_22_ak done, exit 0, polled peak rss 51168 kB, wall 4 s
+2026-11-26T01:24:15 C125_08_h_22_al run74.sh pid 25330, time pid 25331, p74 
+2026-11-26T01:24:15 C125_08_h_22_al solver pid 25334 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:24:21 C125_08_h_22_al done, exit 0, polled peak rss 64720 kB, wall 6 s
+2026-11-26T01:24:21 C125_08_h_22_am run74.sh pid 25895, time pid 25896, p74 
+2026-11-26T01:24:21 C125_08_h_22_am solver pid 25898 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:24:35 C125_08_h_22_am done, exit 0, polled peak rss 112208 kB, wall 13 s
+2026-11-26T01:24:35 C125_08_h_22_an run74.sh pid 27126, time pid 27127, p74 
+2026-11-26T01:24:35 C125_08_h_22_an solver pid 27129 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:24:51 C125_08_h_22_an done, exit 0, polled peak rss 128288 kB, wall 15 s
+2026-11-26T01:24:51 C125_08_h_22_ao run74.sh pid 28503, time pid 28504, p74 
+2026-11-26T01:24:51 C125_08_h_22_ao solver pid 28507 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:25:05 C125_08_h_22_ao done, exit 0, polled peak rss 118016 kB, wall 14 s
+2026-11-26T01:25:05 C125_08_h_22_ap run74.sh pid 29771, time pid 29772, p74 
+2026-11-26T01:25:05 C125_08_h_22_ap solver pid 29774 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:25:21 C125_08_h_22_ap done, exit 0, polled peak rss 127136 kB, wall 15 s
+2026-11-26T01:25:21 C125_08_h_22_aq run74.sh pid 31168, time pid 31169, p74 
+2026-11-26T01:25:21 C125_08_h_22_aq solver pid 31171 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:25:35 C125_08_h_22_aq done, exit 0, polled peak rss 115328 kB, wall 14 s
+2026-11-26T01:25:35 C125_08_h_22_ar run74.sh pid 32401, time pid 32402, p74 
+2026-11-26T01:25:35 C125_08_h_22_ar solver pid 32404 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:25:50 C125_08_h_22_ar done, exit 0, polled peak rss 123456 kB, wall 15 s
+2026-11-26T01:25:50 C125_08_h_22_as run74.sh pid 33717, time pid 33718, p74 
+2026-11-26T01:25:50 C125_08_h_22_as solver pid 33720 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:26:05 C125_08_h_22_as done, exit 0, polled peak rss 122048 kB, wall 14 s
+2026-11-26T01:26:05 C125_08_h_22_at run74.sh pid 35018, time pid 35019, p74 
+2026-11-26T01:26:05 C125_08_h_22_at solver pid 35021 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:26:19 C125_08_h_22_at done, exit 0, polled peak rss 118512 kB, wall 14 s
+2026-11-26T01:26:19 C125_08_h_22_au run74.sh pid 36283, time pid 36284, p74 
+2026-11-26T01:26:19 C125_08_h_22_au solver pid 36286 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:26:33 C125_08_h_22_au done, exit 0, polled peak rss 114272 kB, wall 13 s
+2026-11-26T01:26:33 C125_08_h_22_av run74.sh pid 37482, time pid 37484, p74 
+2026-11-26T01:26:33 C125_08_h_22_av solver pid 37486 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:26:44 C125_08_h_22_av done, exit 0, polled peak rss 97232 kB, wall 11 s
+2026-11-26T01:26:44 C125_08_h_22_aw run74.sh pid 38455, time pid 38456, p74 
+2026-11-26T01:26:44 C125_08_h_22_aw solver pid 38459 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:26:56 C125_08_h_22_aw done, exit 0, polled peak rss 99440 kB, wall 11 s
+2026-11-26T01:26:56 C125_08_h_22_ax run74.sh pid 39465, time pid 39466, p74 
+2026-11-26T01:26:56 C125_08_h_22_ax solver pid 39468 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:27:08 C125_08_h_22_ax done, exit 0, polled peak rss 105152 kB, wall 12 s
+2026-11-26T01:27:08 C125_08_h_22_ay run74.sh pid 40572, time pid 40573, p74 
+2026-11-26T01:27:08 C125_08_h_22_ay solver pid 40575 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:27:17 C125_08_h_22_ay done, exit 0, polled peak rss 80576 kB, wall 8 s
+2026-11-26T01:27:17 C125_08_h_22_az run74.sh pid 41324, time pid 41326, p74 
+2026-11-26T01:27:17 C125_08_h_22_az solver pid 41328 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:27:25 C125_08_h_22_az done, exit 0, polled peak rss 76672 kB, wall 8 s
+2026-11-26T01:27:25 C125_08_h_22_ba run74.sh pid 42079, time pid 42080, p74 
+2026-11-26T01:27:25 C125_08_h_22_ba solver pid 42082 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:27:35 C125_08_h_22_ba done, exit 0, polled peak rss 84560 kB, wall 9 s
+2026-11-26T01:27:35 C125_08_h_22_bb run74.sh pid 42903, time pid 42904, p74 
+2026-11-26T01:27:35 C125_08_h_22_bb solver pid 42906 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:27:42 C125_08_h_22_bb done, exit 0, polled peak rss 70032 kB, wall 7 s
+2026-11-26T01:27:42 C125_08_h_22_bc run74.sh pid 43554, time pid 43555, p74 
+2026-11-26T01:27:42 C125_08_h_22_bc solver pid 43558 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:27:47 C125_08_h_22_bc done, exit 0, polled peak rss 54432 kB, wall 5 s
+2026-11-26T01:27:47 C145_07_a_22_aa run74.sh pid 44004, time pid 44005, p74 
+2026-11-26T01:27:47 C145_07_a_22_aa solver pid 44007 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:27:48 C145_07_a_22_aa done, exit 0, polled peak rss 23744 kB, wall 0 s
+2026-11-26T01:27:48 C145_07_a_22_ab run74.sh pid 44104, time pid 44105, p74 
+2026-11-26T01:27:48 C145_07_a_22_ab solver pid 44107 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:27:50 C145_07_a_22_ab done, exit 0, polled peak rss 29952 kB, wall 1 s
+2026-11-26T01:27:50 C145_07_a_22_ac run74.sh pid 44283, time pid 44285, p74 
+2026-11-26T01:27:50 C145_07_a_22_ac solver pid 44288 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:27:54 C145_07_a_22_ac done, exit 0, polled peak rss 44816 kB, wall 3 s
+2026-11-26T01:27:54 C145_07_a_22_ad run74.sh pid 44629, time pid 44630, p74 
+2026-11-26T01:27:54 C145_07_a_22_ad solver pid 44632 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:28:00 C145_07_a_22_ad done, exit 0, polled peak rss 59600 kB, wall 6 s
+2026-11-26T01:28:00 C145_07_a_22_ae run74.sh pid 45162, time pid 45163, p74 
+2026-11-26T01:28:00 C145_07_a_22_ae solver pid 45165 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:28:04 C145_07_a_22_ae done, exit 0, polled peak rss 46880 kB, wall 4 s
+2026-11-26T01:28:04 C145_07_a_22_af run74.sh pid 45520, time pid 45522, p74 
+2026-11-26T01:28:04 C145_07_a_22_af solver pid 45524 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:28:08 C145_07_a_22_af done, exit 0, polled peak rss 51040 kB, wall 4 s
+2026-11-26T01:28:08 C145_07_a_22_ag run74.sh pid 45957, time pid 45958, p74 
+2026-11-26T01:28:08 C145_07_a_22_ag solver pid 45960 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:28:14 C145_07_a_22_ag done, exit 0, polled peak rss 54400 kB, wall 5 s
+2026-11-26T01:28:14 C145_07_a_22_ah run74.sh pid 46416, time pid 46418, p74 
+2026-11-26T01:28:14 C145_07_a_22_ah solver pid 46420 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:28:17 C145_07_a_22_ah done, exit 0, polled peak rss 39200 kB, wall 3 s
+2026-11-26T01:28:17 C145_07_a_22_ai run74.sh pid 46686, time pid 46687, p74 
+2026-11-26T01:28:17 C145_07_a_22_ai solver pid 46689 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:28:21 C145_07_a_22_ai done, exit 0, polled peak rss 51424 kB, wall 4 s
+2026-11-26T01:28:21 C145_07_a_22_aj run74.sh pid 47099, time pid 47100, p74 
+2026-11-26T01:28:21 C145_07_a_22_aj solver pid 47102 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:28:25 C145_07_a_22_aj done, exit 0, polled peak rss 43824 kB, wall 3 s
+2026-11-26T01:28:25 C145_07_a_22_ak run74.sh pid 47436, time pid 47437, p74 
+2026-11-26T01:28:25 C145_07_a_22_ak solver pid 47439 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:28:28 C145_07_a_22_ak done, exit 0, polled peak rss 40816 kB, wall 3 s
+2026-11-26T01:28:28 C145_07_a_22_al run74.sh pid 47733, time pid 47734, p74 
+2026-11-26T01:28:28 C145_07_a_22_al solver pid 47736 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:28:33 C145_07_a_22_al done, exit 0, polled peak rss 51328 kB, wall 4 s
+2026-11-26T01:28:33 C145_07_a_22_am run74.sh pid 48153, time pid 48154, p74 
+2026-11-26T01:28:33 C145_07_a_22_am solver pid 48156 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:28:43 C145_07_a_22_am done, exit 0, polled peak rss 86208 kB, wall 9 s
+2026-11-26T01:28:43 C145_07_a_22_an run74.sh pid 49015, time pid 49016, p74 
+2026-11-26T01:28:43 C145_07_a_22_an solver pid 49018 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:28:54 C145_07_a_22_an done, exit 0, polled peak rss 98176 kB, wall 11 s
+2026-11-26T01:28:54 C145_07_a_22_ao run74.sh pid 50044, time pid 50045, p74 
+2026-11-26T01:28:54 C145_07_a_22_ao solver pid 50047 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:29:05 C145_07_a_22_ao done, exit 0, polled peak rss 89760 kB, wall 10 s
+2026-11-26T01:29:05 C145_07_a_22_ap run74.sh pid 50955, time pid 50956, p74 
+2026-11-26T01:29:05 C145_07_a_22_ap solver pid 50958 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:29:16 C145_07_a_22_ap done, exit 0, polled peak rss 97152 kB, wall 11 s
+2026-11-26T01:29:16 C145_07_a_22_aq run74.sh pid 51928, time pid 51929, p74 
+2026-11-26T01:29:16 C145_07_a_22_aq solver pid 51931 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:29:26 C145_07_a_22_aq done, exit 0, polled peak rss 88096 kB, wall 10 s
+2026-11-26T01:29:26 C145_07_a_22_ar run74.sh pid 52830, time pid 52831, p74 
+2026-11-26T01:29:26 C145_07_a_22_ar solver pid 52833 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:29:37 C145_07_a_22_ar done, exit 0, polled peak rss 95040 kB, wall 10 s
+2026-11-26T01:29:37 C145_07_a_22_as run74.sh pid 53769, time pid 53770, p74 
+2026-11-26T01:29:37 C145_07_a_22_as solver pid 53775 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:29:48 C145_07_a_22_as done, exit 0, polled peak rss 94064 kB, wall 10 s
+2026-11-26T01:29:48 C145_07_a_22_at run74.sh pid 54705, time pid 54708, p74 
+2026-11-26T01:29:48 C145_07_a_22_at solver pid 54711 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:29:58 C145_07_a_22_at done, exit 0, polled peak rss 90912 kB, wall 10 s
+2026-11-26T01:29:58 C145_07_a_22_au run74.sh pid 55617, time pid 55618, p74 
+2026-11-26T01:29:58 C145_07_a_22_au solver pid 55620 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:30:08 C145_07_a_22_au done, exit 0, polled peak rss 88144 kB, wall 9 s
+2026-11-26T01:30:08 C145_07_a_22_av run74.sh pid 56478, time pid 56479, p74 
+2026-11-26T01:30:08 C145_07_a_22_av solver pid 56481 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:30:16 C145_07_a_22_av done, exit 0, polled peak rss 74656 kB, wall 7 s
+2026-11-26T01:30:16 C145_07_a_22_aw run74.sh pid 57154, time pid 57155, p74 
+2026-11-26T01:30:16 C145_07_a_22_aw solver pid 57157 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:30:24 C145_07_a_22_aw done, exit 0, polled peak rss 75824 kB, wall 8 s
+2026-11-26T01:30:24 C145_07_a_22_ax run74.sh pid 57904, time pid 57905, p74 
+2026-11-26T01:30:24 C145_07_a_22_ax solver pid 57907 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:30:33 C145_07_a_22_ax done, exit 0, polled peak rss 80448 kB, wall 8 s
+2026-11-26T01:30:33 C145_07_a_22_ay run74.sh pid 58674, time pid 58675, p74 
+2026-11-26T01:30:33 C145_07_a_22_ay solver pid 58677 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:30:39 C145_07_a_22_ay done, exit 0, polled peak rss 64032 kB, wall 6 s
+2026-11-26T01:30:39 C145_07_a_22_az run74.sh pid 59255, time pid 59256, p74 
+2026-11-26T01:30:39 C145_07_a_22_az solver pid 59258 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:30:45 C145_07_a_22_az done, exit 0, polled peak rss 60928 kB, wall 6 s
+2026-11-26T01:30:45 C145_07_a_22_ba run74.sh pid 59812, time pid 59813, p74 
+2026-11-26T01:30:45 C145_07_a_22_ba solver pid 59815 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:30:52 C145_07_a_22_ba done, exit 0, polled peak rss 66816 kB, wall 6 s
+2026-11-26T01:30:52 C145_07_a_22_bb run74.sh pid 60404, time pid 60405, p74 
+2026-11-26T01:30:52 C145_07_a_22_bb solver pid 60407 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:30:57 C145_07_a_22_bb done, exit 0, polled peak rss 54624 kB, wall 5 s
+2026-11-26T01:30:57 C145_07_a_22_bc run74.sh pid 60901, time pid 60903, p74 
+2026-11-26T01:30:57 C145_07_a_22_bc solver pid 60905 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:31:01 C145_07_a_22_bc done, exit 0, polled peak rss 43904 kB, wall 3 s
+2026-11-26T01:31:01 C125_05_f_22_aa run74.sh pid 61228, time pid 61229, p74 
+2026-11-26T01:31:01 C125_05_f_22_aa solver pid 61231 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:31:02 C125_05_f_22_aa done, exit 0, polled peak rss 23744 kB, wall 0 s
+2026-11-26T01:31:02 C125_05_f_22_ab run74.sh pid 61325, time pid 61326, p74 
+2026-11-26T01:31:02 C125_05_f_22_ab solver pid 61328 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:31:04 C125_05_f_22_ab done, exit 0, polled peak rss 29952 kB, wall 1 s
+2026-11-26T01:31:04 C125_05_f_22_ac run74.sh pid 61496, time pid 61497, p74 
+2026-11-26T01:31:04 C125_05_f_22_ac solver pid 61500 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:31:08 C125_05_f_22_ac done, exit 0, polled peak rss 44720 kB, wall 3 s
+2026-11-26T01:31:08 C125_05_f_22_ad run74.sh pid 61852, time pid 61853, p74 
+2026-11-26T01:31:08 C125_05_f_22_ad solver pid 61855 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:31:14 C125_05_f_22_ad done, exit 0, polled peak rss 59520 kB, wall 5 s
+2026-11-26T01:31:14 C125_05_f_22_ae run74.sh pid 62378, time pid 62379, p74 
+2026-11-26T01:31:14 C125_05_f_22_ae solver pid 62381 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:31:18 C125_05_f_22_ae done, exit 0, polled peak rss 48304 kB, wall 4 s
+2026-11-26T01:31:18 C125_05_f_22_af run74.sh pid 62772, time pid 62773, p74 
+2026-11-26T01:31:18 C125_05_f_22_af solver pid 62775 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:31:23 C125_05_f_22_af done, exit 0, polled peak rss 50960 kB, wall 4 s
+2026-11-26T01:31:23 C125_05_f_22_ag run74.sh pid 63201, time pid 63202, p74 
+2026-11-26T01:31:23 C125_05_f_22_ag solver pid 63204 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:31:28 C125_05_f_22_ag done, exit 0, polled peak rss 54352 kB, wall 5 s
+2026-11-26T01:31:28 C125_05_f_22_ah run74.sh pid 63669, time pid 63670, p74 
+2026-11-26T01:31:28 C125_05_f_22_ah solver pid 63673 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:31:31 C125_05_f_22_ah done, exit 0, polled peak rss 39120 kB, wall 3 s
+2026-11-26T01:31:31 C125_05_f_22_ai run74.sh pid 63940, time pid 63941, p74 
+2026-11-26T01:31:31 C125_05_f_22_ai solver pid 63943 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:31:35 C125_05_f_22_ai done, exit 0, polled peak rss 51168 kB, wall 4 s
+2026-11-26T01:31:35 C125_05_f_22_aj run74.sh pid 64367, time pid 64368, p74 
+2026-11-26T01:31:35 C125_05_f_22_aj solver pid 64370 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:31:39 C125_05_f_22_aj done, exit 0, polled peak rss 43280 kB, wall 3 s
+2026-11-26T01:31:39 C125_05_f_22_ak run74.sh pid 64698, time pid 64699, p74 
+2026-11-26T01:31:39 C125_05_f_22_ak solver pid 64701 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:31:43 C125_05_f_22_ak done, exit 0, polled peak rss 40736 kB, wall 3 s
+2026-11-26T01:31:43 C125_05_f_22_al run74.sh pid 64982, time pid 64983, p74 
+2026-11-26T01:31:43 C125_05_f_22_al solver pid 64985 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:31:47 C125_05_f_22_al done, exit 0, polled peak rss 51152 kB, wall 4 s
+2026-11-26T01:31:47 C125_05_f_22_am run74.sh pid 65397, time pid 65398, p74 
+2026-11-26T01:31:47 C125_05_f_22_am solver pid 65400 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:31:57 C125_05_f_22_am done, exit 0, polled peak rss 85584 kB, wall 9 s
+2026-11-26T01:31:57 C125_05_f_22_an run74.sh pid 66274, time pid 66275, p74 
+2026-11-26T01:31:57 C125_05_f_22_an solver pid 66277 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:32:09 C125_05_f_22_an done, exit 0, polled peak rss 98384 kB, wall 11 s
+2026-11-26T01:32:09 C125_05_f_22_ao run74.sh pid 67292, time pid 67293, p74 
+2026-11-26T01:32:09 C125_05_f_22_ao solver pid 67295 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:32:19 C125_05_f_22_ao done, exit 0, polled peak rss 91136 kB, wall 10 s
+2026-11-26T01:32:19 C125_05_f_22_ap run74.sh pid 68208, time pid 68209, p74 
+2026-11-26T01:32:19 C125_05_f_22_ap solver pid 68211 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:32:30 C125_05_f_22_ap done, exit 0, polled peak rss 96784 kB, wall 11 s
+2026-11-26T01:32:30 C125_05_f_22_aq run74.sh pid 69198, time pid 69199, p74 
+2026-11-26T01:32:31 C125_05_f_22_aq solver pid 69201 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:32:41 C125_05_f_22_aq done, exit 0, polled peak rss 87568 kB, wall 10 s
+2026-11-26T01:32:41 C125_05_f_22_ar run74.sh pid 70091, time pid 70092, p74 
+2026-11-26T01:32:41 C125_05_f_22_ar solver pid 70095 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:32:51 C125_05_f_22_ar done, exit 0, polled peak rss 95248 kB, wall 10 s
+2026-11-26T01:32:51 C125_05_f_22_as run74.sh pid 71053, time pid 71054, p74 
+2026-11-26T01:32:51 C125_05_f_22_as solver pid 71056 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:33:02 C125_05_f_22_as done, exit 0, polled peak rss 93664 kB, wall 10 s
+2026-11-26T01:33:02 C125_05_f_22_at run74.sh pid 71978, time pid 71979, p74 
+2026-11-26T01:33:02 C125_05_f_22_at solver pid 71981 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:33:12 C125_05_f_22_at done, exit 0, polled peak rss 90320 kB, wall 10 s
+2026-11-26T01:33:12 C125_05_f_22_au run74.sh pid 72896, time pid 72897, p74 
+2026-11-26T01:33:12 C125_05_f_22_au solver pid 72899 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:33:22 C125_05_f_22_au done, exit 0, polled peak rss 87504 kB, wall 9 s
+2026-11-26T01:33:22 C125_05_f_22_av run74.sh pid 73748, time pid 73749, p74 
+2026-11-26T01:33:22 C125_05_f_22_av solver pid 73751 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:33:30 C125_05_f_22_av done, exit 0, polled peak rss 75904 kB, wall 8 s
+2026-11-26T01:33:30 C125_05_f_22_aw run74.sh pid 74466, time pid 74467, p74 
+2026-11-26T01:33:30 C125_05_f_22_aw solver pid 74471 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:33:39 C125_05_f_22_aw done, exit 0, polled peak rss 77184 kB, wall 8 s
+2026-11-26T01:33:39 C125_05_f_22_ax run74.sh pid 75196, time pid 75197, p74 
+2026-11-26T01:33:39 C125_05_f_22_ax solver pid 75199 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:33:48 C125_05_f_22_ax done, exit 0, polled peak rss 81488 kB, wall 8 s
+2026-11-26T01:33:48 C125_05_f_22_ay run74.sh pid 75971, time pid 75972, p74 
+2026-11-26T01:33:48 C125_05_f_22_ay solver pid 75974 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:33:54 C125_05_f_22_ay done, exit 0, polled peak rss 64048 kB, wall 6 s
+2026-11-26T01:33:54 C125_05_f_22_az run74.sh pid 76593, time pid 76594, p74 
+2026-11-26T01:33:54 C125_05_f_22_az solver pid 76596 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:34:00 C125_05_f_22_az done, exit 0, polled peak rss 60240 kB, wall 5 s
+2026-11-26T01:34:00 C125_05_f_22_ba run74.sh pid 77096, time pid 77098, p74 
+2026-11-26T01:34:00 C125_05_f_22_ba solver pid 77100 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:34:07 C125_05_f_22_ba done, exit 0, polled peak rss 66624 kB, wall 6 s
+2026-11-26T01:34:07 C125_05_f_22_bb run74.sh pid 77721, time pid 77722, p74 
+2026-11-26T01:34:07 C125_05_f_22_bb solver pid 77724 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:34:12 C125_05_f_22_bb done, exit 0, polled peak rss 54656 kB, wall 5 s
+2026-11-26T01:34:12 C125_05_f_22_bc run74.sh pid 78163, time pid 78164, p74 
+2026-11-26T01:34:12 C125_05_f_22_bc solver pid 78166 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:34:16 C125_05_f_22_bc done, exit 0, polled peak rss 45232 kB, wall 3 s
+2026-11-26T01:34:16 C125_05_g_22_aa run74.sh pid 78511, time pid 78512, p74 
+2026-11-26T01:34:16 C125_05_g_22_aa solver pid 78514 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:34:17 C125_05_g_22_aa done, exit 0, polled peak rss 23728 kB, wall 0 s
+2026-11-26T01:34:17 C125_05_g_22_ab run74.sh pid 78604, time pid 78605, p74 
+2026-11-26T01:34:17 C125_05_g_22_ab solver pid 78607 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:34:19 C125_05_g_22_ab done, exit 0, polled peak rss 29920 kB, wall 1 s
+2026-11-26T01:34:19 C125_05_g_22_ac run74.sh pid 78766, time pid 78767, p74 
+2026-11-26T01:34:19 C125_05_g_22_ac solver pid 78769 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:34:22 C125_05_g_22_ac done, exit 0, polled peak rss 44800 kB, wall 3 s
+2026-11-26T01:34:22 C125_05_g_22_ad run74.sh pid 79115, time pid 79116, p74 
+2026-11-26T01:34:23 C125_05_g_22_ad solver pid 79118 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:34:28 C125_05_g_22_ad done, exit 0, polled peak rss 59728 kB, wall 6 s
+2026-11-26T01:34:29 C125_05_g_22_ae run74.sh pid 79654, time pid 79655, p74 
+2026-11-26T01:34:29 C125_05_g_22_ae solver pid 79658 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:34:33 C125_05_g_22_ae done, exit 0, polled peak rss 46896 kB, wall 4 s
+2026-11-26T01:34:33 C125_05_g_22_af run74.sh pid 80005, time pid 80006, p74 
+2026-11-26T01:34:33 C125_05_g_22_af solver pid 80008 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:34:37 C125_05_g_22_af done, exit 0, polled peak rss 50960 kB, wall 4 s
+2026-11-26T01:34:37 C125_05_g_22_ag run74.sh pid 80434, time pid 80437, p74 
+2026-11-26T01:34:37 C125_05_g_22_ag solver pid 80439 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:34:42 C125_05_g_22_ag done, exit 0, polled peak rss 54208 kB, wall 5 s
+2026-11-26T01:34:42 C125_05_g_22_ah run74.sh pid 80884, time pid 80885, p74 
+2026-11-26T01:34:42 C125_05_g_22_ah solver pid 80887 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:34:45 C125_05_g_22_ah done, exit 0, polled peak rss 39232 kB, wall 3 s
+2026-11-26T01:34:45 C125_05_g_22_ai run74.sh pid 81155, time pid 81156, p74 
+2026-11-26T01:34:45 C125_05_g_22_ai solver pid 81158 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:34:50 C125_05_g_22_ai done, exit 0, polled peak rss 51456 kB, wall 4 s
+2026-11-26T01:34:50 C125_05_g_22_aj run74.sh pid 81587, time pid 81588, p74 
+2026-11-26T01:34:50 C125_05_g_22_aj solver pid 81590 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:34:54 C125_05_g_22_aj done, exit 0, polled peak rss 43584 kB, wall 3 s
+2026-11-26T01:34:54 C125_05_g_22_ak run74.sh pid 81907, time pid 81908, p74 
+2026-11-26T01:34:54 C125_05_g_22_ak solver pid 81910 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:34:57 C125_05_g_22_ak done, exit 0, polled peak rss 42080 kB, wall 3 s
+2026-11-26T01:34:57 C125_05_g_22_al run74.sh pid 82221, time pid 82222, p74 
+2026-11-26T01:34:57 C125_05_g_22_al solver pid 82224 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:35:02 C125_05_g_22_al done, exit 0, polled peak rss 51216 kB, wall 4 s
+2026-11-26T01:35:02 C125_05_g_22_am run74.sh pid 82631, time pid 82632, p74 
+2026-11-26T01:35:02 C125_05_g_22_am solver pid 82634 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:35:12 C125_05_g_22_am done, exit 0, polled peak rss 85936 kB, wall 9 s
+2026-11-26T01:35:12 C125_05_g_22_an run74.sh pid 83518, time pid 83519, p74 
+2026-11-26T01:35:12 C125_05_g_22_an solver pid 83521 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:35:23 C125_05_g_22_an done, exit 0, polled peak rss 98320 kB, wall 11 s
+2026-11-26T01:35:23 C125_05_g_22_ao run74.sh pid 84519, time pid 84520, p74 
+2026-11-26T01:35:23 C125_05_g_22_ao solver pid 84522 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:35:34 C125_05_g_22_ao done, exit 0, polled peak rss 91072 kB, wall 10 s
+2026-11-26T01:35:34 C125_05_g_22_ap run74.sh pid 85441, time pid 85442, p74 
+2026-11-26T01:35:34 C125_05_g_22_ap solver pid 85444 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:35:45 C125_05_g_22_ap done, exit 0, polled peak rss 96992 kB, wall 11 s
+2026-11-26T01:35:45 C125_05_g_22_aq run74.sh pid 86464, time pid 86465, p74 
+2026-11-26T01:35:45 C125_05_g_22_aq solver pid 86467 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:35:55 C125_05_g_22_aq done, exit 0, polled peak rss 88592 kB, wall 10 s
+2026-11-26T01:35:55 C125_05_g_22_ar run74.sh pid 87391, time pid 87392, p74 
+2026-11-26T01:35:55 C125_05_g_22_ar solver pid 87394 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:36:06 C125_05_g_22_ar done, exit 0, polled peak rss 95360 kB, wall 10 s
+2026-11-26T01:36:06 C125_05_g_22_as run74.sh pid 88347, time pid 88348, p74 
+2026-11-26T01:36:06 C125_05_g_22_as solver pid 88350 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:36:17 C125_05_g_22_as done, exit 0, polled peak rss 94176 kB, wall 10 s
+2026-11-26T01:36:17 C125_05_g_22_at run74.sh pid 89278, time pid 89279, p74 
+2026-11-26T01:36:17 C125_05_g_22_at solver pid 89281 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:36:27 C125_05_g_22_at done, exit 0, polled peak rss 90704 kB, wall 10 s
+2026-11-26T01:36:27 C125_05_g_22_au run74.sh pid 90185, time pid 90187, p74 
+2026-11-26T01:36:27 C125_05_g_22_au solver pid 90191 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:36:37 C125_05_g_22_au done, exit 0, polled peak rss 87824 kB, wall 9 s
+2026-11-26T01:36:37 C125_05_g_22_av run74.sh pid 91042, time pid 91043, p74 
+2026-11-26T01:36:37 C125_05_g_22_av solver pid 91045 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:36:45 C125_05_g_22_av done, exit 0, polled peak rss 75904 kB, wall 8 s
+2026-11-26T01:36:45 C125_05_g_22_aw run74.sh pid 91758, time pid 91759, p74 
+2026-11-26T01:36:45 C125_05_g_22_aw solver pid 91761 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:36:53 C125_05_g_22_aw done, exit 0, polled peak rss 75744 kB, wall 8 s
+2026-11-26T01:36:53 C125_05_g_22_ax run74.sh pid 92471, time pid 92472, p74 
+2026-11-26T01:36:53 C125_05_g_22_ax solver pid 92474 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:37:02 C125_05_g_22_ax done, exit 0, polled peak rss 81392 kB, wall 8 s
+2026-11-26T01:37:02 C125_05_g_22_ay run74.sh pid 93280, time pid 93282, p74 
+2026-11-26T01:37:02 C125_05_g_22_ay solver pid 93287 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:37:09 C125_05_g_22_ay done, exit 0, polled peak rss 63904 kB, wall 6 s
+2026-11-26T01:37:09 C125_05_g_22_az run74.sh pid 93856, time pid 93857, p74 
+2026-11-26T01:37:09 C125_05_g_22_az solver pid 93859 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:37:15 C125_05_g_22_az done, exit 0, polled peak rss 60368 kB, wall 5 s
+2026-11-26T01:37:15 C125_05_g_22_ba run74.sh pid 94391, time pid 94392, p74 
+2026-11-26T01:37:15 C125_05_g_22_ba solver pid 94394 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:37:22 C125_05_g_22_ba done, exit 0, polled peak rss 66592 kB, wall 6 s
+2026-11-26T01:37:22 C125_05_g_22_bb run74.sh pid 95002, time pid 95003, p74 
+2026-11-26T01:37:22 C125_05_g_22_bb solver pid 95005 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:37:27 C125_05_g_22_bb done, exit 0, polled peak rss 54688 kB, wall 5 s
+2026-11-26T01:37:27 C125_05_g_22_bc run74.sh pid 95462, time pid 95463, p74 
+2026-11-26T01:37:27 C125_05_g_22_bc solver pid 95465 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:37:30 C125_05_g_22_bc done, exit 0, polled peak rss 43872 kB, wall 3 s
+2026-11-26T01:37:31 C125_05_h_22_aa run74.sh pid 95792, time pid 95793, p74 
+2026-11-26T01:37:31 C125_05_h_22_aa solver pid 95795 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:37:31 C125_05_h_22_aa done, exit 0, polled peak rss 23712 kB, wall 0 s
+2026-11-26T01:37:31 C125_05_h_22_ab run74.sh pid 95880, time pid 95881, p74 
+2026-11-26T01:37:31 C125_05_h_22_ab solver pid 95883 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:37:33 C125_05_h_22_ab done, exit 0, polled peak rss 29904 kB, wall 1 s
+2026-11-26T01:37:33 C125_05_h_22_ac run74.sh pid 96047, time pid 96048, p74 
+2026-11-26T01:37:33 C125_05_h_22_ac solver pid 96050 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:37:37 C125_05_h_22_ac done, exit 0, polled peak rss 44912 kB, wall 3 s
+2026-11-26T01:37:37 C125_05_h_22_ad run74.sh pid 96399, time pid 96400, p74 
+2026-11-26T01:37:37 C125_05_h_22_ad solver pid 96402 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:37:43 C125_05_h_22_ad done, exit 0, polled peak rss 59728 kB, wall 6 s
+2026-11-26T01:37:43 C125_05_h_22_ae run74.sh pid 96924, time pid 96925, p74 
+2026-11-26T01:37:43 C125_05_h_22_ae solver pid 96927 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:37:47 C125_05_h_22_ae done, exit 0, polled peak rss 46928 kB, wall 4 s
+2026-11-26T01:37:47 C125_05_h_22_af run74.sh pid 97287, time pid 97289, p74 
+2026-11-26T01:37:47 C125_05_h_22_af solver pid 97291 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:37:52 C125_05_h_22_af done, exit 0, polled peak rss 50928 kB, wall 4 s
+2026-11-26T01:37:52 C125_05_h_22_ag run74.sh pid 97709, time pid 97710, p74 
+2026-11-26T01:37:52 C125_05_h_22_ag solver pid 97712 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:37:57 C125_05_h_22_ag done, exit 0, polled peak rss 54176 kB, wall 5 s
+2026-11-26T01:37:57 C125_05_h_22_ah run74.sh pid 98197, time pid 98198, p74 
+2026-11-26T01:37:57 C125_05_h_22_ah solver pid 98200 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:38:00 C125_05_h_22_ah done, exit 0, polled peak rss 39344 kB, wall 3 s
+2026-11-26T01:38:00 C125_05_h_22_ai run74.sh pid 98461, time pid 98462, p74 
+2026-11-26T01:38:00 C125_05_h_22_ai solver pid 98464 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:38:05 C125_05_h_22_ai done, exit 0, polled peak rss 51360 kB, wall 4 s
+2026-11-26T01:38:05 C125_05_h_22_aj run74.sh pid 98865, time pid 98866, p74 
+2026-11-26T01:38:05 C125_05_h_22_aj solver pid 98868 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:38:08 C125_05_h_22_aj done, exit 0, polled peak rss 43776 kB, wall 3 s
+2026-11-26T01:38:08 C125_05_h_22_ak run74.sh pid 99190, time pid 99191, p74 
+2026-11-26T01:38:08 C125_05_h_22_ak solver pid 99193 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:38:12 C125_05_h_22_ak done, exit 0, polled peak rss 40800 kB, wall 3 s
+2026-11-26T01:38:12 C125_05_h_22_al run74.sh pid 99496, time pid 99497, p74 
+2026-11-26T01:38:12 C125_05_h_22_al solver pid 99499 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:38:16 C125_05_h_22_al done, exit 0, polled peak rss 51760 kB, wall 4 s
+2026-11-26T01:38:16 C125_05_h_22_am run74.sh pid 99920, time pid 99923, p74 
+2026-11-26T01:38:16 C125_05_h_22_am solver pid 99925 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:38:26 C125_05_h_22_am done, exit 0, polled peak rss 86304 kB, wall 9 s
+2026-11-26T01:38:26 C125_05_h_22_an run74.sh pid 1104, time pid 1105, p74 
+2026-11-26T01:38:26 C125_05_h_22_an solver pid 1107 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:38:38 C125_05_h_22_an done, exit 0, polled peak rss 98112 kB, wall 11 s
+2026-11-26T01:38:38 C125_05_h_22_ao run74.sh pid 2151, time pid 2152, p74 
+2026-11-26T01:38:38 C125_05_h_22_ao solver pid 2154 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:38:48 C125_05_h_22_ao done, exit 0, polled peak rss 90000 kB, wall 10 s
+2026-11-26T01:38:48 C125_05_h_22_ap run74.sh pid 3070, time pid 3072, p74 
+2026-11-26T01:38:48 C125_05_h_22_ap solver pid 3074 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:38:59 C125_05_h_22_ap done, exit 0, polled peak rss 96992 kB, wall 11 s
+2026-11-26T01:38:59 C125_05_h_22_aq run74.sh pid 4070, time pid 4071, p74 
+2026-11-26T01:38:59 C125_05_h_22_aq solver pid 4073 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:39:09 C125_05_h_22_aq done, exit 0, polled peak rss 88304 kB, wall 10 s
+2026-11-26T01:39:09 C125_05_h_22_ar run74.sh pid 4951, time pid 4952, p74 
+2026-11-26T01:39:09 C125_05_h_22_ar solver pid 4954 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:39:20 C125_05_h_22_ar done, exit 0, polled peak rss 93984 kB, wall 10 s
+2026-11-26T01:39:20 C125_05_h_22_as run74.sh pid 5890, time pid 5891, p74 
+2026-11-26T01:39:20 C125_05_h_22_as solver pid 5893 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:39:31 C125_05_h_22_as done, exit 0, polled peak rss 94064 kB, wall 10 s
+2026-11-26T01:39:31 C125_05_h_22_at run74.sh pid 6831, time pid 6833, p74 
+2026-11-26T01:39:31 C125_05_h_22_at solver pid 6835 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:39:41 C125_05_h_22_at done, exit 0, polled peak rss 90848 kB, wall 10 s
+2026-11-26T01:39:41 C125_05_h_22_au run74.sh pid 7726, time pid 7727, p74 
+2026-11-26T01:39:41 C125_05_h_22_au solver pid 7729 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:39:51 C125_05_h_22_au done, exit 0, polled peak rss 87568 kB, wall 9 s
+2026-11-26T01:39:51 C125_05_h_22_av run74.sh pid 8604, time pid 8605, p74 
+2026-11-26T01:39:51 C125_05_h_22_av solver pid 8608 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:39:59 C125_05_h_22_av done, exit 0, polled peak rss 74720 kB, wall 7 s
+2026-11-26T01:39:59 C125_05_h_22_aw run74.sh pid 9301, time pid 9302, p74 
+2026-11-26T01:39:59 C125_05_h_22_aw solver pid 9304 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:40:07 C125_05_h_22_aw done, exit 0, polled peak rss 76016 kB, wall 8 s
+2026-11-26T01:40:07 C125_05_h_22_ax run74.sh pid 10044, time pid 10045, p74 
+2026-11-26T01:40:07 C125_05_h_22_ax solver pid 10047 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:40:16 C125_05_h_22_ax done, exit 0, polled peak rss 80192 kB, wall 8 s
+2026-11-26T01:40:16 C125_05_h_22_ay run74.sh pid 10804, time pid 10805, p74 
+2026-11-26T01:40:16 C125_05_h_22_ay solver pid 10807 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:40:22 C125_05_h_22_ay done, exit 0, polled peak rss 64112 kB, wall 6 s
+2026-11-26T01:40:22 C125_05_h_22_az run74.sh pid 11378, time pid 11380, p74 
+2026-11-26T01:40:22 C125_05_h_22_az solver pid 11384 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:40:28 C125_05_h_22_az done, exit 0, polled peak rss 60752 kB, wall 5 s
+2026-11-26T01:40:28 C125_05_h_22_ba run74.sh pid 11914, time pid 11915, p74 
+2026-11-26T01:40:28 C125_05_h_22_ba solver pid 11918 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:40:35 C125_05_h_22_ba done, exit 0, polled peak rss 65472 kB, wall 6 s
+2026-11-26T01:40:35 C125_05_h_22_bb run74.sh pid 12507, time pid 12509, p74 
+2026-11-26T01:40:35 C125_05_h_22_bb solver pid 12511 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:40:40 C125_05_h_22_bb done, exit 0, polled peak rss 56112 kB, wall 5 s
+2026-11-26T01:40:40 C125_05_h_22_bc run74.sh pid 12984, time pid 12985, p74 
+2026-11-26T01:40:40 C125_05_h_22_bc solver pid 12987 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:40:44 C125_05_h_22_bc done, exit 0, polled peak rss 43936 kB, wall 3 s
+2026-11-26T01:40:44 C145_07_b_22_aa run74.sh pid 13317, time pid 13318, p74 
+2026-11-26T01:40:44 C145_07_b_22_aa solver pid 13320 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:40:45 C145_07_b_22_aa done, exit 0, polled peak rss 23792 kB, wall 0 s
+2026-11-26T01:40:45 C145_07_b_22_ab run74.sh pid 13411, time pid 13413, p74 
+2026-11-26T01:40:45 C145_07_b_22_ab solver pid 13415 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:40:47 C145_07_b_22_ab done, exit 0, polled peak rss 29824 kB, wall 1 s
+2026-11-26T01:40:47 C145_07_b_22_ac run74.sh pid 13574, time pid 13576, p74 
+2026-11-26T01:40:47 C145_07_b_22_ac solver pid 13578 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:40:51 C145_07_b_22_ac done, exit 0, polled peak rss 45296 kB, wall 4 s
+2026-11-26T01:40:51 C145_07_b_22_ad run74.sh pid 13946, time pid 13947, p74 
+2026-11-26T01:40:51 C145_07_b_22_ad solver pid 13949 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:40:57 C145_07_b_22_ad done, exit 0, polled peak rss 59152 kB, wall 5 s
+2026-11-26T01:40:57 C145_07_b_22_ae run74.sh pid 14482, time pid 14483, p74 
+2026-11-26T01:40:57 C145_07_b_22_ae solver pid 14485 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:41:01 C145_07_b_22_ae done, exit 0, polled peak rss 46896 kB, wall 4 s
+2026-11-26T01:41:01 C145_07_b_22_af run74.sh pid 14831, time pid 14832, p74 
+2026-11-26T01:41:01 C145_07_b_22_af solver pid 14834 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:41:05 C145_07_b_22_af done, exit 0, polled peak rss 50944 kB, wall 4 s
+2026-11-26T01:41:05 C145_07_b_22_ag run74.sh pid 15240, time pid 15241, p74 
+2026-11-26T01:41:05 C145_07_b_22_ag solver pid 15243 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:41:11 C145_07_b_22_ag done, exit 0, polled peak rss 54256 kB, wall 5 s
+2026-11-26T01:41:11 C145_07_b_22_ah run74.sh pid 15713, time pid 15714, p74 
+2026-11-26T01:41:11 C145_07_b_22_ah solver pid 15716 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:41:14 C145_07_b_22_ah done, exit 0, polled peak rss 39296 kB, wall 3 s
+2026-11-26T01:41:14 C145_07_b_22_ai run74.sh pid 15982, time pid 15983, p74 
+2026-11-26T01:41:14 C145_07_b_22_ai solver pid 15985 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:41:18 C145_07_b_22_ai done, exit 0, polled peak rss 51456 kB, wall 4 s
+2026-11-26T01:41:18 C145_07_b_22_aj run74.sh pid 16389, time pid 16390, p74 
+2026-11-26T01:41:18 C145_07_b_22_aj solver pid 16392 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:41:22 C145_07_b_22_aj done, exit 0, polled peak rss 43664 kB, wall 3 s
+2026-11-26T01:41:22 C145_07_b_22_ak run74.sh pid 16745, time pid 16746, p74 
+2026-11-26T01:41:22 C145_07_b_22_ak solver pid 16748 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:41:25 C145_07_b_22_ak done, exit 0, polled peak rss 42160 kB, wall 3 s
+2026-11-26T01:41:25 C145_07_b_22_al run74.sh pid 17050, time pid 17051, p74 
+2026-11-26T01:41:25 C145_07_b_22_al solver pid 17054 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:41:30 C145_07_b_22_al done, exit 0, polled peak rss 51312 kB, wall 4 s
+2026-11-26T01:41:30 C145_07_b_22_am run74.sh pid 17461, time pid 17462, p74 
+2026-11-26T01:41:30 C145_07_b_22_am solver pid 17465 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:41:40 C145_07_b_22_am done, exit 0, polled peak rss 85712 kB, wall 9 s
+2026-11-26T01:41:40 C145_07_b_22_an run74.sh pid 18334, time pid 18335, p74 
+2026-11-26T01:41:40 C145_07_b_22_an solver pid 18337 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:41:52 C145_07_b_22_an done, exit 0, polled peak rss 98272 kB, wall 11 s
+2026-11-26T01:41:52 C145_07_b_22_ao run74.sh pid 19363, time pid 19365, p74 
+2026-11-26T01:41:52 C145_07_b_22_ao solver pid 19367 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:42:02 C145_07_b_22_ao done, exit 0, polled peak rss 91120 kB, wall 10 s
+2026-11-26T01:42:02 C145_07_b_22_ap run74.sh pid 20279, time pid 20280, p74 
+2026-11-26T01:42:02 C145_07_b_22_ap solver pid 20282 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:42:13 C145_07_b_22_ap done, exit 0, polled peak rss 96416 kB, wall 11 s
+2026-11-26T01:42:13 C145_07_b_22_aq run74.sh pid 21275, time pid 21276, p74 
+2026-11-26T01:42:13 C145_07_b_22_aq solver pid 21278 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:42:23 C145_07_b_22_aq done, exit 0, polled peak rss 88000 kB, wall 10 s
+2026-11-26T01:42:23 C145_07_b_22_ar run74.sh pid 22166, time pid 22167, p74 
+2026-11-26T01:42:23 C145_07_b_22_ar solver pid 22169 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:42:34 C145_07_b_22_ar done, exit 0, polled peak rss 94976 kB, wall 10 s
+2026-11-26T01:42:34 C145_07_b_22_as run74.sh pid 23101, time pid 23102, p74 
+2026-11-26T01:42:34 C145_07_b_22_as solver pid 23104 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:42:45 C145_07_b_22_as done, exit 0, polled peak rss 93648 kB, wall 10 s
+2026-11-26T01:42:45 C145_07_b_22_at run74.sh pid 24041, time pid 24044, p74 
+2026-11-26T01:42:45 C145_07_b_22_at solver pid 24047 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:42:55 C145_07_b_22_at done, exit 0, polled peak rss 90688 kB, wall 10 s
+2026-11-26T01:42:55 C145_07_b_22_au run74.sh pid 24968, time pid 24969, p74 
+2026-11-26T01:42:55 C145_07_b_22_au solver pid 24971 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:43:05 C145_07_b_22_au done, exit 0, polled peak rss 87712 kB, wall 9 s
+2026-11-26T01:43:05 C145_07_b_22_av run74.sh pid 25803, time pid 25804, p74 
+2026-11-26T01:43:05 C145_07_b_22_av solver pid 25806 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:43:13 C145_07_b_22_av done, exit 0, polled peak rss 74656 kB, wall 7 s
+2026-11-26T01:43:13 C145_07_b_22_aw run74.sh pid 26568, time pid 26569, p74 
+2026-11-26T01:43:13 C145_07_b_22_aw solver pid 26571 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:43:21 C145_07_b_22_aw done, exit 0, polled peak rss 75856 kB, wall 8 s
+2026-11-26T01:43:21 C145_07_b_22_ax run74.sh pid 27264, time pid 27266, p74 
+2026-11-26T01:43:21 C145_07_b_22_ax solver pid 27268 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:43:30 C145_07_b_22_ax done, exit 0, polled peak rss 80448 kB, wall 8 s
+2026-11-26T01:43:30 C145_07_b_22_ay run74.sh pid 28036, time pid 28037, p74 
+2026-11-26T01:43:30 C145_07_b_22_ay solver pid 28039 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:43:36 C145_07_b_22_ay done, exit 0, polled peak rss 64288 kB, wall 6 s
+2026-11-26T01:43:36 C145_07_b_22_az run74.sh pid 28620, time pid 28621, p74 
+2026-11-26T01:43:36 C145_07_b_22_az solver pid 28623 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:43:42 C145_07_b_22_az done, exit 0, polled peak rss 59456 kB, wall 5 s
+2026-11-26T01:43:42 C145_07_b_22_ba run74.sh pid 29132, time pid 29133, p74 
+2026-11-26T01:43:42 C145_07_b_22_ba solver pid 29135 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:43:49 C145_07_b_22_ba done, exit 0, polled peak rss 65552 kB, wall 6 s
+2026-11-26T01:43:49 C145_07_b_22_bb run74.sh pid 29711, time pid 29712, p74 
+2026-11-26T01:43:49 C145_07_b_22_bb solver pid 29714 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:43:54 C145_07_b_22_bb done, exit 0, polled peak rss 54704 kB, wall 5 s
+2026-11-26T01:43:54 C145_07_b_22_bc run74.sh pid 30182, time pid 30183, p74 
+2026-11-26T01:43:54 C145_07_b_22_bc solver pid 30185 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:43:58 C145_07_b_22_bc done, exit 0, polled peak rss 43744 kB, wall 3 s
+2026-11-26T01:43:58 C145_07_c_22_aa run74.sh pid 30530, time pid 30531, p74 
+2026-11-26T01:43:58 C145_07_c_22_aa solver pid 30534 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:43:59 C145_07_c_22_aa done, exit 0, polled peak rss 23712 kB, wall 0 s
+2026-11-26T01:43:59 C145_07_c_22_ab run74.sh pid 30631, time pid 30632, p74 
+2026-11-26T01:43:59 C145_07_c_22_ab solver pid 30634 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:44:01 C145_07_c_22_ab done, exit 0, polled peak rss 29904 kB, wall 1 s
+2026-11-26T01:44:01 C145_07_c_22_ac run74.sh pid 30778, time pid 30779, p74 
+2026-11-26T01:44:01 C145_07_c_22_ac solver pid 30782 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:44:04 C145_07_c_22_ac done, exit 0, polled peak rss 44704 kB, wall 3 s
+2026-11-26T01:44:04 C145_07_c_22_ad run74.sh pid 31131, time pid 31132, p74 
+2026-11-26T01:44:04 C145_07_c_22_ad solver pid 31134 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:44:10 C145_07_c_22_ad done, exit 0, polled peak rss 59344 kB, wall 6 s
+2026-11-26T01:44:10 C145_07_c_22_ae run74.sh pid 31656, time pid 31657, p74 
+2026-11-26T01:44:10 C145_07_c_22_ae solver pid 31659 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:44:15 C145_07_c_22_ae done, exit 0, polled peak rss 48288 kB, wall 4 s
+2026-11-26T01:44:15 C145_07_c_22_af run74.sh pid 32045, time pid 32046, p74 
+2026-11-26T01:44:15 C145_07_c_22_af solver pid 32049 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:44:19 C145_07_c_22_af done, exit 0, polled peak rss 50896 kB, wall 4 s
+2026-11-26T01:44:19 C145_07_c_22_ag run74.sh pid 32458, time pid 32459, p74 
+2026-11-26T01:44:19 C145_07_c_22_ag solver pid 32461 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:44:25 C145_07_c_22_ag done, exit 0, polled peak rss 54336 kB, wall 5 s
+2026-11-26T01:44:25 C145_07_c_22_ah run74.sh pid 32925, time pid 32926, p74 
+2026-11-26T01:44:25 C145_07_c_22_ah solver pid 32929 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:44:28 C145_07_c_22_ah done, exit 0, polled peak rss 39392 kB, wall 3 s
+2026-11-26T01:44:28 C145_07_c_22_ai run74.sh pid 33199, time pid 33200, p74 
+2026-11-26T01:44:28 C145_07_c_22_ai solver pid 33202 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:44:32 C145_07_c_22_ai done, exit 0, polled peak rss 51408 kB, wall 4 s
+2026-11-26T01:44:32 C145_07_c_22_aj run74.sh pid 33622, time pid 33623, p74 
+2026-11-26T01:44:32 C145_07_c_22_aj solver pid 33625 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:44:36 C145_07_c_22_aj done, exit 0, polled peak rss 43552 kB, wall 3 s
+2026-11-26T01:44:36 C145_07_c_22_ak run74.sh pid 33930, time pid 33931, p74 
+2026-11-26T01:44:36 C145_07_c_22_ak solver pid 33935 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:44:39 C145_07_c_22_ak done, exit 0, polled peak rss 42176 kB, wall 3 s
+2026-11-26T01:44:39 C145_07_c_22_al run74.sh pid 34247, time pid 34248, p74 
+2026-11-26T01:44:39 C145_07_c_22_al solver pid 34250 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:44:44 C145_07_c_22_al done, exit 0, polled peak rss 51104 kB, wall 4 s
+2026-11-26T01:44:44 C145_07_c_22_am run74.sh pid 34671, time pid 34673, p74 
+2026-11-26T01:44:44 C145_07_c_22_am solver pid 34675 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:44:54 C145_07_c_22_am done, exit 0, polled peak rss 86736 kB, wall 10 s
+2026-11-26T01:44:54 C145_07_c_22_an run74.sh pid 35562, time pid 35563, p74 
+2026-11-26T01:44:54 C145_07_c_22_an solver pid 35565 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:45:06 C145_07_c_22_an done, exit 0, polled peak rss 97824 kB, wall 11 s
+2026-11-26T01:45:06 C145_07_c_22_ao run74.sh pid 36564, time pid 36565, p74 
+2026-11-26T01:45:06 C145_07_c_22_ao solver pid 36567 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:45:16 C145_07_c_22_ao done, exit 0, polled peak rss 90800 kB, wall 10 s
+2026-11-26T01:45:16 C145_07_c_22_ap run74.sh pid 37496, time pid 37497, p74 
+2026-11-26T01:45:16 C145_07_c_22_ap solver pid 37499 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:45:28 C145_07_c_22_ap done, exit 0, polled peak rss 96544 kB, wall 11 s
+2026-11-26T01:45:28 C145_07_c_22_aq run74.sh pid 38506, time pid 38507, p74 
+2026-11-26T01:45:28 C145_07_c_22_aq solver pid 38509 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:45:38 C145_07_c_22_aq done, exit 0, polled peak rss 87904 kB, wall 10 s
+2026-11-26T01:45:38 C145_07_c_22_ar run74.sh pid 39403, time pid 39404, p74 
+2026-11-26T01:45:38 C145_07_c_22_ar solver pid 39406 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:45:49 C145_07_c_22_ar done, exit 0, polled peak rss 94976 kB, wall 10 s
+2026-11-26T01:45:49 C145_07_c_22_as run74.sh pid 40366, time pid 40367, p74 
+2026-11-26T01:45:49 C145_07_c_22_as solver pid 40369 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:45:59 C145_07_c_22_as done, exit 0, polled peak rss 93504 kB, wall 10 s
+2026-11-26T01:45:59 C145_07_c_22_at run74.sh pid 41342, time pid 41343, p74 
+2026-11-26T01:45:59 C145_07_c_22_at solver pid 41345 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:46:09 C145_07_c_22_at done, exit 0, polled peak rss 90656 kB, wall 10 s
+2026-11-26T01:46:09 C145_07_c_22_au run74.sh pid 42224, time pid 42225, p74 
+2026-11-26T01:46:10 C145_07_c_22_au solver pid 42227 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:46:19 C145_07_c_22_au done, exit 0, polled peak rss 87488 kB, wall 9 s
+2026-11-26T01:46:19 C145_07_c_22_av run74.sh pid 43081, time pid 43082, p74 
+2026-11-26T01:46:19 C145_07_c_22_av solver pid 43084 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:46:27 C145_07_c_22_av done, exit 0, polled peak rss 74576 kB, wall 8 s
+2026-11-26T01:46:27 C145_07_c_22_aw run74.sh pid 43810, time pid 43811, p74 
+2026-11-26T01:46:27 C145_07_c_22_aw solver pid 43813 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:46:36 C145_07_c_22_aw done, exit 0, polled peak rss 75824 kB, wall 8 s
+2026-11-26T01:46:36 C145_07_c_22_ax run74.sh pid 44509, time pid 44510, p74 
+2026-11-26T01:46:36 C145_07_c_22_ax solver pid 44512 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:46:44 C145_07_c_22_ax done, exit 0, polled peak rss 80448 kB, wall 8 s
+2026-11-26T01:46:44 C145_07_c_22_ay run74.sh pid 45308, time pid 45309, p74 
+2026-11-26T01:46:44 C145_07_c_22_ay solver pid 45311 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:46:51 C145_07_c_22_ay done, exit 0, polled peak rss 64176 kB, wall 6 s
+2026-11-26T01:46:51 C145_07_c_22_az run74.sh pid 45857, time pid 45858, p74 
+2026-11-26T01:46:51 C145_07_c_22_az solver pid 45860 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:46:57 C145_07_c_22_az done, exit 0, polled peak rss 60512 kB, wall 5 s
+2026-11-26T01:46:57 C145_07_c_22_ba run74.sh pid 46387, time pid 46388, p74 
+2026-11-26T01:46:57 C145_07_c_22_ba solver pid 46390 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:47:03 C145_07_c_22_ba done, exit 0, polled peak rss 65680 kB, wall 6 s
+2026-11-26T01:47:03 C145_07_c_22_bb run74.sh pid 46984, time pid 46988, p74 
+2026-11-26T01:47:03 C145_07_c_22_bb solver pid 46991 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:47:09 C145_07_c_22_bb done, exit 0, polled peak rss 54832 kB, wall 5 s
+2026-11-26T01:47:09 C145_07_c_22_bc run74.sh pid 47453, time pid 47454, p74 
+2026-11-26T01:47:09 C145_07_c_22_bc solver pid 47457 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:47:12 C145_07_c_22_bc done, exit 0, polled peak rss 45248 kB, wall 3 s
+2026-11-26T01:47:12 C145_09_a_22_aa run74.sh pid 47799, time pid 47800, p74 
+2026-11-26T01:47:13 C145_09_a_22_aa solver pid 47802 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:47:13 C145_09_a_22_aa done, exit 0, polled peak rss 23824 kB, wall 0 s
+2026-11-26T01:47:13 C145_09_a_22_ab run74.sh pid 47905, time pid 47906, p74 
+2026-11-26T01:47:13 C145_09_a_22_ab solver pid 47908 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:47:15 C145_09_a_22_ab done, exit 0, polled peak rss 29904 kB, wall 1 s
+2026-11-26T01:47:15 C145_09_a_22_ac run74.sh pid 48066, time pid 48067, p74 
+2026-11-26T01:47:15 C145_09_a_22_ac solver pid 48069 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:47:19 C145_09_a_22_ac done, exit 0, polled peak rss 44848 kB, wall 3 s
+2026-11-26T01:47:19 C145_09_a_22_ad run74.sh pid 48415, time pid 48416, p74 
+2026-11-26T01:47:19 C145_09_a_22_ad solver pid 48418 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:47:25 C145_09_a_22_ad done, exit 0, polled peak rss 59392 kB, wall 6 s
+2026-11-26T01:47:25 C145_09_a_22_ae run74.sh pid 48955, time pid 48956, p74 
+2026-11-26T01:47:25 C145_09_a_22_ae solver pid 48958 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:47:29 C145_09_a_22_ae done, exit 0, polled peak rss 48272 kB, wall 4 s
+2026-11-26T01:47:29 C145_09_a_22_af run74.sh pid 49342, time pid 49343, p74 
+2026-11-26T01:47:29 C145_09_a_22_af solver pid 49345 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:47:34 C145_09_a_22_af done, exit 0, polled peak rss 50848 kB, wall 4 s
+2026-11-26T01:47:34 C145_09_a_22_ag run74.sh pid 49748, time pid 49749, p74 
+2026-11-26T01:47:34 C145_09_a_22_ag solver pid 49751 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:47:39 C145_09_a_22_ag done, exit 0, polled peak rss 54208 kB, wall 5 s
+2026-11-26T01:47:39 C145_09_a_22_ah run74.sh pid 50208, time pid 50209, p74 
+2026-11-26T01:47:39 C145_09_a_22_ah solver pid 50211 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:47:42 C145_09_a_22_ah done, exit 0, polled peak rss 39328 kB, wall 3 s
+2026-11-26T01:47:42 C145_09_a_22_ai run74.sh pid 50461, time pid 50462, p74 
+2026-11-26T01:47:42 C145_09_a_22_ai solver pid 50464 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:47:47 C145_09_a_22_ai done, exit 0, polled peak rss 51280 kB, wall 4 s
+2026-11-26T01:47:47 C145_09_a_22_aj run74.sh pid 50879, time pid 50880, p74 
+2026-11-26T01:47:47 C145_09_a_22_aj solver pid 50884 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:47:51 C145_09_a_22_aj done, exit 0, polled peak rss 43648 kB, wall 3 s
+2026-11-26T01:47:51 C145_09_a_22_ak run74.sh pid 51222, time pid 51223, p74 
+2026-11-26T01:47:51 C145_09_a_22_ak solver pid 51225 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:47:54 C145_09_a_22_ak done, exit 0, polled peak rss 42192 kB, wall 3 s
+2026-11-26T01:47:54 C145_09_a_22_al run74.sh pid 51530, time pid 51531, p74 
+2026-11-26T01:47:54 C145_09_a_22_al solver pid 51533 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:47:59 C145_09_a_22_al done, exit 0, polled peak rss 51328 kB, wall 4 s
+2026-11-26T01:47:59 C145_09_a_22_am run74.sh pid 51943, time pid 51944, p74 
+2026-11-26T01:47:59 C145_09_a_22_am solver pid 51946 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:48:09 C145_09_a_22_am done, exit 0, polled peak rss 85616 kB, wall 9 s
+2026-11-26T01:48:09 C145_09_a_22_an run74.sh pid 52801, time pid 52802, p74 
+2026-11-26T01:48:09 C145_09_a_22_an solver pid 52804 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:48:20 C145_09_a_22_an done, exit 0, polled peak rss 97984 kB, wall 11 s
+2026-11-26T01:48:20 C145_09_a_22_ao run74.sh pid 53796, time pid 53800, p74 
+2026-11-26T01:48:20 C145_09_a_22_ao solver pid 53802 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:48:31 C145_09_a_22_ao done, exit 0, polled peak rss 91104 kB, wall 10 s
+2026-11-26T01:48:31 C145_09_a_22_ap run74.sh pid 54729, time pid 54730, p74 
+2026-11-26T01:48:31 C145_09_a_22_ap solver pid 54733 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:48:42 C145_09_a_22_ap done, exit 0, polled peak rss 96896 kB, wall 11 s
+2026-11-26T01:48:42 C145_09_a_22_aq run74.sh pid 55717, time pid 55718, p74 
+2026-11-26T01:48:42 C145_09_a_22_aq solver pid 55721 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:48:52 C145_09_a_22_aq done, exit 0, polled peak rss 87920 kB, wall 10 s
+2026-11-26T01:48:52 C145_09_a_22_ar run74.sh pid 56619, time pid 56620, p74 
+2026-11-26T01:48:52 C145_09_a_22_ar solver pid 56622 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:49:03 C145_09_a_22_ar done, exit 0, polled peak rss 95280 kB, wall 10 s
+2026-11-26T01:49:03 C145_09_a_22_as run74.sh pid 57581, time pid 57582, p74 
+2026-11-26T01:49:03 C145_09_a_22_as solver pid 57584 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:49:14 C145_09_a_22_as done, exit 0, polled peak rss 93824 kB, wall 10 s
+2026-11-26T01:49:14 C145_09_a_22_at run74.sh pid 58527, time pid 58528, p74 
+2026-11-26T01:49:14 C145_09_a_22_at solver pid 58530 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:49:24 C145_09_a_22_at done, exit 0, polled peak rss 90944 kB, wall 10 s
+2026-11-26T01:49:24 C145_09_a_22_au run74.sh pid 59443, time pid 59444, p74 
+2026-11-26T01:49:24 C145_09_a_22_au solver pid 59446 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:49:34 C145_09_a_22_au done, exit 0, polled peak rss 88000 kB, wall 9 s
+2026-11-26T01:49:34 C145_09_a_22_av run74.sh pid 60368, time pid 60369, p74 
+2026-11-26T01:49:34 C145_09_a_22_av solver pid 60371 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:49:42 C145_09_a_22_av done, exit 0, polled peak rss 74576 kB, wall 7 s
+2026-11-26T01:49:42 C145_09_a_22_aw run74.sh pid 61112, time pid 61114, p74 
+2026-11-26T01:49:42 C145_09_a_22_aw solver pid 61116 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:49:50 C145_09_a_22_aw done, exit 0, polled peak rss 75952 kB, wall 8 s
+2026-11-26T01:49:50 C145_09_a_22_ax run74.sh pid 61841, time pid 61842, p74 
+2026-11-26T01:49:50 C145_09_a_22_ax solver pid 61844 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:49:59 C145_09_a_22_ax done, exit 0, polled peak rss 80096 kB, wall 8 s
+2026-11-26T01:49:59 C145_09_a_22_ay run74.sh pid 62612, time pid 62613, p74 
+2026-11-26T01:49:59 C145_09_a_22_ay solver pid 62615 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:50:05 C145_09_a_22_ay done, exit 0, polled peak rss 64048 kB, wall 6 s
+2026-11-26T01:50:05 C145_09_a_22_az run74.sh pid 63165, time pid 63166, p74 
+2026-11-26T01:50:05 C145_09_a_22_az solver pid 63168 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:50:11 C145_09_a_22_az done, exit 0, polled peak rss 60640 kB, wall 6 s
+2026-11-26T01:50:11 C145_09_a_22_ba run74.sh pid 63718, time pid 63719, p74 
+2026-11-26T01:50:11 C145_09_a_22_ba solver pid 63721 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:50:18 C145_09_a_22_ba done, exit 0, polled peak rss 67056 kB, wall 6 s
+2026-11-26T01:50:18 C145_09_a_22_bb run74.sh pid 64320, time pid 64321, p74 
+2026-11-26T01:50:18 C145_09_a_22_bb solver pid 64323 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:50:23 C145_09_a_22_bb done, exit 0, polled peak rss 54896 kB, wall 5 s
+2026-11-26T01:50:23 C145_09_a_22_bc run74.sh pid 64784, time pid 64785, p74 
+2026-11-26T01:50:23 C145_09_a_22_bc solver pid 64787 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:50:27 C145_09_a_22_bc done, exit 0, polled peak rss 43744 kB, wall 3 s
+2026-11-26T01:50:27 C145_09_b_22_aa run74.sh pid 65133, time pid 65134, p74 
+2026-11-26T01:50:27 C145_09_b_22_aa solver pid 65136 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:50:28 C145_09_b_22_aa done, exit 0, polled peak rss 23776 kB, wall 0 s
+2026-11-26T01:50:28 C145_09_b_22_ab run74.sh pid 65242, time pid 65243, p74 
+2026-11-26T01:50:28 C145_09_b_22_ab solver pid 65245 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:50:30 C145_09_b_22_ab done, exit 0, polled peak rss 29968 kB, wall 1 s
+2026-11-26T01:50:30 C145_09_b_22_ac run74.sh pid 65401, time pid 65402, p74 
+2026-11-26T01:50:30 C145_09_b_22_ac solver pid 65406 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:50:33 C145_09_b_22_ac done, exit 0, polled peak rss 44704 kB, wall 3 s
+2026-11-26T01:50:33 C145_09_b_22_ad run74.sh pid 65752, time pid 65753, p74 
+2026-11-26T01:50:33 C145_09_b_22_ad solver pid 65757 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:50:39 C145_09_b_22_ad done, exit 0, polled peak rss 59392 kB, wall 6 s
+2026-11-26T01:50:39 C145_09_b_22_ae run74.sh pid 66282, time pid 66285, p74 
+2026-11-26T01:50:39 C145_09_b_22_ae solver pid 66287 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:50:44 C145_09_b_22_ae done, exit 0, polled peak rss 48144 kB, wall 4 s
+2026-11-26T01:50:44 C145_09_b_22_af run74.sh pid 66675, time pid 66676, p74 
+2026-11-26T01:50:44 C145_09_b_22_af solver pid 66681 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:50:48 C145_09_b_22_af done, exit 0, polled peak rss 51104 kB, wall 4 s
+2026-11-26T01:50:48 C145_09_b_22_ag run74.sh pid 67075, time pid 67076, p74 
+2026-11-26T01:50:48 C145_09_b_22_ag solver pid 67078 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:50:54 C145_09_b_22_ag done, exit 0, polled peak rss 54432 kB, wall 5 s
+2026-11-26T01:50:54 C145_09_b_22_ah run74.sh pid 67539, time pid 67542, p74 
+2026-11-26T01:50:54 C145_09_b_22_ah solver pid 67544 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:50:57 C145_09_b_22_ah done, exit 0, polled peak rss 39312 kB, wall 3 s
+2026-11-26T01:50:57 C145_09_b_22_ai run74.sh pid 67812, time pid 67813, p74 
+2026-11-26T01:50:57 C145_09_b_22_ai solver pid 67815 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:51:01 C145_09_b_22_ai done, exit 0, polled peak rss 51632 kB, wall 4 s
+2026-11-26T01:51:01 C145_09_b_22_aj run74.sh pid 68227, time pid 68228, p74 
+2026-11-26T01:51:01 C145_09_b_22_aj solver pid 68230 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:51:05 C145_09_b_22_aj done, exit 0, polled peak rss 43664 kB, wall 3 s
+2026-11-26T01:51:05 C145_09_b_22_ak run74.sh pid 68559, time pid 68560, p74 
+2026-11-26T01:51:05 C145_09_b_22_ak solver pid 68562 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:51:08 C145_09_b_22_ak done, exit 0, polled peak rss 42272 kB, wall 3 s
+2026-11-26T01:51:09 C145_09_b_22_al run74.sh pid 68871, time pid 68872, p74 
+2026-11-26T01:51:09 C145_09_b_22_al solver pid 68874 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:51:13 C145_09_b_22_al done, exit 0, polled peak rss 51552 kB, wall 4 s
+2026-11-26T01:51:13 C145_09_b_22_am run74.sh pid 69300, time pid 69301, p74 
+2026-11-26T01:51:13 C145_09_b_22_am solver pid 69303 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:51:23 C145_09_b_22_am done, exit 0, polled peak rss 85952 kB, wall 9 s
+2026-11-26T01:51:23 C145_09_b_22_an run74.sh pid 70186, time pid 70187, p74 
+2026-11-26T01:51:23 C145_09_b_22_an solver pid 70189 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:51:35 C145_09_b_22_an done, exit 0, polled peak rss 98016 kB, wall 11 s
+2026-11-26T01:51:35 C145_09_b_22_ao run74.sh pid 71202, time pid 71203, p74 
+2026-11-26T01:51:35 C145_09_b_22_ao solver pid 71205 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:51:45 C145_09_b_22_ao done, exit 0, polled peak rss 89904 kB, wall 10 s
+2026-11-26T01:51:45 C145_09_b_22_ap run74.sh pid 72110, time pid 72111, p74 
+2026-11-26T01:51:45 C145_09_b_22_ap solver pid 72113 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:51:56 C145_09_b_22_ap done, exit 0, polled peak rss 96688 kB, wall 11 s
+2026-11-26T01:51:56 C145_09_b_22_aq run74.sh pid 73126, time pid 73127, p74 
+2026-11-26T01:51:56 C145_09_b_22_aq solver pid 73129 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:52:06 C145_09_b_22_aq done, exit 0, polled peak rss 88016 kB, wall 10 s
+2026-11-26T01:52:06 C145_09_b_22_ar run74.sh pid 73985, time pid 73986, p74 
+2026-11-26T01:52:06 C145_09_b_22_ar solver pid 73988 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:52:17 C145_09_b_22_ar done, exit 0, polled peak rss 95200 kB, wall 10 s
+2026-11-26T01:52:17 C145_09_b_22_as run74.sh pid 74961, time pid 74962, p74 
+2026-11-26T01:52:17 C145_09_b_22_as solver pid 74964 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:52:28 C145_09_b_22_as done, exit 0, polled peak rss 93360 kB, wall 10 s
+2026-11-26T01:52:28 C145_09_b_22_at run74.sh pid 75888, time pid 75890, p74 
+2026-11-26T01:52:28 C145_09_b_22_at solver pid 75892 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:52:38 C145_09_b_22_at done, exit 0, polled peak rss 90944 kB, wall 10 s
+2026-11-26T01:52:38 C145_09_b_22_au run74.sh pid 76801, time pid 76802, p74 
+2026-11-26T01:52:38 C145_09_b_22_au solver pid 76804 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:52:48 C145_09_b_22_au done, exit 0, polled peak rss 87744 kB, wall 9 s
+2026-11-26T01:52:48 C145_09_b_22_av run74.sh pid 77645, time pid 77646, p74 
+2026-11-26T01:52:48 C145_09_b_22_av solver pid 77648 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:52:56 C145_09_b_22_av done, exit 0, polled peak rss 76000 kB, wall 8 s
+2026-11-26T01:52:56 C145_09_b_22_aw run74.sh pid 78393, time pid 78394, p74 
+2026-11-26T01:52:56 C145_09_b_22_aw solver pid 78396 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:53:04 C145_09_b_22_aw done, exit 0, polled peak rss 75920 kB, wall 8 s
+2026-11-26T01:53:04 C145_09_b_22_ax run74.sh pid 79098, time pid 79099, p74 
+2026-11-26T01:53:04 C145_09_b_22_ax solver pid 79101 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:53:13 C145_09_b_22_ax done, exit 0, polled peak rss 80304 kB, wall 8 s
+2026-11-26T01:53:13 C145_09_b_22_ay run74.sh pid 79854, time pid 79855, p74 
+2026-11-26T01:53:13 C145_09_b_22_ay solver pid 79858 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:53:20 C145_09_b_22_ay done, exit 0, polled peak rss 64144 kB, wall 6 s
+2026-11-26T01:53:20 C145_09_b_22_az run74.sh pid 80428, time pid 80430, p74 
+2026-11-26T01:53:20 C145_09_b_22_az solver pid 80432 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:53:25 C145_09_b_22_az done, exit 0, polled peak rss 59504 kB, wall 5 s
+2026-11-26T01:53:25 C145_09_b_22_ba run74.sh pid 80936, time pid 80937, p74 
+2026-11-26T01:53:25 C145_09_b_22_ba solver pid 80939 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:53:32 C145_09_b_22_ba done, exit 0, polled peak rss 65456 kB, wall 6 s
+2026-11-26T01:53:32 C145_09_b_22_bb run74.sh pid 81549, time pid 81550, p74 
+2026-11-26T01:53:32 C145_09_b_22_bb solver pid 81553 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:53:38 C145_09_b_22_bb done, exit 0, polled peak rss 56144 kB, wall 5 s
+2026-11-26T01:53:38 C145_09_b_22_bc run74.sh pid 82009, time pid 82011, p74 
+2026-11-26T01:53:38 C145_09_b_22_bc solver pid 82013 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:53:41 C145_09_b_22_bc done, exit 0, polled peak rss 43904 kB, wall 3 s
+2026-11-26T01:53:41 C145_09_h_22_aa run74.sh pid 82351, time pid 82352, p74 
+2026-11-26T01:53:41 C145_09_h_22_aa solver pid 82354 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:53:42 C145_09_h_22_aa done, exit 0, polled peak rss 23808 kB, wall 0 s
+2026-11-26T01:53:42 C145_09_h_22_ab run74.sh pid 82454, time pid 82455, p74 
+2026-11-26T01:53:42 C145_09_h_22_ab solver pid 82457 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:53:44 C145_09_h_22_ab done, exit 0, polled peak rss 29872 kB, wall 1 s
+2026-11-26T01:53:44 C145_09_h_22_ac run74.sh pid 82615, time pid 82618, p74 
+2026-11-26T01:53:44 C145_09_h_22_ac solver pid 82620 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:53:48 C145_09_h_22_ac done, exit 0, polled peak rss 44928 kB, wall 3 s
+2026-11-26T01:53:48 C145_09_h_22_ad run74.sh pid 82951, time pid 82952, p74 
+2026-11-26T01:53:48 C145_09_h_22_ad solver pid 82954 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:53:54 C145_09_h_22_ad done, exit 0, polled peak rss 59568 kB, wall 6 s
+2026-11-26T01:53:54 C145_09_h_22_ae run74.sh pid 83499, time pid 83500, p74 
+2026-11-26T01:53:54 C145_09_h_22_ae solver pid 83502 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:53:58 C145_09_h_22_ae done, exit 0, polled peak rss 46912 kB, wall 4 s
+2026-11-26T01:53:58 C145_09_h_22_af run74.sh pid 83861, time pid 83862, p74 
+2026-11-26T01:53:58 C145_09_h_22_af solver pid 83864 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:54:03 C145_09_h_22_af done, exit 0, polled peak rss 50960 kB, wall 4 s
+2026-11-26T01:54:03 C145_09_h_22_ag run74.sh pid 84280, time pid 84281, p74 
+2026-11-26T01:54:03 C145_09_h_22_ag solver pid 84283 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:54:08 C145_09_h_22_ag done, exit 0, polled peak rss 54304 kB, wall 5 s
+2026-11-26T01:54:08 C145_09_h_22_ah run74.sh pid 84724, time pid 84728, p74 
+2026-11-26T01:54:08 C145_09_h_22_ah solver pid 84731 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:54:11 C145_09_h_22_ah done, exit 0, polled peak rss 39296 kB, wall 3 s
+2026-11-26T01:54:11 C145_09_h_22_ai run74.sh pid 85011, time pid 85014, p74 
+2026-11-26T01:54:11 C145_09_h_22_ai solver pid 85016 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:54:16 C145_09_h_22_ai done, exit 0, polled peak rss 51616 kB, wall 4 s
+2026-11-26T01:54:16 C145_09_h_22_aj run74.sh pid 85434, time pid 85435, p74 
+2026-11-26T01:54:16 C145_09_h_22_aj solver pid 85437 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:54:19 C145_09_h_22_aj done, exit 0, polled peak rss 43824 kB, wall 3 s
+2026-11-26T01:54:19 C145_09_h_22_ak run74.sh pid 85745, time pid 85746, p74 
+2026-11-26T01:54:19 C145_09_h_22_ak solver pid 85749 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:54:22 C145_09_h_22_ak done, exit 0, polled peak rss 40832 kB, wall 3 s
+2026-11-26T01:54:22 C145_09_h_22_al run74.sh pid 86030, time pid 86031, p74 
+2026-11-26T01:54:22 C145_09_h_22_al solver pid 86033 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:54:27 C145_09_h_22_al done, exit 0, polled peak rss 51616 kB, wall 4 s
+2026-11-26T01:54:27 C145_09_h_22_am run74.sh pid 86462, time pid 86463, p74 
+2026-11-26T01:54:27 C145_09_h_22_am solver pid 86465 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:54:37 C145_09_h_22_am done, exit 0, polled peak rss 86464 kB, wall 9 s
+2026-11-26T01:54:37 C145_09_h_22_an run74.sh pid 87334, time pid 87335, p74 
+2026-11-26T01:54:37 C145_09_h_22_an solver pid 87337 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:54:49 C145_09_h_22_an done, exit 0, polled peak rss 98384 kB, wall 11 s
+2026-11-26T01:54:49 C145_09_h_22_ao run74.sh pid 88326, time pid 88327, p74 
+2026-11-26T01:54:49 C145_09_h_22_ao solver pid 88329 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:54:59 C145_09_h_22_ao done, exit 0, polled peak rss 90304 kB, wall 10 s
+2026-11-26T01:54:59 C145_09_h_22_ap run74.sh pid 89232, time pid 89234, p74 
+2026-11-26T01:54:59 C145_09_h_22_ap solver pid 89236 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:55:10 C145_09_h_22_ap done, exit 0, polled peak rss 97600 kB, wall 11 s
+2026-11-26T01:55:10 C145_09_h_22_aq run74.sh pid 90267, time pid 90268, p74 
+2026-11-26T01:55:10 C145_09_h_22_aq solver pid 90270 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:55:20 C145_09_h_22_aq done, exit 0, polled peak rss 88560 kB, wall 10 s
+2026-11-26T01:55:20 C145_09_h_22_ar run74.sh pid 91135, time pid 91136, p74 
+2026-11-26T01:55:20 C145_09_h_22_ar solver pid 91138 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:55:31 C145_09_h_22_ar done, exit 0, polled peak rss 94112 kB, wall 10 s
+2026-11-26T01:55:31 C145_09_h_22_as run74.sh pid 92084, time pid 92085, p74 
+2026-11-26T01:55:31 C145_09_h_22_as solver pid 92087 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:55:42 C145_09_h_22_as done, exit 0, polled peak rss 93040 kB, wall 10 s
+2026-11-26T01:55:42 C145_09_h_22_at run74.sh pid 93016, time pid 93017, p74 
+2026-11-26T01:55:42 C145_09_h_22_at solver pid 93019 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:55:52 C145_09_h_22_at done, exit 0, polled peak rss 91072 kB, wall 10 s
+2026-11-26T01:55:52 C145_09_h_22_au run74.sh pid 93925, time pid 93926, p74 
+2026-11-26T01:55:52 C145_09_h_22_au solver pid 93928 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:56:02 C145_09_h_22_au done, exit 0, polled peak rss 87808 kB, wall 9 s
+2026-11-26T01:56:02 C145_09_h_22_av run74.sh pid 94795, time pid 94796, p74 
+2026-11-26T01:56:02 C145_09_h_22_av solver pid 94798 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:56:10 C145_09_h_22_av done, exit 0, polled peak rss 75040 kB, wall 7 s
+2026-11-26T01:56:10 C145_09_h_22_aw run74.sh pid 95486, time pid 95487, p74 
+2026-11-26T01:56:10 C145_09_h_22_aw solver pid 95489 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:56:18 C145_09_h_22_aw done, exit 0, polled peak rss 76128 kB, wall 8 s
+2026-11-26T01:56:18 C145_09_h_22_ax run74.sh pid 96182, time pid 96183, p74 
+2026-11-26T01:56:18 C145_09_h_22_ax solver pid 96185 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:56:27 C145_09_h_22_ax done, exit 0, polled peak rss 80832 kB, wall 8 s
+2026-11-26T01:56:27 C145_09_h_22_ay run74.sh pid 96963, time pid 96964, p74 
+2026-11-26T01:56:27 C145_09_h_22_ay solver pid 96967 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:56:33 C145_09_h_22_ay done, exit 0, polled peak rss 63184 kB, wall 6 s
+2026-11-26T01:56:33 C145_09_h_22_az run74.sh pid 97515, time pid 97516, p74 
+2026-11-26T01:56:33 C145_09_h_22_az solver pid 97518 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:56:39 C145_09_h_22_az done, exit 0, polled peak rss 60832 kB, wall 5 s
+2026-11-26T01:56:39 C145_09_h_22_ba run74.sh pid 98051, time pid 98052, p74 
+2026-11-26T01:56:39 C145_09_h_22_ba solver pid 98055 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:56:45 C145_09_h_22_ba done, exit 0, polled peak rss 65536 kB, wall 6 s
+2026-11-26T01:56:45 C145_09_h_22_bb run74.sh pid 98652, time pid 98653, p74 
+2026-11-26T01:56:46 C145_09_h_22_bb solver pid 98655 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:56:51 C145_09_h_22_bb done, exit 0, polled peak rss 55152 kB, wall 5 s
+2026-11-26T01:56:51 C145_09_h_22_bc run74.sh pid 99105, time pid 99106, p74 
+2026-11-26T01:56:51 C145_09_h_22_bc solver pid 99108 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T01:56:54 C145_09_h_22_bc done, exit 0, polled peak rss 44016 kB, wall 3 s
+2026-11-26T01:57:10 queued: heavy.sh run74.sh C125_10_h_all (every context on h, 729 contexts, 298,890 configs, sized 0.67 GB)
+2026-11-26T02:29:11 C125_10_h_ext_aa run74.sh pid 35420, time pid 35421, p74 
+2026-11-26T02:29:11 C125_10_h_ext_aa solver pid 35423 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T02:29:15 C125_10_h_ext_aa done, exit 0, polled peak rss 45280 kB, wall 3 s
+2026-11-26T02:29:15 C125_10_h_ext_ab run74.sh pid 35791, time pid 35792, p74 
+2026-11-26T02:29:15 C125_10_h_ext_ab solver pid 35794 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T02:29:20 C125_10_h_ext_ab done, exit 0, polled peak rss 53072 kB, wall 4 s
+2026-11-26T02:29:20 C125_10_h_ext_ac run74.sh pid 36226, time pid 36227, p74 
+2026-11-26T02:29:20 C125_10_h_ext_ac solver pid 36229 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T02:29:32 C125_10_h_ext_ac done, exit 0, polled peak rss 100224 kB, wall 11 s
+2026-11-26T02:29:32 C125_10_h_ext_ad run74.sh pid 37268, time pid 37270, p74 
+2026-11-26T02:29:32 C125_10_h_ext_ad solver pid 37272 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T02:29:43 C125_10_h_ext_ad done, exit 0, polled peak rss 98848 kB, wall 11 s
+2026-11-26T02:29:43 C125_10_h_ext_ae run74.sh pid 38278, time pid 38281, p74 
+2026-11-26T02:29:43 C125_10_h_ext_ae solver pid 38283 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T02:29:54 C125_10_h_ext_ae done, exit 0, polled peak rss 97840 kB, wall 11 s
+2026-11-26T02:29:54 C125_10_h_ext_af run74.sh pid 39273, time pid 39274, p74 
+2026-11-26T02:29:54 C125_10_h_ext_af solver pid 39276 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T02:30:05 C125_10_h_ext_af done, exit 0, polled peak rss 92816 kB, wall 10 s
+2026-11-26T02:30:05 C125_10_h_ext_ag run74.sh pid 40190, time pid 40191, p74 
+2026-11-26T02:30:05 C125_10_h_ext_ag solver pid 40193 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T02:30:14 C125_10_h_ext_ag done, exit 0, polled peak rss 83584 kB, wall 9 s
+2026-11-26T02:30:14 C125_10_h_ext_ah run74.sh pid 41027, time pid 41028, p74 
+2026-11-26T02:30:14 C125_10_h_ext_ah solver pid 41030 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T02:30:20 C125_10_h_ext_ah done, exit 0, polled peak rss 61280 kB, wall 5 s
+2026-11-26T02:30:20 C125_10_h_ext_ai run74.sh pid 41544, time pid 41545, p74 
+2026-11-26T02:30:20 C125_10_h_ext_ai solver pid 41547 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T02:30:34 C125_10_h_ext_ai done, exit 0, polled peak rss 116480 kB, wall 14 s
+2026-11-26T02:30:34 C125_10_h_ext_aj run74.sh pid 42789, time pid 42790, p74 
+2026-11-26T02:30:34 C125_10_h_ext_aj solver pid 42792 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T02:30:52 C125_10_h_ext_aj done, exit 0, polled peak rss 146288 kB, wall 18 s
+2026-11-26T02:30:52 C125_10_h_ext_ak run74.sh pid 44398, time pid 44399, p74 
+2026-11-26T02:30:52 C125_10_h_ext_ak solver pid 44401 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T02:31:08 C125_10_h_ext_ak done, exit 0, polled peak rss 128336 kB, wall 15 s
+2026-11-26T02:31:08 C125_10_h_ext_al run74.sh pid 45802, time pid 45803, p74 
+2026-11-26T02:31:08 C125_10_h_ext_al solver pid 45805 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T02:31:22 C125_10_h_ext_al done, exit 0, polled peak rss 116512 kB, wall 14 s
+2026-11-26T02:31:22 C125_10_h_ext_am run74.sh pid 47052, time pid 47053, p74 
+2026-11-26T02:31:22 C125_10_h_ext_am solver pid 47055 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T02:31:34 C125_10_h_ext_am done, exit 0, polled peak rss 98656 kB, wall 11 s
+2026-11-26T02:31:34 C125_10_h_ext_an run74.sh pid 48051, time pid 48052, p74 
+2026-11-26T02:31:34 C125_10_h_ext_an solver pid 48054 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T02:31:46 C125_10_h_ext_an done, exit 0, polled peak rss 101808 kB, wall 11 s
+2026-11-26T02:31:46 C125_10_h_ext_ao run74.sh pid 49101, time pid 49102, p74 
+2026-11-26T02:31:46 C125_10_h_ext_ao solver pid 49104 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T02:31:56 C125_10_h_ext_ao done, exit 0, polled peak rss 89376 kB, wall 10 s
+2026-11-26T02:31:56 C125_10_h_ext_ap run74.sh pid 49982, time pid 49983, p74 
+2026-11-26T02:31:56 C125_10_h_ext_ap solver pid 49985 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T02:32:03 C125_10_h_ext_ap done, exit 0, polled peak rss 73312 kB, wall 7 s
+2026-11-26T02:39:25 C125_10_h_all run74.sh pid 81416, time pid 81417, p74 
+2026-11-26T02:39:25 C125_10_h_all solver pid 81419 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T02:40:49 C125_10_h_all done, exit 0, polled peak rss 627072 kB, wall 83 s
+2026-11-26T02:41:20 c10_fail run74.sh pid 89167, time pid 89168, p74 -d -m -l 40
+2026-11-26T02:41:20 c10_fail solver pid 89170 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T02:41:39 c10_fail done, exit 0, polled peak rss 1232192 kB, wall 19 s
+2026-11-26T02:42:29 NOTE: the run c10_fail above used -d with tables sized 1.305 GB and peaked at 1.27 GB RSS (19.9 s); it should have gone through heavy.sh. Started directly by mistake (I read the size line only after starting). Watchdog was on.
+2026-11-26T02:42:39 kb4_alone run74.sh pid 94857, time pid 94859, p74 -d -m -l 60
+2026-11-26T02:42:39 kb4_alone solver pid 94861 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T02:42:39 kb4_alone done, exit 0, polled peak rss 20112 kB, wall 0 s
+2026-11-26T02:42:39 kb4_ctx run74.sh pid 94886, time pid 94887, p74 -m
+2026-11-26T02:42:39 kb4_ctx solver pid 94889 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T02:42:44 kb4_ctx done, exit 0, polled peak rss 58432 kB, wall 5 s
+2026-11-26T02:43:13 kxf6 run74.sh pid 97283, time pid 97284, p74 -d -m -l 40
+2026-11-26T02:43:13 kxf6 solver pid 97286 (kings/delegate/out/K72/verify/tmp/p74)
+2026-11-26T02:43:17 kxf6 done, exit 0, polled peak rss 261184 kB, wall 4 s
+2026-11-26T02:43:49 queued: heavy.sh run74.sh --cmd tmp/pk (K72's pk, second program) on the 3 failing C125_10 contexts (24 positions)
+2026-11-26T02:49:36 c10f_pk run74.sh pid 23491, time pid 23492, p74 kings/delegate/out/K72/verify/tmp/pk
+2026-11-26T02:49:36 c10f_pk solver pid 23494 (kings/delegate/out/K72/verify/tmp/pk)
+2026-11-26T02:50:47 c10f_pk done, exit 0, polled peak rss 712592 kB, wall 71 s

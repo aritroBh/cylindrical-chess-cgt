@@ -1,0 +1,44 @@
+# C145_07_b_11: context | P (pk) | P (ref3m) | D-sum prediction (A b, A w, B b, B w, qA b, qA w, qB b, qB w) | verdict
+empty                  P W W W W W L W L  ref3m W W W W W L W L  pred W W W W W L W L  agree
+pb2                    P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+pb3                    P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+pb4                    P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+pb5                    P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+pb6                    P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+pb7                    P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pb2                    P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pb2 pb3                P L L L L L L L L  ref3m L L L L L L L L  pred W W W W W L W L  DIFFER at A b, A w, B b, B w, qA b, qB b
+Pb2 pb4                P L L L L L L L L  ref3m L L L L L L L L  pred W W W W L W L W  DIFFER at A b, A w, B b, B w, qA w, qB w
+Pb2 pb5                P L W L W L W L W  ref3m L W L W L W L W  pred W W W W W W W W  DIFFER at A b, B b, qA b, qB b
+Pb2 pb6                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pb2 pb7                P W W W W W L W L  ref3m W W W W W L W L  pred W W W W W L W L  agree
+Pb3                    P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pb3 pb2                P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pb3 pb4                P L L L L L L L L  ref3m L L L L L L L L  pred W W W W W L W L  DIFFER at A b, A w, B b, B w, qA b, qB b
+Pb3 pb5                P L W L W L W L W  ref3m L W L W L W L W  pred W W W W L W L W  DIFFER at A b, B b
+Pb3 pb6                P W W W W W L W L  ref3m W W W W W L W L  pred W W W W W L W L  agree
+Pb3 pb7                P W W W W L L L L  ref3m W W W W L L L L  pred W W W W L L L L  agree
+Pb4                    P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pb4 pb2                P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pb4 pb3                P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pb4 pb5                P W W W W W L W L  ref3m W W W W W L W L  pred W W W W W L W L  agree
+Pb4 pb6                P W W W W L W L W  ref3m W W W W L W L W  pred W W W W L W L W  agree
+Pb4 pb7                P W W W W L L L L  ref3m W W W W L L L L  pred W W W W L L L L  agree
+Pb5                    P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pb5 pb2                P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pb5 pb3                P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pb5 pb4                P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pb5 pb6                P W W W W W L W L  ref3m W W W W W L W L  pred W W W W W L W L  agree
+Pb5 pb7                P W W W W L W L W  ref3m W W W W L W L W  pred W W W W L W L W  agree
+Pb6                    P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pb6 pb2                P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pb6 pb3                P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pb6 pb4                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pb6 pb5                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pb6 pb7                P W W W W W L W L  ref3m W W W W W L W L  pred W W W W W L W L  agree
+Pb7                    P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pb7 pb2                P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pb7 pb3                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pb7 pb4                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pb7 pb5                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pb7 pb6                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree

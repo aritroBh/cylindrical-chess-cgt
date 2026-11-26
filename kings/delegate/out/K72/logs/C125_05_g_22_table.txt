@@ -1,0 +1,284 @@
+# C125_05_g_22: context | P (pk) | P (ref3m) | D-sum prediction (A b, A w, B b, B w, qA b, qA w, qB b, qB w) | verdict
+empty                  P W W W W W L W L  ref3m W W W W W L W L  pred W W W W W L W L  agree
+pg2                    P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+pg3                    P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+pg4                    P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+pg5                    P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+pg6                    P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+pg7                    P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+pg2 pg3                P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+pg2 pg4                P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+pg2 pg5                P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+pg2 pg6                P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+pg2 pg7                P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+pg3 pg4                P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+pg3 pg5                P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+pg3 pg6                P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+pg3 pg7                P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+pg4 pg5                P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+pg4 pg6                P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+pg4 pg7                P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+pg5 pg6                P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+pg5 pg7                P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+pg6 pg7                P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg2                    P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 pg3                P W W W W W L W D  ref3m W W W W W L W D  pred W W W W W L W L  DIFFER at qB w
+Pg2 pg4                P W W W W L W D W  ref3m W W W W L W D W  pred W W W W L W L W  DIFFER at qB b
+Pg2 pg5                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 pg6                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 pg7                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W L W L  DIFFER at qA w, qB w
+Pg2 pg3 pg4            P W W W W W L W L  ref3m W W W W W L W L  pred W W W W W L W L  agree
+Pg2 pg3 pg5            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg2 pg3 pg6            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg2 pg3 pg7            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg2 pg4 pg5            P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg2 pg4 pg6            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg2 pg4 pg7            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg2 pg5 pg6            P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg2 pg5 pg7            P L W L W L L L W  ref3m L W L W L L L W  pred L L L L L L L L  DIFFER at A w, B w, qB w
+Pg2 pg6 pg7            P W W W W L L W W  ref3m W W W W L L W W  pred L L L L L L L L  DIFFER at A b, A w, B b, B w, qB b, qB w
+Pg3                    P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg3 pg2                P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg3 pg4                P W W W W W L W W  ref3m W W W W W L W W  pred W W W W W L W L  DIFFER at qB w
+Pg3 pg5                P W W W W L W W W  ref3m W W W W L W W W  pred W W W W L W L W  DIFFER at qB b
+Pg3 pg6                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W L W L  DIFFER at qA w, qB w
+Pg3 pg7                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W L L L L  DIFFER at qA b, qA w, qB b, qB w
+Pg3 pg2 pg4            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg3 pg2 pg5            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg3 pg2 pg6            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg3 pg2 pg7            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg3 pg4 pg5            P W W W W W L W L  ref3m W W W W W L W L  pred W W W W W L W L  agree
+Pg3 pg4 pg6            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg3 pg4 pg7            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg3 pg5 pg6            P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg3 pg5 pg7            P L W L W L L L W  ref3m L W L W L L L W  pred L L L L L L L L  DIFFER at A w, B w, qB w
+Pg3 pg6 pg7            P W W W W L L W L  ref3m W W W W L L W L  pred L L L L L L L L  DIFFER at A b, A w, B b, B w, qB b
+Pg4                    P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg4 pg2                P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg4 pg3                P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg4 pg5                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W L W L  DIFFER at qA w, qB w
+Pg4 pg6                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W L W L W  DIFFER at qA b, qB b
+Pg4 pg7                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W L L L L  DIFFER at qA b, qA w, qB b, qB w
+Pg4 pg2 pg3            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg4 pg2 pg5            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg4 pg2 pg6            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg4 pg2 pg7            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg4 pg3 pg5            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg4 pg3 pg6            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg4 pg3 pg7            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg4 pg5 pg6            P W W W W W L W W  ref3m W W W W W L W W  pred W W W W W L W L  DIFFER at qB w
+Pg4 pg5 pg7            P W W W W L L W L  ref3m W W W W L L W L  pred L L L L L L L L  DIFFER at A b, A w, B b, B w, qB b
+Pg4 pg6 pg7            P W W W W L W L W  ref3m W W W W L W L W  pred L W L W L W L W  DIFFER at A b, B b
+Pg5                    P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg5 pg2                P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg5 pg3                P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg5 pg4                P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg5 pg6                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W L W L  DIFFER at qA w, qB w
+Pg5 pg7                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W L W L W  DIFFER at qA b, qB b
+Pg5 pg2 pg3            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg5 pg2 pg4            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg5 pg2 pg6            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg5 pg2 pg7            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg5 pg3 pg4            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg5 pg3 pg6            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg5 pg3 pg7            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg5 pg4 pg6            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg5 pg4 pg7            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg5 pg6 pg7            P W W W W W L W W  ref3m W W W W W L W W  pred W W W W W L W L  DIFFER at qB w
+Pg6                    P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg6 pg2                P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg6 pg3                P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg6 pg4                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg6 pg5                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg6 pg7                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W L W L  DIFFER at qA w, qB w
+Pg6 pg2 pg3            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg6 pg2 pg4            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg6 pg2 pg5            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg6 pg2 pg7            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg6 pg3 pg4            P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg6 pg3 pg5            P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg6 pg3 pg7            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg6 pg4 pg5            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg6 pg4 pg7            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg6 pg5 pg7            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg7                    P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg7 pg2                P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg7 pg3                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg7 pg4                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg7 pg5                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg7 pg6                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg7 pg2 pg3            P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg7 pg2 pg4            P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg7 pg2 pg5            P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg7 pg2 pg6            P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg7 pg3 pg4            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg7 pg3 pg5            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg7 pg3 pg6            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg7 pg4 pg5            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg7 pg4 pg6            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg7 pg5 pg6            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg3                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg3 pg4            P W W W W W L W W  ref3m W W W W W L W W  pred W W W W W L W L  DIFFER at qB w
+Pg2 Pg3 pg5            P W W W W L W W W  ref3m W W W W L W W W  pred W W W W L W L W  DIFFER at qB b
+Pg2 Pg3 pg6            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg3 pg7            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg3 pg4 pg5        P W W W W W L W L  ref3m W W W W W L W L  pred W W W W W L W L  agree
+Pg2 Pg3 pg4 pg6        P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg2 Pg3 pg4 pg7        P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg2 Pg3 pg5 pg6        P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg2 Pg3 pg5 pg7        P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg2 Pg3 pg6 pg7        P W W W W W L W W  ref3m W W W W W L W W  pred W W W W W L W L  DIFFER at qB w
+Pg2 Pg4                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg4 pg3            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg4 pg5            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg4 pg6            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg4 pg7            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg4 pg3 pg5        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W L W L  DIFFER at qA w, qB w
+Pg2 Pg4 pg3 pg6        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W L W L W  DIFFER at qA b, qB b
+Pg2 Pg4 pg3 pg7        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W L L L L  DIFFER at qA b, qA w, qB b, qB w
+Pg2 Pg4 pg5 pg6        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg4 pg5 pg7        P W W W W W L W W  ref3m W W W W W L W W  pred W W W W W L W L  DIFFER at qB w
+Pg2 Pg4 pg6 pg7        P W W W W L W W W  ref3m W W W W L W W W  pred W W W W L W L W  DIFFER at qB b
+Pg2 Pg5                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg5 pg3            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg5 pg4            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg5 pg6            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg5 pg7            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg5 pg3 pg4        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg5 pg3 pg6        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W L W L  DIFFER at qA w, qB w
+Pg2 Pg5 pg3 pg7        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W L W L W  DIFFER at qA b, qB b
+Pg2 Pg5 pg4 pg6        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W L W L W  DIFFER at qA b, qB b
+Pg2 Pg5 pg4 pg7        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W L W L  DIFFER at qA w, qB w
+Pg2 Pg5 pg6 pg7        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg6                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg6 pg3            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg6 pg4            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg6 pg5            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg6 pg7            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg6 pg3 pg4        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg6 pg3 pg5        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg6 pg3 pg7        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W L W L  DIFFER at qA w, qB w
+Pg2 Pg6 pg4 pg5        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg6 pg4 pg7        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W L W L W  DIFFER at qA b, qB b
+Pg2 Pg6 pg5 pg7        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg7                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg7 pg3            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg7 pg4            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg7 pg5            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg7 pg6            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg7 pg3 pg4        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg7 pg3 pg5        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg7 pg3 pg6        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg7 pg4 pg5        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg7 pg4 pg6        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg2 Pg7 pg5 pg6        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg3 Pg4                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg3 Pg4 pg2            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg3 Pg4 pg5            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W L W L  DIFFER at qA w, qB w
+Pg3 Pg4 pg6            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W L W L W  DIFFER at qA b, qB b
+Pg3 Pg4 pg7            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W L W L W  DIFFER at qA b, qB b
+Pg3 Pg4 pg2 pg5        P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg3 Pg4 pg2 pg6        P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg3 Pg4 pg2 pg7        P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg3 Pg4 pg5 pg6        P W W W W W L W W  ref3m W W W W W L W W  pred W W W W W L W L  DIFFER at qB w
+Pg3 Pg4 pg5 pg7        P W W W W L L W L  ref3m W W W W L L W L  pred L L L L L L L L  DIFFER at A b, A w, B b, B w, qB b
+Pg3 Pg4 pg6 pg7        P W W W W L W L W  ref3m W W W W L W L W  pred L W L W L W L W  DIFFER at A b, B b
+Pg3 Pg5                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg3 Pg5 pg2            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg3 Pg5 pg4            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg3 Pg5 pg6            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg3 Pg5 pg7            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg3 Pg5 pg2 pg4        P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg3 Pg5 pg2 pg6        P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg3 Pg5 pg2 pg7        P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg3 Pg5 pg4 pg6        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W L W L  DIFFER at qA w, qB w
+Pg3 Pg5 pg4 pg7        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W L W L W  DIFFER at qA b, qB b
+Pg3 Pg5 pg6 pg7        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg3 Pg6                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg3 Pg6 pg2            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg3 Pg6 pg4            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg3 Pg6 pg5            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg3 Pg6 pg7            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg3 Pg6 pg2 pg4        P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg3 Pg6 pg2 pg5        P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg3 Pg6 pg2 pg7        P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg3 Pg6 pg4 pg5        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg3 Pg6 pg4 pg7        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W L W L  DIFFER at qA w, qB w
+Pg3 Pg6 pg5 pg7        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W L W L W  DIFFER at qA b, qB b
+Pg3 Pg7                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg3 Pg7 pg2            P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg3 Pg7 pg4            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg3 Pg7 pg5            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg3 Pg7 pg6            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg3 Pg7 pg2 pg4        P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg3 Pg7 pg2 pg5        P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg3 Pg7 pg2 pg6        P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg3 Pg7 pg4 pg5        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg3 Pg7 pg4 pg6        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg3 Pg7 pg5 pg6        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg4 Pg5                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg4 Pg5 pg2            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg4 Pg5 pg3            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg4 Pg5 pg6            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W L W L  DIFFER at qA w, qB w
+Pg4 Pg5 pg7            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W L W L W  DIFFER at qA b, qB b
+Pg4 Pg5 pg2 pg3        P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg4 Pg5 pg2 pg6        P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg4 Pg5 pg2 pg7        P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg4 Pg5 pg3 pg6        P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg4 Pg5 pg3 pg7        P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg4 Pg5 pg6 pg7        P W W W W W L W W  ref3m W W W W W L W W  pred W W W W W L W L  DIFFER at qB w
+Pg4 Pg6                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg4 Pg6 pg2            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg4 Pg6 pg3            P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg4 Pg6 pg5            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg4 Pg6 pg7            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg4 Pg6 pg2 pg3        P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg4 Pg6 pg2 pg5        P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg4 Pg6 pg2 pg7        P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg4 Pg6 pg3 pg5        P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg4 Pg6 pg3 pg7        P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg4 Pg6 pg5 pg7        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W L W L  DIFFER at qA w, qB w
+Pg4 Pg7                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg4 Pg7 pg2            P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg4 Pg7 pg3            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg4 Pg7 pg5            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg4 Pg7 pg6            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg4 Pg7 pg2 pg3        P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg4 Pg7 pg2 pg5        P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg4 Pg7 pg2 pg6        P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg4 Pg7 pg3 pg5        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg4 Pg7 pg3 pg6        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg4 Pg7 pg5 pg6        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg5 Pg6                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg5 Pg6 pg2            P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg5 Pg6 pg3            P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg5 Pg6 pg4            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg5 Pg6 pg7            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W L W L  DIFFER at qA w, qB w
+Pg5 Pg6 pg2 pg3        P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg5 Pg6 pg2 pg4        P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg5 Pg6 pg2 pg7        P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg5 Pg6 pg3 pg4        P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg5 Pg6 pg3 pg7        P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg5 Pg6 pg4 pg7        P L L L L L L L L  ref3m L L L L L L L L  pred L L L L L L L L  agree
+Pg5 Pg7                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg5 Pg7 pg2            P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg5 Pg7 pg3            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg5 Pg7 pg4            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg5 Pg7 pg6            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg5 Pg7 pg2 pg3        P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg5 Pg7 pg2 pg4        P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg5 Pg7 pg2 pg6        P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg5 Pg7 pg3 pg4        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg5 Pg7 pg3 pg6        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg5 Pg7 pg4 pg6        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg6 Pg7                P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg6 Pg7 pg2            P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg6 Pg7 pg3            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg6 Pg7 pg4            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg6 Pg7 pg5            P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg6 Pg7 pg2 pg3        P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg6 Pg7 pg2 pg4        P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg6 Pg7 pg2 pg5        P L W L W L W L W  ref3m L W L W L W L W  pred L W L W L W L W  agree
+Pg6 Pg7 pg3 pg4        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg6 Pg7 pg3 pg5        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
+Pg6 Pg7 pg4 pg5        P W W W W W W W W  ref3m W W W W W W W W  pred W W W W W W W W  agree
