@@ -28,7 +28,8 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
          the results of over on flat 8×7, the smallest with 2 + 2 pawns, four of them also on flat 8×8:
          Corollary 4.17 (proved given twice-checked computations, refereed) (K59)
    - [x] The 2 + 2 group on the ordinary 8×8 board: in chess, and beside P contexts (K63, refereed): not an exact over group in chess (tablebase), one freeze survives as a mutual zugzwang; beside file-h pawns in P the prediction fails in 12 of 283 contexts
-   - [~] Census of exact over groups on flat 8×8, two programs, with (B1) and ladder length for every hit (K65: investigator done, two of four classes of the known shape, 38 groups, one claimed to have the results of over without (B1); referee running)
+   - [~] Census of exact over groups on flat 8×8, two programs, with (B1) and ladder length for every hit (K65: two of four classes of the known shape, 38 groups; referee's interim report: 27 with (B1), 7 with the results of over without (B1), 4 fail (C), 5 seven-man groups exact in chess by the tablebase; its second search run still going; K66 checks the referee's own findings independently)
+   - [~] The other two classes of the known shape on flat 8×8, {a,b,e} and {a,d,e}, with classification and tablebase verdicts (K67 running)
    - [ ] Other file classes of flat 8×7; flat 9×7
    - [x] The exact condition in place of the Black-side condition: Theorem 4.18, decided by one game on the group's
          own graph or by one short test game, Corollary 4.19 (proved, refereed) (K60)
@@ -38,7 +39,7 @@ independent referee; details are in `kings/delegate/out/K*/REVIEW.md` and `kings
          groups (Theorem 4.22); a ladder as long as the number of boards decides, so one ladder per board size
          (Theorem 4.20, Corollary 4.23) (proved, refereed) (K62)
    - [x] Blind proof of Theorems 4.20 and 4.22 by Codex: both proved, no repair (K64)
-   - [~] Does a real group need a ladder longer than 2? The 3 + 3 group needs exactly 2 (K65 classifies every hit of its census)
+   - [~] Does a real group need a ladder longer than 2? The 3 + 3 group needs exactly 2 (K65 referee, interim: one group of the 8×8 census needs 3; K66 checks it independently; longer than 3 is open, K67 looks)
    - [ ] Hand proof of (O1) and of the d5 root of the K45 group
    - [x] The K45 group in chess at cap 1: d4 freeze and its zero exact, the rest undecided; exact groups also on flat
          8×6 to 10×6 and on cyl:8×7 (K48)
